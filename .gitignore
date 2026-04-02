@@ -1,0 +1,24 @@
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Large local data and generated artifacts
+/public_data/
+/runs/*
+/dataset.zip
+/*.zip
+/*.csv
+/*.npy
+/*.pcap
+/*.tsv
+
+# Keep key handoff docs versioned
+!/runs/prism_handoffs/
+!/runs/prism_handoffs/**
+!/runs/master_experiment_map_v1.md
+!/runs/quick_file_map_2026-03-30.md
