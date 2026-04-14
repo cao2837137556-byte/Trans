@@ -82,12 +82,9 @@ def _resolve_stage2_source_tsv(raw_path: str) -> Path:
     if path.exists():
         return path
 
-    basename = path.name
     normalized = raw_path.replace("\\", "/")
-    suffix = None
-    marker = "runs/frontend100_joint_eval_stage1_2026-03-31/"
-    if marker in normalized:
-        suffix = normalized.split("runs/", 1)[1]
+    basename = normalized.rsplit("/", 1)[-1]
+    suffix = normalized.split("runs/", 1)[1] if "runs/" in normalized else None
 
     candidate_roots: List[Path] = []
     for env_key in ("SOURCE_ROOT", "REMOTE_PROJECT_ROOT"):
@@ -98,7 +95,9 @@ def _resolve_stage2_source_tsv(raw_path: str) -> Path:
     candidate_paths: List[Path] = []
     for root in candidate_roots:
         if suffix is not None:
-            candidate_paths.append(root / suffix)
+            suffix_path = Path(*[part for part in suffix.split("/") if part])
+            candidate_paths.append(root / suffix_path)
+            candidate_paths.append(root / "runs" / suffix_path)
         candidate_paths.append(root / "runs" / "frontend100_joint_eval_stage1_2026-03-31" / "extract_attack_34_1" / basename)
 
     for cand in candidate_paths:

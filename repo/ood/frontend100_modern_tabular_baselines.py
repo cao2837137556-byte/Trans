@@ -378,6 +378,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Modern tabular deep baselines for frontend100 stronger OOD.")
     ap.add_argument("--run-tag", default=f"frontend100_modern_tabular_baselines_{today}")
     ap.add_argument("--source-root", type=Path, default=WORKTREE_ROOT.parents[1] / "KitNET-py-master" / "KitNET-py-master")
+    ap.add_argument("--stage2-indices-json", type=Path, default=None)
     ap.add_argument("--models", default="ft_transformer_ae,rtdl_resnet_ae")
     ap.add_argument("--seeds", default="101,202,303")
     ap.add_argument("--epochs", type=int, default=60)
@@ -424,8 +425,15 @@ def main() -> None:
     x_id = x_all[8000:13000]
     x_ood = pd.read_csv(data / "ood_benign_source_100.csv", header=None).to_numpy(np.float64)
     x_attack = pd.read_csv(args.source_root / "runs" / "frontend100_joint_eval_stage1_2026-03-31" / "data" / "attack_source_100.csv", header=None).to_numpy(np.float64)
-    stage2 = json.loads((args.source_root / "runs" / "frontend100_joint_eval_stage2_2026-04-01" / "attack_manifest_stage2.json").read_text(encoding="utf-8-sig"))
-    idx = resc.build_stage2_indices(stage2)
+    if args.stage2_indices_json is not None:
+        stage2_idx_payload = json.loads(args.stage2_indices_json.read_text(encoding="utf-8"))
+        idx = {
+            "high": np.asarray(stage2_idx_payload["high"], dtype=np.int64),
+            "mixed": np.asarray(stage2_idx_payload["mixed"], dtype=np.int64),
+        }
+    else:
+        stage2 = json.loads((args.source_root / "runs" / "frontend100_joint_eval_stage2_2026-04-01" / "attack_manifest_stage2.json").read_text(encoding="utf-8-sig"))
+        idx = resc.build_stage2_indices(stage2)
     scaler = StandardScaler().fit(x_fit)
     x_fit_z = scaler.transform(x_fit).astype(np.float32)
     x_id_z = scaler.transform(x_id).astype(np.float32)
@@ -556,7 +564,20 @@ def main() -> None:
     ]) + "\n"
     (out / "modern_tabular_summary.md").write_text(summary, encoding="utf-8")
     (out / "summary.md").write_text(summary, encoding="utf-8")
-    cfg = {"stage": "frontend100_modern_tabular_baselines", "generated_at": datetime.now().isoformat(timespec="seconds"), "run_tag": args.run_tag, "models": models, "seeds": seeds, "outputs": {"results": str(out / "modern_tabular_results.csv"), "aggregate": str(out / "modern_tabular_aggregate.csv"), "summary": str(out / "summary.md"), "plots": str(plot_dir)}} 
+    cfg = {
+        "stage": "frontend100_modern_tabular_baselines",
+        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "run_tag": args.run_tag,
+        "models": models,
+        "seeds": seeds,
+        "stage2_indices_json": str(args.stage2_indices_json) if args.stage2_indices_json is not None else None,
+        "outputs": {
+            "results": str(out / "modern_tabular_results.csv"),
+            "aggregate": str(out / "modern_tabular_aggregate.csv"),
+            "summary": str(out / "summary.md"),
+            "plots": str(plot_dir),
+        },
+    }
     (out / "modern_tabular_manifest.json").write_text(json.dumps(ext.clean(cfg), indent=2, ensure_ascii=False), encoding="utf-8")
     (out / "config.json").write_text(json.dumps(ext.clean(cfg), indent=2, ensure_ascii=False), encoding="utf-8")
     if not args.skip_register:

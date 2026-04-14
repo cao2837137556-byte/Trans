@@ -172,19 +172,32 @@ What was done:
   - Use HPC for long formal training, multi-seed runs, sweeps, second-dataset validation, larger external-baseline reproduction, and other non-smoke workloads.
   - Do not use HPC for script/path fixing, local smoke checks, offline rescoring, or table/plot collation.
   - Formal HPC runs must follow the sequence: local smoke first, then freeze code/config, ensure portable paths, prepare stable output names plus bundle/return layout, then submit and monitor logs.
+- Fixed the `FT-Transformer` formal baseline HPC blocker:
+  - corrected `stage2` source TSV resolution for Windows-style manifest paths inside bundled Linux runs;
+  - added `--stage2-indices-json` support to the modern-tabular baseline script so formal FT runs can consume precomputed high/mixed indices without reopening the raw TSV on the cluster;
+  - added a reusable `prepare_frontend100_modern_tabular_hpc.py` bundle builder;
+  - refreshed `runs/frontend100_modern_tabular_baselines_ft_2026-04-13/` with a new `job.slurm`, new `upload_bundle.tar.gz`, and stable watch files.
+- Fixed the FT HPC logging protocol:
+  - job stdout/stderr is now mirrored into both `slurm-<jobid>.out/.err` and `stdout.log/stderr.log`;
+  - submit commands now create `latest_slurm.out`, `latest_slurm.err`, and `last_job_id.txt` in the run directory so status can be opened directly in the remote file tree without running `tail -f`.
 
 Result:
 - This file is now the single handoff entry for A-line time-ordered progress.
 - From the current Codex mirror workspace, A-line generated runs now resolve to `D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline\runs`.
 - This reduces C-drive pressure without redirecting tracked mainline docs into another working tree.
 - A-line now has an explicit rule for when a task should stay local and when it should be escalated to HPC.
+- The FT formal run package is now refreshed and locally validated against the bundled `source_root` layout.
+- The current environment still cannot submit to `school-hpc` non-interactively, so actual re-submission remains a user-side action from the generated `submit_commands.txt`.
 
 Judgment:
 - From this point onward, only stable A-line nodes should be added here.
 - A-line should treat D-drive artifact routing as the default execution mode for new formal runs.
 - HPC is the default for formal heavy A-line experiments, but only after local smoke and packaging stability are both confirmed.
+- The mainline blocker is no longer the FT bundle format itself. The next blocker is simply getting the refreshed FT formal run re-submitted on the cluster.
 
 Next:
 - Continue the baseline-strengthening package and update this handoff after each stable A-line node.
 - Use the new default D-drive routing when promoting `FT-Transformer` from smoke to formal baseline evaluation.
 - When `FT-Transformer` formal evaluation is ready, decide explicitly whether it is still local or should go to HPC using the rule above.
+- Re-submit `frontend100_modern_tabular_baselines_ft_2026-04-13` using the refreshed bundle and inspect `latest_slurm.out` / `latest_slurm.err` directly in the remote run directory.
+- After FT formal results return, decide whether `RTDL-ResNet` still needs a formal 3-seed run or can stay at smoke status.
