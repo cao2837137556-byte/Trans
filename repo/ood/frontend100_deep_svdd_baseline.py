@@ -27,6 +27,8 @@ for p in [THIS_DIR, REPO_DIR]:
     if str(p) not in sys.path:
         sys.path.insert(0, str(p))
 
+from paths import ARTIFACT_RUNS_DIR, TRACKED_RUNS_DIR
+
 
 class Encoder(nn.Module):
     def __init__(self, input_dim: int, hidden_dims: List[int], latent_dim: int):
@@ -484,7 +486,7 @@ def plot_training_curves(curves: Dict[str, List[float]], out: Path) -> None:
 
 
 def append_map(run_tag: str) -> None:
-    p = WORKTREE_ROOT / "runs" / "master_experiment_map_v1.md"
+    p = TRACKED_RUNS_DIR / "master_experiment_map_v1.md"
     if not p.exists():
         return
     text = p.read_text(encoding="utf-8")
@@ -495,7 +497,7 @@ def append_map(run_tag: str) -> None:
 
 
 def update_research_log(run_tag: str) -> None:
-    p = WORKTREE_ROOT / "runs" / "research_log" / "a_tier_experiment_progress_log.md"
+    p = TRACKED_RUNS_DIR / "research_log" / "a_tier_experiment_progress_log.md"
     if not p.exists():
         return
     text = p.read_text(encoding="utf-8")
@@ -555,7 +557,7 @@ def main() -> None:
     hidden_dims = [int(x) for x in args.hidden_dims.split(",") if x.strip()]
     device = choose_device(args.device)
 
-    out = WORKTREE_ROOT / "runs" / args.run_tag
+    out = ARTIFACT_RUNS_DIR / args.run_tag
     out.mkdir(parents=True, exist_ok=True)
     plot_dir = out / "deep_svdd_plots"
     plot_dir.mkdir(exist_ok=True)
@@ -665,7 +667,7 @@ def main() -> None:
         )
 
     reference_results_csv = args.reference_results_csv or (
-        WORKTREE_ROOT / "runs" / "frontend100_locked_candidate_multiseed_2026-04-06" / "multiseed_locked_candidate_results.csv"
+        ARTIFACT_RUNS_DIR / "frontend100_locked_candidate_multiseed_2026-04-06" / "multiseed_locked_candidate_results.csv"
     )
     ref = load_reference_rows(reference_results_csv, seeds)
     if not ref.empty:

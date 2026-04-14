@@ -25,6 +25,8 @@ for path in [THIS_DIR, REPO_DIR]:
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
+from paths import ARTIFACT_RUNS_DIR, TRACKED_RUNS_DIR
+
 import frontend100_negative_recipe_rescoring as resc
 import frontend100_temporal_frontend_v1 as tfv1
 
@@ -181,7 +183,7 @@ def plot_by_l(agg: pd.DataFrame, out: Path):
 
 
 def append_map(run_tag: str) -> None:
-    p = WORKTREE_ROOT / "runs" / "master_experiment_map_v1.md"
+    p = TRACKED_RUNS_DIR / "master_experiment_map_v1.md"
     if not p.exists():
         return
     text = p.read_text(encoding="utf-8")
@@ -192,7 +194,7 @@ def append_map(run_tag: str) -> None:
 
 
 def update_log(run_tag: str, best_line: str) -> None:
-    p = WORKTREE_ROOT / "runs" / "research_log" / "a_tier_experiment_progress_log.md"
+    p = TRACKED_RUNS_DIR / "research_log" / "a_tier_experiment_progress_log.md"
     if not p.exists():
         return
     text = p.read_text(encoding="utf-8")
@@ -243,7 +245,7 @@ def main():
 
     seeds = [int(x) for x in args.seeds.split(",") if x.strip()]
     lengths = [int(x) for x in args.lengths.split(",") if x.strip()]
-    out = WORKTREE_ROOT / "runs" / args.run_tag
+    out = ARTIFACT_RUNS_DIR / args.run_tag
     out.mkdir(parents=True, exist_ok=True)
     plot_dir = out / "recurrent_deep_baseline_plots"
     plot_dir.mkdir(exist_ok=True)

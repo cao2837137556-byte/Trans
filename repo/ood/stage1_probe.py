@@ -21,7 +21,7 @@ if str(REPO_DIR) not in sys.path:
 
 import KitNET as kit
 from csv_input import load_numeric_csv
-from paths import ROOT_DIR
+from paths import ARTIFACT_RUNS_DIR, ROOT_DIR
 
 
 def score_stats(scores: np.ndarray) -> Dict[str, float]:
@@ -82,7 +82,7 @@ def parse_dataset_arg(spec: str) -> Tuple[str, Path, Optional[Path]]:
 
 
 def default_dataset_specs() -> Tuple[List[str], List[str]]:
-    adapted = ROOT_DIR / "runs" / "ood_probe_2026-03-21" / "adapted"
+    adapted = ARTIFACT_RUNS_DIR / "ood_probe_2026-03-21" / "adapted"
     benign_specs = [
         f"iot23_benign|{adapted / 'iot23_benign_116.csv'}|{adapted / 'iot23_benign_labels.npy'}",
         f"ciciot2023_benign|{adapted / 'ciciot2023_benign_116.csv'}|{adapted / 'ciciot2023_benign_labels.npy'}",
@@ -181,7 +181,7 @@ def main() -> None:
     parser.add_argument("--skip-attack", action="store_true")
     args = parser.parse_args()
 
-    run_dir = ROOT_DIR / "runs" / args.run_tag
+    run_dir = ARTIFACT_RUNS_DIR / args.run_tag
     run_dir.mkdir(parents=True, exist_ok=True)
     plot_dir = run_dir / "plots"
     plot_dir.mkdir(parents=True, exist_ok=True)

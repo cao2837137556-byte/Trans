@@ -30,14 +30,16 @@ for p in [THIS_DIR, REPO_DIR]:
     if str(p) not in sys.path:
         sys.path.insert(0, str(p))
 
+from paths import ARTIFACT_RUNS_DIR, TRACKED_RUNS_DIR
+
 import frontend100_external_baselines as ext
 import frontend100_negative_recipe_rescoring as resc
 
 
-def resolve_project_root() -> Path:
+def resolve_artifact_runs_root() -> Path:
     if REMOTE_PROJECT_ROOT is not None:
-        return REMOTE_PROJECT_ROOT
-    return WORKTREE_ROOT
+        return REMOTE_PROJECT_ROOT / "runs"
+    return ARTIFACT_RUNS_DIR
 
 
 def resolve_output_dir(run_tag: str) -> Path:
@@ -47,7 +49,7 @@ def resolve_output_dir(run_tag: str) -> Path:
     # write directly into <run_dir> instead.
     if (WORKTREE_ROOT / "job.slurm").exists() and (WORKTREE_ROOT / "repo").exists() and WORKTREE_ROOT.name == run_tag:
         return WORKTREE_ROOT
-    return resolve_project_root() / "runs" / run_tag
+    return resolve_artifact_runs_root() / run_tag
 
 
 def set_seed(seed: int) -> None:
@@ -361,7 +363,7 @@ def plot_training_curves(history_df: pd.DataFrame, model_name: str, out: Path) -
 
 
 def append_map(run_tag: str) -> None:
-    p = WORKTREE_ROOT / "runs" / "master_experiment_map_v1.md"
+    p = TRACKED_RUNS_DIR / "master_experiment_map_v1.md"
     if not p.exists():
         return
     text = p.read_text(encoding="utf-8-sig")
@@ -405,7 +407,7 @@ def main() -> None:
     seeds = [int(x) for x in args.seeds.split(",") if x.strip()]
     models = [x.strip() for x in args.models.split(",") if x.strip()]
     device = choose_device(args.device)
-    project_root = resolve_project_root()
+    artifact_runs_root = resolve_artifact_runs_root()
     out = resolve_output_dir(args.run_tag)
     plot_dir = out / "modern_tabular_plots"
     ckpt_dir = out / "checkpoints"
@@ -500,11 +502,11 @@ def main() -> None:
             })
             cost_rows.append({"object_label": model_name, "seed": seed, "checkpoint_bytes": ckpt_bytes, "torch_param_count": n_params, "train_time_sec": train_time, **bench})
 
-    rows.extend(ext.load_reference_rows(project_root / "runs" / "frontend100_locked_candidate_multiseed_2026-04-06" / "multiseed_locked_candidate_results.csv", seeds).to_dict("records"))
-    rows.extend(load_deep_svdd_rows(project_root / "runs" / "frontend100_deep_svdd_baseline_2026-04-09" / "deep_svdd_results.csv", seeds).to_dict("records"))
+    rows.extend(ext.load_reference_rows(artifact_runs_root / "frontend100_locked_candidate_multiseed_2026-04-06" / "multiseed_locked_candidate_results.csv", seeds).to_dict("records"))
+    rows.extend(load_deep_svdd_rows(artifact_runs_root / "frontend100_deep_svdd_baseline_2026-04-09" / "deep_svdd_results.csv", seeds).to_dict("records"))
     per = pd.DataFrame(rows)
     agg = ext.aggregate(per)
-    frozen = load_frozen_refs(project_root / "runs" / "frontend100_final_candidate_audit_2026-04-08" / "final_candidate_main_table.csv")
+    frozen = load_frozen_refs(artifact_runs_root / "frontend100_final_candidate_audit_2026-04-08" / "final_candidate_main_table.csv")
     if not frozen.empty:
         agg = pd.concat([agg, frozen], ignore_index=True, sort=False)
     hist_df = pd.DataFrame(hist_rows)

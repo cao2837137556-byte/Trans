@@ -22,6 +22,8 @@ for p in [THIS_DIR, REPO_DIR]:
     if str(p) not in sys.path:
         sys.path.insert(0, str(p))
 
+from paths import ARTIFACT_RUNS_DIR, TRACKED_RUNS_DIR
+
 import KitNET as kit
 import frontend100_latent_scorer_benchmark as lsb
 import frontend100_negative_recipe_rescoring as resc
@@ -192,7 +194,7 @@ def plot_ood_stats(per_seed: pd.DataFrame, out: Path) -> None:
 
 
 def append_map(run_tag: str):
-    p = WORKTREE_ROOT / "runs" / "master_experiment_map_v1.md"
+    p = TRACKED_RUNS_DIR / "master_experiment_map_v1.md"
     if not p.exists():
         return
     text = p.read_text(encoding="utf-8")
@@ -203,7 +205,7 @@ def append_map(run_tag: str):
 
 
 def update_log(run_tag: str, line: str):
-    p = WORKTREE_ROOT / "runs" / "research_log" / "a_tier_experiment_progress_log.md"
+    p = TRACKED_RUNS_DIR / "research_log" / "a_tier_experiment_progress_log.md"
     if not p.exists():
         return
     text = p.read_text(encoding="utf-8")
@@ -251,7 +253,7 @@ def main():
     source = args.source_root
     seeds = [int(x.strip()) for x in str(args.seeds).split(",") if x.strip()]
     id_quantiles = [float(x.strip()) for x in str(args.id_quantiles).split(",") if x.strip()]
-    out = WORKTREE_ROOT / "runs" / args.run_tag
+    out = ARTIFACT_RUNS_DIR / args.run_tag
     out.mkdir(parents=True, exist_ok=True)
     plot_dir = out / "additional_ood_setting_plots"
     plot_dir.mkdir(exist_ok=True)
@@ -273,7 +275,7 @@ def main():
     if len(high_idx) == 0:
         raise RuntimeError("No valid high-purity attack indices remain after attack-max-rows truncation.")
 
-    locked = WORKTREE_ROOT / "runs" / "frontend100_locked_candidate_multiseed_2026-04-06"
+    locked = ARTIFACT_RUNS_DIR / "frontend100_locked_candidate_multiseed_2026-04-06"
     old = source / "runs" / "frontend100_tailreg_bestcfg_stability_2026-03-28"
 
     per_rows: List[Dict] = []
@@ -325,9 +327,9 @@ def main():
         print(f"[seed {seed}] loading latent candidate checkpoint", flush=True)
         ckpt = locked / f"latent_swap_spike_mix_seed{seed}" / f"kitnet_transformer_latent_contrastive_v1_seed{seed}.ckpt"
         model = kit.KitNET.load_checkpoint(ckpt)
-        h_fit = np.load(WORKTREE_ROOT / "runs" / "frontend100_diagload_gate_multiseed_2026-04-08" / "cache_latents" / f"latent_swap_spike_mix_seed{seed}_h_fit.npy").astype(np.float64)
-        h_id = np.load(WORKTREE_ROOT / "runs" / "frontend100_diagload_gate_multiseed_2026-04-08" / "cache_latents" / f"latent_swap_spike_mix_seed{seed}_h_id.npy").astype(np.float64)
-        h_attack = np.load(WORKTREE_ROOT / "runs" / "frontend100_diagload_gate_multiseed_2026-04-08" / "cache_latents" / f"latent_swap_spike_mix_seed{seed}_h_attack.npy").astype(np.float64)
+        h_fit = np.load(ARTIFACT_RUNS_DIR / "frontend100_diagload_gate_multiseed_2026-04-08" / "cache_latents" / f"latent_swap_spike_mix_seed{seed}_h_fit.npy").astype(np.float64)
+        h_id = np.load(ARTIFACT_RUNS_DIR / "frontend100_diagload_gate_multiseed_2026-04-08" / "cache_latents" / f"latent_swap_spike_mix_seed{seed}_h_id.npy").astype(np.float64)
+        h_attack = np.load(ARTIFACT_RUNS_DIR / "frontend100_diagload_gate_multiseed_2026-04-08" / "cache_latents" / f"latent_swap_spike_mix_seed{seed}_h_attack.npy").astype(np.float64)
         h_ood = extract_candidate_ood_latent(model, x_ood, args.batch_size, cache_dir / f"latent_swap_spike_mix_seed{seed}_weak_ood_h.npy")
         lw = LedoitWolf().fit(h_fit)
         mu = lw.location_

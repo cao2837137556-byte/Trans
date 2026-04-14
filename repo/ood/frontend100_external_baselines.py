@@ -26,6 +26,8 @@ for p in [THIS_DIR, REPO_DIR]:
     if str(p) not in sys.path:
         sys.path.insert(0, str(p))
 
+from paths import ARTIFACT_RUNS_DIR, TRACKED_RUNS_DIR
+
 import frontend100_negative_recipe_rescoring as resc
 
 
@@ -357,7 +359,7 @@ def plot_bar(agg: pd.DataFrame, policy: str, metric: str, out: Path, title: str)
 
 
 def append_map(run_tag: str) -> None:
-    p = WORKTREE_ROOT / "runs" / "master_experiment_map_v1.md"
+    p = TRACKED_RUNS_DIR / "master_experiment_map_v1.md"
     if not p.exists():
         return
     text = p.read_text(encoding="utf-8")
@@ -371,7 +373,7 @@ def append_map(run_tag: str) -> None:
 
 
 def update_research_log(run_tag: str, summary: str) -> None:
-    p = WORKTREE_ROOT / "runs" / "research_log" / "a_tier_experiment_progress_log.md"
+    p = TRACKED_RUNS_DIR / "research_log" / "a_tier_experiment_progress_log.md"
     if not p.exists():
         return
     text = p.read_text(encoding="utf-8")
@@ -397,7 +399,7 @@ def main() -> None:
     ap.add_argument("--scan-points", type=int, default=1200)
     args = ap.parse_args()
     seeds = [int(x) for x in args.seeds.split(",") if x.strip()]
-    out = WORKTREE_ROOT / "runs" / args.run_tag
+    out = ARTIFACT_RUNS_DIR / args.run_tag
     out.mkdir(parents=True, exist_ok=True)
     plot_dir = out / "external_baseline_plots"
     plot_dir.mkdir(exist_ok=True)
@@ -454,7 +456,7 @@ def main() -> None:
             )
 
     ref = load_reference_rows(
-        WORKTREE_ROOT / "runs" / "frontend100_locked_candidate_multiseed_2026-04-06" / "multiseed_locked_candidate_results.csv",
+        ARTIFACT_RUNS_DIR / "frontend100_locked_candidate_multiseed_2026-04-06" / "multiseed_locked_candidate_results.csv",
         seeds,
     )
     if not ref.empty:

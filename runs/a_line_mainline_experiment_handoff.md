@@ -158,12 +158,26 @@ Next:
 
 What was done:
 - Fixed the ownership boundary for this conversation: it is now the A-line experiment execution thread plus the A-line mainline handoff maintainer.
+- Added A-line artifact path resolution so generated experiment outputs default to the D-drive mainline worktree while tracked handoff and map files remain in the current worktree.
+- Patched the current A-line baseline infrastructure to use that routing:
+  - `repo/paths.py`
+  - `repo/ood/stage1_probe.py`
+  - `repo/ood/frontend100_modern_tabular_baselines.py`
+  - `repo/ood/frontend100_deep_svdd_baseline.py`
+  - `repo/ood/frontend100_external_baselines.py`
+  - `repo/ood/frontend100_runtime_benchmark.py`
+  - `repo/ood/frontend100_additional_ood_setting_eval.py`
+  - `repo/ood/frontend100_recurrent_deep_baselines.py`
 
 Result:
 - This file is now the single handoff entry for A-line time-ordered progress.
+- From the current Codex mirror workspace, A-line generated runs now resolve to `D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline\runs`.
+- This reduces C-drive pressure without redirecting tracked mainline docs into another working tree.
 
 Judgment:
 - From this point onward, only stable A-line nodes should be added here.
+- A-line should treat D-drive artifact routing as the default execution mode for new formal runs.
 
 Next:
 - Continue the baseline-strengthening package and update this handoff after each stable A-line node.
+- Use the new default D-drive routing when promoting `FT-Transformer` from smoke to formal baseline evaluation.

@@ -28,6 +28,8 @@ for p in [THIS_DIR, REPO_DIR]:
     if str(p) not in sys.path:
         sys.path.insert(0, str(p))
 
+from paths import ARTIFACT_RUNS_DIR, TRACKED_RUNS_DIR
+
 import KitNET as kit
 import frontend100_latent_scorer_benchmark as lsb
 import frontend100_negative_recipe_rescoring as resc
@@ -107,7 +109,7 @@ def score_dA(model: kit.KitNET, x: np.ndarray) -> np.ndarray:
 
 
 def prepare_seed_gate(seed: int, batch_size: int) -> Dict:
-    cache = WORKTREE_ROOT / "runs" / "frontend100_diagload_gate_multiseed_2026-04-08" / "cache_latents"
+    cache = ARTIFACT_RUNS_DIR / "frontend100_diagload_gate_multiseed_2026-04-08" / "cache_latents"
     prefix = cache / f"latent_swap_spike_mix_seed{seed}"
     h_fit = np.load(str(prefix) + "_h_fit.npy").astype(np.float64)
     h_id = np.load(str(prefix) + "_h_id.npy").astype(np.float64)
@@ -118,7 +120,7 @@ def prepare_seed_gate(seed: int, batch_size: int) -> Dict:
     diag_id, _ = dsw.cholesky_diagload_scores(h_id, mu, sigma, 0.5)
     raw_thr = float(np.quantile(raw_id, 0.999))
     diag_thr = float(np.quantile(diag_id, 0.99))
-    ckpt = WORKTREE_ROOT / "runs" / "frontend100_locked_candidate_multiseed_2026-04-06" / f"latent_swap_spike_mix_seed{seed}" / f"kitnet_transformer_latent_contrastive_v1_seed{seed}.ckpt"
+    ckpt = ARTIFACT_RUNS_DIR / "frontend100_locked_candidate_multiseed_2026-04-06" / f"latent_swap_spike_mix_seed{seed}" / f"kitnet_transformer_latent_contrastive_v1_seed{seed}.ckpt"
     model = kit.KitNET.load_checkpoint(ckpt)
     return {
         "seed": seed,
@@ -168,7 +170,7 @@ def benchmark_callable(name: str, fn, repeats: int, warmup: int, n_samples: int)
 
 
 def append_map(run_tag: str) -> None:
-    p = WORKTREE_ROOT / "runs" / "master_experiment_map_v1.md"
+    p = TRACKED_RUNS_DIR / "master_experiment_map_v1.md"
     if not p.exists():
         return
     text = p.read_text(encoding="utf-8")
@@ -179,7 +181,7 @@ def append_map(run_tag: str) -> None:
 
 
 def update_log(run_tag: str, line: str) -> None:
-    p = WORKTREE_ROOT / "runs" / "research_log" / "a_tier_experiment_progress_log.md"
+    p = TRACKED_RUNS_DIR / "research_log" / "a_tier_experiment_progress_log.md"
     if not p.exists():
         return
     text = p.read_text(encoding="utf-8")
@@ -226,7 +228,7 @@ def main() -> None:
     ap.add_argument("--warmup", type=int, default=1)
     args = ap.parse_args()
 
-    out = WORKTREE_ROOT / "runs" / args.run_tag
+    out = ARTIFACT_RUNS_DIR / args.run_tag
     out.mkdir(parents=True, exist_ok=True)
     plot_dir = out / "runtime_benchmark_plots"
     plot_dir.mkdir(exist_ok=True)
@@ -283,7 +285,7 @@ def main() -> None:
         rss_delta_mb_mean=("rss_delta_mb", "mean"),
     )
 
-    fixed_cost = pd.read_csv(WORKTREE_ROOT / "runs" / "frontend100_final_candidate_audit_2026-04-08" / "final_candidate_cost_table.csv")
+    fixed_cost = pd.read_csv(ARTIFACT_RUNS_DIR / "frontend100_final_candidate_audit_2026-04-08" / "final_candidate_cost_table.csv")
     cost_map = {
         "dA_seed101_q99_runtime": fixed_cost[fixed_cost["object_label"].eq("dA single seed")].iloc[0],
         "transformer_latent_seed101_gate_runtime": fixed_cost[fixed_cost["object_label"].eq("Transformer latent single seed")].iloc[0],
