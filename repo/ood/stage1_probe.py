@@ -118,13 +118,59 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument(
         "--detector-backend",
-        choices=["transformer", "transformer_tailreg", "da"],
+        choices=[
+            "transformer",
+            "transformer_tailreg",
+            "transformer_mae_v1",
+            "transformer_mae_tailreg_v1",
+            "transformer_mae_latent_contrastive_v1",
+            "transformer_uncertainty_v1",
+            "transformer_latent_contrastive_v1",
+            "transformer_latent_contrastive_compact_v2",
+            "transformer_covariance_regularized_v1",
+            "transformer_covariance_regularized_v2",
+            "da",
+        ],
         default="transformer",
     )
+    parser.add_argument("--mae-mask-ratio", type=float, default=0.4)
     parser.add_argument("--tailreg-lambda", type=float, default=0.1)
     parser.add_argument("--tailreg-k", type=float, default=2.0)
     parser.add_argument("--tailreg-warmup", type=int, default=512)
     parser.add_argument("--tailreg-ema-alpha", type=float, default=0.01)
+    parser.add_argument("--uncertainty-logvar-min", type=float, default=-8.0)
+    parser.add_argument("--uncertainty-logvar-max", type=float, default=8.0)
+    parser.add_argument(
+        "--uncertainty-score-mode",
+        choices=["combined_nll", "error_only", "uncertainty_only"],
+        default="combined_nll",
+    )
+    parser.add_argument("--latent-margin", type=float, default=1.0)
+    parser.add_argument("--latent-lambda", type=float, default=0.1)
+    parser.add_argument("--latent-lambda-compact", type=float, default=0.0)
+    parser.add_argument("--latent-lambda-var", type=float, default=0.0)
+    parser.add_argument("--latent-lambda-corr", type=float, default=0.0)
+    parser.add_argument("--latent-var-min", type=float, default=0.2)
+    parser.add_argument("--latent-var-max", type=float, default=2.0)
+    parser.add_argument("--latent-covreg-buffer-size", type=int, default=64)
+    parser.add_argument("--no-latent-covreg-layernorm", action="store_true")
+    parser.add_argument("--latent-covreg-ema-momentum", type=float, default=0.99)
+    parser.add_argument("--latent-covreg-alpha-scale", type=float, default=0.1)
+    parser.add_argument("--latent-covreg-lambda-tail", type=float, default=0.1)
+    parser.add_argument("--latent-covreg-lambda-neg", type=float, default=0.5)
+    parser.add_argument("--latent-covreg-lambda-floor", type=float, default=0.01)
+    parser.add_argument("--latent-covreg-tau-mode", choices=["mean2std"], default="mean2std")
+    parser.add_argument("--latent-covreg-tau-k", type=float, default=2.0)
+    parser.add_argument("--latent-covreg-margin-neg", type=float, default=1.0)
+    parser.add_argument("--latent-covreg-var-floor", type=float, default=1e-3)
+    parser.add_argument("--latent-center-ema-alpha", type=float, default=0.01)
+    parser.add_argument("--latent-warmup-steps", type=int, default=0)
+    parser.add_argument("--latent-contrastive-mode", default="v1")
+    parser.add_argument("--latent-pooling", default="mean")
+    parser.add_argument("--latent-neg-prob-swap", type=float, default=0.0)
+    parser.add_argument("--latent-neg-prob-permute", type=float, default=0.4)
+    parser.add_argument("--latent-neg-prob-spike", type=float, default=0.3)
+    parser.add_argument("--latent-neg-prob-replace", type=float, default=0.3)
     parser.add_argument("--threshold-quantile", type=float, default=0.99)
     parser.add_argument("--force-retrain", action="store_true")
     parser.add_argument("--skip-benign", action="store_true")
@@ -183,10 +229,40 @@ def main() -> None:
             hidden_ratio=args.hidden_ratio,
             detector_backend=args.detector_backend,
             detector_seed=args.seed,
+            mae_mask_ratio=args.mae_mask_ratio,
             tailreg_lambda=args.tailreg_lambda,
             tailreg_k=args.tailreg_k,
             tailreg_warmup=args.tailreg_warmup,
             tailreg_ema_alpha=args.tailreg_ema_alpha,
+            uncertainty_logvar_min=args.uncertainty_logvar_min,
+            uncertainty_logvar_max=args.uncertainty_logvar_max,
+            uncertainty_score_mode=args.uncertainty_score_mode,
+            latent_margin=args.latent_margin,
+            latent_lambda=args.latent_lambda,
+            latent_lambda_compact=args.latent_lambda_compact,
+            latent_lambda_var=args.latent_lambda_var,
+            latent_lambda_corr=args.latent_lambda_corr,
+            latent_var_min=args.latent_var_min,
+            latent_var_max=args.latent_var_max,
+            latent_covreg_buffer_size=args.latent_covreg_buffer_size,
+            latent_covreg_use_layernorm=not args.no_latent_covreg_layernorm,
+            latent_covreg_ema_momentum=args.latent_covreg_ema_momentum,
+            latent_covreg_alpha_scale=args.latent_covreg_alpha_scale,
+            latent_covreg_lambda_tail=args.latent_covreg_lambda_tail,
+            latent_covreg_lambda_neg=args.latent_covreg_lambda_neg,
+            latent_covreg_lambda_floor=args.latent_covreg_lambda_floor,
+            latent_covreg_tau_mode=args.latent_covreg_tau_mode,
+            latent_covreg_tau_k=args.latent_covreg_tau_k,
+            latent_covreg_margin_neg=args.latent_covreg_margin_neg,
+            latent_covreg_var_floor=args.latent_covreg_var_floor,
+            latent_center_ema_alpha=args.latent_center_ema_alpha,
+            latent_warmup_steps=args.latent_warmup_steps,
+            latent_contrastive_mode=args.latent_contrastive_mode,
+            latent_pooling=args.latent_pooling,
+            latent_neg_prob_swap=args.latent_neg_prob_swap,
+            latent_neg_prob_permute=args.latent_neg_prob_permute,
+            latent_neg_prob_spike=args.latent_neg_prob_spike,
+            latent_neg_prob_replace=args.latent_neg_prob_replace,
         )
         t0 = datetime.now()
         for i in range(args.train_samples):
@@ -199,6 +275,8 @@ def main() -> None:
 
     # Reload once to verify load-path integrity.
     model = kit.KitNET.load_checkpoint(ckpt_path)
+    if hasattr(model, "set_uncertainty_score_mode"):
+        model.set_uncertainty_score_mode(args.uncertainty_score_mode)
     print("Checkpoint reload verification passed.")
 
     id_start = args.train_samples
@@ -342,10 +420,40 @@ def main() -> None:
         "hidden_ratio": args.hidden_ratio,
         "seed": args.seed,
         "detector_backend": args.detector_backend,
+        "mae_mask_ratio": args.mae_mask_ratio,
         "tailreg_lambda": args.tailreg_lambda,
         "tailreg_k": args.tailreg_k,
         "tailreg_warmup": args.tailreg_warmup,
         "tailreg_ema_alpha": args.tailreg_ema_alpha,
+        "uncertainty_logvar_min": args.uncertainty_logvar_min,
+        "uncertainty_logvar_max": args.uncertainty_logvar_max,
+        "uncertainty_score_mode": args.uncertainty_score_mode,
+        "latent_margin": args.latent_margin,
+        "latent_lambda": args.latent_lambda,
+        "latent_lambda_compact": args.latent_lambda_compact,
+        "latent_lambda_var": args.latent_lambda_var,
+        "latent_lambda_corr": args.latent_lambda_corr,
+        "latent_var_min": args.latent_var_min,
+        "latent_var_max": args.latent_var_max,
+        "latent_covreg_buffer_size": args.latent_covreg_buffer_size,
+        "latent_covreg_use_layernorm": not args.no_latent_covreg_layernorm,
+        "latent_covreg_ema_momentum": args.latent_covreg_ema_momentum,
+        "latent_covreg_alpha_scale": args.latent_covreg_alpha_scale,
+        "latent_covreg_lambda_tail": args.latent_covreg_lambda_tail,
+        "latent_covreg_lambda_neg": args.latent_covreg_lambda_neg,
+        "latent_covreg_lambda_floor": args.latent_covreg_lambda_floor,
+        "latent_covreg_tau_mode": args.latent_covreg_tau_mode,
+        "latent_covreg_tau_k": args.latent_covreg_tau_k,
+        "latent_covreg_margin_neg": args.latent_covreg_margin_neg,
+        "latent_covreg_var_floor": args.latent_covreg_var_floor,
+        "latent_center_ema_alpha": args.latent_center_ema_alpha,
+        "latent_warmup_steps": args.latent_warmup_steps,
+        "latent_contrastive_mode": args.latent_contrastive_mode,
+        "latent_pooling": args.latent_pooling,
+        "latent_neg_prob_swap": args.latent_neg_prob_swap,
+        "latent_neg_prob_permute": args.latent_neg_prob_permute,
+        "latent_neg_prob_spike": args.latent_neg_prob_spike,
+        "latent_neg_prob_replace": args.latent_neg_prob_replace,
         "threshold_quantile": args.threshold_quantile,
         "skip_benign": args.skip_benign,
         "skip_attack": args.skip_attack,
@@ -358,6 +466,13 @@ def main() -> None:
     }
     (run_dir / "config.json").write_text(json.dumps(config, indent=2), encoding="utf-8")
 
+    uncertainty_diag = None
+    if hasattr(model, "get_uncertainty_diagnostics"):
+        uncertainty_diag = model.get_uncertainty_diagnostics()
+    latent_diag = None
+    if hasattr(model, "get_latent_contrastive_diagnostics"):
+        latent_diag = model.get_latent_contrastive_diagnostics()
+
     report = {
         "threshold_id_benign_q": args.threshold_quantile,
         "threshold_value": threshold,
@@ -365,6 +480,8 @@ def main() -> None:
         "ood_benign": benign_results,
         "ood_attack": attack_results,
         "ood_combined_metrics": combined_ood_metrics,
+        "uncertainty_diagnostics": uncertainty_diag,
+        "latent_contrastive_diagnostics": latent_diag,
     }
     (run_dir / "metrics.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
 
@@ -387,6 +504,31 @@ def main() -> None:
         lines.append(
             f"ood_combined_roc_auc={combined_ood_metrics['roc_auc']:.6f} "
             f"ood_combined_pr_auc={combined_ood_metrics['pr_auc']:.6f}"
+        )
+    if uncertainty_diag is not None and uncertainty_diag.get("enabled", False):
+        lines.append(
+            "uncertainty_diag:"
+            f" score_mode={uncertainty_diag.get('score_mode')}"
+            f" nan_inf_train={uncertainty_diag.get('nan_inf_train_events_total')}"
+            f" nan_inf_exec={uncertainty_diag.get('nan_inf_exec_events_total')}"
+            f" logvar_train=[{uncertainty_diag.get('logvar_train_min_seen')}, {uncertainty_diag.get('logvar_train_max_seen')}]"
+            f" logvar_exec=[{uncertainty_diag.get('logvar_exec_min_seen')}, {uncertainty_diag.get('logvar_exec_max_seen')}]"
+        )
+    if latent_diag is not None and latent_diag.get("enabled", False):
+        lines.append(
+            "latent_diag:"
+            f" mode={latent_diag.get('mode')}"
+            f" margin={latent_diag.get('margin')}"
+            f" lambda={latent_diag.get('lambda')}"
+            f" lambda_compact={latent_diag.get('lambda_compact')}"
+            f" pooling={latent_diag.get('pooling')}"
+            f" dist_train_mean={latent_diag.get('latent_distance_train_mean')}"
+            f" dist_exec_mean={latent_diag.get('latent_distance_exec_mean')}"
+            f" center_dist_train_mean={latent_diag.get('latent_center_distance_train_mean')}"
+            f" center_dist_exec_mean={latent_diag.get('latent_center_distance_exec_mean')}"
+            f" warmup_steps={latent_diag.get('warmup_steps')}"
+            f" warmup_scale_last={latent_diag.get('warmup_scale_last_mean')}"
+            f" neg_ratios={latent_diag.get('neg_type_ratios_total')}"
         )
     (run_dir / "summary.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"[done] run dir: {run_dir}")

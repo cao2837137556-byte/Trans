@@ -1,0 +1,167 @@
+from __future__ import annotations
+
+import argparse
+import json
+import shutil
+from datetime import datetime
+from pathlib import Path
+from typing import Dict
+
+import numpy as np
+import pandas as pd
+
+REPO_DIR = Path(__file__).resolve().parents[1]
+ROOT_DIR = REPO_DIR.parent
+
+
+REQUIRED_KEYS = {
+    "flat_features",
+    "family_scale_tokens",
+    "token_matrix",
+    "token_slot_mask",
+    "token_family_id",
+    "token_scale_id",
+}
+
+
+def load_structured_npz(path: Path) -> Dict[str, np.ndarray]:
+    data = np.load(path)
+    keys = set(data.files)
+    missing = REQUIRED_KEYS - keys
+    if missing:
+        raise RuntimeError(f"Missing keys {sorted(missing)} in {path}")
+    out = {k: data[k] for k in data.files}
+    if out["flat_features"].ndim != 2 or out["flat_features"].shape[1] != 100:
+        raise RuntimeError(f"Expected flat_features [N,100], got {out['flat_features'].shape} in {path}")
+    if out["family_scale_tokens"].ndim != 4 or out["family_scale_tokens"].shape[1:] != (4, 5, 7):
+        raise RuntimeError(f"Expected family_scale_tokens [N,4,5,7], got {out['family_scale_tokens'].shape} in {path}")
+    if out["token_matrix"].ndim != 3 or out["token_matrix"].shape[1:] != (20, 7):
+        raise RuntimeError(f"Expected token_matrix [N,20,7], got {out['token_matrix'].shape} in {path}")
+    if out["token_slot_mask"].shape != (20, 7):
+        raise RuntimeError(f"Expected token_slot_mask [20,7], got {out['token_slot_mask'].shape} in {path}")
+    return out
+
+
+def take_first(x: np.ndarray, n: int) -> np.ndarray:
+    if n <= 0:
+        raise ValueError("n must be positive")
+    return x[: min(len(x), n)].copy()
+
+
+def save_flat_outputs(base: Path, flat_features: np.ndarray) -> Dict[str, str]:
+    npy_path = base.with_suffix(".npy")
+    csv_path = base.with_suffix(".csv")
+    np.save(npy_path, flat_features.astype(np.float32))
+    pd.DataFrame(flat_features.astype(np.float32)).to_csv(csv_path, header=False, index=False)
+    return {"npy": str(npy_path), "csv": str(csv_path)}
+
+
+def save_structured_output(path: Path, payload: Dict[str, np.ndarray]) -> str:
+    np.savez_compressed(path, **payload)
+    return str(path)
+
+
+def stats_flat(x: np.ndarray) -> Dict[str, float]:
+    return {
+        "rows": int(x.shape[0]),
+        "dim": int(x.shape[1]),
+        "mean": float(np.mean(x)),
+        "std": float(np.std(x)),
+        "min": float(np.min(x)),
+        "max": float(np.max(x)),
+    }
+
+
+def main() -> None:
+    today = datetime.now().strftime("%Y-%m-%d")
+    ap = argparse.ArgumentParser(description="Prepare cross-capture structured frontend sources from Frontend-F2 caches.")
+    ap.add_argument("--run-tag", default=f"frontend_f2_crosscapture_stage1_{today}")
+    ap.add_argument("--id-structured-npz", type=Path, required=True)
+    ap.add_argument("--ood-structured-npz", type=Path, required=True)
+    ap.add_argument("--schema-json", type=Path, required=True)
+    ap.add_argument("--id-max-rows", type=int, default=50000)
+    ap.add_argument("--ood-max-rows", type=int, default=20000)
+    args = ap.parse_args()
+
+    run_dir = ROOT_DIR / "runs" / args.run_tag
+    data_dir = run_dir / "data"
+    data_dir.mkdir(parents=True, exist_ok=True)
+
+    id_src = load_structured_npz(args.id_structured_npz)
+    ood_src = load_structured_npz(args.ood_structured_npz)
+    schema = json.loads(args.schema_json.read_text(encoding="utf-8-sig"))
+
+    for key in ["token_slot_mask", "token_family_id", "token_scale_id"]:
+        if not np.array_equal(id_src[key], ood_src[key]):
+            raise RuntimeError(f"Structured metadata mismatch for key={key}")
+
+    id_n = min(len(id_src["flat_features"]), args.id_max_rows)
+    ood_n = min(len(ood_src["flat_features"]), args.ood_max_rows)
+
+    id_payload = {
+        "flat_features": take_first(id_src["flat_features"], id_n).astype(np.float32),
+        "family_scale_tokens": take_first(id_src["family_scale_tokens"], id_n).astype(np.float32),
+        "token_matrix": take_first(id_src["token_matrix"], id_n).astype(np.float32),
+        "token_slot_mask": id_src["token_slot_mask"].astype(np.float32),
+        "token_family_id": id_src["token_family_id"].astype(np.int64),
+        "token_scale_id": id_src["token_scale_id"].astype(np.int64),
+    }
+    ood_payload = {
+        "flat_features": take_first(ood_src["flat_features"], ood_n).astype(np.float32),
+        "family_scale_tokens": take_first(ood_src["family_scale_tokens"], ood_n).astype(np.float32),
+        "token_matrix": take_first(ood_src["token_matrix"], ood_n).astype(np.float32),
+        "token_slot_mask": ood_src["token_slot_mask"].astype(np.float32),
+        "token_family_id": ood_src["token_family_id"].astype(np.int64),
+        "token_scale_id": ood_src["token_scale_id"].astype(np.int64),
+    }
+
+    id_structured_path = data_dir / "id_source_structured.npz"
+    ood_structured_path = data_dir / "ood_benign_source_structured.npz"
+    save_structured_output(id_structured_path, id_payload)
+    save_structured_output(ood_structured_path, ood_payload)
+    id_flat_paths = save_flat_outputs(data_dir / "id_source_100", id_payload["flat_features"])
+    ood_flat_paths = save_flat_outputs(data_dir / "ood_benign_source_100", ood_payload["flat_features"])
+    schema_copy = data_dir / "structured_schema.json"
+    shutil.copyfile(args.schema_json, schema_copy)
+
+    metadata = {
+        "created_at": datetime.now().isoformat(timespec="seconds"),
+        "id_structured_npy": str(args.id_structured_npz),
+        "ood_structured_npy": str(args.ood_structured_npz),
+        "schema_json": str(args.schema_json),
+        "id_used_rows": int(id_n),
+        "ood_used_rows": int(ood_n),
+        "id_stats": stats_flat(id_payload["flat_features"]),
+        "ood_stats": stats_flat(ood_payload["flat_features"]),
+        "outputs": {
+            "id_structured": str(id_structured_path),
+            "ood_structured": str(ood_structured_path),
+            "id_flat": id_flat_paths,
+            "ood_flat": ood_flat_paths,
+            "schema_copy": str(schema_copy),
+        },
+    }
+    (run_dir / "frontend_f2_source_metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    lines = [
+        "# Frontend-F2 Cross-capture Source Prep",
+        "",
+        f"- Date: {metadata['created_at']}",
+        f"- ID structured cache: `{args.id_structured_npz}`",
+        f"- OOD structured cache: `{args.ood_structured_npz}`",
+        f"- ID used rows: {id_n}",
+        f"- OOD used rows: {ood_n}",
+        "",
+        "## Outputs",
+        f"- ID structured: `{id_structured_path}`",
+        f"- OOD structured: `{ood_structured_path}`",
+        f"- ID flat csv: `{id_flat_paths['csv']}`",
+        f"- OOD flat csv: `{ood_flat_paths['csv']}`",
+        f"- Schema copy: `{schema_copy}`",
+    ]
+    (run_dir / "frontend_f2_source_summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"[done] frontend-f2 source metadata: {run_dir / 'frontend_f2_source_metadata.json'}")
+
+
+if __name__ == "__main__":
+    main()

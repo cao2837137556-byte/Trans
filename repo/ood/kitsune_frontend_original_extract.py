@@ -19,6 +19,12 @@ if str(REPO_DIR) not in sys.path:
 from paths import ROOT_DIR
 
 
+FAMILY_ORDER = ["MI_dir", "HH", "HH_jit", "HpHp"]
+SCALE_ORDER = ["5", "3", "1", "0.1", "0.01"]
+STAT_SLOT_ORDER = ["weight", "mean", "std", "radius", "magnitude", "covariance", "pcc"]
+FAMILY_PREFIXES = sorted(FAMILY_ORDER, key=len, reverse=True)
+
+
 IOT23_PCAP_URL = (
     "https://mcfp.felk.cvut.cz/publicDatasets/IoT-23-Dataset-v2/"
     "CTU-Honeypot-Capture-7-6/pcap/2019-07-07-16-41-19-192.168.1.158.pcap"
@@ -61,6 +67,177 @@ def safe_ipv6(raw: bytes) -> str:
     if len(raw) != 16:
         return ""
     return socket.inet_ntop(socket.AF_INET6, raw)
+
+
+def parse_feature_header(header: str) -> dict:
+    family = None
+    for prefix in FAMILY_PREFIXES:
+        if header.startswith(prefix + "_"):
+            family = prefix
+            break
+    if family is None:
+        raise ValueError(f"Unrecognized feature family in header: {header}")
+
+    rest = header[len(family) + 1 :]
+    scale = None
+    for cand in SCALE_ORDER:
+        if rest.startswith(cand + "_"):
+            scale = cand
+            break
+    if scale is None:
+        raise ValueError(f"Unrecognized scale in header: {header}")
+
+    stat_raw = rest[len(scale) + 1 :]
+    if stat_raw.startswith("weight"):
+        stat = "weight"
+    elif stat_raw.startswith("mean"):
+        stat = "mean"
+    elif stat_raw.startswith("std"):
+        stat = "std"
+    elif stat_raw.startswith("radius"):
+        stat = "radius"
+    elif stat_raw.startswith("magnitude"):
+        stat = "magnitude"
+    elif stat_raw.startswith("covariance"):
+        stat = "covariance"
+    elif stat_raw.startswith("pcc"):
+        stat = "pcc"
+    else:
+        raise ValueError(f"Unrecognized stat slot in header: {header}")
+
+    return {
+        "header": header,
+        "family": family,
+        "scale": scale,
+        "stat_slot": stat,
+    }
+
+
+def build_feature_schema(headers: list[str]) -> dict:
+    if len(headers) != 100:
+        raise ValueError(f"Expected 100 headers, got {len(headers)}")
+
+    header_mappings = []
+    token_index = {}
+    token_defs = []
+    for family_id, family in enumerate(FAMILY_ORDER):
+        for scale_id, scale in enumerate(SCALE_ORDER):
+            token_id = len(token_defs)
+            token_index[(family, scale)] = token_id
+            slot_mask = [1.0 if family in {"HH", "HpHp"} or slot in {"weight", "mean", "std"} else 0.0 for slot in STAT_SLOT_ORDER]
+            token_defs.append(
+                {
+                    "token_id": token_id,
+                    "token_name": f"{family}@{scale}",
+                    "family": family,
+                    "family_id": family_id,
+                    "scale": scale,
+                    "scale_id": scale_id,
+                    "slot_mask": slot_mask,
+                }
+            )
+
+    for flat_index, header in enumerate(headers):
+        parsed = parse_feature_header(header)
+        family = parsed["family"]
+        scale = parsed["scale"]
+        stat_slot = parsed["stat_slot"]
+        header_mappings.append(
+            {
+                "flat_index": flat_index,
+                "header": header,
+                "family": family,
+                "family_id": FAMILY_ORDER.index(family),
+                "scale": scale,
+                "scale_id": SCALE_ORDER.index(scale),
+                "stat_slot": stat_slot,
+                "stat_slot_id": STAT_SLOT_ORDER.index(stat_slot),
+                "token_id": token_index[(family, scale)],
+            }
+        )
+
+    schema = {
+        "families": FAMILY_ORDER,
+        "scales": SCALE_ORDER,
+        "stat_slots": STAT_SLOT_ORDER,
+        "header_mappings": header_mappings,
+        "token_definitions": token_defs,
+        "family_major_token_order": [t["token_name"] for t in token_defs],
+        "structured_shapes": {
+            "family_scale_tokens": [len(FAMILY_ORDER), len(SCALE_ORDER), len(STAT_SLOT_ORDER)],
+            "token_matrix": [len(token_defs), len(STAT_SLOT_ORDER)],
+        },
+    }
+    return schema
+
+
+def build_structured_feature_views(arr: np.ndarray, schema: dict) -> dict:
+    if arr.ndim != 2 or arr.shape[1] != 100:
+        raise ValueError(f"Expected feature matrix [N,100], got {arr.shape}")
+
+    n = arr.shape[0]
+    family_scale_tokens = np.zeros((n, len(FAMILY_ORDER), len(SCALE_ORDER), len(STAT_SLOT_ORDER)), dtype=np.float32)
+    token_matrix = np.zeros((n, len(schema["token_definitions"]), len(STAT_SLOT_ORDER)), dtype=np.float32)
+    token_slot_mask = np.zeros((len(schema["token_definitions"]), len(STAT_SLOT_ORDER)), dtype=np.float32)
+
+    for token in schema["token_definitions"]:
+        token_slot_mask[token["token_id"], :] = np.asarray(token["slot_mask"], dtype=np.float32)
+
+    for item in schema["header_mappings"]:
+        family_id = int(item["family_id"])
+        scale_id = int(item["scale_id"])
+        stat_slot_id = int(item["stat_slot_id"])
+        token_id = int(item["token_id"])
+        flat_index = int(item["flat_index"])
+        values = arr[:, flat_index].astype(np.float32)
+        family_scale_tokens[:, family_id, scale_id, stat_slot_id] = values
+        token_matrix[:, token_id, stat_slot_id] = values
+
+    token_family_id = np.asarray([int(t["family_id"]) for t in schema["token_definitions"]], dtype=np.int64)
+    token_scale_id = np.asarray([int(t["scale_id"]) for t in schema["token_definitions"]], dtype=np.int64)
+    flat_from_tokens = family_scale_tokens.reshape(n, -1)[:, : 4 * 5 * 7]
+    # `flat_from_tokens` is only used for a strict mapping check and is not saved directly.
+    return {
+        "flat_features": arr.astype(np.float32),
+        "family_scale_tokens": family_scale_tokens,
+        "token_matrix": token_matrix,
+        "token_slot_mask": token_slot_mask,
+        "token_family_id": token_family_id,
+        "token_scale_id": token_scale_id,
+        "mapping_check_tensor": flat_from_tokens.astype(np.float32),
+    }
+
+
+def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dict:
+    recon = np.zeros_like(arr, dtype=np.float32)
+    for item in schema["header_mappings"]:
+        recon[:, int(item["flat_index"])] = views["token_matrix"][:, int(item["token_id"]), int(item["stat_slot_id"])]
+    max_abs_diff = float(np.max(np.abs(recon - arr.astype(np.float32)))) if arr.size else 0.0
+    return {
+        "flat_reconstruction_max_abs_diff": max_abs_diff,
+        "flat_reconstruction_exact": bool(max_abs_diff == 0.0),
+        "structured_family_scale_shape": list(views["family_scale_tokens"].shape),
+        "structured_token_matrix_shape": list(views["token_matrix"].shape),
+    }
+
+
+def save_structured_cache(run_dir: Path, base_stem: str, views: dict, schema: dict) -> dict:
+    structured_npz_path = run_dir / f"{base_stem}_structured.npz"
+    structured_schema_path = run_dir / f"{base_stem}_structured_schema.json"
+    np.savez_compressed(
+        structured_npz_path,
+        flat_features=views["flat_features"],
+        family_scale_tokens=views["family_scale_tokens"],
+        token_matrix=views["token_matrix"],
+        token_slot_mask=views["token_slot_mask"],
+        token_family_id=views["token_family_id"],
+        token_scale_id=views["token_scale_id"],
+    )
+    structured_schema_path.write_text(json.dumps(schema, indent=2, ensure_ascii=False), encoding="utf-8")
+    return {
+        "structured_npz_path": str(structured_npz_path),
+        "structured_schema_path": str(structured_schema_path),
+    }
 
 
 def pcap_to_kitsune_tsv(pcap_path: Path, tsv_path: Path, packet_limit: int) -> dict:
@@ -189,6 +366,12 @@ def main() -> None:
     parser.add_argument("--pcap", type=Path, default=ROOT_DIR / "public_data" / "raw" / "iot23_7_6.pcap")
     parser.add_argument("--packet-limit", type=int, default=50000)
     parser.add_argument("--no-download", action="store_true")
+    parser.add_argument(
+        "--emit-structured-cache",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Emit structured semantic cache alongside the original flat 100-D feature cache.",
+    )
     args = parser.parse_args()
 
     run_dir = ROOT_DIR / "runs" / args.run_tag
@@ -206,16 +389,44 @@ def main() -> None:
         urlretrieve(IOT23_PCAP_URL, args.pcap)
         print(f"[saved] {args.pcap}")
 
-    tsv_path = run_dir / f"{args.pcap.stem}_first{args.packet_limit}.tsv"
-    tsv_counts = pcap_to_kitsune_tsv(args.pcap, tsv_path, args.packet_limit)
-    print(f"[tsv] wrote {tsv_counts['rows_written']} rows -> {tsv_path}")
+    input_suffix = args.pcap.suffix.lower()
+    if input_suffix == ".tsv":
+        tsv_path = args.pcap
+        tsv_counts = {
+            "packet_limit": int(args.packet_limit),
+            "packets_seen": None,
+            "rows_written": int(args.packet_limit),
+            "parse_errors": 0,
+            "ipv4": None,
+            "ipv6": None,
+            "arp": None,
+            "tcp": None,
+            "udp": None,
+            "icmp": None,
+            "source_mode": "existing_tsv",
+        }
+        print(f"[tsv] reuse existing TSV -> {tsv_path}")
+    else:
+        tsv_path = run_dir / f"{args.pcap.stem}_first{args.packet_limit}.tsv"
+        tsv_counts = pcap_to_kitsune_tsv(args.pcap, tsv_path, args.packet_limit)
+        tsv_counts["source_mode"] = "generated_from_pcap"
+        print(f"[tsv] wrote {tsv_counts['rows_written']} rows -> {tsv_path}")
 
     features, headers, fx_counts = extract_features_from_tsv(tsv_path, frontend_dir, args.packet_limit)
-    feature_path = run_dir / f"{args.pcap.stem}_features_first{args.packet_limit}.npy"
+    base_stem = f"{args.pcap.stem}_features_first{args.packet_limit}"
+    feature_path = run_dir / f"{base_stem}.npy"
     np.save(feature_path, features)
 
     header_path = run_dir / "feature_headers.txt"
     header_path.write_text("\n".join(headers) + "\n", encoding="utf-8")
+
+    structured_outputs = {}
+    structured_validation = {}
+    if args.emit_structured_cache and features.size:
+        schema = build_feature_schema(headers)
+        views = build_structured_feature_views(features, schema)
+        structured_validation = validate_structured_views(features, schema, views)
+        structured_outputs = save_structured_cache(run_dir, base_stem, views, schema)
 
     metadata = {
         "source_pcap": str(args.pcap),
@@ -230,6 +441,9 @@ def main() -> None:
             "empty_vectors": int(fx_counts["empty_vectors"]),
             "eof_hits": int(fx_counts["eof_hits"]),
         },
+        "structured_cache_enabled": bool(args.emit_structured_cache),
+        "structured_outputs": structured_outputs,
+        "structured_validation": structured_validation,
     }
     (run_dir / "extract_metadata.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
 
@@ -248,6 +462,14 @@ def main() -> None:
     summary.append(f"- Feature cache: `{feature_path.name}`")
     summary.append(f"- Metadata: `extract_metadata.json`")
     summary.append(f"- Headers: `feature_headers.txt`")
+    if structured_outputs:
+        summary.append(f"- Structured cache: `{Path(structured_outputs['structured_npz_path']).name}`")
+        summary.append(f"- Structured schema: `{Path(structured_outputs['structured_schema_path']).name}`")
+        summary.append("")
+        summary.append("## Structured Validation")
+        summary.append(f"- Flat reconstruction max abs diff: {structured_validation['flat_reconstruction_max_abs_diff']:.8f}")
+        summary.append(f"- family_scale_tokens shape: {structured_validation['structured_family_scale_shape']}")
+        summary.append(f"- token_matrix shape: {structured_validation['structured_token_matrix_shape']}")
     (run_dir / "summary_extract.md").write_text("\n".join(summary) + "\n", encoding="utf-8")
 
     print(f"[done] run dir: {run_dir}")

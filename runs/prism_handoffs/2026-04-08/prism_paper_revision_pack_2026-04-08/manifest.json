@@ -1,0 +1,60 @@
+{
+  "created_at": "2026-04-08T17:37:05",
+  "pack_dir": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\prism_handoffs\\2026-04-08\\prism_paper_revision_pack_2026-04-08",
+  "current_pdf_source": "D:\\study\\paper\\anomaly_detection\\paper04\\Transformer.pdf",
+  "main_prompt": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\prism_handoffs\\2026-04-08\\prism_paper_revision_pack_2026-04-08\\instructions\\PRISM_WRITING_PROMPT.md",
+  "main_candidate": "Transformer 3-seed covariance ensemble, rawq=0.999, fixed_id_q0.995",
+  "claim_boundary": "ID-only operating-region improvement; not single-model unconditional q99 win",
+  "figures": [
+    {
+      "file": "figures/fig_main_tradeoff_final_candidate.png",
+      "source": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend100_final_candidate_audit_2026-04-08\\final_candidate_audit_plots\\final_candidate_main_tradeoff.png",
+      "description": "Main trade-off figure: dA q99/q995, Transformer ensemble candidates, baselines."
+    },
+    {
+      "file": "figures/fig_transformer_ensemble_score_distribution.png",
+      "source": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend100_final_candidate_audit_2026-04-08\\final_candidate_audit_plots\\transformer_ensemble_score_distribution.png",
+      "description": "Transformer ensemble score distribution under rawq0.999/idq0.995."
+    },
+    {
+      "file": "figures/fig_da_score_distribution_q99.png",
+      "source": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend100_final_candidate_audit_2026-04-08\\final_candidate_audit_plots\\da_score_distribution_q99.png",
+      "description": "dA score distribution under q99 threshold."
+    },
+    {
+      "file": "figures/fig_ensemble_cost_tradeoff.png",
+      "source": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend100_latent_ensemble_cost_ablation_2026-04-08\\latent_ensemble_cost_plots\\ensemble_cost_tradeoff.png",
+      "description": "1/2/3 seed ensemble cost-effect trade-off."
+    },
+    {
+      "file": "figures/fig_focus_rule_cost_curve.png",
+      "source": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend100_latent_ensemble_cost_ablation_2026-04-08\\latent_ensemble_cost_plots\\focus_rule_cost_curve.png",
+      "description": "Cost curve for rawq0.999/idq0.995 focus rule."
+    },
+    {
+      "file": "figures/fig_idq_sweep_tradeoff.png",
+      "source": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend100_latent_seed_ensemble_idq_sweep_2026-04-08\\latent_seed_ensemble_idq_plots\\idq_sweep_tradeoff.png",
+      "description": "ID-only threshold operating region sweep."
+    },
+    {
+      "file": "figures/fig_recurrent_deep_baselines.png",
+      "source": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend100_recurrent_deep_baselines_2026-04-08\\recurrent_deep_baseline_plots\\fixed_tradeoff_recurrent_deep_baselines.png",
+      "description": "LSTM-AE/GRU-AE stronger OOD fixed trade-off."
+    },
+    {
+      "file": "figures/fig_external_baselines.png",
+      "source": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend100_external_baselines_2026-04-08\\external_baseline_plots\\fixed_tradeoff_external_baselines.png",
+      "description": "External baseline fixed trade-off."
+    },
+    {
+      "file": "figures/fig_mahalanobis_rescue.png",
+      "source": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend100_mahalanobis_rescue_2026-04-07\\mahalanobis_rescue_plots\\fixed_tradeoff_rescue.png",
+      "description": "Supplement: Mahalanobis diagonal-loading rescue."
+    },
+    {
+      "file": "figures/fig_seed42_gate_rescue.png",
+      "source": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend100_diagload_gate_rescue_2026-04-08\\diagload_gate_rescue_plots\\gate_rescue_tradeoff.png",
+      "description": "Supplement: seed42 gate discovery."
+    }
+  ]
+}

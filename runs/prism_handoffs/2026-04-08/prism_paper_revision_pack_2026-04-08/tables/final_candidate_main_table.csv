@@ -1,0 +1,9 @@
+object_label,ood_alarm,high_purity_detection,id_alarm,roc_auc,source,note
+external LOF,0.0155333333333333,0.0005821568912822,0.0,0.4487711541260369,external_baselines,minimal external baseline
+dA fixed_id_q0p995,0.1044888888888889,0.7690292533837869,0.005,0.8096224971296432,dA_idq_reference,dA same-ID-alarm reference
+Transformer ensemble mean_gate_rawq0p998/fixed_id_q0p997,0.1199333333333333,0.818803667588415,0.003,0.8779940814049385,latent_seed_ensemble_idq_sweep,conservative ID q997 candidate
+Transformer ensemble mean_gate_rawq0p9995/fixed_id_q0p995,0.1230666666666666,0.8244796972784165,0.005,0.8769834667442876,latent_seed_ensemble_idq_sweep,lower-alarm candidate
+Transformer ensemble mean_gate_rawq0p999/fixed_id_q0p995,0.1260666666666666,0.8444185708048318,0.005,0.8780930189686121,latent_seed_ensemble_idq_sweep,current main candidate
+dA fixed_id_q0p99,0.1321555555555555,0.8013874739242226,0.01,0.8096224971296432,dA_idq_reference,dA q99 reference
+recurrent gru_ae_L4_last,0.6341490520326287,0.7451123077669433,0.01,0.6384116439064265,recurrent_deep_baselines,deep sequence baseline
+recurrent lstm_ae_L4_last,0.6730457202551622,0.8311259884538883,0.01,0.7141294831841091,recurrent_deep_baselines,deep sequence baseline
