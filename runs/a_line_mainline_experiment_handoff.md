@@ -168,16 +168,23 @@ What was done:
   - `repo/ood/frontend100_runtime_benchmark.py`
   - `repo/ood/frontend100_additional_ood_setting_eval.py`
   - `repo/ood/frontend100_recurrent_deep_baselines.py`
+- Fixed the A-line HPC usage rule:
+  - Use HPC for long formal training, multi-seed runs, sweeps, second-dataset validation, larger external-baseline reproduction, and other non-smoke workloads.
+  - Do not use HPC for script/path fixing, local smoke checks, offline rescoring, or table/plot collation.
+  - Formal HPC runs must follow the sequence: local smoke first, then freeze code/config, ensure portable paths, prepare stable output names plus bundle/return layout, then submit and monitor logs.
 
 Result:
 - This file is now the single handoff entry for A-line time-ordered progress.
 - From the current Codex mirror workspace, A-line generated runs now resolve to `D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline\runs`.
 - This reduces C-drive pressure without redirecting tracked mainline docs into another working tree.
+- A-line now has an explicit rule for when a task should stay local and when it should be escalated to HPC.
 
 Judgment:
 - From this point onward, only stable A-line nodes should be added here.
 - A-line should treat D-drive artifact routing as the default execution mode for new formal runs.
+- HPC is the default for formal heavy A-line experiments, but only after local smoke and packaging stability are both confirmed.
 
 Next:
 - Continue the baseline-strengthening package and update this handoff after each stable A-line node.
 - Use the new default D-drive routing when promoting `FT-Transformer` from smoke to formal baseline evaluation.
+- When `FT-Transformer` formal evaluation is ready, decide explicitly whether it is still local or should go to HPC using the rule above.
