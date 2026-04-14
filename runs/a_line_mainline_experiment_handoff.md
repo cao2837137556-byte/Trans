@@ -186,6 +186,17 @@ What was done:
 - Reset the FT formal rerun onto a fresh date-stamped run tag:
   - `frontend100_modern_tabular_baselines_ft_2026-04-13` remains the failed earlier attempt;
   - the corrected formal rerun package is now prepared under `frontend100_modern_tabular_baselines_ft_2026-04-14`.
+- Pulled back the first real `2026-04-14` FT rerun failure signal from the cluster:
+  - `latest_slurm.out` showed the wrapper itself was healthy and the Python command exited immediately with status `1`;
+  - `latest_slurm.err` showed the real cause was import-time failure inside `repo/paths.py`, not FT training instability:
+    - bundled cluster Python is `3.9`;
+    - `repo/paths.py` still used runtime-evaluated `str | None` style annotations;
+    - the bundled run directory is not a git checkout, so the artifact-path resolver also needs a no-git fallback.
+- Fixed the FT formal rerun compatibility blocker in mainline code:
+  - backported `repo/paths.py` to Python `3.9`-safe typing (`Optional[...]`, `List[...]`, `Tuple[...]`);
+  - made `repo/paths.py` skip git worktree probing when `.git` metadata is absent;
+  - made the git helper suppress stderr noise and honor `REMOTE_PROJECT_ROOT` when resolving artifact roots in bundled HPC runs;
+  - rebuilt `frontend100_modern_tabular_baselines_ft_2026-04-14/` so the refreshed upload bundle now contains the fixed `repo/paths.py`.
 
 Result:
 - This file is now the single handoff entry for A-line time-ordered progress.
@@ -193,17 +204,19 @@ Result:
 - This reduces C-drive pressure without redirecting tracked mainline docs into another working tree.
 - A-line now has an explicit rule for when a task should stay local and when it should be escalated to HPC.
 - The FT formal run package is now refreshed and locally validated against the bundled `source_root` layout.
-- The current environment still cannot submit to `school-hpc` non-interactively, so actual re-submission remains a user-side action from the generated `submit_commands.txt`.
+- The first `2026-04-14` FT rerun did not fail in training; it failed before execution because the bundle still contained a Python `3.9`-incompatible `repo/paths.py`.
+- The refreshed `2026-04-14` upload bundle now matches the cluster Python requirement and should clear that immediate import-time exit.
+- The current environment still cannot submit to `school-hpc` non-interactively, so actual re-upload and re-submission remain a user-side action.
 
 Judgment:
 - From this point onward, only stable A-line nodes should be added here.
 - A-line should treat D-drive artifact routing as the default execution mode for new formal runs.
 - HPC is the default for formal heavy A-line experiments, but only after local smoke and packaging stability are both confirmed.
-- The mainline blocker is no longer the FT bundle format itself. The next blocker is simply getting the refreshed FT formal run re-submitted on the cluster.
+- The mainline blocker is no longer an unknown FT crash. The immediate blocker has been narrowed to re-uploading the refreshed `2026-04-14` bundle and checking whether the cluster then reaches real training.
 
 Next:
 - Continue the baseline-strengthening package and update this handoff after each stable A-line node.
 - Use the new default D-drive routing when promoting `FT-Transformer` from smoke to formal baseline evaluation.
 - When `FT-Transformer` formal evaluation is ready, decide explicitly whether it is still local or should go to HPC using the rule above.
-- Re-submit `frontend100_modern_tabular_baselines_ft_2026-04-13` using the refreshed bundle and inspect `latest_slurm.out` / `latest_slurm.err` directly in the remote run directory.
+- Re-upload and re-submit `frontend100_modern_tabular_baselines_ft_2026-04-14` using the refreshed bundle and inspect `latest_slurm.out` / `latest_slurm.err` directly in the remote run directory.
 - After FT formal results return, decide whether `RTDL-ResNet` still needs a formal 3-seed run or can stay at smoke status.
