@@ -22,6 +22,16 @@ REQUIRED_KEYS = {
     "token_family_id",
     "token_scale_id",
 }
+ROW_OPTIONAL_KEYS = {
+    "expression_v2_matrix",
+    "expression_v2_flat",
+}
+STATIC_OPTIONAL_KEYS = {
+    "expression_v2_channel_mask",
+    "expression_v2_family_id",
+    "expression_v2_scale_id",
+    "expression_v2_channel_names",
+}
 
 
 def load_structured_npz(path: Path) -> Dict[str, np.ndarray]:
@@ -39,6 +49,10 @@ def load_structured_npz(path: Path) -> Dict[str, np.ndarray]:
         raise RuntimeError(f"Expected token_matrix [N,20,7], got {out['token_matrix'].shape} in {path}")
     if out["token_slot_mask"].shape != (20, 7):
         raise RuntimeError(f"Expected token_slot_mask [20,7], got {out['token_slot_mask'].shape} in {path}")
+    if "expression_v2_matrix" in out and out["expression_v2_matrix"].ndim != 3:
+        raise RuntimeError(f"Expected expression_v2_matrix [N,20,5], got {out['expression_v2_matrix'].shape} in {path}")
+    if "expression_v2_flat" in out and out["expression_v2_flat"].ndim != 2:
+        raise RuntimeError(f"Expected expression_v2_flat [N,100], got {out['expression_v2_flat'].shape} in {path}")
     return out
 
 
@@ -59,6 +73,16 @@ def save_flat_outputs(base: Path, flat_features: np.ndarray) -> Dict[str, str]:
 def save_structured_output(path: Path, payload: Dict[str, np.ndarray]) -> str:
     np.savez_compressed(path, **payload)
     return str(path)
+
+
+def attach_optional_payload(src: Dict[str, np.ndarray], n_rows: int, payload: Dict[str, np.ndarray]) -> Dict[str, np.ndarray]:
+    for key in ROW_OPTIONAL_KEYS:
+        if key in src:
+            payload[key] = take_first(src[key], n_rows).copy()
+    for key in STATIC_OPTIONAL_KEYS:
+        if key in src:
+            payload[key] = src[key].copy()
+    return payload
 
 
 def stats_flat(x: np.ndarray) -> Dict[str, float]:
@@ -94,6 +118,12 @@ def main() -> None:
     for key in ["token_slot_mask", "token_family_id", "token_scale_id"]:
         if not np.array_equal(id_src[key], ood_src[key]):
             raise RuntimeError(f"Structured metadata mismatch for key={key}")
+    for key in STATIC_OPTIONAL_KEYS:
+        if key in id_src or key in ood_src:
+            if key not in id_src or key not in ood_src:
+                raise RuntimeError(f"Optional key presence mismatch for key={key}")
+            if not np.array_equal(id_src[key], ood_src[key]):
+                raise RuntimeError(f"Structured metadata mismatch for optional key={key}")
 
     id_n = min(len(id_src["flat_features"]), args.id_max_rows)
     ood_n = min(len(ood_src["flat_features"]), args.ood_max_rows)
@@ -106,6 +136,7 @@ def main() -> None:
         "token_family_id": id_src["token_family_id"].astype(np.int64),
         "token_scale_id": id_src["token_scale_id"].astype(np.int64),
     }
+    id_payload = attach_optional_payload(id_src, id_n, id_payload)
     ood_payload = {
         "flat_features": take_first(ood_src["flat_features"], ood_n).astype(np.float32),
         "family_scale_tokens": take_first(ood_src["family_scale_tokens"], ood_n).astype(np.float32),
@@ -114,6 +145,7 @@ def main() -> None:
         "token_family_id": ood_src["token_family_id"].astype(np.int64),
         "token_scale_id": ood_src["token_scale_id"].astype(np.int64),
     }
+    ood_payload = attach_optional_payload(ood_src, ood_n, ood_payload)
 
     id_structured_path = data_dir / "id_source_structured.npz"
     ood_structured_path = data_dir / "ood_benign_source_structured.npz"
@@ -121,6 +153,12 @@ def main() -> None:
     save_structured_output(ood_structured_path, ood_payload)
     id_flat_paths = save_flat_outputs(data_dir / "id_source_100", id_payload["flat_features"])
     ood_flat_paths = save_flat_outputs(data_dir / "ood_benign_source_100", ood_payload["flat_features"])
+    id_expression_v2_paths = None
+    ood_expression_v2_paths = None
+    if "expression_v2_flat" in id_payload:
+        id_expression_v2_paths = save_flat_outputs(data_dir / "id_source_expression_v2_100", id_payload["expression_v2_flat"])
+    if "expression_v2_flat" in ood_payload:
+        ood_expression_v2_paths = save_flat_outputs(data_dir / "ood_benign_source_expression_v2_100", ood_payload["expression_v2_flat"])
     schema_copy = data_dir / "structured_schema.json"
     shutil.copyfile(args.schema_json, schema_copy)
 
@@ -138,6 +176,8 @@ def main() -> None:
             "ood_structured": str(ood_structured_path),
             "id_flat": id_flat_paths,
             "ood_flat": ood_flat_paths,
+            "id_expression_v2_flat": id_expression_v2_paths,
+            "ood_expression_v2_flat": ood_expression_v2_paths,
             "schema_copy": str(schema_copy),
         },
     }
@@ -157,8 +197,19 @@ def main() -> None:
         f"- OOD structured: `{ood_structured_path}`",
         f"- ID flat csv: `{id_flat_paths['csv']}`",
         f"- OOD flat csv: `{ood_flat_paths['csv']}`",
-        f"- Schema copy: `{schema_copy}`",
     ]
+    if id_expression_v2_paths and ood_expression_v2_paths:
+        lines.extend(
+            [
+                f"- ID expression_v2 csv: `{id_expression_v2_paths['csv']}`",
+                f"- OOD expression_v2 csv: `{ood_expression_v2_paths['csv']}`",
+            ]
+        )
+    lines.extend(
+        [
+        f"- Schema copy: `{schema_copy}`",
+        ]
+    )
     (run_dir / "frontend_f2_source_summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"[done] frontend-f2 source metadata: {run_dir / 'frontend_f2_source_metadata.json'}")
 

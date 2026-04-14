@@ -4,91 +4,131 @@
 
 - 分支名：`codex/frontend-f2`
 - 目录：`worktrees/kitnet-frontend-f2`
-- 目标：为当前 stronger-OOD 异常检测项目探索“前端表达重构”路线，而不是继续只在旧 `100D` 平面表示上做后端修补。
+- 目标：为 stronger-OOD 异常检测项目探索“前端表达重构”路线，而不是继续只在旧 `100D` 平面表示上做后端修补。
 
 ## 2. 它和主线什么关系
 
 - 主线分支：`codex/exp-mainline`
-- 主线职责：维护当前论文主叙事、稳定 strongest candidate、保留已经验证过的主实验代码。
+- 主线职责：维护论文主叙事、稳定 strongest candidate、保留已验证主实验代码。
 - `frontend-f2` 职责：高风险前端重构支线。
-- 原则：`frontend-f2` 可以失败，但不能污染主线；只有明确有效的代码和结论才合并回 `codex/exp-mainline`。
+- 原则：本支线可以失败，但不能污染主线；只有明确有效的前端表达与结论才考虑回收。
 
-## 3. 当前做到哪一步
+## 3. 按时间顺序的稳定节点
 
-- 已经完成真实数据的 Frontend-F2 结构化缓存抽取：
+### 2026-04-13：F2 结构化缓存链打通
+
+- 已完成真实数据的 Frontend-F2 结构化缓存抽取：
   - ID：`7-6`
   - OOD benign：`4-1`
   - attack：`34-1`
-- 已实现第一版真实结构化 tokenizer：
-  - `repo/ood/frontend_f2_structured_tokenizer_v1.py`
-- 已实现第一版 contrast-token 前端：
-  - `repo/ood/frontend_f2_contrast_tokenizer_v1.py`
-- 已完成 smoke：
-  - `runs/frontend_f2_contrast_tokenizer_v1_smoke_2026-04-14/summary.md`
+- 结构化缓存保持对 old `100D` 的严格可逆展开：
+  - `family_scale_tokens [N,4,5,7]`
+  - `token_matrix [N,20,7]`
+  - schema / token 映射元数据
+- 这一步证明 F2 可以从真实 TSV source 重新提取，而不只是消费历史 cache。
 
-## 4. 已经失败过什么
+### 2026-04-13 到 2026-04-14：下游 token 重排线已跑过两轮
 
-- 单纯把原 `100D` 重新排成更“像 Transformer 输入”的结构，收益有限。
-- `frontend_f2_structured_tokenizer_v1` 证明真实结构化前端链路可运行，但 detection 很低：
-  - 最好大约在 `alarm ~ 0.012 / det ~ 0.20`
-- 结论：仅做“结构重排”不够，攻击信号没有被有效前置表达出来。
+- `repo/ood/frontend_f2_structured_tokenizer_v1.py`
+  - 最佳 fixed 点大约为 `alarm 0.012 / det 0.20`
+  - 结论：真实结构化前端链路可运行，但“同一 100D 的结构重排”不够。
+- `repo/ood/frontend_f2_contrast_tokenizer_v1.py`
+  - 最佳 token-MLP 点约 `alarm 0.0719 / det 0.2995`
+  - 最佳 transformer 点约 `alarm 0.1328 / det 0.2858`
+  - 结论：短时相对长时的异常增量确实带来真实信号，但提升仍不足以挑战主线或 dA。
 
-## 5. 当前最重要的实证结论
+### 2026-04-14：放弃先做 `contrast_tokenizer_v1_1`，转向 extractor-level expression_v2
 
-- `frontend_f2_contrast_tokenizer_v1` 首次把“短时相对长时的异常增量”直接做成输入 token。
-- 这条线相比前一版 structured tokenizer，已经把 detection 从约 `0.20` 拉到约 `0.30`，说明方向有真实信号。
-- 但当前结果仍不足以挑战主线或 dA：
-  - 最佳 token-MLP 点大约为 `alarm 0.0719 / det 0.2995`
-  - 最佳 transformer 点大约为 `alarm 0.1328 / det 0.2858`
-- 当前判断：
-  - 方向认可
-  - 当前实现不认可
+- 当前判断：`v1.1` 仍然只是“更高级的 old 100D 重排”，大概率不会根本改变上限。
+- 因此支线方向正式改为：**从原始 TSV source 重新提取新的 model-facing frontend expression，而不是继续在现有 structured cache 上小修小补。**
 
-## 6. 下一步打算做什么
+### 2026-04-14：expression_v2 提取协议已实现并落地到真实数据
 
-- 优先做 `frontend_f2_contrast_tokenizer_v1_1`
-- 核心不是继续美化旧 `100D`，而是进一步强化真正有物理意义的前端增量信号。
-- 下一步重点：
-  - 更强调 `delta_global` 和 `delta_mid`
-  - 弱化或移除容易稀释边界的 `abs_short`
-  - 保留 `HH/HpHp` 的 family focus 先验
-  - 保持最小变量控制，不同时大改模型和 scorer
+- 修改了 `repo/ood/kitsune_frontend_original_extract.py`
+- 在保留 old `flat100` 和 old structured cache 的同时，新增 extractor-level `expression_v2`：
+  - `expression_v2_matrix [N,20,5]`
+  - `expression_v2_flat [N,100]`
+  - `expression_v2_channel_mask [20,5]`
+  - `expression_v2_channel_names`
+- 当前 `expression_v2` 的 5 个通道是：
+  - `level_mean_slog`
+  - `level_rms_slog`
+  - `delta_short_mean_slog`
+  - `delta_mid_mean_slog`
+  - `delta_global_mean_slog`
+- 其中 `slog = sign(x) * log1p(abs(x))`，目的是在 extractor 端先做幅值压缩，避免原始槽位动态范围过大。
 
-## 7. 必看的文件列表
+### 2026-04-14：expression_v2 的真实 source bundle 已打通
 
-- 总实验地图：
-  - `runs/master_experiment_map_v1.md`
-- F2 设计说明：
+- 新提取完成：
+  - `runs/frontend_f2_expression_v2_extract_id_7_6_2026-04-14/`
+  - `runs/frontend_f2_expression_v2_extract_ood_4_1_2026-04-14/`
+  - `runs/frontend_f2_expression_v2_extract_attack_34_1_2026-04-14/`
+- 新 source-prep 完成：
+  - `runs/frontend_f2_expression_v2_crosscapture_stage1_2026-04-14/`
+  - `runs/frontend_f2_expression_v2_attack_source_2026-04-14/`
+- 这说明本支线已经具备了“从真实 source 重提取 -> 生成新表达 -> 生成新 source bundle”的完整闭环。
+
+### 2026-04-14：expression_v2 第一轮 tokenizer smoke 已完成
+
+- 新脚本：
+  - `repo/ood/frontend_f2_expression_v2_tokenizer_v1.py`
+- run：
+  - `runs/frontend_f2_expression_v2_tokenizer_v1_smoke_2026-04-14/`
+- 结果很差，尚未形成可用 detector：
+  - token-MLP 看起来几乎“全报”：
+    - 最好 detection 接近 `1.0`
+    - 但 OOD alarm 也接近 `0.96 ~ 0.99`
+    - AUC 约 `0.49 ~ 0.54`
+  - transformer 看起来则是“信息塌掉”：
+    - `alarm 0.306 ~ 0.394`
+    - `det 0.089 ~ 0.123`
+    - AUC 约 `0.18 ~ 0.21`
+- 当前结论：**expression_v2-v1 作为 extractor-level 新表达是机械可行的，但当前 `20x5` 通道设计并不是有效的检测表达。**
+
+## 4. 当前最关键的失败点
+
+- 失败点 1：只做 old `100D` 的更复杂重排，收益已经接近上限。
+- 失败点 2：第一版 extractor-level `expression_v2` 压缩得过猛，当前 5 通道设计把本该保留的判别结构压坏了。
+- 失败点 3：`expression_v2_tokenizer_v1` 的 fixed 结果显示：
+  - token-MLP 学到的是“把 benign OOD 和 attack 一起推高”，不是有效分离；
+  - transformer 学到的则像是“整体过平”，连攻击响应都被削弱了。
+
+## 5. 当前结论
+
+- 本支线现在已经不再只是做“高级 100D 重排”。
+- 我们已经把分支推进到了真正的 extractor-level 新表达实验：
+  - 输入来自真实 TSV source
+  - 新表达在提取阶段直接生成
+  - 新 source bundle 与新 tokenizer smoke 都已跑通
+- 但第一个真实新表达 `expression_v2-v1` 已经证明：**“改前端提取表达”这个方向是对的，但当前这套 20x5 通道定义还不对。**
+
+## 6. 下一步最合理的计划
+
+- 暂时不要上超算，不做多 seed，不做 sweep。
+- 先在本地做 `expression_v2` 的失败归因，而不是盲开 `v2.1`。
+- 下一步最合理的是：
+  - 检查 `expression_v2` 5 个通道在 ID / OOD / attack 上的分布和可分性；
+  - 检查是哪些 family / scale / channel 在把 benign OOD 和 attack 一起推高；
+  - 基于分布再决定 `expression_v2.1` 是否要：
+    - 减少均值型压缩，保留更多 raw-slot 结构；
+    - 拆分 level 与 contrast 分支，而不是都压成 5 个标量；
+    - 对 `HH/HpHp` 与短尺度保留更高分辨率，而不是对 20 个 token 一刀切压缩。
+
+## 7. 当前最重要的文件
+
+- 设计与 handoff：
   - `runs/prism_handoffs/2026-04-13/frontend_f2_controlled_redesign_spec_2026-04-13.md`
-- 当前 smoke 结果：
-  - `runs/frontend_f2_contrast_tokenizer_v1_smoke_2026-04-14/summary.md`
-- 当前核心代码：
-  - `repo/ood/frontend_f2_contrast_tokenizer_v1.py`
-  - `repo/ood/frontend_f2_structured_tokenizer_v1.py`
+  - `runs/prism_handoffs/2026-04-14/frontend_f2_branch_handoff.md`
+- extractor / source prep：
+  - `repo/ood/kitsune_frontend_original_extract.py`
   - `repo/ood/prepare_frontend_f2_crosscapture_sources.py`
   - `repo/ood/prepare_frontend_f2_attack_source.py`
-  - `repo/ood/kitsune_frontend_original_extract.py`
-
-## 8. 新对话开场建议
-
-把下面这段直接发给新对话：
-
-```text
-这个对话绑定的是 `codex/frontend-f2` worktree，请先理解背景，不要立刻改代码。
-
-先读：
-1. runs/prism_handoffs/2026-04-14/frontend_f2_branch_handoff.md
-2. runs/master_experiment_map_v1.md
-3. runs/prism_handoffs/2026-04-13/frontend_f2_controlled_redesign_spec_2026-04-13.md
-4. runs/frontend_f2_contrast_tokenizer_v1_smoke_2026-04-14/summary.md
-5. repo/ood/frontend_f2_contrast_tokenizer_v1.py
-
-先用 5-10 条总结：
-- 这条分支的目标
-- 它和主线的关系
-- 当前最强 smoke 结果
-- 当前最关键的瓶颈
-- 下一步最合理的 v1.1 改动
-
-总结后再等我给具体任务。
-```
+- 下游实验代码：
+  - `repo/ood/frontend_f2_structured_tokenizer_v1.py`
+  - `repo/ood/frontend_f2_contrast_tokenizer_v1.py`
+  - `repo/ood/frontend_f2_expression_v2_tokenizer_v1.py`
+- 当前关键 run：
+  - `runs/frontend_f2_expression_v2_crosscapture_stage1_2026-04-14/`
+  - `runs/frontend_f2_expression_v2_attack_source_2026-04-14/`
+  - `runs/frontend_f2_expression_v2_tokenizer_v1_smoke_2026-04-14/`

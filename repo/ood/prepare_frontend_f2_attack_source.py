@@ -18,6 +18,16 @@ REQUIRED_KEYS = {
     "token_family_id",
     "token_scale_id",
 }
+ROW_OPTIONAL_KEYS = {
+    "expression_v2_matrix",
+    "expression_v2_flat",
+}
+STATIC_OPTIONAL_KEYS = {
+    "expression_v2_channel_mask",
+    "expression_v2_family_id",
+    "expression_v2_scale_id",
+    "expression_v2_channel_names",
+}
 
 
 def load_structured_npz(path: Path) -> Dict[str, np.ndarray]:
@@ -31,6 +41,16 @@ def load_structured_npz(path: Path) -> Dict[str, np.ndarray]:
 
 def take_first(x: np.ndarray, n: int) -> np.ndarray:
     return x[: min(len(x), n)].copy()
+
+
+def attach_optional_payload(src: Dict[str, np.ndarray], n_rows: int, payload: Dict[str, np.ndarray]) -> Dict[str, np.ndarray]:
+    for key in ROW_OPTIONAL_KEYS:
+        if key in src:
+            payload[key] = take_first(src[key], n_rows).copy()
+    for key in STATIC_OPTIONAL_KEYS:
+        if key in src:
+            payload[key] = src[key].copy()
+    return payload
 
 
 def stats_flat(x: np.ndarray) -> Dict[str, float]:
@@ -68,6 +88,7 @@ def main() -> None:
         "token_family_id": attack["token_family_id"].astype(np.int64),
         "token_scale_id": attack["token_scale_id"].astype(np.int64),
     }
+    payload = attach_optional_payload(attack, use_first_n, payload)
 
     structured_path = data_dir / "attack_source_structured.npz"
     np.savez_compressed(structured_path, **payload)
@@ -75,6 +96,13 @@ def main() -> None:
     flat_csv = data_dir / "attack_source_100.csv"
     np.save(flat_npy, payload["flat_features"])
     pd.DataFrame(payload["flat_features"]).to_csv(flat_csv, header=False, index=False)
+    expression_v2_npy = None
+    expression_v2_csv = None
+    if "expression_v2_flat" in payload:
+        expression_v2_npy = data_dir / "attack_source_expression_v2_100.npy"
+        expression_v2_csv = data_dir / "attack_source_expression_v2_100.csv"
+        np.save(expression_v2_npy, payload["expression_v2_flat"])
+        pd.DataFrame(payload["expression_v2_flat"]).to_csv(expression_v2_csv, header=False, index=False)
 
     metadata = {
         "created_at": datetime.now().isoformat(timespec="seconds"),
@@ -86,6 +114,8 @@ def main() -> None:
             "attack_structured": str(structured_path),
             "attack_flat_npy": str(flat_npy),
             "attack_flat_csv": str(flat_csv),
+            "attack_expression_v2_npy": str(expression_v2_npy) if expression_v2_npy else None,
+            "attack_expression_v2_csv": str(expression_v2_csv) if expression_v2_csv else None,
         },
     }
     (run_dir / "frontend_f2_attack_source_metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -102,6 +132,8 @@ def main() -> None:
         f"- Attack structured: `{structured_path}`",
         f"- Attack flat csv: `{flat_csv}`",
     ]
+    if expression_v2_csv is not None:
+        lines.append(f"- Attack expression_v2 csv: `{expression_v2_csv}`")
     (run_dir / "frontend_f2_attack_source_summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"[done] frontend-f2 attack metadata: {run_dir / 'frontend_f2_attack_source_metadata.json'}")
 

@@ -22,6 +22,13 @@ from paths import ROOT_DIR
 FAMILY_ORDER = ["MI_dir", "HH", "HH_jit", "HpHp"]
 SCALE_ORDER = ["5", "3", "1", "0.1", "0.01"]
 STAT_SLOT_ORDER = ["weight", "mean", "std", "radius", "magnitude", "covariance", "pcc"]
+EXPRESSION_V2_CHANNEL_ORDER = [
+    "level_mean_slog",
+    "level_rms_slog",
+    "delta_short_mean_slog",
+    "delta_mid_mean_slog",
+    "delta_global_mean_slog",
+]
 FAMILY_PREFIXES = sorted(FAMILY_ORDER, key=len, reverse=True)
 
 
@@ -160,12 +167,15 @@ def build_feature_schema(headers: list[str]) -> dict:
         "families": FAMILY_ORDER,
         "scales": SCALE_ORDER,
         "stat_slots": STAT_SLOT_ORDER,
+        "expression_v2_channels": EXPRESSION_V2_CHANNEL_ORDER,
         "header_mappings": header_mappings,
         "token_definitions": token_defs,
         "family_major_token_order": [t["token_name"] for t in token_defs],
         "structured_shapes": {
             "family_scale_tokens": [len(FAMILY_ORDER), len(SCALE_ORDER), len(STAT_SLOT_ORDER)],
             "token_matrix": [len(token_defs), len(STAT_SLOT_ORDER)],
+            "expression_v2_matrix": [len(token_defs), len(EXPRESSION_V2_CHANNEL_ORDER)],
+            "expression_v2_flat": [len(token_defs) * len(EXPRESSION_V2_CHANNEL_ORDER)],
         },
     }
     return schema
@@ -208,16 +218,85 @@ def build_structured_feature_views(arr: np.ndarray, schema: dict) -> dict:
     }
 
 
+def signed_log1p(x: np.ndarray) -> np.ndarray:
+    return np.sign(x) * np.log1p(np.abs(x))
+
+
+def masked_mean(x: np.ndarray, mask: np.ndarray) -> np.ndarray:
+    denom = max(float(np.sum(mask)), 1.0)
+    return (x * mask.reshape(1, -1)).sum(axis=1) / denom
+
+
+def masked_rms(x: np.ndarray, mask: np.ndarray) -> np.ndarray:
+    denom = max(float(np.sum(mask)), 1.0)
+    return np.sqrt(np.clip((x * x * mask.reshape(1, -1)).sum(axis=1) / denom, a_min=1e-12, a_max=None))
+
+
+def build_expression_v2_views(views: dict, schema: dict) -> dict:
+    family_scale_tokens = views["family_scale_tokens"].astype(np.float32)
+    token_family_id = views["token_family_id"].astype(np.int64)
+    token_scale_id = views["token_scale_id"].astype(np.int64)
+    token_slot_mask = views["token_slot_mask"].astype(np.float32)
+
+    n = family_scale_tokens.shape[0]
+    expression_v2_matrix = np.zeros(
+        (n, len(schema["token_definitions"]), len(EXPRESSION_V2_CHANNEL_ORDER)),
+        dtype=np.float32,
+    )
+    expression_v2_channel_mask = np.ones(
+        (len(schema["token_definitions"]), len(EXPRESSION_V2_CHANNEL_ORDER)),
+        dtype=np.float32,
+    )
+
+    slog = signed_log1p(family_scale_tokens)
+    short_ref = 0.5 * (slog[:, :, 3, :] + slog[:, :, 4, :])
+    mid_ref = slog[:, :, 2, :]
+    long_ref = np.mean(slog[:, :, :3, :], axis=2)
+
+    for token in schema["token_definitions"]:
+        token_id = int(token["token_id"])
+        family_id = int(token["family_id"])
+        scale_id = int(token["scale_id"])
+        slot_mask = token_slot_mask[token_id].astype(np.float32)
+        current = slog[:, family_id, scale_id, :]
+
+        expression_v2_matrix[:, token_id, 0] = masked_mean(current, slot_mask)
+        expression_v2_matrix[:, token_id, 1] = masked_rms(current, slot_mask)
+        expression_v2_matrix[:, token_id, 2] = masked_mean(current - short_ref[:, family_id, :], slot_mask)
+        expression_v2_matrix[:, token_id, 3] = masked_mean(current - mid_ref[:, family_id, :], slot_mask)
+        expression_v2_matrix[:, token_id, 4] = masked_mean(current - long_ref[:, family_id, :], slot_mask)
+
+    return {
+        "expression_v2_matrix": expression_v2_matrix,
+        "expression_v2_flat": expression_v2_matrix.reshape(n, -1).astype(np.float32),
+        "expression_v2_channel_mask": expression_v2_channel_mask,
+        "expression_v2_family_id": token_family_id,
+        "expression_v2_scale_id": token_scale_id,
+        "expression_v2_channel_names": np.asarray(EXPRESSION_V2_CHANNEL_ORDER, dtype="<U32"),
+    }
+
+
 def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dict:
     recon = np.zeros_like(arr, dtype=np.float32)
     for item in schema["header_mappings"]:
         recon[:, int(item["flat_index"])] = views["token_matrix"][:, int(item["token_id"]), int(item["stat_slot_id"])]
     max_abs_diff = float(np.max(np.abs(recon - arr.astype(np.float32)))) if arr.size else 0.0
+    expr = views.get("expression_v2_matrix")
+    expr_nonfinite = 0
+    expr_shape = None
+    expr_flat_shape = None
+    if expr is not None:
+        expr_nonfinite = int(np.size(expr) - int(np.isfinite(expr).sum()))
+        expr_shape = list(expr.shape)
+        expr_flat_shape = list(views["expression_v2_flat"].shape)
     return {
         "flat_reconstruction_max_abs_diff": max_abs_diff,
         "flat_reconstruction_exact": bool(max_abs_diff == 0.0),
         "structured_family_scale_shape": list(views["family_scale_tokens"].shape),
         "structured_token_matrix_shape": list(views["token_matrix"].shape),
+        "expression_v2_shape": expr_shape,
+        "expression_v2_flat_shape": expr_flat_shape,
+        "expression_v2_nonfinite_count": expr_nonfinite,
     }
 
 
@@ -232,6 +311,12 @@ def save_structured_cache(run_dir: Path, base_stem: str, views: dict, schema: di
         token_slot_mask=views["token_slot_mask"],
         token_family_id=views["token_family_id"],
         token_scale_id=views["token_scale_id"],
+        expression_v2_matrix=views["expression_v2_matrix"],
+        expression_v2_flat=views["expression_v2_flat"],
+        expression_v2_channel_mask=views["expression_v2_channel_mask"],
+        expression_v2_family_id=views["expression_v2_family_id"],
+        expression_v2_scale_id=views["expression_v2_scale_id"],
+        expression_v2_channel_names=views["expression_v2_channel_names"],
     )
     structured_schema_path.write_text(json.dumps(schema, indent=2, ensure_ascii=False), encoding="utf-8")
     return {
@@ -425,6 +510,7 @@ def main() -> None:
     if args.emit_structured_cache and features.size:
         schema = build_feature_schema(headers)
         views = build_structured_feature_views(features, schema)
+        views.update(build_expression_v2_views(views, schema))
         structured_validation = validate_structured_views(features, schema, views)
         structured_outputs = save_structured_cache(run_dir, base_stem, views, schema)
 
@@ -470,6 +556,9 @@ def main() -> None:
         summary.append(f"- Flat reconstruction max abs diff: {structured_validation['flat_reconstruction_max_abs_diff']:.8f}")
         summary.append(f"- family_scale_tokens shape: {structured_validation['structured_family_scale_shape']}")
         summary.append(f"- token_matrix shape: {structured_validation['structured_token_matrix_shape']}")
+        summary.append(f"- expression_v2_matrix shape: {structured_validation['expression_v2_shape']}")
+        summary.append(f"- expression_v2_flat shape: {structured_validation['expression_v2_flat_shape']}")
+        summary.append(f"- expression_v2 non-finite count: {structured_validation['expression_v2_nonfinite_count']}")
     (run_dir / "summary_extract.md").write_text("\n".join(summary) + "\n", encoding="utf-8")
 
     print(f"[done] run dir: {run_dir}")
