@@ -180,6 +180,9 @@ What was done:
 - Fixed the FT HPC logging protocol:
   - job stdout/stderr is now mirrored into both `slurm-<jobid>.out/.err` and `stdout.log/stderr.log`;
   - submit commands now create `latest_slurm.out`, `latest_slurm.err`, and `last_job_id.txt` in the run directory so status can be opened directly in the remote file tree without running `tail -f`.
+- Fixed the Windows PowerShell submit command issue:
+  - the generated SSH submit sequence is now PowerShell-safe and no longer uses a local double-quoted `JOB_ID=$(...)` pattern that gets expanded on Windows before reaching the remote shell;
+  - bundle pull-back is explicitly separated from submission and should only be run after the remote job has finished and the package file exists.
 
 Result:
 - This file is now the single handoff entry for A-line time-ordered progress.

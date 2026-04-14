@@ -289,22 +289,27 @@ exit $CMD_STATUS
 
 def write_submit_commands(run_dir: Path, args: argparse.Namespace, bundle_name: str) -> None:
     remote_run_dir = f"{args.remote_project_root}/runs/{args.run_tag}"
+    submit_remote = (
+        f"cd {remote_run_dir} && "
+        f'JOB_ID=$(REMOTE_PROJECT_ROOT={args.remote_project_root} '
+        f'SOURCE_ROOT={remote_run_dir}/source_root '
+        f'PYTHON_BIN={args.python_bin} '
+        f'sbatch job.slurm | awk "{{print \\$4}}") && '
+        f'echo $JOB_ID > last_job_id.txt && '
+        f'ln -sfn slurm-$JOB_ID.out latest_slurm.out && '
+        f'ln -sfn slurm-$JOB_ID.err latest_slurm.err && '
+        f'echo submitted_job_id=$JOB_ID && '
+        f'echo watch_out={remote_run_dir}/latest_slurm.out && '
+        f'echo watch_err={remote_run_dir}/latest_slurm.err'
+    )
     submit = [
-        f'ssh {args.remote_host} "mkdir -p {args.remote_project_root}"',
+        "# PowerShell-safe submit sequence",
+        f"ssh {args.remote_host} 'mkdir -p {args.remote_project_root}'",
         f'scp "{run_dir / bundle_name}" {args.remote_host}:{args.remote_project_root}/',
-        f'ssh {args.remote_host} "cd {args.remote_project_root} && tar -xzf {bundle_name}"',
-        (
-            f'ssh {args.remote_host} "cd {remote_run_dir} && '
-            f'JOB_ID=$(REMOTE_PROJECT_ROOT={args.remote_project_root} SOURCE_ROOT={remote_run_dir}/source_root '
-            f'PYTHON_BIN={args.python_bin} sbatch job.slurm | awk \'{{print $4}}\') && '
-            f'echo $JOB_ID > last_job_id.txt && '
-            f'ln -sfn slurm-$JOB_ID.out latest_slurm.out && '
-            f'ln -sfn slurm-$JOB_ID.err latest_slurm.err && '
-            f'echo submitted_job_id=$JOB_ID && '
-            f'echo watch_out={remote_run_dir}/latest_slurm.out && '
-            f'echo watch_err={remote_run_dir}/latest_slurm.err"'
-        ),
-        f'ssh {args.remote_host} "cd {remote_run_dir} && ls -l latest_slurm.out latest_slurm.err last_job_id.txt"',
+        f"ssh {args.remote_host} 'cd {args.remote_project_root} && tar -xzf {bundle_name}'",
+        f"ssh {args.remote_host} '{submit_remote}'",
+        f"ssh {args.remote_host} 'cd {remote_run_dir} && ls -l latest_slurm.out latest_slurm.err last_job_id.txt'",
+        "# Run the next command only after latest_slurm.out / latest_slurm.err shows the job has finished and the bundle exists.",
         f'scp {args.remote_host}:{remote_run_dir}/package/{args.run_tag}_bundle.tar.gz "{run_dir / f"{args.run_tag}_bundle.tar.gz"}"',
     ]
     write_text(run_dir / "submit_commands.txt", "\n".join(submit) + "\n")
