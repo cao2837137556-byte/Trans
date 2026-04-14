@@ -183,6 +183,9 @@ What was done:
 - Fixed the Windows PowerShell submit command issue:
   - the generated SSH submit sequence is now PowerShell-safe and no longer uses a local double-quoted `JOB_ID=$(...)` pattern that gets expanded on Windows before reaching the remote shell;
   - bundle pull-back is explicitly separated from submission and should only be run after the remote job has finished and the package file exists.
+- Reset the FT formal rerun onto a fresh date-stamped run tag:
+  - `frontend100_modern_tabular_baselines_ft_2026-04-13` remains the failed earlier attempt;
+  - the corrected formal rerun package is now prepared under `frontend100_modern_tabular_baselines_ft_2026-04-14`.
 
 Result:
 - This file is now the single handoff entry for A-line time-ordered progress.

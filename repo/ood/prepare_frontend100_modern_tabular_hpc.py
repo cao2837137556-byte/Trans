@@ -34,7 +34,7 @@ def run_git(*args: str) -> str:
 
 def write_text(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(text, encoding="utf-8")
+    path.write_text(text, encoding="utf-8", newline="\n")
 
 
 def copy_file(src: Path, dst: Path) -> None:
@@ -291,13 +291,15 @@ def write_submit_commands(run_dir: Path, args: argparse.Namespace, bundle_name: 
     remote_run_dir = f"{args.remote_project_root}/runs/{args.run_tag}"
     submit_remote = (
         f"cd {remote_run_dir} && "
-        f'JOB_ID=$(REMOTE_PROJECT_ROOT={args.remote_project_root} '
+        f'SUBMIT_MSG=$(REMOTE_PROJECT_ROOT={args.remote_project_root} '
         f'SOURCE_ROOT={remote_run_dir}/source_root '
         f'PYTHON_BIN={args.python_bin} '
-        f'sbatch job.slurm | awk "{{print \\$4}}") && '
+        f'sbatch job.slurm) && '
+        f'JOB_ID=${{SUBMIT_MSG##* }} && '
         f'echo $JOB_ID > last_job_id.txt && '
         f'ln -sfn slurm-$JOB_ID.out latest_slurm.out && '
         f'ln -sfn slurm-$JOB_ID.err latest_slurm.err && '
+        f'echo submit_message=$SUBMIT_MSG && '
         f'echo submitted_job_id=$JOB_ID && '
         f'echo watch_out={remote_run_dir}/latest_slurm.out && '
         f'echo watch_err={remote_run_dir}/latest_slurm.err'
