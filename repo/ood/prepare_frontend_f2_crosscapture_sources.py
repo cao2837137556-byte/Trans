@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import shutil
+import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Dict
@@ -12,6 +13,10 @@ import pandas as pd
 
 REPO_DIR = Path(__file__).resolve().parents[1]
 ROOT_DIR = REPO_DIR.parent
+THIS_DIR = Path(__file__).resolve().parent
+if str(THIS_DIR) not in sys.path:
+    sys.path.insert(0, str(THIS_DIR))
+from kitsune_frontend_original_extract import compute_expression_v3
 
 
 REQUIRED_KEYS = {
@@ -159,6 +164,23 @@ def main() -> None:
         id_expression_v2_paths = save_flat_outputs(data_dir / "id_source_expression_v2_100", id_payload["expression_v2_flat"])
     if "expression_v2_flat" in ood_payload:
         ood_expression_v2_paths = save_flat_outputs(data_dir / "ood_benign_source_expression_v2_100", ood_payload["expression_v2_flat"])
+
+    # expression_v3：从 npz 读取或即时计算
+    if "expression_v3_matrix" in id_src:
+        id_v3   = take_first(id_src["expression_v3_matrix"], id_n).astype(np.float32)
+    else:
+        id_v3   = compute_expression_v3(id_payload["family_scale_tokens"])
+    if "expression_v3_matrix" in ood_src:
+        ood_v3  = take_first(ood_src["expression_v3_matrix"], ood_n).astype(np.float32)
+    else:
+        ood_v3  = compute_expression_v3(ood_payload["family_scale_tokens"])
+    id_v3_flat  = id_v3.reshape(len(id_v3),   -1).astype(np.float32)   # [N,160]
+    ood_v3_flat = ood_v3.reshape(len(ood_v3), -1).astype(np.float32)
+    np.save(data_dir / "id_source_expression_v3_160.npy",       id_v3_flat)
+    np.save(data_dir / "ood_benign_source_expression_v3_160.npy", ood_v3_flat)
+    np.save(data_dir / "id_source_expression_v3_matrix.npy",    id_v3)
+    np.save(data_dir / "ood_benign_source_expression_v3_matrix.npy", ood_v3)
+
     schema_copy = data_dir / "structured_schema.json"
     shutil.copyfile(args.schema_json, schema_copy)
 
@@ -178,6 +200,10 @@ def main() -> None:
             "ood_flat": ood_flat_paths,
             "id_expression_v2_flat": id_expression_v2_paths,
             "ood_expression_v2_flat": ood_expression_v2_paths,
+            "id_expression_v3_matrix": str(data_dir / "id_source_expression_v3_matrix.npy"),
+            "ood_expression_v3_matrix": str(data_dir / "ood_benign_source_expression_v3_matrix.npy"),
+            "id_expression_v3_160": str(data_dir / "id_source_expression_v3_160.npy"),
+            "ood_expression_v3_160": str(data_dir / "ood_benign_source_expression_v3_160.npy"),
             "schema_copy": str(schema_copy),
         },
     }

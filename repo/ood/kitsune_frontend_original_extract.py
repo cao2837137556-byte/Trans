@@ -276,6 +276,90 @@ def build_expression_v2_views(views: dict, schema: dict) -> dict:
     }
 
 
+def compute_expression_v3(family_scale_tokens: np.ndarray) -> np.ndarray:
+    """
+    输入:  family_scale_tokens  np.ndarray [N, 4, 5, 7]  float32
+    输出:  expression_v3_matrix np.ndarray [N, 20, 8]     float32
+           （20 = 4 families × 5 scales，展开顺序 row-major）
+
+    实际 slot 映射（STAT_SLOT_ORDER = ["weight","mean","std","radius","magnitude","covariance","pcc"]）：
+        slot 0 = weight  （packet count，规格书称 "number"）
+        slot 1 = mean
+        slot 2 = std     （规格书称 "variance"，实际是 std；ch1 = slog(std)，ch2 = std/(|mean|+eps)）
+        slot 5 = covariance
+        slot 6 = pcc
+
+    8 个通道定义：
+        ch0: mean_slog          — slog(mean)
+        ch1: std_slog           — slog(std)
+        ch2: dispersion         — std / (|mean| + 1e-6)，变异系数 CV
+        ch3: number_log         — log1p(clip(weight, 0))
+        ch4: cov_sign           — slog(covariance)
+        ch5: pcc                — 直接保留 pcc（已在 [-1,1]）
+        ch6: burst_ratio        — slog(mean_0.01s) / (|slog(mean_5s)| + 1e-6)，
+                                  按 family 计算，广播到该 family 全部 5 个 scale
+        ch7: dispersion_delta   — dispersion(0.01s) - dispersion(5s)，
+                                  按 family 计算，广播到该 family 全部 5 个 scale
+
+    slog(x) = sign(x) * log1p(|x|)
+    """
+    EPS = 1e-6
+    N = family_scale_tokens.shape[0]
+
+    def slog(x: np.ndarray) -> np.ndarray:
+        return np.sign(x) * np.log1p(np.abs(x))
+
+    # slot 提取（使用实际 STAT_SLOT_ORDER 索引）
+    num  = family_scale_tokens[:, :, :, 0].astype(np.float32)  # weight/count [N,4,5]
+    mean = family_scale_tokens[:, :, :, 1].astype(np.float32)  # mean         [N,4,5]
+    std  = family_scale_tokens[:, :, :, 2].astype(np.float32)  # std          [N,4,5]
+    cov  = family_scale_tokens[:, :, :, 5].astype(np.float32)  # covariance   [N,4,5]
+    pcc  = family_scale_tokens[:, :, :, 6].astype(np.float32)  # pcc          [N,4,5]
+
+    # ch0~ch5：per-token（每个 family-scale 独立）
+    ch0 = slog(mean)                                  # [N,4,5]
+    ch1 = slog(std)                                   # [N,4,5]
+    ch2 = slog(std / (np.abs(mean) + EPS))            # slog(dispersion)：CV 可达数百，需压缩
+    ch3 = np.log1p(np.clip(num, 0.0, None))           # number_log
+    ch4 = slog(cov)                                   # cov_sign
+    ch5 = slog(pcc)                                   # slog(pcc)：Kitsune pcc 非 [-1,1]，需压缩
+
+    # ch6：burst_ratio，per-family → broadcast [N,4] → [N,4,5]
+    mean_long  = slog(mean[:, :, 0])  # scale=5s    [N,4]
+    mean_short = slog(mean[:, :, 4])  # scale=0.01s [N,4]
+    burst = mean_short / (np.abs(mean_long) + EPS)       # [N,4]
+    ch6 = np.broadcast_to(burst[:, :, np.newaxis], (N, 4, 5)).copy()  # [N,4,5]
+
+    # ch7：dispersion_delta_slog，per-family → broadcast [N,4] → [N,4,5]
+    # 先分别 slog(CV)，再做差，避免原始 CV 数百级别的差值爆炸
+    disp_long  = slog(std[:, :, 0] / (np.abs(mean[:, :, 0]) + EPS))  # [N,4]
+    disp_short = slog(std[:, :, 4] / (np.abs(mean[:, :, 4]) + EPS))
+    ddelta = disp_short - disp_long                                    # [N,4]
+    ch7 = np.broadcast_to(ddelta[:, :, np.newaxis], (N, 4, 5)).copy()  # [N,4,5]
+
+    # 拼接 [N,4,5,8]
+    matrix_4d = np.stack([ch0, ch1, ch2, ch3, ch4, ch5, ch6, ch7], axis=-1)
+
+    # 展开成 [N,20,8]（row-major: family 外层，scale 内层）
+    expression_v3_matrix = matrix_4d.reshape(N, 20, 8).astype(np.float32)
+
+    # 验证 non-finite
+    n_bad = int((~np.isfinite(expression_v3_matrix)).sum())
+    if n_bad > 0:
+        print(f"[WARNING] expression_v3 non-finite count = {n_bad}，强制置 0")
+        expression_v3_matrix = np.where(
+            np.isfinite(expression_v3_matrix), expression_v3_matrix, 0.0
+        ).astype(np.float32)
+
+    return expression_v3_matrix
+
+
+EXPRESSION_V3_CHANNEL_NAMES = [
+    "mean_slog", "std_slog", "dispersion_slog", "number_log",
+    "cov_sign", "pcc_slog", "burst_ratio", "dispersion_delta_slog",
+]
+
+
 def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dict:
     recon = np.zeros_like(arr, dtype=np.float32)
     for item in schema["header_mappings"]:
@@ -303,8 +387,7 @@ def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dic
 def save_structured_cache(run_dir: Path, base_stem: str, views: dict, schema: dict) -> dict:
     structured_npz_path = run_dir / f"{base_stem}_structured.npz"
     structured_schema_path = run_dir / f"{base_stem}_structured_schema.json"
-    np.savez_compressed(
-        structured_npz_path,
+    save_kwargs: dict = dict(
         flat_features=views["flat_features"],
         family_scale_tokens=views["family_scale_tokens"],
         token_matrix=views["token_matrix"],
@@ -318,6 +401,12 @@ def save_structured_cache(run_dir: Path, base_stem: str, views: dict, schema: di
         expression_v2_scale_id=views["expression_v2_scale_id"],
         expression_v2_channel_names=views["expression_v2_channel_names"],
     )
+    # expression_v3（追加，向后兼容）
+    if "expression_v3_matrix" in views:
+        save_kwargs["expression_v3_matrix"] = views["expression_v3_matrix"]
+        save_kwargs["expression_v3_flat"] = views["expression_v3_flat"]
+        save_kwargs["expression_v3_channel_names"] = views["expression_v3_channel_names"]
+    np.savez_compressed(structured_npz_path, **save_kwargs)
     structured_schema_path.write_text(json.dumps(schema, indent=2, ensure_ascii=False), encoding="utf-8")
     return {
         "structured_npz_path": str(structured_npz_path),
@@ -511,6 +600,11 @@ def main() -> None:
         schema = build_feature_schema(headers)
         views = build_structured_feature_views(features, schema)
         views.update(build_expression_v2_views(views, schema))
+        # expression_v3（新增，追加到 views）
+        v3_matrix = compute_expression_v3(views["family_scale_tokens"])
+        views["expression_v3_matrix"] = v3_matrix
+        views["expression_v3_flat"] = v3_matrix.reshape(len(v3_matrix), -1)  # [N,160]
+        views["expression_v3_channel_names"] = np.asarray(EXPRESSION_V3_CHANNEL_NAMES, dtype="<U32")
         structured_validation = validate_structured_views(features, schema, views)
         structured_outputs = save_structured_cache(run_dir, base_stem, views, schema)
 

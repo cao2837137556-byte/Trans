@@ -2,12 +2,18 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Dict
 
 import numpy as np
 import pandas as pd
+
+THIS_DIR = Path(__file__).resolve().parent
+if str(THIS_DIR) not in sys.path:
+    sys.path.insert(0, str(THIS_DIR))
+from kitsune_frontend_original_extract import compute_expression_v3
 
 
 REQUIRED_KEYS = {
@@ -104,6 +110,15 @@ def main() -> None:
         np.save(expression_v2_npy, payload["expression_v2_flat"])
         pd.DataFrame(payload["expression_v2_flat"]).to_csv(expression_v2_csv, header=False, index=False)
 
+    # expression_v3：从 npz 读取或即时计算
+    if "expression_v3_matrix" in attack:
+        atk_v3 = take_first(attack["expression_v3_matrix"], use_first_n).astype(np.float32)
+    else:
+        atk_v3 = compute_expression_v3(payload["family_scale_tokens"])
+    atk_v3_flat = atk_v3.reshape(len(atk_v3), -1).astype(np.float32)  # [N,160]
+    np.save(data_dir / "attack_source_expression_v3_160.npy",   atk_v3_flat)
+    np.save(data_dir / "attack_source_expression_v3_matrix.npy", atk_v3)
+
     metadata = {
         "created_at": datetime.now().isoformat(timespec="seconds"),
         "attack_structured_npy": str(args.attack_structured_npz),
@@ -116,6 +131,8 @@ def main() -> None:
             "attack_flat_csv": str(flat_csv),
             "attack_expression_v2_npy": str(expression_v2_npy) if expression_v2_npy else None,
             "attack_expression_v2_csv": str(expression_v2_csv) if expression_v2_csv else None,
+            "attack_expression_v3_matrix": str(data_dir / "attack_source_expression_v3_matrix.npy"),
+            "attack_expression_v3_160": str(data_dir / "attack_source_expression_v3_160.npy"),
         },
     }
     (run_dir / "frontend_f2_attack_source_metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
