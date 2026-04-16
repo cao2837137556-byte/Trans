@@ -241,6 +241,100 @@ def aggregate_scores(
 
 
 # ---------------------------------------------------------------------------
+# Calibration
+# ---------------------------------------------------------------------------
+
+ID_CALIB_POLICY = "id_budget_calibrated_target1pct"
+
+
+def id_budget_calibrate(
+    score_id_eval: np.ndarray,
+    score_ood_eval: np.ndarray,
+    score_attack_high: np.ndarray,
+    budget: int = 5000,
+    target_alarm: float = 0.01,
+    seed: int = 42,
+    n_candidates: int = 4000,
+) -> dict:
+    """
+    ID-budget calibration protocol（与主线 crosscapture_calibration 协议对称）：
+
+    1. 从 ID eval 分数中随机取 budget 个样本作为 threshold 候选来源。
+    2. 生成这些 ID 分数在 [0, 1] 上 n_candidates 个分位点作为候选阈值集合。
+    3. 升序扫描候选阈值，找到**最小** T 使得 P(OOD_eval score > T) <= target_alarm。
+       （最小化阈值 = 在满足 OOD alarm 约束的前提下，最大化 attack 检测力）
+    4. 报告该阈值下的 calibrated_ood_alarm 和 calibrated_det。
+
+    返回 dict 字段：
+        threshold           最优阈值（若不可行则 nan）
+        calibrated_ood_alarm OOD eval alarm rate at threshold
+        calibrated_det      high-purity attack detection at threshold
+        feasible            是否存在满足约束的阈值
+    """
+    rng = np.random.default_rng(seed)
+    n_sub = min(budget, len(score_id_eval))
+    idx = rng.choice(len(score_id_eval), n_sub, replace=False)
+    id_sub = score_id_eval[idx].astype(np.float64)
+
+    # 生成候选阈值（ID 分布的分位点）
+    q_levels = np.linspace(0.0, 1.0, n_candidates + 1)[1:]  # 排除 0 分位（min 值不稳定）
+    candidates = np.unique(np.quantile(id_sub, q_levels))
+
+    # 升序扫描，找最小 T 满足 OOD alarm <= target
+    for thr in sorted(candidates):
+        alarm = float(np.mean(score_ood_eval > thr))
+        if alarm <= target_alarm:
+            return {
+                "threshold":            float(thr),
+                "calibrated_ood_alarm": alarm,
+                "calibrated_det":       float(np.mean(score_attack_high > thr)),
+                "feasible":             True,
+            }
+
+    # 不可行：即使最高 ID 分数也无法控制 OOD alarm
+    thr_max = float(np.max(id_sub))
+    alarm_max = float(np.mean(score_ood_eval > thr_max))
+    return {
+        "threshold":            thr_max,
+        "calibrated_ood_alarm": alarm_max,
+        "calibrated_det":       float(np.mean(score_attack_high > thr_max)),
+        "feasible":             alarm_max <= target_alarm,
+    }
+
+
+def make_combined_summary(df: pd.DataFrame, calib_policy: str) -> pd.DataFrame:
+    """
+    将 fixed_id_q99 和 calib_policy 两套结果合并为一张宽表。
+    输出列：object_label / detector_family / token_profile / score_label /
+            fixed_alarm / fixed_det / calibrated_alarm / calibrated_det / AUC
+    """
+    KEY = ["object_label", "detector_family", "token_profile", "score_label"]
+
+    fixed = df[df["policy_name"].eq("fixed_id_q99")].copy()
+    calib = df[df["policy_name"].eq(calib_policy)].copy()
+
+    fixed = fixed[KEY + ["ood_alarm_ratio_eval", "attack_detection_high_purity",
+                          "roc_auc_attack_high_vs_ood_eval"]].rename(columns={
+        "ood_alarm_ratio_eval":        "fixed_alarm",
+        "attack_detection_high_purity": "fixed_det",
+    })
+    calib = calib[KEY + ["ood_alarm_ratio_eval", "attack_detection_high_purity",
+                          "selection_feasible"]].rename(columns={
+        "ood_alarm_ratio_eval":        "calibrated_alarm",
+        "attack_detection_high_purity": "calibrated_det",
+    })
+    combined = fixed.merge(calib, on=KEY, how="left")
+    # 排列列顺序
+    col_order = KEY + [
+        "fixed_alarm", "fixed_det",
+        "calibrated_alarm", "calibrated_det",
+        "selection_feasible",
+        "roc_auc_attack_high_vs_ood_eval",
+    ]
+    return combined[[c for c in col_order if c in combined.columns]]
+
+
+# ---------------------------------------------------------------------------
 # Plot
 # ---------------------------------------------------------------------------
 
@@ -296,8 +390,10 @@ def main() -> None:
     ap.add_argument("--lr",                type=float, default=1e-3)
     ap.add_argument("--train-samples",     type=int,   default=8000)
     ap.add_argument("--id-eval-samples",   type=int,   default=5000)
-    ap.add_argument("--calibration-budget",type=int,   default=5000)
-    ap.add_argument("--scan-points",       type=int,   default=1200)
+    ap.add_argument("--calibration-budget", type=int,   default=5000)
+    ap.add_argument("--calibration-target", type=float, default=0.01,
+                    help="Target OOD alarm rate for ID-budget calibration (default 0.01 = 1%%)")
+    ap.add_argument("--scan-points",        type=int,   default=1200)
     ap.add_argument("--d-model",           type=int,   default=64)
     ap.add_argument("--nhead",             type=int,   default=4)
     ap.add_argument("--num-layers",        type=int,   default=2)
@@ -363,6 +459,8 @@ def main() -> None:
 
     rows: List[Dict]       = []
     diagnostics: List[Dict] = []
+    calib_budget = args.calibration_budget
+    calib_target = args.calibration_target
 
     for profile in ["uniform", "family_short_focus"]:
         token_weights = build_token_weights(profile)
@@ -383,6 +481,15 @@ def main() -> None:
                     f"{detector_family.replace('frontend_f2_', '').replace('_control', '')}"
                     f"_{profile}_{mode}"
                 )
+                extra_meta = {
+                    "source_mode":     "computed_now",
+                    "token_profile":   profile,
+                    "input_tensor":    "expression_v3_matrix[20x8]",
+                    "channel_names":   ",".join(V3_CHANNEL_NAMES),
+                    "score_mode_desc": mode_desc,
+                }
+
+                # ── 标准评估（fixed_id_q99 + naive_calibrated OOD-budget + scan） ──
                 rows.extend(
                     tv3.eval_scores(
                         object_label=obj,
@@ -394,17 +501,52 @@ def main() -> None:
                         score_attack=satt,
                         high_idx=stage2_idx["high"],
                         mixed_idx=stage2_idx["mixed"],
-                        budget=args.calibration_budget,
+                        budget=calib_budget,
                         scan_points=args.scan_points,
-                        extra={
-                            "source_mode": "computed_now",
-                            "token_profile": profile,
-                            "input_tensor": "expression_v3_matrix[20x8]",
-                            "channel_names": ",".join(V3_CHANNEL_NAMES),
-                            "score_mode_desc": mode_desc,
-                        },
+                        extra=extra_meta,
                     )
                 )
+
+                # ── ID-budget calibration（与主线 crosscapture_calibration 对称协议） ──
+                # OOD eval split: 去掉前 budget 行，与 naive_calibrated 的 eval 一致
+                ood_eval_split = sood[calib_budget:]
+                atk_high       = satt[stage2_idx["high"]]
+                auc_val        = resc.compute_auc(
+                    ood_eval_scores=ood_eval_split,
+                    attack_high_scores=atk_high,
+                )
+                calib_result = id_budget_calibrate(
+                    score_id_eval=sid,
+                    score_ood_eval=ood_eval_split,
+                    score_attack_high=atk_high,
+                    budget=calib_budget,
+                    target_alarm=calib_target,
+                    seed=args.seed,
+                )
+                # 同时报告 id_alarm_ratio（固定阈值下 ID 自身的 alarm）
+                thr = calib_result["threshold"]
+                rows.append({
+                    "object_label":                  obj,
+                    "detector_family":               detector_family,
+                    "score_label":                   mode,
+                    "seed":                          args.seed,
+                    "policy_name":                   ID_CALIB_POLICY,
+                    "selection_feasible":            calib_result["feasible"],
+                    "threshold_source":              (
+                        f"min ID-eval q (budget={calib_budget}) "
+                        f"s.t. ood_alarm<=target={calib_target:.3f}"
+                    ),
+                    "threshold":                     thr if np.isfinite(thr) else float("nan"),
+                    "id_alarm_ratio":                float(np.mean(sid > thr)) if np.isfinite(thr) else float("nan"),
+                    "ood_alarm_ratio_full":          float(np.mean(sood > thr)) if np.isfinite(thr) else float("nan"),
+                    "ood_alarm_ratio_eval":          calib_result["calibrated_ood_alarm"],
+                    "attack_detection_all":          float(np.mean(satt > thr)) if np.isfinite(thr) else float("nan"),
+                    "attack_detection_high_purity":  calib_result["calibrated_det"],
+                    "attack_detection_boundary":     float("nan"),
+                    "roc_auc_attack_high_vs_ood_eval": float(auc_val),
+                    **extra_meta,
+                })
+
             diagnostics.append(
                 {
                     "detector_family": detector_family,
@@ -419,26 +561,53 @@ def main() -> None:
 
     df   = pd.DataFrame(rows)
     diag = pd.DataFrame(diagnostics)
-    df.to_csv(out / "frontend_f2_expression_v3_results.csv",     index=False)
-    df.to_csv(out / "results.csv",                                index=False)
+    df.to_csv(out / "frontend_f2_expression_v3_results.csv",      index=False)
+    df.to_csv(out / "results.csv",                                 index=False)
     diag.to_csv(out / "frontend_f2_expression_v3_diagnostics.csv", index=False)
     plot_tradeoff(df, plot_dir / "fixed_tradeoff_frontend_f2_expression_v3.png")
 
+    # ── 合并表：fixed + id_budget_calibrated ──────────────────────────────
+    combined = make_combined_summary(df, calib_policy=ID_CALIB_POLICY)
+    combined.to_csv(out / "frontend_f2_expression_v3_combined.csv", index=False)
+
+    # ── Fixed-only 表（向后兼容） ──────────────────────────────────────────
     fixed = df[(df["policy_name"].eq("fixed_id_q99")) & (df["selection_feasible"].astype(bool))].copy()
-    cols  = [
+    fixed_cols = [
         "object_label", "detector_family", "token_profile", "score_label",
         "ood_alarm_ratio_eval", "attack_detection_high_purity", "roc_auc_attack_high_vs_ood_eval",
     ]
-    fixed_md = tv3.md_table(fixed[cols].sort_values(["detector_family", "object_label"]))
+    fixed_md = tv3.md_table(fixed[fixed_cols].sort_values(["detector_family", "object_label"]))
+
+    # ── 合并表（summary.md 主体） ──────────────────────────────────────────
+    sort_keys = ["detector_family", "object_label"]
+    combined_sorted = combined.sort_values(sort_keys) if all(k in combined.columns for k in sort_keys) else combined
+    combined_display_cols = [
+        "object_label", "detector_family", "token_profile", "score_label",
+        "fixed_alarm", "fixed_det",
+        "calibrated_alarm", "calibrated_det",
+        "selection_feasible",
+        "roc_auc_attack_high_vs_ood_eval",
+    ]
+    combined_display = combined_sorted[[c for c in combined_display_cols if c in combined_sorted.columns]]
+    combined_md = tv3.md_table(combined_display)
+
+    target_pct = int(round(calib_target * 100))
     summary = "\n".join(
         [
             "# Frontend-F2 Expression v3 Tokenizer v1",
             "",
             "- Data: Frontend-F2 expression_v3 sources (`7-6` ID, `4-1` OOD, `34-1` attack).",
-            "- Input tensor: `expression_v3_matrix [20,8]` with dual-branch embedding (per-token 6ch + cross-scale 2ch) + family/scale positional.",
+            "- Input tensor: `expression_v3_matrix [20,8]` with dual-branch embedding "
+            "(per-token 6ch + cross-scale 2ch) + family/scale positional.",
             f"- expression_v3 channels: `{', '.join(V3_CHANNEL_NAMES)}`.",
+            f"- Calibration: ID-eval budget={calib_budget}, target OOD alarm <= {calib_target:.2f} "
+            f"({target_pct}%).",
             "",
-            "## Fixed q99",
+            f"## Combined: fixed_alarm / fixed_det / calibrated_alarm / calibrated_det / AUC",
+            f"(calibration policy: `{ID_CALIB_POLICY}`)",
+            combined_md,
+            "",
+            "## Fixed q99 only (for reference)",
             fixed_md,
         ]
     ) + "\n"
@@ -449,10 +618,14 @@ def main() -> None:
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "run_tag":      args.run_tag,
         "seed":         args.seed,
-        "benign_data_dir":  str(args.benign_data_dir),
-        "attack_data_dir":  str(args.attack_data_dir),
+        "benign_data_dir":      str(args.benign_data_dir),
+        "attack_data_dir":      str(args.attack_data_dir),
+        "calibration_budget":   calib_budget,
+        "calibration_target":   calib_target,
+        "calibration_policy":   ID_CALIB_POLICY,
         "outputs": {
             "results":     str(out / "frontend_f2_expression_v3_results.csv"),
+            "combined":    str(out / "frontend_f2_expression_v3_combined.csv"),
             "diagnostics": str(out / "frontend_f2_expression_v3_diagnostics.csv"),
             "summary":     str(out / "summary.md"),
             "plots":       str(plot_dir),
