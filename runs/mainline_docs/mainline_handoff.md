@@ -1,7 +1,7 @@
 # Mainline Handoff
 
 Updated: 2026-04-17
-Workspace: `C:\Users\28371\.codex\worktrees\f736\kitnet-exp-mainline`
+Workspace: `D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline`
 Branch: `codex/exp-mainline`
 Canonical path: `runs/mainline_docs/mainline_handoff.md`
 
