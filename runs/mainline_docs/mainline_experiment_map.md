@@ -762,6 +762,14 @@ v2 的唯一正确方向：
   - 协方差感知 / operating-region 方案相比 naive deep baseline 更稳
 - 就算完成“外部趋势自证”。
 
+#### 2026-04-17 进展
+- 已完成 `runs/second_environment_botiot_feasibility_2026-04-17/` 本地 feasibility 节点，新增 `repo/ood/second_environment_feasibility.py` 用于 `BoT-IoT first` 入口核查。
+- 当前结论不是模型或协议阻塞，而是**数据入口阻塞**：
+  - `BoT-IoT` 官方项目页可访问，但官方 SharePoint 数据链接在当前环境下会落入 Microsoft 登录流程，不能直接当作无凭据自动下载源；
+  - 本机 `D:\study` 下没有现成 `BoT-IoT` 本地副本；
+  - 本机也没有 `TON-IoT` 本地副本，因此 fallback 目前同样不能立即开 smoke。
+- 这一步的意义是把第二环境主线的真实起点固定下来：先拿到本地数据副本，再做最小 smoke，而不是在没有数据的情况下空转训练脚本或提前占用 HPC。
+
 ### C. 对抗鲁棒性评估包：分成神经白盒与统一黑盒两层
 
 #### 设计原则

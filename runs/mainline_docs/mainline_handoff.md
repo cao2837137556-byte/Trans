@@ -345,3 +345,40 @@ Judgment:
 Next:
 - Apply this fixed SOP to the next formal A-line cluster workload.
 - Before the next submission, verify the run directory satisfies the frozen-file checklist exactly.
+
+### 2026-04-17 (Second-Environment Feasibility Started)
+
+What was done:
+- Started the A-line second-dataset or second-environment package with a local feasibility node instead of jumping directly to formal training.
+- Added `repo/ood/second_environment_feasibility.py` as an A-line-only probe for the `BoT-IoT first` entry condition.
+- Created `runs/second_environment_botiot_feasibility_2026-04-17/` and ran the probe locally.
+- Verified the official dataset entry pages are reachable:
+  - `https://research.unsw.edu.au/projects/bot-iot-dataset`
+  - `https://research.unsw.edu.au/projects/toniot-datasets`
+- Extracted the official SharePoint dataset links from those pages and tested direct access from the current environment.
+- Scanned the local `D:\study` tree and confirmed there is no existing `BoT-IoT` or `TON-IoT` dataset copy available for immediate smoke preparation.
+
+Result:
+- The current A-line blocker for second-environment validation is data availability, not model code.
+- `BoT-IoT first` is currently blocked on this machine:
+  - the official `BoT-IoT` dataset link resolves into a Microsoft login flow rather than a directly usable dataset folder from the current environment;
+  - no local `BoT-IoT` copy is present;
+  - no local `TON-IoT` fallback copy is present either.
+- The generated feasibility node is:
+  - `runs/second_environment_botiot_feasibility_2026-04-17/`
+- Main artifacts include:
+  - `summary.md`
+  - `config.json`
+  - `run_spec.json`
+  - `feasibility_report.json`
+  - `command.txt`
+
+Judgment:
+- The mainline should not pretend this is a model-training blocker or spend HPC budget here yet.
+- The correct reading is that the second-environment package is ready at the infrastructure/protocol level for a local smoke start, but the dataset itself is not locally available.
+- Until a local `BoT-IoT` or `TON-IoT` copy is placed on disk, the second-environment line cannot advance into the mandated local smoke stage.
+
+Next:
+- Obtain a local `BoT-IoT` dataset copy first if possible, because the execution order is fixed as `BoT-IoT first`.
+- If `BoT-IoT` remains inaccessible but `TON-IoT` becomes locally available earlier, rerun the same feasibility probe with a local `TON-IoT` root and decide explicitly whether the mainline should switch to the documented fallback.
+- After a local dataset copy exists, rerun the feasibility node with `--bot-iot-root` or `--ton-iot-root`, then build the minimal second-environment smoke package before any formal HPC run.

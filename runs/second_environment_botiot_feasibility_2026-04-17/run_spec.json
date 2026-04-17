@@ -1,0 +1,9 @@
+{
+  "stage": "second_environment_feasibility",
+  "line": "A-line",
+  "goal": "Decide whether BoT-IoT-first second-environment smoke can proceed from this machine without violating the mainline execution order.",
+  "success_condition": [
+    "BoT-IoT official access works or a local BoT-IoT copy is present",
+    "At least one labeled tabular source is visible for smoke preparation"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-04-17T16:50:58",
+  "run_dir": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\second_environment_botiot_feasibility_2026-04-17",
+  "config": {
+    "run_tag": "second_environment_botiot_feasibility_2026-04-17",
+    "bot_iot_root": null,
+    "ton_iot_root": null,
+    "sample_rows": 2048
+  },
+  "run_spec": {
+    "stage": "second_environment_feasibility",
+    "line": "A-line",
+    "goal": "Decide whether BoT-IoT-first second-environment smoke can proceed from this machine without violating the mainline execution order.",
+    "success_condition": [
+      "BoT-IoT official access works or a local BoT-IoT copy is present",
+      "At least one labeled tabular source is visible for smoke preparation"
+    ]
+  },
+  "official_sources": {
+    "bot_iot": {
+      "page": "https://research.unsw.edu.au/projects/bot-iot-dataset",
+      "sharepoint_links": [
+        "https://unsw-my.sharepoint.com/:f:/g/personal/z5131399_ad_unsw_edu_au/EjlBDf2KODxPgXmqbO3MxxsBBVARCKZxGUG47OiFHb_AnQ",
+        "https://unsw.sharepoint.com/sites/research-hub"
+      ],
+      "probe": {
+        "url": "https://unsw-my.sharepoint.com/:f:/g/personal/z5131399_ad_unsw_edu_au/EjlBDf2KODxPgXmqbO3MxxsBBVARCKZxGUG47OiFHb_AnQ",
+        "ok": true,
+        "status": 200,
+        "final_url": "https://login.microsoftonline.com:443/3ff6cfa4-e715-48db-b8e1-0867b9f9fba3/oauth2/authorize?client%5Fid=00000003%2D0000%2D0ff1%2Dce00%2D000000000000&response%5Fmode=form%5Fpost&ear%5Fjwe%5Fcrypto=eyJhbGciOiJFQ0RILUVTIiwiZW5jIjoiQTI1NkdDTSIsImFwdiI6IkFBQUFDVVZoY2tOc2FXVnVkR2dBQUFCRlEwc3pNQUFBQUJjL0Z3eWN4ZkVpaGFEeWxsRUk1ZkV6anUyYW1za2JiUGZIaWZkTDN1bVgvMytvNDhCMEs5OUdQTUo4NmVBTVJ6MDhaQzUyZE9SMUE2Nk5sWitzSGNKcS9kbGxkVUlYYnhrYWVWOFZ0NmhkbXFvRUVGMzJMR01lMzNOdFdZamdBUUFBQUJqRW9LZHZ4d3Q3eExmZzF2VVFnRW5Ta3plSDA2SW5WVFE9In0%3D&ear%5Fjwk=eyJhbGciOiJFQ0RILUVTIiwiY3J2IjoiUC0zODQiLCJ4IjoiQUFBQU1CYy9Gd3ljeGZFaWhhRHlsbEVJNWZFemp1MmFtc2tiYlBmSGlmZEwzdW1YLzMrbzQ4QjBLOTlHUE1KODZlQU1Sdz09IiwieSI6IkFBQUFNRDA4WkM1MmRPUjFBNjZObForc0hjSnEvZGxsZFVJWGJ4a2FlVjhWdDZoZG1xb0VFRjMyTEdNZTMzTnRXWWpnQVE9PSIsImt0eSI6IkVDIn0%3D&spa%5Fclient%5Fid=08e18876%2D6177%2D487e%2Db8b5%2Dcf950c1e598c&client%5Finfo=1&response%5Ftype=code%20id%5Ftoken%20spa%5Frt&resource=00000003%2D0000%2D0ff1%2Dce00%2D000000000000&scope=openid&nonce=1F960DFAA5029F77B273051F78873E9E98CC59068BD25E59%2D6DF0DD1C8C392C21F1EE36A635A591DE1F288C42E2EF32AE9BBBE4532D1D98EE&redirect%5Furi=https%3A%2F%2Funsw%2Dmy%2Esharepoint%2Ecom%2F%5Fforms%2Fdefault%2Easpx&state=OD0wJjMyPUFBTUNUd0FBQUJRNzI4MlFkU1lLamZBU0pYSiUyRmI4aVo4VzV2aGdVMGFrQTZRVkZIdEppNDBVUGhBTU1RSzZDcVkyZiUyRm5wdlU3RUhRS1pONm5lY3Y1YnlBUFVxT1Y4OGZSN0klMkZGcE1HY1glMkZFNUxRYVFxWXRJeiUyRldSeEV4bXpNRU5YNGpVd3FnRzhqMUx3VWo2YW0lMkZ1d1kwVlclMkZMTXNzaVU5dE5uc1VoRjlUZjlPQjJMa0VkSExJVG5NN21nZTZzT0tNc2c2Nnc3d21uOTV3R1c2Zzk0cTQyOUdncTVrS2duS3JSd01zOUpsVkdia2s0MDNxUUxsR0hINk5oMHBQSlRzVSUyQkxLUFdWQUhsa09xdGlHZSUyQkNkN3BIa1k3N2F6YWRPY280NktDczcyQVJUYzJwYlhVRiUyRnRNWEFTT1BnJTJCZGpZcHZ3ZTR1a0tDJTJGNmZlcWNGN0RFS0N0RjhxdE1HMDd3ZnFDbmJGWmVBSndBcGJiJTJCZSUyRmRXY1olMkJybm1xRTkwSDdBJTNEJTNE&claims=%7B%22id%5Ftoken%22%3A%7B%22xms%5Fcc%22%3A%7B%22values%22%3A%5B%22CP1%22%5D%7D%7D%7D&wsucxt=1&cobrandid=11bd8083%2D87e0%2D41b5%2Dbb78%2D0bc43c8a8e8a&client%2Drequest%2Did=f4cc0aa2%2D7009%2D6000%2Df3a0%2D07d3e6e9a9c8",
+        "requires_login": true
+      }
+    },
+    "ton_iot": {
+      "page": "https://research.unsw.edu.au/projects/toniot-datasets",
+      "sharepoint_links": [
+        "https://unsw-my.sharepoint.com/:f:/g/personal/z5025758_ad_unsw_edu_au/EvBTaetotpdGnW7rJQ8fCvYBh8063CNeY9W33MpRsarJaQ?e=yZlnxW",
+        "https://unsw-my.sharepoint.com/:f:/g/personal/z5025758_ad_unsw_edu_au/EnuQZZn3XuNBjgfcUu4DIVMBLCHyoLHqOswirpOQifr1ag?e=gKWkLS",
+        "https://unsw.sharepoint.com/sites/research-hub"
+      ],
+      "probe": {
+        "url": "https://unsw-my.sharepoint.com/:f:/g/personal/z5025758_ad_unsw_edu_au/EvBTaetotpdGnW7rJQ8fCvYBh8063CNeY9W33MpRsarJaQ?e=yZlnxW",
+        "ok": true,
+        "status": 200,
+        "final_url": "https://login.microsoftonline.com:443/3ff6cfa4-e715-48db-b8e1-0867b9f9fba3/oauth2/authorize?client%5Fid=00000003%2D0000%2D0ff1%2Dce00%2D000000000000&response%5Fmode=form%5Fpost&ear%5Fjwe%5Fcrypto=eyJhbGciOiJFQ0RILUVTIiwiZW5jIjoiQTI1NkdDTSIsImFwdiI6IkFBQUFDVVZoY2tOc2FXVnVkR2dBQUFCRlEwc3pNQUFBQU0ydmJFQ0ZJc2s5L2tjN3ViT2RpT3JyU3JPbTFtbGJCY1JLWmlLdkxFNTZJN2VDVnZPUks2bHhueUszNmpoOWVRa0dENnpxLzJ2TmlGT1A2ZGlrc0FvbTFFaGU1TGtTN3JEZFZpdHJIRVRnQXgyWFB1RHFvZE5UOXVkd28rVnFqd0FBQUJpYWw5bFk5WGRXMTlkdXVwK1puOFoxZkFLZXgvamUzM2M9In0%3D&ear%5Fjwk=eyJhbGciOiJFQ0RILUVTIiwiY3J2IjoiUC0zODQiLCJ4IjoiQUFBQU1NMnZiRUNGSXNrOS9rYzd1Yk9kaU9yclNyT20xbWxiQmNSS1ppS3ZMRTU2STdlQ1Z2T1JLNmx4bnlLMzZqaDllUT09IiwieSI6IkFBQUFNQWtHRDZ6cS8ydk5pRk9QNmRpa3NBb20xRWhlNUxrUzdyRGRWaXRySEVUZ0F4MlhQdURxb2ROVDl1ZHdvK1Zxanc9PSIsImt0eSI6IkVDIn0%3D&spa%5Fclient%5Fid=08e18876%2D6177%2D487e%2Db8b5%2Dcf950c1e598c&client%5Finfo=1&response%5Ftype=code%20id%5Ftoken%20spa%5Frt&resource=00000003%2D0000%2D0ff1%2Dce00%2D000000000000&scope=openid&nonce=697A16A5865B387721D6D7C0EA9D2101169683D2A7D0098D%2D2EA43783C4EF1A079E228ED1B7AA092802F417EC2112D63CA47C61B0F484F19C&redirect%5Furi=https%3A%2F%2Funsw%2Dmy%2Esharepoint%2Ecom%2F%5Fforms%2Fdefault%2Easpx&state=OD0wJjMyPUFBTUNUd0FBQUJRNzI4MlFkU1lLamZBU0pYSiUyRmI4aVo4VzV2aG1EcyUyQnEwaUpubE10eG9QaFV4YUhqWG1xT1ZkQWxXV2NBOVdCaW5aWndHNjVzSlZxVDVxaUJ3TWtjS1lMY1olMkZwOVA0NDh3WTdxSHV1eXZwTGIxWSUyRnIyWU5STDRQelA5aDVRVUFMNGt0Y0ZWWkxBZEtMa3k0dHAlMkJHWTZIeHZRTGdQRFpqTTU0dnYxNENBWHRvcGFvRmNpVkRJT1h3UWtGSU5jRmdxRTVLNG9tc29tdUJUNlRtRSUyRnAzcXl6WENUcEo5ZE9GMzd0TWNsRHpZQmJpbE5xekVCbDZ3QjZPRVY0SyUyRk9QeTY2NHFsRCUyRlVUbFhhV1RjbU90RDQ0RnhYRmRIUlc0JTJGdTcwMVV6Vmd5VlYlMkJSJTJCRWpBSjBnRU82aFk0cnVHamxOJTJCREx6WVFtMFJlVHg0SVZ4N2VLZ2EzbElnZnJKN1hpN2psNXpYbTRsR0VVOUJabWpObXA1RVRsJTJGNWNWdA&claims=%7B%22id%5Ftoken%22%3A%7B%22xms%5Fcc%22%3A%7B%22values%22%3A%5B%22CP1%22%5D%7D%7D%7D&wsucxt=1&cobrandid=11bd8083%2D87e0%2D41b5%2Dbb78%2D0bc43c8a8e8a&client%2Drequest%2Did=facc0aa2%2Df04a%2D6000%2Df3a0%2D0081fec8ae16",
+        "requires_login": true
+      }
+    }
+  },
+  "local_roots": {
+    "bot_iot": {
+      "provided": false,
+      "exists": false,
+      "files": []
+    },
+    "ton_iot": {
+      "provided": false,
+      "exists": false,
+      "files": []
+    }
+  },
+  "verdict": "blocked_bot_iot_official_access_forbidden",
+  "verdict_reason": "BoT-IoT official SharePoint dataset folder is not directly usable from this environment because it returns HTTP 403 or redirects to Microsoft login, and no local BoT-IoT copy is present."
+}
