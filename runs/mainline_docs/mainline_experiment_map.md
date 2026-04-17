@@ -846,6 +846,90 @@ v2 的唯一正确方向：
 说明：
 - 若第 2 步 feasibility 显示 BoT-IoT 无法构造干净的 benign OOD split，则立即切 TON-IoT network subset，不在 BoT-IoT 上硬耗。
 - 若第 1 步已经证明现代 baseline 风险显著下降，则不再继续扩大 baseline 家族。
+
+### F. A 线正式超算任务固定操作书（2026-04-17 固化）
+
+#### 使用原则
+- 先本地 smoke，再上超算。
+- 超算只跑正式任务，不拿来修路径、修脚本、修 bundle。
+- 适合上超算的任务包括：正式训练、多 seed、sweep、多配置、第二数据集或第二环境验证、正式 baseline 复现、长时间 CPU/GPU 作业。
+- 不适合上超算的任务包括：本地 smoke、修路径、修脚本、修打包、离线 rescoring、画图、整理表格、是否值得正式跑仍未判断清楚的任务。
+
+#### 命名规则
+- 每次正式任务都必须新建 `run_tag`。
+- `run_tag` 固定格式：`任务名_YYYY-MM-DD`。
+- 正式 rerun 必须更换新日期。
+- 本地正式目录固定为 `runs/<run_tag>/`。
+- 远端项目根目录必须带日期，例如 `/public/home/<user>/work/<project-mainline>_YYYY-MM-DD`。
+- 远端标准运行目录固定为 `<remote_project_root>/runs/<run_tag>/`。
+- 回传包固定路径为 `package/<run_tag>_bundle.tar.gz`。
+
+#### 提交前冻结清单
+- 正式提交前，`runs/<run_tag>/` 下必须固定：
+- `command.txt`
+- `config.json`
+- `run_spec.json`
+- `job.slurm`
+- `upload_bundle.tar.gz`
+- 明确写定的回传 bundle 路径
+- 如果这些还没冻结，就不允许上超算。
+
+#### 固定执行流程
+1. `ssh` 创建远端目录
+2. `scp` 上传 `upload_bundle.tar.gz`
+3. `ssh` 到远端解包
+4. 在远端 `run_dir` 下执行 `sbatch job.slurm`
+5. 自动建立 `latest_slurm.out`、`latest_slurm.err`、`last_job_id.txt`
+6. 作业完成后 `scp` 拉回 `package/<run_tag>_bundle.tar.gz`
+7. 本地解包并先检查结果完整性
+
+#### 日志规则
+- 远端 `run_dir` 下必须能直接打开：
+- `latest_slurm.out`
+- `latest_slurm.err`
+- `stdout.log`
+- `stderr.log`
+- 默认通过远端文件树直接查看 `latest_slurm.out` / `latest_slurm.err`，不依赖每次手动 `tail -f`。
+- 程序输出必须同时镜像到 Slurm 输出文件与 `stdout.log` / `stderr.log`。
+- 提交后必须自动记录 `last_job_id.txt`、`latest_slurm.out`、`latest_slurm.err`。
+- 建议额外生成 `job_info.json` 或同类 manifest，记录 `job_id`、`job_name`、`node_list`、`submit_dir`、`python_bin`、`stdout_log`、`stderr_log`。
+
+#### `job.slurm` 最小元信息
+- `job.slurm` 至少输出：
+- `[start]`
+- `[run_dir]`
+- `[python]`
+- `[command]`
+- `[command_exit]`
+- `[bundle]`
+- `[finish]`
+- 这样失败时可以快速区分：提交失败、环境失败、导入失败、路径失败、训练中途失败。
+
+#### PowerShell 规则
+- Windows PowerShell 下生成的 `ssh` / `scp` / `sbatch` 命令必须可直接复制执行。
+- 不允许要求手动再改 quoting。
+- 不允许生成会在 PowerShell 本地被错误展开变量的命令。
+
+#### 回传包要求与回传后动作
+- 回传包至少必须包含：
+- `summary`
+- `results`
+- `diagnostics`
+- `config`
+- `stdout.log`
+- `stderr.log`
+- `job_info` 或同类运行 manifest
+- 回传后固定顺序是：
+1. 先检查 `summary`、`results`、`diagnostics`、logs 是否完整
+2. 再更新 handoff
+3. 再更新主线实验表
+4. 最后 `commit + push`
+- 如果结果无效，则必须记录失败原因、修复点、以及是否需要新日期 rerun。
+
+#### 总原则
+- 超算不是调试器。
+- 超算只负责正式训练、正式验证、正式多 seed、正式 sweep。
+- 凡是路径、脚本、bundle、命名、日志规则没有固定好的任务，一律先留在本地解决。
 - `frontend100_timescale_tokenizer_v1_smoke_2026-04-13`: Frontend100 TimescaleTokenizer-v1 single-seed minimal experiment with header-aware 5x20 regrouping; path: `runs/frontend100_timescale_tokenizer_v1_smoke_2026-04-13/`.
 - `frontend100_timescale_tokenizer_v1_1_smoke_2026-04-13`: Frontend100 TimescaleTokenizer-v1.1 single-seed scoring refinement with header-aware 5x20 regrouping and short-scale aware aggregations; path: `runs/frontend100_timescale_tokenizer_v1_1_smoke_2026-04-13/`.
 - `frontend100_timescale_tokenizer_v1_2_smoke_2026-04-13`: Frontend100 TimescaleTokenizer-v1.2 adds scale-contrast scorers on top of header-aware 5x20 regrouping; path: `runs/frontend100_timescale_tokenizer_v1_2_smoke_2026-04-13/`.

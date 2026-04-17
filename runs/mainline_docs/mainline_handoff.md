@@ -270,3 +270,78 @@ Next:
   1. second-dataset or second-environment minimal validation
   2. adversarial robustness evaluation
   3. deployability and cost closure
+
+### 2026-04-17 (Formal HPC SOP Fixed)
+
+What was done:
+- Fixed the A-line formal HPC operating book for all future official cluster runs.
+- Locked the usage boundary:
+  - local smoke first, formal cluster run second;
+  - HPC is for formal training, multi-seed runs, sweeps, second-dataset or second-environment validation, formal baseline reproduction, and other long CPU/GPU jobs;
+  - HPC is not for path fixing, script fixing, bundle fixing, offline rescoring, plotting, table collation, or ambiguous not-yet-worthy runs.
+- Locked the formal naming rule:
+  - every formal cluster task must use a fresh `run_tag` with format `task_name_YYYY-MM-DD`;
+  - reruns must switch to a new date;
+  - local run path is fixed to `runs/<run_tag>/`;
+  - remote project root must also be date-stamped;
+  - remote formal run path is fixed to `<remote_project_root>/runs/<run_tag>/`;
+  - return bundle path is fixed to `package/<run_tag>_bundle.tar.gz`.
+- Locked the pre-submit freeze set:
+  - `command.txt`
+  - `config.json`
+  - `run_spec.json`
+  - `job.slurm`
+  - `upload_bundle.tar.gz`
+  - explicit return-bundle path
+  - if these are not frozen in the run directory, the task is not allowed onto HPC.
+- Locked the formal submission order:
+  1. create remote directories by `ssh`
+  2. upload `upload_bundle.tar.gz` by `scp`
+  3. unpack remotely
+  4. run `sbatch job.slurm` inside the remote run directory
+  5. auto-create `latest_slurm.out`, `latest_slurm.err`, and `last_job_id.txt`
+  6. after completion, pull back `package/<run_tag>_bundle.tar.gz`
+  7. unpack locally and verify completeness before any handoff update
+- Locked the remote logging rule:
+  - the remote run directory must always expose `latest_slurm.out`, `latest_slurm.err`, `stdout.log`, and `stderr.log` directly in the file tree;
+  - status inspection should default to opening those files directly, not to ad hoc `tail -f`;
+  - program stdout/stderr must be mirrored into both Slurm files and `stdout.log` / `stderr.log`;
+  - submission must auto-record `last_job_id.txt`, `latest_slurm.out`, and `latest_slurm.err`;
+  - a `job_info.json` or equivalent manifest is recommended to store `job_id`, `job_name`, `node_list`, `submit_dir`, `python_bin`, `stdout_log`, and `stderr_log`.
+- Locked the `job.slurm` minimum wrapper metadata:
+  - `[start]`
+  - `[run_dir]`
+  - `[python]`
+  - `[command]`
+  - `[command_exit]`
+  - `[bundle]`
+  - `[finish]`
+- Locked the PowerShell rule:
+  - generated `ssh` / `scp` / `sbatch` commands must be copy-run safe under Windows PowerShell;
+  - do not emit commands that require manual quoting repair or accidental local variable expansion.
+- Locked the return-bundle completeness rule:
+  - `summary`
+  - `results`
+  - `diagnostics`
+  - `config`
+  - `stdout.log`
+  - `stderr.log`
+  - `job_info` or equivalent run manifest
+- Locked the post-return action order:
+  1. verify `summary`, `results`, `diagnostics`, and logs
+  2. update mainline handoff
+  3. update mainline experiment map
+  4. commit and push
+  - if the result is invalid, record failure reason, fix point, and whether a fresh-date rerun is required.
+
+Result:
+- A-line now has a fixed formal HPC contract rather than a case-by-case submission habit.
+- Future cluster submissions should be easier to audit, easier to resume, and less likely to fail on naming, quoting, log visibility, or incomplete return packaging.
+
+Judgment:
+- HPC is now explicitly a formal execution backend, not a debugger.
+- From this point onward, no A-line job should be promoted to HPC unless the local smoke, package freeze, naming, logging, and return-bundle rules are already satisfied.
+
+Next:
+- Apply this fixed SOP to the next formal A-line cluster workload.
+- Before the next submission, verify the run directory satisfies the frozen-file checklist exactly.
