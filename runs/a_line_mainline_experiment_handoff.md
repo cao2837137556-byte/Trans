@@ -220,3 +220,47 @@ Next:
 - When `FT-Transformer` formal evaluation is ready, decide explicitly whether it is still local or should go to HPC using the rule above.
 - Re-upload and re-submit `frontend100_modern_tabular_baselines_ft_2026-04-14` using the refreshed bundle and inspect `latest_slurm.out` / `latest_slurm.err` directly in the remote run directory.
 - After FT formal results return, decide whether `RTDL-ResNet` still needs a formal 3-seed run or can stay at smoke status.
+
+### 2026-04-17
+
+What was done:
+- Pulled back the completed formal HPC result for `runs/frontend100_modern_tabular_baselines_ft_2026-04-14/`.
+- Verified the run finished successfully on the cluster:
+  - job id: `14459`
+  - node: `node185`
+  - status: Python command exited `0`
+  - returned artifacts include `modern_tabular_results.csv`, `modern_tabular_aggregate.csv`, `modern_tabular_costs_aggregate.csv`, `modern_tabular_summary.md`, `stdout.log`, `stderr.log`, and the packaged return bundle.
+- Read the formal FT aggregate under the stronger-OOD mainline protocol and compared it against frozen A-line references.
+
+Result:
+- `FT-Transformer AE` is now formally negative as an A-line threat under the operating points that matter.
+- Key aggregate result at `fixed_id_q995`:
+  - `ft_transformer_ae`: `ood_alarm_ratio_eval_mean = 0.767333`, `attack_detection_high_purity_mean = 0.928201`, `roc_auc_attack_high_vs_ood_eval_mean = 0.754077`
+  - `transformer_ensemble_main_candidate`: `ood_alarm_ratio_eval_mean = 0.126067`, `attack_detection_high_purity_mean = 0.844419`, `roc_auc_attack_high_vs_ood_eval_mean = 0.878093`
+  - `dA fixed_id_q0p995`: `ood_alarm_ratio_eval_mean = 0.104489`, `attack_detection_high_purity_mean = 0.769029`, `roc_auc_attack_high_vs_ood_eval_mean = 0.809622`
+- Interpretation of the formal FT result:
+  - FT can push attack detection high, but only by letting stronger benign OOD alarms explode.
+  - Under the fixed `0.5%` ID operating point, FT fires on about `76.7%` of eval OOD, which is far outside the acceptable deployment region.
+  - Under `naive_calibrated_budget5000_target1pct`, FT holds eval OOD alarm near `1.49%`, but high-purity attack detection collapses to about `0.00044`, so it does not offer a credible operating-point alternative.
+  - Under `det_floor_50pct_min_alarm`, FT still needs about `10.19%` eval OOD alarm to hold `~50%` high-purity detection, again not competitive with the mainline references.
+- Seed behavior is stable enough for the conclusion:
+  - all three FT seeds show the same qualitative failure mode rather than one bad run.
+- Cost note:
+  - checkpoint size is about `1.12 MB`
+  - parameter count is `275,364`
+  - mean training time is about `1934.47 s` on CPU
+- Residual logging issue:
+  - the returned `stderr.log` still contains a benign `git rev-parse HEAD` failure because the remote bundle root is not a git checkout; this did not affect training correctness but should be cleaned in the job wrapper later.
+
+Judgment:
+- The FT formal package closes the mainline question of whether this modern tabular baseline materially threatens the stronger-OOD covariance-tail story. It does not.
+- FT should not receive more A-line optimization time unless a very specific paper-facing criticism requires a targeted rebuttal.
+- `RTDL-ResNet` no longer looks mandatory as a full formal 3-seed run. It can remain optional unless we decide we need one extra modern-tabular reference for presentation completeness.
+
+Next:
+- Keep the A-line scope tight and do not spend another cycle tuning FT.
+- Treat the modern-tabular baseline-risk item as substantially closed by this formal FT result plus the already available external/deep baseline evidence.
+- Use the saved A-line budget on the next blocker in the fixed order:
+  1. second-dataset or second-environment minimal validation
+  2. adversarial robustness evaluation
+  3. deployability and cost closure
