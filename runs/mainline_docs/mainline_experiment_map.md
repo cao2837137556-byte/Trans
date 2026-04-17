@@ -1,4 +1,11 @@
-﻿# master_experiment_map_v1
+﻿# Mainline Experiment Map
+
+Canonical path: `runs/mainline_docs/mainline_experiment_map.md`
+
+Maintenance rule:
+- Keep this as the single living mainline experiment map.
+- Update this file continuously as mainline experiments advance.
+- Do not create dated copies for the mainline map.
 
 > 版本：v2（2026-04-12）  
 > 用途：作为后续实验补充、论文写作与 A 区增强路线的固定“总地图”，避免实验散点化推进。
@@ -894,3 +901,4 @@ v2 的唯一正确方向：
 - `frontend_f2_structured_tokenizer_v1_smoke_2026-04-13`: Frontend-F2 structured tokenizer v1 on real structured caches (`7-6` ID, `4-1` OOD, `34-1` attack), using token family/scale embeddings and short-vs-long contrast scoring; path: `runs/frontend_f2_structured_tokenizer_v1_smoke_2026-04-13/`.
 
 - `frontend_f2_contrast_tokenizer_v1_smoke_2026-04-14`: Frontend-F2 contrast-token v1 derives short-vs-long anomaly-increment tokens directly from structured caches and evaluates transformer/token-MLP backends on real `7-6/4-1/34-1` data; path: `runs/frontend_f2_contrast_tokenizer_v1_smoke_2026-04-14/`.
+

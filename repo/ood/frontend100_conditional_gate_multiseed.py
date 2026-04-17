@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import json
@@ -246,7 +246,7 @@ def plot_guard_grid(agg: pd.DataFrame, out: Path) -> None:
 
 
 def append_map(run_tag: str) -> None:
-    p = WORKTREE_ROOT / "runs" / "master_experiment_map_v1.md"
+    p = WORKTREE_ROOT / "runs" / "mainline_docs" / "mainline_experiment_map.md"
     if not p.exists():
         return
     text = p.read_text(encoding="utf-8")
@@ -554,11 +554,11 @@ def main() -> None:
         "",
         "## Best Candidate Under Diagnostic Utility",
         f"- `{best_obj}`.",
-        f"- dA reference: alarm={av('dA__default_score','ood_alarm_ratio_eval_mean'):.4f} ± {av('dA__default_score','ood_alarm_ratio_eval_std'):.4f}, det={av('dA__default_score','attack_detection_high_purity_mean'):.4f} ± {av('dA__default_score','attack_detection_high_purity_std'):.4f}.",
+        f"- dA reference: alarm={av('dA__default_score','ood_alarm_ratio_eval_mean'):.4f} 卤 {av('dA__default_score','ood_alarm_ratio_eval_std'):.4f}, det={av('dA__default_score','attack_detection_high_purity_mean'):.4f} 卤 {av('dA__default_score','attack_detection_high_purity_std'):.4f}.",
     ]
     if best_obj != "(none)":
         summary_lines.append(
-            f"- Best conditional gate: alarm={av(best_obj,'ood_alarm_ratio_eval_mean'):.4f} ± {av(best_obj,'ood_alarm_ratio_eval_std'):.4f}, det={av(best_obj,'attack_detection_high_purity_mean'):.4f} ± {av(best_obj,'attack_detection_high_purity_std'):.4f}."
+            f"- Best conditional gate: alarm={av(best_obj,'ood_alarm_ratio_eval_mean'):.4f} 卤 {av(best_obj,'ood_alarm_ratio_eval_std'):.4f}, det={av(best_obj,'attack_detection_high_purity_mean'):.4f} 卤 {av(best_obj,'attack_detection_high_purity_std'):.4f}."
         )
     summary_lines += [
         "",
@@ -603,3 +603,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

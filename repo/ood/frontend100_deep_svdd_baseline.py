@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import json
@@ -486,7 +486,7 @@ def plot_training_curves(curves: Dict[str, List[float]], out: Path) -> None:
 
 
 def append_map(run_tag: str) -> None:
-    p = TRACKED_RUNS_DIR / "master_experiment_map_v1.md"
+    p = TRACKED_RUNS_DIR / "mainline_docs" / "mainline_experiment_map.md"
     if not p.exists():
         return
     text = p.read_text(encoding="utf-8")
@@ -784,3 +784,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

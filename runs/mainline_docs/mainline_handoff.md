@@ -1,8 +1,14 @@
-# A-Line Mainline Experiment Handoff
+# Mainline Handoff
 
-Updated: 2026-04-14
+Updated: 2026-04-17
 Workspace: `C:\Users\28371\.codex\worktrees\f736\kitnet-exp-mainline`
 Branch: `codex/exp-mainline`
+Canonical path: `runs/mainline_docs/mainline_handoff.md`
+
+Maintenance rule:
+- Keep this as the single living mainline handoff.
+- Append stable updates in time order inside this file.
+- Do not create dated handoff copies for mainline.
 
 ## Scope
 
@@ -11,7 +17,7 @@ This file is the time-ordered handoff for the A-line main experiment only.
 - Record only A-line mainline work.
 - Record what was done, what the result was, what the current blocker is, and what should happen next.
 - Exclude `frontend_f2_*` and any other branch-line exploration.
-- Exclude merge, worktree management, and the global master experiment table.
+- Exclude merge and worktree management.
 
 ## Fixed Mainline Protocol
 
@@ -110,7 +116,7 @@ Next:
 ### 2026-04-12
 
 What was done:
-- Reclassified the project into the A-tier strengthening stage and fixed the official execution order in `runs/master_experiment_map_v1.md`.
+- Reclassified the project into the A-tier strengthening stage and fixed the official execution order in `runs/mainline_docs/mainline_experiment_map.md`.
 
 Result:
 - The project status changed from "close the current draft" to "expand into a system paper with stronger evidence."

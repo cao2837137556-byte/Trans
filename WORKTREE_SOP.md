@@ -123,7 +123,7 @@ git worktree add -b codex/frontend-f2 D:\study\paper\anomaly_detection\paper04\w
 
 ### 总地图
 
-- 文件：`runs/master_experiment_map_v1.md`
+- 文件：`runs/mainline_docs/mainline_experiment_map.md`
 - 作用：记录整个项目总时间线和关键裁决
 
 ### 分支入口 handoff
@@ -148,7 +148,7 @@ git worktree add -b codex/frontend-f2 D:\study\paper\anomaly_detection\paper04\w
 在该 worktree 目录里执行：
 
 ```powershell
-git add repo runs\master_experiment_map_v1.md runs\prism_handoffs
+git add repo runs\mainline_docs runs\prism_handoffs
 git commit -m "update experiment code"
 git push
 ```
@@ -172,7 +172,7 @@ git push
 在支线目录里：
 
 ```powershell
-git add repo runs\master_experiment_map_v1.md runs\prism_handoffs
+git add repo runs\mainline_docs runs\prism_handoffs
 git commit -m "finalize branch result"
 git push
 ```

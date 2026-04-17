@@ -234,7 +234,7 @@ def main():
     summary='\n'.join(lines)+'\n'; (out/'mahalanobis_rescue_summary.md').write_text(summary, encoding='utf-8'); (out/'summary.md').write_text(summary, encoding='utf-8')
     manifest={'stage':'frontend100_mahalanobis_rescue','generated_at':datetime.now().isoformat(timespec='seconds'),'run_tag':args.run_tag,'no_training':True,'objects':candidates,'floor_factors':FLOOR_FACTORS,'outputs':{'results_csv':str(out/'mahalanobis_rescue_results.csv'),'diagnostics_csv':str(out/'mahalanobis_rescue_diagnostics.csv'),'top_dims_csv':str(out/'mahalanobis_rescue_top_contributing_dims.csv'),'plots_dir':str(plot_dir)}}
     (out/'mahalanobis_rescue_manifest.json').write_text(json.dumps(clean(manifest), indent=2, ensure_ascii=False), encoding='utf-8'); (out/'config.json').write_text(json.dumps(clean(manifest), indent=2, ensure_ascii=False), encoding='utf-8')
-    mapp = WORKTREE_ROOT/'runs'/'master_experiment_map_v1.md'
+    mapp = WORKTREE_ROOT/'runs'/'mainline_docs'/'mainline_experiment_map.md'
     if mapp.exists():
         text=mapp.read_text(encoding='utf-8')
         if f'`{args.run_tag}`' not in text: mapp.write_text(text.rstrip()+f"\n- `{args.run_tag}`: Mahalanobis epsilon-floor rescue offline rescoring; no retraining. Path: `runs/{args.run_tag}/`.\n", encoding='utf-8')
@@ -242,3 +242,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

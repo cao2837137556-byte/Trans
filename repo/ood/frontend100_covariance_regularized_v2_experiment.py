@@ -280,7 +280,7 @@ def plot_diag(diag: pd.DataFrame, plot_dir: Path) -> None:
 
 
 def append_map(run_tag: str) -> None:
-    p = WORKTREE_ROOT / "runs" / "master_experiment_map_v1.md"
+    p = WORKTREE_ROOT / "runs" / "mainline_docs" / "mainline_experiment_map.md"
     if not p.exists():
         return
     text = p.read_text(encoding="utf-8")
@@ -381,3 +381,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
