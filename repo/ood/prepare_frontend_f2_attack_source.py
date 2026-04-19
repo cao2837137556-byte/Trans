@@ -13,7 +13,15 @@ import pandas as pd
 THIS_DIR = Path(__file__).resolve().parent
 if str(THIS_DIR) not in sys.path:
     sys.path.insert(0, str(THIS_DIR))
-from kitsune_frontend_original_extract import compute_expression_v3
+from kitsune_frontend_original_extract import (
+    EXPRESSION_V3_CHANNEL_NAMES,
+    EXPRESSION_V4A_HH_STABILIZED_CHANNEL_NAMES,
+    EXPRESSION_V4A_HH_STABILIZED_MASK_CHANNELS,
+    EXPRESSION_V4A_HH_STABILIZED_MASK_FAMILIES,
+    EXPRESSION_V4A_HH_STABILIZED_NAME,
+    compute_expression_v3,
+    compute_expression_v4a_hh_stabilized,
+)
 
 
 REQUIRED_KEYS = {
@@ -34,6 +42,7 @@ STATIC_OPTIONAL_KEYS = {
     "expression_v2_scale_id",
     "expression_v2_channel_names",
 }
+EXPRESSION_VERSION_CHOICES = ["v3", EXPRESSION_V4A_HH_STABILIZED_NAME]
 
 
 def load_structured_npz(path: Path) -> Dict[str, np.ndarray]:
@@ -70,10 +79,55 @@ def stats_flat(x: np.ndarray) -> Dict[str, float]:
     }
 
 
+def resolve_expression_matrix(
+    src: Dict[str, np.ndarray],
+    payload: Dict[str, np.ndarray],
+    n_rows: int,
+    version: str,
+) -> tuple[np.ndarray, str, list[str], Dict[str, list[int]]]:
+    if version == "v3":
+        channel_names = list(EXPRESSION_V3_CHANNEL_NAMES)
+        if "token_matrix_v3" in src:
+            return take_first(src["token_matrix_v3"], n_rows).astype(np.float32), "token_matrix_v3", channel_names, {}
+        if "expression_v3_matrix" in src:
+            return take_first(src["expression_v3_matrix"], n_rows).astype(np.float32), "expression_v3_matrix", channel_names, {}
+        return compute_expression_v3(payload["family_scale_tokens"]), "computed_now", channel_names, {}
+
+    if version == EXPRESSION_V4A_HH_STABILIZED_NAME:
+        channel_names = list(EXPRESSION_V4A_HH_STABILIZED_CHANNEL_NAMES)
+        version_meta = {
+            "mask_families": list(EXPRESSION_V4A_HH_STABILIZED_MASK_FAMILIES),
+            "mask_channels": list(EXPRESSION_V4A_HH_STABILIZED_MASK_CHANNELS),
+        }
+        if "token_matrix_v4a_hh_stabilized" in src:
+            return (
+                take_first(src["token_matrix_v4a_hh_stabilized"], n_rows).astype(np.float32),
+                "token_matrix_v4a_hh_stabilized",
+                channel_names,
+                version_meta,
+            )
+        if "expression_v4a_hh_stabilized_matrix" in src:
+            return (
+                take_first(src["expression_v4a_hh_stabilized_matrix"], n_rows).astype(np.float32),
+                "expression_v4a_hh_stabilized_matrix",
+                channel_names,
+                version_meta,
+            )
+        return (
+            compute_expression_v4a_hh_stabilized(payload["family_scale_tokens"]),
+            "computed_now",
+            channel_names,
+            version_meta,
+        )
+
+    raise ValueError(f"Unsupported expression version: {version}")
+
+
 def main() -> None:
     today = datetime.now().strftime("%Y-%m-%d")
     ap = argparse.ArgumentParser(description="Prepare Frontend-F2 structured attack source aligned with stage2 manifest.")
     ap.add_argument("--run-tag", default=f"frontend_f2_attack_source_{today}")
+    ap.add_argument("--expression-version", default="v3", choices=EXPRESSION_VERSION_CHOICES)
     ap.add_argument("--attack-structured-npz", type=Path, required=True)
     ap.add_argument("--attack-manifest-stage2", type=Path, required=True)
     args = ap.parse_args()
@@ -110,29 +164,37 @@ def main() -> None:
         np.save(expression_v2_npy, payload["expression_v2_flat"])
         pd.DataFrame(payload["expression_v2_flat"]).to_csv(expression_v2_csv, header=False, index=False)
 
-    # expression_v3：从 npz 读取或即时计算
-    if "expression_v3_matrix" in attack:
-        atk_v3 = take_first(attack["expression_v3_matrix"], use_first_n).astype(np.float32)
-    else:
-        atk_v3 = compute_expression_v3(payload["family_scale_tokens"])
-    atk_v3_flat = atk_v3.reshape(len(atk_v3), -1).astype(np.float32)  # [N,160]
-    np.save(data_dir / "attack_source_expression_v3_160.npy",   atk_v3_flat)
-    np.save(data_dir / "attack_source_expression_v3_matrix.npy", atk_v3)
+    version = args.expression_version
+    atk_expr, attack_expr_source, channel_names, version_meta = resolve_expression_matrix(
+        attack, payload, use_first_n, version
+    )
+    expr_matrix_name = f"expression_{version}_matrix"
+    expr_flat_name = f"expression_{version}_160"
+    atk_expr_flat_path = data_dir / f"attack_source_{expr_flat_name}.npy"
+    atk_expr_matrix_path = data_dir / f"attack_source_{expr_matrix_name}.npy"
+    np.save(atk_expr_flat_path, atk_expr.reshape(len(atk_expr), -1).astype(np.float32))
+    np.save(atk_expr_matrix_path, atk_expr)
 
     metadata = {
         "created_at": datetime.now().isoformat(timespec="seconds"),
         "attack_structured_npy": str(args.attack_structured_npz),
         "attack_manifest_stage2": str(args.attack_manifest_stage2),
+        "expression_version": version,
+        "channel_names": channel_names,
         "use_first_n": use_first_n,
         "attack_stats": stats_flat(payload["flat_features"]),
+        "expression_selection": {
+            "attack": attack_expr_source,
+            **version_meta,
+        },
         "outputs": {
             "attack_structured": str(structured_path),
             "attack_flat_npy": str(flat_npy),
             "attack_flat_csv": str(flat_csv),
             "attack_expression_v2_npy": str(expression_v2_npy) if expression_v2_npy else None,
             "attack_expression_v2_csv": str(expression_v2_csv) if expression_v2_csv else None,
-            "attack_expression_v3_matrix": str(data_dir / "attack_source_expression_v3_matrix.npy"),
-            "attack_expression_v3_160": str(data_dir / "attack_source_expression_v3_160.npy"),
+            f"attack_expression_{version}_matrix": str(atk_expr_matrix_path),
+            f"attack_expression_{version}_160": str(atk_expr_flat_path),
         },
     }
     (run_dir / "frontend_f2_attack_source_metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -143,11 +205,13 @@ def main() -> None:
         f"- Date: {metadata['created_at']}",
         f"- Attack structured cache: `{args.attack_structured_npz}`",
         f"- Stage2 manifest: `{args.attack_manifest_stage2}`",
+        f"- Expression version: `{version}`",
         f"- use_first_n: {use_first_n}",
         "",
         "## Outputs",
         f"- Attack structured: `{structured_path}`",
         f"- Attack flat csv: `{flat_csv}`",
+        f"- Attack expression matrix: `{atk_expr_matrix_path}`",
     ]
     if expression_v2_csv is not None:
         lines.append(f"- Attack expression_v2 csv: `{expression_v2_csv}`")

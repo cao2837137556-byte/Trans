@@ -16,7 +16,15 @@ ROOT_DIR = REPO_DIR.parent
 THIS_DIR = Path(__file__).resolve().parent
 if str(THIS_DIR) not in sys.path:
     sys.path.insert(0, str(THIS_DIR))
-from kitsune_frontend_original_extract import compute_expression_v3
+from kitsune_frontend_original_extract import (
+    EXPRESSION_V3_CHANNEL_NAMES,
+    EXPRESSION_V4A_HH_STABILIZED_CHANNEL_NAMES,
+    EXPRESSION_V4A_HH_STABILIZED_MASK_CHANNELS,
+    EXPRESSION_V4A_HH_STABILIZED_MASK_FAMILIES,
+    EXPRESSION_V4A_HH_STABILIZED_NAME,
+    compute_expression_v3,
+    compute_expression_v4a_hh_stabilized,
+)
 
 
 REQUIRED_KEYS = {
@@ -37,6 +45,7 @@ STATIC_OPTIONAL_KEYS = {
     "expression_v2_scale_id",
     "expression_v2_channel_names",
 }
+EXPRESSION_VERSION_CHOICES = ["v3", EXPRESSION_V4A_HH_STABILIZED_NAME]
 
 
 def load_structured_npz(path: Path) -> Dict[str, np.ndarray]:
@@ -101,10 +110,55 @@ def stats_flat(x: np.ndarray) -> Dict[str, float]:
     }
 
 
+def resolve_expression_matrix(
+    src: Dict[str, np.ndarray],
+    payload: Dict[str, np.ndarray],
+    n_rows: int,
+    version: str,
+) -> tuple[np.ndarray, str, list[str], Dict[str, list[int]]]:
+    if version == "v3":
+        channel_names = list(EXPRESSION_V3_CHANNEL_NAMES)
+        if "token_matrix_v3" in src:
+            return take_first(src["token_matrix_v3"], n_rows).astype(np.float32), "token_matrix_v3", channel_names, {}
+        if "expression_v3_matrix" in src:
+            return take_first(src["expression_v3_matrix"], n_rows).astype(np.float32), "expression_v3_matrix", channel_names, {}
+        return compute_expression_v3(payload["family_scale_tokens"]), "computed_now", channel_names, {}
+
+    if version == EXPRESSION_V4A_HH_STABILIZED_NAME:
+        channel_names = list(EXPRESSION_V4A_HH_STABILIZED_CHANNEL_NAMES)
+        version_meta = {
+            "mask_families": list(EXPRESSION_V4A_HH_STABILIZED_MASK_FAMILIES),
+            "mask_channels": list(EXPRESSION_V4A_HH_STABILIZED_MASK_CHANNELS),
+        }
+        if "token_matrix_v4a_hh_stabilized" in src:
+            return (
+                take_first(src["token_matrix_v4a_hh_stabilized"], n_rows).astype(np.float32),
+                "token_matrix_v4a_hh_stabilized",
+                channel_names,
+                version_meta,
+            )
+        if "expression_v4a_hh_stabilized_matrix" in src:
+            return (
+                take_first(src["expression_v4a_hh_stabilized_matrix"], n_rows).astype(np.float32),
+                "expression_v4a_hh_stabilized_matrix",
+                channel_names,
+                version_meta,
+            )
+        return (
+            compute_expression_v4a_hh_stabilized(payload["family_scale_tokens"]),
+            "computed_now",
+            channel_names,
+            version_meta,
+        )
+
+    raise ValueError(f"Unsupported expression version: {version}")
+
+
 def main() -> None:
     today = datetime.now().strftime("%Y-%m-%d")
     ap = argparse.ArgumentParser(description="Prepare cross-capture structured frontend sources from Frontend-F2 caches.")
     ap.add_argument("--run-tag", default=f"frontend_f2_crosscapture_stage1_{today}")
+    ap.add_argument("--expression-version", default="v3", choices=EXPRESSION_VERSION_CHOICES)
     ap.add_argument("--id-structured-npz", type=Path, required=True)
     ap.add_argument("--ood-structured-npz", type=Path, required=True)
     ap.add_argument("--schema-json", type=Path, required=True)
@@ -165,21 +219,19 @@ def main() -> None:
     if "expression_v2_flat" in ood_payload:
         ood_expression_v2_paths = save_flat_outputs(data_dir / "ood_benign_source_expression_v2_100", ood_payload["expression_v2_flat"])
 
-    # expression_v3：从 npz 读取或即时计算
-    if "expression_v3_matrix" in id_src:
-        id_v3   = take_first(id_src["expression_v3_matrix"], id_n).astype(np.float32)
-    else:
-        id_v3   = compute_expression_v3(id_payload["family_scale_tokens"])
-    if "expression_v3_matrix" in ood_src:
-        ood_v3  = take_first(ood_src["expression_v3_matrix"], ood_n).astype(np.float32)
-    else:
-        ood_v3  = compute_expression_v3(ood_payload["family_scale_tokens"])
-    id_v3_flat  = id_v3.reshape(len(id_v3),   -1).astype(np.float32)   # [N,160]
-    ood_v3_flat = ood_v3.reshape(len(ood_v3), -1).astype(np.float32)
-    np.save(data_dir / "id_source_expression_v3_160.npy",       id_v3_flat)
-    np.save(data_dir / "ood_benign_source_expression_v3_160.npy", ood_v3_flat)
-    np.save(data_dir / "id_source_expression_v3_matrix.npy",    id_v3)
-    np.save(data_dir / "ood_benign_source_expression_v3_matrix.npy", ood_v3)
+    version = args.expression_version
+    id_expr, id_expr_source, channel_names, version_meta = resolve_expression_matrix(id_src, id_payload, id_n, version)
+    ood_expr, ood_expr_source, _, _ = resolve_expression_matrix(ood_src, ood_payload, ood_n, version)
+    expr_matrix_name = f"expression_{version}_matrix"
+    expr_flat_name = f"expression_{version}_160"
+    id_expr_matrix_path = data_dir / f"id_source_{expr_matrix_name}.npy"
+    ood_expr_matrix_path = data_dir / f"ood_benign_source_{expr_matrix_name}.npy"
+    id_expr_flat_path = data_dir / f"id_source_{expr_flat_name}.npy"
+    ood_expr_flat_path = data_dir / f"ood_benign_source_{expr_flat_name}.npy"
+    np.save(id_expr_flat_path, id_expr.reshape(len(id_expr), -1).astype(np.float32))
+    np.save(ood_expr_flat_path, ood_expr.reshape(len(ood_expr), -1).astype(np.float32))
+    np.save(id_expr_matrix_path, id_expr)
+    np.save(ood_expr_matrix_path, ood_expr)
 
     schema_copy = data_dir / "structured_schema.json"
     shutil.copyfile(args.schema_json, schema_copy)
@@ -189,10 +241,17 @@ def main() -> None:
         "id_structured_npy": str(args.id_structured_npz),
         "ood_structured_npy": str(args.ood_structured_npz),
         "schema_json": str(args.schema_json),
+        "expression_version": version,
+        "channel_names": channel_names,
         "id_used_rows": int(id_n),
         "ood_used_rows": int(ood_n),
         "id_stats": stats_flat(id_payload["flat_features"]),
         "ood_stats": stats_flat(ood_payload["flat_features"]),
+        "expression_selection": {
+            "id": id_expr_source,
+            "ood": ood_expr_source,
+            **version_meta,
+        },
         "outputs": {
             "id_structured": str(id_structured_path),
             "ood_structured": str(ood_structured_path),
@@ -200,10 +259,10 @@ def main() -> None:
             "ood_flat": ood_flat_paths,
             "id_expression_v2_flat": id_expression_v2_paths,
             "ood_expression_v2_flat": ood_expression_v2_paths,
-            "id_expression_v3_matrix": str(data_dir / "id_source_expression_v3_matrix.npy"),
-            "ood_expression_v3_matrix": str(data_dir / "ood_benign_source_expression_v3_matrix.npy"),
-            "id_expression_v3_160": str(data_dir / "id_source_expression_v3_160.npy"),
-            "ood_expression_v3_160": str(data_dir / "ood_benign_source_expression_v3_160.npy"),
+            f"id_expression_{version}_matrix": str(id_expr_matrix_path),
+            f"ood_expression_{version}_matrix": str(ood_expr_matrix_path),
+            f"id_expression_{version}_160": str(id_expr_flat_path),
+            f"ood_expression_{version}_160": str(ood_expr_flat_path),
             "schema_copy": str(schema_copy),
         },
     }
@@ -215,6 +274,7 @@ def main() -> None:
         f"- Date: {metadata['created_at']}",
         f"- ID structured cache: `{args.id_structured_npz}`",
         f"- OOD structured cache: `{args.ood_structured_npz}`",
+        f"- Expression version: `{version}`",
         f"- ID used rows: {id_n}",
         f"- OOD used rows: {ood_n}",
         "",
@@ -223,6 +283,8 @@ def main() -> None:
         f"- OOD structured: `{ood_structured_path}`",
         f"- ID flat csv: `{id_flat_paths['csv']}`",
         f"- OOD flat csv: `{ood_flat_paths['csv']}`",
+        f"- ID expression matrix: `{id_expr_matrix_path}`",
+        f"- OOD expression matrix: `{ood_expr_matrix_path}`",
     ]
     if id_expression_v2_paths and ood_expression_v2_paths:
         lines.extend(

@@ -29,6 +29,7 @@ EXPRESSION_V2_CHANNEL_ORDER = [
     "delta_mid_mean_slog",
     "delta_global_mean_slog",
 ]
+EXPRESSION_V4A_HH_STABILIZED_NAME = "v4a_hh_stabilized"
 FAMILY_PREFIXES = sorted(FAMILY_ORDER, key=len, reverse=True)
 
 
@@ -58,6 +59,14 @@ TSV_HEADER = [
     "ipv6.src",
     "ipv6.dst",
 ]
+
+EXPRESSION_V3_CHANNEL_NAMES = [
+    "mean_slog", "std_slog", "dispersion_slog", "number_log",
+    "cov_sign", "pcc_slog", "burst_ratio", "dispersion_delta_slog",
+]
+EXPRESSION_V4A_HH_STABILIZED_CHANNEL_NAMES = list(EXPRESSION_V3_CHANNEL_NAMES)
+EXPRESSION_V4A_HH_STABILIZED_MASK_FAMILIES = [1, 2]
+EXPRESSION_V4A_HH_STABILIZED_MASK_CHANNELS = [0, 1, 3, 4]
 
 
 def mac_to_str(raw: bytes) -> str:
@@ -168,6 +177,18 @@ def build_feature_schema(headers: list[str]) -> dict:
         "scales": SCALE_ORDER,
         "stat_slots": STAT_SLOT_ORDER,
         "expression_v2_channels": EXPRESSION_V2_CHANNEL_ORDER,
+        "expression_versions": {
+            "v3": {
+                "name": "v3",
+                "channel_names": EXPRESSION_V3_CHANNEL_NAMES,
+            },
+            EXPRESSION_V4A_HH_STABILIZED_NAME: {
+                "name": EXPRESSION_V4A_HH_STABILIZED_NAME,
+                "channel_names": EXPRESSION_V4A_HH_STABILIZED_CHANNEL_NAMES,
+                "mask_families": EXPRESSION_V4A_HH_STABILIZED_MASK_FAMILIES,
+                "mask_channels": EXPRESSION_V4A_HH_STABILIZED_MASK_CHANNELS,
+            },
+        },
         "header_mappings": header_mappings,
         "token_definitions": token_defs,
         "family_major_token_order": [t["token_name"] for t in token_defs],
@@ -176,6 +197,8 @@ def build_feature_schema(headers: list[str]) -> dict:
             "token_matrix": [len(token_defs), len(STAT_SLOT_ORDER)],
             "expression_v2_matrix": [len(token_defs), len(EXPRESSION_V2_CHANNEL_ORDER)],
             "expression_v2_flat": [len(token_defs) * len(EXPRESSION_V2_CHANNEL_ORDER)],
+            "token_matrix_v3": [len(token_defs), len(EXPRESSION_V3_CHANNEL_NAMES)],
+            "token_matrix_v4a_hh_stabilized": [len(token_defs), len(EXPRESSION_V4A_HH_STABILIZED_CHANNEL_NAMES)],
         },
     }
     return schema
@@ -354,10 +377,17 @@ def compute_expression_v3(family_scale_tokens: np.ndarray) -> np.ndarray:
     return expression_v3_matrix
 
 
-EXPRESSION_V3_CHANNEL_NAMES = [
-    "mean_slog", "std_slog", "dispersion_slog", "number_log",
-    "cov_sign", "pcc_slog", "burst_ratio", "dispersion_delta_slog",
-]
+def compute_expression_v4a_hh_stabilized(family_scale_tokens: np.ndarray) -> np.ndarray:
+    """
+    Hard-masking ablation:
+    - 先完整复用 compute_expression_v3(...)
+    - 再仅对 HH / HH_jit（tokens 5-14）将 channels 0,1,3,4 置 0
+    - MI_dir / HpHp 完全保持 v3 原值
+    """
+    v3_matrix = compute_expression_v3(family_scale_tokens)
+    v4a_matrix = v3_matrix.copy()
+    v4a_matrix[:, 5:15, EXPRESSION_V4A_HH_STABILIZED_MASK_CHANNELS] = 0.0
+    return v4a_matrix.astype(np.float32, copy=False)
 
 
 def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dict:
@@ -366,13 +396,25 @@ def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dic
         recon[:, int(item["flat_index"])] = views["token_matrix"][:, int(item["token_id"]), int(item["stat_slot_id"])]
     max_abs_diff = float(np.max(np.abs(recon - arr.astype(np.float32)))) if arr.size else 0.0
     expr = views.get("expression_v2_matrix")
+    v3 = views.get("token_matrix_v3")
+    v4a = views.get("token_matrix_v4a_hh_stabilized")
     expr_nonfinite = 0
     expr_shape = None
     expr_flat_shape = None
+    v3_nonfinite = 0
+    v3_shape = None
+    v4a_nonfinite = 0
+    v4a_shape = None
     if expr is not None:
         expr_nonfinite = int(np.size(expr) - int(np.isfinite(expr).sum()))
         expr_shape = list(expr.shape)
         expr_flat_shape = list(views["expression_v2_flat"].shape)
+    if v3 is not None:
+        v3_nonfinite = int(np.size(v3) - int(np.isfinite(v3).sum()))
+        v3_shape = list(v3.shape)
+    if v4a is not None:
+        v4a_nonfinite = int(np.size(v4a) - int(np.isfinite(v4a).sum()))
+        v4a_shape = list(v4a.shape)
     return {
         "flat_reconstruction_max_abs_diff": max_abs_diff,
         "flat_reconstruction_exact": bool(max_abs_diff == 0.0),
@@ -381,6 +423,10 @@ def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dic
         "expression_v2_shape": expr_shape,
         "expression_v2_flat_shape": expr_flat_shape,
         "expression_v2_nonfinite_count": expr_nonfinite,
+        "token_matrix_v3_shape": v3_shape,
+        "token_matrix_v3_nonfinite_count": v3_nonfinite,
+        "token_matrix_v4a_hh_stabilized_shape": v4a_shape,
+        "token_matrix_v4a_hh_stabilized_nonfinite_count": v4a_nonfinite,
     }
 
 
@@ -406,6 +452,17 @@ def save_structured_cache(run_dir: Path, base_stem: str, views: dict, schema: di
         save_kwargs["expression_v3_matrix"] = views["expression_v3_matrix"]
         save_kwargs["expression_v3_flat"] = views["expression_v3_flat"]
         save_kwargs["expression_v3_channel_names"] = views["expression_v3_channel_names"]
+    if "token_matrix_v3" in views:
+        save_kwargs["token_matrix_v3"] = views["token_matrix_v3"]
+    if "token_matrix_v4a_hh_stabilized" in views:
+        save_kwargs["token_matrix_v4a_hh_stabilized"] = views["token_matrix_v4a_hh_stabilized"]
+        save_kwargs["expression_v4a_hh_stabilized_matrix"] = views["token_matrix_v4a_hh_stabilized"]
+        save_kwargs["expression_v4a_hh_stabilized_flat"] = views["expression_v4a_hh_stabilized_flat"]
+        save_kwargs["expression_v4a_hh_stabilized_channel_names"] = views["expression_v4a_hh_stabilized_channel_names"]
+        save_kwargs["expression_v4a_hh_stabilized_mask_families"] = views["expression_v4a_hh_stabilized_mask_families"]
+        save_kwargs["expression_v4a_hh_stabilized_mask_channels"] = views["expression_v4a_hh_stabilized_mask_channels"]
+    if "expression_versions" in views:
+        save_kwargs["expression_versions"] = views["expression_versions"]
     np.savez_compressed(structured_npz_path, **save_kwargs)
     structured_schema_path.write_text(json.dumps(schema, indent=2, ensure_ascii=False), encoding="utf-8")
     return {
@@ -600,11 +657,29 @@ def main() -> None:
         schema = build_feature_schema(headers)
         views = build_structured_feature_views(features, schema)
         views.update(build_expression_v2_views(views, schema))
-        # expression_v3（新增，追加到 views）
+        # expression views（最小侵入：保留旧 key，同时增加版本化 key）
         v3_matrix = compute_expression_v3(views["family_scale_tokens"])
+        v4a_matrix = compute_expression_v4a_hh_stabilized(views["family_scale_tokens"])
+        views["v3"] = v3_matrix
+        views[EXPRESSION_V4A_HH_STABILIZED_NAME] = v4a_matrix
+        views["token_matrix_v3"] = v3_matrix
+        views["token_matrix_v4a_hh_stabilized"] = v4a_matrix
         views["expression_v3_matrix"] = v3_matrix
         views["expression_v3_flat"] = v3_matrix.reshape(len(v3_matrix), -1)  # [N,160]
         views["expression_v3_channel_names"] = np.asarray(EXPRESSION_V3_CHANNEL_NAMES, dtype="<U32")
+        views["expression_v4a_hh_stabilized_flat"] = v4a_matrix.reshape(len(v4a_matrix), -1).astype(np.float32)
+        views["expression_v4a_hh_stabilized_channel_names"] = np.asarray(
+            EXPRESSION_V4A_HH_STABILIZED_CHANNEL_NAMES, dtype="<U32"
+        )
+        views["expression_v4a_hh_stabilized_mask_families"] = np.asarray(
+            EXPRESSION_V4A_HH_STABILIZED_MASK_FAMILIES, dtype=np.int64
+        )
+        views["expression_v4a_hh_stabilized_mask_channels"] = np.asarray(
+            EXPRESSION_V4A_HH_STABILIZED_MASK_CHANNELS, dtype=np.int64
+        )
+        views["expression_versions"] = np.asarray(
+            ["v3", EXPRESSION_V4A_HH_STABILIZED_NAME], dtype="<U32"
+        )
         structured_validation = validate_structured_views(features, schema, views)
         structured_outputs = save_structured_cache(run_dir, base_stem, views, schema)
 
@@ -624,6 +699,16 @@ def main() -> None:
         "structured_cache_enabled": bool(args.emit_structured_cache),
         "structured_outputs": structured_outputs,
         "structured_validation": structured_validation,
+        "structured_expression_versions": {
+            "v3": {
+                "channel_names": EXPRESSION_V3_CHANNEL_NAMES,
+            },
+            EXPRESSION_V4A_HH_STABILIZED_NAME: {
+                "channel_names": EXPRESSION_V4A_HH_STABILIZED_CHANNEL_NAMES,
+                "mask_families": EXPRESSION_V4A_HH_STABILIZED_MASK_FAMILIES,
+                "mask_channels": EXPRESSION_V4A_HH_STABILIZED_MASK_CHANNELS,
+            },
+        },
     }
     (run_dir / "extract_metadata.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")
 
@@ -653,6 +738,14 @@ def main() -> None:
         summary.append(f"- expression_v2_matrix shape: {structured_validation['expression_v2_shape']}")
         summary.append(f"- expression_v2_flat shape: {structured_validation['expression_v2_flat_shape']}")
         summary.append(f"- expression_v2 non-finite count: {structured_validation['expression_v2_nonfinite_count']}")
+        summary.append(f"- token_matrix_v3 shape: {structured_validation['token_matrix_v3_shape']}")
+        summary.append(f"- token_matrix_v3 non-finite count: {structured_validation['token_matrix_v3_nonfinite_count']}")
+        summary.append(
+            f"- token_matrix_v4a_hh_stabilized shape: {structured_validation['token_matrix_v4a_hh_stabilized_shape']}"
+        )
+        summary.append(
+            "- v4a hard mask: families=[1,2], channels=[0,1,3,4]"
+        )
     (run_dir / "summary_extract.md").write_text("\n".join(summary) + "\n", encoding="utf-8")
 
     print(f"[done] run dir: {run_dir}")
