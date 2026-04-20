@@ -781,6 +781,12 @@ v2 的唯一正确方向：
   - `attack_test=100000`（本地 smoke 上限）
   - `feature_count=11`
 - 该节点定位是“可运行性里程碑”，不是正式外部自证结论；主要风险是 benign 样本规模偏小，后续必须继续收敛成可辩护的正式 split 与正式对象对比包。
+- 已完成 split 收敛判定节点：`runs/second_environment_botiot_split_gate_2026-04-20/`，新增 `repo/ood/second_environment_botiot_split_gate.py`。
+- split gate 结论：
+  - `BoT-IoT 5%` 在当前标签定义下 benign 总量仅 `477`（10-best train/test 为 `370/107`）；
+  - 所有候选 split 都无法满足主线固定要求 `naive_calibrated_budget5000`（即 OOD benign 至少 `5000`）；
+  - 因此 BoT-IoT 不能作为当前主线“正式第二环境闭环”，只能作为约束/负结果证据。
+- 据此，第二环境正式包应按既定规则切换到 `TON-IoT` fallback 路线。
 
 ### C. 对抗鲁棒性评估包：分成神经白盒与统一黑盒两层
 

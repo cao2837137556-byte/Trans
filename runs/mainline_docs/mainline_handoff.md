@@ -432,3 +432,40 @@ Next:
   - lock a defensible benign ID/OOD split rule under BoT-IoT;
   - run the required mainline objects (`dA`, current strongest candidate, `FT` line) with aligned policies.
 - If BoT-IoT cannot provide enough benign support for a defensible stronger-OOD operating-point study, escalate to the documented `TON-IoT` fallback for the formal package.
+
+### 2026-04-20 (BoT-IoT Split Gate Converged)
+
+What was done:
+- Added `repo/ood/second_environment_botiot_split_gate.py` to make the BoT-IoT split decision explicit under mainline policy constraints.
+- Ran `runs/second_environment_botiot_split_gate_2026-04-20/` using:
+  - `UNSW_2018_IoT_Botnet_Final_10_Best.csv` (full 10-best)
+  - `UNSW_2018_IoT_Botnet_Final_10_best_Training.csv`
+  - `UNSW_2018_IoT_Botnet_Final_10_best_Testing.csv`
+  - `UNSW_2018_IoT_Botnet_Full5pc_4.csv`
+- Evaluated multiple BoT-IoT split candidates against fixed requirements:
+  - fixed point feasibility (`id>=100`, `ood>=100`)
+  - required mainline naive policy budget (`ood>=5000`)
+  - formal benign support gate (`id>=1000`, `ood>=1000`)
+
+Result:
+- Gate verdict is:
+  - `blocked_naive_budget5000_not_supported`
+- Raw benign support in BoT-IoT 5% is too small for the required naive calibration policy:
+  - full 10-best benign = `477`
+  - train benign = `370`
+  - test benign = `107`
+  - all-feature full4 benign = `477`
+- Candidate table confirms none can satisfy `naive_budget5000`:
+  - `official_10best_train_vs_test`: `id=370`, `ood=107`
+  - `full10best_max_ood_with_id100`: `id=100`, `ood=377`
+  - `full10best_benign_70_30`: `id=334`, `ood=143`
+  - `full4_benign_70_30`: `id=334`, `ood=143`
+- All candidates pass minimal fixed-q99 count checks but all fail both `naive_budget5000` and formal benign support.
+
+Judgment:
+- BoT-IoT can still serve smoke/readiness diagnostics, but it cannot be the formal second-environment closure under the currently fixed mainline policy set.
+- The split question is now converged for BoT-IoT under A-line rules; continuing BoT-IoT split tweaking is not a productive mainline path.
+
+Next:
+- Escalate to `TON-IoT` fallback for the formal second-environment package.
+- Keep BoT-IoT nodes as negative/constraint evidence in the external-validity discussion rather than as final cross-environment proof.

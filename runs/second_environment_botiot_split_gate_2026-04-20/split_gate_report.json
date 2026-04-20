@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-04-20T11:21:35",
+  "run_dir": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\second_environment_botiot_split_gate_2026-04-20",
+  "inputs": {
+    "full10best_csv": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\data\\5%\\10-best features\\UNSW_2018_IoT_Botnet_Final_10_Best.csv",
+    "train10best_csv": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\data\\5%\\10-best features\\10-best Training-Testing split\\UNSW_2018_IoT_Botnet_Final_10_best_Training.csv",
+    "test10best_csv": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\data\\5%\\10-best features\\10-best Training-Testing split\\UNSW_2018_IoT_Botnet_Final_10_best_Testing.csv",
+    "full4_csv": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\data\\5%\\All features\\UNSW_2018_IoT_Botnet_Full5pc_4.csv",
+    "label_col": "attack",
+    "normal_label": "0",
+    "naive_budget": 5000,
+    "min_id_formal": 1000,
+    "min_ood_formal": 1000
+  },
+  "raw_counts": {
+    "full10best": {
+      "total": 3668522,
+      "benign": 477,
+      "attack": 3668045
+    },
+    "train10best": {
+      "total": 2934817,
+      "benign": 370,
+      "attack": 2934447
+    },
+    "test10best": {
+      "total": 733705,
+      "benign": 107,
+      "attack": 733598
+    },
+    "full4": {
+      "total": 668522,
+      "benign": 477,
+      "attack": 668045
+    }
+  },
+  "verdict": "blocked_naive_budget5000_not_supported",
+  "reason": "No BoT-IoT split candidate can provide enough OOD benign samples for the required `naive_calibrated_budget5000` operating point."
+}
