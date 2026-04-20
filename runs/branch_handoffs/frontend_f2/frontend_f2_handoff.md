@@ -344,3 +344,46 @@
     - `HpHp, HH, HH_jit, MI_dir`
   - scale focus order (health high -> low):
     - `0.1s, 0.01s, 1s, 3s, 5s`
+
+## 18. 2026-04-20 v5_compact_v1 Smoke (audit-guided compact baseline)
+
+- Implemented and ran:
+  - `frontend_f2_expression_v5_compact_crosscapture_stage1_2026-04-20`
+  - `frontend_f2_expression_v5_compact_attack_source_2026-04-20`
+  - `frontend_f2_expression_v5_compact_tokenizer_v1_smoke_2026-04-20` (CPU)
+- Key transformer + family_short_focus results:
+  - `mi_dir_mean`: `AUC=0.8286`, `calibrated_alarm=0.0125`, `calibrated_det=0.1578`
+  - `mi_hphp_short_mean`: `AUC=0.8083`, `calibrated_alarm=0.0027`, `calibrated_det=0.1691`
+  - `hphp_mean`: `feasible=True`, but `calibrated_det=0.0000`
+- Conclusion:
+  - Better than `v4a/v4b` in overall shape.
+  - Still below `v3 fix3` on low-alarm detection (`det` remains too low).
+
+## 19. 2026-04-20 v6_input_aligned_v1 Smoke (short-scale input-alignment attempt)
+
+- Goal:
+  - Move from patch-style channel tweaks to input/model alignment.
+  - Keep model/training pipeline fixed, but redesign input as short-scale compact tokens.
+- Implemented:
+  - New expression version `v6_input_aligned_v1` in extractor:
+    - derived from `source_rich_v1`
+    - short scales only `1s/0.1s/0.01s` (`scale_id=[2,3,4]`)
+    - output shape `[N,12,8]` (4 families x 3 scales)
+    - HH/HH_jit families use relative replacements for raw-absolute channels.
+  - Source prep support in both scripts:
+    - `--expression-version v6_input_aligned_v1`
+    - outputs `*_expression_v6_input_aligned_v1_matrix.npy` and `*_96.npy`
+  - New smoke entry:
+    - `repo/ood/frontend_f2_expression_v6_input_aligned_tokenizer_v1.py`
+- Executed runs:
+  - `frontend_f2_expression_v6_input_aligned_crosscapture_stage1_2026-04-20`
+  - `frontend_f2_expression_v6_input_aligned_attack_source_2026-04-20`
+  - `frontend_f2_expression_v6_input_aligned_tokenizer_v1_smoke_2026-04-20` (CPU)
+- Key transformer + family_short_focus results:
+  - `mi_dir_mean`: `AUC=0.7871`, `calibrated_alarm=0.0136`, `calibrated_det=0.0413`
+  - `mi_hphp_short_mean`: `AUC=0.6689`, `calibrated_alarm=0.0047`, `calibrated_det=0.0124`
+  - `hphp_mean`: `feasible=True`, `calibrated_det=0.0000`
+- Conclusion:
+  - This v6 formulation reduced alarm but caused a severe detection collapse for the target transformer scorers.
+  - As currently defined, `v6_input_aligned_v1` is a negative result relative to both `v3 fix3` and `v5_compact_v1`.
+  - Next step should avoid this aggressive short-token collapse and move to a milder `v6.1` (retain `20x8` geometry while applying alignment only on channel semantics).

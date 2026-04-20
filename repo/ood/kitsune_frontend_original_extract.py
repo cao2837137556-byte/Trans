@@ -107,6 +107,43 @@ EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES = [
 ]
 EXPRESSION_SOURCE_RICH_V1_CLIP_RAW_REL = [-6.0, 6.0]
 EXPRESSION_SOURCE_RICH_V1_CLIP_RATIO = [-4.0, 4.0]
+EXPRESSION_V5_COMPACT_V1_NAME = "v5_compact_v1"
+EXPRESSION_V5_COMPACT_V1_CHANNEL_NAMES = [
+    "mean_slog_raw",
+    "cv_slog_raw",
+    "logw_centered_family",
+    "mean_rel_family",
+    "std_slog_raw",
+    "logw_raw",
+    "std_rel_family",
+    "pcc_centered_family",
+]
+EXPRESSION_V5_COMPACT_V1_DERIVED_FROM = EXPRESSION_SOURCE_RICH_V1_NAME
+EXPRESSION_V5_COMPACT_V1_SELECTED_CHANNELS = list(EXPRESSION_V5_COMPACT_V1_CHANNEL_NAMES)
+EXPRESSION_V6_INPUT_ALIGNED_V1_NAME = "v6_input_aligned_v1"
+EXPRESSION_V6_INPUT_ALIGNED_V1_CHANNEL_NAMES = [
+    "mean_or_mean_rel",
+    "cv_slog_raw",
+    "logw_centered_family",
+    "mean_rel_family",
+    "std_or_std_rel",
+    "logw_or_centered",
+    "std_rel_family",
+    "pcc_centered_family",
+]
+EXPRESSION_V6_INPUT_ALIGNED_V1_DERIVED_FROM = EXPRESSION_SOURCE_RICH_V1_NAME
+EXPRESSION_V6_INPUT_ALIGNED_V1_SELECTED_CHANNELS = [
+    "mean_slog_raw",
+    "cv_slog_raw",
+    "logw_centered_family",
+    "mean_rel_family",
+    "std_slog_raw",
+    "logw_raw",
+    "std_rel_family",
+    "pcc_centered_family",
+]
+EXPRESSION_V6_INPUT_ALIGNED_V1_SHORT_SCALE_IDS = [2, 3, 4]  # 1s / 0.1s / 0.01s
+EXPRESSION_V6_INPUT_ALIGNED_V1_SOFT_FAMILIES = [1, 2]  # HH / HH_jit
 
 
 def mac_to_str(raw: bytes) -> str:
@@ -241,6 +278,20 @@ def build_feature_schema(headers: list[str]) -> dict:
                 "clip_raw_rel": EXPRESSION_SOURCE_RICH_V1_CLIP_RAW_REL,
                 "clip_ratio": EXPRESSION_SOURCE_RICH_V1_CLIP_RATIO,
             },
+            EXPRESSION_V5_COMPACT_V1_NAME: {
+                "name": EXPRESSION_V5_COMPACT_V1_NAME,
+                "channel_names": EXPRESSION_V5_COMPACT_V1_CHANNEL_NAMES,
+                "derived_from": EXPRESSION_V5_COMPACT_V1_DERIVED_FROM,
+                "selected_channels": EXPRESSION_V5_COMPACT_V1_SELECTED_CHANNELS,
+            },
+            EXPRESSION_V6_INPUT_ALIGNED_V1_NAME: {
+                "name": EXPRESSION_V6_INPUT_ALIGNED_V1_NAME,
+                "channel_names": EXPRESSION_V6_INPUT_ALIGNED_V1_CHANNEL_NAMES,
+                "derived_from": EXPRESSION_V6_INPUT_ALIGNED_V1_DERIVED_FROM,
+                "selected_channels": EXPRESSION_V6_INPUT_ALIGNED_V1_SELECTED_CHANNELS,
+                "short_scale_ids": EXPRESSION_V6_INPUT_ALIGNED_V1_SHORT_SCALE_IDS,
+                "soft_families": EXPRESSION_V6_INPUT_ALIGNED_V1_SOFT_FAMILIES,
+            },
         },
         "header_mappings": header_mappings,
         "token_definitions": token_defs,
@@ -254,6 +305,11 @@ def build_feature_schema(headers: list[str]) -> dict:
             "token_matrix_v4a_hh_stabilized": [len(token_defs), len(EXPRESSION_V4A_HH_STABILIZED_CHANNEL_NAMES)],
             "token_matrix_v4b_hh_soft_stabilized": [len(token_defs), len(EXPRESSION_V4B_HH_SOFT_STABILIZED_CHANNEL_NAMES)],
             "token_matrix_source_rich_v1": [len(token_defs), len(EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES)],
+            "token_matrix_v5_compact_v1": [len(token_defs), len(EXPRESSION_V5_COMPACT_V1_CHANNEL_NAMES)],
+            "token_matrix_v6_input_aligned_v1": [
+                len(FAMILY_ORDER) * len(EXPRESSION_V6_INPUT_ALIGNED_V1_SHORT_SCALE_IDS),
+                len(EXPRESSION_V6_INPUT_ALIGNED_V1_CHANNEL_NAMES),
+            ],
         },
     }
     return schema
@@ -592,6 +648,70 @@ def compute_expression_source_rich_v1(family_scale_tokens: np.ndarray) -> np.nda
     return matrix
 
 
+def compute_expression_v5_compact_v1(family_scale_tokens: np.ndarray) -> np.ndarray:
+    """
+    v5_compact_v1 is a fixed 8-channel subset view derived from source_rich_v1.
+    Output shape: [N,20,8]
+    """
+    source_rich = compute_expression_source_rich_v1(family_scale_tokens)
+    idx_map = {name: idx for idx, name in enumerate(EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES)}
+    selected_idx = [idx_map[name] for name in EXPRESSION_V5_COMPACT_V1_SELECTED_CHANNELS]
+    out = source_rich[:, :, selected_idx].copy().astype(np.float32)
+    if not np.isfinite(out).all():
+        out = np.nan_to_num(out, nan=0.0, posinf=0.0, neginf=0.0).astype(np.float32)
+    return out
+
+
+def compute_expression_v6_input_aligned_v1(family_scale_tokens: np.ndarray) -> np.ndarray:
+    """
+    v6_input_aligned_v1:
+    - derived from source_rich_v1
+    - keep short scales only (1s / 0.1s / 0.01s): output [N,12,8]
+    - for HH/HH_jit, replace raw-absolute channels with family-relative variants
+      to reduce capture-level absolute drift.
+    """
+    source_rich = compute_expression_source_rich_v1(family_scale_tokens)
+    n = source_rich.shape[0]
+    c = len(EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES)
+    source_rich_4d = source_rich.reshape(n, len(FAMILY_ORDER), len(SCALE_ORDER), c)
+    idx_map = {name: idx for idx, name in enumerate(EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES)}
+
+    def ch(name: str) -> np.ndarray:
+        return source_rich_4d[:, :, :, idx_map[name]]
+
+    mean_slog_raw = ch("mean_slog_raw")
+    cv_slog_raw = ch("cv_slog_raw")
+    logw_centered = ch("logw_centered_family")
+    mean_rel = ch("mean_rel_family")
+    std_slog_raw = ch("std_slog_raw")
+    logw_raw = ch("logw_raw")
+    std_rel = ch("std_rel_family")
+    pcc_centered = ch("pcc_centered_family")
+
+    is_soft_family = np.zeros((1, len(FAMILY_ORDER), 1), dtype=np.float32)
+    is_soft_family[:, EXPRESSION_V6_INPUT_ALIGNED_V1_SOFT_FAMILIES, :] = 1.0
+
+    ch0 = mean_slog_raw * (1.0 - is_soft_family) + mean_rel * is_soft_family
+    ch1 = cv_slog_raw
+    ch2 = logw_centered
+    ch3 = mean_rel
+    ch4 = std_slog_raw * (1.0 - is_soft_family) + std_rel * is_soft_family
+    ch5 = logw_raw * (1.0 - is_soft_family) + logw_centered * is_soft_family
+    ch6 = std_rel
+    ch7 = pcc_centered
+
+    matrix_4d = np.stack([ch0, ch1, ch2, ch3, ch4, ch5, ch6, ch7], axis=-1).astype(np.float32)
+    short = matrix_4d[:, :, EXPRESSION_V6_INPUT_ALIGNED_V1_SHORT_SCALE_IDS, :]
+    out = short.reshape(
+        n,
+        len(FAMILY_ORDER) * len(EXPRESSION_V6_INPUT_ALIGNED_V1_SHORT_SCALE_IDS),
+        len(EXPRESSION_V6_INPUT_ALIGNED_V1_CHANNEL_NAMES),
+    ).astype(np.float32)
+    if not np.isfinite(out).all():
+        out = np.nan_to_num(out, nan=0.0, posinf=0.0, neginf=0.0).astype(np.float32)
+    return out
+
+
 def compute_expression_channel_audit(matrix: np.ndarray, channel_names: list[str]) -> dict:
     if matrix.ndim != 3:
         raise ValueError(f"Expected [N,20,C], got {matrix.shape}")
@@ -628,6 +748,8 @@ def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dic
     v4a = views.get("token_matrix_v4a_hh_stabilized")
     v4b = views.get("token_matrix_v4b_hh_soft_stabilized")
     source_rich = views.get("token_matrix_source_rich_v1")
+    v5 = views.get("token_matrix_v5_compact_v1")
+    v6 = views.get("token_matrix_v6_input_aligned_v1")
     expr_nonfinite = 0
     expr_shape = None
     expr_flat_shape = None
@@ -639,6 +761,10 @@ def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dic
     v4b_shape = None
     source_rich_nonfinite = 0
     source_rich_shape = None
+    v5_nonfinite = 0
+    v5_shape = None
+    v6_nonfinite = 0
+    v6_shape = None
     if expr is not None:
         expr_nonfinite = int(np.size(expr) - int(np.isfinite(expr).sum()))
         expr_shape = list(expr.shape)
@@ -655,6 +781,12 @@ def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dic
     if source_rich is not None:
         source_rich_nonfinite = int(np.size(source_rich) - int(np.isfinite(source_rich).sum()))
         source_rich_shape = list(source_rich.shape)
+    if v5 is not None:
+        v5_nonfinite = int(np.size(v5) - int(np.isfinite(v5).sum()))
+        v5_shape = list(v5.shape)
+    if v6 is not None:
+        v6_nonfinite = int(np.size(v6) - int(np.isfinite(v6).sum()))
+        v6_shape = list(v6.shape)
     return {
         "flat_reconstruction_max_abs_diff": max_abs_diff,
         "flat_reconstruction_exact": bool(max_abs_diff == 0.0),
@@ -671,6 +803,10 @@ def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dic
         "token_matrix_v4b_hh_soft_stabilized_nonfinite_count": v4b_nonfinite,
         "token_matrix_source_rich_v1_shape": source_rich_shape,
         "token_matrix_source_rich_v1_nonfinite_count": source_rich_nonfinite,
+        "token_matrix_v5_compact_v1_shape": v5_shape,
+        "token_matrix_v5_compact_v1_nonfinite_count": v5_nonfinite,
+        "token_matrix_v6_input_aligned_v1_shape": v6_shape,
+        "token_matrix_v6_input_aligned_v1_nonfinite_count": v6_nonfinite,
     }
 
 
@@ -717,6 +853,22 @@ def save_structured_cache(run_dir: Path, base_stem: str, views: dict, schema: di
         save_kwargs["expression_source_rich_v1_matrix"] = views["token_matrix_source_rich_v1"]
         save_kwargs["expression_source_rich_v1_flat"] = views["expression_source_rich_v1_flat"]
         save_kwargs["expression_source_rich_v1_channel_names"] = views["expression_source_rich_v1_channel_names"]
+    if "token_matrix_v5_compact_v1" in views:
+        save_kwargs["token_matrix_v5_compact_v1"] = views["token_matrix_v5_compact_v1"]
+        save_kwargs["expression_v5_compact_v1_matrix"] = views["token_matrix_v5_compact_v1"]
+        save_kwargs["expression_v5_compact_v1_flat"] = views["expression_v5_compact_v1_flat"]
+        save_kwargs["expression_v5_compact_v1_channel_names"] = views["expression_v5_compact_v1_channel_names"]
+        save_kwargs["expression_v5_compact_v1_derived_from"] = views["expression_v5_compact_v1_derived_from"]
+        save_kwargs["expression_v5_compact_v1_selected_channels"] = views["expression_v5_compact_v1_selected_channels"]
+    if "token_matrix_v6_input_aligned_v1" in views:
+        save_kwargs["token_matrix_v6_input_aligned_v1"] = views["token_matrix_v6_input_aligned_v1"]
+        save_kwargs["expression_v6_input_aligned_v1_matrix"] = views["token_matrix_v6_input_aligned_v1"]
+        save_kwargs["expression_v6_input_aligned_v1_flat"] = views["expression_v6_input_aligned_v1_flat"]
+        save_kwargs["expression_v6_input_aligned_v1_channel_names"] = views["expression_v6_input_aligned_v1_channel_names"]
+        save_kwargs["expression_v6_input_aligned_v1_derived_from"] = views["expression_v6_input_aligned_v1_derived_from"]
+        save_kwargs["expression_v6_input_aligned_v1_selected_channels"] = views["expression_v6_input_aligned_v1_selected_channels"]
+        save_kwargs["expression_v6_input_aligned_v1_short_scale_ids"] = views["expression_v6_input_aligned_v1_short_scale_ids"]
+        save_kwargs["expression_v6_input_aligned_v1_soft_families"] = views["expression_v6_input_aligned_v1_soft_families"]
     if "expression_versions" in views:
         save_kwargs["expression_versions"] = views["expression_versions"]
     np.savez_compressed(structured_npz_path, **save_kwargs)
@@ -913,6 +1065,10 @@ def main() -> None:
     v4b_audit_path = None
     source_rich_audit = None
     source_rich_audit_path = None
+    v5_compact_audit = None
+    v5_compact_audit_path = None
+    v6_input_aligned_audit = None
+    v6_input_aligned_audit_path = None
     if args.emit_structured_cache and features.size:
         schema = build_feature_schema(headers)
         views = build_structured_feature_views(features, schema)
@@ -922,14 +1078,20 @@ def main() -> None:
         v4a_matrix = compute_expression_v4a_hh_stabilized(views["family_scale_tokens"])
         v4b_matrix = compute_expression_v4b_hh_soft_stabilized(views["family_scale_tokens"])
         source_rich_matrix = compute_expression_source_rich_v1(views["family_scale_tokens"])
+        v5_compact_matrix = compute_expression_v5_compact_v1(views["family_scale_tokens"])
+        v6_input_aligned_matrix = compute_expression_v6_input_aligned_v1(views["family_scale_tokens"])
         views["v3"] = v3_matrix
         views[EXPRESSION_V4A_HH_STABILIZED_NAME] = v4a_matrix
         views[EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME] = v4b_matrix
         views[EXPRESSION_SOURCE_RICH_V1_NAME] = source_rich_matrix
+        views[EXPRESSION_V5_COMPACT_V1_NAME] = v5_compact_matrix
+        views[EXPRESSION_V6_INPUT_ALIGNED_V1_NAME] = v6_input_aligned_matrix
         views["token_matrix_v3"] = v3_matrix
         views["token_matrix_v4a_hh_stabilized"] = v4a_matrix
         views["token_matrix_v4b_hh_soft_stabilized"] = v4b_matrix
         views["token_matrix_source_rich_v1"] = source_rich_matrix
+        views["token_matrix_v5_compact_v1"] = v5_compact_matrix
+        views["token_matrix_v6_input_aligned_v1"] = v6_input_aligned_matrix
         views["expression_v3_matrix"] = v3_matrix
         views["expression_v3_flat"] = v3_matrix.reshape(len(v3_matrix), -1)  # [N,160]
         views["expression_v3_channel_names"] = np.asarray(EXPRESSION_V3_CHANNEL_NAMES, dtype="<U32")
@@ -957,8 +1119,44 @@ def main() -> None:
         views["expression_source_rich_v1_channel_names"] = np.asarray(
             EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES, dtype="<U40"
         )
+        views["expression_v5_compact_v1_flat"] = v5_compact_matrix.reshape(len(v5_compact_matrix), -1).astype(np.float32)
+        views["expression_v5_compact_v1_channel_names"] = np.asarray(
+            EXPRESSION_V5_COMPACT_V1_CHANNEL_NAMES, dtype="<U40"
+        )
+        views["expression_v5_compact_v1_derived_from"] = np.asarray(
+            EXPRESSION_V5_COMPACT_V1_DERIVED_FROM, dtype="<U32"
+        )
+        views["expression_v5_compact_v1_selected_channels"] = np.asarray(
+            EXPRESSION_V5_COMPACT_V1_SELECTED_CHANNELS, dtype="<U40"
+        )
+        views["expression_v6_input_aligned_v1_flat"] = (
+            v6_input_aligned_matrix.reshape(len(v6_input_aligned_matrix), -1).astype(np.float32)
+        )
+        views["expression_v6_input_aligned_v1_channel_names"] = np.asarray(
+            EXPRESSION_V6_INPUT_ALIGNED_V1_CHANNEL_NAMES, dtype="<U40"
+        )
+        views["expression_v6_input_aligned_v1_derived_from"] = np.asarray(
+            EXPRESSION_V6_INPUT_ALIGNED_V1_DERIVED_FROM, dtype="<U32"
+        )
+        views["expression_v6_input_aligned_v1_selected_channels"] = np.asarray(
+            EXPRESSION_V6_INPUT_ALIGNED_V1_SELECTED_CHANNELS, dtype="<U40"
+        )
+        views["expression_v6_input_aligned_v1_short_scale_ids"] = np.asarray(
+            EXPRESSION_V6_INPUT_ALIGNED_V1_SHORT_SCALE_IDS, dtype=np.int64
+        )
+        views["expression_v6_input_aligned_v1_soft_families"] = np.asarray(
+            EXPRESSION_V6_INPUT_ALIGNED_V1_SOFT_FAMILIES, dtype=np.int64
+        )
         views["expression_versions"] = np.asarray(
-            ["v3", EXPRESSION_V4A_HH_STABILIZED_NAME, EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME, EXPRESSION_SOURCE_RICH_V1_NAME], dtype="<U32"
+            [
+                "v3",
+                EXPRESSION_V4A_HH_STABILIZED_NAME,
+                EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME,
+                EXPRESSION_SOURCE_RICH_V1_NAME,
+                EXPRESSION_V5_COMPACT_V1_NAME,
+                EXPRESSION_V6_INPUT_ALIGNED_V1_NAME,
+            ],
+            dtype="<U32",
         )
         v4b_audit = {
             "all_tokens": compute_expression_channel_audit(v4b_matrix, EXPRESSION_V4B_HH_SOFT_STABILIZED_CHANNEL_NAMES),
@@ -990,6 +1188,38 @@ def main() -> None:
             json.dumps(source_rich_audit, indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
+        v5_compact_audit = {
+            "expression_version": EXPRESSION_V5_COMPACT_V1_NAME,
+            "derived_from": EXPRESSION_V5_COMPACT_V1_DERIVED_FROM,
+            "selected_channels": EXPRESSION_V5_COMPACT_V1_SELECTED_CHANNELS,
+            "all_tokens": compute_expression_channel_audit(v5_compact_matrix, EXPRESSION_V5_COMPACT_V1_CHANNEL_NAMES),
+            "hh_hh_jit_tokens": compute_expression_channel_audit(
+                v5_compact_matrix[:, 5:15, :], EXPRESSION_V5_COMPACT_V1_CHANNEL_NAMES
+            ),
+        }
+        v5_compact_audit_path = run_dir / "expression_v5_compact_audit.json"
+        v5_compact_audit_path.write_text(
+            json.dumps(v5_compact_audit, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
+        v6_input_aligned_audit = {
+            "expression_version": EXPRESSION_V6_INPUT_ALIGNED_V1_NAME,
+            "derived_from": EXPRESSION_V6_INPUT_ALIGNED_V1_DERIVED_FROM,
+            "selected_channels": EXPRESSION_V6_INPUT_ALIGNED_V1_SELECTED_CHANNELS,
+            "short_scale_ids": EXPRESSION_V6_INPUT_ALIGNED_V1_SHORT_SCALE_IDS,
+            "soft_families": EXPRESSION_V6_INPUT_ALIGNED_V1_SOFT_FAMILIES,
+            "all_tokens": compute_expression_channel_audit(
+                v6_input_aligned_matrix, EXPRESSION_V6_INPUT_ALIGNED_V1_CHANNEL_NAMES
+            ),
+            "hh_hh_jit_tokens": compute_expression_channel_audit(
+                v6_input_aligned_matrix[:, 3:9, :], EXPRESSION_V6_INPUT_ALIGNED_V1_CHANNEL_NAMES
+            ),
+        }
+        v6_input_aligned_audit_path = run_dir / "expression_v6_input_aligned_audit.json"
+        v6_input_aligned_audit_path.write_text(
+            json.dumps(v6_input_aligned_audit, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
         structured_validation = validate_structured_views(features, schema, views)
         structured_outputs = save_structured_cache(run_dir, base_stem, views, schema)
 
@@ -1010,6 +1240,8 @@ def main() -> None:
         "structured_outputs": structured_outputs,
         "expression_v4b_audit_path": str(v4b_audit_path) if v4b_audit_path else None,
         "source_rich_audit_path": str(source_rich_audit_path) if source_rich_audit_path else None,
+        "expression_v5_compact_audit_path": str(v5_compact_audit_path) if v5_compact_audit_path else None,
+        "expression_v6_input_aligned_audit_path": str(v6_input_aligned_audit_path) if v6_input_aligned_audit_path else None,
         "structured_validation": structured_validation,
         "structured_expression_versions": {
             "v3": {
@@ -1030,6 +1262,18 @@ def main() -> None:
                 "channel_names": EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES,
                 "clip_raw_rel": EXPRESSION_SOURCE_RICH_V1_CLIP_RAW_REL,
                 "clip_ratio": EXPRESSION_SOURCE_RICH_V1_CLIP_RATIO,
+            },
+            EXPRESSION_V5_COMPACT_V1_NAME: {
+                "channel_names": EXPRESSION_V5_COMPACT_V1_CHANNEL_NAMES,
+                "derived_from": EXPRESSION_V5_COMPACT_V1_DERIVED_FROM,
+                "selected_channels": EXPRESSION_V5_COMPACT_V1_SELECTED_CHANNELS,
+            },
+            EXPRESSION_V6_INPUT_ALIGNED_V1_NAME: {
+                "channel_names": EXPRESSION_V6_INPUT_ALIGNED_V1_CHANNEL_NAMES,
+                "derived_from": EXPRESSION_V6_INPUT_ALIGNED_V1_DERIVED_FROM,
+                "selected_channels": EXPRESSION_V6_INPUT_ALIGNED_V1_SELECTED_CHANNELS,
+                "short_scale_ids": EXPRESSION_V6_INPUT_ALIGNED_V1_SHORT_SCALE_IDS,
+                "soft_families": EXPRESSION_V6_INPUT_ALIGNED_V1_SOFT_FAMILIES,
             },
         },
     }
@@ -1079,6 +1323,18 @@ def main() -> None:
             f"- token_matrix_source_rich_v1 non-finite count: {structured_validation['token_matrix_source_rich_v1_nonfinite_count']}"
         )
         summary.append(
+            f"- token_matrix_v5_compact_v1 shape: {structured_validation['token_matrix_v5_compact_v1_shape']}"
+        )
+        summary.append(
+            f"- token_matrix_v5_compact_v1 non-finite count: {structured_validation['token_matrix_v5_compact_v1_nonfinite_count']}"
+        )
+        summary.append(
+            f"- token_matrix_v6_input_aligned_v1 shape: {structured_validation['token_matrix_v6_input_aligned_v1_shape']}"
+        )
+        summary.append(
+            f"- token_matrix_v6_input_aligned_v1 non-finite count: {structured_validation['token_matrix_v6_input_aligned_v1_nonfinite_count']}"
+        )
+        summary.append(
             "- v4a hard mask: families=[1,2], channels=[0,1,3,4]"
         )
         summary.append(
@@ -1087,10 +1343,21 @@ def main() -> None:
         summary.append(
             f"- source_rich_v1 channels: {len(EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES)}"
         )
+        summary.append(
+            f"- v5_compact_v1 channels: {len(EXPRESSION_V5_COMPACT_V1_CHANNEL_NAMES)} (derived_from=source_rich_v1)"
+        )
+        summary.append(
+            f"- v6_input_aligned_v1 channels: {len(EXPRESSION_V6_INPUT_ALIGNED_V1_CHANNEL_NAMES)} "
+            f"(short_scales={EXPRESSION_V6_INPUT_ALIGNED_V1_SHORT_SCALE_IDS}, derived_from=source_rich_v1)"
+        )
         if v4b_audit_path:
             summary.append(f"- v4b audit: `{v4b_audit_path.name}`")
         if source_rich_audit_path:
             summary.append(f"- source_rich audit: `{source_rich_audit_path.name}`")
+        if v5_compact_audit_path:
+            summary.append(f"- v5 compact audit: `{v5_compact_audit_path.name}`")
+        if v6_input_aligned_audit_path:
+            summary.append(f"- v6 input aligned audit: `{v6_input_aligned_audit_path.name}`")
     (run_dir / "summary_extract.md").write_text("\n".join(summary) + "\n", encoding="utf-8")
 
     print(f"[done] run dir: {run_dir}")

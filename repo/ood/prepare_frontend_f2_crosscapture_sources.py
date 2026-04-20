@@ -31,8 +31,20 @@ from kitsune_frontend_original_extract import (
     EXPRESSION_SOURCE_RICH_V1_CLIP_RATIO,
     EXPRESSION_SOURCE_RICH_V1_CLIP_RAW_REL,
     EXPRESSION_SOURCE_RICH_V1_NAME,
+    EXPRESSION_V5_COMPACT_V1_CHANNEL_NAMES,
+    EXPRESSION_V5_COMPACT_V1_DERIVED_FROM,
+    EXPRESSION_V5_COMPACT_V1_NAME,
+    EXPRESSION_V5_COMPACT_V1_SELECTED_CHANNELS,
+    EXPRESSION_V6_INPUT_ALIGNED_V1_CHANNEL_NAMES,
+    EXPRESSION_V6_INPUT_ALIGNED_V1_DERIVED_FROM,
+    EXPRESSION_V6_INPUT_ALIGNED_V1_NAME,
+    EXPRESSION_V6_INPUT_ALIGNED_V1_SELECTED_CHANNELS,
+    EXPRESSION_V6_INPUT_ALIGNED_V1_SHORT_SCALE_IDS,
+    EXPRESSION_V6_INPUT_ALIGNED_V1_SOFT_FAMILIES,
     compute_expression_channel_audit,
     compute_expression_source_rich_v1,
+    compute_expression_v6_input_aligned_v1,
+    compute_expression_v5_compact_v1,
     compute_expression_v3,
     compute_expression_v4a_hh_stabilized,
     compute_expression_v4b_hh_soft_stabilized,
@@ -62,6 +74,8 @@ EXPRESSION_VERSION_CHOICES = [
     EXPRESSION_V4A_HH_STABILIZED_NAME,
     EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME,
     EXPRESSION_SOURCE_RICH_V1_NAME,
+    EXPRESSION_V5_COMPACT_V1_NAME,
+    EXPRESSION_V6_INPUT_ALIGNED_V1_NAME,
 ]
 
 
@@ -223,6 +237,62 @@ def resolve_expression_matrix(
             version_meta,
         )
 
+    if version == EXPRESSION_V5_COMPACT_V1_NAME:
+        channel_names = list(EXPRESSION_V5_COMPACT_V1_CHANNEL_NAMES)
+        version_meta = {
+            "derived_from": EXPRESSION_V5_COMPACT_V1_DERIVED_FROM,
+            "selected_channels": list(EXPRESSION_V5_COMPACT_V1_SELECTED_CHANNELS),
+        }
+        if "token_matrix_v5_compact_v1" in src:
+            return (
+                take_first(src["token_matrix_v5_compact_v1"], n_rows).astype(np.float32),
+                "token_matrix_v5_compact_v1",
+                channel_names,
+                version_meta,
+            )
+        if "expression_v5_compact_v1_matrix" in src:
+            return (
+                take_first(src["expression_v5_compact_v1_matrix"], n_rows).astype(np.float32),
+                "expression_v5_compact_v1_matrix",
+                channel_names,
+                version_meta,
+            )
+        return (
+            compute_expression_v5_compact_v1(payload["family_scale_tokens"]),
+            "computed_now",
+            channel_names,
+            version_meta,
+        )
+
+    if version == EXPRESSION_V6_INPUT_ALIGNED_V1_NAME:
+        channel_names = list(EXPRESSION_V6_INPUT_ALIGNED_V1_CHANNEL_NAMES)
+        version_meta = {
+            "derived_from": EXPRESSION_V6_INPUT_ALIGNED_V1_DERIVED_FROM,
+            "selected_channels": list(EXPRESSION_V6_INPUT_ALIGNED_V1_SELECTED_CHANNELS),
+            "short_scale_ids": list(EXPRESSION_V6_INPUT_ALIGNED_V1_SHORT_SCALE_IDS),
+            "soft_families": list(EXPRESSION_V6_INPUT_ALIGNED_V1_SOFT_FAMILIES),
+        }
+        if "token_matrix_v6_input_aligned_v1" in src:
+            return (
+                take_first(src["token_matrix_v6_input_aligned_v1"], n_rows).astype(np.float32),
+                "token_matrix_v6_input_aligned_v1",
+                channel_names,
+                version_meta,
+            )
+        if "expression_v6_input_aligned_v1_matrix" in src:
+            return (
+                take_first(src["expression_v6_input_aligned_v1_matrix"], n_rows).astype(np.float32),
+                "expression_v6_input_aligned_v1_matrix",
+                channel_names,
+                version_meta,
+            )
+        return (
+            compute_expression_v6_input_aligned_v1(payload["family_scale_tokens"]),
+            "computed_now",
+            channel_names,
+            version_meta,
+        )
+
     raise ValueError(f"Unsupported expression version: {version}")
 
 
@@ -342,6 +412,24 @@ def main() -> None:
             json.dumps(audit_payload, indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
+    elif version == EXPRESSION_V6_INPUT_ALIGNED_V1_NAME:
+        expression_audit_path = run_dir / "expression_v6_input_aligned_audit.json"
+        audit_payload = {
+            "created_at": datetime.now().isoformat(timespec="seconds"),
+            "expression_version": version,
+            "id": {
+                "all_tokens": compute_expression_channel_audit(id_expr, channel_names),
+                "hh_hh_jit_tokens": compute_expression_channel_audit(id_expr[:, 3:9, :], channel_names),
+            },
+            "ood_benign": {
+                "all_tokens": compute_expression_channel_audit(ood_expr, channel_names),
+                "hh_hh_jit_tokens": compute_expression_channel_audit(ood_expr[:, 3:9, :], channel_names),
+            },
+        }
+        expression_audit_path.write_text(
+            json.dumps(audit_payload, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
 
     schema_copy = data_dir / "structured_schema.json"
     shutil.copyfile(args.schema_json, schema_copy)
@@ -372,8 +460,8 @@ def main() -> None:
             "ood_expression_v2_flat": ood_expression_v2_paths,
             f"id_expression_{version}_matrix": str(id_expr_matrix_path),
             f"ood_expression_{version}_matrix": str(ood_expr_matrix_path),
-            f"id_expression_{version}_160": str(id_expr_flat_path),
-            f"ood_expression_{version}_160": str(ood_expr_flat_path),
+            f"id_expression_{version}_{expr_flat_dim}": str(id_expr_flat_path),
+            f"ood_expression_{version}_{expr_flat_dim}": str(ood_expr_flat_path),
             "schema_copy": str(schema_copy),
         },
     }
