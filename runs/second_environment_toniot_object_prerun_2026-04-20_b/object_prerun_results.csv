@@ -1,0 +1,10 @@
+object_label,policy_name,score_orientation,roc_auc_attack_vs_ood,threshold,id_alarm_ratio,ood_alarm_ratio,attack_detection
+dA,fixed_id_q99,neg_raw_score,0.6798942708333333,-0.004927511042990001,0.01,0.007625,0.07666666666666666
+dA,naive_calibrated_budget5000_target1pct,neg_raw_score,0.6798942708333333,-0.004948827258633862,0.01425,0.009125,0.07916666666666666
+dA,det_floor_50pct_min_alarm,neg_raw_score,0.6798942708333333,-0.008166536103855386,0.177,0.2985,0.5013333333333333
+strongest_candidate_transformer_covreg_v2_seed101,fixed_id_q99,neg_raw_score,0.66899296875,-0.07060086010193826,0.01,0.014125,0.0
+strongest_candidate_transformer_covreg_v2_seed101,naive_calibrated_budget5000_target1pct,neg_raw_score,0.66899296875,-0.06980302108621596,0.0065,0.010625,0.0
+strongest_candidate_transformer_covreg_v2_seed101,det_floor_50pct_min_alarm,neg_raw_score,0.66899296875,-0.09497151012434372,0.68125,0.333125,0.5019166666666667
+ft_transformer_ae,fixed_id_q99,neg_raw_score,0.5113839739583333,-0.030279336497187614,0.001,0.0,0.0
+ft_transformer_ae,naive_calibrated_budget5000_target1pct,neg_raw_score,0.5113839739583333,-0.09319956183433532,0.41925,0.010875,0.01175
+ft_transformer_ae,det_floor_50pct_min_alarm,neg_raw_score,0.5113839739583333,-0.1723426310691815,0.53175,0.48,0.5008333333333334

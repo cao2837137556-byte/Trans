@@ -809,6 +809,17 @@ v2 的唯一正确方向：
   - `oneclass_svm` 采用 `raw_decision` 时 AUC `0.816051`（另一方向 `0.183949`）；
   - 先前 smoke 的低 AUC 主要来自方向性口径错误，而非标签定义反转。
 - 当前节点结论为 `polarity_checked_ready_for_formal_object_runs`，下一步可进入主线必选对象在 TON fallback 上的同口径正式运行准备。
+- 已完成 TON 主线对象包本地预跑：`runs/second_environment_toniot_object_prerun_2026-04-20_b/`，新增 `repo/ood/second_environment_toniot_object_prerun.py`。
+- 该节点在统一脚本下跑通了主线必选对象：
+  - `dA`
+  - `strongest_candidate_transformer_covreg_v2_seed101`
+  - `ft_transformer_ae`
+- 口径固定：读取 precheck `split_manifest.json`，执行同一 policy family（`fixed_id_q99` / `naive_calibrated_budget5000_target1pct` / `det_floor_50pct_min_alarm`），并做统一 polarity gate。
+- 本地预跑规模（用于快速可比和稳定性检查）：
+  - `ID train=8000`、`ID eval=4000`、`OOD eval=8000`、`attack eval=12000`。
+- 当前结果说明：
+  - 对象包可运行性已打通，但 fixed/naive operating point 下总体信号偏弱；
+  - `strongest_candidate` 在本地预跑中出现一次 `NaN/Inf` execute-path 提示，需先做稳定性修复再考虑正式 HPC 提交。
 
 ### C. 对抗鲁棒性评估包：分成神经白盒与统一黑盒两层
 

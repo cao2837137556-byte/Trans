@@ -1,6 +1,6 @@
 # Mainline Handoff
 
-Updated: 2026-04-17
+Updated: 2026-04-20
 Workspace: `D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline`
 Branch: `codex/exp-mainline`
 Canonical path: `runs/mainline_docs/mainline_handoff.md`
@@ -582,3 +582,48 @@ Judgment:
 Next:
 - Implement/patch the formal TON object-run entry so `dA`, strongest candidate, and FT line all read `split_manifest.json`.
 - Keep policy family fixed (`fixed_id_q99`, `naive_calibrated_budget5000_target1pct`, `det_floor_50pct_min_alarm`) and proceed with local smoke checks before formal HPC submission.
+
+### 2026-04-20 (TON Mainline Object Pre-Run Completed)
+
+What was done:
+- Added `repo/ood/second_environment_toniot_object_prerun.py` to run the required second-environment object pack on a fixed TON split manifest with unified policy family.
+- Ran:
+  - `runs/second_environment_toniot_object_prerun_2026-04-20_b/`
+- This node consumed `runs/second_environment_toniot_precheck_2026-04-20/split_manifest.json` and executed:
+  - `dA`
+  - `strongest_candidate_transformer_covreg_v2_seed101` (migratable single-seed strongest-candidate proxy)
+  - `ft_transformer_ae`
+- Local pre-run scale for this node:
+  - `ID train = 8000`
+  - `ID eval = 4000`
+  - `OOD eval = 8000`
+  - `attack eval = 12000`
+  - `naive budget = 5000`
+
+Result:
+- Object pack is now runnable end-to-end under one script, one split source, and one policy set.
+- Polarity gate selected `neg_raw_score` for all three objects:
+  - `dA`: `auc=0.679894`
+  - `strongest_candidate_transformer_covreg_v2_seed101`: `auc=0.668993`
+  - `ft_transformer_ae`: `auc=0.511384`
+- Fixed and naive operating points are currently weak on this TON pre-run split:
+  - `dA` fixed: `ood_alarm=0.007625`, `attack_det=0.076667`
+  - `strongest_candidate` fixed: `ood_alarm=0.014125`, `attack_det=0.000000`
+  - `ft_transformer_ae` fixed: `ood_alarm=0.000000`, `attack_det=0.000000`
+  - `ft_transformer_ae` naive: `ood_alarm=0.010875`, `attack_det=0.011750`
+- Detection-floor reference (`det_floor_50pct_min_alarm`) required high OOD alarm for all:
+  - `dA`: `0.298500`
+  - `strongest_candidate`: `0.333125`
+  - `ft_transformer_ae`: `0.480000`
+- Runtime diagnostics captured in `object_diagnostics.csv` indicate the strongest-candidate line is much heavier than `dA/FT` under this local setup.
+- During strongest-candidate scoring, one `NaN/Inf detected in execute score` message appeared (run completed, but this is a stability warning to resolve before formal promotion).
+
+Judgment:
+- This node closes the implementation gap (“required objects can now run on TON fallback with aligned policies”), but does not close the second-environment evidence gap.
+- On the current pre-run scale and settings, none of the three objects provides a strong fixed/naive operating-point result.
+- Formal HPC promotion is not justified yet; the correct next action remains local diagnosis and stabilization.
+
+Next:
+- Diagnose and fix the strongest-candidate `NaN/Inf` execute-path instability on TON split.
+- Run one more local stabilization pass for the same object pack (same policy family, same split source) before scaling to full TON counts.
+- If stabilized local results remain weak, record as negative external-validation evidence; if stabilized signal improves, then prepare the formal date-tagged HPC package by the fixed SOP.
