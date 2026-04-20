@@ -770,6 +770,18 @@ v2 的唯一正确方向：
   - 本机也没有 `TON-IoT` 本地副本，因此 fallback 目前同样不能立即开 smoke。
 - 这一步的意义是把第二环境主线的真实起点固定下来：先拿到本地数据副本，再做最小 smoke，而不是在没有数据的情况下空转训练脚本或提前占用 HPC。
 
+#### 2026-04-20 进展
+- 已确认本地 `BoT-IoT 5%` 数据落地于 `D:\study\paper\anomaly_detection\paper04\worktrees\data\5%`。
+- 已完成新一轮 feasibility：`runs/second_environment_botiot_feasibility_2026-04-20/`，结论从“数据缺失”更新为 `bot_iot_local_ready_for_smoke`。
+- 已完成第一轮本地 second-environment smoke：`runs/second_environment_botiot_smoke_2026-04-20/`，并新增 `repo/ood/second_environment_botiot_smoke.py`。
+- 当前 smoke 采用 `BoT-IoT` 10-best 训练/测试切分，numeric-only 快速评估，固定三类策略（`fixed_id_q99` / `naive_calibrated_budget500_target1pct` / `det_floor_50pct_min_alarm`）。
+- 关键烟雾测试规模：
+  - `id_benign_train=370`
+  - `ood_benign_test=107`
+  - `attack_test=100000`（本地 smoke 上限）
+  - `feature_count=11`
+- 该节点定位是“可运行性里程碑”，不是正式外部自证结论；主要风险是 benign 样本规模偏小，后续必须继续收敛成可辩护的正式 split 与正式对象对比包。
+
 ### C. 对抗鲁棒性评估包：分成神经白盒与统一黑盒两层
 
 #### 设计原则

@@ -1,0 +1,315 @@
+{
+  "generated_at": "2026-04-20T11:06:25",
+  "run_dir": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\second_environment_botiot_feasibility_2026-04-20",
+  "config": {
+    "run_tag": "second_environment_botiot_feasibility_2026-04-20",
+    "bot_iot_root": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\data\\5%",
+    "ton_iot_root": null,
+    "sample_rows": 2048
+  },
+  "run_spec": {
+    "stage": "second_environment_feasibility",
+    "line": "A-line",
+    "goal": "Decide whether BoT-IoT-first second-environment smoke can proceed from this machine without violating the mainline execution order.",
+    "success_condition": [
+      "BoT-IoT official access works or a local BoT-IoT copy is present",
+      "At least one labeled tabular source is visible for smoke preparation"
+    ]
+  },
+  "official_sources": {
+    "bot_iot": {
+      "page": "https://research.unsw.edu.au/projects/bot-iot-dataset",
+      "sharepoint_links": [
+        "https://unsw-my.sharepoint.com/:f:/g/personal/z5131399_ad_unsw_edu_au/EjlBDf2KODxPgXmqbO3MxxsBBVARCKZxGUG47OiFHb_AnQ",
+        "https://unsw.sharepoint.com/sites/research-hub"
+      ],
+      "probe": {
+        "url": "https://unsw-my.sharepoint.com/:f:/g/personal/z5131399_ad_unsw_edu_au/EjlBDf2KODxPgXmqbO3MxxsBBVARCKZxGUG47OiFHb_AnQ",
+        "ok": true,
+        "status": 200,
+        "final_url": "https://login.microsoftonline.com:443/3ff6cfa4-e715-48db-b8e1-0867b9f9fba3/oauth2/authorize?client%5Fid=00000003%2D0000%2D0ff1%2Dce00%2D000000000000&response%5Fmode=form%5Fpost&ear%5Fjwe%5Fcrypto=eyJhbGciOiJFQ0RILUVTIiwiZW5jIjoiQTI1NkdDTSIsImFwdiI6IkFBQUFDVVZoY2tOc2FXVnVkR2dBQUFCRlEwc3pNQUFBQUNOUXpldTQ0QnB2WWhKRTYycGlnb0pKT29FWGxsSldYQzk1eDVlT28rckJzZTJ0M0VRVHRWWjJRMmU4ME5sNVRmd1g1ck13VDVVTkJBTlBRQlBvYUNCZURlZFVxSm83L0grZ0FxY0R1MzhoeGw2b1BBeEpZZDRGNFI0cFdJZVVqZ0FBQUJnOEJVZW1vOGtkLzBVRk40QUdITGR4RlQ0d3NBRldneEU9In0%3D&ear%5Fjwk=eyJhbGciOiJFQ0RILUVTIiwiY3J2IjoiUC0zODQiLCJ4IjoiQUFBQU1DTlF6ZXU0NEJwdlloSkU2MnBpZ29KSk9vRVhsbEpXWEM5NXg1ZU9vK3JCc2UydDNFUVR0VloyUTJlODBObDVUUT09IiwieSI6IkFBQUFNUHdYNXJNd1Q1VU5CQU5QUUJQb2FDQmVEZWRVcUpvNy9IK2dBcWNEdTM4aHhsNm9QQXhKWWQ0RjRSNHBXSWVVamc9PSIsImt0eSI6IkVDIn0%3D&spa%5Fclient%5Fid=08e18876%2D6177%2D487e%2Db8b5%2Dcf950c1e598c&client%5Finfo=1&response%5Ftype=code%20id%5Ftoken%20spa%5Frt&resource=00000003%2D0000%2D0ff1%2Dce00%2D000000000000&scope=openid&nonce=7CAF6FF8576691C780896683DA36B9BCEBF1AA1E7AF47C29%2D8E0A8B006990DADDEF42DDB4C3ADEC8B96105A68B6C0757809F0721D919D6227&redirect%5Furi=https%3A%2F%2Funsw%2Dmy%2Esharepoint%2Ecom%2F%5Fforms%2Fdefault%2Easpx&state=OD0wJjMyPUFBTUNUd0FBQUJRNzI4MlFkU1lLamZBU0pYSiUyRmI4aVo4VzV2aGhOSUdQYnEyc1ZFdjBUNnglMkY3WGlXd0JRZHpqeWpXVllJZXZ2Smx6Sjc5NUhBSzNnbEVtMjdzQ0lrV2RrOXVIZ0pxQ3hXWUdOdnZBcW85NE1GNE9HQmlvMUdNZjdSVXF5REtQTCUyQmhXUkx1SmJ5N1JZRnBiSWdkcXY3QTJDSjA4ekJtemd1WklwbmFHTXFIZkQ0alFINGFCODdaSjBrS2xKQW4yZjNCbVdKMjNGY2RwY2RCTG1BTHhjTWk5SUElMkZnaEt5ZGF2Y3c5dlM3Qm5rcFNMJTJGZGN0JTJCbndsdmFiMjhacDVmbiUyRjFicDglMkZoTUIzQ1owV1BhWmpxZlFFamZScmtFOWtKTlBtdnJkU0JtVUNOcGtNRFFsWDB1WDJtRllyQkxBamZqTlg5SjBBRmwwbEdnYklMMTA2dkVjQTUzZ3VmY0xMYlpqWnRybDFxWiUyQmtiSjdwSERkckI1Ylp0WXFBJTNEJTNE&claims=%7B%22id%5Ftoken%22%3A%7B%22xms%5Fcc%22%3A%7B%22values%22%3A%5B%22CP1%22%5D%7D%7D%7D&wsucxt=1&cobrandid=11bd8083%2D87e0%2D41b5%2Dbb78%2D0bc43c8a8e8a&client%2Drequest%2Did=6bb00ba2%2D90f8%2D6000%2D1f37%2Ddb279c1e31e3",
+        "requires_login": true
+      }
+    },
+    "ton_iot": {
+      "page": "https://research.unsw.edu.au/projects/toniot-datasets",
+      "sharepoint_links": [
+        "https://unsw-my.sharepoint.com/:f:/g/personal/z5025758_ad_unsw_edu_au/EvBTaetotpdGnW7rJQ8fCvYBh8063CNeY9W33MpRsarJaQ?e=yZlnxW",
+        "https://unsw-my.sharepoint.com/:f:/g/personal/z5025758_ad_unsw_edu_au/EnuQZZn3XuNBjgfcUu4DIVMBLCHyoLHqOswirpOQifr1ag?e=gKWkLS",
+        "https://unsw.sharepoint.com/sites/research-hub"
+      ],
+      "probe": {
+        "url": "https://unsw-my.sharepoint.com/:f:/g/personal/z5025758_ad_unsw_edu_au/EvBTaetotpdGnW7rJQ8fCvYBh8063CNeY9W33MpRsarJaQ?e=yZlnxW",
+        "ok": true,
+        "status": 200,
+        "final_url": "https://login.microsoftonline.com:443/3ff6cfa4-e715-48db-b8e1-0867b9f9fba3/oauth2/authorize?client%5Fid=00000003%2D0000%2D0ff1%2Dce00%2D000000000000&response%5Fmode=form%5Fpost&ear%5Fjwe%5Fcrypto=eyJhbGciOiJFQ0RILUVTIiwiZW5jIjoiQTI1NkdDTSIsImFwdiI6IkFBQUFDVVZoY2tOc2FXVnVkR2dBQUFCRlEwc3pNQUFBQU91aEZjbXJOOHI0ZlB0b05nSzhtSDZKelBjZmFwemdVRnZib1BxUTFUR2ZuMFl6dzVGdmZ2NVFqOHlQYmlWL3cyem4zQ2p6QTRGeTZDMHhDNnBXZDVsWXVWVDZwTnFndXUvVG50VlRmcFkyMWRTWCsydnd2bEFUSUFHcnc3YnRhd0FBQUJpNUUxODlZNmc4YVdsUmNlMjlQZjFqTGl1cnZqcVFkQmM9In0%3D&ear%5Fjwk=eyJhbGciOiJFQ0RILUVTIiwiY3J2IjoiUC0zODQiLCJ4IjoiQUFBQU1PdWhGY21yTjhyNGZQdG9OZ0s4bUg2SnpQY2ZhcHpnVUZ2Ym9QcVExVEdmbjBZenc1RnZmdjVRajh5UGJpVi93dz09IiwieSI6IkFBQUFNR3puM0NqekE0Rnk2QzB4QzZwV2Q1bFl1VlQ2cE5xZ3V1L1RudFZUZnBZMjFkU1grMnZ3dmxBVElBR3J3N2J0YXc9PSIsImt0eSI6IkVDIn0%3D&spa%5Fclient%5Fid=08e18876%2D6177%2D487e%2Db8b5%2Dcf950c1e598c&client%5Finfo=1&response%5Ftype=code%20id%5Ftoken%20spa%5Frt&resource=00000003%2D0000%2D0ff1%2Dce00%2D000000000000&scope=openid&nonce=049558D76598B2E95E15CA7498299E9DED5926128BC12F4E%2D214E99A8B5FE9B51AAC25784FCDA7D59BFB39C72119A0DB526E00857C4418DD8&redirect%5Furi=https%3A%2F%2Funsw%2Dmy%2Esharepoint%2Ecom%2F%5Fforms%2Fdefault%2Easpx&state=OD0wJjMyPUFBTUNUd0FBQUJRNzI4MlFkU1lLamZBU0pYSiUyRmI4aVo4VzV2aGhJUUpwdkJxNkpOc1hRVnVQMk1nRHNKTHJ4eTNzbEdzWjMyY0xPR0xWSEF5TllLWGk1dENuUlgzb25tTVVLQ2VvY3NRU1lVZ2hWaGJuQmhlU095aXlqaFFEJTJGanpYJTJGSFglMkZYSm1HMyUyRk1Fc1l2RWV4V1U3c2dMcUhuS3hITXY0JTJCdkZ4T1dqV0tiJTJGc3R5UUw4ZWFrY1pRVHh4QSUyQjBVdE5ldjlIOE9xczVIcGVIandkeVViJTJGOE9USEpNVlQlMkZYWGh3Yk9McVZpVjg0TmhrciUyQktkRThJRXpNYSUyRlN1d29ZMGJNRmhFR2Z4SEZSWDNYcHFXQzRFN2o1c0tKaENQY21BTGJGNkFQY1N1NEp2RVVOJTJCbXl1JTJCYWVicVppVlpsd2V5Y1RwdU9uelhjdzNRVzVlQ1dFaHd0bzFNMFhabWIwZjlwTnptemliaUVqZ1dWVlBySW0lMkZPeGpPaEI4MklKdUlnJTNEJTNE&claims=%7B%22id%5Ftoken%22%3A%7B%22xms%5Fcc%22%3A%7B%22values%22%3A%5B%22CP1%22%5D%7D%7D%7D&wsucxt=1&cobrandid=11bd8083%2D87e0%2D41b5%2Dbb78%2D0bc43c8a8e8a&client%2Drequest%2Did=72b00ba2%2Da0ff%2D6000%2Df3a0%2D0b052ad2e9fc",
+        "requires_login": true
+      }
+    }
+  },
+  "local_roots": {
+    "bot_iot": {
+      "provided": true,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\data\\5%",
+      "exists": true,
+      "files": [
+        {
+          "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\data\\5%\\10-best features\\10-best Training-Testing split\\UNSW_2018_IoT_Botnet_Final_10_best_Testing.csv",
+          "suffix": ".csv",
+          "label_column": "attack",
+          "columns_preview": [
+            "pkSeqID",
+            "proto",
+            "saddr",
+            "sport",
+            "daddr",
+            "dport",
+            "seq",
+            "stddev",
+            "N_IN_Conn_P_SrcIP",
+            "min",
+            "state_number",
+            "mean",
+            "N_IN_Conn_P_DstIP",
+            "drate",
+            "srate",
+            "max",
+            "attack",
+            "category",
+            "subcategory"
+          ],
+          "read_ok": true,
+          "rows_sampled": 2048,
+          "n_columns": 19,
+          "label_top_counts": {
+            "1": 2048
+          }
+        },
+        {
+          "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\data\\5%\\10-best features\\10-best Training-Testing split\\UNSW_2018_IoT_Botnet_Final_10_best_Training.csv",
+          "suffix": ".csv",
+          "label_column": "attack",
+          "columns_preview": [
+            "pkSeqID",
+            "proto",
+            "saddr",
+            "sport",
+            "daddr",
+            "dport",
+            "seq",
+            "stddev",
+            "N_IN_Conn_P_SrcIP",
+            "min",
+            "state_number",
+            "mean",
+            "N_IN_Conn_P_DstIP",
+            "drate",
+            "srate",
+            "max",
+            "attack",
+            "category",
+            "subcategory"
+          ],
+          "read_ok": true,
+          "rows_sampled": 2048,
+          "n_columns": 19,
+          "label_top_counts": {
+            "1": 2048
+          }
+        },
+        {
+          "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\data\\5%\\10-best features\\UNSW_2018_IoT_Botnet_Final_10_Best.csv",
+          "suffix": ".csv",
+          "label_column": null,
+          "columns_preview": [
+            ";pkSeqID;proto;saddr;sport;daddr;dport;seq;stddev;N_IN_Conn_P_SrcIP;min;state_number;mean;N_IN_Conn_P_DstIP;drate;srate;max;attack;category;subcategory"
+          ],
+          "read_ok": true,
+          "rows_sampled": 2048,
+          "n_columns": 1
+        },
+        {
+          "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\data\\5%\\All features\\UNSW_2018_IoT_Botnet_Full5pc_1.csv",
+          "suffix": ".csv",
+          "label_column": "attack",
+          "columns_preview": [
+            "pkSeqID",
+            "stime",
+            "flgs",
+            "flgs_number",
+            "proto",
+            "proto_number",
+            "saddr",
+            "sport",
+            "daddr",
+            "dport",
+            "pkts",
+            "bytes",
+            "state",
+            "state_number",
+            "ltime",
+            "seq",
+            "dur",
+            "mean",
+            "stddev",
+            "sum",
+            "min",
+            "max",
+            "spkts",
+            "dpkts",
+            "sbytes",
+            "dbytes",
+            "rate",
+            "srate",
+            "drate",
+            "TnBPSrcIP"
+          ],
+          "read_ok": true,
+          "rows_sampled": 2048,
+          "n_columns": 46,
+          "label_top_counts": {
+            "1": 2048
+          }
+        },
+        {
+          "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\data\\5%\\All features\\UNSW_2018_IoT_Botnet_Full5pc_2.csv",
+          "suffix": ".csv",
+          "label_column": "attack",
+          "columns_preview": [
+            "pkSeqID",
+            "stime",
+            "flgs",
+            "flgs_number",
+            "proto",
+            "proto_number",
+            "saddr",
+            "sport",
+            "daddr",
+            "dport",
+            "pkts",
+            "bytes",
+            "state",
+            "state_number",
+            "ltime",
+            "seq",
+            "dur",
+            "mean",
+            "stddev",
+            "sum",
+            "min",
+            "max",
+            "spkts",
+            "dpkts",
+            "sbytes",
+            "dbytes",
+            "rate",
+            "srate",
+            "drate",
+            "TnBPSrcIP"
+          ],
+          "read_ok": true,
+          "rows_sampled": 2048,
+          "n_columns": 46,
+          "label_top_counts": {
+            "1": 2048
+          }
+        },
+        {
+          "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\data\\5%\\All features\\UNSW_2018_IoT_Botnet_Full5pc_3.csv",
+          "suffix": ".csv",
+          "label_column": "attack",
+          "columns_preview": [
+            "pkSeqID",
+            "stime",
+            "flgs",
+            "flgs_number",
+            "proto",
+            "proto_number",
+            "saddr",
+            "sport",
+            "daddr",
+            "dport",
+            "pkts",
+            "bytes",
+            "state",
+            "state_number",
+            "ltime",
+            "seq",
+            "dur",
+            "mean",
+            "stddev",
+            "sum",
+            "min",
+            "max",
+            "spkts",
+            "dpkts",
+            "sbytes",
+            "dbytes",
+            "rate",
+            "srate",
+            "drate",
+            "TnBPSrcIP"
+          ],
+          "read_ok": true,
+          "rows_sampled": 2048,
+          "n_columns": 46,
+          "label_top_counts": {
+            "1": 2048
+          }
+        },
+        {
+          "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\data\\5%\\All features\\UNSW_2018_IoT_Botnet_Full5pc_4.csv",
+          "suffix": ".csv",
+          "label_column": "attack",
+          "columns_preview": [
+            "pkSeqID",
+            "stime",
+            "flgs",
+            "flgs_number",
+            "proto",
+            "proto_number",
+            "saddr",
+            "sport",
+            "daddr",
+            "dport",
+            "pkts",
+            "bytes",
+            "state",
+            "state_number",
+            "ltime",
+            "seq",
+            "dur",
+            "mean",
+            "stddev",
+            "sum",
+            "min",
+            "max",
+            "spkts",
+            "dpkts",
+            "sbytes",
+            "dbytes",
+            "rate",
+            "srate",
+            "drate",
+            "TnBPSrcIP"
+          ],
+          "read_ok": true,
+          "rows_sampled": 2048,
+          "n_columns": 46,
+          "label_top_counts": {
+            "1": 2048
+          }
+        }
+      ],
+      "n_tabular_files": 7,
+      "n_labeled_candidates": 6
+    },
+    "ton_iot": {
+      "provided": false,
+      "exists": false,
+      "files": []
+    }
+  },
+  "verdict": "bot_iot_local_ready_for_smoke",
+  "verdict_reason": "BoT-IoT local root exists and contains at least one labeled tabular candidate."
+}

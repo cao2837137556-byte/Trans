@@ -382,3 +382,53 @@ Next:
 - Obtain a local `BoT-IoT` dataset copy first if possible, because the execution order is fixed as `BoT-IoT first`.
 - If `BoT-IoT` remains inaccessible but `TON-IoT` becomes locally available earlier, rerun the same feasibility probe with a local `TON-IoT` root and decide explicitly whether the mainline should switch to the documented fallback.
 - After a local dataset copy exists, rerun the feasibility node with `--bot-iot-root` or `--ton-iot-root`, then build the minimal second-environment smoke package before any formal HPC run.
+
+### 2026-04-20 (BoT-IoT Local Data Arrived + Smoke Started)
+
+What was done:
+- Confirmed local `BoT-IoT 5%` data is now present at:
+  - `D:\study\paper\anomaly_detection\paper04\worktrees\data\5%`
+- Re-ran feasibility with the local data root:
+  - `runs/second_environment_botiot_feasibility_2026-04-20/`
+  - verdict is now `bot_iot_local_ready_for_smoke`.
+- Started and completed the first local second-environment smoke node:
+  - added `repo/ood/second_environment_botiot_smoke.py`
+  - generated `runs/second_environment_botiot_smoke_2026-04-20/`
+  - used BoT-IoT official 10-best training/testing split CSVs:
+    - train: `UNSW_2018_IoT_Botnet_Final_10_best_Training.csv`
+    - test: `UNSW_2018_IoT_Botnet_Final_10_best_Testing.csv`
+  - smoke protocol:
+    - label column: `attack` (`0` as benign)
+    - numeric-only features for this first pass
+    - split = ID benign from train, OOD benign from test, attack from test
+    - models = `isolation_forest` and `oneclass_svm`
+    - policies = `fixed_id_q99`, `naive_calibrated_budget500_target1pct`, `det_floor_50pct_min_alarm`
+
+Result:
+- The second-environment line is no longer blocked by missing data and now has a runnable local smoke path.
+- Smoke split scale:
+  - `id_benign_train = 370`
+  - `ood_benign_test = 107`
+  - `attack_test = 100000` (capped for smoke speed)
+  - `numeric_feature_count = 11`
+- Smoke outputs are available in:
+  - `summary.md`
+  - `split_summary.csv`
+  - `smoke_results.csv`
+  - `smoke_scan.csv`
+  - `feature_columns.txt`
+  - `data/id_benign_numeric.csv`, `data/ood_benign_numeric.csv`, `data/attack_numeric.csv`
+- Key smoke signals (not formal conclusions):
+  - `isolation_forest` fixed q99: `ood_alarm = 0.0000`, `attack_det = 0.7440`, `auc = 0.9832`
+  - `oneclass_svm` fixed q99: `ood_alarm = 0.0374`, `attack_det = 1.0000`, `auc = 1.0000`
+
+Judgment:
+- This node successfully proves the BoT-IoT second-environment smoke pipeline works end-to-end on local data.
+- These numbers are not yet paper-grade because benign support is extremely small (`370/107`) and the split is a dataset-provided train/test partition rather than a stronger benign-OOD construction.
+- The current node should be treated as a readiness milestone, not as external-validity evidence closure.
+
+Next:
+- Build the formal second-environment definition on top of this runnable path:
+  - lock a defensible benign ID/OOD split rule under BoT-IoT;
+  - run the required mainline objects (`dA`, current strongest candidate, `FT` line) with aligned policies.
+- If BoT-IoT cannot provide enough benign support for a defensible stronger-OOD operating-point study, escalate to the documented `TON-IoT` fallback for the formal package.
