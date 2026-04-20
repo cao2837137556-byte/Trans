@@ -469,3 +469,29 @@ Judgment:
 Next:
 - Escalate to `TON-IoT` fallback for the formal second-environment package.
 - Keep BoT-IoT nodes as negative/constraint evidence in the external-validity discussion rather than as final cross-environment proof.
+
+### 2026-04-20 (TON-IoT Fallback Intake Attempted)
+
+What was done:
+- Started the documented `TON-IoT` fallback line immediately after the BoT-IoT split gate verdict.
+- Added `repo/ood/second_environment_toniot_intake.py` to perform a concrete local intake gate on the declared data root.
+- Ran:
+  - `runs/second_environment_toniot_intake_2026-04-20/`
+  - data root: `D:\study\paper\anomaly_detection\paper04\worktrees\data`
+
+Result:
+- Intake verdict:
+  - `blocked_missing_toniot_files`
+- Scanner summary:
+  - total tabular files under root: `7`
+  - TON-like candidate files: `0`
+  - TON-like labeled candidates: `0`
+- Current root content is BoT-IoT 5% only; no TON-IoT file pattern was detected yet.
+
+Judgment:
+- Mainline fallback direction is correct, but fallback cannot advance into smoke until TON-IoT files are actually present (or a concrete TON subdirectory path is provided).
+- This is a data-availability blocker, not a script or protocol blocker.
+
+Next:
+- Provide the TON-IoT local directory under the same data root (or the exact absolute path if stored elsewhere).
+- Rerun the TON intake node on that path, then immediately proceed to TON local smoke with fixed mainline policies.

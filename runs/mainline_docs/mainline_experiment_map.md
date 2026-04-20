@@ -787,6 +787,10 @@ v2 的唯一正确方向：
   - 所有候选 split 都无法满足主线固定要求 `naive_calibrated_budget5000`（即 OOD benign 至少 `5000`）；
   - 因此 BoT-IoT 不能作为当前主线“正式第二环境闭环”，只能作为约束/负结果证据。
 - 据此，第二环境正式包应按既定规则切换到 `TON-IoT` fallback 路线。
+- 2026-04-20 fallback intake 进展：
+  - 已新增 `repo/ood/second_environment_toniot_intake.py` 并执行 `runs/second_environment_toniot_intake_2026-04-20/`；
+  - 对 `D:\study\paper\anomaly_detection\paper04\worktrees\data` 的扫描结果显示仅有 BoT-IoT 5%相关文件，TON-like candidate 数为 `0`；
+  - 当前 verdict 为 `blocked_missing_toniot_files`，因此 TON 正式路线尚未进入 smoke 阶段。
 
 ### C. 对抗鲁棒性评估包：分成神经白盒与统一黑盒两层
 
