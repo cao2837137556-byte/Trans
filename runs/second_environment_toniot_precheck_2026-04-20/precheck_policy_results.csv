@@ -1,0 +1,7 @@
+model,policy_name,score_orientation,roc_auc_attack_vs_ood,threshold,id_alarm_ratio,ood_alarm_ratio,attack_detection
+isolation_forest,fixed_id_q99,raw_decision,0.7529978455,0.37703942909349697,0.009133333333333334,0.0,0.0
+isolation_forest,naive_calibrated_budget5000_target1pct,raw_decision,0.7529978455,0.3525068975167492,0.4014,0.01865,0.04247
+isolation_forest,det_floor_50pct_min_alarm,raw_decision,0.7529978455,0.30305272430279867,0.6906,0.11745,0.50024
+oneclass_svm,fixed_id_q99,raw_decision,0.81605123,8.234184752038027,0.01,0.00205,9e-05
+oneclass_svm,naive_calibrated_budget5000_target1pct,raw_decision,0.81605123,7.669653995372634,0.161,0.0047,0.00095
+oneclass_svm,det_floor_50pct_min_alarm,raw_decision,0.81605123,4.082035022332236,0.5802,0.1486,0.50072

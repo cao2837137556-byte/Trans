@@ -544,3 +544,41 @@ Judgment:
 Next:
 - Keep this TON node as fallback-start evidence and proceed to the required mainline object set (`dA`, current strongest candidate, FT line) under the same policy family.
 - Before formal HPC, run one tighter local smoke that controls for obvious confounders (feature subset/normalization and split construction) to avoid wasting a formal run on a degenerate setting.
+
+### 2026-04-20 (TON Formal Precheck + Polarity Gate Fixed)
+
+What was done:
+- Added `repo/ood/second_environment_toniot_precheck.py` and ran:
+  - `runs/second_environment_toniot_precheck_2026-04-20/`
+- Precheck scope:
+  - freeze deterministic split manifest for TON fallback formal runs;
+  - run score-polarity gate on baseline probes;
+  - re-evaluate fixed/naive/det50 policies under the chosen score orientation.
+- Fixed split used by precheck:
+  - source: `train_test_network.csv`
+  - ID benign: `30000`
+  - OOD benign: `20000`
+  - attack: `100000`
+  - numeric features: `16`
+  - saved as `split_manifest.json`.
+
+Result:
+- Precheck verdict:
+  - `polarity_checked_ready_for_formal_object_runs`
+- Polarity gate outcome:
+  - `isolation_forest`: choose `raw_decision` (`auc=0.752998`, other orientation `0.247002`)
+  - `oneclass_svm`: choose `raw_decision` (`auc=0.816051`, other orientation `0.183949`)
+- This explains the earlier smoke anomaly (`AUC < 0.5`): prior score orientation in the smoke script was inverted for TON fallback semantics.
+- Policy metrics after polarity correction are now recorded in:
+  - `precheck_policy_results.csv`
+  - `score_distribution_stats.csv`
+  - `polarity_check.csv`
+
+Judgment:
+- TON fallback now has both a fixed split manifest and a validated score orientation.
+- The pipeline is ready to enter formal object runs (`dA`, current strongest candidate, FT line) without the previous directionality ambiguity.
+- We should not launch formal HPC until formal object scripts consume this exact split manifest and chosen score orientation.
+
+Next:
+- Implement/patch the formal TON object-run entry so `dA`, strongest candidate, and FT line all read `split_manifest.json`.
+- Keep policy family fixed (`fixed_id_q99`, `naive_calibrated_budget5000_target1pct`, `det_floor_50pct_min_alarm`) and proceed with local smoke checks before formal HPC submission.

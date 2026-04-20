@@ -802,6 +802,13 @@ v2 的唯一正确方向：
   - policy：`fixed_id_q99`、`naive_calibrated_budget5000_target1pct`、`det_floor_50pct_min_alarm`
   - baseline：`IsolationForest`、`OneClassSVM`
 - 当前 smoke 结果用于“fallback 跑通”而非正式结论；该 split 上 baseline 分离度偏弱（AUC < 0.5），后续正式包需进一步收敛 split/feature 设定并跑主线必选对象（`dA + strongest candidate + FT`）。
+- 已完成 TON 正式前 precheck 节点：`runs/second_environment_toniot_precheck_2026-04-20/`，新增 `repo/ood/second_environment_toniot_precheck.py`。
+- precheck 固化了 `split_manifest.json`（ID=30000 / OOD=20000 / attack=100000）并执行 score polarity gate。
+- polarity gate 结论：
+  - `isolation_forest` 采用 `raw_decision` 时 AUC `0.752998`（另一方向 `0.247002`）；
+  - `oneclass_svm` 采用 `raw_decision` 时 AUC `0.816051`（另一方向 `0.183949`）；
+  - 先前 smoke 的低 AUC 主要来自方向性口径错误，而非标签定义反转。
+- 当前节点结论为 `polarity_checked_ready_for_formal_object_runs`，下一步可进入主线必选对象在 TON fallback 上的同口径正式运行准备。
 
 ### C. 对抗鲁棒性评估包：分成神经白盒与统一黑盒两层
 
