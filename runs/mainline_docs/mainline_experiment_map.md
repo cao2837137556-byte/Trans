@@ -791,6 +791,17 @@ v2 的唯一正确方向：
   - 已新增 `repo/ood/second_environment_toniot_intake.py` 并执行 `runs/second_environment_toniot_intake_2026-04-20/`；
   - 对 `D:\study\paper\anomaly_detection\paper04\worktrees\data` 的扫描结果显示仅有 BoT-IoT 5%相关文件，TON-like candidate 数为 `0`；
   - 当前 verdict 为 `blocked_missing_toniot_files`，因此 TON 正式路线尚未进入 smoke 阶段。
+- 2026-04-20 fallback intake 更新：
+  - 已定位 TON 子目录 `D:\study\paper\anomaly_detection\paper04\worktrees\data\Train_Test_Network_dataset` 并重跑 intake（`runs/second_environment_toniot_intake_2026-04-20_b/`）；
+  - 新 verdict 为 `toniot_intake_ready_for_smoke`，fallback 数据入口已打通。
+- 已完成首个 TON 本地 smoke 节点：`runs/second_environment_toniot_smoke_2026-04-20/`，新增 `repo/ood/second_environment_toniot_smoke.py`。
+- smoke 设置（fallback readiness 口径）：
+  - 文件：`train_test_network.csv`
+  - 标签：`label`（`0=normal`, `1=attack`）
+  - split：ID benign `30000` / OOD benign `20000` / attack `100000`
+  - policy：`fixed_id_q99`、`naive_calibrated_budget5000_target1pct`、`det_floor_50pct_min_alarm`
+  - baseline：`IsolationForest`、`OneClassSVM`
+- 当前 smoke 结果用于“fallback 跑通”而非正式结论；该 split 上 baseline 分离度偏弱（AUC < 0.5），后续正式包需进一步收敛 split/feature 设定并跑主线必选对象（`dA + strongest candidate + FT`）。
 
 ### C. 对抗鲁棒性评估包：分成神经白盒与统一黑盒两层
 

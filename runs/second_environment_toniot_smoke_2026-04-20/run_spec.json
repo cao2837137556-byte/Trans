@@ -1,0 +1,9 @@
+{
+  "stage": "second_environment_toniot_smoke",
+  "goal": "TON-IoT fallback local smoke under fixed mainline policy family.",
+  "policies": [
+    "fixed_id_q99",
+    "naive_calibrated_budget5000_target1pct",
+    "det_floor_50pct_min_alarm"
+  ]
+}

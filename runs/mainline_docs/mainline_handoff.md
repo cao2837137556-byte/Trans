@@ -495,3 +495,52 @@ Judgment:
 Next:
 - Provide the TON-IoT local directory under the same data root (or the exact absolute path if stored elsewhere).
 - Rerun the TON intake node on that path, then immediately proceed to TON local smoke with fixed mainline policies.
+
+### 2026-04-20 (TON-IoT Intake Ready + First Smoke)
+
+What was done:
+- Received local TON path:
+  - `D:\study\paper\anomaly_detection\paper04\worktrees\data\Train_Test_Network_dataset`
+- Re-ran intake with this exact subdirectory:
+  - `runs/second_environment_toniot_intake_2026-04-20_b/`
+  - verdict: `toniot_intake_ready_for_smoke`
+- Started and completed the first TON local smoke node:
+  - added `repo/ood/second_environment_toniot_smoke.py`
+  - generated `runs/second_environment_toniot_smoke_2026-04-20/`
+  - source file: `train_test_network.csv`
+  - split rule:
+    - `label=0` as benign, `label=1` as attack
+    - ID benign first `30000`
+    - OOD benign next `20000`
+    - attack sample `100000` (seeded subsample)
+  - policy family:
+    - `fixed_id_q99`
+    - `naive_calibrated_budget5000_target1pct`
+    - `det_floor_50pct_min_alarm`
+  - models:
+    - `isolation_forest`
+    - `oneclass_svm`
+- Verified label semantics to avoid direction errors:
+  - `label=0` corresponds to `type=normal` (`50000` rows)
+  - `label=1` corresponds to attack types (`161043` rows)
+
+Result:
+- TON fallback line is now unblocked and runnable end-to-end locally.
+- Smoke split scale:
+  - `id_benign = 30000`
+  - `ood_benign = 20000`
+  - `attack = 100000`
+  - `numeric_feature_count = 16`
+- First smoke metrics show weak/no-separation behavior for the tested unsupervised baselines on this split:
+  - `isolation_forest` fixed q99: `ood_alarm=0.0037`, `attack_det=0.0097`, `auc=0.2470`
+  - `oneclass_svm` fixed q99: `ood_alarm=0.4969`, `attack_det=0.1252`, `auc=0.1839`
+- `naive_calibrated_budget5000_target1pct` is now executable on TON (unlike BoT-IoT), so policy-compatibility blocker is cleared.
+
+Judgment:
+- This is a valid readiness milestone for the TON fallback route, not a formal second-environment conclusion.
+- The immediate problem is no longer missing benign support; it is poor baseline behavior under the current fallback split and feature treatment.
+- Formal second-environment package should now focus on running the required mainline objects and checking whether the weak signal is method-specific or split/feature-specific.
+
+Next:
+- Keep this TON node as fallback-start evidence and proceed to the required mainline object set (`dA`, current strongest candidate, FT line) under the same policy family.
+- Before formal HPC, run one tighter local smoke that controls for obvious confounders (feature subset/normalization and split construction) to avoid wasting a formal run on a degenerate setting.
