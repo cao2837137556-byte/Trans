@@ -260,3 +260,48 @@
   - `2=1s`
   - `3=0.1s`
   - `4=0.01s`
+
+## 15. 2026-04-20 Update (v4b_hh_soft_stabilized)
+
+- Locked decision: treat `v4a_hh_stabilized` as strategy-level negative result; move to `v4b_hh_soft_stabilized`.
+- Implemented extractor-side `compute_expression_v4b_hh_soft_stabilized(...)` with:
+  - MI_dir/HpHp unchanged from v3.
+  - HH/HH_jit soft-stabilized channels (`ch0/ch1/ch3/ch4/ch5/ch6/ch7`) and keep `ch2` from v3.
+  - `nan_to_num` and channel-wise clipping (`[-6,6]` for ch0/ch1/ch3/ch4/ch5, `[-4,4]` for ch6/ch7).
+- Structured cache export now includes `token_matrix_v4b_hh_soft_stabilized` and related metadata.
+- Added audit output: `expression_v4b_audit.json` (nan_count / inf_count / max_abs / p99_abs per channel).
+- Updated source prep scripts to support `--expression-version v4b_hh_soft_stabilized` and v4b-named outputs.
+- Added independent smoke entry: `repo/ood/frontend_f2_expression_v4b_tokenizer_v1.py`.
+- Local status:
+  - `py_compile` passed for modified scripts.
+  - `--help` checks passed for both source prep scripts and v4b tokenizer script.
+- Next step: run the three v4b local-smoke commands and evaluate:
+  - `transformer + family_short_focus + mi_dir_mean`
+  - `transformer + family_short_focus + mi_hphp_short_mean`
+
+## 16. 2026-04-20 Smoke Results (v4b_hh_soft_stabilized)
+
+- Executed:
+  - `frontend_f2_expression_v4b_crosscapture_stage1_2026-04-20`
+  - `frontend_f2_expression_v4b_attack_source_2026-04-20`
+  - `frontend_f2_expression_v4b_tokenizer_v1_smoke_2026-04-20` (CPU)
+- Main focus checkpoints:
+  - `transformer + family_short_focus + mi_dir_mean`
+    - `AUC=0.6649`
+    - `calibrated_alarm=0.0377`
+    - `calibrated_det=0.0793`
+    - `selection_feasible=False`
+  - `transformer + family_short_focus + mi_hphp_short_mean`
+    - `AUC=0.7180`
+    - `calibrated_alarm=0.0138`
+    - `calibrated_det=0.1853`
+    - `selection_feasible=False`
+  - `transformer + family_short_focus + hphp_mean`
+    - `calibrated_alarm=0.0089`
+    - `calibrated_det=0.1303`
+    - `selection_feasible=True`
+- Additional observation:
+  - `token_mlp + uniform + mi_hphp_mean` reached `AUC=0.8547`, `calibrated_alarm=0.0290`, `calibrated_det=0.3401`.
+- Current conclusion:
+  - For the two prioritized transformer objectives, v4b still underperforms target (especially detection and AUC).
+  - v4b did not resolve the core transformer bottleneck yet.

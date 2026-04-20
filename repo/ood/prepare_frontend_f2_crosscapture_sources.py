@@ -22,8 +22,15 @@ from kitsune_frontend_original_extract import (
     EXPRESSION_V4A_HH_STABILIZED_MASK_CHANNELS,
     EXPRESSION_V4A_HH_STABILIZED_MASK_FAMILIES,
     EXPRESSION_V4A_HH_STABILIZED_NAME,
+    EXPRESSION_V4B_HH_SOFT_STABILIZED_CHANNEL_NAMES,
+    EXPRESSION_V4B_HH_SOFT_STABILIZED_CLIP_CONFIG,
+    EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME,
+    EXPRESSION_V4B_HH_SOFT_STABILIZED_SOFT_CHANNELS,
+    EXPRESSION_V4B_HH_SOFT_STABILIZED_SOFT_FAMILIES,
+    compute_expression_channel_audit,
     compute_expression_v3,
     compute_expression_v4a_hh_stabilized,
+    compute_expression_v4b_hh_soft_stabilized,
 )
 
 
@@ -45,7 +52,7 @@ STATIC_OPTIONAL_KEYS = {
     "expression_v2_scale_id",
     "expression_v2_channel_names",
 }
-EXPRESSION_VERSION_CHOICES = ["v3", EXPRESSION_V4A_HH_STABILIZED_NAME]
+EXPRESSION_VERSION_CHOICES = ["v3", EXPRESSION_V4A_HH_STABILIZED_NAME, EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME]
 
 
 def load_structured_npz(path: Path) -> Dict[str, np.ndarray]:
@@ -151,6 +158,34 @@ def resolve_expression_matrix(
             version_meta,
         )
 
+    if version == EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME:
+        channel_names = list(EXPRESSION_V4B_HH_SOFT_STABILIZED_CHANNEL_NAMES)
+        version_meta = {
+            "soft_families": list(EXPRESSION_V4B_HH_SOFT_STABILIZED_SOFT_FAMILIES),
+            "soft_channels": list(EXPRESSION_V4B_HH_SOFT_STABILIZED_SOFT_CHANNELS),
+            "clip_config": EXPRESSION_V4B_HH_SOFT_STABILIZED_CLIP_CONFIG,
+        }
+        if "token_matrix_v4b_hh_soft_stabilized" in src:
+            return (
+                take_first(src["token_matrix_v4b_hh_soft_stabilized"], n_rows).astype(np.float32),
+                "token_matrix_v4b_hh_soft_stabilized",
+                channel_names,
+                version_meta,
+            )
+        if "expression_v4b_hh_soft_stabilized_matrix" in src:
+            return (
+                take_first(src["expression_v4b_hh_soft_stabilized_matrix"], n_rows).astype(np.float32),
+                "expression_v4b_hh_soft_stabilized_matrix",
+                channel_names,
+                version_meta,
+            )
+        return (
+            compute_expression_v4b_hh_soft_stabilized(payload["family_scale_tokens"]),
+            "computed_now",
+            channel_names,
+            version_meta,
+        )
+
     raise ValueError(f"Unsupported expression version: {version}")
 
 
@@ -232,6 +267,25 @@ def main() -> None:
     np.save(ood_expr_flat_path, ood_expr.reshape(len(ood_expr), -1).astype(np.float32))
     np.save(id_expr_matrix_path, id_expr)
     np.save(ood_expr_matrix_path, ood_expr)
+    expression_audit_path = None
+    if version == EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME:
+        expression_audit_path = run_dir / "expression_v4b_audit.json"
+        audit_payload = {
+            "created_at": datetime.now().isoformat(timespec="seconds"),
+            "expression_version": version,
+            "id": {
+                "all_tokens": compute_expression_channel_audit(id_expr, channel_names),
+                "hh_hh_jit_tokens": compute_expression_channel_audit(id_expr[:, 5:15, :], channel_names),
+            },
+            "ood_benign": {
+                "all_tokens": compute_expression_channel_audit(ood_expr, channel_names),
+                "hh_hh_jit_tokens": compute_expression_channel_audit(ood_expr[:, 5:15, :], channel_names),
+            },
+        }
+        expression_audit_path.write_text(
+            json.dumps(audit_payload, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
 
     schema_copy = data_dir / "structured_schema.json"
     shutil.copyfile(args.schema_json, schema_copy)
@@ -252,6 +306,7 @@ def main() -> None:
             "ood": ood_expr_source,
             **version_meta,
         },
+        "expression_audit": str(expression_audit_path) if expression_audit_path else None,
         "outputs": {
             "id_structured": str(id_structured_path),
             "ood_structured": str(ood_structured_path),
@@ -293,6 +348,8 @@ def main() -> None:
                 f"- OOD expression_v2 csv: `{ood_expression_v2_paths['csv']}`",
             ]
         )
+    if expression_audit_path is not None:
+        lines.append(f"- Expression audit: `{expression_audit_path}`")
     lines.extend(
         [
         f"- Schema copy: `{schema_copy}`",

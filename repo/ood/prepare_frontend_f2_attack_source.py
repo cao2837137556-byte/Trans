@@ -19,8 +19,15 @@ from kitsune_frontend_original_extract import (
     EXPRESSION_V4A_HH_STABILIZED_MASK_CHANNELS,
     EXPRESSION_V4A_HH_STABILIZED_MASK_FAMILIES,
     EXPRESSION_V4A_HH_STABILIZED_NAME,
+    EXPRESSION_V4B_HH_SOFT_STABILIZED_CHANNEL_NAMES,
+    EXPRESSION_V4B_HH_SOFT_STABILIZED_CLIP_CONFIG,
+    EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME,
+    EXPRESSION_V4B_HH_SOFT_STABILIZED_SOFT_CHANNELS,
+    EXPRESSION_V4B_HH_SOFT_STABILIZED_SOFT_FAMILIES,
+    compute_expression_channel_audit,
     compute_expression_v3,
     compute_expression_v4a_hh_stabilized,
+    compute_expression_v4b_hh_soft_stabilized,
 )
 
 
@@ -42,7 +49,7 @@ STATIC_OPTIONAL_KEYS = {
     "expression_v2_scale_id",
     "expression_v2_channel_names",
 }
-EXPRESSION_VERSION_CHOICES = ["v3", EXPRESSION_V4A_HH_STABILIZED_NAME]
+EXPRESSION_VERSION_CHOICES = ["v3", EXPRESSION_V4A_HH_STABILIZED_NAME, EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME]
 
 
 def load_structured_npz(path: Path) -> Dict[str, np.ndarray]:
@@ -120,6 +127,34 @@ def resolve_expression_matrix(
             version_meta,
         )
 
+    if version == EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME:
+        channel_names = list(EXPRESSION_V4B_HH_SOFT_STABILIZED_CHANNEL_NAMES)
+        version_meta = {
+            "soft_families": list(EXPRESSION_V4B_HH_SOFT_STABILIZED_SOFT_FAMILIES),
+            "soft_channels": list(EXPRESSION_V4B_HH_SOFT_STABILIZED_SOFT_CHANNELS),
+            "clip_config": EXPRESSION_V4B_HH_SOFT_STABILIZED_CLIP_CONFIG,
+        }
+        if "token_matrix_v4b_hh_soft_stabilized" in src:
+            return (
+                take_first(src["token_matrix_v4b_hh_soft_stabilized"], n_rows).astype(np.float32),
+                "token_matrix_v4b_hh_soft_stabilized",
+                channel_names,
+                version_meta,
+            )
+        if "expression_v4b_hh_soft_stabilized_matrix" in src:
+            return (
+                take_first(src["expression_v4b_hh_soft_stabilized_matrix"], n_rows).astype(np.float32),
+                "expression_v4b_hh_soft_stabilized_matrix",
+                channel_names,
+                version_meta,
+            )
+        return (
+            compute_expression_v4b_hh_soft_stabilized(payload["family_scale_tokens"]),
+            "computed_now",
+            channel_names,
+            version_meta,
+        )
+
     raise ValueError(f"Unsupported expression version: {version}")
 
 
@@ -174,6 +209,21 @@ def main() -> None:
     atk_expr_matrix_path = data_dir / f"attack_source_{expr_matrix_name}.npy"
     np.save(atk_expr_flat_path, atk_expr.reshape(len(atk_expr), -1).astype(np.float32))
     np.save(atk_expr_matrix_path, atk_expr)
+    expression_audit_path = None
+    if version == EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME:
+        expression_audit_path = run_dir / "expression_v4b_audit.json"
+        audit_payload = {
+            "created_at": datetime.now().isoformat(timespec="seconds"),
+            "expression_version": version,
+            "attack": {
+                "all_tokens": compute_expression_channel_audit(atk_expr, channel_names),
+                "hh_hh_jit_tokens": compute_expression_channel_audit(atk_expr[:, 5:15, :], channel_names),
+            },
+        }
+        expression_audit_path.write_text(
+            json.dumps(audit_payload, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
 
     metadata = {
         "created_at": datetime.now().isoformat(timespec="seconds"),
@@ -187,6 +237,7 @@ def main() -> None:
             "attack": attack_expr_source,
             **version_meta,
         },
+        "expression_audit": str(expression_audit_path) if expression_audit_path else None,
         "outputs": {
             "attack_structured": str(structured_path),
             "attack_flat_npy": str(flat_npy),
@@ -215,6 +266,8 @@ def main() -> None:
     ]
     if expression_v2_csv is not None:
         lines.append(f"- Attack expression_v2 csv: `{expression_v2_csv}`")
+    if expression_audit_path is not None:
+        lines.append(f"- Expression audit: `{expression_audit_path}`")
     (run_dir / "frontend_f2_attack_source_summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"[done] frontend-f2 attack metadata: {run_dir / 'frontend_f2_attack_source_metadata.json'}")
 
