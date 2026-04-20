@@ -24,7 +24,12 @@ from kitsune_frontend_original_extract import (
     EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME,
     EXPRESSION_V4B_HH_SOFT_STABILIZED_SOFT_CHANNELS,
     EXPRESSION_V4B_HH_SOFT_STABILIZED_SOFT_FAMILIES,
+    EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES,
+    EXPRESSION_SOURCE_RICH_V1_CLIP_RATIO,
+    EXPRESSION_SOURCE_RICH_V1_CLIP_RAW_REL,
+    EXPRESSION_SOURCE_RICH_V1_NAME,
     compute_expression_channel_audit,
+    compute_expression_source_rich_v1,
     compute_expression_v3,
     compute_expression_v4a_hh_stabilized,
     compute_expression_v4b_hh_soft_stabilized,
@@ -49,7 +54,12 @@ STATIC_OPTIONAL_KEYS = {
     "expression_v2_scale_id",
     "expression_v2_channel_names",
 }
-EXPRESSION_VERSION_CHOICES = ["v3", EXPRESSION_V4A_HH_STABILIZED_NAME, EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME]
+EXPRESSION_VERSION_CHOICES = [
+    "v3",
+    EXPRESSION_V4A_HH_STABILIZED_NAME,
+    EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME,
+    EXPRESSION_SOURCE_RICH_V1_NAME,
+]
 
 
 def load_structured_npz(path: Path) -> Dict[str, np.ndarray]:
@@ -155,6 +165,33 @@ def resolve_expression_matrix(
             version_meta,
         )
 
+    if version == EXPRESSION_SOURCE_RICH_V1_NAME:
+        channel_names = list(EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES)
+        version_meta = {
+            "clip_raw_rel": EXPRESSION_SOURCE_RICH_V1_CLIP_RAW_REL,
+            "clip_ratio": EXPRESSION_SOURCE_RICH_V1_CLIP_RATIO,
+        }
+        if "token_matrix_source_rich_v1" in src:
+            return (
+                take_first(src["token_matrix_source_rich_v1"], n_rows).astype(np.float32),
+                "token_matrix_source_rich_v1",
+                channel_names,
+                version_meta,
+            )
+        if "expression_source_rich_v1_matrix" in src:
+            return (
+                take_first(src["expression_source_rich_v1_matrix"], n_rows).astype(np.float32),
+                "expression_source_rich_v1_matrix",
+                channel_names,
+                version_meta,
+            )
+        return (
+            compute_expression_source_rich_v1(payload["family_scale_tokens"]),
+            "computed_now",
+            channel_names,
+            version_meta,
+        )
+
     raise ValueError(f"Unsupported expression version: {version}")
 
 
@@ -204,7 +241,8 @@ def main() -> None:
         attack, payload, use_first_n, version
     )
     expr_matrix_name = f"expression_{version}_matrix"
-    expr_flat_name = f"expression_{version}_160"
+    expr_flat_dim = int(atk_expr.shape[1] * atk_expr.shape[2])
+    expr_flat_name = f"expression_{version}_{expr_flat_dim}"
     atk_expr_flat_path = data_dir / f"attack_source_{expr_flat_name}.npy"
     atk_expr_matrix_path = data_dir / f"attack_source_{expr_matrix_name}.npy"
     np.save(atk_expr_flat_path, atk_expr.reshape(len(atk_expr), -1).astype(np.float32))
@@ -212,6 +250,20 @@ def main() -> None:
     expression_audit_path = None
     if version == EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME:
         expression_audit_path = run_dir / "expression_v4b_audit.json"
+        audit_payload = {
+            "created_at": datetime.now().isoformat(timespec="seconds"),
+            "expression_version": version,
+            "attack": {
+                "all_tokens": compute_expression_channel_audit(atk_expr, channel_names),
+                "hh_hh_jit_tokens": compute_expression_channel_audit(atk_expr[:, 5:15, :], channel_names),
+            },
+        }
+        expression_audit_path.write_text(
+            json.dumps(audit_payload, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
+    elif version == EXPRESSION_SOURCE_RICH_V1_NAME:
+        expression_audit_path = run_dir / "source_rich_audit.json"
         audit_payload = {
             "created_at": datetime.now().isoformat(timespec="seconds"),
             "expression_version": version,

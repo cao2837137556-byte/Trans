@@ -305,3 +305,42 @@
 - Current conclusion:
   - For the two prioritized transformer objectives, v4b still underperforms target (especially detection and AUC).
   - v4b did not resolve the core transformer bottleneck yet.
+
+## 17. 2026-04-20 Source-Rich Stage1 (frontend re-extraction line)
+
+- Strategy update:
+  - Pause `v4a/v4b` HH/HH_jit stabilization line.
+  - Start frontend re-extraction Stage1 with richer source-level representation + offline audit.
+- Implemented `source_rich_v1` view (`[N,20,13]`) in extractor:
+  - raw channels: `logw_raw, mean_slog_raw, std_slog_raw, cv_slog_raw, cov_slog_raw, pcc_slog_raw`
+  - family-relative channels: `mean_rel_family, std_rel_family, logw_centered_family, cov_rel_family, pcc_centered_family`
+  - cross-scale channels: `mean_short_long_ratio, cv_short_long_ratio`
+  - numeric protection: `nan_to_num`, clip raw/rel/centered to `[-6,6]`, ratio to `[-4,4]`
+- Minimal source prep support added:
+  - `--expression-version source_rich_v1` in both crosscapture/attack prep scripts
+  - output matrices:
+    - `id_source_expression_source_rich_v1_matrix.npy`
+    - `ood_benign_source_expression_source_rich_v1_matrix.npy`
+    - `attack_source_expression_source_rich_v1_matrix.npy`
+- New offline audit script:
+  - `repo/ood/frontend_f2_source_rich_audit.py`
+  - outputs:
+    - `source_rich_channel_audit.csv`
+    - `source_rich_family_scale_summary.csv`
+    - `source_rich_problem_channels.csv`
+    - `source_rich_recommendation.md`
+    - `source_rich_audit.json`
+    - `summary.md`
+- Run artifacts:
+  - `runs/frontend_f2_source_rich_crosscapture_stage1_2026-04-20/`
+  - `runs/frontend_f2_source_rich_attack_source_2026-04-20/`
+  - `runs/frontend_f2_source_rich_audit_2026-04-20/`
+- Stage1 audit highlights:
+  - recommended v5 compact keep channels:
+    - `mean_slog_raw, cv_slog_raw, logw_centered_family, mean_rel_family, std_slog_raw, logw_raw, std_rel_family, pcc_centered_family`
+  - downweight/drop candidates:
+    - `mean_short_long_ratio, cov_slog_raw`
+  - family focus order (health high -> low):
+    - `HpHp, HH, HH_jit, MI_dir`
+  - scale focus order (health high -> low):
+    - `0.1s, 0.01s, 1s, 3s, 5s`

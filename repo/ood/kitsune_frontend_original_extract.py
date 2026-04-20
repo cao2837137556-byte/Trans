@@ -89,6 +89,24 @@ EXPRESSION_V4B_HH_SOFT_STABILIZED_CLIP_CONFIG = {
     "ch6": [-4.0, 4.0],
     "ch7": [-4.0, 4.0],
 }
+EXPRESSION_SOURCE_RICH_V1_NAME = "source_rich_v1"
+EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES = [
+    "logw_raw",
+    "mean_slog_raw",
+    "std_slog_raw",
+    "cv_slog_raw",
+    "cov_slog_raw",
+    "pcc_slog_raw",
+    "mean_rel_family",
+    "std_rel_family",
+    "logw_centered_family",
+    "cov_rel_family",
+    "pcc_centered_family",
+    "mean_short_long_ratio",
+    "cv_short_long_ratio",
+]
+EXPRESSION_SOURCE_RICH_V1_CLIP_RAW_REL = [-6.0, 6.0]
+EXPRESSION_SOURCE_RICH_V1_CLIP_RATIO = [-4.0, 4.0]
 
 
 def mac_to_str(raw: bytes) -> str:
@@ -217,6 +235,12 @@ def build_feature_schema(headers: list[str]) -> dict:
                 "soft_channels": EXPRESSION_V4B_HH_SOFT_STABILIZED_SOFT_CHANNELS,
                 "clip_config": EXPRESSION_V4B_HH_SOFT_STABILIZED_CLIP_CONFIG,
             },
+            EXPRESSION_SOURCE_RICH_V1_NAME: {
+                "name": EXPRESSION_SOURCE_RICH_V1_NAME,
+                "channel_names": EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES,
+                "clip_raw_rel": EXPRESSION_SOURCE_RICH_V1_CLIP_RAW_REL,
+                "clip_ratio": EXPRESSION_SOURCE_RICH_V1_CLIP_RATIO,
+            },
         },
         "header_mappings": header_mappings,
         "token_definitions": token_defs,
@@ -229,6 +253,7 @@ def build_feature_schema(headers: list[str]) -> dict:
             "token_matrix_v3": [len(token_defs), len(EXPRESSION_V3_CHANNEL_NAMES)],
             "token_matrix_v4a_hh_stabilized": [len(token_defs), len(EXPRESSION_V4A_HH_STABILIZED_CHANNEL_NAMES)],
             "token_matrix_v4b_hh_soft_stabilized": [len(token_defs), len(EXPRESSION_V4B_HH_SOFT_STABILIZED_CHANNEL_NAMES)],
+            "token_matrix_source_rich_v1": [len(token_defs), len(EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES)],
         },
     }
     return schema
@@ -486,6 +511,87 @@ def compute_expression_v4b_hh_soft_stabilized(family_scale_tokens: np.ndarray) -
     return v4b_matrix.astype(np.float32, copy=False)
 
 
+def compute_expression_source_rich_v1(family_scale_tokens: np.ndarray) -> np.ndarray:
+    """
+    source_rich_v1: richer source-level channel view for offline audit.
+    Input:  family_scale_tokens [N,4,5,7]
+    Output: token_matrix_source_rich_v1 [N,20,13]
+    """
+    eps = 1e-6
+    n = family_scale_tokens.shape[0]
+
+    def slog(x: np.ndarray) -> np.ndarray:
+        return np.sign(x) * np.log1p(np.abs(x))
+
+    def sanitize_clip_raw_rel(x: np.ndarray) -> np.ndarray:
+        y = np.nan_to_num(x, nan=0.0, posinf=0.0, neginf=0.0)
+        lo, hi = EXPRESSION_SOURCE_RICH_V1_CLIP_RAW_REL
+        return np.clip(y, lo, hi).astype(np.float32, copy=False)
+
+    def sanitize_clip_ratio(x: np.ndarray) -> np.ndarray:
+        y = np.nan_to_num(x, nan=0.0, posinf=0.0, neginf=0.0)
+        lo, hi = EXPRESSION_SOURCE_RICH_V1_CLIP_RATIO
+        return np.clip(y, lo, hi).astype(np.float32, copy=False)
+
+    w_s = family_scale_tokens[:, :, :, 0].astype(np.float32)
+    m_s = family_scale_tokens[:, :, :, 1].astype(np.float32)
+    sd_s = family_scale_tokens[:, :, :, 2].astype(np.float32)
+    cov_s = family_scale_tokens[:, :, :, 5].astype(np.float32)
+    p_s = family_scale_tokens[:, :, :, 6].astype(np.float32)
+    cv_s = sd_s / (np.abs(m_s) + eps)
+
+    logw_raw = sanitize_clip_raw_rel(np.log1p(np.clip(w_s, 0.0, None)))
+    mean_slog_raw = sanitize_clip_raw_rel(slog(m_s))
+    std_slog_raw = sanitize_clip_raw_rel(slog(sd_s))
+    cv_slog_raw = sanitize_clip_raw_rel(slog(cv_s))
+    cov_slog_raw = sanitize_clip_raw_rel(slog(cov_s))
+    pcc_slog_raw = sanitize_clip_raw_rel(slog(p_s))
+
+    mean_abs_ref = np.mean(np.abs(m_s), axis=2, keepdims=True)
+    std_ref = np.mean(sd_s, axis=2, keepdims=True)
+    logw_ref = np.mean(logw_raw, axis=2, keepdims=True)
+    pcc_ref = np.mean(pcc_slog_raw, axis=2, keepdims=True)
+
+    mean_rel_family = sanitize_clip_raw_rel(slog(m_s / (mean_abs_ref + eps)))
+    std_rel_family = sanitize_clip_raw_rel(slog(sd_s / (std_ref + eps)))
+    logw_centered_family = sanitize_clip_raw_rel(logw_raw - logw_ref)
+    cov_rel_family = sanitize_clip_raw_rel(slog(cov_s / (sd_s * sd_s + eps)))
+    pcc_centered_family = sanitize_clip_raw_rel(pcc_slog_raw - pcc_ref)
+
+    mean_short_long_scalar = np.log((np.abs(m_s[:, :, 4]) + eps) / (np.abs(m_s[:, :, 0]) + eps))
+    mean_short_long_ratio = sanitize_clip_ratio(
+        np.broadcast_to(mean_short_long_scalar[:, :, np.newaxis], (n, 4, 5))
+    )
+
+    cv_short_long_scalar = np.log((cv_s[:, :, 4] + eps) / (cv_s[:, :, 0] + eps))
+    cv_short_long_ratio = sanitize_clip_ratio(
+        np.broadcast_to(cv_short_long_scalar[:, :, np.newaxis], (n, 4, 5))
+    )
+
+    matrix_4d = np.stack(
+        [
+            logw_raw,
+            mean_slog_raw,
+            std_slog_raw,
+            cv_slog_raw,
+            cov_slog_raw,
+            pcc_slog_raw,
+            mean_rel_family,
+            std_rel_family,
+            logw_centered_family,
+            cov_rel_family,
+            pcc_centered_family,
+            mean_short_long_ratio,
+            cv_short_long_ratio,
+        ],
+        axis=-1,
+    )
+    matrix = matrix_4d.reshape(n, 20, len(EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES)).astype(np.float32)
+    if not np.isfinite(matrix).all():
+        matrix = np.nan_to_num(matrix, nan=0.0, posinf=0.0, neginf=0.0).astype(np.float32)
+    return matrix
+
+
 def compute_expression_channel_audit(matrix: np.ndarray, channel_names: list[str]) -> dict:
     if matrix.ndim != 3:
         raise ValueError(f"Expected [N,20,C], got {matrix.shape}")
@@ -521,6 +627,7 @@ def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dic
     v3 = views.get("token_matrix_v3")
     v4a = views.get("token_matrix_v4a_hh_stabilized")
     v4b = views.get("token_matrix_v4b_hh_soft_stabilized")
+    source_rich = views.get("token_matrix_source_rich_v1")
     expr_nonfinite = 0
     expr_shape = None
     expr_flat_shape = None
@@ -530,6 +637,8 @@ def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dic
     v4a_shape = None
     v4b_nonfinite = 0
     v4b_shape = None
+    source_rich_nonfinite = 0
+    source_rich_shape = None
     if expr is not None:
         expr_nonfinite = int(np.size(expr) - int(np.isfinite(expr).sum()))
         expr_shape = list(expr.shape)
@@ -543,6 +652,9 @@ def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dic
     if v4b is not None:
         v4b_nonfinite = int(np.size(v4b) - int(np.isfinite(v4b).sum()))
         v4b_shape = list(v4b.shape)
+    if source_rich is not None:
+        source_rich_nonfinite = int(np.size(source_rich) - int(np.isfinite(source_rich).sum()))
+        source_rich_shape = list(source_rich.shape)
     return {
         "flat_reconstruction_max_abs_diff": max_abs_diff,
         "flat_reconstruction_exact": bool(max_abs_diff == 0.0),
@@ -557,6 +669,8 @@ def validate_structured_views(arr: np.ndarray, schema: dict, views: dict) -> dic
         "token_matrix_v4a_hh_stabilized_nonfinite_count": v4a_nonfinite,
         "token_matrix_v4b_hh_soft_stabilized_shape": v4b_shape,
         "token_matrix_v4b_hh_soft_stabilized_nonfinite_count": v4b_nonfinite,
+        "token_matrix_source_rich_v1_shape": source_rich_shape,
+        "token_matrix_source_rich_v1_nonfinite_count": source_rich_nonfinite,
     }
 
 
@@ -598,6 +712,11 @@ def save_structured_cache(run_dir: Path, base_stem: str, views: dict, schema: di
         save_kwargs["expression_v4b_hh_soft_stabilized_channel_names"] = views["expression_v4b_hh_soft_stabilized_channel_names"]
         save_kwargs["expression_v4b_hh_soft_stabilized_soft_families"] = views["expression_v4b_hh_soft_stabilized_soft_families"]
         save_kwargs["expression_v4b_hh_soft_stabilized_soft_channels"] = views["expression_v4b_hh_soft_stabilized_soft_channels"]
+    if "token_matrix_source_rich_v1" in views:
+        save_kwargs["token_matrix_source_rich_v1"] = views["token_matrix_source_rich_v1"]
+        save_kwargs["expression_source_rich_v1_matrix"] = views["token_matrix_source_rich_v1"]
+        save_kwargs["expression_source_rich_v1_flat"] = views["expression_source_rich_v1_flat"]
+        save_kwargs["expression_source_rich_v1_channel_names"] = views["expression_source_rich_v1_channel_names"]
     if "expression_versions" in views:
         save_kwargs["expression_versions"] = views["expression_versions"]
     np.savez_compressed(structured_npz_path, **save_kwargs)
@@ -792,6 +911,8 @@ def main() -> None:
     structured_validation = {}
     v4b_audit = None
     v4b_audit_path = None
+    source_rich_audit = None
+    source_rich_audit_path = None
     if args.emit_structured_cache and features.size:
         schema = build_feature_schema(headers)
         views = build_structured_feature_views(features, schema)
@@ -800,12 +921,15 @@ def main() -> None:
         v3_matrix = compute_expression_v3(views["family_scale_tokens"])
         v4a_matrix = compute_expression_v4a_hh_stabilized(views["family_scale_tokens"])
         v4b_matrix = compute_expression_v4b_hh_soft_stabilized(views["family_scale_tokens"])
+        source_rich_matrix = compute_expression_source_rich_v1(views["family_scale_tokens"])
         views["v3"] = v3_matrix
         views[EXPRESSION_V4A_HH_STABILIZED_NAME] = v4a_matrix
         views[EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME] = v4b_matrix
+        views[EXPRESSION_SOURCE_RICH_V1_NAME] = source_rich_matrix
         views["token_matrix_v3"] = v3_matrix
         views["token_matrix_v4a_hh_stabilized"] = v4a_matrix
         views["token_matrix_v4b_hh_soft_stabilized"] = v4b_matrix
+        views["token_matrix_source_rich_v1"] = source_rich_matrix
         views["expression_v3_matrix"] = v3_matrix
         views["expression_v3_flat"] = v3_matrix.reshape(len(v3_matrix), -1)  # [N,160]
         views["expression_v3_channel_names"] = np.asarray(EXPRESSION_V3_CHANNEL_NAMES, dtype="<U32")
@@ -829,8 +953,12 @@ def main() -> None:
         views["expression_v4b_hh_soft_stabilized_soft_channels"] = np.asarray(
             EXPRESSION_V4B_HH_SOFT_STABILIZED_SOFT_CHANNELS, dtype=np.int64
         )
+        views["expression_source_rich_v1_flat"] = source_rich_matrix.reshape(len(source_rich_matrix), -1).astype(np.float32)
+        views["expression_source_rich_v1_channel_names"] = np.asarray(
+            EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES, dtype="<U40"
+        )
         views["expression_versions"] = np.asarray(
-            ["v3", EXPRESSION_V4A_HH_STABILIZED_NAME, EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME], dtype="<U32"
+            ["v3", EXPRESSION_V4A_HH_STABILIZED_NAME, EXPRESSION_V4B_HH_SOFT_STABILIZED_NAME, EXPRESSION_SOURCE_RICH_V1_NAME], dtype="<U32"
         )
         v4b_audit = {
             "all_tokens": compute_expression_channel_audit(v4b_matrix, EXPRESSION_V4B_HH_SOFT_STABILIZED_CHANNEL_NAMES),
@@ -848,6 +976,20 @@ def main() -> None:
         )
         v4b_audit_path = run_dir / "expression_v4b_audit.json"
         v4b_audit_path.write_text(json.dumps(v4b_audit, indent=2, ensure_ascii=False), encoding="utf-8")
+        source_rich_audit = {
+            "expression_version": EXPRESSION_SOURCE_RICH_V1_NAME,
+            "all_tokens": compute_expression_channel_audit(source_rich_matrix, EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES),
+            "hh_hh_jit_tokens": compute_expression_channel_audit(
+                source_rich_matrix[:, 5:15, :], EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES
+            ),
+            "clip_raw_rel": EXPRESSION_SOURCE_RICH_V1_CLIP_RAW_REL,
+            "clip_ratio": EXPRESSION_SOURCE_RICH_V1_CLIP_RATIO,
+        }
+        source_rich_audit_path = run_dir / "source_rich_audit.json"
+        source_rich_audit_path.write_text(
+            json.dumps(source_rich_audit, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
         structured_validation = validate_structured_views(features, schema, views)
         structured_outputs = save_structured_cache(run_dir, base_stem, views, schema)
 
@@ -867,6 +1009,7 @@ def main() -> None:
         "structured_cache_enabled": bool(args.emit_structured_cache),
         "structured_outputs": structured_outputs,
         "expression_v4b_audit_path": str(v4b_audit_path) if v4b_audit_path else None,
+        "source_rich_audit_path": str(source_rich_audit_path) if source_rich_audit_path else None,
         "structured_validation": structured_validation,
         "structured_expression_versions": {
             "v3": {
@@ -882,6 +1025,11 @@ def main() -> None:
                 "soft_families": EXPRESSION_V4B_HH_SOFT_STABILIZED_SOFT_FAMILIES,
                 "soft_channels": EXPRESSION_V4B_HH_SOFT_STABILIZED_SOFT_CHANNELS,
                 "clip_config": EXPRESSION_V4B_HH_SOFT_STABILIZED_CLIP_CONFIG,
+            },
+            EXPRESSION_SOURCE_RICH_V1_NAME: {
+                "channel_names": EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES,
+                "clip_raw_rel": EXPRESSION_SOURCE_RICH_V1_CLIP_RAW_REL,
+                "clip_ratio": EXPRESSION_SOURCE_RICH_V1_CLIP_RATIO,
             },
         },
     }
@@ -925,13 +1073,24 @@ def main() -> None:
             f"- token_matrix_v4b_hh_soft_stabilized non-finite count: {structured_validation['token_matrix_v4b_hh_soft_stabilized_nonfinite_count']}"
         )
         summary.append(
+            f"- token_matrix_source_rich_v1 shape: {structured_validation['token_matrix_source_rich_v1_shape']}"
+        )
+        summary.append(
+            f"- token_matrix_source_rich_v1 non-finite count: {structured_validation['token_matrix_source_rich_v1_nonfinite_count']}"
+        )
+        summary.append(
             "- v4a hard mask: families=[1,2], channels=[0,1,3,4]"
         )
         summary.append(
             "- v4b soft stabilization: families=[1,2], channels=[0,1,3,4,5,6,7], ch2 kept from v3"
         )
+        summary.append(
+            f"- source_rich_v1 channels: {len(EXPRESSION_SOURCE_RICH_V1_CHANNEL_NAMES)}"
+        )
         if v4b_audit_path:
             summary.append(f"- v4b audit: `{v4b_audit_path.name}`")
+        if source_rich_audit_path:
+            summary.append(f"- source_rich audit: `{source_rich_audit_path.name}`")
     (run_dir / "summary_extract.md").write_text("\n".join(summary) + "\n", encoding="utf-8")
 
     print(f"[done] run dir: {run_dir}")
