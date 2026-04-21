@@ -387,3 +387,27 @@
   - This v6 formulation reduced alarm but caused a severe detection collapse for the target transformer scorers.
   - As currently defined, `v6_input_aligned_v1` is a negative result relative to both `v3 fix3` and `v5_compact_v1`.
   - Next step should avoid this aggressive short-token collapse and move to a milder `v6.1` (retain `20x8` geometry while applying alignment only on channel semantics).
+
+## 20. 2026-04-21 F2.5 Temporal Smoke (causal history predictor)
+
+- Goal:
+  - Test whether temporal dynamics can separate attack from benign OOD better than single-frame token reconstruction.
+  - Use existing `expression_v3` matrices without re-extraction.
+- Implemented independent entry:
+  - `repo/ood/frontend_f2_5_temporal_tokenizer.py`
+  - Input: causal history window `K=5` from `expression_v3 [20,8]`
+  - Target: current frame only; target frame is not included in the model input.
+  - Evaluation: same `stage2 manifest + id_budget_calibrated_target1pct` protocol as frontend-f2 tokenizer runs.
+- Executed:
+  - `runs/frontend_f2_5_temporal_smoke_2026-04-21/`
+- Key transformer + family_short_focus results:
+  - `mi_dir_mean`: `AUC=0.4216`, `calibrated_alarm=0.0095`, `calibrated_det=0.0028`, `feasible=True`
+  - `mi_hphp_short_mean`: `AUC=0.5900`, `calibrated_alarm=0.0099`, `calibrated_det=0.0320`, `feasible=True`
+  - `hphp_mean`: `AUC=0.5796`, `calibrated_alarm=0.0085`, `calibrated_det=0.0707`, `feasible=True`
+- Best temporal point overall:
+  - `uniform + hphp_mean`: `AUC=0.6944`, `calibrated_alarm=0.0098`, `calibrated_det=0.1367`, `feasible=True`
+- Conclusion:
+  - Temporal causal prediction did not improve the main attack-separation objective.
+  - It can satisfy low alarm, but mostly by becoming conservative; detection remains too low.
+  - This is not a fast path to surpass DA in its current form.
+  - Next practical direction should be explicit `delta/innovation` features rather than a heavier temporal transformer.
