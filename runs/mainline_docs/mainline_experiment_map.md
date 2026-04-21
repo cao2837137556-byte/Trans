@@ -820,6 +820,14 @@ v2 的唯一正确方向：
 - 当前结果说明：
   - 对象包可运行性已打通，但 fixed/naive operating point 下总体信号偏弱；
   - `strongest_candidate` 在本地预跑中出现一次 `NaN/Inf` execute-path 提示，需先做稳定性修复再考虑正式 HPC 提交。
+- 2026-04-21 工程/口径排查进展：
+  - 已升级 `repo/ood/second_environment_toniot_object_prerun.py`，新增非有限值计数、分数落盘与有限值硬校验；
+  - 新增显式 gate 脚本 `repo/ood/second_environment_toniot_engineering_gate.py`；
+  - 已完成工程 smoke：`runs/second_environment_toniot_object_prerun_2026-04-21_engineering_smoke/`；
+  - gate 结论为 `engineering_gate_pass`，并生成：
+    - `runs/second_environment_toniot_object_prerun_2026-04-21_engineering_smoke/engineering_gate/summary.md`
+    - `runs/second_environment_toniot_object_prerun_2026-04-21_engineering_smoke/engineering_gate/engineering_gate_report.json`
+  - 本轮排查结论：当前主要矛盾已从“工程/口径不确定”收敛为“方法在 second environment 下的性能问题”。
 
 ### C. 对抗鲁棒性评估包：分成神经白盒与统一黑盒两层
 

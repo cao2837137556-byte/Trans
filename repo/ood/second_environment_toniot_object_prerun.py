@@ -181,15 +181,21 @@ def train_ft_autoencoder(
     return model, hist, int(best_epoch), float(best_val), train_sec
 
 
-def score_ft(model: nn.Module, x: np.ndarray, batch_size: int, device: str) -> np.ndarray:
+def score_ft(model: nn.Module, x: np.ndarray, batch_size: int, device: str) -> Tuple[np.ndarray, int]:
     model.eval()
     out: List[np.ndarray] = []
+    nonfinite = 0
     with torch.no_grad():
         for (xb,) in make_loader(x, batch_size, False):
             xb = xb.to(device)
             err = (model(xb) - xb) ** 2
-            out.append(torch.sqrt(torch.mean(err, dim=1)).detach().cpu().numpy())
-    return np.concatenate(out).astype(np.float64)
+            s = torch.sqrt(torch.mean(err, dim=1)).detach().cpu().numpy().astype(np.float64)
+            bad = ~np.isfinite(s)
+            if np.any(bad):
+                nonfinite += int(np.sum(bad))
+                s[bad] = 1e-6
+            out.append(s)
+    return np.concatenate(out).astype(np.float64), int(nonfinite)
 
 
 def train_kitnet_model(
@@ -221,15 +227,20 @@ def train_kitnet_model(
     return model, train_sec
 
 
-def score_kitnet(model: kit.KitNET, x: np.ndarray, name: str) -> Tuple[np.ndarray, float]:
+def score_kitnet(model: kit.KitNET, x: np.ndarray, name: str) -> Tuple[np.ndarray, float, int]:
     t0 = time.perf_counter()
     scores = np.zeros(len(x), dtype=np.float64)
+    nonfinite = 0
     for i in range(len(x)):
         if i > 0 and i % 2000 == 0:
             print(f"[{name}] score progress: {i}/{len(x)}", flush=True)
-        scores[i] = float(model.executeAD(x[i]))
+        v = float(model.executeAD(x[i]))
+        if not np.isfinite(v):
+            nonfinite += 1
+            v = 1e-6
+        scores[i] = v
     infer_sec = float(time.perf_counter() - t0)
-    return scores, infer_sec
+    return scores, infer_sec, int(nonfinite)
 
 
 def evaluate_object(
@@ -239,6 +250,8 @@ def evaluate_object(
     raw_attack: np.ndarray,
     naive_budget: int,
 ) -> Tuple[List[Dict[str, object]], Dict[str, object], Dict[str, float]]:
+    if not (np.all(np.isfinite(raw_id)) and np.all(np.isfinite(raw_ood)) and np.all(np.isfinite(raw_attack))):
+        raise RuntimeError(f"Non-finite raw scores detected for object: {object_label}")
     sign, auc_chosen, auc_other = choose_orientation(raw_ood, raw_attack)
     orientation_name = "raw_score" if sign == 1 else "neg_raw_score"
     id_scores = sign * raw_id
@@ -410,10 +423,14 @@ def main() -> None:
     parser.add_argument("--ft-attn-dropout", type=float, default=0.2)
     parser.add_argument("--ft-ffn-dropout", type=float, default=0.1)
     parser.add_argument("--device", default="cpu")
+    parser.add_argument("--no-save-scores", action="store_true")
     args = parser.parse_args()
 
     run_dir = ARTIFACT_RUNS_DIR / args.run_tag
     run_dir.mkdir(parents=True, exist_ok=True)
+    score_dir = run_dir / "scores"
+    if not args.no_save_scores:
+        score_dir.mkdir(exist_ok=True)
 
     split_meta, _, numeric_cols, x_id_train, x_id_eval, x_ood_eval, x_attack_eval = build_split(
         manifest_path=args.split_manifest,
@@ -450,9 +467,13 @@ def main() -> None:
         hidden_ratio=args.hidden_ratio,
         max_ae=args.max_ae,
     )
-    da_id_scores, da_id_infer_sec = score_kitnet(da_model, x_id_eval_z, "dA/id")
-    da_ood_scores, da_ood_infer_sec = score_kitnet(da_model, x_ood_eval_z, "dA/ood")
-    da_attack_scores, da_attack_infer_sec = score_kitnet(da_model, x_attack_eval_z, "dA/attack")
+    da_id_scores, da_id_infer_sec, da_nonfinite_id = score_kitnet(da_model, x_id_eval_z, "dA/id")
+    da_ood_scores, da_ood_infer_sec, da_nonfinite_ood = score_kitnet(da_model, x_ood_eval_z, "dA/ood")
+    da_attack_scores, da_attack_infer_sec, da_nonfinite_attack = score_kitnet(da_model, x_attack_eval_z, "dA/attack")
+    if not args.no_save_scores:
+        np.save(score_dir / "dA_id_scores.npy", da_id_scores)
+        np.save(score_dir / "dA_ood_scores.npy", da_ood_scores)
+        np.save(score_dir / "dA_attack_scores.npy", da_attack_scores)
     rows, pol, stats = evaluate_object("dA", da_id_scores, da_ood_scores, da_attack_scores, args.naive_budget)
     result_rows.extend(rows)
     polarity_rows.append(pol)
@@ -469,6 +490,9 @@ def main() -> None:
             "fm_grace": int(da_fm),
             "ad_grace": int(da_ad),
             "id_train_n": int(len(x_id_train_z)),
+            "nonfinite_id_eval": int(da_nonfinite_id),
+            "nonfinite_ood_eval": int(da_nonfinite_ood),
+            "nonfinite_attack_eval": int(da_nonfinite_attack),
         }
     )
 
@@ -485,9 +509,13 @@ def main() -> None:
         hidden_ratio=args.hidden_ratio,
         max_ae=args.max_ae,
     )
-    st_id_scores, st_id_infer_sec = score_kitnet(strongest_model, x_id_eval_z, "strongest/id")
-    st_ood_scores, st_ood_infer_sec = score_kitnet(strongest_model, x_ood_eval_z, "strongest/ood")
-    st_attack_scores, st_attack_infer_sec = score_kitnet(strongest_model, x_attack_eval_z, "strongest/attack")
+    st_id_scores, st_id_infer_sec, st_nonfinite_id = score_kitnet(strongest_model, x_id_eval_z, "strongest/id")
+    st_ood_scores, st_ood_infer_sec, st_nonfinite_ood = score_kitnet(strongest_model, x_ood_eval_z, "strongest/ood")
+    st_attack_scores, st_attack_infer_sec, st_nonfinite_attack = score_kitnet(strongest_model, x_attack_eval_z, "strongest/attack")
+    if not args.no_save_scores:
+        np.save(score_dir / "strongest_candidate_id_scores.npy", st_id_scores)
+        np.save(score_dir / "strongest_candidate_ood_scores.npy", st_ood_scores)
+        np.save(score_dir / "strongest_candidate_attack_scores.npy", st_attack_scores)
     rows, pol, stats = evaluate_object(
         "strongest_candidate_transformer_covreg_v2_seed101",
         st_id_scores,
@@ -510,6 +538,9 @@ def main() -> None:
             "fm_grace": int(strongest_fm),
             "ad_grace": int(strongest_ad),
             "id_train_n": int(len(x_id_train_z)),
+            "nonfinite_id_eval": int(st_nonfinite_id),
+            "nonfinite_ood_eval": int(st_nonfinite_ood),
+            "nonfinite_attack_eval": int(st_nonfinite_attack),
         }
     )
 
@@ -536,14 +567,18 @@ def main() -> None:
         device=device,
     )
     ft_id_t0 = time.perf_counter()
-    ft_id_scores = score_ft(ft_model, x_id_eval_z, args.ft_batch_size, device)
+    ft_id_scores, ft_nonfinite_id = score_ft(ft_model, x_id_eval_z, args.ft_batch_size, device)
     ft_id_infer_sec = float(time.perf_counter() - ft_id_t0)
     ft_ood_t0 = time.perf_counter()
-    ft_ood_scores = score_ft(ft_model, x_ood_eval_z, args.ft_batch_size, device)
+    ft_ood_scores, ft_nonfinite_ood = score_ft(ft_model, x_ood_eval_z, args.ft_batch_size, device)
     ft_ood_infer_sec = float(time.perf_counter() - ft_ood_t0)
     ft_attack_t0 = time.perf_counter()
-    ft_attack_scores = score_ft(ft_model, x_attack_eval_z, args.ft_batch_size, device)
+    ft_attack_scores, ft_nonfinite_attack = score_ft(ft_model, x_attack_eval_z, args.ft_batch_size, device)
     ft_attack_infer_sec = float(time.perf_counter() - ft_attack_t0)
+    if not args.no_save_scores:
+        np.save(score_dir / "ft_transformer_ae_id_scores.npy", ft_id_scores)
+        np.save(score_dir / "ft_transformer_ae_ood_scores.npy", ft_ood_scores)
+        np.save(score_dir / "ft_transformer_ae_attack_scores.npy", ft_attack_scores)
 
     rows, pol, stats = evaluate_object("ft_transformer_ae", ft_id_scores, ft_ood_scores, ft_attack_scores, args.naive_budget)
     result_rows.extend(rows)
@@ -563,6 +598,9 @@ def main() -> None:
             "best_val_loss": float(ft_best_val),
             "device": str(device),
             "param_count": int(sum(p.numel() for p in ft_model.parameters())),
+            "nonfinite_id_eval": int(ft_nonfinite_id),
+            "nonfinite_ood_eval": int(ft_nonfinite_ood),
+            "nonfinite_attack_eval": int(ft_nonfinite_attack),
         }
     )
 

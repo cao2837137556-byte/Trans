@@ -1,6 +1,6 @@
 # Mainline Handoff
 
-Updated: 2026-04-20
+Updated: 2026-04-21
 Workspace: `D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline`
 Branch: `codex/exp-mainline`
 Canonical path: `runs/mainline_docs/mainline_handoff.md`
@@ -627,3 +627,48 @@ Next:
 - Diagnose and fix the strongest-candidate `NaN/Inf` execute-path instability on TON split.
 - Run one more local stabilization pass for the same object pack (same policy family, same split source) before scaling to full TON counts.
 - If stabilized local results remain weak, record as negative external-validation evidence; if stabilized signal improves, then prepare the formal date-tagged HPC package by the fixed SOP.
+
+### 2026-04-21 (TON Engineering + Protocol Gate Passed)
+
+What was done:
+- Upgraded `repo/ood/second_environment_toniot_object_prerun.py` for engineering auditability:
+  - non-finite score replacement counters per object/split;
+  - optional score-array persistence under `runs/<run_tag>/scores/`;
+  - hard finite-value guard before policy evaluation.
+- Added `repo/ood/second_environment_toniot_engineering_gate.py` as an explicit gate checker for:
+  - split-manifest integrity and label semantics;
+  - required output matrix completeness (`3 objects x 3 policies`);
+  - fixed policy names and `naive_budget5000` presence;
+  - finite-value checks on result and polarity tables.
+- Ran local engineering smoke:
+  - `runs/second_environment_toniot_object_prerun_2026-04-21_engineering_smoke/`
+  - scale: `ID train=4000`, `ID eval=2000`, `OOD eval=5000`, `attack eval=5000`
+- Ran gate checker on this node and generated:
+  - `runs/second_environment_toniot_object_prerun_2026-04-21_engineering_smoke/engineering_gate/summary.md`
+  - `runs/second_environment_toniot_object_prerun_2026-04-21_engineering_smoke/engineering_gate/engineering_gate_report.json`
+
+Result:
+- Gate verdict:
+  - `engineering_gate_pass`
+- Split checks all pass:
+  - indices in bounds;
+  - ID/OOD/attack disjoint;
+  - ID and OOD labels are normal (`0`);
+  - attack labels are non-normal.
+- Output checks all pass:
+  - required files present;
+  - object-policy matrix complete;
+  - `naive_calibrated_budget5000_target1pct` present;
+  - metrics and polarity values finite.
+- Non-finite counters:
+  - total `0` in this engineering smoke run.
+
+Judgment:
+- Current blocker has moved from “possible engineering/口径错误” to “性能与跨环境泛化本身不足”。
+- Formal HPC should still wait, but now the wait reason is method performance, not pipeline correctness.
+
+Next:
+- Keep this gate as mandatory pre-submit check for TON object runs.
+- Move to method-side diagnosis under fixed gate:
+  - same split source and policy family;
+  - improve detection at low alarm, or record stable negative evidence if improvement fails.
