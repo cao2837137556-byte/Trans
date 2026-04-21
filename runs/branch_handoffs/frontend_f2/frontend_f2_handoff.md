@@ -443,3 +443,44 @@
   - Next step should stop local input reshaping and return to either:
     - a stronger supervised/contrastive objective on the existing best v3/v5 representation, or
     - a DA-facing comparison protocol to identify exactly which signal DA has that frontend-f2 is missing.
+
+## 22. 2026-04-21 v7 Source-Rich Diagnostic Ranker (target-aligned probe)
+
+- Motivation:
+  - GPT deep diagnosis recommended stopping local frontend formula patches.
+  - The next falsification target was whether `source_rich_v1` already contains enough signal if the objective is target-aligned.
+- Implemented independent entry:
+  - `repo/ood/frontend_f2_v7_source_rich_diagnostic_ranker.py`
+  - Input: frozen `source_rich_v1 [20,13]`, flattened to 260 dimensions.
+  - Model: L2 `LogisticRegression`, `class_weight=balanced`, `C=1.0`.
+  - Labels:
+    - negative: ID benign + OOD benign
+    - positive: stage2 high-purity attack only
+  - Splits:
+    - ID: train `[0,8000)`, val `[8000,10000)`, calibration `[10000,15000)`
+    - OOD: train `[0,8000)`, val `[8000,10000)`, eval `[10000,20000)`
+    - high-purity attack: contiguous split by row index, 60% train / 20% val / 20% eval
+- Executed:
+  - `runs/frontend_f2_v7_source_rich_ranker_2026-04-21/`
+- Main result:
+  - `AUC=0.9997`
+  - `calibrated_alarm=0.0088`
+  - `calibrated_det=0.9942`
+  - `selection_feasible=True`
+  - fixed ID q99 also strong: `alarm=0.0028`, `det=0.9898`
+- Top coefficient signals:
+  - `HpHp@0.01s cov_slog_raw`
+  - `HpHp@0.01s std_slog_raw`
+  - `HpHp@0.1s std_slog_raw`
+  - `HH_jit@0.1s cv_slog_raw`
+  - `HH_jit@0.01s mean_rel_family`
+- Interpretation:
+  - This is the first frontend-f2 result that strongly exceeds the prior v3/v5 trade-off under the 1% OOD-alarm protocol.
+  - It proves `source_rich_v1` contains target-relevant signal when the learning objective is aligned with “ID/OOD benign vs high-purity attack”.
+  - The main bottleneck is now strongly supported as objective mismatch, not lack of frontend information.
+  - This is still a supervised diagnostic probe, not the final deployable detector.
+- Next recommended direction:
+  - Build a v7.1 target-aligned but less directly supervised frontend objective, likely contrastive / PU / DA-aligned, using this ranker result as an oracle-style upper bound.
+  - Also preserve row scores and feature importance for DA-vs-frontend comparison:
+    - `frontend_f2_v7_source_rich_ranker_row_scores.csv`
+    - `frontend_f2_v7_source_rich_ranker_feature_importance.csv`
