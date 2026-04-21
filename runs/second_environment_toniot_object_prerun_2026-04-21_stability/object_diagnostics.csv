@@ -1,0 +1,4 @@
+object_label,backend,seed,train_sec,infer_sec_id_eval,infer_sec_ood_eval,infer_sec_attack_eval,fm_grace,ad_grace,id_train_n,nonfinite_id_eval,nonfinite_ood_eval,nonfinite_attack_eval,best_epoch,best_val_loss,device,param_count
+dA,kitnet_da,101,6.564054799993755,1.5094776000041747,3.740287900000112,5.877133500005584,2000.0,6000.0,8000,0,0,0,,,,
+strongest_candidate_transformer_covreg_v2_seed101,kitnet_transformer_covreg_v2,101,717.5351649000077,81.83531669998774,221.85405229999742,739.9412254000054,2000.0,6000.0,8000,0,0,0,,,,
+ft_transformer_ae,ft_transformer_ae,101,129.06441729998915,0.6688069999945583,1.4175802999961888,2.2369055000017397,,,8000,0,0,0,11.0,0.2780756971240044,cpu,243024.0

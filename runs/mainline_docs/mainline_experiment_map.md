@@ -828,6 +828,15 @@ v2 的唯一正确方向：
     - `runs/second_environment_toniot_object_prerun_2026-04-21_engineering_smoke/engineering_gate/summary.md`
     - `runs/second_environment_toniot_object_prerun_2026-04-21_engineering_smoke/engineering_gate/engineering_gate_report.json`
   - 本轮排查结论：当前主要矛盾已从“工程/口径不确定”收敛为“方法在 second environment 下的性能问题”。
+- 2026-04-21 同规模稳定复跑进展：
+  - 已完成：`runs/second_environment_toniot_object_prerun_2026-04-21_stability/`；
+  - 已执行 gate：`runs/second_environment_toniot_object_prerun_2026-04-21_stability/engineering_gate/`，结论 `engineering_gate_pass`；
+  - 同规模对比 `..._2026-04-20_b` 显示：
+    - `dA` 三策略指标完全复现（稳定锚点成立）；
+    - `strongest_candidate` fixed 点仍弱（`attack_det=0.0033`）；
+    - `ft_transformer_ae` fixed 点仍为 `attack_det=0.0000`；
+    - `ft_transformer_ae` naive detection 有回升（`0.1260`），但 `id_alarm=0.3953`，不可作为可部署改进。
+  - 当前可判定：TON second-environment 的主要问题是方法性能而非工程口径；在 fixed low-alarm operating point 下，主线对象尚未形成可辩护外部泛化优势。
 
 ### C. 对抗鲁棒性评估包：分成神经白盒与统一黑盒两层
 

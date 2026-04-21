@@ -1,0 +1,43 @@
+{
+  "run_tag": "second_environment_toniot_object_prerun_2026-04-21_stability",
+  "run_dir": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\second_environment_toniot_object_prerun_2026-04-21_stability",
+  "split_manifest": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\second_environment_toniot_precheck_2026-04-20\\split_manifest.json",
+  "split_report": {
+    "csv_path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\data\\Train_Test_Network_dataset\\train_test_network.csv",
+    "n_rows": 211043,
+    "id_n": 30000,
+    "ood_n": 20000,
+    "attack_n": 100000,
+    "checks": {
+      "indices_in_bounds": true,
+      "id_ood_disjoint": true,
+      "id_attack_disjoint": true,
+      "ood_attack_disjoint": true,
+      "id_label_is_normal": true,
+      "ood_label_is_normal": true,
+      "attack_label_not_normal": true
+    }
+  },
+  "output_report": {
+    "required_files_present": true,
+    "missing_files": [],
+    "objects": [
+      "dA",
+      "ft_transformer_ae",
+      "strongest_candidate_transformer_covreg_v2_seed101"
+    ],
+    "policies": [
+      "det_floor_50pct_min_alarm",
+      "fixed_id_q99",
+      "naive_calibrated_budget5000_target1pct"
+    ],
+    "matrix_ok": true,
+    "nonfinite_ok": true,
+    "nonfinite_total": 0,
+    "metric_finite_ok": true,
+    "polarity_finite_ok": true,
+    "naive_budget_ok": true
+  },
+  "verdict": "engineering_gate_pass",
+  "notes": []
+}

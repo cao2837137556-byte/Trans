@@ -1,0 +1,14 @@
+{
+  "stage": "second_environment_toniot_object_prerun",
+  "goal": "Run A-line required objects (dA + strongest candidate + FT) on TON fallback with fixed split and policy family.",
+  "objects": [
+    "dA",
+    "strongest_candidate_transformer_covreg_v2_seed101",
+    "ft_transformer_ae"
+  ],
+  "policies": [
+    "fixed_id_q99",
+    "naive_calibrated_budget5000_target1pct",
+    "det_floor_50pct_min_alarm"
+  ]
+}

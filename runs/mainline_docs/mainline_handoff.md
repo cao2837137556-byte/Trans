@@ -672,3 +672,42 @@ Next:
 - Move to method-side diagnosis under fixed gate:
   - same split source and policy family;
   - improve detection at low alarm, or record stable negative evidence if improvement fails.
+
+### 2026-04-21 (TON Stability Re-Run Under Fixed Gate)
+
+What was done:
+- Ran one same-scale stability rerun under the fixed object-pack protocol:
+  - `runs/second_environment_toniot_object_prerun_2026-04-21_stability/`
+  - scale: `ID train=8000`, `ID eval=4000`, `OOD eval=8000`, `attack eval=12000`
+  - objects: `dA`, `strongest_candidate_transformer_covreg_v2_seed101`, `ft_transformer_ae`
+  - policy family unchanged: `fixed_id_q99`, `naive_calibrated_budget5000_target1pct`, `det_floor_50pct_min_alarm`
+- Ran engineering/protocol gate on this run:
+  - `runs/second_environment_toniot_object_prerun_2026-04-21_stability/engineering_gate/`
+  - verdict: `engineering_gate_pass`
+
+Result:
+- Gate status:
+  - split checks pass;
+  - output matrix and policy checks pass;
+  - finite-value checks pass;
+  - non-finite replacement count remains `0`.
+- Stability signal versus prior same-scale run (`..._2026-04-20_b`):
+  - `dA` is exactly reproducible across all three policies (same metrics to 6 decimals).
+  - `strongest_candidate` still weak at fixed point:
+    - fixed: `ood_alarm=0.002125`, `attack_det=0.003333`, `auc=0.690065`
+  - `ft_transformer_ae` still fails fixed point:
+    - fixed: `ood_alarm=0.000000`, `attack_det=0.000000`, `auc=0.570755`
+  - `ft_transformer_ae` naive point improved in detection:
+    - naive: `ood_alarm=0.009250`, `attack_det=0.126000`
+    - but `id_alarm=0.395250`, still not deployment-credible.
+- The stdout warning string from backend (`NaN/Inf detected in execute score`) still appeared once during strongest attack scoring, but run-level diagnostic counters remained finite-clean after replacement guard (`nonfinite_total=0` in gate report).
+
+Judgment:
+- Engineering and protocol explanations are now largely ruled out for this stage.
+- Under fixed `q99`, both `strongest_candidate` and `FT` remain clearly below `dA` on TON second-environment split.
+- This is now a stable method-performance gap, not an unstable pipeline artifact.
+
+Next:
+- Keep TON second-environment line in local method-diagnosis mode (no formal HPC yet).
+- Prioritize strongest-candidate execute-path numerical diagnosis (source of one-off backend warning) and low-alarm detection recovery.
+- If next controlled method iteration still cannot beat the `dA` fixed operating point, lock this as stable negative external-validation evidence and stop expanding this branch.
