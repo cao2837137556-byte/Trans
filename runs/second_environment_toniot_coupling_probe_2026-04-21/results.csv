@@ -1,0 +1,13 @@
+feature_view,object_label,roc_auc_attack_vs_ood,policy_name,threshold,id_alarm_ratio,ood_alarm_ratio,attack_detection
+standard_zscore,dA,0.71532984,fixed_id_q99,-0.003932224174742599,0.01,0.0,0.0006
+standard_zscore,dA,0.71532984,naive_calibrated_budget5000_target1pct,-0.014334058707849717,0.8195,0.01,0.1892
+standard_zscore,ft_transformer_ae,0.60805832,fixed_id_q99,-0.06119742404669523,0.01,0.0,0.0
+standard_zscore,ft_transformer_ae,0.60805832,naive_calibrated_budget5000_target1pct,-0.16575755640864345,0.8455,0.01,0.119
+winsor_zscore,dA,0.55229632,fixed_id_q99,-0.0017412999627284774,0.01,0.0,0.0
+winsor_zscore,dA,0.55229632,naive_calibrated_budget5000_target1pct,-0.015749508901211337,0.833,0.01,0.1572
+winsor_zscore,ft_transformer_ae,0.52583976,fixed_id_q99,-0.08774789601564408,0.01,0.0,0.0102
+winsor_zscore,ft_transformer_ae,0.52583976,naive_calibrated_budget5000_target1pct,-0.1669433566927908,0.793,0.01,0.1606
+signed_log1p_zscore,dA,0.70093808,fixed_id_q99,-0.011744028189710869,0.01,0.0,0.0176
+signed_log1p_zscore,dA,0.70093808,naive_calibrated_budget5000_target1pct,-0.036995562794988245,0.8335,0.01,0.2042
+signed_log1p_zscore,ft_transformer_ae,0.56914038,fixed_id_q99,1.4048177409172058,0.01,0.099,0.1452
+signed_log1p_zscore,ft_transformer_ae,0.56914038,naive_calibrated_budget5000_target1pct,2.561518731117249,0.0015,0.01,0.0052

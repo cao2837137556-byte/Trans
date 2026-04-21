@@ -837,6 +837,17 @@ v2 的唯一正确方向：
     - `ft_transformer_ae` fixed 点仍为 `attack_det=0.0000`；
     - `ft_transformer_ae` naive detection 有回升（`0.1260`），但 `id_alarm=0.3953`，不可作为可部署改进。
   - 当前可判定：TON second-environment 的主要问题是方法性能而非工程口径；在 fixed low-alarm operating point 下，主线对象尚未形成可辩护外部泛化优势。
+- 2026-04-21 阈值敏感性与耦合验证进展：
+  - 已新增并执行阈值敏感性审计：
+    - `repo/ood/second_environment_toniot_threshold_sensitivity.py`
+    - `runs/second_environment_toniot_threshold_sensitivity_2026-04-21/`
+  - 结论：`FT fixed=0` 在当前 chosen orientation 下对 `>` / `>=` 都成立，不是简单比较符错误；ID tie 影响 alarm 计数，但不能解释 attack detection 为零。
+  - 已新增并执行耦合探针：
+    - `repo/ood/second_environment_toniot_coupling_probe.py`
+    - `runs/second_environment_toniot_coupling_probe_2026-04-21/`
+  - 探针结论（`dA + FT`, fixed split）：
+    - `FT` 对表达方式高度敏感：`signed_log1p_zscore` 可把 fixed detection 从 `0` 拉到 `0.1452`，但 fixed OOD alarm 同时升到 `0.0990`；
+    - 当前证据支持“模型 + 前端表达耦合”假设成立，但尚未得到可部署低告警 operating point。
 
 ### C. 对抗鲁棒性评估包：分成神经白盒与统一黑盒两层
 

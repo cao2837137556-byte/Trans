@@ -711,3 +711,47 @@ Next:
 - Keep TON second-environment line in local method-diagnosis mode (no formal HPC yet).
 - Prioritize strongest-candidate execute-path numerical diagnosis (source of one-off backend warning) and low-alarm detection recovery.
 - If next controlled method iteration still cannot beat the `dA` fixed operating point, lock this as stable negative external-validation evidence and stop expanding this branch.
+
+### 2026-04-21 (Threshold Sensitivity + Coupling Verification)
+
+What was done:
+- Added and ran threshold-sensitivity audit:
+  - script: `repo/ood/second_environment_toniot_threshold_sensitivity.py`
+  - run: `runs/second_environment_toniot_threshold_sensitivity_2026-04-21/`
+  - audited dimensions:
+    - score orientation (`raw_score` vs `neg_raw_score`)
+    - threshold operator (`>` vs `>=`)
+    - policies (`fixed_id_q99`, `naive_calibrated_budget5000_target1pct`)
+- Added and ran model-expression coupling probe:
+  - script: `repo/ood/second_environment_toniot_coupling_probe.py`
+  - run: `runs/second_environment_toniot_coupling_probe_2026-04-21/`
+  - fixed split scale: `ID train=4000`, `ID eval=2000`, `OOD eval=5000`, `attack eval=5000`
+  - models: `dA`, `ft_transformer_ae`
+  - expression views:
+    - `standard_zscore`
+    - `winsor_zscore`
+    - `signed_log1p_zscore`
+
+Result:
+- Threshold sensitivity on the stability source run confirms the `FT fixed=0` observation is not a simple comparator bug:
+  - chosen orientation is `neg_raw_score`;
+  - under chosen orientation:
+    - `fixed_id_q99`: `attack_det=0.000000` for both `>` and `>=`;
+    - changing `>` to `>=` does not recover attack detection.
+- FT tie profile shows substantial threshold ties on ID at chosen orientation (`eq@q99 ≈ 0.19075`), which affects ID alarm accounting but does not explain attack detection being zero.
+- Coupling probe shows strong expression sensitivity:
+  - `FT` fixed point:
+    - `standard_zscore`: `ood_alarm=0.0000`, `attack_det=0.0000`
+    - `winsor_zscore`: `ood_alarm=0.0000`, `attack_det=0.0102`
+    - `signed_log1p_zscore`: `ood_alarm=0.0990`, `attack_det=0.1452`
+- Interpretation:
+  - `FT` detection collapse is real under current chosen orientation + standard expression, not just an operator artifact;
+  - expression change can recover some detection, but currently with unacceptable OOD alarm inflation at fixed point.
+
+Judgment:
+- The new evidence supports “model + front-expression coupling” as a real factor.
+- This line is still not ready for formal HPC promotion because recovered detection has not yet met low-alarm operating requirements.
+
+Next:
+- Keep fixed gate and split unchanged.
+- Continue local method diagnosis focused on expression transformations that improve FT fixed detection without pushing fixed OOD alarm out of acceptable range.

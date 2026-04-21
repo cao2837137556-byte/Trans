@@ -1,0 +1,4 @@
+feature_view,id_train_n,id_eval_n,ood_eval_n,attack_eval_n,n_features,id_train_mean_abs,id_train_max_abs,view,winsor_low_q,winsor_high_q
+standard_zscore,4000,2000,5000,5000,16,0.1968207574525503,63.23764701504896,standard_zscore,,
+winsor_zscore,4000,2000,5000,5000,16,0.3252555354639776,11.567920793379113,winsor_zscore,0.005,0.995
+signed_log1p_zscore,4000,2000,5000,5000,16,0.38536344895736657,63.237647015050065,signed_log1p_zscore,,

@@ -1,0 +1,16 @@
+{
+  "run_tag": "second_environment_toniot_coupling_probe_2026-04-21",
+  "split_manifest": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\second_environment_toniot_precheck_2026-04-20\\split_manifest.json",
+  "csv_path": null,
+  "feature_views": [
+    "standard_zscore",
+    "winsor_zscore",
+    "signed_log1p_zscore"
+  ],
+  "seed": 101,
+  "id_train_n": 4000,
+  "id_eval_n": 2000,
+  "ood_eval_n": 5000,
+  "attack_eval_n": 5000,
+  "naive_budget": 5000
+}
