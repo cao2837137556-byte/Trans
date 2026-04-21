@@ -484,3 +484,42 @@
   - Also preserve row scores and feature importance for DA-vs-frontend comparison:
     - `frontend_f2_v7_source_rich_ranker_row_scores.csv`
     - `frontend_f2_v7_source_rich_ranker_feature_importance.csv`
+
+## 23. 2026-04-21 v7.1 Source-Rich Label-Budget Sweep
+
+- Goal:
+  - Test whether the strong v7 diagnostic result depends on thousands of supervised attack labels.
+  - Keep the same frozen `source_rich_v1 [20,13]` input, same benign negatives, same held-out OOD/attack eval splits, and vary only the number of high-purity attack positives used for training.
+- Implemented independent entry:
+  - `repo/ood/frontend_f2_v7_1_source_rich_label_budget_ranker.py`
+  - Model: L2 `LogisticRegression`, `class_weight=balanced`, `C=1.0`.
+  - Positive budgets: `16, 32, 64, 128, 256, 512, 1024, 2048, all(4122)`.
+  - Positive budget sampling: deterministic seeded sampling from the v7 attack-train split only.
+  - Eval remains fixed:
+    - OOD benign eval: rows `[10000,20000)`
+    - high-purity attack eval: held-out contiguous rows `[8417,9791]`
+- Executed:
+  - `runs/frontend_f2_v7_1_source_rich_label_budget_2026-04-21/`
+- Main label-budget results:
+  - budget `16`: `AUC=0.9757`, `calibrated_alarm=0.0097`, `calibrated_det=0.9585`, `feasible=True`
+  - budget `32`: `AUC=0.9794`, `calibrated_alarm=0.0099`, `calibrated_det=0.9636`, `feasible=True`
+  - budget `64`: `AUC=0.9640`, `calibrated_alarm=0.0100`, `calibrated_det=0.9164`, `feasible=True`
+  - budget `128`: `AUC=0.9907`, `calibrated_alarm=0.0097`, `calibrated_det=0.9469`, `feasible=True`
+  - budget `256`: `AUC=0.9984`, `calibrated_alarm=0.0100`, `calibrated_det=0.9876`, `feasible=True`
+  - budget `512`: `AUC=0.9986`, `calibrated_alarm=0.0089`, `calibrated_det=0.9862`, `feasible=True`
+  - budget `1024`: `AUC=0.9992`, `calibrated_alarm=0.0077`, `calibrated_det=0.9891`, `feasible=True`
+  - budget `2048`: `AUC=0.9994`, `calibrated_alarm=0.0097`, `calibrated_det=0.9913`, `feasible=True`
+  - budget `4122`: `AUC=0.9997`, `calibrated_alarm=0.0088`, `calibrated_det=0.9942`, `feasible=True`
+- Key conclusion:
+  - v7 is not merely a large-label artifact.
+  - Even 16 high-purity attack positives are enough to reach `AUC>0.97` and `det>0.95` at <=1% OOD alarm under this split.
+  - This strongly supports that `source_rich_v1` contains a sparse, target-relevant signal and the previous frontend-f2 failures were mainly objective/scoring mismatch, not missing frontend information.
+- Important caveat:
+  - This is still a supervised/target-aligned diagnostic using high-purity attack labels.
+  - It should not be presented as the final unsupervised detector.
+- Next recommended direction:
+  - Promote the line from "diagnostic probe" to a deployable target-aligned detector:
+    - keep `source_rich_v1` frozen
+    - start from the 16/32/64 positive-label regime
+    - add robustness checks against other attack windows/captures if available
+    - compare learned top coefficients with DA signals before deciding whether to distill into a compact frontend model or keep the linear ranker as the practical detector head
