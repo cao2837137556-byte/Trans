@@ -411,3 +411,35 @@
   - It can satisfy low alarm, but mostly by becoming conservative; detection remains too low.
   - This is not a fast path to surpass DA in its current form.
   - Next practical direction should be explicit `delta/innovation` features rather than a heavier temporal transformer.
+
+## 21. 2026-04-21 F2.6 Innovation Smoke (explicit current-vs-history features)
+
+- Goal:
+  - Test whether explicitly encoding current-frame deviation from short history can separate attack from benign OOD.
+  - Avoid relying on a temporal transformer to infer the innovation signal implicitly.
+- Implemented independent entry:
+  - `repo/ood/frontend_f2_6_innovation_tokenizer_v1.py`
+  - Input source: existing `expression_v3 [20,8]` matrices.
+  - In-memory representation:
+    - for each target row `t`, compute rolling history over previous `K=5` rows
+    - `innovation = (x_t - mean(x_{t-K:t-1})) / std(x_{t-K:t-1})`
+    - clip to `[-8, 8]`
+    - output keeps `[20,8]` geometry and uses the standard tokenizer/evaluation protocol
+- Executed:
+  - `runs/frontend_f2_6_innovation_smoke_2026-04-21/`
+- Key transformer + family_short_focus results:
+  - `mi_dir_mean`: `AUC=0.4029`, `calibrated_alarm=0.0254`, `calibrated_det=0.0167`, `feasible=False`
+  - `mi_hphp_short_mean`: `AUC=0.4034`, `calibrated_alarm=0.0459`, `calibrated_det=0.0004`, `feasible=False`
+  - `hphp_mean`: `AUC=0.4195`, `calibrated_alarm=0.0583`, `calibrated_det=0.0092`, `feasible=False`
+- Best innovation point overall:
+  - `token_mlp + uniform + mi_hphp_mean`: `AUC=0.4951`, `calibrated_alarm=0.1026`, `calibrated_det=0.0881`, `feasible=False`
+- Conclusion:
+  - Explicit short-history z-score innovation is a negative result.
+  - It does not preserve the v3 attack-vs-OOD ranking signal and does not improve low-alarm detection.
+  - The frontend-f2 branch now has three recent negative input-alignment attempts:
+    - aggressive short-token v6
+    - causal temporal predictor
+    - explicit innovation tensor
+  - Next step should stop local input reshaping and return to either:
+    - a stronger supervised/contrastive objective on the existing best v3/v5 representation, or
+    - a DA-facing comparison protocol to identify exactly which signal DA has that frontend-f2 is missing.
