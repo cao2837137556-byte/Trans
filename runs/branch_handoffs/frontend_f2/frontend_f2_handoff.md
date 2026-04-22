@@ -593,3 +593,78 @@
     - same fixed-ID-q99 and/or guarded validation threshold policies
     - report OOD final alarm and high-purity attack final det
   - In parallel, test one cross-window/cross-capture holdout if another attack/capture source is available; this is the main remaining risk before using v7.2 as a paper-grade result.
+
+## 25. 2026-04-22 v7.3 DA Fairness Comparison + original100 few-shot control
+
+- Goal:
+  - Compare the v7.2 source-rich few-shot ranker against DA under the same final OOD/attack split.
+  - Add an `original100` few-shot logistic control with the same positive-label budgets/seeds to test whether the gain is source-rich specific or mainly objective/label alignment.
+- Implemented independent entry:
+  - `repo/ood/frontend_f2_v7_3_da_fairness_comparison.py`
+  - Objects compared:
+    - `source_rich_v7_2_fewshot_logistic`
+    - `original100_fewshot_logistic`
+    - `da_unsupervised_score_seed42`
+  - Threshold policies:
+    - `fixed_id_calib_q99`
+    - `guarded_id_calib_and_ood_val_target1pct`
+  - Final OOD eval is not used for threshold selection.
+- DA handling:
+  - DA checkpoint:
+    - `KitNET-py-master/runs/frontend100_tailreg_stage1_2026-03-27/da_seed42/kitnet_da_seed42.ckpt`
+  - Full ID scores were recomputed from the checkpoint to match the v7.2 ID split:
+    - train `[0,8000)`
+    - val `[8000,10000)`
+    - calibration `[10000,15000)`
+    - eval unused by threshold `[15000,50000)`
+  - Existing stage1 DA attack scores were reused for attack eval.
+- Executed:
+  - `runs/frontend_f2_v7_3_da_fairness_comparison_2026-04-22/`
+- Focus comparison (`16-shot` vs DA):
+  - `DA unsupervised`, fixed ID q99:
+    - `AUC=0.8064`
+    - `OOD_alarm=0.1286`
+    - `det=0.6865`
+    - not feasible under <=1% OOD alarm
+  - `DA unsupervised`, guarded ID+OOD-val:
+    - `AUC=0.8064`
+    - `OOD_alarm=0.0108`
+    - `det=0.0029`
+    - not feasible (`OOD_alarm` slightly >1%, detection collapsed)
+  - `source_rich_v7.2 few-shot`, 16 positives, fixed ID q99:
+    - `AUC_mean=0.9776`, `AUC_min=0.9646`
+    - `OOD_alarm_mean=0.0058`, `OOD_alarm_max=0.0096`
+    - `det_mean=0.9488`, `det_min=0.9273`
+    - `feasible_rate=1.0`
+  - `source_rich_v7.2 few-shot`, 16 positives, guarded:
+    - `AUC_mean=0.9776`, `AUC_min=0.9646`
+    - `OOD_alarm_mean=0.0056`, `OOD_alarm_max=0.0088`
+    - `det_mean=0.9487`, `det_min=0.9273`
+    - `feasible_rate=1.0`
+  - `original100 few-shot`, 16 positives, fixed ID q99:
+    - `AUC_mean=0.9907`, `AUC_min=0.9580`
+    - `OOD_alarm_mean=0.0045`, `OOD_alarm_max=0.0095`
+    - `det_mean=0.9676`, `det_min=0.9142`
+    - `feasible_rate=1.0`
+  - `original100 few-shot`, 16 positives, guarded:
+    - `AUC_mean=0.9907`, `AUC_min=0.9580`
+    - `OOD_alarm_mean=0.0044`, `OOD_alarm_max=0.0092`
+    - `det_mean=0.9676`, `det_min=0.9142`
+    - `feasible_rate=1.0`
+- Full original100 few-shot control:
+  - `16-shot`: strongest clean point; all seeds feasible.
+  - `32-shot`: still all seeds feasible, `det_mean=0.9407`, `OOD_alarm_max=0.0098`.
+  - `64-shot`: higher `AUC/det`, but some seeds exceed 1% final OOD alarm (`feasible_rate=0.8`).
+- Key conclusion:
+  - Against unsupervised DA at the same final split, both few-shot logistic detectors are dramatically better in the low-OOD-alarm operating region.
+  - However, the original 100D few-shot control is at least as strong as source-rich v7.2 in this protocol.
+  - Therefore the current breakthrough should be attributed primarily to target-aligned few-shot supervision/objective alignment, not uniquely to `source_rich_v1`.
+- Updated interpretation boundary:
+  - It is fair to say: "few-shot target-aligned linear detectors beat unsupervised DA under the same final split and low-OOD-alarm protocol."
+  - It is not yet fair to say: "`source_rich_v1` alone is the reason for beating DA."
+  - If the paper claims frontend re-extraction value, it must either:
+    - show cross-capture/cross-window robustness where source-rich wins, or
+    - position source-rich as an interpretable/auditable representation rather than the sole source of performance.
+- Next recommended direction:
+  - Run a cross-window holdout / alternate attack segment validation for both `source_rich_v7.2` and `original100_fewshot_logistic`.
+  - If original100 remains stronger, the most pragmatic path is to promote the method as "few-shot target-aligned frontend detector" and keep source-rich as the diagnostic/explainability layer.
