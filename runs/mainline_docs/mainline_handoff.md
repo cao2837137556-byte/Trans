@@ -753,5 +753,103 @@ Judgment:
 - This line is still not ready for formal HPC promotion because recovered detection has not yet met low-alarm operating requirements.
 
 Next:
-- Keep fixed gate and split unchanged.
-- Continue local method diagnosis focused on expression transformations that improve FT fixed detection without pushing fixed OOD alarm out of acceptable range.
+- Superseded by the 2026-04-22 failure-closure decision below.
+- Do not continue TON/BoT second-environment tuning under the current A-line protocol.
+
+### 2026-04-22 (A-line Second-Environment Failure Closure + Original100 Few-Shot Official Control)
+
+#### Task 1: A-line second-environment failure closure
+
+Updated project-level judgment:
+- BoT-IoT / TON-IoT second-environment work is no longer an active strengthening or rescue line.
+- This line is now formally sealed as negative evidence, limitation, and external-validity boundary for the current mainline formal protocol.
+- No further second-environment expansion, rerun, or tuning should be started under the current A-line protocol unless a future project-level decision explicitly opens a new dated protocol.
+
+Failure ruling:
+- BoT-IoT does not support formal mainline use under the current split requirements because available benign support is too small for the required ID/OOD/calibration/eval protocol; it remains a split-feasibility failure, not a main-evidence run.
+- TON-IoT passed engineering/protocol gates but does not support the current mainline model claims:
+  - `dA` fixed reference remains weak but nonzero (`AUC=0.679894`, `attack_det=0.076667` on the same-scale stability run).
+  - `strongest_candidate_transformer_covreg_v2_seed101` fixed point remains nearly non-detecting (`attack_det=0.003333`, `AUC=0.690065`).
+  - `ft_transformer_ae` fixed point remains non-detecting (`attack_det=0.000000`, `AUC=0.570755`).
+- Threshold-sensitivity and coupling probes ruled out a simple comparator/threshold artifact for the FT zero-detection point; expression changes can recover some detection but not a deployable low-alarm result.
+
+How to use this in the paper:
+- Use as negative evidence and limitation: the current formal protocol does not robustly externalize to the tested second environments.
+- Use as external-validity boundary: second-environment results are not part of the positive main evidence.
+- Do not frame BoT-IoT / TON-IoT as ongoing evidence strengthening or as a line still being optimized.
+
+#### Task 2: Original100 few-shot official control package
+
+What was done:
+- Added mainline official control script:
+  - `repo/ood/original100_fewshot_official_control.py`
+- Ran local official control package:
+  - `runs/original100_fewshot_official_control_2026-04-22/`
+
+Protocol:
+- Task type: few-shot / supervised target-aligned detector, not unsupervised anomaly scoring.
+- Model: L2 `LogisticRegression`, `class_weight=balanced`, `C=1.0`, `solver=liblinear`.
+- Input representation: original frontend flat 100D.
+- Labels:
+  - negatives = ID benign train rows + OOD benign train rows;
+  - positives = seeded few-shot samples from stage2 high-purity attack train split.
+- Budgets and seeds:
+  - budgets: `16`, `32`;
+  - positive sample seeds: `42,43,44,45,46`.
+- Fairness:
+  - final OOD eval is never used for threshold selection;
+  - positive sampling is multi-seed;
+  - summary reports mean/min/max.
+- Operating points:
+  - `fixed_id_calib_q99`;
+  - `guarded_id_calib_and_ood_val_target1pct`.
+- Boundary:
+  - `original100_fewshot_logistic` is the official control group;
+  - `da_unsupervised_score_seed42` is only a reference baseline and is not in the same label-information setting;
+  - no source-rich win/loss conclusion is made in this mainline control package.
+
+Integrity check:
+- Required package files present:
+  - `command.txt`
+  - `config.json`
+  - `run_spec.json`
+  - `official_control_manifest.json`
+  - `diagnostics.json`
+  - `results.csv`
+  - `original100_fewshot_official_control_summary.csv`
+  - `original100_fewshot_official_control_focus.csv`
+  - `summary.md`
+  - `stdout.log`
+  - `stderr.log`
+- `results.csv`: 22 rows.
+- `summary`: 6 aggregate rows.
+
+Key control results:
+- `original100_fewshot_logistic`, 16-shot, fixed ID q99:
+  - `AUC mean/min/max = 0.990672 / 0.958007 / 0.999974`
+  - `OOD alarm mean/min/max = 0.004500 / 0.001200 / 0.009500`
+  - `attack det mean/min/max = 0.967564 / 0.914182 / 0.999273`
+  - `feasible_rate = 1.000000`
+- `original100_fewshot_logistic`, 16-shot, guarded:
+  - `AUC mean/min/max = 0.990672 / 0.958007 / 0.999974`
+  - `OOD alarm mean/min/max = 0.004440 / 0.001200 / 0.009200`
+  - `attack det mean/min/max = 0.967564 / 0.914182 / 0.999273`
+  - `feasible_rate = 1.000000`
+- `original100_fewshot_logistic`, 32-shot, fixed ID q99:
+  - `AUC mean/min/max = 0.984615 / 0.967632 / 0.999910`
+  - `OOD alarm mean/min/max = 0.006520 / 0.003600 / 0.009800`
+  - `attack det mean/min/max = 0.940655 / 0.920727 / 0.999273`
+  - `feasible_rate = 1.000000`
+- `original100_fewshot_logistic`, 32-shot, guarded:
+  - `AUC mean/min/max = 0.984615 / 0.967632 / 0.999910`
+  - `OOD alarm mean/min/max = 0.006520 / 0.003600 / 0.009800`
+  - `attack det mean/min/max = 0.940655 / 0.920727 / 0.999273`
+  - `feasible_rate = 1.000000`
+- `dA` unsupervised reference:
+  - fixed ID q99: `AUC=0.806365`, `OOD alarm=0.128600`, `attack det=0.686545`, `feasible_rate=0.000000`
+  - guarded: `AUC=0.806365`, `OOD alarm=0.010800`, `attack det=0.002909`, `feasible_rate=0.000000`
+
+Current next:
+- Treat second-environment as closed negative evidence unless the project opens a new protocol.
+- Treat the original100 few-shot package as the mainline official control group for the v7 target-aligned methodology port.
+- Commit/push the script plus mainline doc updates; keep generated run artifacts local unless explicitly requested otherwise because `/runs/*` is ignored except the two mainline docs.

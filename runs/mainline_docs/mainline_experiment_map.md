@@ -1073,3 +1073,87 @@ v2 的唯一正确方向：
 
 - `frontend_f2_contrast_tokenizer_v1_smoke_2026-04-14`: Frontend-F2 contrast-token v1 derives short-vs-long anomaly-increment tokens directly from structured caches and evaluates transformer/token-MLP backends on real `7-6/4-1/34-1` data; path: `runs/frontend_f2_contrast_tokenizer_v1_smoke_2026-04-14/`.
 
+---
+
+## 九、2026-04-22 主线状态修订：A 线失败封口与 original100 few-shot 官方控制组
+
+### A 线 second-environment 失败封口包
+
+状态：
+- `BoT-IoT` 与 `TON-IoT` second-environment 不再作为继续扩跑、继续优化、继续救活的主线活线。
+- 该线正式沉淀为：
+- negative evidence
+- limitation
+- external-validity boundary
+- second-environment 当前不进入主证据。
+
+裁决依据：
+- `BoT-IoT`：当前本地可用 benign 支撑不足，无法满足 formal mainline split/calibration/eval 口径；因此不进入正式主证据。
+- `TON-IoT`：工程门、split 门、finite 值门已基本排除，但模型结果仍不支持主线：
+- `dA` fixed reference: `AUC=0.679894`, `attack_det=0.076667`
+- `strongest_candidate_transformer_covreg_v2_seed101` fixed: `AUC=0.690065`, `attack_det=0.003333`
+- `ft_transformer_ae` fixed: `AUC=0.570755`, `attack_det=0.000000`
+- threshold-sensitivity probe 证明 `FT fixed=0` 不是简单 `>` / `>=` 或方向选择 bug。
+- coupling probe 证明模型 + 表达耦合存在，但当前没有形成可部署 low-alarm operating point。
+
+写作边界：
+- 可以写成当前 protocol 的外部有效性边界与限制。
+- 不应写成主线正证据。
+- 不再安排 second-environment 扩跑或调参，除非未来明确开启新日期、新 protocol。
+
+### original100 few-shot official control package
+
+Run:
+- script: `repo/ood/original100_fewshot_official_control.py`
+- run path: `runs/original100_fewshot_official_control_2026-04-22/`
+- task type: few-shot / supervised target-aligned detector
+- representation: original frontend flat 100D
+- model: L2 `LogisticRegression`, `class_weight=balanced`, `C=1.0`
+
+Protocol:
+- negatives = ID benign + OOD benign
+- positives = stage2 high-purity attack
+- positive budgets = `16`, `32`
+- positive sampling seeds = `42,43,44,45,46`
+- final OOD eval does not participate in threshold selection
+- operating points:
+- `fixed_id_calib_q99`
+- `guarded_id_calib_and_ood_val_target1pct`
+- outputs include mean/min/max summaries
+
+Package integrity:
+- `command.txt`, `config.json`, `run_spec.json`, `official_control_manifest.json`, `diagnostics.json`, `results.csv`, summary/focus CSVs, `summary.md`, `stdout.log`, `stderr.log` all present locally.
+- `results.csv` has 22 rows.
+- aggregate summary has 6 rows.
+
+Official control results:
+- `original100_fewshot_logistic`, 16-shot, fixed:
+- `AUC mean/min/max = 0.990672 / 0.958007 / 0.999974`
+- `OOD alarm mean/min/max = 0.004500 / 0.001200 / 0.009500`
+- `attack det mean/min/max = 0.967564 / 0.914182 / 0.999273`
+- `feasible_rate = 1.000000`
+- `original100_fewshot_logistic`, 16-shot, guarded:
+- `AUC mean/min/max = 0.990672 / 0.958007 / 0.999974`
+- `OOD alarm mean/min/max = 0.004440 / 0.001200 / 0.009200`
+- `attack det mean/min/max = 0.967564 / 0.914182 / 0.999273`
+- `feasible_rate = 1.000000`
+- `original100_fewshot_logistic`, 32-shot, fixed:
+- `AUC mean/min/max = 0.984615 / 0.967632 / 0.999910`
+- `OOD alarm mean/min/max = 0.006520 / 0.003600 / 0.009800`
+- `attack det mean/min/max = 0.940655 / 0.920727 / 0.999273`
+- `feasible_rate = 1.000000`
+- `original100_fewshot_logistic`, 32-shot, guarded:
+- `AUC mean/min/max = 0.984615 / 0.967632 / 0.999910`
+- `OOD alarm mean/min/max = 0.006520 / 0.003600 / 0.009800`
+- `attack det mean/min/max = 0.940655 / 0.920727 / 0.999273`
+- `feasible_rate = 1.000000`
+
+Reference baseline boundary:
+- `da_unsupervised_score_seed42` remains a reference baseline only, not the same label-information setting.
+- fixed ID q99: `AUC=0.806365`, `OOD alarm=0.128600`, `attack det=0.686545`
+- guarded: `AUC=0.806365`, `OOD alarm=0.010800`, `attack det=0.002909`
+
+Interpretation boundary:
+- `original100_fewshot_logistic` is now the mainline official control for the v7 target-aligned methodology port.
+- This package does not claim source-rich superiority and does not replace the A-line second-environment failure closure.
+
