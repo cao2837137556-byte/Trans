@@ -523,3 +523,73 @@
     - start from the 16/32/64 positive-label regime
     - add robustness checks against other attack windows/captures if available
     - compare learned top coefficients with DA signals before deciding whether to distill into a compact frontend model or keep the linear ranker as the practical detector head
+
+## 24. 2026-04-22 v7.2 Fairness Validation (no final-OOD threshold leakage)
+
+- Goal:
+  - Validate whether the v7/v7.1 signal still holds when final OOD eval is not used for threshold selection.
+  - Check whether the 16-shot result was a lucky positive-sample draw by repeating positive sampling across 5 seeds.
+- Implemented independent entry:
+  - `repo/ood/frontend_f2_v7_2_fairness_validation.py`
+  - Input: frozen `source_rich_v1 [20,13]`, flattened to 260 dimensions.
+  - Model: L2 `LogisticRegression`, `class_weight=balanced`, `C=1.0`.
+  - Negative labels: ID benign train + OOD benign train.
+  - Positive labels: high-purity attack train split only.
+  - Positive budgets: `16, 32, 64`.
+  - Positive sample seeds: `42, 43, 44, 45, 46`.
+- Strict split / leakage control:
+  - ID:
+    - train `[0,8000)`
+    - val `[8000,10000)`
+    - calibration `[10000,15000)`
+    - extra eval unused by threshold `[15000,50000)`
+  - OOD:
+    - train `[0,8000)`
+    - validation/threshold guard `[8000,10000)`
+    - final eval only `[10000,20000)`
+  - high-purity attack:
+    - train pool rows `[2921,7042]` (`4122` rows)
+    - val rows `[7043,8416]`
+    - final eval rows `[8417,9791]`
+  - Final OOD eval is never used for threshold selection.
+- Threshold policies:
+  - `fixed_id_calib_q99`: threshold from ID calibration q99 only.
+  - `guarded_id_calib_and_ood_val_target1pct`: threshold selected using ID calibration + OOD validation only.
+- Executed:
+  - `runs/frontend_f2_v7_2_fairness_validation_2026-04-22/`
+- Aggregate results:
+  - `16-shot`, fixed ID q99:
+    - `AUC_mean=0.9776`, `AUC_min=0.9646`
+    - `OOD_alarm_mean=0.0058`, `OOD_alarm_max=0.0096`
+    - `det_mean=0.9488`, `det_min=0.9273`
+    - `feasible_rate=1.0`, `all_runs_strong=True`
+  - `16-shot`, guarded ID+OOD-val:
+    - `AUC_mean=0.9776`, `AUC_min=0.9646`
+    - `OOD_alarm_mean=0.0056`, `OOD_alarm_max=0.0088`
+    - `det_mean=0.9487`, `det_min=0.9273`
+    - `feasible_rate=1.0`, `all_runs_strong=True`
+  - `32-shot`, fixed ID q99:
+    - `AUC_mean=0.9776`, `AUC_min=0.9682`
+    - `OOD_alarm_mean=0.0075`, `OOD_alarm_max=0.0109`
+    - `det_mean=0.9587`, `det_min=0.9476`
+    - `feasible_rate=0.8`
+  - `64-shot`, fixed ID q99:
+    - `AUC_mean=0.9837`, `AUC_min=0.9640`
+    - `OOD_alarm_mean=0.0104`, `OOD_alarm_max=0.0218`
+    - `det_mean=0.9533`, `det_min=0.9251`
+    - `feasible_rate=0.6`
+- Key conclusion:
+  - Under the stricter no-final-OOD-leakage protocol, `16-shot` is still robust across all 5 positive-sample seeds.
+  - Minimum all-seed strong budget is `16`.
+  - The result is not just threshold leakage and not just one lucky 16-positive draw.
+  - More positive samples did not monotonically improve final OOD alarm under the current fixed `C=1.0` linear model; `32/64` keep high det but sometimes exceed the strict 1% final OOD alarm target.
+- Current interpretation:
+  - This is now a credible few-shot target-aligned detector result, not merely the v7 oracle-style diagnostic.
+  - It is still not directly comparable to an unsupervised DA baseline unless DA is evaluated under the same information setting.
+- Next recommended direction:
+  - Build a formal DA fairness comparison:
+    - same train/val/calib/eval splits
+    - same positive-label budgets if DA is allowed labels
+    - same fixed-ID-q99 and/or guarded validation threshold policies
+    - report OOD final alarm and high-purity attack final det
+  - In parallel, test one cross-window/cross-capture holdout if another attack/capture source is available; this is the main remaining risk before using v7.2 as a paper-grade result.
