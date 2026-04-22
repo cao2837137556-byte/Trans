@@ -668,3 +668,144 @@
 - Next recommended direction:
   - Run a cross-window holdout / alternate attack segment validation for both `source_rich_v7.2` and `original100_fewshot_logistic`.
   - If original100 remains stronger, the most pragmatic path is to promote the method as "few-shot target-aligned frontend detector" and keep source-rich as the diagnostic/explainability layer.
+
+## 26. 2026-04-22 v7.4 Paired Holdout Fairness Package
+
+- Goal:
+  - Decide whether the v7 few-shot strength survives stricter attack-window holdouts.
+  - Decide whether `source_rich_v1` has a performance advantage over `original100`, under paired fairness controls.
+  - Keep the branch scope fixed on few-shot / target-aligned detector validation; do not resume v4/v5/v6 frontend patching.
+- Implemented independent entry:
+  - `repo/ood/frontend_f2_v7_4_paired_holdout_fairness.py`
+  - Compared objects:
+    - `source_rich_fewshot_logistic` using `source_rich_v1_flat260`
+    - `original100_fewshot_logistic` using original frontend flat100
+  - Positive budgets:
+    - `16`
+    - `32`
+  - Positive sample seeds:
+    - `42,43,44,45,46`
+  - Threshold policies:
+    - `fixed_id_calib_q99`
+    - `guarded_id_calib_and_ood_val_target1pct`
+  - Final OOD eval is never used for threshold selection.
+- Paired fairness protocol:
+  - Same negative train split for both representations.
+  - Same positive holdout train/eval attack windows.
+  - Same label budgets and seed set.
+  - Same threshold policy and final OOD eval.
+  - Same low-OOD-alarm operating-region feasibility check.
+- Holdout design:
+  - Leave-one-attack-window-out:
+    - held-out attack bins `2,3,4,5,6,7,8`
+  - Chronological cross-window:
+    - `chrono_early_train_late_eval`: train bins `2,3,4`, eval bins `6,7,8`
+    - `chrono_late_train_early_eval`: train bins `6,7,8`, eval bins `2,3,4`
+  - Attack eval counts:
+    - bin2: `1348`
+    - bin3: `958`
+    - bin4: `1120`
+    - bin5: `877`
+    - bin6: `1001`
+    - bin7: `1141`
+    - bin8: `426`
+    - early-to-late eval: `2568`
+    - late-to-early eval: `3426`
+- Executed:
+  - `runs/frontend_f2_v7_4_paired_holdout_fairness_2026-04-22/`
+  - Key outputs:
+    - `summary.md`
+    - `frontend_f2_v7_4_paired_holdout_results.csv`
+    - `frontend_f2_v7_4_paired_holdout_summary.csv`
+    - `frontend_f2_v7_4_paired_holdout_deltas.csv`
+    - `frontend_f2_v7_4_decision_per_model.csv`
+    - `frontend_f2_v7_4_decision_win_counts.csv`
+- Aggregate decision table:
+  - `source_rich`, 16-shot, fixed ID q99:
+    - strong holdouts `2/9`
+    - `feasible_rate_mean=0.8000`
+    - `det_min_global=0.7144`
+    - `alarm_max_global=0.0291`
+    - `auc_min_global=0.8490`
+  - `source_rich`, 16-shot, guarded:
+    - strong holdouts `4/9`
+    - `feasible_rate_mean=0.8889`
+    - `det_min_global=0.7129`
+    - `alarm_max_global=0.0111`
+    - `auc_min_global=0.8490`
+  - `source_rich`, 32-shot, fixed ID q99:
+    - strong holdouts `4/9`
+    - `feasible_rate_mean=0.8000`
+    - `det_min_global=0.7611`
+    - `alarm_max_global=0.0258`
+    - `auc_min_global=0.9079`
+  - `source_rich`, 32-shot, guarded:
+    - strong holdouts `4/9`
+    - `feasible_rate_mean=0.8444`
+    - `det_min_global=0.7530`
+    - `alarm_max_global=0.0123`
+    - `auc_min_global=0.9079`
+  - `original100`, 16-shot, fixed ID q99:
+    - strong holdouts `3/9`
+    - `feasible_rate_mean=0.8889`
+    - `det_min_global=0.1736`
+    - `alarm_max_global=0.0188`
+    - `auc_min_global=0.2404`
+  - `original100`, 16-shot, guarded:
+    - strong holdouts `3/9`
+    - `feasible_rate_mean=0.8889`
+    - `det_min_global=0.1736`
+    - `alarm_max_global=0.0188`
+    - `auc_min_global=0.2404`
+  - `original100`, 32-shot, fixed ID q99:
+    - strong holdouts `1/9`
+    - `feasible_rate_mean=0.7556`
+    - `det_min_global=0.2329`
+    - `alarm_max_global=0.0258`
+    - `auc_min_global=0.3158`
+  - `original100`, 32-shot, guarded:
+    - strong holdouts `1/9`
+    - `feasible_rate_mean=0.7556`
+    - `det_min_global=0.2329`
+    - `alarm_max_global=0.0257`
+    - `auc_min_global=0.3158`
+- Paired winner counts by `det_mean`:
+  - For every budget/policy pair, `original100` wins `7/9` holdouts and `source_rich` wins `2/9` holdouts.
+  - This means `source_rich` is not an average-performance winner in v7.4.
+- Critical hard-holdout findings:
+  - `holdout_bin_2`, 16-shot fixed q99:
+    - `original100`: `AUC_min=0.2404`, `det_min=0.1736`, `det_mean=0.2838`, `alarm_max=0.0029`
+    - `source_rich`: `AUC_min=0.8490`, `det_min=0.7144`, `det_mean=0.8598`, `alarm_max=0.0166`
+    - Interpretation: original100 collapses on this alternate attack segment; source_rich preserves useful detection but sometimes exceeds the 1% alarm target.
+  - `chrono_late_train_early_eval`, 16-shot fixed q99:
+    - `original100`: `AUC_min=0.7007`, `det_min=0.6754`, `det_mean=0.7112`, `alarm_max=0.0058`
+    - `source_rich`: `AUC_min=0.9436`, `det_min=0.8678`, `det_mean=0.9167`, `alarm_max=0.0202`
+    - Interpretation: source_rich is materially more robust under late-window positive training and early-window attack eval, but alarm calibration still needs tightening.
+  - `chrono_early_train_late_eval`, 16-shot fixed q99:
+    - `original100`: `AUC_min=0.9742`, `det_min=0.9178`, `det_mean=0.9678`, `alarm_max=0.0188`
+    - `source_rich`: `AUC_min=0.9705`, `det_min=0.9034`, `det_mean=0.9533`, `alarm_max=0.0158`
+    - Interpretation: both remain high-detection, but neither is strictly all-seed strong because some seeds exceed the 1% final OOD alarm target.
+- Main conclusions:
+  - The v7 few-shot / target-aligned detector discovery remains real, but the v7.2/v7.3 current-split result was optimistic.
+  - Under stricter paired attack-window holdout, few-shot is not uniformly stable across all windows and seeds.
+  - `original100` is a mandatory control: it wins most holdouts by mean detection and cannot be ignored.
+  - `source_rich_v1` does not currently justify a broad "source-rich beats original100" performance claim.
+  - The defensible `source_rich` value boundary is:
+    - better robustness on specific hard holdouts where original100 collapses,
+    - more auditable/diagnosable representation,
+    - not universal average-performance superiority.
+- Updated branch-level interpretation:
+  - `v7` must be called a few-shot / supervised target-aligned detector, not an unsupervised detector.
+  - It is fair to say: "few-shot target-aligned detectors beat unsupervised DA on the current final split under low-OOD-alarm protocol."
+  - It is not fair to say: "`source_rich_v1` alone caused the DA win."
+  - It is not yet paper-safe to claim cross-window stable dominance without additional threshold/alarm robustness work.
+- Current answer to the branch裁决:
+  - Q1: few-shot under stricter holdout remains useful but not uniformly stable.
+  - Q2: source_rich value is mainly robustness/auditability, with targeted gains on hard windows, not average performance dominance.
+  - Q3: frontend-f2 should be repositioned as the few-shot target-aligned detector line; source_rich should remain the diagnostic/robust representation component, not the sole performance source.
+- Next recommended direction:
+  - Do not return to v4/v5/v6 expression patching.
+  - If continuing v7, focus on robust operating-region calibration:
+    - tighten source_rich OOD alarm on hard holdouts,
+    - report paired original100/source_rich under the same cross-window protocol,
+    - define the paper claim around few-shot target alignment first and source-rich robustness second.
