@@ -2,23 +2,247 @@
 
 Canonical path: `runs/mainline_docs/mainline_experiment_map.md`
 
+> 版本：v3 convergence-first（2026-04-23）
+> 用途：作为汇合后的主线总地图，优先呈现当前真实 paper center、证据分层、下一阶段最小实验包，并将旧路线下沉为历史资产/归档。
+
+---
+
+## 0. 文档用途与维护规则
+
 Maintenance rule:
 - Keep this as the single living mainline experiment map.
 - Update this file continuously as mainline experiments advance.
 - Do not create dated copies for the mainline map.
+- This v3 map supersedes the old unsupervised-first v2 ordering.
+- Historical runs and old planning are preserved below, but archived sections no longer define the current paper center.
 
-> 版本：v2（2026-04-12）  
-> 用途：作为后续实验补充、论文写作与 A 区增强路线的固定“总地图”，避免实验散点化推进。
+What this file should answer first:
+- What is the current paper center?
+- Which evidence is primary, diagnostic, negative, or archived?
+- Which minimal experiments remain necessary under the convergence-first storyline?
+- Which old routes are preserved only as historical assets?
 
 ---
 
-## 一、项目总目标（作者视角）
+## 1. 当前项目重定性
+
+### 1.1 Current Paper Center
+
+当前论文中心已经从旧的“stronger OOD + calibration + TailReg / unsupervised mainline”切换为：
+- `strict low-OOD-alarm operating region`
+- `unsupervised detection collapse`
+- `few-shot target-aligned detector`
+
+一句话口径：严格低 OOD 误报部署区间揭示了无监督网络异常检测的目标错配；在 frozen benign representation 上，仅用极少量 high-purity attack positives 的 target-aligned linear head，就能显著恢复低误报区间的检测能力。
+
+### 1.2 四个当前定位
+
+- `original100 few-shot official control` 是主线官方控制组，用来固定 target alignment 这个主要杠杆。
+- `source_rich` 的角色是 `hard-holdout robustness + auditability`，不是平均性能全面压过 original100 的主英雄。
+- `A-line second-environment` 已封口为 `negative evidence / limitation / external-validity boundary`，不再扩跑、不再救线、不进入正向主证据。
+- old mainline 的 stronger OOD、calibration、TailReg 资产仍然重要，但现在是背景机制资产与历史证据，不再单独定义当前 paper center。
+
+### 1.3 已退场的旧叙事
+
+当前地图不再支持以下表述：
+- “无监督 frontend-f2 已经翻盘。”
+- “source_rich_v1 是击败 dA 的唯一原因。”
+- “第二数据集正在逐步支持旧主线。”
+- “继续修 tokenizer / AE / scorer 是当前主线最优先事项。”
+- “TailReg 是当前论文唯一或最高层方法中心。”
+
+---
+
+## 2. 当前论文中心与创新点
+
+### 2.1 立脚点
+
+开放世界 IoT 异常检测的难点不是一般性的 AUC 排名，而是在 stronger benign OOD 条件下，模型必须在严格 low-OOD-alarm operating region 内仍保持 attack detection。传统 unsupervised detector 在这个区间容易出现 detection collapse；few-shot target alignment 用很少的 high-purity attack labels 修正了训练目标与部署目标的不一致。
+
+### 2.2 创新点 1：问题定义重写
+
+把评估核心从“整体 AUC/平均分数更高”重写为：
+- fixed 或 guarded low-OOD-alarm operating point 下是否可用；
+- final OOD eval 不参与阈值选择；
+- ID benign、OOD benign、high-purity attack 的角色必须清楚分离。
+
+### 2.3 创新点 2：机制发现
+
+系统实验说明：
+- stronger benign OOD 会放大误报与阈值失配；
+- 压低 OOD alarm 后，无监督 score 的 attack detection 可能同时塌陷；
+- 这不是单个模型弱，而是 objective 与 deployment target 不一致。
+
+### 2.4 创新点 3：方法杠杆
+
+few-shot target-aligned detector 是当前方法中心：
+- positives = stage2 high-purity attack；
+- negatives = ID benign + OOD benign；
+- model first = L2 `LogisticRegression` with balanced class weights；
+- budgets 至少包括 16-shot 与 32-shot；
+- 多 positive-sampling seed 输出 mean / min / max；
+- operating points 包括 `fixed_id_calib_q99` 与 `guarded_id_calib_and_ood_val_target1pct`。
+
+### 2.5 Source-Rich 的克制定位
+
+`source_rich` 只能在证据支持范围内写成：
+- hard-holdout robustness candidate / asset；
+- auditability / family-scale-feature explanation layer；
+- 对 objective mismatch 的机制诊断资产。
+
+不能写成：
+- source-rich 平均性能全面强于 original100；
+- frontend 重构本身已经无监督翻盘；
+- source-rich 是 few-shot 成功的唯一原因。
+
+---
+
+## 3. 当前证据分层地图
+
+### 3.1 主证据
+
+| Evidence | Current role | Paper use | Boundary |
+|---|---|---|---|
+| original100 few-shot official control (`runs/original100_fewshot_official_control_2026-04-22/`) | official control | 主文或主附录核心表 | 证明 target alignment 是主要杠杆，不证明 source-rich 胜出 |
+| frontend-f2 v7.2 / v7.3 few-shot | target-aligned positive evidence | 主文或主附录 | 必须和 original100 同口径比较 |
+| stronger benign OOD + calibration old mainline | problem/mechanism evidence | 主文背景和机制段 | 不再单独作为 paper center |
+| unsupervised baselines under low-OOD-alarm | collapse evidence | 主文机制段 | 不写成“模型差”，写成目标错配 |
+
+### 3.2 机制诊断资产
+
+| Evidence | Use |
+|---|---|
+| TailReg / calibration / stronger OOD 历史结果 | 解释低误报区间、阈值选择、尾部分布失配 |
+| frontend-f2 early tokenizer / AE / temporal / contrast negative lines | 说明“不是没有信号，而是无监督 objective 不对齐” |
+| TON threshold-sensitivity + coupling probe | 说明 threshold/operator bug 被排除，模型-表达耦合真实存在 |
+| source-rich feature/family/scale analysis | 支撑 auditability 和 hard-holdout case study |
+
+### 3.3 负结果资产
+
+| Evidence | Use |
+|---|---|
+| BoT-IoT split-feasibility failure | negative evidence；说明 formal split 支撑不足 |
+| TON-IoT fixed operating point failure | negative evidence；说明 current formal protocol 不外推 |
+| FT fixed zero-detection on TON | detection collapse / coupling evidence |
+| old unsupervised frontend-f2 patches | 负结果资产；支撑 objective mismatch 解释 |
+
+### 3.4 Limitation / Archive
+
+| Asset | Status |
+|---|---|
+| A-line second-environment | closed limitation / external-validity boundary |
+| “source_rich 平均性能全面优于 original100” | archived old tendency, not current claim |
+| “无监督 frontend-f2 超越 dA” | archived old route, not current claim |
+| old must-do second-dataset rescue line | archived planning, not active |
+| broad unsupervised tokenizer / AE patch expansion | archived planning, not active |
+
+---
+
+## 4. 旧实验如何吸收
+
+### 4.1 Stronger OOD / Calibration / TailReg
+
+吸收方式：
+- 作为 low-OOD-alarm operating region 的问题定义与机制背景；
+- 作为 unsupervised detector 在部署阈值下失配的历史证据；
+- 作为论文前半段的 motivation / mechanism，不再作为当前唯一方法主线。
+
+保留边界：
+- TailReg 可以作为模型层补充资产，但不应压过 few-shot target alignment。
+- calibration 是重要机制杠杆，但当前方法中心不是“只调阈值”。
+
+### 4.2 Original100 Few-Shot Official Control
+
+吸收方式：
+- 作为主线官方控制组；
+- 必须进入主文或主附录核心表；
+- 固定 few-shot target-aligned protocol 的口径和边界。
+
+已固定结果：
+- 16-shot fixed: AUC mean/min/max `0.990672 / 0.958007 / 0.999974`, OOD alarm max `0.009500`, det min `0.914182`。
+- 16-shot guarded: AUC mean/min/max `0.990672 / 0.958007 / 0.999974`, OOD alarm max `0.009200`, det min `0.914182`。
+- 32-shot fixed/guarded: AUC mean/min/max `0.984615 / 0.967632 / 0.999910`, OOD alarm max `0.009800`, det min `0.920727`。
+- dA reference remains unsupervised and not in the same label-information setting。
+
+### 4.3 Frontend-F2 v7.2 / v7.3 / v7.4
+
+吸收方式：
+- v7.2 / v7.3：作为 few-shot target-aligned positive evidence，并与 original100 official control 同口径比较。
+- v7.4：只能暂写为 `hard-holdout fairness evidence candidate`，待最终核验后再决定是否进入主文或主附录。
+- early frontend-f2 tokenizer / AE / temporal / contrast lines：作为机制诊断资产和旧路线负结果，不再作为当前 paper center。
+
+### 4.4 Second-Environment
+
+吸收方式：
+- BoT-IoT 与 TON-IoT 只写成 limitation / external-validity boundary；
+- 不再作为主证据；
+- 不继续扩跑、调参或救线；
+- 若未来要重新打开，必须新日期、新 protocol、新 run_tag。
+
+---
+
+## 5. 后续最小实验包
+
+当前只保留三类后续实验包。任何新实验必须直接服务这三类之一。
+
+### 5.1 Few-Shot 主发现支持包
+
+目的：证明 target-aligned few-shot 不是 lucky split / lucky seed。
+
+最小内容：
+- cross-window / alternate attack segment / hard holdout 验证；
+- 16-shot、32-shot、多 seed 的 mean/min/max 表；
+- fixed 与 guarded operating points；
+- final OOD eval 不参与阈值选择；
+- paper-facing operating-point 图和核心表。
+
+### 5.2 Source-Rich 独特价值支持包
+
+目的：证明 source-rich 的合理定位是 hard-holdout robustness + auditability。
+
+最小内容：
+- 核验 v7.4 paired holdout fairness；
+- 若站住，登记为 hard-holdout robustness evidence；
+- 若不站住，降级为边界或负结果；
+- family / scale / feature 级别 auditability 分析；
+- 与 original100 的适用边界图或案例表。
+
+### 5.3 部署意义支持包
+
+目的：证明 few-shot target alignment 不是不可部署的“监督作弊”。
+
+最小内容：
+- high-purity attack positives 的标签预算说明；
+- 训练成本和推理成本；
+- 与 dA / unsupervised baselines 的 low-OOD-alarm operating-region 对照；
+- 对“监督当然赢”的审稿攻击给出 label-efficiency + fairness protocol 防御。
+
+### 5.4 当前不再推进的实验包
+
+- second-environment rescue / expansion；
+- 新一轮无监督 tokenizer / AE patch；
+- 大范围 baseline 家族扩张；
+- 以 TailReg 或 calibration 重新抢回唯一主线中心；
+- 未核验 v7.4 前的 source-rich 稳定胜出结论。
+
+---
+
+## 6. 历史路线归档区
+
+以下内容为 v2 旧地图与历史追加内容的原文归档，保留 run 名、裁决、边界和操作书，供追溯与论文附录取材使用。
+
+Archive rule:
+- Archived content is evidence inventory, not the active paper-center ordering.
+- If archived text conflicts with Sections 1-5, Sections 1-5 are authoritative.
+- Do not delete archived evidence unless a separate cleanup task explicitly requests deduplication.
+
+### 一、项目总目标（作者视角）
 
 这篇论文的核心目标已经明确为：在 **original-frontend 100维** 的可信输入链上，研究 stronger OOD（更强分布外）场景下异常检测的**低误报稳健性机制**。因此它不是“换一个 detector 看分数高低”的小模型对比，而是“协议强度 + 阈值机制 + 模型补充修正”的系统问题：先坐实 stronger OOD 的误报放大现象，再证明 calibration（校准）是主要杠杆，最后用 TailReg（尾部正则）给出模型层的定向补充改进。
 
 ---
 
-## 二、实验总框架（总表）
+### 二、实验总框架（总表）
 
 | 模块 | 当前状态 | 论文作用 |
 |---|---|---|
@@ -30,9 +254,9 @@ Maintenance rule:
 
 ---
 
-## 三、当前已完成实验（按“支撑什么主张”整理）
+### 三、当前已完成实验（按“支撑什么主张”整理）
 
-### A. 动机证据
+#### A. 动机证据
 
 **1) 已完成实验**
 - `runs/ood_probe_stage1_2026-03-21`
@@ -50,7 +274,7 @@ Maintenance rule:
 
 ---
 
-### B. 输入链纠错证据
+#### B. 输入链纠错证据
 
 **1) 已完成实验**
 - `runs/csv_input_clean_stage1_2026-03-23`（dirty116 -> clean115）
@@ -68,7 +292,7 @@ Maintenance rule:
 
 ---
 
-### C. 历史链 detector 比较证据（clean115）
+#### C. 历史链 detector 比较证据（clean115）
 
 **1) 已完成实验**
 - `runs/csv_input_clean_stage1_2026-03-23/trans115_min`
@@ -87,7 +311,7 @@ Maintenance rule:
 
 ---
 
-### D. stronger OOD 主线证据（frontend100）
+#### D. stronger OOD 主线证据（frontend100）
 
 **1) 已完成实验**
 - 同 capture 分段（较弱 OOD）：`runs/frontend100_ood_stage1_2026-03-23`
@@ -106,7 +330,7 @@ Maintenance rule:
 
 ---
 
-### E. calibration 机制证据（主线核心）
+#### E. calibration 机制证据（主线核心）
 
 **1) 已完成实验**
 - 阈值基线：`runs/frontend100_crosscapture_threshold_2026-03-25`
@@ -130,7 +354,7 @@ Maintenance rule:
 
 ---
 
-### F. TailReg 方法证据（阶段性方法贡献）
+#### F. TailReg 方法证据（阶段性方法贡献）
 
 **1) 已完成实验**
 - 方法首轮：`runs/frontend100_tailreg_stage1_2026-03-27`
@@ -153,15 +377,15 @@ Maintenance rule:
 
 ---
 
-## 四、当前论文已经“写得动”的结论
+### 四、当前论文已经“写得动”的结论
 
-### 可写（阶段性稳定结论）
+#### 可写（阶段性稳定结论）
 - stronger OOD（cross-capture）下误报问题真实存在。
 - fixed threshold 会显著放大 detector 间误报差距。
 - calibration 是当前误报控制的主要杠杆。
 - TailReg 主要改善 fixed-threshold 下 Transformer 的尾部敏感性。
 
-### 不可写（禁止过度主张）
+#### 不可写（禁止过度主张）
 - “Transformer 全面优于 dA”。
 - “TailReg 在所有评估条件下都优于 baseline 和 dA”。
 - “calibration 已彻底解决开放世界低误报问题”。
@@ -169,9 +393,9 @@ Maintenance rule:
 
 ---
 
-## 五、后续必须完成的实验（优先级）
+### 五、后续必须完成的实验（优先级）
 
-### A. 必须做
+#### A. 必须做
 
 1) **扩展 benign cross-capture 组合（至少再补 2 组）**  
 - 为什么：当前 strongest 结论主要基于 7-6 -> 4-1，外推范围仍窄。  
@@ -212,7 +436,7 @@ Maintenance rule:
 
 ---
 
-### B. 强烈建议做
+#### B. 强烈建议做
 
 1) **小预算 calibration 稳定性（多 seed，多组合）**  
 - 为什么：当前最佳结果依赖 budget=5000，需评估资源敏感性。  
@@ -231,7 +455,7 @@ Maintenance rule:
 
 ---
 
-### C. 可选增强
+#### C. 可选增强
 
 1) **更强 OOD 强度梯度（跨更多设备/时段/协议域）**  
 - 为什么：进一步放大挑战，验证结论边界。  
@@ -250,7 +474,7 @@ Maintenance rule:
 
 ---
 
-## 六、后续方法改进主线（修 Transformer 路线图）
+### 六、后续方法改进主线（修 Transformer 路线图）
 
 基于现有证据，后续“修 Transformer”应坚持 **阈值层优先、模型层补充**，而不是回到大模型替换：
 
@@ -271,7 +495,7 @@ Maintenance rule:
 
 ---
 
-## 七、论文-实验映射表
+### 七、论文-实验映射表
 
 | 论文部分 | 对应实验模块 | 当前状态 |
 |---|---|---|
@@ -284,7 +508,7 @@ Maintenance rule:
 
 ---
 
-## 八、作者执行建议（下一步最稳推进顺序）
+### 八、作者执行建议（下一步最稳推进顺序）
 
 建议按下面顺序推进，避免再次“实验散点化”：
 
@@ -338,7 +562,7 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 
 ---
 
-## 九、外部改进建议分流（Gemini 报告处理原则）
+### 九、外部改进建议分流（Gemini 报告处理原则）
 
 来源：
 - `D:\study\paper\anomaly_detection\paper04\论文实验改进与提升建议-gemini报告.pdf`
@@ -348,7 +572,7 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 - 当前论文已经接近收口，后续只吸收那些**能显著增强现有主线可信度、但不会改写问题定义**的建议。
 - 任何新实验若会把论文从“stronger OOD + covariance-aware operating region”改写成“多数据集/多模态/对抗鲁棒/图模型大综述”，则默认不进入当前主线。
 
-### A. 当前论文必须吸收的部分
+#### A. 当前论文必须吸收的部分
 
 1) **问题驱动而非唯指标驱动**
 - 继续把主线写成：stronger OOD 暴露 benign OOD false alarm 瓶颈；Transformer 的问题是 latent covariance tail instability；最终 remedy 是 covariance-aware ensemble operating region。
@@ -361,7 +585,7 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 - Gemini 报告强调 baseline 现代性，这一点方向正确。
 - 当前论文已用 `IF / OCSVM / LOF / LSTM-AE / GRU-AE / Deep SVDD / RF upper-bound` 基本补到足够水平；除非出现明显缺口，不再无边界扩 baseline 家族。
 
-### B. 可选补强，但必须服从主线
+#### B. 可选补强，但必须服从主线
 
 1) **额外 OOD / cross-capture setting**
 - 只有在它能增强当前主线时才进入正文。
@@ -371,7 +595,7 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 - 仅在发现审稿风险仍集中于“baseline 太旧”时再补一个同口径、低工程风险的现代 baseline。
 - 当前已有 `Deep SVDD`，因此这项暂不升级为必须做。
 
-### C. 明确放入 Future Work，不进入当前论文主线
+#### C. 明确放入 Future Work，不进入当前论文主线
 
 1) **多公开数据集全面迁移**
 - 如 `BoT-IoT / TON-IoT / UNSW-NB15 / DataSense` 等。
@@ -392,7 +616,7 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 - 有价值，但属于下一篇或扩展工作。
 - 当前论文主问题仍是 stricter evaluation + covariance-tail failure analysis + remedy。
 
-### D. 执行规则
+#### D. 执行规则
 
 以后若参考外部报告新增实验，先回答三件事：
 - 它是否直接增强当前主主张？
@@ -405,16 +629,16 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 
 ---
 
-## 十、阶段重定性（2026-04-12）
+### 十、阶段重定性（2026-04-12）
 
-### A. 当前项目不再按“收口稿”理解
+#### A. 当前项目不再按“收口稿”理解
 
 截至 2026-04-12，这个项目应被正式重定性为：
 
 - **Phase 1 已完成**：我们已经完成问题定义、病理定位、主候选筛选、外部基线补充与一轮部署侧诊断。
 - **当前进入 A 区增强阶段**：目标不再是“尽快把现稿修到能投”，而是把这条线扩成一篇真正具备顶级安全论文说服力的系统工作。
 
-### B. Phase 1 已经完成的核心资产
+#### B. Phase 1 已经完成的核心资产
 
 1. **问题定义已经成立**
 - stronger benign OOD 下，fixed / ID-only operating region 会暴露出真实的 benign false alarm 瓶颈。
@@ -431,7 +655,7 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 4. **负结果资产已经成形**
 - MAE、prototype、covreg v1/v2、离线 rescoring 补救、distillation v1 都是可用的失败诊断材料，不再视作“废实验”。
 
-### C. 当前距离 A 区仍缺的四个硬缺口
+#### C. 当前距离 A 区仍缺的四个硬缺口
 
 1. **更现代、更有代表性的 baseline 还不够完整**
 2. **第二数据集 / 第二设置的跨环境自证还不够**
@@ -440,9 +664,9 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 
 ---
 
-## 十一、2026-04-09 至 2026-04-11 新证据裁决
+### 十一、2026-04-09 至 2026-04-11 新证据裁决
 
-### A. Deep SVDD baseline：现代 deep one-class 并不能自动解决 fixed 问题
+#### A. Deep SVDD baseline：现代 deep one-class 并不能自动解决 fixed 问题
 
 对应运行：
 - `runs/frontend100_deep_svdd_baseline_2026-04-09/`
@@ -455,7 +679,7 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 裁决：
 - **保留为关键外部 baseline 证据，不发展为主线方法。**
 
-### B. Ensemble Distillation v1：bulk score imitation 不足以复制 teacher 的 fixed 行为
+#### B. Ensemble Distillation v1：bulk score imitation 不足以复制 teacher 的 fixed 行为
 
 对应运行：
 - `runs/frontend100_ensemble_distillation_v1_2026-04-11/`
@@ -475,9 +699,9 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 
 ---
 
-## 十二、A 区增强阶段总原则
+### 十二、A 区增强阶段总原则
 
-### A. 研究目标
+#### A. 研究目标
 
 后续实验不再服务“把当前论文补到差不多”，而是服务下面这件事：
 
@@ -488,7 +712,7 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
   - **可被顶会审稿人正面评价的主创新闭环**
   的 A 区候选论文。
 
-### B. 顶级论文参照方式
+#### B. 顶级论文参照方式
 
 以后参考顶级论文，不是机械模仿模型名，而是看它们在四个维度上如何建立说服力：
 
@@ -497,7 +721,7 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 3. **是否考虑 adaptive adversary**
 4. **是否有清楚的系统代价与边界说明**
 
-### C. 立项前强制三问
+#### C. 立项前强制三问
 
 每个新实验立项前必须先回答：
 
@@ -509,7 +733,7 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 
 ---
 
-## 十三、Stop-Doing List（立即生效）
+### 十三、Stop-Doing List（立即生效）
 
 以下方向从现在起默认停止，不再作为主线优先级：
 
@@ -530,11 +754,11 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 
 ---
 
-## 十四、Tier 1：必须完成的实验包
+### 十四、Tier 1：必须完成的实验包
 
 这一层不做完，不讨论 A 区 ready。
 
-### A. baseline 补强包
+#### A. baseline 补强包
 
 目标：
 - 用少量但真正有代表性的现代 baseline，封住“只在打旧模型”的审稿攻击。
@@ -557,7 +781,7 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 - 形成一张“dA / Deep SVDD / modern tabular baseline / 当前主系统”的统一比较表。
 - 所有模型统一使用同一 stronger OOD 协议与同一 fixed 口径。
 
-### B. 第二数据集 / 第二环境自证包
+#### B. 第二数据集 / 第二环境自证包
 
 目标：
 - 证明当前主结论不是单一 100D 前端设置的偶然产物。
@@ -577,7 +801,7 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 - 趋势一致即可，不要求所有数值与主数据集完全对齐。
 - 只要再次观察到 stronger benign OOD 下 fixed false alarm 的关键矛盾，就足以成立“跨环境复现”。
 
-### C. 对抗鲁棒性评估包
+#### C. 对抗鲁棒性评估包
 
 目标：
 - 把系统从“自然漂移评估”提升到“面对 adaptive adversary 的安全评估”。
@@ -599,7 +823,7 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
   - covariance-aware ensemble
 - 若 ensemble 明显更稳，这将是 A 区级别的重要加分项。
 
-### D. deployability / cost 闭环包
+#### D. deployability / cost 闭环包
 
 目标：
 - 回答“你的 strongest system 真实能不能落地”。
@@ -623,11 +847,11 @@ uns/frontend100_deep_svdd_baseline_2026-04-09/.
 
 ---
 
-## 十五、Tier 2：主创新收口线
+### 十五、Tier 2：主创新收口线
 
 当前只保留一条方法主线：
 
-### Tail-aware Ensemble Distillation v2
+#### Tail-aware Ensemble Distillation v2
 
 为什么是它：
 - 现在 strongest system 依赖 3-seed ensemble。
@@ -652,7 +876,7 @@ v2 的唯一正确方向：
 
 ---
 
-## 十六、Tier 3：未来高风险高收益探索
+### 十六、Tier 3：未来高风险高收益探索
 
 这些方向有价值，但不进入当前第一优先级：
 
@@ -667,7 +891,7 @@ v2 的唯一正确方向：
 
 ---
 
-## 十七、后续执行顺序（2026-04-12 起生效）
+### 十七、后续执行顺序（2026-04-12 起生效）
 
 建议固定按下面顺序推进：
 
@@ -684,16 +908,16 @@ v2 的唯一正确方向：
 
 ---
 
-## 十八、Tier 1 执行设计（2026-04-12 版）
+### 十八、Tier 1 执行设计（2026-04-12 版）
 
-### A. baseline 补强包：只补“现代且低工程风险”的强参考
+#### A. baseline 补强包：只补“现代且低工程风险”的强参考
 
-#### 设计原则
+##### 设计原则
 - 不追逐大而全的 2025-2026 模型清单。
 - 只补能够直接回应“你是不是只在打旧 baseline”的模型。
 - 新 baseline 必须能沿用当前 `ID benign fit -> fixed / calibrated / constrained` 评估协议。
 
-#### 具体配置
+##### 具体配置
 1. **FT-Transformer（主补强 baseline）**
 - 定位：现代 tabular deep baseline。
 - 理由：当前输入本质是 `100D network statistics`，FT-Transformer 与当前数据形态最匹配。
@@ -711,33 +935,33 @@ v2 的唯一正确方向：
 - `LSTM-AE / GRU-AE`
 - `RF upper-bound`
 
-#### 执行顺序
+##### 执行顺序
 1. 先补 `FT-Transformer`
 2. 若复现稳定，再补 `RTDL-ResNet`
 3. 若 FT 已足够回应 baseline 风险，则 ResNet 可降为可选
 
-#### 产物要求
+##### 产物要求
 - `frontend100_modern_tabular_baselines_<date>/`
 - 统一主表：`fixed / naive calibrated / det50 constrained`
 - 统一成本表：参数量、训练时长、CPU 推理时延
 - 统一 summary：只回答“现代 baseline 是否真正威胁当前主线”
 
-#### 成功判据
+##### 成功判据
 - 即使现代 tabular baseline 比老浅层模型更强，也不能轻易同时做到：
   - `低 fixed alarm`
   - `高 high-purity detection`
 - 只要它们没有压过当前主系统，就足以显著降低 baseline 风险。
 
-### B. 第二数据集 / 第二环境自证包：先做最小可复现，不做大迁移
+#### B. 第二数据集 / 第二环境自证包：先做最小可复现，不做大迁移
 
-#### 设计原则
+##### 设计原则
 - 目标是“趋势复现”，不是“完全复制当前主线的所有细节”。
 - 这一步是外部自证，不是重建另一篇论文。
 - 必须明确区分：
   - **主数据集主结论**
   - **外部公开数据集趋势验证**
 
-#### 数据集优先级
+##### 数据集优先级
 1. **首选 BoT-IoT 5% flow CSV**
 - 理由：官方提供 5% 子集，工程成本相对可控。
 - 适合先验证“公开 IoT 数据下也会出现 benign OOD / fixed operating-point tension”。
@@ -746,23 +970,23 @@ v2 的唯一正确方向：
 - 理由：异构性更强，更接近“更广泛的 IoT/IIoT 现实”。
 - 风险：工程面更大，正常流量划分与协议重建更复杂。
 
-#### 第二数据集上的问题定义
+##### 第二数据集上的问题定义
 - 不强求复刻 `original-frontend 100D`
 - 明确改写为：
   - **在公开 IoT flow benchmark 上，构造 analogous ID-train / OOD-benign / attack split，检验 fixed-threshold 部署张力是否复现**
 
-#### 最小实验对象
+##### 最小实验对象
 1. `dA`
 2. `current strongest candidate`（按可迁移实现决定是 single-seed covariance gate 还是 ensemble 版本）
 3. `FT-Transformer`（若已完成）
 
-#### 成功判据
+##### 成功判据
 - 只要再次观察到：
   - benign OOD 会显著放大 fixed false alarm
   - 协方差感知 / operating-region 方案相比 naive deep baseline 更稳
 - 就算完成“外部趋势自证”。
 
-#### 2026-04-17 进展
+##### 2026-04-17 进展
 - 已完成 `runs/second_environment_botiot_feasibility_2026-04-17/` 本地 feasibility 节点，新增 `repo/ood/second_environment_feasibility.py` 用于 `BoT-IoT first` 入口核查。
 - 当前结论不是模型或协议阻塞，而是**数据入口阻塞**：
   - `BoT-IoT` 官方项目页可访问，但官方 SharePoint 数据链接在当前环境下会落入 Microsoft 登录流程，不能直接当作无凭据自动下载源；
@@ -770,7 +994,7 @@ v2 的唯一正确方向：
   - 本机也没有 `TON-IoT` 本地副本，因此 fallback 目前同样不能立即开 smoke。
 - 这一步的意义是把第二环境主线的真实起点固定下来：先拿到本地数据副本，再做最小 smoke，而不是在没有数据的情况下空转训练脚本或提前占用 HPC。
 
-#### 2026-04-20 进展
+##### 2026-04-20 进展
 - 已确认本地 `BoT-IoT 5%` 数据落地于 `D:\study\paper\anomaly_detection\paper04\worktrees\data\5%`。
 - 已完成新一轮 feasibility：`runs/second_environment_botiot_feasibility_2026-04-20/`，结论从“数据缺失”更新为 `bot_iot_local_ready_for_smoke`。
 - 已完成第一轮本地 second-environment smoke：`runs/second_environment_botiot_smoke_2026-04-20/`，并新增 `repo/ood/second_environment_botiot_smoke.py`。
@@ -849,19 +1073,19 @@ v2 的唯一正确方向：
     - `FT` 对表达方式高度敏感：`signed_log1p_zscore` 可把 fixed detection 从 `0` 拉到 `0.1452`，但 fixed OOD alarm 同时升到 `0.0990`；
     - 当前证据支持“模型 + 前端表达耦合”假设成立，但尚未得到可部署低告警 operating point。
 
-### C. 对抗鲁棒性评估包：分成神经白盒与统一黑盒两层
+#### C. 对抗鲁棒性评估包：分成神经白盒与统一黑盒两层
 
-#### 设计原则
+##### 设计原则
 - 不做“图像领域式”的形式主义攻击演示。
 - 必须围绕当前论文的真实判定规则：
   - fixed threshold
   - anomaly score crossing
   - deployment operating point
 
-#### 攻击目标
+##### 攻击目标
 - 把高纯攻击样本的异常分数拉低到 fixed threshold 以下，形成 evasion。
 
-#### 评估分层
+##### 评估分层
 1. **R1：神经模型白盒一阶攻击**
 - 对象：
   - single-seed Transformer latent gate
@@ -884,31 +1108,31 @@ v2 的唯一正确方向：
 - 输出：
   - 相同预算下，不同模型的规避难度比较
 
-#### 特征合法性约束
+##### 特征合法性约束
 - 非负特征保持非负
 - 比率 / bounded 特征裁剪到观测范围
 - 近似离散特征可选 round/clamp
 - 扰动预算同时报告 `L_inf` 与平均相对改变量
 
-#### 成功判据
+##### 成功判据
 - 只要能够展示：
   - naive/single deep model 更易被规避
   - covariance-aware ensemble 在相同预算下更稳
 - 这一包就足够进入论文主文或强 supplement。
 
-### D. deployability / cost 闭环包：不再只说“3x cost”
+#### D. deployability / cost 闭环包：不再只说“3x cost”
 
-#### 设计原则
+##### 设计原则
 - 部署讨论必须和 strongest candidate 绑定，不做泛泛而谈。
 - 成本不是弱点隐藏区，而是系统论文必须正面给出的事实。
 
-#### 必测对象
+##### 必测对象
 1. `dA`
 2. `single-seed Transformer latent gate`
 3. `3-seed covariance-aware ensemble`
 4. `distillation v2`（若后续成功）
 
-#### 必测指标
+##### 必测指标
 - CPU `ms/sample`
 - throughput
 - checkpoint size
@@ -917,13 +1141,13 @@ v2 的唯一正确方向：
 - 训练总时长
 - 校准/阈值额外开销
 
-#### 成功判据
+##### 成功判据
 - 形成一张能直接进入论文的 deployment table
 - 对 strongest candidate 给出一句能站住的系统表述：
   - “higher-cost but still deployable remedy”
   - 或 “single-model distilled variant approaching teacher”
 
-### E. Tier 1 预计推进顺序
+#### E. Tier 1 预计推进顺序
 
 1. `FT-Transformer` 补强
 2. 第二数据集最小 feasibility（BoT-IoT first）
@@ -934,15 +1158,15 @@ v2 的唯一正确方向：
 - 若第 2 步 feasibility 显示 BoT-IoT 无法构造干净的 benign OOD split，则立即切 TON-IoT network subset，不在 BoT-IoT 上硬耗。
 - 若第 1 步已经证明现代 baseline 风险显著下降，则不再继续扩大 baseline 家族。
 
-### F. A 线正式超算任务固定操作书（2026-04-17 固化）
+#### F. A 线正式超算任务固定操作书（2026-04-17 固化）
 
-#### 使用原则
+##### 使用原则
 - 先本地 smoke，再上超算。
 - 超算只跑正式任务，不拿来修路径、修脚本、修 bundle。
 - 适合上超算的任务包括：正式训练、多 seed、sweep、多配置、第二数据集或第二环境验证、正式 baseline 复现、长时间 CPU/GPU 作业。
 - 不适合上超算的任务包括：本地 smoke、修路径、修脚本、修打包、离线 rescoring、画图、整理表格、是否值得正式跑仍未判断清楚的任务。
 
-#### 命名规则
+##### 命名规则
 - 每次正式任务都必须新建 `run_tag`。
 - `run_tag` 固定格式：`任务名_YYYY-MM-DD`。
 - 正式 rerun 必须更换新日期。
@@ -951,7 +1175,7 @@ v2 的唯一正确方向：
 - 远端标准运行目录固定为 `<remote_project_root>/runs/<run_tag>/`。
 - 回传包固定路径为 `package/<run_tag>_bundle.tar.gz`。
 
-#### 提交前冻结清单
+##### 提交前冻结清单
 - 正式提交前，`runs/<run_tag>/` 下必须固定：
 - `command.txt`
 - `config.json`
@@ -961,7 +1185,7 @@ v2 的唯一正确方向：
 - 明确写定的回传 bundle 路径
 - 如果这些还没冻结，就不允许上超算。
 
-#### 固定执行流程
+##### 固定执行流程
 1. `ssh` 创建远端目录
 2. `scp` 上传 `upload_bundle.tar.gz`
 3. `ssh` 到远端解包
@@ -970,7 +1194,7 @@ v2 的唯一正确方向：
 6. 作业完成后 `scp` 拉回 `package/<run_tag>_bundle.tar.gz`
 7. 本地解包并先检查结果完整性
 
-#### 日志规则
+##### 日志规则
 - 远端 `run_dir` 下必须能直接打开：
 - `latest_slurm.out`
 - `latest_slurm.err`
@@ -981,7 +1205,7 @@ v2 的唯一正确方向：
 - 提交后必须自动记录 `last_job_id.txt`、`latest_slurm.out`、`latest_slurm.err`。
 - 建议额外生成 `job_info.json` 或同类 manifest，记录 `job_id`、`job_name`、`node_list`、`submit_dir`、`python_bin`、`stdout_log`、`stderr_log`。
 
-#### `job.slurm` 最小元信息
+##### `job.slurm` 最小元信息
 - `job.slurm` 至少输出：
 - `[start]`
 - `[run_dir]`
@@ -992,12 +1216,12 @@ v2 的唯一正确方向：
 - `[finish]`
 - 这样失败时可以快速区分：提交失败、环境失败、导入失败、路径失败、训练中途失败。
 
-#### PowerShell 规则
+##### PowerShell 规则
 - Windows PowerShell 下生成的 `ssh` / `scp` / `sbatch` 命令必须可直接复制执行。
 - 不允许要求手动再改 quoting。
 - 不允许生成会在 PowerShell 本地被错误展开变量的命令。
 
-#### 回传包要求与回传后动作
+##### 回传包要求与回传后动作
 - 回传包至少必须包含：
 - `summary`
 - `results`
@@ -1013,7 +1237,7 @@ v2 的唯一正确方向：
 4. 最后 `commit + push`
 - 如果结果无效，则必须记录失败原因、修复点、以及是否需要新日期 rerun。
 
-#### 总原则
+##### 总原则
 - 超算不是调试器。
 - 超算只负责正式训练、正式验证、正式多 seed、正式 sweep。
 - 凡是路径、脚本、bundle、命名、日志规则没有固定好的任务，一律先留在本地解决。
@@ -1025,9 +1249,9 @@ v2 的唯一正确方向：
 
 ---
 
-## 八、Frontend-F2 受控重构入口（2026-04-13 固化）
+### 八、Frontend-F2 受控重构入口（2026-04-13 固化）
 
-### 为什么现在切到 frontend
+#### 为什么现在切到 frontend
 
 - `timescale_tokenizer` 与 `structured_frontend_v1` 已经把“同一份 original-frontend 100D 的后端重组空间”基本试穿。
 - 结论一致：
@@ -1035,19 +1259,19 @@ v2 的唯一正确方向：
   - token 重组能产生局部机制信号，但仍明显打不过 dA，也未超过同源 flat 控制；
   - `4 families x 5 scales` 的 semantic token 化仍然不够，说明瓶颈不只在 token 排列，而在**上游表达生成时就被压扁了**。
 
-### 当前判断
+#### 当前判断
 
 - 当前 100D 对 dA 很友好，但对 Transformer 并不原生。
 - 若继续在同一份 100D 上做更复杂后端重排，收益大概率已经接近上限。
 - 因此下一阶段最值得投入的是：**沿着 Kitsune 原始提取链上移一层，做 upstream frontend expression 的受控重构。**
 
-### F2 的纪律
+#### F2 的纪律
 
 - 不引入外部黑盒 frontend 作为第一版主实现。
 - 不破坏当前 `original-frontend 100D` 主线，必须保留 flat 100D 输出，确保历史实验与论文主干完全可复现。
 - 第一轮只在 `kitsune_frontend_original_extract.py` 增加“结构化缓存输出”，不修改底层增量统计公式。
 
-### F2 第一轮目标
+#### F2 第一轮目标
 
 - 在原始 frontend 抽取阶段同步输出：
   - 原有 `100D flat npy`
@@ -1055,7 +1279,7 @@ v2 的唯一正确方向：
   - 语义 schema 与 token 映射元数据
 - 先做本地 smoke，确认结构化缓存数值可逆、与 flat 100D 严格一致，再决定是否进入新的训练线。
 
-### 当前结论
+#### 当前结论
 
 - 如果要真正追求超越 dA 的新突破，最值得投入的是**重新构造前端表达**，而不是继续挤压同一份 100D 的重排空间。
 - `Frontend-F2` 已成为下一阶段最合理的高价值探索入口。
@@ -1075,9 +1299,9 @@ v2 的唯一正确方向：
 
 ---
 
-## 九、2026-04-22 主线状态修订：A 线失败封口与 original100 few-shot 官方控制组
+### 九、2026-04-22 主线状态修订：A 线失败封口与 original100 few-shot 官方控制组
 
-### A 线 second-environment 失败封口包
+#### A 线 second-environment 失败封口包
 
 状态：
 - `BoT-IoT` 与 `TON-IoT` second-environment 不再作为继续扩跑、继续优化、继续救活的主线活线。
@@ -1101,7 +1325,7 @@ v2 的唯一正确方向：
 - 不应写成主线正证据。
 - 不再安排 second-environment 扩跑或调参，除非未来明确开启新日期、新 protocol。
 
-### original100 few-shot official control package
+#### original100 few-shot official control package
 
 Run:
 - script: `repo/ood/original100_fewshot_official_control.py`
@@ -1159,9 +1383,9 @@ Interpretation boundary:
 
 ---
 
-## 十、2026-04-23 主线-frontend-f2 叙事汇合地图
+### 十、2026-04-23 主线-frontend-f2 叙事汇合地图
 
-### 汇合性质
+#### 汇合性质
 
 这次汇合是论文叙事、证据结构和实验资产的汇合，不是直接把 frontend-f2 旧 tokenizer / AE 代码并入主线。
 
@@ -1171,7 +1395,7 @@ Interpretation boundary:
 - original100 few-shot official control 是主线官方控制组。
 - frontend-f2 的价值重新定位为 source-rich 表示的 hard-holdout robustness 与 auditability 资产，而不是“无监督前端重构已经全面翻盘”。
 
-### 新论文中心
+#### 新论文中心
 
 推荐中心主张：
 - 严格 low-OOD-alarm operating region 揭示了传统 unsupervised detector 的 detection collapse。
@@ -1179,7 +1403,7 @@ Interpretation boundary:
 - original100 few-shot control 证明主要杠杆是 target alignment。
 - source-rich 的独特价值应写成困难 holdout 下的稳健性、可审计性和机制解释，而不是平均性能全面压过 original100。
 
-### 证据路由表
+#### 证据路由表
 
 | 证据块 | 当前角色 | 论文去向 | 边界 |
 |---|---|---|---|
@@ -1192,7 +1416,7 @@ Interpretation boundary:
 | frontend-f2 早期 tokenizer / AE / temporal / contrast 负结果 | 机制诊断资产 | 附录或方法动机 | 支持“不是没信号，而是 objective 不对齐” |
 | source-rich feature/family/scale 分析 | auditability 资产 | 主文解释图或附录 | 卖点是可审计与困难窗口解释，不是平均性能英雄 |
 
-### 主文叙事骨架
+#### 主文叙事骨架
 
 建议主文顺序：
 1. 定义问题：开放世界 stronger benign OOD 下，AUC 不足以代表部署可用性，关键是 low-OOD-alarm operating region。
@@ -1202,7 +1426,7 @@ Interpretation boundary:
 5. 接入 frontend-f2：source-rich 不是平均性能主英雄，而是 hard-holdout robustness 与 auditability 的表示层资产。
 6. 明确限制：second-environment 当前封口为 external-validity boundary，后续外部验证需要新 protocol。
 
-### 后续最小补强包
+#### 后续最小补强包
 
 优先级 1：
 - 核验 frontend-f2 v7.4 paired holdout fairness 是否已经稳定。
@@ -1221,7 +1445,7 @@ Interpretation boundary:
 - 整理标签代价和部署成本。
 - 说明 high-purity attack positives 的获取预算、训练成本、推理成本。
 
-### 当前禁止推进项
+#### 当前禁止推进项
 
 - 不再继续 second-environment 扩跑、调参或救线。
 - 不再新增无监督 tokenizer / AE patch 作为主线中心。
@@ -1229,7 +1453,7 @@ Interpretation boundary:
 - 不再把 dA reference 与 few-shot supervised detector 写成同标签信息口径的公平胜负。
 - 不在未核验 v7.4 前把 paired holdout 写成主线稳定结论。
 
-### 当前决策
+#### 当前决策
 
 主线与 frontend-f2 可以汇合，但汇合后的主张应是：
 - paper center = low-OOD-alarm detection collapse + few-shot target alignment。
