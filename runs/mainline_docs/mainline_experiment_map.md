@@ -1157,3 +1157,83 @@ Interpretation boundary:
 - `original100_fewshot_logistic` is now the mainline official control for the v7 target-aligned methodology port.
 - This package does not claim source-rich superiority and does not replace the A-line second-environment failure closure.
 
+---
+
+## 十、2026-04-23 主线-frontend-f2 叙事汇合地图
+
+### 汇合性质
+
+这次汇合是论文叙事、证据结构和实验资产的汇合，不是直接把 frontend-f2 旧 tokenizer / AE 代码并入主线。
+
+主线职责保持：
+- 主线仍维护 `runs/mainline_docs/mainline_handoff.md` 与 `runs/mainline_docs/mainline_experiment_map.md` 两份活文档。
+- A 线 second-environment 继续保持失败封口状态，不再扩跑救线。
+- original100 few-shot official control 是主线官方控制组。
+- frontend-f2 的价值重新定位为 source-rich 表示的 hard-holdout robustness 与 auditability 资产，而不是“无监督前端重构已经全面翻盘”。
+
+### 新论文中心
+
+推荐中心主张：
+- 严格 low-OOD-alarm operating region 揭示了传统 unsupervised detector 的 detection collapse。
+- 少量 high-purity attack positives 形成的 target-aligned linear head 可以显著恢复低误报区间的检测能力。
+- original100 few-shot control 证明主要杠杆是 target alignment。
+- source-rich 的独特价值应写成困难 holdout 下的稳健性、可审计性和机制解释，而不是平均性能全面压过 original100。
+
+### 证据路由表
+
+| 证据块 | 当前角色 | 论文去向 | 边界 |
+|---|---|---|---|
+| stronger benign OOD + calibration 旧主线 | 问题定义与机制背景 | 主文 | 用来证明 low-OOD-alarm 区间才是真部署痛点 |
+| dA / Deep SVDD / FT 等 baseline 失败模式 | unsupervised collapse 证据 | 主文或主附录 | 不写成“模型弱”，写成 objective 与 deployment target 失配 |
+| A 线 BoT-IoT / TON-IoT | negative evidence / limitation / external-validity boundary | limitation 或附录 | 不进入正向主证据，不再扩跑 |
+| original100 few-shot logistic | official control | 主文或主附录核心表 | 证明 target alignment 是主要杠杆 |
+| frontend-f2 v7.2 / v7.3 few-shot | target-aligned positive evidence | 主文或主附录 | 需和 original100 同口径比较，不能单独宣称 source-rich 胜出 |
+| frontend-f2 v7.4 paired holdout | 待核验的 hard-holdout fairness 证据 | 待确认后决定主文/附录 | 当前主线不得未核验就写成稳定结论 |
+| frontend-f2 早期 tokenizer / AE / temporal / contrast 负结果 | 机制诊断资产 | 附录或方法动机 | 支持“不是没信号，而是 objective 不对齐” |
+| source-rich feature/family/scale 分析 | auditability 资产 | 主文解释图或附录 | 卖点是可审计与困难窗口解释，不是平均性能英雄 |
+
+### 主文叙事骨架
+
+建议主文顺序：
+1. 定义问题：开放世界 stronger benign OOD 下，AUC 不足以代表部署可用性，关键是 low-OOD-alarm operating region。
+2. 展示失败机制：传统 unsupervised detector 在低误报区间出现 detection collapse。
+3. 引入 target alignment：few-shot supervised linear head 使用极少量 high-purity attack positives 修正目标错配。
+4. 固定公平控制：original100 few-shot official control 与 dA reference baseline 给出标签信息边界。
+5. 接入 frontend-f2：source-rich 不是平均性能主英雄，而是 hard-holdout robustness 与 auditability 的表示层资产。
+6. 明确限制：second-environment 当前封口为 external-validity boundary，后续外部验证需要新 protocol。
+
+### 后续最小补强包
+
+优先级 1：
+- 核验 frontend-f2 v7.4 paired holdout fairness 是否已经稳定。
+- 若稳定，把它登记为 source-rich hard-holdout robustness 证据。
+- 若不稳定，只保留为边界和负结果，不强行汇入正证据。
+
+优先级 2：
+- 为 original100 few-shot official control 生成 paper-facing 表格和 operating-point 图。
+- 表格必须保留 16/32-shot、multi-seed mean/min/max、fixed 与 guarded 两个 operating points。
+
+优先级 3：
+- 做 source-rich auditability 资产整理。
+- 至少包括 feature/family/scale 级别解释、困难 holdout 案例、与 original100 的边界说明。
+
+优先级 4：
+- 整理标签代价和部署成本。
+- 说明 high-purity attack positives 的获取预算、训练成本、推理成本。
+
+### 当前禁止推进项
+
+- 不再继续 second-environment 扩跑、调参或救线。
+- 不再新增无监督 tokenizer / AE patch 作为主线中心。
+- 不再写 `source_rich` 平均性能全面优于 `original100`。
+- 不再把 dA reference 与 few-shot supervised detector 写成同标签信息口径的公平胜负。
+- 不在未核验 v7.4 前把 paired holdout 写成主线稳定结论。
+
+### 当前决策
+
+主线与 frontend-f2 可以汇合，但汇合后的主张应是：
+- paper center = low-OOD-alarm detection collapse + few-shot target alignment。
+- official control = original100 few-shot logistic。
+- source-rich role = hard-holdout robustness + auditability。
+- closed limitation = A-line second-environment failure package。
+
