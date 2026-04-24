@@ -188,6 +188,10 @@ few-shot target-aligned detector 是当前方法中心：
     - `holdout_bin_2`, 16/32-shot, guarded:
       - `original100` segment-collapse is severe;
       - `source_rich` keeps useful detection, but alarm is only near-target rather than fully stable.
+  - paper-facing asset bundle 已生成于：
+    - `D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-frontend-f2/runs/branch_handoffs/frontend_f2/paper_facing_hard_holdout_cases.md`
+    - `D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-frontend-f2/runs/branch_handoffs/frontend_f2/source_rich_original100_boundary_table.csv`
+    - `D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-frontend-f2/runs/branch_handoffs/frontend_f2/source_rich_auditability_summary.md`
 - early frontend-f2 tokenizer / AE / temporal / contrast lines：作为机制诊断资产和旧路线负结果，不再作为当前 paper center。
 
 ### 4.4 Second-Environment
@@ -225,6 +229,7 @@ few-shot target-aligned detector 是当前方法中心：
 - 把 narrow robustness claim 与 average-performance non-win 边界同时写清；
 - family / scale / feature 级别 auditability 分析；
 - 与 original100 的适用边界图或案例表。
+- 当前已落地的 paper-facing 资产包位于 frontend handoff 目录，可直接供论文正文 / 附录引用。
 
 ### 5.3 部署意义支持包
 
