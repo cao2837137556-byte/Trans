@@ -38,7 +38,7 @@ What this file should answer first:
 ### 1.2 四个当前定位
 
 - `original100 few-shot official control` 是主线官方控制组，用来固定 target alignment 这个主要杠杆。
-- `source_rich` 的角色是 `hard-holdout robustness + auditability`，不是平均性能全面压过 original100 的主英雄。
+- `source_rich` 的角色经 v7.4 paired verification 后，可狭义写成 `hard-holdout robustness + auditability`，但不是平均性能全面压过 original100 的主英雄。
 - `A-line second-environment` 已封口为 `negative evidence / limitation / external-validity boundary`，不再扩跑、不再救线、不进入正向主证据。
 - old mainline 的 stronger OOD、calibration、TailReg 资产仍然重要，但现在是背景机制资产与历史证据，不再单独定义当前 paper center。
 
@@ -86,7 +86,7 @@ few-shot target-aligned detector 是当前方法中心：
 ### 2.5 Source-Rich 的克制定位
 
 `source_rich` 只能在证据支持范围内写成：
-- hard-holdout robustness candidate / asset；
+- narrow hard-holdout robustness evidence on specific paired holdouts；
 - auditability / family-scale-feature explanation layer；
 - 对 objective mismatch 的机制诊断资产。
 
@@ -105,6 +105,7 @@ few-shot target-aligned detector 是当前方法中心：
 |---|---|---|---|
 | original100 few-shot official control (`runs/original100_fewshot_official_control_2026-04-22/`) | official control | 主文或主附录核心表 | 证明 target alignment 是主要杠杆，不证明 source-rich 胜出 |
 | frontend-f2 v7.2 / v7.3 few-shot | target-aligned positive evidence | 主文或主附录 | 必须和 original100 同口径比较 |
+| frontend-f2 v7.4 paired holdout fairness | narrow hard-holdout robustness evidence | 主文解释段或主附录 | 只支持特定 hard holdout，更不支持平均性能全面胜出 |
 | stronger benign OOD + calibration old mainline | problem/mechanism evidence | 主文背景和机制段 | 不再单独作为 paper center |
 | unsupervised baselines under low-OOD-alarm | collapse evidence | 主文机制段 | 不写成“模型差”，写成目标错配 |
 
@@ -168,7 +169,25 @@ few-shot target-aligned detector 是当前方法中心：
 
 吸收方式：
 - v7.2 / v7.3：作为 few-shot target-aligned positive evidence，并与 original100 official control 同口径比较。
-- v7.4：只能暂写为 `hard-holdout fairness evidence candidate`，待最终核验后再决定是否进入主文或主附录。
+- v7.4：已完成 paired verification，可狭义写为 `source_rich_hard_holdout_robustness_supported`，但边界必须保持很窄：
+  - paired integrity 已确认：
+    - same holdout specs
+    - same label budgets
+    - same seed set
+    - same threshold rules
+    - final OOD eval does not participate in threshold selection
+  - `original100` 仍是平均性能控制组，按 `det_mean` 赢 `7/9` holdouts，不能忽略。
+  - `source_rich` 的可写价值是：
+    - 在特定 hard holdout 上比 original100 更稳；
+    - 更适合做 family / scale / feature 级别审计；
+    - 不是 universal cross-window winner。
+  - 当前最强可写 case：
+    - `chrono_late_train_early_eval`, 32-shot, guarded:
+      - `source_rich`: `AUC_min=0.9494`, `det_min=0.8549`, `alarm_max=0.0099`, `feasible_rate=1.0`
+      - `original100`: `AUC_min=0.7030`, `det_min=0.6824`, `alarm_max=0.0029`, `feasible_rate=1.0`
+    - `holdout_bin_2`, 16/32-shot, guarded:
+      - `original100` segment-collapse is severe;
+      - `source_rich` keeps useful detection, but alarm is only near-target rather than fully stable.
 - early frontend-f2 tokenizer / AE / temporal / contrast lines：作为机制诊断资产和旧路线负结果，不再作为当前 paper center。
 
 ### 4.4 Second-Environment
@@ -201,9 +220,9 @@ few-shot target-aligned detector 是当前方法中心：
 目的：证明 source-rich 的合理定位是 hard-holdout robustness + auditability。
 
 最小内容：
-- 核验 v7.4 paired holdout fairness；
-- 若站住，登记为 hard-holdout robustness evidence；
-- 若不站住，降级为边界或负结果；
+- 基于已核验的 v7.4 做 paper-facing hard-holdout case analysis；
+- 固定保留 original100 paired control，不允许删掉对照；
+- 把 narrow robustness claim 与 average-performance non-win 边界同时写清；
 - family / scale / feature 级别 auditability 分析；
 - 与 original100 的适用边界图或案例表。
 
@@ -223,7 +242,7 @@ few-shot target-aligned detector 是当前方法中心：
 - 新一轮无监督 tokenizer / AE patch；
 - 大范围 baseline 家族扩张；
 - 以 TailReg 或 calibration 重新抢回唯一主线中心；
-- 未核验 v7.4 前的 source-rich 稳定胜出结论。
+- 即使 v7.4 已核验，也不能写 source-rich 的稳定平均胜出结论。
 
 ---
 
