@@ -809,3 +809,187 @@
     - tighten source_rich OOD alarm on hard holdouts,
     - report paired original100/source_rich under the same cross-window protocol,
     - define the paper claim around few-shot target alignment first and source-rich robustness second.
+
+## 27. 2026-04-24 v7.4 Verification + Hard-Holdout Case Analysis
+
+- Goal:
+  - Re-verify whether v7.4 is truly paired/fair at the protocol level.
+  - Decide whether `source_rich` can now be formally used as hard-holdout robustness evidence, or only as auditability evidence.
+  - Keep scope fixed on verification and case analysis only; no new model, no new frontend patching, no new experiment line.
+- Paired integrity re-check:
+  - Re-checked script:
+    - `repo/ood/frontend_f2_v7_4_paired_holdout_fairness.py`
+  - Re-checked run package:
+    - `runs/frontend_f2_v7_4_paired_holdout_fairness_2026-04-22/`
+  - Verified paired conditions:
+    - same holdout spec set: `9` holdouts
+    - same label budgets: `16`, `32`
+    - same positive sample seed set: `42,43,44,45,46`
+    - same threshold policies:
+      - `fixed_id_calib_q99`
+      - `guarded_id_calib_and_ood_val_target1pct`
+    - same negative train split:
+      - ID benign train `[0,8000)`
+      - OOD benign train `[0,8000)`
+      - ID calibration `[10000,15000)`
+      - OOD validation `[8000,10000)`
+      - final OOD eval `[10000,20000)`
+    - same positive holdout train/eval windows per holdout spec
+    - final OOD eval is not used for threshold selection
+  - Integrity verdict:
+    - v7.4 is a valid paired fairness package.
+- Holdout-level comparison output:
+  - Full fixed + guarded holdout table remains in:
+    - `runs/frontend_f2_v7_4_paired_holdout_fairness_2026-04-22/frontend_f2_v7_4_paired_holdout_summary.csv`
+  - Deployment-focus guarded table:
+
+| holdout_name | model_label | positive_budget | auc_mean | auc_min | eval_alarm_mean | eval_alarm_max | det_mean | det_min | feasible_rate |
+|---|---|---|---|---|---|---|---|---|---|
+| chrono_early_train_late_eval | original100 | 16 | 0.9933 | 0.9742 | 0.0056 | 0.0188 | 0.9678 | 0.9178 | 0.8000 |
+| chrono_early_train_late_eval | source_rich | 16 | 0.9826 | 0.9705 | 0.0055 | 0.0078 | 0.9516 | 0.9034 | 1.0000 |
+| chrono_early_train_late_eval | original100 | 32 | 0.9866 | 0.9656 | 0.0124 | 0.0257 | 0.9613 | 0.9361 | 0.4000 |
+| chrono_early_train_late_eval | source_rich | 32 | 0.9806 | 0.9756 | 0.0070 | 0.0109 | 0.9589 | 0.9525 | 0.8000 |
+| chrono_late_train_early_eval | original100 | 16 | 0.7376 | 0.7007 | 0.0028 | 0.0058 | 0.7112 | 0.6754 | 1.0000 |
+| chrono_late_train_early_eval | source_rich | 16 | 0.9616 | 0.9436 | 0.0097 | 0.0111 | 0.9132 | 0.8514 | 0.6000 |
+| chrono_late_train_early_eval | original100 | 32 | 0.7178 | 0.7030 | 0.0023 | 0.0029 | 0.6913 | 0.6824 | 1.0000 |
+| chrono_late_train_early_eval | source_rich | 32 | 0.9644 | 0.9494 | 0.0071 | 0.0099 | 0.8966 | 0.8549 | 1.0000 |
+| holdout_bin_2 | original100 | 16 | 0.3450 | 0.2404 | 0.0022 | 0.0029 | 0.2838 | 0.1736 | 1.0000 |
+| holdout_bin_2 | source_rich | 16 | 0.9342 | 0.8490 | 0.0071 | 0.0109 | 0.8586 | 0.7129 | 0.8000 |
+| holdout_bin_2 | original100 | 32 | 0.3971 | 0.3158 | 0.0022 | 0.0035 | 0.3231 | 0.2329 | 1.0000 |
+| holdout_bin_2 | source_rich | 32 | 0.9631 | 0.9079 | 0.0090 | 0.0123 | 0.8680 | 0.7530 | 0.6000 |
+| holdout_bin_3 | original100 | 16 | 0.9969 | 0.9856 | 0.0056 | 0.0114 | 0.9923 | 0.9676 | 0.6000 |
+| holdout_bin_3 | source_rich | 16 | 0.9586 | 0.9369 | 0.0063 | 0.0083 | 0.9232 | 0.8539 | 1.0000 |
+| holdout_bin_3 | original100 | 32 | 0.9917 | 0.9727 | 0.0092 | 0.0189 | 0.9745 | 0.9478 | 0.4000 |
+| holdout_bin_3 | source_rich | 32 | 0.9815 | 0.9711 | 0.0060 | 0.0091 | 0.9363 | 0.9175 | 1.0000 |
+| holdout_bin_4 | original100 | 16 | 0.9993 | 0.9981 | 0.0028 | 0.0034 | 0.9936 | 0.9759 | 1.0000 |
+| holdout_bin_4 | source_rich | 16 | 0.9873 | 0.9812 | 0.0074 | 0.0111 | 0.9718 | 0.9616 | 0.8000 |
+| holdout_bin_4 | original100 | 32 | 0.9999 | 0.9997 | 0.0069 | 0.0132 | 0.9998 | 0.9991 | 0.8000 |
+| holdout_bin_4 | source_rich | 32 | 0.9903 | 0.9893 | 0.0060 | 0.0106 | 0.9738 | 0.9696 | 0.6000 |
+| holdout_bin_5 | original100 | 16 | 0.9970 | 0.9905 | 0.0042 | 0.0102 | 0.9906 | 0.9761 | 0.8000 |
+| holdout_bin_5 | source_rich | 16 | 0.9747 | 0.9682 | 0.0072 | 0.0096 | 0.9293 | 0.8985 | 1.0000 |
+| holdout_bin_5 | original100 | 32 | 0.9961 | 0.9876 | 0.0039 | 0.0095 | 0.9893 | 0.9692 | 1.0000 |
+| holdout_bin_5 | source_rich | 32 | 0.9901 | 0.9869 | 0.0067 | 0.0120 | 0.9555 | 0.9316 | 0.6000 |
+| holdout_bin_6 | original100 | 16 | 0.9989 | 0.9976 | 0.0050 | 0.0114 | 0.9954 | 0.9810 | 0.8000 |
+| holdout_bin_6 | source_rich | 16 | 0.9880 | 0.9778 | 0.0069 | 0.0110 | 0.9594 | 0.9111 | 0.8000 |
+| holdout_bin_6 | original100 | 32 | 0.9970 | 0.9926 | 0.0071 | 0.0118 | 0.9854 | 0.9650 | 0.8000 |
+| holdout_bin_6 | source_rich | 32 | 0.9913 | 0.9812 | 0.0062 | 0.0096 | 0.9786 | 0.9650 | 1.0000 |
+| holdout_bin_7 | original100 | 16 | 0.9989 | 0.9977 | 0.0033 | 0.0049 | 0.9958 | 0.9930 | 1.0000 |
+| holdout_bin_7 | source_rich | 16 | 0.9881 | 0.9810 | 0.0060 | 0.0067 | 0.9741 | 0.9641 | 1.0000 |
+| holdout_bin_7 | original100 | 32 | 0.9958 | 0.9851 | 0.0103 | 0.0191 | 0.9911 | 0.9728 | 0.6000 |
+| holdout_bin_7 | source_rich | 32 | 0.9915 | 0.9783 | 0.0038 | 0.0062 | 0.9756 | 0.9667 | 1.0000 |
+| holdout_bin_8 | original100 | 16 | 0.9892 | 0.9541 | 0.0041 | 0.0074 | 0.9357 | 0.8146 | 1.0000 |
+| holdout_bin_8 | source_rich | 16 | 0.9637 | 0.9505 | 0.0057 | 0.0081 | 0.9141 | 0.8850 | 1.0000 |
+| holdout_bin_8 | original100 | 32 | 0.9724 | 0.8938 | 0.0073 | 0.0127 | 0.9160 | 0.7676 | 0.8000 |
+| holdout_bin_8 | source_rich | 32 | 0.9618 | 0.9560 | 0.0058 | 0.0091 | 0.8995 | 0.8404 | 1.0000 |
+
+- Hard-holdout cases retained for paper-facing interpretation:
+  - Case 1: `holdout_bin_2`, 16-shot, guarded
+    - `original100` collapse:
+      - `AUC_mean/min = 0.3450 / 0.2404`
+      - `det_mean/min = 0.2838 / 0.1736`
+      - `alarm_max = 0.0029`
+      - mean attack-vs-OOD score gap is strongly negative across seeds (`mean gap ~ -21.09`)
+      - attack median is far below the selected threshold (`median - threshold ~ -24.35`)
+      - interpretation: original100 keeps alarm low by pushing this held-out attack window into the benign side; this is a true held-out segment collapse, not a threshold leak.
+    - `source_rich` stronger signal:
+      - `AUC_mean/min = 0.9342 / 0.8490`
+      - `det_mean/min = 0.8586 / 0.7129`
+      - `alarm_max = 0.0109`, `feasible_rate = 0.8`
+      - top family contributions:
+        - `HH_jit`
+        - `MI_dir`
+        - `HH`
+      - top scale contributions:
+        - `0.01s`
+        - `3s`
+        - `5s`
+      - top feature channels:
+        - `logw_centered_family`
+        - `logw_raw`
+        - `mean_slog_raw`
+        - `std_slog_raw`
+        - `cv_short_long_ratio`
+      - top family-scale tokens:
+        - `HH_jit@0.01s`
+        - `MI_dir@0.01s`
+        - `HH_jit@1s`
+        - `HH_jit@3s`
+      - alarm judgment:
+        - close to the `<=1%` target, but not fully all-seed stable.
+  - Case 2: `holdout_bin_2`, 32-shot, guarded
+    - `original100` collapse:
+      - `AUC_mean/min = 0.3971 / 0.3158`
+      - `det_mean/min = 0.3231 / 0.2329`
+      - `alarm_max = 0.0035`
+      - mean attack-vs-OOD score gap stays negative (`mean gap ~ -14.40`)
+      - attack median still remains below threshold (`median - threshold ~ -15.01`)
+      - interpretation: more positives do not rescue the segment mismatch for original100 on bin 2.
+    - `source_rich` stronger signal:
+      - `AUC_mean/min = 0.9631 / 0.9079`
+      - `det_mean/min = 0.8680 / 0.7530`
+      - `alarm_max = 0.0123`, `feasible_rate = 0.6`
+      - top family contributions:
+        - `HH_jit`
+        - `MI_dir`
+        - `HH`
+      - top scale contributions:
+        - `0.01s`
+        - `3s`
+        - `5s`
+      - top feature channels:
+        - `logw_centered_family`
+        - `logw_raw`
+        - `std_slog_raw`
+        - `cv_short_long_ratio`
+        - `mean_rel_family`
+      - alarm judgment:
+        - still only near-target, not stable enough to claim full low-OOD-alarm closure.
+  - Case 3: `chrono_late_train_early_eval`, 32-shot, guarded
+    - `original100` degradation:
+      - `AUC_mean/min = 0.7178 / 0.7030`
+      - `det_mean/min = 0.6913 / 0.6824`
+      - `alarm_max = 0.0029`
+      - attack median is above threshold, but attack lower tail is still far below threshold (`q10 - threshold ~ -53.13`)
+      - interpretation: original100 does not fully collapse to zero here, but it leaves a large miss-prone attack tail under reverse chronology.
+    - `source_rich` stronger signal:
+      - `AUC_mean/min = 0.9644 / 0.9494`
+      - `det_mean/min = 0.8966 / 0.8549`
+      - `alarm_max = 0.0099`, `feasible_rate = 1.0`
+      - top family contributions:
+        - `MI_dir`
+        - `HH`
+        - `HH_jit`
+      - top scale contributions:
+        - `0.01s`
+        - `3s`
+        - `1s`
+      - top feature channels:
+        - `logw_centered_family`
+        - `cv_short_long_ratio`
+        - `logw_raw`
+        - `mean_rel_family`
+        - `cv_slog_raw`
+      - top family-scale tokens:
+        - `MI_dir@0.01s`
+        - `HH@0.01s`
+        - `HH_jit@0.1s`
+        - `HH@1s`
+      - alarm judgment:
+        - satisfies the guarded low-OOD-alarm target at the aggregate holdout level (`alarm_max = 0.0099`).
+- Formal verdict:
+  - `source_rich_hard_holdout_robustness_supported`
+- Boundary of that verdict:
+  - The support is narrow and case-based, not an average-performance win.
+  - `source_rich` is still not a broad mean-detection winner in v7.4; `original100` wins `7/9` holdouts by `det_mean`.
+  - The defensible claim is:
+    - source_rich has real value on specific hard holdouts where original100 collapses or develops a large miss-prone tail,
+    - and source_rich is also the more auditable representation.
+  - The non-defensible claim remains:
+    - `source_rich` average performance is全面优于 `original100`.
+- Updated branch-level interpretation:
+  - `v7` remains a few-shot / supervised target-aligned detector line.
+  - `original100` remains the mandatory performance control.
+  - `source_rich` can now be written as:
+    - hard-holdout robustness support on specific paired holdouts
+    - auditability / family-scale-feature diagnosis layer
+  - `source_rich` cannot be written as universal cross-window performance winner.
