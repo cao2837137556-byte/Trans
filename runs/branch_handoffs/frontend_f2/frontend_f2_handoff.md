@@ -993,3 +993,8 @@
     - hard-holdout robustness support on specific paired holdouts
     - auditability / family-scale-feature diagnosis layer
   - `source_rich` cannot be written as universal cross-window performance winner.
+- Paper-facing assets generated from this verified package:
+  - `runs/branch_handoffs/frontend_f2/paper_facing_hard_holdout_cases.md`
+  - `runs/branch_handoffs/frontend_f2/source_rich_original100_boundary_table.csv`
+  - `runs/branch_handoffs/frontend_f2/source_rich_original100_boundary_table.md`
+  - `runs/branch_handoffs/frontend_f2/source_rich_auditability_summary.md`
