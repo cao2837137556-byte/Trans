@@ -247,6 +247,8 @@ few-shot target-aligned detector 是当前方法中心：
 - `runs/prism_handoffs/handoff_fewshot_target_alignment_2026-04-25.md`
 - `runs/prism_handoffs/fewshot_dataset_split_budget_summary_2026-04-25.csv`
 - `runs/prism_handoffs/fewshot_paper_main_table_2026-04-25.csv`
+- `runs/prism_handoffs/handoff_paper_restructure_from_transformer20_to_fewshot_2026-04-25.md`：已生成；用于 Prism 将旧 Transformer ensemble 稿重构为 few-shot target alignment 新主线，不改变 v3 convergence-first paper center。
+- `runs/prism_handoffs/paper_restructure_section_decision_table_2026-04-25.csv`：旧稿章节处理裁决表，供 Prism 重排标题、摘要、方法、结果、讨论与结论。
 
 用途：
 - 交给 Prism 写 few-shot target alignment 正文；

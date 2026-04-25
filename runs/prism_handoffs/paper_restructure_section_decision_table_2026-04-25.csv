@@ -1,0 +1,14 @@
+old_section,current_decision,new_treatment,reason_or_asset
+标题,major_rewrite,从 Transformer ensemble 标题改为 low-OOD-alarm collapse + few-shot target alignment 方向,当前 paper center 已切换；见 runs/mainline_docs/mainline_experiment_map.md
+摘要,major_rewrite,重写问题、方法、结果和边界；Transformer ensemble 不再作为摘要主方法,新中心是 few-shot target alignment；见 few-shot handoff 与 collapse handoff
+引言,major_rewrite,保留 open-world IoT 和 benign OOD 动机，重写成 strict low-OOD-alarm deployability 问题,old motivation 可吸收，但旧主线不再定义 paper center
+贡献列表,major_rewrite,改成四项：问题定义、collapse 机制发现、few-shot target alignment、source_rich hard-holdout/auditability,见 handoff 第 2 节
+问题设定与评测边界,keep_with_minor_rewrite,保留 ID benign / OOD benign / high-purity attack 边界，强化 final OOD eval 不参与阈值选择,与 current few-shot protocol 兼容
+方法章节,major_rewrite,主方法改为 frozen representation + L2 LogisticRegression target-aligned head；Transformer ensemble 下沉,current method lever 不再是 covariance-aware Transformer ensemble
+baseline 设置,major_rewrite,明确 dA 是 unsupervised reference，few-shot 是 label-efficient target-aligned detector；不得混成同标签公平比较,见 handoff_fewshot_target_alignment_2026-04-25.md
+主结果 Transformer ensemble 部分,downgrade_to_background_or_appendix,作为历史机制资产或旧稿背景，不作为主结果中心,old result 不支持当前 few-shot 主线；legacy transformer cache 也不是 current official split 主证据
+baseline failure 部分,keep_with_minor_rewrite,保留 baseline failure 逻辑，但改写为 low-OOD-alarm collapse / objective mismatch 证据,collapse sanity audit 支持 dA official reference 的 operating-point effect
+分数分布 / operating point 解释,keep_with_minor_rewrite,保留 operating-point 解释框架，并用 dA sweep 的 1% collapse / 10% recovery 更新,见 handoff_collapse_sanity_audit_2026-04-25.md
+部署成本部分,downgrade_to_background_or_appendix,旧 Transformer ensemble cost table 降级；新版部署讨论应聚焦 label cost、linear head、threshold fairness,few-shot logistic runs are lightweight; source_rich cost not current universal winner claim
+讨论与局限,keep_with_minor_rewrite,保留克制语气，加入 second-environment negative evidence、source_rich 非全面赢家、collapse scope 边界,见 mainline map limitation / archive sections
+结论,major_rewrite,从 Transformer ensemble 收束改为 few-shot target alignment 恢复 low-alarm detection 的克制结论,当前主线不允许把 Transformer ensemble 写成最终主方法
