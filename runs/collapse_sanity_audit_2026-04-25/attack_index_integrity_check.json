@@ -1,0 +1,240 @@
+{
+  "source_files": {
+    "attack_source_100": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_joint_eval_stage1_2026-03-31\\data\\attack_source_100.csv",
+    "stage1_source_tsv": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_joint_eval_stage1_2026-03-31\\extract_attack_34_1\\iot23_34_1_malicious_first30000.tsv",
+    "stage2_manifest": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_joint_eval_stage2_2026-04-01\\attack_manifest_stage2.json",
+    "dA_checkpoint": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_tailreg_stage1_2026-03-27\\da_seed42\\kitnet_da_seed42.ckpt"
+  },
+  "source_exists": {
+    "attack_source_100": true,
+    "stage1_source_tsv": true,
+    "stage2_manifest": true,
+    "dA_checkpoint": true
+  },
+  "source_shapes": {
+    "id_source_100": {
+      "rows": 50000,
+      "shape": "(50000, 100)"
+    },
+    "ood_benign_source_100": {
+      "rows": 20000,
+      "shape": "(20000, 100)"
+    },
+    "attack_source_100": {
+      "rows": 10000,
+      "shape": "(10000, 'unknown_cols')"
+    }
+  },
+  "stage2_high_purity": {
+    "total_high_purity_count": 6871,
+    "train_count": 4122,
+    "val_count": 1374,
+    "eval_count": 1375,
+    "first_row_id": 2921,
+    "last_row_id": 9791,
+    "train_first_last": [
+      2921,
+      7042
+    ],
+    "val_first_last": [
+      7043,
+      8416
+    ],
+    "eval_first_last": [
+      8417,
+      9791
+    ],
+    "all_in_attack_matrix_range": true,
+    "duplicate_count": 0
+  },
+  "stage2_mixed": {
+    "total_mixed_count": 1297,
+    "all_in_attack_matrix_range": true,
+    "duplicate_count": 0
+  },
+  "v7_4_holdout_specs": [
+    {
+      "holdout_type": "leave_one_attack_window_out",
+      "holdout_name": "holdout_bin_2",
+      "train_bins": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "eval_bins": [
+        2
+      ],
+      "train_pool_count": 5523,
+      "attack_eval_count": 1348,
+      "eval_first_row": 2921,
+      "eval_last_row": 4268,
+      "eval_in_attack_matrix_range": true
+    },
+    {
+      "holdout_type": "leave_one_attack_window_out",
+      "holdout_name": "holdout_bin_3",
+      "train_bins": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "eval_bins": [
+        3
+      ],
+      "train_pool_count": 5913,
+      "attack_eval_count": 958,
+      "eval_first_row": 4269,
+      "eval_last_row": 5226,
+      "eval_in_attack_matrix_range": true
+    },
+    {
+      "holdout_type": "leave_one_attack_window_out",
+      "holdout_name": "holdout_bin_4",
+      "train_bins": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+      ],
+      "eval_bins": [
+        4
+      ],
+      "train_pool_count": 5751,
+      "attack_eval_count": 1120,
+      "eval_first_row": 5227,
+      "eval_last_row": 6346,
+      "eval_in_attack_matrix_range": true
+    },
+    {
+      "holdout_type": "leave_one_attack_window_out",
+      "holdout_name": "holdout_bin_5",
+      "train_bins": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "eval_bins": [
+        5
+      ],
+      "train_pool_count": 5994,
+      "attack_eval_count": 877,
+      "eval_first_row": 6347,
+      "eval_last_row": 7223,
+      "eval_in_attack_matrix_range": true
+    },
+    {
+      "holdout_type": "leave_one_attack_window_out",
+      "holdout_name": "holdout_bin_6",
+      "train_bins": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "eval_bins": [
+        6
+      ],
+      "train_pool_count": 5870,
+      "attack_eval_count": 1001,
+      "eval_first_row": 7224,
+      "eval_last_row": 8224,
+      "eval_in_attack_matrix_range": true
+    },
+    {
+      "holdout_type": "leave_one_attack_window_out",
+      "holdout_name": "holdout_bin_7",
+      "train_bins": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "eval_bins": [
+        7
+      ],
+      "train_pool_count": 5730,
+      "attack_eval_count": 1141,
+      "eval_first_row": 8225,
+      "eval_last_row": 9365,
+      "eval_in_attack_matrix_range": true
+    },
+    {
+      "holdout_type": "leave_one_attack_window_out",
+      "holdout_name": "holdout_bin_8",
+      "train_bins": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "eval_bins": [
+        8
+      ],
+      "train_pool_count": 6445,
+      "attack_eval_count": 426,
+      "eval_first_row": 9366,
+      "eval_last_row": 9791,
+      "eval_in_attack_matrix_range": true
+    },
+    {
+      "holdout_type": "chronological_cross_window",
+      "holdout_name": "chrono_early_train_late_eval",
+      "train_bins": [
+        2,
+        3,
+        4
+      ],
+      "eval_bins": [
+        6,
+        7,
+        8
+      ],
+      "train_pool_count": 3426,
+      "attack_eval_count": 2568,
+      "eval_first_row": 7224,
+      "eval_last_row": 9791,
+      "eval_in_attack_matrix_range": true
+    },
+    {
+      "holdout_type": "chronological_cross_window",
+      "holdout_name": "chrono_late_train_early_eval",
+      "train_bins": [
+        6,
+        7,
+        8
+      ],
+      "eval_bins": [
+        2,
+        3,
+        4
+      ],
+      "train_pool_count": 2568,
+      "attack_eval_count": 3426,
+      "eval_first_row": 2921,
+      "eval_last_row": 6346,
+      "eval_in_attack_matrix_range": true
+    }
+  ],
+  "dA_cache_attack_matches_stage1_attack_scores_exactly": true,
+  "notes": [
+    "Attack eval split is the final 20% of sorted stage2 high-purity indices.",
+    "All high-purity indices are checked against attack_source_100 row range."
+  ]
+}
