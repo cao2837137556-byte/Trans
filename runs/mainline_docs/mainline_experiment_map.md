@@ -118,6 +118,7 @@ few-shot target-aligned detector 是当前方法中心：
 | TON threshold-sensitivity + coupling probe | 说明 threshold/operator bug 被排除，模型-表达耦合真实存在 |
 | source-rich feature/family/scale analysis | 支撑 auditability 和 hard-holdout case study |
 | collapse sanity audit (`runs/collapse_sanity_audit_2026-04-25/`) | 已完成；结论为 `collapse_likely_real_operating_point_effect`，当前 dA official cache 未发现 row-order / index / threshold 泄漏问题，旧 transformer raw cache 仅作 legacy auxiliary evidence |
+| Prism collapse sanity handoff (`runs/prism_handoffs/handoff_collapse_sanity_audit_2026-04-25.md`) | paper-facing 段落已生成；用于把 collapse sanity audit 写成保守正文资产 |
 
 ### 3.3 负结果资产
 
