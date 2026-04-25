@@ -241,6 +241,17 @@ few-shot target-aligned detector 是当前方法中心：
 - 与 dA / unsupervised baselines 的 low-OOD-alarm operating-region 对照；
 - 对“监督当然赢”的审稿攻击给出 label-efficiency + fairness protocol 防御。
 
+当前 paper-facing 写作包：
+- `runs/prism_handoffs/handoff_fewshot_target_alignment_2026-04-25.md`
+- `runs/prism_handoffs/fewshot_dataset_split_budget_summary_2026-04-25.csv`
+- `runs/prism_handoffs/fewshot_paper_main_table_2026-04-25.csv`
+
+用途：
+- 交给 Prism 写 few-shot target alignment 正文；
+- 回答 dataset / split / budget 口径问题；
+- 明确 `16-shot` / `32-shot` 是训练 high-purity attack positives 的预算，不是评估集规模；
+- 固定 dA 为 unsupervised reference，original100 为 official control，source_rich 为 hard-holdout robustness + auditability 资产。
+
 ### 5.4 当前不再推进的实验包
 
 - second-environment rescue / expansion；
