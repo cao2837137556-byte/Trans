@@ -1,6 +1,6 @@
 # Section 5 Exact Numbers Patch for Prism
 
-Date: 2026-04-25  
+Date: 2026-04-28  
 Target file for Prism: `drafts/paper_draft_fewshot_mainline.md`  
 Target section: Section 5 only  
 Purpose: provide self-contained exact numbers for revising Section 5 after Prism wrote only qualitative descriptions.
@@ -165,4 +165,3 @@ Do not claim that source_rich universally beats original100.
 Do not compare dA and few-shot as same-label-information competitors.
 Do not resurrect Transformer ensemble as the current main method.
 ```
-
