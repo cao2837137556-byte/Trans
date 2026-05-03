@@ -1,0 +1,59 @@
+{
+  "run_tag": "fewshot_protocol_audit_2026-04-30",
+  "created_at_local": "2026-04-30T11:09:48+08:00",
+  "input_runs": {
+    "original100_official_control": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\original100_fewshot_official_control_2026-04-22",
+    "source_rich_v7_2_fairness_validation": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-frontend-f2\\runs\\frontend_f2_v7_2_fairness_validation_2026-04-22",
+    "source_rich_v7_3_auxiliary_check": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-frontend-f2\\runs\\frontend_f2_v7_3_da_fairness_comparison_2026-04-22",
+    "source_rich_v7_4_auxiliary_check": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-frontend-f2\\runs\\frontend_f2_v7_4_paired_holdout_fairness_2026-04-22"
+  },
+  "checked_representations": [
+    "original100",
+    "source_rich"
+  ],
+  "checked_thresholds": [
+    "fixed_id_calib_q99",
+    "guarded_id_calib_and_ood_val_target1pct"
+  ],
+  "positive_sampling_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "attack_split_sizes": {
+    "total_high_purity": 6871,
+    "train_pool_rows": 4122,
+    "validation_rows": 1374,
+    "final_eval_rows": 1375,
+    "train_first_last": [
+      2921,
+      7042
+    ],
+    "validation_first_last": [
+      7043,
+      8416
+    ],
+    "eval_first_last": [
+      8417,
+      9791
+    ]
+  },
+  "final_ood_eval_used_for_threshold": false,
+  "attack_eval_used_for_threshold": false,
+  "attack_train_pool_used_for_threshold": false,
+  "audit_passed": true,
+  "warnings": [
+    {
+      "scope": "source_rich_v7_2",
+      "warning": "No separate selected_positive_samples.csv was found in the v7.2 run. The run records positive_train_count, positive_train_first_row, and positive_train_last_row per budget/seed in results.csv; the full selected row-id list was not persisted.",
+      "minimal_remedy": "If a reviewer asks for per-support row IDs, rerun only the deterministic support-selection logging or regenerate selected IDs from the documented script, budget, seed, and stage2 train pool without retraining models."
+    },
+    {
+      "scope": "original100_official_control",
+      "warning": "selected_positive_samples.csv records support count and first/last selected row per seed, not the full selected row-id list.",
+      "minimal_remedy": "If needed, regenerate full support row IDs from repo/ood/original100_fewshot_official_control.py using the documented seed rule and stage2 train pool; no model retraining is required for provenance logging."
+    }
+  ]
+}

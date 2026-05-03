@@ -1,0 +1,39 @@
+[start] fewshot_deployment_benchmark_2026-05-03
+[cwd] D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline
+[env] written env.txt
+[data] loading original100 arrays
+[data] loading source_rich arrays
+[data] shapes={'original100': {'id': [50000, 100], 'ood': [20000, 100], 'attack': [10000, 100]}, 'source_rich_flat260': {'id': [50000, 260], 'ood': [20000, 260], 'attack': [10000, 260]}}
+[bench] LR original100/source_rich
+[bench] done original100_lr budget=16 seed=42
+[bench] done original100_lr budget=16 seed=43
+[bench] done original100_lr budget=16 seed=44
+[bench] done original100_lr budget=16 seed=45
+[bench] done original100_lr budget=16 seed=46
+[bench] done original100_lr budget=32 seed=42
+[bench] done original100_lr budget=32 seed=43
+[bench] done original100_lr budget=32 seed=44
+[bench] done original100_lr budget=32 seed=45
+[bench] done original100_lr budget=32 seed=46
+[bench] done source_rich_lr budget=16 seed=42
+[bench] done source_rich_lr budget=16 seed=43
+[bench] done source_rich_lr budget=16 seed=44
+[bench] done source_rich_lr budget=16 seed=45
+[bench] done source_rich_lr budget=16 seed=46
+[bench] done source_rich_lr budget=32 seed=42
+[bench] done source_rich_lr budget=32 seed=43
+[bench] done source_rich_lr budget=32 seed=44
+[bench] done source_rich_lr budget=32 seed=45
+[bench] done source_rich_lr budget=32 seed=46
+[bench] loading dA checkpoint
+[bench] done dA repeat=0
+[bench] done dA repeat=1
+[bench] done dA repeat=2
+[fatal] Traceback (most recent call last):
+  File "<stdin>", line 422, in <module>
+  File "C:\Users\28371\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 1577, in __nonzero__
+    raise ValueError(
+ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+
+
+[postprocess] summary and manifest regenerated from CSV/JSON outputs without rerunning benchmark timing

@@ -1,0 +1,79 @@
+{
+  "run_tag": "fewshot_deployment_benchmark_2026-05-03",
+  "created_at_local": "2026-05-03T14:11:16+08:00",
+  "input_runs": {
+    "original100_official_control": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\original100_fewshot_official_control_2026-04-22",
+    "source_rich_v7_2_fairness_validation": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-frontend-f2\\runs\\frontend_f2_v7_2_fairness_validation_2026-04-22",
+    "support_id_provenance": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\fewshot_protocol_audit_2026-04-30\\support_id_provenance\\selected_support_ids_full.csv",
+    "old_runtime_reference": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend100_runtime_benchmark_2026-04-09\\runtime_benchmark_results.csv"
+  },
+  "budgets": [
+    16,
+    32
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "repeats": 3,
+  "warmup": 1,
+  "inference_max_samples": 10000,
+  "inference_sample_composition": {
+    "id_eval": 4312,
+    "ood_eval": 4313,
+    "attack_eval": 1375
+  },
+  "inference_chunk_size": 10000,
+  "lr_config": {
+    "type": "LogisticRegression",
+    "penalty": "l2",
+    "solver": "liblinear",
+    "class_weight": "balanced",
+    "C": 1.0,
+    "max_iter": 2000,
+    "score": "decision_function",
+    "preprocessing": "StandardScaler fit on train split only"
+  },
+  "dA_benchmark_mode": "same_machine_executeAD",
+  "dA_error": null,
+  "cpu_gpu_mode": {
+    "cpu_only": true,
+    "gpu_required": false,
+    "torch_cuda_available": false
+  },
+  "data_shapes": {
+    "original100": {
+      "id": [
+        50000,
+        100
+      ],
+      "ood": [
+        20000,
+        100
+      ],
+      "attack": [
+        10000,
+        100
+      ]
+    },
+    "source_rich_flat260": {
+      "id": [
+        50000,
+        260
+      ],
+      "ood": [
+        20000,
+        260
+      ],
+      "attack": [
+        10000,
+        260
+      ]
+    }
+  },
+  "feature_extraction_cost": "not measured; benchmark is head/scorer cost on cached frozen features",
+  "warnings": []
+}

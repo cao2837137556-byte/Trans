@@ -1,0 +1,55 @@
+{
+  "run_tag": "fewshot_deployment_benchmark_2026-05-03",
+  "created_at_local": "2026-05-03T14:11:16+08:00",
+  "postprocessed_at_local": "2026-05-03T14:20:38",
+  "verdict": "fewshot_deployment_benchmark_passed",
+  "dA_same_machine_benchmark": true,
+  "warnings": [],
+  "boundary_notes": [
+    "Head-only costs are measured on cached frozen features.",
+    "Feature extraction cost is not measured in this run.",
+    "dA reference is same-machine executeAD scoring, not historical benchmark fallback."
+  ],
+  "files": [
+    {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\fewshot_deployment_benchmark_2026-05-03\\deployment_cost_table.csv",
+      "description": "seed/repeat-level deployment benchmark measurements"
+    },
+    {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\fewshot_deployment_benchmark_2026-05-03\\deployment_cost_aggregate.csv",
+      "description": "aggregated deployment benchmark table"
+    },
+    {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\fewshot_deployment_benchmark_2026-05-03\\benchmark_config.json",
+      "description": "benchmark configuration and input data shapes"
+    },
+    {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\fewshot_deployment_benchmark_2026-05-03\\env.txt",
+      "description": "local OS, CPU, Python and package environment"
+    },
+    {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\fewshot_deployment_benchmark_2026-05-03\\summary.md",
+      "description": "paper-facing benchmark summary"
+    },
+    {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\fewshot_deployment_benchmark_2026-05-03\\postprocess_recovery_note.md",
+      "description": "transparent note for summary postprocess recovery"
+    },
+    {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\fewshot_deployment_benchmark_2026-05-03\\stdout.log",
+      "description": "benchmark stdout log"
+    },
+    {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\fewshot_deployment_benchmark_2026-05-03\\stderr.log",
+      "description": "postprocess recovery note; no benchmark-result error"
+    },
+    {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\fewshot_deployment_benchmark_2026-05-03\\manifest.json",
+      "description": "manifest for generated E1 outputs"
+    }
+  ],
+  "row_counts": {
+    "deployment_cost_table": 63,
+    "deployment_cost_aggregate": 5
+  }
+}
