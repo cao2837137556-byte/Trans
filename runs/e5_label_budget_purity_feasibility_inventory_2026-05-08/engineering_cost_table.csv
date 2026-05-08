@@ -1,0 +1,7 @@
+task,representation,requires_new_experiment_run,requires_training_new_backbone,requires_lr_head_training,requires_code_change,requires_new_provenance_pack,estimated_runtime_cost,workload,largest_engineering_risk,recommendation
+E5-A original100 budget sensitivity,original100,yes,no,yes,no for LR run; yes for packaging/provenance,yes,low,low,"Need ensure output focus table does not hide 4/8/64 and full support IDs are logged.","recommended"
+E5-A source_rich appendix budget sensitivity,source_rich,optional,no,yes,no for 16/32/64 existing; yes for 4/8 if added,yes if new budgets added,low-to-medium,low-to-medium,"May distract from original100 main-control role.","optional"
+E5-B OOD contamination sensitivity,original100,yes,no,yes,yes,yes,low-to-medium,medium,"Need contamination-aware support logging and clear label semantics.","recommended if E5 approved"
+E5-B ID contamination appendix,original100,optional,no,yes,yes,yes,low-to-medium,medium,"May create too many variants and dilute the main paper.","appendix-only"
+E5-B lower-purity positives,original100,optional,no,yes,yes,yes,medium,medium-to-high,"Boundary/mixed attack row mapping must be audited before use.","defer"
+10-seed extension,original100,optional,no,yes,no for core LR,yes,medium,medium,"More rows and curves may not add proportional paper value.","not default"

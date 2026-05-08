@@ -1,0 +1,7 @@
+candidate_environment,external_validity_value,collapse_replicability_value,fewshot_recovery_value,preserves_original100_role,risk_of_diluting_mainline,negative_result_explainable,value_label,recommended_paper_role,go_decision,reason
+current_iot23_primary_crosscapture_split,low,already established,high,yes,low,not applicable,low for E4,"Primary evidence already in paper.",no_new_e4,"Not independent."
+frontend_f2_v7_4_paired_hard_holdout,medium,not designed for dA collapse replication,medium,yes,low,yes,medium value,"Hard-holdout robustness and auditability evidence; not second-environment validation.",no_new_e4,"Already completed and bounded."
+bot_iot_5pct_local,low,low,low,no,high,yes,risky / not recommended,"External-validity boundary / negative feasibility note.",no_go,"Benign scarcity and protocol mismatch dominate."
+ton_iot_train_test_network,medium,medium if redesigned,unknown,weak,high,yes,risky / not recommended,"External-validity limitation; possible future work only after precheck.",no_go_for_now,"Partial roles exist but representation/protocol mismatch is too large for immediate E4."
+frontend_f2_expression_crosscapture_archive,low,low,low,no,high,yes,low value,"Historical mechanism asset only.",no_go,"Does not answer current E4."
+unsw_cic_iot23_external_raw,unknown,unknown,unknown,unknown,medium,unknown,not recommended,"No paper role until data manifest exists.",no_go,"No verified asset."

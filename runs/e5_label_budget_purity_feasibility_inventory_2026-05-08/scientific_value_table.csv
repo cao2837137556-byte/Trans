@@ -1,0 +1,7 @@
+candidate_experiment,main_question_answered,value_for_a_area_review,main_text_or_appendix,expected_claim_boundary,risk_of_overclaim,recommend_continue
+E5-A original100 budget sensitivity,"Are 16/32-shot results arbitrary or lucky budgets?",high,main_text_or_compact_main_plus_appendix,"Shows budget-response stability on the primary split; does not prove cross-dataset generalization.",medium,yes
+E5-B original100 OOD contamination sensitivity,"How sensitive is target alignment to positive purity degradation?",high,main_text_or_appendix,"Shows controlled purity stress under the same protocol; does not model all real analyst-label noise.",medium,yes
+E5-A source_rich appendix budget sensitivity,"Does source_rich follow similar budget behavior?",medium,appendix,"Keeps source_rich as complementary robustness/auditability asset, not replacement.",high,optional
+E5-B lower-purity positives,"Can lower-purity attack positives still work?",medium,appendix_or_future,"Only valid if lower-purity pool row IDs and semantics are clean.",high,defer
+10-seed extension,"Are five seeds enough?",medium,appendix_if_needed,"Improves uncertainty estimate but may not change conclusion.",low,not default
+fixed-threshold expansion,"Does budget behavior also hold under fixed ID q99?",low-to-medium,appendix,"Fixed policy is secondary; guarded is the paper center.",medium,optional

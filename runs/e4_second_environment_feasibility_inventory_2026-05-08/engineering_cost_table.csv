@@ -1,0 +1,7 @@
+candidate_environment,has_original100_features,has_source_rich_features,has_da_scores,requires_feature_extraction,requires_new_loader,can_reuse_original100_fewshot_script,can_reuse_e2_seed_stability_packaging,can_reuse_e3_protocol_audit,can_reuse_e1_deployment_benchmark,minimum_workload,largest_risk,go_decision,minimum_next_action
+current_iot23_primary_crosscapture_split,yes,yes,yes,no,no,yes,yes,yes,yes,low,"No independent external value; already used in current paper.","no_new_e4","No action."
+frontend_f2_v7_4_paired_hard_holdout,yes,yes,not required,no,no,already done,already done,partly documented,not needed,low,"Confusing completed hard-holdout evidence with new external validation.","no_new_e4","Reference existing v7.4 only."
+bot_iot_5pct_local,no,no,no,yes,yes,no,no,no,no,high,"Insufficient benign rows and non-current feature representation.","no_go","Do not proceed."
+ton_iot_train_test_network,no,no,partial,yes,yes,no,partial,no,no,high,"Would require a new representation/loader bridge and may still be scientifically ambiguous.","no_go_for_now","Only reconsider after a separate protocol precheck, not as immediate E4."
+frontend_f2_expression_crosscapture_archive,partial,yes,no,maybe,maybe,no,no,no,no,medium,"Archived route can pollute current few-shot paper center.","no_go","Keep archived."
+unsw_cic_iot23_external_raw,no,no,no,unknown,yes,no,no,no,no,high,"No verified local data package or manifest.","no_go","Require user-provided manifest before any plan."

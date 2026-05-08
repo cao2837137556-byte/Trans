@@ -1,0 +1,16 @@
+risk_name,candidate_environment,severity,reason,mitigation,recommend_continue
+数据语义不匹配 IoT IDS,ton_iot_train_test_network,medium,"The available Train_Test_Network_dataset is tabular network data and not the current KitNET original100/source_rich pipeline.","Only use after documenting dataset semantics and building a protocol precheck.",no
+benign OOD 无法合理定义,bot_iot_5pct_local,high,"Prior split gate showed too few benign rows for robust ID/OOD support.","Do not force ID/OOD roles from tiny benign counts.",no
+attack positives 不够 high-purity,ton_iot_train_test_network,medium,"Old TON smoke uses label-based attack roles, but current stage2 high-purity attack provenance is not established.","Require high-purity attack pool definition and support/eval disjoint audit before any run.",no
+split 泄漏风险,ton_iot_train_test_network,medium,"Existing old runs do not provide the full E3-b style support row-id provenance under the current protocol.","Run protocol-only precheck before training if this candidate is ever reconsidered.",no
+threshold leakage 风险,ton_iot_train_test_network,medium,"Old threshold sensitivity/coupling probes are not the frozen fixed/guarded few-shot protocol.","Pre-register threshold provenance and forbid final OOD/attack eval in threshold selection.",no
+与当前 few-shot protocol 不兼容,bot_iot_5pct_local,high,"No current original100/source_rich few-shot split; insufficient benign support under prior formal gate.","Do not proceed; keep as limitation.",no
+与当前 few-shot protocol 不兼容,ton_iot_train_test_network,high,"Uses 16 numeric tabular features and old scorers rather than current original100/source_rich few-shot control.","Do not proceed without a new protocol-compatibility precheck.",no
+feature extraction 成本过高,ton_iot_train_test_network,medium,"A clean same-protocol bridge would require new loader/feature representation work.","Do not start until E4 scientific value is explicitly approved.",no
+旧路线结果污染当前主线,frontend_f2_expression_crosscapture_archive,high,"Archived frontend expression runs can blur the convergence-first few-shot paper center.","Keep archived and cite only as historical mechanism asset if needed.",no
+结果可能无法解释,bot_iot_5pct_local,high,"Negative or unstable results would be dominated by benign scarcity and feature mismatch rather than a clean scientific effect.","Do not run; explain as feasibility blocker.",no
+结果可能无法解释,ton_iot_train_test_network,high,"A bad result could reflect feature mismatch, split semantics, or old scorer coupling rather than target-alignment failure.","Require precheck; otherwise avoid formal E4.",no
+时间成本过高,ton_iot_train_test_network,medium,"Clean alignment would require new data adapter, split audit, support provenance, and possibly feature extraction.","Prefer E5 label-budget / label-purity sensitivity if no clean E4 candidate is approved.",no
+数据语义不匹配 IoT IDS,unsw_cic_iot23_external_raw,medium,"No verified local external package was found, so semantics cannot be audited.","Require user-provided data manifest.",no
+threshold leakage 风险,current_iot23_primary_crosscapture_split,low,"Current E3/E3-b already closed threshold/support provenance warnings.","No additional mitigation needed.",yes
+旧路线结果污染当前主线,frontend_f2_v7_4_paired_hard_holdout,low,"v7.4 is already bounded as hard-holdout robustness/auditability, not average superiority.","Keep the existing boundary language.",yes

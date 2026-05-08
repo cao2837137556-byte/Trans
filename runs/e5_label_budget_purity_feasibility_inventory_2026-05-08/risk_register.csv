@@ -1,0 +1,12 @@
+risk_name,severity,reason,mitigation,recommend_continue
+budget 太多导致主线变成 curve paper,medium,"4/8/16/32/64 plus multiple policies can dominate the narrative.","Use original100 guarded as the main E5-A curve; move fixed/source_rich variants to appendix.",yes
+64-shot 过强导致 few-shot claim 变弱,low,"64-shot may look less few-shot to some readers.","Frame 64-shot as sensitivity upper reference; main claim remains 16/32-shot.",yes
+4-shot 失败如何解释,medium,"Very small support can fail or fluctuate, which may look like method weakness.","Predefine 4-shot as lower-bound stress; interpret as boundary rather than failure of 16/32.",yes
+contamination 设计被误读为真实 label noise,high,"Replacing positives with benign examples is a controlled stress test, not a faithful SOC labeling process.","Use explicit wording: controllable purity stress test; avoid general real-world label-noise claims.",yes
+source_rich 扩展导致角色混乱,high,"Adding source_rich to every E5 table can make it look like a competing main method.","Keep source_rich optional appendix only; original100 remains E5 main control.",no by default
+fixed / guarded 口径过多导致表格爆炸,medium,"Two threshold policies across many budgets and contamination rates can create unreadable tables.","Guarded only in main text; fixed only appendix if useful.",yes
+seed 数过少,medium,"Five seeds may be challenged for sensitivity curves.","Keep current 42-46 for consistency; add 10 seeds only if curves are unstable or reviewer pressure demands it.",yes
+provenance 不完整,high,"New budgets and contaminated supports require full row-id audit or E3-b defense weakens.","Generate E5-specific full support and contamination provenance logs.",yes
+结果波动过大,medium,"Budget or contamination curves may be non-monotonic with small supports.","Report mean/min/max and feasible rate; do not force monotonic claims.",yes
+contamination source leakage,high,"Contaminants sampled from final OOD eval or attack eval would invalidate threshold/eval separation.","Use only OOD train/validation-allowed source as predeclared training contamination pool; never final eval.",yes
+lower-purity pool semantics unclear,medium,"Boundary/mixed attack metadata exists but exact row-id construction must be audited.","Defer lower-purity design until row mapping is proven.",no by default
