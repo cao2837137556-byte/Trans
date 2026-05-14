@@ -1,0 +1,8 @@
+split,expected_rows,label,hidden_available,original100_available,aligned,notes
+id_train,8000,ID benign,True,True,True,row-order alignment by current low-OOD feature/cache convention
+id_calib,5000,ID benign,True,True,True,row-order alignment by current low-OOD feature/cache convention
+id_eval,35000,ID benign,True,True,True,row-order alignment by current low-OOD feature/cache convention
+ood_train,8000,OOD benign,True,True,True,row-order alignment by current low-OOD feature/cache convention
+ood_val,2000,OOD benign,True,True,True,row-order alignment by current low-OOD feature/cache convention
+ood_eval,10000,OOD benign,True,True,True,row-order alignment by current low-OOD feature/cache convention
+attack_all,10000,high-purity attack source,True,True,True,row-order alignment by current low-OOD feature/cache convention

@@ -1,0 +1,38 @@
+{
+  "run_tag": "issue12_base_detector_representation_recovery_and_guarded_probe_2026-05-15",
+  "created_at_local": "2026-05-15T00:57:22",
+  "completed_at_local": "2026-05-15T00:57:52",
+  "checkpoint": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_tailreg_stage1_2026-03-27\\transformer_seed42\\kitnet_transformer_seed42.ckpt",
+  "hidden_policy": "outputLayer_transformer_mean_pool",
+  "phase_a_completed": true,
+  "phase_b_executed": true,
+  "fixed_ood_weight": 2.0,
+  "budgets": [
+    16,
+    32
+  ],
+  "main_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "heldout_support_seeds": [
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "no_hyperparameter_search": true,
+  "score_consistency_tolerance": 1e-06,
+  "hidden_positive_main_32_vs_original100_fixed": true,
+  "hidden_positive_heldout_32_vs_original100_fixed": false,
+  "heldout_near_original100_fixed": true,
+  "training_performed": {
+    "transformer": false,
+    "dA": false,
+    "LR_adapter": true
+  }
+}

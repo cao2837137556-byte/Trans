@@ -1,0 +1,6 @@
+risk_name,severity,reason,mitigation
+hidden alignment risk,medium,Hidden cache is derived from legacy Transformer checkpoint and row-order conventions.,Gate with scalar score consistency and current split length checks.
+checkpoint mismatch risk,medium,Mainline and legacy Trans.py differ; issue07b score recovery used legacy root.,Use the exact legacy checkpoint/code path that reproduced scalar score cache.
+hidden dimensionality overfitting risk,low,"Hidden dim is 16, but few-shot positives remain small.",Report seed mean/min/max and held-out support seeds separately.
+no gain over original100 guard risk,high,Original100 fixed guard is a strong baseline from issue11.,Compare directly to original100 fixed guard and avoid overclaiming if no gain.
+base-detector integration overclaim risk,high,"This is fixed-guard LR on one Transformer hidden representation, not full detector-agnostic GDA.",Use representation probe wording only.
