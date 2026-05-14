@@ -1,0 +1,45 @@
+{
+  "run_tag": "issue07a_da_assisted_adapter_lowood_repair_2026-05-14",
+  "created_at_local": "2026-05-14T15:26:32",
+  "task": "dA-assisted few-shot adapter low-OOD repair",
+  "budgets": [
+    16,
+    32
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "threshold_policy": "guarded_id_calib_and_ood_val_target1pct",
+  "target_alarm": 0.01,
+  "new_backbone_trained": false,
+  "da_retrained": false,
+  "transformer_run": false,
+  "data_paths": {
+    "id_features": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_crosscapture_stage1_2026-03-25\\data\\id_source_100.npy",
+    "ood_features": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_crosscapture_stage1_2026-03-25\\data\\ood_benign_source_100.npy",
+    "attack_features": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_joint_eval_stage1_2026-03-31\\data\\attack_source_100.csv",
+    "da_id_scores": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\original100_fewshot_official_control_2026-04-22\\score_cache\\da_full_id_scores.npy",
+    "da_ood_scores": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\original100_fewshot_official_control_2026-04-22\\score_cache\\da_ood_scores.npy",
+    "da_attack_scores": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\original100_fewshot_official_control_2026-04-22\\score_cache\\da_attack_scores.npy",
+    "stage2_manifest": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_joint_eval_stage2_2026-04-01\\attack_manifest_stage2.json"
+  },
+  "model": {
+    "type": "LogisticRegression",
+    "penalty": "l2",
+    "solver": "liblinear",
+    "class_weight": "balanced",
+    "C": 1.0,
+    "max_iter": 2000
+  },
+  "support_sampling_rule": "rng=np.random.default_rng(seed + int(budget) * 1009); rng.choice(train_idx, size=budget, replace=False)",
+  "environment": {
+    "python": "3.10.0 (tags/v3.10.0:b494f59, Oct  4 2021, 19:00:18) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.2.6",
+    "pandas": "2.3.1"
+  }
+}

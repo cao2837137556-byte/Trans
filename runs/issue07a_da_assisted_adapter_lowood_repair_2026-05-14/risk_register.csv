@@ -1,0 +1,4 @@
+risk_name,severity,reason,mitigation,recommend_continue
+dA_score_only_may_be_too_low_capacity,medium,One-dimensional dA score may not contain enough information after OOD-tail shift,Report honestly and compare with original100+dA score,yes
+original100_plus_da_score_may_not_improve,medium,dA score may be redundant with original100 features,Use original100-only baseline as fixed comparison,yes
+Transformer_branch_not_ready,medium,Full-ID Transformer scores are missing,Do not run Transformer adapter in issue07a,yes_for_da_only

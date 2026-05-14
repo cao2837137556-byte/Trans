@@ -1,0 +1,2 @@
+threshold_name,threshold_description,uses_id_calib,uses_ood_val,uses_final_ood_eval,uses_attack_eval,uses_attack_train_pool,paper_safe,note
+guarded_id_calib_and_ood_val_target1pct,Guarded threshold selected from adapter scores on ID calibration and OOD validation only.,True,True,False,False,False,True,Final OOD eval and final attack eval are never used for threshold selection.

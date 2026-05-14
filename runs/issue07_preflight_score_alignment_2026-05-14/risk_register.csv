@@ -1,0 +1,5 @@
+﻿risk_name,severity,reason,mitigation,recommend_continue
+transformer_id_score_incomplete,high,Transformer ID score cache has 5000 rows but current primary split requires 50000 ID rows.,Do not run Transformer adapter until full-ID scores are regenerated/recovered; or mark as auxiliary only.,no_for_transformer_branch
+setting_confusion,high,"Existing Transformer low-OOD result is legacy partial-ID cache, not exact current primary split.",Label setting_type explicitly in all reports; avoid comparing as exact fixed baseline.,yes_with_labeling
+score_direction_outliers,medium,dA and Transformer scores have very large OOD-tail outliers; score direction is higher-is-more-anomalous but threshold can be dominated by OOD tail.,Keep score-direction check and robust logging before any adapter run.,yes
+lr_raw_scores_missing,low,Official original100 LR raw decision vectors were not retained.,Use existing metrics as fixed baseline; future adapter runs can regenerate LR baseline only if exact comparison needs raw scores.,yes

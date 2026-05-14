@@ -1,0 +1,8 @@
+# dA Score Source Report
+
+| score_source | path | score_len | matrix_rows | alignment_status | note |
+|---|---|---|---|---|---|
+| dA full ID scores | D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline\runs\original100_fewshot_official_control_2026-04-22\score_cache\da_full_id_scores.npy | 50000 | 50000 | aligned | Covers current primary split ID train/calib/eval slices. |
+| dA OOD scores | D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline\runs\original100_fewshot_official_control_2026-04-22\score_cache\da_ood_scores.npy | 20000 | 20000 | aligned | Covers current primary split OOD train/val/eval slices. |
+| dA attack scores | D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline\runs\original100_fewshot_official_control_2026-04-22\score_cache\da_attack_scores.npy | 10000 | 10000 | aligned | Covers stage2 high-purity attack train/val/eval row ids. |
+

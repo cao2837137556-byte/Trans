@@ -119,6 +119,7 @@ few-shot target-aligned detector 是当前方法中心：
 | source-rich feature/family/scale analysis | 支撑 auditability 和 hard-holdout case study |
 | collapse sanity audit (`runs/collapse_sanity_audit_2026-04-25/`) | 已完成；结论为 `collapse_likely_real_operating_point_effect`，当前 dA official cache 未发现 row-order / index / threshold 泄漏问题，旧 transformer raw cache 仅作 legacy auxiliary evidence |
 | Prism collapse sanity handoff (`runs/prism_handoffs/handoff_collapse_sanity_audit_2026-04-25.md`) | paper-facing 段落已生成；用于把 collapse sanity audit 写成保守正文资产 |
+| issue02 original normal-vs-attack sanity (`runs/issue02_original_da_normal_attack_sanity_run_2026-05-08/`) | 已完成；clean115 原始 normal-vs-attack 下 dA 很强（AUC `0.9340`, PR-AUC `0.9487`, q99 attack detection `0.8642`, benign false alarm `0.0107`），few-shot LR 在该原始 setting 下波动大。用途是支持“low-OOD collapse 更像 deployment working-point 问题”，不是证明 LR 全面优于 dA |
 
 ### 3.3 负结果资产
 
@@ -256,7 +257,57 @@ few-shot target-aligned detector 是当前方法中心：
 - 明确 `16-shot` / `32-shot` 是训练 high-purity attack positives 的预算，不是评估集规模；
 - 固定 dA 为 unsupervised reference，original100 为 official control，source_rich 为 hard-holdout robustness + auditability 资产。
 
-### 5.4 当前不再推进的实验包
+### 5.4 Next Phase: Base-Detector-Agnostic Guarded Few-Shot Adapter
+
+Status:
+- This is a candidate next phase, not a completed experiment.
+- It upgrades the narrative from "replace dA with few-shot LR" to "use few-shot target alignment as a guarded deployment adapter on top of base detectors".
+- The current paper center remains `strict low-OOD-alarm operating region` + `detection collapse` + `few-shot target alignment`.
+
+2026-05-08 strategy update:
+- dA remains a classic lightweight cold-start unsupervised detector.
+- Transformer should be treated as a possible modern contextual base detector, but the project still needs evidence retrieval before claiming ordinary-setting strength.
+- L2 `LogisticRegression` remains the minimal target-alignment baseline; it is not automatically the final adapter head.
+- Candidate names include `Guarded Few-shot Adapter (GFA)`, `Base-Detector-Agnostic Guarded Few-shot Adapter`, and `Guarded Deviation Adapter (GDA)`.
+
+Candidate adapter inputs:
+- base representation: `original100` or future Transformer hidden representation;
+- base detector score: dA RMSE or Transformer anomaly score;
+- few-shot high-purity attack positives;
+- ID benign + OOD benign negatives.
+
+Candidate adapter output:
+- attack-oriented score;
+- evaluated under `guarded_id_calib_and_ood_val_target1pct`;
+- final OOD eval and attack eval remain excluded from threshold/model selection.
+
+| item | current_status | evidence_status | role_in_paper | next_action | risk |
+|---|---|---|---|---|---|
+| dA only | completed reference baseline | strong in original normal-vs-attack issue02 sanity; collapses under guarded low-OOD main protocol | classic cold-start detector and unsupervised reference | keep as reference; do not frame as invalid detector | writing dA as "failed model" would misstate the evidence |
+| Transformer only | historical exploratory line | stronger-OOD evidence exists; no formal ordinary normal-vs-attack proof stronger than dA found in this update | possible modern base detector, not current paper center | perform Transformer evidence retrieval before any claim | historical results may be non-comparable or not reproducible |
+| LR original100 minimal baseline | completed mainline control | strong guarded few-shot control on primary split; original normal-vs-attack LR is seed-sensitive | minimal target-alignment baseline | keep as baseline for adapter comparisons | confusing minimal baseline with final method |
+| dA-assisted adapter | proposed feasibility direction | not yet run under current guarded paired protocol | candidate lifecycle story: dA cold-start plus few-shot adaptation | first run score-alignment inventory, then paired feasibility if aligned | dA score may add no stable value beyond original100 |
+| Transformer-assisted adapter | proposed feasibility direction | needs Transformer base evidence and aligned scores/representations | candidate modern-detector adapter | retrieve Transformer ordinary-setting and low-OOD score evidence first | cannot support detector-agnostic framing without clean Transformer evidence |
+| detector-agnostic GFA/GDA | proposed next-phase framework | not yet completed; requires at least two base detectors | future method framing candidate, not current claim | define shared adapter protocol after dA/Transformer evidence gates | detector-agnostic claim requires multiple base detectors |
+| prototype adapter | future optional head | not run | possible nonlinear target-alignment head | only compare after LR baseline and detector-score adapters are fixed | model-capacity gains may obscure target-alignment contribution |
+| cost-sensitive / low-OOD-aware adapter | future optional head | not run | possible low-alarm-aware adapter variant | pre-register a small fixed weighting set; no final-eval tuning | large sweep could become uncontrolled method search |
+| second-environment validation | closed limitation under current protocol | BoT-IoT/TON-IoT sealed as negative evidence / boundary | limitation and external-validity boundary | reopen only with new dated same-protocol manifest | forcing dirty external data would weaken credibility |
+| modern unsupervised baseline comparison | partial historical evidence | Deep SVDD, FT, other baselines exist mainly as collapse/negative evidence | reviewer attack-surface reduction, not paper center | keep as archived support unless a targeted gap remains | turning into model zoo would dilute the main story |
+
+Issue02 evidence routing:
+- Run: `runs/issue02_original_da_normal_attack_sanity_run_2026-05-08/`.
+- Data: clean115, `200000` rows, `115` dimensions; benign `121621`, attack `78379`.
+- dA original normal-vs-attack: ROC-AUC `0.9340`, PR-AUC `0.9487`, q99 attack detection `0.8642`, benign false alarm `0.0107`.
+- few-shot LR original normal-vs-attack is seed-sensitive and should not be written as a dA replacement.
+- Recommended use: appendix sanity comparison.
+- Non-use: do not put it in the main-text core result, and do not claim LR is generally stronger than dA in the original setting.
+
+Transformer evidence retrieval note:
+- Search found clean115 `trans115_min` / `da115_min`, but they are ID-only minimal checks with no attack metrics.
+- Search found stronger-OOD Transformer/FT/ensemble evidence, but that is not ordinary closed-set normal-vs-attack evidence.
+- Current status: `needs evidence retrieval`.
+
+### 5.5 当前不再推进的实验包
 
 - second-environment rescue / expansion；
 - 新一轮无监督 tokenizer / AE patch；

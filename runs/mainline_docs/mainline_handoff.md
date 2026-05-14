@@ -1,6 +1,6 @@
 # Mainline Handoff
 
-Updated: 2026-04-21
+Updated: 2026-05-08
 Workspace: `D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline`
 Branch: `codex/exp-mainline`
 Canonical path: `runs/mainline_docs/mainline_handoff.md`
@@ -32,6 +32,7 @@ This file is the time-ordered handoff for the A-line main experiment only.
 
 ## Current Status
 
+- Latest framing note: see `2026-05-08 Strategy Update` below. The current candidate direction is base-detector-agnostic guarded few-shot adaptation, but this is a next-phase proposal, not a completed experiment or current paper claim.
 - The project is no longer in "close the draft quickly" mode. It has been reclassified into the A-tier strengthening stage.
 - Phase 1 is complete: problem definition, main pathology localization, main candidate screening, external baseline supplements, and one round of deployability diagnosis are already in place.
 - The current A-line gap is no longer "find any Transformer win." The gap is to complete the evidence package that makes the mainline argument defensible at A-tier standard.
@@ -853,3 +854,69 @@ Current next:
 - Treat second-environment as closed negative evidence unless the project opens a new protocol.
 - Treat the original100 few-shot package as the mainline official control group for the v7 target-aligned methodology port.
 - Commit/push the script plus mainline doc updates; keep generated run artifacts local unless explicitly requested otherwise because `/runs/*` is ignored except the two mainline docs.
+
+### 2026-05-08 (Strategy Update: From LR Replacement to Base-Detector-Agnostic Guarded Few-Shot Adaptation)
+
+What was done:
+- Recorded a strategy update only. No experiment was started, no model was trained, and the manuscript was not modified.
+- Added the interpretation of `runs/issue02_original_da_normal_attack_sanity_run_2026-05-08/` into the mainline handoff.
+- Reframed the next candidate direction as base-detector-agnostic guarded few-shot adaptation rather than "replace dA with few-shot LR".
+
+Key evidence added:
+- `issue02_original_da_normal_attack_sanity_run_2026-05-08/` uses clean115 original normal-vs-attack data:
+  - rows: `200000`
+  - feature_dim: `115`
+  - benign rows: `121621`
+  - attack rows: `78379`
+- dA in the original normal-vs-attack setting is strong:
+  - ROC-AUC `0.9340`
+  - PR-AUC `0.9487`
+  - benign-calibration q99 attack detection `0.8642`
+  - benign eval false alarm `0.0107`
+- few-shot LR on the same original setting is seed-sensitive:
+  - 16-shot q99 AUC mean/min/max `0.6944 / 0.0777 / 0.9292`
+  - 16-shot q99 detection mean/min/max `0.6249 / 0.0112 / 0.8648`
+  - 32-shot q99 AUC mean/min/max `0.6085 / 0.1113 / 0.9312`
+  - 32-shot q99 detection mean/min/max `0.5320 / 0.0316 / 0.8655`
+
+Judgment:
+- dA is not invalidated as a detector. It remains a classic lightweight cold-start unsupervised detector.
+- The low-OOD collapse evidence should be interpreted as a deployment working-point problem under benign OOD and strict low-OOD-alarm constraints, not as proof that dA lacks normal-vs-attack detection ability.
+- L2 `LogisticRegression` remains the minimal target-alignment baseline. It should not be written as a universal replacement for dA or as the final adapter architecture.
+- The next method framing should be candidate-level only:
+  - base detectors may include dA as a classic lightweight detector and Transformer as a modern contextual detector;
+  - few-shot adapters use high-purity attack positives plus ID/OOD benign negatives to learn an attack-oriented score;
+  - the guarded low-OOD-alarm threshold remains the deployment operating point.
+
+Candidate next-phase names:
+- `Guarded Few-shot Adapter (GFA)`
+- `Base-Detector-Agnostic Guarded Few-shot Adapter`
+- `Guarded Deviation Adapter (GDA)`
+
+Candidate adapter inputs:
+- base representation, such as `original100` or a future Transformer hidden representation;
+- base detector score, such as dA RMSE or Transformer anomaly score;
+- few-shot high-purity attack positives;
+- ID benign + OOD benign negatives.
+
+Candidate adapter output:
+- an attack-oriented score evaluated under `guarded_id_calib_and_ood_val_target1pct`;
+- final OOD eval and attack eval remain held out from threshold/model selection.
+
+Transformer evidence status:
+- A repository search did not find a formal ordinary normal-vs-attack result proving that Transformer is stronger than dA.
+- Found assets are weaker or different in scope:
+  - clean115 `trans115_min` / `da115_min` are ID-only minimal checks, not normal-vs-attack evidence;
+  - stronger-OOD Transformer/FT/ensemble results are operating-point evidence, not ordinary closed-set normal-vs-attack proof.
+- Therefore the Transformer role is currently `needs evidence retrieval`, not a completed claim.
+
+Boundary:
+- Do not write "few-shot LR replaces dA".
+- Do not write "GFA/GDA is proven".
+- Do not write "Transformer-assisted adapter is effective" until a same-protocol experiment exists.
+- Do not move this strategy update into the manuscript as a claim without a future evidence package.
+
+Next:
+- First retrieve or construct a clean Transformer ordinary-setting evidence inventory.
+- Then run a base-detector adapter feasibility inventory.
+- Only after those gates decide whether to start a formal GFA/GDA experiment.
