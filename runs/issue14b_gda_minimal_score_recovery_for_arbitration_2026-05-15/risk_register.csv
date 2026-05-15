@@ -1,0 +1,5 @@
+risk_name,severity,reason,mitigation,recommend_continue
+score_recovery_is_refit,medium,The LR adapter is refit only to recover row-level scores because issue11 did not persist them.,Validate recovered metrics exactly against issue11 seed-level metrics; do not change configuration.,yes_if_validation_passes
+review_samples_not_confirmed_attacks,medium,"Needs-review is a queueing decision, not an attack label.",Report review burden separately and avoid treating review as high-priority detection.,yes_with_caveat
+precision_proxy_prevalence,medium,high_alert_attack_fraction depends on the constructed eval mixture.,Call it a proxy rather than deployment precision.,yes_with_caveat
+mode_gated_high_equals_gda_high,low,"Under the defined policy, high-priority alerts are GDA-high rows and base-only rows go to review.",Emphasize that the added value is review safety net and burden accounting.,yes

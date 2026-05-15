@@ -1,0 +1,25 @@
+{
+  "run_tag": "issue14b_gda_minimal_score_recovery_for_arbitration_2026-05-15",
+  "created_at_local": "2026-05-15T13:03:28",
+  "status": "passed",
+  "gda_recovered_from_fixed_config": true,
+  "hyperparameter_search": false,
+  "modified_existing_results": false,
+  "manuscript_modified": false,
+  "input_runs": {
+    "issue11": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue11_fixed_config_ood_guard_lr_ablation_2026-05-14",
+    "issue14_preflight": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue14_arbitration_matrix_experiment_2026-05-15",
+    "issue07a": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue07a_da_assisted_adapter_lowood_repair_2026-05-14",
+    "issue07b_score_recovery": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue07b_transformer_full_id_score_recovery_2026-05-14"
+  },
+  "split_counts": {
+    "id_train": 8000,
+    "id_calib": 5000,
+    "ood_train": 8000,
+    "ood_val": 2000,
+    "final_ood_eval": 10000,
+    "attack_train_pool": 4122,
+    "attack_val": 1374,
+    "attack_eval": 1375
+  }
+}
