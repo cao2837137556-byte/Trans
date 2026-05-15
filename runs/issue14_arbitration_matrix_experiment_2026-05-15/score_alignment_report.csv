@@ -1,0 +1,11 @@
+sample_id_or_row_range,split,label,base_score_available,gda_score_available,aligned,notes
+0:8000,id_train,ID benign,True,False,False,"base score caches are available, but issue11 GDA-minimal per-sample scores are not persisted; strategy-level row alignment cannot be completed without GDA score recovery."
+8000:10000,id_val_unused,ID benign,True,False,False,"base score caches are available, but issue11 GDA-minimal per-sample scores are not persisted; strategy-level row alignment cannot be completed without GDA score recovery."
+10000:15000,id_calib,ID benign,True,False,False,"base score caches are available, but issue11 GDA-minimal per-sample scores are not persisted; strategy-level row alignment cannot be completed without GDA score recovery."
+15000:50000,id_eval,ID benign,True,False,False,"base score caches are available, but issue11 GDA-minimal per-sample scores are not persisted; strategy-level row alignment cannot be completed without GDA score recovery."
+0:8000,ood_train,OOD benign,True,False,False,"base score caches are available, but issue11 GDA-minimal per-sample scores are not persisted; strategy-level row alignment cannot be completed without GDA score recovery."
+8000:10000,ood_val,OOD benign,True,False,False,"base score caches are available, but issue11 GDA-minimal per-sample scores are not persisted; strategy-level row alignment cannot be completed without GDA score recovery."
+10000:20000,final_ood_eval,OOD benign,True,False,False,"base score caches are available, but issue11 GDA-minimal per-sample scores are not persisted; strategy-level row alignment cannot be completed without GDA score recovery."
+stage2_train_rows,attack_train_candidate,high-purity attack,True,False,False,"base score caches are available, but issue11 GDA-minimal per-sample scores are not persisted; strategy-level row alignment cannot be completed without GDA score recovery."
+stage2_val_rows,attack_val,high-purity attack,True,False,False,"base score caches are available, but issue11 GDA-minimal per-sample scores are not persisted; strategy-level row alignment cannot be completed without GDA score recovery."
+stage2_eval_rows,attack_eval,high-purity attack,True,False,False,"base score caches are available, but issue11 GDA-minimal per-sample scores are not persisted; strategy-level row alignment cannot be completed without GDA score recovery."

@@ -1,0 +1,6 @@
+mitigation,reason,recommend_continue,risk_name,severity
+Run a score-recovery pass that reuses fixed issue11 config and saves decision_function outputs; do not search hyperparameters.,"Issue11 persists aggregate metrics, thresholds, and provenance, but not row-level GDA scores.",no_for_strategy_metrics_yes_for_design_pack,missing_gda_per_sample_score,high
+Require score_alignment_report to pass before computing strategy metrics.,Arbitration must use the exact same final OOD and attack eval ids for base and GDA.,no_until_alignment_passes,base_subset_vs_gda_full_mismatch,high
+Report review volume separately and call it preservation of base-only evidence.,Needs-review samples are not confirmed attacks.,yes_with_caveat,review_burden_overclaim,medium
+Keep claims bounded to system policy evidence after row-level metrics exist.,"Mode-gated arbitration is a deployment policy candidate, not proof of full GDA.",yes_with_caveat,arbitration_novelty_overclaim,medium
+Label high_alert_attack_fraction as a proxy only.,Attack/OOD mixture in the eval set is not a deployment prevalence model.,yes_with_caveat,precision_proxy_prevalence_risk,medium
