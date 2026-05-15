@@ -1,0 +1,9 @@
+﻿risk_name,severity,reason,mitigation,recommend_continue
+non-comparable feature risk,high,External assets use different feature spaces and do not have current original100/source_rich/GDA feature manifests.,Require feature extraction/version manifest before validation.,no_for_external_now
+label mismatch risk,high,"External datasets may not provide the same ID benign, OOD benign, and high-purity attack roles.",Create dataset-specific role manifest and reject if roles cannot be separated.,no_until_manifest
+row-id alignment risk,high,Current GDA-minimal row-level scores only cover current split; v7.4/external candidates lack aligned row-level GDA scores.,Recover fixed-config score generation with sample_id manifest.,yes_for_v74_recovery
+threshold transfer risk,medium,Reusing current threshold across a changed holdout may be invalid unless strict transfer is the explicit goal.,Separate strict-threshold-transfer from protocol-recalibrated hard-holdout evaluation.,yes_with_protocol_split
+support leakage risk,high,Hard-holdout runs need new support/eval disjointness checks if support pools change.,Emit support_id_provenance and validation CSV for every candidate.,yes_with_audit
+cherry-pick holdout risk,medium,Choosing only one favorable v7.4 window would weaken credibility.,Pre-register representative chrono_late_train_early_eval and at least one bin holdout before running.,yes
+external dataset conversion risk,high,BoT-IoT and TON-IoT need substantial protocol conversion and may not support current low-OOD roles.,Do not download or convert in this turn; plan a separate second-environment acquisition task.,no_now
+overclaiming generalization risk,high,Existing hard-holdout and current-split results do not prove second-environment external validity.,Use limitation language until formal issue16b or external validation is complete.,yes_with_boundary
