@@ -1,0 +1,5 @@
+risk_name,severity,reason,mitigation,recommend_continue
+review_false_positive_burden,medium,Review queue may include mostly OOD benign rows.,Report OOD review rate and review_attack_fraction.,yes_with_caveat
+review_attack_gain_weak,medium,Base-only high rows may add little attack capture.,Frame review as safety net rather than main detection gain.,yes_with_caveat
+prevalence_proxy_risk,medium,Review composition depends on the constructed eval mix.,Use composition as label-mixture proxy only.,yes_with_caveat
+overclaiming_safety_net,high,No unseen-attack labels are present.,Do not claim unseen attack detection.,yes_with_boundary
