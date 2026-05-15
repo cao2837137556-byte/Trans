@@ -1,0 +1,7 @@
+risk_name,severity,reason,mitigation
+timeline overclaim,high,"Issue13 is evidence organization, not a new validated system experiment.",Use proposed activation rule and draft arbitration language.
+GDA-minimal confused with full GDA,high,Current validated mechanism is fixed-guard LR.,Define GDA-minimal explicitly as original100 + fixed OOD guard + few-shot LR.
+base detector replacement framing,high,Base detectors remain useful for cold-start and generic anomaly monitoring.,State that GDA-minimal runs alongside base detector.
+source_rich overclaim,medium,source_rich is useful but not stable over original100 held-out seeds.,Keep source_rich as optional representation/auditability evidence.
+Transformer hidden overclaim,medium,hidden integration feasible but not stable main-gain source.,Use B-level evidence wording.
+arbitration not yet validated,medium,Review queue and arbitration matrix are only specified in issue13.,Move policy comparison to issue14.
