@@ -920,3 +920,46 @@ Next:
 - First retrieve or construct a clean Transformer ordinary-setting evidence inventory.
 - Then run a base-detector adapter feasibility inventory.
 - Only after those gates decide whether to start a formal GFA/GDA experiment.
+
+### 2026-05-17 Strategy Update: Problem-Driven Reframing after 2022–2026 Frontier Survey
+
+Source report received and accepted:
+
+- `D:\study\paper\anomaly_detection\paper04\worktrees\gpt deep\22年-26年问题定义报告.md`
+- SHA-256: `d7d8649029a2bae5a5cdc6f4ca9ea07a3ea4256391d21d8cabc1345e8940c4f9`
+
+Main framing is now changed from **few-shot LR repair** to **low-alert IDS under benign-OOD drift**. The recommended paper route is **Problem B / balanced hybrid paper**: problem definition + deployment-stage guarded adaptation + bounded coexistence with base detectors.
+
+Current method naming:
+
+- Preferred paper name: `LOW-GUARD` / `LOW-GUARD-minimal`.
+- Internal shorthand `GDA` may remain for later guarded/deviation adapter ideas, but the current paper should not imply full neural GDA has been completed.
+- Current stable implementation: `original100 representation + fixed OOD-benign guard + few-shot LR adapter`.
+
+Current strongest evidence:
+
+- Ordinary sanity checks show dA / Transformer are not useless cold-start detectors.
+- Low-OOD collapse shows deployment mismatch: ordinary ranking quality does not guarantee low-alert attack detection under benign-OOD drift.
+- Scalar score fusion is negative / not a main route.
+- Fixed OOD guard is positive and currently the strongest mechanism.
+- LOW-GUARD-minimal high-priority channel is positive on the current primary split.
+- Mode-gated arbitration and bounded review define system coexistence with base detectors.
+- Review queue is a safety net only, not a confirmed attack pool.
+
+Current missing evidence:
+
+- Formal harder holdout.
+- Second environment / external dataset.
+- Few-shot anomaly baselines such as DevNet-like / Deep SAD-like / RoSAS-like comparisons.
+- OOD budget sensitivity.
+- LOW-GUARD shot sensitivity.
+- Modern unsupervised baselines.
+- Efficiency / runtime.
+- Calibration / threshold transfer.
+
+Immediate next decision should use issue16 results to choose among:
+
+- issue16b formal harder holdout,
+- baseline recovery,
+- second environment plan,
+- or stop/pivot.

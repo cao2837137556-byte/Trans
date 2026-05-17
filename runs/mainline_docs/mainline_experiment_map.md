@@ -1551,3 +1551,42 @@ Interpretation boundary:
 - source-rich role = hard-holdout robustness + auditability。
 - closed limitation = A-line second-environment failure package。
 
+## 6. Problem-Driven Reframing and Evidence Roadmap
+
+Date: 2026-05-17
+
+This section records the post-survey reframing from few-shot LR repair to **Low-Alert Intrusion Detection under Benign-OOD Drift**. The current recommended route is **Problem B / balanced hybrid paper**.
+
+### 6.1 New Evidence Map
+
+| Evidence level | Items | Paper role |
+|---|---|---|
+| A-level | low-OOD collapse; fixed OOD guard; original100 fixed guard / LOW-GUARD-minimal; clean support and threshold provenance | Can support main claims if harder-holdout and baseline gaps are handled. |
+| B-level | source_rich useful but unstable; Transformer hidden integration feasible; mode-gated arbitration as deployment policy; bounded review as safety net | Auxiliary and system-context evidence. |
+| C-level / negative | scalar score fusion; hidden-only failure; source_rich as stable main gain | Boundary evidence and appendix / negative-result record. |
+| Missing | formal harder holdout; second environment; DevNet / Deep SAD / RoSAS-like baselines; OOD target sensitivity; shot sensitivity; runtime / efficiency; threshold transfer | Must be addressed before strong submission claims. |
+
+### 6.2 Experiment Priority
+
+| Priority | Experiments | Purpose |
+|---|---|---|
+| S-level | formal harder holdout validation; few-shot anomaly baseline comparison; OOD target sensitivity 0.5 / 1 / 2; shot sensitivity 8 / 16 / 32 / 64; threshold/provenance audit preserved | Defend the main problem definition and prevent reviewer collapse into "cost-sensitive LR on one split." |
+| A-level | second environment pilot; modern unsupervised baselines; efficiency / runtime; calibration transfer | Strengthen external validity and deployment credibility. |
+| B-level | adapter upgrade such as margin-GDA / deviation-GDA / prototype-GDA; Transformer hidden improvement; explainability / feature attribution | Only after S-level gaps are addressed. |
+| C-level | further source_rich tinkering as main route; large neural model upgrade before generalization evidence; more score-level fusion | Do not prioritize as mainline. |
+
+### 6.3 Current Stop Rule
+
+- Do not continue source_rich as the main route.
+- Do not continue Transformer hidden as the main route.
+- Do not optimize review queue as an added attack-detection contribution.
+- Do not perform complex adapter upgrades before harder-holdout and baseline recovery.
+- Do not reopen score-level fusion unless a new, pre-registered reason exists.
+
+### 6.4 Current Naming
+
+Use `LOW-GUARD-minimal` for the current implementation:
+
+`original100 representation + fixed OOD-benign guard + few-shot LR adapter`.
+
+Avoid writing that full GDA, detector-agnostic adaptation, source_rich superiority, or Transformer-hidden improvement has already been proven.
