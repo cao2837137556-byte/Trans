@@ -1,0 +1,9 @@
+risk,severity,mitigation
+feature selection leakage risk,high,Feature selection uses supports plus ID/OOD calibration-validation only; final eval flags are recorded.
+margin overfitting risk,high,All margin candidates are reported; no final eval candidate selection is allowed.
+validation overfitting risk,medium,This is a pilot and requires locked validation before claims.
+topK cherry-picking risk,medium,top16 and top32 are both reported.
+OOD alarm tradeoff risk,high,OOD alarm and feasible flags are reported for every method.
+seed instability risk,medium,main and held-out seed groups are separated.
+complexity creep risk,medium,No neural sweep or prototype/full GDA is run.
+calibration slice comparability risk,medium,issue19 follows issue17/18 repair-line calibration for kcenter comparability and records this caveat.

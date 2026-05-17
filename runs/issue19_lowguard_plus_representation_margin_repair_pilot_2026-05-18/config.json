@@ -1,0 +1,42 @@
+{
+  "run": "issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18",
+  "created_at": "2026-05-18T00:34:08",
+  "holdouts": [
+    "chrono_late_train_early_eval",
+    "holdout_bin_2"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "positive_budget": 32,
+  "topk_values": [
+    16,
+    32
+  ],
+  "margin_weights": [
+    2.0,
+    4.0,
+    8.0
+  ],
+  "hard_tail_frac": 0.05,
+  "target_alarm": 0.01,
+  "verdict": "strong_repair_candidate",
+  "paths": {
+    "original100_id": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_crosscapture_stage1_2026-03-25\\data\\id_source_100.npy",
+    "original100_ood": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_crosscapture_stage1_2026-03-25\\data\\ood_benign_source_100.npy",
+    "original100_attack": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_joint_eval_stage1_2026-03-31\\data\\attack_source_100.csv",
+    "source_rich_id": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-frontend-f2\\runs\\frontend_f2_source_rich_crosscapture_stage1_2026-04-20\\data\\id_source_expression_source_rich_v1_260.npy",
+    "source_rich_ood": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-frontend-f2\\runs\\frontend_f2_source_rich_crosscapture_stage1_2026-04-20\\data\\ood_benign_source_expression_source_rich_v1_260.npy",
+    "source_rich_attack": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-frontend-f2\\runs\\frontend_f2_source_rich_attack_source_2026-04-20\\data\\attack_source_expression_source_rich_v1_260.npy",
+    "stage2_manifest": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_joint_eval_stage2_2026-04-01\\attack_manifest_stage2.json"
+  }
+}
