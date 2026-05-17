@@ -1,0 +1,8 @@
+﻿risk_name,severity,reason,mitigation
+support selection leakage risk,low,Support selection must not use eval data.,Preflight and support provenance saved.
+overfitting to holdout_bin_2 risk,medium,Repair is motivated by holdout_bin_2 failure.,Evaluate both holdout_bin_2 and chrono_late without changing holdouts.
+support diversity overclaim risk,medium,Coverage metrics may improve without detection improvement.,Interpret only with detection and OOD alarm.
+insufficient budget risk,medium,Only 32-shot was run.,64-shot reserved as later sensitivity if needed.
+OOD alarm tradeoff risk,medium,Better attack support can increase attack-like scores for OOD.,Require OOD high alarm <=1%.
+metadata stratification risk,medium,"Only bin metadata is available, not full attack family metadata.","Call it bin stratification, not family stratification."
+seed instability risk,medium,Support selection can be deterministic or seed-dependent.,Main and held-out seeds are reported separately.

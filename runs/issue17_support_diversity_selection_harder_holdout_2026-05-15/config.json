@@ -1,0 +1,31 @@
+{
+  "run": "issue17_support_diversity_selection_harder_holdout_2026-05-15",
+  "created_at": "2026-05-17T23:18:07",
+  "positive_budget": 32,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "holdouts": [
+    "chrono_late_train_early_eval",
+    "holdout_bin_2"
+  ],
+  "new_methods": [
+    "kcenter_32shot",
+    "diversity_32shot",
+    "density_aware_32shot",
+    "stratified_bin_32shot"
+  ],
+  "random_baseline": "reused_issue16b original100_fixed_guard_lr 32-shot",
+  "ood_weight": 2.0,
+  "target_alarm": 0.01,
+  "no_final_eval_tuning": true
+}

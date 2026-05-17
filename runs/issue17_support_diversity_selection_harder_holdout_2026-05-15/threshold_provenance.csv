@@ -1,0 +1,101 @@
+holdout_name,protocol,method,positive_budget,seed,seed_group,threshold,uses_id_calib,uses_ood_val,uses_final_ood_eval,uses_attack_eval,threshold_source,id_calib_alarm_at_selection,ood_val_alarm_at_selection,threshold_selection_feasible,support_selection_method,result_source,target_alarm
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,42,main_42_46,-4.493964740794713,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.0098,0.0,True,random_32shot_baseline,reused_issue16b,
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,43,main_42_46,-4.020133028854047,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.0098,0.0,True,random_32shot_baseline,reused_issue16b,
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,44,main_42_46,-3.559022389761504,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.01,0.0005,True,random_32shot_baseline,reused_issue16b,
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,45,main_42_46,-3.481806003392498,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.0098,0.0,True,random_32shot_baseline,reused_issue16b,
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,46,main_42_46,-3.5973359498042603,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.0098,0.0,True,random_32shot_baseline,reused_issue16b,
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,47,heldout_47_51,-3.595493096572455,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.01,0.0005,True,random_32shot_baseline,reused_issue16b,
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,48,heldout_47_51,-3.303419058307803,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.01,0.0005,True,random_32shot_baseline,reused_issue16b,
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,49,heldout_47_51,-3.402039584608567,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.01,0.0005,True,random_32shot_baseline,reused_issue16b,
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,50,heldout_47_51,-3.565606192773382,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.0098,0.0,True,random_32shot_baseline,reused_issue16b,
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,51,heldout_47_51,-3.5180060297341864,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.0098,0.0,True,random_32shot_baseline,reused_issue16b,
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,42,main_42_46,-3.332950360075675,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.0098,0.0,True,random_32shot_baseline,reused_issue16b,
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,43,main_42_46,-3.4526895670333198,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.0098,0.0,True,random_32shot_baseline,reused_issue16b,
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,44,main_42_46,-3.477014218671437,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.0098,0.0,True,random_32shot_baseline,reused_issue16b,
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,45,main_42_46,-3.404132179268407,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.0098,0.0,True,random_32shot_baseline,reused_issue16b,
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,46,main_42_46,-3.4823052954505984,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.0098,0.0,True,random_32shot_baseline,reused_issue16b,
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,47,heldout_47_51,-3.560014729408409,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.01,0.0005,True,random_32shot_baseline,reused_issue16b,
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,48,heldout_47_51,-3.435858018739106,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.0098,0.001,True,random_32shot_baseline,reused_issue16b,
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,49,heldout_47_51,-4.555388448570464,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.0098,0.001,True,random_32shot_baseline,reused_issue16b,
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,50,heldout_47_51,-4.40694990353057,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.01,0.0015,True,random_32shot_baseline,reused_issue16b,
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,51,heldout_47_51,-3.726960167489133,True,True,False,False,ID calibration + OOD validation guard; final OOD eval and attack eval not used,0.0098,0.001,True,random_32shot_baseline,reused_issue16b,
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,42,main_42_46,-3.126371385544741,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,43,main_42_46,-3.126371385544741,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,44,main_42_46,-3.126371385544741,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,45,main_42_46,-3.126371385544741,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,46,main_42_46,-3.126371385544741,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,47,heldout_47_51,-3.126371385544741,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,48,heldout_47_51,-3.126371385544741,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,49,heldout_47_51,-3.126371385544741,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,50,heldout_47_51,-3.126371385544741,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,51,heldout_47_51,-3.126371385544741,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,42,main_42_46,-3.25427588043239,True,True,False,False,,0.0098,0.0,,diversity_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,43,main_42_46,-3.2666659018058093,True,True,False,False,,0.01,0.0005,,diversity_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,44,main_42_46,-3.059556522889526,True,True,False,False,,0.01,0.0005,,diversity_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,45,main_42_46,-3.076639723842384,True,True,False,False,,0.01,0.0005,,diversity_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,46,main_42_46,-3.0605742650499312,True,True,False,False,,0.0098,0.0,,diversity_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,47,heldout_47_51,-3.2762011457145257,True,True,False,False,,0.01,0.0005,,diversity_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,48,heldout_47_51,-3.0075003854455837,True,True,False,False,,0.01,0.0005,,diversity_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,49,heldout_47_51,-3.0713064461726307,True,True,False,False,,0.01,0.0005,,diversity_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,50,heldout_47_51,-3.0604130213759904,True,True,False,False,,0.0098,0.0,,diversity_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,51,heldout_47_51,-3.0059282212521397,True,True,False,False,,0.01,0.0005,,diversity_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,42,main_42_46,-3.059611680718968,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,43,main_42_46,-3.059611680718968,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,44,main_42_46,-3.059611680718968,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,45,main_42_46,-3.059611680718968,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,46,main_42_46,-3.059611680718968,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,47,heldout_47_51,-3.059611680718968,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,48,heldout_47_51,-3.059611680718968,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,49,heldout_47_51,-3.059611680718968,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,50,heldout_47_51,-3.059611680718968,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,51,heldout_47_51,-3.059611680718968,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,42,main_42_46,-3.138957972363971,True,True,False,False,,0.0098,0.0,,stratified_bin_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,43,main_42_46,-3.138957972363971,True,True,False,False,,0.0098,0.0,,stratified_bin_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,44,main_42_46,-3.138957972363971,True,True,False,False,,0.0098,0.0,,stratified_bin_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,45,main_42_46,-3.138957972363971,True,True,False,False,,0.0098,0.0,,stratified_bin_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,46,main_42_46,-3.138957972363971,True,True,False,False,,0.0098,0.0,,stratified_bin_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,47,heldout_47_51,-3.138957972363971,True,True,False,False,,0.0098,0.0,,stratified_bin_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,48,heldout_47_51,-3.138957972363971,True,True,False,False,,0.0098,0.0,,stratified_bin_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,49,heldout_47_51,-3.138957972363971,True,True,False,False,,0.0098,0.0,,stratified_bin_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,50,heldout_47_51,-3.138957972363971,True,True,False,False,,0.0098,0.0,,stratified_bin_32shot,issue17_new_run,0.01
+holdout_bin_2,local_calibration,original100_fixed_guard_lr,32,51,heldout_47_51,-3.138957972363971,True,True,False,False,,0.0098,0.0,,stratified_bin_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,42,main_42_46,-3.2033476938112866,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,43,main_42_46,-3.2033476938112866,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,44,main_42_46,-3.2033476938112866,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,45,main_42_46,-3.2033476938112866,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,46,main_42_46,-3.2033476938112866,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,47,heldout_47_51,-3.2033476938112866,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,48,heldout_47_51,-3.2033476938112866,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,49,heldout_47_51,-3.2033476938112866,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,50,heldout_47_51,-3.2033476938112866,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,51,heldout_47_51,-3.2033476938112866,True,True,False,False,,0.0098,0.0,,kcenter_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,42,main_42_46,-3.326787086602193,True,True,False,False,,0.01,0.0005,,diversity_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,43,main_42_46,-3.1880378305142494,True,True,False,False,,0.0098,0.0,,diversity_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,44,main_42_46,-3.170785852418158,True,True,False,False,,0.0098,0.0,,diversity_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,45,main_42_46,-3.2519840683728325,True,True,False,False,,0.0098,0.001,,diversity_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,46,main_42_46,-3.196674785042988,True,True,False,False,,0.0098,0.001,,diversity_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,47,heldout_47_51,-3.2640952755281,True,True,False,False,,0.01,0.0005,,diversity_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,48,heldout_47_51,-3.1724876888250657,True,True,False,False,,0.0098,0.0,,diversity_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,49,heldout_47_51,-3.1903317158709474,True,True,False,False,,0.0098,0.0,,diversity_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,50,heldout_47_51,-3.154278781861644,True,True,False,False,,0.0098,0.001,,diversity_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,51,heldout_47_51,-3.129937559368945,True,True,False,False,,0.0098,0.0,,diversity_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,42,main_42_46,-3.1284363873851673,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,43,main_42_46,-3.1284363873851673,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,44,main_42_46,-3.1284363873851673,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,45,main_42_46,-3.1284363873851673,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,46,main_42_46,-3.1284363873851673,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,47,heldout_47_51,-3.1284363873851673,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,48,heldout_47_51,-3.1284363873851673,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,49,heldout_47_51,-3.1284363873851673,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,50,heldout_47_51,-3.1284363873851673,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,51,heldout_47_51,-3.1284363873851673,True,True,False,False,,0.0098,0.0,,density_aware_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,42,main_42_46,-3.121421422221479,True,True,False,False,,0.01,0.0005,,stratified_bin_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,43,main_42_46,-3.121421422221479,True,True,False,False,,0.01,0.0005,,stratified_bin_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,44,main_42_46,-3.121421422221479,True,True,False,False,,0.01,0.0005,,stratified_bin_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,45,main_42_46,-3.121421422221479,True,True,False,False,,0.01,0.0005,,stratified_bin_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,46,main_42_46,-3.121421422221479,True,True,False,False,,0.01,0.0005,,stratified_bin_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,47,heldout_47_51,-3.121421422221479,True,True,False,False,,0.01,0.0005,,stratified_bin_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,48,heldout_47_51,-3.121421422221479,True,True,False,False,,0.01,0.0005,,stratified_bin_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,49,heldout_47_51,-3.121421422221479,True,True,False,False,,0.01,0.0005,,stratified_bin_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,50,heldout_47_51,-3.121421422221479,True,True,False,False,,0.01,0.0005,,stratified_bin_32shot,issue17_new_run,0.01
+chrono_late_train_early_eval,local_calibration,original100_fixed_guard_lr,32,51,heldout_47_51,-3.121421422221479,True,True,False,False,,0.01,0.0005,,stratified_bin_32shot,issue17_new_run,0.01
