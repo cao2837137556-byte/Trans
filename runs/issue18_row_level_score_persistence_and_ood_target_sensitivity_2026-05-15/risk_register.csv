@@ -1,0 +1,8 @@
+﻿risk_name,severity,reason,mitigation
+final eval tuning risk,high,Diagnostic curves include final eval metrics.,Report all pre-set targets and do not choose one as method.
+target cherry-picking risk,high,2% may look better.,Keep 2% diagnostic until pre-registered validation.
+row-level score mismatch risk,low,Scores are replayed from issue17 config.,preflight_metric_reproduction.csv records deltas.
+threshold calibration risk,medium,Validation threshold may not transfer.,Keep threshold provenance explicit.
+representation overclaim risk,medium,"Low margins are diagnostic, not causal proof.",Use representation_failure_diagnosis.md boundary.
+OOD target relaxation risk,high,Looser target can undermine low-alert premise.,Do not alter official target in this run.
+kcenter determinism risk,low,K-center is deterministic from train pool.,Support IDs and row-level scores saved.
