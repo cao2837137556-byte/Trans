@@ -1,0 +1,8 @@
+﻿risk_name,severity,reason,mitigation
+holdout comparability risk,medium,"v7.4 is a same-dataset cross-window hard holdout, not an external environment.",Do not call this second-environment validation.
+base baseline missing risk,medium,dA/Transformer base-only harder-holdout row-level scores were not available.,Report LOW-GUARD vs plain LR; do not claim delta vs base-only for this run.
+threshold transfer risk,medium,Only local-calibration protocol was run.,Keep transfer-threshold as a separate future task.
+support leakage risk,low,support overlap check clean=True.,Use support_id_provenance.csv as audit evidence.
+cherry-pick holdout risk,low,The run used pre-registered chrono_late_train_early_eval and holdout_bin_2.,Do not add or drop holdouts after seeing metrics.
+seed instability risk,medium,Main and held-out seed groups must be interpreted separately.,"Use min/max and feasible rate, not only means."
+overclaiming generalization risk,high,"This is harder holdout, not second environment or external dataset.",Use claim_boundary.md wording.

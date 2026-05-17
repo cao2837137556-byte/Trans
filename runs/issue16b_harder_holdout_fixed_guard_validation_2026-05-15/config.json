@@ -1,0 +1,41 @@
+{
+  "run": "issue16b_harder_holdout_fixed_guard_validation_2026-05-15",
+  "created_at": "2026-05-17T14:59:35",
+  "protocol": "local_calibration_hard_holdout",
+  "transfer_threshold_protocol": "not_run",
+  "holdouts": [
+    "chrono_late_train_early_eval",
+    "holdout_bin_2"
+  ],
+  "budgets": [
+    16,
+    32
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "methods": [
+    "original100_plain_lr",
+    "original100_fixed_guard_lr"
+  ],
+  "fixed_ood_weight": 2.0,
+  "target_alarm": 0.01,
+  "no_final_eval_tuning": true,
+  "paths": {
+    "issue16": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue16_harder_holdout_second_environment_feasibility_2026-05-15",
+    "v7_4": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-frontend-f2\\runs\\frontend_f2_v7_4_paired_holdout_fairness_2026-04-22",
+    "id_features": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_crosscapture_stage1_2026-03-25\\data\\id_source_100.npy",
+    "ood_features": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_crosscapture_stage1_2026-03-25\\data\\ood_benign_source_100.npy",
+    "attack_features": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_joint_eval_stage1_2026-03-31\\data\\attack_source_100.csv",
+    "stage2_manifest": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_joint_eval_stage2_2026-04-01\\attack_manifest_stage2.json"
+  }
+}
