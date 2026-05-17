@@ -1,0 +1,17 @@
+setting,method,split,score_available,reason
+chrono_late_train_early_eval,original100_plain_lr,attack_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+chrono_late_train_early_eval,original100_plain_lr,ood_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+chrono_late_train_early_eval,original100_fixed_guard_lr,attack_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+chrono_late_train_early_eval,original100_fixed_guard_lr,ood_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+chrono_late_train_early_eval,dA_only,attack_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+chrono_late_train_early_eval,dA_only,ood_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+chrono_late_train_early_eval,Transformer_only,attack_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+chrono_late_train_early_eval,Transformer_only,ood_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+holdout_bin_2,original100_plain_lr,attack_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+holdout_bin_2,original100_plain_lr,ood_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+holdout_bin_2,original100_fixed_guard_lr,attack_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+holdout_bin_2,original100_fixed_guard_lr,ood_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+holdout_bin_2,dA_only,attack_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+holdout_bin_2,dA_only,ood_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+holdout_bin_2,Transformer_only,attack_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.
+holdout_bin_2,Transformer_only,ood_eval,False,issue16b saved seed-level metrics and thresholds but did not save row-level scores; no model retraining is allowed in issue16c.

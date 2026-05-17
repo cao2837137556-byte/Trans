@@ -1,0 +1,8 @@
+﻿risk_name,severity,reason,mitigation
+final eval tuning risk,high,Repair design is based on final hard-holdout weakness.,Pre-register repair before rerun; no final-eval target selection.
+overfitting repair to holdout_bin_2 risk,high,Targeting bin 2 can become cherry-pick tuning.,Use train-pool-only rules and evaluate both pre-registered holdouts.
+support selection leakage risk,high,Diversity selection can leak if eval features influence support.,Use attack train pool only.
+feature drift overclaim risk,medium,"Feature drift is descriptive, not causal.",Frame as diagnostic evidence.
+threshold relaxation risk,medium,OOD target sensitivity can become post-hoc loosening.,Report all pre-set targets.
+metadata missing risk,medium,Attack family/device metadata not found.,Use bin metadata only and avoid family-level claims.
+repair complexity risk,medium,Jumping to neural GDA before diagnosis can weaken paper logic.,Run P1/P2 first.

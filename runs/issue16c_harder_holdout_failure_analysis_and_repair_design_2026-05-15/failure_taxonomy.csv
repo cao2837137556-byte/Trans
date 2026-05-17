@@ -1,0 +1,8 @@
+﻿failure_type,support_level,evidence
+T1_attack_representation_shift,high,"holdout_bin_2 mean_abs_smd=0.5784, chrono mean_abs_smd=0.3095."
+T2_support_mismatch,medium_to_uncertain,"holdout_bin_2 support distance ratio=70.2819, chrono ratio=72.8611; nearest-distance proxy does not by itself prove bin2 supports are farther than chrono supports."
+T3_guard_over_conservatism,low,Plain LR is also weak on holdout_bin_2 and fixed guard changes detection only slightly; guard is not the primary cause.
+T4_threshold_calibration_issue,medium,Only local calibration was run and OOD target curves cannot be computed without row-level scores; threshold transfer remains unresolved.
+T5_feature_drift_domain_shift,high,holdout_bin_2 detection mean minimum=0.2227 while OOD alarm max=0.0030; failure is attack-side rather than OOD alarm.
+T6_metadata_label_alignment_risk,low_to_medium,"Stage2 bin metadata is available and row-id alignment is clean, but attack family/device labels are missing."
+T7_base_detector_collapse_dominates,unknown,dA/Transformer harder-holdout row-level base scores were not available under issue16b; no delta-vs-base claim is possible.
