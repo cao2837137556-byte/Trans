@@ -1,0 +1,181 @@
+setting,strategy,budget,seed,seed_group,selected_champion,attack_high_detection,OOD_high_alarm,feasible_flag,review_rate_attack,review_rate_OOD,review_count,review_count_attack,review_count_OOD,conflict_count,V1_high_V2_low_attack_count,V1_high_V2_low_OOD_count,V1_low_V2_high_attack_count,V1_low_V2_high_OOD_count,routing_reason,validation_proxy_used,provenance_clean
+primary_lowood,always_V1,32,42,main_42_46,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V2,32,42,main_42_46,V2,0.9243636363636364,0.0156,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,OR_policy,32,42,main_42_46,V1_or_V2,0.9389090909090909,0.0172,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,AND_policy,32,42,main_42_46,V1_and_V2,0.9149090909090909,0.002,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,LOW_GUARD_Routed,32,42,main_42_46,V1,0.9294545454545454,0.0036,True,0.009454545454545455,0.0136,149,13,136,185,20,16,13,136,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+primary_lowood,oracle_best_feasible,32,42,main_42_46,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V1,32,43,main_42_46,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V2,32,43,main_42_46,V2,0.9243636363636364,0.0156,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,OR_policy,32,43,main_42_46,V1_or_V2,0.9389090909090909,0.0172,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,AND_policy,32,43,main_42_46,V1_and_V2,0.9149090909090909,0.002,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,LOW_GUARD_Routed,32,43,main_42_46,V1,0.9294545454545454,0.0036,True,0.009454545454545455,0.0136,149,13,136,185,20,16,13,136,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+primary_lowood,oracle_best_feasible,32,43,main_42_46,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V1,32,44,main_42_46,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V2,32,44,main_42_46,V2,0.9243636363636364,0.0156,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,OR_policy,32,44,main_42_46,V1_or_V2,0.9389090909090909,0.0172,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,AND_policy,32,44,main_42_46,V1_and_V2,0.9149090909090909,0.002,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,LOW_GUARD_Routed,32,44,main_42_46,V1,0.9294545454545454,0.0036,True,0.009454545454545455,0.0136,149,13,136,185,20,16,13,136,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+primary_lowood,oracle_best_feasible,32,44,main_42_46,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V1,32,45,main_42_46,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V2,32,45,main_42_46,V2,0.9243636363636364,0.0156,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,OR_policy,32,45,main_42_46,V1_or_V2,0.9389090909090909,0.0172,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,AND_policy,32,45,main_42_46,V1_and_V2,0.9149090909090909,0.002,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,LOW_GUARD_Routed,32,45,main_42_46,V1,0.9294545454545454,0.0036,True,0.009454545454545455,0.0136,149,13,136,185,20,16,13,136,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+primary_lowood,oracle_best_feasible,32,45,main_42_46,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V1,32,46,main_42_46,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V2,32,46,main_42_46,V2,0.9243636363636364,0.0156,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,OR_policy,32,46,main_42_46,V1_or_V2,0.9389090909090909,0.0172,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,AND_policy,32,46,main_42_46,V1_and_V2,0.9149090909090909,0.002,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,LOW_GUARD_Routed,32,46,main_42_46,V1,0.9294545454545454,0.0036,True,0.009454545454545455,0.0136,149,13,136,185,20,16,13,136,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+primary_lowood,oracle_best_feasible,32,46,main_42_46,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V1,32,47,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V2,32,47,heldout_47_51,V2,0.9243636363636364,0.0156,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,OR_policy,32,47,heldout_47_51,V1_or_V2,0.9389090909090909,0.0172,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,AND_policy,32,47,heldout_47_51,V1_and_V2,0.9149090909090909,0.002,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,LOW_GUARD_Routed,32,47,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.009454545454545455,0.0136,149,13,136,185,20,16,13,136,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+primary_lowood,oracle_best_feasible,32,47,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V1,32,48,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V2,32,48,heldout_47_51,V2,0.9243636363636364,0.0156,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,OR_policy,32,48,heldout_47_51,V1_or_V2,0.9389090909090909,0.0172,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,AND_policy,32,48,heldout_47_51,V1_and_V2,0.9149090909090909,0.002,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,LOW_GUARD_Routed,32,48,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.009454545454545455,0.0136,149,13,136,185,20,16,13,136,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+primary_lowood,oracle_best_feasible,32,48,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V1,32,49,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V2,32,49,heldout_47_51,V2,0.9243636363636364,0.0156,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,OR_policy,32,49,heldout_47_51,V1_or_V2,0.9389090909090909,0.0172,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,AND_policy,32,49,heldout_47_51,V1_and_V2,0.9149090909090909,0.002,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,LOW_GUARD_Routed,32,49,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.009454545454545455,0.0136,149,13,136,185,20,16,13,136,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+primary_lowood,oracle_best_feasible,32,49,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V1,32,50,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V2,32,50,heldout_47_51,V2,0.9243636363636364,0.0156,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,OR_policy,32,50,heldout_47_51,V1_or_V2,0.9389090909090909,0.0172,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,AND_policy,32,50,heldout_47_51,V1_and_V2,0.9149090909090909,0.002,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,LOW_GUARD_Routed,32,50,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.009454545454545455,0.0136,149,13,136,185,20,16,13,136,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+primary_lowood,oracle_best_feasible,32,50,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V1,32,51,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,always_V2,32,51,heldout_47_51,V2,0.9243636363636364,0.0156,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,OR_policy,32,51,heldout_47_51,V1_or_V2,0.9389090909090909,0.0172,False,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,AND_policy,32,51,heldout_47_51,V1_and_V2,0.9149090909090909,0.002,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+primary_lowood,LOW_GUARD_Routed,32,51,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.009454545454545455,0.0136,149,13,136,185,20,16,13,136,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+primary_lowood,oracle_best_feasible,32,51,heldout_47_51,V1,0.9294545454545454,0.0036,True,0.0,0.0,0,0,0,185,20,16,13,136,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V1,32,42,main_42_46,V1,0.6798015178050204,0.0018,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V2,32,42,main_42_46,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,OR_policy,32,42,main_42_46,V1_or_V2,0.8995913601868067,0.0114,False,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,AND_policy,32,42,main_42_46,V1_and_V2,0.5116754232340922,0.0001,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,LOW_GUARD_Routed,32,42,main_42_46,V1,0.6798015178050204,0.0018,True,0.21978984238178634,0.0096,849,753,96,1442,576,17,753,96,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+chrono_late_train_early_eval,oracle_best_feasible,32,42,main_42_46,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V1,32,43,main_42_46,V1,0.6798015178050204,0.0018,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V2,32,43,main_42_46,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,OR_policy,32,43,main_42_46,V1_or_V2,0.8995913601868067,0.0114,False,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,AND_policy,32,43,main_42_46,V1_and_V2,0.5116754232340922,0.0001,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,LOW_GUARD_Routed,32,43,main_42_46,V1,0.6798015178050204,0.0018,True,0.21978984238178634,0.0096,849,753,96,1442,576,17,753,96,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+chrono_late_train_early_eval,oracle_best_feasible,32,43,main_42_46,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V1,32,44,main_42_46,V1,0.6798015178050204,0.0018,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V2,32,44,main_42_46,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,OR_policy,32,44,main_42_46,V1_or_V2,0.8995913601868067,0.0114,False,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,AND_policy,32,44,main_42_46,V1_and_V2,0.5116754232340922,0.0001,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,LOW_GUARD_Routed,32,44,main_42_46,V1,0.6798015178050204,0.0018,True,0.21978984238178634,0.0096,849,753,96,1442,576,17,753,96,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+chrono_late_train_early_eval,oracle_best_feasible,32,44,main_42_46,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V1,32,45,main_42_46,V1,0.6798015178050204,0.0018,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V2,32,45,main_42_46,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,OR_policy,32,45,main_42_46,V1_or_V2,0.8995913601868067,0.0114,False,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,AND_policy,32,45,main_42_46,V1_and_V2,0.5116754232340922,0.0001,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,LOW_GUARD_Routed,32,45,main_42_46,V1,0.6798015178050204,0.0018,True,0.21978984238178634,0.0096,849,753,96,1442,576,17,753,96,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+chrono_late_train_early_eval,oracle_best_feasible,32,45,main_42_46,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V1,32,46,main_42_46,V1,0.6798015178050204,0.0018,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V2,32,46,main_42_46,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,OR_policy,32,46,main_42_46,V1_or_V2,0.8995913601868067,0.0114,False,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,AND_policy,32,46,main_42_46,V1_and_V2,0.5116754232340922,0.0001,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,LOW_GUARD_Routed,32,46,main_42_46,V1,0.6798015178050204,0.0018,True,0.21978984238178634,0.0096,849,753,96,1442,576,17,753,96,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+chrono_late_train_early_eval,oracle_best_feasible,32,46,main_42_46,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V1,32,47,heldout_47_51,V1,0.6798015178050204,0.0018,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V2,32,47,heldout_47_51,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,OR_policy,32,47,heldout_47_51,V1_or_V2,0.8995913601868067,0.0114,False,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,AND_policy,32,47,heldout_47_51,V1_and_V2,0.5116754232340922,0.0001,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,LOW_GUARD_Routed,32,47,heldout_47_51,V1,0.6798015178050204,0.0018,True,0.21978984238178634,0.0096,849,753,96,1442,576,17,753,96,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+chrono_late_train_early_eval,oracle_best_feasible,32,47,heldout_47_51,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V1,32,48,heldout_47_51,V1,0.6798015178050204,0.0018,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V2,32,48,heldout_47_51,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,OR_policy,32,48,heldout_47_51,V1_or_V2,0.8995913601868067,0.0114,False,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,AND_policy,32,48,heldout_47_51,V1_and_V2,0.5116754232340922,0.0001,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,LOW_GUARD_Routed,32,48,heldout_47_51,V1,0.6798015178050204,0.0018,True,0.21978984238178634,0.0096,849,753,96,1442,576,17,753,96,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+chrono_late_train_early_eval,oracle_best_feasible,32,48,heldout_47_51,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V1,32,49,heldout_47_51,V1,0.6798015178050204,0.0018,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V2,32,49,heldout_47_51,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,OR_policy,32,49,heldout_47_51,V1_or_V2,0.8995913601868067,0.0114,False,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,AND_policy,32,49,heldout_47_51,V1_and_V2,0.5116754232340922,0.0001,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,LOW_GUARD_Routed,32,49,heldout_47_51,V1,0.6798015178050204,0.0018,True,0.21978984238178634,0.0096,849,753,96,1442,576,17,753,96,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+chrono_late_train_early_eval,oracle_best_feasible,32,49,heldout_47_51,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V1,32,50,heldout_47_51,V1,0.6798015178050204,0.0018,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V2,32,50,heldout_47_51,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,OR_policy,32,50,heldout_47_51,V1_or_V2,0.8995913601868067,0.0114,False,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,AND_policy,32,50,heldout_47_51,V1_and_V2,0.5116754232340922,0.0001,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,LOW_GUARD_Routed,32,50,heldout_47_51,V1,0.6798015178050204,0.0018,True,0.21978984238178634,0.0096,849,753,96,1442,576,17,753,96,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+chrono_late_train_early_eval,oracle_best_feasible,32,50,heldout_47_51,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V1,32,51,heldout_47_51,V1,0.6798015178050204,0.0018,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,always_V2,32,51,heldout_47_51,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,OR_policy,32,51,heldout_47_51,V1_or_V2,0.8995913601868067,0.0114,False,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,AND_policy,32,51,heldout_47_51,V1_and_V2,0.5116754232340922,0.0001,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+chrono_late_train_early_eval,LOW_GUARD_Routed,32,51,heldout_47_51,V1,0.6798015178050204,0.0018,True,0.21978984238178634,0.0096,849,753,96,1442,576,17,753,96,V2 validation proxy improvement is below 0.05 or not available,attack_validation_detection_at_guarded_threshold,True
+chrono_late_train_early_eval,oracle_best_feasible,32,51,heldout_47_51,V2,0.7314652656158785,0.0097,True,0.0,0.0,0,0,0,1442,576,17,753,96,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V1,32,42,main_42_46,V1,0.3264094955489614,0.0011,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V2,32,42,main_42_46,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,OR_policy,32,42,main_42_46,V1_or_V2,0.8301186943620178,0.0079,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,AND_policy,32,42,main_42_46,V1_and_V2,0.3056379821958457,0.0,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,LOW_GUARD_Routed,32,42,main_42_46,V1,0.3264094955489614,0.0011,True,0.5037091988130564,0.0068,747,679,68,786,28,11,679,68,V2 validation proxy improvement is below 0.05 or not available,missing_attack_validation_proxy,True
+holdout_bin_2,oracle_best_feasible,32,42,main_42_46,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V1,32,43,main_42_46,V1,0.3264094955489614,0.0011,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V2,32,43,main_42_46,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,OR_policy,32,43,main_42_46,V1_or_V2,0.8301186943620178,0.0079,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,AND_policy,32,43,main_42_46,V1_and_V2,0.3056379821958457,0.0,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,LOW_GUARD_Routed,32,43,main_42_46,V1,0.3264094955489614,0.0011,True,0.5037091988130564,0.0068,747,679,68,786,28,11,679,68,V2 validation proxy improvement is below 0.05 or not available,missing_attack_validation_proxy,True
+holdout_bin_2,oracle_best_feasible,32,43,main_42_46,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V1,32,44,main_42_46,V1,0.3264094955489614,0.0011,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V2,32,44,main_42_46,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,OR_policy,32,44,main_42_46,V1_or_V2,0.8301186943620178,0.0079,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,AND_policy,32,44,main_42_46,V1_and_V2,0.3056379821958457,0.0,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,LOW_GUARD_Routed,32,44,main_42_46,V1,0.3264094955489614,0.0011,True,0.5037091988130564,0.0068,747,679,68,786,28,11,679,68,V2 validation proxy improvement is below 0.05 or not available,missing_attack_validation_proxy,True
+holdout_bin_2,oracle_best_feasible,32,44,main_42_46,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V1,32,45,main_42_46,V1,0.3264094955489614,0.0011,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V2,32,45,main_42_46,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,OR_policy,32,45,main_42_46,V1_or_V2,0.8301186943620178,0.0079,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,AND_policy,32,45,main_42_46,V1_and_V2,0.3056379821958457,0.0,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,LOW_GUARD_Routed,32,45,main_42_46,V1,0.3264094955489614,0.0011,True,0.5037091988130564,0.0068,747,679,68,786,28,11,679,68,V2 validation proxy improvement is below 0.05 or not available,missing_attack_validation_proxy,True
+holdout_bin_2,oracle_best_feasible,32,45,main_42_46,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V1,32,46,main_42_46,V1,0.3264094955489614,0.0011,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V2,32,46,main_42_46,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,OR_policy,32,46,main_42_46,V1_or_V2,0.8301186943620178,0.0079,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,AND_policy,32,46,main_42_46,V1_and_V2,0.3056379821958457,0.0,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,LOW_GUARD_Routed,32,46,main_42_46,V1,0.3264094955489614,0.0011,True,0.5037091988130564,0.0068,747,679,68,786,28,11,679,68,V2 validation proxy improvement is below 0.05 or not available,missing_attack_validation_proxy,True
+holdout_bin_2,oracle_best_feasible,32,46,main_42_46,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V1,32,47,heldout_47_51,V1,0.3264094955489614,0.0011,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V2,32,47,heldout_47_51,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,OR_policy,32,47,heldout_47_51,V1_or_V2,0.8301186943620178,0.0079,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,AND_policy,32,47,heldout_47_51,V1_and_V2,0.3056379821958457,0.0,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,LOW_GUARD_Routed,32,47,heldout_47_51,V1,0.3264094955489614,0.0011,True,0.5037091988130564,0.0068,747,679,68,786,28,11,679,68,V2 validation proxy improvement is below 0.05 or not available,missing_attack_validation_proxy,True
+holdout_bin_2,oracle_best_feasible,32,47,heldout_47_51,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V1,32,48,heldout_47_51,V1,0.3264094955489614,0.0011,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V2,32,48,heldout_47_51,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,OR_policy,32,48,heldout_47_51,V1_or_V2,0.8301186943620178,0.0079,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,AND_policy,32,48,heldout_47_51,V1_and_V2,0.3056379821958457,0.0,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,LOW_GUARD_Routed,32,48,heldout_47_51,V1,0.3264094955489614,0.0011,True,0.5037091988130564,0.0068,747,679,68,786,28,11,679,68,V2 validation proxy improvement is below 0.05 or not available,missing_attack_validation_proxy,True
+holdout_bin_2,oracle_best_feasible,32,48,heldout_47_51,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V1,32,49,heldout_47_51,V1,0.3264094955489614,0.0011,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V2,32,49,heldout_47_51,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,OR_policy,32,49,heldout_47_51,V1_or_V2,0.8301186943620178,0.0079,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,AND_policy,32,49,heldout_47_51,V1_and_V2,0.3056379821958457,0.0,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,LOW_GUARD_Routed,32,49,heldout_47_51,V1,0.3264094955489614,0.0011,True,0.5037091988130564,0.0068,747,679,68,786,28,11,679,68,V2 validation proxy improvement is below 0.05 or not available,missing_attack_validation_proxy,True
+holdout_bin_2,oracle_best_feasible,32,49,heldout_47_51,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V1,32,50,heldout_47_51,V1,0.3264094955489614,0.0011,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V2,32,50,heldout_47_51,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,OR_policy,32,50,heldout_47_51,V1_or_V2,0.8301186943620178,0.0079,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,AND_policy,32,50,heldout_47_51,V1_and_V2,0.3056379821958457,0.0,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,LOW_GUARD_Routed,32,50,heldout_47_51,V1,0.3264094955489614,0.0011,True,0.5037091988130564,0.0068,747,679,68,786,28,11,679,68,V2 validation proxy improvement is below 0.05 or not available,missing_attack_validation_proxy,True
+holdout_bin_2,oracle_best_feasible,32,50,heldout_47_51,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V1,32,51,heldout_47_51,V1,0.3264094955489614,0.0011,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,always_V2,32,51,heldout_47_51,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,OR_policy,32,51,heldout_47_51,V1_or_V2,0.8301186943620178,0.0079,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,AND_policy,32,51,heldout_47_51,V1_and_V2,0.3056379821958457,0.0,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True
+holdout_bin_2,LOW_GUARD_Routed,32,51,heldout_47_51,V1,0.3264094955489614,0.0011,True,0.5037091988130564,0.0068,747,679,68,786,28,11,679,68,V2 validation proxy improvement is below 0.05 or not available,missing_attack_validation_proxy,True
+holdout_bin_2,oracle_best_feasible,32,51,heldout_47_51,V2,0.8093471810089021,0.0068,True,0.0,0.0,0,0,0,786,28,11,679,68,fixed_strategy,not_applicable,True

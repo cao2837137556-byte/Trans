@@ -1,0 +1,9 @@
+risk_name,severity,reason,mitigation
+validation proxy weakness,high,Attack validation may not represent future attack-side shift.,Report wrong-routing cases and proxy limitations.
+routing overfit,medium,Routing is motivated by the three current settings.,Use fixed rule and future locked validation.
+review burden underestimation,medium,Review burden can vary operationally.,Report review rate and conflict counts separately.
+V2 overfit to holdout_bin_2,high,V2 was motivated by holdout_bin_2.,Include primary and chrono_late in the same validation.
+final-eval leakage risk,low,Final eval must not trigger routing.,Emit routing decision table with inputs.
+wrong champion selection,high,Proxy can pick the wrong model.,Emit wrong_routing_cases.md.
+future drift unresolved,high,This validates only current settings.,Use champion-challenger lifecycle for future windows.
+deployment cost,medium,Running V1 and V2 together costs more.,Measure latency in later deployment pack.
