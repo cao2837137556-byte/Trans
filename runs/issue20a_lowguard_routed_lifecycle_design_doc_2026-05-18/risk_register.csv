@@ -1,0 +1,11 @@
+risk_name,severity,reason,mitigation
+routing overfit risk,high,Routing rule could be shaped around issue19b settings.,Pre-register issue20 rule and report failures.
+validation proxy weakness,high,Support/validation proxy may not represent final attack shift.,Report proxy limits and wrong-routing cases.
+V2 overfit to holdout_bin_2,high,V2 was motivated by holdout_bin_2 repair.,Evaluate primary and chrono_late together.
+alarm-budget cherry-picking,high,1.2/1.5 target could be cherry-picked.,Treat as locked-validation candidates only.
+model proliferation risk,medium,Champion-challenger can become uncontrolled if every failure creates a model.,"Use finite pool, promotion gate, retirement."
+catastrophic forgetting,medium,New champion may suppress old evidence.,Keep old champion scores and rollback.
+malicious behavior contamination,medium,Confirmed supports may be noisy or attacker-influenced.,Require support provenance and bounded promotion.
+review burden underestimation,medium,Review queue may exceed operations budget.,Report high-priority and review burden separately.
+deployment cost,medium,Running V1/V2 in parallel has cost.,Record latency and cost in issue20 if available.
+unclear trigger condition risk,high,Routing trigger may be ambiguous.,Issue20 must record selected champion and decision provenance.
