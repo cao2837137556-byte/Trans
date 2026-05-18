@@ -1,0 +1,53 @@
+{
+  "run": "issue19b_v1_v2_same_protocol_backtest_and_alarm_budget_curve_2026-05-18",
+  "created_at": "2026-05-18T11:01:09",
+  "v1": "original100 + kcenter32 + fixed guard LR",
+  "v2": "selected_source_rich_top32 + kcenter32 + fixed guard LR",
+  "targets": [
+    0.005,
+    0.008,
+    0.01,
+    0.012,
+    0.015,
+    0.02
+  ],
+  "official_target": 0.01,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "dataset_meta": {
+    "primary_high_attack_total": 6871,
+    "primary_attack_train_pool": 4122,
+    "primary_attack_val": 1374,
+    "primary_attack_eval": 1375,
+    "harder_holdout_names": [
+      "chrono_late_train_early_eval",
+      "holdout_bin_2"
+    ]
+  },
+  "inputs": {
+    "issue11": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue11_fixed_config_ood_guard_lr_ablation_2026-05-14",
+    "issue16b": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue16b_harder_holdout_fixed_guard_validation_2026-05-15",
+    "issue17": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue17_support_diversity_selection_harder_holdout_2026-05-15",
+    "issue18": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15",
+    "issue19": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18"
+  },
+  "fairness": {
+    "final_ood_eval_used_for_threshold": false,
+    "attack_eval_used_for_threshold": false,
+    "final_ood_eval_used_for_feature_selection": false,
+    "attack_eval_used_for_feature_selection": false,
+    "topk_researched": false,
+    "margin_hardneg_used": false,
+    "original100_fusion_used_in_v2": false
+  }
+}

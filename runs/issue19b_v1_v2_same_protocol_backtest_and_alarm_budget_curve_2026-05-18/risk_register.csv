@@ -1,0 +1,8 @@
+risk_name,severity,mitigation
+final threshold tuning risk,high,All targets are reported; no target is selected from final eval.
+V2 overfit to holdout_bin_2 risk,high,Backtest includes primary low-OOD and chrono_late.
+topK selection overfit risk,medium,topK fixed at 32; no topK search in this run.
+source_rich alignment risk,low,Row-count alignment checked for ID/OOD/attack assets.
+mode-routing ambiguity risk,medium,Non-regression and routing implication reports are emitted.
+alarm-budget cherry-picking risk,high,All pre-registered targets are saved to curve files.
+ordinary regression risk,medium,Ordinary setting not claimed; compatibility gap documented.
