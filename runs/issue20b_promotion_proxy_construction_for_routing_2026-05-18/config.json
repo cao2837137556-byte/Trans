@@ -1,0 +1,41 @@
+{
+  "run": "issue20b_promotion_proxy_construction_for_routing_2026-05-18",
+  "created_at": "2026-05-19T16:00:36",
+  "target": 0.01,
+  "positive_budget": 32,
+  "support_delta_thresholds": [
+    0.03,
+    0.05,
+    0.1
+  ],
+  "sep_sigma_thresholds": [
+    0.0,
+    0.25,
+    0.5
+  ],
+  "review_budgets": [
+    0.005,
+    0.01,
+    0.02
+  ],
+  "recommended_proxy": "none_clean_proxy_found",
+  "displayed_conservative_hybrid": "proxy_E_hybrid_sup0.05_sep0.25sigma_review0.010",
+  "clean_proxy_exists": false,
+  "recommended_next": "proxy_asset_recovery_or_stronger_validation_proxy_design_before_issue20c",
+  "dataset_meta": {
+    "primary_attack_train_pool": 4122,
+    "primary_attack_val": 1374,
+    "primary_attack_eval": 1375
+  },
+  "final_metrics_report_only": true,
+  "no_final_eval_proxy_construction": true,
+  "no_model_definition_change": true,
+  "inputs": {
+    "issue20": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue20_mode_specific_routing_validation_2026-05-18",
+    "issue20a": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue20a_lowguard_routed_lifecycle_design_doc_2026-05-18",
+    "issue19b": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue19b_v1_v2_same_protocol_backtest_and_alarm_budget_curve_2026-05-18",
+    "issue19": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18",
+    "issue18": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15",
+    "issue17": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue17_support_diversity_selection_harder_holdout_2026-05-15"
+  }
+}

@@ -1,0 +1,10 @@
+risk_name,severity,reason,mitigation
+proxy overfit risk,high,Proxy candidates are motivated by current settings.,Lock one rule before issue20c and report failures.
+support-holdout too small or optimistic,medium,Support-holdout comes from the local attack train pool.,Report support-holdout size and limitation.
+margin proxy instability,medium,Tail margin can vary by window.,Use seed/window aggregation and locked thresholds.
+disagreement proxy false positives,high,V2-only validation samples are not necessarily attacks.,Do not use disagreement alone for promotion.
+representation shift false alarm,medium,Feature shift may reflect benign drift instead of attack shift.,Combine with OOD and attack-side evidence.
+final eval leakage,low,Final metrics are tempting for choosing a proxy.,Mark final metrics report-only and lock issue20c rule.
+review burden underestimation,medium,Validation review burden may underestimate deployment burden.,Track estimated review burden and review budget.
+future drift mismatch,high,The proxy may not generalize to unseen drift.,Use champion-challenger lifecycle and locked validation windows.
+operational labeling cost,medium,Support-holdout proxy requires confirmed attack labels.,Report label requirement explicitly.
