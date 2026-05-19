@@ -1,0 +1,9 @@
+risk_name,severity,reason,mitigation
+holdout_bin_2 overfitting,high,Enhancement is motivated by holdout_bin_2.,Require locked validation before claims.
+target cherry-picking,high,Diagnostic targets can look attractive.,Keep 1% as official and report all targets.
+topK overfitting,medium,TopK sensitivity can be selected post hoc.,Report top16/top32/top48/top64 together.
+support budget label cost,medium,kcenter64/128 require more confirmed attacks.,Report support size and cost.
+OOD alarm tradeoff,high,More detection can raise OOD alarms.,Report final OOD max and feasibility.
+primary safety degradation,high,V2 already fails primary OOD budget.,"Keep primary as safety check, not main battlefield."
+chrono_late regression,medium,Hard-shift repair may hurt another holdout.,Report chrono_late separately.
+locked validation missing,high,Pilot is not final proof.,Use issue23 if strong positive.

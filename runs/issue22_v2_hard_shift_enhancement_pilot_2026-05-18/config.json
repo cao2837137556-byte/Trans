@@ -1,0 +1,43 @@
+{
+  "run": "issue22_v2_hard_shift_enhancement_pilot_2026-05-18",
+  "created_at": "2026-05-19T18:47:00",
+  "targets": [
+    0.005,
+    0.008,
+    0.01,
+    0.012,
+    0.015,
+    0.02
+  ],
+  "main_target": 0.01,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "methods": [
+    "M0_V1_original100_kcenter32_fixed_guard",
+    "M1_V2_source_rich_top32_kcenter32_fixed_guard",
+    "M3_source_rich_top32_kcenter64_fixed_guard",
+    "M4_source_rich_top32_kcenter128_fixed_guard",
+    "M4b_source_rich_top32_random64_fixed_guard",
+    "M5_source_rich_top16_kcenter32_fixed_guard",
+    "M7_source_rich_top48_kcenter32_fixed_guard",
+    "M8_source_rich_top64_kcenter32_fixed_guard",
+    "M9_source_rich_top32_kcenter32_hardneg_w4"
+  ],
+  "best_method": "M8_source_rich_top64_kcenter32_fixed_guard",
+  "best_holdout_bin2_detection": 0.9740356083086054,
+  "best_holdout_bin2_ood_max": 0.0057,
+  "reaches_085": true,
+  "reaches_090": true,
+  "next_action": "issue23_locked_validation_for_enhanced_v2_2026-05-18",
+  "final_eval_used_for_selection": false
+}
