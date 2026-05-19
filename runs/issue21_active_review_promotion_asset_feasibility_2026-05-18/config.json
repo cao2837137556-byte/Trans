@@ -1,0 +1,35 @@
+{
+  "run": "issue21_active_review_promotion_asset_feasibility_2026-05-18",
+  "created_at": "2026-05-19T17:34:02",
+  "evidence_budgets": [
+    4,
+    8,
+    16,
+    32
+  ],
+  "delta_thresholds": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "target": 0.01,
+  "strategies": [
+    "R0_random_confirmed_attack_validation",
+    "R1_kcenter_confirmed_attack_validation",
+    "R2_V2_high_V1_low_disagreement_review",
+    "R3_near_threshold_uncertainty_review",
+    "R4_representation_shift_high_review",
+    "R5_hybrid_active_review"
+  ],
+  "dataset_meta": {
+    "primary_attack_train_pool": 4122,
+    "primary_attack_val": 1374,
+    "primary_attack_eval": 1375
+  },
+  "final_metrics_report_only": true,
+  "no_final_eval_promotion_trigger": true,
+  "v1_v2_definitions_unchanged": true,
+  "best_candidate": "R1_kcenter_confirmed_attack_validation k=4 delta=0.05",
+  "strong_positive_candidate_exists": false,
+  "recommended_next_action": "weaken_routing_claim_or_recover_stronger_promotion_validation_assets"
+}

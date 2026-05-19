@@ -1,0 +1,11 @@
+risk_name,severity,reason,mitigation
+promotion evidence overfit,high,Evidence policies are tested on current settings.,Require locked validation before claims.
+simulated review label optimism,high,Simulation knows labels after review.,Report review cost and attack fraction explicitly.
+review pool attack fraction uncertainty,high,Real review pools may be less attack-rich.,Separate candidate pool size from confirmed evidence count.
+label cost underestimation,medium,Manual review cost can exceed k confirmed attacks.,Report reviewed count and label efficiency.
+delayed label problem,medium,Confirmed labels may arrive late in deployment.,"Frame as feasibility, not real-time guarantee."
+primary mis-promotion,high,V2 can exceed OOD budget in primary.,Require V2 OOD validation and selection correctness reporting.
+holdout false negative promotion,high,Evidence may still fail to activate V2.,Report wrong_promotion_cases.md.
+review bias,medium,Active review sampling may bias evidence.,Compare random/kcenter/disagreement/uncertainty/drift strategies.
+future drift mismatch,high,Current evidence may not represent future drift.,Use champion-challenger lifecycle.
+final eval leakage,low,Final metrics must remain report-only.,Emit explicit provenance flags.
