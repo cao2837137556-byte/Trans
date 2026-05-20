@@ -1,0 +1,9 @@
+risk_name,severity,reason,mitigation
+adapter overfit risk,high,Hyperparameters use tiny support-validation proxy.,Treat as feasibility and require follow-up validation.
+final-eval leakage risk,high,Repeated locked-bin analysis can tempt tuning.,No final metrics in selection; report all configs.
+OOD alarm tradeoff,high,Harder adapters may raise OOD alarms.,Use 1% feasibility gate.
+few-shot instability,medium,Only 32 support samples.,Report main and held-out seeds.
+model complexity cost,medium,GB/SVM add complexity over LR.,Report train/inference and parameters.
+low-FPR metric instability,medium,pAUC at 1% FPR is noisy.,Report guarded detection and pAUC together.
+locked-bin overfitting after repeated analysis,high,The same bins are now analyzed repeatedly.,Move to second environment/temporal validation next.
+external validity risk,high,No external validation here.,Do not overclaim.

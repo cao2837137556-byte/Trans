@@ -1,0 +1,8 @@
+adapter,config_id,model_type,attack_weight,ood_train_weight,tail_quantile,tail_weight,C,alpha
+A0_lr_baseline,lr_fixed_guard,lr,1.0,2.0,,0.0,1.0,
+A1_low_fpr_weighted_lr,lr_tail_q0.95_w4.0_a1.0,lr,1.0,2.0,0.95,4.0,1.0,
+A1_low_fpr_weighted_lr,lr_tail_q0.975_w4.0_a1.0,lr,1.0,2.0,0.975,4.0,1.0,
+A1_low_fpr_weighted_lr,lr_tail_q0.975_w8.0_a1.0,lr,1.0,2.0,0.975,8.0,1.0,
+A2_linear_svm_margin,sgd_hinge_alpha0.0001_a1.0,linear_svm,1.0,2.0,,,,0.0001
+A2_linear_svm_margin,sgd_hinge_alpha1e-05_a1.0,linear_svm,1.0,2.0,,,,1e-05
+A2_linear_svm_margin,sgd_hinge_alpha0.0001_a2.0,linear_svm,2.0,2.0,,,,0.0001
