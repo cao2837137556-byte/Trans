@@ -1,0 +1,13 @@
+candidate,metric_source,roc_auc_mean,pr_auc_mean,tpr_at_guarded_1pct_mean,final_ood_alarm_at_guarded_1pct_max,feasible_rate,pauc_low_fpr,pauc_status
+V1,issue22_primary_seed_level,0.9925373090909092,0.9695076293611751,0.9294545454545455,0.0036,1.0,,not_computed_no_row_level_scores_in_issue22
+V2_top32,issue22_primary_seed_level,0.9546770181818183,0.9482192541507889,0.9243636363636364,0.0156,0.0,,not_computed_no_row_level_scores_in_issue22
+V2_top64,issue22_primary_seed_level,0.9825818909090908,0.9706019839871669,0.9476363636363635,0.0037,1.0,,not_computed_no_row_level_scores_in_issue22
+V1,alarm_budget_curve_0.5pct,,,0.9287272727272728,0.0028,1.0,,curve_point_proxy_not_pauc
+V1,alarm_budget_curve_0.8pct,,,0.9294545454545455,0.0035,1.0,,curve_point_proxy_not_pauc
+V1,alarm_budget_curve_1.0pct,,,0.9294545454545455,0.0036,1.0,,curve_point_proxy_not_pauc
+V2_top32,alarm_budget_curve_0.5pct,,,0.9236363636363636,0.0133,0.0,,curve_point_proxy_not_pauc
+V2_top32,alarm_budget_curve_0.8pct,,,0.9243636363636364,0.0146,0.0,,curve_point_proxy_not_pauc
+V2_top32,alarm_budget_curve_1.0pct,,,0.9243636363636364,0.0156,0.0,,curve_point_proxy_not_pauc
+V2_top64,alarm_budget_curve_0.5pct,,,0.9476363636363636,0.0036,1.0,,curve_point_proxy_not_pauc
+V2_top64,alarm_budget_curve_0.8pct,,,0.9476363636363636,0.0037,1.0,,curve_point_proxy_not_pauc
+V2_top64,alarm_budget_curve_1.0pct,,,0.9476363636363636,0.0037,1.0,,curve_point_proxy_not_pauc

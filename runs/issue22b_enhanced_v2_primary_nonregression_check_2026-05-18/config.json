@@ -1,0 +1,30 @@
+{
+  "run": "issue22b_enhanced_v2_primary_nonregression_check_2026-05-18",
+  "created_at": "2026-05-20T10:27:41",
+  "inputs": {
+    "issue22": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue22_v2_hard_shift_enhancement_pilot_2026-05-18",
+    "issue19b": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue19b_v1_v2_same_protocol_backtest_and_alarm_budget_curve_2026-05-18",
+    "issue19": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18",
+    "issue18": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15"
+  },
+  "official_target": 0.01,
+  "candidate_status": "unified_candidate",
+  "next_action": "issue23_locked_validation_for_enhanced_v2_top64_2026-05-18",
+  "deltas": {
+    "v1_detection": 0.9294545454545456,
+    "v1_ood_max": 0.0036,
+    "v2_top32_detection": 0.9243636363636364,
+    "v2_top32_ood_max": 0.0156,
+    "v2_top64_detection": 0.9476363636363636,
+    "v2_top64_ood_max": 0.0037,
+    "delta_top64_minus_v1_detection": 0.018181818181817966,
+    "delta_top64_minus_v1_ood_alarm": 0.00010000000000000026,
+    "delta_top64_minus_top32_detection": 0.023272727272727223,
+    "delta_top64_minus_top32_ood_alarm": -0.011899999999999999,
+    "delta_top64_minus_v1_auc": -0.009955418181818443,
+    "delta_top64_minus_v1_pr_auc": 0.0010943546259916115
+  },
+  "no_training": true,
+  "no_topk_reselection": true,
+  "final_eval_used_for_selection": false
+}

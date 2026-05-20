@@ -1,0 +1,7 @@
+risk_name,severity,reason,mitigation
+primary regression risk,low,Top64 currently improves primary detection and keeps OOD <=1%.,Require locked validation.
+top64 overfit risk,high,Top64 was identified in issue22 pilot.,Do not claim final method before locked validation.
+locked validation missing,high,"This is a reuse audit, not locked validation.",Run issue23 if proceeding.
+low-FPR metric instability,medium,pAUC was not computed without row-level scores.,Use alarm-budget curve and save row-level scores in locked validation.
+feature selection leakage risk,low,Issue22 provenance flags show no final eval selection.,Keep provenance in issue23.
+source_rich alignment risk,medium,source_rich is still a richer representation asset.,Carry alignment checks forward.
