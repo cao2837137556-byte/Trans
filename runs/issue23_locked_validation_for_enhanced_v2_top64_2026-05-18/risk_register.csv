@@ -1,0 +1,9 @@
+risk_name,severity,reason,mitigation
+locked object weakness,medium,"Locked objects are same-dataset bins, not external environments.",Add second-environment validation later.
+holdout reuse risk,medium,Some local support pools may include bins previously inspected elsewhere.,Treat lockedness as eval-object locked and document limitation.
+top64 overfit risk,medium,top64 was chosen after issue22 discovery settings.,This run uses unused eval bins and forbids topK changes.
+source_rich alignment risk,low,source_rich and original100 must remain row-aligned.,Reuse issue19b/22 loaders and row-count checks.
+seed instability,medium,few-shot support may vary.,Report main and held-out seeds separately.
+low-FPR metric instability,medium,low-FPR pAUC can be noisy.,Report pAUC and guarded threshold metrics together.
+external validity risk,high,No external dataset is validated here.,Do not overclaim external generalization.
+missing second environment risk,high,CCF-A-level evidence still needs second environment or stronger baselines.,Plan formal baseline/second-environment pack.
