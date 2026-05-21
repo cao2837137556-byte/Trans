@@ -1,0 +1,9 @@
+risk_name,severity,reason,mitigation
+row-level score incompleteness,high,issue23/24 did not persist row-level scores.,Mark reconstructed seed42 diagnostics as diagnosis-only.
+diagnosis overinterpretation,high,Final labels are used for analysis.,Do not claim new method success.
+repeated locked-bin analysis risk,high,Locked bins are being inspected repeatedly.,Move next to baselines/second environment unless targeted retry is well justified.
+fusion overfit risk,medium,V1/V2 complementarity can overfit bins.,Require validation-only fusion if tried.
+nonlinear adapter overfit risk,medium,top64 with few-shot labels can overfit.,Avoid broad sweeps.
+low-FPR instability,medium,Tail metrics are noisy.,Report guarded detection and pAUC together.
+final eval leakage risk,high,Diagnostics use final labels.,No rule is validated here.
+external validity risk,high,No second environment.,Do not overclaim.
