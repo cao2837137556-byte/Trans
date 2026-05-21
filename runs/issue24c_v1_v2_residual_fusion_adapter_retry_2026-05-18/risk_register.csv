@@ -1,0 +1,7 @@
+risk,severity,description,mitigation
+fusion overfit risk,high,Fusion is tested after repeated locked-bin analysis.,Require independent validation before replacement.
+validation proxy weakness,medium,Support-holdout is small.,Report selection provenance and avoid final-tuned claims.
+final-eval leakage,high,Fusion could be overfit if final results guide selection.,All candidates and selection metrics are recorded.
+OOD alarm tradeoff,medium,Fusion may raise OOD tails.,Guarded threshold and final OOD alarm are reported.
+score calibration mismatch,medium,V1 and V2 scores live on different scales.,Use validation-side z-score normalization.
+external validity risk,high,Same-dataset locked bins are not external datasets.,Move next to baselines and second environment.
