@@ -82,6 +82,33 @@ Next:
 - Recover raw timestamp / packet-order / attack-bin provenance, define a purged or embargoed future-window split, and only then decide whether formal issue26b validation can run.
 - Keep second environment as later issue27, not this round's immediate next step.
 
+### 2026-05-22 (Issue26b Split Metadata Recovery + Temporal Asset Build)
+
+What was done:
+- Completed `runs/issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22/`.
+- Scope was metadata recovery, split provenance reconstruction, temporal asset candidate rebuild, and purge/embargo planning only.
+- No formal temporal validation, no model training, no topK/support/adapter/threshold change, no second-environment reopening, and no manuscript edit.
+- Scanned issue26a handoff assets, issue22/22b/23/25c provenance and locked-asset reports, issue18 row-level score persistence assets, and current mainline docs.
+
+Result:
+- Preflight passed for metadata recovery.
+- Coarse attack-bin provenance was recovered for `primary_lowood`, `holdout_bin_2`, `chrono_late`, locked bins `5/6/7/8`, and the partial `chrono_early_train_late_eval` candidate.
+- Support provenance remains clean at the inspected level: selected support rows are recorded as coming from attack train pools and not from attack eval / final OOD eval.
+- Threshold provenance remains clean at the inspected level: thresholds use ID calibration + OOD validation, not final OOD / attack eval.
+- Raw timestamp, packet-order, capture/session boundary, window_start/window_end, and bin-to-clock-time metadata were not recovered.
+- No clean formal temporal candidate was found. `earlier-to-later` remains only a partial/planning candidate because eval bins `6/7/8` overlap issue23/25c locked evidence.
+- A metadata-only split smoke was completed; it checked bin-definition wiring only and did not train models or select thresholds.
+
+Judgment:
+- issue26b improves evidence-chain hygiene and makes the temporal blocker explicit.
+- It does not strengthen the temporal-generalization claim.
+- Reusing issue23/25c locked bins must remain consistency or repeated-evidence analysis, not new temporal proof.
+
+Next:
+- Unique next action: `issue26c_temporal_metadata_recovery_followup_or_second_environment_feasibility`.
+- First try to recover raw timestamp / packet-order / capture-level metadata or a genuinely unused future-window manifest.
+- If that remains impossible, keep within-dataset formal temporal validation blocked and move to a carefully scoped issue27-level second-environment feasibility path rather than tuning the method.
+
 ### 2026-04-08
 
 What was done:

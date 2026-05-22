@@ -1629,3 +1629,42 @@ Next:
 - Do local metadata recovery and split-manifest construction first.
 - Use Slurm only after local smoke passes and the formal temporal protocol is frozen.
 - Keep second-environment validation as issue27-level work.
+
+### 6.6 Issue26b Split Metadata Recovery And Temporal Asset Build
+
+Date: 2026-05-22
+
+Run:
+- `runs/issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22/`
+
+Scope:
+- split metadata recovery;
+- known-setting provenance reconstruction;
+- temporal candidate rebuild;
+- purge/embargo planning;
+- metadata-only split smoke.
+
+Not in scope:
+- formal temporal validation;
+- second environment;
+- new method development;
+- topK/support/adapter/threshold tuning;
+- dA or Transformer training;
+- routing, promotion, or frontend-f2 reopening.
+
+Key result:
+- Bin-level provenance was recovered for primary, discovery, locked, and partial temporal settings.
+- Support provenance and threshold provenance remain clean in the inspected artifacts: support selection does not use attack eval / final OOD eval, and threshold selection uses ID calibration + OOD validation.
+- Raw timestamp, packet-order, capture/session boundary, window_start/window_end, and bin-to-clock-time metadata were not recovered.
+- No clean formal temporal candidate is ready.
+- `earlier-to-later` is still the best partial temporal direction, but it overlaps issue23/25c locked eval bins `6/7/8` and needs purge/embargo metadata before any formal claim.
+- No formal validation result was produced.
+
+Current claim boundary:
+- Allowed: issue26b documents metadata/provenance recovery and identifies the concrete asset gap blocking clean temporal validation.
+- Not allowed: issue26b proves temporal generalization, completes formal temporal validation, or replaces second-environment evidence.
+
+Next:
+- Unique next action: `issue26c_temporal_metadata_recovery_followup_or_second_environment_feasibility`.
+- Recover raw temporal metadata or unused future-window assets before any formal issue26c validation.
+- If raw metadata remains unavailable, avoid dressing locked-bin reuse as temporal proof and move toward a scoped second-environment feasibility path.

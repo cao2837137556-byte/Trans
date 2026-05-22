@@ -1,0 +1,10 @@
+git branch --show-current
+git status --short
+Get-Content issue26a required files
+Get-Content mainline docs
+rg / Get-ChildItem metadata and provenance scans under runs/repo
+Get-Content key issue22/23/25c support, threshold, asset, config, manifest files
+python schema check for issue18 row_level_scores.parquet
+python runs/issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22/generate_issue26b_outputs.py
+apply_patch runs/mainline_docs/mainline_handoff.md issue26b append
+apply_patch runs/mainline_docs/mainline_experiment_map.md issue26b append

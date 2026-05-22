@@ -1,0 +1,717 @@
+source_path,file_type,contains_timestamp,contains_packet_order,contains_bin_id,contains_row_id,contains_split_label,contains_support_id,contains_eval_id,contains_attack_family,contains_capture_id,usable_for_temporal_split,usable_for_leakage_audit,notes
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/claim_boundary.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/config.json,json,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/consistency_check_existing_settings.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/doc_update_patch_suggestion.md,md,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/locked_validation_asset_report.csv,csv,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/locked_validation_asset_report.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/locked_validation_success_table.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/locked_validation_success_wide.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/low_fpr_metrics_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/method_comparison_by_seed.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/method_comparison_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/method_comparison_summary_official_1pct.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/preflight_locked_validation_check.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/protocol.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/recommended_next_action.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/risk_register.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/run_issue23_locked_validation.py,py,no,no,yes,yes,yes,yes,yes,no,no,no,partial,code-level evidence only
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/scaler_provenance.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/selected_feature_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/summary.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/support_id_provenance.csv,csv,no,no,no,yes,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/v2top64_vs_v1_locked.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue23_locked_validation_for_enhanced_v2_top64_2026-05-18/v2top64_vs_v2top32_locked.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/ablation_component_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_candidate_definitions.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_candidate_definitions.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_complexity_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_failure_analysis.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_hyperparameter_selection_report.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_hyperparameter_validation_rows.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_method_comparison_by_seed.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_method_comparison_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_search_space.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_selected_configs.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/claim_boundary.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/config.json,json,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/consistency_primary_holdout_chrono.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/doc_update_patch_suggestion.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/fairness_audit_report.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/locked_asset_report.csv,csv,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/locked_bins_baseline_by_seed.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/locked_bins_baseline_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/low_fpr_metrics_baseline_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/missing_input_report.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/preflight_strong_baseline_execution_check.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/protocol.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/recommended_next_action.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/risk_register.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/run_issue25c_strong_baselines.py,py,no,no,yes,yes,yes,yes,yes,no,no,no,partial,code-level evidence only
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/summary.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/support_provenance.csv,csv,no,no,no,yes,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/blocking_asset_gap.md,md,yes,no,no,no,yes,no,no,no,no,yes,yes,metadata fields detected
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/claim_boundary.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/claim_update_after_issue26a.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/command.txt,txt,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/data_scale_temporal_inventory.csv,csv,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/doc_update_patch_suggestion.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/generate_issue26a_outputs.py,py,yes,no,yes,no,yes,no,yes,no,no,no,partial,code-level evidence only
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/issue26b_execution_plan.md,md,yes,no,no,no,yes,no,no,no,no,yes,yes,metadata fields detected
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/leakage_audit_report.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/minimal_temporal_validation_not_run_reason.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/minimal_temporal_validation_protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/minimal_temporal_validation_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/minimal_temporal_validation_result.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/missing_input_report.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/preflight_issue26a_check.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/recommended_next_action.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/reviewer_defense_temporal_validation.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/risk_register.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/run_spec.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/slurm_need_assessment.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/summary.md,md,yes,no,yes,no,yes,no,no,no,no,yes,yes,metadata fields detected
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/temporal_candidate_matrix.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/temporal_existing_result_table.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+repo/ood/frontend100_crosscapture_calib_stability_report.py,py,no,no,no,no,yes,no,yes,no,yes,no,partial,code-level evidence only
+repo/ood/frontend100_crosscapture_stability_report.py,py,no,no,no,no,yes,no,no,no,yes,no,partial,code-level evidence only
+repo/ood/frontend100_locked_candidate_multiseed.py,py,no,no,no,no,yes,no,yes,no,no,no,partial,code-level evidence only
+repo/ood/frontend100_threshold_baseline.py,py,no,no,no,no,yes,no,yes,no,yes,no,partial,code-level evidence only
+repo/ood/frontend100_threshold_tradeoff_constrained.py,py,no,no,no,no,yes,no,yes,yes,no,no,partial,code-level evidence only
+repo/ood/prepare_frontend100_crosscapture_sources.py,py,no,no,no,no,no,no,no,no,yes,no,partial,code-level evidence only
+repo/ood/prepare_frontend_f2_crosscapture_sources.py,py,no,no,no,no,no,no,no,no,yes,no,partial,code-level evidence only
+repo/ood/second_environment_botiot_split_gate.py,py,no,no,no,no,yes,no,no,no,no,no,partial,code-level evidence only
+repo/ood/second_environment_toniot_threshold_sensitivity.py,py,no,no,no,no,no,no,no,no,no,no,no,code-level evidence only; no target metadata fields detected in header/head
+runs/chinese_term_consistency_pass_2026-05-08/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/chinese_term_consistency_pass_2026-05-08/restore_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/collapse_sanity_audit_2026-04-25/score_distribution_threshold_audit.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/e4_second_environment_feasibility_inventory_2026-05-08/protocol_compatibility_matrix.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/e5_consolidated_paper_asset_pack_2026-05-08/e5_asset_manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/e5_label_budget_purity_feasibility_inventory_2026-05-08/reusable_asset_table.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/e5_merge_to_main_draft_2026-05-08/e5_added_assets_manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/e5a_label_budget_sensitivity_2026-05-08/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/e5a_label_budget_sensitivity_2026-05-08/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/e5a_label_budget_sensitivity_2026-05-08/selected_support_ids_full.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/e5a_label_budget_sensitivity_2026-05-08/support_provenance_validation.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/e5a_label_budget_sensitivity_2026-05-08/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/e5b_positive_purity_stress_test_2026-05-08/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/e5b_positive_purity_stress_test_2026-05-08/contaminated_ood_support_ids.csv,csv,no,no,no,yes,no,no,no,no,no,no,yes,metadata fields detected
+runs/e5b_positive_purity_stress_test_2026-05-08/e5b_contamination_provenance_validation.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/e5b_positive_purity_stress_test_2026-05-08/final_positive_support_ids.csv,csv,no,no,no,yes,no,no,no,no,no,no,yes,metadata fields detected
+runs/e5b_positive_purity_stress_test_2026-05-08/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/e5b_positive_purity_stress_test_2026-05-08/original_attack_support_ids.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/e5b_positive_purity_stress_test_2026-05-08/retained_attack_support_ids.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/e5b_positive_purity_stress_test_2026-05-08/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/fewshot_deployment_benchmark_2026-05-03/benchmark_config.json,json,no,no,no,no,yes,no,yes,no,no,no,yes,metadata fields detected
+runs/fewshot_deployment_benchmark_2026-05-03/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/fewshot_e1_e2_e3_summary_2026-05-03/paper_asset_manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/fewshot_protocol_audit_2026-04-30/protocol_audit_summary.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/fewshot_protocol_audit_2026-04-30/support_id_provenance/selected_support_ids_full.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/fewshot_protocol_audit_2026-04-30/support_id_provenance/support_id_provenance_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/fewshot_protocol_audit_2026-04-30/support_id_provenance/support_id_provenance_summary.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/fewshot_protocol_audit_2026-04-30/support_id_provenance/support_id_provenance_validation.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/fewshot_protocol_audit_2026-04-30/support_split_audit.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/fewshot_protocol_audit_2026-04-30/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/fewshot_seed_stability_pack_2026-04-30/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/fewshot_table_figure_asset_pack_2026-05-04/asset_manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/figure_path_numbering_normalization_2026-05-08/figure_copy_manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_additional_ood_setting_smoketest_2026-04-09_b/additional_ood_setting_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_additional_ood_setting_smoketest_2026-04-09_b/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_additional_ood_setting_smoketest_2026-04-09_c/additional_ood_setting_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_additional_ood_setting_smoketest_2026-04-09_c/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_conditional_gate_multiseed_2026-04-08/conditional_gate_multiseed_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_conditional_gate_multiseed_2026-04-08/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_constrained_rule_multiseed_2026-04-03/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_constrained_rule_multiseed_2026-04-03/constrained_rule_seed_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_covariance_regularized_v1_2026-04-07/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_covariance_regularized_v1_2026-04-07/covariance_regularized_v1_config_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_covariance_regularized_v1_2026-04-07/covariance_regularized_v1_covreg_vm0p2_vx1p5_lv0p1_lc0p01_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_covariance_regularized_v1_2026-04-07/covariance_regularized_v1_covreg_vm0p2_vx1p5_lv0p5_lc0p05_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_covariance_regularized_v1_2026-04-07/covariance_regularized_v1_covreg_vm0p2_vx2p0_lv0p1_lc0p01_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_covariance_regularized_v1_2026-04-07/covariance_regularized_v1_covreg_vm0p2_vx2p0_lv0p5_lc0p05_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_covariance_regularized_v1_smoketest_2026-04-07/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_covariance_regularized_v1_smoketest_2026-04-07/smoke_covreg_vm0p2_vx1p5_lv0p1_lc0p01_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_covariance_regularized_v2_2026-04-07/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_covariance_regularized_v2_2026-04-07/covariance_regularized_v2_config_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_covariance_regularized_v2_2026-04-07/covariance_regularized_v2_covregv2_as0p05_lt0p1_ln0p5_lf0p01_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_covariance_regularized_v2_2026-04-07/covariance_regularized_v2_covregv2_as0p05_lt0p5_ln0p5_lf0p01_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_covariance_regularized_v2_2026-04-07/covariance_regularized_v2_covregv2_as0p1_lt0p1_ln0p5_lf0p01_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_covariance_regularized_v2_2026-04-07/covariance_regularized_v2_covregv2_as0p1_lt0p5_ln0p5_lf0p01_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_covariance_regularized_v2_smoketest_2026-04-07/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_covariance_regularized_v2_smoketest_2026-04-07/smoke_covregv2_as0p05_lt0p1_ln0p5_lf0p01_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_deep_svdd_baseline_2026-04-09/bundle_extracted/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_2026-04-09/bundle_extracted/deep_svdd_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_2026-04-09/bundle_extracted/manifests/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_2026-04-09/bundle_extracted/manifests/deep_svdd_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_2026-04-09/bundle_extracted/manifests/run_spec.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_2026-04-09/bundle_extracted/run_spec.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_2026-04-09/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_2026-04-09/deep_svdd_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_2026-04-09/inputs/multiseed_locked_candidate_results.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_2026-04-09/run_spec.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_2026-04-09/upload_bundle/runs/frontend100_deep_svdd_baseline_2026-04-09/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_deep_svdd_baseline_2026-04-09/upload_bundle/runs/frontend100_deep_svdd_baseline_2026-04-09/inputs/multiseed_locked_candidate_results.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_2026-04-09/upload_bundle/runs/frontend100_deep_svdd_baseline_2026-04-09/run_spec.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_2026-04-09/upload_bundle/runs/frontend100_deep_svdd_baseline_2026-04-09/upload_manifest.txt,txt,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_2026-04-09/upload_manifest.txt,txt,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_smoketest_2026-04-09/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_smoketest_2026-04-09/deep_svdd_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_smoketest_2026-04-09_b/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_smoketest_2026-04-09_b/deep_svdd_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_smoketest_2026-04-09_c/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_deep_svdd_baseline_smoketest_2026-04-09_c/deep_svdd_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_diagload_gate_multiseed_2026-04-08/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_diagload_gate_multiseed_2026-04-08/diagload_gate_multiseed_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_diagload_gate_rescue_2026-04-08/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_diagload_gate_rescue_2026-04-08/diagload_gate_rescue_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_diagload_overlap_analysis_2026-04-08/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_diagload_overlap_analysis_2026-04-08/failure_overlap_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_diagload_overlap_analysis_2026-04-08/failure_overlap_sample_manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_diagload_sweep_no_compact_2026-04-08/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_diagload_sweep_no_compact_2026-04-08/diagload_sweep_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_ensemble_distillation_v1_2026-04-11/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_ensemble_distillation_v1_2026-04-11/ensemble_distillation_v1_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_ensemble_distillation_v1_smoke_2026-04-11/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_ensemble_distillation_v1_smoke_2026-04-11/ensemble_distillation_v1_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_external_baselines_2026-04-08/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_external_baselines_2026-04-08/external_baseline_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_final_candidate_audit_2026-04-08/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_final_candidate_audit_2026-04-08/final_candidate_audit_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_latent_compact_v3_2026-04-05/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_compact_v3_2026-04-05/run_spec.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_compact_v3_2026-04-05/upload_manifest.txt,txt,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_latent_compact_v3_2026-04-05_local_live/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_compact_v3_2026-04-05_local_live/latent_compact_v3_config_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_compact_v3_2026-04-05_local_live/latent_compact_v3_lc0p01_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_compact_v3_2026-04-05_local_live/latent_compact_v3_lc0p05_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_compact_v3_2026-04-05_local_live/latent_compact_v3_lc0p10_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_compact_v3_2026-04-05_local_live/latent_compact_v3_lc0p50_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_compact_v3_2026-04-05_local_live/rescoring_hybrid/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_compact_v3_2026-04-05_local_live/rescoring_hybrid/negative_recipe_rescoring_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_compact_v3_2026-04-05_local_live/run_spec.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_latent_compact_v3_smoketest_2026-04-05/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_latent_compact_v3_smoketest_2026-04-05/latent_compact_v3_lc0p01_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_contrastive_compact_v2_2026-04-04/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_contrastive_compact_v2_2026-04-04/latent_contrastive_compact_v2_config_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_contrastive_compact_v2_2026-04-04/transformer_latent_contrastive_compact_v2_m5.0_lm0.5_lc0.01_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_contrastive_compact_v2_2026-04-04/transformer_latent_contrastive_compact_v2_m5.0_lm0.5_lc0.05_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_contrastive_compact_v2_2026-04-04/transformer_latent_contrastive_compact_v2_m5.0_lm0.5_lc0.10_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_contrastive_v1_2026-04-04/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_contrastive_v1_2026-04-04/latent_contrastive_v1_config_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_contrastive_v1_2026-04-04/transformer_latent_contrastive_v1_m1.0_l0.1_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_contrastive_v1_2026-04-04/transformer_latent_contrastive_v1_m1.0_l0.5_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_contrastive_v1_2026-04-04/transformer_latent_contrastive_v1_m5.0_l0.1_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_contrastive_v1_2026-04-04/transformer_latent_contrastive_v1_m5.0_l0.5_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_ensemble_cost_ablation_2026-04-08/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_latent_ensemble_cost_ablation_2026-04-08/latent_ensemble_cost_ablation_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_latent_scorer_benchmark_2026-04-06/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_scorer_benchmark_2026-04-06/latent_scorer_benchmark_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_scorer_benchmark_smoketest_2026-04-06/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_scorer_benchmark_smoketest_2026-04-06/latent_scorer_benchmark_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_latent_seed_ensemble_2026-04-08/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_latent_seed_ensemble_2026-04-08/latent_seed_ensemble_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_latent_seed_ensemble_idq_sweep_2026-04-08/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_latent_seed_ensemble_idq_sweep_2026-04-08/latent_seed_ensemble_idq_sweep_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_latent_tail_seed_diagnostics_2026-04-08/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_latent_tail_seed_diagnostics_2026-04-08/latent_tail_seed_diagnostics_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_locked_candidate_multiseed_2026-04-06/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_locked_candidate_multiseed_2026-04-06/latent_swap_spike_mix_seed101/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_locked_candidate_multiseed_2026-04-06/latent_swap_spike_mix_seed202/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_locked_candidate_multiseed_2026-04-06/latent_swap_spike_mix_seed303/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_locked_candidate_multiseed_2026-04-06/multiseed_locked_candidate_aggregate.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_locked_candidate_multiseed_2026-04-06/multiseed_locked_candidate_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_locked_candidate_multiseed_2026-04-06/multiseed_locked_candidate_pairwise_aggregate.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_locked_candidate_multiseed_2026-04-06/multiseed_locked_candidate_pairwise_per_seed.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_locked_candidate_multiseed_2026-04-06/multiseed_locked_candidate_results.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_locked_candidate_multiseed_2026-04-06/multiseed_locked_candidate_results.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_locked_candidate_multiseed_2026-04-06/multiseed_locked_candidate_summary.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mae_latent_v1_2026-04-06/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mae_latent_v1_2026-04-06/mae_latent_contrastive_v1_m0.3_hybrid_cosine_default_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mae_latent_v1_2026-04-06/mae_latent_contrastive_v1_m0.4_hybrid_cosine_default_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mae_latent_v1_2026-04-06/mae_latent_v1_config_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mae_latent_v1_smoketest_2026-04-06/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_mae_latent_v1_smoketest_2026-04-06/smoke_m0.3_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mae_tailreg_v1_2026-04-03/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mae_tailreg_v1_2026-04-03/mae_tailreg_v1_config_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mae_tailreg_v1_2026-04-03/transformer_mae_tailreg_v1_m0.3_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mae_tailreg_v1_2026-04-03/transformer_mae_tailreg_v1_m0.4_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mae_v1_2026-04-03/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mae_v1_2026-04-03/mae_v1_config_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mae_v1_2026-04-03/transformer_mae_v1_m0.3_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mae_v1_2026-04-03/transformer_mae_v1_m0.4_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mae_v1_2026-04-03/transformer_mae_v1_m0.5_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_mahalanobis_rescue_2026-04-07/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_mahalanobis_rescue_2026-04-07/mahalanobis_rescue_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_ft_2026-04-13/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_ft_2026-04-13/repo/ood/frontend100_crosscapture_calib_stability_report.py,py,no,no,no,no,yes,no,yes,no,yes,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_ft_2026-04-13/repo/ood/frontend100_crosscapture_stability_report.py,py,no,no,no,no,yes,no,no,no,yes,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_ft_2026-04-13/repo/ood/frontend100_locked_candidate_multiseed.py,py,no,no,no,no,yes,no,yes,no,no,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_ft_2026-04-13/repo/ood/frontend100_threshold_baseline.py,py,no,no,no,no,yes,no,yes,no,yes,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_ft_2026-04-13/repo/ood/frontend100_threshold_tradeoff_constrained.py,py,no,no,no,no,yes,no,yes,yes,no,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_ft_2026-04-13/repo/ood/prepare_frontend100_crosscapture_sources.py,py,no,no,no,no,no,no,no,no,yes,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_ft_2026-04-13/repo/ood/prepare_frontend_f2_crosscapture_sources.py,py,no,no,no,no,no,no,no,no,yes,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_ft_2026-04-13/run_spec.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_ft_2026-04-13/source_root/runs/frontend100_joint_eval_stage2_2026-04-01/attack_manifest_stage2.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_ft_2026-04-13/upload_manifest.txt,txt,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_ft_2026-04-14/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_ft_2026-04-14/manifests/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_ft_2026-04-14/manifests/modern_tabular_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_ft_2026-04-14/modern_tabular_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_ft_2026-04-14/repo/ood/frontend100_crosscapture_calib_stability_report.py,py,no,no,no,no,yes,no,yes,no,yes,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_ft_2026-04-14/repo/ood/frontend100_crosscapture_stability_report.py,py,no,no,no,no,yes,no,no,no,yes,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_ft_2026-04-14/repo/ood/frontend100_locked_candidate_multiseed.py,py,no,no,no,no,yes,no,yes,no,no,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_ft_2026-04-14/repo/ood/frontend100_threshold_baseline.py,py,no,no,no,no,yes,no,yes,no,yes,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_ft_2026-04-14/repo/ood/frontend100_threshold_tradeoff_constrained.py,py,no,no,no,no,yes,no,yes,yes,no,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_ft_2026-04-14/repo/ood/prepare_frontend100_crosscapture_sources.py,py,no,no,no,no,no,no,no,no,yes,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_ft_2026-04-14/repo/ood/prepare_frontend_f2_crosscapture_sources.py,py,no,no,no,no,no,no,no,no,yes,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_ft_2026-04-14/run_spec.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_ft_2026-04-14/source_root/runs/frontend100_joint_eval_stage2_2026-04-01/attack_manifest_stage2.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_ft_2026-04-14/upload_manifest.txt,txt,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_ft_smoke_2026-04-13/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_ft_smoke_2026-04-13/modern_tabular_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_resnet_2026-04-12/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_resnet_2026-04-12/repo/ood/frontend100_crosscapture_calib_stability_report.py,py,no,no,no,no,yes,no,yes,no,yes,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_resnet_2026-04-12/repo/ood/frontend100_crosscapture_stability_report.py,py,no,no,no,no,yes,no,no,no,yes,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_resnet_2026-04-12/repo/ood/frontend100_locked_candidate_multiseed.py,py,no,no,no,no,yes,no,yes,no,no,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_resnet_2026-04-12/repo/ood/frontend100_threshold_baseline.py,py,no,no,no,no,yes,no,yes,no,yes,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_resnet_2026-04-12/repo/ood/frontend100_threshold_tradeoff_constrained.py,py,no,no,no,no,yes,no,yes,yes,no,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_resnet_2026-04-12/repo/ood/prepare_frontend100_crosscapture_sources.py,py,no,no,no,no,no,no,no,no,yes,no,partial,code-level evidence only
+runs/frontend100_modern_tabular_baselines_resnet_2026-04-12/run_spec.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_resnet_2026-04-12/source_root/runs/frontend100_joint_eval_stage2_2026-04-01/attack_manifest_stage2.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_resnet_2026-04-12/upload_manifest.txt,txt,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_smoke_2026-04-12/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_smoke_2026-04-12/modern_tabular_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_smoke_resnet_2026-04-12/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_modern_tabular_baselines_smoke_resnet_2026-04-12/modern_tabular_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_negative_recipe_rescoring_2026-04-05/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_negative_recipe_rescoring_2026-04-05/negative_recipe_rescoring_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_negative_semantics_ablation_2026-04-05/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_negative_semantics_ablation_2026-04-05/latent_permute_only_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_negative_semantics_ablation_2026-04-05/latent_permute_spike_mix_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_negative_semantics_ablation_2026-04-05/latent_spike_only_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_negative_semantics_ablation_2026-04-05/latent_swap_only_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_negative_semantics_ablation_2026-04-05/latent_swap_permute_mix_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_negative_semantics_ablation_2026-04-05/latent_swap_spike_mix_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_negative_semantics_ablation_2026-04-05/negative_semantics_ablation_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_recurrent_deep_baselines_2026-04-08/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_recurrent_deep_baselines_2026-04-08/recurrent_deep_baseline_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_runtime_benchmark_2026-04-09/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_runtime_benchmark_2026-04-09/runtime_benchmark_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_runtime_benchmark_smoketest_2026-04-09_b/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_runtime_benchmark_smoketest_2026-04-09_b/runtime_benchmark_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_score_postprocessing_2026-04-05/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_score_postprocessing_2026-04-05/score_postprocessing_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_structured_frontend_v1_smoke_2026-04-13/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_structured_frontend_v1_smoke_2026-04-13/structured_frontend_v1_config_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_temporal_frontend_v1_2026-04-08/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_temporal_frontend_v1_2026-04-08/temporal_frontend_v1_config_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_threshold_tradeoff_constrained_2026-04-02/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_threshold_tradeoff_constrained_2026-04-02/threshold_rule_manifest.json,json,no,no,no,no,yes,no,no,yes,no,no,yes,metadata fields detected
+runs/frontend100_threshold_tradeoff_constrained_2026-04-02/threshold_tradeoff_results.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_threshold_tradeoff_constrained_2026-04-02/threshold_tradeoff_summary.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_timescale_tokenizer_v1_1_smoke_2026-04-13/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_timescale_tokenizer_v1_1_smoke_2026-04-13/timescale_tokenizer_v1_1_config_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_timescale_tokenizer_v1_2_smoke_2026-04-13/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_timescale_tokenizer_v1_2_smoke_2026-04-13/timescale_tokenizer_v1_2_config_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_timescale_tokenizer_v1_3_smoke_2026-04-13/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_timescale_tokenizer_v1_3_smoke_2026-04-13/timescale_tokenizer_v1_3_config_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_timescale_tokenizer_v1_smoke_2026-04-13/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_timescale_tokenizer_v1_smoke_2026-04-13/timescale_tokenizer_v1_config_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_transformer_self_audit_2026-04-02/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_transformer_self_audit_2026-04-02/transformer_self_audit_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_uncertainty_v1_2026-04-04/cache_scores/uncertainty_combined_nll_diagnostics.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend100_uncertainty_v1_2026-04-04/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_uncertainty_v1_2026-04-04/transformer_uncertainty_v1_seed42/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend100_uncertainty_v1_2026-04-04/uncertainty_v1_config_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/frontend_f2_attack_source_2026-04-13/frontend_f2_attack_source_metadata.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend_f2_contrast_tokenizer_v1_smoke_2026-04-14/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend_f2_contrast_tokenizer_v1_smoke_2026-04-14/frontend_f2_contrast_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend_f2_crosscapture_source_smoke_2026-04-13/frontend_f2_source_metadata.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend_f2_crosscapture_stage1_2026-04-13/frontend_f2_source_metadata.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend_f2_extract_attack_34_1_2026-04-13/extract_metadata.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend_f2_extract_id_7_6_2026-04-13/extract_metadata.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend_f2_extract_ood_4_1_2026-04-13/extract_metadata.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend_f2_structured_tokenizer_v1_smoke_2026-04-13/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/frontend_f2_structured_tokenizer_v1_smoke_2026-04-13/frontend_f2_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/generic_latex_dryrun_2026-05-08/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue01_chinese_hotfix_citation_spacing_2026-05-08/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue01_chinese_naturalization_second_pass_2026-05-08/final2_repair_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue01_chinese_naturalization_second_pass_2026-05-08/final_repair_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue01_chinese_naturalization_second_pass_2026-05-08/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue01_chinese_naturalization_second_pass_2026-05-08/repair_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue02_original_da_normal_attack_sanity_run_2026-05-08/combined_sanity_comparison.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue02_original_da_normal_attack_sanity_run_2026-05-08/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue02_original_da_normal_attack_sanity_run_2026-05-08/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue02_original_da_normal_attack_sanity_run_2026-05-08/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue02_original_da_normal_attack_sanity_run_2026-05-08/split_counts.csv,csv,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue02_original_da_normal_attack_sanity_run_2026-05-08/split_manifest.csv,csv,no,no,no,yes,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue02_original_da_normal_attack_sanity_run_2026-05-08/support_id_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue02_original_da_normal_attack_sanity_run_2026-05-08/threshold_metrics.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue02_original_da_normal_attack_sanity_run_2026-05-08/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue03_original_da_normal_attack_sanity_inventory_2026-05-08/asset_inventory.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue03_original_da_normal_attack_sanity_inventory_2026-05-08/missing_asset_report.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue03_original_da_normal_attack_sanity_inventory_2026-05-08/proposed_sanity_protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue06b_transformer_normal_attack_sanity_run_2026-05-08/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue06b_transformer_normal_attack_sanity_run_2026-05-08/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue06b_transformer_normal_attack_sanity_run_2026-05-08/same_subset_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue06b_transformer_normal_attack_sanity_run_2026-05-08/same_subset_threshold_metrics.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue06b_transformer_normal_attack_sanity_run_2026-05-08/split_reuse_report.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue06b_transformer_normal_attack_sanity_run_2026-05-08/subset_manifest.csv,csv,no,no,no,yes,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue06b_transformer_normal_attack_sanity_run_2026-05-08/threshold_metrics.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue06b_transformer_normal_attack_sanity_run_2026-05-08/transformer_vs_da_same_split_comparison.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07_preflight_score_alignment_2026-05-14/asset_inventory.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07a_da_assisted_adapter_lowood_repair_2026-05-14/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07a_da_assisted_adapter_lowood_repair_2026-05-14/da_support_score_diagnostic.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07a_da_assisted_adapter_lowood_repair_2026-05-14/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07a_da_assisted_adapter_lowood_repair_2026-05-14/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue07a_da_assisted_adapter_lowood_repair_2026-05-14/support_id_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07a_da_assisted_adapter_lowood_repair_2026-05-14/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07b_transformer_assisted_adapter_lowood_repair_2026-05-14/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07b_transformer_assisted_adapter_lowood_repair_2026-05-14/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue07b_transformer_assisted_adapter_lowood_repair_2026-05-14/support_id_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07b_transformer_assisted_adapter_lowood_repair_2026-05-14/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07b_transformer_assisted_adapter_lowood_repair_2026-05-14_rerun_with_recovered_scores/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07b_transformer_assisted_adapter_lowood_repair_2026-05-14_rerun_with_recovered_scores/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07b_transformer_assisted_adapter_lowood_repair_2026-05-14_rerun_with_recovered_scores/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue07b_transformer_assisted_adapter_lowood_repair_2026-05-14_rerun_with_recovered_scores/support_id_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07b_transformer_assisted_adapter_lowood_repair_2026-05-14_rerun_with_recovered_scores/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07b_transformer_full_id_score_recovery_2026-05-14/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue07b_transformer_full_id_score_recovery_2026-05-14/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue08_research_grounding_for_guarded_fewshot_adapter_2026-05-14/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue08_research_grounding_for_guarded_fewshot_adapter_2026-05-14/representation_asset_inventory.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue08_transformer_representation_adapter_feasibility_inventory_2026-05-14/asset_inventory.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue08_transformer_representation_adapter_feasibility_inventory_2026-05-14/asset_inventory_meta.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue08_transformer_representation_adapter_feasibility_inventory_2026-05-14/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue08_transformer_representation_adapter_feasibility_inventory_2026-05-14/protocol_compatibility_matrix.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue09_source_rich_representation_probe_2026-05-14/config.json,json,no,no,no,no,no,no,yes,no,no,no,yes,metadata fields detected
+runs/issue09_source_rich_representation_probe_2026-05-14/manifest.json,json,no,no,no,no,no,no,yes,no,no,no,yes,metadata fields detected
+runs/issue09_source_rich_representation_probe_2026-05-14/protocol.md,md,no,no,no,no,yes,no,yes,no,no,no,yes,metadata fields detected
+runs/issue09_source_rich_representation_probe_2026-05-14/source_rich_asset_report.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue09_source_rich_representation_probe_2026-05-14/source_rich_asset_report.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue09_source_rich_representation_probe_2026-05-14/support_id_provenance.csv,csv,no,no,no,yes,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue09_source_rich_representation_probe_2026-05-14/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue10_minimal_ood_guarded_lr_source_rich_2026-05-14/asset_alignment_report.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue10_minimal_ood_guarded_lr_source_rich_2026-05-14/config.json,json,no,no,no,no,no,no,yes,no,no,no,yes,metadata fields detected
+runs/issue10_minimal_ood_guarded_lr_source_rich_2026-05-14/manifest.json,json,no,no,no,no,no,no,yes,no,no,no,yes,metadata fields detected
+runs/issue10_minimal_ood_guarded_lr_source_rich_2026-05-14/protocol.md,md,no,no,no,no,yes,no,yes,no,no,no,yes,metadata fields detected
+runs/issue10_minimal_ood_guarded_lr_source_rich_2026-05-14/support_id_provenance.csv,csv,no,no,no,yes,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue10_minimal_ood_guarded_lr_source_rich_2026-05-14/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue11_fixed_config_ood_guard_lr_ablation_2026-05-14/asset_reuse_report.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue11_fixed_config_ood_guard_lr_ablation_2026-05-14/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue11_fixed_config_ood_guard_lr_ablation_2026-05-14/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue11_fixed_config_ood_guard_lr_ablation_2026-05-14/preregistered_config.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue11_fixed_config_ood_guard_lr_ablation_2026-05-14/protocol.md,md,no,no,no,no,yes,no,yes,no,no,no,yes,metadata fields detected
+runs/issue11_fixed_config_ood_guard_lr_ablation_2026-05-14/run_issue11_fixed_config_ablation.py,py,no,no,no,yes,yes,yes,yes,no,no,no,partial,code-level evidence only
+runs/issue11_fixed_config_ood_guard_lr_ablation_2026-05-14/scaler_provenance.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue11_fixed_config_ood_guard_lr_ablation_2026-05-14/support_id_provenance.csv,csv,no,no,no,yes,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue11_fixed_config_ood_guard_lr_ablation_2026-05-14/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue12_base_detector_representation_recovery_and_guarded_probe_2026-05-15/asset_shape_check.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue12_base_detector_representation_recovery_and_guarded_probe_2026-05-15/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue12_base_detector_representation_recovery_and_guarded_probe_2026-05-15/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue12_base_detector_representation_recovery_and_guarded_probe_2026-05-15/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue12_base_detector_representation_recovery_and_guarded_probe_2026-05-15/support_id_provenance.csv,csv,no,no,no,yes,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue12_base_detector_representation_recovery_and_guarded_probe_2026-05-15/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue12_base_detector_representation_recovery_and_guarded_probe_2026-05-15/transformer_hidden_asset_report.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue13_deployment_timeline_activation_evidence_pack_2026-05-15/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue13_deployment_timeline_activation_evidence_pack_2026-05-15/run_metadata.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue14_arbitration_matrix_experiment_2026-05-15/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue14_arbitration_matrix_experiment_2026-05-15/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue14_arbitration_matrix_experiment_2026-05-15/run_metadata.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue14b_gda_minimal_score_recovery_for_arbitration_2026-05-15/base_score_asset_check.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue14b_gda_minimal_score_recovery_for_arbitration_2026-05-15/base_threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue14b_gda_minimal_score_recovery_for_arbitration_2026-05-15/gda_minimal_row_level_scores.csv,csv,no,no,no,yes,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue14b_gda_minimal_score_recovery_for_arbitration_2026-05-15/gda_threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue14b_gda_minimal_score_recovery_for_arbitration_2026-05-15/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue14b_gda_minimal_score_recovery_for_arbitration_2026-05-15/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue14b_gda_minimal_score_recovery_for_arbitration_2026-05-15/run_metadata.json,json,no,no,no,no,no,no,yes,no,no,no,yes,metadata fields detected
+runs/issue14b_gda_minimal_score_recovery_for_arbitration_2026-05-15/split_counts.csv,csv,no,no,no,no,no,no,yes,no,no,no,yes,metadata fields detected
+runs/issue14b_gda_minimal_score_recovery_for_arbitration_2026-05-15/support_id_provenance.csv,csv,no,no,no,yes,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue15_review_budget_constrained_arbitration_2026-05-15/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue15_review_budget_constrained_arbitration_2026-05-15/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue15_review_budget_constrained_arbitration_2026-05-15/run_metadata.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue16_harder_holdout_second_environment_feasibility_2026-05-15/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue16_harder_holdout_second_environment_feasibility_2026-05-15/minimal_harder_holdout_protocol.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue16_harder_holdout_second_environment_feasibility_2026-05-15/run_metadata.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue16_harder_holdout_second_environment_feasibility_2026-05-15/second_environment_asset_gap.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue16b_harder_holdout_fixed_guard_validation_2026-05-15/config.json,json,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue16b_harder_holdout_fixed_guard_validation_2026-05-15/harder_holdout_asset_report.csv,csv,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue16b_harder_holdout_fixed_guard_validation_2026-05-15/harder_holdout_asset_report.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue16b_harder_holdout_fixed_guard_validation_2026-05-15/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue16b_harder_holdout_fixed_guard_validation_2026-05-15/protocol.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue16b_harder_holdout_fixed_guard_validation_2026-05-15/scaler_provenance.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue16b_harder_holdout_fixed_guard_validation_2026-05-15/support_id_provenance.csv,csv,no,no,yes,yes,no,yes,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue16b_harder_holdout_fixed_guard_validation_2026-05-15/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue16c_harder_holdout_failure_analysis_and_repair_design_2026-05-15/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue16c_harder_holdout_failure_analysis_and_repair_design_2026-05-15/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue16c_harder_holdout_failure_analysis_and_repair_design_2026-05-15/support_similarity_analysis.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue16c_harder_holdout_failure_analysis_and_repair_design_2026-05-15/support_similarity_by_seed.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue16c_harder_holdout_failure_analysis_and_repair_design_2026-05-15/support_similarity_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue16c_harder_holdout_failure_analysis_and_repair_design_2026-05-15/threshold_diagnosis.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue16c_harder_holdout_failure_analysis_and_repair_design_2026-05-15/threshold_diagnosis.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/chrono_late_support_repair_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/config.json,json,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/holdout_bin2_method_delta_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/holdout_bin2_support_repair_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/preflight_support_provenance_check.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/protocol.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/random_vs_diverse_support_delta.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/run_issue17_support_diversity_selection.py,py,no,no,yes,yes,yes,yes,no,no,no,no,partial,code-level evidence only
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/scaler_provenance.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/support_coverage_analysis.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/support_coverage_by_seed.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/support_coverage_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/support_id_provenance.csv,csv,no,no,yes,yes,no,yes,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/support_selection_method_report.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue17_support_diversity_selection_harder_holdout_2026-05-15/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/attack_ood_separation_summary.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/claim_boundary.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/config.json,json,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/diagnostic_decision.md,md,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/doc_update_patch_suggestion.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/margin_distribution_summary.csv,csv,no,no,no,no,yes,yes,no,no,no,no,yes,metadata fields detected
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/ood_target_sensitivity_by_seed.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/ood_target_sensitivity_summary.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/preflight_metric_reproduction.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/preflight_score_persistence_check.md,md,no,no,no,yes,yes,yes,no,no,no,no,yes,metadata fields detected
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/random_vs_kcenter_margin_delta.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/recommended_next_action.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/representation_failure_diagnosis.md,md,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/risk_register.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/row_level_scores.parquet,parquet,no,no,no,yes,yes,yes,no,no,no,no,yes,parquet schema inspected; no full temporal split constructed
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/row_level_scores_manifest.csv,csv,no,no,no,no,yes,yes,no,no,no,no,yes,metadata fields detected
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/run_issue18_row_level_scores.py,py,no,no,yes,yes,yes,yes,yes,no,no,no,partial,code-level evidence only
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/score_distribution_summary.csv,csv,no,no,no,no,yes,yes,no,no,no,no,yes,metadata fields detected
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/summary.md,md,no,no,yes,no,yes,yes,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/threshold_provenance.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue18_row_level_score_persistence_and_ood_target_sensitivity_2026-05-15/threshold_tightness_diagnosis.md,md,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/chrono_late_lowguard_plus_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/claim_boundary.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/config.json,json,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/doc_update_patch_suggestion.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/hard_negative_report.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/holdout_bin2_lowguard_plus_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/interaction_gain_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/margin_ablation_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/margin_adapter_protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/margin_candidate_results.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/method_comparison_by_seed.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/method_comparison_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/ood_target_sensitivity_by_seed.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/preflight_lowguard_plus_repair_check.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/provenance_report.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/recommended_next_action.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/representation_ablation_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/risk_register.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/row_level_scores_manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/run_issue19_lowguard_plus_pilot.py,py,no,no,yes,yes,yes,yes,yes,no,no,no,partial,code-level evidence only
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/selected_feature_report.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/selected_feature_stability.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/selected_representation_protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/summary.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/support_id_provenance.csv,csv,no,no,no,yes,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue19_lowguard_plus_representation_margin_repair_pilot_2026-05-18/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19b_v1_v2_same_protocol_backtest_and_alarm_budget_curve_2026-05-18/config.json,json,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue19b_v1_v2_same_protocol_backtest_and_alarm_budget_curve_2026-05-18/dataset_asset_report.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19b_v1_v2_same_protocol_backtest_and_alarm_budget_curve_2026-05-18/holdout_bin2_v1_v2_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19b_v1_v2_same_protocol_backtest_and_alarm_budget_curve_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue19b_v1_v2_same_protocol_backtest_and_alarm_budget_curve_2026-05-18/ordinary_asset_gap.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue19b_v1_v2_same_protocol_backtest_and_alarm_budget_curve_2026-05-18/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue19b_v1_v2_same_protocol_backtest_and_alarm_budget_curve_2026-05-18/support_id_provenance.csv,csv,no,no,no,yes,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue19b_v1_v2_same_protocol_backtest_and_alarm_budget_curve_2026-05-18/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue20_mode_specific_routing_validation_2026-05-18/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue20_mode_specific_routing_validation_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue20_mode_specific_routing_validation_2026-05-18/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue20_mode_specific_routing_validation_2026-05-18/support_id_provenance.csv,csv,no,no,no,yes,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue20a_lowguard_routed_lifecycle_design_doc_2026-05-18/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue20a_lowguard_routed_lifecycle_design_doc_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue20b_promotion_proxy_construction_for_routing_2026-05-18/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue20b_promotion_proxy_construction_for_routing_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue20b_promotion_proxy_construction_for_routing_2026-05-18/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue20b_promotion_proxy_construction_for_routing_2026-05-18/proxy_asset_gap_report.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue20b_promotion_proxy_construction_for_routing_2026-05-18/support_holdout_proxy_report.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue21_active_review_promotion_asset_feasibility_2026-05-18/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue21_active_review_promotion_asset_feasibility_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue21_active_review_promotion_asset_feasibility_2026-05-18/promotion_asset_gap_report.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue21_active_review_promotion_asset_feasibility_2026-05-18/promotion_evidence_manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue21_active_review_promotion_asset_feasibility_2026-05-18/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/alarm_budget_curve_by_seed.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/alarm_budget_curve_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/chrono_late_v2_enhancement_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/claim_boundary.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/doc_update_patch_suggestion.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/enhancement_interpretation.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/feasible_operating_points.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/feature_count_sensitivity.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/holdout_bin2_v2_enhancement_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/low_fpr_adapter_sanity.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/method_comparison_by_seed.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/method_comparison_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/method_comparison_summary_official_1pct.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/preflight_v2_enhancement_check.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/primary_lowood_safety_check.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/recommended_next_action.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/risk_register.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/run_issue22_v2_enhancement.py,py,no,no,yes,yes,yes,yes,yes,no,no,no,partial,code-level evidence only
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/selected_feature_report.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/summary.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/support_budget_sensitivity.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/support_id_provenance.csv,csv,no,no,no,yes,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue22_v2_hard_shift_enhancement_pilot_2026-05-18/threshold_provenance.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/alarm_budget_primary_lowood.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/claim_boundary.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/doc_update_patch_suggestion.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/global_candidate_status.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/low_fpr_metrics_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/preflight_primary_nonregression_check.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/primary_lowood_nonregression_by_seed.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/primary_lowood_nonregression_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/recommended_next_action.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/risk_register.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/run_issue22b_primary_nonregression.py,py,no,no,yes,no,yes,no,no,no,no,no,partial,code-level evidence only
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/summary.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue22b_enhanced_v2_primary_nonregression_check_2026-05-18/v1_v2top32_v2top64_by_dataset.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24_adapter_upgrade_feasibility_for_enhanced_v2_top64_2026-05-18/adapter_validation_selected_configs.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24_adapter_upgrade_feasibility_for_enhanced_v2_top64_2026-05-18/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24_adapter_upgrade_feasibility_for_enhanced_v2_top64_2026-05-18/locked_bins_adapter_by_seed.csv,csv,no,no,no,no,no,yes,no,no,no,no,yes,metadata fields detected
+runs/issue24_adapter_upgrade_feasibility_for_enhanced_v2_top64_2026-05-18/locked_bins_adapter_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24_adapter_upgrade_feasibility_for_enhanced_v2_top64_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24_adapter_upgrade_feasibility_for_enhanced_v2_top64_2026-05-18/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/adapter_failure_diagnosis.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/claim_boundary.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/diagnostic_top64_feature_indices.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/doc_update_patch_suggestion.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/error_overlap_by_bin.csv,csv,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/error_overlap_report.md,md,no,no,yes,no,yes,no,yes,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/feature_space_diagnostic.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/feature_space_diagnostic_report.md,md,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/fusion_potential_report.md,md,no,no,yes,no,yes,no,yes,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/fusion_potential_summary.csv,csv,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/issue24c_candidate_ranking.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/low_fpr_bottleneck_report.md,md,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/low_fpr_bottleneck_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/preflight_adapter_bottleneck_diagnosis_check.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/recommended_next_action.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/risk_register.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/row_level_asset_gap.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/row_level_diagnostic_scores.parquet,parquet,no,no,no,no,yes,no,no,no,no,no,yes,parquet schema inspected; no full temporal split constructed
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/run_issue24b_bottleneck_diagnosis.py,py,no,no,yes,no,yes,no,yes,no,no,no,partial,code-level evidence only
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/score_distribution_by_bin.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/score_distribution_report.md,md,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue24b_adapter_bottleneck_diagnosis_for_enhanced_v2_top64_2026-05-18/summary.md,md,no,no,yes,no,yes,no,yes,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/alpha_sweep_by_seed.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/alpha_sweep_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/best_fusion_candidate.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/claim_boundary.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/config.json,json,no,no,yes,no,no,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/conservative_fusion_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/consistency_primary_holdout_chrono.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/doc_update_patch_suggestion.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/fusion_candidate_definitions.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/fusion_failure_analysis.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/fusion_method_comparison_by_seed.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/fusion_method_comparison_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/fusion_selection_report.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/fusion_validation_candidates.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/locked_bins_fusion_by_seed.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/locked_bins_fusion_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/low_fpr_metrics_fusion_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/preflight_fusion_retry_check.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/recommended_next_action.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/residual_lr_fusion_summary.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/risk_register.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/run_issue24c_fusion_retry.py,py,no,no,yes,no,yes,no,yes,no,no,no,partial,code-level evidence only
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/score_asset_gap_report.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/score_asset_reconstruction_manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue24c_v1_v2_residual_fusion_adapter_retry_2026-05-18/summary.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue25a_algorithmic_formalization_and_claim_upgrade_for_lowguard_plus_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25b_strong_baseline_protocol_and_fairness_design_2026-05-18/adapter_fairness_protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue25b_strong_baseline_protocol_and_fairness_design_2026-05-18/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue25b_strong_baseline_protocol_and_fairness_design_2026-05-18/method_level_baseline_protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue25b_strong_baseline_protocol_and_fairness_design_2026-05-18/metric_protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue25b_strong_baseline_protocol_and_fairness_design_2026-05-18/representation_ablation_protocol.md,md,no,no,yes,no,yes,no,no,no,no,partial,yes,bin/split metadata only; raw timestamp or packet-order missing
+runs/issue25b_strong_baseline_protocol_and_fairness_design_2026-05-18/threshold_and_hyperparameter_protocol.md,md,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22/metadata_source_inventory.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22/metadata_split_smoke_check.md,md,yes,no,no,no,yes,no,no,no,yes,yes,yes,metadata fields detected
+runs/issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22/reviewer_defense_metadata_temporal_split.md,md,yes,no,no,no,yes,no,no,no,yes,yes,yes,metadata fields detected
+runs/issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22/run_spec.json,json,yes,no,no,no,yes,no,no,no,no,yes,yes,metadata fields detected
+runs/issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22/setting_provenance_reconstruction.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22/temporal_asset_candidate_rebuild.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/kitsune_frontend_f2_smoke_2026-04-13/extract_metadata.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/manifests/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/manifests/modern_tabular_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/modern_tabular_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/original100_fewshot_official_control_2026-04-22/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/original100_fewshot_official_control_2026-04-22/official_control_manifest.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/original100_fewshot_official_control_2026-04-22/run_spec.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/paper_handoffs/2026-04-09/paper_asset_manifest_2026-04-09.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/paper_handoffs/2026-04-09/paper_asset_manifest_2026-04-09.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/paper_handoffs/2026-04-11/v15_file_collection_manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/prism_handoffs/2026-04-08/prism_paper_revision_pack_2026-04-08/figures/figure_manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/prism_handoffs/2026-04-08/prism_paper_revision_pack_2026-04-08/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/prism_handoffs/fewshot_dataset_split_budget_summary_2026-04-25.csv,csv,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/problem_reframing_2022_2026_acceptance_2026-05-17/manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/problem_reframing_2022_2026_acceptance_2026-05-17/source_report_metadata.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/readable_pdf_draft_2026-05-10/manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_botiot_feasibility_2026-04-17/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_botiot_feasibility_2026-04-17/run_spec.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_botiot_feasibility_2026-04-20/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_botiot_feasibility_2026-04-20/run_spec.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_botiot_smoke_2026-04-20/config.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/second_environment_botiot_smoke_2026-04-20/run_spec.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/second_environment_botiot_smoke_2026-04-20/split_summary.csv,csv,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/second_environment_botiot_split_gate_2026-04-20/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_botiot_split_gate_2026-04-20/run_spec.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/second_environment_botiot_split_gate_2026-04-20/split_candidates.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_botiot_split_gate_2026-04-20/split_gate_report.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/second_environment_toniot_coupling_probe_2026-04-21/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_coupling_probe_2026-04-21/run_spec.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/second_environment_toniot_intake_2026-04-20/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_intake_2026-04-20/run_spec.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_intake_2026-04-20_b/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_intake_2026-04-20_b/run_spec.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_object_prerun_2026-04-20_b/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_object_prerun_2026-04-20_b/run_spec.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/second_environment_toniot_object_prerun_2026-04-20_b/split_used_summary.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_object_prerun_2026-04-21_engineering_smoke/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_object_prerun_2026-04-21_engineering_smoke/run_spec.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/second_environment_toniot_object_prerun_2026-04-21_engineering_smoke/split_used_summary.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_object_prerun_2026-04-21_stability/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_object_prerun_2026-04-21_stability/run_spec.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/second_environment_toniot_object_prerun_2026-04-21_stability/split_used_summary.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_precheck_2026-04-20/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_precheck_2026-04-20/run_spec.json,json,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/second_environment_toniot_precheck_2026-04-20/split_manifest.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_smoke_2026-04-20/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_smoke_2026-04-20/run_spec.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_smoke_2026-04-20/split_summary.csv,csv,no,no,no,no,yes,no,no,no,no,no,yes,metadata fields detected
+runs/second_environment_toniot_threshold_sensitivity_2026-04-21/config.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_threshold_sensitivity_2026-04-21/run_spec.json,json,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_threshold_sensitivity_2026-04-21/threshold_sensitivity_results.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/second_environment_toniot_threshold_sensitivity_2026-04-21/threshold_tie_profile.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/submission_asset_pack_2026-05-04/asset_manifest.csv,csv,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head
+runs/submission_formatting_audit_2026-05-08/figure_asset_pack_plan.md,md,no,no,no,no,no,no,no,no,no,no,no,no target metadata fields detected in header/head

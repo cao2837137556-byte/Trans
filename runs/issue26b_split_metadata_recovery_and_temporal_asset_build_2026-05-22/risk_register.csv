@@ -1,0 +1,11 @@
+risk_name,severity,reason,mitigation
+repeated locked-bin analysis risk,high,Bins 5/6/7/8 already support issue23/25c.,Label reuse as consistency-only.
+temporal leakage risk,medium,Raw timestamp/order not recovered.,Block formal validation until raw metadata exists.
+adjacent-window contamination risk,medium,Coarse bins may contain near-adjacent traffic.,Require purge/embargo.
+insufficient metadata risk,high,No raw timestamp/packet-order/capture manifest recovered.,Run metadata follow-up or second-environment feasibility.
+small attack eval risk,medium,holdout_bin_8 has 426 attack eval rows.,Report row-count caveats.
+small OOD eval risk,low,Existing OOD eval has about 10000 rows.,Keep report-only and preserve protocol.
+single-domain risk,high,issue26b is within-dataset only.,Keep issue27 second environment as needed.
+no second environment risk,high,Within-dataset temporal asset does not prove external validity.,Do not remove issue27.
+final eval leakage risk,medium,Future metadata work might be tempted to inspect final eval.,Pre-register splits and use final eval report-only.
+Slurm misuse risk,medium,Large scans/formal multi-seed could be too heavy locally.,Use local smoke then sbatch.

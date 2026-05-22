@@ -1,0 +1,20 @@
+{
+  "issue": "issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22",
+  "question": "Can existing assets recover enough temporal metadata to build a clean formal temporal validation candidate?",
+  "serves_claim": "Prepares, but does not prove, within-dataset temporal validation for Enhanced LOW-GUARD+ top64.",
+  "reviewer_attack_defended": [
+    "one-dataset repeated tuning",
+    "repeated locked-bin evidence presented as new proof",
+    "temporal leakage",
+    "final eval leakage"
+  ],
+  "success_interpretation": "Clean raw timestamp/order provenance found and an unused candidate can be pre-registered.",
+  "failure_interpretation": "Temporal validation remains blocked; use metadata follow-up or second-environment feasibility.",
+  "paper_destination": "appendix/provenance and experiment planning; not main result",
+  "leakage_controls": [
+    "no final eval selection",
+    "no topK/support/adapter/threshold tuning",
+    "no model training",
+    "formal validation blocked unless clean metadata exists"
+  ]
+}
