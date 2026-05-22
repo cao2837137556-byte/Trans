@@ -1,0 +1,8 @@
+risk_id,risk_name,severity,description,mitigation
+R1,baseline_implementation_mismatch,high,Baseline implementation may not perfectly match original papers,Label lightweight variants clearly and avoid overclaim
+R2,baseline_under_tuning,medium,Small grids may under-tune complex baselines,Report search space and mark limitations
+R3,hyperparameter_selection_bias,high,Final eval could leak into config selection,Use only support-holdout and OOD validation
+R4,repeated_locked_bin_analysis,medium,Locked bins have been repeatedly analyzed after issue23,Proceed to second environment or temporal validation next
+R5,low_fpr_metric_instability,medium,Low-FPR metrics can be unstable under small eval sizes,Report mean/min/max and OOD max
+R6,external_validity_missing,high,Same-dataset locked bins do not prove external generalization,Run issue26 second environment or temporal validation
+R7,deep_baseline_gap,medium,DevNet-like and DeepSAD-like are lightweight implementations,Keep claims limited and consider stronger implementations later

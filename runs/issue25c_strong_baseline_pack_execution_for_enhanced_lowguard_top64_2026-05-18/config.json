@@ -1,0 +1,30 @@
+{
+  "created_at": "2026-05-22 10:54:53",
+  "runtime_seconds": 561.1460699000163,
+  "outcome": "strong_baseline_positive",
+  "main_method": "selected_source_rich_top64 + kcenter32 + fixed OOD guard LR",
+  "locked_holdouts": [
+    "holdout_bin_5",
+    "holdout_bin_6",
+    "holdout_bin_7",
+    "holdout_bin_8"
+  ],
+  "consistency_holdouts": [
+    "primary_lowood",
+    "holdout_bin_2",
+    "chrono_late_train_early_eval"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "final_eval_used_for_selection": false
+}

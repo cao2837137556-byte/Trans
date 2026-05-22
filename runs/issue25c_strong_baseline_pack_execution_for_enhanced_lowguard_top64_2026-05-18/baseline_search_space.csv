@@ -1,0 +1,14 @@
+method,baseline_category,model_kind,run_priority,config_id,C,ood_weight,n_estimators,max_samples,nu,max_depth,max_iter,learning_rate,l2_regularization,hidden,alpha,lambda_attack
+M0_V1_original100_fixed_guard_LR,existing_detector_baseline,guarded_lr,required,fixed_lr,1.0,2.0,,,,,,,,,,
+M1_V2_top32_fixed_guard_LR,existing_detector_baseline,guarded_lr,required,fixed_lr,1.0,2.0,,,,,,,,,,
+M2_Enhanced_LOW_GUARD_top64_fixed_guard_LR,main_method,guarded_lr,required,fixed_lr,1.0,2.0,,,,,,,,,,
+M3_top64_no_guard_LR,component_ablation,no_guard_lr,required,fixed_lr,1.0,0.0,,,,,,,,,,
+M4_top64_random32_fixed_guard_LR,component_ablation,guarded_lr,required,fixed_lr,1.0,2.0,,,,,,,,,,
+M5_Isolation_Forest_top64,unsupervised_anomaly,isolation_forest,required,iforest_n100_auto,,,100.0,256.0,,,,,,,,
+M6_OC_SVM_top64,unsupervised_anomaly,ocsvm_sgd,required,sgd_ocsvm_nu001,,,,,0.01,,,,,,,
+M7_HistGB_shallow_top64,nonlinear_tabular,histgb,required,histgb_depth2_iter50_lr005,,,,,,2.0,50.0,0.05,1.0,,,
+M7_HistGB_shallow_top64,nonlinear_tabular,histgb,required,histgb_depth3_iter50_lr005,,,,,,3.0,50.0,0.05,1.0,,,
+M8_DevNet_like_MLP_top64,fewshot_anomaly,devnet_like_mlp,required,mlp_h16_alpha001,,,,,,,80.0,,,16.0,0.001,
+M9_DeepSAD_like_center_top64,semisupervised_anomaly,deepsad_like_center,required,center_lambda0,,,,,,,,,,,,0.0
+M9_DeepSAD_like_center_top64,semisupervised_anomaly,deepsad_like_center,required,center_lambda1,,,,,,,,,,,,1.0
+M9_DeepSAD_like_center_top64,semisupervised_anomaly,deepsad_like_center,required,center_lambda2,,,,,,,,,,,,2.0
