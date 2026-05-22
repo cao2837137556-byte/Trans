@@ -1,0 +1,8 @@
+git branch --show-current
+git status --short
+Get-ChildItem issue25c output directory
+Get-Content issue25c/mainline/issue25b/issue23/issue22/issue22b required summaries
+rg scan for manifest/config/run_spec/protocol/summary/split/provenance assets
+python runs/issue26a.../generate_issue26a_outputs.py
+apply_patch runs/mainline_docs/mainline_handoff.md append issue26a section
+apply_patch runs/mainline_docs/mainline_experiment_map.md append issue26a section

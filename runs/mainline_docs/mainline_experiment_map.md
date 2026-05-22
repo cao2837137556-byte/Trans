@@ -1590,3 +1590,42 @@ Use `LOW-GUARD-minimal` for the current implementation:
 `original100 representation + fixed OOD-benign guard + few-shot LR adapter`.
 
 Avoid writing that full GDA, detector-agnostic adaptation, source_rich superiority, or Transformer-hidden improvement has already been proven.
+
+### 6.5 Issue26a Within-Dataset Temporal Feasibility Inventory
+
+Date: 2026-05-22
+
+Run:
+- `runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/`
+
+Scope:
+- within-dataset temporal / data-scale feasibility;
+- evidence inventory;
+- temporal candidate matrix;
+- leakage audit;
+- issue26b planning.
+
+Not in scope:
+- formal temporal validation;
+- second environment;
+- topK/support/adapter/threshold tuning;
+- dA or Transformer training;
+- routing, promotion, or frontend-f2 reopening.
+
+Key result:
+- issue25c remains `strong_baseline_positive` for frozen Enhanced LOW-GUARD+ top64.
+- No clean P0/P1 temporal candidate with low leakage risk was found.
+- `chrono_early_train_late_eval` is the best partial candidate, but it overlaps issue23/25c locked eval bins `6/7/8`; it cannot be written as clean new temporal proof without metadata recovery and purge/embargo design.
+- Existing `primary_lowood`, `holdout_bin_2`, and `chrono_late_train_early_eval` remain consistency/discovery evidence.
+- Existing locked bins `5/6/7/8` remain same-dataset locked evidence, but repeated locked-bin analysis risk must be stated.
+- No optional minimal temporal validation was run.
+
+Current claim boundary:
+- Allowed: issue26a inventories within-dataset temporal/data-scale evidence and audits leakage risk.
+- Not allowed: issue26a proves temporal generalization, proves external generalization, or replaces second-environment validation.
+
+Next:
+- Unique next action: `issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22`.
+- Do local metadata recovery and split-manifest construction first.
+- Use Slurm only after local smoke passes and the formal temporal protocol is frozen.
+- Keep second-environment validation as issue27-level work.

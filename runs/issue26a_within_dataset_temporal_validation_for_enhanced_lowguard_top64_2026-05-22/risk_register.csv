@@ -1,0 +1,11 @@
+risk_name,severity,description,mitigation
+repeated locked-bin analysis risk,high,Locked bins 5/6/7/8 have already been used in issue23 and issue25c.,Do not present reanalysis as clean new temporal proof.
+temporal leakage risk,high,Raw time/order metadata is not fully recovered in issue26a.,Recover split metadata and pre-register temporal partitions.
+adjacent-window contamination risk,medium,Adjacent temporal bins may contain near-duplicate or session-adjacent traffic.,Use purge/embargo if adjacent windows are used.
+insufficient metadata risk,high,Candidate cleanliness cannot be fully judged without raw timestamp/bin provenance.,Make issue26b a metadata recovery and temporal asset build if needed.
+small attack eval risk,medium,"Some bins have small attack eval rows, e.g. holdout_bin_8 has 426.",Report confidence/row counts and avoid overclaiming worst-case stability.
+small OOD eval risk,low,Current final OOD eval appears around 10000 rows for existing settings.,Keep row counts in all summaries; verify if new splits differ.
+single-domain risk,high,All issue26a evidence remains within-dataset.,Keep issue27 second environment on roadmap.
+no second environment risk,high,Within-dataset temporal validation cannot prove external validity.,Do not claim external generalization before issue27.
+final eval leakage risk,high,Final OOD/attack eval must never guide thresholds or choices.,Keep threshold/support/feature provenance and final report-only rule.
+Slurm misuse risk,medium,Large scans or multi-seed runs should not run on a login node.,Local smoke first; use Slurm only with frozen job scripts/logs/manifests.

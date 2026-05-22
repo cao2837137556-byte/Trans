@@ -52,6 +52,36 @@ This file is the time-ordered handoff for the A-line main experiment only.
 
 ## Time Log
 
+### 2026-05-22 (Issue26a Within-Dataset Temporal Feasibility Inventory)
+
+What was done:
+- Completed `runs/issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22/`.
+- Scope was within-dataset temporal / data-scale feasibility and leakage audit only.
+- No dA/Transformer training, no topK/support/adapter/threshold change, and no manuscript edit.
+- Read issue25c strong baseline outputs, issue23 locked validation assets, issue22/22b discovery and non-regression summaries, and current mainline docs.
+
+Result:
+- Preflight passed for inventory.
+- issue25c remains `strong_baseline_positive` for frozen Enhanced LOW-GUARD+ top64.
+- Existing evidence was separated into:
+  - `primary_lowood`: primary / non-regression evidence.
+  - `holdout_bin_2`: hard-shift discovery evidence, not clean future proof.
+  - `chrono_late_train_early_eval`: temporal-looking consistency evidence, but already involved in candidate confirmation.
+  - locked bins `5/6/7/8`: valid same-dataset locked evidence from issue23 and issue25c, but not new temporal proof.
+- No clean P0/P1 temporal candidate with low leakage risk was found.
+- Best partial candidate is `chrono_early_train_late_eval`, but it overlaps issue23/25c locked eval bins `6/7/8` and needs purge/embargo plus metadata recovery before formal validation.
+- Minimal new temporal validation was not run.
+
+Judgment:
+- issue26a strengthens evidence-chain hygiene, not the main temporal claim.
+- It should be cited as feasibility / audit / planning evidence only.
+- Do not write that issue26a proves temporal generalization or replaces second-environment validation.
+
+Next:
+- Unique next action: `issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22`.
+- Recover raw timestamp / packet-order / attack-bin provenance, define a purged or embargoed future-window split, and only then decide whether formal issue26b validation can run.
+- Keep second environment as later issue27, not this round's immediate next step.
+
 ### 2026-04-08
 
 What was done:

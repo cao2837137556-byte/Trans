@@ -1,0 +1,15 @@
+{
+  "run": "issue26a_within_dataset_temporal_validation_for_enhanced_lowguard_top64_2026-05-22",
+  "created_at": "2026-05-22 16:39:47",
+  "task_type": "within_dataset_temporal_data_scale_feasibility_inventory",
+  "main_method_frozen": "selected_source_rich_top64 + kcenter32 + fixed OOD guard LR",
+  "ood_target": 0.01,
+  "topk_changed": false,
+  "support_budget_changed": false,
+  "adapter_changed": false,
+  "threshold_protocol_changed": false,
+  "minimal_temporal_validation_executed": false,
+  "clean_low_risk_candidate_found": false,
+  "recommended_next_action": "issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22",
+  "second_environment_deferred_to_issue27": true
+}
