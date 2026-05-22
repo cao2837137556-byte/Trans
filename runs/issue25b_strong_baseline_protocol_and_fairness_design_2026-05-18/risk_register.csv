@@ -1,0 +1,11 @@
+risk_id,risk_name,severity,description,mitigation
+R1,baseline_input_unfairness,high,Different methods may require different reasonable inputs and identical input can be unfair,Use three-layer fairness and document input rationale
+R2,final_eval_leakage,high,Using final OOD or attack eval for hyperparameters or thresholds would invalidate comparisons,Hard preflight and provenance checks before issue25c
+R3,semi_supervised_budget_mismatch,high,Few-shot baselines may receive more or less attack evidence than LOW-GUARD,Fix attack support budget at 32 for semi-supervised baselines
+R4,unsupervised_label_contamination,medium,Unsupervised baselines could accidentally use attack supports,Explicit forbidden data field in baseline matrix
+R5,threshold_protocol_mismatch,high,Methods may use different thresholds and inflate detection,Require ID calibration + OOD validation 1% for all
+R6,hyperparameter_overfit,medium,Complex baselines may overfit train/cal/val,Use small pre-registered grids and report validation selection
+R7,implementation_asymmetry,medium,A weak implementation may unfairly harm a baseline,Mark complex or uncertain baselines as design-only if not clean
+R8,runtime_explosion,medium,DevNet-like and DeepSAD-like baselines may be expensive,Stage main seeds first then held-out
+R9,score_orientation_error,medium,Some anomaly scores may be reversed or poorly calibrated,Determine score orientation using train/cal/val only
+R10,overclaim_before_issue25c,high,Protocol design could be mistaken for baseline evidence,Claim boundary states no baseline result exists yet
