@@ -1,0 +1,177 @@
+{
+  "issue": "issue27b_guarded_protocol_transfer_and_adapter_recovery_2026-05-26",
+  "main_method_reference": "LOW-GUARD-LR",
+  "frozen": {
+    "representation": "selected_source_rich_top64",
+    "locked_bins": [
+      "holdout_bin_5",
+      "holdout_bin_6",
+      "holdout_bin_7",
+      "holdout_bin_8"
+    ],
+    "support_method": "kcenter",
+    "support_budget": 32,
+    "ood_target": 0.01,
+    "final_eval_report_only": true
+  },
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "protocol_variants": [
+    {
+      "protocol_variant": "P0_raw_train_id_threshold",
+      "train_uses_ood_guard": false,
+      "threshold_uses_ood_val_guard": false,
+      "purpose": "ordinary few-shot training baseline"
+    },
+    {
+      "protocol_variant": "P1_raw_train_oodval_threshold",
+      "train_uses_ood_guard": false,
+      "threshold_uses_ood_val_guard": true,
+      "purpose": "threshold guard only"
+    },
+    {
+      "protocol_variant": "P2_guarded_train_id_threshold",
+      "train_uses_ood_guard": true,
+      "threshold_uses_ood_val_guard": false,
+      "purpose": "training guard only"
+    },
+    {
+      "protocol_variant": "P3_full_lowguard",
+      "train_uses_ood_guard": true,
+      "threshold_uses_ood_val_guard": true,
+      "purpose": "full LOW-GUARD protocol"
+    }
+  ],
+  "heads": [
+    {
+      "head_id": "LOW_GUARD_LR_reference",
+      "head_family": "lr",
+      "head_label": "LOW-GUARD-LR reference",
+      "mandatory": true,
+      "configs": [
+        {
+          "config_id": "lr_C1",
+          "C": 1.0
+        }
+      ]
+    },
+    {
+      "head_id": "DevNet_like_MLP",
+      "head_family": "devnet_like_mlp",
+      "head_label": "DevNet-like MLP",
+      "mandatory": true,
+      "configs": [
+        {
+          "config_id": "mlp_h8_alpha001",
+          "hidden": 8,
+          "alpha": 0.001,
+          "max_iter": 80
+        },
+        {
+          "config_id": "mlp_h16_alpha001",
+          "hidden": 16,
+          "alpha": 0.001,
+          "max_iter": 80
+        }
+      ]
+    },
+    {
+      "head_id": "HistGB_shallow",
+      "head_family": "histgb",
+      "head_label": "HistGB shallow",
+      "mandatory": true,
+      "configs": [
+        {
+          "config_id": "histgb_depth2_iter50_lr005",
+          "max_depth": 2,
+          "max_iter": 50,
+          "learning_rate": 0.05,
+          "l2_regularization": 0.0
+        },
+        {
+          "config_id": "histgb_depth3_iter50_lr005",
+          "max_depth": 3,
+          "max_iter": 50,
+          "learning_rate": 0.05,
+          "l2_regularization": 0.0
+        }
+      ]
+    },
+    {
+      "head_id": "DeepSAD_like_center",
+      "head_family": "deepsad_like_center",
+      "head_label": "DeepSAD-like center",
+      "mandatory": true,
+      "configs": [
+        {
+          "config_id": "center_lambda0",
+          "lambda_attack": 0.0
+        },
+        {
+          "config_id": "center_lambda1",
+          "lambda_attack": 1.0
+        },
+        {
+          "config_id": "center_lambda2",
+          "lambda_attack": 2.0
+        }
+      ]
+    },
+    {
+      "head_id": "Prototype_metric_LR",
+      "head_family": "prototype_metric_lr",
+      "head_label": "Prototype / metric LR",
+      "mandatory": true,
+      "configs": [
+        {
+          "config_id": "prototype_metric_lr_C1",
+          "C": 1.0
+        }
+      ]
+    },
+    {
+      "head_id": "RFF_Logistic",
+      "head_family": "rff_logistic",
+      "head_label": "RFF Logistic optional",
+      "mandatory": false,
+      "configs": [
+        {
+          "config_id": "rff128_gamma01_C1",
+          "n_components": 128,
+          "gamma": 0.1,
+          "C": 1.0
+        },
+        {
+          "config_id": "rff128_gamma1_C1",
+          "n_components": 128,
+          "gamma": 1.0,
+          "C": 1.0
+        },
+        {
+          "config_id": "rff256_gamma01_C1",
+          "n_components": 256,
+          "gamma": 0.1,
+          "C": 1.0
+        },
+        {
+          "config_id": "rff256_gamma1_C1",
+          "n_components": 256,
+          "gamma": 1.0,
+          "C": 1.0
+        }
+      ]
+    }
+  ],
+  "runtime_seconds": 1800.734,
+  "primary_verdict": "nonlinear_detection_gain_not_low_alert_feasible"
+}

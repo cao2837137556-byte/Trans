@@ -135,6 +135,38 @@ Next:
 - Prioritize shot sensitivity, support-noise stress, OOD-benign contamination stress, support-source comparison, label-delay if metadata permits, and shadow-mode workload evaluation.
 - Do not prioritize adapter upgrades until deployment robustness reveals a concrete failure mode.
 
+### 2026-05-26 (Issue27b Guarded Protocol Transfer + Adapter Recovery)
+
+What was done:
+- Completed `runs/issue27b_guarded_protocol_transfer_and_adapter_recovery_2026-05-26/`.
+- Ran a frozen locked-bin protocol-transfer matrix on holdout bins `5/6/7/8` with seeds `42..51`.
+- Frozen conditions were preserved: selected source-rich top64, kcenter32 supports, locked split protocol, 1% OOD alarm target, final eval report-only, no dA/Transformer training, no temporal or cross-dataset validation, and no manuscript edit.
+- Evaluated LR reference, DevNet-like MLP, HistGB shallow, DeepSAD-like center, Prototype/metric LR, and optional RFF Logistic under P0/P1/P2/P3 protocol variants.
+
+Result:
+- Primary verdict: `nonlinear_detection_gain_not_low_alert_feasible`.
+- LOW-GUARD-LR P3 exactly reproduces issue25c locked mean/min/OOD max: `0.949705 / 0.882629 / 0.004500`.
+- Best non-LR full LOW-GUARD head is DevNet-like MLP with locked mean/min/OOD max `0.947497 / 0.895305 / 0.010100` and feasible rate `0.975000`.
+- No non-LR adapter met the LOW-GUARD++ dominance rule.
+- DevNet-like remains detection-competitive but just exceeds the 1% OOD budget, so it is not a low-alert replacement for LOW-GUARD-LR under the official protocol.
+- HistGB, DeepSAD-like, Prototype/metric LR, and RFF Logistic do not provide a stronger feasible instance.
+
+Interpretation:
+- The protocol framing remains useful, but broad adapter-transfer should not be overclaimed.
+- LOW-GUARD-LR remains the current strongest feasible minimal instance.
+- For LOW-GUARD-LR, training-side OOD guard is the decisive recovery mechanism: raw LR detects attacks but badly violates OOD alarm, while threshold-only raw LR becomes feasible by collapsing attack detection.
+- The threshold guard remains necessary as a deployment safety gate because it enforces ID+OOD validation alarm control.
+
+Current claim boundary:
+- Allowed: current evidence supports LOW-GUARD-LR as the strongest feasible minimal instance under the locked low-alert protocol.
+- Allowed: nonlinear heads can be diagnostic and detection-competitive, but low-alert feasibility is not automatic.
+- Not allowed: LOW-GUARD works for all adapters, DevNet/DeepSAD are generally defeated, temporal generalization is proven, cross-dataset generalization is proven, or deployment robustness is proven.
+
+Next:
+- Unique next action: `issue27c_deployment_robustness_simulation_for_lowguard_lr`.
+- Prioritize shot sensitivity, support-noise, OOD benign contamination, support-source comparison, and shadow-mode workload simulation.
+- Do not expand the adapter space unless a concrete deployment robustness failure motivates it.
+
 ### 2026-04-08
 
 What was done:

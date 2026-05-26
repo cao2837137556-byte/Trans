@@ -1,0 +1,6 @@
+risk,severity,description,mitigation
+adapter overclaim risk,medium,Protocol transfer may be uneven across heads.,Separate LR instance claim from framework claim.
+model search risk,medium,Adding many heads can look like model zoo tuning.,Keep the pre-registered matrix bounded.
+final eval leakage risk,low,Final eval must stay report-only.,Selection trace records selection_used_final_eval=false.
+OOD budget violation risk,high,Some heads can detect attacks but exceed 1% OOD alarm.,Treat them as non-deployable under this problem.
+deployment robustness gap,medium,This issue does not simulate label noise or OOD contamination.,Run deployment robustness next unless LOW-GUARD++ needs validation.

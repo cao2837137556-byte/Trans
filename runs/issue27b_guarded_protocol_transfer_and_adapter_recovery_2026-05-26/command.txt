@@ -1,0 +1,7 @@
+git branch --show-current
+git status --short
+python runs/issue27b_guarded_protocol_transfer_and_adapter_recovery_2026-05-26/run_issue27b_guarded_protocol_transfer.py
+git status
+git add repo runs/mainline_docs runs/issue27b_guarded_protocol_transfer_and_adapter_recovery_2026-05-26
+git commit -m "Add issue27b guarded protocol transfer"
+git push origin codex/exp-mainline

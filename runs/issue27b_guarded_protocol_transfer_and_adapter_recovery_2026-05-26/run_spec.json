@@ -1,0 +1,18 @@
+{
+  "task_type": "guarded_protocol_transfer_and_adapter_recovery",
+  "not_in_scope": [
+    "temporal_validation",
+    "cross_dataset_validation",
+    "topK_search",
+    "support_budget_search",
+    "large_neural_sweep",
+    "manuscript_edit"
+  ],
+  "selection_rule": "OOD_val <= 1%, then support_val detection/margin, then simpler model; final eval never used",
+  "outputs": [
+    "protocol_transfer_by_seed.csv",
+    "protocol_transfer_locked_summary.csv",
+    "adapter_selection_trace.csv",
+    "protocol_transfer_vs_lowguard_lr.csv"
+  ]
+}

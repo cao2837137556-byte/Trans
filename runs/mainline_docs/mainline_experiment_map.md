@@ -1707,3 +1707,43 @@ Current claim boundary:
 Next:
 - Unique next action: `issue27b_deployment_robustness_simulation_for_lowguard_top64_2026-05-22`.
 - Run shot sensitivity, support-noise, OOD contamination, support-source, update, and shadow-mode workload simulations before adapter upgrades.
+
+### 6.8 Issue27b Guarded Protocol Transfer And Adapter Recovery
+
+Date: 2026-05-26
+
+Run:
+- `runs/issue27b_guarded_protocol_transfer_and_adapter_recovery_2026-05-26/`
+
+Scope:
+- frozen locked-bin protocol-transfer matrix;
+- LR / DevNet-like / HistGB / DeepSAD-like / Prototype-metric / RFF adapter-head comparison;
+- P0/P1/P2/P3 training-guard and threshold-guard ablation;
+- LOW-GUARD++ candidate check;
+- final-eval leakage audit through selection trace.
+
+Not in scope:
+- temporal validation;
+- cross-dataset validation;
+- topK/support/adapter/threshold tuning beyond the pre-registered head configs;
+- dA or Transformer training;
+- deployment robustness simulation;
+- manuscript edit.
+
+Key result:
+- Primary verdict: `nonlinear_detection_gain_not_low_alert_feasible`.
+- LOW-GUARD-LR P3 reproduces issue25c exactly: locked mean/min/OOD max `0.949705 / 0.882629 / 0.004500`.
+- Best non-LR full LOW-GUARD head: DevNet-like MLP with locked mean/min/OOD max `0.947497 / 0.895305 / 0.010100`, feasible rate `0.975000`.
+- No LOW-GUARD++ candidate was found.
+- DevNet-like is near LR on detection and stronger on locked min, but its OOD max remains just above the official 1% budget.
+- HistGB, DeepSAD-like, Prototype/metric LR, and RFF Logistic do not threaten LOW-GUARD-LR as the current feasible minimal instance.
+
+Current claim boundary:
+- Allowed: LOW-GUARD-LR remains the strongest feasible minimal instance under the locked low-alert protocol.
+- Allowed: nonlinear heads can be detection-competitive but are not automatically low-alert feasible.
+- Not allowed: LOW-GUARD transfers cleanly to all adapters, LOW-GUARD++ is proven, deployment robustness is proven, temporal generalization is proven, or cross-dataset generalization is proven.
+
+Next:
+- Unique next action: `issue27c_deployment_robustness_simulation_for_lowguard_lr`.
+- Run shot sensitivity, support-noise, OOD-benign contamination, support-source, and shadow-mode workload simulations.
+- Do not widen the adapter space unless deployment robustness exposes a concrete failure mode.
