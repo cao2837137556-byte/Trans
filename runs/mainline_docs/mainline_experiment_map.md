@@ -1668,3 +1668,42 @@ Next:
 - Unique next action: `issue26c_temporal_metadata_recovery_followup_or_second_environment_feasibility`.
 - Recover raw temporal metadata or unused future-window assets before any formal issue26c validation.
 - If raw metadata remains unavailable, avoid dressing locked-bin reuse as temporal proof and move toward a scoped second-environment feasibility path.
+
+### 6.7 Issue27a Deployment Feasibility And Guarded Training Protocol Audit
+
+Date: 2026-05-22
+
+Run:
+- `runs/issue27a_deployment_feasibility_and_guarded_training_protocol_audit_2026-05-22/`
+
+Scope:
+- deployment assumption inventory;
+- guarded training pipeline design;
+- alert-budget workload interpretation;
+- label-budget and contamination robustness plan;
+- LR-vs-framework positioning;
+- deployment reviewer defense.
+
+Not in scope:
+- model training;
+- temporal validation;
+- cross-dataset validation;
+- topK/support/adapter/threshold tuning;
+- autonomous online learning;
+- manuscript edit.
+
+Key result:
+- Primary verdict: `deployment_protocol_plausible_needs_robustness_simulation`.
+- Secondary verdict: `lowguard_should_be_framed_as_guarded_adaptation_protocol`.
+- LOW-GUARD is better framed as a guarded few-shot adaptation protocol, while the current LR head is `LOW-GUARD-LR`, a minimal deployable instance.
+- Current main method locked OOD max is `0.0045`, about 45 alarms per 10k OOD events, under the official 1% low-alert budget.
+- DevNet-like and random32 are detection-competitive in places but exceed 1% locked OOD alarm, making them deployment-risky under the official low-alert constraint.
+- Deployment assumptions are plausible only with explicit support provenance, benign-OOD guard provenance, delayed confirmation, no self-training, and rollback controls.
+
+Current claim boundary:
+- Allowed: LOW-GUARD protocol is deployment-plausible under explicit support/guard assumptions and needs robustness simulation.
+- Not allowed: live SOC deployment is proven, 32 supports are always available, OOD benign labels are always clean, temporal generalization is proven, or cross-dataset generalization is proven.
+
+Next:
+- Unique next action: `issue27b_deployment_robustness_simulation_for_lowguard_top64_2026-05-22`.
+- Run shot sensitivity, support-noise, OOD contamination, support-source, update, and shadow-mode workload simulations before adapter upgrades.

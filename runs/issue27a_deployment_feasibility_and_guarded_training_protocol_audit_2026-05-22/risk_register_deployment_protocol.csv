@@ -1,0 +1,11 @@
+risk_name,severity,reason,mitigation
+support availability risk,high,Some SOCs may not have 32 confirmed attack supports.,Run 4/8/16/32/64 shot sensitivity.
+support label noise risk,high,Analyst or rule labels can be wrong.,Run 5%/10% support-noise simulation and require provenance.
+OOD benign contamination risk,high,Attack traffic can hide inside recent benign/OOD guard samples.,Run 1%/5% OOD contamination stress tests.
+feedback contamination risk,high,Training on model-generated alerts can create self-confirming loops.,No autonomous self-training; delayed human-confirmed promotion only.
+final eval leakage risk,high,Deployment tuning could accidentally reuse report-only final eval.,Keep immutable final eval and audit manifests.
+temporal metadata gap,medium,issue26b did not recover raw timestamp/packet-order metadata.,Avoid temporal claims until metadata or second environment is available.
+LR overclaim risk,medium,Reviewers may attack the method as just Logistic Regression.,"Frame LR as minimal LOW-GUARD instance, not the entire contribution."
+alert workload risk,medium,Methods near or above 1% OOD alarm can overload analysts.,Report alarms per 10k/100k OOD events.
+cross-site validity risk,high,Current positive evidence is within dataset.,Keep second-environment work as separate future validation.
+update instability risk,medium,Periodic updates may drift or amplify errors.,Shadow/canary gates and rollback triggers.

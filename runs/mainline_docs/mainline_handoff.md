@@ -109,6 +109,32 @@ Next:
 - First try to recover raw timestamp / packet-order / capture-level metadata or a genuinely unused future-window manifest.
 - If that remains impossible, keep within-dataset formal temporal validation blocked and move to a carefully scoped issue27-level second-environment feasibility path rather than tuning the method.
 
+### 2026-05-22 (Issue27a Deployment Feasibility + Guarded Training Protocol Audit)
+
+What was done:
+- Completed `runs/issue27a_deployment_feasibility_and_guarded_training_protocol_audit_2026-05-22/`.
+- Scope was deployment-facing protocol audit and reviewer-defense planning only.
+- No model training, no cross-dataset validation, no temporal validation, no topK/support/adapter/threshold change, no second-environment reopening, and no manuscript edit.
+- Converted issue25c locked OOD alarm results into deployment workload language and audited support/benign-OOD guard assumptions.
+
+Result:
+- Primary verdict: `deployment_protocol_plausible_needs_robustness_simulation`.
+- Secondary verdict: `lowguard_should_be_framed_as_guarded_adaptation_protocol`.
+- LOW-GUARD should be written as a guarded few-shot adaptation protocol; the current LR head should be named/positioned as `LOW-GUARD-LR`, a minimal deployable instance.
+- Main method locked OOD max `0.0045` corresponds to about 45 alarms per 10k OOD events, under the official 1% low-alert budget.
+- Strong alternatives such as DevNet-like and random32 remain deployment-risky under the official budget because their locked OOD max exceeds 1%.
+- Deployment assumptions are plausible but conditional: high-purity supports and benign-OOD guard samples need provenance, delayed confirmation, and contamination checks.
+
+Judgment:
+- issue27a strengthens claim framing, not performance evidence.
+- It does not prove live SOC deployment, temporal generalization, or external generalization.
+- Fully autonomous self-training remains outside scope.
+
+Next:
+- Unique next action: `issue27b_deployment_robustness_simulation_for_lowguard_top64_2026-05-22`.
+- Prioritize shot sensitivity, support-noise stress, OOD-benign contamination stress, support-source comparison, label-delay if metadata permits, and shadow-mode workload evaluation.
+- Do not prioritize adapter upgrades until deployment robustness reveals a concrete failure mode.
+
 ### 2026-04-08
 
 What was done:

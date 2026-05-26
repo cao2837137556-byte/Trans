@@ -1,0 +1,16 @@
+{
+  "issue": "issue27a_deployment_feasibility_and_guarded_training_protocol_audit_2026-05-22",
+  "question": "Is LOW-GUARD better framed as a deployable guarded few-shot adaptation protocol, and what deployment assumptions need evidence?",
+  "serves_claim": "LOW-GUARD-LR is a minimal deployable instance under explicit support/guard assumptions, not a universal LR detector claim.",
+  "reviewer_attacks_defended": [
+    "where do 32 attack supports come from",
+    "OOD benign guard contamination",
+    "feedback contamination",
+    "just Logistic Regression",
+    "low-alert budget operational meaning"
+  ],
+  "success_interpretation": "Protocol is plausible but needs robustness simulations.",
+  "failure_interpretation": "Deployment assumptions are too strong and claims must be reframed.",
+  "paper_destination": "method/protocol framing and reviewer-defense appendix; not a new performance result",
+  "final_eval_leakage_policy": "final OOD and attack eval remain report-only"
+}

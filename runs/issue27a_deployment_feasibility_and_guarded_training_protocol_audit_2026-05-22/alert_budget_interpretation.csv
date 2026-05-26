@@ -1,0 +1,11 @@
+method,locked_ood_alarm_max,alarms_per_10k_ood_events,alarms_per_100k_ood_events,feasible_under_1pct,deployment_interpretation
+M2_Enhanced_LOW_GUARD_top64_fixed_guard_LR,0.004500,45.0,450.0,yes,"Within current locked protocol, stays well below the 1% low-alert budget while keeping strong detection."
+M0_V1_original100_fixed_guard_LR,0.005300,53.0,530.0,yes,"Within the alarm budget, but must be compared on detection and robustness; not automatically better."
+M8_DevNet_like_MLP_top64,0.010400,104.0,1040.0,no,Exceeds the 1% low-alert budget in at least one locked bin; deployment-risky under the official constraint.
+M4_top64_random32_fixed_guard_LR,0.010300,103.0,1030.0,no,Exceeds the 1% low-alert budget in at least one locked bin; deployment-risky under the official constraint.
+M1_V2_top32_fixed_guard_LR,0.018400,184.0,1840.0,no,Exceeds the 1% low-alert budget in at least one locked bin; deployment-risky under the official constraint.
+M7_HistGB_shallow_top64,0.012300,123.0,1230.0,no,Exceeds the 1% low-alert budget in at least one locked bin; deployment-risky under the official constraint.
+M5_Isolation_Forest_top64,0.017900,179.0,1790.0,no,Exceeds the 1% low-alert budget in at least one locked bin; deployment-risky under the official constraint.
+M6_OC_SVM_top64,0.015600,156.0,1560.0,no,Exceeds the 1% low-alert budget in at least one locked bin; deployment-risky under the official constraint.
+M9_DeepSAD_like_center_top64,0.013400,134.0,1340.0,no,Exceeds the 1% low-alert budget in at least one locked bin; deployment-risky under the official constraint.
+M3_top64_no_guard_LR,0.008300,83.0,830.0,yes,"Within the alarm budget, but must be compared on detection and robustness; not automatically better."

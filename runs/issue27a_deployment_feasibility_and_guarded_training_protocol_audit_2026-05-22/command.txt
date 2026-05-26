@@ -1,0 +1,10 @@
+git branch --show-current
+git status --short
+Get-Content issue25c summary/recommended/by_seed/summary CSVs
+Get-Content issue25b summary and threshold protocol
+Get-Content issue23 locked validation asset report
+Get-Content issue26b summary
+Get-Content mainline handoff and experiment map
+python runs/issue27a_deployment_feasibility_and_guarded_training_protocol_audit_2026-05-22/generate_issue27a_outputs.py
+apply_patch runs/mainline_docs/mainline_handoff.md issue27a append
+apply_patch runs/mainline_docs/mainline_experiment_map.md issue27a append
