@@ -1789,3 +1789,43 @@ Next:
 - Unique next action: `issue27d_bounded_representation_and_objective_falsification_for_lowguard_lr_specificity`.
 - Run a small original100-vs-top64 control over LR / DevNet-like / HistGB before returning to deployment robustness.
 - Keep the matrix bounded and do not open a model zoo.
+
+### 6.10 Issue27d LOW-GUARD Adapter Interface And Model-Specific Objective Smoke
+
+Date: 2026-05-26
+
+Run:
+- `runs/issue27d_lowguard_adapter_interface_and_model_specific_objectives_smoke_2026-05-26/`
+
+Scope:
+- common LOW-GUARD adapter interface;
+- Stage A interface, score-direction, data-usage, and leakage checks;
+- bounded model-specific-lite objective smoke;
+- representation control: `source_rich_top64` vs `original100`;
+- locked bins `5/6/7/8`, seeds `42/43/44`.
+
+Not in scope:
+- formal issue27e validation;
+- temporal validation;
+- cross-dataset validation;
+- deployment robustness simulation;
+- dA or Transformer training;
+- topK/support/threshold tuning;
+- manuscript edit.
+
+Key result:
+- Primary verdict: `lowguard_plus_plus_candidate_found_with_model_specific_objective`.
+- Stage A interface preflight passed with no final-eval selection or support/eval overlap.
+- LOW-GUARD-LR top64 reproduced issue25c: locked mean/min/OOD max `0.949705 / 0.882629 / 0.004500`.
+- No non-LR head dominated LOW-GUARD-LR on frozen `source_rich_top64`.
+- `LOW_GUARD_HistGB_Conservative` on `original100` is a representation-control LOW-GUARD++ candidate: `0.994261 / 0.978091 / 0.005100`, feasible rate `1.000000`.
+- Best non-LR on top64 was `LOW_GUARD_HistGB_Conservative`: `0.659751 / 0.040689 / 0.006600`.
+
+Current claim boundary:
+- Allowed: issue27d found a candidate worth formal issue27e validation and strengthened the adapter-interface evidence.
+- Allowed: LOW-GUARD-LR remains the strongest demonstrated top64 minimal instance.
+- Not allowed: the main method is replaced, LOW-GUARD++ is proven, LOW-GUARD is head-agnostic, deployment robustness is proven, temporal generalization is proven, or cross-dataset generalization is proven.
+
+Next:
+- Unique next action: `issue27e_formal_validation_for_lowguard_plus_plus`.
+- Validate the `original100 + LOW_GUARD_HistGB_Conservative` candidate under full locked seeds and unchanged final-eval exclusion before changing any paper claim.

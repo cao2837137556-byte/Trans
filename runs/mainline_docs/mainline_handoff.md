@@ -205,6 +205,37 @@ Next:
 - Run a small original100-vs-top64 / LR-vs-DevNet-like-vs-HistGB control matrix.
 - Do not widen the adapter zoo or move to deployment robustness until representation/head specificity is bounded.
 
+### 2026-05-26 (Issue27d LOW-GUARD Adapter Interface + Model-Specific Objective Smoke)
+
+What was done:
+- Completed `runs/issue27d_lowguard_adapter_interface_and_model_specific_objectives_smoke_2026-05-26/`.
+- Implemented a common LOW-GUARD adapter interface with `fit`, `score`, `calibrate`, `evaluate`, and `metadata`.
+- Ran a bounded smoke over locked bins `5/6/7/8`, seeds `42/43/44`, representations `source_rich_top64` and `original100`, and heads `LOW-GUARD-LR`, `DevNetScore`, `DeepSADLite`, `HistGB-Conservative`, and `PrototypeMargin`.
+- Preserved final-eval exclusion: OOD validation and support validation were used for selection; final OOD eval and attack eval were report-only.
+- No temporal validation, cross-dataset validation, deployment robustness simulation, dA/Transformer training, or manuscript edit was performed.
+
+Result:
+- Primary verdict: `lowguard_plus_plus_candidate_found_with_model_specific_objective`.
+- Stage A interface preflight passed.
+- LOW-GUARD-LR on top64 exactly reproduced the issue25c reference in this smoke: locked mean/min/OOD max `0.949705 / 0.882629 / 0.004500`.
+- No top64 non-LR head dominated LOW-GUARD-LR. Best top64 non-LR was `LOW_GUARD_HistGB_Conservative` with `0.659751 / 0.040689 / 0.006600`.
+- A representation-control LOW-GUARD++ candidate appeared on `original100`: `LOW_GUARD_HistGB_Conservative` reached `0.994261 / 0.978091 / 0.005100` with feasible rate `1.000000`.
+- Model-specific-lite objectives improved transfer for some non-LR heads relative to issue27b proxies, but DevNetScore did not improve over the old DevNet-like MLP.
+
+Interpretation:
+- This is not a main-method replacement yet. The candidate uses `original100`, while the current frozen main method uses `source_rich_top64`.
+- The result is scientifically important because it challenges the idea that top64 plus LR is the only viable route; top64 may favor a linear LR boundary while original100 leaves room for a conservative nonlinear head.
+- The framework/protocol direction should stay alive, but only with explicit model-specific objectives and formal validation.
+
+Current claim boundary:
+- Allowed: issue27d establishes an auditable adapter interface and identifies a representation-control LOW-GUARD++ candidate for formal validation.
+- Allowed: LOW-GUARD-LR remains the strongest demonstrated top64 minimal instance.
+- Not allowed: LOW-GUARD++ is proven, the main method has been replaced, LOW-GUARD works for all heads, deployment robustness is proven, temporal generalization is proven, or cross-dataset generalization is proven.
+
+Next:
+- Unique next action: `issue27e_formal_validation_for_lowguard_plus_plus`.
+- Formally validate `LOW_GUARD_HistGB_Conservative` on `original100` with the full locked seed budget and the same final-eval exclusion rules before considering any main-method change.
+
 ### 2026-04-08
 
 What was done:

@@ -1,0 +1,9 @@
+head_id,representation,config_id,pre_registered,selection_uses_final_eval,projection,lambda_attack,lambda_ood,validation_target
+LOW_GUARD_DeepSADLite,source_rich_top64,dslite_identity_lA1_lO2_t0100,True,False,identity,1.0,2.0,0.01
+LOW_GUARD_DeepSADLite,source_rich_top64,dslite_diag_lA2_lO2_t0100,True,False,diagonal_scale,2.0,2.0,0.01
+LOW_GUARD_DeepSADLite,source_rich_top64,dslite_diag_lA4_lO4_t0075,True,False,diagonal_scale,4.0,4.0,0.0075
+LOW_GUARD_DeepSADLite,source_rich_top64,dslite_linear_lA2_lO4_t0050,True,False,shallow_linear,2.0,4.0,0.005
+LOW_GUARD_DeepSADLite,original100,dslite_identity_lA1_lO2_t0100,True,False,identity,1.0,2.0,0.01
+LOW_GUARD_DeepSADLite,original100,dslite_diag_lA2_lO2_t0100,True,False,diagonal_scale,2.0,2.0,0.01
+LOW_GUARD_DeepSADLite,original100,dslite_diag_lA4_lO4_t0075,True,False,diagonal_scale,4.0,4.0,0.0075
+LOW_GUARD_DeepSADLite,original100,dslite_linear_lA2_lO4_t0050,True,False,shallow_linear,2.0,4.0,0.005

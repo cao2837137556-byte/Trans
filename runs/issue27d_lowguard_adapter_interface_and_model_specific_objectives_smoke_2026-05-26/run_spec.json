@@ -1,0 +1,24 @@
+{
+  "run_tag": "issue27d_lowguard_adapter_interface_and_model_specific_objectives_smoke_2026-05-26",
+  "task_type": "adapter_interface_and_model_specific_objective_bounded_smoke",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "locked_holdouts": [
+    "holdout_bin_5",
+    "holdout_bin_6",
+    "holdout_bin_7",
+    "holdout_bin_8"
+  ],
+  "representations": [
+    "source_rich_top64",
+    "original100"
+  ],
+  "support_budget": 32,
+  "target_ood_alarm": 0.01,
+  "final_eval_policy": "report_only",
+  "primary_verdict": "lowguard_plus_plus_candidate_found_with_model_specific_objective",
+  "recommended_next_action": "issue27e_formal_validation_for_lowguard_plus_plus"
+}

@@ -1,0 +1,29 @@
+{
+  "frozen": {
+    "locked_bins": [
+      "holdout_bin_5",
+      "holdout_bin_6",
+      "holdout_bin_7",
+      "holdout_bin_8"
+    ],
+    "support_budget": 32,
+    "threshold_protocol": "ID calibration + OOD validation guarded threshold",
+    "final_eval_exclusion": true,
+    "no_topk_search": true,
+    "no_temporal_validation": true,
+    "no_cross_dataset": true,
+    "no_deployment_robustness": true
+  },
+  "allowed_representations": [
+    "source_rich_top64",
+    "original100"
+  ],
+  "heads": [
+    "LOW_GUARD_LR",
+    "LOW_GUARD_DevNetScore",
+    "LOW_GUARD_DeepSADLite",
+    "LOW_GUARD_HistGB_Conservative",
+    "LOW_GUARD_PrototypeMargin"
+  ],
+  "bounded_smoke": true
+}

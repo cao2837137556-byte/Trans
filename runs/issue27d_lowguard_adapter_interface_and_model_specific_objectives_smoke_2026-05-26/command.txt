@@ -1,0 +1,10 @@
+git branch --show-current
+git status --short
+Get-Content required issue27c/27b/25c/23/mainline_docs inputs
+python runs/issue27d_lowguard_adapter_interface_and_model_specific_objectives_smoke_2026-05-26/run_issue27d_model_specific_objective_smoke.py
+git status
+git add runs/mainline_docs runs/issue27d_lowguard_adapter_interface_and_model_specific_objectives_smoke_2026-05-26
+git diff --cached --check
+git diff --cached --stat
+git commit -m "Add issue27d LOW-GUARD model-specific objective smoke"
+git -c http.proxy=http://127.0.0.1:7897 -c https.proxy=http://127.0.0.1:7897 -c http.version=HTTP/1.1 push origin codex/exp-mainline
