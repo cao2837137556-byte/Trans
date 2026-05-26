@@ -1,0 +1,5 @@
+head_id,protocol_variant,train_uses_ood_guard,threshold_uses_ood_val_guard,locked_detection_mean,locked_detection_min,locked_ood_alarm_max,feasible_rate,delta_detection_vs_p0,delta_ood_alarm_vs_p0,mechanism_interpretation
+LOW_GUARD_LR_reference,P0_raw_train_id_threshold,False,False,0.9626161604553738,0.9342723004694836,0.5164,0.0,0.0,0.0,raw LR separates attacks but also raises OOD tail; high detection is not deployable
+LOW_GUARD_LR_reference,P1_raw_train_oodval_threshold,False,True,0.0,0.0,0.0083,1.0,-0.9626161604553738,-0.5081,threshold guard alone enforces budget by moving threshold above attack support/eval mass; detection collapses
+LOW_GUARD_LR_reference,P2_guarded_train_id_threshold,True,False,0.949705362333308,0.8826291079812206,0.0046,1.0,-0.012910798122065748,-0.5117999999999999,OOD-guarded training reshapes LR score separation; ID-only threshold already becomes low-alert feasible
+LOW_GUARD_LR_reference,P3_full_lowguard,True,True,0.949705362333308,0.8826291079812206,0.0045,1.0,-0.012910798122065748,-0.5119,full protocol preserves P2 detection and adds validation safety gate

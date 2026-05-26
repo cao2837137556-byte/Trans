@@ -1,0 +1,7 @@
+git branch --show-current
+git status --short
+python runs/issue27c_lowguard_mechanism_falsification_and_head_specificity_audit_2026-05-26/run_issue27c_mechanism_audit.py
+git status
+git add repo runs/mainline_docs runs/issue27c_lowguard_mechanism_falsification_and_head_specificity_audit_2026-05-26
+git commit -m "Add issue27c LOW-GUARD mechanism audit"
+git push origin codex/exp-mainline

@@ -1,0 +1,37 @@
+{
+  "issue": "issue27c_lowguard_mechanism_falsification_and_head_specificity_audit_2026-05-26",
+  "primary_verdict": "lowguard_lr_success_mechanistically_supported",
+  "secondary_verdicts": [
+    "representation_linearization_explains_lr_advantage",
+    "lowguard_effect_head_specific_lr_only_so_far",
+    "non_lr_results_inconclusive_due_to_proxy_implementation"
+  ],
+  "frozen": {
+    "representation": "source_rich_top64",
+    "support": "kcenter32",
+    "locked_bins": [
+      "holdout_bin_5",
+      "holdout_bin_6",
+      "holdout_bin_7",
+      "holdout_bin_8"
+    ],
+    "final_eval": "report_only",
+    "no_temporal_validation": true,
+    "no_deployment_robustness": true,
+    "no_manuscript_edit": true
+  },
+  "threshold_curve_targets": [
+    0.01,
+    0.0075,
+    0.005,
+    0.0025
+  ],
+  "core_heads_for_score_audit": [
+    "LOW_GUARD_LR_reference",
+    "DevNet_like_MLP",
+    "HistGB_shallow",
+    "DeepSAD_like_center"
+  ],
+  "recommended_next_action": "issue27d_bounded_representation_and_objective_falsification_for_lowguard_lr_specificity",
+  "runtime_seconds": 420.4165443999809
+}

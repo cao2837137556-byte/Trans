@@ -1,0 +1,17 @@
+head_id,head_family,ood_val_target,locked_detection_mean,locked_detection_min,locked_ood_alarm_max,feasible_rate,id_calib_alarm_mean,ood_val_alarm_mean,threshold_source,selection_used_final_eval,threshold_uses_final_eval
+DeepSAD_like_center,deepsad_like_center,0.0025,0.0119735096279506,0.0,0.0053,0.5,0.000855,0.0023625,id_calib_plus_ood_val_guarded,False,False
+DeepSAD_like_center,deepsad_like_center,0.005,0.0168221123482041,0.0010517090271691,0.0077,0.5,0.000875,0.0045625,id_calib_plus_ood_val_guarded,False,False
+DeepSAD_like_center,deepsad_like_center,0.0075,0.0298425901909554,0.0017528483786152,0.011,0.25,0.001225,0.0071375,id_calib_plus_ood_val_guarded,False,False
+DeepSAD_like_center,deepsad_like_center,0.01,0.0376504100105255,0.0028045574057843,0.0134,0.25,0.00224,0.0099625,id_calib_plus_ood_val_guarded,False,False
+DevNet_like_MLP,devnet_like_mlp,0.0025,0.9337299642152932,0.8586854460093896,0.0056,0.125,0.00228,0.0003375,id_calib_plus_ood_val_guarded,False,False
+DevNet_like_MLP,devnet_like_mlp,0.005,0.943188164417394,0.8873239436619718,0.0074,0.5,0.0049499999999999,0.0011625,id_calib_plus_ood_val_guarded,False,False
+DevNet_like_MLP,devnet_like_mlp,0.0075,0.9458939965042396,0.8929577464788732,0.0096,0.925,0.007305,0.001675,id_calib_plus_ood_val_guarded,False,False
+DevNet_like_MLP,devnet_like_mlp,0.01,0.9474970539274276,0.8953051643192488,0.0101,0.975,0.009935,0.0021875,id_calib_plus_ood_val_guarded,False,False
+HistGB_shallow,histgb,0.0025,0.7155893554345708,0.1187793427230047,0.0055,0.9,0.00123,0.0005875,id_calib_plus_ood_val_guarded,False,False
+HistGB_shallow,histgb,0.005,0.7505749444318849,0.2244131455399061,0.0082,0.925,0.002465,0.0022125,id_calib_plus_ood_val_guarded,False,False
+HistGB_shallow,histgb,0.0075,0.7520974434183294,0.2272300469483568,0.0108,0.775,0.004585,0.0043375,id_calib_plus_ood_val_guarded,False,False
+HistGB_shallow,histgb,0.01,0.7556260195850859,0.2300469483568075,0.0139,0.675,0.006565,0.0074375,id_calib_plus_ood_val_guarded,False,False
+LOW_GUARD_LR_reference,lr,0.0025,0.9467710900328384,0.8708920187793427,0.003,0.25,0.0023499999999999,0.0005,id_calib_plus_ood_val_guarded,False,False
+LOW_GUARD_LR_reference,lr,0.005,0.9491185078732144,0.8802816901408452,0.0037,1.0,0.0049,0.000625,id_calib_plus_ood_val_guarded,False,False
+LOW_GUARD_LR_reference,lr,0.0075,0.949705362333308,0.8826291079812206,0.0042,1.0,0.0072,0.00075,id_calib_plus_ood_val_guarded,False,False
+LOW_GUARD_LR_reference,lr,0.01,0.949705362333308,0.8826291079812206,0.0045,1.0,0.01,0.00075,id_calib_plus_ood_val_guarded,False,False

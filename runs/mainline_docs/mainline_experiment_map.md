@@ -1747,3 +1747,45 @@ Next:
 - Unique next action: `issue27c_deployment_robustness_simulation_for_lowguard_lr`.
 - Run shot sensitivity, support-noise, OOD-benign contamination, support-source, and shadow-mode workload simulations.
 - Do not widen the adapter space unless deployment robustness exposes a concrete failure mode.
+
+### 6.9 Issue27c LOW-GUARD Mechanism Falsification And Head Specificity Audit
+
+Date: 2026-05-26
+
+Run:
+- `runs/issue27c_lowguard_mechanism_falsification_and_head_specificity_audit_2026-05-26/`
+
+Scope:
+- LR rescue mechanism audit;
+- head-specificity audit;
+- score distribution and OOD-tail audit;
+- stricter OOD validation target curve;
+- top64 linearity / representation-bias audit;
+- implementation-gap audit for proxy heads.
+
+Not in scope:
+- deployment robustness simulation;
+- temporal validation;
+- cross-dataset validation;
+- new method development;
+- topK/support/threshold tuning;
+- manuscript edit.
+
+Key result:
+- Primary verdict: `lowguard_lr_success_mechanistically_supported`.
+- Secondary verdicts: `representation_linearization_explains_lr_advantage`, `lowguard_effect_head_specific_lr_only_so_far`, `non_lr_results_inconclusive_due_to_proxy_implementation`.
+- LR recovery is mechanistically interpretable: raw LR has high detection but severe OOD alarm; threshold-only LR collapses detection; OOD-guarded training preserves detection and suppresses OOD tail; full LOW-GUARD adds validation safety.
+- Non-LR heads did receive OOD_train guard, so the near-miss/failure is not explained by missing guard exposure.
+- DevNet-like remains detection-competitive but has insufficient OOD-tail safety margin.
+- DeepSAD-like and DevNet-like are proxy implementations; do not write their failure as full method defeat.
+- No direct implementation bug or final-eval leakage was found.
+
+Current claim boundary:
+- Allowed: LOW-GUARD-LR is the strongest feasible demonstrated instance and has a supported rescue mechanism.
+- Allowed: broader head-agnostic transfer is not established.
+- Not allowed: LOW-GUARD works for all heads, nonlinear adapters are useless, DevNet/DeepSAD are defeated, deployment robustness is proven, temporal generalization is proven, or cross-dataset generalization is proven.
+
+Next:
+- Unique next action: `issue27d_bounded_representation_and_objective_falsification_for_lowguard_lr_specificity`.
+- Run a small original100-vs-top64 control over LR / DevNet-like / HistGB before returning to deployment robustness.
+- Keep the matrix bounded and do not open a model zoo.
