@@ -1,0 +1,97 @@
+{
+  "task": "feature_provenance_and_claim_gate",
+  "inputs": [
+    {
+      "path": "runs\\issue27g_suspicious_perfect_score_audit_for_lowguard_plus_plus_2026-05-27\\summary.md",
+      "exists": true
+    },
+    {
+      "path": "runs\\issue27g_suspicious_perfect_score_audit_for_lowguard_plus_plus_2026-05-27\\original100_feature_leakage_audit.csv",
+      "exists": true
+    },
+    {
+      "path": "runs\\issue27g_suspicious_perfect_score_audit_for_lowguard_plus_plus_2026-05-27\\original100_feature_leakage_diagnosis.md",
+      "exists": true
+    },
+    {
+      "path": "runs\\issue27g_suspicious_perfect_score_audit_for_lowguard_plus_plus_2026-05-27\\score_distribution_audit.csv",
+      "exists": true
+    },
+    {
+      "path": "runs\\issue27g_suspicious_perfect_score_audit_for_lowguard_plus_plus_2026-05-27\\score_distribution_audit.md",
+      "exists": true
+    },
+    {
+      "path": "runs\\issue27g_suspicious_perfect_score_audit_for_lowguard_plus_plus_2026-05-27\\negative_control_summary.md",
+      "exists": true
+    },
+    {
+      "path": "runs\\issue27g_suspicious_perfect_score_audit_for_lowguard_plus_plus_2026-05-27\\recompute_from_scratch_diff.md",
+      "exists": true
+    },
+    {
+      "path": "runs\\issue27g_suspicious_perfect_score_audit_for_lowguard_plus_plus_2026-05-27\\claim_update_after_issue27g.md",
+      "exists": true
+    },
+    {
+      "path": "runs\\issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27\\summary.md",
+      "exists": true
+    },
+    {
+      "path": "runs\\issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27\\formal_locked_by_seed.csv",
+      "exists": true
+    },
+    {
+      "path": "runs\\issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27\\formal_locked_summary.csv",
+      "exists": true
+    },
+    {
+      "path": "runs\\issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27\\formal_leakage_audit.md",
+      "exists": true
+    },
+    {
+      "path": "runs\\issue27d_lowguard_adapter_interface_and_model_specific_objectives_smoke_2026-05-26\\histgb_conservative_selection_trace.csv",
+      "exists": true
+    },
+    {
+      "path": "runs\\issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18\\summary.md",
+      "exists": true
+    },
+    {
+      "path": "runs\\mainline_docs\\mainline_handoff.md",
+      "exists": true
+    },
+    {
+      "path": "runs\\mainline_docs\\mainline_experiment_map.md",
+      "exists": true
+    },
+    {
+      "path": "runs\\issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27\\run_issue27f_config_freeze_formal_validation.py",
+      "exists": true
+    }
+  ],
+  "primary_verdict": "lowguard_plus_plus_depends_on_high_risk_separators",
+  "issue27i_action": "issue27i_separator_dependency_deeper_audit_or_demote_lowguard_plus_plus",
+  "outputs": [
+    "summary.md",
+    "feature_provenance_mapping.csv",
+    "feature_provenance_mapping.md",
+    "separator_distribution_by_split.csv",
+    "separator_distribution_diagnosis.md",
+    "feature_ablation_by_seed.csv",
+    "feature_ablation_summary.csv",
+    "feature_ablation_vs_lowguard_lr.csv",
+    "independent_verification_by_seed.csv",
+    "independent_verification_summary.csv",
+    "histgb_feature_importance_audit.csv",
+    "histgb_feature_importance_diagnosis.md",
+    "lowguard_plus_plus_claim_gate_decision.md",
+    "claim_update_after_issue27h.md",
+    "reviewer_defense_feature_provenance.md",
+    "issue27i_next_action.md",
+    "command.txt",
+    "config.json",
+    "run_spec.json",
+    "manifest.csv"
+  ]
+}

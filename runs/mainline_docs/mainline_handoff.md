@@ -1222,3 +1222,10 @@ Immediate next decision should use issue16 results to choose among:
 - scope: final-eval usage, split/sample identity, original100 leakage screening, score distribution, negative controls, scratch recompute, and artifact/cache audit.
 - claim boundary: do not use 27f as a broad LOW-GUARD claim; keep it bounded to tested representation/head/protocol and keep temporal/cross-dataset/deployment robustness unclaimed. Because original100 has high-cardinality near-perfect separator features, add feature-provenance evidence before strong main-text upgrading.
 - next action: `issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade`.
+
+## issue27h feature provenance claim gate (2026-05-27)
+
+- primary_verdict: `lowguard_plus_plus_depends_on_high_risk_separators`
+- scope: maps the three original100 high-cardinality near-perfect separators, audits split distributions, runs frozen-config feature ablations, performs report-only non-locked consistency checks, and explains HistGB feature reliance.
+- claim boundary: LOW-GUARD++ can remain an audited locked result, but broad/main-text performance-instance upgrading still needs clean independent validation or stronger original100 provenance.
+- next action: `issue27i_separator_dependency_deeper_audit_or_demote_lowguard_plus_plus`.

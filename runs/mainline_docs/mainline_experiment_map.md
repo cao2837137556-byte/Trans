@@ -1914,3 +1914,5 @@ Next:
 - Stress-test both instances under support budget, support noise, OOD benign contamination, support source, and shadow-mode workload protocols.
 
 | issue27g | suspicious-perfect-score audit for LOW-GUARD++ | `lowguard_plus_plus_formal_result_passes_anomaly_audit` | Audits issue27f 1.0 result for final-eval leakage, split overlap, original100 leakage, negative controls, scratch recompute, and cache artifacts. Next: `issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade`. |
+
+| issue27h | original100 feature provenance and LOW-GUARD++ claim gate | `lowguard_plus_plus_depends_on_high_risk_separators` | Maps separator features, runs frozen ablations, and blocks broad claim upgrade pending clean independent validation/provenance. Next: `issue27i_separator_dependency_deeper_audit_or_demote_lowguard_plus_plus`. |
