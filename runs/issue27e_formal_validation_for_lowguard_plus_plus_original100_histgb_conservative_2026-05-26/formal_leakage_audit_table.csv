@@ -1,0 +1,6 @@
+audit_item,status,risk_level,evidence,action
+candidate_config_recoverable,fail,high,2 selected configs recovered from issue27d smoke,stop formal validation; freeze one candidate config before using final eval
+final_eval_used_for_issue27e_selection,pass,low,issue27e stopped before formal final-eval run,none
+issue27d_final_eval_leakage,pass,low,adapter_leakage_check.csv reports no final-eval selection,carry forward final-eval exclusion
+support_eval_overlap,pass,low,adapter_leakage_check.csv reports no support/attack_eval overlap,none
+representation_leakage,not_evaluated,unknown,formal run stopped before direct original100 field audit,include original100 feature provenance audit in issue27f

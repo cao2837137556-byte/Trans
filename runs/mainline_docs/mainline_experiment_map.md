@@ -1829,3 +1829,41 @@ Current claim boundary:
 Next:
 - Unique next action: `issue27e_formal_validation_for_lowguard_plus_plus`.
 - Validate the `original100 + LOW_GUARD_HistGB_Conservative` candidate under full locked seeds and unchanged final-eval exclusion before changing any paper claim.
+
+### 6.11 Issue27e Formal LOW-GUARD++ Validation Gate
+
+Date: 2026-05-27
+
+Run:
+- `runs/issue27e_formal_validation_for_lowguard_plus_plus_original100_histgb_conservative_2026-05-26/`
+
+Scope:
+- candidate config freeze recovery for `original100 + LOW_GUARD_HistGB_Conservative`;
+- audit of issue27d selection trace and leakage evidence;
+- formal-validation go/no-go decision.
+
+Not in scope:
+- full locked-seed final-eval run after config ambiguity was found;
+- temporal validation;
+- cross-dataset validation;
+- deployment robustness simulation;
+- representation search;
+- new model search;
+- manuscript edit.
+
+Key result:
+- Primary verdict: `candidate_config_not_recoverable_needs_debug`.
+- The issue27d candidate was not one unique frozen config:
+  - `histgb_d2_lr003_l2p0_ood4_sup2_t0100` selected 7/12 smoke bin-seed combinations.
+  - `histgb_d2_lr005_l2p1_ood4_sup4_t0050` selected 5/12 smoke bin-seed combinations.
+- Full locked seed validation was not run, by design, because selecting one config after seeing the smoke aggregate could become hindsight model selection.
+- No issue27e final-eval leakage occurred.
+
+Current claim boundary:
+- Allowed: issue27e identifies a candidate-freeze blocker and preserves claim hygiene.
+- Allowed: original100 + HistGB-Conservative remains a serious LOW-GUARD++ candidate.
+- Not allowed: LOW-GUARD++ is formally validated, the main method is replaced, HistGB universally dominates LR, deployment robustness is proven, temporal generalization is proven, or cross-dataset generalization is proven.
+
+Next:
+- Unique next action: `issue27f_candidate_config_freeze_and_formal_validation_for_original100_histgb_conservative`.
+- Freeze one HistGB-Conservative config using support-validation / OOD-validation evidence only, then run full locked seeds.

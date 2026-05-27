@@ -236,6 +236,35 @@ Next:
 - Unique next action: `issue27e_formal_validation_for_lowguard_plus_plus`.
 - Formally validate `LOW_GUARD_HistGB_Conservative` on `original100` with the full locked seed budget and the same final-eval exclusion rules before considering any main-method change.
 
+### 2026-05-27 (Issue27e LOW-GUARD++ Candidate Freeze Audit)
+
+What was done:
+- Completed `runs/issue27e_formal_validation_for_lowguard_plus_plus_original100_histgb_conservative_2026-05-26/`.
+- Scope was the formal-validation gate for the `original100 + LOW_GUARD_HistGB_Conservative` LOW-GUARD++ candidate.
+- Read issue27d smoke outputs, selection trace, leakage audit, issue27c/25c summaries, issue23 locked asset report, and mainline docs.
+- No full locked-seed final-eval run was executed because Stage A candidate config recovery failed.
+
+Result:
+- Primary verdict: `candidate_config_not_recoverable_needs_debug`.
+- issue27d original100 HistGB-Conservative did not yield one unique frozen config:
+  - `histgb_d2_lr003_l2p0_ood4_sup2_t0100` selected 7/12 smoke bin-seed combinations.
+  - `histgb_d2_lr005_l2p1_ood4_sup4_t0050` selected 5/12 smoke bin-seed combinations.
+- issue27e stopped before full locked validation to avoid hindsight config selection.
+- No issue27e final-eval leakage occurred because final OOD / attack eval were not run for the candidate.
+
+Interpretation:
+- This does not invalidate the original100 HistGB candidate. It means the candidate is not yet a single frozen method instance.
+- The smoke result should be treated as a selection-policy / aggregate candidate, not a formal LOW-GUARD++ validation result.
+- LOW-GUARD-LR remains the demonstrated stable minimal instance.
+
+Current claim boundary:
+- Allowed: original100 + HistGB-Conservative remains a serious LOW-GUARD++ candidate that needs config-freeze recovery.
+- Not allowed: LOW-GUARD++ is formally validated, the main method has been replaced, HistGB universally dominates LR, deployment robustness is proven, temporal generalization is proven, or cross-dataset generalization is proven.
+
+Next:
+- Unique next action: `issue27f_candidate_config_freeze_and_formal_validation_for_original100_histgb_conservative`.
+- Freeze exactly one HistGB-Conservative config using only support-validation / OOD-validation trace evidence and pre-registered simplicity/low-alert rules, then run the full locked seeds.
+
 ### 2026-04-08
 
 What was done:
