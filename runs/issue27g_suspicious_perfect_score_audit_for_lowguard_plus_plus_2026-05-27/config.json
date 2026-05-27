@@ -1,0 +1,42 @@
+{
+  "issue": "issue27g_suspicious_perfect_score_audit_for_lowguard_plus_plus_2026-05-27",
+  "formal_candidate": "LOW_GUARD_PLUS_PLUS_HistGB_original100_frozen",
+  "frozen_config_id": "histgb_d2_lr005_l2p1_ood4_sup4_t0050",
+  "formal_target": 0.005,
+  "official_ood_target": 0.01,
+  "locked_bins": [
+    "holdout_bin_5",
+    "holdout_bin_6",
+    "holdout_bin_7",
+    "holdout_bin_8"
+  ],
+  "full_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "control_seeds": [
+    42,
+    43
+  ],
+  "control_bins": [
+    "holdout_bin_5",
+    "holdout_bin_8"
+  ],
+  "scratch_seeds": [
+    42,
+    43
+  ],
+  "scratch_bins": [
+    "holdout_bin_5",
+    "holdout_bin_8"
+  ],
+  "final_eval_policy": "report_only_for_audit_no_selection"
+}

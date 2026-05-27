@@ -1214,3 +1214,11 @@ Immediate next decision should use issue16 results to choose among:
 - baseline recovery,
 - second environment plan,
 - or stop/pivot.
+
+## issue27g suspicious perfect score audit (2026-05-27)
+
+- primary_verdict: `lowguard_plus_plus_formal_result_passes_anomaly_audit`
+- audited result: issue27f LOW-GUARD++ `original100 + HistGB-Conservative` reported `1.000000 / 1.000000 / 0.000100`.
+- scope: final-eval usage, split/sample identity, original100 leakage screening, score distribution, negative controls, scratch recompute, and artifact/cache audit.
+- claim boundary: do not use 27f as a broad LOW-GUARD claim; keep it bounded to tested representation/head/protocol and keep temporal/cross-dataset/deployment robustness unclaimed. Because original100 has high-cardinality near-perfect separator features, add feature-provenance evidence before strong main-text upgrading.
+- next action: `issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade`.

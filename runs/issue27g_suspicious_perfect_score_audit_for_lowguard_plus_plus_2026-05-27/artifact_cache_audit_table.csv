@@ -1,0 +1,6 @@
+audit_item,status,evidence,risk_level
+issue27f_script_contains_training_loop,pass,run_formal_validation constructs adapters and calls .fit for HistGB and LR,low
+formal_histgb_rows_have_nonzero_train_time,pass,formal_locked_by_seed HistGB rows have positive train_time,low
+formal_lr_reference_rows_have_nonzero_train_time,pass,LR reference rows were rerun or at least refit with positive train_time,low
+issue27f_does_not_read_formal_summary_as_source_results,pass,script writes formal summaries after generating by-seed rows,low
+issue27d_smoke_used_for_comparison_not_formal_result_source,pass,issue27d smoke table is used in comparison section; formal rows are generated independently,low
