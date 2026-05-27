@@ -1,0 +1,21 @@
+# Data Expansion Feasibility Plan
+
+The current blocker is not compute; it is provenance and clean split construction. Minimum required raw assets:
+
+- raw packet timestamp;
+- packet order;
+- capture/session id;
+- window start/end;
+- original100 reconstruction script and exact feature mapping;
+- attack label mapping;
+- OOD benign split mapping;
+- support/eval row manifests.
+
+Recommended minimum next step: `issue27j_raw_provenance_recovery_and_clean_independent_split_construction`.
+
+| route | required_inputs | estimated_engineering_cost | whether_slurm_needed | leakage_risk | expected_evidence_value | priority | reason |
+|---|---|---|---|---|---|---|---|
+| same_dataset_new_chronological_window | raw packet timestamp; packet order; window start/end; original100 reconstruction script; attack/OOD split map | medium | maybe_for_full_reconstruction | medium_without_purge_embargo | high_for_separator_temporal_stability | P0 | Directly tests whether HH separators survive a new chronological window without using locked bins. |
+| same_dataset_new_capture_or_session | capture/session id; raw feature reconstruction; benign/attack label map; unused session boundary | medium_high | maybe | low_medium_if_session_disjoint | high_for_capture_artifact_defense | P1 | Best defense against capture-specific separator artifact if assets exist. |
+| second_environment_same_feature_builder | raw compatible traffic; Kitsune original100 extractor; attack/OOD labels; clean support/eval split | high | yes_if_large_extraction | low_if_protocol_pre_registered | very_high_external_generalization | P2 | Needed for external claims, but should follow raw provenance recovery unless ready assets exist. |
+| second_dataset_schema_compatible | feature construction compatibility; labels; benign OOD split; support pool; no final eval tuning | high | yes_possible | medium_due_schema_shift | high_if_successful_but_harder_to_interpret | P3 | Useful later; schema and capture differences can confound separator interpretation. |

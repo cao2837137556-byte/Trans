@@ -1916,3 +1916,5 @@ Next:
 | issue27g | suspicious-perfect-score audit for LOW-GUARD++ | `lowguard_plus_plus_formal_result_passes_anomaly_audit` | Audits issue27f 1.0 result for final-eval leakage, split overlap, original100 leakage, negative controls, scratch recompute, and cache artifacts. Next: `issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade`. |
 
 | issue27h | original100 feature provenance and LOW-GUARD++ claim gate | `lowguard_plus_plus_depends_on_high_risk_separators` | Maps separator features, runs frozen ablations, and blocks broad claim upgrade pending clean independent validation/provenance. Next: `issue27i_separator_dependency_deeper_audit_or_demote_lowguard_plus_plus`. |
+
+| issue27i | LOW-GUARD++ separator validation and data expansion feasibility | `lowguard_plus_plus_promising_needs_clean_independent_validation` | Characterizes separator stability and safer variants; keeps LOW-GUARD++ alive while blocking claim upgrade pending clean independent validation. Next: `issue27j_raw_provenance_recovery_and_clean_independent_split_construction`. |

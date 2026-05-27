@@ -1229,3 +1229,10 @@ Immediate next decision should use issue16 results to choose among:
 - scope: maps the three original100 high-cardinality near-perfect separators, audits split distributions, runs frozen-config feature ablations, performs report-only non-locked consistency checks, and explains HistGB feature reliance.
 - claim boundary: LOW-GUARD++ can remain an audited locked result, but broad/main-text performance-instance upgrading still needs clean independent validation or stronger original100 provenance.
 - next action: `issue27i_separator_dependency_deeper_audit_or_demote_lowguard_plus_plus`.
+
+## issue27i separator validation feasibility (2026-05-27)
+
+- primary_verdict: `lowguard_plus_plus_promising_needs_clean_independent_validation`
+- scope: inventories clean independent assets, checks HH separator stability on non-locked consistency objects, reports frozen LOW-GUARD++ outside locked bins, evaluates safer feature variants without tuning, and plans data expansion.
+- claim boundary: LOW-GUARD++ is not abandoned, but cannot be upgraded to main-text performance instance until clean independent validation or raw provenance resolves separator dependency.
+- next action: `issue27j_raw_provenance_recovery_and_clean_independent_split_construction`.

@@ -1,0 +1,31 @@
+{
+  "issue": "issue27i_separator_independent_validation_and_data_expansion_feasibility_for_lowguard_plus_plus_2026-05-27",
+  "frozen_method": "LOW-GUARD++ original100 + HistGB-Conservative",
+  "frozen_config_id": "histgb_d2_lr005_l2p1_ood4_sup4_t0050",
+  "locked_bins": [
+    "holdout_bin_5",
+    "holdout_bin_6",
+    "holdout_bin_7",
+    "holdout_bin_8"
+  ],
+  "nonlocked_holdouts": [
+    "primary_lowood",
+    "holdout_bin_2",
+    "chrono_late_train_early_eval"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "official_ood_target": 0.01,
+  "threshold_target": 0.005,
+  "final_eval_policy": "report_only_no_selection"
+}

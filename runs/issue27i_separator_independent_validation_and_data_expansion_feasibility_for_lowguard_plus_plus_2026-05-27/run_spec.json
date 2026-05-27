@@ -1,0 +1,125 @@
+{
+  "task": "separator_independent_validation_and_data_expansion_feasibility",
+  "inputs": [
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\feature_provenance_mapping.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\feature_provenance_mapping.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\separator_distribution_by_split.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\separator_distribution_diagnosis.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\feature_ablation_summary.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\feature_ablation_vs_lowguard_lr.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\histgb_feature_importance_audit.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\claim_update_after_issue27h.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27g_suspicious_perfect_score_audit_for_lowguard_plus_plus_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue23_locked_validation_for_enhanced_v2_top64_2026-05-18\\locked_validation_asset_report.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\mainline_docs\\mainline_handoff.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\mainline_docs\\mainline_experiment_map.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27\\run_issue27f_config_freeze_formal_validation.py",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\independent_verification_summary.csv",
+      "exists": true,
+      "required": false
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\independent_verification_blocked.md",
+      "exists": true,
+      "required": false
+    }
+  ],
+  "primary_verdict": "lowguard_plus_plus_promising_needs_clean_independent_validation",
+  "issue27j_action": "issue27j_raw_provenance_recovery_and_clean_independent_split_construction",
+  "outputs": [
+    "summary.md",
+    "available_independent_assets_inventory.csv",
+    "available_independent_assets_diagnosis.md",
+    "separator_stability_nonlocked_by_asset.csv",
+    "separator_stability_nonlocked_diagnosis.md",
+    "frozen_lowguardpp_nonlocked_by_asset.csv",
+    "frozen_lowguardpp_nonlocked_summary.csv",
+    "safer_feature_variants_by_seed.csv",
+    "safer_feature_variants_summary.csv",
+    "safer_feature_variants_vs_lr.csv",
+    "safer_feature_variants_diagnosis.md",
+    "data_expansion_feasibility_plan.md",
+    "data_expansion_feasibility_table.csv",
+    "lowguard_plus_plus_path_decision.md",
+    "claim_update_after_issue27i.md",
+    "reviewer_defense_separator_dependency.md",
+    "issue27j_next_action.md",
+    "command.txt",
+    "config.json",
+    "run_spec.json",
+    "manifest.csv"
+  ]
+}
