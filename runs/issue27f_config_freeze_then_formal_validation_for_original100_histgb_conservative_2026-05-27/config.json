@@ -1,0 +1,35 @@
+{
+  "run_tag": "issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27",
+  "frozen_config_id": "histgb_d2_lr005_l2p1_ood4_sup4_t0050",
+  "frozen_config": {
+    "config_id": "histgb_d2_lr005_l2p1_ood4_sup4_t0050",
+    "max_depth": 2,
+    "learning_rate": 0.05,
+    "l2_regularization": 0.1,
+    "ood_weight": 4.0,
+    "support_weight": 4.0,
+    "validation_target": 0.005,
+    "max_iter": 60
+  },
+  "freeze_uses_final_eval": false,
+  "formal_validation_executed": true,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "locked_bins": [
+    "holdout_bin_5",
+    "holdout_bin_6",
+    "holdout_bin_7",
+    "holdout_bin_8"
+  ],
+  "primary_verdict": "lowguard_plus_plus_formal_validated"
+}

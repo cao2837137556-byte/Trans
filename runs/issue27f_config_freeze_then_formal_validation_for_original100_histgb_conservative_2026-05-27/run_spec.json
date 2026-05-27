@@ -1,0 +1,12 @@
+{
+  "task_type": "config_freeze_then_formal_validation",
+  "candidate": "original100 + LOW_GUARD_HistGB_Conservative",
+  "reference": "source_rich_top64 + LOW_GUARD_LR",
+  "threshold_robustness_targets": [
+    0.01,
+    0.0075,
+    0.005
+  ],
+  "final_eval_policy": "report_only_after_config_freeze",
+  "primary_verdict": "lowguard_plus_plus_formal_validated"
+}

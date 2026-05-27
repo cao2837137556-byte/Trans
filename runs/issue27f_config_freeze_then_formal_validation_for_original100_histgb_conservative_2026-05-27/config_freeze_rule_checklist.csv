@@ -1,0 +1,6 @@
+rule_order,rule,config_a,config_b,winner,uses_final_eval,decision
+1,validation_feasibility_count_at_primary_0075,12,12,tie,False,both configs feasible in all 12 train/validation-side traces
+2,ood_val_safety,"max=0.006500,mean=0.002792","max=0.000000,mean=0.000000",B,False,B has zero OOD_val alarms and lower OOD tail; freeze can be made here
+3,support_side_separation,"det=0.854167,margin=0.853829","det=1.000000,margin=0.995814",B,False,B has higher support_val_detection and comparable/higher margin on all trace rows
+4,target_conservativeness,0.01,0.005,B,False,B uses pre-registered 0.005 target; A uses 0.010 target
+5,simplicity_tiebreaker,"depth=2,lr=0.03,l2=0.0,support_weight=2","depth=2,lr=0.05,l2=0.1,support_weight=4",not_needed,False,not reached because OOD safety/support/target already identify B

@@ -1,0 +1,22 @@
+# Formal Leakage Audit
+
+## Verdict
+
+- leakage_failures: `0`
+- final_eval_used_for_selection: `false`
+- config_freeze_used_final_eval: `false`
+
+## Audit Table
+
+| audit_item | status | risk_level | evidence | action |
+|---|---|---|---|---|
+| final_ood_eval_used_for_config_selection | pass | low | config freeze used issue27d support/OOD validation traces only | none |
+| attack_eval_used_for_config_or_support_selection | pass | low | kcenter supports are drawn from attack_train_pool; final attack eval is report-only | none |
+| issue27d_leakage_check | pass | low | issue27d adapter_leakage_check.csv | none |
+| ood_val_scope | pass | low | OOD_val used only for freeze-side feasibility and threshold calibration | none |
+| ood_train_scope | pass | low | OOD_train used only as HistGB/LR training guard | none |
+| original100_source | pass | low | original100 loaded as numeric 100D feature matrices; no label/split/bin columns are read as features | keep provenance note in report |
+| original100_source_rich_row_alignment | pass | low | source_rich shapes: id=(50000, 260), ood=(20000, 260), attack=(10000, 260); original attack rows=(10000, 100) | none |
+| issue27d_final_performance_used_for_freeze | pass | low | freeze rule used OOD_val/support_val metrics; issue27d locked final ranking not used | none |
+| formal_final_eval_used_for_selection | pass | low | formal evaluation ran after config freeze; no post-hoc config/target change | none |
+| same_frozen_config_all_full_seeds | pass | low | histgb_d2_lr005_l2p1_ood4_sup4_t0050 | none |

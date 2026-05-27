@@ -1,0 +1,2 @@
+candidate_family,frozen_config_id,freeze_success,freeze_rule_stop_point,freeze_uses_final_eval,primary_freeze_target,reason
+LOW_GUARD_HistGB_Conservative_original100,histgb_d2_lr005_l2p1_ood4_sup4_t0050,True,rule_2_ood_val_safety,False,0.0075,"Both configs pass 0.0075 feasibility, but B has strictly safer OOD_val alarm/tail, higher support_val detection, and more conservative target."

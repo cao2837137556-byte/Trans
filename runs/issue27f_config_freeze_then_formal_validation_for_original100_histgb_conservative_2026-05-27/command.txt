@@ -1,0 +1,10 @@
+git branch --show-current
+git status --short
+Read issue27e/27d/25c/23/mainline inputs
+python runs/issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27/run_issue27f_config_freeze_formal_validation.py
+git add runs/mainline_docs
+git add -f runs/issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27
+git diff --cached --check
+git diff --cached --stat
+git commit -m "Add issue27f config freeze and formal validation"
+git -c http.proxy=http://127.0.0.1:7897 -c https.proxy=http://127.0.0.1:7897 -c http.version=HTTP/1.1 push origin codex/exp-mainline

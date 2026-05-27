@@ -265,6 +265,44 @@ Next:
 - Unique next action: `issue27f_candidate_config_freeze_and_formal_validation_for_original100_histgb_conservative`.
 - Freeze exactly one HistGB-Conservative config using only support-validation / OOD-validation trace evidence and pre-registered simplicity/low-alert rules, then run the full locked seeds.
 
+### 2026-05-27 (Issue27f Config Freeze + Formal LOW-GUARD++ Validation)
+
+What was done:
+- Completed `runs/issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27/`.
+- Froze one `original100 + HistGB-Conservative` config using only train/cal/validation-side evidence from issue27d.
+- Frozen config: `histgb_d2_lr005_l2p1_ood4_sup4_t0050`.
+- Ran full locked seed validation over seeds `42..51` and locked bins `5/6/7/8`.
+- Re-ran LOW-GUARD-LR top64 reference in the same output schema.
+- No deployment robustness, temporal validation, cross-dataset validation, representation search, new model search, or manuscript edit was performed.
+
+Result:
+- Primary verdict: `lowguard_plus_plus_formal_validated`.
+- LOW-GUARD++ formal locked mean/min/OOD max: `1.000000 / 1.000000 / 0.000100`.
+- LOW-GUARD-LR top64 reference locked mean/min/OOD max: `0.949705 / 0.882629 / 0.004500`.
+- LOW-GUARD++ dominates LOW-GUARD-LR on locked mean, locked min, and OOD max under the locked protocol.
+- Feasible rate is `1.000000`.
+- No seed/bin collapse was observed; every locked bin had detection mean/min `1.000000` and OOD max `0.000100`.
+- Threshold target robustness remained strong:
+  - target `0.0050`: `1.000000 / 1.000000 / 0.000100`;
+  - target `0.0075`: `1.000000 / 1.000000 / 0.000100`;
+  - target `0.0100`: `1.000000 / 1.000000 / 0.008300`.
+- No final-eval leakage or support/eval overlap was found.
+
+Interpretation:
+- The paper mainline can now use a dual-instance story:
+  - `LOW-GUARD-LR` as the minimal stable instance under source-rich top64;
+  - `LOW-GUARD++` as the performance-oriented instance: original100 + HistGB-Conservative with frozen config.
+- This supports a model-specific guarded objective interpretation, not a claim that every head works.
+
+Current claim boundary:
+- Allowed: LOW-GUARD++ is formally validated for `original100 + HistGB-Conservative` under the locked low-alert protocol.
+- Allowed: LOW-GUARD-LR remains the minimal stable instance.
+- Not allowed: HistGB universally dominates LR, LOW-GUARD works for all models, deployment robustness is proven, temporal generalization is proven, or cross-dataset generalization is proven.
+
+Next:
+- Unique next action: `issue27g_deployment_robustness_for_lowguard_lr_and_lowguard_plus_plus`.
+- Run support-count, support-noise, OOD-contamination, support-source, and shadow-mode robustness for both LOW-GUARD-LR and LOW-GUARD++ before widening claims.
+
 ### 2026-04-08
 
 What was done:

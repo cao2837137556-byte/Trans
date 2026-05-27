@@ -1867,3 +1867,48 @@ Current claim boundary:
 Next:
 - Unique next action: `issue27f_candidate_config_freeze_and_formal_validation_for_original100_histgb_conservative`.
 - Freeze one HistGB-Conservative config using support-validation / OOD-validation evidence only, then run full locked seeds.
+
+### 6.12 Issue27f Config Freeze Then Formal LOW-GUARD++ Validation
+
+Date: 2026-05-27
+
+Run:
+- `runs/issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27/`
+
+Scope:
+- train/cal/validation-side config freeze for `original100 + HistGB-Conservative`;
+- full locked seed validation after config freeze;
+- LOW-GUARD-LR top64 reference rerun in matched schema;
+- threshold target robustness report;
+- leakage and artifact audit.
+
+Not in scope:
+- deployment robustness simulation;
+- temporal validation;
+- cross-dataset validation;
+- representation search;
+- new model search;
+- manuscript edit.
+
+Key result:
+- Primary verdict: `lowguard_plus_plus_formal_validated`.
+- Frozen config: `histgb_d2_lr005_l2p1_ood4_sup4_t0050`.
+- LOW-GUARD++ formal locked mean/min/OOD max: `1.000000 / 1.000000 / 0.000100`.
+- LOW-GUARD-LR top64 reference locked mean/min/OOD max: `0.949705 / 0.882629 / 0.004500`.
+- LOW-GUARD++ dominates LOW-GUARD-LR on locked mean, locked min, and OOD max.
+- Feasible rate: `1.000000`.
+- Threshold robustness:
+  - target `0.0050`: `1.000000 / 1.000000 / 0.000100`;
+  - target `0.0075`: `1.000000 / 1.000000 / 0.000100`;
+  - target `0.0100`: `1.000000 / 1.000000 / 0.008300`.
+- No final-eval selection leakage was found.
+
+Current claim boundary:
+- Allowed: LOW-GUARD++ is formally validated as `original100 + HistGB-Conservative` under the locked low-alert protocol.
+- Allowed: LOW-GUARD-LR remains the minimal stable instance under source-rich top64.
+- Allowed: the method story can be framed as minimal instance + performance instance.
+- Not allowed: HistGB universally dominates LR, LOW-GUARD works for all models, deployment robustness is proven, temporal generalization is proven, or cross-dataset generalization is proven.
+
+Next:
+- Unique next action: `issue27g_deployment_robustness_for_lowguard_lr_and_lowguard_plus_plus`.
+- Stress-test both instances under support budget, support noise, OOD benign contamination, support source, and shadow-mode workload protocols.
