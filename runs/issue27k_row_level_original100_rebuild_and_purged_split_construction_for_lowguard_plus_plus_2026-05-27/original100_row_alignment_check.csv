@@ -1,0 +1,4 @@
+role,source_rows,tsv_rows_used,full_feature_rows_used,source_vs_full_allclose,source_vs_full_max_abs_diff,source_vs_full_mean_abs_diff,source_vs_full_max_rel_diff,source_vs_full_p99999_abs_diff,allclose_tolerance,timestamp_monotonic,duplicate_timestamp_count,duplicate_feature_hash_count,alignment_confidence,notes
+id,50000,50000,50000,True,0.053686173632740974,0.0005216204663944575,5.960342486247638e-08,0.014566545874757945,"atol=1e-6,rtol=1e-6",True,0,0,high,Source matrix aligns to extracted feature cache by row order.
+ood,20000,20000,20000,True,7.7233593463897705,0.0003010781770036107,5.959737213891154e-08,3.9193125004263782,"atol=1e-6,rtol=1e-6",True,0,0,high,Source matrix aligns to extracted feature cache by row order.
+attack,10000,10000,10000,True,0.11143884831108153,0.00020491815775932365,1.1627240012779736e-07,0.09804505286910191,"atol=1e-6,rtol=1e-6",True,0,0,high,Source matrix aligns to extracted feature cache by row order.

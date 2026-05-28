@@ -1,0 +1,6 @@
+git branch --show-current
+git status --short
+read issue27j/27i/27h/27f/25c assets
+python runs/issue27k_row_level_original100_rebuild_and_purged_split_construction_for_lowguard_plus_plus_2026-05-27/run_issue27k_row_level_rebuild_purged_split.py
+inspect original100_row_alignment_check.csv
+inspect summary.md and required output presence

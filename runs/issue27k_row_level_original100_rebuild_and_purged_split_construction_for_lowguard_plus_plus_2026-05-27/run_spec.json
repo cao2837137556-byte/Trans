@@ -1,0 +1,113 @@
+{
+  "task": "row_level_original100_rebuild_and_purged_split_construction",
+  "primary_verdict": "row_manifest_recovered_but_clean_split_blocked",
+  "issue27l_action": "issue27l_split_aware_original100_rebuild_with_sufficient_clean_eval_asset",
+  "inputs": [
+    {
+      "path": "runs\\issue27j_raw_provenance_recovery_and_clean_independent_split_construction_for_lowguard_plus_plus_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27j_raw_provenance_recovery_and_clean_independent_split_construction_for_lowguard_plus_plus_2026-05-27\\raw_provenance_inventory.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27j_raw_provenance_recovery_and_clean_independent_split_construction_for_lowguard_plus_plus_2026-05-27\\raw_provenance_recovery_report.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27j_raw_provenance_recovery_and_clean_independent_split_construction_for_lowguard_plus_plus_2026-05-27\\hh_separator_lineage_audit.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27j_raw_provenance_recovery_and_clean_independent_split_construction_for_lowguard_plus_plus_2026-05-27\\hh_separator_lineage_report.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27j_raw_provenance_recovery_and_clean_independent_split_construction_for_lowguard_plus_plus_2026-05-27\\clean_split_construction_feasibility.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27j_raw_provenance_recovery_and_clean_independent_split_construction_for_lowguard_plus_plus_2026-05-27\\clean_split_construction_report.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27j_raw_provenance_recovery_and_clean_independent_split_construction_for_lowguard_plus_plus_2026-05-27\\raw_data_expansion_implementation_plan.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27j_raw_provenance_recovery_and_clean_independent_split_construction_for_lowguard_plus_plus_2026-05-27\\claim_update_after_issue27j.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27i_separator_independent_validation_and_data_expansion_feasibility_for_lowguard_plus_plus_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\mainline_docs\\mainline_handoff.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\mainline_docs\\mainline_experiment_map.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue11_fixed_config_ood_guard_lr_ablation_2026-05-14\\config.json",
+      "exists": true,
+      "required": true
+    }
+  ],
+  "outputs": [
+    "summary.md",
+    "row_level_sidecar_manifest.csv",
+    "row_level_sidecar_manifest_report.md",
+    "original100_row_alignment_check.csv",
+    "original100_reconstruction_feasibility.csv",
+    "original100_reconstruction_report.md",
+    "purged_split_design_table.csv",
+    "purged_split_design_report.md",
+    "purged_split_manifest.csv",
+    "purged_split_report.md",
+    "split_aware_original100_rebuild_report.md",
+    "split_aware_original100_rebuild_manifest.csv",
+    "split_aware_feature_alignment_check.csv",
+    "clean_purged_lowguardpp_by_seed.csv",
+    "clean_purged_lowguardpp_summary.csv",
+    "clean_purged_vs_lowguard_lr.csv",
+    "lowguard_plus_plus_clean_rebuild_decision.md",
+    "claim_update_after_issue27k.md",
+    "reviewer_defense_split_aware_rebuild.md",
+    "issue27l_next_action.md",
+    "command.txt",
+    "config.json",
+    "run_spec.json",
+    "manifest.csv"
+  ]
+}

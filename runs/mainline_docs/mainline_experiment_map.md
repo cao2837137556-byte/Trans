@@ -1920,3 +1920,5 @@ Next:
 | issue27i | LOW-GUARD++ separator validation and data expansion feasibility | `lowguard_plus_plus_promising_needs_clean_independent_validation` | Characterizes separator stability and safer variants; keeps LOW-GUARD++ alive while blocking claim upgrade pending clean independent validation. Next: `issue27j_raw_provenance_recovery_and_clean_independent_split_construction`. |
 
 | issue27j | raw provenance and clean split audit for LOW-GUARD++ | `clean_independent_validation_blocked_but_recoverable` | Recovered raw pcap/TSV/source-code provenance but found clean independent validation still blocked by insufficient unused future/capture split assets. Next: `issue27k_row_level_original100_rebuild_and_purged_split_construction`. |
+
+| issue27k | row-level original100 rebuild and purged split construction | `row_manifest_recovered_but_clean_split_blocked` | Builds row-level sidecar and verifies feature alignment; clean/purged validation remains blocked by insufficient clean independent split assets. Next: `issue27l_split_aware_original100_rebuild_with_sufficient_clean_eval_asset`. |

@@ -1243,3 +1243,10 @@ Immediate next decision should use issue16 results to choose among:
 - scope: recovers raw pcap/TSV/source-code provenance for original100, audits HH separator lineage, checks clean split feasibility, and blocks formal clean validation until a row-level clean split is built.
 - claim boundary: LOW-GUARD++ remains a high-potential candidate; current evidence does not justify main-text performance-instance upgrade without clean independent validation.
 - next action: `issue27k_row_level_original100_rebuild_and_purged_split_construction`.
+
+## issue27k row-level original100 rebuild and purged split construction (2026-05-27)
+
+- primary_verdict: `row_manifest_recovered_but_clean_split_blocked`
+- scope: builds row-level sidecar provenance for ID/OOD/attack original100 assets, verifies source-vs-extracted feature alignment, and designs purged split candidates.
+- claim boundary: row provenance is recovered, but clean/purged LOW-GUARD++ validation remains blocked until split-aware feature rebuild and sufficient independent eval assets exist.
+- next action: `issue27l_split_aware_original100_rebuild_with_sufficient_clean_eval_asset`.

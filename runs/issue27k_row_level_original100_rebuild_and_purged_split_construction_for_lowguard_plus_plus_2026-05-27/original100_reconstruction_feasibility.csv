@@ -1,0 +1,4 @@
+role,has_feature_name_mapping,can_call_netstat_afterimage,source_vs_existing_extraction_allclose,can_reconstruct_continuous_state_baseline,can_reset_at_split_boundary,can_train_state_then_eval_online,rebuild_not_executed_full,reason_not_full_rebuilt
+id,True,True,True,True,True,True,True,Existing extracted feature cache already aligns; full split-aware rebuild should be issue27l after split is chosen.
+ood,True,True,True,True,True,True,True,Existing extracted feature cache already aligns; full split-aware rebuild should be issue27l after split is chosen.
+attack,True,True,True,True,True,True,True,Existing extracted feature cache already aligns; full split-aware rebuild should be issue27l after split is chosen.
