@@ -1918,3 +1918,5 @@ Next:
 | issue27h | original100 feature provenance and LOW-GUARD++ claim gate | `lowguard_plus_plus_depends_on_high_risk_separators` | Maps separator features, runs frozen ablations, and blocks broad claim upgrade pending clean independent validation/provenance. Next: `issue27i_separator_dependency_deeper_audit_or_demote_lowguard_plus_plus`. |
 
 | issue27i | LOW-GUARD++ separator validation and data expansion feasibility | `lowguard_plus_plus_promising_needs_clean_independent_validation` | Characterizes separator stability and safer variants; keeps LOW-GUARD++ alive while blocking claim upgrade pending clean independent validation. Next: `issue27j_raw_provenance_recovery_and_clean_independent_split_construction`. |
+
+| issue27j | raw provenance and clean split audit for LOW-GUARD++ | `clean_independent_validation_blocked_but_recoverable` | Recovered raw pcap/TSV/source-code provenance but found clean independent validation still blocked by insufficient unused future/capture split assets. Next: `issue27k_row_level_original100_rebuild_and_purged_split_construction`. |

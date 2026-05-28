@@ -1,0 +1,124 @@
+{
+  "task": "raw_provenance_recovery_and_clean_independent_split_construction",
+  "primary_verdict": "clean_independent_validation_blocked_but_recoverable",
+  "issue27k_action": "issue27k_row_level_original100_rebuild_and_purged_split_construction",
+  "inputs": [
+    {
+      "path": "runs\\issue27i_separator_independent_validation_and_data_expansion_feasibility_for_lowguard_plus_plus_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27i_separator_independent_validation_and_data_expansion_feasibility_for_lowguard_plus_plus_2026-05-27\\available_independent_assets_inventory.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27i_separator_independent_validation_and_data_expansion_feasibility_for_lowguard_plus_plus_2026-05-27\\available_independent_assets_diagnosis.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27i_separator_independent_validation_and_data_expansion_feasibility_for_lowguard_plus_plus_2026-05-27\\separator_stability_nonlocked_by_asset.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27i_separator_independent_validation_and_data_expansion_feasibility_for_lowguard_plus_plus_2026-05-27\\frozen_lowguardpp_nonlocked_by_asset.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27i_separator_independent_validation_and_data_expansion_feasibility_for_lowguard_plus_plus_2026-05-27\\safer_feature_variants_summary.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27i_separator_independent_validation_and_data_expansion_feasibility_for_lowguard_plus_plus_2026-05-27\\data_expansion_feasibility_plan.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27i_separator_independent_validation_and_data_expansion_feasibility_for_lowguard_plus_plus_2026-05-27\\claim_update_after_issue27i.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\feature_provenance_mapping.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\separator_distribution_by_split.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\feature_ablation_summary.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27g_suspicious_perfect_score_audit_for_lowguard_plus_plus_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue26b_split_metadata_recovery_and_temporal_asset_build_2026-05-22\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\mainline_docs\\mainline_handoff.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\mainline_docs\\mainline_experiment_map.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue11_fixed_config_ood_guard_lr_ablation_2026-05-14\\config.json",
+      "exists": true,
+      "required": true
+    }
+  ],
+  "outputs": [
+    "summary.md",
+    "raw_provenance_inventory.csv",
+    "raw_provenance_recovery_report.md",
+    "hh_separator_lineage_audit.csv",
+    "hh_separator_lineage_report.md",
+    "clean_split_construction_feasibility.csv",
+    "clean_split_construction_report.md",
+    "clean_independent_split_blocked.md",
+    "clean_independent_split_report.md",
+    "clean_independent_eval_blocked.md",
+    "raw_data_expansion_implementation_plan.md",
+    "raw_data_expansion_task_table.csv",
+    "lowguard_plus_plus_raw_provenance_decision.md",
+    "claim_update_after_issue27j.md",
+    "reviewer_defense_raw_provenance_and_clean_split.md",
+    "issue27k_next_action.md",
+    "command.txt",
+    "config.json",
+    "run_spec.json",
+    "manifest.csv"
+  ]
+}

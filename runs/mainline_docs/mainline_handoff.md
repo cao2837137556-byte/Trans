@@ -1236,3 +1236,10 @@ Immediate next decision should use issue16 results to choose among:
 - scope: inventories clean independent assets, checks HH separator stability on non-locked consistency objects, reports frozen LOW-GUARD++ outside locked bins, evaluates safer feature variants without tuning, and plans data expansion.
 - claim boundary: LOW-GUARD++ is not abandoned, but cannot be upgraded to main-text performance instance until clean independent validation or raw provenance resolves separator dependency.
 - next action: `issue27j_raw_provenance_recovery_and_clean_independent_split_construction`.
+
+## issue27j raw provenance and clean split audit (2026-05-27)
+
+- primary_verdict: `clean_independent_validation_blocked_but_recoverable`
+- scope: recovers raw pcap/TSV/source-code provenance for original100, audits HH separator lineage, checks clean split feasibility, and blocks formal clean validation until a row-level clean split is built.
+- claim boundary: LOW-GUARD++ remains a high-potential candidate; current evidence does not justify main-text performance-instance upgrade without clean independent validation.
+- next action: `issue27k_row_level_original100_rebuild_and_purged_split_construction`.
