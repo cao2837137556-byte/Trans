@@ -1,0 +1,105 @@
+{
+  "task": "sufficient_clean_eval_asset_and_split_aware_original100_rebuild_gate",
+  "primary_verdict": "clean_eval_asset_found_rebuild_eval_next",
+  "issue27m_action": "issue27m_full_mirai_feature_compatibility_prior_use_and_split_aware_rebuild",
+  "inputs": [
+    {
+      "path": "runs\\issue27k_row_level_original100_rebuild_and_purged_split_construction_for_lowguard_plus_plus_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27k_row_level_original100_rebuild_and_purged_split_construction_for_lowguard_plus_plus_2026-05-27\\row_level_sidecar_manifest.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27k_row_level_original100_rebuild_and_purged_split_construction_for_lowguard_plus_plus_2026-05-27\\row_level_sidecar_manifest_report.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27k_row_level_original100_rebuild_and_purged_split_construction_for_lowguard_plus_plus_2026-05-27\\original100_reconstruction_feasibility.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27k_row_level_original100_rebuild_and_purged_split_construction_for_lowguard_plus_plus_2026-05-27\\original100_reconstruction_report.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27k_row_level_original100_rebuild_and_purged_split_construction_for_lowguard_plus_plus_2026-05-27\\purged_split_design_table.csv",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27k_row_level_original100_rebuild_and_purged_split_construction_for_lowguard_plus_plus_2026-05-27\\purged_split_design_report.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27k_row_level_original100_rebuild_and_purged_split_construction_for_lowguard_plus_plus_2026-05-27\\claim_update_after_issue27k.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27j_raw_provenance_recovery_and_clean_independent_split_construction_for_lowguard_plus_plus_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27i_separator_independent_validation_and_data_expansion_feasibility_for_lowguard_plus_plus_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27h_original100_feature_provenance_and_independent_verification_before_claim_upgrade_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue27f_config_freeze_then_formal_validation_for_original100_histgb_conservative_2026-05-27\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18\\summary.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\mainline_docs\\mainline_handoff.md",
+      "exists": true,
+      "required": true
+    },
+    {
+      "path": "runs\\mainline_docs\\mainline_experiment_map.md",
+      "exists": true,
+      "required": true
+    }
+  ],
+  "outputs": [
+    "summary.md",
+    "clean_eval_asset_search_table.csv",
+    "clean_eval_asset_search_report.md",
+    "full_botnet_dataset_inventory.csv",
+    "full_botnet_dataset_split_feasibility.md",
+    "clean_eval_eligibility_rules.md",
+    "clean_eval_eligibility_table.csv",
+    "best_available_clean_split_manifest.csv",
+    "best_available_clean_split_report.md",
+    "split_aware_rebuild_blocked.md",
+    "clean_purged_eval_blocked.md",
+    "clean_eval_recovery_plan.md",
+    "clean_eval_recovery_task_table.csv",
+    "lowguard_plus_plus_issue27l_decision.md",
+    "claim_update_after_issue27l.md",
+    "reviewer_defense_clean_eval_asset_and_split_rebuild.md",
+    "issue27m_next_action.md",
+    "command.txt",
+    "config.json",
+    "run_spec.json",
+    "manifest.csv"
+  ]
+}

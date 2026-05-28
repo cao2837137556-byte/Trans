@@ -1250,3 +1250,10 @@ Immediate next decision should use issue16 results to choose among:
 - scope: builds row-level sidecar provenance for ID/OOD/attack original100 assets, verifies source-vs-extracted feature alignment, and designs purged split candidates.
 - claim boundary: row provenance is recovered, but clean/purged LOW-GUARD++ validation remains blocked until split-aware feature rebuild and sufficient independent eval assets exist.
 - next action: `issue27l_split_aware_original100_rebuild_with_sufficient_clean_eval_asset`.
+
+## issue27l clean eval asset and split-aware rebuild gate (2026-05-27)
+
+- primary_verdict: `clean_eval_asset_found_rebuild_eval_next`
+- scope: searches sufficient clean eval assets, identifies full Mirai/Botnet labeled datasets plus the extended unused-segment candidate, and blocks evaluation until feature compatibility, prior-use audit, and split-aware rebuild are resolved.
+- claim boundary: LOW-GUARD++ remains high-potential, but still cannot be upgraded to a main-text performance instance.
+- next action: `issue27m_full_mirai_feature_compatibility_prior_use_and_split_aware_rebuild`.

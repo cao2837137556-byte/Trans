@@ -1922,3 +1922,5 @@ Next:
 | issue27j | raw provenance and clean split audit for LOW-GUARD++ | `clean_independent_validation_blocked_but_recoverable` | Recovered raw pcap/TSV/source-code provenance but found clean independent validation still blocked by insufficient unused future/capture split assets. Next: `issue27k_row_level_original100_rebuild_and_purged_split_construction`. |
 
 | issue27k | row-level original100 rebuild and purged split construction | `row_manifest_recovered_but_clean_split_blocked` | Builds row-level sidecar and verifies feature alignment; clean/purged validation remains blocked by insufficient clean independent split assets. Next: `issue27l_split_aware_original100_rebuild_with_sufficient_clean_eval_asset`. |
+
+| issue27l | clean eval asset and split-aware original100 rebuild gate | `clean_eval_asset_found_rebuild_eval_next` | Finds full Mirai/Botnet labeled assets and a sufficiently sized extended-segment candidate; blocks formal LOW-GUARD++ clean eval pending feature compatibility, split-aware rebuild, and prior-use/provenance audit. Next: `issue27m_full_mirai_feature_compatibility_prior_use_and_split_aware_rebuild`. |
