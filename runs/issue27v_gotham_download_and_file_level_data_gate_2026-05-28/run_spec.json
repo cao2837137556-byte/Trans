@@ -1,0 +1,18 @@
+{
+  "constraints": [
+    "no_model_training",
+    "no_large_data_in_worktree",
+    "no_large_data_staged",
+    "no_full_pcap_extraction",
+    "final_model_experiments_blocked"
+  ],
+  "stages": [
+    "storage_preflight",
+    "download_if_safe",
+    "integrity_verification",
+    "archive_listing",
+    "selective_metadata_extraction",
+    "file_level_data_gate"
+  ],
+  "storage_preflight_verdict": "blocked_storage_insufficient"
+}

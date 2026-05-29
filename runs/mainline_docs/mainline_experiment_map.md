@@ -1979,3 +1979,13 @@ Next:
 - outputs: `runs/issue27u_gotham_metadata_intake_and_data_gate_precheck_2026-05-28/`.
 - role: Gotham metadata-level Data Gate precheck.
 - implication: Gotham is promising but requires user-confirmed 23.825GB decimal / 22.189GiB download and file-level split/label audit before any model execution.
+
+<!-- issue27v_map_entry -->
+
+### issue27v_gotham_download_and_file_level_data_gate_2026-05-28
+
+- status: completed with storage preflight block.
+- primary_verdict: `gotham_download_incomplete_resume_required`.
+- outputs: `runs/issue27v_gotham_download_and_file_level_data_gate_2026-05-28/`.
+- role: Gotham file-level Data Gate entry point after user-confirmed download permission.
+- implication: no model execution; free D: storage and rerun the same gate before sample extraction or feature/interface work.

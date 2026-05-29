@@ -1348,3 +1348,14 @@ Immediate next decision should use issue16 results to choose among:
 - Zenodo exposes a single `23.825GB decimal / 22.189GiB` zip; no large download was performed.
 - model experiments remain blocked by Data validity gate.
 - next: user-confirmed Gotham download and file-level Data Gate, or ToN-IoT metadata intake if Gotham is blocked.
+
+<!-- issue27v_gotham_file_level_data_gate -->
+
+## issue27v Gotham Download And File-Level Data Gate
+
+- primary_verdict: `gotham_download_incomplete_resume_required`.
+- storage_preflight_verdict: `blocked_storage_insufficient`; D: free space was `45.977 GB decimal`, below the `80 GB` safety line.
+- planned data path: `D:\study\paper\anomaly_detection\paper04\datasets\gotham2025`; raw zip target `D:\study\paper\anomaly_detection\paper04\datasets\gotham2025\raw\GothamDataset2025.zip`.
+- Gotham download was not started because Data validity gate storage preflight blocked it.
+- model experiments remain blocked; this issue is not evidence for or against Gotham's semantic suitability.
+- next: free/provision D: storage and rerun issue27v, then perform sample-level Data Gate before any model execution.
