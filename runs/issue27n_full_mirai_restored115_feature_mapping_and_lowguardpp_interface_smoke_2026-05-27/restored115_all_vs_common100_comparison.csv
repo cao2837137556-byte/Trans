@@ -1,0 +1,4 @@
+schema,input_dim,mapping_status,contains_common100,contains_extra15,eligible_for_smoke,reason
+restored115_all,115,shape_available_semantics_unverified,tentative_only,tentative_only,False,no feature-name/order mapping
+restored115_common100,100,blocked,unverified,False,False,cannot safely remove tentative Hstat columns without provenance
+restored115_extra15_only,15,blocked,False,unverified,False,extra15 likely Hstat but not verified against source column order

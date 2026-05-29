@@ -1,0 +1,11 @@
+{
+  "stages": [
+    "dirty116_to_clean115_construction_audit",
+    "restored115_feature_mapping_gate",
+    "prior_use_isolation",
+    "split_proposal",
+    "interface_smoke_gate"
+  ],
+  "smoke_blocked_reason": "low feature mapping confidence and strict prior-use exclusion removes benign rows",
+  "no_formal_claim": true
+}

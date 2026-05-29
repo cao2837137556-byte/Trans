@@ -1930,3 +1930,4 @@ Next:
 | Run | Verdict | Role | Boundary | Next |
 |---|---|---|---|---|
 | `runs/issue27m_full_mirai_feature_compatibility_prior_use_and_split_aware_rebuild_2026-05-27/` | `full_mirai_incompatible_needs_new_frontend_path` | Large-data compatibility and prior-use gate for LOW-GUARD++ | Full Mirai is not yet a clean validation result for frozen original100; it is a clean115/restored115 or re-extraction path | Recover restored115 mapping or re-extract original100 before evaluation |
+| issue27n | full Mirai restored115 mapping and interface-smoke gate | `restored115_feature_mapping_blocked` | Defines clean115 from dirty116 but blocks smoke because feature mapping is unverified and strict prior-use exclusion removes all benign rows. Next: `issue27o_restored115_mapping_recovery_or_original100_reextraction_for_full_mirai`. |

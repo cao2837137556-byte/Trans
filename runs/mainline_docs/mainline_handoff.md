@@ -1265,3 +1265,11 @@ Immediate next decision should use issue16 results to choose among:
 - key result: full Mirai is a large labeled asset (`764137` rows; benign `121621`, attack `642516`), but it is `dirty116`/`clean115-restored115` style rather than the current frozen `original100` LOW-GUARD++ input.
 - claim boundary: no full Mirai LOW-GUARD++ validation was run; clean115/restored115 must not be mixed with the frozen original100 claim.
 - next action: `issue27n_full_mirai_restored115_feature_mapping_and_lowguardpp_interface_smoke` or, if original100 must be preserved, full Mirai original100 frontend re-extraction.
+
+## issue27n full Mirai restored115 mapping gate (2026-05-27)
+
+- primary_verdict: `restored115_feature_mapping_blocked`
+- scope: audits dirty116-to-clean115 construction, restored115 feature mapping, historical prior-use isolation, clean115 split proposal, and LOW-GUARD interface-smoke gates.
+- key result: clean115 can be defined by dropping the index-like col0, but restored115 feature names/order remain unverified and historical `my_gold` overlap contains all benign rows.
+- claim boundary: no restored115 LOW-GUARD++ smoke or formal full Mirai validation was run; clean115/restored115 remains a separate candidate input track, not the frozen original100 claim.
+- next action: `issue27o_restored115_mapping_recovery_or_original100_reextraction_for_full_mirai`.
