@@ -1924,3 +1924,9 @@ Next:
 | issue27k | row-level original100 rebuild and purged split construction | `row_manifest_recovered_but_clean_split_blocked` | Builds row-level sidecar and verifies feature alignment; clean/purged validation remains blocked by insufficient clean independent split assets. Next: `issue27l_split_aware_original100_rebuild_with_sufficient_clean_eval_asset`. |
 
 | issue27l | clean eval asset and split-aware original100 rebuild gate | `clean_eval_asset_found_rebuild_eval_next` | Finds full Mirai/Botnet labeled assets and a sufficiently sized extended-segment candidate; blocks formal LOW-GUARD++ clean eval pending feature compatibility, split-aware rebuild, and prior-use/provenance audit. Next: `issue27m_full_mirai_feature_compatibility_prior_use_and_split_aware_rebuild`. |
+
+### issue27m full Mirai compatibility audit (2026-05-27)
+
+| Run | Verdict | Role | Boundary | Next |
+|---|---|---|---|---|
+| `runs/issue27m_full_mirai_feature_compatibility_prior_use_and_split_aware_rebuild_2026-05-27/` | `full_mirai_incompatible_needs_new_frontend_path` | Large-data compatibility and prior-use gate for LOW-GUARD++ | Full Mirai is not yet a clean validation result for frozen original100; it is a clean115/restored115 or re-extraction path | Recover restored115 mapping or re-extract original100 before evaluation |

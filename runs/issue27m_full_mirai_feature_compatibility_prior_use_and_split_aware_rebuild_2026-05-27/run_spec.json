@@ -1,0 +1,19 @@
+{
+  "read_inputs": [
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27l_sufficient_clean_eval_asset_and_split_aware_original100_rebuild_for_lowguard_plus_plus_2026-05-27\\summary.md",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27l_sufficient_clean_eval_asset_and_split_aware_original100_rebuild_for_lowguard_plus_plus_2026-05-27\\full_botnet_dataset_inventory.csv",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27k_row_level_original100_rebuild_and_purged_split_construction_for_lowguard_plus_plus_2026-05-27\\summary.md",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\csv_input_clean_stage1_2026-03-23\\summary.md",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\runs\\frontend100_crosscapture_stage1_2026-03-25\\extract_id_7_6\\feature_headers.txt"
+  ],
+  "stages": [
+    "asset_identity_audit",
+    "feature_compatibility_audit",
+    "prior_use_audit",
+    "split_feasibility",
+    "split_proposal",
+    "split_aware_rebuild_feasibility",
+    "micro_smoke_gate"
+  ],
+  "blocked_micro_smoke_reason": "full Mirai feature schema is clean115/restored115/dirty116, not frozen original100"
+}

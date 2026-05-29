@@ -1257,3 +1257,11 @@ Immediate next decision should use issue16 results to choose among:
 - scope: searches sufficient clean eval assets, identifies full Mirai/Botnet labeled datasets plus the extended unused-segment candidate, and blocks evaluation until feature compatibility, prior-use audit, and split-aware rebuild are resolved.
 - claim boundary: LOW-GUARD++ remains high-potential, but still cannot be upgraded to a main-text performance instance.
 - next action: `issue27m_full_mirai_feature_compatibility_prior_use_and_split_aware_rebuild`.
+
+## issue27m full Mirai compatibility audit (2026-05-27)
+
+- primary_verdict: `full_mirai_incompatible_needs_new_frontend_path`
+- scope: audited full Mirai/Botnet asset identity, feature schema compatibility, prior-use risk, split feasibility, and split-aware rebuild feasibility before any LOW-GUARD++ score run.
+- key result: full Mirai is a large labeled asset (`764137` rows; benign `121621`, attack `642516`), but it is `dirty116`/`clean115-restored115` style rather than the current frozen `original100` LOW-GUARD++ input.
+- claim boundary: no full Mirai LOW-GUARD++ validation was run; clean115/restored115 must not be mixed with the frozen original100 claim.
+- next action: `issue27n_full_mirai_restored115_feature_mapping_and_lowguardpp_interface_smoke` or, if original100 must be preserved, full Mirai original100 frontend re-extraction.
