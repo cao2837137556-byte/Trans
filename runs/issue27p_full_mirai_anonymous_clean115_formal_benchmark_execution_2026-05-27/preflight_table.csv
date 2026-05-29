@@ -1,0 +1,18 @@
+check,passed,verdict_if_failed,notes
+full_mirai_csv_exists,True,blocked_feature_matrix,D:\study\paper\anomaly_detection\paper04\KitNET-py-master\KitNET-py-master\Mirai_dataset.csv
+label_sidecar_exists,True,blocked_label_alignment,D:\study\paper\anomaly_detection\paper04\KitNET-py-master\KitNET-py-master\mirai_labels.csv
+label_count_matches_expected,True,blocked_label_alignment,labels=764137
+label_counts_match_issue27o,True,blocked_label_alignment,benign=121621; attack=642516
+benign_prefix_attack_suffix,True,blocked_split_contract,row-order split assumes benign prefix then attack suffix
+dirty116_width,True,blocked_feature_matrix,sample_width=116
+col0_index_like_removed_for_clean115,True,blocked_feature_matrix,col0 is not included in clean115 arrays
+clean115_width_after_drop,True,blocked_feature_matrix,clean_width=115
+split_sets_disjoint,True,blocked_split_contract,issue27o row-order contract
+support_pool_attack_only,True,blocked_split_contract,support pool rows are attack
+attack_eval_attack_only,True,blocked_split_contract,attack eval rows are attack
+final_ood_eval_benign_only,True,blocked_split_contract,final OOD eval rows are benign
+final_eval_report_only_protocol,True,blocked_final_eval_leakage_risk,threshold/support/config are train/val-side only
+feature_schema_named_anonymous_clean115,True,blocked_feature_matrix,anonymous_clean115_all
+no_restored115_or_common100_claim,True,blocked_other,mapping remains low/blocked from issue27o
+seeds_fixed,True,blocked_other,"[42, 43, 44, 45, 46]"
+local_execution_allowed,True,blocked_resource_needs_slurm_plan,resource-aware scalable baselines used; exact RBF OC-SVM deferred

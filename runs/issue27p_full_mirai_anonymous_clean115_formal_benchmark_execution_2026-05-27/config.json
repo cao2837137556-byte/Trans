@@ -1,0 +1,18 @@
+{
+  "dataset_name": "full_mirai_protocol_reset",
+  "evidence_scope": "within_dataset_protocol_reset",
+  "external_generalization": false,
+  "feature_schema": "anonymous_clean115_all",
+  "final_eval_report_only": true,
+  "no_final_eval_selection": true,
+  "ood_alarm_target": 0.01,
+  "restored115_common100_claim_allowed": false,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "support_rule": "kcenter32_train_side_for_LOW_GUARD; random32_train_side_for_random_support_ablation"
+}

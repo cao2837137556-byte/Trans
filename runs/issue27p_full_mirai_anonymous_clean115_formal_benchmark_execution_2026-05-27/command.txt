@@ -1,0 +1,6 @@
+git branch --show-current
+git status --short
+read issue27o protocol reset artifacts
+python runs/issue27p_full_mirai_anonymous_clean115_formal_benchmark_execution_2026-05-27/run_issue27p_full_mirai_benchmark.py
+detected missing RandomSupport32 result, patched registry/result completeness check, reran the script
+patched anomaly audit flag so high-performing DeepSADStyle_Lite is sent to issue27q audit

@@ -1280,3 +1280,12 @@ Immediate next decision should use issue16 results to choose among:
 - scope: redefines issue20-27n as exploration, adopts full Mirai as a protocol-reset within-dataset benchmark, writes split/fairness/feature-study contracts, and runs a small anonymous-clean115 interface smoke.
 - key boundary: full Mirai is not a completely unseen external test; restored115/common100 mapping remains low confidence; all baselines must be rerun under the reset protocol.
 - next action: `issue27p_full_mirai_anonymous_clean115_formal_benchmark_execution`.
+
+## issue27p full Mirai anonymous clean115 formal benchmark execution (2026-05-27)
+
+- primary_verdict: `baseline_dominates_needs_method_rethink`
+- scope: executes the full Mirai protocol-reset benchmark on `anonymous_clean115_all` with fixed split, train/validation-only selection, and report-only final eval.
+- baseline rerun status: complete for planned local reset methods; old issue20-27n numbers remain exploratory.
+- current benchmark leader by feasibility-first ranking: `DeepSADStyle_Lite`.
+- claim boundary: this is within-dataset protocol-reset evidence, not external generalization and not restored115/original100 evidence.
+- next action: `issue27q_protocol_reset_result_audit_and_seed_expansion`.
