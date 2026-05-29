@@ -1289,3 +1289,10 @@ Immediate next decision should use issue16 results to choose among:
 - current benchmark leader by feasibility-first ranking: `DeepSADStyle_Lite`.
 - claim boundary: this is within-dataset protocol-reset evidence, not external generalization and not restored115/original100 evidence.
 - next action: `issue27q_protocol_reset_result_audit_and_seed_expansion`.
+
+## issue27q plan for protocol reset audit (2026-05-27)
+
+- primary_verdict: `issue27q_execution_plan_ready`
+- scope: plan-only audit package for DeepSADStyle_Lite, LOW-GUARD++ reset-protocol failure, and paired LOW-GUARD protocol universality.
+- key boundary: issue27p changes the mainline question but does not yet make DeepSADStyle_Lite claim-safe or permanently demote LOW-GUARD++.
+- next action: execute P0/P1 DeepSAD audit, then LOW-GUARD++ failure diagnosis and paired universality matrix.

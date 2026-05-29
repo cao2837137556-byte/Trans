@@ -1935,3 +1935,5 @@ Next:
 | issue27o | full Mirai protocol reset spec | `full_mirai_protocol_reset_ready_with_anonymous_clean115` | Adopts full Mirai as within-dataset protocol-reset benchmark; old issues are exploration; restored115/common100 remain unmapped; baselines must be rerun. Next: `issue27p_full_mirai_anonymous_clean115_formal_benchmark_execution`. |
 
 | issue27p | full Mirai anonymous clean115 reset benchmark | `baseline_dominates_needs_method_rethink` | Runs formal within-dataset reset benchmark with anonymous clean115; best current method `DeepSADStyle_Lite`; old results superseded for final claims. Next: `issue27q_protocol_reset_result_audit_and_seed_expansion`. |
+
+| issue27q_plan | protocol reset result audit plan | `issue27q_execution_plan_ready` | Plan-only package: audit DeepSADStyle_Lite, diagnose LOW-GUARD++ failure, and design paired protocol-universality matrix. Next: P0/P1 audit before mainline decision. |
