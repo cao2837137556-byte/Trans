@@ -1273,3 +1273,10 @@ Immediate next decision should use issue16 results to choose among:
 - key result: clean115 can be defined by dropping the index-like col0, but restored115 feature names/order remain unverified and historical `my_gold` overlap contains all benign rows.
 - claim boundary: no restored115 LOW-GUARD++ smoke or formal full Mirai validation was run; clean115/restored115 remains a separate candidate input track, not the frozen original100 claim.
 - next action: `issue27o_restored115_mapping_recovery_or_original100_reextraction_for_full_mirai`.
+
+## issue27o full Mirai protocol reset spec (2026-05-27)
+
+- primary_verdict: `full_mirai_protocol_reset_ready_with_anonymous_clean115`
+- scope: redefines issue20-27n as exploration, adopts full Mirai as a protocol-reset within-dataset benchmark, writes split/fairness/feature-study contracts, and runs a small anonymous-clean115 interface smoke.
+- key boundary: full Mirai is not a completely unseen external test; restored115/common100 mapping remains low confidence; all baselines must be rerun under the reset protocol.
+- next action: `issue27p_full_mirai_anonymous_clean115_formal_benchmark_execution`.

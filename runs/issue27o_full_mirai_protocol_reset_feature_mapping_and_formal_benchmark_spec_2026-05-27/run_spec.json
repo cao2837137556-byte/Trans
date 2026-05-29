@@ -1,0 +1,19 @@
+{
+  "inputs": [
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27n_full_mirai_restored115_feature_mapping_and_lowguardpp_interface_smoke_2026-05-27\\summary.md",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\Mirai_dataset.csv",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\mirai_labels.csv"
+  ],
+  "smoke_methods": [
+    "LOW_GUARD_HistGB_Conservative",
+    "LOW_GUARD_LR",
+    "DeepSAD_center_baseline"
+  ],
+  "smoke_seeds": [
+    42,
+    43,
+    44
+  ],
+  "formal_claim_from_smoke": false,
+  "next_issue": "issue27p_full_mirai_anonymous_clean115_formal_benchmark_execution_2026-05-27"
+}

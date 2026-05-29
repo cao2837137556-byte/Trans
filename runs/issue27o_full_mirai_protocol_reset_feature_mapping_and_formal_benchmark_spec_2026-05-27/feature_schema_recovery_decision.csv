@@ -1,0 +1,6 @@
+schema,available,usable,mapping_confidence,decision,notes
+dirty116,True,False,high_for_index_artifact,drop_col0,col0 is index-like and must not enter models
+anonymous_clean115_all,True,True,high_shape_low_semantics,use_for_protocol_reset_benchmark_if_named_anonymous_clean115,feature semantics/order unknown; benchmark can proceed but not as Kitsune restored115
+restored115_all,shape_only,False,low,blocked_until_header_or_generator_recovered,cannot claim restored115 semantics yet
+restored115_common100,tentative_only,False,blocked,do_not_construct,do not delete tentative extra15 columns without proof
+restored115_extra15_only,tentative_only,False,blocked,diagnostic_blocked,extra15 semantics unverified

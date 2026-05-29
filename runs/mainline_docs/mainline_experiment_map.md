@@ -1931,3 +1931,5 @@ Next:
 |---|---|---|---|---|
 | `runs/issue27m_full_mirai_feature_compatibility_prior_use_and_split_aware_rebuild_2026-05-27/` | `full_mirai_incompatible_needs_new_frontend_path` | Large-data compatibility and prior-use gate for LOW-GUARD++ | Full Mirai is not yet a clean validation result for frozen original100; it is a clean115/restored115 or re-extraction path | Recover restored115 mapping or re-extract original100 before evaluation |
 | issue27n | full Mirai restored115 mapping and interface-smoke gate | `restored115_feature_mapping_blocked` | Defines clean115 from dirty116 but blocks smoke because feature mapping is unverified and strict prior-use exclusion removes all benign rows. Next: `issue27o_restored115_mapping_recovery_or_original100_reextraction_for_full_mirai`. |
+
+| issue27o | full Mirai protocol reset spec | `full_mirai_protocol_reset_ready_with_anonymous_clean115` | Adopts full Mirai as within-dataset protocol-reset benchmark; old issues are exploration; restored115/common100 remain unmapped; baselines must be rerun. Next: `issue27p_full_mirai_anonymous_clean115_formal_benchmark_execution`. |

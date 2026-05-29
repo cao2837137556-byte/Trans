@@ -1,0 +1,11 @@
+phase,goal,inputs,outputs,requires_slurm,success_standard,failure_interpretation
+Phase 1,feature schema + split contract,full Mirai files + labels,contract docs and manifests,no,schema and split declared,fallback to anonymous clean115
+Phase 2,formal rerun of LOW-GUARD++/LR/baselines,contract + code,formal benchmark tables,maybe,all baselines complete,mark implementation gaps
+Phase 3,feature representation study,mapped schemas,feature comparison,maybe,mapping-safe comparison,use anonymous naming
+Phase 4,collapse models re-evaluation,DevNet/DeepSAD specs,new collapse/recovery evidence,maybe,no old collapse reuse,debug objectives
+Phase 5,component ablation,full benchmark assets,guard/support/threshold ablation,maybe,mechanism confirmed,bound claims
+Phase 6,support/label/OOD robustness,formal benchmark,shot/noise/contamination curves,maybe,deployment assumption bounded,state limitations
+Phase 7,temporal/row-order robustness,timestamps or ordered assets,temporal evidence,maybe,no leakage,report blocked if metadata absent
+Phase 8,second dataset external generalization,external dataset,external validity table,likely,external claim supported,keep within-dataset claim only
+Phase 9,efficiency/deployment robustness,validated method,runtime and update simulation,maybe,deployment feasibility bounded,no broad deployment claim
+Phase 10,paper writing,all accepted evidence,main/appendix claims,no,claim matrix clean,move weak evidence to appendix
