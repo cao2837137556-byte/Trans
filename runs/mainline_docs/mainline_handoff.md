@@ -1338,3 +1338,13 @@ Immediate next decision should use issue16 results to choose among:
 - recommended candidates: Gotham Dataset 2025 first, ToN-IoT network second; local IoT-23 is auxiliary for semantic-gate rehearsal.
 - all future downloads must use `D:\study\paper\anomaly_detection\paper04\datasets\<dataset_name>\...`; do not stage raw/large data.
 - next: `issue27u_gotham_metadata_intake_and_data_gate_precheck`.
+
+<!-- issue27u_gotham_metadata_intake -->
+
+## issue27u Gotham Metadata Intake
+
+- primary_verdict: `gotham_ready_for_full_download_with_user_confirmation`.
+- Gotham metadata reports raw PCAP, processed CSV, metadata with timestamps/attacker IPs/attack types, device-level traces from 78 heterogeneous IoT devices, and deterministic labels.
+- Zenodo exposes a single `23.825GB decimal / 22.189GiB` zip; no large download was performed.
+- model experiments remain blocked by Data validity gate.
+- next: user-confirmed Gotham download and file-level Data Gate, or ToN-IoT metadata intake if Gotham is blocked.

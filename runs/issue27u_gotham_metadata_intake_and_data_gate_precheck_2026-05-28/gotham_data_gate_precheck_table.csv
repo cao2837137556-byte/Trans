@@ -1,0 +1,16 @@
+gate_check,status,evidence,risk,next_check
+construct_id_benign_train,likely_yes_after_download,Device-level traffic collected at interface level of 78 heterogeneous IoT devices.,medium,Inspect CSV labels/metadata for normal traffic segments per device.
+construct_ood_benign_validation,likely_yes_but_not_proven,Non-IID traffic across devices suggests device/capture split potential.,medium,Verify benign-only phases or devices not contaminated by attack windows.
+construct_final_ood_benign_eval,likely_yes_but_requires_metadata,Device-organized files may allow report-only held-out devices or time windows.,medium,Check file/device/time labels after download.
+construct_attack_support,yes_after_download,"Attack types listed include Mirai, Merlin C2, reconnaissance, amplification, DoS.",low_medium,Confirm per-packet attack labels and attack family names.
+construct_attack_eval,yes_after_download,Ground-truth deterministic labels based on orchestration logs.,low_medium,Split by attack family/device/time without support/eval overlap.
+support_eval_disjoint,likely_yes,Raw/CSV files organized by device identifier.,medium,Use row/file/device IDs to enforce disjointness.
+timestamp_or_order_for_deployment_split,yes_metadata_claimed,Metadata files provide timestamps according to Zenodo description.,low_medium,Verify timestamp fields in metadata/CSV after download.
+device_capture_source_split,yes_device_level_claimed,78 heterogeneous IoT devices and device-level traces.,low_medium,Inspect device identifiers and gateway/capture metadata.
+row_order_artifact_audit,yes_with_raw_and_metadata,PCAP/CSV/metadata triad should permit row and source audits.,medium,Hash row alignment across PCAP/CSV/labels.
+source_capture_artifact_audit,yes_with_device_metadata,Device-organized files and contextual metadata.,medium,Ensure attack labels are not equivalent to device/source ID.
+report_only_final_eval,yes_protocol_can_define,Dataset has enough file-level/device-level units if labels are as described.,medium,Define held-out device/time windows after metadata inspection.
+feature_extraction_path,yes,Raw PCAP enables Kitsune/AfterImage or flow extraction; CSV enables packet-level feature path.,medium,Choose feature path after file inspection.
+kitsune_afterimage_online_fe,yes_if_pcap_downloaded,Raw PCAP is included in zip according to metadata.,medium_high,Run small extraction smoke after user-confirmed download.
+flow_feature_extraction,yes,Processed packet-level CSV exists; flow aggregation can be derived.,medium,Inspect CSV schema.
+low_ood_alert_operating_point,promising_not_proven,Multiple devices/non-IID setting suggests possible benign OOD splits.,medium,Run Data Gate sample after download; no model claim yet.

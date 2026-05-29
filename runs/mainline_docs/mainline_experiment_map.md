@@ -1969,3 +1969,13 @@ Next:
 - outputs: `runs/issue27t_second_dataset_intake_with_full_mirai_raw_missing_confirmed_2026-05-28/`.
 - role: Data validity gate second-dataset candidate intake after full Mirai paired raw was confirmed missing.
 - implication: no model execution; proceed to Gotham metadata intake, with ToN-IoT as fallback and local IoT-23 as auxiliary.
+
+<!-- issue27u_map_entry -->
+
+### issue27u_gotham_metadata_intake_and_data_gate_precheck_2026-05-28
+
+- status: completed.
+- primary_verdict: `gotham_ready_for_full_download_with_user_confirmation`.
+- outputs: `runs/issue27u_gotham_metadata_intake_and_data_gate_precheck_2026-05-28/`.
+- role: Gotham metadata-level Data Gate precheck.
+- implication: Gotham is promising but requires user-confirmed 23.825GB decimal / 22.189GiB download and file-level split/label audit before any model execution.

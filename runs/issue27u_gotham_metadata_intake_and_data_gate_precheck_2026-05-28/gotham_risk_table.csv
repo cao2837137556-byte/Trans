@@ -1,0 +1,6 @@
+risk,severity,evidence,mitigation
+single large archive,high,Zenodo exposes GothamDataset2025.zip at 23.825GB decimal / 22.189GiB.,Require user confirmation before download; no big file in git.
+benign phase not yet verified,medium,"Metadata says device-level non-IID traffic, but file contents not inspected.","After download, inspect labels/timestamps per device before split."
+attack/source coupling,medium,Attack orchestration labels may align with devices/time windows.,Check whether attack label is separable from source/device/capture.
+storage and extraction cost,high,23.8GB zip; decompressed size unknown.,Download to D: datasets only; inspect zip listing before extraction if possible.
+feature path decision,medium,Dataset has PCAP and CSV; exact CSV schema unseen.,Issue27v should inspect file listing/schema before model pipeline.
