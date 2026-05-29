@@ -1,0 +1,52 @@
+{
+  "inputs": {
+    "issue27n": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27n_full_mirai_restored115_feature_mapping_and_lowguardpp_interface_smoke_2026-05-27",
+    "issue27o": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27o_full_mirai_protocol_reset_feature_mapping_and_formal_benchmark_spec_2026-05-27",
+    "issue27p": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27p_full_mirai_anonymous_clean115_formal_benchmark_execution_2026-05-27",
+    "issue27q_P0P1": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27q_P0P1_deepsad_lite_audit_and_seed_expansion_2026-05-27",
+    "mirai_csv": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\Mirai_dataset.csv",
+    "mirai_labels": "D:\\study\\paper\\anomaly_detection\\paper04\\KitNET-py-master\\KitNET-py-master\\mirai_labels.csv"
+  },
+  "issue": "issue27r_full_mirai_benchmark_semantic_validity_and_ood_drift_audit_2026-05-28",
+  "not_model_experiment": true,
+  "primary_verdict": "attack_benign_artifact_risk",
+  "scope": "benchmark_semantic_validity_gate",
+  "splits": {
+    "attack_eval": [
+      181621,
+      764137
+    ],
+    "attack_support_pool": [
+      121621,
+      181621
+    ],
+    "final_ood_eval": [
+      110000,
+      121621
+    ],
+    "id_calib": [
+      80000,
+      100000
+    ],
+    "id_train": [
+      0,
+      60000
+    ],
+    "ood_train": [
+      60000,
+      80000
+    ],
+    "ood_val": [
+      100000,
+      110000
+    ]
+  },
+  "stage_verdicts": {
+    "attack_benign": "attack_benign_artifact_risk",
+    "feature_schema": "anonymous_clean115_feature_semantics_too_weak_for_main_claim",
+    "id_ood": "ood_shift_too_artificial_or_row_order_bound",
+    "low_ood_alert": "low_ood_alert_problem_artifact_risk",
+    "ood_deployment": "ood_deployment_semantics_weak",
+    "ood_purity": "ood_benign_purity_supported"
+  }
+}

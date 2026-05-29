@@ -1,0 +1,11 @@
+risk_item,status,risk_level,notes
+feature_names_available,False,high,anonymous clean115 has no validated Kitsune feature names
+restored115_mapping,blocked_low_confidence,high,issue27n/o mapping remained low/blocked
+original100_common100_mapping,blocked_low_confidence,high,cannot claim old original100/common100 equivalence
+dirty116_col0_removed,True,low,index-like col0 was removed before clean115
+near_perfect_label_like_cols,none_detected_in_issue27q_P0P1,medium,not sufficient because medium row-order/scale correlations remain
+source_capture_proxy_columns,unknown,high,no source/capture/session metadata available
+scale_dependence,high,high,DeepSADStyle_Lite rank-normalized replay collapsed in issue27q_P0P1
+pcc_dispersion_numeric_risk,unknown,medium,feature semantics unavailable
+raw_pcap_or_extractor_reconstruction,recommended,high,needed for feature provenance and deployment-like split semantics
+feature_schema_verdict,anonymous_clean115_feature_semantics_too_weak_for_main_claim,high,

@@ -1,0 +1,8 @@
+check,status,count,risk,notes
+ood_train_labels_benign,True,20000,low,
+ood_val_labels_benign,True,10000,low,
+final_ood_eval_labels_benign,True,11621,low,
+ood_val_final_ood_disjoint,True,21621,low,
+final_ood_adjacent_to_attack_suffix,True,0,medium,final OOD eval ends immediately before attack support pool in row order; no timestamp/capture metadata to interpret adjacency
+timestamp_available,False,,high,formal split manifest marks timestamp_available=False
+capture_session_available,False,,high,formal split manifest marks capture_session_available=False

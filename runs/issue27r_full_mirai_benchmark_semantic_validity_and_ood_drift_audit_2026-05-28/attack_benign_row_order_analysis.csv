@@ -1,0 +1,7 @@
+check,value,risk,notes
+benign_rows_are_prefix,0..121620,high,All benign rows precede all attack rows in full Mirai clean115.
+attack_rows_are_suffix,121621..764136,high,All attack rows occupy a contiguous suffix.
+attack_label_row_order_corr,0.6336298913812768,high,
+attack_best_diagnostic_auc,0.9999724645061728,high,
+attack_rank_normalized_auc,0.9912494290123456,medium,
+attack_drop_top10_auc,0.4077983287037037,medium,

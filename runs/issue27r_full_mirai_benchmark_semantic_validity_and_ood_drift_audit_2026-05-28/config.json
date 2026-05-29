@@ -1,0 +1,10 @@
+{
+  "diagnostic_classifier_only": true,
+  "feature_schema": "anonymous_clean115_all",
+  "max_classifier_sample_per_class": {
+    "attack_benign": 60000,
+    "id_ood": 50000
+  },
+  "no_final_eval_selection": true,
+  "no_model_mainline_claim": true
+}

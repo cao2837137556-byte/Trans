@@ -1939,3 +1939,13 @@ Next:
 | issue27q_plan | protocol reset result audit plan | `issue27q_execution_plan_ready` | Plan-only package: audit DeepSADStyle_Lite, diagnose LOW-GUARD++ failure, and design paired protocol-universality matrix. Next: P0/P1 audit before mainline decision. |
 
 | issue27q_P0P1 | DeepSAD-lite replay/audit/seed expansion | `deepsad_lite_result_suspicious_needs_artifact_debug` | P0/P1 audit for the issue27p leader; checks replay, leakage, negative controls, feature artifact risk, and seed 42-51 stability. Next: `issue27r_deepsad_lite_artifact_debug_and_feature_provenance`. |
+
+<!-- issue27r_map_entry -->
+
+### issue27r_full_mirai_benchmark_semantic_validity_and_ood_drift_audit_2026-05-28
+
+- status: completed.
+- primary_verdict: `attack_benign_artifact_risk`.
+- outputs: `runs/issue27r_full_mirai_benchmark_semantic_validity_and_ood_drift_audit_2026-05-28/`.
+- role: benchmark semantic validity gate before model-line continuation.
+- implication: pause DeepSAD mainline, LOW-GUARD++ repair, and universality claims until full Mirai raw provenance or second-dataset semantic validation resolves row-order/source/feature-semantics risk.

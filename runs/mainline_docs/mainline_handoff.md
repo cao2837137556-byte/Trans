@@ -1303,3 +1303,15 @@ Immediate next decision should use issue16 results to choose among:
 - scope: audits DeepSADStyle_Lite replay, score direction, split separation, negative controls, feature artifacts, seed expansion, and stratified behavior.
 - claim boundary: DeepSADStyle_Lite remains a weighted-center lite candidate under anonymous clean115, not exact Deep SAD and not external generalization.
 - next action: `issue27r_deepsad_lite_artifact_debug_and_feature_provenance`.
+
+<!-- issue27r_semantic_validity_audit -->
+
+## issue27r Benchmark Semantic Validity Gate
+
+- primary_verdict: `attack_benign_artifact_risk`.
+- ID/OOD drift is distinguishable but row-order/distributional, not temporal/capture/deployment drift.
+- OOD benign labels are pure by sidecar, but deployment semantics are weak without timestamp/capture/session metadata.
+- attack/benign semantics are blocked by high artifact risk: benign prefix, attack suffix, anonymous features, no source/capture provenance.
+- anonymous_clean115 remains diagnostic only for protocol reset; it is not restored115/original100/common100.
+- issue27p model rankings are diagnostic only and should not drive mainline claims until raw provenance or second-dataset semantic validation passes.
+- next: `issue27s_raw_provenance_or_second_dataset_semantic_reconstruction_for_low_ood_alert_benchmark`.
