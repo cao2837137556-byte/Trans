@@ -1,0 +1,26 @@
+assertion,passed,overlap_count,notes
+id_train_vs_ood_train_row_disjoint,True,0,row-id disjointness
+id_train_vs_ood_val_row_disjoint,True,0,row-id disjointness
+ood_train_vs_ood_val_row_disjoint,True,0,row-id disjointness
+id_calib_vs_id_train_row_disjoint,True,0,row-id disjointness
+id_calib_vs_ood_train_row_disjoint,True,0,row-id disjointness
+id_calib_vs_ood_val_row_disjoint,True,0,row-id disjointness
+final_ood_eval_vs_id_train_row_disjoint,True,0,row-id disjointness
+final_ood_eval_vs_ood_train_row_disjoint,True,0,row-id disjointness
+final_ood_eval_vs_id_calib_row_disjoint,True,0,row-id disjointness
+final_ood_eval_vs_ood_val_row_disjoint,True,0,row-id disjointness
+attack_support_pool_vs_id_train_row_disjoint,True,0,row-id disjointness
+attack_support_pool_vs_ood_train_row_disjoint,True,0,row-id disjointness
+attack_support_pool_vs_id_calib_row_disjoint,True,0,row-id disjointness
+attack_support_pool_vs_ood_val_row_disjoint,True,0,row-id disjointness
+attack_support_pool_vs_final_ood_eval_row_disjoint,True,0,row-id disjointness
+attack_eval_vs_id_train_row_disjoint,True,0,row-id disjointness
+attack_eval_vs_ood_train_row_disjoint,True,0,row-id disjointness
+attack_eval_vs_id_calib_row_disjoint,True,0,row-id disjointness
+attack_eval_vs_ood_val_row_disjoint,True,0,row-id disjointness
+attack_eval_vs_final_ood_eval_row_disjoint,True,0,row-id disjointness
+attack_eval_vs_attack_support_pool_row_disjoint,True,0,row-id disjointness
+dirty116_col0_removed,True,0,feature_count=115
+label_sidecar_not_in_feature_matrix,True,0,labels loaded separately and never appended to features
+support_feature_duplicate_with_attack_eval,True,0,exact float32 row-byte duplicate check for support seeds 42..51
+threshold_uses_validation_only,True,0,threshold replay matches issue27p from ID_calib+OOD_val

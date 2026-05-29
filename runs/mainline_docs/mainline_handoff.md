@@ -1296,3 +1296,10 @@ Immediate next decision should use issue16 results to choose among:
 - scope: plan-only audit package for DeepSADStyle_Lite, LOW-GUARD++ reset-protocol failure, and paired LOW-GUARD protocol universality.
 - key boundary: issue27p changes the mainline question but does not yet make DeepSADStyle_Lite claim-safe or permanently demote LOW-GUARD++.
 - next action: execute P0/P1 DeepSAD audit, then LOW-GUARD++ failure diagnosis and paired universality matrix.
+
+## issue27q P0P1 DeepSAD-lite audit and seed expansion (2026-05-27)
+
+- primary_verdict: `deepsad_lite_result_suspicious_needs_artifact_debug`
+- scope: audits DeepSADStyle_Lite replay, score direction, split separation, negative controls, feature artifacts, seed expansion, and stratified behavior.
+- claim boundary: DeepSADStyle_Lite remains a weighted-center lite candidate under anonymous clean115, not exact Deep SAD and not external generalization.
+- next action: `issue27r_deepsad_lite_artifact_debug_and_feature_provenance`.

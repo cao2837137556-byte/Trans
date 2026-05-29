@@ -1937,3 +1937,5 @@ Next:
 | issue27p | full Mirai anonymous clean115 reset benchmark | `baseline_dominates_needs_method_rethink` | Runs formal within-dataset reset benchmark with anonymous clean115; best current method `DeepSADStyle_Lite`; old results superseded for final claims. Next: `issue27q_protocol_reset_result_audit_and_seed_expansion`. |
 
 | issue27q_plan | protocol reset result audit plan | `issue27q_execution_plan_ready` | Plan-only package: audit DeepSADStyle_Lite, diagnose LOW-GUARD++ failure, and design paired protocol-universality matrix. Next: P0/P1 audit before mainline decision. |
+
+| issue27q_P0P1 | DeepSAD-lite replay/audit/seed expansion | `deepsad_lite_result_suspicious_needs_artifact_debug` | P0/P1 audit for the issue27p leader; checks replay, leakage, negative controls, feature artifact risk, and seed 42-51 stability. Next: `issue27r_deepsad_lite_artifact_debug_and_feature_provenance`. |
