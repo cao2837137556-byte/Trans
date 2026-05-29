@@ -1315,3 +1315,15 @@ Immediate next decision should use issue16 results to choose among:
 - anonymous_clean115 remains diagnostic only for protocol reset; it is not restored115/original100/common100.
 - issue27p model rankings are diagnostic only and should not drive mainline claims until raw provenance or second-dataset semantic validation passes.
 - next: `issue27s_raw_provenance_or_second_dataset_semantic_reconstruction_for_low_ood_alert_benchmark`.
+
+<!-- issue27s_raw_provenance_or_second_dataset -->
+
+## issue27s Raw Provenance Or Second Dataset Decision
+
+- primary_verdict: `dual_track_raw_rebuild_and_second_dataset_intake`.
+- issue27r data semantics gate did not pass for full Mirai anonymous_clean115.
+- full Mirai paired raw pcap/input stream was not found; local pcaps are unrelated IoT23/public_data assets.
+- full 764k timestamp/capture/session provenance is missing; `mirai3_ts.csv` is only a smaller related path.
+- current full Mirai anonymous_clean115 is diagnostic only, not main low-OOD-alert benchmark.
+- model experiments remain blocked by Data validity gate.
+- next: dual-track full Mirai raw provenance search plus second-dataset semantic intake.

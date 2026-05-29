@@ -1,0 +1,12 @@
+question,answer,evidence,claim_safe,notes
+full Mirai only benign prefix plus attack suffix,True,"mirai_labels.csv: first 121621 benign rows, remaining 642516 attack rows; issue27r attack label row-order correlation=0.633630",False,This is exactly the semantic risk; attack/benign can be row-segment bound.
+multiple benign phases available,not proven,"Benign prefix can be sliced by row order, but there is no timestamp/capture/session metadata.",False,"Slicing the prefix creates distributional segments, not validated deploy-time phases."
+explainable OOD benign exists,not currently,issue27r ID/OOD AUC=0.998820 but split is row-order-derived and metadata absent.,False,A strong domain classifier alone is not a valid OOD story.
+natural train-time to deploy-time benign drift exists,blocked,No full Mirai timestamp/capture/session/source id.,False,Need timestamp/capture metadata or a second dataset.
+attack support/eval can be disjoint,True,Row ranges can be disjoint.,engineering_only,Disjoint rows do not solve attack suffix/source artifact risk.
+purge gap/embargo possible,row_order_only,No temporal units for an actual purge gap.,False,"Can remove rows, but cannot call it temporal embargo."
+avoid row-order artifact,False,"Benign prefix, attack suffix, ID/OOD row-order split.",False,Core blocker.
+avoid source/capture artifact,unknown,No source/capture/session metadata.,False,Unknown is not safe for A-tier claim.
+final eval report-only can be preserved,True,issue27p engineering split did this.,engineering_only,Necessary but not sufficient.
+construct ID/OOD/support/eval technically,True,Rows are sufficient.,False,"Technically constructible, semantically weak."
+role if not main benchmark,feature/debug diagnostic; attack-only auxiliary; historical baseline,Clean115 can test interfaces and score mechanics.,diagnostic_only,Do not use for main low-OOD-alert claim.

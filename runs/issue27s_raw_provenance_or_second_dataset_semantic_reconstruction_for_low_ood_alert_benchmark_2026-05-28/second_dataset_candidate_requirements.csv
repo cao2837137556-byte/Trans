@@ -1,0 +1,11 @@
+requirement,must,why,failure_action
+benign_multi_phase_or_multi_environment,True,Needed to construct ID benign and OOD benign without row-order fiction.,reject_as_main_benchmark
+attack_labels,True,Needed for attack support/eval and detection metric.,reject
+raw_pcap_or_flow_records,True,Needed for provenance and feature/interface gate.,downgrade_to_diagnostic
+timestamp_or_order,True,Needed for purge/embargo or deployment-like split.,no_temporal_claim
+capture_session_source_metadata,strongly_preferred,Needed to audit source/capture artifact.,claim_bound_to_distributional_split
+report_only_final_eval_possible,True,Prevents selection leakage.,reject
+attack_support_eval_disjoint_possible,True,Few-shot support cannot overlap attack eval.,reject
+low_ood_alert_operating_point_possible,True,Core paper problem is low OOD false alarm plus attack detection.,reject
+row_order_source_artifact_auditable,True,Avoid repeating full Mirai semantic failure.,reject_or_raw_reconstruct
+feature_interface_gate_possible,True,Models cannot run before feature semantics and alignment pass.,block_model_execution

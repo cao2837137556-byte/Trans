@@ -1,0 +1,7 @@
+task,required,current_status,output,local_or_slurm,estimated_cost,risk
+recover_full_mirai_raw_input,True,missing,pcap/packet fields paired with Mirai_dataset.csv rows,data_acquisition_first,unknown,blocking
+verify_feature_row_to_packet_alignment,True,blocked_missing_raw,row-level sidecar with packet_id/timestamp/label/source/feature_hash,local for audit; slurm if full re-extraction,medium after raw exists,blocking
+run_kitsune_extractor_smoke,True,extractor_scripts_exist_but_no_full_raw_input,small feature reconstruction with timestamp and packet order,local smoke,low after raw exists,medium
+full_115_feature_reconstruction,True,blocked_missing_raw,reconstructed115 with feature names/order and manifest,slurm_recommended,medium/high,high
+split_aware_feature_extraction,True,blocked_missing_raw_and_semantic_split,reset_at_split_boundary and train_state_then_eval_online variants,slurm_recommended,high,high
+construct_claim_safe_sidecar,True,blocked_missing_timestamp_capture_source,"packet_id,timestamp,label,split_role,capture/source,feature_hash",local once metadata exists,medium,blocking

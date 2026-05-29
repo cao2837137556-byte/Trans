@@ -1949,3 +1949,13 @@ Next:
 - outputs: `runs/issue27r_full_mirai_benchmark_semantic_validity_and_ood_drift_audit_2026-05-28/`.
 - role: benchmark semantic validity gate before model-line continuation.
 - implication: pause DeepSAD mainline, LOW-GUARD++ repair, and universality claims until full Mirai raw provenance or second-dataset semantic validation resolves row-order/source/feature-semantics risk.
+
+<!-- issue27s_map_entry -->
+
+### issue27s_raw_provenance_or_second_dataset_semantic_reconstruction_for_low_ood_alert_benchmark_2026-05-28
+
+- status: completed.
+- primary_verdict: `dual_track_raw_rebuild_and_second_dataset_intake`.
+- outputs: `runs/issue27s_raw_provenance_or_second_dataset_semantic_reconstruction_for_low_ood_alert_benchmark_2026-05-28/`.
+- role: Data validity gate fork after issue27r semantic failure.
+- implication: full Mirai anonymous_clean115 is not current main benchmark; proceed with raw provenance recovery and second-dataset intake before any model execution.
