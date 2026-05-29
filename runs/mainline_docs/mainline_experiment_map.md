@@ -1984,8 +1984,8 @@ Next:
 
 ### issue27v_gotham_download_and_file_level_data_gate_2026-05-28
 
-- status: completed with storage preflight block.
-- primary_verdict: `gotham_download_incomplete_resume_required`.
+- status: completed under user-approved download-only mode.
+- primary_verdict: `gotham_file_level_gate_passed_ready_for_sample_data_gate`.
 - outputs: `runs/issue27v_gotham_download_and_file_level_data_gate_2026-05-28/`.
 - role: Gotham file-level Data Gate entry point after user-confirmed download permission.
-- implication: no model execution; free D: storage and rerun the same gate before sample extraction or feature/interface work.
+- implication: Gotham passed file-level gate for raw PCAP + labelled processed CSV presence, but metadata is partial and sample-level Data Gate is still required before feature/interface work or any model execution.

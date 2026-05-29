@@ -4,6 +4,7 @@ import csv
 import hashlib
 import json
 import os
+import argparse
 import shutil
 import subprocess
 import sys
@@ -31,6 +32,7 @@ ZENODO_DOWNLOAD = "https://zenodo.org/api/records/14502760/files/GothamDataset20
 EXPECTED_MD5 = "7ca78c0517ccb3d2854e823678e0f206"
 EXPECTED_SIZE_BYTES = 23_824_968_355
 MIN_SAFE_FREE_BYTES = 80_000_000_000
+MIN_POST_DOWNLOAD_FREE_BYTES = 10_000_000_000
 
 
 def ensure_dirs() -> None:
@@ -104,11 +106,20 @@ def write_dataset_readme() -> None:
     )
 
 
-def storage_preflight() -> dict:
+def storage_preflight(user_approved_download_only: bool = False) -> dict:
     usage = shutil.disk_usage(str(PAPER_ROOT.drive + "\\"))
     cwd_ok = Path.cwd().resolve() == ROOT.resolve()
     data_root_ok = DATA_ROOT == PAPER_ROOT / "datasets" / "gotham2025"
-    free_ok = usage.free >= MIN_SAFE_FREE_BYTES
+    zip_existing_size = ZIP_PATH.stat().st_size if ZIP_PATH.exists() else 0
+    zip_expected_size_present = zip_existing_size == EXPECTED_SIZE_BYTES
+    if zip_expected_size_present:
+        enough_for_user_approved_download = usage.free >= MIN_POST_DOWNLOAD_FREE_BYTES
+        expected_post_download_free = usage.free
+    else:
+        enough_for_user_approved_download = usage.free >= (EXPECTED_SIZE_BYTES - zip_existing_size) + MIN_POST_DOWNLOAD_FREE_BYTES
+        expected_post_download_free = usage.free - max(EXPECTED_SIZE_BYTES - zip_existing_size, 0)
+    strict_free_ok = usage.free >= MIN_SAFE_FREE_BYTES
+    free_ok = strict_free_ok or (user_approved_download_only and enough_for_user_approved_download)
     forbidden_roots = [
         str(Path.home() / "Downloads"),
         str(Path.home() / "Desktop"),
@@ -130,14 +141,31 @@ def storage_preflight() -> dict:
         "d_free_gb_decimal": round(usage.free / 1_000_000_000, 3),
         "required_safe_free_bytes": MIN_SAFE_FREE_BYTES,
         "required_safe_free_gb_decimal": round(MIN_SAFE_FREE_BYTES / 1_000_000_000, 3),
+        "strict_free_space_ok": strict_free_ok,
+        "user_approved_download_only": user_approved_download_only,
+        "enough_for_user_approved_download": enough_for_user_approved_download,
         "free_space_ok": free_ok,
+        "zip_existing_size_bytes": zip_existing_size,
+        "zip_expected_size_present": zip_expected_size_present,
+        "expected_post_download_free_bytes": expected_post_download_free,
+        "expected_post_download_free_gb_decimal": round(expected_post_download_free / 1_000_000_000, 3),
+        "min_post_download_free_bytes": MIN_POST_DOWNLOAD_FREE_BYTES,
+        "min_post_download_free_gb_decimal": round(MIN_POST_DOWNLOAD_FREE_BYTES / 1_000_000_000, 3),
         "forbidden_target_path": forbidden_target,
         "raw_dir_exists": RAW_DIR.exists(),
         "metadata_dir_exists": METADATA_DIR.exists(),
         "labels_dir_exists": LABELS_DIR.exists(),
         "derived_dir_exists": DERIVED_DIR.exists(),
         "manifests_dir_exists": MANIFEST_DIR.exists(),
-        "storage_preflight_verdict": "pass" if cwd_ok and data_root_ok and free_ok and not forbidden_target else "blocked_storage_insufficient" if not free_ok else "blocked_storage_path_safety",
+        "storage_preflight_verdict": (
+            "pass"
+            if cwd_ok and data_root_ok and strict_free_ok and not forbidden_target
+            else "pass_user_approved_download_only"
+            if cwd_ok and data_root_ok and user_approved_download_only and enough_for_user_approved_download and not forbidden_target
+            else "blocked_storage_insufficient"
+            if not free_ok
+            else "blocked_storage_path_safety"
+        ),
     }
 
 
@@ -170,6 +198,7 @@ def download_zip(url: str) -> dict:
         "--fail",
         "--retry",
         "5",
+        "--retry-all-errors",
         "--retry-delay",
         "10",
         "-o",
@@ -323,7 +352,17 @@ def list_archive() -> tuple[list[dict], dict]:
     return rows, summary
 
 
-def extract_small_metadata(archive_rows: list[dict], archive_summary: dict) -> list[dict]:
+def extract_small_metadata(archive_rows: list[dict], archive_summary: dict, allow_extraction: bool) -> list[dict]:
+    if not allow_extraction:
+        return [
+            {
+                "source_member": "blocked_low_space",
+                "local_path": "blocked_low_space",
+                "bytes_written": 0,
+                "extraction_status": "blocked_low_space",
+                "notes": "D: free space after download/listing is below 10GB, so selective extraction is skipped by user-approved download-only policy",
+            }
+        ]
     if archive_summary["archive_listing_verdict"] != "pass":
         return [
             {
@@ -385,8 +424,31 @@ def extract_small_metadata(archive_rows: list[dict], archive_summary: dict) -> l
     return extracted
 
 
-def gate_rows(storage: dict, integrity: dict, archive_summary: dict) -> list[dict]:
-    if storage["storage_preflight_verdict"] != "pass":
+def extracted_evidence(extracted: list[dict]) -> dict:
+    text = ""
+    for row in extracted:
+        local_path = row.get("local_path", "")
+        path = Path(local_path)
+        if not path.exists() or path.stat().st_size > 5_000_000:
+            continue
+        try:
+            text += "\n" + path.read_text(encoding="utf-8", errors="ignore")[:20_000]
+        except Exception:
+            continue
+    lower = text.lower()
+    return {
+        "csv_label_column_detected": "label" in lower,
+        "csv_timestamp_column_detected": "frame.time" in lower or "timestamp" in lower,
+        "packet_order_supported_by_pcap_or_csv": "frame.time" in lower or "pcap" in lower,
+        "device_source_capture_partial": any(x in lower for x in ["device", "iot device", "pcap file corresponds", "eth.src", "ip.src", "source"]),
+        "readme_reports_metadata": "metadata" in lower,
+        "readme_reports_attack_types": "attack" in lower,
+    }
+
+
+def gate_rows(storage: dict, integrity: dict, archive_summary: dict, extracted: list[dict]) -> list[dict]:
+    evidence = extracted_evidence(extracted)
+    if storage["storage_preflight_verdict"] not in {"pass", "pass_user_approved_download_only"}:
         status = "blocked_storage_insufficient"
     elif integrity["integrity_verdict"] != "pass":
         status = integrity["integrity_verdict"]
@@ -396,11 +458,11 @@ def gate_rows(storage: dict, integrity: dict, archive_summary: dict) -> list[dic
         status = "present" if archive_summary["pcap_count"] and archive_summary["csv_count"] else "missing_required_file_type"
     return [
         {"check": "pcap_real_exists", "status": status if status != "present" else archive_summary["pcap_count"] > 0, "evidence": archive_summary["pcap_count"]},
-        {"check": "labelled_csv_real_exists", "status": status if status != "present" else archive_summary["csv_count"] > 0, "evidence": archive_summary["csv_count"]},
-        {"check": "metadata_or_readme_exists", "status": status if status != "present" else (archive_summary["metadata_count"] + archive_summary["readme_count"]) > 0, "evidence": archive_summary["metadata_count"] + archive_summary["readme_count"]},
-        {"check": "label_or_attack_file_candidate_exists", "status": status if status != "present" else archive_summary["label_count"] > 0, "evidence": archive_summary["label_count"]},
-        {"check": "timestamp_metadata_available", "status": status if status != "present" else "needs_metadata_sample_gate", "evidence": "requires selective metadata inspection"},
-        {"check": "device_source_capture_metadata_available", "status": status if status != "present" else "needs_metadata_sample_gate", "evidence": "requires selective metadata inspection"},
+        {"check": "labelled_csv_real_exists", "status": status if status != "present" else evidence["csv_label_column_detected"], "evidence": f"{archive_summary['csv_count']} CSVs; label column detected in preview={evidence['csv_label_column_detected']}"},
+        {"check": "metadata_or_readme_exists", "status": status if status != "present" else (archive_summary["metadata_count"] + archive_summary["readme_count"]) > 0, "evidence": f"metadata files={archive_summary['metadata_count']}; readme files={archive_summary['readme_count']}"},
+        {"check": "label_or_attack_file_candidate_exists", "status": status if status != "present" else (archive_summary["label_count"] > 0 or evidence["csv_label_column_detected"] or evidence["readme_reports_attack_types"]), "evidence": f"label file candidates={archive_summary['label_count']}; label column={evidence['csv_label_column_detected']}; README attack types={evidence['readme_reports_attack_types']}"},
+        {"check": "timestamp_metadata_available", "status": status if status != "present" else evidence["csv_timestamp_column_detected"], "evidence": f"CSV preview frame.time/timestamp={evidence['csv_timestamp_column_detected']}"},
+        {"check": "device_source_capture_metadata_available", "status": status if status != "present" else "partial_filename_csv_readme", "evidence": f"README/device/source terms and packet fields={evidence['device_source_capture_partial']}; no separate metadata JSON found in archive listing"},
         {"check": "id_ood_attack_split_constructable", "status": status if status != "present" else "needs_sample_data_gate", "evidence": "file-level gate only"},
         {"check": "row_order_artifact_auditable", "status": status if status != "present" else "needs_sample_data_gate", "evidence": "requires row-level sample"},
         {"check": "source_capture_artifact_auditable", "status": status if status != "present" else "needs_sample_data_gate", "evidence": "requires metadata/sample"},
@@ -408,8 +470,8 @@ def gate_rows(storage: dict, integrity: dict, archive_summary: dict) -> list[dic
     ]
 
 
-def decide(storage: dict, download: dict, integrity: dict, archive_summary: dict) -> str:
-    if storage["storage_preflight_verdict"] != "pass":
+def decide(storage: dict, download: dict, integrity: dict, archive_summary: dict, extraction_allowed: bool) -> str:
+    if storage["storage_preflight_verdict"] not in {"pass", "pass_user_approved_download_only"}:
         return "gotham_download_incomplete_resume_required"
     if download.get("download_status", "").startswith("download_failed"):
         return "gotham_download_incomplete_resume_required"
@@ -419,6 +481,8 @@ def decide(storage: dict, download: dict, integrity: dict, archive_summary: dict
         return "gotham_download_corrupt_redownload_required"
     if archive_summary["archive_listing_verdict"] == "blocked_archive_safety_risk":
         return "gotham_archive_structure_blocked"
+    if integrity["integrity_verdict"] == "pass" and archive_summary["archive_listing_verdict"] == "pass" and not extraction_allowed:
+        return "gotham_metadata_extraction_blocked_low_space"
     if integrity["integrity_verdict"] == "pass" and archive_summary["pcap_count"] > 0 and archive_summary["csv_count"] > 0 and (archive_summary["metadata_count"] + archive_summary["label_count"] + archive_summary["readme_count"]) > 0:
         return "gotham_file_level_gate_passed_ready_for_sample_data_gate"
     if integrity["integrity_verdict"] == "pass":
@@ -426,7 +490,8 @@ def decide(storage: dict, download: dict, integrity: dict, archive_summary: dict
     return "gotham_download_incomplete_resume_required"
 
 
-def write_reports(storage: dict, download: dict, integrity: dict, archive_summary: dict, extracted: list[dict], primary: str) -> None:
+def write_reports(storage: dict, download: dict, integrity: dict, archive_summary: dict, extracted: list[dict], primary: str, post_listing_free: int) -> None:
+    evidence = extracted_evidence(extracted)
     storage_rows = [
         {"check": key, "value": value}
         for key, value in storage.items()
@@ -440,9 +505,12 @@ def write_reports(storage: dict, download: dict, integrity: dict, archive_summar
         f"- zip target: `{storage['zip_target']}`\n"
         f"- D free space: `{storage['d_free_gb_decimal']} GB decimal`\n"
         f"- required safe free space: `{storage['required_safe_free_gb_decimal']} GB decimal`\n"
+        f"- user-approved download-only: `{storage['user_approved_download_only']}`\n"
+        f"- expected post-download free space: `{storage['expected_post_download_free_gb_decimal']} GB decimal`\n"
+        f"- minimum post-download free space: `{storage['min_post_download_free_gb_decimal']} GB decimal`\n"
         f"- verdict: `{storage['storage_preflight_verdict']}`\n\n"
-        "The download is blocked before any network transfer when the safe free-space guard fails. "
-        "This protects the worktree and avoids a partially downloaded 23.8GB archive plus insufficient post-download validation space.\n",
+        "The strict 80GB safety line can only be bypassed in user-approved download-only mode. "
+        "This bypass still forbids full extraction, model experiments, feature extraction, C: drive fallback, browser default downloads, and large temporary files.\n",
     )
     write_text(
         "download_report.md",
@@ -450,9 +518,11 @@ def write_reports(storage: dict, download: dict, integrity: dict, archive_summar
         f"- source: `{read_issue27u_download_url()}`\n"
         f"- target: `{ZIP_PATH}`\n"
         f"- download_status: `{download['download_status']}`\n"
-        f"- attempted: `{download.get('download_attempted', False)}`\n"
+        f"- attempted in final postprocess run: `{download.get('download_attempted', False)}`\n"
         f"- log: `{download.get('log_path', MANIFEST_DIR / 'download_log.txt')}`\n\n"
-        "If storage is later freed, rerun `python repo/ood/issue27v_gotham_download_file_gate.py`; the script will reuse/resume the same target path.\n",
+        "The zip may have been downloaded by an earlier user-approved issue27v resume attempt to the same target path. "
+        "When the final postprocess run sees a complete file with matching md5, it skips re-download and records `already_present_md5_ok`.\n\n"
+        "If this gate must be rerun, use `python repo/ood/issue27v_gotham_download_file_gate.py --user-approved-download-only`; the script will reuse/resume the same target path.\n",
     )
     write_text("download_command.txt", str(download.get("command", "not_attempted_storage_preflight_blocked")) + "\n")
     write_text(
@@ -479,6 +549,10 @@ def write_reports(storage: dict, download: dict, integrity: dict, archive_summar
         f"- label candidate count: `{archive_summary['label_count']}`\n"
         f"- readme count: `{archive_summary['readme_count']}`\n"
         f"- total uncompressed size estimate: `{archive_summary['total_uncompressed_size']}` bytes\n\n"
+        f"- D free space after listing: `{round(post_listing_free / 1_000_000_000, 3)} GB decimal`\n\n"
+        f"- labelled CSV evidence from preview: `{evidence['csv_label_column_detected']}`\n"
+        f"- timestamp evidence from preview: `{evidence['csv_timestamp_column_detected']}`\n"
+        f"- device/source/capture evidence: `partial_filename_csv_readme`; no separate metadata JSON sidecar was found in the archive listing.\n\n"
         "No full extraction is performed before a safe archive listing and integrity pass.\n",
     )
     write_text(
@@ -488,7 +562,7 @@ def write_reports(storage: dict, download: dict, integrity: dict, archive_summar
         f"- status: `{extracted[0]['extraction_status'] if extracted else 'none'}`\n\n"
         "Only README, metadata, labels, and small CSV previews are eligible for extraction. PCAP and large CSV extraction remains blocked until later sample Data Gate planning.\n",
     )
-    gate = gate_rows(storage, integrity, archive_summary)
+    gate = gate_rows(storage, integrity, archive_summary, extracted)
     write_csv("gotham_file_level_data_gate_table.csv", gate, ["check", "status", "evidence"])
     gate_text = "\n".join(f"- `{r['check']}`: `{r['status']}` ({r['evidence']})" for r in gate)
     write_text(
@@ -496,15 +570,14 @@ def write_reports(storage: dict, download: dict, integrity: dict, archive_summar
         "# Gotham File-Level Data Gate Report\n\n"
         f"Primary file-level gate status: `{primary}`.\n\n"
         f"{gate_text}\n\n"
-        "This gate does not authorize model experiments. If blocked by storage, the next action is to free D: space or move the dataset root to a user-approved large D: location, then rerun the same file-level gate.\n",
+        "This gate does not authorize model experiments. If metadata extraction is blocked by low free space, the next action is to free D: space before sample Data Gate.\n",
     )
     write_text(
         "issue27v_decision.md",
         "# issue27v Decision\n\n"
         f"primary_verdict = `{primary}`\n\n"
         f"storage_preflight_verdict = `{storage['storage_preflight_verdict']}`\n\n"
-        "The Gotham file-level Data Gate cannot proceed to download/listing/extraction until the storage preflight passes. "
-        "This is a Data validity gate stop, not a model result and not evidence against Gotham.\n",
+        "This is a user-approved download-only Data Gate result. It is not a model result and not evidence for or against any detector.\n",
     )
     write_text(
         "claim_update_after_issue27v.md",
@@ -514,13 +587,19 @@ def write_reports(storage: dict, download: dict, integrity: dict, archive_summar
         "- Model experiments remain prohibited until file-level and sample-level Data Gates pass.\n"
         "- No external generalization, deployment robustness, DeepSAD mainline, or LOW-GUARD failure claim is supported by this issue.\n",
     )
-    next_action = "free_d_space_and_rerun_issue27v_download_gate" if storage["storage_preflight_verdict"] != "pass" else "issue27w_gotham_sample_data_gate"
+    next_action = (
+        "issue27w_gotham_sample_data_gate"
+        if primary == "gotham_file_level_gate_passed_ready_for_sample_data_gate"
+        else "free_d_space_then_repeat_metadata_extraction_or_resume_download"
+        if primary in {"gotham_metadata_extraction_blocked_low_space", "gotham_download_incomplete_resume_required"}
+        else "inspect_blocking_file_gate_failure"
+    )
     write_text(
         "issue27w_next_action.md",
         "# issue27w Next Action\n\n"
         f"Recommended next action: `{next_action}`.\n\n"
-        "If storage is the blocker, free or provision enough D: space first. The minimum safe target remains at least 80GB free before starting the 23.825GB zip download. "
-        "After the zip passes md5 and archive listing, issue27w should perform a small sample Data Gate only, not model training.\n",
+        "After the zip passes md5 and archive listing, issue27w should perform a small sample Data Gate only, not model training. "
+        "If D: free space is below 10GB, metadata extraction and sample intake must wait until storage is freed.\n",
     )
     write_text(
         "summary.md",
@@ -531,19 +610,21 @@ def write_reports(storage: dict, download: dict, integrity: dict, archive_summar
         f"4. zip path: `{ZIP_PATH}`.\n"
         f"5. md5 matches: `{integrity['md5_matches']}`.\n"
         f"6. zip contains PCAP: `{archive_summary['pcap_count'] > 0}`.\n"
-        f"7. zip contains labelled CSV: `{archive_summary['csv_count'] > 0 and archive_summary['label_count'] > 0}`.\n"
-        f"8. zip contains metadata/timestamp/device/capture information: `not_verified_file_level`; archive listing status `{archive_summary['archive_listing_verdict']}`.\n"
-        f"9. selective metadata extraction completed: `{extracted and extracted[0]['extraction_status'] not in {'blocked_zip_missing', 'blocked_storage_insufficient'}}`.\n"
+        f"7. zip contains labelled CSV: `{archive_summary['csv_count'] > 0 and evidence['csv_label_column_detected']}`.\n"
+        f"8. zip contains metadata/timestamp/device/capture information: `partial`; CSV preview has timestamp `{evidence['csv_timestamp_column_detected']}`, README/paths expose device/source/capture context, but no separate metadata JSON sidecar was found in archive listing.\n"
+        f"9. selective metadata extraction completed: `{extracted and extracted[0]['extraction_status'] not in {'blocked_zip_missing', 'blocked_storage_insufficient', 'blocked_low_space'}}`.\n"
         f"10. Gotham file-level Data Gate passed: `{primary == 'gotham_file_level_gate_passed_ready_for_sample_data_gate'}`.\n"
         "11. current model experiments allowed: `false`.\n"
         f"12. issue27w recommendation: `{next_action}`.\n"
-        "13. Slurm needed: `not for storage/download gate`; maybe later for feature extraction after sample gate.\n"
-        "14. commit hash: pending.\n",
+        f"13. D free space after listing/download attempt: `{round(post_listing_free / 1_000_000_000, 3)} GB decimal`.\n"
+        "14. Slurm needed: `not for storage/download gate`; maybe later for feature extraction after sample gate.\n"
+        "15. commit hash: pending.\n",
     )
 
 
-def write_run_metadata(storage: dict, primary: str) -> None:
-    write_text("command.txt", "python repo/ood/issue27v_gotham_download_file_gate.py\n")
+def write_run_metadata(storage: dict, primary: str, user_approved_download_only: bool) -> None:
+    command = "python repo/ood/issue27v_gotham_download_file_gate.py --user-approved-download-only" if user_approved_download_only else "python repo/ood/issue27v_gotham_download_file_gate.py"
+    write_text("command.txt", command + "\n")
     config = {
         "issue": "issue27v_gotham_download_and_file_level_data_gate_2026-05-28",
         "dataset_root": str(DATA_ROOT),
@@ -553,6 +634,8 @@ def write_run_metadata(storage: dict, primary: str) -> None:
         "expected_md5": EXPECTED_MD5,
         "expected_size_bytes": EXPECTED_SIZE_BYTES,
         "min_safe_free_bytes": MIN_SAFE_FREE_BYTES,
+        "min_post_download_free_bytes": MIN_POST_DOWNLOAD_FREE_BYTES,
+        "user_approved_download_only": user_approved_download_only,
         "primary_verdict": primary,
         "model_experiments_allowed": False,
     }
@@ -576,6 +659,7 @@ def write_run_metadata(storage: dict, primary: str) -> None:
                 "final_model_experiments_blocked",
             ],
             "storage_preflight_verdict": storage["storage_preflight_verdict"],
+            "user_approved_download_only": user_approved_download_only,
         },
     )
     rows = []
@@ -594,32 +678,36 @@ def update_mainline_docs(primary: str, storage: dict) -> None:
         "\n<!-- issue27v_gotham_file_level_data_gate -->\n\n"
         "## issue27v Gotham Download And File-Level Data Gate\n\n"
         f"- primary_verdict: `{primary}`.\n"
-        f"- storage_preflight_verdict: `{storage['storage_preflight_verdict']}`; D: free space was `{storage['d_free_gb_decimal']} GB decimal`, below the `80 GB` safety line.\n"
+        f"- storage_preflight_verdict: `{storage['storage_preflight_verdict']}`; D: free space was `{storage['d_free_gb_decimal']} GB decimal` at preflight.\n"
         f"- planned data path: `{DATA_ROOT}`; raw zip target `{ZIP_PATH}`.\n"
-        "- Gotham download was not started because Data validity gate storage preflight blocked it.\n"
+        "- User-approved download-only mode allows the 80GB recommendation to be bypassed only for zip download/hash/listing/small metadata; no full extraction or model work is allowed.\n"
+        f"- current issue27v primary verdict: `{primary}`.\n"
         "- model experiments remain blocked; this issue is not evidence for or against Gotham's semantic suitability.\n"
-        "- next: free/provision D: storage and rerun issue27v, then perform sample-level Data Gate before any model execution.\n",
+        "- next: if file-level gate passed, run small sample Data Gate; otherwise resolve download/hash/listing/storage blocker first.\n",
     )
     append_once(
         exp_map,
         "<!-- issue27v_map_entry -->",
         "\n<!-- issue27v_map_entry -->\n\n"
         "### issue27v_gotham_download_and_file_level_data_gate_2026-05-28\n\n"
-        "- status: completed with storage preflight block.\n"
+        "- status: completed/updated under user-approved download-only mode.\n"
         f"- primary_verdict: `{primary}`.\n"
         f"- outputs: `{OUT_DIR.relative_to(ROOT).as_posix()}/`.\n"
         "- role: Gotham file-level Data Gate entry point after user-confirmed download permission.\n"
-        "- implication: no model execution; free D: storage and rerun the same gate before sample extraction or feature/interface work.\n",
+        "- implication: no model execution; only file-level Data Gate evidence may advance toward sample Data Gate.\n",
     )
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--user-approved-download-only", action="store_true")
+    args = parser.parse_args()
     ensure_dirs()
     write_dataset_readme()
-    storage = storage_preflight()
+    storage = storage_preflight(args.user_approved_download_only)
     url = read_issue27u_download_url()
 
-    if storage["storage_preflight_verdict"] == "pass":
+    if storage["storage_preflight_verdict"] in {"pass", "pass_user_approved_download_only"}:
         download = download_zip(url)
     else:
         download = {
@@ -632,7 +720,35 @@ def main() -> None:
     if integrity["integrity_verdict"] == "pass":
         archive_rows, archive_summary = list_archive()
     else:
-        archive_rows, archive_summary = list_archive()
+        archive_rows, archive_summary = (
+            [
+                {
+                    "file_path": integrity["integrity_verdict"],
+                    "file_name": integrity["integrity_verdict"],
+                    "extension": "",
+                    "compressed_size": 0,
+                    "uncompressed_size": 0,
+                    "is_pcap": False,
+                    "is_csv": False,
+                    "is_metadata": False,
+                    "is_label": False,
+                    "is_readme": False,
+                    "unsafe_path": False,
+                }
+            ],
+            {
+                "archive_listing_verdict": integrity["integrity_verdict"],
+                "unsafe_path_count": 0,
+                "pcap_count": 0,
+                "csv_count": 0,
+                "metadata_count": 0,
+                "label_count": 0,
+                "readme_count": 0,
+                "total_uncompressed_size": 0,
+            },
+        )
+    post_listing_free = shutil.disk_usage(str(PAPER_ROOT.drive + "\\")).free
+    extraction_allowed = post_listing_free >= MIN_POST_DOWNLOAD_FREE_BYTES
     write_csv(
         "archive_file_listing.csv",
         archive_rows,
@@ -650,11 +766,11 @@ def main() -> None:
             "unsafe_path",
         ],
     )
-    extracted = extract_small_metadata(archive_rows, archive_summary)
+    extracted = extract_small_metadata(archive_rows, archive_summary, extraction_allowed)
     write_csv("gotham_extracted_metadata_manifest.csv", extracted, ["source_member", "local_path", "bytes_written", "extraction_status", "notes"])
-    primary = decide(storage, download, integrity, archive_summary)
-    write_reports(storage, download, integrity, archive_summary, extracted, primary)
-    write_run_metadata(storage, primary)
+    primary = decide(storage, download, integrity, archive_summary, extraction_allowed)
+    write_reports(storage, download, integrity, archive_summary, extracted, primary, post_listing_free)
+    write_run_metadata(storage, primary, args.user_approved_download_only)
     update_mainline_docs(primary, storage)
     print(json.dumps({"primary_verdict": primary, "storage_preflight_verdict": storage["storage_preflight_verdict"]}, indent=2))
 

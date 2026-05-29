@@ -3,8 +3,11 @@
 - worktree: `D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline`
 - dataset root: `D:\study\paper\anomaly_detection\paper04\datasets\gotham2025`
 - zip target: `D:\study\paper\anomaly_detection\paper04\datasets\gotham2025\raw\GothamDataset2025.zip`
-- D free space: `45.977 GB decimal`
+- D free space: `22.15 GB decimal`
 - required safe free space: `80.0 GB decimal`
-- verdict: `blocked_storage_insufficient`
+- user-approved download-only: `True`
+- expected post-download free space: `22.15 GB decimal`
+- minimum post-download free space: `10.0 GB decimal`
+- verdict: `pass_user_approved_download_only`
 
-The download is blocked before any network transfer when the safe free-space guard fails. This protects the worktree and avoids a partially downloaded 23.8GB archive plus insufficient post-download validation space.
+The strict 80GB safety line can only be bypassed in user-approved download-only mode. This bypass still forbids full extraction, model experiments, feature extraction, C: drive fallback, browser default downloads, and large temporary files.

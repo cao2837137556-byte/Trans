@@ -1353,9 +1353,10 @@ Immediate next decision should use issue16 results to choose among:
 
 ## issue27v Gotham Download And File-Level Data Gate
 
-- primary_verdict: `gotham_download_incomplete_resume_required`.
-- storage_preflight_verdict: `blocked_storage_insufficient`; D: free space was `45.977 GB decimal`, below the `80 GB` safety line.
+- primary_verdict: `gotham_file_level_gate_passed_ready_for_sample_data_gate`.
+- storage_preflight_verdict: `pass_user_approved_download_only`; user approved download-only mode below the original 80GB safety recommendation.
 - planned data path: `D:\study\paper\anomaly_detection\paper04\datasets\gotham2025`; raw zip target `D:\study\paper\anomaly_detection\paper04\datasets\gotham2025\raw\GothamDataset2025.zip`.
-- Gotham download was not started because Data validity gate storage preflight blocked it.
+- Gotham zip was downloaded/resumed to the approved D: dataset path and verified with expected md5 `7ca78c0517ccb3d2854e823678e0f206`; local sha256 is recorded in issue27v outputs.
+- Archive listing passed with no unsafe paths; it contains `110` PCAP files and `78` processed CSV files. CSV previews show a `label` column and `frame.time` timestamp, while device/source/capture information is partial via README, filenames, packet fields, and directory structure rather than a separate metadata JSON sidecar.
 - model experiments remain blocked; this issue is not evidence for or against Gotham's semantic suitability.
-- next: free/provision D: storage and rerun issue27v, then perform sample-level Data Gate before any model execution.
+- next: `issue27w_gotham_sample_data_gate`; do small sample-level validation only, with no full PCAP extraction or model execution.

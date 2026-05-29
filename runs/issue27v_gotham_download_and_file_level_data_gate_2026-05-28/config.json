@@ -4,9 +4,11 @@
   "expected_md5": "7ca78c0517ccb3d2854e823678e0f206",
   "expected_size_bytes": 23824968355,
   "issue": "issue27v_gotham_download_and_file_level_data_gate_2026-05-28",
+  "min_post_download_free_bytes": 10000000000,
   "min_safe_free_bytes": 80000000000,
   "model_experiments_allowed": false,
-  "primary_verdict": "gotham_download_incomplete_resume_required",
+  "primary_verdict": "gotham_file_level_gate_passed_ready_for_sample_data_gate",
+  "user_approved_download_only": true,
   "zenodo_record": "https://zenodo.org/records/14502760",
   "zip_path": "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\raw\\GothamDataset2025.zip"
 }
