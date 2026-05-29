@@ -1327,3 +1327,14 @@ Immediate next decision should use issue16 results to choose among:
 - current full Mirai anonymous_clean115 is diagnostic only, not main low-OOD-alert benchmark.
 - model experiments remain blocked by Data validity gate.
 - next: dual-track full Mirai raw provenance search plus second-dataset semantic intake.
+
+<!-- issue27t_second_dataset_intake -->
+
+## issue27t Second Dataset Intake
+
+- primary_verdict: `second_dataset_candidates_need_manual_access_or_download_confirmation`.
+- full Mirai paired raw missing is confirmed; full Mirai anonymous_clean115 remains diagnostic only.
+- current model experiments remain blocked by Data validity gate.
+- recommended candidates: Gotham Dataset 2025 first, ToN-IoT network second; local IoT-23 is auxiliary for semantic-gate rehearsal.
+- all future downloads must use `D:\study\paper\anomaly_detection\paper04\datasets\<dataset_name>\...`; do not stage raw/large data.
+- next: `issue27u_gotham_metadata_intake_and_data_gate_precheck`.

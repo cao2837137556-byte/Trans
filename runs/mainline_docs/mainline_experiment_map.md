@@ -1959,3 +1959,13 @@ Next:
 - outputs: `runs/issue27s_raw_provenance_or_second_dataset_semantic_reconstruction_for_low_ood_alert_benchmark_2026-05-28/`.
 - role: Data validity gate fork after issue27r semantic failure.
 - implication: full Mirai anonymous_clean115 is not current main benchmark; proceed with raw provenance recovery and second-dataset intake before any model execution.
+
+<!-- issue27t_map_entry -->
+
+### issue27t_second_dataset_intake_with_full_mirai_raw_missing_confirmed_2026-05-28
+
+- status: completed.
+- primary_verdict: `second_dataset_candidates_need_manual_access_or_download_confirmation`.
+- outputs: `runs/issue27t_second_dataset_intake_with_full_mirai_raw_missing_confirmed_2026-05-28/`.
+- role: Data validity gate second-dataset candidate intake after full Mirai paired raw was confirmed missing.
+- implication: no model execution; proceed to Gotham metadata intake, with ToN-IoT as fallback and local IoT-23 as auxiliary.
