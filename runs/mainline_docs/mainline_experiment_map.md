@@ -1999,3 +1999,13 @@ Next:
 - outputs: `runs/issue27w_gotham_sample_data_gate_2026-05-28/`.
 - role: Gotham sample-level Data validity gate before feature/interface work.
 - implication: Gotham is promising but requires larger sample manifest/split validation before any model execution.
+
+<!-- issue27x_map_entry -->
+
+### issue27x_gotham_larger_sample_manifest_and_split_gate_2026-05-28
+
+- status: completed.
+- primary_verdict: `gotham_larger_sample_promising_needs_full_manifest`.
+- outputs: `runs/issue27x_gotham_larger_sample_manifest_and_split_gate_2026-05-28/`.
+- role: larger-sample Data validity gate for Gotham split construction.
+- implication: Gotham remains promising, but Feature/interface gate is blocked until a fuller manifest and exact claim-safe split contract control file/device/time artifacts.

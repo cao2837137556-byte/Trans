@@ -1,0 +1,29 @@
+{
+  "allowed_mode": "limited_csv_extract",
+  "issue": "issue27x_gotham_larger_sample_manifest_and_split_gate_2026-05-28",
+  "max_manifest_rows_per_file": 2000,
+  "max_scan_rows_per_file": 250000,
+  "no_feature_extraction": true,
+  "no_model_training": true,
+  "primary_verdict": "gotham_larger_sample_promising_needs_full_manifest",
+  "selected_csvs": [
+    "processed/iotsim-combined-cycle-2.csv",
+    "processed/iotsim-combined-cycle-3.csv",
+    "processed/iotsim-combined-cycle-tls-1.csv",
+    "processed/iotsim-combined-cycle-tls-3.csv",
+    "processed/iotsim-hydraulic-system-8.csv",
+    "processed/iotsim-hydraulic-system-11.csv",
+    "processed/iotsim-building-monitor-2.csv",
+    "processed/iotsim-domotic-monitor-2.csv",
+    "processed/iotsim-cooler-motor-8.csv",
+    "processed/iotsim-air-quality-1.csv",
+    "processed/iotsim-combined-cycle-1.csv",
+    "processed/iotsim-combined-cycle-10.csv",
+    "processed/iotsim-city-power-1.csv",
+    "processed/iotsim-domotic-monitor-1.csv",
+    "processed/iotsim-building-monitor-1.csv",
+    "processed/iotsim-ip-camera-street-1.csv",
+    "processed/iotsim-ip-camera-museum-1.csv"
+  ],
+  "zip_path": "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\raw\\GothamDataset2025.zip"
+}

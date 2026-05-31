@@ -1,0 +1,9 @@
+risk,group_column,cramers_v,group_count,label_count,max_group_purity,max_purity_group,risk_level,can_split_design_control
+label_vs_file_id,sample_file_id,0.737105,2,17,1.0,file_01,high,needs_strong_controls
+label_vs_device,device_family,0.557905,2,10,1.0,combined-cycle-tls,high,needs_strong_controls
+label_vs_protocol,protocol_inferred,0.860671,2,13,1.0,coap,high,needs_strong_controls
+label_vs_time_bucket,time_bucket,0.999816,2,7,1.0,2025-01-14T18,high,needs_strong_controls
+label_vs_source_capture,source_capture_inferred,0.737105,2,17,1.0,combined-cycle-2|instance_2,high,needs_strong_controls
+idood_vs_device,device_family,0.557905,2,10,1.0,combined-cycle-tls,high,needs_strong_controls
+support_eval_vs_file_time_source,sample_file_id,0.737105,2,17,1.0,file_01,high,needs_strong_controls
+benign_prefix_attack_suffix_pattern,row_index_within_file,,6,,,file_10|file_11|file_12|file_13|file_14|file_15,high,requires_purge_and_file_device_disjoint_attack_eval

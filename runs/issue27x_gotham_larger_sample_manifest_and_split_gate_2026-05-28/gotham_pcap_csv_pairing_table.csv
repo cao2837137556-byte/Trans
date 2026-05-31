@@ -1,0 +1,19 @@
+archive_path,pcap_counterpart_path,matching_pcap_count,matching_benign_pcap_count,matching_malicious_pcap_count,matching_attack_types,pairing_basis,processed_without_pcap,can_reextract_features_later,pairing_confidence
+processed/iotsim-combined-cycle-2.csv,raw/benign/iotsim-combined-cycle-2_0-0_to_OpenvSwitch-13_2-0.pcap,1,1,0,,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-combined-cycle-3.csv,raw/benign/iotsim-combined-cycle-3_0-0_to_OpenvSwitch-13_3-0.pcap,1,1,0,,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-combined-cycle-tls-1.csv,raw/benign/iotsim-combined-cycle-tls-1_0-0_to_OpenvSwitch-14_1-0.pcap,1,1,0,,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-combined-cycle-tls-3.csv,raw/benign/iotsim-combined-cycle-tls-3_0-0_to_OpenvSwitch-14_3-0.pcap,1,1,0,,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-hydraulic-system-8.csv,raw/benign/iotsim-hydraulic-system-8_0-0_to_OpenvSwitch-15_8-0.pcap,1,1,0,,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-hydraulic-system-11.csv,raw/benign/iotsim-hydraulic-system-11_0-0_to_OpenvSwitch-16_1-0.pcap,1,1,0,,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-building-monitor-2.csv,raw/benign/iotsim-building-monitor-2_0-0_to_OpenvSwitch-28_2-0.pcap,1,1,0,,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-domotic-monitor-2.csv,raw/benign/iotsim-domotic-monitor-2_0-0_to_OpenvSwitch-23_2-0.pcap,1,1,0,,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-cooler-motor-8.csv,raw/benign/iotsim-cooler-motor-8_0-0_to_OpenvSwitch-18_8-0.pcap,1,1,0,,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-air-quality-1.csv,raw/benign/iotsim-air-quality-1_0-0_to_OpenvSwitch-25_1-0.pcap,4,1,3,mirai-dos|mirai-infection|network-scanning,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-combined-cycle-1.csv,raw/benign/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,6,1,5,coap-amplificator|merlin|mirai-dos|mirai-infection|network-scanning,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-combined-cycle-10.csv,raw/benign/iotsim-combined-cycle-10_0-0_to_OpenvSwitch-13_10-0.pcap,5,1,4,merlin|mirai-dos|mirai-infection|network-scanning,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-city-power-1.csv,raw/benign/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,5,1,4,merlin|mirai-dos|mirai-infection|network-scanning,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-domotic-monitor-1.csv,raw/benign/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,5,1,4,merlin|mirai-dos|mirai-infection|network-scanning,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-building-monitor-1.csv,raw/benign/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,5,1,4,merlin|mirai-dos|mirai-infection|network-scanning,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-ip-camera-street-1.csv,raw/benign/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,5,1,4,merlin|mirai-dos|mirai-infection|network-scanning,device_filename_token,False,True,medium_filename_path_match
+processed/iotsim-ip-camera-museum-1.csv,raw/benign/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,5,1,4,merlin|mirai-dos|mirai-infection|network-scanning,device_filename_token,False,True,medium_filename_path_match
+__archive_summary__,,,,,,archive_level,,yes_for_sampled_by_filename_match,medium; no packet-count/byte-level verification yet

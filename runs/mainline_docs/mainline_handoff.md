@@ -1371,3 +1371,14 @@ Immediate next decision should use issue16 results to choose among:
 - most promising split is device-disjoint benign drift, with protocol-disjoint as a secondary route.
 - largest artifact risk is label/source/time coupling, especially benign-prefix then attack-label structure in mixed attack files.
 - model experiments remain blocked; next is a larger sample manifest and split gate.
+
+<!-- issue27x_gotham_larger_sample_gate -->
+
+## issue27x Gotham Larger Sample Manifest And Split Gate
+
+- primary_verdict: `gotham_larger_sample_promising_needs_full_manifest`.
+- allowed mode was `limited_csv_extract`, but execution used streaming sampled manifest construction and did not extract PCAP or full large CSV files.
+- sampled row-level manifest was built across representative benign and mixed attack processed CSVs; PCAP/CSV pairing is medium-confidence by filename/path matching.
+- most promising split remains device-disjoint benign drift; protocol-disjoint is a secondary route.
+- largest blocker is file/device/time shortcut risk; Gotham is not yet ready for Feature/interface gate or model experiments.
+- next: fuller manifest and pre-registered split contract.

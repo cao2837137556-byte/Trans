@@ -1,0 +1,18 @@
+{
+  "constraints": [
+    "no_model_training",
+    "no_baselines",
+    "no_full_zip_extraction",
+    "no_pcap_extraction",
+    "no_all_csv_extraction",
+    "no_feature_extraction"
+  ],
+  "stages": [
+    "storage_preflight",
+    "larger_sample_file_selection",
+    "sampled_row_manifest_construction",
+    "pcap_csv_pairing_verification",
+    "split_candidate_design",
+    "artifact_risk_quantification_without_model_training"
+  ]
+}
