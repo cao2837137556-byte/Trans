@@ -1989,3 +1989,13 @@ Next:
 - outputs: `runs/issue27v_gotham_download_and_file_level_data_gate_2026-05-28/`.
 - role: Gotham file-level Data Gate entry point after user-confirmed download permission.
 - implication: Gotham passed file-level gate for raw PCAP + labelled processed CSV presence, but metadata is partial and sample-level Data Gate is still required before feature/interface work or any model execution.
+
+<!-- issue27w_map_entry -->
+
+### issue27w_gotham_sample_data_gate_2026-05-28
+
+- status: completed.
+- primary_verdict: `gotham_sample_gate_promising_needs_more_space_and_larger_sample`.
+- outputs: `runs/issue27w_gotham_sample_data_gate_2026-05-28/`.
+- role: Gotham sample-level Data validity gate before feature/interface work.
+- implication: Gotham is promising but requires larger sample manifest/split validation before any model execution.

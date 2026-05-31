@@ -1,0 +1,7 @@
+risk,level,evidence
+label_vs_file_path_binding,medium_high,benign-only sample files and mixed attack device files can become file-level shortcuts if split is careless
+label_vs_device_binding,medium_high,sample attack labels appear in selected devices; larger sample must verify attack labels across devices and construct device-disjoint controls
+label_vs_protocol_binding,medium,frame.protocols is available and may partially encode scenario; protocol-disjoint split is useful but can become the benchmark variable
+label_vs_time_or_row_order,high,mixed attack files have benign prefix and later attack labels; time/order split must use purge/report-only manifest and controls
+source_capture_artifact,medium_high,separate metadata JSON was absent in archive listing; source/capture comes from paths/fields and must be validated in a larger manifest
+pcap_csv_alignment,medium,"matching PCAP names exist, but no byte-level or packet-count alignment was performed in this sample gate"

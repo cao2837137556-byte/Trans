@@ -1,0 +1,18 @@
+{
+  "constraints": [
+    "no_model_training",
+    "no_baselines",
+    "no_full_zip_extraction",
+    "no_pcap_extraction",
+    "no_large_csv_extraction",
+    "no_feature_extraction"
+  ],
+  "stages": [
+    "sample_candidate_selection",
+    "selective_sample_extraction_preview",
+    "csv_schema_label_audit",
+    "timestamp_order_device_source_audit",
+    "small_split_feasibility",
+    "sample_artifact_risk_audit"
+  ]
+}

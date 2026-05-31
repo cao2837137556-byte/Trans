@@ -1360,3 +1360,14 @@ Immediate next decision should use issue16 results to choose among:
 - Archive listing passed with no unsafe paths; it contains `110` PCAP files and `78` processed CSV files. CSV previews show a `label` column and `frame.time` timestamp, while device/source/capture information is partial via README, filenames, packet fields, and directory structure rather than a separate metadata JSON sidecar.
 - model experiments remain blocked; this issue is not evidence for or against Gotham's semantic suitability.
 - next: `issue27w_gotham_sample_data_gate`; do small sample-level validation only, with no full PCAP extraction or model execution.
+
+<!-- issue27w_gotham_sample_data_gate -->
+
+## issue27w Gotham Sample Data Gate
+
+- primary_verdict: `gotham_sample_gate_promising_needs_more_space_and_larger_sample`.
+- sample gate read selected processed CSVs from the zip stream and wrote only first-1000-row previews under the external dataset directory; no PCAP or full large CSV extraction was performed.
+- labels, `frame.time`, packet fields, device/file names, and matching PCAP paths are usable at sample level.
+- most promising split is device-disjoint benign drift, with protocol-disjoint as a secondary route.
+- largest artifact risk is label/source/time coupling, especially benign-prefix then attack-label structure in mixed attack files.
+- model experiments remain blocked; next is a larger sample manifest and split gate.
