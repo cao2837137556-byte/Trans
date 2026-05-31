@@ -1,0 +1,18 @@
+{
+  "stages": [
+    "storage_preflight",
+    "all_csv_file_manifest",
+    "sampled_row_manifest",
+    "pcap_csv_pairing",
+    "artifact_risk_full_summary",
+    "preregistered_split_contracts",
+    "size_adequacy",
+    "decision"
+  ],
+  "inputs": [
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27x_gotham_larger_sample_manifest_and_split_gate_2026-05-28\\summary.md",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27v_gotham_download_and_file_level_data_gate_2026-05-28\\archive_file_listing.csv",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\raw\\GothamDataset2025.zip"
+  ],
+  "outputs_dir": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27y_gotham_fuller_manifest_and_preregistered_split_contract_2026-05-28"
+}

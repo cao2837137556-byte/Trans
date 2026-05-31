@@ -1382,3 +1382,14 @@ Immediate next decision should use issue16 results to choose among:
 - most promising split remains device-disjoint benign drift; protocol-disjoint is a secondary route.
 - largest blocker is file/device/time shortcut risk; Gotham is not yet ready for Feature/interface gate or model experiments.
 - next: fuller manifest and pre-registered split contract.
+
+<!-- issue27y_gotham_preregistered_data_contract -->
+
+## issue27y Gotham Fuller Manifest And Preregistered Data Contract
+
+- primary_verdict: `gotham_data_contract_promising_needs_feature_pairing_or_full_manifest`.
+- all 78 processed CSVs were summarized from the zip stream; sampled row manifest has `13,372` rows.
+- best split-contract candidate is `gotham_device_disjoint_v1`; it can construct ID benign train, OOD benign validation, final OOD benign eval, and file-level disjoint attack support/eval.
+- size adequacy is promising for the primary contract, but PCAP/CSV pairing remains medium-confidence filename/path matching and source-identifier feature policy is not yet defined.
+- artifact risk remains material, especially label/file/device/protocol coupling; model experiments remain blocked.
+- next: issue27z should strengthen PCAP/CSV pairing and define IP/MAC/port/timestamp/source handling before Feature/interface gate.

@@ -1,0 +1,9 @@
+risk_name,metric,value,groups_a,groups_b,risk_level,interpretation,mitigation
+label_vs_file_id,cramers_v_weighted_file_summary,0.796124,2,78,medium_high,file-level label/file shortcut risk,pre-register file/device/protocol/time disjoint contract; exclude source identifiers at feature gate
+label_vs_device,cramers_v_weighted_file_summary,0.673438,2,12,medium_high,label/device shortcut risk,pre-register file/device/protocol/time disjoint contract; exclude source identifiers at feature gate
+label_vs_protocol,cramers_v_weighted_file_summary,0.523638,2,7,medium_high,label/protocol shortcut risk,pre-register file/device/protocol/time disjoint contract; exclude source identifiers at feature gate
+label_vs_time_bucket,cramers_v_weighted_file_summary,0.000000,2,1,low,label/time shortcut risk,pre-register file/device/protocol/time disjoint contract; exclude source identifiers at feature gate
+benign_prefix_attack_suffix_pattern,file_fraction,0.102564,8,78,medium,mixed CSVs may encode attack onset by row order,avoid time-near support/eval; use embargo and file-disjoint attack splits
+benign_candidate_vs_device,sampled_benign_coverage,0.000000,1,12,coverage_check,benign-only rows span this grouping; binary label constant so V is not a shortcut metric,"use this grouping only for preregistered ID/OOD drift, not as hidden feature input"
+benign_candidate_vs_protocol,sampled_benign_coverage,0.000000,1,8,coverage_check,benign-only rows span this grouping; binary label constant so V is not a shortcut metric,"use this grouping only for preregistered ID/OOD drift, not as hidden feature input"
+benign_candidate_vs_time_bucket,sampled_benign_coverage,0.000000,1,1,coverage_check,benign-only rows span this grouping; binary label constant so V is not a shortcut metric,"use this grouping only for preregistered ID/OOD drift, not as hidden feature input"

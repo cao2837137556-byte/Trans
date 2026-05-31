@@ -2009,3 +2009,13 @@ Next:
 - outputs: `runs/issue27x_gotham_larger_sample_manifest_and_split_gate_2026-05-28/`.
 - role: larger-sample Data validity gate for Gotham split construction.
 - implication: Gotham remains promising, but Feature/interface gate is blocked until a fuller manifest and exact claim-safe split contract control file/device/time artifacts.
+
+<!-- issue27y_map_entry -->
+
+### issue27y_gotham_fuller_manifest_and_preregistered_split_contract_2026-05-28
+
+- status: completed.
+- primary_verdict: `gotham_data_contract_promising_needs_feature_pairing_or_full_manifest`.
+- outputs: `runs/issue27y_gotham_fuller_manifest_and_preregistered_split_contract_2026-05-28/`.
+- role: final-strengthening Data validity gate for all-CSV Gotham summaries and preregistered split-contract candidates.
+- implication: Gotham has a promising device-disjoint data contract and adequate scale, but model experiments remain blocked until PCAP/CSV pairing and source-feature shortcut policy are strengthened.
