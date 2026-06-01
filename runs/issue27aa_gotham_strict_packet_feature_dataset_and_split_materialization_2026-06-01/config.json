@@ -1,0 +1,27 @@
+{
+  "issue": "issue27aa_gotham_strict_packet_feature_dataset_and_split_materialization_2026-06-01",
+  "dataset_version": "gotham_strict_packet_header_v1",
+  "primary_verdict": "gotham_strict_feature_dataset_ready_for_model_interface_smoke",
+  "strict_features": [
+    "frame.len",
+    "ip.flags",
+    "ip.tos",
+    "ip.ttl",
+    "tcp.flags",
+    "tcp.pdu.size",
+    "tcp.window_size_scalefactor",
+    "tcp.window_size_value"
+  ],
+  "no_model_training": true,
+  "no_model_selection": true,
+  "feature_artifact": {
+    "path": "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\derived\\strict_packet_feature_dataset_v1\\gotham_strict_packet_header_v1_features.csv.gz",
+    "bytes": 154021675,
+    "sha256": "cefcc1f11ee50190a6070eec2b1febf7ad31e243a58b03388b96889be6c7b61a"
+  },
+  "sidecar_artifact": {
+    "path": "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\derived\\strict_packet_feature_dataset_v1\\gotham_strict_packet_header_v1_sidecar.csv.gz",
+    "bytes": 363919402,
+    "sha256": "6a66b1a31593b04eb070b8532b0b910832ffff5ebd9a9b454646c3a476b7f3fc"
+  }
+}

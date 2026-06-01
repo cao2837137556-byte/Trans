@@ -1405,3 +1405,14 @@ Immediate next decision should use issue16 results to choose among:
 - source policy status: `gotham_feature_source_policy_v1` defined; labels, file/device/source/path, IP/MAC, and absolute timestamps are forbidden from main model inputs.
 - ports/protocol fields are diagnostic-only until a later shortcut audit.
 - current model experiments remain blocked; next action is Feature/interface gate work only.
+
+
+<!-- issue27aa_gotham_strict_packet_dataset -->
+
+## issue27aa Gotham Strict Packet Dataset Materialization
+
+- primary_verdict: `gotham_strict_feature_dataset_ready_for_model_interface_smoke`.
+- Materialized `gotham_strict_packet_header_v1` with 26736743 rows outside the git worktree under `datasets/gotham2025/derived/strict_packet_feature_dataset_v1/`.
+- Feature matrix excludes labels, file/source/device/path, timestamps, IP/MAC, ports, and protocol fields.
+- Split roles are frozen from `gotham_device_disjoint_v1`; final eval remains report-only.
+- Model experiments remain blocked; next is interface smoke only.

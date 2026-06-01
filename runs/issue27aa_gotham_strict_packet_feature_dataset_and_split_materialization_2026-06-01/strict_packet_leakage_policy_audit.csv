@@ -1,0 +1,6 @@
+check,status,details
+forbidden_fields_absent_from_feature_header,pass,
+label_absent_from_feature_header,pass,
+source_fields_in_sidecar_only,pass,"frame.time, device, pcap path, labels are in sidecar only"
+final_eval_report_only,pass,final_ood_benign_eval and attack_eval are split roles only; no selection performed
+support_eval_disjoint_by_file_role,pass,attack_support_pool and attack_eval originate from disjoint preregistered CSV files

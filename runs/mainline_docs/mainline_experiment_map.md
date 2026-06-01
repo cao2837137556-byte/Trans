@@ -2030,3 +2030,14 @@ Next:
 - outputs: `runs/issue27z_gotham_pcap_csv_pairing_and_feature_source_policy_gate_2026-05-28/`.
 - role: PCAP/CSV pairing strengthening and feature-source policy pre-gate.
 - implication: Gotham may proceed only to Feature/interface gate work; model experiments remain disallowed.
+
+
+<!-- issue27aa_map_entry -->
+
+### issue27aa_gotham_strict_packet_feature_dataset_and_split_materialization_2026-06-01
+
+- status: completed.
+- primary_verdict: `gotham_strict_feature_dataset_ready_for_model_interface_smoke`.
+- outputs: `runs/issue27aa_gotham_strict_packet_feature_dataset_and_split_materialization_2026-06-01/` plus external dataset artifacts under `datasets/gotham2025/derived/strict_packet_feature_dataset_v1/`.
+- role: strict source-clean data asset construction and frozen split materialization.
+- implication: proceed to interface smoke only; no formal model benchmark yet.
