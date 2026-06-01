@@ -1,0 +1,14 @@
+check,value,status,notes
+d_free_gib,71.130,ok,D: is required data target
+gotham_zip_exists,D:\study\paper\anomaly_detection\paper04\datasets\gotham2025\raw\GothamDataset2025.zip,true,
+zip_md5,7ca78c0517ccb3d2854e823678e0f206,ok,7ca78c0517ccb3d2854e823678e0f206
+zip_listing_readable,198,ok,
+pcap_metadata_method,python_streaming_pcap_parser,ok,no PCAP extraction
+allowed_mode,pcap_metadata_streaming,selected,metadata only; no feature extraction
+tool_tshark,,missing,
+tool_capinfos,,missing,
+tool_editcap,,missing,
+tool_tcpdump,,missing,
+tool_python,C:\Users\28371\AppData\Local\Programs\Python\Python310\python.EXE,available,fallback to Python streaming parser
+tool_curl,C:\Windows\system32\curl.EXE,available,
+tool_aria2c,,missing,

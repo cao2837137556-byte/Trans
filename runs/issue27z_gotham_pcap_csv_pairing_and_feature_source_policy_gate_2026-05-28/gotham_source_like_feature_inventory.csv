@@ -1,0 +1,31 @@
+field_name,source,semantic_type,shortcut_risk,allowed_for_split,allowed_for_audit,allowed_for_pairing,allowed_as_model_feature_main,allowed_as_model_feature_diagnostic,transformation_policy,reason
+eth.dst,processed_csv_or_derived_manifest,mac/source,blocking,yes,yes,yes,no,no,forbidden,host identifier
+eth.src,processed_csv_or_derived_manifest,mac/source,blocking,yes,yes,yes,no,no,forbidden,host identifier
+frame.len,processed_csv_or_derived_manifest,packet_header_numeric,low_medium,no,yes,no,yes,yes,strict_numeric_scaling_and_missing_policy,numeric packet/header field; still requires distribution and leakage audit
+frame.protocols,processed_csv_or_derived_manifest,protocol,medium,yes,yes,yes,no,yes,diagnostic_only,protocol text can leak device/source; diagnostic rich policy only
+frame.time,processed_csv_or_derived_manifest,timestamp,high,yes,yes,yes,no,no,split_order_only,"use for ordering/purge/audit, not raw model input"
+ip.checksum,processed_csv_or_derived_manifest,checksum_or_option,medium,no,yes,no,no,yes,diagnostic_only_or_drop,can encode low-level implementation/source quirks
+ip.dst,processed_csv_or_derived_manifest,ip/source,blocking,yes,yes,yes,no,no,forbidden,host/source identifier
+ip.flags,processed_csv_or_derived_manifest,packet_header_numeric,low_medium,no,yes,no,yes,yes,strict_numeric_scaling_and_missing_policy,numeric packet/header field; still requires distribution and leakage audit
+ip.proto,processed_csv_or_derived_manifest,protocol_numeric,medium,yes,yes,yes,no,yes,diagnostic_only,protocol identity needs audit before main use
+ip.src,processed_csv_or_derived_manifest,ip/source,blocking,yes,yes,yes,no,no,forbidden,host/source identifier
+ip.tos,processed_csv_or_derived_manifest,packet_header_numeric,low_medium,no,yes,no,yes,yes,strict_numeric_scaling_and_missing_policy,numeric packet/header field; still requires distribution and leakage audit
+ip.ttl,processed_csv_or_derived_manifest,packet_header_numeric,low_medium,no,yes,no,yes,yes,strict_numeric_scaling_and_missing_policy,numeric packet/header field; still requires distribution and leakage audit
+label,processed_csv_or_derived_manifest,label,blocking,no,yes,no,no,no,forbidden,target label only; never an input feature
+tcp.checksum,processed_csv_or_derived_manifest,checksum_or_option,medium,no,yes,no,no,yes,diagnostic_only_or_drop,can encode low-level implementation/source quirks
+tcp.dstport,processed_csv_or_derived_manifest,port,medium,yes,yes,yes,no,yes,diagnostic_only,ports can be service/source proxy; not strict main input
+tcp.flags,processed_csv_or_derived_manifest,packet_header_numeric,low_medium,no,yes,no,yes,yes,strict_numeric_scaling_and_missing_policy,numeric packet/header field; still requires distribution and leakage audit
+tcp.options,processed_csv_or_derived_manifest,checksum_or_option,medium,no,yes,no,no,yes,diagnostic_only_or_drop,can encode low-level implementation/source quirks
+tcp.pdu.size,processed_csv_or_derived_manifest,packet_header_numeric,low_medium,no,yes,no,yes,yes,strict_numeric_scaling_and_missing_policy,numeric packet/header field; still requires distribution and leakage audit
+tcp.srcport,processed_csv_or_derived_manifest,port,medium,yes,yes,yes,no,yes,diagnostic_only,ports can be service/source proxy; not strict main input
+tcp.window_size_scalefactor,processed_csv_or_derived_manifest,packet_header_numeric,low_medium,no,yes,no,yes,yes,strict_numeric_scaling_and_missing_policy,numeric packet/header field; still requires distribution and leakage audit
+tcp.window_size_value,processed_csv_or_derived_manifest,packet_header_numeric,low_medium,no,yes,no,yes,yes,strict_numeric_scaling_and_missing_policy,numeric packet/header field; still requires distribution and leakage audit
+udp.dstport,processed_csv_or_derived_manifest,port,medium,yes,yes,yes,no,yes,diagnostic_only,ports can be service/source proxy; not strict main input
+udp.srcport,processed_csv_or_derived_manifest,port,medium,yes,yes,yes,no,yes,diagnostic_only,ports can be service/source proxy; not strict main input
+file_id,processed_csv_or_derived_manifest,path/source,blocking,yes,yes,yes,no,no,forbidden,direct source identifier
+csv_archive_path,processed_csv_or_derived_manifest,path/source,blocking,yes,yes,yes,no,no,forbidden,direct file path identifier
+device,processed_csv_or_derived_manifest,device/source,high,yes,yes,yes,no,no,forbidden,split grouping and shortcut audit only
+inferred_device,processed_csv_or_derived_manifest,device/source,high,yes,yes,yes,no,no,forbidden,path-derived device identifier
+attack_type,processed_csv_or_derived_manifest,label,blocking,no,yes,no,no,no,forbidden,derived target label only
+pcap_archive_path,processed_csv_or_derived_manifest,path/source,blocking,yes,yes,yes,no,no,forbidden,source/capture identifier
+source/capture/path,processed_csv_or_derived_manifest,path/source,blocking,yes,yes,yes,no,no,forbidden,source/capture identifier

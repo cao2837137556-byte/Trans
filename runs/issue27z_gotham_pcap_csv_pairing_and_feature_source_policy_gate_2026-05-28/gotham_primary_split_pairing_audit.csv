@@ -1,0 +1,6 @@
+split_role,file_count,confidence_counts,missing_or_low_files,pairing_sufficient_for_feature_gate,notes
+ID_benign_train_files,29,"{""high_packet_count_timestamp_match"": 1, ""medium_filename_path_match"": 28}",,diagnostic_only,requires source-feature policy before model work
+OOD_benign_val_files,21,"{""medium_filename_path_match"": 19, ""medium_plus_frame_timestamp_hint"": 2}",,diagnostic_only,requires source-feature policy before model work
+final_OOD_benign_eval_files,20,"{""medium_filename_path_match"": 19, ""medium_plus_frame_timestamp_hint"": 1}",,diagnostic_only,requires source-feature policy before model work
+attack_support_files,4,"{""medium_filename_path_match"": 4}",,diagnostic_only,requires source-feature policy before model work
+attack_eval_files,4,"{""medium_filename_path_match"": 4}",,diagnostic_only,requires source-feature policy before model work

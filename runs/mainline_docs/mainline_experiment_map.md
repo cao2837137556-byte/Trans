@@ -2019,3 +2019,14 @@ Next:
 - outputs: `runs/issue27y_gotham_fuller_manifest_and_preregistered_split_contract_2026-05-28/`.
 - role: final-strengthening Data validity gate for all-CSV Gotham summaries and preregistered split-contract candidates.
 - implication: Gotham has a promising device-disjoint data contract and adequate scale, but model experiments remain blocked until PCAP/CSV pairing and source-feature shortcut policy are strengthened.
+
+
+<!-- issue27z_map_entry -->
+
+### issue27z_gotham_pcap_csv_pairing_and_feature_source_policy_gate_2026-05-28
+
+- status: completed.
+- primary_verdict: `gotham_ready_for_feature_interface_diagnostic_only`.
+- outputs: `runs/issue27z_gotham_pcap_csv_pairing_and_feature_source_policy_gate_2026-05-28/`.
+- role: PCAP/CSV pairing strengthening and feature-source policy pre-gate.
+- implication: Gotham may proceed only to Feature/interface gate work; model experiments remain disallowed.

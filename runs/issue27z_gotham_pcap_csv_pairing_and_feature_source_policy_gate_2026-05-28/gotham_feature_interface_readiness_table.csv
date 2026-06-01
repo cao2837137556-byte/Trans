@@ -1,0 +1,6 @@
+check,status,verdict,notes
+primary_split_contract_stable,yes,pass,device-disjoint v1 remains the candidate contract; no model results used
+pcap_csv_pairing,"{""high_packet_count_timestamp_match"": 1, ""medium_filename_path_match"": 74, ""medium_plus_frame_timestamp_hint"": 3}",pass,PCAP metadata streamed from zip
+source_feature_policy,gotham_feature_source_policy_v1,pass,strict and diagnostic policies defined
+model_experiments_allowed,no,blocked_by_gate_sequence,"next gate is feature/interface construction, not models"
+readiness_verdict,ready_for_feature_interface_diagnostic_only,ready_for_feature_interface_diagnostic_only,main feature-interface gate if high/medium+ pairing and policy pass

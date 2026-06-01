@@ -1,0 +1,83 @@
+{
+  "policy_id": "gotham_feature_source_policy_v1",
+  "issue": "issue27z_gotham_pcap_csv_pairing_and_feature_source_policy_gate_2026-05-28",
+  "scope": "Gotham Data validity / Feature-interface pre-gate",
+  "model_training_allowed": false,
+  "formal_feature_extraction_allowed": false,
+  "strict_content_policy": {
+    "allowed_candidate_fields": [
+      "frame.len",
+      "ip.flags",
+      "ip.tos",
+      "ip.ttl",
+      "tcp.flags",
+      "tcp.pdu.size",
+      "tcp.window_size_scalefactor",
+      "tcp.window_size_value"
+    ],
+    "forbidden_fields": [
+      "attack_type",
+      "csv_archive_path",
+      "device",
+      "eth.dst",
+      "eth.src",
+      "file_id",
+      "frame.time",
+      "inferred_device",
+      "ip.dst",
+      "ip.src",
+      "label",
+      "pcap_archive_path",
+      "source/capture/path"
+    ],
+    "notes": "Strict policy is the only candidate route for main-claim features; it still requires feature-interface audit before model execution."
+  },
+  "diagnostic_rich_policy": {
+    "allowed_diagnostic_fields": [
+      "frame.len",
+      "frame.protocols",
+      "ip.checksum",
+      "ip.flags",
+      "ip.proto",
+      "ip.tos",
+      "ip.ttl",
+      "tcp.checksum",
+      "tcp.dstport",
+      "tcp.flags",
+      "tcp.options",
+      "tcp.pdu.size",
+      "tcp.srcport",
+      "tcp.window_size_scalefactor",
+      "tcp.window_size_value",
+      "udp.dstport",
+      "udp.srcport"
+    ],
+    "not_main_claim_default": true,
+    "notes": "Protocol/port/checksum/options fields are diagnostic until shortcut audits show they do not dominate the claim."
+  },
+  "split_audit_pairing_only_fields": [
+    "csv_archive_path",
+    "device",
+    "eth.dst",
+    "eth.src",
+    "file_id",
+    "frame.protocols",
+    "frame.time",
+    "inferred_device",
+    "ip.dst",
+    "ip.proto",
+    "ip.src",
+    "pcap_archive_path",
+    "source/capture/path",
+    "tcp.dstport",
+    "tcp.srcport",
+    "udp.dstport",
+    "udp.srcport"
+  ],
+  "frame_time_policy": "Use frame.time only for ordering, purge, split construction, timestamp pairing, and artifact audit; never as raw model input.",
+  "ip_mac_policy": "Use IP/MAC only for source/device inference, pairing, and artifact audit; default exclude from main model inputs.",
+  "port_protocol_policy": "Ports and protocol fields may be diagnostic; main use requires a separate shortcut audit and preregistration.",
+  "file_device_source_policy": "Use file/device/source/path only for split and audit; never model inputs.",
+  "label_policy": "Labels and attack_type are targets/evaluation labels only; never input features.",
+  "future_flow_feature_policy": "Prefer uniform PCAP-derived flow/Kitsune/AfterImage features that exclude direct source identifiers, with a new interface gate before model work."
+}

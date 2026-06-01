@@ -1393,3 +1393,15 @@ Immediate next decision should use issue16 results to choose among:
 - size adequacy is promising for the primary contract, but PCAP/CSV pairing remains medium-confidence filename/path matching and source-identifier feature policy is not yet defined.
 - artifact risk remains material, especially label/file/device/protocol coupling; model experiments remain blocked.
 - next: issue27z should strengthen PCAP/CSV pairing and define IP/MAC/port/timestamp/source handling before Feature/interface gate.
+
+
+<!-- issue27z_gotham_pairing_source_policy_gate -->
+
+## issue27z Gotham Pairing And Source Policy Gate
+
+- primary_verdict: `gotham_ready_for_feature_interface_diagnostic_only`.
+- readiness_verdict: `ready_for_feature_interface_diagnostic_only`.
+- PCAP/CSV pairing status: {'medium_filename_path_match': 74, 'high_packet_count_timestamp_match': 1, 'medium_plus_frame_timestamp_hint': 3} after streaming PCAP metadata from the zip; no PCAP extraction or feature extraction was performed.
+- source policy status: `gotham_feature_source_policy_v1` defined; labels, file/device/source/path, IP/MAC, and absolute timestamps are forbidden from main model inputs.
+- ports/protocol fields are diagnostic-only until a later shortcut audit.
+- current model experiments remain blocked; next action is Feature/interface gate work only.
