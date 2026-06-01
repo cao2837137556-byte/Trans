@@ -2041,3 +2041,10 @@ Next:
 - outputs: `runs/issue27aa_gotham_strict_packet_feature_dataset_and_split_materialization_2026-06-01/` plus external dataset artifacts under `datasets/gotham2025/derived/strict_packet_feature_dataset_v1/`.
 - role: strict source-clean data asset construction and frozen split materialization.
 - implication: proceed to interface smoke only; no formal model benchmark yet.
+
+## issue27ab Gotham Kitsune115 frontend feasibility (2026-06-01)
+
+- primary_verdict: `kitsune115_blocked_by_pcap_label_alignment`
+- evidence role: Feature/interface pre-gate for the formal Gotham PCAP-derived 115D feature path.
+- claim boundary: no model ranking, no external generalization, no deployment robustness; strict 8D is engineering-only.
+- next action: issue27ac Gotham Kitsune115 attack-onset alignment and broader split-aware materialization before any model interface smoke.

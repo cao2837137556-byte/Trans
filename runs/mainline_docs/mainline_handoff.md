@@ -1416,3 +1416,11 @@ Immediate next decision should use issue16 results to choose among:
 - Feature matrix excludes labels, file/source/device/path, timestamps, IP/MAC, ports, and protocol fields.
 - Split roles are frozen from `gotham_device_disjoint_v1`; final eval remains report-only.
 - Model experiments remain blocked; next is interface smoke only.
+
+## issue27ab Gotham Kitsune115 frontend feasibility (2026-06-01)
+
+- primary_verdict: `kitsune115_blocked_by_pcap_label_alignment`
+- scope: restores the commented Kitsune Host BW H-stat block as an explicit 115D frontend smoke, reads selected Gotham raw PCAPs from the zip, and audits split-aware frontend state behavior.
+- key result: the formal route is now Gotham raw PCAP -> Kitsune/AfterImage/netStat 115D, while the strict 8D packet-header asset is downgraded to engineering smoke/provenance proof.
+- state policy: compares reset-at-boundary with branch-based train-state-then-eval-online; final OOD eval is report-only and discarded.
+- current model experiments allowed: no formal benchmark yet; next is issue27ac attack-onset alignment before broader 115D materialization.

@@ -1,0 +1,6 @@
+strategy,role,allowed_prior_state,forbidden_future_state_seen,final_eval_report_only,verdict
+reset_at_split_boundary,all_roles,none; each role/file initializes a fresh frontend state,False,True,pass
+train_state_then_eval_online,ood_benign_val,clone of S_train_after_id,False,False,pass
+train_state_then_eval_online,final_ood_benign_eval,report-only clone of S_train_after_id; discarded after use,False,True,pass
+train_state_then_eval_online,attack_support,clone of S_train_after_id,False,False,pass
+train_state_then_eval_online,attack_eval,clone of S_support_after_attack_support; report-only,False,True,pass

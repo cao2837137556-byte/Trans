@@ -1,0 +1,20 @@
+{
+  "snapshot_policy": "store state hashes only; no full pickled frontend state is committed",
+  "state_hash_algo": "sha256(pickle.dumps(RestoredNetStat115))",
+  "strategies": {
+    "reset_at_split_boundary": {
+      "reset::id_benign_train": "5f72b7891228f06a33143d70d44eb2c914ec6facf1af8da82d43a674068fc250",
+      "reset::ood_benign_val": "062fc23055741d5a1d1277f51dfee33fa512597a70e5bb9d7b8fb5212ea889b3",
+      "reset::final_ood_benign_eval": "66563f5511d3594599e6988a4dac3568ce4ee6f14fe935d7d2b1714f5359bb22",
+      "reset::attack_support": "98067e7a4593e066a4c28527eb96ff21545dafa23fcfd4fe0c231b45053e595d",
+      "reset::attack_eval": "5058f9e98dc920d3cfd87c4bb7a89f6e72e78f92246e96fd7032cfe01888fb1d"
+    },
+    "train_state_then_eval_online": {
+      "B::S_train_after_id": "5f72b7891228f06a33143d70d44eb2c914ec6facf1af8da82d43a674068fc250",
+      "B::S_ood_val_branch": "413742660312f5f0c6dd58d83e5db0d233facd6362d8f9fa9388eef8d48972d7",
+      "B::S_final_ood_report_only_branch": "c5599a05a619dc9a7e0c954e67aab4a843c417a2fd5e15e9bddccea526cc82e4",
+      "B::S_support_after_attack_support": "cdb8ebee649fe111e7efe6c6cf60d9d96d696c248f8af0c0373ea9f922016e84",
+      "B::S_attack_eval_report_only_after_support": "c3d9d1b1d714413cfd914a807a1544af2d638ac8d080a24b8d84b1fc8a9e2db8"
+    }
+  }
+}
