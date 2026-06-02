@@ -2084,3 +2084,12 @@ Next:
 - primary_verdict: `kitsune115_medium_materialization_ready_full_needs_slurm`.
 - outputs: `runs/issue27af_gotham_kitsune115_larger_materialization_and_fast_frontend_plan_2026-06-02/` plus external medium artifacts under `datasets/gotham2025/derived/kitsune115_medium_materialization_v1/`.
 - implication: medium data asset is ready for non-performance sanity checks; formal benchmark waits for full_contract or explicit preregistration.
+
+<!-- issue27ag_map_entry -->
+
+### issue27ag_gotham_kitsune115_larger_asset_interface_sanity_2026-06-02
+
+- status: completed.
+- primary_verdict: `kitsune115_larger_asset_ready_with_full_contract_pending`.
+- outputs: `runs/issue27ag_gotham_kitsune115_larger_asset_interface_sanity_2026-06-02/`.
+- implication: medium 115D asset has a fixed loader and role-permission sanity gate; formal benchmark still waits on full_contract or explicit preregistration.

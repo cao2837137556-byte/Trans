@@ -1,0 +1,11 @@
+strategy,model_ready_row_count,role,fit_allowed,calibration_allowed,support_adaptation_allowed,score_allowed,report_only,selection_allowed
+reset_at_split_boundary,3000,id_benign_train,True,False,False,True,False,True
+reset_at_split_boundary,3000,ood_benign_val,False,True,False,True,False,True
+reset_at_split_boundary,2250,attack_support,True,False,True,True,False,True
+reset_at_split_boundary,3000,final_ood_benign_eval,False,False,False,True,True,False
+reset_at_split_boundary,2250,attack_eval,False,False,False,True,True,False
+train_state_then_eval_online,3000,id_benign_train,True,False,False,True,False,True
+train_state_then_eval_online,3000,ood_benign_val,False,True,False,True,False,True
+train_state_then_eval_online,2250,attack_support,True,False,True,True,False,True
+train_state_then_eval_online,3000,final_ood_benign_eval,False,False,False,True,True,False
+train_state_then_eval_online,2250,attack_eval,False,False,False,True,True,False

@@ -1462,3 +1462,12 @@ Immediate next decision should use issue16 results to choose among:
 - medium materialization executed for scalability/stability/hash/sidecar/state checks; it is not formal benchmark data.
 - full_contract still needs Slurm/fast frontend for heavy ip-camera attack files.
 - no model performance metrics were computed.
+
+<!-- issue27ag_gotham_kitsune115_larger_asset_sanity -->
+
+## issue27ag Gotham Kitsune115 Larger Asset Interface Sanity
+
+- primary_verdict: `kitsune115_larger_asset_ready_with_full_contract_pending`.
+- immutable loader verifies issue27af medium certificate hashes and role access policy.
+- final OOD eval and attack eval remain report-only and selection-forbidden.
+- full_contract remains pending for heavy ip-camera files; no model performance metrics were computed.
