@@ -1471,3 +1471,12 @@ Immediate next decision should use issue16 results to choose among:
 - immutable loader verifies issue27af medium certificate hashes and role access policy.
 - final OOD eval and attack eval remain report-only and selection-forbidden.
 - full_contract remains pending for heavy ip-camera files; no model performance metrics were computed.
+
+<!-- issue27ah_gotham_kitsune115_guarded_protocol_dry_run -->
+
+## issue27ah Gotham Kitsune115 Guarded Protocol Dry Run
+
+- primary_verdict: `guarded_protocol_medium_dry_run_completed_diagnostic_only`.
+- medium 115D asset was used only for diagnostic guarded-protocol behavior checks.
+- final OOD benign eval and attack eval remained report-only and were not used for thresholding or selection.
+- full_contract remains pending; issue27ah results are not formal model rankings.

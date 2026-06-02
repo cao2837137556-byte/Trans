@@ -2093,3 +2093,12 @@ Next:
 - primary_verdict: `kitsune115_larger_asset_ready_with_full_contract_pending`.
 - outputs: `runs/issue27ag_gotham_kitsune115_larger_asset_interface_sanity_2026-06-02/`.
 - implication: medium 115D asset has a fixed loader and role-permission sanity gate; formal benchmark still waits on full_contract or explicit preregistration.
+
+<!-- issue27ah_map_entry -->
+
+### issue27ah_gotham_kitsune115_guarded_protocol_small_scale_dry_run_2026-06-02
+
+- status: completed.
+- primary_verdict: `guarded_protocol_medium_dry_run_completed_diagnostic_only`.
+- outputs: `runs/issue27ah_gotham_kitsune115_guarded_protocol_small_scale_dry_run_2026-06-02/`.
+- implication: medium 115D diagnostic behavior is available, but formal benchmark waits for full_contract or a documented exclusion policy.
