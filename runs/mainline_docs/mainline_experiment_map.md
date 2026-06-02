@@ -2075,3 +2075,12 @@ Next:
 - primary_verdict: `kitsune115_model_interface_smoke_passed`.
 - outputs: `runs/issue27ae_gotham_kitsune115_model_interface_shape_smoke_2026-06-02/`.
 - implication: backend adapters can consume fixed 115D smoke artifacts for shape checks only; no method claim.
+
+<!-- issue27af_map_entry -->
+
+### issue27af_gotham_kitsune115_larger_materialization_and_fast_frontend_plan_2026-06-02
+
+- status: completed.
+- primary_verdict: `kitsune115_medium_materialization_ready_full_needs_slurm`.
+- outputs: `runs/issue27af_gotham_kitsune115_larger_materialization_and_fast_frontend_plan_2026-06-02/` plus external medium artifacts under `datasets/gotham2025/derived/kitsune115_medium_materialization_v1/`.
+- implication: medium data asset is ready for non-performance sanity checks; formal benchmark waits for full_contract or explicit preregistration.

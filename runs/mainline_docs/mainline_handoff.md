@@ -1453,3 +1453,12 @@ Immediate next decision should use issue16 results to choose among:
 - fixed issue27ad artifacts only; no resplit, support change, thresholding, ranking, or performance metric.
 - LR, HistGB, DeepSAD-style Lite, and LOW-GUARD shell adapters passed shape/finite interface checks.
 - next: larger 115D materialization or fast frontend before formal benchmark.
+
+<!-- issue27af_gotham_kitsune115_medium_materialization -->
+
+## issue27af Gotham Kitsune115 Medium Materialization
+
+- primary_verdict: `kitsune115_medium_materialization_ready_full_needs_slurm`.
+- medium materialization executed for scalability/stability/hash/sidecar/state checks; it is not formal benchmark data.
+- full_contract still needs Slurm/fast frontend for heavy ip-camera attack files.
+- no model performance metrics were computed.

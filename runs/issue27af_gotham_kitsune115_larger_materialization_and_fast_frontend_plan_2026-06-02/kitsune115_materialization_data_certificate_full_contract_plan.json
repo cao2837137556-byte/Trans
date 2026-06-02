@@ -1,0 +1,70 @@
+{
+  "tier": "full_contract",
+  "status": "needs_slurm_or_fast_frontend",
+  "files": [
+    {
+      "role": "attack_support",
+      "csv_member": "processed/iotsim-air-quality-1.csv",
+      "pcap_member": "raw/malicious/mirai-infection/iotsim-air-quality-1_0-0_to_OpenvSwitch-25_1-0.pcap",
+      "first_attack_timestamp": 1737235793.490203,
+      "estimated_pre_onset_packets": 2032,
+      "full_contract_status": "planned"
+    },
+    {
+      "role": "attack_support",
+      "csv_member": "processed/iotsim-city-power-1.csv",
+      "pcap_member": "raw/malicious/mirai-infection/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap",
+      "first_attack_timestamp": 1737235783.576491,
+      "estimated_pre_onset_packets": 863,
+      "full_contract_status": "planned"
+    },
+    {
+      "role": "attack_support",
+      "csv_member": "processed/iotsim-combined-cycle-10.csv",
+      "pcap_member": "raw/malicious/mirai-infection/iotsim-combined-cycle-10_0-0_to_OpenvSwitch-13_10-0.pcap",
+      "first_attack_timestamp": 1737235781.420146,
+      "estimated_pre_onset_packets": 966,
+      "full_contract_status": "planned"
+    },
+    {
+      "role": "attack_support",
+      "csv_member": "processed/iotsim-ip-camera-museum-1.csv",
+      "pcap_member": "raw/malicious/mirai-infection/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap",
+      "first_attack_timestamp": 1737235770.488062,
+      "estimated_pre_onset_packets": 644553,
+      "full_contract_status": "planned"
+    },
+    {
+      "role": "attack_eval",
+      "csv_member": "processed/iotsim-building-monitor-1.csv",
+      "pcap_member": "raw/malicious/mirai-infection/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap",
+      "first_attack_timestamp": 1737235764.020608,
+      "estimated_pre_onset_packets": 1254,
+      "full_contract_status": "planned"
+    },
+    {
+      "role": "attack_eval",
+      "csv_member": "processed/iotsim-combined-cycle-1.csv",
+      "pcap_member": "raw/malicious/mirai-infection/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap",
+      "first_attack_timestamp": 1737235781.420146,
+      "estimated_pre_onset_packets": 1042,
+      "full_contract_status": "planned"
+    },
+    {
+      "role": "attack_eval",
+      "csv_member": "processed/iotsim-domotic-monitor-1.csv",
+      "pcap_member": "raw/malicious/mirai-infection/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap",
+      "first_attack_timestamp": 1737235794.490721,
+      "estimated_pre_onset_packets": 2016,
+      "full_contract_status": "planned"
+    },
+    {
+      "role": "attack_eval",
+      "csv_member": "processed/iotsim-ip-camera-street-1.csv",
+      "pcap_member": "raw/malicious/mirai-infection/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap",
+      "first_attack_timestamp": 1737235800.982347,
+      "estimated_pre_onset_packets": 413113,
+      "full_contract_status": "planned"
+    }
+  ]
+}
