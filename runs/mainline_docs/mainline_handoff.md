@@ -1489,3 +1489,20 @@ Immediate next decision should use issue16 results to choose among:
 - A protocol correctness audit gates B diagnostic execution.
 - support size fixed to `32` from preregistered attack_support role; no final eval or attack eval selection.
 - output is medium diagnostic only; formal benchmark still requires full_contract or an exclusion policy and protocol freeze.
+
+## issue27aj - Protocol Lineage Recovery And Support Selector Audit
+
+- Status: completed.
+- Primary verdict: `recovered_kcenter_mainline_protocol_ready_for_gotham115_migration`.
+- Key recovery: old mainline support selector is `kcenter32`, not issue27ai
+  `fixed_first32`.
+- Evidence: issue23 locked validation and issue25c strong baseline pack name
+  the main candidate as `selected_source_rich_top64 + kcenter32 + fixed OOD
+  guard LR`; executable code calls `issue19b.kcenter_support(...)` on the
+  train-side attack pool only.
+- Selector mechanics: selector-local `StandardScaler`, Euclidean farthest-first
+  k-center, budget 32, no attack eval or final OOD eval access.
+- Gotham migration: migrate selector/protocol permissions only to Gotham
+  Kitsune115 medium diagnostics; do not migrate old frontend or old performance
+  claims.
+- Next: `issue27ak_migrate_recovered_protocol_to_gotham115_medium_diagnostic`.

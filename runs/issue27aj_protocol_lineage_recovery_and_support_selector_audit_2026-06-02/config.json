@@ -1,0 +1,16 @@
+{
+  "issue": "issue27aj_protocol_lineage_recovery_and_support_selector_audit_2026-06-02",
+  "primary_verdict": "recovered_kcenter_mainline_protocol_ready_for_gotham115_migration",
+  "no_new_model_training": true,
+  "no_performance_ranking": true,
+  "recovered_support_selector": "kcenter32",
+  "support_size": 32,
+  "selector_metric": "euclidean_after_selector_local_standard_scaler",
+  "selector_allowed_roles_for_gotham115": [
+    "attack_support"
+  ],
+  "selector_forbidden_roles_for_gotham115": [
+    "final_ood_benign_eval",
+    "attack_eval"
+  ]
+}

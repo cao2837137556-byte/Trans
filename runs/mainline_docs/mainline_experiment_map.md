@@ -2111,3 +2111,20 @@ Next:
 - primary_verdict: `medium_protocol_audit_passed_diagnostic_completed`.
 - outputs: `runs/issue27ai_medium_protocol_audit_then_diagnostic_2026-06-02/`.
 - implication: protocol matrix diagnostics are available for debugging only; final claims wait for full/larger asset and frozen protocol.
+
+## issue27aj - Protocol Lineage Recovery And Support Selector Audit
+
+- Status: completed.
+- Primary verdict: `recovered_kcenter_mainline_protocol_ready_for_gotham115_migration`.
+- Key recovery: old mainline support selector is `kcenter32`, not issue27ai
+  `fixed_first32`.
+- Evidence: issue23 locked validation and issue25c strong baseline pack name
+  the main candidate as `selected_source_rich_top64 + kcenter32 + fixed OOD
+  guard LR`; executable code calls `issue19b.kcenter_support(...)` on the
+  train-side attack pool only.
+- Selector mechanics: selector-local `StandardScaler`, Euclidean farthest-first
+  k-center, budget 32, no attack eval or final OOD eval access.
+- Gotham migration: migrate selector/protocol permissions only to Gotham
+  Kitsune115 medium diagnostics; do not migrate old frontend or old performance
+  claims.
+- Next: `issue27ak_migrate_recovered_protocol_to_gotham115_medium_diagnostic`.
