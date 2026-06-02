@@ -1,0 +1,13 @@
+{
+  "issue": "issue27ae_gotham_kitsune115_model_interface_shape_smoke_2026-06-02",
+  "source_issue": "issue27ad",
+  "input_policy": "read_fixed_issue27ad_artifacts_only",
+  "model_performance_metrics_allowed": false,
+  "adapters": [
+    "LR_Minimal_Interface",
+    "HistGB_Minimal_Interface",
+    "DeepSADStyle_Lite_Interface",
+    "LOW_GUARD_Protocol_Shell_Interface"
+  ],
+  "primary_verdict": "kitsune115_model_interface_smoke_passed"
+}

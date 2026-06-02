@@ -2066,3 +2066,12 @@ Next:
 - primary_verdict: `kitsune115_split_aware_smoke_dataset_ready_heavy_attack_deferred`.
 - outputs: `runs/issue27ad_gotham_kitsune115_split_aware_smoke_dataset_expansion_2026-06-02/` plus external artifacts under `datasets/gotham2025/derived/kitsune115_split_aware_smoke_expansion_v1/`.
 - implication: 115D smoke dataset construction is ready for a minimal model-interface shape smoke, not formal benchmarking; heavy ip-camera attack files need fast frontend/Slurm for larger materialization.
+
+<!-- issue27ae_map_entry -->
+
+### issue27ae_gotham_kitsune115_model_interface_shape_smoke_2026-06-02
+
+- status: completed.
+- primary_verdict: `kitsune115_model_interface_smoke_passed`.
+- outputs: `runs/issue27ae_gotham_kitsune115_model_interface_shape_smoke_2026-06-02/`.
+- implication: backend adapters can consume fixed 115D smoke artifacts for shape checks only; no method claim.

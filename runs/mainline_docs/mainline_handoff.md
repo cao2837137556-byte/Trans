@@ -1444,3 +1444,12 @@ Immediate next decision should use issue16 results to choose among:
 - both reset-at-boundary and train-state-then-eval-online strategies output 115D finite features; no model metrics were computed.
 - all 8 attack files have onset alignment, but 2 ip-camera files are deferred from local materialization because their pre-onset fast-forward is heavy.
 - model experiments remain blocked unless explicitly limited to interface shape smoke.
+
+<!-- issue27ae_gotham_kitsune115_interface_shape_smoke -->
+
+## issue27ae Gotham Kitsune115 Model Interface Shape Smoke
+
+- primary_verdict: `kitsune115_model_interface_smoke_passed`.
+- fixed issue27ad artifacts only; no resplit, support change, thresholding, ranking, or performance metric.
+- LR, HistGB, DeepSAD-style Lite, and LOW-GUARD shell adapters passed shape/finite interface checks.
+- next: larger 115D materialization or fast frontend before formal benchmark.
