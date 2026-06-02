@@ -2057,3 +2057,12 @@ Next:
 - primary_verdict: `attack_onset_alignment_partial_ready_for_kitsune115_smoke_expansion`.
 - outputs: `runs/issue27ac_gotham_kitsune115_attack_onset_alignment_then_materialization_2026-06-02/` plus tiny external probe artifacts under `datasets/gotham2025/derived/kitsune115_attack_onset_probe_v1/`.
 - implication: attack-side alignment is tractable for a smoke expansion if PCAP scenario and onset timestamp are selected correctly; full-contract materialization still needs deeper scan for unresolved ip-camera attack files. No model benchmark yet.
+
+<!-- issue27ad_map_entry -->
+
+### issue27ad_gotham_kitsune115_split_aware_smoke_dataset_expansion_2026-06-02
+
+- status: completed.
+- primary_verdict: `kitsune115_split_aware_smoke_dataset_ready_heavy_attack_deferred`.
+- outputs: `runs/issue27ad_gotham_kitsune115_split_aware_smoke_dataset_expansion_2026-06-02/` plus external artifacts under `datasets/gotham2025/derived/kitsune115_split_aware_smoke_expansion_v1/`.
+- implication: 115D smoke dataset construction is ready for a minimal model-interface shape smoke, not formal benchmarking; heavy ip-camera attack files need fast frontend/Slurm for larger materialization.

@@ -1,0 +1,15 @@
+role,csv_member,pcap_member,gate,pass
+id_benign_train,processed/iotsim-cooler-motor-8.csv,raw/benign/iotsim-cooler-motor-8_0-0_to_OpenvSwitch-18_8-0.pcap,benign_roles_must_use_preregistered_benign_files,True
+id_benign_train,processed/iotsim-combined-cycle-tls-1.csv,raw/benign/iotsim-combined-cycle-tls-1_0-0_to_OpenvSwitch-14_1-0.pcap,benign_roles_must_use_preregistered_benign_files,True
+ood_benign_val,processed/iotsim-building-monitor-3.csv,raw/benign/iotsim-building-monitor-3_0-0_to_OpenvSwitch-28_3-0.pcap,benign_roles_must_use_preregistered_benign_files,True
+ood_benign_val,processed/iotsim-predictive-maintenance-8.csv,raw/benign/iotsim-predictive-maintenance-8_0-0_to_OpenvSwitch-19_8-0.pcap,benign_roles_must_use_preregistered_benign_files,True
+final_ood_benign_eval,processed/iotsim-hydraulic-system-8.csv,raw/benign/iotsim-hydraulic-system-8_0-0_to_OpenvSwitch-15_8-0.pcap,benign_roles_must_use_preregistered_benign_files,True
+final_ood_benign_eval,processed/iotsim-domotic-monitor-2.csv,raw/benign/iotsim-domotic-monitor-2_0-0_to_OpenvSwitch-23_2-0.pcap,benign_roles_must_use_preregistered_benign_files,True
+attack_support,processed/iotsim-air-quality-1.csv,raw/malicious/mirai-infection/iotsim-air-quality-1_0-0_to_OpenvSwitch-25_1-0.pcap,attack_roles_must_use_onset_aligned_malicious_pcap,True
+attack_support,processed/iotsim-city-power-1.csv,raw/malicious/mirai-infection/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,attack_roles_must_use_onset_aligned_malicious_pcap,True
+attack_support,processed/iotsim-combined-cycle-10.csv,raw/malicious/mirai-infection/iotsim-combined-cycle-10_0-0_to_OpenvSwitch-13_10-0.pcap,attack_roles_must_use_onset_aligned_malicious_pcap,True
+attack_support,processed/iotsim-ip-camera-museum-1.csv,raw/malicious/mirai-infection/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,attack_roles_must_use_onset_aligned_malicious_pcap,True
+attack_eval,processed/iotsim-building-monitor-1.csv,raw/malicious/mirai-infection/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,attack_roles_must_use_onset_aligned_malicious_pcap,True
+attack_eval,processed/iotsim-combined-cycle-1.csv,raw/malicious/mirai-infection/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,attack_roles_must_use_onset_aligned_malicious_pcap,True
+attack_eval,processed/iotsim-domotic-monitor-1.csv,raw/malicious/mirai-infection/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,attack_roles_must_use_onset_aligned_malicious_pcap,True
+attack_eval,processed/iotsim-ip-camera-street-1.csv,raw/malicious/mirai-infection/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,attack_roles_must_use_onset_aligned_malicious_pcap,True

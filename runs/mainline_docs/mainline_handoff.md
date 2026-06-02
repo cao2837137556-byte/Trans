@@ -1434,3 +1434,13 @@ Immediate next decision should use issue16 results to choose among:
 - result: first-attack timestamps from processed CSVs can select causal malicious PCAP windows for support/eval smoke; support must start after confirmed attack onset.
 - caveat: 6/8 attack contract CSVs aligned within the current scan budget; two ip-camera attack files still need deeper onset scan before full-contract materialization.
 - model experiments remain blocked; next is a larger onset-aligned Kitsune115 smoke dataset plus unresolved attack-file deep scan.
+
+<!-- issue27ad_gotham_kitsune115_smoke_expansion -->
+
+## issue27ad Gotham Kitsune115 Split-Aware Smoke Expansion
+
+- primary_verdict: `kitsune115_split_aware_smoke_dataset_ready_heavy_attack_deferred`.
+- ID/OOD/final OOD use only preregistered benign split files; attack files are used only after confirmed attack onset.
+- both reset-at-boundary and train-state-then-eval-online strategies output 115D finite features; no model metrics were computed.
+- all 8 attack files have onset alignment, but 2 ip-camera files are deferred from local materialization because their pre-onset fast-forward is heavy.
+- model experiments remain blocked unless explicitly limited to interface shape smoke.
