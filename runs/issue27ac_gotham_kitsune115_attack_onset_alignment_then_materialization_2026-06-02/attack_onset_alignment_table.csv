@@ -1,0 +1,9 @@
+role,csv_member,rows_scanned_until_first_attack,first_attack_timestamp_epoch,first_attack_label,onset_status,pre_attack_label_counts_scanned
+attack_support,processed/iotsim-air-quality-1.csv,2637,1737235793.490203,Telnet Brute Force,found,"{'Benign': 2636, 'Telnet Brute Force': 1}"
+attack_support,processed/iotsim-city-power-1.csv,723,1737235783.576491,Telnet Brute Force,found,"{'Benign': 722, 'Telnet Brute Force': 1}"
+attack_support,processed/iotsim-combined-cycle-10.csv,399,1737235781.420146,Telnet Brute Force,found,"{'Benign': 398, 'Telnet Brute Force': 1}"
+attack_support,processed/iotsim-ip-camera-museum-1.csv,200001,,,not_found,{'Benign': 200000}
+attack_eval,processed/iotsim-building-monitor-1.csv,2644,1737235764.020608,Telnet Brute Force,found,"{'Benign': 2643, 'Telnet Brute Force': 1}"
+attack_eval,processed/iotsim-combined-cycle-1.csv,653,1737235781.420146,Telnet Brute Force,found,"{'Benign': 652, 'Telnet Brute Force': 1}"
+attack_eval,processed/iotsim-domotic-monitor-1.csv,2535,1737235794.490721,Telnet Brute Force,found,"{'Benign': 2534, 'Telnet Brute Force': 1}"
+attack_eval,processed/iotsim-ip-camera-street-1.csv,200001,,,not_found,{'Benign': 200000}

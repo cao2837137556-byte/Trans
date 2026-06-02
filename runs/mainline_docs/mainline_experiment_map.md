@@ -2048,3 +2048,12 @@ Next:
 - evidence role: Feature/interface pre-gate for the formal Gotham PCAP-derived 115D feature path.
 - claim boundary: no model ranking, no external generalization, no deployment robustness; strict 8D is engineering-only.
 - next action: issue27ac Gotham Kitsune115 attack-onset alignment and broader split-aware materialization before any model interface smoke.
+
+<!-- issue27ac_map_entry -->
+
+### issue27ac_gotham_kitsune115_attack_onset_alignment_then_materialization_2026-06-02
+
+- status: completed.
+- primary_verdict: `attack_onset_alignment_partial_ready_for_kitsune115_smoke_expansion`.
+- outputs: `runs/issue27ac_gotham_kitsune115_attack_onset_alignment_then_materialization_2026-06-02/` plus tiny external probe artifacts under `datasets/gotham2025/derived/kitsune115_attack_onset_probe_v1/`.
+- implication: attack-side alignment is tractable for a smoke expansion if PCAP scenario and onset timestamp are selected correctly; full-contract materialization still needs deeper scan for unresolved ip-camera attack files. No model benchmark yet.

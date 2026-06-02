@@ -1424,3 +1424,13 @@ Immediate next decision should use issue16 results to choose among:
 - key result: the formal route is now Gotham raw PCAP -> Kitsune/AfterImage/netStat 115D, while the strict 8D packet-header asset is downgraded to engineering smoke/provenance proof.
 - state policy: compares reset-at-boundary with branch-based train-state-then-eval-online; final OOD eval is report-only and discarded.
 - current model experiments allowed: no formal benchmark yet; next is issue27ac attack-onset alignment before broader 115D materialization.
+
+<!-- issue27ac_gotham_attack_onset_alignment -->
+
+## issue27ac Gotham Kitsune115 Attack-Onset Alignment
+
+- primary_verdict: `attack_onset_alignment_partial_ready_for_kitsune115_smoke_expansion`.
+- role: attack-side data/feature gate for Gotham Kitsune115.
+- result: first-attack timestamps from processed CSVs can select causal malicious PCAP windows for support/eval smoke; support must start after confirmed attack onset.
+- caveat: 6/8 attack contract CSVs aligned within the current scan budget; two ip-camera attack files still need deeper onset scan before full-contract materialization.
+- model experiments remain blocked; next is a larger onset-aligned Kitsune115 smoke dataset plus unresolved attack-file deep scan.
