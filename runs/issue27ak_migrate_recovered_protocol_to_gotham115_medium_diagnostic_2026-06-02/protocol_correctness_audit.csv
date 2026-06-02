@@ -1,0 +1,18 @@
+check,ok,detail,strategy
+issue27ag_ready_with_full_contract_pending,True,issue27ag loader/role gate,
+issue27ah_diagnostic_completed,True,prior dry-run only as context,
+issue27aj_recovered_kcenter_lineage,True,issue27aj protocol lineage gate,
+hash_verification,True,all issue27af medium certificate hashes match,reset_at_split_boundary
+shape_115,True,"(14400, 115)",reset_at_split_boundary
+rows_aligned,True,x=14400 sidecar=14400,reset_at_split_boundary
+finite_features,True,no NaN/Inf,reset_at_split_boundary
+role_counts_nonzero,True,all required roles present,reset_at_split_boundary
+kcenter_support_available,True,available=2250 selected=32 needed=32,reset_at_split_boundary
+schema_feature_count_115,True,schema=115,reset_at_split_boundary
+hash_verification,True,all issue27af medium certificate hashes match,train_state_then_eval_online
+shape_115,True,"(14400, 115)",train_state_then_eval_online
+rows_aligned,True,x=14400 sidecar=14400,train_state_then_eval_online
+finite_features,True,no NaN/Inf,train_state_then_eval_online
+role_counts_nonzero,True,all required roles present,train_state_then_eval_online
+kcenter_support_available,True,available=2250 selected=32 needed=32,train_state_then_eval_online
+schema_feature_count_115,True,schema=115,train_state_then_eval_online

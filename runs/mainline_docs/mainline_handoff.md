@@ -1506,3 +1506,12 @@ Immediate next decision should use issue16 results to choose among:
   Kitsune115 medium diagnostics; do not migrate old frontend or old performance
   claims.
 - Next: `issue27ak_migrate_recovered_protocol_to_gotham115_medium_diagnostic`.
+
+<!-- issue27ak_migrate_recovered_protocol_to_gotham115_medium_diagnostic -->
+
+## issue27ak Recovered Kcenter32 Gotham115 Medium Diagnostic
+
+- primary_verdict: `recovered_kcenter32_medium_diagnostic_completed`.
+- Migrates recovered historical `kcenter32` support selector to the fixed Gotham Kitsune115 medium asset.
+- support size fixed to `32` from preregistered attack_support role; no final eval or attack eval selection.
+- output is medium diagnostic only; formal benchmark still requires full_contract or an exclusion policy and protocol freeze.

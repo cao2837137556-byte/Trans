@@ -2128,3 +2128,12 @@ Next:
   Kitsune115 medium diagnostics; do not migrate old frontend or old performance
   claims.
 - Next: `issue27ak_migrate_recovered_protocol_to_gotham115_medium_diagnostic`.
+
+<!-- issue27ak_map_entry -->
+
+### issue27ak_migrate_recovered_protocol_to_gotham115_medium_diagnostic_2026-06-02
+
+- status: completed.
+- primary_verdict: `recovered_kcenter32_medium_diagnostic_completed`.
+- outputs: `runs/issue27ak_migrate_recovered_protocol_to_gotham115_medium_diagnostic_2026-06-02/`.
+- implication: recovered kcenter32 support can be diagnosed on medium Gotham115 only; final claims wait for full/larger asset and frozen protocol.
