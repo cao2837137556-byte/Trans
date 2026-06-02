@@ -1,0 +1,20 @@
+head_name,head_family,variant_name,fit_mode,threshold_rule,support_adaptation,ood_guard,threshold_safety,diagnostic_only,formal_benchmark,note
+LR,lr,raw_support_id_threshold,id_support32,id_q99,True,False,False,True,False,raw supervised head with fixed support32 and ID threshold
+LR,lr,threshold_guard_only,id_support32,ood_val_q99,True,True,True,True,False,"same LR score, OOD-val threshold pressure"
+LR,lr,full_guarded_protocol,id_support32,max_id_ood_val_q99,True,True,True,True,False,LR score with fixed support32 and ID/OOD safety
+LR,lr,no_support_ood_guard,id_only,max_id_ood_val_q99,False,True,True,True,False,blocked for supervised LR: one-class fit would be undefined
+HistGB,histgb,raw_support_id_threshold,id_support32,id_q99,True,False,False,True,False,raw HistGB with fixed support32 and ID threshold
+HistGB,histgb,threshold_guard_only,id_support32,ood_val_q99,True,True,True,True,False,"same HistGB score, OOD-val threshold pressure"
+HistGB,histgb,full_guarded_protocol,id_support32,max_id_ood_val_q99,True,True,True,True,False,HistGB score with fixed support32 and ID/OOD safety
+HistGB,histgb,no_support_ood_guard,id_only,max_id_ood_val_q99,False,True,True,True,False,blocked for supervised HistGB: one-class fit would be undefined
+DeepSADStyle_Lite,deepsad,raw_support_id_threshold,id_support32,id_q99,True,False,False,True,False,center-style score with fixed support32 and ID threshold
+DeepSADStyle_Lite,deepsad,threshold_guard_only,id_support32,ood_val_q99,True,True,True,True,False,"same center score, OOD-val threshold pressure"
+DeepSADStyle_Lite,deepsad,no_support_ood_guard,id_only,max_id_ood_val_q99,False,True,True,True,False,normal-center-only score under OOD guard
+DeepSADStyle_Lite,deepsad,full_guarded_protocol,id_support32,max_id_ood_val_q99,True,True,True,True,False,center-style support adaptation plus ID/OOD safety
+DevNetStyle_MLP,mlp,raw_support_id_threshold,id_support32,id_q99,True,False,False,True,False,small MLP score head with fixed support32 and ID threshold
+DevNetStyle_MLP,mlp,threshold_guard_only,id_support32,ood_val_q99,True,True,True,True,False,"same MLP score, OOD-val threshold pressure"
+DevNetStyle_MLP,mlp,full_guarded_protocol,id_support32,max_id_ood_val_q99,True,True,True,True,False,MLP score with fixed support32 and ID/OOD safety
+DevNetStyle_MLP,mlp,no_support_ood_guard,id_only,max_id_ood_val_q99,False,True,True,True,False,blocked for supervised MLP: one-class fit would be undefined
+IsolationForest,isoforest,raw_idonly_id_threshold,id_only,id_q99,False,False,False,True,False,ID-only anomaly baseline
+IsolationForest,isoforest,ood_guard_only,id_only,max_id_ood_val_q99,False,True,True,True,False,ID-only anomaly baseline with ID/OOD safety
+IsolationForest,isoforest,support_adaptation,id_support32,max_id_ood_val_q99,True,True,True,True,False,blocked: IsolationForest has no support-adaptation interface here

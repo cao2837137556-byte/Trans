@@ -1480,3 +1480,12 @@ Immediate next decision should use issue16 results to choose among:
 - medium 115D asset was used only for diagnostic guarded-protocol behavior checks.
 - final OOD benign eval and attack eval remained report-only and were not used for thresholding or selection.
 - full_contract remains pending; issue27ah results are not formal model rankings.
+
+<!-- issue27ai_medium_protocol_audit_then_diagnostic -->
+
+## issue27ai Medium Protocol Audit Then Diagnostic
+
+- primary_verdict: `medium_protocol_audit_passed_diagnostic_completed`.
+- A protocol correctness audit gates B diagnostic execution.
+- support size fixed to `32` from preregistered attack_support role; no final eval or attack eval selection.
+- output is medium diagnostic only; formal benchmark still requires full_contract or an exclusion policy and protocol freeze.

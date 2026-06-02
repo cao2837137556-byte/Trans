@@ -1,0 +1,11 @@
+strategy,head_name,raw_variant,guarded_variant,raw_final_ood_alarm,guarded_final_ood_alarm,raw_attack_eval_detection,guarded_attack_eval_detection,diagnostic_interpretation
+reset_at_split_boundary,DeepSADStyle_Lite,raw_support_id_threshold,full_guarded_protocol,0.394,0.0026666666666666666,0.7946666666666666,0.7048888888888889,component contrast only; not model ranking
+train_state_then_eval_online,DeepSADStyle_Lite,raw_support_id_threshold,full_guarded_protocol,0.008666666666666666,0.0,0.6986666666666667,0.6671111111111111,component contrast only; not model ranking
+reset_at_split_boundary,DevNetStyle_MLP,raw_support_id_threshold,full_guarded_protocol,0.18233333333333332,0.006,0.9448888888888889,0.0008888888888888889,component contrast only; not model ranking
+train_state_then_eval_online,DevNetStyle_MLP,raw_support_id_threshold,full_guarded_protocol,0.06266666666666666,0.0013333333333333333,0.82,0.5742222222222222,component contrast only; not model ranking
+reset_at_split_boundary,HistGB,raw_support_id_threshold,full_guarded_protocol,0.006333333333333333,0.006333333333333333,0.7675555555555555,0.7675555555555555,component contrast only; not model ranking
+train_state_then_eval_online,HistGB,raw_support_id_threshold,full_guarded_protocol,0.0,0.0,0.752,0.7515555555555555,component contrast only; not model ranking
+reset_at_split_boundary,IsolationForest,raw_idonly_id_threshold,ood_guard_only,0.22733333333333333,0.04933333333333333,0.7817777777777778,0.0,component contrast only; not model ranking
+train_state_then_eval_online,IsolationForest,raw_idonly_id_threshold,ood_guard_only,0.23633333333333334,0.04833333333333333,0.0,0.0,component contrast only; not model ranking
+reset_at_split_boundary,LR,raw_support_id_threshold,full_guarded_protocol,0.11866666666666667,0.0,0.892,0.0,component contrast only; not model ranking
+train_state_then_eval_online,LR,raw_support_id_threshold,full_guarded_protocol,0.19333333333333333,0.114,0.8186666666666667,0.45111111111111113,component contrast only; not model ranking

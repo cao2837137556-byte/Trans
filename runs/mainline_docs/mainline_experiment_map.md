@@ -2102,3 +2102,12 @@ Next:
 - primary_verdict: `guarded_protocol_medium_dry_run_completed_diagnostic_only`.
 - outputs: `runs/issue27ah_gotham_kitsune115_guarded_protocol_small_scale_dry_run_2026-06-02/`.
 - implication: medium 115D diagnostic behavior is available, but formal benchmark waits for full_contract or a documented exclusion policy.
+
+<!-- issue27ai_map_entry -->
+
+### issue27ai_medium_protocol_audit_then_diagnostic_2026-06-02
+
+- status: completed.
+- primary_verdict: `medium_protocol_audit_passed_diagnostic_completed`.
+- outputs: `runs/issue27ai_medium_protocol_audit_then_diagnostic_2026-06-02/`.
+- implication: protocol matrix diagnostics are available for debugging only; final claims wait for full/larger asset and frozen protocol.
