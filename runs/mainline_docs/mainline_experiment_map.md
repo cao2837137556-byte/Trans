@@ -2158,3 +2158,10 @@ Next:
 - verdict: `contract_v2_ready_for_medium_detection_retest`
 - route: Gotham Kitsune115 medium support/eval contract v2 validation.
 - claim boundary: contract-only diagnostic; no model performance claim.
+
+<!-- issue27ap -->
+## issue27ap
+
+- verdict: `new_heldout_v2_diagnostic_signal_weak_support_shift_persists`
+- route: new held-out heavy attack probe plus v2 diagnostic retest.
+- claim boundary: diagnostic only.

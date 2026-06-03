@@ -1,0 +1,29 @@
+{
+  "contract_id": "file_balanced_v2",
+  "formal_benchmark": false,
+  "issue": "issue27ap_new_heldout_attack_probe_and_v2_diagnostic_retest_2026-06-03",
+  "new_heldout_files": [
+    {
+      "attack_type": "mirai-infection",
+      "csv_member": "processed/iotsim-ip-camera-museum-1.csv",
+      "first_attack_timestamp": 1737235770.488062,
+      "max_scan_packets": 760000,
+      "packet_limit": 3000,
+      "pcap_member": "raw/malicious/mirai-infection/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap"
+    },
+    {
+      "attack_type": "mirai-infection",
+      "csv_member": "processed/iotsim-ip-camera-street-1.csv",
+      "first_attack_timestamp": 1737235800.982347,
+      "max_scan_packets": 540000,
+      "packet_limit": 3000,
+      "pcap_member": "raw/malicious/mirai-infection/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap"
+    }
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "target_ood_alarm": 0.01
+}

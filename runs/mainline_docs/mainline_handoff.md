@@ -1541,3 +1541,10 @@ Immediate next decision should use issue16 results to choose among:
 - Benign split and Kitsune115 frontend unchanged.
 - Previous medium attack_eval is consumed for diagnostic contract design, so follow-up retest remains diagnostic only.
 - next action: `issue27ap_medium_detection_retest_on_contract_v2_diagnostic_only`
+
+<!-- issue27ap -->
+## issue27ap_new_heldout_attack_probe_and_v2_diagnostic_retest_2026-06-03
+
+- primary_verdict: `new_heldout_v2_diagnostic_signal_weak_support_shift_persists`
+- Newly materialized held-out heavy ip-camera attack probe; support fixed from issue27ao v2.
+- Diagnostic only; not formal benchmark.
