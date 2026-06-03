@@ -1573,3 +1573,10 @@ Immediate next decision should use issue16 results to choose among:
 - Medium diagnostic only; no formal benchmark.
 - Keeps Gotham Kitsune115 medium frontend/split fixed and varies only bounded old HistGB weights, k-center budgets, and train-side threshold rules.
 - Candidate selection uses id_calib, ood_val, and support_val only; final OOD, attack_eval, and new heldout remain report-only.
+
+<!-- issue27at -->
+## issue27at - Coverage hypothesis validation before protocol redesign
+
+- primary_verdict: `coverage_hypothesis_partially_supported_needs_more_attack_pool`
+- Diagnostic only; deterministic replay of issue27as selected candidate to compute per-sample coverage vs detection.
+- New heldout remains report-only; final OOD tail risk is not resolved.

@@ -1,0 +1,42 @@
+{
+  "bucket_threshold_policy": "distance bucket thresholds are p50/p75/p95 of support_val nearest-support distances only",
+  "coverage_buckets": {
+    "covered_close": "nearest_support_distance <= support_val p50",
+    "covered_far": "p75 < nearest_support_distance <= support_val p95",
+    "covered_mid": "p50 < nearest_support_distance <= support_val p75",
+    "uncovered_extreme": "nearest_support_distance > support_val p95"
+  },
+  "coverage_scaler_policy": "StandardScaler fit on each support_train only; never on attack_eval, new heldout, or final OOD",
+  "forbidden_selection_roles": [
+    "final_ood_benign_eval",
+    "attack_eval",
+    "new_heldout_attack_eval_probe"
+  ],
+  "issue": "issue27at_coverage_hypothesis_validation_before_protocol_redesign_2026-06-03",
+  "primary_replay_candidate": {
+    "ood_weight": 2.0,
+    "selection_source": "issue27as val-side selected candidate",
+    "strategy": "reset_at_split_boundary",
+    "support_budget": 128,
+    "support_weight": 4.0,
+    "threshold_rule": "support_val_guided_empirical_1pct"
+  },
+  "scope": "coverage hypothesis validation only; not formal benchmark",
+  "semantic_fields": [
+    "attack_type",
+    "source_file",
+    "device",
+    "onset_phase",
+    "time_bucket"
+  ],
+  "support_density": [
+    "mean distance to nearest 3 support rows",
+    "mean distance to nearest 5 support rows",
+    "mean distance to nearest 10 support rows"
+  ],
+  "support_schemes": {
+    "file_balanced_v2_diagnostic": "issue27ao diagnostic support; not formal because it consumed old attack_eval for contract design",
+    "issue27as_selected_kcenter128": "primary issue27as selected support train/val split by seed",
+    "old_kcenter32_trace": "old kcenter32 trace comparison only"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "formal_benchmark": false,
+  "issue": "issue27at_coverage_hypothesis_validation_before_protocol_redesign_2026-06-03",
+  "primary_replay_candidate": {
+    "ood_weight": 2.0,
+    "selection_source": "issue27as val-side selected candidate",
+    "strategy": "reset_at_split_boundary",
+    "support_budget": 128,
+    "support_weight": 4.0,
+    "threshold_rule": "support_val_guided_empirical_1pct"
+  },
+  "primary_verdict": "coverage_hypothesis_partially_supported_needs_more_attack_pool",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "selection_policy": "no final OOD, attack_eval, or new heldout used for model/support/threshold selection"
+}

@@ -2186,3 +2186,10 @@ Next:
 - verdict: `bounded_repair_suggests_feature_or_task_boundary`
 - purpose: test whether bounded calibration/support-influence changes can rescue medium signal without using report-only roles.
 - outputs: `runs/issue27as_old_protocol_bounded_calibration_and_coverage_repair_2026-06-03/`.
+
+<!-- issue27at -->
+## issue27at - Coverage hypothesis validation
+
+- verdict: `coverage_hypothesis_partially_supported_needs_more_attack_pool`
+- purpose: test whether support-query coverage explains medium/high vs heavy/low heldout behavior without tuning a new protocol.
+- outputs: `runs/issue27at_coverage_hypothesis_validation_before_protocol_redesign_2026-06-03/`.
