@@ -2144,3 +2144,10 @@ Next:
 - verdict: `medium_repair_insufficient_pause_feature_state_onset_audit`
 - route: Gotham Kitsune115 medium bounded protocol repair validation.
 - claim boundary: diagnostic only; formal full/larger benchmark remains gated.
+
+<!-- issue27an -->
+## issue27an
+
+- verdict: `support_eval_distribution_mismatch_blocker_found`
+- route: Gotham Kitsune115 medium failure attribution audit.
+- claim boundary: diagnostic failure attribution only; no model ranking or formal benchmark.

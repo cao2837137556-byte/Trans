@@ -1524,3 +1524,11 @@ Immediate next decision should use issue16 results to choose among:
 - Tested fixed split/support pool with kcenter32, stratified_kcenter64, and stratified_kcenter128 plus support_val/NP threshold rules.
 - Final OOD and attack eval remain report-only; no model ranking or full benchmark claim is made.
 - next action: `issue27an_feature_state_onset_or_protocol_repair_reassessment`
+
+<!-- issue27an -->
+## issue27an_gotham_kitsune115_feature_state_onset_label_alignment_audit_2026-06-03
+
+- primary_verdict: `support_eval_distribution_mismatch_blocker_found`
+- Failure attribution audit after issue27am; no new model training or protocol repair.
+- Audited feature separability, onset/label density, state/warmup/carryover, support/eval coverage, and label semantics.
+- next action: `issue27ao_repair_support_eval_contract_before_head_repair`
