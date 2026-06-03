@@ -1515,3 +1515,12 @@ Immediate next decision should use issue16 results to choose among:
 - Migrates recovered historical `kcenter32` support selector to the fixed Gotham Kitsune115 medium asset.
 - support size fixed to `32` from preregistered attack_support role; no final eval or attack eval selection.
 - output is medium diagnostic only; formal benchmark still requires full_contract or an exclusion policy and protocol freeze.
+
+<!-- issue27am -->
+## issue27am_medium_bounded_protocol_repair_validation_2026-06-03
+
+- primary_verdict: `medium_repair_insufficient_pause_feature_state_onset_audit`
+- Medium Gotham Kitsune115 bounded protocol repair validation only; not formal benchmark.
+- Tested fixed split/support pool with kcenter32, stratified_kcenter64, and stratified_kcenter128 plus support_val/NP threshold rules.
+- Final OOD and attack eval remain report-only; no model ranking or full benchmark claim is made.
+- next action: `issue27an_feature_state_onset_or_protocol_repair_reassessment`

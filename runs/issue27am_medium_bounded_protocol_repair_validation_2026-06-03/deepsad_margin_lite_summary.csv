@@ -1,0 +1,3 @@
+strategy,model_name,recipe_name,seed_count,support_val_detection_mean,support_val_detection_worst,ood_val_alarm_max,attack_eval_detection_mean_report_only,attack_eval_detection_worst_report_only,final_ood_alarm_max_report_only,empirical_ood_val_feasible_all_seeds,np_ood_val_certified_all_seeds
+reset_at_split_boundary,DeepSADMarginLite,deepsad_margin_lite_stratified_kcenter64_np_orderstat,3,0.0,0.0,0.0003333333333333333,0.0,0.0,0.0,True,True
+reset_at_split_boundary,DeepSADMarginLite,deepsad_margin_lite_stratified_kcenter64_supportval,3,0.0,0.0,0.0003333333333333333,0.0,0.0,0.0,True,True

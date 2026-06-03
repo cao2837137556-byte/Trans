@@ -1,0 +1,95 @@
+{
+  "final_eval_report_only": true,
+  "formal_benchmark": false,
+  "frontend_changed": false,
+  "issue": "issue27am_medium_bounded_protocol_repair_validation_2026-06-03",
+  "online_strategy": "train_state_then_eval_online",
+  "primary_strategy": "reset_at_split_boundary",
+  "recipes": [
+    {
+      "formal_benchmark": false,
+      "model_name": "HistGB",
+      "recipe_name": "histgb_kcenter32_supportval",
+      "stage": "stage2_histgb",
+      "support_selector": "kcenter32",
+      "support_size": 32,
+      "support_train_size": 24,
+      "support_val_size": 8,
+      "threshold_rule": "support_val_constrained_threshold",
+      "uses_attack_eval_for_selection": false,
+      "uses_final_eval_for_selection": false
+    },
+    {
+      "formal_benchmark": false,
+      "model_name": "HistGB",
+      "recipe_name": "histgb_stratified_kcenter64_supportval",
+      "stage": "stage2_histgb",
+      "support_selector": "stratified_kcenter64",
+      "support_size": 64,
+      "support_train_size": 48,
+      "support_val_size": 16,
+      "threshold_rule": "support_val_constrained_threshold",
+      "uses_attack_eval_for_selection": false,
+      "uses_final_eval_for_selection": false
+    },
+    {
+      "formal_benchmark": false,
+      "model_name": "HistGB",
+      "recipe_name": "histgb_stratified_kcenter128_supportval",
+      "stage": "stage2_histgb",
+      "support_selector": "stratified_kcenter128",
+      "support_size": 128,
+      "support_train_size": 96,
+      "support_val_size": 32,
+      "threshold_rule": "support_val_constrained_threshold",
+      "uses_attack_eval_for_selection": false,
+      "uses_final_eval_for_selection": false
+    },
+    {
+      "formal_benchmark": false,
+      "model_name": "HistGB",
+      "recipe_name": "histgb_stratified_kcenter64_np_orderstat",
+      "stage": "stage2_histgb",
+      "support_selector": "stratified_kcenter64",
+      "support_size": 64,
+      "support_train_size": 48,
+      "support_val_size": 16,
+      "threshold_rule": "np_orderstat_threshold",
+      "uses_attack_eval_for_selection": false,
+      "uses_final_eval_for_selection": false
+    },
+    {
+      "formal_benchmark": false,
+      "model_name": "DeepSADMarginLite",
+      "recipe_name": "deepsad_margin_lite_stratified_kcenter64_supportval",
+      "stage": "stage3_deepsad_margin_lite",
+      "support_selector": "stratified_kcenter64",
+      "support_size": 64,
+      "support_train_size": 48,
+      "support_val_size": 16,
+      "threshold_rule": "support_val_constrained_threshold",
+      "uses_attack_eval_for_selection": false,
+      "uses_final_eval_for_selection": false
+    },
+    {
+      "formal_benchmark": false,
+      "model_name": "DeepSADMarginLite",
+      "recipe_name": "deepsad_margin_lite_stratified_kcenter64_np_orderstat",
+      "stage": "stage3_deepsad_margin_lite",
+      "support_selector": "stratified_kcenter64",
+      "support_size": 64,
+      "support_train_size": 48,
+      "support_val_size": 16,
+      "threshold_rule": "np_orderstat_threshold",
+      "uses_attack_eval_for_selection": false,
+      "uses_final_eval_for_selection": false
+    }
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "split_changed": false,
+  "target_ood_alarm": 0.01
+}

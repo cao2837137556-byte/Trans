@@ -1,0 +1,6 @@
+role,fit_allowed,threshold_allowed,support_selector_allowed,report_only,final_or_attack_eval
+id_benign_train,True,True,False,False,False
+ood_benign_val,False,True,False,False,False
+attack_support,support_train_only,support_val_only,True,False,False
+final_ood_benign_eval,False,False,False,True,True
+attack_eval,False,False,False,True,True

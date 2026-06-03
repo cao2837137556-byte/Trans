@@ -1,0 +1,5 @@
+strategy,model_name,recipe_name,seed_count,support_val_detection_mean,support_val_detection_worst,ood_val_alarm_max,attack_eval_detection_mean_report_only,attack_eval_detection_worst_report_only,final_ood_alarm_max_report_only,empirical_ood_val_feasible_all_seeds,np_ood_val_certified_all_seeds
+reset_at_split_boundary,HistGB,histgb_kcenter32_supportval,3,0.25,0.125,0.007666666666666666,0.1474074074074074,0.08266666666666667,0.004,True,False
+reset_at_split_boundary,HistGB,histgb_stratified_kcenter128_supportval,3,0.7708333333333334,0.625,0.007666666666666666,0.5074074074074074,0.4053333333333333,0.019,True,False
+reset_at_split_boundary,HistGB,histgb_stratified_kcenter64_np_orderstat,3,0.375,0.3125,0.0006666666666666666,0.2917037037037037,0.08533333333333333,0.004666666666666667,True,True
+reset_at_split_boundary,HistGB,histgb_stratified_kcenter64_supportval,3,0.375,0.3125,0.0006666666666666666,0.2917037037037037,0.08533333333333333,0.004666666666666667,True,True
