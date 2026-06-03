@@ -1,0 +1,19 @@
+{
+  "issue": "issue27aq_model_learning_and_domain_gap_audit_after_new_heldout_zero_detection_2026-06-03",
+  "contract_id": "file_balanced_v2",
+  "strategy": "reset_at_split_boundary",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "target_ood_alarm": 0.01,
+  "histgb": {
+    "max_iter": 30,
+    "max_leaf_nodes": 15,
+    "learning_rate": 0.08
+  },
+  "no_protocol_repair": true,
+  "new_heldout_report_only": true,
+  "final_ood_report_only": true
+}

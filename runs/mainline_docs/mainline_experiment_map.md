@@ -2165,3 +2165,10 @@ Next:
 - verdict: `new_heldout_v2_diagnostic_signal_weak_support_shift_persists`
 - route: new held-out heavy attack probe plus v2 diagnostic retest.
 - claim boundary: diagnostic only.
+
+<!-- issue27aq -->
+## issue27aq - Model learning/domain-gap diagnosis
+
+- Inputs: issue27af medium reset asset, issue27ao `file_balanced_v2`, issue27ap new heldout probe.
+- Verdict: `zero_detection_due_to_ood_tail_threshold_overconservative_despite_raw_support_signal`.
+- Model line remains diagnostic; full benchmark remains blocked until learning/calibration is repaired under role-safe rules.

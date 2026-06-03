@@ -1548,3 +1548,12 @@ Immediate next decision should use issue16 results to choose among:
 - primary_verdict: `new_heldout_v2_diagnostic_signal_weak_support_shift_persists`
 - Newly materialized held-out heavy ip-camera attack probe; support fixed from issue27ao v2.
 - Diagnostic only; not formal benchmark.
+
+<!-- issue27aq -->
+## issue27aq - Model learning and domain gap audit after new heldout zero detection
+
+- primary_verdict: `zero_detection_due_to_ood_tail_threshold_overconservative_despite_raw_support_signal`
+- Scope: diagnosis only; no support rebuild, no protocol repair, no formal benchmark.
+- support_val detection at issue27ap threshold max: `0.000000`; new heldout detection max: `0.000000`.
+- raw support score signal exists, but the OOD-tail threshold is above support and heldout scores.
+- next action: `issue27ar_balanced_fit_and_threshold_debug_without_final_eval`.
