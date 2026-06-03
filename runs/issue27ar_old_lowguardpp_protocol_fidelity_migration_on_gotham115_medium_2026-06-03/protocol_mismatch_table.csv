@@ -1,0 +1,10 @@
+component,old_issue27f,current_issue27ap_aq,issue27ar_fidelity,aligned_in_issue27ar,residual_caveat
+frontend,original100 static asset,Gotham Kitsune115 medium,Gotham Kitsune115 medium,False,frontend and dataset necessarily differ
+support_selector,kcenter32 from train-side attack pool,"file_balanced_v2 / larger stratified support, not old kcenter32",old kcenter32 from preregistered attack_support role,True,Gotham support pool differs from old attack_train_pool
+support_fit_size,formal refit uses all 32 selected support rows,support_train=128 from v2 contract,old_formal_fit32 variant uses all 32,True,medium only
+support_selection_trace,issue27d trace: 24 support_train / 8 support_val by seed+27027 for config selection,v2 support_train/support_val contract,old_selection_style_24_8 variant included,True,diagnostic only; frozen config already fixed
+histgb_config,histgb_d2_lr005_l2p1_ood4_sup4_t0050,"max_iter=30, max_leaf_nodes=15, learning_rate=0.08, no old l2/max_depth",histgb_d2_lr005_l2p1_ood4_sup4_t0050,True,
+fit_roles,id_train + ood_train + support attack,id_benign_train + support_train only,id_fit + ood_train_guard + support_train,True,Gotham lacks explicit ood_train role; uses deterministic subrole from ood_benign_val
+sample_weight,"ID=1, OOD=4, support=4",none,"ID=1, OOD=4, support=4",True,
+threshold,"guarded_val_threshold(id_calib, ood_val, target=0.005)",support-val constrained threshold over ID/OOD/support_val,"guarded_val_threshold(id_calib_subrole, ood_val_subrole, 0.005/0.0075/0.01)",True,Gotham lacks explicit id_calib; uses deterministic ID train-side subrole
+final_eval_policy,report-only,report-only,report-only,True,

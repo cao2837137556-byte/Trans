@@ -1557,3 +1557,11 @@ Immediate next decision should use issue16 results to choose among:
 - support_val detection at issue27ap threshold max: `0.000000`; new heldout detection max: `0.000000`.
 - raw support score signal exists, but the OOD-tail threshold is above support and heldout scores.
 - next action: `issue27ar_balanced_fit_and_threshold_debug_without_final_eval`.
+
+<!-- issue27ar -->
+## issue27ar - Old LOW-GUARD++ protocol fidelity on Gotham115 medium
+
+- primary_verdict: `old_protocol_fidelity_mixed_needs_bounded_calibration_repair`
+- Migrated issue27f HistGB frozen B protocol skeleton to Gotham Kitsune115 medium.
+- Uses old kcenter32, old HistGB config, OOD train guard, sample weights, and guarded ID/OOD threshold.
+- Diagnostic only; final OOD, attack_eval, and new heldout remain report-only.

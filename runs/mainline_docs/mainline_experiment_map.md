@@ -2172,3 +2172,10 @@ Next:
 - Inputs: issue27af medium reset asset, issue27ao `file_balanced_v2`, issue27ap new heldout probe.
 - Verdict: `zero_detection_due_to_ood_tail_threshold_overconservative_despite_raw_support_signal`.
 - Model line remains diagnostic; full benchmark remains blocked until learning/calibration is repaired under role-safe rules.
+
+<!-- issue27ar -->
+## issue27ar - Old LOW-GUARD++ protocol fidelity migration
+
+- verdict: `old_protocol_fidelity_mixed_needs_bounded_calibration_repair`
+- purpose: determine whether current Gotham weak signal is partly due to protocol mismatch against old issue27f LOW-GUARD++.
+- outputs: `runs/issue27ar_old_lowguardpp_protocol_fidelity_migration_on_gotham115_medium_2026-06-03/`.

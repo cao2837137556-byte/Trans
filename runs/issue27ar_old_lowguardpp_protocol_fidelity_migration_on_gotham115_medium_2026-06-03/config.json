@@ -1,0 +1,40 @@
+{
+  "final_eval_report_only": true,
+  "formal_benchmark": false,
+  "frozen_config": {
+    "l2_regularization": 0.1,
+    "learning_rate": 0.05,
+    "max_depth": 2,
+    "max_iter": 60,
+    "ood_weight": 4.0,
+    "support_weight": 4.0,
+    "validation_target": 0.005
+  },
+  "frozen_config_id": "histgb_d2_lr005_l2p1_ood4_sup4_t0050",
+  "issue": "issue27ar_old_lowguardpp_protocol_fidelity_migration_on_gotham115_medium_2026-06-03",
+  "new_heldout_report_only": true,
+  "primary_target": 0.005,
+  "scope": "old_lowguardpp_protocol_fidelity_migration_on_gotham115_medium",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "state_strategies": [
+    "reset_at_split_boundary",
+    "train_state_then_eval_online"
+  ],
+  "support_budget": 32,
+  "support_split": {
+    "rng": "seed+27027",
+    "train": 24,
+    "val": 8
+  },
+  "threshold_targets": [
+    0.005,
+    0.0075,
+    0.01
+  ]
+}
