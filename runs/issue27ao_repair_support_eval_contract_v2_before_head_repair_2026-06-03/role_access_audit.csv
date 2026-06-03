@@ -1,0 +1,4 @@
+artifact,uses_id_benign_train,uses_ood_benign_val,uses_final_ood_benign_eval,uses_old_attack_eval,uses_model_results,purpose
+contract_v2_candidates,False,False,False,True,False,diagnostic_attack_contract_design
+support_selection,False,False,False,True,False,stratified_kcenter_on_attack_contract_pool
+distance_validation,False,False,False,True,False,contract_only_coverage_audit

@@ -2151,3 +2151,10 @@ Next:
 - verdict: `support_eval_distribution_mismatch_blocker_found`
 - route: Gotham Kitsune115 medium failure attribution audit.
 - claim boundary: diagnostic failure attribution only; no model ranking or formal benchmark.
+
+<!-- issue27ao -->
+## issue27ao
+
+- verdict: `contract_v2_ready_for_medium_detection_retest`
+- route: Gotham Kitsune115 medium support/eval contract v2 validation.
+- claim boundary: contract-only diagnostic; no model performance claim.

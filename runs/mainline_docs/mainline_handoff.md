@@ -1532,3 +1532,12 @@ Immediate next decision should use issue16 results to choose among:
 - Failure attribution audit after issue27am; no new model training or protocol repair.
 - Audited feature separability, onset/label density, state/warmup/carryover, support/eval coverage, and label semantics.
 - next action: `issue27ao_repair_support_eval_contract_before_head_repair`
+
+<!-- issue27ao -->
+## issue27ao_repair_support_eval_contract_v2_before_head_repair_2026-06-03
+
+- primary_verdict: `contract_v2_ready_for_medium_detection_retest`
+- Support/eval contract v2 validation only; no model training.
+- Benign split and Kitsune115 frontend unchanged.
+- Previous medium attack_eval is consumed for diagnostic contract design, so follow-up retest remains diagnostic only.
+- next action: `issue27ap_medium_detection_retest_on_contract_v2_diagnostic_only`
