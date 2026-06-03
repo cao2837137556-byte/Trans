@@ -1565,3 +1565,11 @@ Immediate next decision should use issue16 results to choose among:
 - Migrated issue27f HistGB frozen B protocol skeleton to Gotham Kitsune115 medium.
 - Uses old kcenter32, old HistGB config, OOD train guard, sample weights, and guarded ID/OOD threshold.
 - Diagnostic only; final OOD, attack_eval, and new heldout remain report-only.
+
+<!-- issue27as -->
+## issue27as - Bounded old-protocol calibration and coverage repair
+
+- primary_verdict: `bounded_repair_suggests_feature_or_task_boundary`
+- Medium diagnostic only; no formal benchmark.
+- Keeps Gotham Kitsune115 medium frontend/split fixed and varies only bounded old HistGB weights, k-center budgets, and train-side threshold rules.
+- Candidate selection uses id_calib, ood_val, and support_val only; final OOD, attack_eval, and new heldout remain report-only.

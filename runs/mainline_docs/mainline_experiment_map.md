@@ -2179,3 +2179,10 @@ Next:
 - verdict: `old_protocol_fidelity_mixed_needs_bounded_calibration_repair`
 - purpose: determine whether current Gotham weak signal is partly due to protocol mismatch against old issue27f LOW-GUARD++.
 - outputs: `runs/issue27ar_old_lowguardpp_protocol_fidelity_migration_on_gotham115_medium_2026-06-03/`.
+
+<!-- issue27as -->
+## issue27as - Bounded calibration repair after old protocol fidelity
+
+- verdict: `bounded_repair_suggests_feature_or_task_boundary`
+- purpose: test whether bounded calibration/support-influence changes can rescue medium signal without using report-only roles.
+- outputs: `runs/issue27as_old_protocol_bounded_calibration_and_coverage_repair_2026-06-03/`.

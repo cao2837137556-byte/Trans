@@ -1,0 +1,41 @@
+{
+  "candidate_selection_roles": [
+    "id_calib",
+    "ood_val",
+    "support_val"
+  ],
+  "formal_benchmark": false,
+  "frontend_or_split_changed": false,
+  "issue": "issue27as_old_protocol_bounded_calibration_and_coverage_repair_2026-06-03",
+  "ood_weights": [
+    2.0,
+    4.0,
+    8.0
+  ],
+  "report_only_roles": [
+    "final_ood_benign_eval",
+    "attack_eval",
+    "new_heldout_attack_eval_probe"
+  ],
+  "scope": "medium_bounded_calibration_and_coverage_repair",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "strict_target": 0.005,
+  "support_budgets": [
+    32,
+    64,
+    128
+  ],
+  "support_weights": [
+    4.0,
+    8.0,
+    16.0,
+    32.0
+  ],
+  "val_target": 0.01
+}
