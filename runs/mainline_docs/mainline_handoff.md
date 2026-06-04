@@ -1580,3 +1580,10 @@ Immediate next decision should use issue16 results to choose among:
 - primary_verdict: `coverage_hypothesis_partially_supported_needs_more_attack_pool`
 - Diagnostic only; deterministic replay of issue27as selected candidate to compute per-sample coverage vs detection.
 - New heldout remains report-only; final OOD tail risk is not resolved.
+
+<!-- issue27au -->
+## issue27au - Coverage-aware active labeling viability diagnostic
+
+- primary_verdict: `active_labeling_viability_supported_but_ood_tail_blocked`
+- Diagnostic only; previous new heldout probe is consumed as a development stream.
+- Active selection is feature-only and prospective; final OOD remains report-only and not solved.

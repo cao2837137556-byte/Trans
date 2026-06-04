@@ -1,0 +1,25 @@
+{
+  "active_candidate_rows_per_file": 1000,
+  "active_label_budgets": [
+    0,
+    4,
+    8,
+    16,
+    32
+  ],
+  "consumed_previous_new_heldout_as_development_probe": true,
+  "formal_benchmark": false,
+  "issue": "issue27au_coverage_aware_active_labeling_viability_diagnostic_2026-06-04",
+  "ood_weight": 2.0,
+  "primary_strategy": "reset_at_split_boundary",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "selection_policy": "feature-only active selection; labels used only after selected rows are sent to oracle",
+  "support_budget": 128,
+  "support_weight": 4.0
+}

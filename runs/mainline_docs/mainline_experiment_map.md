@@ -2193,3 +2193,10 @@ Next:
 - verdict: `coverage_hypothesis_partially_supported_needs_more_attack_pool`
 - purpose: test whether support-query coverage explains medium/high vs heavy/low heldout behavior without tuning a new protocol.
 - outputs: `runs/issue27at_coverage_hypothesis_validation_before_protocol_redesign_2026-06-03/`.
+
+<!-- issue27au -->
+## issue27au - Coverage-aware active labeling viability
+
+- verdict: `active_labeling_viability_supported_but_ood_tail_blocked`
+- purpose: test whether budgeted representative labels from uncovered incoming heavy stream can rescue dev-query detection without using final roles.
+- outputs: `runs/issue27au_coverage_aware_active_labeling_viability_diagnostic_2026-06-04/`.
