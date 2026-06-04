@@ -1594,3 +1594,10 @@ Immediate next decision should use issue16 results to choose among:
 - primary_verdict: `ood_tail_needs_benign_prototype_veto`
 - Diagnostic only; final OOD report-only attribution.
 - Adds ID/OOD/attack prototype distance and score-margin analysis before OOD gate repair.
+
+<!-- issue27aw -->
+## issue27aw - OOD-safe gate repair diagnostic
+
+- primary_verdict: `benign_veto_tradeoff_unresolved_ood_safe_but_attack_damaged`
+- Diagnostic only; dev-selected margin gate preserves attack but does not fix final-OOD tail; fixed benign veto fixes OOD but damages attack.
+- Current final OOD remains diagnostic-only; clean sealed-final replay is required before formal claims.

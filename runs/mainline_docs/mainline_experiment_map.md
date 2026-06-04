@@ -2207,3 +2207,10 @@ Next:
 - verdict: `ood_tail_needs_benign_prototype_veto`
 - purpose: attribute final OOD tail alarms using ID/OOD/attack prototypes before OOD-safe gate repair.
 - outputs: `runs/issue27av_prototype_aware_triage_and_ood_tail_attribution_2026-06-04/`.
+
+<!-- issue27aw -->
+## issue27aw - OOD-safe gate repair
+
+- verdict: `benign_veto_tradeoff_unresolved_ood_safe_but_attack_damaged`
+- purpose: test whether benign/OOD prototype veto can reduce OOD tail without using final roles for gate selection.
+- outputs: `runs/issue27aw_ood_safe_gate_repair_with_benign_prototype_veto_2026-06-04/`.

@@ -1,0 +1,19 @@
+{
+  "active_budget": 16,
+  "formal_benchmark": false,
+  "gate_selection_roles": [
+    "id_calib",
+    "ood_val",
+    "support_val"
+  ],
+  "issue": "issue27aw_ood_safe_gate_repair_with_benign_prototype_veto_2026-06-04",
+  "primary_strategy": "reset_at_split_boundary",
+  "primary_verdict": "benign_veto_tradeoff_unresolved_ood_safe_but_attack_damaged",
+  "report_only_roles": [
+    "final_ood_benign_eval",
+    "medium_attack_eval",
+    "dev_heavy_query"
+  ],
+  "support_budget": 128,
+  "val_target": 0.01
+}
