@@ -2200,3 +2200,10 @@ Next:
 - verdict: `active_labeling_viability_supported_but_ood_tail_blocked`
 - purpose: test whether budgeted representative labels from uncovered incoming heavy stream can rescue dev-query detection without using final roles.
 - outputs: `runs/issue27au_coverage_aware_active_labeling_viability_diagnostic_2026-06-04/`.
+
+<!-- issue27av -->
+## issue27av - Prototype-aware triage
+
+- verdict: `ood_tail_needs_benign_prototype_veto`
+- purpose: attribute final OOD tail alarms using ID/OOD/attack prototypes before OOD-safe gate repair.
+- outputs: `runs/issue27av_prototype_aware_triage_and_ood_tail_attribution_2026-06-04/`.

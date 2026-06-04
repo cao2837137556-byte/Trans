@@ -1,0 +1,17 @@
+{
+  "attribution_budgets": [
+    0,
+    16
+  ],
+  "common_scaler_source": "id_fit|ood_train_guard|base_attack_support_train",
+  "forbidden": "final OOD, attack_eval, and dev query are not used to tune prototypes/radii/thresholds",
+  "formal_benchmark": false,
+  "issue": "issue27av_prototype_aware_triage_and_ood_tail_attribution_2026-06-04",
+  "primary_attribution_budget": 16,
+  "primary_verdict": "ood_tail_needs_benign_prototype_veto",
+  "prototype_counts": {
+    "attack": 64,
+    "id": 64,
+    "ood": 64
+  }
+}

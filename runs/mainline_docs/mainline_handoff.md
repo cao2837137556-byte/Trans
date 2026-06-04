@@ -1587,3 +1587,10 @@ Immediate next decision should use issue16 results to choose among:
 - primary_verdict: `active_labeling_viability_supported_but_ood_tail_blocked`
 - Diagnostic only; previous new heldout probe is consumed as a development stream.
 - Active selection is feature-only and prospective; final OOD remains report-only and not solved.
+
+<!-- issue27av -->
+## issue27av - Prototype-aware triage and OOD tail attribution
+
+- primary_verdict: `ood_tail_needs_benign_prototype_veto`
+- Diagnostic only; final OOD report-only attribution.
+- Adds ID/OOD/attack prototype distance and score-margin analysis before OOD gate repair.
