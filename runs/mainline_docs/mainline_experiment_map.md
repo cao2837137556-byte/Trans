@@ -2214,3 +2214,10 @@ Next:
 - verdict: `benign_veto_tradeoff_unresolved_ood_safe_but_attack_damaged`
 - purpose: test whether benign/OOD prototype veto can reduce OOD tail without using final roles for gate selection.
 - outputs: `runs/issue27aw_ood_safe_gate_repair_with_benign_prototype_veto_2026-06-04/`.
+
+<!-- issue27ax -->
+## issue27ax - Attack support bank diagnostic
+
+- verdict: `support_bank_overfits_heavy_underrepresents_medium`
+- purpose: test whether a multi-region support bank can recover support_val, medium attack, and dev-heavy attack detection together.
+- outputs: `runs/issue27ax_attack_support_bank_detection_recovery_diagnostic_2026-06-04/`.

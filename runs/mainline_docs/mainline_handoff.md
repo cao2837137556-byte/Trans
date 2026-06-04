@@ -1601,3 +1601,10 @@ Immediate next decision should use issue16 results to choose among:
 - primary_verdict: `benign_veto_tradeoff_unresolved_ood_safe_but_attack_damaged`
 - Diagnostic only; dev-selected margin gate preserves attack but does not fix final-OOD tail; fixed benign veto fixes OOD but damages attack.
 - Current final OOD remains diagnostic-only; clean sealed-final replay is required before formal claims.
+
+<!-- issue27ax -->
+## issue27ax - Attack support bank detection recovery diagnostic
+
+- primary_verdict: `support_bank_overfits_heavy_underrepresents_medium`
+- Diagnostic only; tests retained-medium plus active-heavy support bank before OOD gate repair.
+- No formal benchmark; final OOD not optimized.
