@@ -2228,3 +2228,10 @@ Next:
 - verdict: `region_aware_attack_recovery_supported_ready_for_ood_gate`
 - purpose: test whether attack regions should be kept as structured memory instead of one merged positive class.
 - outputs: `runs/issue27ay_region_aware_attack_bank_and_score_gate_diagnostic_2026-06-05/`.
+
+<!-- issue27az -->
+## issue27az - Region-aware OOD gate diagnostic
+
+- verdict: `needs_disjoint_ood_stress_pool_final_tail_uncovered`
+- purpose: test whether region-aware attack heads can be guarded without killing attack detection or overloading review.
+- outputs: `runs/issue27az_region_aware_attack_preserving_ood_safe_gate_repair_2026-06-05/`.

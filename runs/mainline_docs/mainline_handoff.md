@@ -1616,3 +1616,11 @@ Immediate next decision should use issue16 results to choose among:
 - Diagnostic only; tests region weighting, per-region heads, and low-score attack-covered review routing.
 - Final/report-only roles were not used for support, threshold, or model selection.
 - Formal benchmark remains blocked until OOD-safe calibration and larger/full replay are ready.
+
+<!-- issue27az -->
+## issue27az - Region-aware attack-preserving OOD gate diagnostic
+
+- primary_verdict: `needs_disjoint_ood_stress_pool_final_tail_uncovered`
+- Diagnostic only; evaluates OOD-safe gates after region-aware heads.
+- Final/report-only roles were not used for gate/radius/threshold selection.
+- next action: `issue27ba_disjoint_ood_stress_pool_before_mixed_stream`.
