@@ -1,0 +1,11 @@
+seed,active_label_budget,gate_name,radius_quantile,margin,id_calib_hard_alarm,id_calib_review,ood_val_hard_alarm,ood_val_review,ood_stress_hard_alarm,ood_stress_review,support_medium_hard_detection,support_heavy_hard_detection,dev_support_attack_min,stress_feasible,stress_relaxed_feasible,dev_selection_score,selection_uses_final_ood,selection_uses_attack_eval,selection_uses_dev_heavy_query,selected_for_report_only_replay
+42,64,attack_advantage_margin,0.75,-0.25,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.6875,0.0,True,True,0.0,False,False,False,True
+42,128,attack_advantage_margin,0.75,-0.25,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.71875,0.0,True,True,0.0,False,False,False,True
+43,64,attack_advantage_margin,0.75,-0.25,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.75,0.0,True,True,0.0,False,False,False,True
+43,128,attack_advantage_margin,0.75,-0.25,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.625,0.0,True,True,0.0,False,False,False,True
+44,64,attack_advantage_margin,0.75,-0.25,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.625,0.0,True,True,0.0,False,False,False,True
+44,128,attack_advantage_margin,0.75,-0.25,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.65625,0.0,True,True,0.0,False,False,False,True
+45,64,attack_advantage_margin,0.75,-0.25,0.0,0.0,0.0,0.0,0.0,0.0007017543859649122,0.0,0.625,0.0,True,True,-7.017543859649122e-05,False,False,False,True
+45,128,attack_advantage_margin,0.75,-0.25,0.0,0.0,0.0,0.0,0.0,0.0007017543859649122,0.0,0.6875,0.0,True,True,-7.017543859649122e-05,False,False,False,True
+46,64,attack_advantage_margin,0.95,-0.25,0.0,0.0016666666666666668,0.0,0.0,0.0,0.0007017543859649122,0.90625,0.6875,0.6875,True,True,0.6874298245614036,False,False,False,True
+46,128,attack_advantage_margin,0.95,-0.25,0.0,0.0016666666666666668,0.0,0.0,0.0,0.0007017543859649122,0.90625,0.65625,0.65625,True,True,0.6561798245614036,False,False,False,True

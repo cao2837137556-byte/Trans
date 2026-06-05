@@ -1624,3 +1624,11 @@ Immediate next decision should use issue16 results to choose among:
 - Diagnostic only; evaluates OOD-safe gates after region-aware heads.
 - Final/report-only roles were not used for gate/radius/threshold selection.
 - next action: `issue27ba_disjoint_ood_stress_pool_before_mixed_stream`.
+
+<!-- issue27ba -->
+## issue27ba - Disjoint OOD stress pool before mixed stream
+
+- primary_verdict: `stress_gate_kills_attack_repair_needed`
+- Diagnostic only; materializes a dev-side OOD stress pool from unused OOD-val benign files.
+- Final OOD, attack eval, and dev-heavy query were not used for gate selection.
+- next action: `issue27bb_attack_preserving_ood_gate_repair_on_disjoint_stress_pool`.

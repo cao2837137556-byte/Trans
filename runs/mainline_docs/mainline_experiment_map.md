@@ -2235,3 +2235,10 @@ Next:
 - verdict: `needs_disjoint_ood_stress_pool_final_tail_uncovered`
 - purpose: test whether region-aware attack heads can be guarded without killing attack detection or overloading review.
 - outputs: `runs/issue27az_region_aware_attack_preserving_ood_safe_gate_repair_2026-06-05/`.
+
+<!-- issue27ba -->
+## issue27ba - Disjoint OOD stress pool gate diagnostic
+
+- verdict: `stress_gate_kills_attack_repair_needed`
+- purpose: give OOD gate selection a harder legal dev-side benign drift signal before mixed-stream realism.
+- outputs: `runs/issue27ba_disjoint_ood_stress_pool_before_mixed_stream_2026-06-05/`.

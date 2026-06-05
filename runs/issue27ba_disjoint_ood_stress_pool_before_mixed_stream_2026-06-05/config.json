@@ -1,0 +1,33 @@
+{
+  "active_label_budgets": [
+    64,
+    128
+  ],
+  "formal_benchmark": false,
+  "issue": "issue27ba_disjoint_ood_stress_pool_before_mixed_stream_2026-06-05",
+  "margins": [
+    -0.25,
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "ood_stress_files": [
+    "processed/iotsim-stream-consumer-1.csv",
+    "processed/iotsim-stream-consumer-2.csv",
+    "processed/iotsim-predictive-maintenance-10.csv",
+    "processed/iotsim-predictive-maintenance-11.csv",
+    "processed/iotsim-building-monitor-2.csv",
+    "processed/iotsim-building-monitor-5.csv"
+  ],
+  "primary_verdict": "stress_gate_kills_attack_repair_needed",
+  "radius_quantiles": [
+    0.75,
+    0.9,
+    0.95
+  ],
+  "review_budget": 0.1,
+  "state_strategy": "reset_at_split_boundary",
+  "val_target": 0.01
+}
