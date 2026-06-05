@@ -1,0 +1,18 @@
+{
+  "active_label_budgets": [
+    64,
+    128
+  ],
+  "base_support_budget": 128,
+  "formal_benchmark": false,
+  "issue": "issue27ay_region_aware_attack_bank_and_score_gate_diagnostic_2026-06-05",
+  "primary_verdict": "region_aware_attack_recovery_supported_ready_for_ood_gate",
+  "role_policy": "final/report-only roles are never used for support, threshold, or model selection",
+  "state_strategy": "reset_at_split_boundary",
+  "tested_config_families": [
+    "single_detector_uniform_append",
+    "single_detector_region_weighted",
+    "per_region_heads_or",
+    "per_region_heads_distance_gated_or"
+  ]
+}

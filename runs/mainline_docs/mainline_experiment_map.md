@@ -2221,3 +2221,10 @@ Next:
 - verdict: `support_bank_overfits_heavy_underrepresents_medium`
 - purpose: test whether a multi-region support bank can recover support_val, medium attack, and dev-heavy attack detection together.
 - outputs: `runs/issue27ax_attack_support_bank_detection_recovery_diagnostic_2026-06-04/`.
+
+<!-- issue27ay -->
+## issue27ay - Region-aware attack support bank diagnostic
+
+- verdict: `region_aware_attack_recovery_supported_ready_for_ood_gate`
+- purpose: test whether attack regions should be kept as structured memory instead of one merged positive class.
+- outputs: `runs/issue27ay_region_aware_attack_bank_and_score_gate_diagnostic_2026-06-05/`.

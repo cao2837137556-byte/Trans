@@ -1608,3 +1608,11 @@ Immediate next decision should use issue16 results to choose among:
 - primary_verdict: `support_bank_overfits_heavy_underrepresents_medium`
 - Diagnostic only; tests retained-medium plus active-heavy support bank before OOD gate repair.
 - No formal benchmark; final OOD not optimized.
+
+<!-- issue27ay -->
+## issue27ay - Region-aware attack bank and score gate diagnostic
+
+- primary_verdict: `region_aware_attack_recovery_supported_ready_for_ood_gate`
+- Diagnostic only; tests region weighting, per-region heads, and low-score attack-covered review routing.
+- Final/report-only roles were not used for support, threshold, or model selection.
+- Formal benchmark remains blocked until OOD-safe calibration and larger/full replay are ready.
