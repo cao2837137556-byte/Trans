@@ -1636,7 +1636,57 @@ Immediate next decision should use issue16 results to choose among:
 <!-- issue27bb -->
 ## issue27bb - Three prototype bank attack-preserving OOD gate
 
-- primary_verdict: `three_bank_gate_attack_preserved_but_ood_overbudget`
+- primary_verdict: `three_bank_gate_still_kills_attack`
 - Diagnostic only; adds ID/OOD/Attack prototype banks after raw attack score alarms.
 - Final OOD, attack eval, and dev-heavy query were not used for prototype or gate selection.
-- next action: `issue27bc_ood_veto_strengthening_with_attack_core_protection`.
+- next action: `issue27bc_attack_core_and_review_cost_repair`.
+
+<!-- model_protocol_open_problems_2026_06_05 -->
+## Model / Protocol Open Problems Before Formal Benchmark
+
+These are the current unresolved system problems. Do not treat any medium diagnostic result as a formal benchmark until these are resolved or explicitly bounded.
+
+1. **Attack-preserving OOD gate remains unresolved.**
+   - Solved so far: dev-side OOD stress can be materialized legally, and prototype gates can reduce OOD/stress hard alarms.
+   - Still open: once OOD is suppressed, report-only attack hard detection still drops too much.
+   - Next work must preserve strong attack-core alarms while suppressing only weak attack-score benign/OOD-like alarms.
+
+2. **Attack region expansion is not scalable yet.**
+   - Current diagnostics use separate medium/heavy heads as a proof of mechanism.
+   - This cannot become `one new attack region -> one new model head` in the final system.
+   - Needed: bounded region registry, top-k region routing, shared/global attack head or limited expert set, region prototypes, merge/split policy, and region-balanced weights.
+
+3. **Support bank / attack-core generalization is insufficient.**
+   - issue27bb shows support validation is strong, but report-only medium/heavy attack can still drop.
+   - This means the support bank and attack-core definition are too close to support validation and not robust enough for broader attack evaluation.
+   - Fix support-query gap before full/larger benchmark.
+
+4. **Active labeling is still a dev-side oracle simulation.**
+   - Current active labeling assumes a development stream where selected labels are available after query.
+   - Real incoming traffic may be ID, OOD benign, attack, or noise.
+   - Before system claims, run mixed-stream triage where feature-only routing decides hard/review/suppress/unknown before labels are revealed.
+
+5. **Review / unknown cost must be bounded.**
+   - Review cannot become a dumping ground for every difficult sample.
+   - Every gate must report hard alarm, review, suppress, and unknown rates by role.
+   - Review/unknown are safety states, not detection success.
+
+6. **ID/OOD/Attack prototype banks need stable online policy.**
+   - Prototype compression is required for real-time use; online detection cannot compare every sample to all ID/OOD/support rows.
+   - Still open: prototype budget, radius source, top-k region routing, update cadence, and whether banks are rebuilt or incrementally updated.
+
+7. **OOD stress coverage of final OOD tail is not fully settled.**
+   - issue27ba created a legal OOD stress pool from unused OOD-val benign files.
+   - Final OOD remains report-only and must not be used to tune gates.
+   - If legal stress pools miss final OOD tails, broaden only from development-side benign/OOD sources.
+
+8. **Training/sample-weight policy still needs freezing.**
+   - ID/OOD data are much larger than attack support; support can be drowned out, but ID/OOD cannot be underlearned.
+   - Freeze ID/OOD/support sampling, sample weights, region weights, and per-region balancing before formal benchmark.
+
+9. **Online update policy is not frozen.**
+   - The final system should not retrain for every new packet.
+   - Define when support bank expands, when prototypes update, when region registry changes, and when detector/head retraining is allowed.
+
+10. **Formal benchmark remains blocked.**
+    - Required before formal benchmark: OOD hard <= 1%, high and stable attack hard detection, bounded review cost, scalable region handling, mixed-stream realism, and larger/full 115D data contract.

@@ -2246,6 +2246,20 @@ Next:
 <!-- issue27bb -->
 ## issue27bb - Three prototype bank gate diagnostic
 
-- verdict: `three_bank_gate_attack_preserved_but_ood_overbudget`
+- verdict: `three_bank_gate_still_kills_attack`
 - purpose: test whether compressed ID/OOD/Attack prototype banks can suppress OOD drift while preserving attack core alarms.
 - outputs: `runs/issue27bb_attack_preserving_ood_gate_with_three_prototype_banks_2026-06-05/`.
+
+<!-- model_protocol_open_problems_2026_06_05 -->
+## Model / Protocol Open Problems Before Formal Benchmark
+
+- **Attack-preserving OOD gate:** OOD/stress hard alarms can be reduced, but report-only attack still drops too much.
+- **Attack region expansion:** current medium/heavy two-head design is diagnostic only; final system needs bounded region registry, top-k routing, shared/limited heads, and merge/split policy.
+- **Support bank generalization:** support validation is not enough; support-query gap still damages report-only attack.
+- **Active labeling realism:** current active labels are dev-side oracle simulation; mixed ID/OOD/attack/noise stream triage is still required.
+- **Review/unknown cost:** review and unknown must be bounded and cannot count as detection success.
+- **Prototype bank online policy:** ID/OOD/Attack prototypes need fixed budgets, radii, top-k routing, and update cadence.
+- **OOD stress coverage:** final OOD remains report-only; legal dev-side stress pools may need broadening if they miss tails.
+- **Training weights:** ID/OOD/support/region sampling and weights must be frozen before formal benchmark.
+- **Online update policy:** support expansion, prototype update, region creation/merge, and retraining cadence remain undefined.
+- **Formal benchmark block:** no formal benchmark until OOD hard <= 1%, attack hard is high/stable, review cost is bounded, region expansion is scalable, mixed-stream passes, and larger/full 115D contract is frozen.
