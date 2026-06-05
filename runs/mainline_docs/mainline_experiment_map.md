@@ -2242,3 +2242,10 @@ Next:
 - verdict: `stress_gate_kills_attack_repair_needed`
 - purpose: give OOD gate selection a harder legal dev-side benign drift signal before mixed-stream realism.
 - outputs: `runs/issue27ba_disjoint_ood_stress_pool_before_mixed_stream_2026-06-05/`.
+
+<!-- issue27bb -->
+## issue27bb - Three prototype bank gate diagnostic
+
+- verdict: `three_bank_gate_attack_preserved_but_ood_overbudget`
+- purpose: test whether compressed ID/OOD/Attack prototype banks can suppress OOD drift while preserving attack core alarms.
+- outputs: `runs/issue27bb_attack_preserving_ood_gate_with_three_prototype_banks_2026-06-05/`.

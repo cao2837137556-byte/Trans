@@ -1632,3 +1632,11 @@ Immediate next decision should use issue16 results to choose among:
 - Diagnostic only; materializes a dev-side OOD stress pool from unused OOD-val benign files.
 - Final OOD, attack eval, and dev-heavy query were not used for gate selection.
 - next action: `issue27bb_attack_preserving_ood_gate_repair_on_disjoint_stress_pool`.
+
+<!-- issue27bb -->
+## issue27bb - Three prototype bank attack-preserving OOD gate
+
+- primary_verdict: `three_bank_gate_attack_preserved_but_ood_overbudget`
+- Diagnostic only; adds ID/OOD/Attack prototype banks after raw attack score alarms.
+- Final OOD, attack eval, and dev-heavy query were not used for prototype or gate selection.
+- next action: `issue27bc_ood_veto_strengthening_with_attack_core_protection`.
