@@ -2271,3 +2271,10 @@ Next:
 - purpose: test whether attack-core purity, pseudo-query generalization, and bounded review can improve the three-bank gate without leaking final roles.
 - result note: strict purity removes OOD hard alarms but also kills attack hard alarms; next work should repair attack-region generalization/conflict handling before temporal smoothing or full runs.
 - outputs: `runs/issue27bc_attack_core_purity_unknown_band_review_budget_2026-06-07/`.
+
+<!-- issue27bd -->
+## issue27bd - Conflict-aware shell and subspace gate diagnostic
+
+- verdict: `subspace_conflict_gate_promising_attack_recovered_ood_relaxed`
+- purpose: test whether gate evidence should use a fixed Kitsune115 family subspace and pseudo-query-calibrated attack shell instead of strict full-115D purity.
+- outputs: `runs/issue27bd_conflict_aware_attack_shell_and_gate_subspace_diagnostic_2026-06-07/`.

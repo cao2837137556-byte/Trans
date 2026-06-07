@@ -1,0 +1,29 @@
+{
+  "formal_benchmark": false,
+  "issue": "issue27bd_conflict_aware_attack_shell_and_gate_subspace_diagnostic_2026-06-07",
+  "primary_verdict": "subspace_conflict_gate_promising_attack_recovered_ood_relaxed",
+  "role_policy": "final/report-only roles never tune support, prototypes, gate, review budget, thresholds, or model selection",
+  "selected_config": {
+    "active_label_budget": 64,
+    "attack_outer_norm": 1.0,
+    "bank_radius_q": 0.95,
+    "benign_core_norm": 0.75,
+    "conflict_slack": 1.0,
+    "proto_budget": 32,
+    "review_budget": 0.03,
+    "strong_score_q": 0.0,
+    "subspace_name": "HH",
+    "weak_score_q": 0.25
+  },
+  "state_strategy": "reset_at_split_boundary",
+  "subspace_names": [
+    "MI_dir",
+    "H",
+    "HH",
+    "HH_jit",
+    "HpHp",
+    "HH_HpHp",
+    "MI_H_HHjit",
+    "all115"
+  ]
+}

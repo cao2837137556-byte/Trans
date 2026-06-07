@@ -1700,3 +1700,12 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - Key result: raw attack alarms remain high, but strict pure-attack-core hard alarms collapse to 0 because attack rows are also near benign/OOD prototypes and become conflict/overflow.
 - Final OOD, medium attack eval, and dev-heavy query remained report-only.
 - next action: `issue27bd_attack_region_generalization_before_temporal_gate`.
+
+<!-- issue27bd -->
+## issue27bd - Conflict-aware attack shell and gate subspace diagnostic
+
+- primary_verdict: `subspace_conflict_gate_promising_attack_recovered_ood_relaxed`
+- selected prototype gate subspace: `HH`; raw detector remains full Kitsune115.
+- Added pseudo-query-calibrated outer attack shell and conflict-aware hard override.
+- Final OOD, medium attack eval, and dev-heavy query remained report-only.
+- next action: `issue27be_past_only_temporal_consistency_on_conflict_gate`.
