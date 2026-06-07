@@ -1,0 +1,6 @@
+strategy,role,state_log_rows,feature_rows_emitted,unique_state_hash_before_count_global,global_nonzero_pre_record_rows,global_pre_record_packets_total,role_nonzero_pre_record_rows,role_pre_record_packets_total,global_non_reset_state_id_rows,reset_at_split_boundary_pass,pre_record_packets_allowed_as_past_only_fast_forward,audit_meaning
+reset_at_split_boundary,attack_eval,3,2400,1,6,8173,3,4312,0,True,True,"state is reset per role/file; pre_record packets are same-file past fast-forward before emitted rows, not cross-split carryover"
+reset_at_split_boundary,attack_support,3,2400,1,6,8173,3,3861,0,True,True,"state is reset per role/file; pre_record packets are same-file past fast-forward before emitted rows, not cross-split carryover"
+reset_at_split_boundary,final_ood_benign_eval,4,3200,1,6,8173,0,0,0,True,True,"state is reset per role/file; pre_record packets are same-file past fast-forward before emitted rows, not cross-split carryover"
+reset_at_split_boundary,id_benign_train,4,3200,1,6,8173,0,0,0,True,True,"state is reset per role/file; pre_record packets are same-file past fast-forward before emitted rows, not cross-split carryover"
+reset_at_split_boundary,ood_benign_val,4,3200,1,6,8173,0,0,0,True,True,"state is reset per role/file; pre_record packets are same-file past fast-forward before emitted rows, not cross-split carryover"

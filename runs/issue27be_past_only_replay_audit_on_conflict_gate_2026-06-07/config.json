@@ -1,0 +1,21 @@
+{
+  "formal_benchmark": false,
+  "issue": "issue27be_past_only_replay_audit_on_conflict_gate_2026-06-07",
+  "next_action": "issue27bf_bounded_attack_region_bank",
+  "primary_verdict": "past_only_replay_passed_with_dev_pseudo_caveat_ready_for_attack_region_bank",
+  "pseudo_query_caveat": true,
+  "role_policy": "final/report-only roles are replay-only after gate freeze",
+  "selected_config": {
+    "active_label_budget": 64,
+    "attack_outer_norm": 1.0,
+    "bank_radius_q": 0.95,
+    "benign_core_norm": 0.75,
+    "conflict_slack": 1.0,
+    "proto_budget": 32,
+    "review_budget": 0.03,
+    "strong_score_q": 0.0,
+    "subspace_name": "HH",
+    "weak_score_q": 0.25
+  },
+  "source_issue": "issue27bd_conflict_aware_attack_shell_and_gate_subspace_diagnostic_2026-06-07"
+}

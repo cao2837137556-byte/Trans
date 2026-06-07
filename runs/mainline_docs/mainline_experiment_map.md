@@ -2278,3 +2278,10 @@ Next:
 - verdict: `subspace_conflict_gate_promising_attack_recovered_ood_relaxed`
 - purpose: test whether gate evidence should use a fixed Kitsune115 family subspace and pseudo-query-calibrated attack shell instead of strict full-115D purity.
 - outputs: `runs/issue27bd_conflict_aware_attack_shell_and_gate_subspace_diagnostic_2026-06-07/`.
+
+<!-- issue27be -->
+## issue27be - Frozen past-only replay audit
+
+- verdict: `past_only_replay_passed_with_dev_pseudo_caveat_ready_for_attack_region_bank`
+- outputs: `runs/issue27be_past_only_replay_audit_on_conflict_gate_2026-06-07/`.
+- no full/larger benchmark and no temporal smoothing; proceed to bounded attack region bank if continuing.

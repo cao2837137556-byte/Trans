@@ -1709,3 +1709,12 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - Added pseudo-query-calibrated outer attack shell and conflict-aware hard override.
 - Final OOD, medium attack eval, and dev-heavy query remained report-only.
 - next action: `issue27be_past_only_temporal_consistency_on_conflict_gate`.
+
+<!-- issue27be -->
+## issue27be - Past-only replay audit on conflict gate
+
+- primary_verdict: `past_only_replay_passed_with_dev_pseudo_caveat_ready_for_attack_region_bank`
+- purpose: replay the frozen issue27bd conflict-aware shell gate under role-access and past-only visibility audit.
+- replay matches issue27bd metrics: `True`; forbidden role access: `False`.
+- caveat: dev-side pseudo-query rows remain part of gate calibration, so this is diagnostic rather than formal.
+- next action: `issue27bf_bounded_attack_region_bank`.
