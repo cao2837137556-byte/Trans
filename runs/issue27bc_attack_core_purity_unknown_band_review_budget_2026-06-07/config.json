@@ -1,0 +1,50 @@
+{
+  "active_label_budgets": [
+    64,
+    128
+  ],
+  "attack_core_norms": [
+    0.75,
+    1.0,
+    1.25
+  ],
+  "bank_radius_qs": [
+    0.95
+  ],
+  "benign_core_norms": [
+    0.75,
+    1.0,
+    1.25,
+    1.5
+  ],
+  "formal_benchmark": false,
+  "issue": "issue27bc_attack_core_purity_unknown_band_review_budget_2026-06-07",
+  "primary_verdict": "pseudo_query_reveals_support_core_overfit",
+  "proto_budgets": [
+    32,
+    64
+  ],
+  "review_budgets": [
+    0.01,
+    0.03,
+    0.05,
+    0.1
+  ],
+  "selected_config": {
+    "active_label_budget": 64,
+    "attack_core_norm": 0.75,
+    "bank_radius_q": 0.95,
+    "benign_core_norm": 0.75,
+    "proto_budget": 32,
+    "review_budget": 0.01,
+    "strong_score_q": 0.0,
+    "unknown_norm": 1.25,
+    "weak_score_q": 0.25
+  },
+  "state_strategy": "reset_at_split_boundary",
+  "unknown_norms": [
+    1.25,
+    1.5,
+    2.0
+  ]
+}

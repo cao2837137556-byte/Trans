@@ -1690,3 +1690,13 @@ These are the current unresolved system problems. Do not treat any medium diagno
 
 10. **Formal benchmark remains blocked.**
     - Required before formal benchmark: OOD hard <= 1%, high and stable attack hard detection, bounded review cost, scalable region handling, mixed-stream realism, and larger/full 115D data contract.
+
+<!-- issue27bc -->
+## issue27bc - Attack-core purity, unknown band, and review budget
+
+- primary_verdict: `pseudo_query_reveals_support_core_overfit`
+- Added file-held-out pseudo-query on dev attack support to reduce support-val overfitting.
+- Added prototype purity states: hard_alarm, suppress, review_conflict, review_unknown, review_overflow_no_alarm.
+- Key result: raw attack alarms remain high, but strict pure-attack-core hard alarms collapse to 0 because attack rows are also near benign/OOD prototypes and become conflict/overflow.
+- Final OOD, medium attack eval, and dev-heavy query remained report-only.
+- next action: `issue27bd_attack_region_generalization_before_temporal_gate`.

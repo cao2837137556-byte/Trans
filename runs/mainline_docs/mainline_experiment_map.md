@@ -2263,3 +2263,11 @@ Next:
 - **Training weights:** ID/OOD/support/region sampling and weights must be frozen before formal benchmark.
 - **Online update policy:** support expansion, prototype update, region creation/merge, and retraining cadence remain undefined.
 - **Formal benchmark block:** no formal benchmark until OOD hard <= 1%, attack hard is high/stable, review cost is bounded, region expansion is scalable, mixed-stream passes, and larger/full 115D contract is frozen.
+
+<!-- issue27bc -->
+## issue27bc - Prototype purity and unknown-band gate diagnostic
+
+- verdict: `pseudo_query_reveals_support_core_overfit`
+- purpose: test whether attack-core purity, pseudo-query generalization, and bounded review can improve the three-bank gate without leaking final roles.
+- result note: strict purity removes OOD hard alarms but also kills attack hard alarms; next work should repair attack-region generalization/conflict handling before temporal smoothing or full runs.
+- outputs: `runs/issue27bc_attack_core_purity_unknown_band_review_budget_2026-06-07/`.
