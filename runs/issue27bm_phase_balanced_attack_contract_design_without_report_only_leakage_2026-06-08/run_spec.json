@@ -1,0 +1,15 @@
+{
+  "stage": "data-contract audit",
+  "no_model_training": true,
+  "no_formal_benchmark": true,
+  "no_ood_gate_repair": true,
+  "forbidden_roles": [
+    "attack_eval",
+    "final_ood_benign_eval",
+    "dev_heavy_query_after_active_labeling"
+  ],
+  "allowed_pools": [
+    "attack_support",
+    "dev_heavy_active_candidate_after_manual_confirmation"
+  ]
+}

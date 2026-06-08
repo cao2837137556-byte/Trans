@@ -2342,3 +2342,11 @@ Next:
 - Primary verdict: `attack_phase_contract_mismatch_needs_rebuild_before_more_heads`.
 - Formal benchmark status: blocked.
 - OOD-gate repair remains blocked.
+
+## issue27bm - phase-balanced attack contract design
+
+<!-- issue27bm_phase_balanced_attack_contract_design -->
+- Stage: data-contract audit before more model/head repair.
+- Primary verdict: `phase_balanced_contract_ready_for_attack_only_diagnostic_with_tail_gap_caveat`.
+- Formal benchmark status: blocked.
+- Attack_eval/final/report-only roles remain sealed for selection.

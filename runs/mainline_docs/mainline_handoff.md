@@ -1784,3 +1784,13 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - No 115D frontend/split/support pool changes; no model training.
 - Report-only roles were attribution-only and not used for selection.
 - Next action: `issue27bm_phase_balanced_attack_contract_design_without_report_only_leakage`.
+
+## issue27bm - phase-balanced attack contract design
+
+<!-- issue27bm_phase_balanced_attack_contract_design -->
+- Verdict: `phase_balanced_contract_ready_for_attack_only_diagnostic_with_tail_gap_caveat`.
+- Rebuilt a legal development-side attack support/val/pseudo-query contract without using `attack_eval` labels or final/report-only roles.
+- Primary contract: `phase_balanced_dev_v2`; support/val/pseudo rows: `128` / `64` / `1024`.
+- Tail/late phase gap remains: `True`; this is for attack-only diagnostic, not formal benchmark.
+- OOD-gate repair remains blocked.
+- Next action: `issue27bn_attack_only_diagnostic_on_phase_balanced_contract_without_ood_gate`.

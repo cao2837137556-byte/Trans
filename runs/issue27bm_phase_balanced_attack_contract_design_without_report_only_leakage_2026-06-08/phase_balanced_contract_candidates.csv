@@ -1,0 +1,4 @@
+contract_id,support_train_rows,support_val_rows,pseudo_query_dev_rows,selector_policy,uses_attack_eval_labels,uses_attack_eval_features,uses_final_ood,uses_dev_heavy_query,tail_phase_available
+phase_balanced_dev_v2,128,64,1024,phase/file/source stratified; train/val/pseudo split by recorded_index with embargo; kcenter only inside legal dev-side buckets,False,False,False,False,False
+medium_only_phase_balanced_control,96,48,512,phase/file/source stratified; train/val/pseudo split by recorded_index with embargo; kcenter only inside legal dev-side buckets,False,False,False,False,False
+heavy_active_phase_balanced_control,64,32,512,phase/file/source stratified; train/val/pseudo split by recorded_index with embargo; kcenter only inside legal dev-side buckets,False,False,False,False,False

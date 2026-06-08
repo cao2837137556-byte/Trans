@@ -1,0 +1,54 @@
+{
+  "issue": "issue27bm_phase_balanced_attack_contract_design_without_report_only_leakage_2026-06-08",
+  "primary_contract": "phase_balanced_dev_v2",
+  "primary_verdict": "phase_balanced_contract_ready_for_attack_only_diagnostic_with_tail_gap_caveat",
+  "support_train_budget": 128,
+  "support_val_budget": 64,
+  "pseudo_query_budget": 1024,
+  "embargo_rows": 5,
+  "selection_policy": "legal dev-side attack pool only; no attack_eval/final/dev_query role labels or features used",
+  "contracts": {
+    "phase_balanced_dev_v2": {
+      "support_train": {
+        "rows": 128,
+        "global_id_hash": "d8ed69373bda8fde25208e3e950534600a64494330b6073c353bd4c2ab8c8d80"
+      },
+      "support_val": {
+        "rows": 64,
+        "global_id_hash": "d1397be45bac2b8fb0fefd666d798e6b69b3a6ae7809c5f62899c0295cadc8e8"
+      },
+      "pseudo_query_dev": {
+        "rows": 1024,
+        "global_id_hash": "9ae14ac94bf1d46f291a977c7be0f631d565162d9ff24d92c94106cb785a652d"
+      }
+    },
+    "medium_only_phase_balanced_control": {
+      "support_train": {
+        "rows": 96,
+        "global_id_hash": "425f7cc0bdf13ecf5027b59a896d023f0f2ba4077cc2c5f1bac65b0e182ff3c0"
+      },
+      "support_val": {
+        "rows": 48,
+        "global_id_hash": "e11711f427a35bfc3ce3afd69b2905e3bff9a719ff27a85656c7c0ecc26956d4"
+      },
+      "pseudo_query_dev": {
+        "rows": 512,
+        "global_id_hash": "6272e4ce68ad457fdf2497df94759688f3e42a114bf60d396ad412f2d77e027e"
+      }
+    },
+    "heavy_active_phase_balanced_control": {
+      "support_train": {
+        "rows": 64,
+        "global_id_hash": "682230d2b91b757a53d262b70fbf4f6df0707b7aa51d73954437369e8e246f7e"
+      },
+      "support_val": {
+        "rows": 32,
+        "global_id_hash": "cb853f03066e876d5575baa1e66b289c6656e05560272dc79f8d30030522854b"
+      },
+      "pseudo_query_dev": {
+        "rows": 512,
+        "global_id_hash": "f1c0b082de04b1e3773107810a386f54b8a9d9deae4612ab22ba5caffb7fbd68"
+      }
+    }
+  }
+}

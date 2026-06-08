@@ -1,0 +1,13 @@
+pool_name,source_asset,csv_member,phase_bucket,rows,recorded_index_min,recorded_index_max,attack_types,device_hints
+medium_attack_support_role_eligible,medium_attack_support_role,processed/iotsim-air-quality-1.csv,early_50_499,450,50,499,mirai-infection:450,air-quality:450
+medium_attack_support_role_eligible,medium_attack_support_role,processed/iotsim-air-quality-1.csv,mid_500_1999,300,500,799,mirai-infection:300,air-quality:300
+medium_attack_support_role_eligible,medium_attack_support_role,processed/iotsim-city-power-1.csv,early_50_499,450,50,499,mirai-infection:450,city-power:450
+medium_attack_support_role_eligible,medium_attack_support_role,processed/iotsim-city-power-1.csv,mid_500_1999,300,500,799,mirai-infection:300,city-power:300
+medium_attack_support_role_eligible,medium_attack_support_role,processed/iotsim-combined-cycle-10.csv,early_50_499,450,50,499,mirai-infection:450,combined-cycle:450
+medium_attack_support_role_eligible,medium_attack_support_role,processed/iotsim-combined-cycle-10.csv,mid_500_1999,300,500,799,mirai-infection:300,combined-cycle:300
+heavy_active_labeled_candidate_stream_eligible,heavy_active_labeled_candidate_stream,processed/iotsim-ip-camera-museum-1.csv,early_50_499,450,50,499,mirai-infection:450,ip-camera-museum:450
+heavy_active_labeled_candidate_stream_eligible,heavy_active_labeled_candidate_stream,processed/iotsim-ip-camera-museum-1.csv,mid_500_1999,500,500,999,mirai-infection:500,ip-camera-museum:500
+heavy_active_labeled_candidate_stream_eligible,heavy_active_labeled_candidate_stream,processed/iotsim-ip-camera-street-1.csv,early_50_499,450,50,499,mirai-infection:450,ip-camera-street:450
+heavy_active_labeled_candidate_stream_eligible,heavy_active_labeled_candidate_stream,processed/iotsim-ip-camera-street-1.csv,mid_500_1999,500,500,999,mirai-infection:500,ip-camera-street:500
+warmup_edge_excluded,heavy_active_labeled_candidate_stream,processed/iotsim-ip-camera-museum-1.csv,warmup_edge_0_49,50,0,49,mirai-infection:50,ip-camera-museum:50
+warmup_edge_excluded,heavy_active_labeled_candidate_stream,processed/iotsim-ip-camera-street-1.csv,warmup_edge_0_49,50,0,49,mirai-infection:50,ip-camera-street:50
