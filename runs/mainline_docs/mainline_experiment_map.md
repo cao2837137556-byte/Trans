@@ -2334,3 +2334,11 @@ Next:
 - Boundary verdict: `task_boundary_high_distribution_shift_no_role_leakage`.
 - Formal benchmark status: blocked.
 - OOD-gate repair remains blocked unless attack hard-min reaches `0.93`.
+
+## issue27bl - attack phase/onset/pseudo-query contract audit
+
+<!-- issue27bl_attack_phase_onset_pseudo_contract_audit -->
+- Stage: data-contract audit before more head repair.
+- Primary verdict: `attack_phase_contract_mismatch_needs_rebuild_before_more_heads`.
+- Formal benchmark status: blocked.
+- OOD-gate repair remains blocked.

@@ -1775,3 +1775,12 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - 115D frontend, split, and support pool were not changed.
 - Final/report-only roles were attribution/replay only and not used for selection.
 - Next action: `issue27bl_task_boundary_or_attack_label_phase_audit_before_more_heads`.
+
+## issue27bl - attack phase/onset/pseudo-query contract audit
+
+<!-- issue27bl_attack_phase_onset_pseudo_contract_audit -->
+- Verdict: `attack_phase_contract_mismatch_needs_rebuild_before_more_heads`.
+- high-risk overlap flags: `15`; phase contract needs rebuild: `True`.
+- No 115D frontend/split/support pool changes; no model training.
+- Report-only roles were attribution-only and not used for selection.
+- Next action: `issue27bm_phase_balanced_attack_contract_design_without_report_only_leakage`.
