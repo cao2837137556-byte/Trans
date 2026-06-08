@@ -2301,3 +2301,10 @@ Next:
 - outputs: `runs/issue27bg_shared_scorer_region_refinement_before_ood_gate_2026-06-08/`.
 - no 115D frontend or split changes; no full/larger formal benchmark.
 - attack hard min gate 0.93 passed: `False`.
+
+<!-- issue27bh -->
+## issue27bh - Attack-side failure anatomy
+
+- verdict: `support_query_gap_primary_blocker_before_new_head`
+- outputs: `runs/issue27bh_attack_scorer_region_failure_anatomy_before_new_head_2026-06-08/`.
+- no new head is selected here; this is anatomy before scorer redesign.

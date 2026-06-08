@@ -1739,3 +1739,12 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - OOD stress hard max: `0.0`; final OOD hard max report-only: `0.0006666666666666666`.
 - formal benchmark remains disallowed.
 - next action: `issue27bh_attack_scorer_region_design_rethink_before_ood_gate`.
+
+<!-- issue27bh -->
+## issue27bh - Attack scorer/region failure anatomy before new head
+
+- primary_verdict: `support_query_gap_primary_blocker_before_new_head`
+- purpose: decompose attack-side failure across raw scorer, support-query gap, region/gate, and feature-family evidence.
+- dominant two-head failure layer: `raw_score_layer`; dominant shared failure layer: `raw_score_layer`.
+- no 115D frontend/split changes; no OOD-gate repair; no formal benchmark.
+- next action: `issue27bi_region_aware_metric_or_calibrated_two_head_design`.
