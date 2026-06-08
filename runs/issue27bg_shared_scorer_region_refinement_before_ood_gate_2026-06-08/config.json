@@ -1,0 +1,39 @@
+{
+  "active_label_budget": 64,
+  "attack_go_threshold": 0.93,
+  "issue": "issue27bg_shared_scorer_region_refinement_before_ood_gate_2026-06-08",
+  "ood_stress_guard": 0.02,
+  "primary_strategy": "reset_at_split_boundary",
+  "primary_verdict": "shared_scorer_no_sufficient_attack_recovery",
+  "report_only_selection_forbidden": true,
+  "review_guard": 0.05,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "selected_config": {
+    "attack_outer_norm": 1.0,
+    "benign_core_norm": 0.75,
+    "conflict_slack": 1.0,
+    "inner_radius_q": 0.75,
+    "outer_radius_q": 0.95,
+    "prototype_budget": 128,
+    "region_max": 8,
+    "region_policy": "cluster_kcenter",
+    "review_budget": 0.03,
+    "scorer_kind": "shared_histgb",
+    "subspace_name": "HH_HpHp",
+    "top_k": 3,
+    "weighting_policy": "medium_region_boost"
+  },
+  "weighting_policies": [
+    "uniform_sample",
+    "equal_region_total",
+    "medium_region_boost",
+    "attack_total_parity",
+    "medium_dominant_parity"
+  ]
+}

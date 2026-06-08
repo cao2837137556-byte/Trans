@@ -1729,3 +1729,13 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - attack >=0.93 gate passed: `False`; bottleneck is medium/pseudo-medium retention, not OOD stress or review budget.
 - formal benchmark remains disallowed.
 - next action: `issue27bg_shared_scorer_region_refinement_before_ood_gate`; do not enter OOD repair until attack hard min reaches at least `0.93`.
+
+<!-- issue27bg -->
+## issue27bg - Shared scorer region refinement before OOD gate
+
+- primary_verdict: `shared_scorer_no_sufficient_attack_recovery`
+- purpose: replace the issue27bd/issue27bf two-head raw scorer with one shared 115D HistGB attack scorer plus bounded region evidence.
+- dev attack hard min: `0.6428571428571429`; report-only attack hard min: `0.4062222222222222`.
+- OOD stress hard max: `0.0`; final OOD hard max report-only: `0.0006666666666666666`.
+- formal benchmark remains disallowed.
+- next action: `issue27bh_attack_scorer_region_design_rethink_before_ood_gate`.

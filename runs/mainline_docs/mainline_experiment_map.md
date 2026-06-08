@@ -2293,3 +2293,11 @@ Next:
 - outputs: `runs/issue27bf_bounded_attack_region_bank_2026-06-08/`.
 - no 115D frontend or split changes; no full/larger formal benchmark.
 - attack hard min remained `0.6428571428571429`, below the `0.93` attack-side gate; next step is shared-scorer / region-refinement before any OOD-gate repair.
+
+<!-- issue27bg -->
+## issue27bg - Shared scorer region refinement diagnostic
+
+- verdict: `shared_scorer_no_sufficient_attack_recovery`
+- outputs: `runs/issue27bg_shared_scorer_region_refinement_before_ood_gate_2026-06-08/`.
+- no 115D frontend or split changes; no full/larger formal benchmark.
+- attack hard min gate 0.93 passed: `False`.
