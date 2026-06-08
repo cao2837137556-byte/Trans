@@ -1757,3 +1757,11 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - 115D frontend, split, and support pool were not changed.
 - Final/report-only roles were score-only replay and not used for selection.
 - Next action: `issue27bj_metric_head_refinement_or_task_boundary_audit_before_ood_gate`.
+
+## issue27bj research design - Kitsune115 evidence decomposition
+
+<!-- issue27bj_deep_research_kitsune115_system_design -->
+- Status: research/design report only; no model run and no benchmark result.
+- Recommendation: next technical experiment should be a small `metric evidence + prototype shell + bounded controller` smoke, not another threshold/shared-HistGB/OOD-gate tuning pass.
+- Rationale: issue27bh/issue27bi point to support-query gap and raw attack evidence instability, so OOD gate repair remains blocked until legal dev attack hard-min reaches `0.93`.
+- Output directory: `runs/issue27bj_deep_research_kitsune115_system_design_2026-06-08/`.

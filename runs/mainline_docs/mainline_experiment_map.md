@@ -2317,3 +2317,11 @@ Next:
 - Attack gate threshold remains `0.93` before any OOD repair/full benchmark.
 - Candidate families: calibrated two-head margin, logistic score fusion, LDA metric prototype.
 - Current formal benchmark status: blocked.
+
+## issue27bj research design - Kitsune115 evidence decomposition
+
+<!-- issue27bj_deep_research_kitsune115_system_design -->
+- Stage: research/design gate before the next issue27bj implementation.
+- Outputs: `research_report.md`, `method_candidate_table.csv`, `issue27bj_next_action.md`, `online_cost_model.md`, `risk_and_failure_modes.md`, `paper_claim_boundary.md`.
+- Recommended experiment: `issue27bj_metric_evidence_shell_controller_smoke_2026-06-08`.
+- Formal benchmark status: still blocked; no OOD-gate repair until attack hard-min `>=0.93`.
