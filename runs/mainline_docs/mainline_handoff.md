@@ -1765,3 +1765,13 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - Recommendation: next technical experiment should be a small `metric evidence + prototype shell + bounded controller` smoke, not another threshold/shared-HistGB/OOD-gate tuning pass.
 - Rationale: issue27bh/issue27bi point to support-query gap and raw attack evidence instability, so OOD gate repair remains blocked until legal dev attack hard-min reaches `0.93`.
 - Output directory: `runs/issue27bj_deep_research_kitsune115_system_design_2026-06-08/`.
+
+## issue27bk - task boundary then metric shell smoke
+
+<!-- issue27bk_task_boundary_then_metric_shell_smoke -->
+- Verdict: `metric_shell_no_attack_recovery_task_boundary_audit_next`.
+- Boundary verdict: `task_boundary_high_distribution_shift_no_role_leakage`.
+- dev attack hard-min: `0.5606060606060606`; report-only attack hard-min: `0.10355555555555555`; review max: `0.03`.
+- 115D frontend, split, and support pool were not changed.
+- Final/report-only roles were attribution/replay only and not used for selection.
+- Next action: `issue27bl_task_boundary_or_attack_label_phase_audit_before_more_heads`.

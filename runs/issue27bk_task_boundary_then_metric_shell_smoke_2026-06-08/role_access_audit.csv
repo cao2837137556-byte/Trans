@@ -1,0 +1,4 @@
+phase,allowed_roles,forbidden_selection_roles,forbidden_access_detected,note
+task_boundary_audit,all roles for attribution tables,final_ood|medium_attack_eval_report_only|dev_heavy_query_report_only|attack_eval,False,report-only roles used for attribution only
+metric_training_and_controller_selection,id_fit|id_calib|ood_train|ood_val|ood_stress_train|ood_stress_val|medium_support_train_val_pseudo|heavy_support_train_val_pseudo,final_ood|medium_attack_eval_report_only|dev_heavy_query_report_only|attack_eval,False,controller selected on dev-only roles
+report_only_replay,final_ood|medium_attack_eval_report_only|dev_heavy_query_report_only,none,False,score/replay only after dev-side rule selection

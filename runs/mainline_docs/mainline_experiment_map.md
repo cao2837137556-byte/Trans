@@ -2325,3 +2325,12 @@ Next:
 - Outputs: `research_report.md`, `method_candidate_table.csv`, `issue27bj_next_action.md`, `online_cost_model.md`, `risk_and_failure_modes.md`, `paper_claim_boundary.md`.
 - Recommended experiment: `issue27bj_metric_evidence_shell_controller_smoke_2026-06-08`.
 - Formal benchmark status: still blocked; no OOD-gate repair until attack hard-min `>=0.93`.
+
+## issue27bk - task boundary then metric shell smoke
+
+<!-- issue27bk_task_boundary_then_metric_shell_smoke -->
+- Stage: medium diagnostic before any OOD-gate repair.
+- Primary verdict: `metric_shell_no_attack_recovery_task_boundary_audit_next`.
+- Boundary verdict: `task_boundary_high_distribution_shift_no_role_leakage`.
+- Formal benchmark status: blocked.
+- OOD-gate repair remains blocked unless attack hard-min reaches `0.93`.
