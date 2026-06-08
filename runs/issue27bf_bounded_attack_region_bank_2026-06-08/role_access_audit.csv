@@ -1,0 +1,5 @@
+object,operation,source_roles,uses_final_ood,uses_attack_eval,uses_dev_heavy_query,forbidden_selection_access,notes
+raw_scorer,replay_existing_issue27bd_two_head_score,id_fit|ood_train|medium_attack_train|active_heavy_attack_train,False,False,False,False,bank-only run; no new shared scorer is trained
+attack_region_bank,prototype_radius_score_floor_selection,medium_train|medium_val|medium_pseudo|heavy_train|heavy_val|heavy_pseudo,False,False,False,False,dev pseudo-query is a diagnostic caveat; clean final roles remain sealed
+grid_selection,select_bank_config,id_calib|ood_val|ood_stress_val|support_medium_val|support_heavy_val|pseudo_medium_query|pseudo_heavy_query,False,False,False,False,"requires OOD stress <=2%, review <=5%, then maximizes dev attack hard min"
+report_only_replay,score_only_after_frozen_bank,final_ood_report_only|medium_attack_eval_report_only|dev_heavy_query_report_only,True,True,True,False,report-only roles are never used for selection

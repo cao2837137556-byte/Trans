@@ -1,0 +1,26 @@
+{
+  "attack_go_threshold": 0.93,
+  "bank_only": true,
+  "formal_benchmark": false,
+  "issue": "issue27bf_bounded_attack_region_bank_2026-06-08",
+  "ood_stress_guard": 0.02,
+  "primary_verdict": "bounded_attack_bank_heavy_gain_medium_retention_failure",
+  "raw_scorer": "issue27bd_full115_two_head_score",
+  "review_guard": 0.05,
+  "role_policy": "final/report-only roles are replay-only after bank selection",
+  "selected_config": {
+    "attack_outer_norm": 1.0,
+    "benign_core_norm": 0.75,
+    "conflict_slack": 1.0,
+    "inner_radius_q": 0.75,
+    "outer_radius_q": 0.95,
+    "prototype_budget": 128,
+    "region_balance": "equal_region_total",
+    "region_max": 8,
+    "region_policy": "cluster_kcenter",
+    "review_budget": 0.03,
+    "score_floor_q": 0.0,
+    "subspace_name": "HH_HpHp",
+    "top_k": 3
+  }
+}

@@ -2285,3 +2285,11 @@ Next:
 - verdict: `past_only_replay_passed_with_dev_pseudo_caveat_ready_for_attack_region_bank`
 - outputs: `runs/issue27be_past_only_replay_audit_on_conflict_gate_2026-06-07/`.
 - no full/larger benchmark and no temporal smoothing; proceed to bounded attack region bank if continuing.
+
+<!-- issue27bf -->
+## issue27bf - Bounded attack region bank diagnostic
+
+- verdict: `bounded_attack_bank_heavy_gain_medium_retention_failure`
+- outputs: `runs/issue27bf_bounded_attack_region_bank_2026-06-08/`.
+- no 115D frontend or split changes; no full/larger formal benchmark.
+- attack hard min remained `0.6428571428571429`, below the `0.93` attack-side gate; next step is shared-scorer / region-refinement before any OOD-gate repair.

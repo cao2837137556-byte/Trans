@@ -1718,3 +1718,14 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - replay matches issue27bd metrics: `True`; forbidden role access: `False`.
 - caveat: dev-side pseudo-query rows remain part of gate calibration, so this is diagnostic rather than formal.
 - next action: `issue27bf_bounded_attack_region_bank`.
+
+<!-- issue27bf -->
+## issue27bf - Bounded attack region bank
+
+- primary_verdict: `bounded_attack_bank_heavy_gain_medium_retention_failure`
+- purpose: test a bank-only bounded attack region memory with top-k routing while preserving the issue27bd full-115D raw score.
+- dev attack hard min: `0.6428571428571429`; report-only attack hard min: `0.6415`.
+- OOD stress hard max: `0.002456140350877193`; final OOD hard max report-only: `0.154`.
+- attack >=0.93 gate passed: `False`; bottleneck is medium/pseudo-medium retention, not OOD stress or review budget.
+- formal benchmark remains disallowed.
+- next action: `issue27bg_shared_scorer_region_refinement_before_ood_gate`; do not enter OOD repair until attack hard min reaches at least `0.93`.
