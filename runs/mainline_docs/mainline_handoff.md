@@ -1748,3 +1748,12 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - dominant two-head failure layer: `raw_score_layer`; dominant shared failure layer: `raw_score_layer`.
 - no 115D frontend/split changes; no OOD-gate repair; no formal benchmark.
 - next action: `issue27bi_region_aware_metric_or_calibrated_two_head_design`.
+
+## issue27bi - region-aware metric/calibrated two-head diagnostic
+
+<!-- issue27bi_region_aware_metric_or_calibrated_two_head_design -->
+- Verdict: `metric_or_calibrated_two_head_no_sufficient_attack_recovery`.
+- Best candidate: `logistic_twohead_fusion_uniform_rows__ood_val_only` with dev attack hard-min `0.6428571428571429` and report-only attack hard-min `0.9373333333333334`.
+- 115D frontend, split, and support pool were not changed.
+- Final/report-only roles were score-only replay and not used for selection.
+- Next action: `issue27bj_metric_head_refinement_or_task_boundary_audit_before_ood_gate`.

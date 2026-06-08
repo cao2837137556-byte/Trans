@@ -2308,3 +2308,12 @@ Next:
 - verdict: `support_query_gap_primary_blocker_before_new_head`
 - outputs: `runs/issue27bh_attack_scorer_region_failure_anatomy_before_new_head_2026-06-08/`.
 - no new head is selected here; this is anatomy before scorer redesign.
+
+## issue27bi - region-aware metric/calibrated two-head diagnostic
+
+<!-- issue27bi_region_aware_metric_or_calibrated_two_head_design -->
+- Stage: medium diagnostic before OOD gate repair.
+- Primary verdict: `metric_or_calibrated_two_head_no_sufficient_attack_recovery`.
+- Attack gate threshold remains `0.93` before any OOD repair/full benchmark.
+- Candidate families: calibrated two-head margin, logistic score fusion, LDA metric prototype.
+- Current formal benchmark status: blocked.

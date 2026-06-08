@@ -1,0 +1,25 @@
+{
+  "active_label_budget": 64,
+  "attack_go_threshold": 0.93,
+  "best_candidate": "logistic_twohead_fusion_uniform_rows__ood_val_only",
+  "candidate_families": [
+    "calibrated_two_head_margin",
+    "logistic_twohead_fusion",
+    "lda_metric_prototype"
+  ],
+  "issue": "issue27bi_region_aware_metric_or_calibrated_two_head_design_2026-06-08",
+  "primary_verdict": "metric_or_calibrated_two_head_no_sufficient_attack_recovery",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "selection_roles_forbidden": [
+    "final_ood_benign_eval",
+    "attack_eval",
+    "dev_heavy_query_report_only",
+    "medium_attack_eval_report_only"
+  ]
+}
