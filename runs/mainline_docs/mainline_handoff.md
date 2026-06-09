@@ -1794,3 +1794,12 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - Tail/late phase gap remains: `True`; this is for attack-only diagnostic, not formal benchmark.
 - OOD-gate repair remains blocked.
 - Next action: `issue27bn_attack_only_diagnostic_on_phase_balanced_contract_without_ood_gate`.
+
+## issue27bn - attack-only diagnostic on phase-balanced contract
+
+<!-- issue27bn_attack_only_diagnostic -->
+- Verdict: `phase_balanced_attack_diagnostic_recovers_dev_and_report_only_attack`.
+- Best dev candidate: `old_weighted_id_ood_support_w4` + `id_calib_alarm_0.01` with dev attack min `0.984375`.
+- Report-only attack min under best dev candidate: `0.992`.
+- No OOD-gate repair, no 115D/split changes, and no final/report-only selection.
+- Next action: `issue27bo_ood_gate_repair_after_attack_contract_recovery`.

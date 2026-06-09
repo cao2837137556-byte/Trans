@@ -1,0 +1,22 @@
+{
+  "stage": "attack-only diagnostic",
+  "formal_benchmark": false,
+  "ood_gate_repair": false,
+  "fit_roles": [
+    "id_fit",
+    "ood_train_if_fit_mode_allows",
+    "phase_balanced_support_train"
+  ],
+  "threshold_roles": [
+    "support_val",
+    "id_calib"
+  ],
+  "dev_diagnostic_roles": [
+    "pseudo_query_dev"
+  ],
+  "report_only_roles": [
+    "attack_eval",
+    "dev_heavy_query",
+    "final_ood"
+  ]
+}

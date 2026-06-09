@@ -2350,3 +2350,11 @@ Next:
 - Primary verdict: `phase_balanced_contract_ready_for_attack_only_diagnostic_with_tail_gap_caveat`.
 - Formal benchmark status: blocked.
 - Attack_eval/final/report-only roles remain sealed for selection.
+
+## issue27bn - attack-only diagnostic on phase-balanced contract
+
+<!-- issue27bn_attack_only_diagnostic -->
+- Stage: attack-side diagnostic before any OOD-gate repair.
+- Primary verdict: `phase_balanced_attack_diagnostic_recovers_dev_and_report_only_attack`.
+- Formal benchmark status: blocked.
+- Report-only roles remained replay-only.

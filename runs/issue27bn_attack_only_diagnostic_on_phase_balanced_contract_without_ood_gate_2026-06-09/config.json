@@ -1,0 +1,44 @@
+{
+  "issue": "issue27bn_attack_only_diagnostic_on_phase_balanced_contract_without_ood_gate_2026-06-09",
+  "primary_contract": "phase_balanced_dev_v2",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "support_recall_targets": [
+    0.9,
+    0.93,
+    0.95
+  ],
+  "fit_specs": [
+    {
+      "fit_mode": "id_ood_support",
+      "ood_weight": 4.0,
+      "support_weight": 4.0,
+      "fit_label": "old_weighted_id_ood_support_w4"
+    },
+    {
+      "fit_mode": "id_ood_support",
+      "ood_weight": 4.0,
+      "support_weight": 16.0,
+      "fit_label": "support_emphasis_id_ood_support_w16"
+    },
+    {
+      "fit_mode": "id_support_only",
+      "ood_weight": 0.0,
+      "support_weight": 4.0,
+      "fit_label": "id_support_only_w4"
+    },
+    {
+      "fit_mode": "id_support_only",
+      "ood_weight": 0.0,
+      "support_weight": 16.0,
+      "fit_label": "id_support_only_w16"
+    }
+  ],
+  "no_ood_gate_repair": true,
+  "report_only_selection": false
+}
