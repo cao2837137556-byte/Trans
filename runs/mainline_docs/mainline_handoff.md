@@ -1823,3 +1823,13 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - 115D frontend, split, support, and raw attack scorer remained frozen.
 - Formal benchmark remains blocked.
 - Next action: `issue27bq_ood_risk_scorer_or_task_boundary_repair_before_larger`.
+
+## issue27bq - decoupled OOD-risk scorer after attack recovery
+
+<!-- issue27bq_decoupled_ood_risk -->
+- Verdict: `decoupled_ood_risk_partial_pareto_improvement_but_ood_overbudget`.
+- Dev attack min: `0.984375`; dev OOD hard max: `0.25933333333333336`; dev review max: `0.0`.
+- Report-only attack min: `0.6501501501501501`; final OOD hard max report-only: `0.0`.
+- Raw full-115D attack scorer, split, and support contract remained frozen.
+- Final/report-only roles were replay-only.
+- Next action: `issue27br_strengthen_ood_risk_or_task_boundary_before_larger`.

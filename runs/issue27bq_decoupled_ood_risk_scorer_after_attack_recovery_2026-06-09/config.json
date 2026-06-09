@@ -1,0 +1,38 @@
+{
+  "final_report_only_never_selects_risk_scorer": true,
+  "issue": "issue27bq_decoupled_ood_risk_scorer_after_attack_recovery_2026-06-09",
+  "primary_verdict": "decoupled_ood_risk_partial_pareto_improvement_but_ood_overbudget",
+  "risk_models": [
+    "logreg_balanced",
+    "histgb_shallow"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "selected": {
+    "attack_outer_norm": 1.0,
+    "dev_attack_min_max": 0.984375,
+    "dev_attack_min_mean": 0.984375,
+    "dev_attack_min_min": 0.984375,
+    "dev_ood_max_max": 0.25933333333333336,
+    "dev_ood_max_mean": 0.25933333333333336,
+    "dev_ood_max_min": 0.25933333333333336,
+    "dev_review_max_max": 0.0,
+    "dev_review_max_mean": 0.0,
+    "dev_review_max_min": 0.0,
+    "dev_score_max": 0.595375,
+    "dev_score_mean": 0.595375,
+    "dev_score_min": 0.595375,
+    "feasible_1pct_all_seeds": false,
+    "feasible_5pct_all_seeds": false,
+    "review_budget": 0.0,
+    "risk_model": "histgb_shallow",
+    "risk_threshold": 0.5,
+    "seeds": 5,
+    "strong_margin_q": 0.0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "attack_threshold_roles": [
+    "id_calib"
+  ],
+  "fit_roles": [
+    "id_fit",
+    "ood_train",
+    "phase_balanced_support_train"
+  ],
+  "formal_benchmark": false,
+  "ood_risk_fit_selection_roles": [
+    "raw_alarm_subset_of_id_calib",
+    "ood_val",
+    "ood_stress_val",
+    "support_val",
+    "dev_future_near",
+    "dev_future_mid",
+    "dev_future_far"
+  ],
+  "report_only_roles": [
+    "final_ood",
+    "sealed_attack_replay"
+  ],
+  "scope": "medium decoupled OOD-risk scorer diagnostic"
+}

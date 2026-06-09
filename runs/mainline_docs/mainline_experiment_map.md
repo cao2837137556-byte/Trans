@@ -2374,3 +2374,10 @@ Next:
 - Primary verdict: `attack_preserved_but_dev_ood_overbudget`.
 - Full 115D raw attack scorer stayed fixed; prototype gate evidence used selected Kitsune family subspaces.
 - Final/report-only roles remained replay-only.
+
+## issue27bq - decoupled OOD-risk scorer diagnostic
+
+<!-- issue27bq_decoupled_ood_risk -->
+- Primary verdict: `decoupled_ood_risk_partial_pareto_improvement_but_ood_overbudget`.
+- Stage: medium diagnostic; no full/formal benchmark.
+- Purpose: test whether alarm-conditioned OOD-risk scoring improves the attack/OOD frontier.
