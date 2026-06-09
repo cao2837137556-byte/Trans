@@ -1,0 +1,17 @@
+{
+  "stage": "attack future-shift validation",
+  "fit_roles": [
+    "id_fit",
+    "ood_train",
+    "phase_balanced_support_train"
+  ],
+  "threshold_roles": [
+    "id_calib"
+  ],
+  "future_replay_roles": [
+    "dev_future_query",
+    "sealed_attack_report_only"
+  ],
+  "formal_benchmark": false,
+  "ood_gate_repair": false
+}

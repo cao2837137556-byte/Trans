@@ -2358,3 +2358,11 @@ Next:
 - Primary verdict: `phase_balanced_attack_diagnostic_recovers_dev_and_report_only_attack`.
 - Formal benchmark status: blocked.
 - Report-only roles remained replay-only.
+
+## issue27bo - fixed-support attack future-shift validation
+
+<!-- issue27bo_attack_future_shift_validation -->
+- Stage: attack-side validation before OOD-gate repair.
+- Primary verdict: `attack_future_shift_validation_passed_with_report_only_late_replay_caveat`.
+- Formal benchmark status: blocked.
+- Future/query and report-only roles remained replay-only.

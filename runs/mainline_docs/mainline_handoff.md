@@ -1803,3 +1803,12 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - Report-only attack min under best dev candidate: `0.992`.
 - No OOD-gate repair, no 115D/split changes, and no final/report-only selection.
 - Next action: `issue27bo_ood_gate_repair_after_attack_contract_recovery`.
+
+## issue27bo - fixed-support attack future-shift validation
+
+<!-- issue27bo_attack_future_shift_validation -->
+- Verdict: `attack_future_shift_validation_passed_with_report_only_late_replay_caveat`.
+- Legal dev future attack min: `0.9970501474926253`; sealed attack replay min: `0.992`.
+- No new support was selected from future/query/report-only roles.
+- No OOD-gate repair was run.
+- Next action: `issue27bp_attack_preserving_ood_gate_repair_after_future_shift_validation`.
