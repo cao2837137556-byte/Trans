@@ -2366,3 +2366,11 @@ Next:
 - Primary verdict: `attack_future_shift_validation_passed_with_report_only_late_replay_caveat`.
 - Formal benchmark status: blocked.
 - Future/query and report-only roles remained replay-only.
+
+## issue27bp - attack-preserving OOD gate repair
+
+<!-- issue27bp_attack_preserving_ood_gate -->
+- Stage: medium diagnostic for family-aware gate evidence.
+- Primary verdict: `attack_preserved_but_dev_ood_overbudget`.
+- Full 115D raw attack scorer stayed fixed; prototype gate evidence used selected Kitsune family subspaces.
+- Final/report-only roles remained replay-only.

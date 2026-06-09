@@ -1,0 +1,29 @@
+{
+  "attack_floor": 0.93,
+  "final_report_only_never_selects_gate": true,
+  "issue": "issue27bp_attack_preserving_ood_gate_repair_after_future_shift_validation_2026-06-09",
+  "primary_verdict": "attack_ood_tradeoff_frontier_confirmed_needs_decoupled_ood_risk",
+  "review_budget": 0.05,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "selected_params": {
+    "attack_core_norm": 1.0,
+    "attack_core_q": 0.99,
+    "attack_outer_norm": 1.0,
+    "attack_outer_q": 0.95,
+    "attack_subspace": "HH",
+    "benign_core_norm": 3.0,
+    "benign_core_q": 0.95,
+    "benign_subspace": "MI_H_HHjit",
+    "proto_budget": 32,
+    "review_budget": 0.05,
+    "strong_margin_floor": -0.0457262564455583,
+    "weak_margin_ceiling": 0.5539128175879958
+  },
+  "val_ood_target": 0.01
+}

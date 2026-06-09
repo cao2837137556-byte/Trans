@@ -1,0 +1,26 @@
+{
+  "fit_roles": [
+    "id_fit",
+    "ood_train",
+    "phase_balanced_support_train"
+  ],
+  "formal_benchmark": false,
+  "gate_selection_roles": [
+    "id_calib",
+    "ood_val",
+    "ood_stress_val",
+    "support_val",
+    "dev_future_near",
+    "dev_future_mid",
+    "dev_future_far"
+  ],
+  "raw_threshold_roles": [
+    "id_calib"
+  ],
+  "report_only_roles": [
+    "final_ood",
+    "sealed_medium_attack_eval",
+    "sealed_dev_heavy_query"
+  ],
+  "scope": "medium family-aware attack-preserving OOD gate diagnostic"
+}

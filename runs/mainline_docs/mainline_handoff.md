@@ -1812,3 +1812,14 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - No new support was selected from future/query/report-only roles.
 - No OOD-gate repair was run.
 - Next action: `issue27bp_attack_preserving_ood_gate_repair_after_future_shift_validation`.
+
+## issue27bp - attack-preserving OOD gate repair after future-shift validation
+
+<!-- issue27bp_attack_preserving_ood_gate -->
+- Verdict: `attack_preserved_but_dev_ood_overbudget`.
+- Selected attack subspace: `HH`; selected benign/OOD subspace: `MI_H_HHjit`.
+- Dev attack min: `0.96875`; dev OOD hard max: `0.36133333333333334`; dev review max: `0.05`.
+- Report-only attack min: `0.975975975975976`; final OOD hard max report-only: `0.16866666666666666`.
+- 115D frontend, split, support, and raw attack scorer remained frozen.
+- Formal benchmark remains blocked.
+- Next action: `issue27bq_ood_risk_scorer_or_task_boundary_repair_before_larger`.
