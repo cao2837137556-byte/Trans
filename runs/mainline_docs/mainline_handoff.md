@@ -1844,3 +1844,15 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - BQ base report-only attack min: `0.6501501501501501`; temporal report-only attack min: `0.6561561561561562`.
 - BQ base dev OOD max: `0.25933333333333336`; temporal dev OOD max: `0.25933333333333336`.
 - Next action: `issue27bs_mini_interaction_graph_or_temporal_controller_repair_without_final_leakage`.
+
+## issue27bs - lightweight temporal evidence head
+
+<!-- issue27bs_lightweight_temporal_head -->
+- Verdict: `temporal_evidence_head_dev_passed_ready_for_controller_stability`.
+- Scope: medium diagnostic; no full/formal benchmark; no 115D frontend or split/support change.
+- Non-report roles were split into fit/select halves by past-only order; final/report-only replay stayed sealed.
+- Selected feature set: `current_plus_temporal`; model: `histgb_shallow`.
+- Dev attack min: `1.0`; dev OOD max: `0.0`.
+- Report-only attack min: `0.972972972972973`; final OOD max report-only: `0.004333333333333333`.
+- Caveat: this is a time-half medium diagnostic, not group/file-disjoint formal evidence.
+- Next action: `issue27bt_temporal_head_stability_ablation_and_group_disjoint_replay`.

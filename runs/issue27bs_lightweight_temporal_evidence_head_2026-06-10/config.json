@@ -1,0 +1,35 @@
+{
+  "final_report_only_never_selects": true,
+  "issue": "issue27bs_lightweight_temporal_evidence_head_2026-06-10",
+  "primary_verdict": "temporal_evidence_head_dev_passed_ready_for_controller_stability",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "selected": {
+    "attack_q": 0.99,
+    "d_attack_thr": 1.0,
+    "dev_attack_min_max": 1.0,
+    "dev_attack_min_mean": 1.0,
+    "dev_attack_min_min": 1.0,
+    "dev_ood_max_max": 0.0,
+    "dev_ood_max_mean": 0.0,
+    "dev_ood_max_min": 0.0,
+    "dev_review_max_max": 0.0,
+    "dev_review_max_mean": 0.0,
+    "dev_review_max_min": 0.0,
+    "dev_score_max": 1.0,
+    "dev_score_mean": 1.0,
+    "dev_score_min": 1.0,
+    "feasible_1pct_all_seeds": true,
+    "feasible_5pct_all_seeds": true,
+    "feature_set": "current_plus_temporal",
+    "model_kind": "histgb_shallow",
+    "risk_threshold": 0.7,
+    "seeds": 5,
+    "strong_attack_q": 0.75
+  }
+}

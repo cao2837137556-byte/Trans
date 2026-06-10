@@ -2388,3 +2388,10 @@ Next:
 - Primary verdict: `past_only_temporal_signal_present_needs_mini_interaction_graph`.
 - Purpose: test whether causal/past-only temporal-source evidence can help explain or repair BQ's suppressed attack tail without final leakage.
 - Stage: medium diagnostic before any larger/full benchmark.
+
+## issue27bs - lightweight temporal evidence head diagnostic
+
+<!-- issue27bs_lightweight_temporal_head -->
+- Primary verdict: `temporal_evidence_head_dev_passed_ready_for_controller_stability`.
+- Purpose: test whether training-layer past-only temporal evidence improves the BQ/BR frontier without final leakage.
+- Stage: medium diagnostic before any larger/full benchmark.
