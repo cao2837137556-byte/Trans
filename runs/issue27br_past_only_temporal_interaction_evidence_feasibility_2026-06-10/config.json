@@ -1,0 +1,30 @@
+{
+  "final_report_only_never_selects_temporal_thresholds": true,
+  "issue": "issue27br_past_only_temporal_interaction_evidence_feasibility_2026-06-10",
+  "primary_verdict": "past_only_temporal_signal_present_needs_mini_interaction_graph",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "selected_temporal_candidate": {
+    "d_attack_thr": 0.75,
+    "dev_attack_min": 0.984375,
+    "dev_ood_max": 0.25933333333333336,
+    "dev_review_max": 0.0,
+    "dev_score": 0.595375,
+    "feasible_1pct": false,
+    "feasible_5pct": false,
+    "margin_thr": 0.5729660891775881,
+    "raw_rate_thr": 0.0,
+    "selection_uses_final_ood": false,
+    "selection_uses_report_only_attack": false
+  },
+  "windows": [
+    8,
+    32,
+    128
+  ]
+}

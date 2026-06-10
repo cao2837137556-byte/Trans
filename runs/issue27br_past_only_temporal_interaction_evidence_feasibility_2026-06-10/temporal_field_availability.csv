@@ -1,0 +1,8 @@
+field,available,use
+state_id,True,past-only state/source ordering
+csv_member,True,source_group proxy
+pcap_member,True,source_group fallback
+recorded_index,True,within-source packet order
+packet_timestamp_epoch,True,past-only ordering
+ip.src/ip.dst,False,not available in materialized sidecar; no full flow graph this round
+ports/protocol,False,not available in materialized sidecar; no HyperVision-style graph this round

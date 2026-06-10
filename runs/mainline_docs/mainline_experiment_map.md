@@ -2381,3 +2381,10 @@ Next:
 - Primary verdict: `decoupled_ood_risk_partial_pareto_improvement_but_ood_overbudget`.
 - Stage: medium diagnostic; no full/formal benchmark.
 - Purpose: test whether alarm-conditioned OOD-risk scoring improves the attack/OOD frontier.
+
+## issue27br - past-only temporal/interaction diagnostic
+
+<!-- issue27br_past_only_temporal_interaction -->
+- Primary verdict: `past_only_temporal_signal_present_needs_mini_interaction_graph`.
+- Purpose: test whether causal/past-only temporal-source evidence can help explain or repair BQ's suppressed attack tail without final leakage.
+- Stage: medium diagnostic before any larger/full benchmark.

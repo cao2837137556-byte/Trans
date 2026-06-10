@@ -1,0 +1,22 @@
+{
+  "fixed_parent": "issue27bq selected decoupled OOD-risk controller",
+  "formal_benchmark": false,
+  "report_only_roles": [
+    "final_ood_report_only",
+    "sealed_medium_attack_eval_report_only",
+    "sealed_dev_heavy_query_report_only",
+    "sealed_heavy_future_near",
+    "sealed_heavy_future_mid",
+    "sealed_heavy_future_far"
+  ],
+  "scope": "past-only temporal/source evidence diagnostic",
+  "selection_roles": [
+    "id_calib",
+    "ood_val",
+    "ood_stress_val",
+    "support_val",
+    "dev_future_near",
+    "dev_future_mid",
+    "dev_future_far"
+  ]
+}

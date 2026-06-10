@@ -1833,3 +1833,14 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - Raw full-115D attack scorer, split, and support contract remained frozen.
 - Final/report-only roles were replay-only.
 - Next action: `issue27br_strengthen_ood_risk_or_task_boundary_before_larger`.
+
+## issue27br - past-only temporal/interaction evidence feasibility
+
+<!-- issue27br_past_only_temporal_interaction -->
+- Verdict: `past_only_temporal_signal_present_needs_mini_interaction_graph`.
+- Scope: medium diagnostic; no full/formal benchmark; no 115D frontend or split/support change.
+- Temporal features use past-only role/source windows with `shift(1)`; final/report-only replay is not used for selection.
+- Current sidecar supports timestamp/source/state ordering but not full IP/port flow graph construction.
+- BQ base report-only attack min: `0.6501501501501501`; temporal report-only attack min: `0.6561561561561562`.
+- BQ base dev OOD max: `0.25933333333333336`; temporal dev OOD max: `0.25933333333333336`.
+- Next action: `issue27bs_mini_interaction_graph_or_temporal_controller_repair_without_final_leakage`.
