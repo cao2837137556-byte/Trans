@@ -1,0 +1,13 @@
+phase_mode,feature_set,feature_risk_label,dev_attack_min,dev_ood_max,report_attack_min,final_ood_max,passes_dev_1pct,passes_report_attack_floor
+time_half,current_plus_temporal,contains_parent_bq_evidence,1.0,0.0,0.972972972972973,0.004333333333333333,True,True
+time_half,current_plus_temporal_no_parent_oodrisk,parent_oodrisk_removed,0.984375,0.0,0.481981981981982,0.0,True,False
+time_half,past_temporal_only,no_current_parent_evidence,1.0,0.0016666666666666668,0.972972972972973,0.11633333333333333,True,True
+time_half,temporal_no_parent_oodrisk,parent_oodrisk_removed,0.984375,0.0,0.481981981981982,0.0,True,False
+time_half,current_evidence,contains_parent_bq_evidence,0.984375,0.0013333333333333333,0.8738738738738738,0.029333333333333333,True,False
+time_half,current_no_parent_oodrisk,parent_oodrisk_removed,0.96875,0.027017543859649124,0.9866666666666667,0.076,False,True
+group_disjoint_source,current_plus_temporal,contains_parent_bq_evidence,1.0,0.0,0.9707207207207207,0.0006666666666666666,True,True
+group_disjoint_source,current_plus_temporal_no_parent_oodrisk,parent_oodrisk_removed,0.9375,0.025333333333333333,0.9831111111111112,0.0,False,True
+group_disjoint_source,past_temporal_only,no_current_parent_evidence,1.0,0.012666666666666666,0.9707207207207207,0.0033333333333333335,False,True
+group_disjoint_source,temporal_no_parent_oodrisk,parent_oodrisk_removed,0.90625,0.025333333333333333,0.9822222222222222,0.0,False,True
+group_disjoint_source,current_evidence,contains_parent_bq_evidence,0.96875,0.0006666666666666666,0.6501501501501501,0.0,True,False
+group_disjoint_source,current_no_parent_oodrisk,parent_oodrisk_removed,0.953125,0.02666666666666667,0.9871111111111112,0.076,False,True

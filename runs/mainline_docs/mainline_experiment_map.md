@@ -2395,3 +2395,10 @@ Next:
 - Primary verdict: `temporal_evidence_head_dev_passed_ready_for_controller_stability`.
 - Purpose: test whether training-layer past-only temporal evidence improves the BQ/BR frontier without final leakage.
 - Stage: medium diagnostic before any larger/full benchmark.
+
+## issue27bt - temporal head stability/ablation
+
+<!-- issue27bt_temporal_head_stability -->
+- Primary verdict: `temporal_head_group_stable_with_parent_evidence_no_parent_ood_overbudget`.
+- Purpose: verify issue27bs high score against parent-risk and source/time-adjacency artifacts.
+- Stage: medium diagnostic before any larger/full benchmark.

@@ -1856,3 +1856,14 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - Report-only attack min: `0.972972972972973`; final OOD max report-only: `0.004333333333333333`.
 - Caveat: this is a time-half medium diagnostic, not group/file-disjoint formal evidence.
 - Next action: `issue27bt_temporal_head_stability_ablation_and_group_disjoint_replay`.
+
+## issue27bt - temporal head stability and ablation
+
+<!-- issue27bt_temporal_head_stability -->
+- Verdict: `temporal_head_group_stable_with_parent_evidence_no_parent_ood_overbudget`.
+- Scope: medium diagnostic; no full/formal benchmark; no 115D frontend or split/support change.
+- Group-disjoint no-parent report attack min: `0.9831111111111112`.
+- Group-disjoint no-parent dev attack min: `0.9375`; dev OOD max: `0.025333333333333333`.
+- Group-disjoint current-plus-temporal dev OOD max: `0.0`; report attack min: `0.9707207207207207`.
+- Caveat: id_calib is single-source in the medium asset, so broader validation is still needed.
+- Next action: `issue27bu_no_parent_temporal_ood_risk_repair_or_mini_flow_graph`.
