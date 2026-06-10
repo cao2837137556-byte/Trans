@@ -1,0 +1,32 @@
+{
+  "continue_pass_criteria": {
+    "dev_attack_min": 0.93,
+    "dev_ood_max": 0.03,
+    "final_ood_max": 0.03,
+    "report_attack_min": 0.9,
+    "review_max": 0.05
+  },
+  "experiments": [
+    "parent_oodrisk_plus_temporal",
+    "unified_current_plus_temporal_no_parent",
+    "unified_current_only_no_parent",
+    "unified_temporal_only_no_parent",
+    "parent_current_only"
+  ],
+  "final_report_only_never_selects": true,
+  "hard_pass_criteria": {
+    "dev_attack_min": 0.93,
+    "dev_ood_max": 0.01,
+    "final_ood_max": 0.01,
+    "report_attack_min": 0.9,
+    "review_max": 0.05
+  },
+  "issue": "issue27bu_unified_temporal_attack_ood_heads_certification_2026-06-10",
+  "next_action": "issue27bv_freeze_certified_parent_oodrisk_channel_and_repair_unified_ood",
+  "parent_oodrisk_clean_medium_diagnostic": true,
+  "phase_modes": [
+    "time_half",
+    "group_disjoint_source"
+  ],
+  "primary_verdict": "parent_oodrisk_certified_current_system_hard_pass_unified_no_parent_needs_ood_margin_repair"
+}

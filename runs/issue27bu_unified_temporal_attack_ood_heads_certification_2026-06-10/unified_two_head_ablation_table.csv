@@ -1,0 +1,11 @@
+phase_mode,experiment_name,source_feature_set,uses_parent_bq_oodrisk,uses_current_evidence,uses_past_temporal_evidence,dev_attack_min,dev_ood_max,report_attack_min,final_ood_max,hard_pass,continue_pass
+time_half,parent_oodrisk_plus_temporal,current_plus_temporal,True,True,True,1.0,0.0,0.972972972972973,0.004333333333333333,True,True
+time_half,unified_current_plus_temporal_no_parent,current_plus_temporal_no_parent_oodrisk,False,True,True,0.984375,0.0,0.481981981981982,0.0,False,False
+time_half,unified_current_only_no_parent,current_no_parent_oodrisk,False,True,False,0.96875,0.027017543859649124,0.9866666666666667,0.076,False,False
+time_half,unified_temporal_only_no_parent,temporal_no_parent_oodrisk,False,False,True,0.984375,0.0,0.481981981981982,0.0,False,False
+time_half,parent_current_only,current_evidence,True,True,False,0.984375,0.0013333333333333333,0.8738738738738738,0.029333333333333333,False,False
+group_disjoint_source,parent_oodrisk_plus_temporal,current_plus_temporal,True,True,True,1.0,0.0,0.9707207207207207,0.0006666666666666666,True,True
+group_disjoint_source,unified_current_plus_temporal_no_parent,current_plus_temporal_no_parent_oodrisk,False,True,True,0.9375,0.025333333333333333,0.9831111111111112,0.0,False,True
+group_disjoint_source,unified_current_only_no_parent,current_no_parent_oodrisk,False,True,False,0.953125,0.02666666666666667,0.9871111111111112,0.076,False,False
+group_disjoint_source,unified_temporal_only_no_parent,temporal_no_parent_oodrisk,False,False,True,0.90625,0.025333333333333333,0.9822222222222222,0.0,False,False
+group_disjoint_source,parent_current_only,current_evidence,True,True,False,0.96875,0.0006666666666666666,0.6501501501501501,0.0,False,False

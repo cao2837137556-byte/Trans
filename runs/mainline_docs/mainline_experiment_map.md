@@ -2402,3 +2402,11 @@ Next:
 - Primary verdict: `temporal_head_group_stable_with_parent_evidence_no_parent_ood_overbudget`.
 - Purpose: verify issue27bs high score against parent-risk and source/time-adjacency artifacts.
 - Stage: medium diagnostic before any larger/full benchmark.
+
+## issue27bu - unified temporal attack/OOD heads certification
+
+<!-- issue27bu_unified_temporal_attack_ood_heads_certification -->
+- Primary verdict: `parent_oodrisk_certified_current_system_hard_pass_unified_no_parent_needs_ood_margin_repair`.
+- Purpose: certify parent OOD-risk lineage and compare parent-stacked vs no-parent unified temporal two-head variants.
+- Stage: medium diagnostic before larger/full benchmark.
+- Final/report-only roles remained replay-only.

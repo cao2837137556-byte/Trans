@@ -1,0 +1,13 @@
+feature_name,source,allowed_for_model_input,forbidden_name_token_detected,direct_source_like_feature,audit_note
+attack_score_margin,frozen_full115_attack_scorer,True,False,False,"derived evidence/prototype feature, not raw source-like input"
+attack_score_positive_margin,frozen_full115_attack_scorer,True,False,False,"derived evidence/prototype feature, not raw source-like input"
+d_attack_core_HH,attack_support_prototype_bank,True,False,False,"derived evidence/prototype feature, not raw source-like input"
+d_attack_outer_HH,attack_support_pseudo_calibrated_bank,True,False,False,"derived evidence/prototype feature, not raw source-like input"
+d_attack_core_HH_HpHp,attack_support_prototype_bank,True,False,False,"derived evidence/prototype feature, not raw source-like input"
+d_attack_outer_HH_HpHp,attack_support_pseudo_calibrated_bank,True,False,False,"derived evidence/prototype feature, not raw source-like input"
+d_benign_core_HH_jit,id_ood_stress_dev_prototype_bank,True,False,False,"derived evidence/prototype feature, not raw source-like input"
+d_benign_core_MI_H_HHjit,id_ood_stress_dev_prototype_bank,True,False,False,"derived evidence/prototype feature, not raw source-like input"
+d_benign_core_all115,id_ood_stress_dev_prototype_bank,True,False,False,"derived evidence/prototype feature, not raw source-like input"
+d_attack_outer_min,derived_from_attack_distances,True,False,False,"derived evidence/prototype feature, not raw source-like input"
+d_benign_core_min,derived_from_benign_distances,True,False,False,"derived evidence/prototype feature, not raw source-like input"
+benign_minus_attack_distance,derived_distance_margin,True,False,False,"derived evidence/prototype feature, not raw source-like input"

@@ -1867,3 +1867,13 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - Group-disjoint current-plus-temporal dev OOD max: `0.0`; report attack min: `0.9707207207207207`.
 - Caveat: id_calib is single-source in the medium asset, so broader validation is still needed.
 - Next action: `issue27bu_no_parent_temporal_ood_risk_repair_or_mini_flow_graph`.
+
+## issue27bu - unified temporal attack/OOD heads certification
+
+<!-- issue27bu_unified_temporal_attack_ood_heads_certification -->
+- Verdict: `parent_oodrisk_certified_current_system_hard_pass_unified_no_parent_needs_ood_margin_repair`.
+- Scope: medium diagnostic; no full/formal benchmark; no 115D frontend or split/support change.
+- Parent OOD-risk certified for medium diagnostic use: `True`.
+- Group parent current+temporal report attack/final OOD: `0.9707207207207207` / `0.0006666666666666666`.
+- Group unified no-parent current+temporal report attack/dev OOD: `0.9831111111111112` / `0.025333333333333333`.
+- Next action: `issue27bv_freeze_certified_parent_oodrisk_channel_and_repair_unified_ood`.

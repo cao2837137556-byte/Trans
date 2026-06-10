@@ -1,0 +1,4 @@
+component,fit_roles,selection_roles,report_only_roles,uses_final_ood_for_fit_or_selection,uses_report_only_attack_for_fit_or_selection,forbidden_role_access
+parent_oodrisk_certification,issue27bq dev-only risk fit roles,issue27bq dev-only controller selection roles,final_ood|sealed_attack replay only,False,False,False
+unified_temporal_attack_head,fit phase of dev_attack and dev_benign_ood roles,select phase of dev roles only,final/sealed roles replay only,False,False,False
+unified_temporal_oodrisk_head,fit phase of dev_attack and dev_benign_ood roles,select phase of dev roles only,final/sealed roles replay only,False,False,False
