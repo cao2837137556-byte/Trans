@@ -2410,3 +2410,11 @@ Next:
 - Purpose: certify parent OOD-risk lineage and compare parent-stacked vs no-parent unified temporal two-head variants.
 - Stage: medium diagnostic before larger/full benchmark.
 - Final/report-only roles remained replay-only.
+
+## issue27bv - problem definition and frozen protocol before larger
+
+<!-- issue27bv_problem_definition_and_frozen_protocol_before_larger -->
+- Primary verdict: `protocol_frozen_for_larger_sanity_not_formal_benchmark`.
+- Purpose: freeze the current candidate protocol, define support/mixed-stream/leakage/online-cost contracts, and bound claims before larger sanity.
+- Stage: documentation/protocol gate before any larger/full benchmark.
+- No model was run; final/report-only independence remains mandatory.

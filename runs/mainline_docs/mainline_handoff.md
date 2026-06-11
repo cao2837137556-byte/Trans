@@ -1877,3 +1877,13 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - Group parent current+temporal report attack/final OOD: `0.9707207207207207` / `0.0006666666666666666`.
 - Group unified no-parent current+temporal report attack/dev OOD: `0.9831111111111112` / `0.025333333333333333`.
 - Next action: `issue27bv_freeze_certified_parent_oodrisk_channel_and_repair_unified_ood`.
+
+## issue27bv - problem definition and frozen protocol before larger
+
+<!-- issue27bv_problem_definition_and_frozen_protocol_before_larger -->
+- Verdict: `protocol_frozen_for_larger_sanity_not_formal_benchmark`.
+- Scope: documentation/protocol freeze only; no model run, no full benchmark, no 115D frontend or split/support change.
+- Current candidate system: `Kitsune115D -> attack scorer -> certified parent OOD-risk channel -> past-only temporal evidence -> controller`.
+- Current strongest evidence remains medium diagnostic only; do not call the temporal layer true causality or formal deployment proof.
+- Larger/full is blocked until support update rules, newly sealed final roles, mixed-stream replay, temporal leakage checklist, and online cost model are satisfied.
+- Next action: `issue27bw_larger_sanity_contract_construction_or_unified_ood_margin_repair`.
