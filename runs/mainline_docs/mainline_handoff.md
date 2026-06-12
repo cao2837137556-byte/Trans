@@ -1921,3 +1921,13 @@ marker: `issue27bx2_materialization_quota_cache_repair_2026-06-12`
 - Next materialization should use same-role fallback and per-file cache keys.
 - Sealed final roles remain forbidden for fallback, fit, threshold, and selection.
 - Current stage remains data/interface preparation; no formal benchmark is authorized.
+
+## issue27bx3 500k Cache-aware Materialization Retry
+
+marker: `issue27bx3_500k_cache_aware_materialization_retry_2026-06-12`
+
+- primary_verdict: `cache_aware_500k_materialization_ready_for_1m_runtime_profile`
+- materialized rows: `500000`
+- final/report-only roles remained sealed from fit/threshold/selection.
+- No model training or formal benchmark was run.
+- Next: 1M materialization/runtime profile before mixed-stream protocol work.

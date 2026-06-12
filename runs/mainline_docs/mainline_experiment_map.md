@@ -2444,3 +2444,11 @@ marker: `issue27bx2_materialization_quota_cache_repair_2026-06-12`
 - Inputs: issue27bw larger contract, issue27bx role meta, archive listing.
 - Outputs: available row estimates, quota-vs-actual table, fallback rules, cache key manifest, v2 quota plan.
 - Next: issue27bx3 500k cache-aware materialization retry before model replay.
+
+## issue27bx3 500k Cache-aware Materialization Retry
+
+marker: `issue27bx3_500k_cache_aware_materialization_retry_2026-06-12`
+
+- Inputs: issue27bx2 v2 quota plan.
+- Outputs: 500k X/y/sidecar/split manifest, per-file cache, runtime/cache audit.
+- Role: data production line stabilization, not model performance.
