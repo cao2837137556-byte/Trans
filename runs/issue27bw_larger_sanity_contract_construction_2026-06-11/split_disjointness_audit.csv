@@ -1,0 +1,31 @@
+audit_item,status,overlap,failure_reason,notes
+file_disjoint:id_benign_train__vs__id_benign_calib,pass,,,file-disjoint is mandatory for larger sanity
+device_disjoint:id_benign_train__vs__id_benign_calib,partial_or_fail,combined-cycle-tls|cooler-motor|predictive-maintenance,device_overlap_may_be_intentional_for_calib_or_final_pairing_but_not_formal_clean,device disjoint is required for strong claim; overlap downgrades to sanity-only unless justified
+protocol_overlap:id_benign_train__vs__id_benign_calib,informational_overlap,coap|mqtt,protocol overlap expected in realistic replay; not a leakage by itself,"protocol overlap should be reported, not used as source shortcut"
+file_disjoint:id_benign_train__vs__ood_benign_val,pass,,,file-disjoint is mandatory for larger sanity
+device_disjoint:id_benign_train__vs__ood_benign_val,pass,,,device disjoint is required for strong claim; overlap downgrades to sanity-only unless justified
+protocol_overlap:id_benign_train__vs__ood_benign_val,informational_overlap,mqtt|tls,protocol overlap expected in realistic replay; not a leakage by itself,"protocol overlap should be reported, not used as source shortcut"
+file_disjoint:id_benign_train__vs__ood_benign_stress,pass,,,file-disjoint is mandatory for larger sanity
+device_disjoint:id_benign_train__vs__ood_benign_stress,pass,,,device disjoint is required for strong claim; overlap downgrades to sanity-only unless justified
+protocol_overlap:id_benign_train__vs__ood_benign_stress,informational_overlap,mqtt,protocol overlap expected in realistic replay; not a leakage by itself,"protocol overlap should be reported, not used as source shortcut"
+file_disjoint:id_benign_train__vs__sealed_final_ood,pass,,,file-disjoint is mandatory for larger sanity
+device_disjoint:id_benign_train__vs__sealed_final_ood,pass,,,device disjoint is required for strong claim; overlap downgrades to sanity-only unless justified
+protocol_overlap:id_benign_train__vs__sealed_final_ood,pass,,,"protocol overlap should be reported, not used as source shortcut"
+file_disjoint:ood_benign_val__vs__sealed_final_ood,pass,,,file-disjoint is mandatory for larger sanity
+device_disjoint:ood_benign_val__vs__sealed_final_ood,pass,,,device disjoint is required for strong claim; overlap downgrades to sanity-only unless justified
+protocol_overlap:ood_benign_val__vs__sealed_final_ood,pass,,,"protocol overlap should be reported, not used as source shortcut"
+file_disjoint:ood_benign_stress__vs__sealed_final_ood,pass,,,file-disjoint is mandatory for larger sanity
+device_disjoint:ood_benign_stress__vs__sealed_final_ood,pass,,,device disjoint is required for strong claim; overlap downgrades to sanity-only unless justified
+protocol_overlap:ood_benign_stress__vs__sealed_final_ood,pass,,,"protocol overlap should be reported, not used as source shortcut"
+file_disjoint:attack_support_candidate_pool__vs__dev_future_attack_query,pass,,,file-disjoint is mandatory for larger sanity
+device_disjoint:attack_support_candidate_pool__vs__dev_future_attack_query,pass,,,device disjoint is required for strong claim; overlap downgrades to sanity-only unless justified
+protocol_overlap:attack_support_candidate_pool__vs__dev_future_attack_query,informational_overlap,coap,protocol overlap expected in realistic replay; not a leakage by itself,"protocol overlap should be reported, not used as source shortcut"
+file_disjoint:attack_support_candidate_pool__vs__sealed_final_attack,pass,,,file-disjoint is mandatory for larger sanity
+device_disjoint:attack_support_candidate_pool__vs__sealed_final_attack,pass,,,device disjoint is required for strong claim; overlap downgrades to sanity-only unless justified
+protocol_overlap:attack_support_candidate_pool__vs__sealed_final_attack,pass,,,"protocol overlap should be reported, not used as source shortcut"
+file_disjoint:dev_future_attack_query__vs__sealed_final_attack,pass,,,file-disjoint is mandatory for larger sanity
+device_disjoint:dev_future_attack_query__vs__sealed_final_attack,pass,,,device disjoint is required for strong claim; overlap downgrades to sanity-only unless justified
+protocol_overlap:dev_future_attack_query__vs__sealed_final_attack,informational_overlap,telnet,protocol overlap expected in realistic replay; not a leakage by itself,"protocol overlap should be reported, not used as source shortcut"
+time_forward_split_feasibility,blocked_at_file_manifest_level,,file_manifest_timestamp_parse_status={'missing_or_unparsed': 68},larger materialization must use row-level sidecar/order and past-only state logs; do not claim wall-clock time-forward from this contract alone
+purge_embargo_requirement,required_not_validated_here,,row-level onset/transition windows are not materialized in issue27bw,"apply purge/embargo during issue27bx materialization, especially mixed attack files and temporal evidence"
+report_only_selection_independence,pass_by_contract,,,"sealed_final_ood and sealed_final_attack forbidden for support, threshold, OOD risk, controller, model selection"

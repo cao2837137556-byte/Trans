@@ -2418,3 +2418,21 @@ Next:
 - Purpose: freeze the current candidate protocol, define support/mixed-stream/leakage/online-cost contracts, and bound claims before larger sanity.
 - Stage: documentation/protocol gate before any larger/full benchmark.
 - No model was run; final/report-only independence remains mandatory.
+
+## issue27bw - Larger Sanity Contract Construction
+
+- output_dir: `runs/issue27bw_larger_sanity_contract_construction_2026-06-11/`
+- decision: `larger_sanity_contract_ready_for_materialization_not_formal_benchmark`
+- stage: larger sanity data contract before materialization
+- inputs: issue27bv frozen protocol, issue27bu certified medium system, issue27y all-CSV manifest
+- no model run, no feature extraction, no commit/push
+- main artifacts: `larger_sanity_contract_v1.json`, `role_file_inventory.csv`, `split_disjointness_audit.csv`, `final_seal_audit.csv`, `medium_to_larger_migration_map.md`
+- next: issue27bx bounded larger materialization dry run
+
+## issue27bx - Larger Sanity Materialization Dry Run
+
+- output_dir: `runs/issue27bx_larger_sanity_materialization_dry_run_from_contract_v1_2026-06-11/`
+- decision: `larger_sanity_materialization_partial_needs_quota_or_frontend_fix`
+- stage: bounded local larger sanity asset materialization
+- no model run; data artifacts live under `datasets/gotham2025/derived/kitsune115_larger_sanity_v1/`
+- next: issue27by frozen-system replay

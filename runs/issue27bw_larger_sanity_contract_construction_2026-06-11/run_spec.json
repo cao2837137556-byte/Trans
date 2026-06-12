@@ -1,0 +1,17 @@
+{
+  "run_id": "issue27bw_larger_sanity_contract_construction_2026-06-11",
+  "stages": [
+    "read_prior_contracts",
+    "summarize_all_csv_manifest",
+    "assign_larger_sanity_roles",
+    "write_disjointness_and_final_seal_audits",
+    "write_support_ood_attack_contracts",
+    "append_mainline_docs"
+  ],
+  "primary_verdict_options": [
+    "larger_sanity_contract_ready_for_materialization_not_formal_benchmark",
+    "larger_sanity_contract_blocked_by_insufficient_attack_holdout",
+    "larger_sanity_contract_blocked_by_split_leakage"
+  ],
+  "selected_primary_verdict": "larger_sanity_contract_ready_for_materialization_not_formal_benchmark"
+}

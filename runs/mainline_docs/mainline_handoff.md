@@ -1887,3 +1887,27 @@ These are the current unresolved system problems. Do not treat any medium diagno
 - Current strongest evidence remains medium diagnostic only; do not call the temporal layer true causality or formal deployment proof.
 - Larger/full is blocked until support update rules, newly sealed final roles, mixed-stream replay, temporal leakage checklist, and online cost model are satisfied.
 - Next action: `issue27bw_larger_sanity_contract_construction_or_unified_ood_margin_repair`.
+
+## issue27bw Larger Sanity Contract Construction
+
+marker: `issue27bw_larger_sanity_contract_construction_2026-06-11`
+
+- status: completed, contract-only
+- primary_verdict: `larger_sanity_contract_ready_for_materialization_not_formal_benchmark`
+- model run: no
+- 115D frontend change: no
+- larger size plan: first materialization target 3M-8M model-ready rows; do not exceed 10M emitted rows without explicit confirmation
+- fixed support mode and active update mode are explicitly separated
+- sealed final OOD / sealed final attack are forbidden for selection and are report-only from issue27bw forward
+- key caveat: Gotham has only 8 mixed attack CSV files, so sealed final attack diversity is limited and this is larger sanity, not formal benchmark
+- next action: `issue27bx_larger_sanity_materialization_dry_run_from_contract_v1`
+
+## issue27bx Larger Sanity Materialization Dry Run
+
+marker: `issue27bx_larger_sanity_materialization_dry_run_from_contract_v1_2026-06-11`
+
+- primary_verdict: `larger_sanity_materialization_partial_needs_quota_or_frontend_fix`
+- emitted rows: `226355` with 115D Kitsune features
+- strategy: `train_state_then_eval_online`
+- no model run, no formal benchmark, no final-role selection
+- next action: `issue27by_larger_sanity_replay_current_frozen_system`

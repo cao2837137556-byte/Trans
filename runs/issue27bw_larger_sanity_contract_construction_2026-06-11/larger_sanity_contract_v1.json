@@ -1,0 +1,377 @@
+{
+  "issue": "issue27bw_larger_sanity_contract_construction_2026-06-11",
+  "primary_verdict": "larger_sanity_contract_ready_for_materialization_not_formal_benchmark",
+  "created_utc": "2026-06-11T09:36:06.915127+00:00",
+  "task_type": "larger_sanity_data_contract_construction_no_model_run",
+  "frontend": "Gotham raw PCAP -> Kitsune/AfterImage/netStat 115D remains fixed; no extraction in this issue",
+  "model_run": false,
+  "formal_benchmark": false,
+  "commit_push_performed": false,
+  "input_hashes": {
+    "gotham_all_csv_file_manifest_sha256": "d9f9b65eb3fb434c98fe8d821f0b152b4f7a1899c8d676691bfce2124b142e1d",
+    "issue27bv_summary_sha256": "8daee1c1140c0de821d93d92f0a1fca8f1c463b0dd31cdc0fdaca0326b0b9b86",
+    "issue27bu_summary_sha256": "c687b7cd620d90da7ba4e622793fadac553bb1daac3dbfd75788aea87287ca07"
+  },
+  "dataset_inventory": {
+    "processed_csv_files": 78,
+    "all_benign_files": 70,
+    "mixed_attack_files": 8,
+    "devices": [
+      "air-quality",
+      "building-monitor",
+      "city-power",
+      "combined-cycle",
+      "combined-cycle-tls",
+      "cooler-motor",
+      "domotic-monitor",
+      "hydraulic-system",
+      "ip-camera-museum",
+      "ip-camera-street",
+      "predictive-maintenance",
+      "stream-consumer"
+    ],
+    "protocols": [
+      "coap",
+      "dns",
+      "icmp",
+      "mqtt",
+      "rtcp",
+      "telnet",
+      "tls"
+    ],
+    "total_rows": 35134281,
+    "benign_rows": 12256883,
+    "attack_rows": 22869728
+  },
+  "roles": {
+    "id_benign_train": [
+      "processed/iotsim-cooler-motor-1.csv",
+      "processed/iotsim-cooler-motor-10.csv",
+      "processed/iotsim-cooler-motor-11.csv",
+      "processed/iotsim-cooler-motor-12.csv",
+      "processed/iotsim-cooler-motor-13.csv",
+      "processed/iotsim-cooler-motor-14.csv",
+      "processed/iotsim-cooler-motor-15.csv",
+      "processed/iotsim-cooler-motor-2.csv",
+      "processed/iotsim-cooler-motor-3.csv",
+      "processed/iotsim-cooler-motor-4.csv",
+      "processed/iotsim-predictive-maintenance-1.csv",
+      "processed/iotsim-predictive-maintenance-10.csv",
+      "processed/iotsim-predictive-maintenance-11.csv",
+      "processed/iotsim-predictive-maintenance-12.csv",
+      "processed/iotsim-predictive-maintenance-13.csv",
+      "processed/iotsim-predictive-maintenance-14.csv",
+      "processed/iotsim-predictive-maintenance-15.csv",
+      "processed/iotsim-predictive-maintenance-2.csv",
+      "processed/iotsim-predictive-maintenance-3.csv",
+      "processed/iotsim-predictive-maintenance-4.csv",
+      "processed/iotsim-combined-cycle-tls-1.csv",
+      "processed/iotsim-combined-cycle-tls-2.csv"
+    ],
+    "id_benign_calib": [
+      "processed/iotsim-cooler-motor-5.csv",
+      "processed/iotsim-cooler-motor-6.csv",
+      "processed/iotsim-cooler-motor-7.csv",
+      "processed/iotsim-cooler-motor-8.csv",
+      "processed/iotsim-cooler-motor-9.csv",
+      "processed/iotsim-predictive-maintenance-5.csv",
+      "processed/iotsim-predictive-maintenance-6.csv",
+      "processed/iotsim-predictive-maintenance-7.csv",
+      "processed/iotsim-predictive-maintenance-8.csv",
+      "processed/iotsim-predictive-maintenance-9.csv",
+      "processed/iotsim-combined-cycle-tls-3.csv",
+      "processed/iotsim-combined-cycle-tls-4.csv",
+      "processed/iotsim-combined-cycle-tls-5.csv"
+    ],
+    "ood_benign_val": [
+      "processed/iotsim-hydraulic-system-1.csv",
+      "processed/iotsim-hydraulic-system-10.csv",
+      "processed/iotsim-hydraulic-system-11.csv",
+      "processed/iotsim-hydraulic-system-12.csv",
+      "processed/iotsim-hydraulic-system-13.csv",
+      "processed/iotsim-hydraulic-system-14.csv",
+      "processed/iotsim-hydraulic-system-15.csv",
+      "processed/iotsim-hydraulic-system-2.csv",
+      "processed/iotsim-building-monitor-2.csv",
+      "processed/iotsim-building-monitor-3.csv"
+    ],
+    "ood_benign_stress": [
+      "processed/iotsim-hydraulic-system-3.csv",
+      "processed/iotsim-hydraulic-system-4.csv",
+      "processed/iotsim-hydraulic-system-5.csv",
+      "processed/iotsim-hydraulic-system-6.csv",
+      "processed/iotsim-hydraulic-system-7.csv",
+      "processed/iotsim-hydraulic-system-8.csv",
+      "processed/iotsim-hydraulic-system-9.csv",
+      "processed/iotsim-stream-consumer-1.csv",
+      "processed/iotsim-stream-consumer-2.csv",
+      "processed/iotsim-domotic-monitor-2.csv",
+      "processed/iotsim-domotic-monitor-3.csv",
+      "processed/iotsim-building-monitor-4.csv",
+      "processed/iotsim-building-monitor-5.csv"
+    ],
+    "sealed_final_ood": [
+      "processed/iotsim-ip-camera-museum-2.csv",
+      "processed/iotsim-ip-camera-street-2.csv"
+    ],
+    "attack_support_candidate_pool": [
+      "processed/iotsim-air-quality-1.csv",
+      "processed/iotsim-city-power-1.csv"
+    ],
+    "dev_future_attack_query": [
+      "processed/iotsim-ip-camera-museum-1.csv",
+      "processed/iotsim-building-monitor-1.csv",
+      "processed/iotsim-domotic-monitor-1.csv",
+      "processed/iotsim-combined-cycle-1.csv",
+      "processed/iotsim-combined-cycle-10.csv"
+    ],
+    "sealed_final_attack": [
+      "processed/iotsim-ip-camera-street-1.csv"
+    ]
+  },
+  "role_stats": {
+    "id_benign_train": {
+      "file_count": 22,
+      "row_count": 665895,
+      "benign_rows": 665895,
+      "attack_rows": 0,
+      "devices": [
+        "combined-cycle-tls",
+        "cooler-motor",
+        "predictive-maintenance"
+      ],
+      "protocols": [
+        "coap",
+        "mqtt",
+        "tls"
+      ],
+      "attack_type_count": 0,
+      "top_attack_types": {}
+    },
+    "id_benign_calib": {
+      "file_count": 13,
+      "row_count": 186776,
+      "benign_rows": 186776,
+      "attack_rows": 0,
+      "devices": [
+        "combined-cycle-tls",
+        "cooler-motor",
+        "predictive-maintenance"
+      ],
+      "protocols": [
+        "coap",
+        "mqtt"
+      ],
+      "attack_type_count": 0,
+      "top_attack_types": {}
+    },
+    "ood_benign_val": {
+      "file_count": 10,
+      "row_count": 38339,
+      "benign_rows": 38339,
+      "attack_rows": 0,
+      "devices": [
+        "building-monitor",
+        "hydraulic-system"
+      ],
+      "protocols": [
+        "mqtt",
+        "tls"
+      ],
+      "attack_type_count": 0,
+      "top_attack_types": {}
+    },
+    "ood_benign_stress": {
+      "file_count": 13,
+      "row_count": 954784,
+      "benign_rows": 954784,
+      "attack_rows": 0,
+      "devices": [
+        "building-monitor",
+        "domotic-monitor",
+        "hydraulic-system",
+        "stream-consumer"
+      ],
+      "protocols": [
+        "dns",
+        "icmp",
+        "mqtt"
+      ],
+      "attack_type_count": 0,
+      "top_attack_types": {}
+    },
+    "sealed_final_ood": {
+      "file_count": 2,
+      "row_count": 2015855,
+      "benign_rows": 2015855,
+      "attack_rows": 0,
+      "devices": [
+        "ip-camera-museum",
+        "ip-camera-street"
+      ],
+      "protocols": [
+        "rtcp"
+      ],
+      "attack_type_count": 0,
+      "top_attack_types": {}
+    },
+    "attack_support_candidate_pool": {
+      "file_count": 2,
+      "row_count": 1571483,
+      "benign_rows": 9553,
+      "attack_rows": 1560221,
+      "devices": [
+        "air-quality",
+        "city-power"
+      ],
+      "protocols": [
+        "coap",
+        "mqtt"
+      ],
+      "attack_type_count": 9,
+      "top_attack_types": {
+        "Mirai TCP Flooding": 589373,
+        "Mirai UDP Flooding": 466303,
+        "Mirai GRE Flooding": 375303,
+        "Telnet Brute Force": 47768,
+        "TCP Scan": 46687,
+        "Merlin TCP Flooding": 20000,
+        "Merlin ICMP Flooding": 9573,
+        "Merlin UDP Flooding": 5000,
+        "Ingress Tool Transfer": 214
+      }
+    },
+    "dev_future_attack_query": {
+      "file_count": 5,
+      "row_count": 24226446,
+      "benign_rows": 4541324,
+      "attack_rows": 19680018,
+      "devices": [
+        "building-monitor",
+        "combined-cycle",
+        "domotic-monitor",
+        "ip-camera-museum"
+      ],
+      "protocols": [
+        "coap",
+        "telnet",
+        "tls"
+      ],
+      "attack_type_count": 16,
+      "top_attack_types": {
+        "Mirai UDP Flooding": 7917596,
+        "Mirai TCP Flooding": 5386100,
+        "Mirai GRE Flooding": 5170511,
+        "TCP Scan": 579221,
+        "CoAP Amplification": 274837,
+        "Telnet Brute Force": 154635,
+        "Merlin TCP Flooding": 80000,
+        "Merlin ICMP Flooding": 37996,
+        "Merlin C&C Communication": 29356,
+        "Merlin UDP Flooding": 20000
+      }
+    },
+    "sealed_final_attack": {
+      "file_count": 1,
+      "row_count": 5469337,
+      "benign_rows": 3838991,
+      "attack_rows": 1629489,
+      "devices": [
+        "ip-camera-street"
+      ],
+      "protocols": [
+        "telnet"
+      ],
+      "attack_type_count": 12,
+      "top_attack_types": {
+        "Mirai TCP Flooding": 572700,
+        "Mirai UDP Flooding": 513996,
+        "Mirai GRE Flooding": 365587,
+        "TCP Scan": 111856,
+        "Telnet Brute Force": 25246,
+        "Merlin TCP Flooding": 20000,
+        "Merlin ICMP Flooding": 10011,
+        "Merlin UDP Flooding": 4996,
+        "Ingress Tool Transfer": 3702,
+        "File Download": 1231
+      }
+    }
+  },
+  "support_modes": {
+    "fixed_support_mode": {
+      "purpose": "few-shot generalization with frozen labelled support",
+      "candidate_pool_role": "attack_support_candidate_pool",
+      "allowed_selection_inputs": [
+        "attack_support_candidate_pool features/labels",
+        "development-side support_val only"
+      ],
+      "forbidden_inputs": [
+        "sealed_final_ood",
+        "sealed_final_attack",
+        "dev_future_attack_query report-only outcomes",
+        "future labels before review"
+      ],
+      "budgets": [
+        32,
+        64,
+        128,
+        256
+      ]
+    },
+    "active_update_mode": {
+      "purpose": "separate online diagnostic with bounded analyst labels",
+      "candidate_pool_role": "dev_future_attack_query_or_mixed_stream_unknown_buffer_only_after_prefrozen_review_rule",
+      "forbidden_inputs": [
+        "sealed_final_ood",
+        "sealed_final_attack",
+        "final/report-only outcomes"
+      ],
+      "budgets": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "notes": "confirmed benign drift must enter OOD/benign memory, not attack support; confirmed attack may update bounded attack region memory"
+    }
+  },
+  "size_plan": {
+    "contract_scope": "all_78_processed_csv_file_level_contract",
+    "all_csv_total_rows": 35134281,
+    "all_csv_benign_rows": 12256883,
+    "all_csv_attack_rows": 22869728,
+    "all_benign_files": 70,
+    "mixed_attack_files": 8,
+    "recommended_first_larger_materialization": {
+      "purpose": "larger sanity, not full/formal benchmark",
+      "target_total_model_ready_rows": "3M_to_8M",
+      "hard_ceiling_without_new_confirmation": "10M_emitted_115D_rows",
+      "why": "large enough to stress medium protocol across more files/devices, still bounded before full 35M-row processed corpus and 23GB raw zip PCAP extraction",
+      "id_ood_rows": "use capped/stratified rows from assigned benign files; include at least multiple devices per train/calib/val/stress role",
+      "sealed_final_rows": "cap heavy ip-camera final OOD/attack for larger sanity replay; no selection from these rows",
+      "attack_support_budgets": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "active_label_budgets": [
+        32,
+        64,
+        128,
+        256
+      ]
+    }
+  },
+  "claim_boundary": {
+    "allowed": "larger sanity contract is ready for bounded materialization planning",
+    "not_allowed": [
+      "formal benchmark passed",
+      "deployment proven",
+      "external generalization proven",
+      "full Gotham final test completed"
+    ],
+    "seal_caveat": "sealed final roles are sealed from issue27bw forward, but not pristine across the whole project history"
+  },
+  "next_recommended_issue": "issue27bx_larger_sanity_materialization_dry_run_from_contract_v1"
+}

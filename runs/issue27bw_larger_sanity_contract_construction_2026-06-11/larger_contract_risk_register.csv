@@ -1,0 +1,5 @@
+risk_id,risk,impact,mitigation
+R1,Only 8 mixed attack CSV files exist,sealed final attack diversity is limited,treat issue27bw/bx as larger sanity; require new holdout policy or external dataset before formal benchmark
+R2,File-level manifest timestamps missing_or_unparsed,cannot claim wall-clock time-forward split at contract level,issue27bx must use row order/sidecar and past-only state logs with purge/embargo
+R3,Sealed final roles are not historically pristine,final replay may be diagnostic-only for paper claims,seal from issue27bw forward and avoid any future selection; consider fresh holdout for formal
+R4,Active update mode can contaminate final if mixed with fixed support,few-shot and active-labeling claims become ambiguous,run fixed_support_mode and active_update_mode as separate experiments with separate hashes

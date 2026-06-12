@@ -1,0 +1,17 @@
+{
+  "run_id": "issue27bw_larger_sanity_contract_construction_2026-06-11",
+  "inputs": {
+    "all_csv_manifest": "runs\\issue27y_gotham_fuller_manifest_and_preregistered_split_contract_2026-05-28\\gotham_all_csv_file_manifest.csv",
+    "issue27bv": "runs\\issue27bv_problem_definition_and_frozen_protocol_before_larger_2026-06-11",
+    "issue27bu": "runs\\issue27bu_unified_temporal_attack_ood_heads_certification_2026-06-10"
+  },
+  "constraints": {
+    "no_model_run": true,
+    "no_115d_extraction": true,
+    "no_split_materialization": true,
+    "no_final_for_selection": true,
+    "no_commit_push": true,
+    "larger_sanity_target_rows": "3M_to_8M",
+    "larger_sanity_hard_ceiling_rows_without_confirmation": "10M"
+  }
+}
