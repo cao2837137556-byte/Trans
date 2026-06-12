@@ -1911,3 +1911,13 @@ marker: `issue27bx_larger_sanity_materialization_dry_run_from_contract_v1_2026-0
 - strategy: `train_state_then_eval_online`
 - no model run, no formal benchmark, no final-role selection
 - next action: `issue27by_larger_sanity_replay_current_frozen_system`
+
+## issue27bx2 Materialization Quota/Cache Repair
+
+marker: `issue27bx2_materialization_quota_cache_repair_2026-06-12`
+
+- primary_verdict: `quota_cache_repair_partial_needs_contract_or_quota_revision`
+- issue27bx shortfalls were traced to quota/materialization planning, not model failure.
+- Next materialization should use same-role fallback and per-file cache keys.
+- Sealed final roles remain forbidden for fallback, fit, threshold, and selection.
+- Current stage remains data/interface preparation; no formal benchmark is authorized.

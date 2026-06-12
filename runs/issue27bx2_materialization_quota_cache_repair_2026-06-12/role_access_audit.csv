@@ -1,0 +1,9 @@
+role,fit_allowed,threshold_allowed,support_selection_allowed,model_selection_allowed,report_only
+id_benign_train,true,true,false,true,false
+id_benign_calib,true,true,false,true,false
+ood_benign_val,true,true,false,true,false
+ood_benign_stress,true,true,false,true,false
+sealed_final_ood,false,false,false,false,true
+attack_support_candidate_pool,true,true,true,true,false
+dev_future_attack_query,false,false,false,false,true
+sealed_final_attack,false,false,false,false,true

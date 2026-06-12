@@ -1,0 +1,22 @@
+{
+  "run_type": "materialization_quota_cache_repair_no_model",
+  "inputs": [
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27bw_larger_sanity_contract_construction_2026-06-11\\larger_sanity_contract_v1.json",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27bx_larger_sanity_materialization_dry_run_from_contract_v1_2026-06-11\\larger_materialization_role_meta.csv",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27bw_larger_sanity_contract_construction_2026-06-11\\role_file_inventory.csv"
+  ],
+  "outputs": [
+    "file_available_rows_estimate.csv",
+    "quota_plan_vs_actual.csv",
+    "fallback_rule_table.csv",
+    "materialization_v2_quota_plan.csv",
+    "cache_key_manifest.csv"
+  ],
+  "forbidden": [
+    "model_training",
+    "formal_benchmark",
+    "cross_role_fallback",
+    "sealed_final_backfill"
+  ],
+  "primary_verdict": "quota_cache_repair_ready_for_500k_materialization_retry"
+}

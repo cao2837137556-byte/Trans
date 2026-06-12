@@ -1,0 +1,20 @@
+{
+  "issue": "issue27bx2_materialization_quota_cache_repair_2026-06-12",
+  "created_utc": "2026-06-12T05:25:31.429188+00:00",
+  "input_contract": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27bw_larger_sanity_contract_construction_2026-06-11\\larger_sanity_contract_v1.json",
+  "input_issue27bx_summary": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27bx_larger_sanity_materialization_dry_run_from_contract_v1_2026-06-11\\summary.md",
+  "next_local_target_rows": 500000,
+  "next_local_role_quotas": {
+    "id_benign_train": 151000,
+    "id_benign_calib": 30000,
+    "ood_benign_val": 24000,
+    "ood_benign_stress": 80000,
+    "sealed_final_ood": 55000,
+    "attack_support_candidate_pool": 45000,
+    "dev_future_attack_query": 80000,
+    "sealed_final_attack": 35000
+  },
+  "primary_verdict": "quota_cache_repair_ready_for_500k_materialization_retry",
+  "model_run": false,
+  "formal_benchmark": false
+}

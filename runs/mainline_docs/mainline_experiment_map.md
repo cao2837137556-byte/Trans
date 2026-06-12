@@ -2436,3 +2436,11 @@ Next:
 - stage: bounded local larger sanity asset materialization
 - no model run; data artifacts live under `datasets/gotham2025/derived/kitsune115_larger_sanity_v1/`
 - next: issue27by frozen-system replay
+
+## issue27bx2 Materialization Quota/Cache Repair
+
+marker: `issue27bx2_materialization_quota_cache_repair_2026-06-12`
+
+- Inputs: issue27bw larger contract, issue27bx role meta, archive listing.
+- Outputs: available row estimates, quota-vs-actual table, fallback rules, cache key manifest, v2 quota plan.
+- Next: issue27bx3 500k cache-aware materialization retry before model replay.
