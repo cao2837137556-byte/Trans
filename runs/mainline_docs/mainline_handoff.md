@@ -1931,3 +1931,20 @@ marker: `issue27bx3_500k_cache_aware_materialization_retry_2026-06-12`
 - final/report-only roles remained sealed from fit/threshold/selection.
 - No model training or formal benchmark was run.
 - Next: 1M materialization/runtime profile before mixed-stream protocol work.
+
+
+## issue27bx4 - 1M Kitsune115 runtime profile attempt
+- verdict: cache_aware_1m_runtime_profile_blocked_by_local_runtime_bottleneck
+- result: completed 845,000/1,000,000 rows; no certified 1M asset was produced.
+- blocker: local runtime bottleneck on `processed/iotsim-building-monitor-1.csv` in `dev_future_attack_query` after >70 minutes active CPU with empty stderr.
+- cleanliness: preserved; no cross-role fallback, no final/report-only reuse, no model training, partial canonical files quarantined with `INCOMPLETE_INTERRUPTED_`.
+- next: issue27by_runtime_optimized_1m_or_slurm_materialization.
+
+## issue27by Runtime-optimized 1M/Slurm Materialization Pipeline
+
+marker: `issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12`
+
+- primary_verdict: `slurm_ready_per_file_pipeline_smoke_passed`
+- Created a state-snapshot-dependent per-file cache pipeline and Slurm array plan.
+- No certified 1M asset yet; merge remains blocked until all non-ID caches are complete and quarantine-free.
+- No model training or formal benchmark was run.

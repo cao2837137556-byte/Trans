@@ -1,0 +1,3 @@
+python repo/ood/issue27by_runtime_optimized_1m_or_slurm_materialization.py --mode smoke
+python repo/ood/issue27by_runtime_optimized_1m_or_slurm_materialization.py --mode build-train-state
+python repo/ood/issue27by_runtime_optimized_1m_or_slurm_materialization.py --mode run-job --job-index <N> --max-wall-seconds 10800

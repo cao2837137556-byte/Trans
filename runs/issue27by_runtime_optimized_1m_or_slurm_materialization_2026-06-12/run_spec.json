@@ -1,0 +1,21 @@
+{
+  "run_type": "runtime_optimized_slurm_ready_materialization_pipeline",
+  "inputs": [
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27bx4_1m_materialization_runtime_profile_2026-06-12\\materialization_1m_runtime_profile_plan.csv",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\derived\\kitsune115_larger_sanity_500k_v1\\per_file_cache",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\derived\\kitsune115_larger_sanity_1m_runtime_profile_v1\\per_file_cache"
+  ],
+  "outputs": [
+    "slurm_array_config.csv",
+    "slurm_job_plan.sh",
+    "per_file_cache_manifest.csv",
+    "runtime_profile_table.csv",
+    "local_smoke_report.csv"
+  ],
+  "forbidden": [
+    "model_training",
+    "threshold_tuning",
+    "formal_benchmark",
+    "using_quarantine_in_merge"
+  ]
+}

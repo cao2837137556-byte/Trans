@@ -2452,3 +2452,18 @@ marker: `issue27bx3_500k_cache_aware_materialization_retry_2026-06-12`
 - Inputs: issue27bx2 v2 quota plan.
 - Outputs: 500k X/y/sidecar/split manifest, per-file cache, runtime/cache audit.
 - Role: data production line stabilization, not model performance.
+
+
+## issue27bx4 - 1M Kitsune115 runtime profile attempt
+- verdict: cache_aware_1m_runtime_profile_blocked_by_local_runtime_bottleneck
+- result: completed 845,000/1,000,000 rows; no certified 1M asset was produced.
+- blocker: local runtime bottleneck on `processed/iotsim-building-monitor-1.csv` in `dev_future_attack_query` after >70 minutes active CPU with empty stderr.
+- cleanliness: preserved; no cross-role fallback, no final/report-only reuse, no model training, partial canonical files quarantined with `INCOMPLETE_INTERRUPTED_`.
+- next: issue27by_runtime_optimized_1m_or_slurm_materialization.
+
+## issue27by Runtime-optimized 1M/Slurm Materialization Pipeline
+
+marker: `issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12`
+
+- Role: data production line hardening before certified 1M/larger asset.
+- Key constraint: non-ID extraction jobs depend on the frozen ID train frontend state snapshot.

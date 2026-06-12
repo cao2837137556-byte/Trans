@@ -1,0 +1,27 @@
+{
+  "issue": "issue27bx4_1m_materialization_runtime_profile_2026-06-12",
+  "primary_verdict": "cache_aware_1m_runtime_profile_blocked_by_local_runtime_bottleneck",
+  "target_rows": 1000000,
+  "completed_rows_before_interrupt": 845000,
+  "missing_rows": 155000,
+  "data_dir": "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\derived\\kitsune115_larger_sanity_1m_runtime_profile_v1",
+  "run_dir": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27bx4_1m_materialization_runtime_profile_2026-06-12",
+  "strict_constraints": {
+    "no_model_training": true,
+    "no_formal_benchmark": true,
+    "no_cross_role_fallback": true,
+    "sealed_final_report_only": true,
+    "canonical_partial_asset_quarantined": true
+  },
+  "blocked_file": {
+    "role": "dev_future_attack_query",
+    "csv": "processed/iotsim-building-monitor-1.csv",
+    "target_rows": 80000,
+    "start_ts": "2026-06-12 15:42:48"
+  },
+  "cache_counts_before_interrupt": {
+    "disabled_stateful_id_train": 7,
+    "hit": 20,
+    "miss_written": 6
+  }
+}

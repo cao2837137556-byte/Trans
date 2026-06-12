@@ -33,6 +33,16 @@ PLAN_PATH = PLAN_DIR / "materialization_v2_quota_plan.csv"
 DERIVED = ab.DATA_ROOT / "derived" / "kitsune115_larger_sanity_500k_v1"
 CACHE_DIR = DERIVED / "per_file_cache"
 LOG_PATH = DERIVED / "issue27bx3_materialization_log.txt"
+ASSET_TAG = "500k"
+SUCCESS_VERDICT = "cache_aware_500k_materialization_ready_for_1m_runtime_profile"
+PARTIAL_VERDICT = "cache_aware_500k_materialization_partial_needs_frontend_or_quota_fix"
+NEXT_RECOMMENDED_ISSUE = "issue27bx4_1m_materialization_runtime_profile"
+DECISION_FILE = "issue27bx3_decision.md"
+NEXT_ACTION_FILE = "issue27bx4_next_action.md"
+COMMAND_TEXT = "python repo/ood/issue27bx3_500k_cache_aware_materialization_retry.py"
+RUN_TYPE = "cache_aware_500k_materialization_retry"
+DOC_TITLE = "issue27bx3 500k Cache-aware Materialization Retry"
+CACHE_READ_DIRS: list[Path] = []
 
 PRIMARY_STRATEGY = "train_state_then_eval_online"
 WARMUP_PACKETS = 50
@@ -194,17 +204,25 @@ def sidecar_fieldnames() -> list[str]:
 
 
 def cache_paths(plan: FilePlan) -> dict[str, Path]:
+    return cache_paths_in_dir(CACHE_DIR, plan)
+
+
+def cache_paths_in_dir(cache_dir: Path, plan: FilePlan) -> dict[str, Path]:
     stem = f"{Path(plan.csv_member).stem}_{plan.role}_{plan.cache_key[:12]}"
     return {
-        "x": CACHE_DIR / f"{stem}_X.npy",
-        "y": CACHE_DIR / f"{stem}_y.npy",
-        "sidecar": CACHE_DIR / f"{stem}_sidecar.csv.gz",
-        "meta": CACHE_DIR / f"{stem}_meta.json",
+        "x": cache_dir / f"{stem}_X.npy",
+        "y": cache_dir / f"{stem}_y.npy",
+        "sidecar": cache_dir / f"{stem}_sidecar.csv.gz",
+        "meta": cache_dir / f"{stem}_meta.json",
     }
 
 
-def cache_valid(plan: FilePlan) -> bool:
-    paths = cache_paths(plan)
+def cache_candidate_paths(plan: FilePlan) -> list[dict[str, Path]]:
+    dirs = [CACHE_DIR] + [Path(p) for p in CACHE_READ_DIRS if Path(p) != CACHE_DIR]
+    return [cache_paths_in_dir(cache_dir, plan) for cache_dir in dirs]
+
+
+def cache_valid_for_paths(plan: FilePlan, paths: dict[str, Path]) -> bool:
     if not all(path.exists() for path in paths.values()):
         return False
     try:
@@ -217,6 +235,17 @@ def cache_valid(plan: FilePlan) -> bool:
         and meta.get("completed_target") is True
         and meta.get("feature_count") == 115
     )
+
+
+def cache_valid(plan: FilePlan) -> bool:
+    return any(cache_valid_for_paths(plan, paths) for paths in cache_candidate_paths(plan))
+
+
+def resolve_cache_paths(plan: FilePlan) -> dict[str, Path]:
+    for paths in cache_candidate_paths(plan):
+        if cache_valid_for_paths(plan, paths):
+            return paths
+    return cache_paths(plan)
 
 
 def write_cache(plan: FilePlan, x: np.ndarray, y: np.ndarray, sidecar_rows: list[dict[str, Any]], meta: dict[str, Any]) -> None:
@@ -346,7 +375,7 @@ def append_cache_to_final(
 
 
 def load_cache(plan: FilePlan) -> tuple[np.ndarray, np.ndarray, list[dict[str, Any]], dict[str, Any]]:
-    paths = cache_paths(plan)
+    paths = resolve_cache_paths(plan)
     x = np.load(paths["x"], mmap_mode="r")
     y = np.load(paths["y"], mmap_mode="r")
     with gzip.open(paths["sidecar"], "rt", encoding="utf-8", newline="") as f:
@@ -395,14 +424,14 @@ def main() -> None:
         if planned_rows != TARGET_TOTAL_ROWS:
             raise RuntimeError(f"planned rows {planned_rows} != expected {TARGET_TOTAL_ROWS}")
 
-        prefix = DERIVED / f"gotham_kitsune115_500k_{PRIMARY_STRATEGY}"
+        prefix = DERIVED / f"gotham_kitsune115_{ASSET_TAG}_{PRIMARY_STRATEGY}"
         x_path = prefix.with_name(prefix.name + "_X.npy")
         y_path = prefix.with_name(prefix.name + "_y.npy")
         sidecar_path = prefix.with_name(prefix.name + "_sidecar.csv.gz")
         split_manifest_path = prefix.with_name(prefix.name + "_split_manifest.csv.gz")
         schema_path = prefix.with_name(prefix.name + "_feature_schema.json")
-        role_meta_path = DERIVED / "gotham_kitsune115_500k_role_meta.csv"
-        state_log_path = DERIVED / "gotham_kitsune115_500k_state_transition_log.csv"
+        role_meta_path = DERIVED / f"gotham_kitsune115_{ASSET_TAG}_role_meta.csv"
+        state_log_path = DERIVED / f"gotham_kitsune115_{ASSET_TAG}_state_transition_log.csv"
 
         for path in [x_path, y_path, sidecar_path, split_manifest_path, schema_path, role_meta_path, state_log_path]:
             if path.exists():
@@ -561,16 +590,12 @@ def main() -> None:
     cache_written = sum(1 for row in cache_audit if row["cache_status"] == "miss_written")
     cache_hits = sum(1 for row in cache_audit if row["cache_status"] == "hit")
     final_clean = all(row["used_for_fit_threshold_or_selection"] == "false" for row in final_seal_rows)
-    primary_verdict = (
-        "cache_aware_500k_materialization_ready_for_1m_runtime_profile"
-        if row_offset == TARGET_TOTAL_ROWS and completed_all_targets and finite_ok and final_clean
-        else "cache_aware_500k_materialization_partial_needs_frontend_or_quota_fix"
-    )
+    primary_verdict = SUCCESS_VERDICT if row_offset == TARGET_TOTAL_ROWS and completed_all_targets and finite_ok and final_clean else PARTIAL_VERDICT
 
     summary = [
-        "# issue27bx3 Summary",
+        f"# {ISSUE} Summary",
         "",
-        "1. issue27bx3 completed: yes",
+        f"1. {ISSUE} completed: yes",
         f"2. primary_verdict: `{primary_verdict}`",
         f"3. materialized rows: `{row_offset}`",
         "4. feature columns: `115`",
@@ -584,30 +609,30 @@ def main() -> None:
         "12. formal benchmark: no",
         f"13. X path: `{x_path}`",
         f"14. sidecar path: `{sidecar_path}`",
-        "15. next recommended issue: `issue27bx4_1m_materialization_runtime_profile` if this pass holds",
+        f"15. next recommended issue: `{NEXT_RECOMMENDED_ISSUE}` if this pass holds",
         "16. commit/push: not performed",
     ]
     write_md(OUT / "summary.md", summary)
     write_md(
-        OUT / "issue27bx3_decision.md",
+        OUT / DECISION_FILE,
         [
-            "# issue27bx3 Decision",
+            f"# {ISSUE} Decision",
             "",
             f"primary_verdict: `{primary_verdict}`",
             "",
-            "A cache-aware 500k Kitsune115 data asset was materialized from the issue27bx2 v2 quota plan. No model training, threshold tuning, OOD gate repair, or formal benchmark was run.",
+            f"A cache-aware {ASSET_TAG} Kitsune115 data asset was materialized from a strict role-clean quota plan. No model training, threshold tuning, OOD gate repair, or formal benchmark was run.",
         ],
     )
     write_md(
-        OUT / "issue27bx4_next_action.md",
+        OUT / NEXT_ACTION_FILE,
         [
-            "# issue27bx4 Next Action",
+            f"# {NEXT_RECOMMENDED_ISSUE} Next Action",
             "",
-            "Recommended next task: `issue27bx4_1m_materialization_runtime_profile`.",
+            f"Recommended next task: `{NEXT_RECOMMENDED_ISSUE}`.",
             "",
             "Boundary:",
-            "- reuse issue27bx3 per-file caches where valid",
-            "- expand to 1M rows only if local runtime remains acceptable",
+            "- reuse per-file caches where valid",
+            "- expand only if local runtime remains acceptable",
             "- report runtime per role/file and cache hit rate",
             "- still do not train models or run formal benchmark",
         ],
@@ -623,6 +648,7 @@ def main() -> None:
         "scan_slack_packets": SCAN_SLACK_PACKETS,
         "state_hash_mode": STATE_HASH_MODE,
         "cache_dir": str(CACHE_DIR),
+        "cache_read_dirs": [str(p) for p in CACHE_READ_DIRS],
         "model_run": False,
         "formal_benchmark": False,
         "primary_verdict": primary_verdict,
@@ -631,7 +657,7 @@ def main() -> None:
     (OUT / "run_spec.json").write_text(
         json.dumps(
             {
-                "run_type": "cache_aware_500k_materialization_retry",
+                "run_type": RUN_TYPE,
                 "inputs": [str(PLAN_PATH)],
                 "forbidden": ["model_training", "threshold_selection", "formal_benchmark", "sealed_final_selection"],
                 "data_outputs": [str(x_path), str(y_path), str(sidecar_path), str(split_manifest_path)],
@@ -641,13 +667,13 @@ def main() -> None:
         ),
         encoding="utf-8",
     )
-    write_md(OUT / "command.txt", ["python repo/ood/issue27bx3_500k_cache_aware_materialization_retry.py"])
+    write_md(OUT / "command.txt", [COMMAND_TEXT])
 
     append_once(
         MAINLINE_DOCS / "mainline_handoff.md",
         ISSUE,
         [
-            "## issue27bx3 500k Cache-aware Materialization Retry",
+            f"## {DOC_TITLE}",
             "",
             f"marker: `{ISSUE}`",
             "",
@@ -655,19 +681,19 @@ def main() -> None:
             f"- materialized rows: `{row_offset}`",
             "- final/report-only roles remained sealed from fit/threshold/selection.",
             "- No model training or formal benchmark was run.",
-            "- Next: 1M materialization/runtime profile before mixed-stream protocol work.",
+            f"- Next: {NEXT_RECOMMENDED_ISSUE} before mixed-stream protocol work.",
         ],
     )
     append_once(
         MAINLINE_DOCS / "mainline_experiment_map.md",
         ISSUE,
         [
-            "## issue27bx3 500k Cache-aware Materialization Retry",
+            f"## {DOC_TITLE}",
             "",
             f"marker: `{ISSUE}`",
             "",
-            "- Inputs: issue27bx2 v2 quota plan.",
-            "- Outputs: 500k X/y/sidecar/split manifest, per-file cache, runtime/cache audit.",
+            f"- Inputs: `{PLAN_PATH}`.",
+            f"- Outputs: {ASSET_TAG} X/y/sidecar/split manifest, per-file cache, runtime/cache audit.",
             "- Role: data production line stabilization, not model performance.",
         ],
     )
