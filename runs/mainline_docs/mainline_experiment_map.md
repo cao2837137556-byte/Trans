@@ -2483,3 +2483,11 @@ marker: `issue27ca_initial_support_bank_contract_on_certified_1m_2026-06-14`
 - Role: support-bank contract and coverage audit before larger system replay.
 - Main output: bounded initial support bank candidates for B=32/64/128/256 using phase-file balanced k-center.
 - Boundary: data/system contract only, not performance.
+
+## issue27cb Broader Attack Support Candidate Contract
+
+marker: `issue27cb_broader_attack_support_candidate_contract_2026-06-14`
+
+- Role: exact-label support taxonomy audit on certified 1M before any model replay.
+- Main output: broader attack support contract v1 plus targeted materialization request.
+- Boundary: data contract only; not performance.

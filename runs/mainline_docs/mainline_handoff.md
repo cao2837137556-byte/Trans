@@ -1969,3 +1969,14 @@ marker: `issue27ca_initial_support_bank_contract_on_certified_1m_2026-06-14`
 - `attack_support_candidate_pool` is explicitly separated from the initial support bank.
 - Caveat: current 1M support candidate pool contains only Telnet Brute Force attack labels.
 - No model training or formal benchmark was run.
+
+## issue27cb Broader Attack Support Candidate Contract
+
+marker: `issue27cb_broader_attack_support_candidate_contract_2026-06-14`
+
+- primary_verdict: `broader_support_contract_partial_needs_targeted_multitype_materialization_and_onset_realign`
+- Read-only audit; no extracted 1M asset files were modified.
+- Current legal support exact attack labels: `{'Ingress Tool Transfer': 214, 'TCP Scan': 46685, 'Telnet Brute Force': 39437}`.
+- Support benign contamination rows that must be filtered before support selection: `3564`.
+- Missing preregistered support-file attack types: `['C&C Communication', 'File Download', 'Merlin C&C Communication', 'Merlin ICMP Flooding', 'Merlin TCP Flooding', 'Merlin UDP Flooding', 'Mirai C&C Communication', 'Mirai GRE Flooding', 'Mirai TCP Flooding', 'Mirai UDP Flooding', 'Reporting']`.
+- Next: targeted multi-type attack materialization and onset realignment before model replay.

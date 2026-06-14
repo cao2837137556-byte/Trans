@@ -1,0 +1,58 @@
+{
+  "contract_id": "gotham115_broader_attack_support_candidate_contract_v1",
+  "source_asset": "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\derived\\kitsune115_larger_sanity_1m_certified_v1",
+  "source_preregistered_contract": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27y_gotham_fuller_manifest_and_preregistered_split_contract_2026-05-28\\gotham_preregistered_split_contract_v1.json",
+  "asset_mutation_allowed": false,
+  "model_training_allowed": false,
+  "formal_benchmark_allowed": false,
+  "legal_support_source_role": "attack_support_candidate_pool",
+  "forbidden_support_source_roles": [
+    "dev_future_attack_query",
+    "sealed_final_attack",
+    "sealed_final_ood"
+  ],
+  "exact_label_filter": {
+    "required": true,
+    "exclude_labels": [
+      "",
+      "Benign",
+      "Unknown"
+    ],
+    "reason": "sidecar first_attack_label is too coarse for multi-attack taxonomy"
+  },
+  "current_1m_support_exact_attack_types": {
+    "Ingress Tool Transfer": 214,
+    "TCP Scan": 46685,
+    "Telnet Brute Force": 39437
+  },
+  "current_1m_support_benign_contamination_rows": 3564,
+  "current_1m_support_purity": 0.9603559510567297,
+  "preregistered_support_files": [
+    "processed/iotsim-air-quality-1.csv",
+    "processed/iotsim-city-power-1.csv",
+    "processed/iotsim-combined-cycle-10.csv",
+    "processed/iotsim-ip-camera-museum-1.csv"
+  ],
+  "attack_types_missing_from_current_support": [
+    "C&C Communication",
+    "File Download",
+    "Merlin C&C Communication",
+    "Merlin ICMP Flooding",
+    "Merlin TCP Flooding",
+    "Merlin UDP Flooding",
+    "Mirai C&C Communication",
+    "Mirai GRE Flooding",
+    "Mirai TCP Flooding",
+    "Mirai UDP Flooding",
+    "Reporting"
+  ],
+  "support_budgets_to_audit_later": [
+    32,
+    64,
+    128,
+    256
+  ],
+  "default_support_budget": 128,
+  "next_materialization_request": "targeted_multitype_materialization_request.csv",
+  "primary_verdict": "broader_support_contract_partial_needs_targeted_multitype_materialization_and_onset_realign"
+}

@@ -1,0 +1,31 @@
+role,csv_member,device,exact_csv_label,rows,selection_allowed_for_support
+attack_support_candidate_pool,processed/iotsim-air-quality-1.csv,air-quality,Benign,2834,false
+attack_support_candidate_pool,processed/iotsim-air-quality-1.csv,air-quality,Ingress Tool Transfer,109,true
+attack_support_candidate_pool,processed/iotsim-air-quality-1.csv,air-quality,TCP Scan,24687,true
+attack_support_candidate_pool,processed/iotsim-air-quality-1.csv,air-quality,Telnet Brute Force,17320,true
+attack_support_candidate_pool,processed/iotsim-air-quality-1.csv,air-quality,not_audited,50,false
+attack_support_candidate_pool,processed/iotsim-city-power-1.csv,city-power,Benign,730,false
+attack_support_candidate_pool,processed/iotsim-city-power-1.csv,city-power,Ingress Tool Transfer,105,true
+attack_support_candidate_pool,processed/iotsim-city-power-1.csv,city-power,TCP Scan,21998,true
+attack_support_candidate_pool,processed/iotsim-city-power-1.csv,city-power,Telnet Brute Force,22117,true
+attack_support_candidate_pool,processed/iotsim-city-power-1.csv,city-power,not_audited,50,false
+dev_future_attack_query,processed/iotsim-building-monitor-1.csv,building-monitor,Benign,2748,false
+dev_future_attack_query,processed/iotsim-building-monitor-1.csv,building-monitor,C&C Communication,49,false
+dev_future_attack_query,processed/iotsim-building-monitor-1.csv,building-monitor,File Download,1191,false
+dev_future_attack_query,processed/iotsim-building-monitor-1.csv,building-monitor,Ingress Tool Transfer,2579,false
+dev_future_attack_query,processed/iotsim-building-monitor-1.csv,building-monitor,Reporting,64,false
+dev_future_attack_query,processed/iotsim-building-monitor-1.csv,building-monitor,TCP Scan,66367,false
+dev_future_attack_query,processed/iotsim-building-monitor-1.csv,building-monitor,Telnet Brute Force,6952,false
+dev_future_attack_query,processed/iotsim-building-monitor-1.csv,building-monitor,not_audited,50,false
+dev_future_attack_query,processed/iotsim-domotic-monitor-1.csv,domotic-monitor,Benign,2663,false
+dev_future_attack_query,processed/iotsim-domotic-monitor-1.csv,domotic-monitor,C&C Communication,40,false
+dev_future_attack_query,processed/iotsim-domotic-monitor-1.csv,domotic-monitor,File Download,1187,false
+dev_future_attack_query,processed/iotsim-domotic-monitor-1.csv,domotic-monitor,Ingress Tool Transfer,1909,false
+dev_future_attack_query,processed/iotsim-domotic-monitor-1.csv,domotic-monitor,Reporting,16,false
+dev_future_attack_query,processed/iotsim-domotic-monitor-1.csv,domotic-monitor,TCP Scan,55238,false
+dev_future_attack_query,processed/iotsim-domotic-monitor-1.csv,domotic-monitor,Telnet Brute Force,13897,false
+dev_future_attack_query,processed/iotsim-domotic-monitor-1.csv,domotic-monitor,not_audited,50,false
+dev_future_attack_query,processed/iotsim-ip-camera-museum-1.csv,ip-camera-museum,Benign,79950,false
+dev_future_attack_query,processed/iotsim-ip-camera-museum-1.csv,ip-camera-museum,not_audited,50,false
+sealed_final_attack,processed/iotsim-ip-camera-street-1.csv,ip-camera-street,Benign,34950,false
+sealed_final_attack,processed/iotsim-ip-camera-street-1.csv,ip-camera-street,not_audited,50,false

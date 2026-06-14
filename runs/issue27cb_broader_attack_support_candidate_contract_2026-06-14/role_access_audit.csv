@@ -1,0 +1,5 @@
+role,may_select_support,may_fit_attack_head,may_use_for_threshold,may_use_for_model_selection,notes
+attack_support_candidate_pool,true,support_train_only_after_exact_label_filter,support_val_only_after_exact_label_filter,false,must exclude exact_csv_label=Benign and unknown labels before support bank selection
+dev_future_attack_query,false,false,false,false,report-only dev query for replay; can be audited for data validity but cannot seed support
+sealed_final_attack,false,false,false,false,sealed final remains report-only; current exact-label audit shows onset alignment must be fixed before use
+sealed_final_ood,false,false,false,false,never used for support construction
