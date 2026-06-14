@@ -2467,3 +2467,19 @@ marker: `issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12`
 
 - Role: data production line hardening before certified 1M/larger asset.
 - Key constraint: non-ID extraction jobs depend on the frozen ID train frontend state snapshot.
+
+## issue27bz Slurm 1M Cache Execution and Certified Merge
+
+marker: `issue27bz_slurm_1m_cache_execution_and_certified_merge_2026-06-14`
+
+- Inputs: `D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline\runs\issue27bx4_1m_materialization_runtime_profile_2026-06-12\materialization_1m_runtime_profile_plan.csv`.
+- Outputs: 1m_certified X/y/sidecar/split manifest, per-file cache, runtime/cache audit.
+- Role: data production line stabilization, not model performance.
+
+## issue27ca Initial Support Bank Contract on Certified 1M
+
+marker: `issue27ca_initial_support_bank_contract_on_certified_1m_2026-06-14`
+
+- Role: support-bank contract and coverage audit before larger system replay.
+- Main output: bounded initial support bank candidates for B=32/64/128/256 using phase-file balanced k-center.
+- Boundary: data/system contract only, not performance.

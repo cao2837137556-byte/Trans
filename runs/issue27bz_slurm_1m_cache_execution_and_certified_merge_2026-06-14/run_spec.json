@@ -1,0 +1,19 @@
+{
+  "run_type": "slurm_1m_cache_execution_and_certified_merge",
+  "inputs": [
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27bx4_1m_materialization_runtime_profile_2026-06-12\\materialization_1m_runtime_profile_plan.csv"
+  ],
+  "forbidden": [
+    "model_training",
+    "threshold_selection",
+    "formal_benchmark",
+    "sealed_final_selection"
+  ],
+  "data_outputs": [
+    "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\derived\\kitsune115_larger_sanity_1m_certified_v1\\gotham_kitsune115_1m_certified_train_state_then_eval_online_X.npy",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\derived\\kitsune115_larger_sanity_1m_certified_v1\\gotham_kitsune115_1m_certified_train_state_then_eval_online_y.npy",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\derived\\kitsune115_larger_sanity_1m_certified_v1\\gotham_kitsune115_1m_certified_train_state_then_eval_online_sidecar.csv.gz",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\derived\\kitsune115_larger_sanity_1m_certified_v1\\gotham_kitsune115_1m_certified_train_state_then_eval_online_split_manifest.csv.gz"
+  ],
+  "primary_verdict": "slurm_1m_certified_asset_ready_for_larger_sanity_replay"
+}

@@ -1,0 +1,20 @@
+{
+  "issue": "issue27bz_slurm_1m_cache_execution_and_certified_merge_2026-06-14",
+  "created_utc": "2026-06-14T02:46:43.141312+00:00",
+  "input_plan": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27bx4_1m_materialization_runtime_profile_2026-06-12\\materialization_1m_runtime_profile_plan.csv",
+  "target_total_rows": 1000000,
+  "emitted_rows": 1000000,
+  "strategy": "train_state_then_eval_online",
+  "warmup_packets": 50,
+  "scan_slack_packets": 5000,
+  "state_hash_mode": "lightweight_cache_aware_no_pickle_state_hash",
+  "cache_dir": "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\derived\\kitsune115_1m_slurm_cache_pipeline_v1\\per_file_cache",
+  "cache_read_dirs": [
+    "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\derived\\kitsune115_1m_slurm_cache_pipeline_v1\\per_file_cache",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\derived\\kitsune115_larger_sanity_1m_runtime_profile_v1\\per_file_cache",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\derived\\kitsune115_larger_sanity_500k_v1\\per_file_cache"
+  ],
+  "model_run": false,
+  "formal_benchmark": false,
+  "primary_verdict": "slurm_1m_certified_asset_ready_for_larger_sanity_replay"
+}

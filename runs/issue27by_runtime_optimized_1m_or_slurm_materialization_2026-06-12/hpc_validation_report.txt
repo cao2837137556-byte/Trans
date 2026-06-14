@@ -1,0 +1,14 @@
+issue27by HPC validation report
+status=PASS
+
+role_cache_readiness:
+- attack_support_candidate_pool: target=90000 existing=90000 missing=0 stateful=0
+- dev_future_attack_query: target=235000 existing=235000 missing=0 stateful=0
+- id_benign_calib: target=80000 existing=80000 missing=0 stateful=0
+- id_benign_train: target=151000 existing=0 missing=0 stateful=151000
+- ood_benign_stress: target=230000 existing=230000 missing=0 stateful=0
+- ood_benign_val: target=24000 existing=24000 missing=0 stateful=0
+- sealed_final_attack: target=35000 existing=35000 missing=0 stateful=0
+- sealed_final_ood: target=155000 existing=155000 missing=0 stateful=0
+
+quarantine_files=0

@@ -1948,3 +1948,24 @@ marker: `issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12`
 - Created a state-snapshot-dependent per-file cache pipeline and Slurm array plan.
 - No certified 1M asset yet; merge remains blocked until all non-ID caches are complete and quarantine-free.
 - No model training or formal benchmark was run.
+
+## issue27bz Slurm 1M Cache Execution and Certified Merge
+
+marker: `issue27bz_slurm_1m_cache_execution_and_certified_merge_2026-06-14`
+
+- primary_verdict: `slurm_1m_certified_asset_ready_for_larger_sanity_replay`
+- materialized rows: `1000000`
+- final/report-only roles remained sealed from fit/threshold/selection.
+- No model training or formal benchmark was run.
+- Next: issue27ca_larger_sanity_replay_on_certified_1m_asset before mixed-stream protocol work.
+
+## issue27ca Initial Support Bank Contract on Certified 1M
+
+marker: `issue27ca_initial_support_bank_contract_on_certified_1m_2026-06-14`
+
+- primary_verdict: `initial_support_bank_contract_ready_with_attack_taxonomy_limit_caveat`
+- legal support candidate rows: `89900`.
+- support budget grid: `[32, 64, 128, 256]`; default B=128 is global, not per attack type.
+- `attack_support_candidate_pool` is explicitly separated from the initial support bank.
+- Caveat: current 1M support candidate pool contains only Telnet Brute Force attack labels.
+- No model training or formal benchmark was run.
