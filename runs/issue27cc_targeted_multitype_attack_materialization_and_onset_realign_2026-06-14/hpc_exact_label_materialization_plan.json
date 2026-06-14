@@ -1,0 +1,21 @@
+{
+  "issue": "issue27cc_targeted_multitype_attack_materialization_and_onset_realign_2026-06-14",
+  "primary_verdict": "targeted_multitype_attack_contract_ready_for_slurm_exact_label_materialization",
+  "materialization_input_plan": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27cc_targeted_multitype_attack_materialization_and_onset_realign_2026-06-14\\targeted_exact_label_materialization_plan.csv",
+  "required_extractor_change": "exact_csv_label_row_filter_before_emit",
+  "forbidden_old_logic": "post_onset_binary_from_csv_first_attack_without_exact_label_filter",
+  "recommended_slurm": {
+    "partition": "amd",
+    "array": "plan chunks from targeted_exact_label_materialization_plan.csv after pcap pairing verification",
+    "cpus_per_task": 8,
+    "memory": "32G-64G",
+    "time": "08:00:00 to 24:00:00 depending on large ip-camera PCAP chunks"
+  },
+  "gates_before_submit": [
+    "GothamDataset2025.zip md5 must equal 7ca78c0517ccb3d2854e823678e0f206",
+    "all planned rows exact label != Benign/Unknown",
+    "sealed final forbidden for support/threshold/model selection",
+    "same-file dev query must be time-forward after support rows plus embargo",
+    "pcap pairing confidence reviewed for ambiguous scenarios"
+  ]
+}

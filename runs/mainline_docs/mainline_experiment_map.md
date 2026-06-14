@@ -2491,3 +2491,14 @@ marker: `issue27cb_broader_attack_support_candidate_contract_2026-06-14`
 - Role: exact-label support taxonomy audit on certified 1M before any model replay.
 - Main output: broader attack support contract v1 plus targeted materialization request.
 - Boundary: data contract only; not performance.
+
+<!-- issue27cc_targeted_multitype_attack_materialization_and_onset_realign -->
+## issue27cc Targeted Multitype Attack Materialization and Onset Realign
+
+- Verdict: `targeted_multitype_attack_contract_ready_for_slurm_exact_label_materialization`.
+- Current 1M attack roles are not sufficient for model replay because support/query/final attack rows must be exact-label filtered.
+- Reusable current exact support rows: `86336`.
+- Newly planned targeted support rows: `69492`.
+- Planned dev/query attack rows: `125679`.
+- Planned sealed final exact attack rows: `110104`.
+- Next: run exact-label Slurm materialization before any model replay.
