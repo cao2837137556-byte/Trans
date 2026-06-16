@@ -1,0 +1,42 @@
+schema_version: support_selection_config_template_v1
+status: template_only_not_empirically_frozen
+
+input_asset:
+  exact_label_attack_materialization: TBD_issue27cd_or_successor
+  feature_schema: kitsune115
+  role_contract: issue27ce_support_bank_protocol_v1
+
+eligibility:
+  require_exact_attack_label: true
+  require_non_benign_non_unknown: true
+  require_pcap_pairing: true
+  require_timestamp_alignment: true
+  allow_report_only_roles: false
+  allow_final_roles: false
+  allow_quarantined_rows: false
+
+selection:
+  support_budget: TBD
+  support_train_val_ratio: TBD
+  selection_method: TBD
+  distance_metric: TBD
+  scaler_fit_scope: support_candidate_only_or_declared_dev_only
+  random_seed: TBD
+  deterministic_tiebreak: source_file_then_timestamp_then_row_id
+
+region_budget:
+  region_cap: TBD
+  min_per_region: TBD
+  max_per_region: TBD
+  max_per_file: TBD
+  max_per_phase: TBD
+
+open_parameters_not_frozen:
+  - support_budget
+  - region_cap
+  - min_per_region
+  - max_per_file
+  - max_per_phase
+  - selection_method
+  - distance_metric
+

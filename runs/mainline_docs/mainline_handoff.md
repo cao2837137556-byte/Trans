@@ -1,5 +1,109 @@
 # Mainline Handoff
 
+## Current Mainline Control Panel
+
+Status: active living handoff. This top section is the authoritative current state.
+If older time-log entries conflict with this section, treat the older entry as historical evidence only.
+
+### Maintenance Protocol
+
+- Keep detailed evidence inside each numbered `runs/issue*/` directory.
+- Keep this handoff short: current truth, frozen rules, superseded routes, active blocker, and next action.
+- Do not append every table or diagnostic detail here. Link or name the source issue instead.
+- When an issue changes the mainline, update `Current Mainline Architecture`, `Current Data Contract`, and `Decision Log`.
+- When an issue does not change the mainline, record it only as a one-line indexed result in `mainline_experiment_map.md`.
+- Every future issue summary should close with:
+  - `solved`
+  - `changed_mainline: yes/no`
+  - `active_blocker`
+  - `frozen`
+  - `superseded`
+  - `next_action`
+
+### Current Mainline Architecture
+
+Status: active, not final benchmark-ready.
+
+Current system route:
+
+```text
+Gotham raw PCAP
+-> Kitsune / AfterImage / netStat 115D online statistical frontend
+-> clean role-specific materialized assets
+-> support-bank / evidence-head / OOD-risk / controller research line
+-> larger sanity replay
+-> only later: formal benchmark
+```
+
+Frozen parts:
+
+- The official Gotham frontend path is PCAP-derived Kitsune-style 115D.
+- The old 8D strict packet-header asset is an engineering smoke/provenance artifact only.
+- Final/report-only roles cannot be used for fit, support selection, threshold selection, calibration, model selection, or protocol tuning.
+- Data contract cleanliness gates precede model replay.
+- Current issue stage is data/system contract repair, not model ranking.
+
+Open parts:
+
+- Exact-label multi-type attack materialization must pass Slurm validation.
+- Support-bank construction must be instantiated from exact-label attack rows only.
+- Attack drift, benign OOD drift, conflict/review control, region lifecycle, and temporal evidence integration remain system-definition topics to solve after the data contract is clean.
+
+Superseded parts:
+
+- `original-frontend 100D` and earlier April/May few-shot framing remain historical evidence only for this branch.
+- Old model wins or collapses from unclean/underspecified split assets are diagnostic only.
+- Current 1M attack roles from before issue27cc are not valid for attack detection conclusions until exact-label rematerialization is complete.
+
+### Current Data Contract
+
+| Component | Current status | Source issue | Use now |
+|---|---|---|---|
+| Benign/OOD 1M roles | usable | issue27bz | ID train/calib, OOD val/stress, sealed final OOD remain usable under their role restrictions |
+| Attack support/query/final from certified 1M | partially reusable only after exact-label filtering | issue27cb/issue27cc | do not use directly for model replay |
+| Exact-label targeted attack plan | ready for Slurm materialization | issue27cc | source contract for issue27cd |
+| Exact-label targeted attack chunks | running / pending validation | issue27cd | wait for missing/quarantine audit before merge |
+| Support-bank protocol/interface | frozen at invariant/interface level; indices pending | issue27ce | use as the next support-bank instantiation contract |
+
+### Active Blocker
+
+`attack-side exact label / onset / PCAP timestamp alignment`
+
+The next model replay is blocked until issue27cd validates that targeted multi-type attack rows were emitted only when:
+
+- processed CSV label equals the planned exact attack label;
+- PCAP packet timestamp matches the planned CSV row timestamp;
+- forbidden final/report-only role access remains sealed;
+- quarantine and missing rows are understood.
+
+### Current Next Action
+
+Finish issue27cd Slurm run, run `remote_validate_issue27cd.sh`, pull back the results, and inspect:
+
+- `hpc_validation_report.txt`
+- `validation_summary.json`
+- `chunk_validation_table.csv`
+- quarantine count and reasons
+
+Only after that, decide whether to merge exact-label attack chunks into the active larger sanity asset.
+Then instantiate the support bank under issue27ce rules; do not reuse unused candidates or tune controller thresholds without a new explicit issue.
+
+### Decision Log
+
+| Date | Decision | Source | Status |
+|---|---|---|---|
+| 2026-06-01 | Formal frontend route moved from strict 8D packet-header to Gotham PCAP-derived Kitsune115. | issue27ab and later control discussion | active |
+| 2026-06-14 | Certified 1M benign/OOD asset is usable, but attack roles require exact-label rematerialization. | issue27bz/issue27cb/issue27cc | active |
+| 2026-06-14 | Multi-type attack support/query/final must be rebuilt using exact CSV labels and PCAP timestamp matching before model replay. | issue27cc/issue27cd | active blocker |
+| 2026-06-16 | Support-bank protocol/interface invariants are frozen; concrete support indices, budgets, and thresholds remain pending exact-label instantiation. | issue27ce | active |
+
+---
+
+## Historical Archive Begins Below
+
+The following sections are preserved from earlier mainline handoff revisions.
+They do not override the `Current Mainline Control Panel`.
+
 Updated: 2026-05-08
 Workspace: `D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline`
 Branch: `codex/exp-mainline`
@@ -1991,3 +2095,11 @@ marker: `issue27cb_broader_attack_support_candidate_contract_2026-06-14`
 - Planned dev/query attack rows: `125679`.
 - Planned sealed final exact attack rows: `110104`.
 - Next: run exact-label Slurm materialization before any model replay.
+
+<!-- issue27cd_slurm_exact_label_targeted_multitype_attack_materialization -->
+### issue27cd_slurm_exact_label_targeted_multitype_attack_materialization
+- Status: transfer/materialization script prepared for exact-label targeted multi-type attack Kitsune115 chunks.
+- Purpose: repair attack-side materialization using issue27cc exact-label rows; no model training or benchmark.
+- Key guardrail: emit only rows whose processed CSV label equals the planned attack label and whose packet timestamp matches the PCAP stream.
+- Current 1M benign/OOD roles remain usable; attack query/final roles require this exact-label rematerialization before model conclusions.
+- Next: run the Slurm transfer kit, validate missing_exact_rows/quarantine, then decide merge policy.

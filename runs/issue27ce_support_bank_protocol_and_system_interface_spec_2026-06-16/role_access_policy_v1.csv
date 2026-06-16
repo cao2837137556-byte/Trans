@@ -1,0 +1,13 @@
+role,may_enter_candidate_pool,may_enter_support_train,may_enter_support_val,may_fit_model,may_select_support,may_calibrate_threshold,may_tune_controller,may_report_only,notes
+id_benign_train,false,false,false,true,false,false,false,false,ID fitting only
+id_benign_calib,false,false,false,false,false,true,true,false,development calibration only
+ood_benign_val,false,false,false,false,false,true,true,false,development OOD calibration or controller tuning only
+ood_benign_stress,false,false,false,false,false,true,true,false,development stress only
+sealed_final_ood,false,false,false,false,false,false,false,true,report-only sealed final OOD
+attack_support_candidate_pool,true,true,true,true,true,true,true,false,eligible only after exact-label timestamp pairing
+dev_future_attack_query,false,false,false,false,false,false,false,true,report-only unless later explicit issue redefines
+same_file_time_forward_dev_query,false,false,false,false,false,false,false,true,report-only/development query only
+sealed_final_attack,false,false,false,false,false,false,false,true,report-only sealed final attack
+unused_attack_candidate,false,false,false,false,false,false,false,false,pending forbidden until explicit issue
+quarantined,false,false,false,false,false,false,false,false,forbidden all uses except diagnostics
+

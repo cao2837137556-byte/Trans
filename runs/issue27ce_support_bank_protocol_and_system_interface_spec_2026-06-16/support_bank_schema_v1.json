@@ -1,0 +1,53 @@
+{
+  "schema_name": "gotham_kitsune115_support_bank_schema_v1",
+  "schema_status": "interface_frozen_indices_pending",
+  "row_required_fields": [
+    "sample_id",
+    "asset_version",
+    "source_role",
+    "exact_attack_label",
+    "semantic_attack_group",
+    "region_id",
+    "phase",
+    "segment_id",
+    "source_file",
+    "device_or_source_group",
+    "pcap_path",
+    "csv_path",
+    "csv_row_index",
+    "pcap_packet_index",
+    "csv_timestamp",
+    "pcap_timestamp",
+    "timestamp_alignment_status",
+    "selection_round",
+    "selection_reason",
+    "bank_partition",
+    "memory_status",
+    "provenance_hash"
+  ],
+  "allowed_bank_partition": [
+    "support_train",
+    "support_val"
+  ],
+  "allowed_memory_status": [
+    "active",
+    "merged",
+    "retired",
+    "quarantined"
+  ],
+  "forbidden_exact_attack_label_values": [
+    "Benign",
+    "Unknown",
+    "",
+    null
+  ],
+  "final_roles_forbidden": [
+    "sealed_final_attack",
+    "sealed_final_ood",
+    "final_ood_benign_eval",
+    "attack_eval"
+  ],
+  "candidate_reuse_status": "pending_forbidden_until_explicit_issue",
+  "notes": "This schema defines the support bank interface only. Concrete row indices are not selected in issue27ce."
+}
+

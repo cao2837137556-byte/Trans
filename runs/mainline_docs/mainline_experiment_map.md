@@ -1,5 +1,89 @@
 ﻿# Mainline Experiment Map
 
+## Current Experiment Map Control Panel
+
+Status: active index. This top section is the current navigation map.
+Older sections below are historical archive unless explicitly revalidated under this control panel.
+
+### Maintenance Protocol
+
+- This file is an index, not the full lab notebook.
+- Keep detailed evidence, tables, and diagnostics inside numbered `runs/issue*/` directories.
+- Add at most one compact row per issue here unless the issue changes the mainline.
+- If an issue changes the mainline, update `mainline_handoff.md` first, then update one row here.
+- Preserve old experiments as historical evidence; supersede rather than delete.
+- Do not use old report-only or diagnostic results as current evidence unless revalidated under the current data contract.
+- Future issue summaries should close with:
+  - `solved`
+  - `changed_mainline: yes/no`
+  - `active_blocker`
+  - `frozen`
+  - `superseded`
+  - `next_action`
+
+### Current Paper/System Center
+
+Current working definition:
+
+```text
+Low-false-alarm few-shot online NIDS under dual distribution shift:
+benign OOD drift causes false alarms, and attack support-query drift causes missed detections.
+```
+
+Current system object:
+
+```text
+Gotham PCAP -> Kitsune115 -> clean split assets -> support-bank / evidence-head / OOD-risk / controller protocol
+```
+
+Current stage:
+
+```text
+Data and system contract repair before model replay.
+```
+
+### Current Truth Table
+
+| Item | Current status | Source issue | Confidence | Notes |
+|---|---|---|---|---|
+| Frontend | Kitsune / AfterImage / netStat 115D from raw PCAP | issue27ab and follow-up audits | frozen | 8D strict packet-header is engineering smoke only |
+| Benign/OOD 1M roles | usable under sealed role rules | issue27bz | active | ID train/calib, OOD val/stress, sealed final OOD remain role-restricted |
+| Attack support/query/final roles | pending exact-label rematerialization | issue27cb/issue27cc/issue27cd | active blocker | old coarse attack roles cannot support model conclusions |
+| Support bank | protocol/interface frozen; indices pending | issue27ca/issue27cb/issue27ce | pending | instantiate from exact-label multi-type attack rows after issue27cd repair/validation |
+| Model replay | paused | issue27cc/issue27cd | blocked | wait for Slurm validation and merge policy |
+| Formal benchmark | not authorized | current governance | blocked | requires clean data contract and frozen system protocol |
+
+### Active Issue Index
+
+| Issue | Purpose | Verdict/status | Mainline effect | Next |
+|---|---|---|---|---|
+| issue27bz | Execute and certify 1M Gotham Kitsune115 cache | certified merge passed for benign/OOD roles | 1M benign/OOD asset becomes usable | keep role restrictions |
+| issue27ca | Initial support-bank contract on certified 1M | taxonomy caveat found | attack-side support cannot be trusted at coarse label level | exact-label attack audit |
+| issue27cb | Broader attack support candidate contract | exact support labels found, query/final blockers found | multi-type support is possible but old attack query/final invalid | targeted exact-label materialization |
+| issue27cc | Targeted multi-type attack materialization and onset realign plan | ready for Slurm exact-label materialization | defines legal attack rebuild contract | run issue27cd |
+| issue27cd | Slurm exact-label targeted attack materialization | running / pending validation | active blocker before model replay | validate, pull back, inspect quarantine/missing |
+| issue27ce | Support-bank protocol and system interface spec | support-bank protocol/interface frozen; thresholds and indices pending | freezes support-bank boundaries without model metrics | issue27cf after issue27cd exact-label data is ready |
+
+### Current Rule For Future Issue Docs
+
+Every issue may keep its full local detail, but its close-out summary should include:
+
+```text
+solved:
+changed_mainline: yes/no
+active_blocker:
+frozen:
+superseded:
+next_action:
+```
+
+---
+
+## Historical Archive Begins Below
+
+The following sections are preserved from earlier experiment map revisions.
+They do not override the Current Experiment Map Control Panel.
+
 Canonical path: `runs/mainline_docs/mainline_experiment_map.md`
 
 > 版本：v3 convergence-first（2026-04-23）
@@ -2502,3 +2586,11 @@ marker: `issue27cb_broader_attack_support_candidate_contract_2026-06-14`
 - Planned dev/query attack rows: `125679`.
 - Planned sealed final exact attack rows: `110104`.
 - Next: run exact-label Slurm materialization before any model replay.
+
+<!-- issue27cd_slurm_exact_label_targeted_multitype_attack_materialization -->
+### issue27cd_slurm_exact_label_targeted_multitype_attack_materialization
+- Status: transfer/materialization script prepared for exact-label targeted multi-type attack Kitsune115 chunks.
+- Purpose: repair attack-side materialization using issue27cc exact-label rows; no model training or benchmark.
+- Key guardrail: emit only rows whose processed CSV label equals the planned attack label and whose packet timestamp matches the PCAP stream.
+- Current 1M benign/OOD roles remain usable; attack query/final roles require this exact-label rematerialization before model conclusions.
+- Next: run the Slurm transfer kit, validate missing_exact_rows/quarantine, then decide merge policy.

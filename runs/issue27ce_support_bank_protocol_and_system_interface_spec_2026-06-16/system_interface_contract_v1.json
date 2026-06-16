@@ -1,0 +1,44 @@
+{
+  "contract_name": "gotham_kitsune115_system_interface_contract_v1",
+  "status": "interface_frozen_thresholds_pending",
+  "frontend": {
+    "name": "Kitsune/AfterImage/netStat 115D",
+    "input": "raw PCAP packet stream",
+    "output": "X_115D plus sidecar",
+    "frozen": true
+  },
+  "attack_head_output": {
+    "attack_score": "numeric, higher means stronger attack evidence after direction normalization",
+    "attack_region_id": "nearest or routed active attack region, or null",
+    "attack_region_distance": "distance to selected attack region representation",
+    "attack_evidence_reliability": "interface field, empirical definition pending"
+  },
+  "ood_head_output": {
+    "ood_risk_score": "numeric, higher means stronger benign-OOD risk after direction normalization",
+    "benign_region_id": "nearest ID/OOD benign region, or null",
+    "ood_region_distance": "distance to selected benign/OOD region representation",
+    "ood_evidence_reliability": "interface field, empirical definition pending"
+  },
+  "temporal_evidence_output": {
+    "past_attack_persistence": "past-only attack evidence persistence",
+    "past_ood_persistence": "past-only OOD-risk persistence",
+    "source_consistency": "past-only source/flow consistency evidence when available",
+    "window_validity": "whether enough past-only context exists"
+  },
+  "controller_output": [
+    "hard_alarm",
+    "suppress",
+    "review_conflict",
+    "unknown",
+    "no_alarm"
+  ],
+  "forbidden_inputs": [
+    "final labels for tuning",
+    "sealed final attack outcomes",
+    "sealed final OOD outcomes",
+    "report-only query outcomes",
+    "future temporal windows"
+  ],
+  "notes": "This contract freezes interface names and semantics, not thresholds or learned parameters."
+}
+

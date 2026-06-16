@@ -1,0 +1,19 @@
+path,artifact_type,stage,notes
+summary.md,summary,decision,issue close-out and verdict
+support_bank_protocol_v1.md,protocol,spec,candidate-to-bank pipeline and invariants
+support_bank_schema_v1.json,schema,spec,support bank row schema
+support_selection_config_template.yaml,config_template,spec,open parameters only
+support_bank_state_machine.md,state_machine,spec,support sample lifecycle
+attack_region_lifecycle_policy.md,policy,spec,region lifecycle
+system_interface_contract_v1.json,interface,spec,head and controller interface
+controller_interface_and_state_machine_v1.md,state_machine,spec,controller states without thresholds
+active_update_boundary_v1.md,policy,spec,active update explicitly deferred
+unused_candidate_policy.md,policy,spec,candidate reuse explicitly deferred
+role_access_policy_v1.csv,policy,spec,role access matrix
+open_parameters_registry.md,registry,spec,parameters not frozen
+protocol_invariants_test.py,test,synthetic,executable protocol invariant checks
+validation_report.md,validation,synthetic,protocol invariant and machine-readable artifact checks
+issue27cf_next_action.md,next_action,planning,next issue boundary
+config.json,config,provenance,run configuration
+run_spec.json,run_spec,provenance,input and output manifest
+command.txt,command,provenance,test command

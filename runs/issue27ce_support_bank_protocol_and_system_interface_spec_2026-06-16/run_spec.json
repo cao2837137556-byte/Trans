@@ -1,0 +1,27 @@
+{
+  "run_id": "issue27ce_support_bank_protocol_and_system_interface_spec_2026-06-16",
+  "objective": "Freeze support-bank protocol invariants, schemas, interfaces, and state machines before exact-label support instantiation.",
+  "inputs": [
+    "runs/mainline_docs/mainline_handoff.md",
+    "runs/mainline_docs/mainline_experiment_map.md",
+    "runs/issue27cc_targeted_multitype_attack_materialization_and_onset_realign_2026-06-14/summary.md",
+    "runs/issue27cd_slurm_exact_label_targeted_multitype_attack_materialization_2026-06-14/summary.md"
+  ],
+  "outputs": [
+    "summary.md",
+    "support_bank_protocol_v1.md",
+    "support_bank_schema_v1.json",
+    "support_selection_config_template.yaml",
+    "support_bank_state_machine.md",
+    "attack_region_lifecycle_policy.md",
+    "system_interface_contract_v1.json",
+    "controller_interface_and_state_machine_v1.md",
+    "active_update_boundary_v1.md",
+    "unused_candidate_policy.md",
+    "role_access_policy_v1.csv",
+    "open_parameters_registry.md",
+    "protocol_invariants_test.py",
+    "issue27cf_next_action.md"
+  ]
+}
+
