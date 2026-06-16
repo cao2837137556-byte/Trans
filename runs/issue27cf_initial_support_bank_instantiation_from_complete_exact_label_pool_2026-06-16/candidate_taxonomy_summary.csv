@@ -1,0 +1,17 @@
+device_or_source_group,exact_attack_label,phase,rows,semantic_attack_group
+ip-camera-museum,Merlin C&C Communication,tail_gt_10000,2441,merlin
+city-power,Merlin ICMP Flooding,tail_gt_10000,2393,merlin
+ip-camera-museum,Merlin ICMP Flooding,tail_gt_10000,2502,merlin
+city-power,Merlin TCP Flooding,tail_gt_10000,5000,merlin
+ip-camera-museum,Merlin TCP Flooding,tail_gt_10000,5000,merlin
+city-power,Merlin UDP Flooding,tail_gt_10000,1250,merlin
+ip-camera-museum,Merlin UDP Flooding,tail_gt_10000,1250,merlin
+ip-camera-museum,Mirai C&C Communication,tail_gt_10000,250,mirai
+city-power,Mirai GRE Flooding,tail_gt_10000,8000,mirai
+ip-camera-museum,Mirai GRE Flooding,tail_gt_10000,8000,mirai
+city-power,Mirai TCP Flooding,tail_gt_10000,8000,mirai
+ip-camera-museum,Mirai TCP Flooding,tail_gt_10000,8000,mirai
+city-power,Mirai UDP Flooding,tail_gt_10000,8000,mirai
+ip-camera-museum,Mirai UDP Flooding,tail_gt_10000,8000,mirai
+combined-cycle,File Download,tail_gt_10000,605,tooling
+combined-cycle,Ingress Tool Transfer,tail_gt_10000,801,tooling

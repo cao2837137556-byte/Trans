@@ -48,9 +48,9 @@ Data and system contract repair before model replay.
 |---|---|---|---|---|
 | Frontend | Kitsune / AfterImage / netStat 115D from raw PCAP | issue27ab and follow-up audits | frozen | 8D strict packet-header is engineering smoke only |
 | Benign/OOD 1M roles | usable under sealed role rules | issue27bz | active | ID train/calib, OOD val/stress, sealed final OOD remain role-restricted |
-| Attack support/query/final roles | pending exact-label rematerialization | issue27cb/issue27cc/issue27cd | active blocker | old coarse attack roles cannot support model conclusions |
-| Support bank | protocol/interface frozen; indices pending | issue27ca/issue27cb/issue27ce | pending | instantiate from exact-label multi-type attack rows after issue27cd repair/validation |
-| Model replay | paused | issue27cc/issue27cd | blocked | wait for Slurm validation and merge policy |
+| Attack support/query/final roles | partial exact-label rematerialization | issue27cb/issue27cc/issue27cd | active blocker | support and sealed final complete; dev_future_query combined-cycle-1 has missing exact rows |
+| Support bank | initial clean bank instantiated | issue27ca/issue27cb/issue27ce/issue27cf | active support state | 512 selected exact-label rows; train/val disjoint; no final/report-only access |
+| Model replay | paused | issue27cd/issue27cf | blocked | repair or replan dev/query alignment before any replay |
 | Formal benchmark | not authorized | current governance | blocked | requires clean data contract and frozen system protocol |
 
 ### Active Issue Index
@@ -61,8 +61,9 @@ Data and system contract repair before model replay.
 | issue27ca | Initial support-bank contract on certified 1M | taxonomy caveat found | attack-side support cannot be trusted at coarse label level | exact-label attack audit |
 | issue27cb | Broader attack support candidate contract | exact support labels found, query/final blockers found | multi-type support is possible but old attack query/final invalid | targeted exact-label materialization |
 | issue27cc | Targeted multi-type attack materialization and onset realign plan | ready for Slurm exact-label materialization | defines legal attack rebuild contract | run issue27cd |
-| issue27cd | Slurm exact-label targeted attack materialization | running / pending validation | active blocker before model replay | validate, pull back, inspect quarantine/missing |
-| issue27ce | Support-bank protocol and system interface spec | support-bank protocol/interface frozen; thresholds and indices pending | freezes support-bank boundaries without model metrics | issue27cf after issue27cd exact-label data is ready |
+| issue27cd | Slurm exact-label targeted attack materialization | partial: support/sealed final complete, dev_future_query missing 28,175 rows | active blocker before model replay | repair/replan combined-cycle-1 query alignment |
+| issue27ce | Support-bank protocol and system interface spec | support-bank protocol/interface frozen; thresholds and indices pending | freezes support-bank boundaries without model metrics | instantiate initial bank from complete support pool |
+| issue27cf | Initial support bank instantiation | 69,492 candidates -> 512 selected rows; 10 exact labels; train/val disjoint | support-bank state is clean but model replay still blocked | issue27cg combined-cycle query alignment repair/replan |
 
 ### Current Rule For Future Issue Docs
 

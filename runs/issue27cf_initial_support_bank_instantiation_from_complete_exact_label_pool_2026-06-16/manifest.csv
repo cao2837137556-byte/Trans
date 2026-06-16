@@ -1,0 +1,15 @@
+artifact_type,notes,path
+candidate_manifest,complete eligible support candidate rows,eligible_candidate_manifest.csv.gz
+support_bank,selected initial support bank rows,support_bank_sidecar.csv
+support_train,pre-deployment support train partition,support_train_indices.csv
+support_val,pre-deployment support validation partition,support_val_indices.csv
+allocation,per-label support budget allocation,support_selection_allocation.csv
+taxonomy,candidate pool taxonomy,candidate_taxonomy_summary.csv
+taxonomy,selected support taxonomy,support_bank_taxonomy_summary.csv
+region_manifest,candidate region inventory,region_manifest.csv
+audit,role access policy audit,role_access_audit.csv
+validation,support bank invariant validation,invariant_validation.csv
+validation,human-readable validation report,validation_report.md
+hash,output hashes,support_bank_hashes.json
+summary,issue summary,summary.md
+next_action,query alignment repair next issue,issue27cg_next_action.md

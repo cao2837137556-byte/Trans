@@ -1,0 +1,11 @@
+allocated_support_rows,candidate_rows,exact_attack_label,max_per_attack_type,min_per_attack_type,selected_rows,selection_method,support_train_rows,support_val_rows
+20,605,File Download,80,12,20,deterministic_label_stratified_kcenter,15,5
+23,801,Ingress Tool Transfer,80,12,23,deterministic_label_stratified_kcenter,18,5
+40,2441,Merlin C&C Communication,80,12,40,deterministic_label_stratified_kcenter,30,10
+57,4895,Merlin ICMP Flooding,80,12,57,deterministic_label_stratified_kcenter,43,14
+80,10000,Merlin TCP Flooding,80,12,80,deterministic_label_stratified_kcenter,60,20
+40,2500,Merlin UDP Flooding,80,12,40,deterministic_label_stratified_kcenter,30,10
+12,250,Mirai C&C Communication,80,12,12,deterministic_label_stratified_kcenter,9,3
+80,16000,Mirai GRE Flooding,80,12,80,deterministic_label_stratified_kcenter,60,20
+80,16000,Mirai TCP Flooding,80,12,80,deterministic_label_stratified_kcenter,60,20
+80,16000,Mirai UDP Flooding,80,12,80,deterministic_label_stratified_kcenter,60,20

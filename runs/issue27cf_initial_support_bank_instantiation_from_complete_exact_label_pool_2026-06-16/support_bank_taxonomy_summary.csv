@@ -1,0 +1,33 @@
+bank_partition,device_or_source_group,exact_attack_label,phase,rows,semantic_attack_group
+support_train,ip-camera-museum,Merlin C&C Communication,tail_gt_10000,30,merlin
+support_train,city-power,Merlin ICMP Flooding,tail_gt_10000,13,merlin
+support_train,ip-camera-museum,Merlin ICMP Flooding,tail_gt_10000,30,merlin
+support_train,city-power,Merlin TCP Flooding,tail_gt_10000,24,merlin
+support_train,ip-camera-museum,Merlin TCP Flooding,tail_gt_10000,36,merlin
+support_train,city-power,Merlin UDP Flooding,tail_gt_10000,12,merlin
+support_train,ip-camera-museum,Merlin UDP Flooding,tail_gt_10000,18,merlin
+support_train,ip-camera-museum,Mirai C&C Communication,tail_gt_10000,9,mirai
+support_train,city-power,Mirai GRE Flooding,tail_gt_10000,30,mirai
+support_train,ip-camera-museum,Mirai GRE Flooding,tail_gt_10000,30,mirai
+support_train,city-power,Mirai TCP Flooding,tail_gt_10000,33,mirai
+support_train,ip-camera-museum,Mirai TCP Flooding,tail_gt_10000,27,mirai
+support_train,city-power,Mirai UDP Flooding,tail_gt_10000,25,mirai
+support_train,ip-camera-museum,Mirai UDP Flooding,tail_gt_10000,35,mirai
+support_train,combined-cycle,File Download,tail_gt_10000,15,tooling
+support_train,combined-cycle,Ingress Tool Transfer,tail_gt_10000,18,tooling
+support_val,ip-camera-museum,Merlin C&C Communication,tail_gt_10000,10,merlin
+support_val,city-power,Merlin ICMP Flooding,tail_gt_10000,1,merlin
+support_val,ip-camera-museum,Merlin ICMP Flooding,tail_gt_10000,13,merlin
+support_val,city-power,Merlin TCP Flooding,tail_gt_10000,11,merlin
+support_val,ip-camera-museum,Merlin TCP Flooding,tail_gt_10000,9,merlin
+support_val,city-power,Merlin UDP Flooding,tail_gt_10000,5,merlin
+support_val,ip-camera-museum,Merlin UDP Flooding,tail_gt_10000,5,merlin
+support_val,ip-camera-museum,Mirai C&C Communication,tail_gt_10000,3,mirai
+support_val,city-power,Mirai GRE Flooding,tail_gt_10000,8,mirai
+support_val,ip-camera-museum,Mirai GRE Flooding,tail_gt_10000,12,mirai
+support_val,city-power,Mirai TCP Flooding,tail_gt_10000,8,mirai
+support_val,ip-camera-museum,Mirai TCP Flooding,tail_gt_10000,12,mirai
+support_val,city-power,Mirai UDP Flooding,tail_gt_10000,9,mirai
+support_val,ip-camera-museum,Mirai UDP Flooding,tail_gt_10000,11,mirai
+support_val,combined-cycle,File Download,tail_gt_10000,5,tooling
+support_val,combined-cycle,Ingress Tool Transfer,tail_gt_10000,5,tooling

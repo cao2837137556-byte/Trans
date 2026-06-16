@@ -45,8 +45,8 @@ Frozen parts:
 
 Open parts:
 
-- Exact-label multi-type attack materialization must pass Slurm validation.
-- Support-bank construction must be instantiated from exact-label attack rows only.
+- Exact-label multi-type attack support materialization is usable; exact-label dev/query attack still has a combined-cycle-1 alignment shortfall.
+- Support-bank construction has an initial clean pre-deployment instance, but query/final model replay remains blocked.
 - Attack drift, benign OOD drift, conflict/review control, region lifecycle, and temporal evidence integration remain system-definition topics to solve after the data contract is clean.
 
 Superseded parts:
@@ -62,14 +62,15 @@ Superseded parts:
 | Benign/OOD 1M roles | usable | issue27bz | ID train/calib, OOD val/stress, sealed final OOD remain usable under their role restrictions |
 | Attack support/query/final from certified 1M | partially reusable only after exact-label filtering | issue27cb/issue27cc | do not use directly for model replay |
 | Exact-label targeted attack plan | ready for Slurm materialization | issue27cc | source contract for issue27cd |
-| Exact-label targeted attack chunks | running / pending validation | issue27cd | wait for missing/quarantine audit before merge |
-| Support-bank protocol/interface | frozen at invariant/interface level; indices pending | issue27ce | use as the next support-bank instantiation contract |
+| Exact-label targeted attack chunks | partial: support and sealed final complete; dev_future_query has 28,175 missing exact rows in combined-cycle-1 | issue27cd | support pool may feed support-bank instantiation; query replay remains blocked |
+| Support-bank protocol/interface | frozen at invariant/interface level | issue27ce | governs initial bank and later update contracts |
+| Initial pre-deployment support bank | instantiated from complete exact-label support candidate pool: 512 rows, 10 labels, train/val disjoint | issue27cf | can be used as support-bank state once query alignment is repaired |
 
 ### Active Blocker
 
-`attack-side exact label / onset / PCAP timestamp alignment`
+`attack-side dev/query exact label / onset / PCAP timestamp alignment`
 
-The next model replay is blocked until issue27cd validates that targeted multi-type attack rows were emitted only when:
+The next model replay is blocked until the partial issue27cd dev/query shortfall is repaired or explicitly replanned. The completed support pool and support bank do not authorize model replay yet because dev/query rows still need:
 
 - processed CSV label equals the planned exact attack label;
 - PCAP packet timestamp matches the planned CSV row timestamp;
@@ -78,15 +79,12 @@ The next model replay is blocked until issue27cd validates that targeted multi-t
 
 ### Current Next Action
 
-Finish issue27cd Slurm run, run `remote_validate_issue27cd.sh`, pull back the results, and inspect:
+Run `issue27cg_combined_cycle_query_alignment_repair_or_replan`:
 
-- `hpc_validation_report.txt`
-- `validation_summary.json`
-- `chunk_validation_table.csv`
-- quarantine count and reasons
-
-Only after that, decide whether to merge exact-label attack chunks into the active larger sanity asset.
-Then instantiate the support bank under issue27ce rules; do not reuse unused candidates or tune controller thresholds without a new explicit issue.
+- inspect the six partial combined-cycle-1 dev_future_query chunks;
+- decide whether timestamp alignment can be repaired without loosening exact-label rules;
+- if not, replan dev/query from other legal exact-label files instead of borrowing sealed final or unused support rows;
+- keep `issue27cf` support bank frozen and do not tune thresholds or controller logic yet.
 
 ### Decision Log
 
@@ -96,6 +94,7 @@ Then instantiate the support bank under issue27ce rules; do not reuse unused can
 | 2026-06-14 | Certified 1M benign/OOD asset is usable, but attack roles require exact-label rematerialization. | issue27bz/issue27cb/issue27cc | active |
 | 2026-06-14 | Multi-type attack support/query/final must be rebuilt using exact CSV labels and PCAP timestamp matching before model replay. | issue27cc/issue27cd | active blocker |
 | 2026-06-16 | Support-bank protocol/interface invariants are frozen; concrete support indices, budgets, and thresholds remain pending exact-label instantiation. | issue27ce | active |
+| 2026-06-16 | Initial support bank instantiated from complete exact-label support pool: 69,492 candidates -> 512 selected rows, no final/report-only access, train/val disjoint. | issue27cf | active support state; query alignment still blocks replay |
 
 ---
 
