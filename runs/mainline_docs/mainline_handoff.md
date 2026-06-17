@@ -46,7 +46,7 @@ Frozen parts:
 Open parts:
 
 - Exact-label multi-type attack materialization is frozen as a complete-only certified subset; six combined-cycle-1 dev_future_query partial chunks are deferred, not deleted.
-- Support-bank construction has an initial clean pre-deployment instance, but attack-region activation and support-bank lifecycle protocol remain undefined.
+- Support-bank construction has an initial clean pre-deployment instance and frozen support-region protocol, but initial geometric region registry is not instantiated yet.
 - Attack drift, benign OOD drift, conflict/review control, region lifecycle, and temporal evidence integration remain system-definition topics to solve after the data contract is clean.
 
 Superseded parts:
@@ -55,6 +55,7 @@ Superseded parts:
 - Old model wins or collapses from unclean/underspecified split assets are diagnostic only.
 - Current 1M attack roles from before issue27cc are not valid for attack detection conclusions until exact-label rematerialization is complete.
 - issue27cd partial chunk emissions are not certified query rows; the current mainline does not continue repairing the six partial combined-cycle-1 chunks.
+- issue27cf `region_id` values are provenance seeds, not active geometric attack regions.
 
 ### Current Data Contract
 
@@ -67,37 +68,38 @@ Superseded parts:
 | Certified attack subset v1 | frozen complete-only subset: 683,420 rows from 93 complete chunks; 33,636 planned partial rows excluded including 5,461 emitted rows | issue27ch | development-side protocol replay input under fixed role access; sealed final remains report-only |
 | Support-bank protocol/interface | frozen at invariant/interface level | issue27ce | governs initial bank and later update contracts |
 | Initial pre-deployment support bank | instantiated from complete exact-label support candidate pool: 512 rows, 10 labels, train/val disjoint | issue27cf | can be used as initial support-bank state for protocol refinement |
+| Support-region protocol | frozen: labels, semantic groups, provenance seeds, candidate regions, active regions, shells, evidence schema, and role access are separated | issue27ci | rules only; no region instantiation, radius values, model training, or controller policy |
 
 ### Active Blocker
 
-`attack region activation / radius-shell / support-bank lifecycle protocol`
+`initial attack-region registry instantiation`
 
-The next model replay is blocked because the support-bank system protocol is not yet defined. The complete-only certified attack subset fixes the current data-contract input for development-side protocol replay, but it does not define:
+The next model replay is blocked because no active geometric attack regions have been instantiated yet. The issue27ci protocol defines the rules, but issue27cj still must compute and audit:
 
-- attack region activation rules;
-- radius/shell semantics;
-- region update, merge, split, and retire rules;
-- the distinction between initial support-bank state and online update state;
-- controller, review-cost, mixed-stream, and training-layer evidence rules.
+- candidate regions/prototypes from `support_train`;
+- compactness and shell behavior using `support_val`;
+- development OOD-overlap warnings;
+- certified dev-query coverage, unknown, and support-query shift behavior;
+- limitations before any model replay.
 
 ### Current Next Action
 
-Run `issue27ci_attack_region_activation_and_support_bank_protocol_refinement`:
+Run `issue27cj_attack_region_instantiation_on_frozen_support_bank`:
 
-- use `certified_attack_subset_v1` and the issue27cf initial support bank as frozen inputs;
-- define activation/radius/shell and lifecycle protocol boundaries;
+- use the issue27ci protocol as the rule set;
+- instantiate `initial_region_registry_v1` from issue27cf selected support only;
 - keep sealed final roles report-only;
 - do not train models, tune thresholds, run formal benchmarks, or touch controller policy yet.
 
 ### Latest Compact Close-out
 
 ```text
-solved: issue27ch froze certified_attack_subset_v1 from issue27cd by selecting only COMPLETE chunks and excluding all six combined-cycle-1 PARTIAL chunks as whole chunks.
+solved: issue27ci froze support_region_protocol_v1 and clarified that current 512 support rows and 16 provenance seeds are not yet active attack regions.
 changed_mainline: yes
-active_blocker: attack region activation/radius/shell and support-bank lifecycle protocol are still undefined; no model replay yet.
-frozen: certified complete-only attack subset, role access inventory, partial chunk deferred_not_deleted exclusion list, source/input hashes.
-superseded: treating issue27cd dev_future_attack_query_exact partial emissions as usable certified query rows; continuing to repair the six combined-cycle-1 partial chunks for the current mainline.
-next_action: issue27ci_attack_region_activation_and_support_bank_protocol_refinement.
+active_blocker: initial_region_registry_v1 has not been instantiated; no region prototypes, radii, shell boundaries, or OOD-overlap audits exist yet.
+frozen: support-region layer definitions, activation states, role access matrix, evidence output schema, initial-vs-online registry boundary, protocol invariants.
+superseded: treating exact labels, semantic groups, or issue27cf provenance region_id values as active attack regions.
+next_action: issue27cj_attack_region_instantiation_on_frozen_support_bank.
 ```
 
 ### Decision Log
@@ -110,6 +112,7 @@ next_action: issue27ci_attack_region_activation_and_support_bank_protocol_refine
 | 2026-06-16 | Support-bank protocol/interface invariants are frozen; concrete support indices, budgets, and thresholds remain pending exact-label instantiation. | issue27ce | active |
 | 2026-06-16 | Initial support bank instantiated from complete exact-label support pool: 69,492 candidates -> 512 selected rows, no final/report-only access, train/val disjoint. | issue27cf | active support state; protocol definition now blocks replay |
 | 2026-06-17 | Certified attack subset v1 frozen from complete chunks only: 683,420 rows; six partial combined-cycle-1 chunks are deferred_not_deleted, including their emitted rows. | issue27ch | active data contract; next protocol issue is issue27ci |
+| 2026-06-17 | Support-region protocol v1 frozen: issue27cf provenance seeds are not active attack regions; region instantiation/radius/shell/OOD-overlap audit are deferred to issue27cj. | issue27ci | active protocol; next step is initial_region_registry_v1 |
 
 ---
 

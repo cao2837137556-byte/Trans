@@ -1,0 +1,33 @@
+{
+  "run_name": "issue27ci_attack_region_activation_and_support_bank_protocol_refinement_2026-06-17",
+  "task_type": "support_region_protocol_freeze",
+  "inputs": [
+    "runs/issue27ce_support_bank_protocol_and_system_interface_spec_2026-06-16/",
+    "runs/issue27cf_initial_support_bank_instantiation_from_complete_exact_label_pool_2026-06-16/",
+    "runs/issue27ch_certified_attack_subset_freeze_for_protocol_replay_2026-06-17/",
+    "primary literature listed in literature_alignment.md"
+  ],
+  "outputs": [
+    "summary.md",
+    "support_region_protocol_v1.md",
+    "literature_alignment.md",
+    "region_activation_rules.csv",
+    "region_state_taxonomy.csv",
+    "role_access_matrix.csv",
+    "evidence_output_schema.json",
+    "initial_region_registry_boundary.md",
+    "protocol_invariants.md",
+    "issue27cj_next_action.md",
+    "manifest.csv",
+    "config.json",
+    "run_spec.json",
+    "command.txt"
+  ],
+  "validation_checks": [
+    "No model training requested or performed.",
+    "No region instantiation or numeric radius values fixed.",
+    "Protocol separates labels, semantic groups, provenance seeds, candidate regions, and active regions.",
+    "Role access keeps support_train, support_val, dev query, OOD audit, and sealed final roles distinct.",
+    "Next action is issue27cj region instantiation."
+  ]
+}

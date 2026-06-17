@@ -1,0 +1,13 @@
+role_or_asset,can_form_candidate_region,can_validate_radius_shell,can_stress_protocol,can_select_support,can_tune_threshold,can_train_model,can_touch_controller,notes
+support_train,yes,no,no,no,no,no,no,Only selected issue27cf support_train rows may form candidate regions/prototypes in issue27cj.
+support_val,no,yes,no,no,no,no,no,May validate compactness and shell behavior; cannot create regions.
+attack_support_candidate_pool_targeted,no_by_default,no,no,no_without_new_issue,no,no,no,Unused candidates remain pending_forbidden_until_explicit_issue.
+same_file_time_forward_dev_query_exact,no,no,yes,no,no,no,no,Development-side query stress only.
+dev_future_attack_query_exact_complete_only,no,no,yes,no,no,no,no,Only complete chunks from certified_attack_subset_v1 may be used for protocol stress.
+excluded_partial_chunks,no,no,no,no,no,no,no,Deferred_not_deleted; emitted partial rows are excluded.
+sealed_final_attack_exact_realign,no,no,no,no,no,no,no,Sealed/report-only; not for selection, calibration, activation, or tuning.
+id_benign_train,no,no,no,no,no,no,no,Not part of attack-region support protocol.
+id_benign_calib,no,no,no,no,no,no,no,Not part of attack-region support protocol.
+ood_benign_val,no,yes,no,no,no,no,no,Allowed only for development OOD-overlap audit.
+ood_benign_stress,no,yes,no,no,no,no,no,Allowed only for development OOD-overlap stress audit.
+sealed_final_ood,no,no,no,no,no,no,no,Sealed/report-only; forbidden for activation and tuning.

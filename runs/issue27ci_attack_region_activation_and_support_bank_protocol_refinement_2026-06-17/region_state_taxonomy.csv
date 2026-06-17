@@ -1,0 +1,10 @@
+state,can_emit_evidence,can_train_future_attack_head,can_set_thresholds,can_update_online,definition
+provenance_seed,no,no,no,no,Source/label/PCAP/phase grouping from issue27cf; not a geometric active region.
+candidate_region,no,no,no,no,Proposed geometric structure from support_train in a declared space.
+active_strong,yes,possible_later_issue,no,no,Passes activation audits with low conflict.
+active_conflict_sensitive,yes_weak,possible_later_issue,no,no,Attack evidence exists but OOD/source/label conflict requires weaker interpretation.
+ambiguous_region,yes_weak_or_unknown,no,no,no,Insufficient count, unstable geometry, weak validation, or unclear provenance.
+quarantined_region,no,no,no,no,Excluded due to label, role, timestamp, numeric, or provenance failure.
+merged_region,audit_only,no,no,no,Future lifecycle state retained after merge.
+split_region,audit_only,no,no,no,Future lifecycle state retained after split.
+retired_region,audit_only,no,no,no,Future lifecycle state retained after retirement.

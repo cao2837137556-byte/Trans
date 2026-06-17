@@ -1,0 +1,30 @@
+{
+  "schema_name": "attack_region_evidence_v1",
+  "issue": "issue27ci_attack_region_activation_and_support_bank_protocol_refinement",
+  "decision_scope": "evidence_only_not_final_detection",
+  "required_fields": [
+    {"name": "sample_id", "type": "string", "meaning": "query or support sample identifier"},
+    {"name": "role", "type": "string", "meaning": "data role that produced the evidence"},
+    {"name": "region_registry_version", "type": "string", "meaning": "versioned region registry used for evidence"},
+    {"name": "region_id", "type": "string_or_null", "meaning": "nearest active/candidate region if any"},
+    {"name": "region_state", "type": "enum", "values": ["active_strong", "active_conflict_sensitive", "ambiguous_region", "out_of_region", "quarantined_region"]},
+    {"name": "nearest_prototype_id", "type": "string_or_null", "meaning": "nearest prototype under declared metric"},
+    {"name": "distance_to_nearest_prototype", "type": "float_or_null", "meaning": "distance in declared space"},
+    {"name": "shell_level", "type": "enum", "values": ["core", "near", "uncertain", "out_of_region", "not_applicable"]},
+    {"name": "region_reliability", "type": "enum", "values": ["high", "medium", "low", "unknown"]},
+    {"name": "exact_label_consensus", "type": "string_or_mixed_or_unknown", "meaning": "dominant exact-label evidence, not final class decision"},
+    {"name": "semantic_group_consensus", "type": "string_or_mixed_or_unknown", "meaning": "dominant semantic-group evidence"},
+    {"name": "source_diversity_level", "type": "enum", "values": ["multi_source", "limited_source", "single_source", "unknown"]},
+    {"name": "phase_compatibility", "type": "enum", "values": ["compatible", "weak", "conflict", "unknown"]},
+    {"name": "ood_overlap_warning", "type": "enum", "values": ["low", "medium", "high", "unknown"]},
+    {"name": "unknown_flag", "type": "boolean", "meaning": "true when support regions cannot explain the sample"},
+    {"name": "evidence_only_warning", "type": "string", "meaning": "must state that this output is not a final controller decision"}
+  ],
+  "forbidden_outputs": [
+    "hard_alarm",
+    "suppress",
+    "benign",
+    "final_attack_decision",
+    "threshold_pass_fail"
+  ]
+}

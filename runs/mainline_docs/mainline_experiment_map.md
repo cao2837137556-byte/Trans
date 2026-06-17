@@ -49,8 +49,8 @@ Data and system contract repair before model replay.
 | Frontend | Kitsune / AfterImage / netStat 115D from raw PCAP | issue27ab and follow-up audits | frozen | 8D strict packet-header is engineering smoke only |
 | Benign/OOD 1M roles | usable under sealed role rules | issue27bz | active | ID train/calib, OOD val/stress, sealed final OOD remain role-restricted |
 | Attack support/query/final roles | certified complete-only attack subset frozen | issue27cb/issue27cc/issue27cd/issue27cg/issue27ch | active | 683,420 certified rows from 93 complete chunks; six partial combined-cycle-1 chunks deferred_not_deleted |
-| Support bank | initial clean bank instantiated | issue27ca/issue27cb/issue27ce/issue27cf | active support state | 512 selected exact-label rows; train/val disjoint; no final/report-only access |
-| Model replay | paused | issue27ch/issue27cf | blocked | define attack-region activation and support-bank lifecycle before any replay |
+| Support bank | initial clean bank plus support-region protocol frozen | issue27ca/issue27cb/issue27ce/issue27cf/issue27ci | active support state | 512 selected rows are not yet active regions; issue27cf region_id values are provenance seeds |
+| Model replay | paused | issue27ci/issue27cf | blocked | instantiate and audit initial_region_registry_v1 before any replay |
 | Formal benchmark | not authorized | current governance | blocked | requires clean data contract and frozen system protocol |
 
 ### Active Issue Index
@@ -66,16 +66,17 @@ Data and system contract repair before model replay.
 | issue27cf | Initial support bank instantiation | 69,492 candidates -> 512 selected rows; 10 exact labels; train/val disjoint | support-bank state is clean but model replay still blocked | issue27ci protocol refinement after issue27ch freeze |
 | issue27cg | Combined-cycle query alignment audit | issue27cd shortfall localized; six partial chunks not worth repairing under current contract | supersedes direct repair route for current mainline | freeze complete-only certified subset |
 | issue27ch | Certified attack subset freeze for protocol replay | certified_attack_subset_v1 frozen: 683,420 rows, 93 complete chunks, six partial chunks deferred_not_deleted | changes active attack data contract from partial pullback to complete-only certified subset | issue27ci attack region activation and support-bank protocol refinement |
+| issue27ci | Attack-region activation and support-bank protocol refinement | support_region_protocol_v1 frozen; 512 support rows and 16 provenance seeds are not active regions yet | changes support system contract from sample bank to region-protocol-ready state | issue27cj initial region registry instantiation |
 
 ### Latest Compact Close-out
 
 ```text
-solved: issue27ch froze certified_attack_subset_v1 from issue27cd by selecting only COMPLETE chunks and excluding all six combined-cycle-1 PARTIAL chunks as whole chunks.
+solved: issue27ci froze support_region_protocol_v1 and clarified that current 512 support rows and 16 provenance seeds are not yet active attack regions.
 changed_mainline: yes
-active_blocker: attack region activation/radius/shell and support-bank lifecycle protocol are still undefined; no model replay yet.
-frozen: certified complete-only attack subset, role access inventory, partial chunk deferred_not_deleted exclusion list, source/input hashes.
-superseded: treating issue27cd dev_future_attack_query_exact partial emissions as usable certified query rows; continuing to repair the six combined-cycle-1 partial chunks for the current mainline.
-next_action: issue27ci_attack_region_activation_and_support_bank_protocol_refinement.
+active_blocker: initial_region_registry_v1 has not been instantiated; no region prototypes, radii, shell boundaries, or OOD-overlap audits exist yet.
+frozen: support-region layer definitions, activation states, role access matrix, evidence output schema, initial-vs-online registry boundary, protocol invariants.
+superseded: treating exact labels, semantic groups, or issue27cf provenance region_id values as active attack regions.
+next_action: issue27cj_attack_region_instantiation_on_frozen_support_bank.
 ```
 
 ### Current Rule For Future Issue Docs
