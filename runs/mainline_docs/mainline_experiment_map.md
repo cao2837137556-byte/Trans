@@ -48,9 +48,9 @@ Data and system contract repair before model replay.
 |---|---|---|---|---|
 | Frontend | Kitsune / AfterImage / netStat 115D from raw PCAP | issue27ab and follow-up audits | frozen | 8D strict packet-header is engineering smoke only |
 | Benign/OOD 1M roles | usable under sealed role rules | issue27bz | active | ID train/calib, OOD val/stress, sealed final OOD remain role-restricted |
-| Attack support/query/final roles | partial exact-label rematerialization | issue27cb/issue27cc/issue27cd | active blocker | support and sealed final complete; dev_future_query combined-cycle-1 has missing exact rows |
+| Attack support/query/final roles | certified complete-only attack subset frozen | issue27cb/issue27cc/issue27cd/issue27cg/issue27ch | active | 683,420 certified rows from 93 complete chunks; six partial combined-cycle-1 chunks deferred_not_deleted |
 | Support bank | initial clean bank instantiated | issue27ca/issue27cb/issue27ce/issue27cf | active support state | 512 selected exact-label rows; train/val disjoint; no final/report-only access |
-| Model replay | paused | issue27cd/issue27cf | blocked | repair or replan dev/query alignment before any replay |
+| Model replay | paused | issue27ch/issue27cf | blocked | define attack-region activation and support-bank lifecycle before any replay |
 | Formal benchmark | not authorized | current governance | blocked | requires clean data contract and frozen system protocol |
 
 ### Active Issue Index
@@ -61,9 +61,22 @@ Data and system contract repair before model replay.
 | issue27ca | Initial support-bank contract on certified 1M | taxonomy caveat found | attack-side support cannot be trusted at coarse label level | exact-label attack audit |
 | issue27cb | Broader attack support candidate contract | exact support labels found, query/final blockers found | multi-type support is possible but old attack query/final invalid | targeted exact-label materialization |
 | issue27cc | Targeted multi-type attack materialization and onset realign plan | ready for Slurm exact-label materialization | defines legal attack rebuild contract | run issue27cd |
-| issue27cd | Slurm exact-label targeted attack materialization | partial: support/sealed final complete, dev_future_query missing 28,175 rows | active blocker before model replay | repair/replan combined-cycle-1 query alignment |
+| issue27cd | Slurm exact-label targeted attack materialization | partial pullback: support/sealed final complete, dev_future_query missing 28,175 rows | source evidence for complete-only certification | issue27ch excludes partial chunks instead of repairing them |
 | issue27ce | Support-bank protocol and system interface spec | support-bank protocol/interface frozen; thresholds and indices pending | freezes support-bank boundaries without model metrics | instantiate initial bank from complete support pool |
-| issue27cf | Initial support bank instantiation | 69,492 candidates -> 512 selected rows; 10 exact labels; train/val disjoint | support-bank state is clean but model replay still blocked | issue27cg combined-cycle query alignment repair/replan |
+| issue27cf | Initial support bank instantiation | 69,492 candidates -> 512 selected rows; 10 exact labels; train/val disjoint | support-bank state is clean but model replay still blocked | issue27ci protocol refinement after issue27ch freeze |
+| issue27cg | Combined-cycle query alignment audit | issue27cd shortfall localized; six partial chunks not worth repairing under current contract | supersedes direct repair route for current mainline | freeze complete-only certified subset |
+| issue27ch | Certified attack subset freeze for protocol replay | certified_attack_subset_v1 frozen: 683,420 rows, 93 complete chunks, six partial chunks deferred_not_deleted | changes active attack data contract from partial pullback to complete-only certified subset | issue27ci attack region activation and support-bank protocol refinement |
+
+### Latest Compact Close-out
+
+```text
+solved: issue27ch froze certified_attack_subset_v1 from issue27cd by selecting only COMPLETE chunks and excluding all six combined-cycle-1 PARTIAL chunks as whole chunks.
+changed_mainline: yes
+active_blocker: attack region activation/radius/shell and support-bank lifecycle protocol are still undefined; no model replay yet.
+frozen: certified complete-only attack subset, role access inventory, partial chunk deferred_not_deleted exclusion list, source/input hashes.
+superseded: treating issue27cd dev_future_attack_query_exact partial emissions as usable certified query rows; continuing to repair the six combined-cycle-1 partial chunks for the current mainline.
+next_action: issue27ci_attack_region_activation_and_support_bank_protocol_refinement.
+```
 
 ### Current Rule For Future Issue Docs
 
@@ -2595,3 +2608,12 @@ marker: `issue27cb_broader_attack_support_candidate_contract_2026-06-14`
 - Key guardrail: emit only rows whose processed CSV label equals the planned attack label and whose packet timestamp matches the PCAP stream.
 - Current 1M benign/OOD roles remain usable; attack query/final roles require this exact-label rematerialization before model conclusions.
 - Next: run the Slurm transfer kit, validate missing_exact_rows/quarantine, then decide merge policy.
+
+<!-- issue27cg_combined_cycle_query_alignment_repair_or_replan -->
+### issue27cg combined-cycle query alignment audit
+- solved: diagnosed issue27cd partial dev/query exact-label materialization gap (28175 rows).
+- changed_mainline: no; support bank remains frozen and model replay remains blocked.
+- active_blocker: dev_future_attack_query exact packet-label alignment for combined-cycle-1 partial chunks.
+- frozen: issue27cf initial support bank, issue27bz benign/OOD 1M asset, sealed final attack/OOD non-selection rules.
+- superseded: none; this audit narrows issue27cd partial status.
+- next_action: query_alignment_requires_replan_for_combined_cycle_1.

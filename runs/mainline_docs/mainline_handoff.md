@@ -45,8 +45,8 @@ Frozen parts:
 
 Open parts:
 
-- Exact-label multi-type attack support materialization is usable; exact-label dev/query attack still has a combined-cycle-1 alignment shortfall.
-- Support-bank construction has an initial clean pre-deployment instance, but query/final model replay remains blocked.
+- Exact-label multi-type attack materialization is frozen as a complete-only certified subset; six combined-cycle-1 dev_future_query partial chunks are deferred, not deleted.
+- Support-bank construction has an initial clean pre-deployment instance, but attack-region activation and support-bank lifecycle protocol remain undefined.
 - Attack drift, benign OOD drift, conflict/review control, region lifecycle, and temporal evidence integration remain system-definition topics to solve after the data contract is clean.
 
 Superseded parts:
@@ -54,6 +54,7 @@ Superseded parts:
 - `original-frontend 100D` and earlier April/May few-shot framing remain historical evidence only for this branch.
 - Old model wins or collapses from unclean/underspecified split assets are diagnostic only.
 - Current 1M attack roles from before issue27cc are not valid for attack detection conclusions until exact-label rematerialization is complete.
+- issue27cd partial chunk emissions are not certified query rows; the current mainline does not continue repairing the six partial combined-cycle-1 chunks.
 
 ### Current Data Contract
 
@@ -62,29 +63,42 @@ Superseded parts:
 | Benign/OOD 1M roles | usable | issue27bz | ID train/calib, OOD val/stress, sealed final OOD remain usable under their role restrictions |
 | Attack support/query/final from certified 1M | partially reusable only after exact-label filtering | issue27cb/issue27cc | do not use directly for model replay |
 | Exact-label targeted attack plan | ready for Slurm materialization | issue27cc | source contract for issue27cd |
-| Exact-label targeted attack chunks | partial: support and sealed final complete; dev_future_query has 28,175 missing exact rows in combined-cycle-1 | issue27cd | support pool may feed support-bank instantiation; query replay remains blocked |
+| Exact-label targeted attack chunks | issue27cd pullback partial: 93 complete chunks, 6 deferred partial chunks | issue27cd/issue27cg | source evidence for complete-only certification; partial emissions excluded |
+| Certified attack subset v1 | frozen complete-only subset: 683,420 rows from 93 complete chunks; 33,636 planned partial rows excluded including 5,461 emitted rows | issue27ch | development-side protocol replay input under fixed role access; sealed final remains report-only |
 | Support-bank protocol/interface | frozen at invariant/interface level | issue27ce | governs initial bank and later update contracts |
-| Initial pre-deployment support bank | instantiated from complete exact-label support candidate pool: 512 rows, 10 labels, train/val disjoint | issue27cf | can be used as support-bank state once query alignment is repaired |
+| Initial pre-deployment support bank | instantiated from complete exact-label support candidate pool: 512 rows, 10 labels, train/val disjoint | issue27cf | can be used as initial support-bank state for protocol refinement |
 
 ### Active Blocker
 
-`attack-side dev/query exact label / onset / PCAP timestamp alignment`
+`attack region activation / radius-shell / support-bank lifecycle protocol`
 
-The next model replay is blocked until the partial issue27cd dev/query shortfall is repaired or explicitly replanned. The completed support pool and support bank do not authorize model replay yet because dev/query rows still need:
+The next model replay is blocked because the support-bank system protocol is not yet defined. The complete-only certified attack subset fixes the current data-contract input for development-side protocol replay, but it does not define:
 
-- processed CSV label equals the planned exact attack label;
-- PCAP packet timestamp matches the planned CSV row timestamp;
-- forbidden final/report-only role access remains sealed;
-- quarantine and missing rows are understood.
+- attack region activation rules;
+- radius/shell semantics;
+- region update, merge, split, and retire rules;
+- the distinction between initial support-bank state and online update state;
+- controller, review-cost, mixed-stream, and training-layer evidence rules.
 
 ### Current Next Action
 
-Run `issue27cg_combined_cycle_query_alignment_repair_or_replan`:
+Run `issue27ci_attack_region_activation_and_support_bank_protocol_refinement`:
 
-- inspect the six partial combined-cycle-1 dev_future_query chunks;
-- decide whether timestamp alignment can be repaired without loosening exact-label rules;
-- if not, replan dev/query from other legal exact-label files instead of borrowing sealed final or unused support rows;
-- keep `issue27cf` support bank frozen and do not tune thresholds or controller logic yet.
+- use `certified_attack_subset_v1` and the issue27cf initial support bank as frozen inputs;
+- define activation/radius/shell and lifecycle protocol boundaries;
+- keep sealed final roles report-only;
+- do not train models, tune thresholds, run formal benchmarks, or touch controller policy yet.
+
+### Latest Compact Close-out
+
+```text
+solved: issue27ch froze certified_attack_subset_v1 from issue27cd by selecting only COMPLETE chunks and excluding all six combined-cycle-1 PARTIAL chunks as whole chunks.
+changed_mainline: yes
+active_blocker: attack region activation/radius/shell and support-bank lifecycle protocol are still undefined; no model replay yet.
+frozen: certified complete-only attack subset, role access inventory, partial chunk deferred_not_deleted exclusion list, source/input hashes.
+superseded: treating issue27cd dev_future_attack_query_exact partial emissions as usable certified query rows; continuing to repair the six combined-cycle-1 partial chunks for the current mainline.
+next_action: issue27ci_attack_region_activation_and_support_bank_protocol_refinement.
+```
 
 ### Decision Log
 
@@ -92,9 +106,10 @@ Run `issue27cg_combined_cycle_query_alignment_repair_or_replan`:
 |---|---|---|---|
 | 2026-06-01 | Formal frontend route moved from strict 8D packet-header to Gotham PCAP-derived Kitsune115. | issue27ab and later control discussion | active |
 | 2026-06-14 | Certified 1M benign/OOD asset is usable, but attack roles require exact-label rematerialization. | issue27bz/issue27cb/issue27cc | active |
-| 2026-06-14 | Multi-type attack support/query/final must be rebuilt using exact CSV labels and PCAP timestamp matching before model replay. | issue27cc/issue27cd | active blocker |
+| 2026-06-14 | Multi-type attack support/query/final must be rebuilt using exact CSV labels and PCAP timestamp matching before model replay. | issue27cc/issue27cd | source contract; complete-only freeze now handled by issue27ch |
 | 2026-06-16 | Support-bank protocol/interface invariants are frozen; concrete support indices, budgets, and thresholds remain pending exact-label instantiation. | issue27ce | active |
-| 2026-06-16 | Initial support bank instantiated from complete exact-label support pool: 69,492 candidates -> 512 selected rows, no final/report-only access, train/val disjoint. | issue27cf | active support state; query alignment still blocks replay |
+| 2026-06-16 | Initial support bank instantiated from complete exact-label support pool: 69,492 candidates -> 512 selected rows, no final/report-only access, train/val disjoint. | issue27cf | active support state; protocol definition now blocks replay |
+| 2026-06-17 | Certified attack subset v1 frozen from complete chunks only: 683,420 rows; six partial combined-cycle-1 chunks are deferred_not_deleted, including their emitted rows. | issue27ch | active data contract; next protocol issue is issue27ci |
 
 ---
 
@@ -2102,3 +2117,12 @@ marker: `issue27cb_broader_attack_support_candidate_contract_2026-06-14`
 - Key guardrail: emit only rows whose processed CSV label equals the planned attack label and whose packet timestamp matches the PCAP stream.
 - Current 1M benign/OOD roles remain usable; attack query/final roles require this exact-label rematerialization before model conclusions.
 - Next: run the Slurm transfer kit, validate missing_exact_rows/quarantine, then decide merge policy.
+
+<!-- issue27cg_combined_cycle_query_alignment_repair_or_replan -->
+### issue27cg combined-cycle query alignment audit
+- solved: diagnosed issue27cd partial dev/query exact-label materialization gap (28175 rows).
+- changed_mainline: no; support bank remains frozen and model replay remains blocked.
+- active_blocker: dev_future_attack_query exact packet-label alignment for combined-cycle-1 partial chunks.
+- frozen: issue27cf initial support bank, issue27bz benign/OOD 1M asset, sealed final attack/OOD non-selection rules.
+- superseded: none; this audit narrows issue27cd partial status.
+- next_action: query_alignment_requires_replan_for_combined_cycle_1.

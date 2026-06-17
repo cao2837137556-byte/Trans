@@ -1,0 +1,18 @@
+{
+  "issue": "issue27ch_certified_attack_subset_freeze_for_protocol_replay",
+  "date": "2026-06-17",
+  "mode": "manifest_freeze_only",
+  "include_chunk_status": "complete",
+  "exclude_chunk_status": [
+    "partial_or_unstable"
+  ],
+  "exclude_partial_emitted_rows": true,
+  "no_model_training": true,
+  "no_formal_benchmark": true,
+  "no_threshold_tuning": true,
+  "no_pcap_rerun": true,
+  "no_controller_changes": true,
+  "source_issue27cd_dir": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27cd_slurm_exact_label_targeted_multitype_attack_materialization_2026-06-14",
+  "source_issue27cd_pullback_dir": "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\issue27cd_exact_label_attack_slurm_20260614\\pullback_results\\extracted_20260616_1521\\worktrees\\kitnet-exp-mainline\\runs\\issue27cd_slurm_exact_label_targeted_multitype_attack_materialization_2026-06-14",
+  "source_issue27cg_dir": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27cg_combined_cycle_query_alignment_repair_or_replan_2026-06-17"
+}

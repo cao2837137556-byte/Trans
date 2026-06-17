@@ -1,0 +1,370 @@
+{
+  "schema_version": "certified_attack_subset_v1",
+  "issue": "issue27ch_certified_attack_subset_freeze_for_protocol_replay",
+  "created_date": "2026-06-17",
+  "primary_verdict": "complete_only_certified_attack_subset_frozen_for_protocol_replay",
+  "source_issue27cd_status": "PARTIAL",
+  "certification_rule": "include only chunk_validation_table rows with status == complete; exclude partial_or_unstable chunks as whole chunks, including emitted rows",
+  "counts": {
+    "issue27cd_chunks_total": 99,
+    "certified_complete_chunks": 93,
+    "excluded_partial_chunks": 6,
+    "issue27cd_expected_exact_rows": 717056,
+    "issue27cd_emitted_rows": 688881,
+    "issue27cd_missing_exact_rows": 28175,
+    "certified_rows": 683420,
+    "excluded_expected_rows": 33636,
+    "excluded_emitted_rows": 5461,
+    "excluded_missing_rows": 28175,
+    "quarantine_files": 0,
+    "no_model_training": true,
+    "no_threshold_tuning": true,
+    "sealed_final_used_for_selection": false
+  },
+  "role_inventory": [
+    {
+      "role": "attack_support_candidate_pool_targeted",
+      "issue27cd_expected_rows": 69492,
+      "issue27cd_emitted_rows": 69492,
+      "issue27cd_missing_rows": 0,
+      "certified_chunks": 16,
+      "partial_chunks_excluded": 0,
+      "excluded_expected_rows": 0,
+      "excluded_emitted_rows": 0,
+      "excluded_missing_rows": 0,
+      "certified_rows": 69492,
+      "certified_status": "all_chunks_complete"
+    },
+    {
+      "role": "dev_future_attack_query_exact",
+      "issue27cd_expected_rows": 411781,
+      "issue27cd_emitted_rows": 383606,
+      "issue27cd_missing_rows": 28175,
+      "certified_chunks": 49,
+      "partial_chunks_excluded": 6,
+      "excluded_expected_rows": 33636,
+      "excluded_emitted_rows": 5461,
+      "excluded_missing_rows": 28175,
+      "certified_rows": 378145,
+      "certified_status": "complete_only"
+    },
+    {
+      "role": "same_file_time_forward_dev_query_exact",
+      "issue27cd_expected_rows": 125679,
+      "issue27cd_emitted_rows": 125679,
+      "issue27cd_missing_rows": 0,
+      "certified_chunks": 16,
+      "partial_chunks_excluded": 0,
+      "excluded_expected_rows": 0,
+      "excluded_emitted_rows": 0,
+      "excluded_missing_rows": 0,
+      "certified_rows": 125679,
+      "certified_status": "all_chunks_complete"
+    },
+    {
+      "role": "sealed_final_attack_exact_realign",
+      "issue27cd_expected_rows": 110104,
+      "issue27cd_emitted_rows": 110104,
+      "issue27cd_missing_rows": 0,
+      "certified_chunks": 12,
+      "partial_chunks_excluded": 0,
+      "excluded_expected_rows": 0,
+      "excluded_emitted_rows": 0,
+      "excluded_missing_rows": 0,
+      "certified_rows": 110104,
+      "certified_status": "all_chunks_complete"
+    }
+  ],
+  "excluded_partial_chunks": [
+    {
+      "source_csv": "processed/iotsim-combined-cycle-1.csv",
+      "source_pcap": "raw/malicious/mirai-infection/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap",
+      "role": "dev_future_attack_query_exact",
+      "chunk_id": 37,
+      "attack_label": "C&C Communication",
+      "expected_rows": 182,
+      "emitted_rows": 92,
+      "missing_rows": 90,
+      "exclusion_reason": "incomplete_alignment",
+      "future_status": "deferred_not_deleted"
+    },
+    {
+      "source_csv": "processed/iotsim-combined-cycle-1.csv",
+      "source_pcap": "raw/malicious/mirai-infection/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap",
+      "role": "dev_future_attack_query_exact",
+      "chunk_id": 39,
+      "attack_label": "File Download",
+      "expected_rows": 2377,
+      "emitted_rows": 1167,
+      "missing_rows": 1210,
+      "exclusion_reason": "incomplete_alignment",
+      "future_status": "deferred_not_deleted"
+    },
+    {
+      "source_csv": "processed/iotsim-combined-cycle-1.csv",
+      "source_pcap": "raw/malicious/mirai-infection/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap",
+      "role": "dev_future_attack_query_exact",
+      "chunk_id": 40,
+      "attack_label": "Ingress Tool Transfer",
+      "expected_rows": 6925,
+      "emitted_rows": 3725,
+      "missing_rows": 3200,
+      "exclusion_reason": "incomplete_alignment",
+      "future_status": "deferred_not_deleted"
+    },
+    {
+      "source_csv": "processed/iotsim-combined-cycle-1.csv",
+      "source_pcap": "raw/malicious/mirai-infection/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap",
+      "role": "dev_future_attack_query_exact",
+      "chunk_id": 49,
+      "attack_label": "Reporting",
+      "expected_rows": 152,
+      "emitted_rows": 88,
+      "missing_rows": 64,
+      "exclusion_reason": "incomplete_alignment",
+      "future_status": "deferred_not_deleted"
+    },
+    {
+      "source_csv": "processed/iotsim-combined-cycle-1.csv",
+      "source_pcap": "raw/malicious/network-scanning/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap",
+      "role": "dev_future_attack_query_exact",
+      "chunk_id": 50,
+      "attack_label": "TCP Scan",
+      "expected_rows": 12000,
+      "emitted_rows": 100,
+      "missing_rows": 11900,
+      "exclusion_reason": "incomplete_alignment",
+      "future_status": "deferred_not_deleted"
+    },
+    {
+      "source_csv": "processed/iotsim-combined-cycle-1.csv",
+      "source_pcap": "raw/malicious/network-scanning/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap",
+      "role": "dev_future_attack_query_exact",
+      "chunk_id": 51,
+      "attack_label": "Telnet Brute Force",
+      "expected_rows": 12000,
+      "emitted_rows": 289,
+      "missing_rows": 11711,
+      "exclusion_reason": "incomplete_alignment",
+      "future_status": "deferred_not_deleted"
+    }
+  ],
+  "role_access": [
+    {
+      "role": "attack_support_candidate_pool_targeted",
+      "included_in_certified_subset_v1": "yes_complete_chunks_only",
+      "development_side": "yes",
+      "support_bank_allowed": "yes_for_development_support_bank_only",
+      "query_protocol_validation_allowed": "no",
+      "fit_allowed": "no_model_fit",
+      "threshold_allowed": "no",
+      "model_selection_allowed": "no",
+      "sealed_final": "no",
+      "selection_allowed": "yes_support_selection_only",
+      "notes": "complete support candidate pool remains development-side input for support-bank protocol work"
+    },
+    {
+      "role": "same_file_time_forward_dev_query_exact",
+      "included_in_certified_subset_v1": "yes_complete_chunks_only",
+      "development_side": "yes",
+      "support_bank_allowed": "no",
+      "query_protocol_validation_allowed": "yes_development_protocol_validation_only",
+      "fit_allowed": "no",
+      "threshold_allowed": "no",
+      "model_selection_allowed": "no",
+      "sealed_final": "no",
+      "selection_allowed": "no",
+      "notes": "development-side same-file time-forward query; no threshold tuning or model ranking"
+    },
+    {
+      "role": "dev_future_attack_query_exact",
+      "included_in_certified_subset_v1": "yes_complete_chunks_only_partial_chunks_excluded",
+      "development_side": "yes",
+      "support_bank_allowed": "no",
+      "query_protocol_validation_allowed": "yes_certified_dev_query_only",
+      "fit_allowed": "no",
+      "threshold_allowed": "no",
+      "model_selection_allowed": "no",
+      "sealed_final": "no",
+      "selection_allowed": "no",
+      "notes": "six combined-cycle-1 partial chunks are deferred_not_deleted and their emitted rows are excluded"
+    },
+    {
+      "role": "sealed_final_attack_exact_realign",
+      "included_in_certified_subset_v1": "yes_complete_chunks_only_but_sealed",
+      "development_side": "no",
+      "support_bank_allowed": "no",
+      "query_protocol_validation_allowed": "no",
+      "fit_allowed": "no",
+      "threshold_allowed": "no",
+      "model_selection_allowed": "no",
+      "sealed_final": "yes_report_only",
+      "selection_allowed": "no",
+      "notes": "continues sealed/report-only; cannot select, train, tune thresholds, or tune protocol"
+    }
+  ],
+  "exact_label_inventory": [
+    {
+      "attack_label": "C&C Communication",
+      "semantic_group": "tooling",
+      "certified_rows_total": 346,
+      "attack_support_candidate_pool_targeted_rows": 0,
+      "same_file_time_forward_dev_query_exact_rows": 0,
+      "dev_future_attack_query_exact_rows": 256,
+      "sealed_final_attack_exact_realign_rows": 90
+    },
+    {
+      "attack_label": "CoAP Amplification",
+      "semantic_group": "tooling",
+      "certified_rows_total": 12000,
+      "attack_support_candidate_pool_targeted_rows": 0,
+      "same_file_time_forward_dev_query_exact_rows": 0,
+      "dev_future_attack_query_exact_rows": 12000,
+      "sealed_final_attack_exact_realign_rows": 0
+    },
+    {
+      "attack_label": "File Download",
+      "semantic_group": "tooling",
+      "certified_rows_total": 4319,
+      "attack_support_candidate_pool_targeted_rows": 605,
+      "same_file_time_forward_dev_query_exact_rows": 105,
+      "dev_future_attack_query_exact_rows": 2378,
+      "sealed_final_attack_exact_realign_rows": 1231
+    },
+    {
+      "attack_label": "Ingress Tool Transfer",
+      "semantic_group": "tooling",
+      "certified_rows_total": 14638,
+      "attack_support_candidate_pool_targeted_rows": 801,
+      "same_file_time_forward_dev_query_exact_rows": 2381,
+      "dev_future_attack_query_exact_rows": 7754,
+      "sealed_final_attack_exact_realign_rows": 3702
+    },
+    {
+      "attack_label": "Merlin C&C Communication",
+      "semantic_group": "merlin",
+      "certified_rows_total": 28858,
+      "attack_support_candidate_pool_targeted_rows": 2441,
+      "same_file_time_forward_dev_query_exact_rows": 6827,
+      "dev_future_attack_query_exact_rows": 19590,
+      "sealed_final_attack_exact_realign_rows": 0
+    },
+    {
+      "attack_label": "Merlin ICMP Flooding",
+      "semantic_group": "merlin",
+      "certified_rows_total": 56609,
+      "attack_support_candidate_pool_targeted_rows": 4895,
+      "same_file_time_forward_dev_query_exact_rows": 13718,
+      "dev_future_attack_query_exact_rows": 27985,
+      "sealed_final_attack_exact_realign_rows": 10011
+    },
+    {
+      "attack_label": "Merlin TCP Flooding",
+      "semantic_group": "merlin",
+      "certified_rows_total": 85000,
+      "attack_support_candidate_pool_targeted_rows": 10000,
+      "same_file_time_forward_dev_query_exact_rows": 24000,
+      "dev_future_attack_query_exact_rows": 36000,
+      "sealed_final_attack_exact_realign_rows": 15000
+    },
+    {
+      "attack_label": "Merlin UDP Flooding",
+      "semantic_group": "merlin",
+      "certified_rows_total": 29038,
+      "attack_support_candidate_pool_targeted_rows": 2500,
+      "same_file_time_forward_dev_query_exact_rows": 6542,
+      "dev_future_attack_query_exact_rows": 15000,
+      "sealed_final_attack_exact_realign_rows": 4996
+    },
+    {
+      "attack_label": "Mirai C&C Communication",
+      "semantic_group": "mirai",
+      "certified_rows_total": 1072,
+      "attack_support_candidate_pool_targeted_rows": 250,
+      "same_file_time_forward_dev_query_exact_rows": 106,
+      "dev_future_attack_query_exact_rows": 716,
+      "sealed_final_attack_exact_realign_rows": 0
+    },
+    {
+      "attack_label": "Mirai GRE Flooding",
+      "semantic_group": "mirai",
+      "certified_rows_total": 91000,
+      "attack_support_candidate_pool_targeted_rows": 16000,
+      "same_file_time_forward_dev_query_exact_rows": 24000,
+      "dev_future_attack_query_exact_rows": 36000,
+      "sealed_final_attack_exact_realign_rows": 15000
+    },
+    {
+      "attack_label": "Mirai TCP Flooding",
+      "semantic_group": "mirai",
+      "certified_rows_total": 91000,
+      "attack_support_candidate_pool_targeted_rows": 16000,
+      "same_file_time_forward_dev_query_exact_rows": 24000,
+      "dev_future_attack_query_exact_rows": 36000,
+      "sealed_final_attack_exact_realign_rows": 15000
+    },
+    {
+      "attack_label": "Mirai UDP Flooding",
+      "semantic_group": "mirai",
+      "certified_rows_total": 91000,
+      "attack_support_candidate_pool_targeted_rows": 16000,
+      "same_file_time_forward_dev_query_exact_rows": 24000,
+      "dev_future_attack_query_exact_rows": 36000,
+      "sealed_final_attack_exact_realign_rows": 15000
+    },
+    {
+      "attack_label": "Reporting",
+      "semantic_group": "tooling",
+      "certified_rows_total": 298,
+      "attack_support_candidate_pool_targeted_rows": 0,
+      "same_file_time_forward_dev_query_exact_rows": 0,
+      "dev_future_attack_query_exact_rows": 224,
+      "sealed_final_attack_exact_realign_rows": 74
+    },
+    {
+      "attack_label": "TCP Scan",
+      "semantic_group": "tooling",
+      "certified_rows_total": 87000,
+      "attack_support_candidate_pool_targeted_rows": 0,
+      "same_file_time_forward_dev_query_exact_rows": 0,
+      "dev_future_attack_query_exact_rows": 72000,
+      "sealed_final_attack_exact_realign_rows": 15000
+    },
+    {
+      "attack_label": "Telnet Brute Force",
+      "semantic_group": "tooling",
+      "certified_rows_total": 87000,
+      "attack_support_candidate_pool_targeted_rows": 0,
+      "same_file_time_forward_dev_query_exact_rows": 0,
+      "dev_future_attack_query_exact_rows": 72000,
+      "sealed_final_attack_exact_realign_rows": 15000
+    },
+    {
+      "attack_label": "UDP Scan",
+      "semantic_group": "tooling",
+      "certified_rows_total": 4242,
+      "attack_support_candidate_pool_targeted_rows": 0,
+      "same_file_time_forward_dev_query_exact_rows": 0,
+      "dev_future_attack_query_exact_rows": 4242,
+      "sealed_final_attack_exact_realign_rows": 0
+    }
+  ],
+  "input_hashes": {
+    "issue27cd_chunk_manifest_csv_sha256": "8889ec15057f78892d2c1dba23c194a778ae398242c03cfd0a776d7aa54c054d",
+    "issue27cd_pullback_chunk_validation_table_csv_sha256": "b9cc634e181b82260ce6f5f7d19ef3633792c905e1c3ab4d9d6f0cf065fcda1f",
+    "issue27cd_pullback_hpc_validation_report_txt_sha256": "3c262a52cc4bc3c800a0b4d728a14b38d8c3903baf18eabb5d96bc5705a7e8aa",
+    "issue27cd_pullback_inspection_md_sha256": "513024667b711a202658c3385dfc62639aeb39e5850f138aa6d3048865541229",
+    "issue27cg_partial_chunk_audit_csv_sha256": "35935267a76ba3bd353ad56a152b7ce8cb84998c2b05670fc1d9082b915b0b9c"
+  },
+  "forbidden_actions": [
+    "model_training",
+    "formal_benchmark",
+    "threshold_tuning",
+    "pcap_rerun",
+    "csv_pcap_alignment_repair",
+    "sealed_final_selection_or_tuning",
+    "support_bank_replanning",
+    "controller_changes"
+  ],
+  "subset_contract_sha256": "56cce3e4dec704805a1e281c0ef2120b956f135341212017eb1d09539161a770"
+}

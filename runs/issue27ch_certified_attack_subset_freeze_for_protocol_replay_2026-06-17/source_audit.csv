@@ -1,0 +1,94 @@
+source_csv,source_pcap,role,attack_label,certified_chunks,certified_rows
+processed/iotsim-air-quality-1.csv,raw/malicious/mirai-infection/iotsim-air-quality-1_0-0_to_OpenvSwitch-25_1-0.pcap,dev_future_attack_query_exact,Ingress Tool Transfer,1,109
+processed/iotsim-air-quality-1.csv,raw/malicious/network-scanning/iotsim-air-quality-1_0-0_to_OpenvSwitch-25_1-0.pcap,dev_future_attack_query_exact,TCP Scan,1,12000
+processed/iotsim-air-quality-1.csv,raw/malicious/network-scanning/iotsim-air-quality-1_0-0_to_OpenvSwitch-25_1-0.pcap,dev_future_attack_query_exact,Telnet Brute Force,1,12000
+processed/iotsim-building-monitor-1.csv,raw/malicious/merlin/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,dev_future_attack_query_exact,Merlin C&C Communication,1,9657
+processed/iotsim-building-monitor-1.csv,raw/malicious/merlin/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,dev_future_attack_query_exact,Merlin ICMP Flooding,1,9150
+processed/iotsim-building-monitor-1.csv,raw/malicious/merlin/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,dev_future_attack_query_exact,Merlin TCP Flooding,1,12000
+processed/iotsim-building-monitor-1.csv,raw/malicious/merlin/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,dev_future_attack_query_exact,Merlin UDP Flooding,1,5000
+processed/iotsim-building-monitor-1.csv,raw/malicious/mirai-dos/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,dev_future_attack_query_exact,Mirai GRE Flooding,1,12000
+processed/iotsim-building-monitor-1.csv,raw/malicious/mirai-dos/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,dev_future_attack_query_exact,Mirai TCP Flooding,1,12000
+processed/iotsim-building-monitor-1.csv,raw/malicious/mirai-dos/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,dev_future_attack_query_exact,Mirai UDP Flooding,1,12000
+processed/iotsim-building-monitor-1.csv,raw/malicious/mirai-infection/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,dev_future_attack_query_exact,C&C Communication,1,84
+processed/iotsim-building-monitor-1.csv,raw/malicious/mirai-infection/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,dev_future_attack_query_exact,File Download,1,1191
+processed/iotsim-building-monitor-1.csv,raw/malicious/mirai-infection/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,dev_future_attack_query_exact,Ingress Tool Transfer,1,3754
+processed/iotsim-building-monitor-1.csv,raw/malicious/mirai-infection/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,dev_future_attack_query_exact,Mirai C&C Communication,1,358
+processed/iotsim-building-monitor-1.csv,raw/malicious/mirai-infection/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,dev_future_attack_query_exact,Reporting,1,88
+processed/iotsim-building-monitor-1.csv,raw/malicious/network-scanning/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,dev_future_attack_query_exact,TCP Scan,1,12000
+processed/iotsim-building-monitor-1.csv,raw/malicious/network-scanning/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,dev_future_attack_query_exact,Telnet Brute Force,1,12000
+processed/iotsim-city-power-1.csv,raw/malicious/merlin/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,attack_support_candidate_pool_targeted,Merlin ICMP Flooding,1,2393
+processed/iotsim-city-power-1.csv,raw/malicious/merlin/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,attack_support_candidate_pool_targeted,Merlin TCP Flooding,1,5000
+processed/iotsim-city-power-1.csv,raw/malicious/merlin/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,attack_support_candidate_pool_targeted,Merlin UDP Flooding,1,1250
+processed/iotsim-city-power-1.csv,raw/malicious/merlin/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,same_file_time_forward_dev_query_exact,Merlin ICMP Flooding,1,6680
+processed/iotsim-city-power-1.csv,raw/malicious/merlin/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,same_file_time_forward_dev_query_exact,Merlin TCP Flooding,1,12000
+processed/iotsim-city-power-1.csv,raw/malicious/merlin/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,same_file_time_forward_dev_query_exact,Merlin UDP Flooding,1,3250
+processed/iotsim-city-power-1.csv,raw/malicious/mirai-dos/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,attack_support_candidate_pool_targeted,Mirai GRE Flooding,1,8000
+processed/iotsim-city-power-1.csv,raw/malicious/mirai-dos/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,attack_support_candidate_pool_targeted,Mirai TCP Flooding,1,8000
+processed/iotsim-city-power-1.csv,raw/malicious/mirai-dos/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,attack_support_candidate_pool_targeted,Mirai UDP Flooding,1,8000
+processed/iotsim-city-power-1.csv,raw/malicious/mirai-dos/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,same_file_time_forward_dev_query_exact,Mirai GRE Flooding,1,12000
+processed/iotsim-city-power-1.csv,raw/malicious/mirai-dos/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,same_file_time_forward_dev_query_exact,Mirai TCP Flooding,1,12000
+processed/iotsim-city-power-1.csv,raw/malicious/mirai-dos/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,same_file_time_forward_dev_query_exact,Mirai UDP Flooding,1,12000
+processed/iotsim-city-power-1.csv,raw/malicious/mirai-infection/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,dev_future_attack_query_exact,Ingress Tool Transfer,1,105
+processed/iotsim-city-power-1.csv,raw/malicious/network-scanning/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,dev_future_attack_query_exact,TCP Scan,1,12000
+processed/iotsim-city-power-1.csv,raw/malicious/network-scanning/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,dev_future_attack_query_exact,Telnet Brute Force,1,12000
+processed/iotsim-combined-cycle-1.csv,raw/malicious/merlin/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,Merlin C&C Communication,1,9933
+processed/iotsim-combined-cycle-1.csv,raw/malicious/merlin/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,Merlin ICMP Flooding,1,9042
+processed/iotsim-combined-cycle-1.csv,raw/malicious/merlin/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,Merlin TCP Flooding,1,12000
+processed/iotsim-combined-cycle-1.csv,raw/malicious/merlin/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,Merlin UDP Flooding,1,5000
+processed/iotsim-combined-cycle-1.csv,raw/malicious/mirai-dos/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,Mirai GRE Flooding,1,12000
+processed/iotsim-combined-cycle-1.csv,raw/malicious/mirai-dos/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,Mirai TCP Flooding,1,12000
+processed/iotsim-combined-cycle-1.csv,raw/malicious/mirai-dos/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,Mirai UDP Flooding,1,12000
+processed/iotsim-combined-cycle-1.csv,raw/malicious/mirai-infection/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,CoAP Amplification,1,12000
+processed/iotsim-combined-cycle-1.csv,raw/malicious/mirai-infection/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,Mirai C&C Communication,1,358
+processed/iotsim-combined-cycle-1.csv,raw/malicious/network-scanning/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,UDP Scan,1,4242
+processed/iotsim-combined-cycle-10.csv,raw/malicious/mirai-infection/iotsim-combined-cycle-10_0-0_to_OpenvSwitch-13_10-0.pcap,attack_support_candidate_pool_targeted,File Download,1,605
+processed/iotsim-combined-cycle-10.csv,raw/malicious/mirai-infection/iotsim-combined-cycle-10_0-0_to_OpenvSwitch-13_10-0.pcap,attack_support_candidate_pool_targeted,Ingress Tool Transfer,1,801
+processed/iotsim-combined-cycle-10.csv,raw/malicious/mirai-infection/iotsim-combined-cycle-10_0-0_to_OpenvSwitch-13_10-0.pcap,dev_future_attack_query_exact,C&C Communication,1,90
+processed/iotsim-combined-cycle-10.csv,raw/malicious/mirai-infection/iotsim-combined-cycle-10_0-0_to_OpenvSwitch-13_10-0.pcap,dev_future_attack_query_exact,Reporting,1,64
+processed/iotsim-combined-cycle-10.csv,raw/malicious/mirai-infection/iotsim-combined-cycle-10_0-0_to_OpenvSwitch-13_10-0.pcap,same_file_time_forward_dev_query_exact,File Download,1,105
+processed/iotsim-combined-cycle-10.csv,raw/malicious/mirai-infection/iotsim-combined-cycle-10_0-0_to_OpenvSwitch-13_10-0.pcap,same_file_time_forward_dev_query_exact,Ingress Tool Transfer,1,2381
+processed/iotsim-combined-cycle-10.csv,raw/malicious/network-scanning/iotsim-combined-cycle-10_0-0_to_OpenvSwitch-13_10-0.pcap,dev_future_attack_query_exact,TCP Scan,1,12000
+processed/iotsim-combined-cycle-10.csv,raw/malicious/network-scanning/iotsim-combined-cycle-10_0-0_to_OpenvSwitch-13_10-0.pcap,dev_future_attack_query_exact,Telnet Brute Force,1,12000
+processed/iotsim-domotic-monitor-1.csv,raw/malicious/merlin/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,dev_future_attack_query_exact,Merlin ICMP Flooding,1,9793
+processed/iotsim-domotic-monitor-1.csv,raw/malicious/merlin/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,dev_future_attack_query_exact,Merlin TCP Flooding,1,12000
+processed/iotsim-domotic-monitor-1.csv,raw/malicious/merlin/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,dev_future_attack_query_exact,Merlin UDP Flooding,1,5000
+processed/iotsim-domotic-monitor-1.csv,raw/malicious/mirai-dos/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,dev_future_attack_query_exact,Mirai GRE Flooding,1,12000
+processed/iotsim-domotic-monitor-1.csv,raw/malicious/mirai-dos/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,dev_future_attack_query_exact,Mirai TCP Flooding,1,12000
+processed/iotsim-domotic-monitor-1.csv,raw/malicious/mirai-dos/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,dev_future_attack_query_exact,Mirai UDP Flooding,1,12000
+processed/iotsim-domotic-monitor-1.csv,raw/malicious/mirai-infection/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,dev_future_attack_query_exact,C&C Communication,1,82
+processed/iotsim-domotic-monitor-1.csv,raw/malicious/mirai-infection/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,dev_future_attack_query_exact,File Download,1,1187
+processed/iotsim-domotic-monitor-1.csv,raw/malicious/mirai-infection/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,dev_future_attack_query_exact,Ingress Tool Transfer,1,3678
+processed/iotsim-domotic-monitor-1.csv,raw/malicious/mirai-infection/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,dev_future_attack_query_exact,Reporting,1,72
+processed/iotsim-domotic-monitor-1.csv,raw/malicious/network-scanning/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,dev_future_attack_query_exact,TCP Scan,1,12000
+processed/iotsim-domotic-monitor-1.csv,raw/malicious/network-scanning/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,dev_future_attack_query_exact,Telnet Brute Force,1,12000
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/merlin/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,attack_support_candidate_pool_targeted,Merlin C&C Communication,1,2441
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/merlin/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,attack_support_candidate_pool_targeted,Merlin ICMP Flooding,1,2502
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/merlin/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,attack_support_candidate_pool_targeted,Merlin TCP Flooding,1,5000
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/merlin/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,attack_support_candidate_pool_targeted,Merlin UDP Flooding,1,1250
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/merlin/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,same_file_time_forward_dev_query_exact,Merlin C&C Communication,1,6827
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/merlin/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,same_file_time_forward_dev_query_exact,Merlin ICMP Flooding,1,7038
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/merlin/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,same_file_time_forward_dev_query_exact,Merlin TCP Flooding,1,12000
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/merlin/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,same_file_time_forward_dev_query_exact,Merlin UDP Flooding,1,3292
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/mirai-dos/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,attack_support_candidate_pool_targeted,Mirai GRE Flooding,1,8000
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/mirai-dos/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,attack_support_candidate_pool_targeted,Mirai TCP Flooding,1,8000
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/mirai-dos/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,attack_support_candidate_pool_targeted,Mirai UDP Flooding,1,8000
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/mirai-dos/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,same_file_time_forward_dev_query_exact,Mirai GRE Flooding,1,12000
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/mirai-dos/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,same_file_time_forward_dev_query_exact,Mirai TCP Flooding,1,12000
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/mirai-dos/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,same_file_time_forward_dev_query_exact,Mirai UDP Flooding,1,12000
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/mirai-infection/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,attack_support_candidate_pool_targeted,Mirai C&C Communication,1,250
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/mirai-infection/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,dev_future_attack_query_exact,Ingress Tool Transfer,1,108
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/mirai-infection/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,same_file_time_forward_dev_query_exact,Mirai C&C Communication,1,106
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/network-scanning/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,dev_future_attack_query_exact,TCP Scan,1,12000
+processed/iotsim-ip-camera-museum-1.csv,raw/malicious/network-scanning/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,dev_future_attack_query_exact,Telnet Brute Force,1,12000
+processed/iotsim-ip-camera-street-1.csv,raw/malicious/merlin/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,sealed_final_attack_exact_realign,Merlin ICMP Flooding,1,10011
+processed/iotsim-ip-camera-street-1.csv,raw/malicious/merlin/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,sealed_final_attack_exact_realign,Merlin TCP Flooding,1,15000
+processed/iotsim-ip-camera-street-1.csv,raw/malicious/merlin/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,sealed_final_attack_exact_realign,Merlin UDP Flooding,1,4996
+processed/iotsim-ip-camera-street-1.csv,raw/malicious/mirai-dos/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,sealed_final_attack_exact_realign,Mirai GRE Flooding,1,15000
+processed/iotsim-ip-camera-street-1.csv,raw/malicious/mirai-dos/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,sealed_final_attack_exact_realign,Mirai TCP Flooding,1,15000
+processed/iotsim-ip-camera-street-1.csv,raw/malicious/mirai-dos/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,sealed_final_attack_exact_realign,Mirai UDP Flooding,1,15000
+processed/iotsim-ip-camera-street-1.csv,raw/malicious/mirai-infection/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,sealed_final_attack_exact_realign,C&C Communication,1,90
+processed/iotsim-ip-camera-street-1.csv,raw/malicious/mirai-infection/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,sealed_final_attack_exact_realign,File Download,1,1231
+processed/iotsim-ip-camera-street-1.csv,raw/malicious/mirai-infection/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,sealed_final_attack_exact_realign,Ingress Tool Transfer,1,3702
+processed/iotsim-ip-camera-street-1.csv,raw/malicious/mirai-infection/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,sealed_final_attack_exact_realign,Reporting,1,74
+processed/iotsim-ip-camera-street-1.csv,raw/malicious/network-scanning/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,sealed_final_attack_exact_realign,TCP Scan,1,15000
+processed/iotsim-ip-camera-street-1.csv,raw/malicious/network-scanning/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,sealed_final_attack_exact_realign,Telnet Brute Force,1,15000

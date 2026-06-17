@@ -1,0 +1,5 @@
+role,included_in_certified_subset_v1,development_side,support_bank_allowed,query_protocol_validation_allowed,fit_allowed,threshold_allowed,model_selection_allowed,sealed_final,selection_allowed,notes
+attack_support_candidate_pool_targeted,yes_complete_chunks_only,yes,yes_for_development_support_bank_only,no,no_model_fit,no,no,no,yes_support_selection_only,complete support candidate pool remains development-side input for support-bank protocol work
+same_file_time_forward_dev_query_exact,yes_complete_chunks_only,yes,no,yes_development_protocol_validation_only,no,no,no,no,no,development-side same-file time-forward query; no threshold tuning or model ranking
+dev_future_attack_query_exact,yes_complete_chunks_only_partial_chunks_excluded,yes,no,yes_certified_dev_query_only,no,no,no,no,no,six combined-cycle-1 partial chunks are deferred_not_deleted and their emitted rows are excluded
+sealed_final_attack_exact_realign,yes_complete_chunks_only_but_sealed,no,no,no,no,no,no,yes_report_only,no,"continues sealed/report-only; cannot select, train, tune thresholds, or tune protocol"

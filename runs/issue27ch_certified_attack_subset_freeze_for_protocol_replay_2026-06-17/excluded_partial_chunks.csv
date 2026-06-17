@@ -1,0 +1,7 @@
+source_csv,source_pcap,role,chunk_id,attack_label,expected_rows,emitted_rows,missing_rows,exclusion_reason,future_status
+processed/iotsim-combined-cycle-1.csv,raw/malicious/mirai-infection/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,37,C&C Communication,182,92,90,incomplete_alignment,deferred_not_deleted
+processed/iotsim-combined-cycle-1.csv,raw/malicious/mirai-infection/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,39,File Download,2377,1167,1210,incomplete_alignment,deferred_not_deleted
+processed/iotsim-combined-cycle-1.csv,raw/malicious/mirai-infection/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,40,Ingress Tool Transfer,6925,3725,3200,incomplete_alignment,deferred_not_deleted
+processed/iotsim-combined-cycle-1.csv,raw/malicious/mirai-infection/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,49,Reporting,152,88,64,incomplete_alignment,deferred_not_deleted
+processed/iotsim-combined-cycle-1.csv,raw/malicious/network-scanning/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,50,TCP Scan,12000,100,11900,incomplete_alignment,deferred_not_deleted
+processed/iotsim-combined-cycle-1.csv,raw/malicious/network-scanning/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,dev_future_attack_query_exact,51,Telnet Brute Force,12000,289,11711,incomplete_alignment,deferred_not_deleted

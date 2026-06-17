@@ -1,0 +1,50 @@
+{
+  "run_name": "issue27ch_certified_attack_subset_freeze_for_protocol_replay_2026-06-17",
+  "task_type": "certified_attack_subset_freeze",
+  "inputs": [
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27cd_slurm_exact_label_targeted_multitype_attack_materialization_2026-06-14\\chunk_manifest.csv",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\issue27cd_exact_label_attack_slurm_20260614\\pullback_results\\extracted_20260616_1521\\worktrees\\kitnet-exp-mainline\\runs\\issue27cd_slurm_exact_label_targeted_multitype_attack_materialization_2026-06-14\\chunk_validation_table.csv",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\issue27cd_exact_label_attack_slurm_20260614\\pullback_results\\extracted_20260616_1521\\worktrees\\kitnet-exp-mainline\\runs\\issue27cd_slurm_exact_label_targeted_multitype_attack_materialization_2026-06-14\\hpc_validation_report.txt",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27cd_slurm_exact_label_targeted_multitype_attack_materialization_2026-06-14\\pullback_inspection_2026-06-16.md",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27cg_combined_cycle_query_alignment_repair_or_replan_2026-06-17\\combined_cycle_partial_chunk_audit.csv"
+  ],
+  "outputs": [
+    "summary.md",
+    "certified_attack_subset_v1.json",
+    "certified_chunk_manifest.csv",
+    "excluded_partial_chunks.csv",
+    "certified_role_inventory.csv",
+    "exact_label_inventory.csv",
+    "role_access_audit.csv",
+    "source_audit.csv",
+    "subset_limitations.md",
+    "issue27ci_next_action.md",
+    "manifest.csv",
+    "config.json",
+    "run_spec.json",
+    "command.txt"
+  ],
+  "validation_checks": [
+    "99 validation chunks present",
+    "93 complete chunks selected",
+    "6 partial_or_unstable chunks excluded as whole chunks",
+    "complete chunk expected_rows == emitted_rows and missing_rows == 0",
+    "issue27cg partial audit agrees with excluded chunk ids and row counts"
+  ],
+  "counts": {
+    "issue27cd_chunks_total": 99,
+    "certified_complete_chunks": 93,
+    "excluded_partial_chunks": 6,
+    "issue27cd_expected_exact_rows": 717056,
+    "issue27cd_emitted_rows": 688881,
+    "issue27cd_missing_exact_rows": 28175,
+    "certified_rows": 683420,
+    "excluded_expected_rows": 33636,
+    "excluded_emitted_rows": 5461,
+    "excluded_missing_rows": 28175,
+    "quarantine_files": 0,
+    "no_model_training": true,
+    "no_threshold_tuning": true,
+    "sealed_final_used_for_selection": false
+  }
+}
