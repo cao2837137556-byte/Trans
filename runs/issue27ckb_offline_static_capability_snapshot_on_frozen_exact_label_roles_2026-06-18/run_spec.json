@@ -1,0 +1,94 @@
+{
+  "issue": "issue27ckb_offline_static_capability_snapshot_on_frozen_exact_label_roles_2026-06-18",
+  "stage": "diagnostic_offline_capability_snapshot",
+  "formal_benchmark": false,
+  "online_deployment_simulated": false,
+  "frontend": "Gotham PCAP-derived Kitsune115D",
+  "support_bank": "issue27cf frozen 512 rows; support_train 385; support_val 127",
+  "candidate_pool_reuse": false,
+  "models": [
+    {
+      "job_index": 1,
+      "model_family": "histgb",
+      "seed": 42,
+      "support_weight": 64.0,
+      "label": "histgb_support64_seed42"
+    },
+    {
+      "job_index": 2,
+      "model_family": "histgb",
+      "seed": 43,
+      "support_weight": 64.0,
+      "label": "histgb_support64_seed43"
+    },
+    {
+      "job_index": 3,
+      "model_family": "histgb",
+      "seed": 44,
+      "support_weight": 64.0,
+      "label": "histgb_support64_seed44"
+    },
+    {
+      "job_index": 4,
+      "model_family": "histgb",
+      "seed": 42,
+      "support_weight": 256.0,
+      "label": "histgb_support256_seed42"
+    },
+    {
+      "job_index": 5,
+      "model_family": "histgb",
+      "seed": 43,
+      "support_weight": 256.0,
+      "label": "histgb_support256_seed43"
+    },
+    {
+      "job_index": 6,
+      "model_family": "histgb",
+      "seed": 44,
+      "support_weight": 256.0,
+      "label": "histgb_support256_seed44"
+    },
+    {
+      "job_index": 7,
+      "model_family": "logreg",
+      "seed": 42,
+      "support_weight": -1.0,
+      "label": "logreg_balanced"
+    }
+  ],
+  "threshold_rules": [
+    "id_q99",
+    "ood_guarded_q99",
+    "support_val_recall90"
+  ],
+  "role_order": [
+    "id_benign_train",
+    "support_train",
+    "id_benign_calib",
+    "support_val",
+    "ood_benign_val",
+    "freeze_model_and_thresholds",
+    "ood_benign_stress",
+    "same_file_time_forward_dev_query_exact",
+    "dev_future_attack_query_exact",
+    "sealed_final_attack_exact_realign",
+    "sealed_final_ood"
+  ],
+  "report_only_selection": false,
+  "input_audit": {
+    "attack_root": "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\issue27cd_exact_label_attack_slurm_20260614\\pullback_results\\extracted_20260616_1521\\datasets\\gotham2025\\derived\\kitsune115_exact_label_targeted_attack_v1",
+    "cert_x_shape": [
+      1000000,
+      115
+    ],
+    "support_rows": 512,
+    "certified_chunks": 93,
+    "input_hashes": {
+      "feature_schema": "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+      "support_sidecar": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da",
+      "certified_chunk_manifest": "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+      "certified_subset_contract": "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf"
+    }
+  }
+}

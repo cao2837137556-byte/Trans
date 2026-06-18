@@ -1,0 +1,3 @@
+python repo/ood/issue27ckb_offline_static_capability_snapshot.py --mode plan
+python repo/ood/issue27ckb_offline_static_capability_snapshot.py --mode run-job --job-index $SLURM_ARRAY_TASK_ID
+python repo/ood/issue27ckb_offline_static_capability_snapshot.py --mode aggregate
