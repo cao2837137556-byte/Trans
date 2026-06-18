@@ -1,0 +1,26 @@
+{
+  "primary_scaler": "id_benign_train_median_iqr_with_std_fallback",
+  "primary_distance": "euclidean",
+  "challenger_distance": "ledoit_wolf_mahalanobis",
+  "prototype": "one_medoid_per_exact_label",
+  "primary_shell_scheme": "medium",
+  "shell_schemes": {
+    "tight": [
+      0.5,
+      0.75,
+      0.9
+    ],
+    "medium": [
+      0.75,
+      0.9,
+      0.975
+    ],
+    "wide": [
+      0.9,
+      0.975,
+      0.995
+    ]
+  },
+  "split_execution": false,
+  "batch_size": 20000
+}

@@ -1,0 +1,11 @@
+role_or_asset,purpose,fit_allowed,calibration_allowed,read_only_stress,selection_allowed,sealed_final_access,status
+id_benign_train,fit scaler and challenger covariance,yes,no,no,no,no,used
+support_train,form exact-label medoids,yes,no,no,no,no,used
+support_val,calibrate preregistered shell candidates,no,yes,no,no,no,used
+ood_benign_val,development OOD-overlap audit and status assignment,no,yes,no,no,no,used
+ood_benign_stress,frozen-registry stress,no,no,yes,no,no,used_read_only
+same_file_time_forward_dev_query_exact,frozen-registry query stress,no,no,yes,no,no,used_read_only
+dev_future_attack_query_exact_complete_only,frozen-registry query stress,no,no,yes,no,no,used_read_only
+excluded_partial_chunks,none,no,no,no,no,no,not_accessed
+sealed_final_attack_exact_realign,report only,no,no,no,no,forbidden,not_accessed
+sealed_final_ood,report only,no,no,no,no,forbidden,not_accessed

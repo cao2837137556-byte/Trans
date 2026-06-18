@@ -1,0 +1,11 @@
+region_id,exact_attack_label,train_rows,val_rows,eligible,single_medoid_index_within_label,two_medoid_indices_within_label,train_cluster_counts,val_cluster_counts,within_distance_reduction,source_shortcut_warning,split_candidate,reason
+attack_region_baa4038e686a,File Download,15,5,False,,,,,,,,train_count_below_24
+attack_region_98413eff6d95,Ingress Tool Transfer,18,5,False,,,,,,,,train_count_below_24
+attack_region_4f662ce1d1da,Merlin C&C Communication,30,10,True,8,8|1,28|2,10|0,0.4110813358953491,False,False,diagnostic_only_no_split_executed
+attack_region_4e337f656139,Merlin ICMP Flooding,43,14,True,27,14|0,22|21,10|4,0.5909496180214382,False,True,diagnostic_only_no_split_executed
+attack_region_1e35a23f930c,Merlin TCP Flooding,60,20,True,18,45|13,42|18,11|9,0.6033839183055041,False,True,diagnostic_only_no_split_executed
+attack_region_5199177e241f,Merlin UDP Flooding,30,10,True,18,20|15,20|10,6|4,0.5448790905665115,False,True,diagnostic_only_no_split_executed
+attack_region_704820898382,Mirai C&C Communication,9,3,False,,,,,,,,train_count_below_24
+attack_region_a9be197bc385,Mirai GRE Flooding,60,20,True,32,55|24,47|13,14|6,0.4911485575103737,False,True,diagnostic_only_no_split_executed
+attack_region_a1eb14dc651b,Mirai TCP Flooding,60,20,True,24,44|53,40|20,14|6,0.630997912177919,False,True,diagnostic_only_no_split_executed
+attack_region_8f8a32f3c5de,Mirai UDP Flooding,60,20,True,9,50|0,45|15,15|5,0.5511666935488768,False,True,diagnostic_only_no_split_executed

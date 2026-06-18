@@ -1,0 +1,41 @@
+role,metric,region_id,exact_attack_label,nearest_assigned_rows,direct_core_rows,direct_near_rows,direct_uncertain_rows,direct_out_of_region_rows,direct_core_rate_of_all_role_rows,direct_core_plus_near_rate_of_all_role_rows,read_only_role
+ood_benign_val,primary_euclidean,attack_region_baa4038e686a,File Download,0,23999,0,0,1,0.9999583333333333,0.9999583333333333,False
+ood_benign_val,primary_euclidean,attack_region_98413eff6d95,Ingress Tool Transfer,1308,23209,652,138,1,0.9670416666666667,0.9942083333333334,False
+ood_benign_val,primary_euclidean,attack_region_4f662ce1d1da,Merlin C&C Communication,32,23999,0,1,0,0.9999583333333333,0.9999583333333333,False
+ood_benign_val,primary_euclidean,attack_region_4e337f656139,Merlin ICMP Flooding,79,111,32,169,23688,0.004625,0.005958333333333334,False
+ood_benign_val,primary_euclidean,attack_region_1e35a23f930c,Merlin TCP Flooding,0,23999,0,0,1,0.9999583333333333,0.9999583333333333,False
+ood_benign_val,primary_euclidean,attack_region_5199177e241f,Merlin UDP Flooding,0,23999,0,0,1,0.9999583333333333,0.9999583333333333,False
+ood_benign_val,primary_euclidean,attack_region_704820898382,Mirai C&C Communication,3192,21740,47,2145,68,0.9058333333333334,0.9077916666666667,False
+ood_benign_val,primary_euclidean,attack_region_a9be197bc385,Mirai GRE Flooding,938,18983,1712,460,2845,0.7909583333333333,0.8622916666666667,False
+ood_benign_val,primary_euclidean,attack_region_a1eb14dc651b,Mirai TCP Flooding,4904,20613,355,288,2744,0.858875,0.8736666666666667,False
+ood_benign_val,primary_euclidean,attack_region_8f8a32f3c5de,Mirai UDP Flooding,13547,14593,1284,536,7587,0.6080416666666667,0.6615416666666667,False
+ood_benign_val,challenger_shrinkage_mahalanobis,attack_region_baa4038e686a,File Download,0,23999,0,0,1,0.9999583333333333,0.9999583333333333,False
+ood_benign_val,challenger_shrinkage_mahalanobis,attack_region_98413eff6d95,Ingress Tool Transfer,1025,23209,652,138,1,0.9670416666666667,0.9942083333333334,False
+ood_benign_val,challenger_shrinkage_mahalanobis,attack_region_4f662ce1d1da,Merlin C&C Communication,32,23999,0,1,0,0.9999583333333333,0.9999583333333333,False
+ood_benign_val,challenger_shrinkage_mahalanobis,attack_region_4e337f656139,Merlin ICMP Flooding,142,241,112,256,23391,0.010041666666666667,0.014708333333333334,False
+ood_benign_val,challenger_shrinkage_mahalanobis,attack_region_1e35a23f930c,Merlin TCP Flooding,86,21435,115,59,2391,0.893125,0.8979166666666667,False
+ood_benign_val,challenger_shrinkage_mahalanobis,attack_region_5199177e241f,Merlin UDP Flooding,0,21336,222,48,2394,0.889,0.89825,False
+ood_benign_val,challenger_shrinkage_mahalanobis,attack_region_704820898382,Mirai C&C Communication,3406,21762,26,2144,68,0.90675,0.9078333333333334,False
+ood_benign_val,challenger_shrinkage_mahalanobis,attack_region_a9be197bc385,Mirai GRE Flooding,44,15949,1945,1752,4354,0.6645416666666667,0.7455833333333334,False
+ood_benign_val,challenger_shrinkage_mahalanobis,attack_region_a1eb14dc651b,Mirai TCP Flooding,4918,16514,1876,1142,4468,0.6880833333333334,0.76625,False
+ood_benign_val,challenger_shrinkage_mahalanobis,attack_region_8f8a32f3c5de,Mirai UDP Flooding,14347,18103,1369,331,4197,0.7542916666666667,0.8113333333333334,False
+ood_benign_stress,primary_euclidean,attack_region_baa4038e686a,File Download,0,230000,0,0,0,1.0,1.0,True
+ood_benign_stress,primary_euclidean,attack_region_98413eff6d95,Ingress Tool Transfer,14172,227822,1750,352,76,0.9905304347826087,0.9981391304347826,True
+ood_benign_stress,primary_euclidean,attack_region_4f662ce1d1da,Merlin C&C Communication,582,230000,0,0,0,1.0,1.0,True
+ood_benign_stress,primary_euclidean,attack_region_4e337f656139,Merlin ICMP Flooding,0,153930,2073,3068,70929,0.6692608695652174,0.6782739130434783,True
+ood_benign_stress,primary_euclidean,attack_region_1e35a23f930c,Merlin TCP Flooding,42,230000,0,0,0,1.0,1.0,True
+ood_benign_stress,primary_euclidean,attack_region_5199177e241f,Merlin UDP Flooding,0,230000,0,0,0,1.0,1.0,True
+ood_benign_stress,primary_euclidean,attack_region_704820898382,Mirai C&C Communication,169189,226302,341,3109,248,0.9839217391304348,0.985404347826087,True
+ood_benign_stress,primary_euclidean,attack_region_a9be197bc385,Mirai GRE Flooding,832,211919,9699,3073,5309,0.9213869565217391,0.9635565217391304,True
+ood_benign_stress,primary_euclidean,attack_region_a1eb14dc651b,Mirai TCP Flooding,1611,220307,3248,1503,4942,0.9578565217391304,0.9719782608695652,True
+ood_benign_stress,primary_euclidean,attack_region_8f8a32f3c5de,Mirai UDP Flooding,43572,175193,9203,6270,39334,0.7617086956521739,0.8017217391304348,True
+ood_benign_stress,challenger_shrinkage_mahalanobis,attack_region_baa4038e686a,File Download,0,230000,0,0,0,1.0,1.0,True
+ood_benign_stress,challenger_shrinkage_mahalanobis,attack_region_98413eff6d95,Ingress Tool Transfer,15147,228035,1590,299,76,0.9914565217391305,0.9983695652173913,True
+ood_benign_stress,challenger_shrinkage_mahalanobis,attack_region_4f662ce1d1da,Merlin C&C Communication,582,230000,0,0,0,1.0,1.0,True
+ood_benign_stress,challenger_shrinkage_mahalanobis,attack_region_4e337f656139,Merlin ICMP Flooding,0,153944,2078,3062,70916,0.6693217391304348,0.6783565217391304,True
+ood_benign_stress,challenger_shrinkage_mahalanobis,attack_region_1e35a23f930c,Merlin TCP Flooding,29,213081,7079,2541,7299,0.9264391304347827,0.9572173913043478,True
+ood_benign_stress,challenger_shrinkage_mahalanobis,attack_region_5199177e241f,Merlin UDP Flooding,7,209950,10729,1826,7495,0.9128260869565218,0.9594739130434783,True
+ood_benign_stress,challenger_shrinkage_mahalanobis,attack_region_704820898382,Mirai C&C Communication,169645,226505,335,2959,201,0.984804347826087,0.9862608695652174,True
+ood_benign_stress,challenger_shrinkage_mahalanobis,attack_region_a9be197bc385,Mirai GRE Flooding,56,166469,7604,11941,43986,0.7237782608695652,0.7568391304347826,True
+ood_benign_stress,challenger_shrinkage_mahalanobis,attack_region_a1eb14dc651b,Mirai TCP Flooding,1307,168339,7518,9217,44926,0.7319086956521739,0.764595652173913,True
+ood_benign_stress,challenger_shrinkage_mahalanobis,attack_region_8f8a32f3c5de,Mirai UDP Flooding,43227,175213,9203,6304,39280,0.7617956521739131,0.8018086956521739,True

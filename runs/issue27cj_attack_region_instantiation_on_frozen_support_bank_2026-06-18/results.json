@@ -1,0 +1,58 @@
+{
+  "issue": "issue27cj_attack_region_instantiation_on_frozen_support_bank_2026-06-18",
+  "primary_verdict": "initial_region_registry_not_qualified_115d_geometry_confounded",
+  "roles_accessed_in_order": [
+    "id_benign_train",
+    "support_train",
+    "support_val",
+    "ood_benign_val",
+    "freeze_registry",
+    "ood_benign_stress",
+    "certified_dev_query"
+  ],
+  "model_training": false,
+  "formal_benchmark": false,
+  "controller_tuning": false,
+  "support_reselection": false,
+  "sealed_final_access": false,
+  "support_train_rows": 385,
+  "support_val_rows": 127,
+  "region_count": 10,
+  "region_status_counts": {
+    "ambiguous_region": 9,
+    "active_conflict_sensitive": 1
+  },
+  "split_candidates_diagnostic_only": 6,
+  "ood_val_summary": {
+    "role": "ood_benign_val",
+    "rows": 24000,
+    "primary_core_rows": 20417,
+    "primary_near_rows": 538,
+    "primary_uncertain_rows": 599,
+    "primary_out_of_region_rows": 2446,
+    "challenger_core_rows": 19580,
+    "challenger_near_rows": 783,
+    "challenger_uncertain_rows": 690,
+    "challenger_out_of_region_rows": 2947,
+    "primary_challenger_nearest_region_agreement": 0.8660833333333333
+  },
+  "ood_stress_summary": {
+    "role": "ood_benign_stress",
+    "rows": 230000,
+    "primary_core_rows": 220032,
+    "primary_near_rows": 2055,
+    "primary_uncertain_rows": 1495,
+    "primary_out_of_region_rows": 6418,
+    "challenger_core_rows": 220644,
+    "challenger_near_rows": 2251,
+    "challenger_uncertain_rows": 1778,
+    "challenger_out_of_region_rows": 5327,
+    "primary_challenger_nearest_region_agreement": 0.9899173913043479
+  },
+  "certified_dev_query_rows": 503824,
+  "certified_dev_query_out_of_region_rate": 0.43470934294515545,
+  "scaler_constant_features": 0,
+  "scaler_std_fallback_features": 1,
+  "ledoit_wolf_shrinkage": 0.004447332407207797,
+  "registry_frozen_before_ood_stress_and_dev_query": true
+}

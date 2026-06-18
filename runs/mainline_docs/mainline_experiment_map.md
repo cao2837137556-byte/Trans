@@ -49,8 +49,8 @@ Data and system contract repair before model replay.
 | Frontend | Kitsune / AfterImage / netStat 115D from raw PCAP | issue27ab and follow-up audits | frozen | 8D strict packet-header is engineering smoke only |
 | Benign/OOD 1M roles | usable under sealed role rules | issue27bz | active | ID train/calib, OOD val/stress, sealed final OOD remain role-restricted |
 | Attack support/query/final roles | certified complete-only attack subset frozen | issue27cb/issue27cc/issue27cd/issue27cg/issue27ch | active | 683,420 certified rows from 93 complete chunks; six partial combined-cycle-1 chunks deferred_not_deleted |
-| Support bank | initial clean bank plus support-region protocol frozen | issue27ca/issue27cb/issue27ce/issue27cf/issue27ci | active support state | 512 selected rows are not yet active regions; issue27cf region_id values are provenance seeds |
-| Model replay | paused | issue27ci/issue27cf | blocked | instantiate and audit initial_region_registry_v1 before any replay |
+| Support bank | clean bank and protocol frozen; raw-115D region geometry failed qualification | issue27ca/issue27cb/issue27ce/issue27cf/issue27ci/issue27cj | active but blocked | 512 selected rows remain frozen; no active-strong region exists |
+| Model replay | paused | issue27cj/issue27cf | blocked | repair attack-region evidence space before any replay |
 | Formal benchmark | not authorized | current governance | blocked | requires clean data contract and frozen system protocol |
 
 ### Active Issue Index
@@ -67,16 +67,17 @@ Data and system contract repair before model replay.
 | issue27cg | Combined-cycle query alignment audit | issue27cd shortfall localized; six partial chunks not worth repairing under current contract | supersedes direct repair route for current mainline | freeze complete-only certified subset |
 | issue27ch | Certified attack subset freeze for protocol replay | certified_attack_subset_v1 frozen: 683,420 rows, 93 complete chunks, six partial chunks deferred_not_deleted | changes active attack data contract from partial pullback to complete-only certified subset | issue27ci attack region activation and support-bank protocol refinement |
 | issue27ci | Attack-region activation and support-bank protocol refinement | support_region_protocol_v1 frozen; 512 support rows and 16 provenance seeds are not active regions yet | changes support system contract from sample bank to region-protocol-ready state | issue27cj initial region registry instantiation |
+| issue27cj | Initial attack-region instantiation on frozen support bank | failed qualification: 0 active-strong, severe OOD-core intrusion, low support-val label consistency, feature-dominated geometry | blocks direct raw-115D region activation and radius tuning | issue27ck evidence-space failure anatomy and repair |
 
 ### Latest Compact Close-out
 
 ```text
-solved: issue27ci froze support_region_protocol_v1 and clarified that current 512 support rows and 16 provenance seeds are not yet active attack regions.
+solved: issue27cj instantiated and audited the initial region registry under preregistered primary/challenger geometries and established that raw global Kitsune115D regions are not qualified.
 changed_mainline: yes
-active_blocker: initial_region_registry_v1 has not been instantiated; no region prototypes, radii, shell boundaries, or OOD-overlap audits exist yet.
-frozen: support-region layer definitions, activation states, role access matrix, evidence output schema, initial-vs-online registry boundary, protocol invariants.
-superseded: treating exact labels, semantic groups, or issue27cf provenance region_id values as active attack regions.
-next_action: issue27cj_attack_region_instantiation_on_frozen_support_bank.
+active_blocker: attack-region evidence space is confounded by feature dominance, label overlap, benign-OOD overlap, and support-query shift.
+frozen: issue27cf support rows, issue27ch certified dev query, issue27cj preregistered protocol, medoid/shell audit outputs, failure verdict.
+superseded: proceeding directly from the 512 support rows to active raw-115D attack regions, radius tuning, region splitting, model replay, or controller integration.
+next_action: issue27ck_kitsune115_region_geometry_failure_anatomy_and_evidence_space_repair.
 ```
 
 ### Current Rule For Future Issue Docs

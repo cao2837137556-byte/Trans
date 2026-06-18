@@ -1,0 +1,17 @@
+{
+  "run_name": "issue27cj_attack_region_instantiation_on_frozen_support_bank_2026-06-18",
+  "task_type": "development_side_attack_region_geometry_audit",
+  "primary_verdict": "initial_region_registry_not_qualified_115d_geometry_confounded",
+  "protocol": "preregistered_protocol.md",
+  "script": "repo/ood/issue27cj_attack_region_instantiation.py",
+  "model_training": false,
+  "formal_benchmark": false,
+  "controller_tuning": false,
+  "support_reselection": false,
+  "sealed_final_access": false,
+  "primary_geometry": "id_benign_robust_scaled_euclidean_medoid",
+  "challenger_geometry": "id_benign_scaled_ledoit_wolf_mahalanobis_medoid",
+  "primary_shell_scheme": "medium",
+  "region_split_execution": false,
+  "registry_frozen_before_ood_stress_and_dev_query": true
+}

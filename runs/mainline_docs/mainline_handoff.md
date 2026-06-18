@@ -46,7 +46,7 @@ Frozen parts:
 Open parts:
 
 - Exact-label multi-type attack materialization is frozen as a complete-only certified subset; six combined-cycle-1 dev_future_query partial chunks are deferred, not deleted.
-- Support-bank construction has an initial clean pre-deployment instance and frozen support-region protocol, but initial geometric region registry is not instantiated yet.
+- Support-bank construction has an initial clean pre-deployment instance and frozen support-region protocol, but raw global Kitsune115D geometry failed region qualification.
 - Attack drift, benign OOD drift, conflict/review control, region lifecycle, and temporal evidence integration remain system-definition topics to solve after the data contract is clean.
 
 Superseded parts:
@@ -56,6 +56,7 @@ Superseded parts:
 - Current 1M attack roles from before issue27cc are not valid for attack detection conclusions until exact-label rematerialization is complete.
 - issue27cd partial chunk emissions are not certified query rows; the current mainline does not continue repairing the six partial combined-cycle-1 chunks.
 - issue27cf `region_id` values are provenance seeds, not active geometric attack regions.
+- Raw global Kitsune115D Euclidean/Mahalanobis medoid regions are not qualified for activation, radius tuning, model replay, or controller use.
 
 ### Current Data Contract
 
@@ -69,37 +70,39 @@ Superseded parts:
 | Support-bank protocol/interface | frozen at invariant/interface level | issue27ce | governs initial bank and later update contracts |
 | Initial pre-deployment support bank | instantiated from complete exact-label support candidate pool: 512 rows, 10 labels, train/val disjoint | issue27cf | can be used as initial support-bank state for protocol refinement |
 | Support-region protocol | frozen: labels, semantic groups, provenance seeds, candidate regions, active regions, shells, evidence schema, and role access are separated | issue27ci | rules only; no region instantiation, radius values, model training, or controller policy |
+| Initial region geometry audit | failed qualification: 0 active-strong, 1 conflict-sensitive, 9 ambiguous; severe OOD overlap and label confusion | issue27cj | diagnostic evidence only; repair evidence space before any region activation |
 
 ### Active Blocker
 
-`initial attack-region registry instantiation`
+`Kitsune115 attack-region evidence-space geometry`
 
-The next model replay is blocked because no active geometric attack regions have been instantiated yet. The issue27ci protocol defines the rules, but issue27cj still must compute and audit:
+The next model replay is blocked because the raw global Kitsune115D geometry is not suitable for attack-region evidence:
 
-- candidate regions/prototypes from `support_train`;
-- compactness and shell behavior using `support_val`;
-- development OOD-overlap warnings;
-- certified dev-query coverage, unknown, and support-query shift behavior;
-- limitations before any model replay.
+- support-val nearest-label consistency is only about 31.5 percent under the primary geometry;
+- OOD-val/stress overwhelmingly enters attack cores even under tighter shells;
+- most region distances are dominated by one or a few covariance/jitter dimensions;
+- the preregistered shrinkage-Mahalanobis challenger also fails;
+- dev-query label interpretation remains weak and shifted.
 
 ### Current Next Action
 
-Run `issue27cj_attack_region_instantiation_on_frozen_support_bank`:
+Run `issue27ck_kitsune115_region_geometry_failure_anatomy_and_evidence_space_repair`:
 
-- use the issue27ci protocol as the rule set;
-- instantiate `initial_region_registry_v1` from issue27cf selected support only;
+- keep issue27cf support rows fixed;
+- audit feature-family/heavy-tail geometry and test a small preregistered set of non-learned evidence-space repairs;
+- keep OOD stress and certified dev query read-only;
 - keep sealed final roles report-only;
-- do not train models, tune thresholds, run formal benchmarks, or touch controller policy yet.
+- do not train embeddings/heads, reselect support, split regions, tune controller thresholds, or run formal benchmarks.
 
 ### Latest Compact Close-out
 
 ```text
-solved: issue27ci froze support_region_protocol_v1 and clarified that current 512 support rows and 16 provenance seeds are not yet active attack regions.
+solved: issue27cj instantiated and audited the initial region registry under preregistered primary/challenger geometries and established that raw global Kitsune115D regions are not qualified.
 changed_mainline: yes
-active_blocker: initial_region_registry_v1 has not been instantiated; no region prototypes, radii, shell boundaries, or OOD-overlap audits exist yet.
-frozen: support-region layer definitions, activation states, role access matrix, evidence output schema, initial-vs-online registry boundary, protocol invariants.
-superseded: treating exact labels, semantic groups, or issue27cf provenance region_id values as active attack regions.
-next_action: issue27cj_attack_region_instantiation_on_frozen_support_bank.
+active_blocker: attack-region evidence space is confounded by feature dominance, label overlap, benign-OOD overlap, and support-query shift.
+frozen: issue27cf support rows, issue27ch certified dev query, issue27cj preregistered protocol, medoid/shell audit outputs, failure verdict.
+superseded: proceeding directly from the 512 support rows to active raw-115D attack regions, radius tuning, region splitting, model replay, or controller integration.
+next_action: issue27ck_kitsune115_region_geometry_failure_anatomy_and_evidence_space_repair.
 ```
 
 ### Decision Log
@@ -113,6 +116,7 @@ next_action: issue27cj_attack_region_instantiation_on_frozen_support_bank.
 | 2026-06-16 | Initial support bank instantiated from complete exact-label support pool: 69,492 candidates -> 512 selected rows, no final/report-only access, train/val disjoint. | issue27cf | active support state; protocol definition now blocks replay |
 | 2026-06-17 | Certified attack subset v1 frozen from complete chunks only: 683,420 rows; six partial combined-cycle-1 chunks are deferred_not_deleted, including their emitted rows. | issue27ch | active data contract; next protocol issue is issue27ci |
 | 2026-06-17 | Support-region protocol v1 frozen: issue27cf provenance seeds are not active attack regions; region instantiation/radius/shell/OOD-overlap audit are deferred to issue27cj. | issue27ci | active protocol; next step is initial_region_registry_v1 |
+| 2026-06-18 | Initial region audit failed qualification: no active-strong regions; raw global Kitsune115D geometry is dominated by few dimensions and strongly overlaps benign OOD. | issue27cj | active blocker; repair evidence space before region activation |
 
 ---
 
