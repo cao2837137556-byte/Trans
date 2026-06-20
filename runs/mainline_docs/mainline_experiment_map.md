@@ -2619,3 +2619,8 @@ marker: `issue27cb_broader_attack_support_candidate_contract_2026-06-14`
 - frozen: issue27cf initial support bank, issue27bz benign/OOD 1M asset, sealed final attack/OOD non-selection rules.
 - superseded: none; this audit narrows issue27cd partial status.
 - next_action: query_alignment_requires_replan_for_combined_cycle_1.
+
+<!-- issue27ckb_offline_static_capability_snapshot -->
+### issue27ckb offline static capability snapshot
+- verdict: `offline_static_attack_signal_present_but_benign_ood_nonseparable_score_saturated_and_seed_unstable`; seven HPC jobs completed with clean role access, but threshold-free attack-vs-OOD AUC was at or below chance and nominal q99 calibration was invalidated by score ties.
+- changed_mainline: no; continue issue27ck family-aware evidence-space repair, with tie-aware calibration required before any repeat.
