@@ -1,5 +1,7 @@
 # issue27ckb Offline Static Capability Snapshot
 
+experiment_class: `raw_static_ablation_not_frozen_medium_mainline_replay`
+
 primary_verdict: `offline_static_attack_signal_present_but_benign_ood_nonseparable_score_saturated_and_seed_unstable`
 
 issue27ckb completed: yes
@@ -8,6 +10,10 @@ formal_benchmark: no
 online_deployment_simulated: no
 candidate_pool_reused: no
 final_or_report_only_used_for_selection: no
+
+## Scope Correction
+
+This experiment did not replay the strongest frozen medium system. It removed the parent OOD-risk channel, past-only temporal heads, and bounded controller, so its result applies only to the raw static scorer ablation. The corrective full-architecture replay is `issue27ckc_frozen_medium_mainline_replay_on_certified_1m_2026-06-20`.
 
 ## Question
 

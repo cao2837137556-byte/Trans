@@ -1,0 +1,41 @@
+{
+  "issue": "issue27ckc_frozen_medium_mainline_replay_on_certified_1m_2026-06-20",
+  "purpose": "replay the frozen strongest medium architecture on certified 1M benign/OOD plus certified exact-label attacks",
+  "formal_benchmark": false,
+  "mixed_stream_simulated": false,
+  "frontend": "Kitsune115D",
+  "support_bank": "issue27cf frozen 512 rows: support_train=385 support_val=127",
+  "primary_variant": "medium_mass_ratio_recalibrated",
+  "control_variant": "strict_frozen_weight4",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "frozen_temporal_selection": {
+    "model_kind": "histgb_shallow",
+    "attack_q": 0.99,
+    "risk_threshold": 0.9,
+    "strong_attack_q": 0.75,
+    "d_attack_thr": 1.0
+  },
+  "role_rule": "fit/select only on derived dev halves; stress/query read-only after freeze; sealed final report-only",
+  "input_audit": {
+    "cert_x_shape": [
+      1000000,
+      115
+    ],
+    "attack_root": "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\issue27cd_exact_label_attack_slurm_20260614\\pullback_results\\extracted_20260616_1521\\datasets\\gotham2025\\derived\\kitsune115_exact_label_targeted_attack_v1",
+    "support_rows": 512,
+    "certified_complete_chunks": 93,
+    "input_hashes": {
+      "feature_schema": "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+      "support_sidecar": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da",
+      "certified_chunk_manifest": "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+      "certified_subset_contract": "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf",
+      "medium_selection": "68e9c2a1aef4ebde4095f873764247b12401e1c997802d89c3c794b9965e4f4a"
+    }
+  }
+}
