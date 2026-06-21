@@ -1,0 +1,81 @@
+evidence_space,role,exact_attack_label,rows,direct_core_rate,direct_core_plus_near_rate,read_only
+S0_raw_robust_global,ood_benign_val,File Download,24000,0.9999583333333333,0.9999583333333333,False
+S0_raw_robust_global,ood_benign_val,Ingress Tool Transfer,24000,0.9670416666666667,0.9942083333333334,False
+S0_raw_robust_global,ood_benign_val,Merlin C&C Communication,24000,0.9999583333333333,0.9999583333333333,False
+S0_raw_robust_global,ood_benign_val,Merlin ICMP Flooding,24000,0.004625,0.005958333333333334,False
+S0_raw_robust_global,ood_benign_val,Merlin TCP Flooding,24000,0.9999583333333333,0.9999583333333333,False
+S0_raw_robust_global,ood_benign_val,Merlin UDP Flooding,24000,0.9999583333333333,0.9999583333333333,False
+S0_raw_robust_global,ood_benign_val,Mirai C&C Communication,24000,0.9058333333333334,0.9077916666666667,False
+S0_raw_robust_global,ood_benign_val,Mirai GRE Flooding,24000,0.7909583333333333,0.8622916666666667,False
+S0_raw_robust_global,ood_benign_val,Mirai TCP Flooding,24000,0.858875,0.8736666666666667,False
+S0_raw_robust_global,ood_benign_val,Mirai UDP Flooding,24000,0.6080416666666667,0.6615416666666667,False
+S1_bounded_heavytail_global,ood_benign_val,File Download,24000,0.03825,0.06454166666666666,False
+S1_bounded_heavytail_global,ood_benign_val,Ingress Tool Transfer,24000,0.704125,0.70475,False
+S1_bounded_heavytail_global,ood_benign_val,Merlin C&C Communication,24000,0.7967916666666667,0.992625,False
+S1_bounded_heavytail_global,ood_benign_val,Merlin ICMP Flooding,24000,0.0,0.0,False
+S1_bounded_heavytail_global,ood_benign_val,Merlin TCP Flooding,24000,0.04479166666666667,0.348875,False
+S1_bounded_heavytail_global,ood_benign_val,Merlin UDP Flooding,24000,0.029291666666666667,0.16570833333333335,False
+S1_bounded_heavytail_global,ood_benign_val,Mirai C&C Communication,24000,0.671125,0.6714583333333334,False
+S1_bounded_heavytail_global,ood_benign_val,Mirai GRE Flooding,24000,0.17745833333333333,1.0,False
+S1_bounded_heavytail_global,ood_benign_val,Mirai TCP Flooding,24000,0.5825833333333333,1.0,False
+S1_bounded_heavytail_global,ood_benign_val,Mirai UDP Flooding,24000,1.0,1.0,False
+S2_raw_family_balanced,ood_benign_val,File Download,24000,0.6905,0.7410833333333333,False
+S2_raw_family_balanced,ood_benign_val,Ingress Tool Transfer,24000,0.7062916666666667,0.809,False
+S2_raw_family_balanced,ood_benign_val,Merlin C&C Communication,24000,0.9613333333333334,0.9942083333333334,False
+S2_raw_family_balanced,ood_benign_val,Merlin ICMP Flooding,24000,0.6919583333333333,0.7015416666666666,False
+S2_raw_family_balanced,ood_benign_val,Merlin TCP Flooding,24000,0.8445833333333334,0.8752083333333334,False
+S2_raw_family_balanced,ood_benign_val,Merlin UDP Flooding,24000,0.6923333333333334,0.7112083333333333,False
+S2_raw_family_balanced,ood_benign_val,Mirai C&C Communication,24000,0.49191666666666667,0.6359166666666667,False
+S2_raw_family_balanced,ood_benign_val,Mirai GRE Flooding,24000,0.07816666666666666,0.425125,False
+S2_raw_family_balanced,ood_benign_val,Mirai TCP Flooding,24000,0.8971666666666667,0.9032083333333333,False
+S2_raw_family_balanced,ood_benign_val,Mirai UDP Flooding,24000,0.25454166666666667,0.562375,False
+S3_bounded_heavytail_family_balanced,ood_benign_val,File Download,24000,0.0,0.0,False
+S3_bounded_heavytail_family_balanced,ood_benign_val,Ingress Tool Transfer,24000,0.016916666666666667,0.020416666666666666,False
+S3_bounded_heavytail_family_balanced,ood_benign_val,Merlin C&C Communication,24000,0.138875,0.24820833333333334,False
+S3_bounded_heavytail_family_balanced,ood_benign_val,Merlin ICMP Flooding,24000,0.0014166666666666668,0.0018333333333333333,False
+S3_bounded_heavytail_family_balanced,ood_benign_val,Merlin TCP Flooding,24000,0.684,0.73125,False
+S3_bounded_heavytail_family_balanced,ood_benign_val,Merlin UDP Flooding,24000,0.5499166666666667,0.5916666666666667,False
+S3_bounded_heavytail_family_balanced,ood_benign_val,Mirai C&C Communication,24000,0.17795833333333333,0.26216666666666666,False
+S3_bounded_heavytail_family_balanced,ood_benign_val,Mirai GRE Flooding,24000,0.0,0.0,False
+S3_bounded_heavytail_family_balanced,ood_benign_val,Mirai TCP Flooding,24000,0.042791666666666665,0.06141666666666667,False
+S3_bounded_heavytail_family_balanced,ood_benign_val,Mirai UDP Flooding,24000,0.0,0.00025,False
+S0_raw_robust_global,ood_benign_stress,File Download,230000,1.0,1.0,True
+S0_raw_robust_global,ood_benign_stress,Ingress Tool Transfer,230000,0.9905304347826087,0.9981391304347826,True
+S0_raw_robust_global,ood_benign_stress,Merlin C&C Communication,230000,1.0,1.0,True
+S0_raw_robust_global,ood_benign_stress,Merlin ICMP Flooding,230000,0.6692608695652174,0.6782739130434783,True
+S0_raw_robust_global,ood_benign_stress,Merlin TCP Flooding,230000,1.0,1.0,True
+S0_raw_robust_global,ood_benign_stress,Merlin UDP Flooding,230000,1.0,1.0,True
+S0_raw_robust_global,ood_benign_stress,Mirai C&C Communication,230000,0.9839217391304348,0.985404347826087,True
+S0_raw_robust_global,ood_benign_stress,Mirai GRE Flooding,230000,0.9213869565217391,0.9635565217391304,True
+S0_raw_robust_global,ood_benign_stress,Mirai TCP Flooding,230000,0.9578565217391304,0.9719782608695652,True
+S0_raw_robust_global,ood_benign_stress,Mirai UDP Flooding,230000,0.7617086956521739,0.8017217391304348,True
+S1_bounded_heavytail_global,ood_benign_stress,File Download,230000,0.1478,0.22591739130434782,True
+S1_bounded_heavytail_global,ood_benign_stress,Ingress Tool Transfer,230000,0.9607826086956521,0.9614173913043478,True
+S1_bounded_heavytail_global,ood_benign_stress,Merlin C&C Communication,230000,0.8677739130434783,0.9960826086956521,True
+S1_bounded_heavytail_global,ood_benign_stress,Merlin ICMP Flooding,230000,0.23877391304347825,0.6858695652173913,True
+S1_bounded_heavytail_global,ood_benign_stress,Merlin TCP Flooding,230000,0.0024,0.02945217391304348,True
+S1_bounded_heavytail_global,ood_benign_stress,Merlin UDP Flooding,230000,0.0008043478260869565,0.0056217391304347825,True
+S1_bounded_heavytail_global,ood_benign_stress,Mirai C&C Communication,230000,0.8871260869565217,0.8877739130434783,True
+S1_bounded_heavytail_global,ood_benign_stress,Mirai GRE Flooding,230000,0.001391304347826087,1.0,True
+S1_bounded_heavytail_global,ood_benign_stress,Mirai TCP Flooding,230000,0.15656521739130436,1.0,True
+S1_bounded_heavytail_global,ood_benign_stress,Mirai UDP Flooding,230000,0.9995347826086957,1.0,True
+S2_raw_family_balanced,ood_benign_stress,File Download,230000,0.4888608695652174,0.8699869565217392,True
+S2_raw_family_balanced,ood_benign_stress,Ingress Tool Transfer,230000,0.00833913043478261,0.008847826086956521,True
+S2_raw_family_balanced,ood_benign_stress,Merlin C&C Communication,230000,0.010482608695652174,0.9987173913043478,True
+S2_raw_family_balanced,ood_benign_stress,Merlin ICMP Flooding,230000,0.0073391304347826085,0.007678260869565218,True
+S2_raw_family_balanced,ood_benign_stress,Merlin TCP Flooding,230000,0.008547826086956522,0.008756521739130435,True
+S2_raw_family_balanced,ood_benign_stress,Merlin UDP Flooding,230000,0.007208695652173913,0.007295652173913043,True
+S2_raw_family_balanced,ood_benign_stress,Mirai C&C Communication,230000,0.9932826086956522,0.9967478260869566,True
+S2_raw_family_balanced,ood_benign_stress,Mirai GRE Flooding,230000,0.00023478260869565218,0.003930434782608696,True
+S2_raw_family_balanced,ood_benign_stress,Mirai TCP Flooding,230000,0.008847826086956521,0.008847826086956521,True
+S2_raw_family_balanced,ood_benign_stress,Mirai UDP Flooding,230000,0.0010739130434782608,0.004639130434782608,True
+S3_bounded_heavytail_family_balanced,ood_benign_stress,File Download,230000,0.0022391304347826086,0.7065391304347826,True
+S3_bounded_heavytail_family_balanced,ood_benign_stress,Ingress Tool Transfer,230000,0.9879391304347827,0.9890869565217392,True
+S3_bounded_heavytail_family_balanced,ood_benign_stress,Merlin C&C Communication,230000,0.05038695652173913,0.9642,True
+S3_bounded_heavytail_family_balanced,ood_benign_stress,Merlin ICMP Flooding,230000,0.4709608695652174,0.5632347826086956,True
+S3_bounded_heavytail_family_balanced,ood_benign_stress,Merlin TCP Flooding,230000,0.005969565217391304,0.009330434782608695,True
+S3_bounded_heavytail_family_balanced,ood_benign_stress,Merlin UDP Flooding,230000,0.780395652173913,0.8214304347826087,True
+S3_bounded_heavytail_family_balanced,ood_benign_stress,Mirai C&C Communication,230000,0.9128521739130435,0.9487130434782609,True
+S3_bounded_heavytail_family_balanced,ood_benign_stress,Mirai GRE Flooding,230000,0.16519130434782608,0.1924695652173913,True
+S3_bounded_heavytail_family_balanced,ood_benign_stress,Mirai TCP Flooding,230000,0.9678565217391304,0.9703913043478261,True
+S3_bounded_heavytail_family_balanced,ood_benign_stress,Mirai UDP Flooding,230000,0.0008217391304347826,0.008621739130434783,True

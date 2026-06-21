@@ -1,0 +1,29 @@
+{
+  "spaces": {
+    "S0": "raw robust-scaled global Euclidean control",
+    "S1": "ID q0.001/q0.999 winsorization plus signed log1p on mean/std/radius/magnitude/covariance then robust-scaled global Euclidean",
+    "S2": "raw robust-scaled family-balanced bounded Euclidean",
+    "S3": "S1 transform plus S2 family-balanced bounded distance"
+  },
+  "family_distance": "mean clipped squared delta within family, equal average across five families, sqrt",
+  "delta_clip": 5.0,
+  "shell_schemes": {
+    "tight": [
+      0.5,
+      0.75,
+      0.9
+    ],
+    "medium": [
+      0.75,
+      0.9,
+      0.975
+    ],
+    "wide": [
+      0.9,
+      0.975,
+      0.995
+    ]
+  },
+  "primary_shell_scheme": "medium",
+  "prototype": "one_medoid_per_exact_label_no_split"
+}

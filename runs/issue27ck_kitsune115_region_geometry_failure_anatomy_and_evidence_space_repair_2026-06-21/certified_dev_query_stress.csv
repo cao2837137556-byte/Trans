@@ -1,0 +1,105 @@
+evidence_space,role,true_attack_label,rows,core_rate,core_plus_near_rate,uncertain_rate,out_of_region_rate,nearest_label_match_rate,read_only
+S0_raw_robust_global,dev_future_attack_query_exact,C&C Communication,256,0.8671875,0.88671875,0.03515625,0.078125,0.0,True
+S0_raw_robust_global,dev_future_attack_query_exact,CoAP Amplification,12000,0.10375,0.10375,0.0,0.89625,0.0,True
+S0_raw_robust_global,dev_future_attack_query_exact,File Download,2378,0.9861227922624054,1.0,0.0,0.0,0.16063919259882253,True
+S0_raw_robust_global,dev_future_attack_query_exact,Ingress Tool Transfer,7754,0.955893732267217,0.9619551199380965,0.0033531080732525148,0.03469177198865102,0.021021408305390767,True
+S0_raw_robust_global,dev_future_attack_query_exact,Merlin C&C Communication,19590,0.5633486472690148,0.5696273608984176,0.00444104134762634,0.4259315977539561,0.08907605921388463,True
+S0_raw_robust_global,dev_future_attack_query_exact,Merlin ICMP Flooding,27985,0.9991423977130606,0.9994997319992853,0.0002501340003573343,0.0002501340003573343,0.0,True
+S0_raw_robust_global,dev_future_attack_query_exact,Merlin TCP Flooding,36000,0.8755555555555555,0.9076388888888889,0.0175,0.07486111111111111,0.008888888888888889,True
+S0_raw_robust_global,dev_future_attack_query_exact,Merlin UDP Flooding,15000,0.925,0.9443333333333334,0.010533333333333334,0.04513333333333333,0.005066666666666666,True
+S0_raw_robust_global,dev_future_attack_query_exact,Mirai C&C Communication,716,0.9986033519553073,1.0,0.0,0.0,0.0,True
+S0_raw_robust_global,dev_future_attack_query_exact,Mirai GRE Flooding,36000,0.04505555555555556,0.04530555555555556,0.00011111111111111112,0.9545833333333333,0.006,True
+S0_raw_robust_global,dev_future_attack_query_exact,Mirai TCP Flooding,36000,0.0923888888888889,0.09288888888888888,0.00016666666666666666,0.9069444444444444,0.0095,True
+S0_raw_robust_global,dev_future_attack_query_exact,Mirai UDP Flooding,36000,0.04572222222222222,0.04572222222222222,0.0,0.9542777777777778,0.04563888888888889,True
+S0_raw_robust_global,dev_future_attack_query_exact,Reporting,224,0.5803571428571429,0.8258928571428571,0.03571428571428571,0.13839285714285715,0.0,True
+S0_raw_robust_global,dev_future_attack_query_exact,TCP Scan,72000,0.6621666666666667,0.7999861111111111,0.06241666666666667,0.13759722222222223,0.0,True
+S0_raw_robust_global,dev_future_attack_query_exact,Telnet Brute Force,72000,0.668875,0.8507222222222223,0.0445,0.10477777777777778,0.0,True
+S0_raw_robust_global,dev_future_attack_query_exact,UDP Scan,4242,0.9667609618104668,0.9842055634134842,0.0049504950495049506,0.010843941537010843,0.0,True
+S0_raw_robust_global,same_file_time_forward_dev_query_exact,File Download,105,1.0,1.0,0.0,0.0,0.0,True
+S0_raw_robust_global,same_file_time_forward_dev_query_exact,Ingress Tool Transfer,2381,0.999160016799664,0.999160016799664,0.0,0.0008399832003359933,0.00041999160016799666,True
+S0_raw_robust_global,same_file_time_forward_dev_query_exact,Merlin C&C Communication,6827,0.5832723011571701,0.5941116156437674,0.04423612128314047,0.3616522630730921,0.15687710561007764,True
+S0_raw_robust_global,same_file_time_forward_dev_query_exact,Merlin ICMP Flooding,13718,0.998833649220003,0.9994168246100015,0.000291587694999271,0.000291587694999271,0.25594109928561015,True
+S0_raw_robust_global,same_file_time_forward_dev_query_exact,Merlin TCP Flooding,24000,0.8835833333333334,0.9029166666666667,0.017416666666666667,0.07966666666666666,0.0045,True
+S0_raw_robust_global,same_file_time_forward_dev_query_exact,Merlin UDP Flooding,6542,0.8044940385203302,0.826964231121981,0.02522164475695506,0.1478141241210639,0.0,True
+S0_raw_robust_global,same_file_time_forward_dev_query_exact,Mirai C&C Communication,106,1.0,1.0,0.0,0.0,0.4528301886792453,True
+S0_raw_robust_global,same_file_time_forward_dev_query_exact,Mirai GRE Flooding,24000,0.0,0.0,0.0,1.0,0.0,True
+S0_raw_robust_global,same_file_time_forward_dev_query_exact,Mirai TCP Flooding,24000,0.0,0.0,0.0,1.0,0.0,True
+S0_raw_robust_global,same_file_time_forward_dev_query_exact,Mirai UDP Flooding,24000,4.1666666666666665e-05,4.1666666666666665e-05,0.0,0.9999583333333333,4.1666666666666665e-05,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,C&C Communication,256,1.0,1.0,0.0,0.0,0.0,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,CoAP Amplification,12000,0.063,0.07391666666666667,0.00125,0.9248333333333333,0.0,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,File Download,2378,0.8389402859545837,0.9991589571068125,0.0008410428931875525,0.0,0.9957947855340622,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,Ingress Tool Transfer,7754,0.9856848078411142,0.9938096466339954,0.006190353366004642,0.0,0.4601496002063451,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,Merlin C&C Communication,19590,0.6847371107708015,0.7531393568147013,0.0855538540071465,0.1613067891781521,0.1981623277182236,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,Merlin ICMP Flooding,27985,0.25785242093978916,1.0,0.0,0.0,0.9697337859567625,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,Merlin TCP Flooding,36000,0.41747222222222224,0.7465,0.02575,0.22775,0.008888888888888889,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,Merlin UDP Flooding,15000,0.30446666666666666,0.6844,0.03426666666666667,0.2813333333333333,0.040933333333333335,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,Mirai C&C Communication,716,1.0,1.0,0.0,0.0,0.8854748603351955,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,Mirai GRE Flooding,36000,0.02925,0.02925,0.0,0.97075,0.02613888888888889,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,Mirai TCP Flooding,36000,0.06125,0.06125,0.0,0.93875,0.0074444444444444445,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,Mirai UDP Flooding,36000,0.029055555555555557,0.033527777777777774,0.0005,0.9659722222222222,0.008611111111111111,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,Reporting,224,1.0,1.0,0.0,0.0,0.0,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,TCP Scan,72000,0.9794444444444445,0.9841944444444445,0.015194444444444444,0.0006111111111111111,0.0,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,Telnet Brute Force,72000,0.9667916666666667,0.9799722222222222,0.01877777777777778,0.00125,0.0,True
+S1_bounded_heavytail_global,dev_future_attack_query_exact,UDP Scan,4242,1.0,1.0,0.0,0.0,0.0,True
+S1_bounded_heavytail_global,same_file_time_forward_dev_query_exact,File Download,105,0.3142857142857143,1.0,0.0,0.0,1.0,True
+S1_bounded_heavytail_global,same_file_time_forward_dev_query_exact,Ingress Tool Transfer,2381,1.0,1.0,0.0,0.0,0.44141117177656447,True
+S1_bounded_heavytail_global,same_file_time_forward_dev_query_exact,Merlin C&C Communication,6827,0.7237439578145598,0.7410282701039989,0.06913724915775597,0.18983448073824521,0.23304526146184268,True
+S1_bounded_heavytail_global,same_file_time_forward_dev_query_exact,Merlin ICMP Flooding,13718,0.0017495261699956262,0.9994168246100015,0.000583175389998542,0.0,0.9982504738300044,True
+S1_bounded_heavytail_global,same_file_time_forward_dev_query_exact,Merlin TCP Flooding,24000,0.251625,0.7033333333333334,0.04654166666666667,0.250125,0.0045,True
+S1_bounded_heavytail_global,same_file_time_forward_dev_query_exact,Merlin UDP Flooding,6542,0.0,0.5794863955976766,0.0528890247630694,0.36762457963925405,0.0,True
+S1_bounded_heavytail_global,same_file_time_forward_dev_query_exact,Mirai C&C Communication,106,1.0,1.0,0.0,0.0,0.8773584905660378,True
+S1_bounded_heavytail_global,same_file_time_forward_dev_query_exact,Mirai GRE Flooding,24000,0.0,0.0,0.0,1.0,0.0,True
+S1_bounded_heavytail_global,same_file_time_forward_dev_query_exact,Mirai TCP Flooding,24000,0.0,0.0,0.0,1.0,0.0,True
+S1_bounded_heavytail_global,same_file_time_forward_dev_query_exact,Mirai UDP Flooding,24000,4.1666666666666665e-05,4.1666666666666665e-05,0.0,0.9999583333333333,0.0,True
+S2_raw_family_balanced,dev_future_attack_query_exact,C&C Communication,256,1.0,1.0,0.0,0.0,0.0,True
+S2_raw_family_balanced,dev_future_attack_query_exact,CoAP Amplification,12000,1.0,1.0,0.0,0.0,0.0,True
+S2_raw_family_balanced,dev_future_attack_query_exact,File Download,2378,0.9423885618166526,0.9835996635828427,0.0008410428931875525,0.015559293523969722,0.06013456686291001,True
+S2_raw_family_balanced,dev_future_attack_query_exact,Ingress Tool Transfer,7754,0.9863296363167398,0.9980655145731235,0.0,0.001934485426876451,0.030306938354397732,True
+S2_raw_family_balanced,dev_future_attack_query_exact,Merlin C&C Communication,19590,0.3305768249106687,0.6607452782031649,0.00903522205206738,0.3302194997447677,0.14298111281265952,True
+S2_raw_family_balanced,dev_future_attack_query_exact,Merlin ICMP Flooding,27985,1.0,1.0,0.0,0.0,0.9987135965695908,True
+S2_raw_family_balanced,dev_future_attack_query_exact,Merlin TCP Flooding,36000,0.9622777777777778,1.0,0.0,0.0,0.009972222222222223,True
+S2_raw_family_balanced,dev_future_attack_query_exact,Merlin UDP Flooding,15000,0.9143333333333333,1.0,0.0,0.0,0.0388,True
+S2_raw_family_balanced,dev_future_attack_query_exact,Mirai C&C Communication,716,0.9748603351955307,0.9902234636871509,0.0,0.009776536312849162,0.0,True
+S2_raw_family_balanced,dev_future_attack_query_exact,Mirai GRE Flooding,36000,1.0,1.0,0.0,0.0,0.9999444444444444,True
+S2_raw_family_balanced,dev_future_attack_query_exact,Mirai TCP Flooding,36000,1.0,1.0,0.0,0.0,0.0545,True
+S2_raw_family_balanced,dev_future_attack_query_exact,Mirai UDP Flooding,36000,1.0,1.0,0.0,0.0,0.9999166666666667,True
+S2_raw_family_balanced,dev_future_attack_query_exact,Reporting,224,1.0,1.0,0.0,0.0,0.0,True
+S2_raw_family_balanced,dev_future_attack_query_exact,TCP Scan,72000,0.9955833333333334,0.998875,2.777777777777778e-05,0.0010972222222222223,0.0,True
+S2_raw_family_balanced,dev_future_attack_query_exact,Telnet Brute Force,72000,0.9954444444444445,0.9990416666666667,2.777777777777778e-05,0.0009305555555555556,0.0,True
+S2_raw_family_balanced,dev_future_attack_query_exact,UDP Scan,4242,0.9955209806694956,0.9985855728429985,0.0,0.0014144271570014145,0.0,True
+S2_raw_family_balanced,same_file_time_forward_dev_query_exact,File Download,105,1.0,1.0,0.0,0.0,0.0,True
+S2_raw_family_balanced,same_file_time_forward_dev_query_exact,Ingress Tool Transfer,2381,1.0,1.0,0.0,0.0,0.0,True
+S2_raw_family_balanced,same_file_time_forward_dev_query_exact,Merlin C&C Communication,6827,0.5911820711879303,0.8344807382452029,0.0007323861139592793,0.16478687564083785,0.16332210341291928,True
+S2_raw_family_balanced,same_file_time_forward_dev_query_exact,Merlin ICMP Flooding,13718,0.9998542061525003,0.9998542061525003,0.0,0.0001457938474996355,0.9983233707537542,True
+S2_raw_family_balanced,same_file_time_forward_dev_query_exact,Merlin TCP Flooding,24000,0.7594583333333333,0.7621666666666667,0.0,0.23783333333333334,8.333333333333333e-05,True
+S2_raw_family_balanced,same_file_time_forward_dev_query_exact,Merlin UDP Flooding,6542,0.49678997248547846,0.8132069703454601,0.0003057169061449098,0.18648731274839497,0.0,True
+S2_raw_family_balanced,same_file_time_forward_dev_query_exact,Mirai C&C Communication,106,1.0,1.0,0.0,0.0,0.5660377358490566,True
+S2_raw_family_balanced,same_file_time_forward_dev_query_exact,Mirai GRE Flooding,24000,0.5,0.9575,0.001,0.0415,0.5,True
+S2_raw_family_balanced,same_file_time_forward_dev_query_exact,Mirai TCP Flooding,24000,0.5857083333333334,0.5939166666666666,0.0005833333333333334,0.4055,0.0,True
+S2_raw_family_balanced,same_file_time_forward_dev_query_exact,Mirai UDP Flooding,24000,0.8668333333333333,1.0,0.0,0.0,1.0,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,C&C Communication,256,0.92578125,0.98828125,0.01171875,0.0,0.0,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,CoAP Amplification,12000,0.00075,0.0013333333333333333,0.024166666666666666,0.9745,0.0,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,File Download,2378,0.9995794785534062,1.0,0.0,0.0,0.9953742640874684,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,Ingress Tool Transfer,7754,0.3375032241423781,0.5350786690740263,0.014444157854010833,0.45047717307196283,0.0673200928553005,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,Merlin C&C Communication,19590,0.25569167942827975,0.3447166921898928,0.29785604900459417,0.357427258805513,0.07330270546197039,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,Merlin ICMP Flooding,27985,0.4445238520636055,0.4672860460961229,0.4385206360550295,0.0941933178488476,0.9577273539396105,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,Merlin TCP Flooding,36000,0.8753888888888889,0.8823888888888889,0.014472222222222221,0.10313888888888889,0.8321944444444445,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,Merlin UDP Flooding,15000,0.3886,0.3924,0.02493333333333333,0.5826666666666667,0.11053333333333333,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,Mirai C&C Communication,716,0.9958100558659218,0.9958100558659218,0.0,0.004189944134078212,0.01675977653631285,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,Mirai GRE Flooding,36000,0.9998888888888889,0.9998888888888889,0.0,0.00011111111111111112,0.15047222222222223,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,Mirai TCP Flooding,36000,0.9989722222222223,0.9989722222222223,0.0,0.0010277777777777778,0.936,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,Mirai UDP Flooding,36000,0.4182777777777778,0.6564444444444445,0.2643333333333333,0.07922222222222222,1.0,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,Reporting,224,0.71875,0.7455357142857143,0.004464285714285714,0.25,0.0,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,TCP Scan,72000,0.43272222222222223,0.49294444444444446,0.3548472222222222,0.15220833333333333,0.0,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,Telnet Brute Force,72000,0.3733611111111111,0.43033333333333335,0.41538888888888886,0.1542777777777778,0.0,True
+S3_bounded_heavytail_family_balanced,dev_future_attack_query_exact,UDP Scan,4242,0.8703441772748703,0.9754832626119755,0.006129184347006129,0.018387553041018388,0.0,True
+S3_bounded_heavytail_family_balanced,same_file_time_forward_dev_query_exact,File Download,105,1.0,1.0,0.0,0.0,1.0,True
+S3_bounded_heavytail_family_balanced,same_file_time_forward_dev_query_exact,Ingress Tool Transfer,2381,0.3330533389332213,0.502309953800924,0.0020999580008399833,0.495590088198236,0.0,True
+S3_bounded_heavytail_family_balanced,same_file_time_forward_dev_query_exact,Merlin C&C Communication,6827,0.25076900541965724,0.44338655339094774,0.09403837703237147,0.4625750695766808,0.10194814706313168,True
+S3_bounded_heavytail_family_balanced,same_file_time_forward_dev_query_exact,Merlin ICMP Flooding,13718,0.5131214462749671,0.5136317247412159,0.42484327161393787,0.061525003644846185,0.9982504738300044,True
+S3_bounded_heavytail_family_balanced,same_file_time_forward_dev_query_exact,Merlin TCP Flooding,24000,0.6760416666666667,0.7139583333333334,0.016625,0.2694166666666667,0.21295833333333333,True
+S3_bounded_heavytail_family_balanced,same_file_time_forward_dev_query_exact,Merlin UDP Flooding,6542,0.3054111892387649,0.3054111892387649,0.0,0.6945888107612351,0.0,True
+S3_bounded_heavytail_family_balanced,same_file_time_forward_dev_query_exact,Mirai C&C Communication,106,0.9905660377358491,1.0,0.0,0.0,0.11320754716981132,True
+S3_bounded_heavytail_family_balanced,same_file_time_forward_dev_query_exact,Mirai GRE Flooding,24000,1.0,1.0,0.0,0.0,0.5,True
+S3_bounded_heavytail_family_balanced,same_file_time_forward_dev_query_exact,Mirai TCP Flooding,24000,1.0,1.0,0.0,0.0,0.5856666666666667,True
+S3_bounded_heavytail_family_balanced,same_file_time_forward_dev_query_exact,Mirai UDP Flooding,24000,0.27691666666666664,0.391375,0.31204166666666666,0.2965833333333333,1.0,True

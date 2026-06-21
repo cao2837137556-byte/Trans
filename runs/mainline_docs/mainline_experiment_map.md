@@ -68,16 +68,17 @@ Data and system contract repair before model replay.
 | issue27ch | Certified attack subset freeze for protocol replay | certified_attack_subset_v1 frozen: 683,420 rows, 93 complete chunks, six partial chunks deferred_not_deleted | changes active attack data contract from partial pullback to complete-only certified subset | issue27ci attack region activation and support-bank protocol refinement |
 | issue27ci | Attack-region activation and support-bank protocol refinement | support_region_protocol_v1 frozen; 512 support rows and 16 provenance seeds are not active regions yet | changes support system contract from sample bank to region-protocol-ready state | issue27cj initial region registry instantiation |
 | issue27cj | Initial attack-region instantiation on frozen support bank | failed qualification: 0 active-strong, severe OOD-core intrusion, low support-val label consistency, feature-dominated geometry | blocks direct raw-115D region activation and radius tuning | issue27ck evidence-space failure anatomy and repair |
+| issue27ck | Non-learned evidence-space repair | S3 limited-go: 1 active-strong Mirai UDP Flooding region; 9 labels remain non-strong | replaces universal raw-115D blocker with a limited registry | issue27ckd limited-registry controller replay |
 
 ### Latest Compact Close-out
 
 ```text
-solved: issue27cj instantiated and audited the initial region registry under preregistered primary/challenger geometries and established that raw global Kitsune115D regions are not qualified.
+solved: issue27ck audited four preregistered non-learned evidence spaces and qualified one active-strong Mirai UDP Flooding region under S3.
 changed_mainline: yes
-active_blocker: attack-region evidence space is confounded by feature dominance, label overlap, benign-OOD overlap, and support-query shift.
-frozen: issue27cf support rows, issue27ch certified dev query, issue27cj preregistered protocol, medoid/shell audit outputs, failure verdict.
-superseded: proceeding directly from the 512 support rows to active raw-115D attack regions, radius tuning, region splitting, model replay, or controller integration.
-next_action: issue27ck_kitsune115_region_geometry_failure_anatomy_and_evidence_space_repair.
+active_blocker: nine exact-label regions remain unable to emit strong evidence.
+frozen: support rows, certified roles, S3 transform/distance, and the single qualified region.
+superseded: raw global 115D shell tuning and covariance swaps.
+next_action: issue27ckd_limited_region_registry_freeze_and_controller_evidence_replay.
 ```
 
 ### Current Rule For Future Issue Docs

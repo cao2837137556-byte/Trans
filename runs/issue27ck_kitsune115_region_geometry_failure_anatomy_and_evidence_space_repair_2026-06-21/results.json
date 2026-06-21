@@ -1,0 +1,33 @@
+{
+  "issue": "issue27ck_kitsune115_region_geometry_failure_anatomy_and_evidence_space_repair_2026-06-21",
+  "primary_verdict": "nonlearned_evidence_space_repair_limited_go_only_qualified_regions_may_emit_strong_evidence",
+  "spaces": [
+    "S0_raw_robust_global",
+    "S1_bounded_heavytail_global",
+    "S2_raw_family_balanced",
+    "S3_bounded_heavytail_family_balanced"
+  ],
+  "space_decision_counts": {
+    "STOP": 3,
+    "LIMITED_GO": 1
+  },
+  "selected": {
+    "evidence_space": "S3_bounded_heavytail_family_balanced",
+    "decision": "LIMITED_GO",
+    "active_strong_regions": 1,
+    "active_strong_semantic_groups": 1,
+    "mean_support_val_label_consistency": 0.664047619047619,
+    "mean_support_val_uncertain_coverage": 0.9949999999999999,
+    "ood_val_nearest_core_rate": 0.7350833333333333,
+    "ood_val_nearest_core_plus_near_rate": 0.7557916666666666
+  },
+  "support_train_rows": 385,
+  "support_val_rows": 127,
+  "support_reselection": false,
+  "region_split_execution": false,
+  "model_training": false,
+  "controller_tuning": false,
+  "sealed_final_access": false,
+  "selection_frozen_before_stress_query": true,
+  "next_action": "freeze_limited_registry_unqualified_routes_unknown_review"
+}
