@@ -1,0 +1,6 @@
+stage,roles,sealed_access
+transform_fit,id_benign_train,False
+prototype_fit,support_train,False
+shell_and_structure,support_val,False
+qualification_and_selection,ood_benign_val,False
+read_only_stress,ood_benign_stress|certified_dev_query,False

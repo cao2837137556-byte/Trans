@@ -43,7 +43,8 @@ Frozen parts:
 - Data contract cleanliness gates precede model replay.
 - The non-learned region evidence repair selected `S3_bounded_heavytail_family_balanced`.
 - Only the `Mirai UDP Flooding` region is qualified as `active_strong`; all other labels remain conflict-sensitive or ambiguous.
-- Current issue stage is limited-registry integration, not model ranking or formal benchmarking.
+- Current issue stage is initial-region capacity and temporal-coverage repair
+  before limited-registry integration, not model ranking or formal benchmarking.
 
 Open parts:
 
@@ -76,37 +77,50 @@ Superseded parts:
 | Support-region protocol | frozen: labels, semantic groups, provenance seeds, candidate regions, active regions, shells, evidence schema, and role access are separated | issue27ci | rules only; no region instantiation, radius values, model training, or controller policy |
 | Initial region geometry audit | failed qualification: 0 active-strong, 1 conflict-sensitive, 9 ambiguous; severe OOD overlap and label confusion | issue27cj | diagnostic evidence only; repair evidence space before any region activation |
 | Evidence-space repair | limited qualification: S3 selected; Mirai UDP Flooding is the only active-strong region | issue27ck | freeze a limited registry; all unqualified labels must route to unknown/review |
+| Frozen-bank multi-prototype audit | static capacity gain only: two medoids raise support/OOD qualification from one to two strong candidates, but query-time label/coverage stability blocks registry freeze | issue27ckd | diagnostic candidate only; do not connect the two-medoid registry to the controller |
 
 ### Active Blocker
 
-`Limited attack-region coverage`
+`Initial attack-region temporal coverage and label stability`
 
-The evidence-space repair removed the universal geometry blocker but qualified only one exact-label region:
+The evidence-space repair removed the universal geometry blocker. A frozen-bank
+two-medoid audit then improved static qualification, but did not close the
+support-to-query stability gap:
 
-- S3 raises mean support-val nearest-label consistency to about 66.4 percent, but this is still insufficient for most labels;
-- only Mirai UDP Flooding passes the full activation gates;
-- nine labels remain ambiguous or conflict-sensitive;
-- the controller must not generalize the one qualified region into a global attack decision.
+- V0 reproduces issue27ck exactly: one static active-strong Mirai UDP region;
+- V1 uses the same 512 support rows and raises static active-strong count to
+  two, Mirai GRE plus Mirai UDP, with mean support-val consistency increasing
+  from about 66.4 to 71.6 percent;
+- read-only query evidence blocks registry freeze: Mirai GRE is assigned mostly
+  to Mirai TCP, while Mirai UDP keeps its nearest label but often lies outside
+  its own region shell;
+- four labels have only one eligible provenance source in the entire current
+  support candidate pool and cannot pass the unchanged two-source strong gate;
+- controller integration remains paused.
 
 ### Current Next Action
 
-Run `issue27ckd_limited_region_registry_freeze_and_controller_evidence_replay`:
+Run `issue27cke_bounded_support_adequacy_and_temporal_coverage_audit_before_registry_freeze`:
 
-- freeze S3 and the single qualified Mirai UDP Flooding region as a limited registry;
-- emit high-reliability attack-region evidence only for that region;
-- route all other labels/regions to `unknown` or `review_conflict`;
-- replay the existing attack/OOD/temporal/controller stack without support reselection or sealed-final tuning;
-- do not execute region splits or claim broad attack coverage.
+- keep `initial_support_bank_v1` immutable and preserve the V0/V1 audit;
+- authorize bounded, versioned use of unused legal support candidates only as
+  an extension experiment, never as a rewrite of the original 512;
+- diagnose per-label temporal/source coverage, especially Mirai GRE-to-TCP
+  confusion and Mirai UDP shell drift;
+- compare source/time-balanced extension against frozen512 two-medoid geometry
+  using support-val/OOD-val for selection and query roles read-only;
+- do not integrate any candidate registry into the controller until the
+  selected active labels survive the temporal/query diagnostic.
 
 ### Latest Compact Close-out
 
 ```text
-solved: issue27ck audited four preregistered non-learned evidence spaces and qualified one limited active-strong Mirai UDP Flooding region under S3.
-changed_mainline: yes
-active_blocker: attack-region coverage remains limited to one qualified exact-label region; nine labels cannot emit strong region evidence.
-frozen: issue27cf support rows, issue27ch certified roles, S3 evidence space, Mirai UDP Flooding active-strong region, and read-only stress/query evidence.
-superseded: global raw-115D geometry, covariance swaps, and further shell tuning as the general repair route.
-next_action: issue27ckd_limited_region_registry_freeze_and_controller_evidence_replay.
+solved: issue27ckd showed that two train-only medoids improve frozen-bank static qualification from one to two candidate strong regions without support reselection.
+changed_mainline: no
+active_blocker: Mirai GRE and Mirai UDP fail the read-only temporal/query stability diagnostic, so the two-medoid candidate registry is not controller-ready.
+frozen: original 512 support rows and partitions, S3 evidence space, unchanged activation gates, and V0/V1 audit evidence.
+superseded: immediate limited-registry controller integration before support-to-query stability is repaired.
+next_action: issue27cke_bounded_support_adequacy_and_temporal_coverage_audit_before_registry_freeze.
 ```
 
 ### Decision Log
@@ -122,6 +136,7 @@ next_action: issue27ckd_limited_region_registry_freeze_and_controller_evidence_r
 | 2026-06-17 | Support-region protocol v1 frozen: issue27cf provenance seeds are not active attack regions; region instantiation/radius/shell/OOD-overlap audit are deferred to issue27cj. | issue27ci | active protocol; next step is initial_region_registry_v1 |
 | 2026-06-18 | Initial region audit failed qualification: no active-strong regions; raw global Kitsune115D geometry is dominated by few dimensions and strongly overlaps benign OOD. | issue27cj | active blocker; repair evidence space before region activation |
 | 2026-06-21 | Bounded heavy-tail plus family-balanced S3 repair qualified one Mirai UDP Flooding region; all other regions remain non-strong. | issue27ck | active limited registry; integrate conservatively with unknown/review fallback |
+| 2026-06-21 | Two train-only medoids on the unchanged 512 support rows improve static qualification to Mirai GRE plus Mirai UDP, but both expose temporal/query coverage caveats; controller integration is paused. | issue27ckd | diagnostic gain only; bounded support adequacy and temporal-coverage audit next |
 
 ---
 

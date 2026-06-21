@@ -1,0 +1,22 @@
+{
+  "selected_variant": "V1_frozen512_two_medoid",
+  "decision": "GO",
+  "primary_verdict": "static_region_capacity_gain_but_temporal_label_stability_blocked",
+  "selected_on_roles": [
+    "support_val",
+    "ood_benign_val"
+  ],
+  "baseline_active_strong_regions": 1,
+  "selected_active_strong_regions": 2,
+  "added_active_strong_regions": 1,
+  "mean_consistency_gain": 0.05214285714285727,
+  "selection_frozen_before": [
+    "ood_benign_stress",
+    "certified_dev_query"
+  ],
+  "temporal_diagnostic_status": "BLOCKED_FOR_CONTROLLER_FREEZE",
+  "temporal_caveat_labels": [
+    "Mirai GRE Flooding",
+    "Mirai UDP Flooding"
+  ]
+}

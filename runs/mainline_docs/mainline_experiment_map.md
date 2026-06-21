@@ -49,8 +49,8 @@ Data and system contract repair before model replay.
 | Frontend | Kitsune / AfterImage / netStat 115D from raw PCAP | issue27ab and follow-up audits | frozen | 8D strict packet-header is engineering smoke only |
 | Benign/OOD 1M roles | usable under sealed role rules | issue27bz | active | ID train/calib, OOD val/stress, sealed final OOD remain role-restricted |
 | Attack support/query/final roles | certified complete-only attack subset frozen | issue27cb/issue27cc/issue27cd/issue27cg/issue27ch | active | 683,420 certified rows from 93 complete chunks; six partial combined-cycle-1 chunks deferred_not_deleted |
-| Support bank | clean bank and protocol frozen; raw-115D region geometry failed qualification | issue27ca/issue27cb/issue27ce/issue27cf/issue27ci/issue27cj | active but blocked | 512 selected rows remain frozen; no active-strong region exists |
-| Model replay | paused | issue27cj/issue27cf | blocked | repair attack-region evidence space before any replay |
+| Support bank | clean 512-row bank frozen; S3 plus two medoids improves static capacity but temporal/query stability remains blocked | issue27ca/issue27cb/issue27ce/issue27cf/issue27ci/issue27cj/issue27ck/issue27ckd | active but blocked | preserve the 512 bank; audit bounded extension and temporal coverage before registry freeze |
+| Model replay | paused for region/controller integration; separate frozen-medium HPC capability replay may run independently | issue27ck/issue27ckd | blocked for integration | repair support-to-query region stability before controller replay |
 | Formal benchmark | not authorized | current governance | blocked | requires clean data contract and frozen system protocol |
 
 ### Active Issue Index
@@ -68,17 +68,18 @@ Data and system contract repair before model replay.
 | issue27ch | Certified attack subset freeze for protocol replay | certified_attack_subset_v1 frozen: 683,420 rows, 93 complete chunks, six partial chunks deferred_not_deleted | changes active attack data contract from partial pullback to complete-only certified subset | issue27ci attack region activation and support-bank protocol refinement |
 | issue27ci | Attack-region activation and support-bank protocol refinement | support_region_protocol_v1 frozen; 512 support rows and 16 provenance seeds are not active regions yet | changes support system contract from sample bank to region-protocol-ready state | issue27cj initial region registry instantiation |
 | issue27cj | Initial attack-region instantiation on frozen support bank | failed qualification: 0 active-strong, severe OOD-core intrusion, low support-val label consistency, feature-dominated geometry | blocks direct raw-115D region activation and radius tuning | issue27ck evidence-space failure anatomy and repair |
-| issue27ck | Non-learned evidence-space repair | S3 limited-go: 1 active-strong Mirai UDP Flooding region; 9 labels remain non-strong | replaces universal raw-115D blocker with a limited registry | issue27ckd limited-registry controller replay |
+| issue27ck | Non-learned evidence-space repair | S3 limited-go: 1 static active-strong Mirai UDP Flooding region; 9 labels remain non-strong | replaces universal raw-115D blocker with a limited static registry candidate | issue27ckd capacity audit before controller |
+| issue27ckd | Frozen-bank initial-region capacity audit | two medoids raise static qualification to Mirai GRE plus Mirai UDP, but read-only temporal/query evidence blocks registry freeze | proves one-medoid under-expression exists without blaming or rewriting the 512 bank | issue27cke bounded support adequacy and temporal-coverage audit |
 
 ### Latest Compact Close-out
 
 ```text
-solved: issue27ck audited four preregistered non-learned evidence spaces and qualified one active-strong Mirai UDP Flooding region under S3.
-changed_mainline: yes
-active_blocker: nine exact-label regions remain unable to emit strong evidence.
-frozen: support rows, certified roles, S3 transform/distance, and the single qualified region.
-superseded: raw global 115D shell tuning and covariance swaps.
-next_action: issue27ckd_limited_region_registry_freeze_and_controller_evidence_replay.
+solved: issue27ckd showed a real frozen-bank static capacity gain from one to two medoids, with no support reselection.
+changed_mainline: no
+active_blocker: the new Mirai GRE candidate and existing Mirai UDP candidate do not yet have adequate temporal/query region stability.
+frozen: original 512 support rows, certified roles, S3 transform/distance, activation gates, and issue27ckd audit evidence.
+superseded: immediate controller integration before support-to-query stability repair.
+next_action: issue27cke_bounded_support_adequacy_and_temporal_coverage_audit_before_registry_freeze.
 ```
 
 ### Current Rule For Future Issue Docs

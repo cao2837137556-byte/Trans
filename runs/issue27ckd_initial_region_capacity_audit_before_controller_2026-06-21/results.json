@@ -1,0 +1,75 @@
+{
+  "issue": "issue27ckd_initial_region_capacity_audit_before_controller_2026-06-21",
+  "primary_verdict": "static_region_capacity_gain_but_temporal_label_stability_blocked",
+  "decision": "GO",
+  "selected": {
+    "variant": "V1_frozen512_two_medoid",
+    "active_strong_regions": 2,
+    "active_strong_labels": "Mirai GRE Flooding|Mirai UDP Flooding",
+    "active_strong_semantic_groups": 1,
+    "mean_support_val_label_consistency": 0.7161904761904763,
+    "mean_support_val_uncertain_coverage": 0.9899999999999999,
+    "ood_val_nearest_core_rate": 0.6980833333333333,
+    "ood_val_nearest_core_plus_near_rate": 0.7657083333333333,
+    "mirai_udp_nonregression": true,
+    "active_count_nonregression": true,
+    "consistency_nonregression": true,
+    "ood_nonregression": true,
+    "admissible": true
+  },
+  "baseline": {
+    "variant": "V0_frozen512_single_medoid",
+    "active_strong_regions": 1,
+    "active_strong_labels": "Mirai UDP Flooding",
+    "active_strong_semantic_groups": 1,
+    "mean_support_val_label_consistency": 0.664047619047619,
+    "mean_support_val_uncertain_coverage": 0.9949999999999999,
+    "ood_val_nearest_core_rate": 0.7350833333333333,
+    "ood_val_nearest_core_plus_near_rate": 0.7557916666666666,
+    "mirai_udp_nonregression": true,
+    "active_count_nonregression": true,
+    "consistency_nonregression": true,
+    "ood_nonregression": true,
+    "admissible": true
+  },
+  "selection": {
+    "selected_variant": "V1_frozen512_two_medoid",
+    "decision": "GO",
+    "primary_verdict": "static_region_capacity_gain_but_temporal_label_stability_blocked",
+    "selected_on_roles": [
+      "support_val",
+      "ood_benign_val"
+    ],
+    "baseline_active_strong_regions": 1,
+    "selected_active_strong_regions": 2,
+    "added_active_strong_regions": 1,
+    "mean_consistency_gain": 0.05214285714285727,
+    "selection_frozen_before": [
+      "ood_benign_stress",
+      "certified_dev_query"
+    ],
+    "temporal_diagnostic_status": "BLOCKED_FOR_CONTROLLER_FREEZE",
+    "temporal_caveat_labels": [
+      "Mirai GRE Flooding",
+      "Mirai UDP Flooding"
+    ]
+  },
+  "baseline_reproduction_pass": true,
+  "support_rows_reselected": false,
+  "unused_candidate_rows_consumed": false,
+  "model_training": false,
+  "controller_tuning": false,
+  "sealed_final_access": false,
+  "single_source_structural_ceiling_labels": [
+    "File Download",
+    "Ingress Tool Transfer",
+    "Merlin C&C Communication",
+    "Mirai C&C Communication"
+  ],
+  "temporal_diagnostic_status": "BLOCKED_FOR_CONTROLLER_FREEZE",
+  "temporal_caveat_labels": [
+    "Mirai GRE Flooding",
+    "Mirai UDP Flooding"
+  ],
+  "next_action": "bounded_support_adequacy_and_temporal_coverage_audit_before_registry_freeze"
+}
