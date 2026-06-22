@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "paper04://region_candidate_schema/v1",
+  "title": "label support region candidate v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "candidate_id",
+    "archive_event_id",
+    "label_region_id",
+    "exact_attack_label",
+    "quality_gate_status",
+    "duplicate_gate_status",
+    "role_gate_status",
+    "promotion_status",
+    "promotion_reason",
+    "source_novelty",
+    "time_session_novelty",
+    "provenance_hash",
+    "feature_asset_uri",
+    "feature_vector_sha256"
+  ],
+  "properties": {
+    "candidate_id": {
+      "type": "string"
+    },
+    "archive_event_id": {
+      "type": "string"
+    },
+    "label_region_id": {
+      "type": "string"
+    },
+    "exact_attack_label": {
+      "type": "string"
+    },
+    "quality_gate_status": {
+      "type": "string"
+    },
+    "duplicate_gate_status": {
+      "type": "string"
+    },
+    "role_gate_status": {
+      "type": "string"
+    },
+    "promotion_status": {
+      "type": "string"
+    },
+    "promotion_reason": {
+      "type": "string"
+    },
+    "source_novelty": {
+      "type": "string"
+    },
+    "time_session_novelty": {
+      "type": "string"
+    },
+    "provenance_hash": {
+      "type": "string"
+    },
+    "feature_asset_uri": {
+      "type": "string"
+    },
+    "feature_vector_sha256": {
+      "type": "string"
+    }
+  }
+}

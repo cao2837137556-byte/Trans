@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "paper04://online_label_archive_schema/v1",
+  "title": "online_label_archive event v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "archive_event_id",
+    "ingest_batch_id",
+    "event_timestamp_utc",
+    "human_confirmed_label",
+    "confirmed_by",
+    "confirmation_timestamp_utc",
+    "source_role",
+    "selection_allowed",
+    "report_only",
+    "sealed_final",
+    "forbidden_for_fit",
+    "pcap_path",
+    "csv_path",
+    "pcap_packet_index",
+    "csv_row_index",
+    "packet_timestamp",
+    "feature_asset_uri",
+    "feature_vector_sha256",
+    "provenance_hash",
+    "append_only"
+  ],
+  "properties": {
+    "archive_event_id": {
+      "type": "string"
+    },
+    "ingest_batch_id": {
+      "type": "string"
+    },
+    "event_timestamp_utc": {
+      "type": "string"
+    },
+    "human_confirmed_label": {
+      "type": "string"
+    },
+    "confirmed_by": {
+      "type": "string"
+    },
+    "confirmation_timestamp_utc": {
+      "type": "string"
+    },
+    "source_role": {
+      "type": "string"
+    },
+    "selection_allowed": {
+      "type": "boolean"
+    },
+    "report_only": {
+      "type": "boolean"
+    },
+    "sealed_final": {
+      "type": "boolean"
+    },
+    "forbidden_for_fit": {
+      "type": "boolean"
+    },
+    "pcap_path": {
+      "type": "string"
+    },
+    "csv_path": {
+      "type": "string"
+    },
+    "pcap_packet_index": {
+      "type": "string"
+    },
+    "csv_row_index": {
+      "type": "string"
+    },
+    "packet_timestamp": {
+      "type": "string"
+    },
+    "feature_asset_uri": {
+      "type": "string"
+    },
+    "feature_vector_sha256": {
+      "type": "string"
+    },
+    "provenance_hash": {
+      "type": "string"
+    },
+    "append_only": {
+      "type": "boolean"
+    }
+  }
+}

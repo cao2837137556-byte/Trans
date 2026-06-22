@@ -30,7 +30,8 @@ Current system route:
 Gotham raw PCAP
 -> Kitsune / AfterImage / netStat 115D online statistical frontend
 -> clean role-specific materialized assets
--> support-bank / evidence-head / OOD-risk / controller research line
+-> versioned exact-label support memory
+-> binary attack head / OOD-risk / temporal evidence / bounded controller
 -> larger sanity replay
 -> only later: formal benchmark
 ```
@@ -41,18 +42,27 @@ Frozen parts:
 - The old 8D strict packet-header asset is an engineering smoke/provenance artifact only.
 - Final/report-only roles cannot be used for fit, support selection, threshold selection, calibration, model selection, or protocol tuning.
 - Data contract cleanliness gates precede model replay.
-- The non-learned region evidence repair selected `S3_bounded_heavytail_family_balanced`.
-- Only the `Mirai UDP Flooding` region is qualified as `active_strong`; all other labels remain conflict-sensitive or ambiguous.
-- Current issue stage is new-capture or second-environment acquisition design
-  before any registry freeze, not local Gotham rematerialization, controller
-  integration, model ranking, or formal benchmarking.
+- The one formal region abstraction is `label_support_region`, bound to a
+  human-confirmed exact attack label.
+- Ten label-support regions are active for memory management; geometric
+  S3/prototype strong/weak results are diagnostic only and cannot route unknown
+  traffic or block a confirmed label.
+- `support_train_view_v1` contains 385 rows and `support_val_view_v1` contains
+  127 immutable validation rows.
+- Current issue stage is waiting for the frozen issue27ckc capability replay,
+  then certifying a production update budget through a binary-head
+  non-regression ablation.
 
 Open parts:
 
 - Exact-label multi-type attack materialization is frozen as a complete-only certified subset; six combined-cycle-1 dev_future_query partial chunks are deferred, not deleted.
-- Support-bank construction has an initial clean pre-deployment instance and frozen support-region protocol.
-- Nine of ten exact-label regions remain unqualified for strong evidence.
-- Attack drift, benign OOD drift, conflict/review control, region lifecycle, and temporal evidence integration remain system-definition topics to solve after the data contract is clean.
+- Production online-label storage and durable service integration remain to be
+  connected to the frozen archive/candidate schemas.
+- Production global/per-region extension caps are intentionally unset until an
+  empirical model-update ablation.
+- Attack drift, benign OOD drift, conflict/review control, and temporal
+  evidence remain detection/controller concerns rather than label-region
+  membership gates.
 
 Superseded parts:
 
@@ -63,6 +73,11 @@ Superseded parts:
 - issue27cf `region_id` values are provenance seeds, not active geometric attack regions.
 - Raw global Kitsune115D Euclidean/Mahalanobis medoid regions are not qualified for activation, radius tuning, model replay, or controller use.
 - More raw-115D shell tuning or covariance swaps are superseded by the S3 bounded heavy-tail, family-balanced evidence space.
+- Geometric `active_strong`, conflict-sensitive, and ambiguous statuses no
+  longer define the formal region registry; they remain diagnostic annotations.
+- New-capture acquisition is no longer a prerequisite for implementing
+  human-label memory management. It remains necessary only for a future claim
+  that geometric regions can automatically certify unknown traffic.
 
 ### Current Data Contract
 
@@ -75,65 +90,61 @@ Superseded parts:
 | Certified attack subset v1 | frozen complete-only subset: 683,420 rows from 93 complete chunks; 33,636 planned partial rows excluded including 5,461 emitted rows | issue27ch | development-side protocol replay input under fixed role access; sealed final remains report-only |
 | Support-bank protocol/interface | frozen at invariant/interface level | issue27ce | governs initial bank and later update contracts |
 | Initial pre-deployment support bank | instantiated from complete exact-label support candidate pool: 512 rows, 10 labels, train/val disjoint | issue27cf | can be used as initial support-bank state for protocol refinement |
-| Support-region protocol | frozen: labels, semantic groups, provenance seeds, candidate regions, active regions, shells, evidence schema, and role access are separated | issue27ci | rules only; no region instantiation, radius values, model training, or controller policy |
-| Initial region geometry audit | failed qualification: 0 active-strong, 1 conflict-sensitive, 9 ambiguous; severe OOD overlap and label confusion | issue27cj | diagnostic evidence only; repair evidence space before any region activation |
-| Evidence-space repair | limited qualification: S3 selected; Mirai UDP Flooding is the only active-strong region | issue27ck | freeze a limited registry; all unqualified labels must route to unknown/review |
+| Support-region protocol | historical layer separation between provenance, labels, geometry, and active evidence | issue27ci | retained as governance; formal membership is now the issue27ckg exact-label registry |
+| Initial region geometry audit | failed qualification: 0 active-strong, 1 conflict-sensitive, 9 ambiguous; severe OOD overlap and label confusion | issue27cj | diagnostic evidence only; not a formal-region activation gate |
+| Evidence-space repair | S3 and later two-medoid results provide geometry diagnostics for known labels | issue27ck/issue27ckd | optional diagnostic annotations only; not unknown-traffic routing or label-memory membership |
 | Frozen-bank multi-prototype audit | static capacity gain only: two medoids raise support/OOD qualification from one to two strong candidates, but query-time label/coverage stability blocks registry freeze | issue27ckd | diagnostic candidate only; do not connect the two-medoid registry to the controller |
 | Bounded support extension audit | E64 improves historical Mirai GRE attack coverage, but static support evidence is non-material and GRE OOD-stress core+near rises from 0 to about 2.21 percent | issue27cke | exploratory trade-off evidence only; original 512 remains unchanged and no extension is deployment-authorized |
 | Fresh two-sided holdout feasibility | local archive has 4 unmaterialized malicious PCAPs and 51 unused benign PCAPs, but zero fresh attack+benign pairs relevant to the current ten regions; one substantial CoAP pair is outside the registry | issue27ckf | do not submit an HPC materialization job from the existing archive for current-region certification |
+| Label-support region registry | one exact-label registry with ten active memory-management regions, immutable 385/127 views, append-only archive/candidate schemas, versioned promotion and rollback contracts | issue27ckg | current formal region system; production promotion disabled pending budget/model non-regression certification |
 
 ### Active Blocker
 
-`No fresh current-region attack plus benign-OOD pair exists in the local Gotham archive`
+`Production support-update budget and detector benefit are not yet certified`
 
-The complete local archive and current role lineage were audited:
+The label-management protocol is implemented and validated:
 
-- Gotham contains 78 processed CSVs, 78 benign PCAPs, and 32 malicious PCAPs;
-- 28 malicious PCAPs have already been feature-materialized in development or
-  sealed roles;
-- four malicious PCAPs were metadata-scanned but never feature-materialized;
-- only the unused CoAP-amplification PCAP has substantial scenario-matching
-  exact labels and a fresh matched benign PCAP, but CoAP is outside the current
-  ten-label initial region registry;
-- the unused Merlin and Mirai-DoS PCAPs have no matching Merlin/Mirai flooding
-  exact labels in their paired processed CSVs;
-- 51 benign PCAPs remain unused, but no relevant fresh malicious counterpart
-  exists for the current regions;
-- about 19.71 million current-label rows remain outside prior plans in already
-  used development captures; these are same-capture residuals, not independent
-  holdout evidence;
-- about 1.41 million additional residual rows belong to the sealed attack
-  source and remain forbidden for repair;
-- sealed outcome metrics were not opened and no feature materialization ran.
+- ten stable exact-label region IDs exist and all are valid for managing
+  human-confirmed labels;
+- original support roles remain 385 train and 127 validation with no overlap;
+- archive events require human confirmation, complete provenance, legal role,
+  feature reference, and append-only IDs;
+- duplicates, final/report-only rows, unknown labels, and incomplete
+  provenance are quarantined;
+- a simulation-only budget produced a 387-row candidate train view without
+  mutating the active 385-row view;
+- production promotion is disabled because global/per-region budgets have not
+  been shown to improve the binary detector without OOD or old-label
+  regression;
+- issue27ckc remains the direct capability evidence needed to design that
+  ablation.
 
 ### Current Next Action
 
-Run `issue27ckg_new_gotham_capture_or_second_environment_acquisition_design`:
+After issue27ckc completes, run
+`issue27ckh_support_update_budget_and_binary_head_nonregression_ablation`:
 
-- prefer a new reproducible Gotham capture for Mirai GRE, UDP, and TCP plus
-  matched benign traffic from the same declared device/environment era;
-- require at least two independent sessions per target attack and at least two
-  matched benign sessions;
-- preserve raw PCAP, exact packet-level labels, timestamps, run IDs, seeds,
-  source manifests, and hashes;
-- freeze B0, the single repair candidate, Kitsune115 state strategy, S3,
-  prototypes, shells, gates, and the one-pass decision rule before opening
-  outcomes;
-- use packet metrics together with session/source-level bootstrap intervals;
-- consider a second public environment only after a separate semantic and
-  frontend-compatibility audit;
-- do not run additional support tuning or HPC extraction from same-capture
-  Gotham residual rows.
+- inspect the frozen issue27ckc aggregate and per-label results first;
+- identify the actual weak labels and low-FPR/OOD failure mode;
+- preregister a minimal budget matrix, such as no update versus bounded
+  per-label additions, without using sealed final for selection;
+- keep support_val_view_v1 fixed and freeze positive/ID/OOD weighting;
+- compare binary-head and controller non-regression, not geometric region
+  strong counts;
+- certify one production budget profile only if it improves the target
+  detector metric without unacceptable benign-OOD or old-label regression;
+- otherwise keep support_train_view_v1 and use the archive only for record
+  keeping until stronger evidence exists.
 
 ### Latest Compact Close-out
 
 ```text
-solved: issue27ckf audited the complete local Gotham archive, current role manifests, unmaterialized malicious PCAPs, matched benign counterparts, and residual exact-label intervals.
-changed_mainline: no
-active_blocker: no fresh current-region attack plus benign-OOD pair exists in the local Gotham archive.
-frozen: archive hash, source/role ledger, sealed-role prohibition, original 512 bank, and the distinction between source-fresh and same-capture residual evidence.
-superseded: treating unselected rows from an already used capture as fresh deployment validation or submitting them to HPC for current-region certification.
-next_action: issue27ckg_new_gotham_capture_or_second_environment_acquisition_design.
+solved: issue27ckg instantiated the single formal exact-label support-region registry and validated the archive-to-candidate-to-versioned-view workflow.
+changed_mainline: yes
+active_blocker: production update budgets and detector non-regression are not empirically certified; issue27ckc capability results are still pending.
+frozen: ten label-support regions, immutable 385/127 views, archive/candidate hard gates, version lineage, model-update contract, and rollback semantics.
+superseded: geometric strong/weak regions as the formal registry, automatic unknown-label routing, and new-data acquisition as a prerequisite for label-memory implementation.
+next_action: issue27ckh_support_update_budget_and_binary_head_nonregression_ablation_after_issue27ckc.
 ```
 
 ### Decision Log
@@ -152,6 +163,7 @@ next_action: issue27ckg_new_gotham_capture_or_second_environment_acquisition_des
 | 2026-06-21 | Two train-only medoids on the unchanged 512 support rows improve static qualification to Mirai GRE plus Mirai UDP, but both expose temporal/query coverage caveats; controller integration is paused. | issue27ckd | diagnostic gain only; bounded support adequacy and temporal-coverage audit next |
 | 2026-06-22 | Nested +64/+128 support extension audit finds E64 improves historical GRE attack coverage but offers no material support-val gain and raises GRE OOD-stress intrusion to about 2.21 percent. | issue27cke | no registry freeze; construct a fresh attack and benign-OOD temporal holdout before further comparison |
 | 2026-06-22 | Complete Gotham archive audit finds no fresh two-sided pair relevant to the current ten regions; the only substantial unused pair is CoAP, outside the current registry. | issue27ckf | no existing-archive HPC job; design a new Gotham capture or semantically audited second environment |
+| 2026-06-22 | One exact-label support-region registry and versioned archive/candidate/update workflow are instantiated; geometry is diagnostic only and production promotion remains disabled. | issue27ckg | active memory-management architecture; wait for issue27ckc, then certify update budgets through detector non-regression |
 
 ---
 

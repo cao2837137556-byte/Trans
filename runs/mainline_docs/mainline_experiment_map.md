@@ -33,13 +33,13 @@ benign OOD drift causes false alarms, and attack support-query drift causes miss
 Current system object:
 
 ```text
-Gotham PCAP -> Kitsune115 -> clean split assets -> support-bank / evidence-head / OOD-risk / controller protocol
+Gotham PCAP -> Kitsune115 -> clean split assets -> versioned label support memory -> binary attack head / OOD-risk / controller
 ```
 
 Current stage:
 
 ```text
-Data and system contract repair before model replay.
+Support-memory protocol complete; frozen capability replay pending on HPC.
 ```
 
 ### Current Truth Table
@@ -49,8 +49,8 @@ Data and system contract repair before model replay.
 | Frontend | Kitsune / AfterImage / netStat 115D from raw PCAP | issue27ab and follow-up audits | frozen | 8D strict packet-header is engineering smoke only |
 | Benign/OOD 1M roles | usable under sealed role rules | issue27bz | active | ID train/calib, OOD val/stress, sealed final OOD remain role-restricted |
 | Attack support/query/final roles | certified complete-only attack subset frozen | issue27cb/issue27cc/issue27cd/issue27cg/issue27ch | active | 683,420 certified rows from 93 complete chunks; six partial combined-cycle-1 chunks deferred_not_deleted |
-| Support bank | clean 512-row bank frozen; E64/E128 extensions remain exploratory and are not deployment-authorized | issue27ca/issue27cb/issue27ce/issue27cf/issue27ci/issue27cj/issue27ck/issue27ckd/issue27cke/issue27ckf | active but blocked | preserve the 512 bank; no more same-capture Gotham tuning |
-| Model replay | paused for region/controller integration; separate frozen-medium HPC capability replay may run independently | issue27ck/issue27ckd/issue27cke/issue27ckf | blocked for integration | acquire a new current-region attack plus benign-OOD environment before registry comparison |
+| Support memory | one ten-label `label_support_region_registry_v1`; immutable 385 train and 127 validation views; archive/candidate/update contracts ready | issue27cf/issue27ci/issue27ckg | active protocol, production updates blocked | wait for issue27ckc then certify one bounded update budget through detector non-regression |
+| Model replay | frozen-medium issue27ckc HPC capability replay pending; geometric region experiments do not alter it | issue27ckc/issue27ckg | running/pending | inspect aggregate, low-FPR, OOD, and per-label results before designing update ablation |
 | Formal benchmark | not authorized | current governance | blocked | requires clean data contract and frozen system protocol |
 
 ### Active Issue Index
@@ -66,22 +66,23 @@ Data and system contract repair before model replay.
 | issue27cf | Initial support bank instantiation | 69,492 candidates -> 512 selected rows; 10 exact labels; train/val disjoint | support-bank state is clean but model replay still blocked | issue27ci protocol refinement after issue27ch freeze |
 | issue27cg | Combined-cycle query alignment audit | issue27cd shortfall localized; six partial chunks not worth repairing under current contract | supersedes direct repair route for current mainline | freeze complete-only certified subset |
 | issue27ch | Certified attack subset freeze for protocol replay | certified_attack_subset_v1 frozen: 683,420 rows, 93 complete chunks, six partial chunks deferred_not_deleted | changes active attack data contract from partial pullback to complete-only certified subset | issue27ci attack region activation and support-bank protocol refinement |
-| issue27ci | Attack-region activation and support-bank protocol refinement | support_region_protocol_v1 frozen; 512 support rows and 16 provenance seeds are not active regions yet | changes support system contract from sample bank to region-protocol-ready state | issue27cj initial region registry instantiation |
-| issue27cj | Initial attack-region instantiation on frozen support bank | failed qualification: 0 active-strong, severe OOD-core intrusion, low support-val label consistency, feature-dominated geometry | blocks direct raw-115D region activation and radius tuning | issue27ck evidence-space failure anatomy and repair |
-| issue27ck | Non-learned evidence-space repair | S3 limited-go: 1 static active-strong Mirai UDP Flooding region; 9 labels remain non-strong | replaces universal raw-115D blocker with a limited static registry candidate | issue27ckd capacity audit before controller |
-| issue27ckd | Frozen-bank initial-region capacity audit | two medoids raise static qualification to Mirai GRE plus Mirai UDP, but read-only temporal/query evidence blocks registry freeze | proves one-medoid under-expression exists without blaming or rewriting the 512 bank | issue27cke bounded support adequacy and temporal-coverage audit |
-| issue27cke | Bounded source-time support extension audit | E64 yields only one net support-val correction, dramatically improves reused GRE query coverage, but raises GRE OOD-stress core+near intrusion to about 2.21 percent; E128 degrades consistency | exposes attack-coverage/OOD trade-off without freezing an extension | issue27ckf fresh two-sided temporal holdout feasibility |
-| issue27ckf | Fresh two-sided holdout feasibility | zero fresh pairs for the current ten regions; four malicious PCAPs are unmaterialized, but only CoAP has substantial matching labels and it is outside the registry | blocks existing-archive rematerialization as deployment evidence | issue27ckg new capture or second-environment acquisition design |
+| issue27ci | Region/provenance layer separation | support_region_protocol_v1 separates exact labels, provenance seeds, geometric candidates, and active evidence | retained governance foundation | formal label-memory registry now issue27ckg |
+| issue27cj | Raw-115D geometry diagnostic | failed qualification with severe OOD overlap and label confusion | diagnostic negative result | archived geometry evidence |
+| issue27ck | S3 geometry repair | one static active-strong region under single medoid | selected S3 as diagnostic representation | archived diagnostic annotation |
+| issue27ckd | Frozen-bank multi-prototype diagnostic | two static strong candidates but temporal/query instability | shows one-medoid under-expression | archived diagnostic annotation |
+| issue27cke | Bounded geometric-support extension audit | no material support-val gain and GRE OOD-stress trade-off | rejects E64/E128 as deployment updates | archived negative update evidence |
+| issue27ckf | Fresh geometric-certification holdout feasibility | no fresh pair for current labels; CoAP-only unused pair | relevant only if automatic geometric routing is reopened | no longer blocks label-memory implementation |
+| issue27ckg | Label-support region registry and versioned update protocol | ten exact-label memory regions, immutable 385/127 views, append-only archive, candidate gates, simulation-only promotion, and rollback contract pass | changes the formal region from geometric evidence to label-memory management | wait for issue27ckc, then issue27ckh detector update-budget ablation |
 
 ### Latest Compact Close-out
 
 ```text
-solved: issue27ckf audited the complete local Gotham archive and current source-role lineage without feature or sealed-outcome access.
-changed_mainline: no
-active_blocker: no fresh current-region malicious PCAP has a matched unused benign-OOD counterpart and compatible exact labels in the local archive.
-frozen: archive hash, role ledger, sealed-role prohibition, original 512 support, and source-freshness definitions.
-superseded: treating roughly 19.71 million same-capture residual rows as independent deployment validation.
-next_action: issue27ckg_new_gotham_capture_or_second_environment_acquisition_design.
+solved: issue27ckg instantiated and validated the single exact-label support-memory registry and versioned update workflow.
+changed_mainline: yes
+active_blocker: production extension budgets and detector non-regression remain uncertified while issue27ckc is pending.
+frozen: ten label-support regions, 385/127 views, archive/candidate gates, production-promotion disable, model-update contract, and rollback lineage.
+superseded: geometric strong/weak status as formal region membership and fresh-data acquisition as a prerequisite for label-memory implementation.
+next_action: issue27ckh_support_update_budget_and_binary_head_nonregression_ablation_after_issue27ckc.
 ```
 
 ### Current Rule For Future Issue Docs

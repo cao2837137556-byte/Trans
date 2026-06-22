@@ -1,0 +1,36 @@
+{
+  "policy_version": "promotion_policy_v1",
+  "formal_region_kind": "label_support_region",
+  "membership_authority": "human_confirmed_exact_label",
+  "hard_gates": [
+    "registered_exact_label",
+    "human_confirmation",
+    "complete_provenance",
+    "selection_allowed",
+    "not_report_only",
+    "not_sealed_final",
+    "not_forbidden_for_fit",
+    "not_duplicate_in_frozen_bank_archive_candidate_or_view"
+  ],
+  "ranking_order": [
+    "new_provenance_source",
+    "new_time_or_session",
+    "lower_duplication_risk",
+    "stable_event_id"
+  ],
+  "production_budget_profile": {
+    "status": "not_empirically_certified",
+    "global_extension_cap": null,
+    "per_region_extension_cap": null,
+    "promotion_enabled": false
+  },
+  "simulation_budget_profile": {
+    "status": "test_only",
+    "global_extension_cap": 2,
+    "per_region_extension_cap": 1,
+    "promotion_enabled": true,
+    "production_authorized": false
+  },
+  "geometry_diagnostic_can_block_human_label_archive": false,
+  "geometry_diagnostic_can_autoroute_unknown_traffic": false
+}

@@ -1,0 +1,31 @@
+{
+  "registry": {
+    "version": "label_support_region_registry_v1",
+    "parent": null,
+    "rows": 10
+  },
+  "initial_support_bank": {
+    "version": "initial_support_bank_v1",
+    "rows": 512,
+    "immutable": true,
+    "source": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27cf_initial_support_bank_instantiation_from_complete_exact_label_pool_2026-06-16\\support_bank_sidecar.csv",
+    "sha256": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da"
+  },
+  "support_train_view": {
+    "version": "support_train_view_v1",
+    "rows": 385,
+    "parent": "initial_support_bank_v1"
+  },
+  "support_val_view": {
+    "version": "support_val_view_v1",
+    "rows": 127,
+    "parent": "initial_support_bank_v1",
+    "role_migration_allowed": false
+  },
+  "simulation_view": {
+    "version": "support_train_view_v2_simulation_only",
+    "rows": 387,
+    "parent": "support_train_view_v1",
+    "production_authorized": false
+  }
+}
