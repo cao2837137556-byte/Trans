@@ -43,8 +43,9 @@ Frozen parts:
 - Data contract cleanliness gates precede model replay.
 - The non-learned region evidence repair selected `S3_bounded_heavytail_family_balanced`.
 - Only the `Mirai UDP Flooding` region is qualified as `active_strong`; all other labels remain conflict-sensitive or ambiguous.
-- Current issue stage is initial-region capacity and temporal-coverage repair
-  before limited-registry integration, not model ranking or formal benchmarking.
+- Current issue stage is fresh temporal attack plus benign-OOD holdout
+  construction before any registry freeze, not controller integration, model
+  ranking, or formal benchmarking.
 
 Open parts:
 
@@ -78,49 +79,56 @@ Superseded parts:
 | Initial region geometry audit | failed qualification: 0 active-strong, 1 conflict-sensitive, 9 ambiguous; severe OOD overlap and label confusion | issue27cj | diagnostic evidence only; repair evidence space before any region activation |
 | Evidence-space repair | limited qualification: S3 selected; Mirai UDP Flooding is the only active-strong region | issue27ck | freeze a limited registry; all unqualified labels must route to unknown/review |
 | Frozen-bank multi-prototype audit | static capacity gain only: two medoids raise support/OOD qualification from one to two strong candidates, but query-time label/coverage stability blocks registry freeze | issue27ckd | diagnostic candidate only; do not connect the two-medoid registry to the controller |
+| Bounded support extension audit | E64 improves historical Mirai GRE attack coverage, but static support evidence is non-material and GRE OOD-stress core+near rises from 0 to about 2.21 percent | issue27cke | exploratory trade-off evidence only; original 512 remains unchanged and no extension is deployment-authorized |
 
 ### Active Blocker
 
-`Initial attack-region temporal coverage and label stability`
+`No fresh two-sided temporal holdout remains for region certification`
 
-The evidence-space repair removed the universal geometry blocker. A frozen-bank
-two-medoid audit then improved static qualification, but did not close the
-support-to-query stability gap:
+The bounded support audit clarified the blocker but did not produce a
+controller-ready registry:
 
-- V0 reproduces issue27ck exactly: one static active-strong Mirai UDP region;
-- V1 uses the same 512 support rows and raises static active-strong count to
-  two, Mirai GRE plus Mirai UDP, with mean support-val consistency increasing
-  from about 66.4 to 71.6 percent;
-- read-only query evidence blocks registry freeze: Mirai GRE is assigned mostly
-  to Mirai TCP, while Mirai UDP keeps its nearest label but often lies outside
-  its own region shell;
+- E64 was selected by the preregistered support-val/OOD-val ranking, but it
+  retains the same two static strong candidates as the frozen512 two-medoid
+  baseline;
+- support-val improves by only one net correct row out of 127 and the paired
+  exact McNemar p-value is 1.0, so this is not material static evidence;
+- reused historical query diagnostics show a large Mirai GRE coverage gain,
+  but those query roles had already influenced protocol development and cannot
+  certify deployment;
+- reused OOD-stress shows the opposing risk: Mirai GRE direct core+near
+  intrusion increases from 0 to about 2.21 percent;
+- E128 materially reduces support-val label consistency and is not preferred;
 - four labels have only one eligible provenance source in the entire current
   support candidate pool and cannot pass the unchanged two-source strong gate;
-- controller integration remains paused.
+- no support extension or candidate registry is frozen for deployment.
 
 ### Current Next Action
 
-Run `issue27cke_bounded_support_adequacy_and_temporal_coverage_audit_before_registry_freeze`:
+Run `issue27ckf_fresh_temporal_attack_and_benign_ood_holdout_feasibility`:
 
-- keep `initial_support_bank_v1` immutable and preserve the V0/V1 audit;
-- authorize bounded, versioned use of unused legal support candidates only as
-  an extension experiment, never as a rewrite of the original 512;
-- diagnose per-label temporal/source coverage, especially Mirai GRE-to-TCP
-  confusion and Mirai UDP shell drift;
-- compare source/time-balanced extension against frozen512 two-medoid geometry
-  using support-val/OOD-val for selection and query roles read-only;
-- do not integrate any candidate registry into the controller until the
-  selected active labels survive the temporal/query diagnostic.
+- inventory raw PCAP/CSV sources and time windows that have never participated
+  in support selection, region design, query diagnostics, OOD stress, or final
+  reporting;
+- require both attack-side temporal evidence and benign-OOD evidence from the
+  same declared evaluation era or environment;
+- if a legal untouched pair exists, materialize and hash it before running any
+  further region comparison;
+- if no untouched pair exists, stop tuning on Gotham and define a new
+  capture/environment acquisition requirement;
+- keep sealed final assets sealed and do not use them as a repair loop;
+- controller integration remains blocked until a candidate survives the fresh
+  two-sided holdout once.
 
 ### Latest Compact Close-out
 
 ```text
-solved: issue27ckd showed that two train-only medoids improve frozen-bank static qualification from one to two candidate strong regions without support reselection.
+solved: issue27cke audited nested +64/+128 source-time-balanced support extensions without mutating the original 512 bank.
 changed_mainline: no
-active_blocker: Mirai GRE and Mirai UDP fail the read-only temporal/query stability diagnostic, so the two-medoid candidate registry is not controller-ready.
-frozen: original 512 support rows and partitions, S3 evidence space, unchanged activation gates, and V0/V1 audit evidence.
-superseded: immediate limited-registry controller integration before support-to-query stability is repaired.
-next_action: issue27cke_bounded_support_adequacy_and_temporal_coverage_audit_before_registry_freeze.
+active_blocker: E64 trades improved historical GRE attack coverage for GRE OOD-stress intrusion, and no fresh two-sided temporal holdout remains to certify the trade-off.
+frozen: original 512 support rows and partitions, S3 evidence space, activation gates, query contamination status, and issue27cke diagnostic evidence.
+superseded: more tuning against the already inspected query/stress roles or treating E64 as a deployable bank.
+next_action: issue27ckf_fresh_temporal_attack_and_benign_ood_holdout_feasibility.
 ```
 
 ### Decision Log
@@ -137,6 +145,7 @@ next_action: issue27cke_bounded_support_adequacy_and_temporal_coverage_audit_bef
 | 2026-06-18 | Initial region audit failed qualification: no active-strong regions; raw global Kitsune115D geometry is dominated by few dimensions and strongly overlaps benign OOD. | issue27cj | active blocker; repair evidence space before region activation |
 | 2026-06-21 | Bounded heavy-tail plus family-balanced S3 repair qualified one Mirai UDP Flooding region; all other regions remain non-strong. | issue27ck | active limited registry; integrate conservatively with unknown/review fallback |
 | 2026-06-21 | Two train-only medoids on the unchanged 512 support rows improve static qualification to Mirai GRE plus Mirai UDP, but both expose temporal/query coverage caveats; controller integration is paused. | issue27ckd | diagnostic gain only; bounded support adequacy and temporal-coverage audit next |
+| 2026-06-22 | Nested +64/+128 support extension audit finds E64 improves historical GRE attack coverage but offers no material support-val gain and raises GRE OOD-stress intrusion to about 2.21 percent. | issue27cke | no registry freeze; construct a fresh attack and benign-OOD temporal holdout before further comparison |
 
 ---
 

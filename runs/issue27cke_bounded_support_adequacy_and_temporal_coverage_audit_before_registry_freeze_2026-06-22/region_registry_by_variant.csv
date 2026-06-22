@@ -1,0 +1,31 @@
+variant,region_id,exact_attack_label,semantic_attack_group,train_rows,val_rows,requested_prototypes,effective_prototypes,prototype_cluster_rows,provenance_source_count,support_val_uncertain_coverage,support_val_nearest_label_consistency,ood_val_core_intrusion_rate,ood_val_core_plus_near_intrusion_rate,region_status
+B0_frozen512_two_medoid,B0_frozen512_two_medoid_region_baa4038e686a,File Download,tooling,15,5,1,1,15,1,1.0,0.6,0.0,0.0,ambiguous_region
+B0_frozen512_two_medoid,B0_frozen512_two_medoid_region_98413eff6d95,Ingress Tool Transfer,tooling,18,5,2,2,9|9,1,1.0,1.0,0.0,0.016541666666666666,active_conflict_sensitive
+B0_frozen512_two_medoid,B0_frozen512_two_medoid_region_4f662ce1d1da,Merlin C&C Communication,merlin,30,10,2,1,30,1,1.0,0.0,0.138875,0.24820833333333334,ambiguous_region
+B0_frozen512_two_medoid,B0_frozen512_two_medoid_region_4e337f656139,Merlin ICMP Flooding,merlin,43,14,2,2,22|21,2,1.0,0.9285714285714286,0.005291666666666667,0.024583333333333332,active_conflict_sensitive
+B0_frozen512_two_medoid,B0_frozen512_two_medoid_region_1e35a23f930c,Merlin TCP Flooding,merlin,60,20,2,1,60,2,1.0,0.7,0.684,0.73125,ambiguous_region
+B0_frozen512_two_medoid,B0_frozen512_two_medoid_region_5199177e241f,Merlin UDP Flooding,merlin,30,10,2,2,19|11,2,1.0,1.0,0.2627083333333333,0.34925,active_conflict_sensitive
+B0_frozen512_two_medoid,B0_frozen512_two_medoid_region_704820898382,Mirai C&C Communication,mirai,9,3,1,1,9,1,1.0,0.3333333333333333,0.17795833333333333,0.26216666666666666,ambiguous_region
+B0_frozen512_two_medoid,B0_frozen512_two_medoid_region_a9be197bc385,Mirai GRE Flooding,mirai,60,20,2,2,33|27,2,0.95,0.95,0.0,0.0,active_strong
+B0_frozen512_two_medoid,B0_frozen512_two_medoid_region_a1eb14dc651b,Mirai TCP Flooding,mirai,60,20,2,2,35|25,2,1.0,0.65,0.6004583333333333,0.6576666666666666,ambiguous_region
+B0_frozen512_two_medoid,B0_frozen512_two_medoid_region_8f8a32f3c5de,Mirai UDP Flooding,mirai,60,20,2,2,36|24,2,0.95,1.0,0.0,0.0,active_strong
+E64_nested_source_time_balanced,E64_nested_source_time_balanced_region_baa4038e686a,File Download,tooling,19,5,2,1,19,1,1.0,0.6,0.0,0.0,ambiguous_region
+E64_nested_source_time_balanced,E64_nested_source_time_balanced_region_98413eff6d95,Ingress Tool Transfer,tooling,22,5,2,2,10|12,1,1.0,1.0,0.023875,0.29254166666666664,active_conflict_sensitive
+E64_nested_source_time_balanced,E64_nested_source_time_balanced_region_4f662ce1d1da,Merlin C&C Communication,merlin,36,10,2,1,36,1,1.0,0.0,0.16375,0.2605,ambiguous_region
+E64_nested_source_time_balanced,E64_nested_source_time_balanced_region_4e337f656139,Merlin ICMP Flooding,merlin,51,14,2,2,26|25,2,1.0,0.9285714285714286,0.005208333333333333,0.024583333333333332,active_conflict_sensitive
+E64_nested_source_time_balanced,E64_nested_source_time_balanced_region_1e35a23f930c,Merlin TCP Flooding,merlin,68,20,2,1,68,2,1.0,0.7,0.6698333333333333,0.7436666666666667,ambiguous_region
+E64_nested_source_time_balanced,E64_nested_source_time_balanced_region_5199177e241f,Merlin UDP Flooding,merlin,36,10,2,2,21|15,2,1.0,1.0,0.32308333333333333,0.36420833333333336,active_conflict_sensitive
+E64_nested_source_time_balanced,E64_nested_source_time_balanced_region_704820898382,Mirai C&C Communication,mirai,13,3,1,1,13,1,1.0,0.3333333333333333,0.2774583333333333,0.5067083333333333,ambiguous_region
+E64_nested_source_time_balanced,E64_nested_source_time_balanced_region_a9be197bc385,Mirai GRE Flooding,mirai,68,20,2,2,40|28,2,0.95,1.0,0.0,0.0,active_strong
+E64_nested_source_time_balanced,E64_nested_source_time_balanced_region_a1eb14dc651b,Mirai TCP Flooding,mirai,68,20,2,2,42|26,2,1.0,0.65,0.605,0.650125,ambiguous_region
+E64_nested_source_time_balanced,E64_nested_source_time_balanced_region_8f8a32f3c5de,Mirai UDP Flooding,mirai,68,20,2,2,40|28,2,0.9,1.0,0.0,0.0,active_strong
+E128_nested_source_time_balanced,E128_nested_source_time_balanced_region_baa4038e686a,File Download,tooling,23,5,2,1,23,1,1.0,0.6,0.0,0.0,ambiguous_region
+E128_nested_source_time_balanced,E128_nested_source_time_balanced_region_98413eff6d95,Ingress Tool Transfer,tooling,26,5,2,2,11|15,1,1.0,1.0,0.000125,0.04529166666666667,active_conflict_sensitive
+E128_nested_source_time_balanced,E128_nested_source_time_balanced_region_4f662ce1d1da,Merlin C&C Communication,merlin,42,10,2,1,42,1,1.0,0.0,0.17095833333333332,0.32916666666666666,ambiguous_region
+E128_nested_source_time_balanced,E128_nested_source_time_balanced_region_4e337f656139,Merlin ICMP Flooding,merlin,59,14,2,1,59,2,1.0,0.2857142857142857,0.026708333333333334,0.028625,ambiguous_region
+E128_nested_source_time_balanced,E128_nested_source_time_balanced_region_1e35a23f930c,Merlin TCP Flooding,merlin,76,20,2,2,46|30,2,1.0,0.65,0.30216666666666664,0.3765833333333333,ambiguous_region
+E128_nested_source_time_balanced,E128_nested_source_time_balanced_region_5199177e241f,Merlin UDP Flooding,merlin,42,10,2,2,23|19,2,1.0,0.9,0.33641666666666664,0.36070833333333335,active_conflict_sensitive
+E128_nested_source_time_balanced,E128_nested_source_time_balanced_region_704820898382,Mirai C&C Communication,mirai,17,3,2,1,17,1,1.0,0.3333333333333333,0.46520833333333333,0.5990833333333333,ambiguous_region
+E128_nested_source_time_balanced,E128_nested_source_time_balanced_region_a9be197bc385,Mirai GRE Flooding,mirai,76,20,2,2,47|29,2,0.95,1.0,0.0,0.0,active_strong
+E128_nested_source_time_balanced,E128_nested_source_time_balanced_region_a1eb14dc651b,Mirai TCP Flooding,mirai,76,20,2,2,42|34,2,1.0,0.7,0.6424583333333334,0.6708333333333333,ambiguous_region
+E128_nested_source_time_balanced,E128_nested_source_time_balanced_region_8f8a32f3c5de,Mirai UDP Flooding,mirai,76,20,2,2,44|32,2,0.95,1.0,0.0,0.0,active_strong

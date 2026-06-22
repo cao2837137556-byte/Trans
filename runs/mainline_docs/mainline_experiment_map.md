@@ -49,8 +49,8 @@ Data and system contract repair before model replay.
 | Frontend | Kitsune / AfterImage / netStat 115D from raw PCAP | issue27ab and follow-up audits | frozen | 8D strict packet-header is engineering smoke only |
 | Benign/OOD 1M roles | usable under sealed role rules | issue27bz | active | ID train/calib, OOD val/stress, sealed final OOD remain role-restricted |
 | Attack support/query/final roles | certified complete-only attack subset frozen | issue27cb/issue27cc/issue27cd/issue27cg/issue27ch | active | 683,420 certified rows from 93 complete chunks; six partial combined-cycle-1 chunks deferred_not_deleted |
-| Support bank | clean 512-row bank frozen; S3 plus two medoids improves static capacity but temporal/query stability remains blocked | issue27ca/issue27cb/issue27ce/issue27cf/issue27ci/issue27cj/issue27ck/issue27ckd | active but blocked | preserve the 512 bank; audit bounded extension and temporal coverage before registry freeze |
-| Model replay | paused for region/controller integration; separate frozen-medium HPC capability replay may run independently | issue27ck/issue27ckd | blocked for integration | repair support-to-query region stability before controller replay |
+| Support bank | clean 512-row bank frozen; E64/E128 extensions remain exploratory and are not deployment-authorized | issue27ca/issue27cb/issue27ce/issue27cf/issue27ci/issue27cj/issue27ck/issue27ckd/issue27cke | active but blocked | preserve the 512 bank and stop tuning against reused query/stress roles |
+| Model replay | paused for region/controller integration; separate frozen-medium HPC capability replay may run independently | issue27ck/issue27ckd/issue27cke | blocked for integration | build a fresh attack and benign-OOD temporal holdout before registry comparison |
 | Formal benchmark | not authorized | current governance | blocked | requires clean data contract and frozen system protocol |
 
 ### Active Issue Index
@@ -70,16 +70,17 @@ Data and system contract repair before model replay.
 | issue27cj | Initial attack-region instantiation on frozen support bank | failed qualification: 0 active-strong, severe OOD-core intrusion, low support-val label consistency, feature-dominated geometry | blocks direct raw-115D region activation and radius tuning | issue27ck evidence-space failure anatomy and repair |
 | issue27ck | Non-learned evidence-space repair | S3 limited-go: 1 static active-strong Mirai UDP Flooding region; 9 labels remain non-strong | replaces universal raw-115D blocker with a limited static registry candidate | issue27ckd capacity audit before controller |
 | issue27ckd | Frozen-bank initial-region capacity audit | two medoids raise static qualification to Mirai GRE plus Mirai UDP, but read-only temporal/query evidence blocks registry freeze | proves one-medoid under-expression exists without blaming or rewriting the 512 bank | issue27cke bounded support adequacy and temporal-coverage audit |
+| issue27cke | Bounded source-time support extension audit | E64 yields only one net support-val correction, dramatically improves reused GRE query coverage, but raises GRE OOD-stress core+near intrusion to about 2.21 percent; E128 degrades consistency | exposes attack-coverage/OOD trade-off without freezing an extension | issue27ckf fresh two-sided temporal holdout feasibility |
 
 ### Latest Compact Close-out
 
 ```text
-solved: issue27ckd showed a real frozen-bank static capacity gain from one to two medoids, with no support reselection.
+solved: issue27cke tested nested +64/+128 legal support extensions under frozen S3, geometry, gates, and role boundaries.
 changed_mainline: no
-active_blocker: the new Mirai GRE candidate and existing Mirai UDP candidate do not yet have adequate temporal/query region stability.
-frozen: original 512 support rows, certified roles, S3 transform/distance, activation gates, and issue27ckd audit evidence.
-superseded: immediate controller integration before support-to-query stability repair.
-next_action: issue27cke_bounded_support_adequacy_and_temporal_coverage_audit_before_registry_freeze.
+active_blocker: E64 improves reused GRE attack coverage but creates an OOD-stress trade-off, while the relevant query/stress roles are no longer fresh certification evidence.
+frozen: original 512 support rows, certified roles, S3 transform/distance, activation gates, and issue27cke diagnostic evidence.
+superseded: more optimization against reused query/stress roles or declaring E64 deployable.
+next_action: issue27ckf_fresh_temporal_attack_and_benign_ood_holdout_feasibility.
 ```
 
 ### Current Rule For Future Issue Docs

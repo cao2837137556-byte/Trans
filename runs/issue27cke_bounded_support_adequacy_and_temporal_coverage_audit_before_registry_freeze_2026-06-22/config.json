@@ -1,0 +1,13 @@
+{
+  "evidence_space": "S3_bounded_heavytail_family_balanced",
+  "prototype_rule": "two_train_only_medoids_min_cluster_8",
+  "variants": [
+    "B0_frozen512_two_medoid",
+    "E64_nested_source_time_balanced",
+    "E128_nested_source_time_balanced"
+  ],
+  "time_bins_per_source": 4,
+  "extension_nested": true,
+  "activation_gates": "unchanged_from_issue27ck",
+  "query_role_status": "reused_development_diagnostic_not_fresh_validation"
+}

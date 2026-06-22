@@ -1,0 +1,73 @@
+{
+  "issue": "issue27cke_bounded_support_adequacy_and_temporal_coverage_audit_before_registry_freeze_2026-06-22",
+  "primary_verdict": "attack_coverage_gain_with_ood_stress_tradeoff_requires_fresh_attack_and_benign_holdout",
+  "selected_static_variant": {
+    "variant": "E64_nested_source_time_balanced",
+    "active_strong_regions": 2,
+    "active_strong_labels": "Mirai GRE Flooding|Mirai UDP Flooding",
+    "active_strong_semantic_groups": 1,
+    "mean_support_val_label_consistency": 0.7211904761904762,
+    "mean_support_val_uncertain_coverage": 0.985,
+    "ood_val_nearest_core_rate": 0.701625,
+    "ood_val_nearest_core_plus_near_rate": 0.765375,
+    "extension_rows": 64,
+    "mirai_udp_nonregression": true,
+    "active_count_nonregression": true,
+    "consistency_nonregression": true,
+    "ood_nonregression": true,
+    "admissible": true
+  },
+  "baseline_static_variant": {
+    "variant": "B0_frozen512_two_medoid",
+    "active_strong_regions": 2,
+    "active_strong_labels": "Mirai GRE Flooding|Mirai UDP Flooding",
+    "active_strong_semantic_groups": 1,
+    "mean_support_val_label_consistency": 0.7161904761904763,
+    "mean_support_val_uncertain_coverage": 0.9899999999999999,
+    "ood_val_nearest_core_rate": 0.6980833333333333,
+    "ood_val_nearest_core_plus_near_rate": 0.7657083333333333,
+    "extension_rows": 0,
+    "mirai_udp_nonregression": true,
+    "active_count_nonregression": true,
+    "consistency_nonregression": true,
+    "ood_nonregression": true,
+    "admissible": true
+  },
+  "selection": {
+    "selected_variant": "E64_nested_source_time_balanced",
+    "selected_on_roles": [
+      "support_val",
+      "ood_benign_val"
+    ],
+    "historical_query_used_for_selection": false,
+    "sealed_final_access": false,
+    "selection_frozen_before_reused_diagnostics": true
+  },
+  "historical_diagnostic_pass_labels": [
+    "Mirai GRE Flooding"
+  ],
+  "historical_diagnostic_is_fresh_validation": false,
+  "static_gain_material": false,
+  "support_val_paired_summary": {
+    "baseline_variant": "B0_frozen512_two_medoid",
+    "selected_variant": "E64_nested_source_time_balanced",
+    "rows": 127,
+    "both_correct": 97,
+    "baseline_only_correct": 1,
+    "selected_only_correct": 2,
+    "both_wrong": 27,
+    "baseline_row_accuracy": 0.7716535433070866,
+    "selected_row_accuracy": 0.7795275590551181,
+    "net_correct_rows": 1,
+    "exact_mcnemar_two_sided_p": 1.0
+  },
+  "ood_stress_descriptive_caveat_labels": [
+    "Mirai GRE Flooding"
+  ],
+  "original_support_bank_mutated": false,
+  "extension_is_deployed_bank": false,
+  "model_training": false,
+  "controller_tuning": false,
+  "sealed_final_access": false,
+  "next_action": "reserve_or_materialize_fresh_temporal_attack_and_benign_ood_holdout_before_any_registry_freeze"
+}
