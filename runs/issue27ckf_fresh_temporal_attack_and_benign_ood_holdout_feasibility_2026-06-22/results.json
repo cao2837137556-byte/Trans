@@ -1,0 +1,26 @@
+{
+  "issue": "issue27ckf_fresh_temporal_attack_and_benign_ood_holdout_feasibility_2026-06-22",
+  "primary_verdict": "no_fresh_current_region_two_sided_pair_in_local_gotham_archive",
+  "archive_sha256": "4c96a8915466baf14c8608c127bc4ef4f42aff4ba351292a2085371846175b4f",
+  "processed_csv_members": 78,
+  "benign_pcaps": 78,
+  "malicious_pcaps": 32,
+  "feature_materialized_malicious_pcaps": 28,
+  "unmaterialized_malicious_pcaps": 4,
+  "unused_benign_pcaps": 51,
+  "eligible_fresh_current_region_pairs": 0,
+  "fresh_pairs_outside_current_region_labels": 1,
+  "same_capture_unplanned_current_label_rows": 19710139,
+  "sealed_source_unplanned_current_label_rows": 1412283,
+  "same_capture_residual_is_independent_holdout": false,
+  "sealed_attack_pcaps_reserved_not_consumed": [
+    "raw/malicious/merlin/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap",
+    "raw/malicious/mirai-dos/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap",
+    "raw/malicious/mirai-infection/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap",
+    "raw/malicious/network-scanning/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap"
+  ],
+  "sealed_outcome_access": false,
+  "feature_materialization": false,
+  "hpc_job_authorized": false,
+  "next_action": "define_new_gotham_capture_or_second_environment_acquisition_contract"
+}

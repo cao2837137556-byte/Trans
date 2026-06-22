@@ -1,0 +1,79 @@
+csv_member,device_key,current_roles,current_role_count,benign_pcap,benign_pcap_roles,malicious_pcap_count,malicious_pcaps_materialized,exact_labels_scanned,metadata_label_inventory_scanned
+processed/iotsim-air-quality-1.csv,iotsim-air-quality-1,attack_support_candidate_pool|dev_future_attack_query_exact,2,raw/benign/iotsim-air-quality-1_0-0_to_OpenvSwitch-25_1-0.pcap,,3,2,Ingress Tool Transfer|TCP Scan|Telnet Brute Force,True
+processed/iotsim-building-monitor-1.csv,iotsim-building-monitor-1,dev_future_attack_query|dev_future_attack_query_exact,2,raw/benign/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap,,4,4,C&C Communication|File Download|Ingress Tool Transfer|Merlin C&C Communication|Merlin ICMP Flooding|Merlin TCP Flooding|Merlin UDP Flooding|Mirai C&C Communication|Mirai GRE Flooding|Mirai TCP Flooding|Mirai UDP Flooding|Reporting|TCP Scan|Telnet Brute Force,True
+processed/iotsim-building-monitor-2.csv,iotsim-building-monitor-2,ood_benign_val,1,raw/benign/iotsim-building-monitor-2_0-0_to_OpenvSwitch-28_2-0.pcap,ood_benign_val,0,0,,False
+processed/iotsim-building-monitor-3.csv,iotsim-building-monitor-3,ood_benign_val,1,raw/benign/iotsim-building-monitor-3_0-0_to_OpenvSwitch-28_3-0.pcap,ood_benign_val,0,0,,False
+processed/iotsim-building-monitor-4.csv,iotsim-building-monitor-4,,0,raw/benign/iotsim-building-monitor-4_0-0_to_OpenvSwitch-28_4-0.pcap,,0,0,,False
+processed/iotsim-building-monitor-5.csv,iotsim-building-monitor-5,,0,raw/benign/iotsim-building-monitor-5_0-0_to_OpenvSwitch-28_5-0.pcap,,0,0,,False
+processed/iotsim-city-power-1.csv,iotsim-city-power-1,attack_support_candidate_pool|attack_support_candidate_pool_targeted|dev_future_attack_query_exact|same_file_time_forward_dev_query_exact,4,raw/benign/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,,4,4,Ingress Tool Transfer|Merlin ICMP Flooding|Merlin TCP Flooding|Merlin UDP Flooding|Mirai GRE Flooding|Mirai TCP Flooding|Mirai UDP Flooding|TCP Scan|Telnet Brute Force,True
+processed/iotsim-combined-cycle-1.csv,iotsim-combined-cycle-1,dev_future_attack_query_exact,1,raw/benign/iotsim-combined-cycle-1_0-0_to_OpenvSwitch-13_1-0.pcap,,5,4,C&C Communication|CoAP Amplification|File Download|Ingress Tool Transfer|Merlin C&C Communication|Merlin ICMP Flooding|Merlin TCP Flooding|Merlin UDP Flooding|Mirai C&C Communication|Mirai GRE Flooding|Mirai TCP Flooding|Mirai UDP Flooding|Reporting|TCP Scan|Telnet Brute Force|UDP Scan,True
+processed/iotsim-combined-cycle-10.csv,iotsim-combined-cycle-10,attack_support_candidate_pool_targeted|dev_future_attack_query_exact|same_file_time_forward_dev_query_exact,3,raw/benign/iotsim-combined-cycle-10_0-0_to_OpenvSwitch-13_10-0.pcap,,4,2,C&C Communication|File Download|Ingress Tool Transfer|Reporting|TCP Scan|Telnet Brute Force,True
+processed/iotsim-combined-cycle-2.csv,iotsim-combined-cycle-2,,0,raw/benign/iotsim-combined-cycle-2_0-0_to_OpenvSwitch-13_2-0.pcap,,0,0,,False
+processed/iotsim-combined-cycle-3.csv,iotsim-combined-cycle-3,,0,raw/benign/iotsim-combined-cycle-3_0-0_to_OpenvSwitch-13_3-0.pcap,,0,0,,False
+processed/iotsim-combined-cycle-4.csv,iotsim-combined-cycle-4,,0,raw/benign/iotsim-combined-cycle-4_0-0_to_OpenvSwitch-13_4-0.pcap,,0,0,,False
+processed/iotsim-combined-cycle-5.csv,iotsim-combined-cycle-5,,0,raw/benign/iotsim-combined-cycle-5_0-0_to_OpenvSwitch-13_5-0.pcap,,0,0,,False
+processed/iotsim-combined-cycle-6.csv,iotsim-combined-cycle-6,,0,raw/benign/iotsim-combined-cycle-6_0-0_to_OpenvSwitch-13_6-0.pcap,,0,0,,False
+processed/iotsim-combined-cycle-7.csv,iotsim-combined-cycle-7,,0,raw/benign/iotsim-combined-cycle-7_0-0_to_OpenvSwitch-13_7-0.pcap,,0,0,,False
+processed/iotsim-combined-cycle-8.csv,iotsim-combined-cycle-8,,0,raw/benign/iotsim-combined-cycle-8_0-0_to_OpenvSwitch-13_8-0.pcap,,0,0,,False
+processed/iotsim-combined-cycle-9.csv,iotsim-combined-cycle-9,,0,raw/benign/iotsim-combined-cycle-9_0-0_to_OpenvSwitch-13_9-0.pcap,,0,0,,False
+processed/iotsim-combined-cycle-tls-1.csv,iotsim-combined-cycle-tls-1,,0,raw/benign/iotsim-combined-cycle-tls-1_0-0_to_OpenvSwitch-14_1-0.pcap,,0,0,,False
+processed/iotsim-combined-cycle-tls-2.csv,iotsim-combined-cycle-tls-2,,0,raw/benign/iotsim-combined-cycle-tls-2_0-0_to_OpenvSwitch-14_2-0.pcap,,0,0,,False
+processed/iotsim-combined-cycle-tls-3.csv,iotsim-combined-cycle-tls-3,id_benign_calib,1,raw/benign/iotsim-combined-cycle-tls-3_0-0_to_OpenvSwitch-14_3-0.pcap,id_benign_calib,0,0,,False
+processed/iotsim-combined-cycle-tls-4.csv,iotsim-combined-cycle-tls-4,id_benign_calib,1,raw/benign/iotsim-combined-cycle-tls-4_0-0_to_OpenvSwitch-14_4-0.pcap,id_benign_calib,0,0,,False
+processed/iotsim-combined-cycle-tls-5.csv,iotsim-combined-cycle-tls-5,id_benign_calib,1,raw/benign/iotsim-combined-cycle-tls-5_0-0_to_OpenvSwitch-14_5-0.pcap,id_benign_calib,0,0,,False
+processed/iotsim-cooler-motor-1.csv,iotsim-cooler-motor-1,id_benign_train,1,raw/benign/iotsim-cooler-motor-1_0-0_to_OpenvSwitch-18_1-0.pcap,,0,0,,False
+processed/iotsim-cooler-motor-10.csv,iotsim-cooler-motor-10,id_benign_train,1,raw/benign/iotsim-cooler-motor-10_0-0_to_OpenvSwitch-18_10-0.pcap,id_benign_train,0,0,,False
+processed/iotsim-cooler-motor-11.csv,iotsim-cooler-motor-11,id_benign_train,1,raw/benign/iotsim-cooler-motor-11_0-0_to_OpenvSwitch-20_1-0.pcap,id_benign_train,0,0,,False
+processed/iotsim-cooler-motor-12.csv,iotsim-cooler-motor-12,,0,raw/benign/iotsim-cooler-motor-12_0-0_to_OpenvSwitch-20_2-0.pcap,,0,0,,False
+processed/iotsim-cooler-motor-13.csv,iotsim-cooler-motor-13,id_benign_train,1,raw/benign/iotsim-cooler-motor-13_0-0_to_OpenvSwitch-20_3-0.pcap,id_benign_train,0,0,,False
+processed/iotsim-cooler-motor-14.csv,iotsim-cooler-motor-14,id_benign_train,1,raw/benign/iotsim-cooler-motor-14_0-0_to_OpenvSwitch-20_4-0.pcap,id_benign_train,0,0,,False
+processed/iotsim-cooler-motor-15.csv,iotsim-cooler-motor-15,,0,raw/benign/iotsim-cooler-motor-15_0-0_to_OpenvSwitch-20_5-0.pcap,,0,0,,False
+processed/iotsim-cooler-motor-2.csv,iotsim-cooler-motor-2,,0,raw/benign/iotsim-cooler-motor-2_0-0_to_OpenvSwitch-18_2-0.pcap,,0,0,,False
+processed/iotsim-cooler-motor-3.csv,iotsim-cooler-motor-3,id_benign_train,1,raw/benign/iotsim-cooler-motor-3_0-0_to_OpenvSwitch-18_3-0.pcap,id_benign_train,0,0,,False
+processed/iotsim-cooler-motor-4.csv,iotsim-cooler-motor-4,id_benign_train,1,raw/benign/iotsim-cooler-motor-4_0-0_to_OpenvSwitch-18_4-0.pcap,id_benign_train,0,0,,False
+processed/iotsim-cooler-motor-5.csv,iotsim-cooler-motor-5,id_benign_calib,1,raw/benign/iotsim-cooler-motor-5_0-0_to_OpenvSwitch-18_5-0.pcap,id_benign_calib,0,0,,False
+processed/iotsim-cooler-motor-6.csv,iotsim-cooler-motor-6,id_benign_calib,1,raw/benign/iotsim-cooler-motor-6_0-0_to_OpenvSwitch-18_6-0.pcap,id_benign_calib,0,0,,False
+processed/iotsim-cooler-motor-7.csv,iotsim-cooler-motor-7,id_benign_calib,1,raw/benign/iotsim-cooler-motor-7_0-0_to_OpenvSwitch-18_7-0.pcap,id_benign_calib,0,0,,False
+processed/iotsim-cooler-motor-8.csv,iotsim-cooler-motor-8,id_benign_calib,1,raw/benign/iotsim-cooler-motor-8_0-0_to_OpenvSwitch-18_8-0.pcap,id_benign_calib,0,0,,False
+processed/iotsim-cooler-motor-9.csv,iotsim-cooler-motor-9,id_benign_calib,1,raw/benign/iotsim-cooler-motor-9_0-0_to_OpenvSwitch-18_9-0.pcap,id_benign_calib,0,0,,False
+processed/iotsim-domotic-monitor-1.csv,iotsim-domotic-monitor-1,dev_future_attack_query|dev_future_attack_query_exact,2,raw/benign/iotsim-domotic-monitor-1_0-0_to_OpenvSwitch-23_1-0.pcap,,4,4,C&C Communication|File Download|Ingress Tool Transfer|Merlin ICMP Flooding|Merlin TCP Flooding|Merlin UDP Flooding|Mirai GRE Flooding|Mirai TCP Flooding|Mirai UDP Flooding|Reporting|TCP Scan|Telnet Brute Force,True
+processed/iotsim-domotic-monitor-2.csv,iotsim-domotic-monitor-2,,0,raw/benign/iotsim-domotic-monitor-2_0-0_to_OpenvSwitch-23_2-0.pcap,,0,0,,False
+processed/iotsim-domotic-monitor-3.csv,iotsim-domotic-monitor-3,,0,raw/benign/iotsim-domotic-monitor-3_0-0_to_OpenvSwitch-23_3-0.pcap,,0,0,,False
+processed/iotsim-domotic-monitor-4.csv,iotsim-domotic-monitor-4,,0,raw/benign/iotsim-domotic-monitor-4_0-0_to_OpenvSwitch-23_4-0.pcap,,0,0,,False
+processed/iotsim-domotic-monitor-5.csv,iotsim-domotic-monitor-5,,0,raw/benign/iotsim-domotic-monitor-5_0-0_to_OpenvSwitch-23_5-0.pcap,,0,0,,False
+processed/iotsim-hydraulic-system-1.csv,iotsim-hydraulic-system-1,ood_benign_val,1,raw/benign/iotsim-hydraulic-system-1_0-0_to_OpenvSwitch-15_1-0.pcap,,0,0,,False
+processed/iotsim-hydraulic-system-10.csv,iotsim-hydraulic-system-10,ood_benign_val,1,raw/benign/iotsim-hydraulic-system-10_0-0_to_OpenvSwitch-15_10-0.pcap,ood_benign_val,0,0,,False
+processed/iotsim-hydraulic-system-11.csv,iotsim-hydraulic-system-11,ood_benign_val,1,raw/benign/iotsim-hydraulic-system-11_0-0_to_OpenvSwitch-16_1-0.pcap,ood_benign_val,0,0,,False
+processed/iotsim-hydraulic-system-12.csv,iotsim-hydraulic-system-12,ood_benign_val,1,raw/benign/iotsim-hydraulic-system-12_0-0_to_OpenvSwitch-16_2-0.pcap,ood_benign_val,0,0,,False
+processed/iotsim-hydraulic-system-13.csv,iotsim-hydraulic-system-13,ood_benign_val,1,raw/benign/iotsim-hydraulic-system-13_0-0_to_OpenvSwitch-16_3-0.pcap,ood_benign_val,0,0,,False
+processed/iotsim-hydraulic-system-14.csv,iotsim-hydraulic-system-14,ood_benign_val,1,raw/benign/iotsim-hydraulic-system-14_0-0_to_OpenvSwitch-16_4-0.pcap,ood_benign_val,0,0,,False
+processed/iotsim-hydraulic-system-15.csv,iotsim-hydraulic-system-15,ood_benign_val,1,raw/benign/iotsim-hydraulic-system-15_0-0_to_OpenvSwitch-16_5-0.pcap,ood_benign_val,0,0,,False
+processed/iotsim-hydraulic-system-2.csv,iotsim-hydraulic-system-2,ood_benign_val,1,raw/benign/iotsim-hydraulic-system-2_0-0_to_OpenvSwitch-15_2-0.pcap,ood_benign_val,0,0,,False
+processed/iotsim-hydraulic-system-3.csv,iotsim-hydraulic-system-3,,0,raw/benign/iotsim-hydraulic-system-3_0-0_to_OpenvSwitch-15_3-0.pcap,,0,0,,False
+processed/iotsim-hydraulic-system-4.csv,iotsim-hydraulic-system-4,,0,raw/benign/iotsim-hydraulic-system-4_0-0_to_OpenvSwitch-15_4-0.pcap,,0,0,,False
+processed/iotsim-hydraulic-system-5.csv,iotsim-hydraulic-system-5,,0,raw/benign/iotsim-hydraulic-system-5_0-0_to_OpenvSwitch-15_5-0.pcap,,0,0,,False
+processed/iotsim-hydraulic-system-6.csv,iotsim-hydraulic-system-6,,0,raw/benign/iotsim-hydraulic-system-6_0-0_to_OpenvSwitch-15_6-0.pcap,,0,0,,False
+processed/iotsim-hydraulic-system-7.csv,iotsim-hydraulic-system-7,,0,raw/benign/iotsim-hydraulic-system-7_0-0_to_OpenvSwitch-15_7-0.pcap,,0,0,,False
+processed/iotsim-hydraulic-system-8.csv,iotsim-hydraulic-system-8,,0,raw/benign/iotsim-hydraulic-system-8_0-0_to_OpenvSwitch-15_8-0.pcap,,0,0,,False
+processed/iotsim-hydraulic-system-9.csv,iotsim-hydraulic-system-9,,0,raw/benign/iotsim-hydraulic-system-9_0-0_to_OpenvSwitch-15_9-0.pcap,,0,0,,False
+processed/iotsim-ip-camera-museum-1.csv,iotsim-ip-camera-museum-1,attack_support_candidate_pool_targeted|dev_future_attack_query|dev_future_attack_query_exact|same_file_time_forward_dev_query_exact,4,raw/benign/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap,,4,4,Ingress Tool Transfer|Merlin C&C Communication|Merlin ICMP Flooding|Merlin TCP Flooding|Merlin UDP Flooding|Mirai C&C Communication|Mirai GRE Flooding|Mirai TCP Flooding|Mirai UDP Flooding|TCP Scan|Telnet Brute Force,True
+processed/iotsim-ip-camera-museum-2.csv,iotsim-ip-camera-museum-2,sealed_final_ood,1,raw/benign/iotsim-ip-camera-museum-2_0-0_to_OpenvSwitch-29_2-0.pcap,sealed_final_ood,0,0,,False
+processed/iotsim-ip-camera-street-1.csv,iotsim-ip-camera-street-1,sealed_final_attack|sealed_final_attack_exact_realign,2,raw/benign/iotsim-ip-camera-street-1_0-0_to_OpenvSwitch-24_1-0.pcap,,4,4,C&C Communication|File Download|Ingress Tool Transfer|Merlin ICMP Flooding|Merlin TCP Flooding|Merlin UDP Flooding|Mirai GRE Flooding|Mirai TCP Flooding|Mirai UDP Flooding|Reporting|TCP Scan|Telnet Brute Force,True
+processed/iotsim-ip-camera-street-2.csv,iotsim-ip-camera-street-2,sealed_final_ood,1,raw/benign/iotsim-ip-camera-street-2_0-0_to_OpenvSwitch-24_2-0.pcap,sealed_final_ood,0,0,,False
+processed/iotsim-predictive-maintenance-1.csv,iotsim-predictive-maintenance-1,,0,raw/benign/iotsim-predictive-maintenance-1_0-0_to_OpenvSwitch-19_1-0.pcap,,0,0,,False
+processed/iotsim-predictive-maintenance-10.csv,iotsim-predictive-maintenance-10,,0,raw/benign/iotsim-predictive-maintenance-10_0-0_to_OpenvSwitch-19_10-0.pcap,,0,0,,False
+processed/iotsim-predictive-maintenance-11.csv,iotsim-predictive-maintenance-11,,0,raw/benign/iotsim-predictive-maintenance-11_0-0_to_OpenvSwitch-21_1-0.pcap,,0,0,,False
+processed/iotsim-predictive-maintenance-12.csv,iotsim-predictive-maintenance-12,,0,raw/benign/iotsim-predictive-maintenance-12_0-0_to_OpenvSwitch-21_2-0.pcap,,0,0,,False
+processed/iotsim-predictive-maintenance-13.csv,iotsim-predictive-maintenance-13,,0,raw/benign/iotsim-predictive-maintenance-13_0-0_to_OpenvSwitch-21_3-0.pcap,,0,0,,False
+processed/iotsim-predictive-maintenance-14.csv,iotsim-predictive-maintenance-14,,0,raw/benign/iotsim-predictive-maintenance-14_0-0_to_OpenvSwitch-21_4-0.pcap,,0,0,,False
+processed/iotsim-predictive-maintenance-15.csv,iotsim-predictive-maintenance-15,,0,raw/benign/iotsim-predictive-maintenance-15_0-0_to_OpenvSwitch-21_5-0.pcap,,0,0,,False
+processed/iotsim-predictive-maintenance-2.csv,iotsim-predictive-maintenance-2,,0,raw/benign/iotsim-predictive-maintenance-2_0-0_to_OpenvSwitch-19_2-0.pcap,,0,0,,False
+processed/iotsim-predictive-maintenance-3.csv,iotsim-predictive-maintenance-3,,0,raw/benign/iotsim-predictive-maintenance-3_0-0_to_OpenvSwitch-19_3-0.pcap,,0,0,,False
+processed/iotsim-predictive-maintenance-4.csv,iotsim-predictive-maintenance-4,,0,raw/benign/iotsim-predictive-maintenance-4_0-0_to_OpenvSwitch-19_4-0.pcap,,0,0,,False
+processed/iotsim-predictive-maintenance-5.csv,iotsim-predictive-maintenance-5,,0,raw/benign/iotsim-predictive-maintenance-5_0-0_to_OpenvSwitch-19_5-0.pcap,,0,0,,False
+processed/iotsim-predictive-maintenance-6.csv,iotsim-predictive-maintenance-6,,0,raw/benign/iotsim-predictive-maintenance-6_0-0_to_OpenvSwitch-19_6-0.pcap,,0,0,,False
+processed/iotsim-predictive-maintenance-7.csv,iotsim-predictive-maintenance-7,,0,raw/benign/iotsim-predictive-maintenance-7_0-0_to_OpenvSwitch-19_7-0.pcap,,0,0,,False
+processed/iotsim-predictive-maintenance-8.csv,iotsim-predictive-maintenance-8,,0,raw/benign/iotsim-predictive-maintenance-8_0-0_to_OpenvSwitch-19_8-0.pcap,,0,0,,False
+processed/iotsim-predictive-maintenance-9.csv,iotsim-predictive-maintenance-9,,0,raw/benign/iotsim-predictive-maintenance-9_0-0_to_OpenvSwitch-19_9-0.pcap,,0,0,,False
+processed/iotsim-stream-consumer-1.csv,iotsim-stream-consumer-1,ood_benign_stress,1,raw/benign/iotsim-stream-consumer-1_0-0_to_OpenvSwitch-30_1-0.pcap,ood_benign_stress,0,0,,False
+processed/iotsim-stream-consumer-2.csv,iotsim-stream-consumer-2,ood_benign_stress,1,raw/benign/iotsim-stream-consumer-2_0-0_to_OpenvSwitch-30_2-0.pcap,ood_benign_stress,0,0,,False

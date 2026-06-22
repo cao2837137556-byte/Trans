@@ -49,8 +49,8 @@ Data and system contract repair before model replay.
 | Frontend | Kitsune / AfterImage / netStat 115D from raw PCAP | issue27ab and follow-up audits | frozen | 8D strict packet-header is engineering smoke only |
 | Benign/OOD 1M roles | usable under sealed role rules | issue27bz | active | ID train/calib, OOD val/stress, sealed final OOD remain role-restricted |
 | Attack support/query/final roles | certified complete-only attack subset frozen | issue27cb/issue27cc/issue27cd/issue27cg/issue27ch | active | 683,420 certified rows from 93 complete chunks; six partial combined-cycle-1 chunks deferred_not_deleted |
-| Support bank | clean 512-row bank frozen; E64/E128 extensions remain exploratory and are not deployment-authorized | issue27ca/issue27cb/issue27ce/issue27cf/issue27ci/issue27cj/issue27ck/issue27ckd/issue27cke | active but blocked | preserve the 512 bank and stop tuning against reused query/stress roles |
-| Model replay | paused for region/controller integration; separate frozen-medium HPC capability replay may run independently | issue27ck/issue27ckd/issue27cke | blocked for integration | build a fresh attack and benign-OOD temporal holdout before registry comparison |
+| Support bank | clean 512-row bank frozen; E64/E128 extensions remain exploratory and are not deployment-authorized | issue27ca/issue27cb/issue27ce/issue27cf/issue27ci/issue27cj/issue27ck/issue27ckd/issue27cke/issue27ckf | active but blocked | preserve the 512 bank; no more same-capture Gotham tuning |
+| Model replay | paused for region/controller integration; separate frozen-medium HPC capability replay may run independently | issue27ck/issue27ckd/issue27cke/issue27ckf | blocked for integration | acquire a new current-region attack plus benign-OOD environment before registry comparison |
 | Formal benchmark | not authorized | current governance | blocked | requires clean data contract and frozen system protocol |
 
 ### Active Issue Index
@@ -71,16 +71,17 @@ Data and system contract repair before model replay.
 | issue27ck | Non-learned evidence-space repair | S3 limited-go: 1 static active-strong Mirai UDP Flooding region; 9 labels remain non-strong | replaces universal raw-115D blocker with a limited static registry candidate | issue27ckd capacity audit before controller |
 | issue27ckd | Frozen-bank initial-region capacity audit | two medoids raise static qualification to Mirai GRE plus Mirai UDP, but read-only temporal/query evidence blocks registry freeze | proves one-medoid under-expression exists without blaming or rewriting the 512 bank | issue27cke bounded support adequacy and temporal-coverage audit |
 | issue27cke | Bounded source-time support extension audit | E64 yields only one net support-val correction, dramatically improves reused GRE query coverage, but raises GRE OOD-stress core+near intrusion to about 2.21 percent; E128 degrades consistency | exposes attack-coverage/OOD trade-off without freezing an extension | issue27ckf fresh two-sided temporal holdout feasibility |
+| issue27ckf | Fresh two-sided holdout feasibility | zero fresh pairs for the current ten regions; four malicious PCAPs are unmaterialized, but only CoAP has substantial matching labels and it is outside the registry | blocks existing-archive rematerialization as deployment evidence | issue27ckg new capture or second-environment acquisition design |
 
 ### Latest Compact Close-out
 
 ```text
-solved: issue27cke tested nested +64/+128 legal support extensions under frozen S3, geometry, gates, and role boundaries.
+solved: issue27ckf audited the complete local Gotham archive and current source-role lineage without feature or sealed-outcome access.
 changed_mainline: no
-active_blocker: E64 improves reused GRE attack coverage but creates an OOD-stress trade-off, while the relevant query/stress roles are no longer fresh certification evidence.
-frozen: original 512 support rows, certified roles, S3 transform/distance, activation gates, and issue27cke diagnostic evidence.
-superseded: more optimization against reused query/stress roles or declaring E64 deployable.
-next_action: issue27ckf_fresh_temporal_attack_and_benign_ood_holdout_feasibility.
+active_blocker: no fresh current-region malicious PCAP has a matched unused benign-OOD counterpart and compatible exact labels in the local archive.
+frozen: archive hash, role ledger, sealed-role prohibition, original 512 support, and source-freshness definitions.
+superseded: treating roughly 19.71 million same-capture residual rows as independent deployment validation.
+next_action: issue27ckg_new_gotham_capture_or_second_environment_acquisition_design.
 ```
 
 ### Current Rule For Future Issue Docs

@@ -43,9 +43,9 @@ Frozen parts:
 - Data contract cleanliness gates precede model replay.
 - The non-learned region evidence repair selected `S3_bounded_heavytail_family_balanced`.
 - Only the `Mirai UDP Flooding` region is qualified as `active_strong`; all other labels remain conflict-sensitive or ambiguous.
-- Current issue stage is fresh temporal attack plus benign-OOD holdout
-  construction before any registry freeze, not controller integration, model
-  ranking, or formal benchmarking.
+- Current issue stage is new-capture or second-environment acquisition design
+  before any registry freeze, not local Gotham rematerialization, controller
+  integration, model ranking, or formal benchmarking.
 
 Open parts:
 
@@ -80,55 +80,60 @@ Superseded parts:
 | Evidence-space repair | limited qualification: S3 selected; Mirai UDP Flooding is the only active-strong region | issue27ck | freeze a limited registry; all unqualified labels must route to unknown/review |
 | Frozen-bank multi-prototype audit | static capacity gain only: two medoids raise support/OOD qualification from one to two strong candidates, but query-time label/coverage stability blocks registry freeze | issue27ckd | diagnostic candidate only; do not connect the two-medoid registry to the controller |
 | Bounded support extension audit | E64 improves historical Mirai GRE attack coverage, but static support evidence is non-material and GRE OOD-stress core+near rises from 0 to about 2.21 percent | issue27cke | exploratory trade-off evidence only; original 512 remains unchanged and no extension is deployment-authorized |
+| Fresh two-sided holdout feasibility | local archive has 4 unmaterialized malicious PCAPs and 51 unused benign PCAPs, but zero fresh attack+benign pairs relevant to the current ten regions; one substantial CoAP pair is outside the registry | issue27ckf | do not submit an HPC materialization job from the existing archive for current-region certification |
 
 ### Active Blocker
 
-`No fresh two-sided temporal holdout remains for region certification`
+`No fresh current-region attack plus benign-OOD pair exists in the local Gotham archive`
 
-The bounded support audit clarified the blocker but did not produce a
-controller-ready registry:
+The complete local archive and current role lineage were audited:
 
-- E64 was selected by the preregistered support-val/OOD-val ranking, but it
-  retains the same two static strong candidates as the frozen512 two-medoid
-  baseline;
-- support-val improves by only one net correct row out of 127 and the paired
-  exact McNemar p-value is 1.0, so this is not material static evidence;
-- reused historical query diagnostics show a large Mirai GRE coverage gain,
-  but those query roles had already influenced protocol development and cannot
-  certify deployment;
-- reused OOD-stress shows the opposing risk: Mirai GRE direct core+near
-  intrusion increases from 0 to about 2.21 percent;
-- E128 materially reduces support-val label consistency and is not preferred;
-- four labels have only one eligible provenance source in the entire current
-  support candidate pool and cannot pass the unchanged two-source strong gate;
-- no support extension or candidate registry is frozen for deployment.
+- Gotham contains 78 processed CSVs, 78 benign PCAPs, and 32 malicious PCAPs;
+- 28 malicious PCAPs have already been feature-materialized in development or
+  sealed roles;
+- four malicious PCAPs were metadata-scanned but never feature-materialized;
+- only the unused CoAP-amplification PCAP has substantial scenario-matching
+  exact labels and a fresh matched benign PCAP, but CoAP is outside the current
+  ten-label initial region registry;
+- the unused Merlin and Mirai-DoS PCAPs have no matching Merlin/Mirai flooding
+  exact labels in their paired processed CSVs;
+- 51 benign PCAPs remain unused, but no relevant fresh malicious counterpart
+  exists for the current regions;
+- about 19.71 million current-label rows remain outside prior plans in already
+  used development captures; these are same-capture residuals, not independent
+  holdout evidence;
+- about 1.41 million additional residual rows belong to the sealed attack
+  source and remain forbidden for repair;
+- sealed outcome metrics were not opened and no feature materialization ran.
 
 ### Current Next Action
 
-Run `issue27ckf_fresh_temporal_attack_and_benign_ood_holdout_feasibility`:
+Run `issue27ckg_new_gotham_capture_or_second_environment_acquisition_design`:
 
-- inventory raw PCAP/CSV sources and time windows that have never participated
-  in support selection, region design, query diagnostics, OOD stress, or final
-  reporting;
-- require both attack-side temporal evidence and benign-OOD evidence from the
-  same declared evaluation era or environment;
-- if a legal untouched pair exists, materialize and hash it before running any
-  further region comparison;
-- if no untouched pair exists, stop tuning on Gotham and define a new
-  capture/environment acquisition requirement;
-- keep sealed final assets sealed and do not use them as a repair loop;
-- controller integration remains blocked until a candidate survives the fresh
-  two-sided holdout once.
+- prefer a new reproducible Gotham capture for Mirai GRE, UDP, and TCP plus
+  matched benign traffic from the same declared device/environment era;
+- require at least two independent sessions per target attack and at least two
+  matched benign sessions;
+- preserve raw PCAP, exact packet-level labels, timestamps, run IDs, seeds,
+  source manifests, and hashes;
+- freeze B0, the single repair candidate, Kitsune115 state strategy, S3,
+  prototypes, shells, gates, and the one-pass decision rule before opening
+  outcomes;
+- use packet metrics together with session/source-level bootstrap intervals;
+- consider a second public environment only after a separate semantic and
+  frontend-compatibility audit;
+- do not run additional support tuning or HPC extraction from same-capture
+  Gotham residual rows.
 
 ### Latest Compact Close-out
 
 ```text
-solved: issue27cke audited nested +64/+128 source-time-balanced support extensions without mutating the original 512 bank.
+solved: issue27ckf audited the complete local Gotham archive, current role manifests, unmaterialized malicious PCAPs, matched benign counterparts, and residual exact-label intervals.
 changed_mainline: no
-active_blocker: E64 trades improved historical GRE attack coverage for GRE OOD-stress intrusion, and no fresh two-sided temporal holdout remains to certify the trade-off.
-frozen: original 512 support rows and partitions, S3 evidence space, activation gates, query contamination status, and issue27cke diagnostic evidence.
-superseded: more tuning against the already inspected query/stress roles or treating E64 as a deployable bank.
-next_action: issue27ckf_fresh_temporal_attack_and_benign_ood_holdout_feasibility.
+active_blocker: no fresh current-region attack plus benign-OOD pair exists in the local Gotham archive.
+frozen: archive hash, source/role ledger, sealed-role prohibition, original 512 bank, and the distinction between source-fresh and same-capture residual evidence.
+superseded: treating unselected rows from an already used capture as fresh deployment validation or submitting them to HPC for current-region certification.
+next_action: issue27ckg_new_gotham_capture_or_second_environment_acquisition_design.
 ```
 
 ### Decision Log
@@ -146,6 +151,7 @@ next_action: issue27ckf_fresh_temporal_attack_and_benign_ood_holdout_feasibility
 | 2026-06-21 | Bounded heavy-tail plus family-balanced S3 repair qualified one Mirai UDP Flooding region; all other regions remain non-strong. | issue27ck | active limited registry; integrate conservatively with unknown/review fallback |
 | 2026-06-21 | Two train-only medoids on the unchanged 512 support rows improve static qualification to Mirai GRE plus Mirai UDP, but both expose temporal/query coverage caveats; controller integration is paused. | issue27ckd | diagnostic gain only; bounded support adequacy and temporal-coverage audit next |
 | 2026-06-22 | Nested +64/+128 support extension audit finds E64 improves historical GRE attack coverage but offers no material support-val gain and raises GRE OOD-stress intrusion to about 2.21 percent. | issue27cke | no registry freeze; construct a fresh attack and benign-OOD temporal holdout before further comparison |
+| 2026-06-22 | Complete Gotham archive audit finds no fresh two-sided pair relevant to the current ten regions; the only substantial unused pair is CoAP, outside the current registry. | issue27ckf | no existing-archive HPC job; design a new Gotham capture or semantically audited second environment |
 
 ---
 
