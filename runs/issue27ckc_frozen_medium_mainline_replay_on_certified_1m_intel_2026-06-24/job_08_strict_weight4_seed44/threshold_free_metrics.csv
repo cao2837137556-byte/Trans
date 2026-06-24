@@ -1,0 +1,4 @@
+job_index,job_label,weighting,seed,comparison,stage,positive_rows,negative_rows,temporal_attack_auc,temporal_attack_ap,parent_attack_auc,parent_attack_ap
+8,strict_weight4_seed44,strict_frozen_weight4,44,support_val_select_vs_ood_val_select,calibration_select,69,12205,0.9855072463768115,0.9711774388184757,0.9999762511206504,0.9967432014329913
+8,strict_weight4_seed44,strict_frozen_weight4,44,dev_query_union_vs_ood_stress,read_only,503824,229900,0.3512162663464396,0.6302527267880552,0.3536549917341351,0.6368491365478204
+8,strict_weight4_seed44,strict_frozen_weight4,44,sealed_attack_vs_sealed_ood,report_only,110104,154900,0.3842264648947199,0.3676979543581799,0.04203726342514974,0.27726694078065395

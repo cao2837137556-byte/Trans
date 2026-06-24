@@ -1,0 +1,4 @@
+job_index,job_label,weighting,seed,comparison,stage,positive_rows,negative_rows,temporal_attack_auc,temporal_attack_ap,parent_attack_auc,parent_attack_ap
+3,medium_ratio_seed44,medium_mass_ratio_recalibrated,44,support_val_select_vs_ood_val_select,calibration_select,69,12205,0.9563169050460432,0.8463967665833044,0.9998450385622428,0.9802886578430057
+3,medium_ratio_seed44,medium_mass_ratio_recalibrated,44,dev_query_union_vs_ood_stress,read_only,503824,229900,0.28403905388310513,0.6116842225046943,0.43029764094522627,0.7619388542612908
+3,medium_ratio_seed44,medium_mass_ratio_recalibrated,44,sealed_attack_vs_sealed_ood,report_only,110104,154900,0.4004175840652469,0.37326674267282545,0.40472706487327414,0.5920508972300781

@@ -1,0 +1,91 @@
+{
+  "issue": "issue27ckc_frozen_medium_mainline_replay_on_certified_1m_intel_2026-06-24",
+  "job_spec": {
+    "job_index": 6,
+    "weighting": "strict_frozen_weight4",
+    "seed": 42,
+    "label": "strict_weight4_seed42"
+  },
+  "smoke": false,
+  "support_weight": 4.0,
+  "fit_rows": {
+    "id_benign_train": 150650,
+    "derived_ood_fit": 11295,
+    "support_train": 385,
+    "support_val_fit": 58,
+    "support_val_select": 69
+  },
+  "attack_direction": {
+    "raw_id_mean": 0.0007169669475394363,
+    "raw_ood_mean": 0.001977528168900912,
+    "raw_support_mean": 0.8925194370382561,
+    "score_direction": 1.0
+  },
+  "parent_attack_threshold": 0.0035585964447935737,
+  "parent_params": {
+    "risk_threshold": 0.5,
+    "strong_margin_floor": 0.3461002561489497,
+    "weak_margin_ceiling": 0.9443108456668708,
+    "attack_outer_norm": 1.0
+  },
+  "temporal_params": {
+    "attack_threshold": 2.939835892077895e-05,
+    "strong_attack_threshold": 0.9998206696579218,
+    "risk_threshold": 0.9,
+    "d_attack_thr": 1.0
+  },
+  "frozen_config_sha256": "822731e8d987f75fcc034be788fdf95250950e83e24bb24effb6879c689ca3ac",
+  "threshold_free": [
+    {
+      "job_index": 6,
+      "job_label": "strict_weight4_seed42",
+      "weighting": "strict_frozen_weight4",
+      "seed": 42,
+      "comparison": "support_val_select_vs_ood_val_select",
+      "stage": "calibration_select",
+      "positive_rows": 69,
+      "negative_rows": 12205,
+      "temporal_attack_auc": 0.9710144927536232,
+      "temporal_attack_ap": 0.9423548776369514,
+      "parent_attack_auc": 0.9999679390128778,
+      "parent_attack_ap": 0.9959239130434783
+    },
+    {
+      "job_index": 6,
+      "job_label": "strict_weight4_seed42",
+      "weighting": "strict_frozen_weight4",
+      "seed": 42,
+      "comparison": "dev_query_union_vs_ood_stress",
+      "stage": "read_only",
+      "positive_rows": 503824,
+      "negative_rows": 229900,
+      "temporal_attack_auc": 0.46082870707655166,
+      "temporal_attack_ap": 0.6704686991716275,
+      "parent_attack_auc": 0.3487583178854644,
+      "parent_attack_ap": 0.6327145123415309
+    },
+    {
+      "job_index": 6,
+      "job_label": "strict_weight4_seed42",
+      "weighting": "strict_frozen_weight4",
+      "seed": 42,
+      "comparison": "sealed_attack_vs_sealed_ood",
+      "stage": "report_only",
+      "positive_rows": 110104,
+      "negative_rows": 154900,
+      "temporal_attack_auc": 0.35135042169415315,
+      "temporal_attack_ap": 0.3576501912187032,
+      "parent_attack_auc": 0.06374476089558523,
+      "parent_attack_ap": 0.3129840775230388
+    }
+  ],
+  "formal_benchmark": false,
+  "mixed_stream_simulated": false,
+  "online_deployment_closed_loop": false,
+  "dev_query_used_for_fit_or_selection": false,
+  "sealed_final_used_for_fit_or_selection": false,
+  "candidate_pool_reused": false,
+  "runtime_seconds": 47.410810708999634,
+  "python": "3.9.25 (main, Nov  3 2025, 22:33:05) \n[GCC 11.2.0]",
+  "platform": "Linux-5.14.0-611.55.1.el9_7.x86_64-x86_64-with-glibc2.34"
+}

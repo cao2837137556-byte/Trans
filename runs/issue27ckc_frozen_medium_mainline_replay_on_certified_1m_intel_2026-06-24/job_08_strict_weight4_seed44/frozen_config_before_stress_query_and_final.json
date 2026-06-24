@@ -1,0 +1,168 @@
+{
+  "issue": "issue27ckc_frozen_medium_mainline_replay_on_certified_1m_intel_2026-06-24",
+  "task": "frozen_medium_architecture_offline_role_separated_replay_not_mixed_stream_not_formal_benchmark",
+  "job_spec": {
+    "job_index": 8,
+    "weighting": "strict_frozen_weight4",
+    "seed": 44,
+    "label": "strict_weight4_seed44"
+  },
+  "smoke": false,
+  "frontend": "Kitsune115D fixed",
+  "architecture": [
+    "frozen_full115_attack_scorer",
+    "parent_ood_risk",
+    "past_only_temporal_attack_and_ood_heads",
+    "bounded_controller"
+  ],
+  "attack_scorer_config": {
+    "max_depth": 2,
+    "learning_rate": 0.05,
+    "l2_regularization": 0.1,
+    "ood_weight": 4.0,
+    "support_weight": 4.0,
+    "validation_target": 0.005,
+    "max_iter": 60
+  },
+  "effective_support_weight": 4.0,
+  "medium_weighted_normal_to_attack_ratio_reference": 16.40625,
+  "parent_attack_threshold": 0.0029946689883346175,
+  "parent_params": {
+    "risk_threshold": 0.5,
+    "strong_margin_floor": 0.3445449407127113,
+    "weak_margin_ceiling": 0.9510558538865534,
+    "attack_outer_norm": 1.0
+  },
+  "temporal_params": {
+    "attack_threshold": 2.939835892077895e-05,
+    "strong_attack_threshold": 0.9998206696579218,
+    "risk_threshold": 0.9,
+    "d_attack_thr": 1.0
+  },
+  "temporal_features": [
+    "attack_margin",
+    "ood_risk",
+    "d_attack_outer_min",
+    "d_benign_core_min",
+    "benign_minus_attack_distance",
+    "past_role_raw_alarm_rate_w8",
+    "past_role_raw_alarm_rate_w32",
+    "past_role_raw_alarm_rate_w128",
+    "past_source_raw_alarm_rate_w8",
+    "past_source_raw_alarm_rate_w32",
+    "past_source_raw_alarm_rate_w128",
+    "past_source_high_ood_risk_rate_w32",
+    "past_source_strong_attack_rate_w32",
+    "past_source_attack_margin_mean_w32",
+    "past_source_ood_risk_mean_w32",
+    "past_source_d_attack_outer_min_mean_w32",
+    "past_source_d_benign_core_min_mean_w32",
+    "past_source_raw_alarm_run_before"
+  ],
+  "bank_audit": [
+    {
+      "bank": "attack_HH",
+      "fit_rows": 385,
+      "core_radius": 6.012816905975342,
+      "outer_radius": 18.123844146728516
+    },
+    {
+      "bank": "attack_HH_HpHp",
+      "fit_rows": 385,
+      "core_radius": 8.430204391479492,
+      "outer_radius": 19.708932876586914
+    },
+    {
+      "bank": "benign_HH_jit",
+      "fit_rows": 161945,
+      "core_radius": 3.1283867359161377,
+      "outer_radius": ""
+    },
+    {
+      "bank": "benign_MI_H_HHjit",
+      "fit_rows": 161945,
+      "core_radius": 11.697555541992188,
+      "outer_radius": ""
+    },
+    {
+      "bank": "benign_all115",
+      "fit_rows": 161945,
+      "core_radius": 32.95212936401367,
+      "outer_radius": ""
+    }
+  ],
+  "parent_fit_audit": [
+    {
+      "role": "id_calib",
+      "risk_label": 1,
+      "fit_rows_used": 3348,
+      "row_source": "fit_raw_alarm_rows"
+    },
+    {
+      "role": "ood_val",
+      "risk_label": 1,
+      "fit_rows_used": 1025,
+      "row_source": "fit_raw_alarm_rows"
+    },
+    {
+      "role": "support_val",
+      "risk_label": 0,
+      "fit_rows_used": 58,
+      "row_source": "fit_raw_alarm_rows"
+    }
+  ],
+  "temporal_fit_audit": [
+    {
+      "role": "id_calib",
+      "fit_rows": 28103,
+      "attack_label": 0,
+      "ood_risk_label": 1
+    },
+    {
+      "role": "ood_val",
+      "fit_rows": 11295,
+      "attack_label": 0,
+      "ood_risk_label": 1
+    },
+    {
+      "role": "support_val",
+      "fit_rows": 58,
+      "attack_label": 1,
+      "ood_risk_label": 0
+    }
+  ],
+  "fit_roles": [
+    "id_benign_train",
+    "derived_source_disjoint_ood_benign_val_fit",
+    "support_train_385",
+    "derived_fit_halves_of_id_calib_ood_val_support_val_for_parent_and_temporal_heads"
+  ],
+  "selection_roles": [
+    "derived_select_halves_of_id_calib_ood_val_support_val"
+  ],
+  "read_only_after_freeze": [
+    "ood_benign_stress",
+    "same_file_time_forward_dev_query_exact",
+    "dev_future_attack_query_exact"
+  ],
+  "report_only_after_freeze": [
+    "sealed_final_ood",
+    "sealed_final_attack_exact_realign"
+  ],
+  "input_audit": {
+    "cert_x_shape": [
+      1000000,
+      115
+    ],
+    "attack_root": "/public/home/jiangxinwei.zr/work/paper04/datasets/gotham2025/derived/kitsune115_exact_label_targeted_attack_v1",
+    "support_rows": 512,
+    "certified_complete_chunks": 93,
+    "input_hashes": {
+      "feature_schema": "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+      "support_sidecar": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da",
+      "certified_chunk_manifest": "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+      "certified_subset_contract": "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf",
+      "medium_selection": "68e9c2a1aef4ebde4095f873764247b12401e1c997802d89c3c794b9965e4f4a"
+    }
+  }
+}

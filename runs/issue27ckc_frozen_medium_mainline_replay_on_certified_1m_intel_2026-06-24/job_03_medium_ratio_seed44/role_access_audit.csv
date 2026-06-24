@@ -1,0 +1,6 @@
+stage,roles,stress_or_query_accessed,sealed_accessed
+attack_scorer_fit,id_benign_train|derived_ood_benign_val_fit|support_train,False,False
+parent_and_temporal_head_fit,fit_halves_of_id_calib|ood_val|support_val,False,False
+configuration_freeze,select_halves_of_id_calib|ood_val|support_val,False,False
+read_only_replay,ood_stress|same_file_query|future_query,True,False
+report_only_replay,sealed_final_ood|sealed_final_attack,False,True
