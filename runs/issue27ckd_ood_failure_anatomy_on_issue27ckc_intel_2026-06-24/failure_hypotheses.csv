@@ -1,0 +1,7 @@
+weighting,finding,evidence,status
+medium_mass_ratio_recalibrated,ood_calibration_does_not_transfer,ood_val temporal=0.0002; ood_stress temporal=0.9973; sealed_final_ood temporal=0.9975,supported
+medium_mass_ratio_recalibrated,hard_ood_not_suppressed_by_ood_risk,"ood_stress attack_score=0.9971, risk=0.0029; sealed_final_ood attack_score=0.9973, risk=0.0027",supported
+medium_mass_ratio_recalibrated,attack_detection_is_support_coverage_dominated,future seen temporal=0.8376; future unseen temporal=0.2480,supported
+strict_frozen_weight4,ood_calibration_does_not_transfer,ood_val temporal=0.0000; ood_stress temporal=0.9248; sealed_final_ood temporal=0.9968,supported
+strict_frozen_weight4,hard_ood_not_suppressed_by_ood_risk,"ood_stress attack_score=0.9246, risk=0.0754; sealed_final_ood attack_score=0.9966, risk=0.0034",supported
+strict_frozen_weight4,attack_detection_is_support_coverage_dominated,future seen temporal=0.8146; future unseen temporal=0.2104,supported
