@@ -1,0 +1,108 @@
+{
+  "candidate_specs": [
+    {
+      "description": "issue27cki C4-cap20000 reproduction.",
+      "name": "baseline_cap20000",
+      "sampler": "baseline",
+      "weight_mode": "class_balanced"
+    },
+    {
+      "description": "Equalize legal fit sampling across source_group inside each benign/OOD role.",
+      "name": "source_balanced",
+      "sampler": "source_group",
+      "weight_mode": "class_balanced"
+    },
+    {
+      "description": "Equalize legal fit sampling across device_family x time_block inside each benign/OOD role.",
+      "name": "device_time_balanced",
+      "sampler": "device_family_time_block",
+      "weight_mode": "class_balanced"
+    },
+    {
+      "description": "Source-balanced sampling plus inverse source-group sample weighting.",
+      "name": "source_balanced_group_weighted",
+      "sampler": "source_group",
+      "weight_mode": "class_and_group_balanced"
+    },
+    {
+      "description": "Source-balanced legal fit view plus hard benign fit-tail mining; no select/report rows.",
+      "name": "fit_tail_source_balanced",
+      "sampler": "source_group_plus_fit_tail",
+      "weight_mode": "class_and_group_balanced"
+    }
+  ],
+  "eval_cap": "full",
+  "fit_roles_only": [
+    "support_train",
+    "id_calib fit",
+    "ood_val fit",
+    "ood_stress fit"
+  ],
+  "input_audit": {
+    "attack_root": "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\issue27cd_exact_label_attack_slurm_20260614\\pullback_results\\extracted_20260616_1521\\datasets\\gotham2025\\derived\\kitsune115_exact_label_targeted_attack_v1",
+    "cert_x_shape": [
+      1000000,
+      115
+    ],
+    "certified_complete_chunks": 93,
+    "input_hashes": {
+      "certified_chunk_manifest": "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+      "certified_subset_contract": "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf",
+      "feature_schema": "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+      "medium_selection": "68e9c2a1aef4ebde4095f873764247b12401e1c997802d89c3c794b9965e4f4a",
+      "support_sidecar": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da"
+    },
+    "support_rows": 512
+  },
+  "issue": "issue27ckk_group_balanced_worst_group_c4_2026-06-25",
+  "leave_groups_from_issue27ckj": {
+    "attack_label": [
+      "TCP Scan",
+      "UDP Scan",
+      "Merlin C&C Communication",
+      "Mirai C&C Communication"
+    ],
+    "device_family": [
+      "iotsim-ip-camera-street",
+      "iotsim-ip-camera-museum",
+      "iotsim-stream-consumer",
+      "iotsim-hydraulic-system"
+    ],
+    "source_group": [
+      "processed/iotsim-ip-camera-street-2.csv",
+      "processed/iotsim-ip-camera-museum-2.csv",
+      "processed/iotsim-stream-consumer-2.csv",
+      "processed/iotsim-hydraulic-system-12.csv"
+    ]
+  },
+  "leaveout_candidate_specs": [
+    "baseline_cap20000",
+    "fit_tail_source_balanced",
+    "source_balanced_group_weighted"
+  ],
+  "leaveout_only": true,
+  "outputs": [
+    "candidate_matrix.csv",
+    "role_inventory.csv",
+    "train_audit.csv",
+    "role_metrics_by_candidate_seed.csv",
+    "aggregate_variant_metrics.csv",
+    "candidate_summary_matrix.csv",
+    "review_anatomy_by_group_seed42.csv",
+    "leave_out_stress_metrics.csv",
+    "diagnostic_interpretation.md",
+    "codex_readout.md"
+  ],
+  "scope": "legal-fit group-balanced and worst-group C4 repair",
+  "sealed_final_roles_used_for_training": false,
+  "seconds": 408.2961473464966,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "smoke": false,
+  "train_cap": 20000
+}

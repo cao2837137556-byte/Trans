@@ -1,0 +1,245 @@
+candidate,variant,sampler,weight_mode,seed,role,phase,label,rows,unique_source_groups,unique_device_families,split,held_field,held_value
+C4_baseline_cap20000_seed42,baseline_cap20000,baseline,class_balanced,42,support_train,fit,3,385,3,3,main,,
+C4_baseline_cap20000_seed42,baseline_cap20000,baseline,class_balanced,42,id_calib,fit,0,20000,4,2,main,,
+C4_baseline_cap20000_seed42,baseline_cap20000,baseline,class_balanced,42,ood_val,fit,1,11295,5,2,main,,
+C4_baseline_cap20000_seed42,baseline_cap20000,baseline,class_balanced,42,ood_stress,fit,2,20000,1,1,main,,
+C4_source_balanced_seed42,source_balanced,source_group,class_balanced,42,support_train,fit,3,385,3,3,main,,
+C4_source_balanced_seed42,source_balanced,source_group,class_balanced,42,id_calib,fit,0,20000,4,2,main,,
+C4_source_balanced_seed42,source_balanced,source_group,class_balanced,42,ood_val,fit,1,11295,5,2,main,,
+C4_source_balanced_seed42,source_balanced,source_group,class_balanced,42,ood_stress,fit,2,20000,1,1,main,,
+C4_device_time_balanced_seed42,device_time_balanced,device_family_time_block,class_balanced,42,support_train,fit,3,385,3,3,main,,
+C4_device_time_balanced_seed42,device_time_balanced,device_family_time_block,class_balanced,42,id_calib,fit,0,20000,4,2,main,,
+C4_device_time_balanced_seed42,device_time_balanced,device_family_time_block,class_balanced,42,ood_val,fit,1,11295,5,2,main,,
+C4_device_time_balanced_seed42,device_time_balanced,device_family_time_block,class_balanced,42,ood_stress,fit,2,20000,1,1,main,,
+C4_source_balanced_group_weighted_seed42,source_balanced_group_weighted,source_group,class_and_group_balanced,42,support_train,fit,3,385,3,3,main,,
+C4_source_balanced_group_weighted_seed42,source_balanced_group_weighted,source_group,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,main,,
+C4_source_balanced_group_weighted_seed42,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,main,,
+C4_source_balanced_group_weighted_seed42,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,main,,
+C4_fit_tail_source_balanced_seed42,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,support_train,fit,3,385,3,3,main,,
+C4_fit_tail_source_balanced_seed42,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,main,,
+C4_fit_tail_source_balanced_seed42,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,main,,
+C4_fit_tail_source_balanced_seed42,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,main,,
+C4_baseline_cap20000_seed43,baseline_cap20000,baseline,class_balanced,43,support_train,fit,3,385,3,3,main,,
+C4_baseline_cap20000_seed43,baseline_cap20000,baseline,class_balanced,43,id_calib,fit,0,20000,4,2,main,,
+C4_baseline_cap20000_seed43,baseline_cap20000,baseline,class_balanced,43,ood_val,fit,1,11295,5,2,main,,
+C4_baseline_cap20000_seed43,baseline_cap20000,baseline,class_balanced,43,ood_stress,fit,2,20000,1,1,main,,
+C4_source_balanced_seed43,source_balanced,source_group,class_balanced,43,support_train,fit,3,385,3,3,main,,
+C4_source_balanced_seed43,source_balanced,source_group,class_balanced,43,id_calib,fit,0,20000,4,2,main,,
+C4_source_balanced_seed43,source_balanced,source_group,class_balanced,43,ood_val,fit,1,11295,5,2,main,,
+C4_source_balanced_seed43,source_balanced,source_group,class_balanced,43,ood_stress,fit,2,20000,1,1,main,,
+C4_device_time_balanced_seed43,device_time_balanced,device_family_time_block,class_balanced,43,support_train,fit,3,385,3,3,main,,
+C4_device_time_balanced_seed43,device_time_balanced,device_family_time_block,class_balanced,43,id_calib,fit,0,20000,4,2,main,,
+C4_device_time_balanced_seed43,device_time_balanced,device_family_time_block,class_balanced,43,ood_val,fit,1,11295,5,2,main,,
+C4_device_time_balanced_seed43,device_time_balanced,device_family_time_block,class_balanced,43,ood_stress,fit,2,20000,1,1,main,,
+C4_source_balanced_group_weighted_seed43,source_balanced_group_weighted,source_group,class_and_group_balanced,43,support_train,fit,3,385,3,3,main,,
+C4_source_balanced_group_weighted_seed43,source_balanced_group_weighted,source_group,class_and_group_balanced,43,id_calib,fit,0,20000,4,2,main,,
+C4_source_balanced_group_weighted_seed43,source_balanced_group_weighted,source_group,class_and_group_balanced,43,ood_val,fit,1,11295,5,2,main,,
+C4_source_balanced_group_weighted_seed43,source_balanced_group_weighted,source_group,class_and_group_balanced,43,ood_stress,fit,2,20000,1,1,main,,
+C4_fit_tail_source_balanced_seed43,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,43,support_train,fit,3,385,3,3,main,,
+C4_fit_tail_source_balanced_seed43,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,43,id_calib,fit,0,20000,4,2,main,,
+C4_fit_tail_source_balanced_seed43,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,43,ood_val,fit,1,11295,5,2,main,,
+C4_fit_tail_source_balanced_seed43,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,43,ood_stress,fit,2,20000,1,1,main,,
+C4_baseline_cap20000_seed44,baseline_cap20000,baseline,class_balanced,44,support_train,fit,3,385,3,3,main,,
+C4_baseline_cap20000_seed44,baseline_cap20000,baseline,class_balanced,44,id_calib,fit,0,20000,4,2,main,,
+C4_baseline_cap20000_seed44,baseline_cap20000,baseline,class_balanced,44,ood_val,fit,1,11295,5,2,main,,
+C4_baseline_cap20000_seed44,baseline_cap20000,baseline,class_balanced,44,ood_stress,fit,2,20000,1,1,main,,
+C4_source_balanced_seed44,source_balanced,source_group,class_balanced,44,support_train,fit,3,385,3,3,main,,
+C4_source_balanced_seed44,source_balanced,source_group,class_balanced,44,id_calib,fit,0,20000,4,2,main,,
+C4_source_balanced_seed44,source_balanced,source_group,class_balanced,44,ood_val,fit,1,11295,5,2,main,,
+C4_source_balanced_seed44,source_balanced,source_group,class_balanced,44,ood_stress,fit,2,20000,1,1,main,,
+C4_device_time_balanced_seed44,device_time_balanced,device_family_time_block,class_balanced,44,support_train,fit,3,385,3,3,main,,
+C4_device_time_balanced_seed44,device_time_balanced,device_family_time_block,class_balanced,44,id_calib,fit,0,20000,4,2,main,,
+C4_device_time_balanced_seed44,device_time_balanced,device_family_time_block,class_balanced,44,ood_val,fit,1,11295,5,2,main,,
+C4_device_time_balanced_seed44,device_time_balanced,device_family_time_block,class_balanced,44,ood_stress,fit,2,20000,1,1,main,,
+C4_source_balanced_group_weighted_seed44,source_balanced_group_weighted,source_group,class_and_group_balanced,44,support_train,fit,3,385,3,3,main,,
+C4_source_balanced_group_weighted_seed44,source_balanced_group_weighted,source_group,class_and_group_balanced,44,id_calib,fit,0,20000,4,2,main,,
+C4_source_balanced_group_weighted_seed44,source_balanced_group_weighted,source_group,class_and_group_balanced,44,ood_val,fit,1,11295,5,2,main,,
+C4_source_balanced_group_weighted_seed44,source_balanced_group_weighted,source_group,class_and_group_balanced,44,ood_stress,fit,2,20000,1,1,main,,
+C4_fit_tail_source_balanced_seed44,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,44,support_train,fit,3,385,3,3,main,,
+C4_fit_tail_source_balanced_seed44,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,44,id_calib,fit,0,20000,4,2,main,,
+C4_fit_tail_source_balanced_seed44,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,44,ood_val,fit,1,11295,5,2,main,,
+C4_fit_tail_source_balanced_seed44,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,44,ood_stress,fit,2,20000,1,1,main,,
+C4_baseline_cap20000_seed45,baseline_cap20000,baseline,class_balanced,45,support_train,fit,3,385,3,3,main,,
+C4_baseline_cap20000_seed45,baseline_cap20000,baseline,class_balanced,45,id_calib,fit,0,20000,4,2,main,,
+C4_baseline_cap20000_seed45,baseline_cap20000,baseline,class_balanced,45,ood_val,fit,1,11295,5,2,main,,
+C4_baseline_cap20000_seed45,baseline_cap20000,baseline,class_balanced,45,ood_stress,fit,2,20000,1,1,main,,
+C4_source_balanced_seed45,source_balanced,source_group,class_balanced,45,support_train,fit,3,385,3,3,main,,
+C4_source_balanced_seed45,source_balanced,source_group,class_balanced,45,id_calib,fit,0,20000,4,2,main,,
+C4_source_balanced_seed45,source_balanced,source_group,class_balanced,45,ood_val,fit,1,11295,5,2,main,,
+C4_source_balanced_seed45,source_balanced,source_group,class_balanced,45,ood_stress,fit,2,20000,1,1,main,,
+C4_device_time_balanced_seed45,device_time_balanced,device_family_time_block,class_balanced,45,support_train,fit,3,385,3,3,main,,
+C4_device_time_balanced_seed45,device_time_balanced,device_family_time_block,class_balanced,45,id_calib,fit,0,20000,4,2,main,,
+C4_device_time_balanced_seed45,device_time_balanced,device_family_time_block,class_balanced,45,ood_val,fit,1,11295,5,2,main,,
+C4_device_time_balanced_seed45,device_time_balanced,device_family_time_block,class_balanced,45,ood_stress,fit,2,20000,1,1,main,,
+C4_source_balanced_group_weighted_seed45,source_balanced_group_weighted,source_group,class_and_group_balanced,45,support_train,fit,3,385,3,3,main,,
+C4_source_balanced_group_weighted_seed45,source_balanced_group_weighted,source_group,class_and_group_balanced,45,id_calib,fit,0,20000,4,2,main,,
+C4_source_balanced_group_weighted_seed45,source_balanced_group_weighted,source_group,class_and_group_balanced,45,ood_val,fit,1,11295,5,2,main,,
+C4_source_balanced_group_weighted_seed45,source_balanced_group_weighted,source_group,class_and_group_balanced,45,ood_stress,fit,2,20000,1,1,main,,
+C4_fit_tail_source_balanced_seed45,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,45,support_train,fit,3,385,3,3,main,,
+C4_fit_tail_source_balanced_seed45,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,45,id_calib,fit,0,20000,4,2,main,,
+C4_fit_tail_source_balanced_seed45,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,45,ood_val,fit,1,11295,5,2,main,,
+C4_fit_tail_source_balanced_seed45,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,45,ood_stress,fit,2,20000,1,1,main,,
+C4_baseline_cap20000_seed46,baseline_cap20000,baseline,class_balanced,46,support_train,fit,3,385,3,3,main,,
+C4_baseline_cap20000_seed46,baseline_cap20000,baseline,class_balanced,46,id_calib,fit,0,20000,4,2,main,,
+C4_baseline_cap20000_seed46,baseline_cap20000,baseline,class_balanced,46,ood_val,fit,1,11295,5,2,main,,
+C4_baseline_cap20000_seed46,baseline_cap20000,baseline,class_balanced,46,ood_stress,fit,2,20000,1,1,main,,
+C4_source_balanced_seed46,source_balanced,source_group,class_balanced,46,support_train,fit,3,385,3,3,main,,
+C4_source_balanced_seed46,source_balanced,source_group,class_balanced,46,id_calib,fit,0,20000,4,2,main,,
+C4_source_balanced_seed46,source_balanced,source_group,class_balanced,46,ood_val,fit,1,11295,5,2,main,,
+C4_source_balanced_seed46,source_balanced,source_group,class_balanced,46,ood_stress,fit,2,20000,1,1,main,,
+C4_device_time_balanced_seed46,device_time_balanced,device_family_time_block,class_balanced,46,support_train,fit,3,385,3,3,main,,
+C4_device_time_balanced_seed46,device_time_balanced,device_family_time_block,class_balanced,46,id_calib,fit,0,20000,4,2,main,,
+C4_device_time_balanced_seed46,device_time_balanced,device_family_time_block,class_balanced,46,ood_val,fit,1,11295,5,2,main,,
+C4_device_time_balanced_seed46,device_time_balanced,device_family_time_block,class_balanced,46,ood_stress,fit,2,20000,1,1,main,,
+C4_source_balanced_group_weighted_seed46,source_balanced_group_weighted,source_group,class_and_group_balanced,46,support_train,fit,3,385,3,3,main,,
+C4_source_balanced_group_weighted_seed46,source_balanced_group_weighted,source_group,class_and_group_balanced,46,id_calib,fit,0,20000,4,2,main,,
+C4_source_balanced_group_weighted_seed46,source_balanced_group_weighted,source_group,class_and_group_balanced,46,ood_val,fit,1,11295,5,2,main,,
+C4_source_balanced_group_weighted_seed46,source_balanced_group_weighted,source_group,class_and_group_balanced,46,ood_stress,fit,2,20000,1,1,main,,
+C4_fit_tail_source_balanced_seed46,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,46,support_train,fit,3,385,3,3,main,,
+C4_fit_tail_source_balanced_seed46,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,46,id_calib,fit,0,20000,4,2,main,,
+C4_fit_tail_source_balanced_seed46,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,46,ood_val,fit,1,11295,5,2,main,,
+C4_fit_tail_source_balanced_seed46,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,46,ood_stress,fit,2,20000,1,1,main,,
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,support_train,fit,3,385,3,3,leave_source_group,source_group,processed/iotsim-ip-camera-street-2.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,id_calib,fit,0,20000,4,2,leave_source_group,source_group,processed/iotsim-ip-camera-street-2.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_val,fit,1,11295,5,2,leave_source_group,source_group,processed/iotsim-ip-camera-street-2.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_stress,fit,2,20000,1,1,leave_source_group,source_group,processed/iotsim-ip-camera-street-2.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,support_train,fit,3,385,3,3,leave_source_group,source_group,processed/iotsim-ip-camera-museum-2.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,id_calib,fit,0,20000,4,2,leave_source_group,source_group,processed/iotsim-ip-camera-museum-2.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_val,fit,1,11295,5,2,leave_source_group,source_group,processed/iotsim-ip-camera-museum-2.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_stress,fit,2,20000,1,1,leave_source_group,source_group,processed/iotsim-ip-camera-museum-2.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,support_train,fit,3,385,3,3,leave_source_group,source_group,processed/iotsim-stream-consumer-2.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,id_calib,fit,0,20000,4,2,leave_source_group,source_group,processed/iotsim-stream-consumer-2.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_val,fit,1,11295,5,2,leave_source_group,source_group,processed/iotsim-stream-consumer-2.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_stress,fit,2,20000,1,1,leave_source_group,source_group,processed/iotsim-stream-consumer-2.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,support_train,fit,3,385,3,3,leave_source_group,source_group,processed/iotsim-hydraulic-system-12.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,id_calib,fit,0,20000,4,2,leave_source_group,source_group,processed/iotsim-hydraulic-system-12.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_val,fit,1,11295,5,2,leave_source_group,source_group,processed/iotsim-hydraulic-system-12.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_stress,fit,2,20000,1,1,leave_source_group,source_group,processed/iotsim-hydraulic-system-12.csv
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,support_train,fit,3,385,3,3,leave_device_family,device_family,iotsim-ip-camera-street
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,id_calib,fit,0,20000,4,2,leave_device_family,device_family,iotsim-ip-camera-street
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_val,fit,1,11295,5,2,leave_device_family,device_family,iotsim-ip-camera-street
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_stress,fit,2,20000,1,1,leave_device_family,device_family,iotsim-ip-camera-street
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,support_train,fit,3,385,3,3,leave_device_family,device_family,iotsim-ip-camera-museum
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,id_calib,fit,0,20000,4,2,leave_device_family,device_family,iotsim-ip-camera-museum
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_val,fit,1,11295,5,2,leave_device_family,device_family,iotsim-ip-camera-museum
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_stress,fit,2,20000,1,1,leave_device_family,device_family,iotsim-ip-camera-museum
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,support_train,fit,3,385,3,3,leave_device_family,device_family,iotsim-stream-consumer
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,id_calib,fit,0,20000,4,2,leave_device_family,device_family,iotsim-stream-consumer
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_val,fit,1,11295,5,2,leave_device_family,device_family,iotsim-stream-consumer
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_stress,fit,2,0,0,0,leave_device_family,device_family,iotsim-stream-consumer
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,support_train,fit,3,385,3,3,leave_device_family,device_family,iotsim-hydraulic-system
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,id_calib,fit,0,20000,4,2,leave_device_family,device_family,iotsim-hydraulic-system
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_val,fit,1,2604,2,1,leave_device_family,device_family,iotsim-hydraulic-system
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_stress,fit,2,20000,1,1,leave_device_family,device_family,iotsim-hydraulic-system
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,support_train,fit,3,385,3,3,leave_attack_label,attack_label,TCP Scan
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,id_calib,fit,0,20000,4,2,leave_attack_label,attack_label,TCP Scan
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_val,fit,1,11295,5,2,leave_attack_label,attack_label,TCP Scan
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_stress,fit,2,20000,1,1,leave_attack_label,attack_label,TCP Scan
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,support_train,fit,3,385,3,3,leave_attack_label,attack_label,UDP Scan
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,id_calib,fit,0,20000,4,2,leave_attack_label,attack_label,UDP Scan
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_val,fit,1,11295,5,2,leave_attack_label,attack_label,UDP Scan
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_stress,fit,2,20000,1,1,leave_attack_label,attack_label,UDP Scan
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,support_train,fit,3,355,3,3,leave_attack_label,attack_label,Merlin C&C Communication
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,id_calib,fit,0,20000,4,2,leave_attack_label,attack_label,Merlin C&C Communication
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_val,fit,1,11295,5,2,leave_attack_label,attack_label,Merlin C&C Communication
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_stress,fit,2,20000,1,1,leave_attack_label,attack_label,Merlin C&C Communication
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,support_train,fit,3,376,3,3,leave_attack_label,attack_label,Mirai C&C Communication
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,id_calib,fit,0,20000,4,2,leave_attack_label,attack_label,Mirai C&C Communication
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_val,fit,1,11295,5,2,leave_attack_label,attack_label,Mirai C&C Communication
+C4_baseline_cap20000_seed42_leaveout,baseline_cap20000,baseline,class_balanced,42,ood_stress,fit,2,20000,1,1,leave_attack_label,attack_label,Mirai C&C Communication
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_source_group,source_group,processed/iotsim-ip-camera-street-2.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_source_group,source_group,processed/iotsim-ip-camera-street-2.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_source_group,source_group,processed/iotsim-ip-camera-street-2.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_source_group,source_group,processed/iotsim-ip-camera-street-2.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_source_group,source_group,processed/iotsim-ip-camera-museum-2.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_source_group,source_group,processed/iotsim-ip-camera-museum-2.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_source_group,source_group,processed/iotsim-ip-camera-museum-2.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_source_group,source_group,processed/iotsim-ip-camera-museum-2.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_source_group,source_group,processed/iotsim-stream-consumer-2.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_source_group,source_group,processed/iotsim-stream-consumer-2.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_source_group,source_group,processed/iotsim-stream-consumer-2.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_source_group,source_group,processed/iotsim-stream-consumer-2.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_source_group,source_group,processed/iotsim-hydraulic-system-12.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_source_group,source_group,processed/iotsim-hydraulic-system-12.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_source_group,source_group,processed/iotsim-hydraulic-system-12.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_source_group,source_group,processed/iotsim-hydraulic-system-12.csv
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_device_family,device_family,iotsim-ip-camera-street
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_device_family,device_family,iotsim-ip-camera-street
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_device_family,device_family,iotsim-ip-camera-street
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_device_family,device_family,iotsim-ip-camera-street
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_device_family,device_family,iotsim-ip-camera-museum
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_device_family,device_family,iotsim-ip-camera-museum
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_device_family,device_family,iotsim-ip-camera-museum
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_device_family,device_family,iotsim-ip-camera-museum
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_device_family,device_family,iotsim-stream-consumer
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_device_family,device_family,iotsim-stream-consumer
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_device_family,device_family,iotsim-stream-consumer
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_stress,fit,2,0,0,0,leave_device_family,device_family,iotsim-stream-consumer
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_device_family,device_family,iotsim-hydraulic-system
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_device_family,device_family,iotsim-hydraulic-system
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_val,fit,1,2604,2,1,leave_device_family,device_family,iotsim-hydraulic-system
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_device_family,device_family,iotsim-hydraulic-system
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_attack_label,attack_label,TCP Scan
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_attack_label,attack_label,TCP Scan
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_attack_label,attack_label,TCP Scan
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_attack_label,attack_label,TCP Scan
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_attack_label,attack_label,UDP Scan
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_attack_label,attack_label,UDP Scan
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_attack_label,attack_label,UDP Scan
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_attack_label,attack_label,UDP Scan
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,support_train,fit,3,355,3,3,leave_attack_label,attack_label,Merlin C&C Communication
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_attack_label,attack_label,Merlin C&C Communication
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_attack_label,attack_label,Merlin C&C Communication
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_attack_label,attack_label,Merlin C&C Communication
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,support_train,fit,3,376,3,3,leave_attack_label,attack_label,Mirai C&C Communication
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_attack_label,attack_label,Mirai C&C Communication
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_attack_label,attack_label,Mirai C&C Communication
+C4_source_balanced_group_weighted_seed42_leaveout,source_balanced_group_weighted,source_group,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_attack_label,attack_label,Mirai C&C Communication
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_source_group,source_group,processed/iotsim-ip-camera-street-2.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_source_group,source_group,processed/iotsim-ip-camera-street-2.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_source_group,source_group,processed/iotsim-ip-camera-street-2.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_source_group,source_group,processed/iotsim-ip-camera-street-2.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_source_group,source_group,processed/iotsim-ip-camera-museum-2.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_source_group,source_group,processed/iotsim-ip-camera-museum-2.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_source_group,source_group,processed/iotsim-ip-camera-museum-2.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_source_group,source_group,processed/iotsim-ip-camera-museum-2.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_source_group,source_group,processed/iotsim-stream-consumer-2.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_source_group,source_group,processed/iotsim-stream-consumer-2.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_source_group,source_group,processed/iotsim-stream-consumer-2.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_source_group,source_group,processed/iotsim-stream-consumer-2.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_source_group,source_group,processed/iotsim-hydraulic-system-12.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_source_group,source_group,processed/iotsim-hydraulic-system-12.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_source_group,source_group,processed/iotsim-hydraulic-system-12.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_source_group,source_group,processed/iotsim-hydraulic-system-12.csv
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_device_family,device_family,iotsim-ip-camera-street
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_device_family,device_family,iotsim-ip-camera-street
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_device_family,device_family,iotsim-ip-camera-street
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_device_family,device_family,iotsim-ip-camera-street
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_device_family,device_family,iotsim-ip-camera-museum
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_device_family,device_family,iotsim-ip-camera-museum
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_device_family,device_family,iotsim-ip-camera-museum
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_device_family,device_family,iotsim-ip-camera-museum
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_device_family,device_family,iotsim-stream-consumer
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_device_family,device_family,iotsim-stream-consumer
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_device_family,device_family,iotsim-stream-consumer
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_stress,fit,2,0,0,0,leave_device_family,device_family,iotsim-stream-consumer
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_device_family,device_family,iotsim-hydraulic-system
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_device_family,device_family,iotsim-hydraulic-system
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_val,fit,1,2604,2,1,leave_device_family,device_family,iotsim-hydraulic-system
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_device_family,device_family,iotsim-hydraulic-system
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_attack_label,attack_label,TCP Scan
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_attack_label,attack_label,TCP Scan
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_attack_label,attack_label,TCP Scan
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_attack_label,attack_label,TCP Scan
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,support_train,fit,3,385,3,3,leave_attack_label,attack_label,UDP Scan
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_attack_label,attack_label,UDP Scan
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_attack_label,attack_label,UDP Scan
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_attack_label,attack_label,UDP Scan
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,support_train,fit,3,355,3,3,leave_attack_label,attack_label,Merlin C&C Communication
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_attack_label,attack_label,Merlin C&C Communication
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_attack_label,attack_label,Merlin C&C Communication
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_attack_label,attack_label,Merlin C&C Communication
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,support_train,fit,3,376,3,3,leave_attack_label,attack_label,Mirai C&C Communication
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,id_calib,fit,0,20000,4,2,leave_attack_label,attack_label,Mirai C&C Communication
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_val,fit,1,11295,5,2,leave_attack_label,attack_label,Mirai C&C Communication
+C4_fit_tail_source_balanced_seed42_leaveout,fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,42,ood_stress,fit,2,20000,1,1,leave_attack_label,attack_label,Mirai C&C Communication

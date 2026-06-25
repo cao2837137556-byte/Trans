@@ -1,0 +1,6 @@
+name,sampler,weight_mode,description
+baseline_cap20000,baseline,class_balanced,issue27cki C4-cap20000 reproduction.
+source_balanced,source_group,class_balanced,Equalize legal fit sampling across source_group inside each benign/OOD role.
+device_time_balanced,device_family_time_block,class_balanced,Equalize legal fit sampling across device_family x time_block inside each benign/OOD role.
+source_balanced_group_weighted,source_group,class_and_group_balanced,Source-balanced sampling plus inverse source-group sample weighting.
+fit_tail_source_balanced,source_group_plus_fit_tail,class_and_group_balanced,Source-balanced legal fit view plus hard benign fit-tail mining; no select/report rows.
