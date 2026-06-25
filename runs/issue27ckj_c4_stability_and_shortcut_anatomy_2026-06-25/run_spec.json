@@ -1,0 +1,65 @@
+﻿{
+    "eval_cap":  "full",
+    "fixed_candidate":  "C4_fewshot_multiclass_raw115_cap20000",
+    "input_audit":  {
+                        "attack_root":  "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\issue27cd_exact_label_attack_slurm_20260614\\pullback_results\\extracted_20260616_1521\\datasets\\gotham2025\\derived\\kitsune115_exact_label_targeted_attack_v1",
+                        "cert_x_shape":  [
+                                             1000000,
+                                             115
+                                         ],
+                        "certified_complete_chunks":  93,
+                        "input_hashes":  {
+                                             "certified_chunk_manifest":  "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+                                             "certified_subset_contract":  "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf",
+                                             "feature_schema":  "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+                                             "medium_selection":  "68e9c2a1aef4ebde4095f873764247b12401e1c997802d89c3c794b9965e4f4a",
+                                             "support_sidecar":  "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da"
+                                         },
+                        "support_rows":  512
+                    },
+    "issue":  "issue27ckj_c4_stability_and_shortcut_anatomy_2026-06-25",
+    "max_leave_groups":  4,
+    "outputs":  [
+                    "aggregate_seed_metrics.csv",
+                    "role_metrics_by_seed.csv",
+                    "train_audit.csv",
+                    "role_inventory.csv",
+                    "review_anatomy_by_group.csv",
+                    "leave_out_stress_metrics.csv",
+                    "diagnostic_interpretation.md",
+                    "shortcut_risk_report.md",
+                    "codex_readout.md"
+                ],
+    "scope":  "C4-cap20000 stability, review anatomy, and bounded shortcut stress diagnosis",
+    "sealed_final_roles_used_for_training":  false,
+    "seconds":  395.2464199066162,
+    "seeds":  [
+                  42,
+                  43,
+                  44,
+                  45,
+                  46
+              ],
+    "selected_leave_groups":  {
+                                  "attack_label":  [
+                                                       "TCP Scan",
+                                                       "UDP Scan",
+                                                       "Merlin C\u0026C Communication",
+                                                       "Mirai C\u0026C Communication"
+                                                   ],
+                                  "device_family":  [
+                                                        "iotsim-ip-camera-street",
+                                                        "iotsim-ip-camera-museum",
+                                                        "iotsim-stream-consumer",
+                                                        "iotsim-hydraulic-system"
+                                                    ],
+                                  "source_group":  [
+                                                       "processed/iotsim-ip-camera-street-2.csv",
+                                                       "processed/iotsim-ip-camera-museum-2.csv",
+                                                       "processed/iotsim-stream-consumer-2.csv",
+                                                       "processed/iotsim-hydraulic-system-12.csv"
+                                                   ]
+                              },
+    "smoke":  false,
+    "train_cap":  20000
+}

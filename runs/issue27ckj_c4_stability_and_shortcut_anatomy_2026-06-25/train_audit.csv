@@ -1,0 +1,69 @@
+split,seed,candidate,role,phase,label,rows,held_field,held_value
+seed_stability,42,C4_cap20000_seed42,support_train,fit,3,385,,
+seed_stability,42,C4_cap20000_seed42,id_calib,fit,0,20000,,
+seed_stability,42,C4_cap20000_seed42,ood_val,fit,1,11295,,
+seed_stability,42,C4_cap20000_seed42,ood_stress,fit,2,20000,,
+seed_stability,43,C4_cap20000_seed43,support_train,fit,3,385,,
+seed_stability,43,C4_cap20000_seed43,id_calib,fit,0,20000,,
+seed_stability,43,C4_cap20000_seed43,ood_val,fit,1,11295,,
+seed_stability,43,C4_cap20000_seed43,ood_stress,fit,2,20000,,
+seed_stability,44,C4_cap20000_seed44,support_train,fit,3,385,,
+seed_stability,44,C4_cap20000_seed44,id_calib,fit,0,20000,,
+seed_stability,44,C4_cap20000_seed44,ood_val,fit,1,11295,,
+seed_stability,44,C4_cap20000_seed44,ood_stress,fit,2,20000,,
+seed_stability,45,C4_cap20000_seed45,support_train,fit,3,385,,
+seed_stability,45,C4_cap20000_seed45,id_calib,fit,0,20000,,
+seed_stability,45,C4_cap20000_seed45,ood_val,fit,1,11295,,
+seed_stability,45,C4_cap20000_seed45,ood_stress,fit,2,20000,,
+seed_stability,46,C4_cap20000_seed46,support_train,fit,3,385,,
+seed_stability,46,C4_cap20000_seed46,id_calib,fit,0,20000,,
+seed_stability,46,C4_cap20000_seed46,ood_val,fit,1,11295,,
+seed_stability,46,C4_cap20000_seed46,ood_stress,fit,2,20000,,
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-ip-camera-street-2.csv,support_train,fit,3,385,source_group,processed/iotsim-ip-camera-street-2.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-ip-camera-street-2.csv,id_calib,fit,0,20000,source_group,processed/iotsim-ip-camera-street-2.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-ip-camera-street-2.csv,ood_val,fit,1,11295,source_group,processed/iotsim-ip-camera-street-2.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-ip-camera-street-2.csv,ood_stress,fit,2,20000,source_group,processed/iotsim-ip-camera-street-2.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-ip-camera-museum-2.csv,support_train,fit,3,385,source_group,processed/iotsim-ip-camera-museum-2.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-ip-camera-museum-2.csv,id_calib,fit,0,20000,source_group,processed/iotsim-ip-camera-museum-2.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-ip-camera-museum-2.csv,ood_val,fit,1,11295,source_group,processed/iotsim-ip-camera-museum-2.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-ip-camera-museum-2.csv,ood_stress,fit,2,20000,source_group,processed/iotsim-ip-camera-museum-2.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-stream-consumer-2.csv,support_train,fit,3,385,source_group,processed/iotsim-stream-consumer-2.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-stream-consumer-2.csv,id_calib,fit,0,20000,source_group,processed/iotsim-stream-consumer-2.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-stream-consumer-2.csv,ood_val,fit,1,11295,source_group,processed/iotsim-stream-consumer-2.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-stream-consumer-2.csv,ood_stress,fit,2,20000,source_group,processed/iotsim-stream-consumer-2.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-hydraulic-system-12.csv,support_train,fit,3,385,source_group,processed/iotsim-hydraulic-system-12.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-hydraulic-system-12.csv,id_calib,fit,0,20000,source_group,processed/iotsim-hydraulic-system-12.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-hydraulic-system-12.csv,ood_val,fit,1,11295,source_group,processed/iotsim-hydraulic-system-12.csv
+leave_source_group,42,C4_cap20000_seed42_leave_source_group_processed_iotsim-hydraulic-system-12.csv,ood_stress,fit,2,20000,source_group,processed/iotsim-hydraulic-system-12.csv
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-ip-camera-street,support_train,fit,3,385,device_family,iotsim-ip-camera-street
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-ip-camera-street,id_calib,fit,0,20000,device_family,iotsim-ip-camera-street
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-ip-camera-street,ood_val,fit,1,11295,device_family,iotsim-ip-camera-street
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-ip-camera-street,ood_stress,fit,2,20000,device_family,iotsim-ip-camera-street
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-ip-camera-museum,support_train,fit,3,385,device_family,iotsim-ip-camera-museum
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-ip-camera-museum,id_calib,fit,0,20000,device_family,iotsim-ip-camera-museum
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-ip-camera-museum,ood_val,fit,1,11295,device_family,iotsim-ip-camera-museum
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-ip-camera-museum,ood_stress,fit,2,20000,device_family,iotsim-ip-camera-museum
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-stream-consumer,support_train,fit,3,385,device_family,iotsim-stream-consumer
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-stream-consumer,id_calib,fit,0,20000,device_family,iotsim-stream-consumer
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-stream-consumer,ood_val,fit,1,11295,device_family,iotsim-stream-consumer
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-stream-consumer,ood_stress,fit,2,0,device_family,iotsim-stream-consumer
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-hydraulic-system,support_train,fit,3,385,device_family,iotsim-hydraulic-system
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-hydraulic-system,id_calib,fit,0,20000,device_family,iotsim-hydraulic-system
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-hydraulic-system,ood_val,fit,1,2604,device_family,iotsim-hydraulic-system
+leave_device_family,42,C4_cap20000_seed42_leave_device_family_iotsim-hydraulic-system,ood_stress,fit,2,20000,device_family,iotsim-hydraulic-system
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_TCP_Scan,support_train,fit,3,385,attack_label,TCP Scan
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_TCP_Scan,id_calib,fit,0,20000,attack_label,TCP Scan
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_TCP_Scan,ood_val,fit,1,11295,attack_label,TCP Scan
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_TCP_Scan,ood_stress,fit,2,20000,attack_label,TCP Scan
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_UDP_Scan,support_train,fit,3,385,attack_label,UDP Scan
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_UDP_Scan,id_calib,fit,0,20000,attack_label,UDP Scan
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_UDP_Scan,ood_val,fit,1,11295,attack_label,UDP Scan
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_UDP_Scan,ood_stress,fit,2,20000,attack_label,UDP Scan
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_Merlin_C_C_Communication,support_train,fit,3,355,attack_label,Merlin C&C Communication
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_Merlin_C_C_Communication,id_calib,fit,0,20000,attack_label,Merlin C&C Communication
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_Merlin_C_C_Communication,ood_val,fit,1,11295,attack_label,Merlin C&C Communication
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_Merlin_C_C_Communication,ood_stress,fit,2,20000,attack_label,Merlin C&C Communication
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_Mirai_C_C_Communication,support_train,fit,3,376,attack_label,Mirai C&C Communication
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_Mirai_C_C_Communication,id_calib,fit,0,20000,attack_label,Mirai C&C Communication
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_Mirai_C_C_Communication,ood_val,fit,1,11295,attack_label,Mirai C&C Communication
+leave_attack_label,42,C4_cap20000_seed42_leave_attack_label_Mirai_C_C_Communication,ood_stress,fit,2,20000,attack_label,Mirai C&C Communication
