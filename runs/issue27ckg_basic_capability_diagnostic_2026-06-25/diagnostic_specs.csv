@@ -1,0 +1,12 @@
+regime,feature_set,model,description
+support_only,raw115,histgb_shallow,few-shot support only; raw Kitsune115D
+support_only,evidence,histgb_shallow,few-shot support only; current evidence features
+support_only,raw_plus_evidence,histgb_stronger,few-shot support only; stronger head
+support_all_benign,raw115,histgb_shallow,support positives with ID/OOD/hard-OOD negatives
+support_all_benign,evidence,histgb_shallow,support positives with current evidence and all benign negatives
+support_all_benign,raw_plus_evidence,histgb_stronger,support positives with stronger head and all benign negatives
+label_rich_upper,raw115,histgb_stronger,diagnostic upper bound with dev attack labels
+label_rich_upper,evidence,histgb_stronger,diagnostic upper bound with current evidence
+label_rich_upper,temporal,histgb_stronger,diagnostic upper bound with past-only temporal features
+label_rich_upper,raw_plus_temporal,histgb_stronger,diagnostic upper bound with raw+temporal
+label_rich_upper,raw_plus_temporal,mlp_small,diagnostic upper bound with a small neural head
