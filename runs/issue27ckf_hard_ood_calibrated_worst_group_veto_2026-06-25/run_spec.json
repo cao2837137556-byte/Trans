@@ -1,0 +1,56 @@
+{
+  "issue": "issue27ckf_hard_ood_calibrated_worst_group_veto_2026-06-25",
+  "scope": "stop-bleeding diagnostic; not final method",
+  "smoke": false,
+  "jobs": [
+    {
+      "job_index": 1,
+      "weighting": "medium_mass_ratio_recalibrated",
+      "seed": 42,
+      "label": "medium_ratio_seed42"
+    },
+    {
+      "job_index": 6,
+      "weighting": "strict_frozen_weight4",
+      "seed": 42,
+      "label": "strict_weight4_seed42"
+    }
+  ],
+  "hard_ood_fit_cap": 12000,
+  "veto_risk_threshold": 0.5,
+  "attack_protect_support_benign_q": 0.1,
+  "input_audit": {
+    "cert_x_shape": [
+      1000000,
+      115
+    ],
+    "attack_root": "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\issue27cd_exact_label_attack_slurm_20260614\\pullback_results\\extracted_20260616_1521\\datasets\\gotham2025\\derived\\kitsune115_exact_label_targeted_attack_v1",
+    "support_rows": 512,
+    "certified_complete_chunks": 93,
+    "input_hashes": {
+      "feature_schema": "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+      "support_sidecar": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da",
+      "certified_chunk_manifest": "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+      "certified_subset_contract": "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf",
+      "medium_selection": "68e9c2a1aef4ebde4095f873764247b12401e1c997802d89c3c794b9965e4f4a"
+    }
+  },
+  "seconds": 279.6349895000458,
+  "outputs": [
+    "candidate_matrix.csv",
+    "role_metrics.csv",
+    "group_metrics_by_source_device.csv",
+    "support_coverage_metrics.csv",
+    "fit_audit.csv",
+    "run_jobs.csv",
+    "selected_candidate_summary.csv",
+    "summary.md",
+    "codex_readout.md"
+  ],
+  "future_required_work": [
+    "smarter temporal/contextual heads",
+    "source/time/device-disjoint group-robust validation",
+    "causal-inspired invariant evidence diagnostics",
+    "second-dataset transfer validation"
+  ]
+}

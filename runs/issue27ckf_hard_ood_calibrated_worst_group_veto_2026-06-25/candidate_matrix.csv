@@ -1,0 +1,7 @@
+name,stack,decision,risk_threshold,protect_attack,description,protect_benign_q
+C0_baseline_issue27ckc,baseline,issue27ckc_temporal,0.9,False,Exact issue27ckc decision; no hard-OOD calibration.,0.1
+V1_hard_ood_risk_existing_controller,hard_ood_calibrated,issue27ckc_temporal,0.9,False,"Hard-OOD calibrated risk head, but original strong-attack bypass/controller.",0.1
+V2_hard_ood_conservative_veto,hard_ood_calibrated,risk_veto,0.5,False,Hard-OOD calibrated risk head with direct risk veto; diagnostic upper bound on OOD suppression.,0.1
+V3_hard_ood_attack_preserving_veto,hard_ood_calibrated,risk_veto,0.5,True,"Hard-OOD calibrated risk veto, but preserves strong support-like attack evidence.",0.1
+V4_baseline_attack_hard_ood_risk_veto,hybrid_baseline_attack_hard_ood_risk,hybrid_risk_veto,0.5,True,"Keep baseline attack scores/temporal attack head, use hard-OOD calibrated risk only as a veto signal.",0.1
+V5_baseline_attack_strict_hard_ood_veto,hybrid_baseline_attack_hard_ood_risk,hybrid_risk_veto,0.5,True,Hybrid veto with stricter attack protection: support-like attacks must also clear support median benign-separation.,0.5
