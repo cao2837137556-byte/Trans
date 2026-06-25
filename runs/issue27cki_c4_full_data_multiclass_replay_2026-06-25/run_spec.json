@@ -1,0 +1,53 @@
+{
+  "benign_safe_q": 0.99,
+  "candidate_structure": "raw115 four-class HistGradientBoostingClassifier",
+  "cap_values": {
+    "1600": 1600,
+    "20000": 20000,
+    "5000": 5000,
+    "full": 1000000000
+  },
+  "eval_cap": "full",
+  "full_cap_sentinel": 1000000000,
+  "input_audit": {
+    "attack_root": "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\issue27cd_exact_label_attack_slurm_20260614\\pullback_results\\extracted_20260616_1521\\datasets\\gotham2025\\derived\\kitsune115_exact_label_targeted_attack_v1",
+    "cert_x_shape": [
+      1000000,
+      115
+    ],
+    "certified_complete_chunks": 93,
+    "input_hashes": {
+      "certified_chunk_manifest": "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+      "certified_subset_contract": "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf",
+      "feature_schema": "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+      "medium_selection": "68e9c2a1aef4ebde4095f873764247b12401e1c997802d89c3c794b9965e4f4a",
+      "support_sidecar": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da"
+    },
+    "support_rows": 512
+  },
+  "issue": "issue27cki_c4_full_data_multiclass_replay_2026-06-25",
+  "job_index": 1,
+  "outputs": [
+    "candidate_matrix.csv",
+    "role_inventory.csv",
+    "train_audit.csv",
+    "role_metrics.csv",
+    "group_metrics_by_source_device.csv",
+    "support_coverage_metrics.csv",
+    "threshold_free_metrics.csv",
+    "selected_summary.csv",
+    "summary.md",
+    "codex_readout.md"
+  ],
+  "requested_caps": [
+    "1600",
+    "5000",
+    "20000",
+    "full"
+  ],
+  "scope": "C4 full-data / data-cap replay after issue27ckh",
+  "sealed_final_roles_used_for_training": false,
+  "seconds": 217.89458918571472,
+  "seed": 42,
+  "smoke": false
+}

@@ -1,0 +1,5 @@
+name,regime,feature_set,architecture,model,description,benign_ood_train_cap_label,benign_ood_train_cap_value,eval_cap_label,eval_cap_value
+C4_fewshot_multiclass_raw115_cap1600,fewshot_direct,raw115,multiclass_id_ood_hardood_attack,histgb_shallow,C4 raw115 four-class head with benign/OOD train cap 1600 and full evaluation.,1600,1600,full,1000000000
+C4_fewshot_multiclass_raw115_cap5000,fewshot_direct,raw115,multiclass_id_ood_hardood_attack,histgb_shallow,C4 raw115 four-class head with benign/OOD train cap 5000 and full evaluation.,5000,5000,full,1000000000
+C4_fewshot_multiclass_raw115_cap20000,fewshot_direct,raw115,multiclass_id_ood_hardood_attack,histgb_shallow,C4 raw115 four-class head with benign/OOD train cap 20000 and full evaluation.,20000,20000,full,1000000000
+C4_fewshot_multiclass_raw115_capfull,fewshot_direct,raw115,multiclass_id_ood_hardood_attack,histgb_shallow,C4 raw115 four-class head with benign/OOD train cap full and full evaluation.,full,1000000000,full,1000000000
