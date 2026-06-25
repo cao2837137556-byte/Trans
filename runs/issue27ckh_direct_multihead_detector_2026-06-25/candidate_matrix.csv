@@ -1,0 +1,8 @@
+name,regime,feature_set,architecture,model,description
+C1_fewshot_binary_raw115,fewshot_direct,raw115,binary_attack_vs_all_benign,histgb_shallow,Direct attack-vs-ID/OOD/hard-OOD head using support attacks only.
+C2_fewshot_binary_evidence,fewshot_direct,evidence,binary_attack_vs_all_benign,histgb_shallow,Direct attack-vs-ID/OOD/hard-OOD head using evidence features.
+C3_fewshot_binary_raw_plus_evidence,fewshot_direct,raw_plus_evidence,binary_attack_vs_all_benign,histgb_stronger,Direct head using raw115 plus current evidence features.
+C4_fewshot_multiclass_raw115,fewshot_direct,raw115,multiclass_id_ood_hardood_attack,histgb_shallow,Four-class head; high-priority attack is class-attack probability after benign-safe calibration.
+C5_fewshot_multihead_raw_plus_evidence,fewshot_direct,raw_plus_evidence,multihead_attack_hardood_conflict,histgb_stronger,"Attack head plus hard-OOD head; high attack requires low conflict, otherwise review."
+U1_devlabel_binary_raw_plus_temporal_mlp,dev_label_upper,raw_plus_temporal,binary_attack_vs_all_benign,mlp_small,Upper-bound direct head with legal dev attack labels and temporal features; not deployable few-shot.
+U2_devlabel_multihead_raw_plus_temporal,dev_label_upper,raw_plus_temporal,multihead_attack_hardood_conflict,histgb_stronger,Upper-bound conflict-aware head with legal dev attack labels.
