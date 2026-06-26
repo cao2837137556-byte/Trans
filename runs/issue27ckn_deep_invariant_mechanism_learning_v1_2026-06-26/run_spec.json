@@ -1,0 +1,103 @@
+{
+  "issue": "issue27ckn_deep_invariant_mechanism_learning_v1_2026-06-26",
+  "scope": "deep invariant mechanism learning v1; raw115 encoder with optional domain adversary",
+  "smoke": false,
+  "quick": false,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "epochs": 24,
+  "train_cap": 20000,
+  "eval_cap": "full",
+  "detector_fit_roles": [
+    "support_train fit",
+    "id_calib fit",
+    "ood_val fit",
+    "ood_stress fit"
+  ],
+  "threshold_roles": [
+    "id_calib select",
+    "ood_val select",
+    "ood_stress select"
+  ],
+  "probe_fit_roles": [
+    "id_calib fit",
+    "ood_val fit",
+    "ood_stress fit"
+  ],
+  "sealed_final_roles_used_for_training": false,
+  "specs": [
+    {
+      "name": "C0_c4_histgb",
+      "kind": "histgb",
+      "env_field": null,
+      "adv_lambda": 0.0,
+      "description": "C4 raw115 HistGB control."
+    },
+    {
+      "name": "N1_mlp_erm",
+      "kind": "neural",
+      "env_field": null,
+      "adv_lambda": 0.0,
+      "description": "raw115 -> small encoder -> four-class head."
+    },
+    {
+      "name": "N2_dann_device_family",
+      "kind": "neural",
+      "env_field": "device_family",
+      "adv_lambda": 0.2,
+      "description": "small encoder with gradient-reversal adversary on device_family."
+    },
+    {
+      "name": "N3_dann_source_family",
+      "kind": "neural",
+      "env_field": "source_family",
+      "adv_lambda": 0.2,
+      "description": "small encoder with gradient-reversal adversary on source_family."
+    }
+  ],
+  "selected_leave_groups": {
+    "device_family": [
+      "iotsim-ip-camera-street",
+      "iotsim-ip-camera-museum",
+      "iotsim-stream-consumer",
+      "iotsim-hydraulic-system"
+    ]
+  },
+  "input_audit": {
+    "cert_x_shape": [
+      1000000,
+      115
+    ],
+    "attack_root": "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\issue27cd_exact_label_attack_slurm_20260614\\pullback_results\\extracted_20260616_1521\\datasets\\gotham2025\\derived\\kitsune115_exact_label_targeted_attack_v1",
+    "support_rows": 512,
+    "certified_complete_chunks": 93,
+    "input_hashes": {
+      "feature_schema": "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+      "support_sidecar": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da",
+      "certified_chunk_manifest": "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+      "certified_subset_contract": "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf",
+      "medium_selection": "68e9c2a1aef4ebde4095f873764247b12401e1c997802d89c3c794b9965e4f4a"
+    }
+  },
+  "torch": {
+    "version": "2.8.0+cpu",
+    "device": "cpu"
+  },
+  "seconds": 576.7020628452301,
+  "outputs": [
+    "candidate_matrix.csv",
+    "role_inventory.csv",
+    "train_audit.csv",
+    "training_history.csv",
+    "role_metrics_by_candidate_seed.csv",
+    "candidate_summary_matrix.csv",
+    "review_anatomy_by_group_seed42.csv",
+    "representation_probe_metrics.csv",
+    "leave_device_family_stress_metrics.csv",
+    "codex_readout.md",
+    "diagnostic_interpretation.md"
+  ]
+}

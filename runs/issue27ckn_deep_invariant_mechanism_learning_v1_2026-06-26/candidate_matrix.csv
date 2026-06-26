@@ -1,0 +1,5 @@
+name,kind,env_field,adv_lambda,description
+C0_c4_histgb,histgb,,0.0,C4 raw115 HistGB control.
+N1_mlp_erm,neural,,0.0,raw115 -> small encoder -> four-class head.
+N2_dann_device_family,neural,device_family,0.2,small encoder with gradient-reversal adversary on device_family.
+N3_dann_source_family,neural,source_family,0.2,small encoder with gradient-reversal adversary on source_family.

@@ -1,0 +1,17 @@
+variant,target_field,train_roles,eval_role,eval_phase,rows,known_label_rows,unknown_label_rows,known_label_rate,accuracy,balanced_accuracy,known_accuracy,known_balanced_accuracy
+C0_c4_histgb,device_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,ood_stress,select,79950,79950,0,1.0,0.9986991869918699,0.9986991869918699,0.9986991869918699,0.9986991869918699
+C0_c4_histgb,device_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,sealed_final_ood,all,154900,0,154900,0.0,0.0,0.0,nan,nan
+C0_c4_histgb,source_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,ood_stress,select,79950,79950,0,1.0,0.9986991869918699,0.9986991869918699,0.9986991869918699,0.9986991869918699
+C0_c4_histgb,source_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,sealed_final_ood,all,154900,0,154900,0.0,0.0,0.0,nan,nan
+N1_mlp_erm,device_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,ood_stress,select,79950,79950,0,1.0,0.9977986241400876,0.9977986241400876,0.9977986241400876,0.9977986241400876
+N1_mlp_erm,device_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,sealed_final_ood,all,154900,0,154900,0.0,0.0,0.0,nan,nan
+N1_mlp_erm,source_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,ood_stress,select,79950,79950,0,1.0,0.9977986241400876,0.9977986241400876,0.9977986241400876,0.9977986241400876
+N1_mlp_erm,source_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,sealed_final_ood,all,154900,0,154900,0.0,0.0,0.0,nan,nan
+N2_dann_device_family,device_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,ood_stress,select,79950,79950,0,1.0,0.9972232645403377,0.9972232645403377,0.9972232645403377,0.9972232645403377
+N2_dann_device_family,device_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,sealed_final_ood,all,154900,0,154900,0.0,0.0,0.0,nan,nan
+N2_dann_device_family,source_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,ood_stress,select,79950,79950,0,1.0,0.9972232645403377,0.9972232645403377,0.9972232645403377,0.9972232645403377
+N2_dann_device_family,source_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,sealed_final_ood,all,154900,0,154900,0.0,0.0,0.0,nan,nan
+N3_dann_source_family,device_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,ood_stress,select,79950,79950,0,1.0,0.9973483427141964,0.9973483427141964,0.9973483427141964,0.9973483427141964
+N3_dann_source_family,device_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,sealed_final_ood,all,154900,0,154900,0.0,0.0,0.0,nan,nan
+N3_dann_source_family,source_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,ood_stress,select,79950,79950,0,1.0,0.9973483427141964,0.9973483427141964,0.9973483427141964,0.9973483427141964
+N3_dann_source_family,source_family,id_calib:fit:20000|ood_val:fit:11295|ood_stress:fit:20000,sealed_final_ood,all,154900,0,154900,0.0,0.0,0.0,nan,nan
