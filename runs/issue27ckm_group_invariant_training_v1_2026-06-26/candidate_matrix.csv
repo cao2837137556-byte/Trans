@@ -1,0 +1,6 @@
+name,env_field,weight_mode,dro_rounds,description
+M0_c4_baseline,,class_balanced,0,C4 raw115 HistGB baseline; class-balanced only.
+M1_device_family_env_balanced,device_family,class_env_balanced,0,Class x device-family balanced ERM control.
+M2_source_family_env_balanced,source_family,class_env_balanced,0,Class x source-family balanced ERM control.
+M3_device_family_dro,device_family,class_env_dro,2,DRO-style iterative reweighting toward worst class x device-family groups.
+M4_source_family_dro,source_family,class_env_dro,2,DRO-style iterative reweighting toward worst class x source-family groups.
