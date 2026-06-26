@@ -1,0 +1,97 @@
+{
+  "issue": "issue27ckl_frontend_representation_upgrade_v1_2026-06-26",
+  "scope": "frontend representation upgrade v1; fixed C4 HistGB head",
+  "smoke": false,
+  "quick": false,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "train_cap": 20000,
+  "eval_cap": "full",
+  "robust_stats_fit_roles": [
+    "id_calib fit",
+    "ood_val fit",
+    "ood_stress fit"
+  ],
+  "detector_fit_roles": [
+    "support_train fit",
+    "id_calib fit",
+    "ood_val fit",
+    "ood_stress fit"
+  ],
+  "sealed_final_roles_used_for_training": false,
+  "feature_specs": [
+    {
+      "name": "F0_raw115",
+      "kind": "raw",
+      "group_field": null,
+      "description": "C4 control: original raw Kitsune115D."
+    },
+    {
+      "name": "F1_global_robust_tail",
+      "kind": "global_robust_tail",
+      "group_field": null,
+      "description": "raw115 plus fit-only global robust z/absolute/tail evidence from legal benign fit rows."
+    },
+    {
+      "name": "F1_global_robust_only",
+      "kind": "global_robust_only",
+      "group_field": null,
+      "description": "fit-only global robust z/absolute/tail evidence without raw115; tests whether raw concatenation is the shortcut carrier."
+    },
+    {
+      "name": "F1_device_family_robust_tail",
+      "kind": "group_robust_tail",
+      "group_field": "device_family",
+      "description": "F1 plus device-family robust residual evidence, with unknown/under-sampled families falling back to global fit baseline."
+    },
+    {
+      "name": "F1_device_family_robust_only",
+      "kind": "group_robust_only",
+      "group_field": "device_family",
+      "description": "device-family robust residual evidence without raw115; unknown/under-sampled families fall back to global fit baseline."
+    }
+  ],
+  "selected_leave_groups": {
+    "device_family": [
+      "iotsim-ip-camera-street",
+      "iotsim-ip-camera-museum",
+      "iotsim-stream-consumer",
+      "iotsim-hydraulic-system"
+    ]
+  },
+  "input_audit": {
+    "cert_x_shape": [
+      1000000,
+      115
+    ],
+    "attack_root": "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\issue27cd_exact_label_attack_slurm_20260614\\pullback_results\\extracted_20260616_1521\\datasets\\gotham2025\\derived\\kitsune115_exact_label_targeted_attack_v1",
+    "support_rows": 512,
+    "certified_complete_chunks": 93,
+    "input_hashes": {
+      "feature_schema": "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+      "support_sidecar": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da",
+      "certified_chunk_manifest": "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+      "certified_subset_contract": "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf",
+      "medium_selection": "68e9c2a1aef4ebde4095f873764247b12401e1c997802d89c3c794b9965e4f4a"
+    }
+  },
+  "seconds": 2005.5059969425201,
+  "outputs": [
+    "candidate_matrix.csv",
+    "role_inventory.csv",
+    "feature_audit.csv",
+    "train_audit.csv",
+    "role_metrics_by_candidate_seed.csv",
+    "candidate_summary_matrix.csv",
+    "review_anatomy_by_group_seed42.csv",
+    "shortcut_probe_metrics.csv",
+    "leave_device_family_stress_metrics.csv",
+    "codex_readout.md",
+    "diagnostic_interpretation.md"
+  ]
+}

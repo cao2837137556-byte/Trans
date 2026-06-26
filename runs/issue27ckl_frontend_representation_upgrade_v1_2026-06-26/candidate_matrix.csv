@@ -1,0 +1,6 @@
+name,kind,group_field,description
+F0_raw115,raw,,C4 control: original raw Kitsune115D.
+F1_global_robust_tail,global_robust_tail,,raw115 plus fit-only global robust z/absolute/tail evidence from legal benign fit rows.
+F1_global_robust_only,global_robust_only,,fit-only global robust z/absolute/tail evidence without raw115; tests whether raw concatenation is the shortcut carrier.
+F1_device_family_robust_tail,group_robust_tail,device_family,"F1 plus device-family robust residual evidence, with unknown/under-sampled families falling back to global fit baseline."
+F1_device_family_robust_only,group_robust_only,device_family,device-family robust residual evidence without raw115; unknown/under-sampled families fall back to global fit baseline.

@@ -1,0 +1,716 @@
+candidate,feature_set,split,seed,role,group_field,group_value,rows,hard_alarm_rate,conflict_review_rate,raw_alarm_rate,hard_count,review_count
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-6.csv,22418,0.0,0.0010705682933357123,0.0010705682933357123,0,24
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-7.csv,22425,0.0,0.0011594202898550724,0.0011594202898550724,0,26
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-8.csv,5011,0.0,0.001197365795250449,0.001197365795250449,0,6
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-9.csv,1643,0.0,0.0018259281801582471,0.0018259281801582471,0,3
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,id_calib,device_family,iotsim-cooler-motor,51497,0.0,0.0011456978076392799,0.0011456978076392799,0,59
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,id_calib,source_family,iotsim-cooler-motor,51497,0.0,0.0011456978076392799,0.0011456978076392799,0,59
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,id_calib,time_block,q1,14235,0.0,0.0014752370916754477,0.0014752370916754477,0,21
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,id_calib,time_block,q2,12229,0.0,0.0008995011857061084,0.0008995011857061084,0,11
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,id_calib,time_block,q3,11772,0.0,0.0013591573224600749,0.0013591573224600749,0,16
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,id_calib,time_block,q4,13261,0.0,0.0008295000377045472,0.0008295000377045472,0,11
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,id_calib,attack_label,benign,51497,0.0,0.0011456978076392799,0.0011456978076392799,0,59
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,id_calib,support_seen,unseen,51497,0.0,0.0011456978076392799,0.0011456978076392799,0,59
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-12.csv,2446,0.0,0.013082583810302535,0.013082583810302535,0,32
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-13.csv,2431,0.0,0.011517893870835048,0.011517893870835048,0,28
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-14.csv,2431,0.0,0.009872480460715755,0.009872480460715755,0,24
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-15.csv,2446,0.0,0.004497138184791497,0.004497138184791497,0,11
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-2.csv,2451,0.0,0.0069359445124439,0.0069359445124439,0,17
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_val,device_family,iotsim-hydraulic-system,12205,0.0,0.009176566980745596,0.009176566980745596,0,112
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_val,source_family,iotsim-hydraulic-system,12205,0.0,0.009176566980745596,0.009176566980745596,0,112
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_val,time_block,q1,3275,0.0,0.03206106870229008,0.03206106870229008,0,105
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_val,time_block,q2,3174,0.0,0.001575299306868305,0.001575299306868305,0,5
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_val,time_block,q3,3237,0.0,0.00030892801977139327,0.00030892801977139327,0,1
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_val,time_block,q4,2519,0.0,0.0003969829297340214,0.0003969829297340214,0,1
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_val,attack_label,benign,12205,0.0,0.009176566980745596,0.009176566980745596,0,112
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_val,support_seen,unseen,12205,0.0,0.009176566980745596,0.009176566980745596,0,112
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_stress,source_group,processed/iotsim-stream-consumer-2.csv,79950,0.0002626641651031895,0.005403377110694184,0.005666041275797374,21,432
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_stress,device_family,iotsim-stream-consumer,79950,0.0002626641651031895,0.005403377110694184,0.005666041275797374,21,432
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_stress,source_family,iotsim-stream-consumer,79950,0.0002626641651031895,0.005403377110694184,0.005666041275797374,21,432
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_stress,time_block,q1,28717,0.0006616290002437581,0.009680676950934986,0.010342305951178745,19,278
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_stress,time_block,q2,28769,6.951927421877716e-05,0.0038235600820327436,0.0038930793562515207,2,110
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_stress,time_block,q3,22464,0.0,0.001958689458689459,0.001958689458689459,0,44
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_stress,attack_label,benign,79950,0.0002626641651031895,0.005403377110694184,0.005666041275797374,21,432
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,ood_stress,support_seen,unseen,79950,0.0002626641651031895,0.005403377110694184,0.005666041275797374,21,432
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,source_group,processed/iotsim-city-power-1.csv,23,1.0,0.0,1.0,23,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,source_group,processed/iotsim-combined-cycle-10.csv,6,0.8333333333333334,0.16666666666666666,1.0,5,1
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,source_group,processed/iotsim-ip-camera-museum-1.csv,40,1.0,0.0,1.0,40,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,device_family,city-power,23,1.0,0.0,1.0,23,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,device_family,combined-cycle,6,0.8333333333333334,0.16666666666666666,1.0,5,1
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,device_family,ip-camera-museum,40,1.0,0.0,1.0,40,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,source_family,iotsim-city-power,23,1.0,0.0,1.0,23,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,source_family,iotsim-combined-cycle,6,0.8333333333333334,0.16666666666666666,1.0,5,1
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,source_family,iotsim-ip-camera-museum,40,1.0,0.0,1.0,40,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,time_block,q1,17,1.0,0.0,1.0,17,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,time_block,q2,19,0.9473684210526315,0.05263157894736842,1.0,18,1
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,time_block,q3,13,1.0,0.0,1.0,13,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,time_block,q4,20,1.0,0.0,1.0,20,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,attack_label,File Download,3,0.6666666666666666,0.3333333333333333,1.0,2,1
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,attack_label,Ingress Tool Transfer,3,1.0,0.0,1.0,3,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,attack_label,Merlin C&C Communication,5,1.0,0.0,1.0,5,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,attack_label,Merlin ICMP Flooding,8,1.0,0.0,1.0,8,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,attack_label,Merlin TCP Flooding,11,1.0,0.0,1.0,11,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,attack_label,Merlin UDP Flooding,6,1.0,0.0,1.0,6,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,attack_label,Mirai C&C Communication,2,1.0,0.0,1.0,2,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,attack_label,Mirai GRE Flooding,10,1.0,0.0,1.0,10,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,attack_label,Mirai TCP Flooding,10,1.0,0.0,1.0,10,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,attack_label,Mirai UDP Flooding,11,1.0,0.0,1.0,11,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,support_val,support_seen,seen,69,0.9855072463768116,0.014492753623188406,1.0,68,1
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,source_group,processed/iotsim-combined-cycle-10.csv,2486,1.0,0.0,1.0,2486,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,source_group,processed/iotsim-ip-camera-museum-1.csv,65263,0.9981919311095108,0.0018080688904892513,1.0,65145,118
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,device_family,combined-cycle,2486,1.0,0.0,1.0,2486,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,device_family,ip-camera-museum,65263,0.9981919311095108,0.0018080688904892513,1.0,65145,118
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,source_family,iotsim-combined-cycle,2486,1.0,0.0,1.0,2486,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,source_family,iotsim-ip-camera-museum,65263,0.9981919311095108,0.0018080688904892513,1.0,65145,118
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,time_block,q1,19977,0.9962957401011163,0.0037042598988837163,1.0,19903,74
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,time_block,q2,11666,0.9998285616320932,0.00017143836790673754,1.0,11664,2
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,time_block,q3,4686,1.0,0.0,1.0,4686,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,time_block,q4,31420,0.9986632718014004,0.001336728198599618,1.0,31378,42
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,attack_label,File Download,105,1.0,0.0,1.0,105,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,attack_label,Ingress Tool Transfer,2381,1.0,0.0,1.0,2381,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,attack_label,Merlin C&C Communication,6827,0.9890142082906108,0.01098579170938919,1.0,6752,75
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,attack_label,Merlin ICMP Flooding,7038,1.0,0.0,1.0,7038,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,attack_label,Merlin TCP Flooding,12000,0.9999166666666667,8.333333333333333e-05,1.0,11999,1
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,attack_label,Merlin UDP Flooding,3292,1.0,0.0,1.0,3292,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,attack_label,Mirai C&C Communication,106,0.6037735849056604,0.39622641509433965,1.0,64,42
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,attack_label,Mirai GRE Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,attack_label,Mirai TCP Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,attack_label,Mirai UDP Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,same_file_query,support_seen,seen,67749,0.9982582768749354,0.0017417231250645767,1.0,67631,118
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,source_group,processed/iotsim-combined-cycle-1.csv,88575,0.9892407564211121,0.008806096528365791,0.9980468529494778,87622,780
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,source_group,processed/iotsim-combined-cycle-10.csv,24154,0.9877867019955286,0.010101846485054236,0.997888548480583,23859,244
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,source_group,processed/iotsim-domotic-monitor-1.csv,91812,0.9952947327146778,0.0041388925194963625,0.9994336252341742,91380,380
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,source_group,processed/iotsim-ip-camera-museum-1.csv,24108,0.9999170399867264,8.296001327360213e-05,1.0,24106,2
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,device_family,combined-cycle,112729,0.9889292018912613,0.009083731781529153,0.9980129336727905,111481,1024
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,device_family,domotic-monitor,91812,0.9952947327146778,0.0041388925194963625,0.9994336252341742,91380,380
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,device_family,ip-camera-museum,24108,0.9999170399867264,8.296001327360213e-05,1.0,24106,2
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,source_family,iotsim-combined-cycle,112729,0.9889292018912613,0.009083731781529153,0.9980129336727905,111481,1024
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,source_family,iotsim-domotic-monitor,91812,0.9952947327146778,0.0041388925194963625,0.9994336252341742,91380,380
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,source_family,iotsim-ip-camera-museum,24108,0.9999170399867264,8.296001327360213e-05,1.0,24106,2
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,time_block,q1,62514,0.9922257414339188,0.007774258566081198,1.0,62028,486
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,time_block,q2,48836,0.9869563436808911,0.012531738881153248,0.9994880825620444,48199,612
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,time_block,q3,46976,0.9942949591280654,0.004044618528610354,0.9983395776566758,46708,190
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,time_block,q4,70323,0.9958619512819419,0.001677971645123217,0.9975399229270651,70032,118
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,C&C Communication,172,0.38953488372093026,0.36046511627906974,0.75,67,62
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,CoAP Amplification,12000,1.0,0.0,1.0,12000,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,File Download,1187,0.9983150800336984,0.0016849199663016006,1.0,1185,2
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,Ingress Tool Transfer,3786,0.9944532488114105,0.005546751188589541,1.0,3765,21
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,Merlin C&C Communication,9933,0.9753347427766033,0.02466525722339676,1.0,9688,245
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,Merlin ICMP Flooding,18835,1.0,0.0,1.0,18835,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,Merlin TCP Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,Merlin UDP Flooding,10000,1.0,0.0,1.0,10000,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,Mirai C&C Communication,358,0.1871508379888268,0.329608938547486,0.5167597765363129,67,118
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,Mirai GRE Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,Mirai TCP Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,Mirai UDP Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,Reporting,136,0.6838235294117647,0.11764705882352941,0.8014705882352942,93,16
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,TCP Scan,36000,0.9877222222222222,0.011361111111111112,0.9990833333333333,35558,409
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,Telnet Brute Force,36000,0.9967777777777778,0.0032222222222222222,1.0,35884,116
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,attack_label,UDP Scan,4242,0.9016973125884017,0.0983026874115983,1.0,3825,417
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,support_seen,seen,140099,0.9960099643823297,0.002755194541003148,0.9987651589233328,139540,386
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,future_query,support_seen,unseen,88550,0.9873178994918126,0.011518915866741954,0.9988368153585545,87427,1020
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_ood,source_group,processed/iotsim-ip-camera-museum-2.csv,54950,0.002584167424931756,0.019326660600545952,0.021910828025477707,142,1062
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_ood,source_group,processed/iotsim-ip-camera-street-2.csv,99950,0.0036618309154577288,0.04676338169084542,0.05042521260630315,366,4674
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_ood,device_family,iotsim-ip-camera-museum,54950,0.002584167424931756,0.019326660600545952,0.021910828025477707,142,1062
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_ood,device_family,iotsim-ip-camera-street,99950,0.0036618309154577288,0.04676338169084542,0.05042521260630315,366,4674
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_ood,source_family,iotsim-ip-camera-museum,54950,0.002584167424931756,0.019326660600545952,0.021910828025477707,142,1062
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_ood,source_family,iotsim-ip-camera-street,99950,0.0036618309154577288,0.04676338169084542,0.05042521260630315,366,4674
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_ood,time_block,q1,38725,0.009089735313105229,0.0666494512588767,0.07573918657198192,352,2581
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_ood,time_block,q2,38725,0.002169141381536475,0.024247901872175598,0.026417043253712073,84,939
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_ood,time_block,q3,38725,0.0011878631375080698,0.02907682375726275,0.03026468689477082,46,1126
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_ood,time_block,q4,38725,0.000671400903808909,0.028147191736604262,0.02881859264041317,26,1090
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_ood,attack_label,benign,154900,0.003279535183989671,0.03703034215622983,0.0403098773402195,508,5736
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_ood,support_seen,unseen,154900,0.003279535183989671,0.03703034215622983,0.0403098773402195,508,5736
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,source_group,processed/iotsim-ip-camera-street-1.csv,110104,0.9921801206132383,0.006185061396497857,0.9983651820097362,109243,681
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,device_family,ip-camera-street,110104,0.9921801206132383,0.006185061396497857,0.9983651820097362,109243,681
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,source_family,iotsim-ip-camera-street,110104,0.9921801206132383,0.006185061396497857,0.9983651820097362,109243,681
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,time_block,q1,27526,0.9984378405870813,0.0015258301242461673,0.9999636707113275,27483,42
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,time_block,q2,27526,0.9723897406088788,0.022487829688294703,0.9948775702971736,26766,619
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,time_block,q3,27526,0.9979655598343384,0.0006539271961055002,0.9986194870304439,27470,18
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,time_block,q4,27526,0.9999273414226549,7.265857734505559e-05,1.0,27524,2
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,attack_label,C&C Communication,90,0.5555555555555556,0.16666666666666666,0.7222222222222222,50,15
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,attack_label,File Download,1231,0.9975629569455727,0.002437043054427295,1.0,1228,3
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,attack_label,Ingress Tool Transfer,3702,0.9994597514856834,0.0005402485143165856,1.0,3700,2
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,attack_label,Merlin ICMP Flooding,10011,0.9987014284287284,0.0012985715712716013,1.0,9998,13
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,attack_label,Merlin TCP Flooding,15000,0.9981333333333333,0.0018666666666666666,1.0,14972,28
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,attack_label,Merlin UDP Flooding,4996,0.999599679743795,0.00020016012810248197,0.9997998398718975,4994,1
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,attack_label,Mirai GRE Flooding,15000,0.9998666666666667,0.00013333333333333334,1.0,14998,2
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,attack_label,Mirai TCP Flooding,15000,1.0,0.0,1.0,15000,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,attack_label,Mirai UDP Flooding,15000,0.9996,0.0,0.9996,14994,0
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,attack_label,Reporting,74,0.6351351351351351,0.05405405405405406,0.6891891891891891,47,4
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,attack_label,TCP Scan,15000,0.9568666666666666,0.035333333333333335,0.9922,14353,530
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,attack_label,Telnet Brute Force,15000,0.9939333333333333,0.005533333333333334,0.9994666666666666,14909,83
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,support_seen,seen,79940,0.9992994746059545,0.0006129597197898424,0.9999124343257443,79884,49
+CKL_F0_raw115_seed42,F0_raw115,main_seed42,42,sealed_final_attack,support_seen,unseen,30164,0.9733125580161782,0.020952128364938337,0.9942646863811165,29359,632
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-6.csv,22418,0.0,0.0012489963422249977,0.0012489963422249977,0,28
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-7.csv,22425,0.0,0.0012486064659977703,0.0012486064659977703,0,28
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-8.csv,5011,0.0,0.001197365795250449,0.001197365795250449,0,6
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-9.csv,1643,0.0,0.0018259281801582471,0.0018259281801582471,0,3
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,id_calib,device_family,iotsim-cooler-motor,51497,0.0,0.001262209449094122,0.001262209449094122,0,65
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,id_calib,source_family,iotsim-cooler-motor,51497,0.0,0.001262209449094122,0.001262209449094122,0,65
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,id_calib,time_block,q1,14235,0.0,0.0014752370916754477,0.0014752370916754477,0,21
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,id_calib,time_block,q2,12229,0.0,0.0011448196908986834,0.0011448196908986834,0,14
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,id_calib,time_block,q3,11772,0.0,0.0013591573224600749,0.0013591573224600749,0,16
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,id_calib,time_block,q4,13261,0.0,0.0010557273207148783,0.0010557273207148783,0,14
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,id_calib,attack_label,benign,51497,0.0,0.001262209449094122,0.001262209449094122,0,65
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,id_calib,support_seen,unseen,51497,0.0,0.001262209449094122,0.001262209449094122,0,65
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-12.csv,2446,0.0,0.01553556827473426,0.01553556827473426,0,38
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-13.csv,2431,0.0,0.008638420403126285,0.008638420403126285,0,21
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-14.csv,2431,0.0,0.00781571369806664,0.00781571369806664,0,19
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-15.csv,2446,0.0,0.007358953393295176,0.007358953393295176,0,18
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-2.csv,2451,0.0,0.008159934720522236,0.008159934720522236,0,20
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_val,device_family,iotsim-hydraulic-system,12205,0.0,0.009504301515772225,0.009504301515772225,0,116
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_val,source_family,iotsim-hydraulic-system,12205,0.0,0.009504301515772225,0.009504301515772225,0,116
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_val,time_block,q1,3275,0.0,0.028702290076335877,0.028702290076335877,0,94
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_val,time_block,q2,3174,0.0,0.004095778197857593,0.004095778197857593,0,13
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_val,time_block,q3,3237,0.0,0.002162496138399753,0.002162496138399753,0,7
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_val,time_block,q4,2519,0.0,0.0007939658594680428,0.0007939658594680428,0,2
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_val,attack_label,benign,12205,0.0,0.009504301515772225,0.009504301515772225,0,116
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_val,support_seen,unseen,12205,0.0,0.009504301515772225,0.009504301515772225,0,116
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_stress,source_group,processed/iotsim-stream-consumer-2.csv,79950,0.00023764853033145716,0.004915572232645404,0.0051532207629768605,19,393
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_stress,device_family,iotsim-stream-consumer,79950,0.00023764853033145716,0.004915572232645404,0.0051532207629768605,19,393
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_stress,source_family,iotsim-stream-consumer,79950,0.00023764853033145716,0.004915572232645404,0.0051532207629768605,19,393
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_stress,time_block,q1,28717,0.0006268064212835603,0.008496709266288262,0.009123515687571821,18,244
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_stress,time_block,q2,28769,3.475963710938858e-05,0.002954569154298029,0.0029893287914074178,1,85
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_stress,time_block,q3,22464,0.0,0.002849002849002849,0.002849002849002849,0,64
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_stress,attack_label,benign,79950,0.00023764853033145716,0.004915572232645404,0.0051532207629768605,19,393
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,ood_stress,support_seen,unseen,79950,0.00023764853033145716,0.004915572232645404,0.0051532207629768605,19,393
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,source_group,processed/iotsim-city-power-1.csv,23,1.0,0.0,1.0,23,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,source_group,processed/iotsim-combined-cycle-10.csv,6,0.6666666666666666,0.3333333333333333,1.0,4,2
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,source_group,processed/iotsim-ip-camera-museum-1.csv,40,1.0,0.0,1.0,40,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,device_family,city-power,23,1.0,0.0,1.0,23,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,device_family,combined-cycle,6,0.6666666666666666,0.3333333333333333,1.0,4,2
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,device_family,ip-camera-museum,40,1.0,0.0,1.0,40,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,source_family,iotsim-city-power,23,1.0,0.0,1.0,23,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,source_family,iotsim-combined-cycle,6,0.6666666666666666,0.3333333333333333,1.0,4,2
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,source_family,iotsim-ip-camera-museum,40,1.0,0.0,1.0,40,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,time_block,q1,17,1.0,0.0,1.0,17,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,time_block,q2,19,0.8947368421052632,0.10526315789473684,1.0,17,2
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,time_block,q3,13,1.0,0.0,1.0,13,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,time_block,q4,20,1.0,0.0,1.0,20,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,attack_label,File Download,3,0.3333333333333333,0.6666666666666666,1.0,1,2
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,attack_label,Ingress Tool Transfer,3,1.0,0.0,1.0,3,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,attack_label,Merlin C&C Communication,5,1.0,0.0,1.0,5,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,attack_label,Merlin ICMP Flooding,8,1.0,0.0,1.0,8,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,attack_label,Merlin TCP Flooding,11,1.0,0.0,1.0,11,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,attack_label,Merlin UDP Flooding,6,1.0,0.0,1.0,6,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,attack_label,Mirai C&C Communication,2,1.0,0.0,1.0,2,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,attack_label,Mirai GRE Flooding,10,1.0,0.0,1.0,10,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,attack_label,Mirai TCP Flooding,10,1.0,0.0,1.0,10,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,attack_label,Mirai UDP Flooding,11,1.0,0.0,1.0,11,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,support_val,support_seen,seen,69,0.9710144927536232,0.028985507246376812,1.0,67,2
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,source_group,processed/iotsim-combined-cycle-10.csv,2486,1.0,0.0,1.0,2486,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,source_group,processed/iotsim-ip-camera-museum-1.csv,65263,0.9966596693379097,0.0033403306620903117,1.0,65045,218
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,device_family,combined-cycle,2486,1.0,0.0,1.0,2486,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,device_family,ip-camera-museum,65263,0.9966596693379097,0.0033403306620903117,1.0,65045,218
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,source_family,iotsim-combined-cycle,2486,1.0,0.0,1.0,2486,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,source_family,iotsim-ip-camera-museum,65263,0.9966596693379097,0.0033403306620903117,1.0,65045,218
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,time_block,q1,19977,0.993142113430445,0.006857886569554988,1.0,19840,137
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,time_block,q2,11666,0.9963997942739585,0.003600205726041488,1.0,11624,42
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,time_block,q3,4686,1.0,0.0,1.0,4686,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,time_block,q4,31420,0.9987587523870146,0.0012412476129853597,1.0,31381,39
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,attack_label,File Download,105,1.0,0.0,1.0,105,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,attack_label,Ingress Tool Transfer,2381,1.0,0.0,1.0,2381,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,attack_label,Merlin C&C Communication,6827,0.9737805771202578,0.0262194228797422,1.0,6648,179
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,attack_label,Merlin ICMP Flooding,7038,1.0,0.0,1.0,7038,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,attack_label,Merlin TCP Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,attack_label,Merlin UDP Flooding,3292,1.0,0.0,1.0,3292,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,attack_label,Mirai C&C Communication,106,0.6320754716981132,0.36792452830188677,1.0,67,39
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,attack_label,Mirai GRE Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,attack_label,Mirai TCP Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,attack_label,Mirai UDP Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,same_file_query,support_seen,seen,67749,0.9967822403282706,0.003217759671729472,1.0,67531,218
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,source_group,processed/iotsim-combined-cycle-1.csv,88575,0.9827603725656223,0.016381597516229186,0.9991419700818516,87048,1451
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,source_group,processed/iotsim-combined-cycle-10.csv,24154,0.9846816262316801,0.014573155584996274,0.9992547818166764,23784,352
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,source_group,processed/iotsim-domotic-monitor-1.csv,91812,0.994728357948852,0.005119156537271816,0.9998475144861239,91328,470
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,source_group,processed/iotsim-ip-camera-museum-1.csv,24108,0.9998340799734527,0.00016592002654720425,1.0,24104,4
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,device_family,combined-cycle,112729,0.9831720320414445,0.015994109767672914,0.9991661418091174,110832,1803
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,device_family,domotic-monitor,91812,0.994728357948852,0.005119156537271816,0.9998475144861239,91328,470
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,device_family,ip-camera-museum,24108,0.9998340799734527,0.00016592002654720425,1.0,24104,4
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,source_family,iotsim-combined-cycle,112729,0.9831720320414445,0.015994109767672914,0.9991661418091174,110832,1803
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,source_family,iotsim-domotic-monitor,91812,0.994728357948852,0.005119156537271816,0.9998475144861239,91328,470
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,source_family,iotsim-ip-camera-museum,24108,0.9998340799734527,0.00016592002654720425,1.0,24104,4
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,time_block,q1,62514,0.9797485363278625,0.02025146367213744,1.0,61248,1266
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,time_block,q2,48836,0.987304447538701,0.012326971905971006,0.9996314194446719,48216,602
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,time_block,q3,46976,0.9947845708446866,0.004917404632152588,0.9997019754768393,46731,231
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,time_block,q4,70323,0.9963880949333789,0.0025311775663723105,0.9989192724997511,70069,178
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,C&C Communication,172,0.5,0.4476744186046512,0.9476744186046512,86,77
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,CoAP Amplification,12000,1.0,0.0,1.0,12000,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,File Download,1187,0.9949452401010952,0.005054759898904802,1.0,1181,6
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,Ingress Tool Transfer,3786,0.99418911780243,0.005810882197569995,1.0,3764,22
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,Merlin C&C Communication,9933,0.9761401389308366,0.023859861069163393,1.0,9696,237
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,Merlin ICMP Flooding,18835,1.0,0.0,1.0,18835,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,Merlin TCP Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,Merlin UDP Flooding,10000,1.0,0.0,1.0,10000,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,Mirai C&C Communication,358,0.2905027932960894,0.4972067039106145,0.7877094972067039,104,178
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,Mirai GRE Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,Mirai TCP Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,Mirai UDP Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,Reporting,136,0.6911764705882353,0.27941176470588236,0.9705882352941176,94,38
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,TCP Scan,36000,0.9860277777777777,0.013444444444444445,0.9994722222222222,35497,484
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,Telnet Brute Force,36000,0.9944722222222222,0.005527777777777778,1.0,35801,199
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,attack_label,UDP Scan,4242,0.7557755775577558,0.24422442244224424,1.0,3206,1036
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,support_seen,seen,140099,0.9962954767699984,0.003162049693431074,0.9994575264634294,139580,443
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,future_query,support_seen,unseen,88550,0.9789271597967251,0.020711462450592886,0.9996386222473179,86684,1834
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_ood,source_group,processed/iotsim-ip-camera-museum-2.csv,54950,0.00267515923566879,0.02416742493175614,0.02684258416742493,147,1328
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_ood,source_group,processed/iotsim-ip-camera-street-2.csv,99950,0.02365182591295648,0.09972986493246623,0.1233816908454227,2364,9968
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_ood,device_family,iotsim-ip-camera-museum,54950,0.00267515923566879,0.02416742493175614,0.02684258416742493,147,1328
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_ood,device_family,iotsim-ip-camera-street,99950,0.02365182591295648,0.09972986493246623,0.1233816908454227,2364,9968
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_ood,source_family,iotsim-ip-camera-museum,54950,0.00267515923566879,0.02416742493175614,0.02684258416742493,147,1328
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_ood,source_family,iotsim-ip-camera-street,99950,0.02365182591295648,0.09972986493246623,0.1233816908454227,2364,9968
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_ood,time_block,q1,38725,0.03183989670755326,0.06850871530019367,0.10034861200774693,1233,2653
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_ood,time_block,q2,38725,0.013350548741123305,0.05603615235635894,0.06938670109748225,517,2170
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_ood,time_block,q3,38725,0.010664945125887669,0.07622982569399613,0.0868947708198838,413,2952
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_ood,time_block,q4,38725,0.008986442866365397,0.09092317624273726,0.09990961910910265,348,3521
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_ood,attack_label,benign,154900,0.016210458360232407,0.0729244673983215,0.0891349257585539,2511,11296
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_ood,support_seen,unseen,154900,0.016210458360232407,0.0729244673983215,0.0891349257585539,2511,11296
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,source_group,processed/iotsim-ip-camera-street-1.csv,110104,0.9925888251108044,0.006039744241807745,0.9986285693526121,109288,665
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,device_family,ip-camera-street,110104,0.9925888251108044,0.006039744241807745,0.9986285693526121,109288,665
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,source_family,iotsim-ip-camera-street,110104,0.9925888251108044,0.006039744241807745,0.9986285693526121,109288,665
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,time_block,q1,27526,0.9935697159049626,0.006393954806364891,0.9999636707113275,27349,176
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,time_block,q2,27526,0.9817990263750636,0.013768800406888033,0.9955678267819517,27025,379
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,time_block,q3,27526,0.9949865581631911,0.003996221753978057,0.9989827799171692,27388,110
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,time_block,q4,27526,1.0,0.0,1.0,27526,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,attack_label,C&C Communication,90,0.6666666666666666,0.14444444444444443,0.8111111111111111,60,13
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,attack_label,File Download,1231,0.9967506092607636,0.003249390739236393,1.0,1227,4
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Ingress Tool Transfer,3702,1.0,0.0,1.0,3702,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Merlin ICMP Flooding,10011,1.0,0.0,1.0,10011,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Merlin TCP Flooding,15000,0.9890666666666666,0.010933333333333333,1.0,14836,164
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Merlin UDP Flooding,4996,0.9973979183346677,0.0024019215372297837,0.9997998398718975,4983,12
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Mirai GRE Flooding,15000,1.0,0.0,1.0,15000,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Mirai TCP Flooding,15000,0.9938,0.0062,1.0,14907,93
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Mirai UDP Flooding,15000,0.9996,0.0,0.9996,14994,0
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Reporting,74,0.6486486486486487,0.17567567567567569,0.8243243243243243,48,13
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,attack_label,TCP Scan,15000,0.974,0.0186,0.9926,14610,279
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Telnet Brute Force,15000,0.994,0.0058,0.9998,14910,87
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,support_seen,seen,79940,0.9964973730297724,0.003415061295971979,0.9999124343257443,79660,273
+CKL_F1_global_robust_tail_seed42,F1_global_robust_tail,main_seed42,42,sealed_final_attack,support_seen,unseen,30164,0.9822304734120143,0.01299562392255669,0.995226097334571,29628,392
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-6.csv,22418,0.00013382103666696404,0.0016058524400035686,0.0017396734766705326,3,36
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-7.csv,22425,0.0,0.001649944258639911,0.001649944258639911,0,37
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-8.csv,5011,0.0,0.003791658351626422,0.003791658351626422,0,19
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-9.csv,1643,0.0,0.006695069993913573,0.006695069993913573,0,11
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,id_calib,device_family,iotsim-cooler-motor,51497,5.825582072742101e-05,0.002000116511641455,0.002058372332368876,3,103
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,id_calib,source_family,iotsim-cooler-motor,51497,5.825582072742101e-05,0.002000116511641455,0.002058372332368876,3,103
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,id_calib,time_block,q1,14235,0.00021074815595363542,0.004776958201615736,0.004987706357569371,3,68
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,id_calib,time_block,q2,12229,0.0,0.0008995011857061084,0.0008995011857061084,0,11
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,id_calib,time_block,q3,11772,0.0,0.0008494733265375467,0.0008494733265375467,0,10
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,id_calib,time_block,q4,13261,0.0,0.0010557273207148783,0.0010557273207148783,0,14
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,id_calib,attack_label,benign,51497,5.825582072742101e-05,0.002000116511641455,0.002058372332368876,3,103
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,id_calib,support_seen,unseen,51497,5.825582072742101e-05,0.002000116511641455,0.002058372332368876,3,103
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-12.csv,2446,0.0004088307440719542,0.01062959934587081,0.011038430089942763,1,26
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-13.csv,2431,0.0,0.01316330728095434,0.01316330728095434,0,32
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-14.csv,2431,0.0,0.00904977375565611,0.00904977375565611,0,22
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-15.csv,2446,0.0004088307440719542,0.011038430089942763,0.011447260834014717,1,27
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-2.csv,2451,0.0008159934720522236,0.004895960832313341,0.005711954304365565,2,12
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_val,device_family,iotsim-hydraulic-system,12205,0.0003277345350266284,0.009750102417042196,0.010077836952068825,4,119
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_val,source_family,iotsim-hydraulic-system,12205,0.0003277345350266284,0.009750102417042196,0.010077836952068825,4,119
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_val,time_block,q1,3275,0.0012213740458015267,0.03114503816793893,0.03236641221374046,4,102
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_val,time_block,q2,3174,0.0,0.004410838059231254,0.004410838059231254,0,14
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_val,time_block,q3,3237,0.0,0.0009267840593141798,0.0009267840593141798,0,3
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_val,time_block,q4,2519,0.0,0.0,0.0,0,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_val,attack_label,benign,12205,0.0003277345350266284,0.009750102417042196,0.010077836952068825,4,119
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_val,support_seen,unseen,12205,0.0003277345350266284,0.009750102417042196,0.010077836952068825,4,119
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_stress,source_group,processed/iotsim-stream-consumer-2.csv,79950,0.00012507817385866166,0.0008005003126954346,0.0009255784865540963,10,64
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_stress,device_family,iotsim-stream-consumer,79950,0.00012507817385866166,0.0008005003126954346,0.0009255784865540963,10,64
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_stress,source_family,iotsim-stream-consumer,79950,0.00012507817385866166,0.0008005003126954346,0.0009255784865540963,10,64
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_stress,time_block,q1,28717,0.0003482257896019779,0.002158999895532263,0.002507225685134241,10,62
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_stress,time_block,q2,28769,0.0,6.951927421877716e-05,6.951927421877716e-05,0,2
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_stress,time_block,q3,22464,0.0,0.0,0.0,0,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_stress,attack_label,benign,79950,0.00012507817385866166,0.0008005003126954346,0.0009255784865540963,10,64
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,ood_stress,support_seen,unseen,79950,0.00012507817385866166,0.0008005003126954346,0.0009255784865540963,10,64
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,source_group,processed/iotsim-city-power-1.csv,23,0.9565217391304348,0.043478260869565216,1.0,22,1
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,source_group,processed/iotsim-combined-cycle-10.csv,6,1.0,0.0,1.0,6,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,source_group,processed/iotsim-ip-camera-museum-1.csv,40,1.0,0.0,1.0,40,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,device_family,city-power,23,0.9565217391304348,0.043478260869565216,1.0,22,1
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,device_family,combined-cycle,6,1.0,0.0,1.0,6,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,device_family,ip-camera-museum,40,1.0,0.0,1.0,40,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,source_family,iotsim-city-power,23,0.9565217391304348,0.043478260869565216,1.0,22,1
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,source_family,iotsim-combined-cycle,6,1.0,0.0,1.0,6,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,source_family,iotsim-ip-camera-museum,40,1.0,0.0,1.0,40,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,time_block,q1,17,0.9411764705882353,0.058823529411764705,1.0,16,1
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,time_block,q2,19,1.0,0.0,1.0,19,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,time_block,q3,13,1.0,0.0,1.0,13,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,time_block,q4,20,1.0,0.0,1.0,20,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,attack_label,File Download,3,1.0,0.0,1.0,3,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,attack_label,Ingress Tool Transfer,3,1.0,0.0,1.0,3,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,attack_label,Merlin C&C Communication,5,1.0,0.0,1.0,5,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,attack_label,Merlin ICMP Flooding,8,0.875,0.125,1.0,7,1
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,attack_label,Merlin TCP Flooding,11,1.0,0.0,1.0,11,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,attack_label,Merlin UDP Flooding,6,1.0,0.0,1.0,6,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,attack_label,Mirai C&C Communication,2,1.0,0.0,1.0,2,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,attack_label,Mirai GRE Flooding,10,1.0,0.0,1.0,10,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,attack_label,Mirai TCP Flooding,10,1.0,0.0,1.0,10,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,attack_label,Mirai UDP Flooding,11,1.0,0.0,1.0,11,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,support_val,support_seen,seen,69,0.9855072463768116,0.014492753623188406,1.0,68,1
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,source_group,processed/iotsim-combined-cycle-10.csv,2486,0.4320193081255028,0.5671761866452132,0.999195494770716,1074,1410
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,source_group,processed/iotsim-ip-camera-museum-1.csv,65263,0.9978854787551905,0.0014403260653049967,0.9993258048204955,65125,94
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,device_family,combined-cycle,2486,0.4320193081255028,0.5671761866452132,0.999195494770716,1074,1410
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,device_family,ip-camera-museum,65263,0.9978854787551905,0.0014403260653049967,0.9993258048204955,65125,94
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,source_family,iotsim-combined-cycle,2486,0.4320193081255028,0.5671761866452132,0.999195494770716,1074,1410
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,source_family,iotsim-ip-camera-museum,65263,0.9978854787551905,0.0014403260653049967,0.9993258048204955,65125,94
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,time_block,q1,19977,0.9974971216899434,0.0015517845522350702,0.9990489062421785,19927,31
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,time_block,q2,11666,0.8751071489799417,0.1240356591805246,0.9991428081604663,10209,1447
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,time_block,q3,4686,1.0,0.0,1.0,4686,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,time_block,q4,31420,0.9986314449395289,0.0008274984086569065,0.9994589433481859,31377,26
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,attack_label,File Download,105,1.0,0.0,1.0,105,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,attack_label,Ingress Tool Transfer,2381,0.4069718605627887,0.5921881562368753,0.999160016799664,969,1410
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,attack_label,Merlin C&C Communication,6827,0.9860846638347737,0.009960451149846198,0.9960451149846199,6732,68
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,attack_label,Merlin ICMP Flooding,7038,1.0,0.0,1.0,7038,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,attack_label,Merlin TCP Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,attack_label,Merlin UDP Flooding,3292,1.0,0.0,1.0,3292,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,attack_label,Mirai C&C Communication,106,0.5943396226415094,0.24528301886792453,0.839622641509434,63,26
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,attack_label,Mirai GRE Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,attack_label,Mirai TCP Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,attack_label,Mirai UDP Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,same_file_query,support_seen,seen,67749,0.9771214335266941,0.022199589661840026,0.9993210231885341,66199,1504
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,source_group,processed/iotsim-combined-cycle-1.csv,88575,0.9537454134913915,0.03322607959356477,0.9869714930849562,84478,2943
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,source_group,processed/iotsim-combined-cycle-10.csv,24154,0.04160801523557175,0.39840192100687255,0.44000993624244433,1005,9623
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,source_group,processed/iotsim-domotic-monitor-1.csv,91812,0.7284124079641006,0.10673985971332724,0.8351522676774278,66877,9800
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,source_group,processed/iotsim-ip-camera-museum-1.csv,24108,0.9952712792434046,0.004230960676953708,0.9995022399203584,23994,102
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,device_family,combined-cycle,112729,0.7583053162895085,0.11147087262372593,0.8697761889132344,85483,12566
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,device_family,domotic-monitor,91812,0.7284124079641006,0.10673985971332724,0.8351522676774278,66877,9800
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,device_family,ip-camera-museum,24108,0.9952712792434046,0.004230960676953708,0.9995022399203584,23994,102
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,source_family,iotsim-combined-cycle,112729,0.7583053162895085,0.11147087262372593,0.8697761889132344,85483,12566
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,source_family,iotsim-domotic-monitor,91812,0.7284124079641006,0.10673985971332724,0.8351522676774278,66877,9800
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,source_family,iotsim-ip-camera-museum,24108,0.9952712792434046,0.004230960676953708,0.9995022399203584,23994,102
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,time_block,q1,62514,0.9382698275586269,0.04586172697315801,0.9841315545317849,58655,2867
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,time_block,q2,48836,0.5953395036448521,0.1069293144401671,0.7022688180850193,29074,5222
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,time_block,q3,46976,0.39471219346049047,0.30443205040871935,0.6991442438692098,18542,14301
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,time_block,q4,70323,0.9965871763150036,0.0011091676976238214,0.9976963440126274,70083,78
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,C&C Communication,172,0.023255813953488372,0.029069767441860465,0.05232558139534884,4,5
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,CoAP Amplification,12000,0.9999166666666667,8.333333333333333e-05,1.0,11999,1
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,File Download,1187,1.0,0.0,1.0,1187,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,Ingress Tool Transfer,3786,0.6006339144215531,0.39091389329107235,0.9915478077126255,2274,1480
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,Merlin C&C Communication,9933,0.984093425953891,0.008053961542333635,0.9921473874962247,9775,80
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,Merlin ICMP Flooding,18835,0.9999469073533316,5.309264666843642e-05,1.0,18834,1
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,Merlin TCP Flooding,24000,0.9999166666666667,8.333333333333333e-05,1.0,23998,2
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,Merlin UDP Flooding,10000,0.9999,0.0001,1.0,9999,1
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,Mirai C&C Communication,358,0.3324022346368715,0.21508379888268156,0.547486033519553,119,77
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,Mirai GRE Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,Mirai TCP Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,Mirai UDP Flooding,24000,0.9999166666666667,8.333333333333333e-05,1.0,23998,2
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,Reporting,136,0.022058823529411766,0.10294117647058823,0.125,3,14
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,TCP Scan,36000,0.355,0.2411388888888889,0.5961388888888889,12780,8681
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,Telnet Brute Force,36000,0.3566388888888889,0.2594722222222222,0.6161111111111112,12839,9341
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,attack_label,UDP Scan,4242,0.12847713342762848,0.656058462989156,0.7845355964167845,545,2783
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,support_seen,seen,140099,0.98633109444036,0.011727421323492674,0.9980585157638527,138184,1643
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,future_query,support_seen,unseen,88550,0.43105590062111804,0.23517786561264822,0.6662337662337663,38170,20825
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_ood,source_group,processed/iotsim-ip-camera-museum-2.csv,54950,0.0006733393994540492,0.004913557779799818,0.005586897179253867,37,270
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_ood,source_group,processed/iotsim-ip-camera-street-2.csv,99950,0.020420210105052527,0.020210105052526264,0.04063031515757879,2041,2020
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_ood,device_family,iotsim-ip-camera-museum,54950,0.0006733393994540492,0.004913557779799818,0.005586897179253867,37,270
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_ood,device_family,iotsim-ip-camera-street,99950,0.020420210105052527,0.020210105052526264,0.04063031515757879,2041,2020
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_ood,source_family,iotsim-ip-camera-museum,54950,0.0006733393994540492,0.004913557779799818,0.005586897179253867,37,270
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_ood,source_family,iotsim-ip-camera-street,99950,0.020420210105052527,0.020210105052526264,0.04063031515757879,2041,2020
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_ood,time_block,q1,38725,0.028870238863783086,0.016965784377017432,0.045836023240800515,1118,657
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_ood,time_block,q2,38725,0.010174306003873467,0.012963202065848934,0.023137508069722403,394,502
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_ood,time_block,q3,38725,0.008340865074241446,0.013660426081342802,0.02200129115558425,323,529
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_ood,time_block,q4,38725,0.006275016139444803,0.015545513234344738,0.021820529373789543,243,602
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_ood,attack_label,benign,154900,0.013415106520335701,0.014783731439638476,0.028198837959974177,2078,2290
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_ood,support_seen,unseen,154900,0.013415106520335701,0.014783731439638476,0.028198837959974177,2078,2290
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,source_group,processed/iotsim-ip-camera-street-1.csv,110104,0.9862584465596164,0.01105318607861658,0.997311632638233,108591,1217
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,device_family,ip-camera-street,110104,0.9862584465596164,0.01105318607861658,0.997311632638233,108591,1217
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,source_family,iotsim-ip-camera-street,110104,0.9862584465596164,0.01105318607861658,0.997311632638233,108591,1217
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,time_block,q1,27526,0.9920075564920439,0.007956114219283586,0.9999636707113275,27306,219
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,time_block,q2,27526,0.9567318171910194,0.03407687277483107,0.9908086899658505,26335,938
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,time_block,q3,27526,0.9963307418440747,0.0021434280316791395,0.9984741698757539,27425,59
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,time_block,q4,27526,0.9999636707113275,3.6329288672527794e-05,1.0,27525,1
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,attack_label,C&C Communication,90,0.5777777777777777,0.12222222222222222,0.7,52,11
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,attack_label,File Download,1231,1.0,0.0,1.0,1231,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,attack_label,Ingress Tool Transfer,3702,0.9978390059427337,0.001350621285791464,0.9991896272285251,3694,5
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,attack_label,Merlin ICMP Flooding,10011,1.0,0.0,1.0,10011,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,attack_label,Merlin TCP Flooding,15000,0.9862,0.0138,1.0,14793,207
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,attack_label,Merlin UDP Flooding,4996,0.9973979183346677,0.0024019215372297837,0.9997998398718975,4983,12
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,attack_label,Mirai GRE Flooding,15000,0.9999333333333333,6.666666666666667e-05,1.0,14999,1
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,attack_label,Mirai TCP Flooding,15000,0.9967333333333334,0.003266666666666667,1.0,14951,49
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,attack_label,Mirai UDP Flooding,15000,0.9996,0.0,0.9996,14994,0
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,attack_label,Reporting,74,0.6486486486486487,0.05405405405405406,0.7027027027027027,48,4
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,attack_label,TCP Scan,15000,0.929,0.0602,0.9892,13935,903
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,attack_label,Telnet Brute Force,15000,0.9933333333333333,0.0016666666666666668,0.995,14900,25
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,support_seen,seen,79940,0.9964473355016262,0.0034275706780085066,0.9998749061796347,79656,274
+CKL_F1_global_robust_only_seed42,F1_global_robust_only,main_seed42,42,sealed_final_attack,support_seen,unseen,30164,0.9592560668346373,0.03126243203819122,0.9905184988728285,28935,943
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-6.csv,22418,0.0,0.002185743598893746,0.002185743598893746,0,49
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-7.csv,22425,0.0,0.0020958751393534004,0.0020958751393534004,0,47
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-8.csv,5011,0.0,0.0013969267611255239,0.0013969267611255239,0,7
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-9.csv,1643,0.0,0.0,0.0,0,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,id_calib,device_family,iotsim-cooler-motor,51497,0.0,0.002000116511641455,0.002000116511641455,0,103
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,id_calib,source_family,iotsim-cooler-motor,51497,0.0,0.002000116511641455,0.002000116511641455,0,103
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,id_calib,time_block,q1,14235,0.0,0.001194239550403934,0.001194239550403934,0,17
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,id_calib,time_block,q2,12229,0.0,0.002044320876604792,0.002044320876604792,0,25
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,id_calib,time_block,q3,11772,0.0,0.0018688413183826028,0.0018688413183826028,0,22
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,id_calib,time_block,q4,13261,0.0,0.0029409546791343034,0.0029409546791343034,0,39
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,id_calib,attack_label,benign,51497,0.0,0.002000116511641455,0.002000116511641455,0,103
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,id_calib,support_seen,unseen,51497,0.0,0.002000116511641455,0.002000116511641455,0,103
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-12.csv,2446,0.0,0.0004088307440719542,0.0004088307440719542,0,1
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-13.csv,2431,0.0,0.00041135335252982314,0.00041135335252982314,0,1
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-14.csv,2431,0.0,0.0,0.0,0,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-15.csv,2446,0.0,0.0004088307440719542,0.0004088307440719542,0,1
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-2.csv,2451,0.0,0.0008159934720522236,0.0008159934720522236,0,2
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_val,device_family,iotsim-hydraulic-system,12205,0.0,0.00040966816878328555,0.00040966816878328555,0,5
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_val,source_family,iotsim-hydraulic-system,12205,0.0,0.00040966816878328555,0.00040966816878328555,0,5
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_val,time_block,q1,3275,0.0,0.0015267175572519084,0.0015267175572519084,0,5
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_val,time_block,q2,3174,0.0,0.0,0.0,0,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_val,time_block,q3,3237,0.0,0.0,0.0,0,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_val,time_block,q4,2519,0.0,0.0,0.0,0,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_val,attack_label,benign,12205,0.0,0.00040966816878328555,0.00040966816878328555,0,5
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_val,support_seen,unseen,12205,0.0,0.00040966816878328555,0.00040966816878328555,0,5
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_stress,source_group,processed/iotsim-stream-consumer-2.csv,79950,0.0,0.009956222639149468,0.009956222639149468,0,796
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_stress,device_family,iotsim-stream-consumer,79950,0.0,0.009956222639149468,0.009956222639149468,0,796
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_stress,source_family,iotsim-stream-consumer,79950,0.0,0.009956222639149468,0.009956222639149468,0,796
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_stress,time_block,q1,28717,0.0,0.020614966744437094,0.020614966744437094,0,592
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_stress,time_block,q2,28769,0.0,0.004344954638673572,0.004344954638673572,0,125
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_stress,time_block,q3,22464,0.0,0.0035167378917378917,0.0035167378917378917,0,79
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_stress,attack_label,benign,79950,0.0,0.009956222639149468,0.009956222639149468,0,796
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,ood_stress,support_seen,unseen,79950,0.0,0.009956222639149468,0.009956222639149468,0,796
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,source_group,processed/iotsim-city-power-1.csv,23,1.0,0.0,1.0,23,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,source_group,processed/iotsim-combined-cycle-10.csv,6,1.0,0.0,1.0,6,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,source_group,processed/iotsim-ip-camera-museum-1.csv,40,1.0,0.0,1.0,40,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,device_family,city-power,23,1.0,0.0,1.0,23,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,device_family,combined-cycle,6,1.0,0.0,1.0,6,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,device_family,ip-camera-museum,40,1.0,0.0,1.0,40,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,source_family,iotsim-city-power,23,1.0,0.0,1.0,23,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,source_family,iotsim-combined-cycle,6,1.0,0.0,1.0,6,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,source_family,iotsim-ip-camera-museum,40,1.0,0.0,1.0,40,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,time_block,q1,17,1.0,0.0,1.0,17,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,time_block,q2,19,1.0,0.0,1.0,19,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,time_block,q3,13,1.0,0.0,1.0,13,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,time_block,q4,20,1.0,0.0,1.0,20,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,attack_label,File Download,3,1.0,0.0,1.0,3,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,attack_label,Ingress Tool Transfer,3,1.0,0.0,1.0,3,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,attack_label,Merlin C&C Communication,5,1.0,0.0,1.0,5,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,attack_label,Merlin ICMP Flooding,8,1.0,0.0,1.0,8,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,attack_label,Merlin TCP Flooding,11,1.0,0.0,1.0,11,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,attack_label,Merlin UDP Flooding,6,1.0,0.0,1.0,6,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,attack_label,Mirai C&C Communication,2,1.0,0.0,1.0,2,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,attack_label,Mirai GRE Flooding,10,1.0,0.0,1.0,10,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,attack_label,Mirai TCP Flooding,10,1.0,0.0,1.0,10,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,attack_label,Mirai UDP Flooding,11,1.0,0.0,1.0,11,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,support_val,support_seen,seen,69,1.0,0.0,1.0,69,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,source_group,processed/iotsim-combined-cycle-10.csv,2486,1.0,0.0,1.0,2486,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,source_group,processed/iotsim-ip-camera-museum-1.csv,65263,0.9993104822027795,0.0006895177972204772,1.0,65218,45
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,device_family,combined-cycle,2486,1.0,0.0,1.0,2486,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,device_family,ip-camera-museum,65263,0.9993104822027795,0.0006895177972204772,1.0,65218,45
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,source_family,iotsim-combined-cycle,2486,1.0,0.0,1.0,2486,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,source_family,iotsim-ip-camera-museum,65263,0.9993104822027795,0.0006895177972204772,1.0,65218,45
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,time_block,q1,19977,0.998848675977374,0.00115132402262602,1.0,19954,23
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,time_block,q2,11666,0.9981141779530259,0.0018858220469741129,1.0,11644,22
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,time_block,q3,4686,1.0,0.0,1.0,4686,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,time_block,q4,31420,1.0,0.0,1.0,31420,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,attack_label,File Download,105,1.0,0.0,1.0,105,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,attack_label,Ingress Tool Transfer,2381,1.0,0.0,1.0,2381,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,attack_label,Merlin C&C Communication,6827,0.9934085249743665,0.006591475025633514,1.0,6782,45
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,attack_label,Merlin ICMP Flooding,7038,1.0,0.0,1.0,7038,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,attack_label,Merlin TCP Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,attack_label,Merlin UDP Flooding,3292,1.0,0.0,1.0,3292,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,attack_label,Mirai C&C Communication,106,1.0,0.0,1.0,106,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,attack_label,Mirai GRE Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,attack_label,Mirai TCP Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,attack_label,Mirai UDP Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,same_file_query,support_seen,seen,67749,0.9993357835540008,0.000664216445999203,1.0,67704,45
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,source_group,processed/iotsim-combined-cycle-1.csv,88575,0.9990064916737228,0.0009935083262771662,1.0,88487,88
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,source_group,processed/iotsim-combined-cycle-10.csv,24154,1.0,0.0,1.0,24154,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,source_group,processed/iotsim-domotic-monitor-1.csv,91812,0.9999782163551606,2.1783644839454536e-05,1.0,91810,2
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,source_group,processed/iotsim-ip-camera-museum-1.csv,24108,0.9910817985730878,0.008918201426912228,1.0,23893,215
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,device_family,combined-cycle,112729,0.9992193668000249,0.0007806331999751616,1.0,112641,88
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,device_family,domotic-monitor,91812,0.9999782163551606,2.1783644839454536e-05,1.0,91810,2
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,device_family,ip-camera-museum,24108,0.9910817985730878,0.008918201426912228,1.0,23893,215
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,source_family,iotsim-combined-cycle,112729,0.9992193668000249,0.0007806331999751616,1.0,112641,88
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,source_family,iotsim-domotic-monitor,91812,0.9999782163551606,2.1783644839454536e-05,1.0,91810,2
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,source_family,iotsim-ip-camera-museum,24108,0.9910817985730878,0.008918201426912228,1.0,23893,215
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,time_block,q1,62514,0.998592315321368,0.0014076846786319865,1.0,62426,88
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,time_block,q2,48836,0.9977066098779589,0.0022933901220411174,1.0,48724,112
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,time_block,q3,46976,0.9977648160762943,0.002235183923705722,1.0,46871,105
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,time_block,q4,70323,1.0,0.0,1.0,70323,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,C&C Communication,172,1.0,0.0,1.0,172,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,CoAP Amplification,12000,1.0,0.0,1.0,12000,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,File Download,1187,0.9983150800336984,0.0016849199663016006,1.0,1185,2
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,Ingress Tool Transfer,3786,1.0,0.0,1.0,3786,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,Merlin C&C Communication,9933,0.991140642303433,0.008859357696566999,1.0,9845,88
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,Merlin ICMP Flooding,18835,1.0,0.0,1.0,18835,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,Merlin TCP Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,Merlin UDP Flooding,10000,1.0,0.0,1.0,10000,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,Mirai C&C Communication,358,1.0,0.0,1.0,358,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,Mirai GRE Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,Mirai TCP Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,Mirai UDP Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,Reporting,136,1.0,0.0,1.0,136,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,TCP Scan,36000,0.9973611111111111,0.002638888888888889,1.0,35905,95
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,Telnet Brute Force,36000,0.9966666666666667,0.0033333333333333335,1.0,35880,120
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,attack_label,UDP Scan,4242,1.0,0.0,1.0,4242,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,support_seen,seen,140099,0.9993575971277454,0.0006424028722546199,1.0,140009,90
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,future_query,support_seen,unseen,88550,0.9975719932241671,0.0024280067758328627,1.0,88335,215
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_ood,source_group,processed/iotsim-ip-camera-museum-2.csv,54950,0.009499545040946316,0.018307552320291173,0.027807097361237487,522,1006
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_ood,source_group,processed/iotsim-ip-camera-street-2.csv,99950,0.03627813906953477,0.30216108054027013,0.3384392196098049,3626,30201
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_ood,device_family,iotsim-ip-camera-museum,54950,0.009499545040946316,0.018307552320291173,0.027807097361237487,522,1006
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_ood,device_family,iotsim-ip-camera-street,99950,0.03627813906953477,0.30216108054027013,0.3384392196098049,3626,30201
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_ood,source_family,iotsim-ip-camera-museum,54950,0.009499545040946316,0.018307552320291173,0.027807097361237487,522,1006
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_ood,source_family,iotsim-ip-camera-street,99950,0.03627813906953477,0.30216108054027013,0.3384392196098049,3626,30201
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_ood,time_block,q1,38725,0.0900968366688186,0.19227888960619754,0.2823757262750161,3489,7446
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_ood,time_block,q2,38725,0.005965138799225307,0.12772111039380246,0.13368624919302777,231,4946
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_ood,time_block,q3,38725,0.005577792123950936,0.2303938024531956,0.23597159457714656,216,8922
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_ood,time_block,q4,38725,0.005474499677211104,0.25546804389928984,0.260942543576501,212,9893
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_ood,attack_label,benign,154900,0.026778566817301484,0.20146546158812137,0.22824402840542285,4148,31207
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_ood,support_seen,unseen,154900,0.026778566817301484,0.20146546158812137,0.22824402840542285,4148,31207
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,source_group,processed/iotsim-ip-camera-street-1.csv,110104,0.9991735086826999,0.0007719973842912156,0.9999455060669912,110013,85
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,device_family,ip-camera-street,110104,0.9991735086826999,0.0007719973842912156,0.9999455060669912,110013,85
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,source_family,iotsim-ip-camera-street,110104,0.9991735086826999,0.0007719973842912156,0.9999455060669912,110013,85
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,time_block,q1,27526,1.0,0.0,1.0,27526,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,time_block,q2,27526,0.9994187313812396,0.0005812686187604447,1.0,27510,16
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,time_block,q3,27526,0.9972753033495604,0.0025067209184044177,0.9997820242679648,27451,69
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,time_block,q4,27526,1.0,0.0,1.0,27526,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,attack_label,C&C Communication,90,1.0,0.0,1.0,90,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,attack_label,File Download,1231,1.0,0.0,1.0,1231,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Ingress Tool Transfer,3702,1.0,0.0,1.0,3702,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Merlin ICMP Flooding,10011,1.0,0.0,1.0,10011,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Merlin TCP Flooding,15000,1.0,0.0,1.0,15000,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Merlin UDP Flooding,4996,1.0,0.0,1.0,4996,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Mirai GRE Flooding,15000,1.0,0.0,1.0,15000,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Mirai TCP Flooding,15000,1.0,0.0,1.0,15000,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Mirai UDP Flooding,15000,0.9996,0.0,0.9996,14994,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Reporting,74,1.0,0.0,1.0,74,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,attack_label,TCP Scan,15000,1.0,0.0,1.0,15000,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,attack_label,Telnet Brute Force,15000,0.9943333333333333,0.005666666666666667,1.0,14915,85
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,support_seen,seen,79940,0.9999249437077808,0.0,0.9999249437077808,79934,0
+CKL_F1_device_family_robust_tail_seed42,F1_device_family_robust_tail,main_seed42,42,sealed_final_attack,support_seen,unseen,30164,0.9971820713433232,0.0028179286566768335,1.0,30079,85
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-6.csv,22418,0.0,0.0023641716477830316,0.0023641716477830316,0,53
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-7.csv,22425,0.0,0.002229654403567447,0.002229654403567447,0,50
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-8.csv,5011,0.0,0.0013969267611255239,0.0013969267611255239,0,7
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,id_calib,source_group,processed/iotsim-cooler-motor-9.csv,1643,0.0,0.0,0.0,0,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,id_calib,device_family,iotsim-cooler-motor,51497,0.0,0.002136046760005437,0.002136046760005437,0,110
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,id_calib,source_family,iotsim-cooler-motor,51497,0.0,0.002136046760005437,0.002136046760005437,0,110
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,id_calib,time_block,q1,14235,0.0,0.001194239550403934,0.001194239550403934,0,17
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,id_calib,time_block,q2,12229,0.0,0.0022896393817973667,0.0022896393817973667,0,28
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,id_calib,time_block,q3,11772,0.0,0.0018688413183826028,0.0018688413183826028,0,22
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,id_calib,time_block,q4,13261,0.0,0.0032425910564814115,0.0032425910564814115,0,43
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,id_calib,attack_label,benign,51497,0.0,0.002136046760005437,0.002136046760005437,0,110
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,id_calib,support_seen,unseen,51497,0.0,0.002136046760005437,0.002136046760005437,0,110
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-12.csv,2446,0.0,0.001635322976287817,0.001635322976287817,0,4
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-13.csv,2431,0.0,0.00041135335252982314,0.00041135335252982314,0,1
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-14.csv,2431,0.0,0.0,0.0,0,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-15.csv,2446,0.0,0.0004088307440719542,0.0004088307440719542,0,1
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_val,source_group,processed/iotsim-hydraulic-system-2.csv,2451,0.0,0.0016319869441044472,0.0016319869441044472,0,4
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_val,device_family,iotsim-hydraulic-system,12205,0.0,0.0008193363375665711,0.0008193363375665711,0,10
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_val,source_family,iotsim-hydraulic-system,12205,0.0,0.0008193363375665711,0.0008193363375665711,0,10
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_val,time_block,q1,3275,0.0,0.0015267175572519084,0.0015267175572519084,0,5
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_val,time_block,q2,3174,0.0,0.001575299306868305,0.001575299306868305,0,5
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_val,time_block,q3,3237,0.0,0.0,0.0,0,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_val,time_block,q4,2519,0.0,0.0,0.0,0,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_val,attack_label,benign,12205,0.0,0.0008193363375665711,0.0008193363375665711,0,10
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_val,support_seen,unseen,12205,0.0,0.0008193363375665711,0.0008193363375665711,0,10
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_stress,source_group,processed/iotsim-stream-consumer-2.csv,79950,0.0,0.009993746091307067,0.009993746091307067,0,799
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_stress,device_family,iotsim-stream-consumer,79950,0.0,0.009993746091307067,0.009993746091307067,0,799
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_stress,source_family,iotsim-stream-consumer,79950,0.0,0.009993746091307067,0.009993746091307067,0,799
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_stress,time_block,q1,28717,0.0,0.02162482153428283,0.02162482153428283,0,621
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_stress,time_block,q2,28769,0.0,0.0038930793562515207,0.0038930793562515207,0,112
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_stress,time_block,q3,22464,0.0,0.002938034188034188,0.002938034188034188,0,66
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_stress,attack_label,benign,79950,0.0,0.009993746091307067,0.009993746091307067,0,799
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,ood_stress,support_seen,unseen,79950,0.0,0.009993746091307067,0.009993746091307067,0,799
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,source_group,processed/iotsim-city-power-1.csv,23,1.0,0.0,1.0,23,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,source_group,processed/iotsim-combined-cycle-10.csv,6,1.0,0.0,1.0,6,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,source_group,processed/iotsim-ip-camera-museum-1.csv,40,1.0,0.0,1.0,40,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,device_family,city-power,23,1.0,0.0,1.0,23,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,device_family,combined-cycle,6,1.0,0.0,1.0,6,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,device_family,ip-camera-museum,40,1.0,0.0,1.0,40,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,source_family,iotsim-city-power,23,1.0,0.0,1.0,23,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,source_family,iotsim-combined-cycle,6,1.0,0.0,1.0,6,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,source_family,iotsim-ip-camera-museum,40,1.0,0.0,1.0,40,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,time_block,q1,17,1.0,0.0,1.0,17,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,time_block,q2,19,1.0,0.0,1.0,19,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,time_block,q3,13,1.0,0.0,1.0,13,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,time_block,q4,20,1.0,0.0,1.0,20,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,attack_label,File Download,3,1.0,0.0,1.0,3,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,attack_label,Ingress Tool Transfer,3,1.0,0.0,1.0,3,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,attack_label,Merlin C&C Communication,5,1.0,0.0,1.0,5,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,attack_label,Merlin ICMP Flooding,8,1.0,0.0,1.0,8,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,attack_label,Merlin TCP Flooding,11,1.0,0.0,1.0,11,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,attack_label,Merlin UDP Flooding,6,1.0,0.0,1.0,6,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,attack_label,Mirai C&C Communication,2,1.0,0.0,1.0,2,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,attack_label,Mirai GRE Flooding,10,1.0,0.0,1.0,10,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,attack_label,Mirai TCP Flooding,10,1.0,0.0,1.0,10,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,attack_label,Mirai UDP Flooding,11,1.0,0.0,1.0,11,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,support_val,support_seen,seen,69,1.0,0.0,1.0,69,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,source_group,processed/iotsim-combined-cycle-10.csv,2486,1.0,0.0,1.0,2486,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,source_group,processed/iotsim-ip-camera-museum-1.csv,65263,0.9997088702633958,0.00029112973660420146,1.0,65244,19
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,device_family,combined-cycle,2486,1.0,0.0,1.0,2486,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,device_family,ip-camera-museum,65263,0.9997088702633958,0.00029112973660420146,1.0,65244,19
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,source_family,iotsim-combined-cycle,2486,1.0,0.0,1.0,2486,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,source_family,iotsim-ip-camera-museum,65263,0.9997088702633958,0.00029112973660420146,1.0,65244,19
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,time_block,q1,19977,0.9995494819041898,0.0004505180958101817,1.0,19968,9
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,time_block,q2,11666,0.9991428081604663,0.0008571918395336877,1.0,11656,10
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,time_block,q3,4686,1.0,0.0,1.0,4686,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,time_block,q4,31420,1.0,0.0,1.0,31420,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,attack_label,File Download,105,1.0,0.0,1.0,105,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,attack_label,Ingress Tool Transfer,2381,1.0,0.0,1.0,2381,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,attack_label,Merlin C&C Communication,6827,0.9972169327669548,0.0027830672330452617,1.0,6808,19
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,attack_label,Merlin ICMP Flooding,7038,1.0,0.0,1.0,7038,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,attack_label,Merlin TCP Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,attack_label,Merlin UDP Flooding,3292,1.0,0.0,1.0,3292,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,attack_label,Mirai C&C Communication,106,1.0,0.0,1.0,106,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,attack_label,Mirai GRE Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,attack_label,Mirai TCP Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,attack_label,Mirai UDP Flooding,12000,1.0,0.0,1.0,12000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,same_file_query,support_seen,seen,67749,0.9997195530561337,0.00028044694386633015,1.0,67730,19
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,source_group,processed/iotsim-combined-cycle-1.csv,88575,0.9990064916737228,0.0009935083262771662,1.0,88487,88
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,source_group,processed/iotsim-combined-cycle-10.csv,24154,1.0,0.0,1.0,24154,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,source_group,processed/iotsim-domotic-monitor-1.csv,91812,0.9999782163551606,2.1783644839454536e-05,1.0,91810,2
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,source_group,processed/iotsim-ip-camera-museum-1.csv,24108,1.0,0.0,1.0,24108,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,device_family,combined-cycle,112729,0.9992193668000249,0.0007806331999751616,1.0,112641,88
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,device_family,domotic-monitor,91812,0.9999782163551606,2.1783644839454536e-05,1.0,91810,2
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,device_family,ip-camera-museum,24108,1.0,0.0,1.0,24108,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,source_family,iotsim-combined-cycle,112729,0.9992193668000249,0.0007806331999751616,1.0,112641,88
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,source_family,iotsim-domotic-monitor,91812,0.9999782163551606,2.1783644839454536e-05,1.0,91810,2
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,source_family,iotsim-ip-camera-museum,24108,1.0,0.0,1.0,24108,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,time_block,q1,62514,0.998592315321368,0.0014076846786319865,1.0,62426,88
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,time_block,q2,48836,1.0,0.0,1.0,48836,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,time_block,q3,46976,0.9999574250681199,4.257493188010899e-05,1.0,46974,2
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,time_block,q4,70323,1.0,0.0,1.0,70323,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,C&C Communication,172,1.0,0.0,1.0,172,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,CoAP Amplification,12000,1.0,0.0,1.0,12000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,File Download,1187,0.9983150800336984,0.0016849199663016006,1.0,1185,2
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,Ingress Tool Transfer,3786,1.0,0.0,1.0,3786,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,Merlin C&C Communication,9933,0.991140642303433,0.008859357696566999,1.0,9845,88
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,Merlin ICMP Flooding,18835,1.0,0.0,1.0,18835,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,Merlin TCP Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,Merlin UDP Flooding,10000,1.0,0.0,1.0,10000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,Mirai C&C Communication,358,1.0,0.0,1.0,358,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,Mirai GRE Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,Mirai TCP Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,Mirai UDP Flooding,24000,1.0,0.0,1.0,24000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,Reporting,136,1.0,0.0,1.0,136,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,TCP Scan,36000,1.0,0.0,1.0,36000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,Telnet Brute Force,36000,1.0,0.0,1.0,36000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,attack_label,UDP Scan,4242,1.0,0.0,1.0,4242,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,support_seen,seen,140099,0.9993575971277454,0.0006424028722546199,1.0,140009,90
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,future_query,support_seen,unseen,88550,1.0,0.0,1.0,88550,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_ood,source_group,processed/iotsim-ip-camera-museum-2.csv,54950,0.008753412192902639,0.019017288444040038,0.027770700636942675,481,1045
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_ood,source_group,processed/iotsim-ip-camera-street-2.csv,99950,0.037678839419709856,0.30076038019009504,0.3384392196098049,3766,30061
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_ood,device_family,iotsim-ip-camera-museum,54950,0.008753412192902639,0.019017288444040038,0.027770700636942675,481,1045
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_ood,device_family,iotsim-ip-camera-street,99950,0.037678839419709856,0.30076038019009504,0.3384392196098049,3766,30061
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_ood,source_family,iotsim-ip-camera-museum,54950,0.008753412192902639,0.019017288444040038,0.027770700636942675,481,1045
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_ood,source_family,iotsim-ip-camera-street,99950,0.037678839419709856,0.30076038019009504,0.3384392196098049,3766,30061
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_ood,time_block,q1,38725,0.0936604260813428,0.18866365397030344,0.2823240800516462,3627,7306
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_ood,time_block,q2,38725,0.005190445448676566,0.12849580374435118,0.13368624919302777,201,4976
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_ood,time_block,q3,38725,0.005345384118786314,0.23062621045836024,0.23597159457714656,207,8931
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_ood,time_block,q4,38725,0.005474499677211104,0.25546804389928984,0.260942543576501,212,9893
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_ood,attack_label,benign,154900,0.027417688831504198,0.20081342801807617,0.22823111684958036,4247,31106
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_ood,support_seen,unseen,154900,0.027417688831504198,0.20081342801807617,0.22823111684958036,4247,31106
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,source_group,processed/iotsim-ip-camera-street-1.csv,110104,0.999936423744823,9.082322168131948e-06,0.9999455060669912,110097,1
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,device_family,ip-camera-street,110104,0.999936423744823,9.082322168131948e-06,0.9999455060669912,110097,1
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,source_family,iotsim-ip-camera-street,110104,0.999936423744823,9.082322168131948e-06,0.9999455060669912,110097,1
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,time_block,q1,27526,1.0,0.0,1.0,27526,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,time_block,q2,27526,0.9999636707113275,3.6329288672527794e-05,1.0,27525,1
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,time_block,q3,27526,0.9997820242679648,0.0,0.9997820242679648,27520,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,time_block,q4,27526,1.0,0.0,1.0,27526,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,attack_label,C&C Communication,90,1.0,0.0,1.0,90,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,attack_label,File Download,1231,1.0,0.0,1.0,1231,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,attack_label,Ingress Tool Transfer,3702,1.0,0.0,1.0,3702,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,attack_label,Merlin ICMP Flooding,10011,1.0,0.0,1.0,10011,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,attack_label,Merlin TCP Flooding,15000,1.0,0.0,1.0,15000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,attack_label,Merlin UDP Flooding,4996,1.0,0.0,1.0,4996,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,attack_label,Mirai GRE Flooding,15000,1.0,0.0,1.0,15000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,attack_label,Mirai TCP Flooding,15000,1.0,0.0,1.0,15000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,attack_label,Mirai UDP Flooding,15000,0.9996,0.0,0.9996,14994,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,attack_label,Reporting,74,1.0,0.0,1.0,74,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,attack_label,TCP Scan,15000,1.0,0.0,1.0,15000,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,attack_label,Telnet Brute Force,15000,0.9999333333333333,6.666666666666667e-05,1.0,14999,1
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,support_seen,seen,79940,0.9999249437077808,0.0,0.9999249437077808,79934,0
+CKL_F1_device_family_robust_only_seed42,F1_device_family_robust_only,main_seed42,42,sealed_final_attack,support_seen,unseen,30164,0.9999668478981567,3.315210184325686e-05,1.0,30163,1
