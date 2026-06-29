@@ -1,0 +1,138 @@
+{
+  "issue": "issue27cko_mechanism_frontend_v1_2026-06-29",
+  "scope": "mechanism frontend v1; fixed C4 HistGB head",
+  "smoke": true,
+  "train_cap": 1200,
+  "eval_cap": 4000,
+  "feature_specs": [
+    {
+      "name": "M0_raw115",
+      "kind": "raw",
+      "description": "C4 raw115 control."
+    },
+    {
+      "name": "M1_mechanism_only",
+      "kind": "mechanism",
+      "description": "Current packet + past-only flow/source behavior features from processed CSV fields."
+    },
+    {
+      "name": "M2_raw115_plus_mechanism",
+      "kind": "raw_plus_mechanism",
+      "description": "C4 raw115 plus current/past-only mechanism features."
+    }
+  ],
+  "mechanism_features": [
+    "cur_log_frame_len",
+    "cur_is_tcp",
+    "cur_is_udp",
+    "cur_is_icmp",
+    "cur_src_port_log",
+    "cur_dst_port_log",
+    "cur_dst_well_known",
+    "cur_is_dns",
+    "cur_is_coap",
+    "cur_is_http",
+    "cur_is_tls",
+    "cur_tcp_syn",
+    "cur_tcp_ack",
+    "cur_tcp_rst",
+    "cur_tcp_fin",
+    "prior_file_count_frac_w8",
+    "prior_file_len_mean_log_w8",
+    "prior_file_tcp_rate_w8",
+    "prior_file_udp_rate_w8",
+    "prior_file_unique_src_frac_w8",
+    "prior_file_unique_dst_frac_w8",
+    "prior_file_unique_dport_frac_w8",
+    "prior_file_count_frac_w32",
+    "prior_file_len_mean_log_w32",
+    "prior_file_tcp_rate_w32",
+    "prior_file_udp_rate_w32",
+    "prior_file_unique_src_frac_w32",
+    "prior_file_unique_dst_frac_w32",
+    "prior_file_unique_dport_frac_w32",
+    "prior_file_count_frac_w128",
+    "prior_file_len_mean_log_w128",
+    "prior_file_tcp_rate_w128",
+    "prior_file_udp_rate_w128",
+    "prior_file_unique_src_frac_w128",
+    "prior_file_unique_dst_frac_w128",
+    "prior_file_unique_dport_frac_w128",
+    "prior_src_count_frac_w8",
+    "prior_src_len_mean_log_w8",
+    "prior_src_tcp_rate_w8",
+    "prior_src_udp_rate_w8",
+    "prior_src_unique_dst_frac_w8",
+    "prior_src_unique_dport_frac_w8",
+    "prior_src_count_frac_w32",
+    "prior_src_len_mean_log_w32",
+    "prior_src_tcp_rate_w32",
+    "prior_src_udp_rate_w32",
+    "prior_src_unique_dst_frac_w32",
+    "prior_src_unique_dport_frac_w32",
+    "prior_src_count_frac_w128",
+    "prior_src_len_mean_log_w128",
+    "prior_src_tcp_rate_w128",
+    "prior_src_udp_rate_w128",
+    "prior_src_unique_dst_frac_w128",
+    "prior_src_unique_dport_frac_w128"
+  ],
+  "processed_usecols": [
+    "frame.len",
+    "frame.protocols",
+    "eth.src",
+    "eth.dst",
+    "ip.src",
+    "ip.dst",
+    "ip.proto",
+    "tcp.srcport",
+    "tcp.dstport",
+    "tcp.flags",
+    "udp.srcport",
+    "udp.dstport",
+    "label"
+  ],
+  "gotham_zip": "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\raw\\GothamDataset2025.zip",
+  "input_audit": {
+    "cert_x_shape": [
+      1000000,
+      115
+    ],
+    "attack_root": "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\issue27cd_exact_label_attack_slurm_20260614\\pullback_results\\extracted_20260616_1521\\datasets\\gotham2025\\derived\\kitsune115_exact_label_targeted_attack_v1",
+    "support_rows": 512,
+    "certified_complete_chunks": 93,
+    "input_hashes": {
+      "feature_schema": "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+      "support_sidecar": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da",
+      "certified_chunk_manifest": "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+      "certified_subset_contract": "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf",
+      "medium_selection": "68e9c2a1aef4ebde4095f873764247b12401e1c997802d89c3c794b9965e4f4a"
+    }
+  },
+  "data_use_boundary": {
+    "detector_fit_roles": [
+      "support_train fit",
+      "id_calib fit",
+      "ood_val fit",
+      "ood_stress fit"
+    ],
+    "threshold_roles": [
+      "id_calib select",
+      "ood_val select",
+      "ood_stress select"
+    ],
+    "report_only_roles_used_for_training": false,
+    "processed_label_used_as_feature": false,
+    "mechanism_state": "past-only within processed source file and source endpoint"
+  },
+  "outputs": [
+    "candidate_matrix.csv",
+    "candidate_summary_matrix.csv",
+    "train_audit.csv",
+    "role_metrics.csv",
+    "group_metrics_by_source_device.csv",
+    "mechanism_extraction_audit.csv",
+    "codex_readout.md"
+  ],
+  "seconds": 240.6736831665039
+}
