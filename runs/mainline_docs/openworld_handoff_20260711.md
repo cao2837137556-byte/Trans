@@ -80,6 +80,22 @@ truth labels only after the fact: measure whether a target's past 10/60-second
 history contains attack activity.  This audit must never feed labels back into
 the frontend, model, threshold, or deployment state.
 
+### CKBB E/R/H local smoke: contract passes, mechanism still insufficient
+
+CKBB implemented the first minimal E/R/H attention version.  Its new R branch
+uses only timestamp-earlier, unlabeled source history; CKBC proves label and
+future-packet invariance.  It also preserves per-packet support loss while
+using attention only as an auxiliary episode loss.
+
+It did **not** reduce stream-consumer hard alarms (~100%).  Attention made a
+small hydraulic improvement, while the short relative baseline did not help.
+Because the local 150k cache has only 25 legal combined-cycle support packets
+in that hold, this smoke is a contract/direction result—not a formal
+full-support attack comparison.  Do not send this exact R+attention variant to
+full HPC yet.  The next evidence gap is process observability: connection
+completion/response chains, edge churn, and persistent expansion must be
+tested before adding another neural loss.
+
 ## Evidence index
 
 - `repo/ood/issue27ckao_c1_strict_leave_device_family_canary_v1.py`
@@ -90,9 +106,12 @@ the frontend, model, threshold, or deployment state.
 - `repo/ood/issue27ckax_episode_head_strict_l2_smoke_v1.py`
 - `repo/ood/issue27ckay_episode_pooling_strict_l2_smoke_v1.py`
 - `repo/ood/issue27ckaz_context_causality_contract_audit_v1.py`
+- `repo/ood/issue27ckbb_erh_attention_strict_l2_smoke_v1.py`
+- `repo/ood/issue27ckbc_erh_contract_audit_v1.py`
 - `runs/issue27ckax_episode_head_strict_l2_smoke_v1_2026-07-10_hpc_fullsupport_groupA/`
 - `runs/issue27ckax_episode_head_strict_l2_smoke_v1_2026-07-10_hpc_fullsupport_groupB/`
 - `runs/issue27ckay_episode_pooling_strict_l2_smoke_v1_2026-07-11_hpc_fullsupport_groupC/`
+- `runs/mainline_docs/ckbb_erh_smoke_20260711.md`
 
 ## Claim boundary
 

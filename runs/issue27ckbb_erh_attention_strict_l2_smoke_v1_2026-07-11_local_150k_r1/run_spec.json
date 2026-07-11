@@ -1,0 +1,23 @@
+{
+  "issue": "issue27ckbb_erh_attention_strict_l2_smoke_v1_2026-07-11",
+  "ckaw_root": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27ckaw_canonical_interaction_episode_frontend_v1_2026-07-10_local_150k",
+  "plan_path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\issue27ckaw_canonical_interaction_episode_frontend_v1_2026-07-10_local_150k\\episode_source_plan.csv",
+  "held_values": "iotsim-stream-consumer,iotsim-hydraulic-system,domotic-monitor,combined-cycle,iotsim-ip-camera-street",
+  "train_cap": 4000,
+  "eval_cap": 3000,
+  "epochs": 100,
+  "candidates": [
+    "D0_e_histgb",
+    "D1_e_mlp",
+    "D2_er_mlp",
+    "D3_eh_attention",
+    "D4_erh_attention"
+  ],
+  "frontend_label_free": true,
+  "relative_state": "same-source timestamp-earlier unlabeled robust snapshots; target computed before update",
+  "report_used_for_fit_or_threshold": false,
+  "role_isolated_attention_bags": true,
+  "packet_support_loss_preserved": true,
+  "review_rate_fixed": 0.0,
+  "seconds": 442.3492066860199
+}
