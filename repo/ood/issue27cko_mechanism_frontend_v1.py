@@ -58,6 +58,7 @@ SMOKE_EVAL_CAP = 4_000
 FULL_CAP = 10**9
 WINDOWS = [8, 32, 128]
 BENIGN_SAFE_Q = 0.99
+ALIGNMENT_AUDIT_SAMPLE_PER_ROLE = 64
 
 GOTHAM_ZIP = ckc.PROJECT_ROOT / "datasets" / "gotham2025" / "raw" / "GothamDataset2025.zip"
 PROCESSED_USECOLS = [
@@ -293,6 +294,7 @@ class MechanismZipFeatureCache:
         self.zip_path = zip_path
         self.smoke = bool(smoke)
         self._features: dict[str, dict[int, np.ndarray]] = {}
+        self._row_audits: dict[str, dict[int, dict[str, Any]]] = {}
         self.audit_rows: list[dict[str, Any]] = []
 
     def read_processed(self, member: str) -> pd.DataFrame:
@@ -316,12 +318,15 @@ class MechanismZipFeatureCache:
         target = set(idx for idx in missing if idx < len(df))
         missing_oob = len(missing) - len(target)
         features: dict[int, np.ndarray] = dict(known)
+        row_audits: dict[int, dict[str, Any]] = dict(self._row_audits.get(member, {}))
         file_state = {w: RollingState(w) for w in WINDOWS}
         src_state: dict[str, dict[int, RollingState]] = defaultdict(lambda: {w: RollingState(w) for w in WINDOWS})
 
+        label_col = df.get("label", pd.Series([""] * len(df))).astype(str).to_numpy()
         proto_text = df.get("frame.protocols", pd.Series([""] * len(df))).astype(str).to_numpy()
         ip_proto = safe_num(df.get("ip.proto", pd.Series([0] * len(df))), 0.0)
         frame_len = np.log1p(safe_num(df.get("frame.len", pd.Series([0] * len(df))), 0.0))
+        frame_len_raw = safe_num(df.get("frame.len", pd.Series([0] * len(df))), 0.0)
         tcp_src = safe_num(df.get("tcp.srcport", pd.Series([0] * len(df))), 0.0)
         tcp_dst = safe_num(df.get("tcp.dstport", pd.Series([0] * len(df))), 0.0)
         udp_src = safe_num(df.get("udp.srcport", pd.Series([0] * len(df))), 0.0)
@@ -367,10 +372,23 @@ class MechanismZipFeatureCache:
                 for w in WINDOWS:
                     vals.extend(src_state[src][w].features(include_src_unique=False))
                 features[i] = np.asarray(vals, dtype=np.float32)
+                row_audits[i] = {
+                    "processed_row_exists": True,
+                    "processed_label": label_col[i],
+                    "processed_frame_protocols": proto_text[i],
+                    "processed_frame_len": float(frame_len_raw[i]),
+                    "processed_ip_proto": float(ip_proto[i]),
+                    "processed_src": src,
+                    "processed_dst": dst,
+                    "processed_src_port": float(src_port),
+                    "processed_dst_port": float(dst_port),
+                    "processed_tcp_flags": int(flags),
+                }
             for w in WINDOWS:
                 file_state[w].update(frame_len[i], is_tcp, is_udp, src, dst, dst_port_i)
                 src_state[src][w].update(frame_len[i], is_tcp, is_udp, src, dst, dst_port_i)
         self._features[member] = features
+        self._row_audits[member] = row_audits
         self.audit_rows.append(
             {
                 "csv_member": member,
@@ -384,6 +402,31 @@ class MechanismZipFeatureCache:
             }
         )
         return {idx: features[idx] for idx in requested if idx in features}
+
+    def row_audits_for_member(self, member: str, row_indices: np.ndarray) -> dict[int, dict[str, Any]]:
+        requested = sorted({int(v) for v in np.asarray(row_indices, dtype=np.int64) if int(v) >= 0})
+        if not requested:
+            return {}
+        self.features_for_member(member, np.asarray(requested, dtype=np.int64))
+        known = self._row_audits.get(member, {})
+        return {
+            idx: known.get(
+                idx,
+                {
+                    "processed_row_exists": False,
+                    "processed_label": "",
+                    "processed_frame_protocols": "",
+                    "processed_frame_len": "",
+                    "processed_ip_proto": "",
+                    "processed_src": "",
+                    "processed_dst": "",
+                    "processed_src_port": "",
+                    "processed_dst_port": "",
+                    "processed_tcp_flags": "",
+                },
+            )
+            for idx in requested
+        }
 
 
 class FeatureBuilder:
@@ -437,6 +480,98 @@ class FeatureBuilder:
         if spec.kind == "raw_plus_mechanism":
             return np.hstack([raw, mech]).astype(np.float32)
         raise ValueError(spec.kind)
+
+
+def build_alignment_audit(
+    builder: FeatureBuilder,
+    x_by_role: dict[str, np.ndarray],
+    frame_by_role: dict[str, pd.DataFrame],
+    sample_per_role: int = ALIGNMENT_AUDIT_SAMPLE_PER_ROLE,
+) -> list[dict[str, Any]]:
+    """Sample row-level raw115-to-mechanism alignment evidence.
+
+    This is report-only.  It proves the join path used by M2:
+    role row -> sidecar source_group/recorded_index -> processed CSV row.
+    It never feeds processed labels or audit fields back into fitting.
+    """
+
+    rows: list[dict[str, Any]] = []
+    for role in sorted(frame_by_role):
+        frame = frame_by_role[role].reset_index(drop=True)
+        x_role = x_by_role.get(role)
+        x_rows = int(len(x_role)) if x_role is not None else -1
+        x_dim = int(x_role.shape[1]) if x_role is not None and getattr(x_role, "ndim", 0) == 2 else -1
+        length_match = x_rows == len(frame)
+        if len(frame) == 0:
+            rows.append(
+                {
+                    "role": role,
+                    "sampled": False,
+                    "x_rows": x_rows,
+                    "frame_rows": len(frame),
+                    "x_dim": x_dim,
+                    "x_frame_length_match": length_match,
+                    "alignment_ok": length_match,
+                }
+            )
+            continue
+        positions = deterministic_cap(np.arange(len(frame), dtype=np.int64), sample_per_role)
+        sample = frame.iloc[positions].copy()
+        if "source_group" not in sample or "recorded_index" not in sample:
+            rows.append(
+                {
+                    "role": role,
+                    "sampled": False,
+                    "x_rows": x_rows,
+                    "frame_rows": len(frame),
+                    "x_dim": x_dim,
+                    "x_frame_length_match": length_match,
+                    "alignment_ok": False,
+                    "reason": "missing source_group or recorded_index",
+                }
+            )
+            continue
+        mech = builder.mechanism_for_role(role)
+        for member, group in sample.groupby(sample["source_group"].astype(str), sort=True):
+            row_idx = pd.to_numeric(group["recorded_index"], errors="coerce").fillna(-1).astype(int).to_numpy()
+            audits = builder.cache.row_audits_for_member(member, row_idx)
+            for pos, ridx in zip(group.index.to_numpy(dtype=np.int64), row_idx):
+                record = frame.iloc[int(pos)]
+                audit = audits.get(int(ridx), {})
+                feat = mech[int(pos)] if 0 <= int(pos) < len(mech) else np.asarray([], dtype=np.float32)
+                processed_exists = bool(audit.get("processed_row_exists", False))
+                rows.append(
+                    {
+                        "role": role,
+                        "sampled": True,
+                        "row_index_in_role": int(pos),
+                        "x_rows": x_rows,
+                        "frame_rows": len(frame),
+                        "x_dim": x_dim,
+                        "x_frame_length_match": length_match,
+                        "source_group": member,
+                        "recorded_index": int(ridx),
+                        "global_id": record.get("global_id", ""),
+                        "phase": record.get("phase", ""),
+                        "role_attack_label": record.get("attack_label", ""),
+                        "device": record.get("device", ""),
+                        "packet_timestamp_epoch": record.get("packet_timestamp_epoch", ""),
+                        "processed_row_exists": processed_exists,
+                        "processed_label": audit.get("processed_label", ""),
+                        "processed_frame_protocols": audit.get("processed_frame_protocols", ""),
+                        "processed_frame_len": audit.get("processed_frame_len", ""),
+                        "processed_ip_proto": audit.get("processed_ip_proto", ""),
+                        "processed_src": audit.get("processed_src", ""),
+                        "processed_dst": audit.get("processed_dst", ""),
+                        "processed_src_port": audit.get("processed_src_port", ""),
+                        "processed_dst_port": audit.get("processed_dst_port", ""),
+                        "processed_tcp_flags": audit.get("processed_tcp_flags", ""),
+                        "mechanism_dim": int(len(feat)),
+                        "mechanism_nonzero": int(np.count_nonzero(feat)) if len(feat) else 0,
+                        "alignment_ok": bool(length_match and processed_exists and int(ridx) >= 0),
+                    }
+                )
+    return rows
 
 
 def load_role_inputs(smoke: bool) -> tuple[dict[str, np.ndarray], dict[str, pd.DataFrame], dict[str, Any], set[str]]:
@@ -751,12 +886,14 @@ def run(args: argparse.Namespace) -> None:
             group_metrics.extend(group_rows(spec, role, part))
 
     matrix = aggregate(role_rows, group_metrics)
+    alignment_rows = [] if args.raw_only else build_alignment_audit(builder, x_by_role, frame_by_role)
     seconds = time.time() - started
     write_csv(OUT / "candidate_matrix.csv", [spec.__dict__ for spec in FEATURE_SPECS])
     write_csv(OUT / "train_audit.csv", train_rows)
     write_csv(OUT / "role_metrics.csv", role_rows)
     write_csv(OUT / "group_metrics_by_source_device.csv", group_metrics)
     write_csv(OUT / "mechanism_extraction_audit.csv", cache.audit_rows)
+    write_csv(OUT / "alignment_audit.csv", alignment_rows)
     write_csv(OUT / "candidate_summary_matrix.csv", matrix)
     write_json(
         OUT / "run_spec.json",
@@ -771,11 +908,17 @@ def run(args: argparse.Namespace) -> None:
             "processed_usecols": PROCESSED_USECOLS,
             "gotham_zip": str(GOTHAM_ZIP),
             "input_audit": input_audit,
+            "alignment_audit": {
+                "sample_per_role": ALIGNMENT_AUDIT_SAMPLE_PER_ROLE,
+                "rows": len(alignment_rows),
+                "purpose": "report-only raw115-to-mechanism row pairing evidence",
+            },
             "data_use_boundary": {
                 "detector_fit_roles": ["support_train fit", "id_calib fit", "ood_val fit", "ood_stress fit"],
                 "threshold_roles": ["id_calib select", "ood_val select", "ood_stress select"],
                 "report_only_roles_used_for_training": False,
                 "processed_label_used_as_feature": False,
+                "alignment_audit_used_for_training": False,
                 "mechanism_state": "past-only within processed source file and source endpoint",
             },
             "outputs": [
@@ -785,6 +928,7 @@ def run(args: argparse.Namespace) -> None:
                 "role_metrics.csv",
                 "group_metrics_by_source_device.csv",
                 "mechanism_extraction_audit.csv",
+                "alignment_audit.csv",
                 "codex_readout.md",
             ],
             "seconds": seconds,

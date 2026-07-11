@@ -1,0 +1,10 @@
+role,filter,max_recorded_index,original_rows,kept_rows,note
+id_calib,max_recorded_index,300000,79600,79600,Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay.
+ood_val,max_recorded_index,300000,23500,23500,Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay.
+support_val,max_recorded_index,300000,127,19,Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay.
+ood_stress,max_recorded_index,300000,229900,229900,Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay.
+same_file_query,max_recorded_index,300000,125679,14486,Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay.
+future_query,max_recorded_index,300000,378145,166794,Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay.
+sealed_final_ood,max_recorded_index,300000,154900,154900,Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay.
+sealed_final_attack,max_recorded_index,300000,110104,0,Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay.
+support_train,max_recorded_index,300000,385,58,Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay.

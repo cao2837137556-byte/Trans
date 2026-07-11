@@ -1,0 +1,134 @@
+{
+  "issue": "issue27ckap_c1_ips_prototype_selective_smoke_v1_2026-07-09",
+  "full": true,
+  "smoke_input": false,
+  "max_recorded_index": 300000,
+  "train_cap": 3000,
+  "eval_cap": 4000,
+  "routes": [
+    {
+      "name": "H1_c1_mlp_ce",
+      "use_supcon": false,
+      "use_rex": false,
+      "use_proto_gate": false,
+      "use_budgeted_review": false,
+      "description": "C1 + small MLP CE control."
+    },
+    {
+      "name": "H2_c1_supcon_proto",
+      "use_supcon": true,
+      "use_rex": false,
+      "use_proto_gate": true,
+      "use_budgeted_review": false,
+      "description": "C1 + SupCon embedding + prototype attack gate."
+    },
+    {
+      "name": "H3_c1_supcon_rex_proto",
+      "use_supcon": true,
+      "use_rex": true,
+      "use_proto_gate": true,
+      "use_budgeted_review": false,
+      "description": "H2 + REx variance penalty over source/device environments."
+    },
+    {
+      "name": "H4_c1_supcon_rex_proto_selective_budget",
+      "use_supcon": true,
+      "use_rex": true,
+      "use_proto_gate": true,
+      "use_budgeted_review": true,
+      "description": "H3 + budgeted review for high attack score but prototype conflict."
+    }
+  ],
+  "epochs": 24,
+  "batch_size": 512,
+  "supcon_weight": 0.1,
+  "rex_weight": 0.25,
+  "selected_leave_groups": [
+    {
+      "held_field": "device_family",
+      "held_value": "iotsim-stream-consumer",
+      "total_eval_rows": 4000,
+      "ood_eval_rows": 4000,
+      "attack_eval_rows": 0,
+      "ood_val": 0,
+      "ood_stress": 4000,
+      "sealed_final_ood": 0,
+      "future_query": 0,
+      "sealed_final_attack": 0
+    },
+    {
+      "held_field": "device_family",
+      "held_value": "iotsim-hydraulic-system",
+      "total_eval_rows": 4000,
+      "ood_eval_rows": 4000,
+      "attack_eval_rows": 0,
+      "ood_val": 4000,
+      "ood_stress": 0,
+      "sealed_final_ood": 0,
+      "future_query": 0,
+      "sealed_final_attack": 0
+    },
+    {
+      "held_field": "device_family",
+      "held_value": "domotic-monitor",
+      "total_eval_rows": 4000,
+      "ood_eval_rows": 0,
+      "attack_eval_rows": 4000,
+      "ood_val": 0,
+      "ood_stress": 0,
+      "sealed_final_ood": 0,
+      "future_query": 4000,
+      "sealed_final_attack": 0
+    },
+    {
+      "held_field": "device_family",
+      "held_value": "combined-cycle",
+      "total_eval_rows": 4000,
+      "ood_eval_rows": 0,
+      "attack_eval_rows": 4000,
+      "ood_val": 0,
+      "ood_stress": 0,
+      "sealed_final_ood": 0,
+      "future_query": 4000,
+      "sealed_final_attack": 0
+    },
+    {
+      "held_field": "device_family",
+      "held_value": "iotsim-ip-camera-street",
+      "total_eval_rows": 4000,
+      "ood_eval_rows": 4000,
+      "attack_eval_rows": 0,
+      "ood_val": 0,
+      "ood_stress": 0,
+      "sealed_final_ood": 4000,
+      "future_query": 0,
+      "sealed_final_attack": 0
+    }
+  ],
+  "preflight_pass": true,
+  "data_use_boundary": {
+    "frontend": "C1_cicflow_style_only",
+    "fit_roles_exclude_held": true,
+    "select_roles_exclude_held": true,
+    "eval_roles_include_only_held": true,
+    "query_future_sealed_used_for_training_or_thresholding": false,
+    "source_device_as_inference_features": false
+  },
+  "input_audit": {
+    "cert_x_shape": [
+      1000000,
+      115
+    ],
+    "attack_root": "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\issue27cd_exact_label_attack_slurm_20260614\\pullback_results\\extracted_20260616_1521\\datasets\\gotham2025\\derived\\kitsune115_exact_label_targeted_attack_v1",
+    "support_rows": 512,
+    "certified_complete_chunks": 93,
+    "input_hashes": {
+      "feature_schema": "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+      "support_sidecar": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da",
+      "certified_chunk_manifest": "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+      "certified_subset_contract": "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf",
+      "medium_selection": "68e9c2a1aef4ebde4095f873764247b12401e1c997802d89c3c794b9965e4f4a"
+    }
+  },
+  "seconds": 413.4564428329468
+}

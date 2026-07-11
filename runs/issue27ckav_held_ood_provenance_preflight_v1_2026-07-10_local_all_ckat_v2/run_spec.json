@@ -1,0 +1,13 @@
+{
+  "issue": "issue27ckav_held_ood_provenance_preflight_v1_2026-07-10",
+  "purpose": "audit-only provenance gate before raw-PCAP episode frontend",
+  "scope": "all_ckat_sources",
+  "held_source_count": 26,
+  "target_rows": 34622,
+  "semantic_benign_provenance_pass_sources": 21,
+  "source_label_provenance_pass_sources": 21,
+  "raw_pcap_frontend_eligible_sources": 20,
+  "raw_pcap_frontend_rejected_sources": 6,
+  "label_usage": "audit-only; never training, thresholding, feature selection, or report-score tuning",
+  "decision_rule": "require non-mixed source labels, matching raw benign/malicious path, and exact source-stem PCAP pairing"
+}

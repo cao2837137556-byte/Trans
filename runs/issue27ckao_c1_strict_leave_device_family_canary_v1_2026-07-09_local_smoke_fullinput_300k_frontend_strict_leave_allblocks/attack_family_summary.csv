@@ -1,0 +1,73 @@
+candidate,role,attack_label,attack_family,rows,hard_alarm_rate,attack_score_mean,conflict_score_mean
+C1_cicflow_style_only_histgb,future_query,C&C Communication,c2,13,0.8461538461538461,0.44205092154602277,0.4802086759390139
+C1_cicflow_style_only_histgb,future_query,File Download,transfer,87,1.0,0.9875410949484749,0.011931576906065076
+C1_cicflow_style_only_histgb,future_query,Ingress Tool Transfer,udp_gre_flood,269,0.9405204460966543,0.645138936733651,0.2776746956190404
+C1_cicflow_style_only_histgb,future_query,Mirai C&C Communication,c2,12,0.3333333333333333,0.03351404163558789,0.8260963976151013
+C1_cicflow_style_only_histgb,future_query,Mirai UDP Flooding,udp_gre_flood,1870,1.0,0.9970067303512984,0.0013616626996463882
+C1_cicflow_style_only_histgb,future_query,Reporting,other_attack,11,1.0,0.8907972901407498,0.08497310854830163
+C1_cicflow_style_only_histgb,future_query,TCP Scan,tcp_scan_flood,1868,0.9935760171306209,0.44088110485067733,0.433519233102069
+C1_cicflow_style_only_histgb,future_query,Telnet Brute Force,other_attack,1870,0.9818181818181818,0.48591078442744945,0.43200893888417935
+C1_cicflow_style_only_histgb,same_file_query,File Download,transfer,105,1.0,0.05865022489055466,0.7856176648649602
+C1_cicflow_style_only_histgb,same_file_query,Ingress Tool Transfer,udp_gre_flood,2381,0.8240235195296094,0.1398514447988069,0.5105403138075952
+C1_cicflow_style_only_histgb,support_val,File Download,transfer,3,1.0,0.05031744244582558,0.8471794108096337
+C1_cicflow_style_only_histgb,support_val,Ingress Tool Transfer,udp_gre_flood,3,1.0,0.13178004391705575,0.46432659414760863
+G1_graph_interaction_only_histgb,future_query,C&C Communication,c2,13,0.6923076923076923,0.2262351636539863,0.7075805797537834
+G1_graph_interaction_only_histgb,future_query,File Download,transfer,87,1.0,0.9491900899966796,0.022679566030862967
+G1_graph_interaction_only_histgb,future_query,Ingress Tool Transfer,udp_gre_flood,269,0.6505576208178439,0.36709679820419394,0.5136974766745886
+G1_graph_interaction_only_histgb,future_query,Mirai C&C Communication,c2,12,0.75,0.3043026513555375,0.5618848035260321
+G1_graph_interaction_only_histgb,future_query,Mirai UDP Flooding,udp_gre_flood,1870,0.9973262032085561,0.5925970054364441,0.2937893161433992
+G1_graph_interaction_only_histgb,future_query,Reporting,other_attack,11,0.2727272727272727,0.01322742719325523,0.8497857859811219
+G1_graph_interaction_only_histgb,future_query,TCP Scan,tcp_scan_flood,1868,0.5926124197002142,0.19598213002038659,0.7485039739677761
+G1_graph_interaction_only_histgb,future_query,Telnet Brute Force,other_attack,1870,0.4299465240641711,0.20155448767440262,0.7786933989526027
+G1_graph_interaction_only_histgb,same_file_query,File Download,transfer,105,0.0,0.00012453841691201185,0.9993003121856774
+G1_graph_interaction_only_histgb,same_file_query,Ingress Tool Transfer,udp_gre_flood,2381,0.3859722805543889,0.033514982950221,0.8714438836674424
+G1_graph_interaction_only_histgb,support_val,File Download,transfer,3,1.0,0.11264262060726171,0.5054880573596383
+G1_graph_interaction_only_histgb,support_val,Ingress Tool Transfer,udp_gre_flood,3,1.0,0.07213220423242064,0.5755445738723207
+M1_all_external_blocks_histgb,future_query,C&C Communication,c2,13,0.8461538461538461,0.43028845613069533,0.543015692946829
+M1_all_external_blocks_histgb,future_query,File Download,transfer,87,1.0,0.9873727324062294,0.012095831393475033
+M1_all_external_blocks_histgb,future_query,Ingress Tool Transfer,udp_gre_flood,269,0.9405204460966543,0.6441252054061187,0.28636613531125826
+M1_all_external_blocks_histgb,future_query,Mirai C&C Communication,c2,12,0.3333333333333333,0.002021703224721592,0.9517084999678788
+M1_all_external_blocks_histgb,future_query,Mirai UDP Flooding,udp_gre_flood,1870,1.0,0.9969186741981819,0.001618449331333124
+M1_all_external_blocks_histgb,future_query,Reporting,other_attack,11,1.0,0.9201226561734206,0.05177428665284742
+M1_all_external_blocks_histgb,future_query,TCP Scan,tcp_scan_flood,1868,0.9935760171306209,0.4282892020826291,0.5181528939910323
+M1_all_external_blocks_histgb,future_query,Telnet Brute Force,other_attack,1870,0.9818181818181818,0.47003198301613713,0.5038200000090968
+M1_all_external_blocks_histgb,same_file_query,File Download,transfer,105,1.0,0.05578341776395552,0.7874061247343517
+M1_all_external_blocks_histgb,same_file_query,Ingress Tool Transfer,udp_gre_flood,2381,0.8240235195296094,0.044769185816845046,0.8626453132015106
+M1_all_external_blocks_histgb,support_val,File Download,transfer,3,1.0,0.11908689961326413,0.6260998038608189
+M1_all_external_blocks_histgb,support_val,Ingress Tool Transfer,udp_gre_flood,3,1.0,0.1111778104614931,0.6171029818840689
+M2_raw115_plus_all_external_blocks_histgb,future_query,C&C Communication,c2,13,0.8461538461538461,0.3250127297846263,0.6494439512858798
+M2_raw115_plus_all_external_blocks_histgb,future_query,File Download,transfer,87,1.0,0.9938203563917972,0.00591381470152839
+M2_raw115_plus_all_external_blocks_histgb,future_query,Ingress Tool Transfer,udp_gre_flood,269,0.9851301115241635,0.6684001734539663,0.2757085601310846
+M2_raw115_plus_all_external_blocks_histgb,future_query,Mirai C&C Communication,c2,12,0.3333333333333333,0.000869436086591574,0.7697168105395883
+M2_raw115_plus_all_external_blocks_histgb,future_query,Mirai UDP Flooding,udp_gre_flood,1870,1.0,0.9992537416755857,0.0004950084941197279
+M2_raw115_plus_all_external_blocks_histgb,future_query,Reporting,other_attack,11,1.0,0.7699502684864142,0.2224008623395604
+M2_raw115_plus_all_external_blocks_histgb,future_query,TCP Scan,tcp_scan_flood,1868,0.9941113490364025,0.38708129894243304,0.551453479418852
+M2_raw115_plus_all_external_blocks_histgb,future_query,Telnet Brute Force,other_attack,1870,0.9818181818181818,0.4035315332302222,0.5484876429971822
+M2_raw115_plus_all_external_blocks_histgb,same_file_query,File Download,transfer,105,1.0,0.002673858295228299,0.9453147832982173
+M2_raw115_plus_all_external_blocks_histgb,same_file_query,Ingress Tool Transfer,udp_gre_flood,2381,0.8240235195296094,0.015914507988974567,0.9253076212976891
+M2_raw115_plus_all_external_blocks_histgb,support_val,File Download,transfer,3,1.0,0.024112029972054787,0.7447263257910479
+M2_raw115_plus_all_external_blocks_histgb,support_val,Ingress Tool Transfer,udp_gre_flood,3,1.0,0.02389456476104194,0.9082205810092656
+N1_netflow_style_only_histgb,future_query,C&C Communication,c2,13,0.6153846153846154,0.25091086141475893,0.6740880387438841
+N1_netflow_style_only_histgb,future_query,File Download,transfer,87,1.0,0.9790179773692945,0.00995739907510812
+N1_netflow_style_only_histgb,future_query,Ingress Tool Transfer,udp_gre_flood,269,1.0,0.9265317171491974,0.025845553471601102
+N1_netflow_style_only_histgb,future_query,Mirai C&C Communication,c2,12,0.9166666666666666,0.00694593756565856,0.8394100164330274
+N1_netflow_style_only_histgb,future_query,Mirai UDP Flooding,udp_gre_flood,1870,1.0,0.9933639275125662,0.0022672677795074663
+N1_netflow_style_only_histgb,future_query,Reporting,other_attack,11,1.0,0.7601830876602395,0.21190539981284887
+N1_netflow_style_only_histgb,future_query,TCP Scan,tcp_scan_flood,1868,0.6905781584582441,0.2549031827097954,0.6405533775725722
+N1_netflow_style_only_histgb,future_query,Telnet Brute Force,other_attack,1870,0.5390374331550802,0.3175796150617418,0.644221336266474
+N1_netflow_style_only_histgb,same_file_query,File Download,transfer,105,0.3142857142857143,0.04518176167295615,0.8140612193518645
+N1_netflow_style_only_histgb,same_file_query,Ingress Tool Transfer,udp_gre_flood,2381,0.8987820243595128,0.1595254094189498,0.43546242063949786
+N1_netflow_style_only_histgb,support_val,File Download,transfer,3,1.0,0.15049209046832923,0.5048585550274051
+N1_netflow_style_only_histgb,support_val,Ingress Tool Transfer,udp_gre_flood,3,1.0,0.17746767371468217,0.40043756039797856
+Z1_zeek_semantic_only_histgb,future_query,C&C Communication,c2,13,1.0,0.4123547810116147,0.4901866373060726
+Z1_zeek_semantic_only_histgb,future_query,File Download,transfer,87,1.0,0.9564227025585947,0.04064539751909628
+Z1_zeek_semantic_only_histgb,future_query,Ingress Tool Transfer,udp_gre_flood,269,0.9888475836431226,0.901228144158344,0.0928345930640113
+Z1_zeek_semantic_only_histgb,future_query,Mirai C&C Communication,c2,12,0.4166666666666667,0.035905617755706554,0.8817791618049108
+Z1_zeek_semantic_only_histgb,future_query,Mirai UDP Flooding,udp_gre_flood,1870,1.0,0.94195476343621,0.02741425073371009
+Z1_zeek_semantic_only_histgb,future_query,Reporting,other_attack,11,1.0,0.8916223104426407,0.10478983609119488
+Z1_zeek_semantic_only_histgb,future_query,TCP Scan,tcp_scan_flood,1868,0.8051391862955032,0.36769975124209686,0.5481079675042084
+Z1_zeek_semantic_only_histgb,future_query,Telnet Brute Force,other_attack,1870,0.9540106951871657,0.44754479276089826,0.46642300179891644
+Z1_zeek_semantic_only_histgb,same_file_query,File Download,transfer,105,0.0,0.00015391034566570694,0.9995018534073408
+Z1_zeek_semantic_only_histgb,same_file_query,Ingress Tool Transfer,udp_gre_flood,2381,0.0,0.0001433249565675946,0.9966310839119137
+Z1_zeek_semantic_only_histgb,support_val,File Download,transfer,3,1.0,0.004188264604548587,0.9864442527700956
+Z1_zeek_semantic_only_histgb,support_val,Ingress Tool Transfer,udp_gre_flood,3,1.0,0.005075673951712185,0.9835720615559733

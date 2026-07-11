@@ -1,0 +1,173 @@
+{
+  "issue": "issue27ckao_c1_strict_leave_device_family_canary_v1_2026-07-09",
+  "mode": "smoke",
+  "full": true,
+  "smoke_input": false,
+  "max_recorded_index": 300000,
+  "train_cap": 4000,
+  "eval_cap": 3000,
+  "max_leave_groups": 5,
+  "min_eval_rows": 128,
+  "candidates": "G1_graph_interaction_only_histgb,Z1_zeek_semantic_only_histgb,N1_netflow_style_only_histgb,C1_cicflow_style_only_histgb,M1_all_external_blocks_histgb,M2_raw115_plus_all_external_blocks_histgb",
+  "selected_leave_groups": [
+    {
+      "held_field": "device_family",
+      "held_value": "iotsim-stream-consumer",
+      "total_eval_rows": 3000,
+      "ood_eval_rows": 3000,
+      "attack_eval_rows": 0,
+      "ood_val": 0,
+      "ood_stress": 3000,
+      "sealed_final_ood": 0,
+      "future_query": 0,
+      "sealed_final_attack": 0
+    },
+    {
+      "held_field": "device_family",
+      "held_value": "iotsim-hydraulic-system",
+      "total_eval_rows": 3000,
+      "ood_eval_rows": 3000,
+      "attack_eval_rows": 0,
+      "ood_val": 3000,
+      "ood_stress": 0,
+      "sealed_final_ood": 0,
+      "future_query": 0,
+      "sealed_final_attack": 0
+    },
+    {
+      "held_field": "device_family",
+      "held_value": "domotic-monitor",
+      "total_eval_rows": 3000,
+      "ood_eval_rows": 0,
+      "attack_eval_rows": 3000,
+      "ood_val": 0,
+      "ood_stress": 0,
+      "sealed_final_ood": 0,
+      "future_query": 3000,
+      "sealed_final_attack": 0
+    },
+    {
+      "held_field": "device_family",
+      "held_value": "combined-cycle",
+      "total_eval_rows": 3000,
+      "ood_eval_rows": 0,
+      "attack_eval_rows": 3000,
+      "ood_val": 0,
+      "ood_stress": 0,
+      "sealed_final_ood": 0,
+      "future_query": 3000,
+      "sealed_final_attack": 0
+    },
+    {
+      "held_field": "device_family",
+      "held_value": "iotsim-ip-camera-street",
+      "total_eval_rows": 3000,
+      "ood_eval_rows": 3000,
+      "attack_eval_rows": 0,
+      "ood_val": 0,
+      "ood_stress": 0,
+      "sealed_final_ood": 3000,
+      "future_query": 0,
+      "sealed_final_attack": 0
+    }
+  ],
+  "preflight_pass": true,
+  "data_use_boundary": {
+    "fit_roles_exclude_held_device_family": true,
+    "threshold_roles_exclude_held_device_family": true,
+    "eval_roles_include_only_held_device_family": true,
+    "query_future_sealed_used_for_training_or_thresholding": false,
+    "source_group_device_used_as_features": false
+  },
+  "input_audit": {
+    "cert_x_shape": [
+      1000000,
+      115
+    ],
+    "attack_root": "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\issue27cd_exact_label_attack_slurm_20260614\\pullback_results\\extracted_20260616_1521\\datasets\\gotham2025\\derived\\kitsune115_exact_label_targeted_attack_v1",
+    "support_rows": 512,
+    "certified_complete_chunks": 93,
+    "input_hashes": {
+      "feature_schema": "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+      "support_sidecar": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da",
+      "certified_chunk_manifest": "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+      "certified_subset_contract": "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf",
+      "medium_selection": "68e9c2a1aef4ebde4095f873764247b12401e1c997802d89c3c794b9965e4f4a"
+    }
+  },
+  "role_cap_audit": [
+    {
+      "role": "id_calib",
+      "filter": "max_recorded_index",
+      "max_recorded_index": 300000,
+      "original_rows": 79600,
+      "kept_rows": 79600,
+      "note": "Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay."
+    },
+    {
+      "role": "ood_val",
+      "filter": "max_recorded_index",
+      "max_recorded_index": 300000,
+      "original_rows": 23500,
+      "kept_rows": 23500,
+      "note": "Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay."
+    },
+    {
+      "role": "support_val",
+      "filter": "max_recorded_index",
+      "max_recorded_index": 300000,
+      "original_rows": 127,
+      "kept_rows": 19,
+      "note": "Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay."
+    },
+    {
+      "role": "ood_stress",
+      "filter": "max_recorded_index",
+      "max_recorded_index": 300000,
+      "original_rows": 229900,
+      "kept_rows": 229900,
+      "note": "Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay."
+    },
+    {
+      "role": "same_file_query",
+      "filter": "max_recorded_index",
+      "max_recorded_index": 300000,
+      "original_rows": 125679,
+      "kept_rows": 14486,
+      "note": "Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay."
+    },
+    {
+      "role": "future_query",
+      "filter": "max_recorded_index",
+      "max_recorded_index": 300000,
+      "original_rows": 378145,
+      "kept_rows": 166794,
+      "note": "Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay."
+    },
+    {
+      "role": "sealed_final_ood",
+      "filter": "max_recorded_index",
+      "max_recorded_index": 300000,
+      "original_rows": 154900,
+      "kept_rows": 154900,
+      "note": "Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay."
+    },
+    {
+      "role": "sealed_final_attack",
+      "filter": "max_recorded_index",
+      "max_recorded_index": 300000,
+      "original_rows": 110104,
+      "kept_rows": 0,
+      "note": "Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay."
+    },
+    {
+      "role": "support_train",
+      "filter": "max_recorded_index",
+      "max_recorded_index": 300000,
+      "original_rows": 385,
+      "kept_rows": 58,
+      "note": "Local fast smoke guardrail; set --max-recorded-index 0 for full legal replay."
+    }
+  ],
+  "seconds": 374.6956105232239
+}

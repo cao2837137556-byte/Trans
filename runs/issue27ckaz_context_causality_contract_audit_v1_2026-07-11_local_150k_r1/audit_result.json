@@ -1,0 +1,14 @@
+{
+  "synthetic_causality_contract": {
+    "raw_label_in_raw_usecols": false,
+    "future_packet_invariant": true,
+    "raw_label_invariant": true,
+    "past_packet_sensitive": true,
+    "pass": true
+  },
+  "role_boundary_pass": true,
+  "cache_label_free_pass": true,
+  "online_context_policy": "all timestamp-earlier raw packets in the same source; no raw label and no future timestamp state; roles are not used to clean history",
+  "deployment_equivalence_requirement": "the deployed state must use the same timestamp-earlier unlabeled packet stream and must not use truth-label cleaning",
+  "pass": true
+}
