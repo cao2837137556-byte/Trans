@@ -96,6 +96,15 @@ full HPC yet.  The next evidence gap is process observability: connection
 completion/response chains, edge churn, and persistent expansion must be
 tested before adding another neural loss.
 
+### CKBD PyG-TGN T0: adapter contract passes
+
+The project now uses maintained PyG `TGNMemory` rather than a hand-written
+temporal graph model. CKBD passed label/future invariance, past sensitivity,
+source-reset isolation, and held-family fit/select exclusion on actual
+canonical raw-source prefixes. It has no classifier or performance claim. M1
+may now be prepared with full support and HPC resources, but must keep direct
+per-packet supervision for all 385 support rows.
+
 ## Evidence index
 
 - `repo/ood/issue27ckao_c1_strict_leave_device_family_canary_v1.py`
@@ -108,10 +117,12 @@ tested before adding another neural loss.
 - `repo/ood/issue27ckaz_context_causality_contract_audit_v1.py`
 - `repo/ood/issue27ckbb_erh_attention_strict_l2_smoke_v1.py`
 - `repo/ood/issue27ckbc_erh_contract_audit_v1.py`
+- `repo/ood/issue27ckbd_tgn_event_contract_audit_v1.py`
 - `runs/issue27ckax_episode_head_strict_l2_smoke_v1_2026-07-10_hpc_fullsupport_groupA/`
 - `runs/issue27ckax_episode_head_strict_l2_smoke_v1_2026-07-10_hpc_fullsupport_groupB/`
 - `runs/issue27ckay_episode_pooling_strict_l2_smoke_v1_2026-07-11_hpc_fullsupport_groupC/`
 - `runs/mainline_docs/ckbb_erh_smoke_20260711.md`
+- `runs/mainline_docs/ckbd_tgn_contract_20260711.md`
 
 ## Claim boundary
 
