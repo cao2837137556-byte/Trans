@@ -3,7 +3,7 @@
 # Requires the uploaded pure-Python wheelhouse at ~/work/_upload_issue27ckbe.
 set -euo pipefail
 
-WHEELHOUSE="$HOME/work/_upload_issue27ckbe/wheelhouse_pyg_cp39"
+WHEELHOUSE="${TGN_WHEELHOUSE:-$HOME/work/_upload_issue27ckbe/wheelhouse_pyg_cp39}"
 VENV="$HOME/work/venvs/kitnet_issue27_py39"
 test -s "$VENV/bin/activate" || { echo "missing $VENV" >&2; exit 2; }
 test -d "$WHEELHOUSE" || { echo "missing $WHEELHOUSE" >&2; exit 2; }
