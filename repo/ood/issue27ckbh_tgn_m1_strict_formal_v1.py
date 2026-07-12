@@ -423,6 +423,25 @@ def validate_t0_runtime(t0: T0Cache) -> dict[str, Any]:
     }
 
 
+def required_report_source_coverage(frames: dict[str, pd.DataFrame], t0: T0Cache) -> list[dict[str, Any]]:
+    """Require every requested Table-A/B report source to be cacheable.
+
+    A partial aligned subset can be useful diagnosis, but it must never be
+    silently promoted to the requested same/future/sealed formal table.
+    """
+    manifest = pd.read_csv(t0.root / "tgn_source_event_plan_frozen.csv")
+    cached = set(manifest["source_group"].astype(str).tolist())
+    specs = (("same_file_query", "all"), ("future_query", "all"), ("sealed_final_ood", "report_only"), ("sealed_final_attack", "report_only"))
+    rows: list[dict[str, Any]] = []
+    for role, phase in specs:
+        frame = frames[role]
+        part = frame if phase == "all" else frame.loc[frame["phase"].astype(str).eq(phase)]
+        sources = sorted(part["source_group"].astype(str).unique().tolist())
+        missing = sorted(set(sources) - cached)
+        rows.append({"role": role, "phase": phase, "requested_source_groups": len(sources), "cached_source_groups": len(sources) - len(missing), "missing_source_groups": "|".join(missing), "full_source_coverage": not missing})
+    return rows
+
+
 def source_arrays(t0: T0Cache, source: str) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     path, _ = t0.paths(source)
     with np.load(path, allow_pickle=False) as data:
@@ -764,6 +783,11 @@ def run_formal(args: argparse.Namespace) -> None:
     require_pyg(); started = time.time(); out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     x_by_role, frames, input_audit, _labels = cko.load_role_inputs(False); ckao.add_family_columns(frames)
     t0 = T0Cache(Path(args.t0_root)); t0_audit = validate_t0_runtime(t0)
+    coverage = required_report_source_coverage(frames, t0)
+    pd.DataFrame(coverage).to_csv(out / "m1_required_report_source_coverage.csv", index=False)
+    missing_roles = [str(row["role"]) for row in coverage if not bool(row["full_source_coverage"])]
+    if missing_roles:
+        raise RuntimeError("formal M1 stopped before training: frozen T0 lacks required report sources for " + ", ".join(missing_roles))
     position_cache: dict[str, dict[int, int]] = {}; registry = target_registry(frames, t0, position_cache)
     source_map = source_groups_by_family(frames)
     requested = [value.strip() for value in args.held_values.split(",") if value.strip()]

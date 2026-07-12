@@ -77,6 +77,11 @@ future/sealed report coverage is not the complete role population.  CKBH will
 write requested/aligned/unmapped counts for every role, but it must not call a
 T0-aligned subset a full query result.
 
+The formal entrypoint writes `m1_required_report_source_coverage.csv` and
+stops before model fitting when this coverage is incomplete.  This is an
+in-process guard against wasting a formal allocation; it is not a separate
+CKBF-style PASS/FAIL submission.
+
 This conflicts with the requested formal M1 table, which explicitly requires
 sealed-attack recall.  CKBH must not substitute a C1-only number or a blank
 for an M1 TGN result.  The next formal submission is consequently withheld
