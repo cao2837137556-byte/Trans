@@ -22,14 +22,11 @@ CACHE="$OUT/tgn_event_cache"
 TARGETS="$BASE/runs/issue27ckat_canonical_time_c1_canary_v1_2026-07-10_fullsupport_cacheplan_v1/canonical_source_target_index.csv"
 
 cd "$BASE"
-if [ -s scripts/00_env_issue27ckc.sh ]; then
-  source scripts/00_env_issue27ckc.sh
-elif [ -s "$HOME/work/venvs/kitnet_issue27_py39/bin/activate" ]; then
-  source "$HOME/work/venvs/kitnet_issue27_py39/bin/activate"
-else
-  echo "missing known Python environment" >&2
+test -s scripts/00_env_issue27ckc.sh || {
+  echo "missing provisioned scripts/00_env_issue27ckc.sh" >&2
   exit 2
-fi
+}
+source scripts/00_env_issue27ckc.sh
 
 python - <<'PY'
 import torch
