@@ -65,6 +65,13 @@ past-to-future after scoring.
 
 ## Pre-submit coverage conflict — must be resolved before formal submission
 
+**Superseded by CKBI:** the four-source label-free report-only extension and
+the seed-27 `afterok` chain are specified in
+`ckbi_ckbh_report_extension_seed27_chain_20260712.md`.  CKBH now accepts the
+separate extension manifest while continuing to hash-lock the original CKBE
+26-source manifest.  The text below records the reason for that narrow
+extension; it is not permission to alter the base cache.
+
 The official CKBE T0 audit contains 26 cached sources and 34,622 targets.
 It does **not** contain `processed/iotsim-ip-camera-street-1.csv`.  CKBF's
 pulled role audit shows that all `sealed_final_attack` rows belong to this

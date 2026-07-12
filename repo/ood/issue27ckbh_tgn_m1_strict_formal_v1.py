@@ -39,6 +39,7 @@ if str(OOD) not in sys.path:
 import issue27ckao_c1_strict_leave_device_family_canary_v1 as ckao  # noqa: E402
 import issue27ckai_external_flow_feature_probe_v1 as ckai  # noqa: E402
 import issue27ckat_canonical_time_c1_canary_v1 as ckat  # noqa: E402
+import issue27ckbi_tgn_report_only_cache_extension_v1 as ckbi  # noqa: E402
 import issue27cko_mechanism_frontend_v1 as cko  # noqa: E402
 from issue27ckbf_tgn_m1_preflight_v1 import HELD, T0Cache  # noqa: E402
 
@@ -63,6 +64,7 @@ _Module = nn.Module if nn is not None else object
 ISSUE = "issue27ckbh_tgn_m1_strict_formal_v1_2026-07-12"
 ROOT = cko.ROOT
 DEFAULT_T0 = ROOT / "runs" / "issue27ckbe_tgn_fullsupport_event_cache_v1_2026-07-12_hpc_fullsupport_r3"
+DEFAULT_REPORT_EXTENSION = ROOT / "runs" / "issue27ckbi_tgn_report_only_cache_extension_v1_2026-07-12_hpc"
 DEFAULT_C1_PLAN = ROOT / "runs" / "issue27ckat_canonical_time_c1_canary_v1_2026-07-10_fullsupport_cacheplan_v1" / "canonical_source_load_plan.csv"
 DEFAULT_C1_CACHE = ROOT / "runs" / "issue27ckat_canonical_time_c1_canary_v1_2026-07-10_fullsupport_cacheplan_v1" / "hpc_canonical_c1_cache"
 FIT_BENIGN = ("id_calib", "ood_val", "ood_stress")
@@ -103,6 +105,30 @@ class Record:
     device_family: str
     source_family: str
     c1_score: float
+
+
+class CompositeT0Cache:
+    """Base frozen CKBE cache plus an explicitly report-only extension."""
+
+    def __init__(self, base: T0Cache, extension_root: Path, extension_sources: set[str]):
+        self.base = base
+        self.extension = T0Cache(extension_root)
+        self.root = base.root  # the frozen base manifest remains authoritative
+        self.report_only_sources = set(extension_sources)
+
+    def paths(self, source: str) -> tuple[Path, Path]:
+        return self.extension.paths(source) if source in self.report_only_sources else self.base.paths(source)
+
+    def summary(self, source: str) -> dict[str, Any]:
+        return self.extension.summary(source) if source in self.report_only_sources else self.base.summary(source)
+
+    def target_positions(self, source: str) -> dict[int, int]:
+        return self.extension.target_positions(source) if source in self.report_only_sources else self.base.target_positions(source)
+
+    @property
+    def cached_sources(self) -> set[str]:
+        plan = pd.read_csv(self.base.root / "tgn_source_event_plan_frozen.csv")
+        return set(plan["source_group"].astype(str).tolist()) | self.report_only_sources
 
 
 class VerifierHead(_Module):  # type: ignore[misc]
@@ -244,6 +270,18 @@ def collect_protocol_records(
     for role, phase, label, _kind in report_specs:
         values, row = collect_records(model, frontend, frames, t0, position_cache, role, phase, "report", label, held, eval_cap, report=True)
         sets["report"] += values; audit += row
+    extension_sources = set(getattr(t0, "report_only_sources", set()))
+    for key in ("fit_attack", "fit_benign", "select_attack", "select_benign"):
+        leaked = sorted({record.source for record in sets[key]} & extension_sources)
+        if leaked:
+            raise RuntimeError(f"report-only extension leaked into {key}: {leaked}")
+    if extension_sources:
+        audit.append({
+            "role": "REPORT_EXTENSION", "frame_phase": "report_only", "m1_phase": "report",
+            "held_value": held or "GLOBAL", "requested_rows": int(sum(record.source in extension_sources for record in sets["report"])),
+            "cache_aligned_rows": int(sum(record.source in extension_sources for record in sets["report"])), "unmapped_rows": 0,
+            "label_for_metric_only": True, "report": True, "extension_fit_select_rows": 0,
+        })
     return sets, audit
 
 
@@ -423,14 +461,56 @@ def validate_t0_runtime(t0: T0Cache) -> dict[str, Any]:
     }
 
 
-def required_report_source_coverage(frames: dict[str, pd.DataFrame], t0: T0Cache) -> list[dict[str, Any]]:
+def validate_report_extension(root: Path) -> dict[str, Any]:
+    manifest_path = root / "report_only_extension_manifest_frozen.csv"
+    manifest_hash_path = root / "report_only_extension_manifest_sha256.txt"
+    ready_path = root / "extension_ready.json"
+    exclusion_path = root / "report_only_fit_select_exclusion_audit.csv"
+    if not all(path.is_file() for path in (manifest_path, manifest_hash_path, ready_path, exclusion_path)):
+        raise RuntimeError("missing CKBI report-only extension contract artifacts")
+    manifest = pd.read_csv(manifest_path)
+    expected = set(ckbi.EXTENSION_SOURCES)
+    actual = set(manifest.get("source_group", pd.Series(dtype=str)).astype(str).tolist())
+    if len(manifest) != 4 or actual != expected:
+        raise RuntimeError(f"unexpected CKBI extension sources: {sorted(actual)}")
+    manifest_hash = hashlib.sha256(manifest_path.read_bytes()).hexdigest()
+    if manifest_hash != manifest_hash_path.read_text(encoding="utf-8").strip():
+        raise RuntimeError("CKBI extension manifest SHA-256 mismatch")
+    required = ("target_positions_complete", "raw_label_column_read", "source_local_anonymous_ids")
+    for column in required:
+        if column not in manifest or not bool(manifest[column].astype(bool).all()):
+            raise RuntimeError(f"CKBI extension manifest failed column: {column}")
+    exclusion = pd.read_csv(exclusion_path)
+    use_rows = exclusion.loc[exclusion["required_zero"].notna()]
+    if not bool(use_rows.get("pass", pd.Series(dtype=bool)).astype(bool).all()):
+        raise RuntimeError("report-only extension appears in an M1 fit/select scope")
+    for row in manifest.itertuples(index=False):
+        source = str(row.source_group)
+        cache = T0Cache(root)
+        summary = cache.summary(source)
+        if not bool(summary.get("npz_exists")) or not bool(summary.get("cache_json_exists")):
+            raise RuntimeError(f"missing CKBI cache member: {source}")
+        if not bool(summary.get("target_positions_complete")) or bool(summary.get("raw_label_column_read", True)) or int(summary.get("event_schema_dim", 0)) != RAW_MSG_DIM:
+            raise RuntimeError(f"invalid CKBI cache metadata: {source}")
+    ready = json.loads(ready_path.read_text(encoding="utf-8"))
+    if str(ready.get("extension_manifest_sha256", "")) != manifest_hash:
+        raise RuntimeError("CKBI ready artifact does not bind the extension manifest")
+    return {
+        "extension_root": str(root), "extension_manifest_sha256": manifest_hash,
+        "extension_sources": sorted(actual), "extension_targets": int(manifest["target_rows"].sum()),
+        "report_only_fit_select_exclusion_pass": True, "raw_label_column_read": False,
+    }
+
+
+def required_report_source_coverage(frames: dict[str, pd.DataFrame], t0: T0Cache | CompositeT0Cache) -> list[dict[str, Any]]:
     """Require every requested Table-A/B report source to be cacheable.
 
     A partial aligned subset can be useful diagnosis, but it must never be
     silently promoted to the requested same/future/sealed formal table.
     """
-    manifest = pd.read_csv(t0.root / "tgn_source_event_plan_frozen.csv")
-    cached = set(manifest["source_group"].astype(str).tolist())
+    cached = t0.cached_sources if isinstance(t0, CompositeT0Cache) else set(
+        pd.read_csv(t0.root / "tgn_source_event_plan_frozen.csv")["source_group"].astype(str).tolist()
+    )
     specs = (("same_file_query", "all"), ("future_query", "all"), ("sealed_final_ood", "report_only"), ("sealed_final_attack", "report_only"))
     rows: list[dict[str, Any]] = []
     for role, phase in specs:
@@ -519,25 +599,37 @@ def sample_negative(
 
 
 def pretrain_ssl(
-    t0: T0Cache, fit_records: list[Record], registry: dict[str, set[int]], memory_dim: int, time_dim: int,
+    t0: T0Cache | CompositeT0Cache, fit_records: list[Record], registry: dict[str, set[int]], memory_dim: int, time_dim: int,
     epochs: int, detach_every: int, seed: int,
-) -> tuple["TGNMemory", SelfSupervisionHeads, list[dict[str, Any]], list[dict[str, Any]]]:
+) -> tuple["TGNMemory", SelfSupervisionHeads, list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
     require_pyg()
     by_source: defaultdict[str, list[Record]] = defaultdict(list)
     for record in fit_records:
         by_source[record.source].append(record)
+    report_only_sources = set(getattr(t0, "report_only_sources", set()))
+    leaked_sources = sorted(set(by_source) & report_only_sources)
+    if leaked_sources:
+        raise RuntimeError(f"report-only source entered TGN self-supervision: {leaked_sources}")
     capacity = source_capacity(t0, by_source)
     torch.manual_seed(seed); np.random.seed(seed); rng = np.random.default_rng(seed)
     memory = make_memory(capacity, memory_dim, time_dim); heads = SelfSupervisionHeads(memory_dim, RAW_MSG_DIM)
     optimizer = torch.optim.AdamW(list(memory.parameters()) + list(heads.parameters()), lr=1e-3, weight_decay=1e-3)
-    history: list[dict[str, Any]] = []; negative_audit: list[dict[str, Any]] = []
+    history: list[dict[str, Any]] = []; negative_audit: list[dict[str, Any]] = []; future_scope: list[dict[str, Any]] = []
     # Task outcomes depend on the future but are fit-only labels.  Compute them
     # once per source/protocol, never inside the epoch loop.
     prepared: dict[str, tuple[set[int], set[int], tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray], dict[int, tuple[int, int | None, int]]]] = {}
     for source, source_records in by_source.items():
         allowed = {record.event_position for record in source_records}
-        blocked = set(registry.get(source, set())) - allowed
-        arrays = source_arrays(t0, source)
+        horizon = max(allowed)
+        all_blocked = set(registry.get(source, set())) - allowed
+        blocked = {position for position in all_blocked if position <= horizon}
+        raw_arrays = source_arrays(t0, source)
+        arrays = tuple(values[: horizon + 1] for values in raw_arrays)
+        future_scope.append({
+            "source_group": source, "fit_target_events": len(allowed), "fit_horizon_event_position": int(horizon),
+            "raw_events_visible_to_ssl": int(len(arrays[1])), "blocked_nonfit_targets_within_horizon": len(blocked),
+            "future_label_max_event_position": int(horizon), "select_report_outcome_used": False,
+        })
         prepared[source] = (allowed, blocked, arrays, future_task_labels(arrays[1], arrays[2], arrays[3], arrays[4], allowed, blocked))
     for epoch in range(1, int(epochs) + 1):
         memory.train(); heads.train(); losses: list[torch.Tensor] = []; summary: defaultdict[str, list[float]] = defaultdict(list)
@@ -583,7 +675,7 @@ def pretrain_ssl(
                 optimizer.step(); optimizer.zero_grad(); memory.detach(); losses.clear()
         history.append({"stage": "ssl", "epoch": epoch, "memory_resets": source_resets, "memory_updates": history_updates, "history_update_batches": history_batches, **{f"{key}_loss": float(np.mean(value)) if value else np.nan for key, value in summary.items()}})
     memory.eval(); heads.eval()
-    return memory, heads, history, negative_audit
+    return memory, heads, history, negative_audit, future_scope
 
 
 @torch.no_grad()
@@ -616,7 +708,7 @@ def embed_records(
             representation, _last = memory(pair)  # score before this event's update
             embeddings[record.uid] = representation.detach().cpu().numpy().reshape(memory_dim * 2).astype(np.float32)
             memory.update_state(pair[0:1], pair[1:2], moment, msg); neighbor.insert(pair[0:1], pair[1:2]); updates += 1; batches += 1
-        audits.append({"source_group": source, "records_scored": len(wanted), "memory_updates": updates, "history_update_batches": batches, "memory_resets": 1, "target_before_update": True, "blocked_role_target_updates": len(blocked)})
+        audits.append({"source_group": source, "records_scored": len(wanted), "memory_updates": updates, "memory_only_events": max(0, updates - len(wanted)), "history_update_batches": batches, "memory_resets": 1, "target_before_update": True, "blocked_role_target_updates": len(blocked), "report_only_source": bool(source in set(getattr(t0, "report_only_sources", set()))), "no_grad": True})
     missing = [record.uid for record in records if record.uid not in embeddings]
     if missing:
         raise RuntimeError(f"TGN embedding missing {len(missing)} aligned records; first={missing[0]}")
@@ -729,6 +821,105 @@ def metric_rows(candidate: str, protocol: str, held: str, records: list[Record],
     return overall, family
 
 
+def event_scope_rows(sets: dict[str, list[Record]], report_only_sources: set[str]) -> list[dict[str, Any]]:
+    labels = {"fit_attack": "training", "fit_benign": "training", "select_attack": "select", "select_benign": "select", "report": "report"}
+    rows: list[dict[str, Any]] = []
+    for key, records in sets.items():
+        rows.append({
+            "record_set": key, "m1_scope": labels[key], "events": len(records),
+            "sources": len({record.source for record in records}), "attack_events": int(sum(record.label == 1 for record in records)),
+            "benign_events": int(sum(record.label == 0 for record in records)),
+            "report_only_sources": int(len({record.source for record in records if record.source in report_only_sources})),
+        })
+    return rows
+
+
+def support_val_lineage(frames: dict[str, pd.DataFrame]) -> list[dict[str, Any]]:
+    all_support = int(len(frames["support_train"]) + len(frames["support_val"]))
+    support_val = frames["support_val"]
+    phase_fit = int(support_val["phase"].astype(str).eq("fit").sum())
+    phase_select = int(support_val["phase"].astype(str).eq("select").sum())
+    rows = [
+        {"scope": "global", "stage": "support_sidecar_total", "rows": all_support, "reason": "original certified support sidecar"},
+        {"scope": "global", "stage": "support_train_partition", "rows": int(len(frames["support_train"])), "reason": "immutable support_train, not eligible for support_val gate selection"},
+        {"scope": "global", "stage": "support_val_partition", "rows": int(len(support_val)), "reason": "original support_val partition"},
+        {"scope": "global", "stage": "excluded_phase_fit", "rows": phase_fit, "reason": "temporal support_val subphase is fit; select-only gate cannot use it"},
+        {"scope": "global", "stage": "retained_legal_select", "rows": phase_select, "reason": "legal support_val=69 for threshold/gate selection"},
+    ]
+    select = support_val.loc[support_val["phase"].astype(str).eq("select")]
+    for held in HELD:
+        removed = int(select["device_family"].astype(str).eq(held).sum())
+        rows.append({"scope": held, "stage": "held_family_exclusion", "rows": removed, "reason": "strict held-family removal from support_val select"})
+        rows.append({"scope": held, "stage": "retained_legal_select", "rows": int(len(select) - removed), "reason": "support_val select after strict held exclusion"})
+    return rows
+
+
+def attack_summary_rows(candidate: str, records: list[Record], hard: np.ndarray, c1_hard: np.ndarray) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    def add(metric: str, mask: np.ndarray) -> None:
+        if not int(mask.sum()):
+            return
+        rate = float(np.mean(hard[mask])); c1_rate = float(np.mean(c1_hard[mask]))
+        rows.append({"candidate": candidate, "metric": metric, "rows": int(mask.sum()), "hard_recall": rate, "c1_hard_recall": c1_rate, "delta_vs_c1_pp": 100.0 * (rate - c1_rate), "review_rate": 0.0})
+    labels = np.asarray([record.label == 1 for record in records], dtype=bool)
+    add("overall_attack_hard_recall", labels)
+    for role, name in (("support_val", "support_val_recall"), ("same_file_query", "same_file_attack_recall"), ("future_query", "future_attack_recall"), ("sealed_final_attack", "sealed_attack_recall")):
+        add(name, np.asarray([record.role == role and record.label == 1 for record in records], dtype=bool))
+    for family, name in (("domotic-monitor", "domotic_attack_recall"), ("combined-cycle", "combined_attack_recall")):
+        add(name, np.asarray([record.device_family == family and record.label == 1 for record in records], dtype=bool))
+    family_rows: list[tuple[str, float, float, int]] = []
+    for family in sorted({record.attack_family for record in records if record.label == 1}):
+        mask = np.asarray([record.attack_family == family and record.label == 1 for record in records], dtype=bool)
+        rate = float(np.mean(hard[mask])); c1_rate = float(np.mean(c1_hard[mask])); family_rows.append((family, rate, c1_rate, int(mask.sum())))
+        rows.append({"candidate": candidate, "metric": "attack_family_recall", "attack_family": family, "rows": int(mask.sum()), "hard_recall": rate, "c1_hard_recall": c1_rate, "delta_vs_c1_pp": 100.0 * (rate - c1_rate), "review_rate": 0.0})
+    if family_rows:
+        worst = min(family_rows, key=lambda value: value[1])
+        rows.append({"candidate": candidate, "metric": "worst_family_recall", "attack_family": worst[0], "rows": worst[3], "hard_recall": worst[1], "c1_hard_recall": worst[2], "delta_vs_c1_pp": 100.0 * (worst[1] - worst[2]), "review_rate": 0.0})
+    return rows
+
+
+def strict_level2_summary(candidate: str, held: str, records: list[Record], hard: np.ndarray, c1_hard: np.ndarray) -> list[dict[str, Any]]:
+    benign = np.asarray([record.label == 0 for record in records], dtype=bool)
+    if not int(benign.sum()):
+        return []
+    rate = float(np.mean(hard[benign])); c1_rate = float(np.mean(c1_hard[benign]))
+    return [{"candidate": candidate, "held_value": held, "rows": int(benign.sum()), "sources": len({record.source for record, keep in zip(records, benign.tolist()) if keep}), "metric": "benign_ood_hard_rate", "hard_rate": rate, "c1_hard_rate": c1_rate, "delta_vs_c1_pp": 100.0 * (rate - c1_rate), "review_rate": 0.0}]
+
+
+def single_seed_go_no_go(attack: pd.DataFrame, strict: pd.DataFrame, extension: dict[str, Any]) -> dict[str, Any]:
+    """Pre-registered stop rules for the first (seed 27) result only."""
+    def rate(table: pd.DataFrame, **where: Any) -> float | None:
+        if table.empty or any(key not in table.columns for key in where):
+            return None
+        part = table
+        for key, value in where.items():
+            part = part.loc[part[key].eq(value)]
+        if part.empty:
+            return None
+        return float(part.iloc[0]["hard_recall" if "hard_recall" in part.columns else "hard_rate"])
+
+    overall_delta = attack.loc[(attack["candidate"].eq("M1-SSL")) & (attack["metric"].eq("overall_attack_hard_recall")), "delta_vs_c1_pp"]
+    stream = rate(strict, candidate="M1-SSL", held_value="iotsim-stream-consumer")
+    hydraulic_m1 = rate(strict, candidate="M1-SSL", held_value="iotsim-hydraulic-system")
+    hydraulic_c1 = rate(strict, candidate="M0", held_value="iotsim-hydraulic-system")
+    main_family = attack.loc[(attack["candidate"].eq("M1-SSL")) & (attack["metric"].eq("attack_family_recall")) & (attack["rows"].ge(15))]
+    checks = {
+        "stream_ood_near_99pct": bool(stream is not None and stream >= 0.99),
+        "hydraulic_worsened_over_2pp": bool(hydraulic_m1 is not None and hydraulic_c1 is not None and hydraulic_m1 - hydraulic_c1 > 0.02),
+        "overall_attack_drop_over_0_5pp": bool(not overall_delta.empty and float(overall_delta.iloc[0]) < -0.5),
+        "main_attack_family_drop_over_2pp": bool((main_family["delta_vs_c1_pp"] < -2.0).any()),
+        "report_extension_used_in_fit_or_select": not bool(extension["report_only_fit_select_exclusion_pass"]),
+        "target_alignment_incomplete": False,
+        "review_not_zero": False,
+    }
+    return {
+        "seed": 27, "candidate": "M1-SSL", "checks": checks,
+        "decision": "NO_GO" if any(checks.values()) else "GO_SIGNAL",
+        "stream_ood_hard_rate": stream, "hydraulic_m1_hard_rate": hydraulic_m1,
+        "hydraulic_c1_hard_rate": hydraulic_c1,
+    }
+
+
 def run_protocol(
     held: str | None, args: argparse.Namespace, x_by_role: dict[str, np.ndarray], frames: dict[str, pd.DataFrame], t0: T0Cache,
     registry: dict[str, set[int]], position_cache: dict[str, dict[int, int]], input_audit: dict[str, Any], source_map: dict[str, set[str]],
@@ -742,7 +933,7 @@ def run_protocol(
     temporal_source_audit = apply_temporal_source_exclusion(sets, held_source_groups(frames, held, source_map), held)
     if len(sets["fit_attack"]) == 0 or len(sets["select_attack"]) == 0:
         raise RuntimeError(f"{name}: attack cache alignment unexpectedly empty")
-    ssl_memory, ssl_heads, ssl_history, negative = pretrain_ssl(t0, sets["fit_attack"] + sets["fit_benign"], registry, int(args.memory_dim), int(args.time_dim), int(args.ssl_epochs), int(args.detach_every), int(args.seed))
+    ssl_memory, ssl_heads, ssl_history, negative, future_scope = pretrain_ssl(t0, sets["fit_attack"] + sets["fit_benign"], registry, int(args.memory_dim), int(args.time_dim), int(args.ssl_epochs), int(args.detach_every), int(args.seed))
     all_records = sets["fit_attack"] + sets["fit_benign"] + sets["select_attack"] + sets["select_benign"] + sets["report"]
     ssl_embed, ssl_memory_audit = embed_records(ssl_memory, t0, all_records, registry, int(args.memory_dim))
     ssl_head, verifier_history, support_usage = train_verifier(ssl_embed, sets["fit_attack"], sets["fit_benign"], int(args.memory_dim), int(args.verifier_epochs), int(args.verifier_negative_ratio), int(args.seed))
@@ -762,19 +953,32 @@ def run_protocol(
     attack_records = sets["fit_attack"] + sets["select_attack"] + [record for record in sets["report"] if record.label == 1]
     strict_records = sets["report"] if held is not None else attack_records
     c1_attack_hard = np.asarray([record.c1_score >= c1_threshold for record in strict_records], dtype=bool)
+    event_scope = event_scope_rows(sets, set(getattr(t0, "report_only_sources", set())))
+    attack_summary: list[dict[str, Any]] = []; strict_summary: list[dict[str, Any]] = []
     rows, families = metric_rows("M0", "strict_leave" if held else "attack_preservation", name, strict_records, c1_attack_hard, int(args.bootstrap_reps), int(args.seed)); report_rows += rows; family_rows += families
+    if held is None:
+        attack_summary.extend(attack_summary_rows("M0", strict_records, c1_attack_hard, c1_attack_hard))
+    else:
+        strict_summary.extend(strict_level2_summary("M0", name, strict_records, c1_attack_hard, c1_attack_hard))
     for candidate, scores in (("M1-Random", random_scores), ("M1-SSL", ssl_scores), ("TGN-only", tgn_scores)):
         hard = hard_decisions(candidate, strict_records, scores, c1_threshold, threshold_by_candidate[candidate])
         rows, families = metric_rows(candidate, "strict_leave" if held else "attack_preservation", name, strict_records, hard, int(args.bootstrap_reps), int(args.seed)); report_rows += rows; family_rows += families
+        if held is None:
+            attack_summary.extend(attack_summary_rows(candidate, strict_records, hard, c1_attack_hard))
+        else:
+            strict_summary.extend(strict_level2_summary(candidate, name, strict_records, hard, c1_attack_hard))
     return {
         "protocol": name, "held": held, "input_audit": input_audit, "c1_audit": c1_audit, "data_audit": data_audit,
         "held_audit": held_audit + temporal_source_audit,
         "ssl_history": [{**row, "candidate": "M1-SSL"} for row in ssl_history],
         "verifier_history": [{**row, "candidate": "M1-SSL"} for row in verifier_history] + [{**row, "candidate": "M1-Random"} for row in random_history] + [{**row, "candidate": "TGN-only"} for row in tgn_history],
         "negative": [{**row, "candidate": "M1-SSL"} for row in negative],
+        "future_label_scope": [{**row, "candidate": "M1-SSL"} for row in future_scope],
+        "event_scope": event_scope,
         "support_usage": [{**row, "candidate": "M1-SSL"} for row in support_usage] + [{**row, "candidate": "M1-Random"} for row in random_usage] + [{**row, "candidate": "TGN-only"} for row in tgn_usage],
         "memory_audit": [{**row, "candidate": "M1-SSL"} for row in ssl_memory_audit] + [{**row, "candidate": "M1-Random"} for row in random_memory_audit],
         "selection": selection, "metrics": report_rows, "family_metrics": family_rows,
+        "attack_summary": attack_summary, "strict_summary": strict_summary,
         "thresholds": {"c1_candidate": c1_threshold, **threshold_by_candidate},
     }
 
@@ -782,12 +986,15 @@ def run_protocol(
 def run_formal(args: argparse.Namespace) -> None:
     require_pyg(); started = time.time(); out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     x_by_role, frames, input_audit, _labels = cko.load_role_inputs(False); ckao.add_family_columns(frames)
-    t0 = T0Cache(Path(args.t0_root)); t0_audit = validate_t0_runtime(t0)
+    base_t0 = T0Cache(Path(args.t0_root)); t0_audit = validate_t0_runtime(base_t0)
+    extension_audit = validate_report_extension(Path(args.report_t0_extension))
+    t0 = CompositeT0Cache(base_t0, Path(args.report_t0_extension), set(extension_audit["extension_sources"]))
     coverage = required_report_source_coverage(frames, t0)
     pd.DataFrame(coverage).to_csv(out / "m1_required_report_source_coverage.csv", index=False)
     missing_roles = [str(row["role"]) for row in coverage if not bool(row["full_source_coverage"])]
     if missing_roles:
         raise RuntimeError("formal M1 stopped before training: frozen T0 lacks required report sources for " + ", ".join(missing_roles))
+    pd.DataFrame(support_val_lineage(frames)).to_csv(out / "m1_support_val_lineage.csv", index=False)
     position_cache: dict[str, dict[int, int]] = {}; registry = target_registry(frames, t0, position_cache)
     source_map = source_groups_by_family(frames)
     requested = [value.strip() for value in args.held_values.split(",") if value.strip()]
@@ -795,7 +1002,7 @@ def run_formal(args: argparse.Namespace) -> None:
     if not seeds:
         raise RuntimeError("formal M1 needs at least one seed")
     all_results: list[dict[str, Any]] = []
-    row_keys = ("c1_audit", "data_audit", "held_audit", "ssl_history", "verifier_history", "negative", "support_usage", "memory_audit", "selection", "metrics", "family_metrics")
+    row_keys = ("c1_audit", "data_audit", "held_audit", "ssl_history", "verifier_history", "negative", "future_label_scope", "event_scope", "support_usage", "memory_audit", "selection", "metrics", "family_metrics", "attack_summary", "strict_summary")
     for seed in seeds:
         per_seed = argparse.Namespace(**vars(args)); per_seed.seed = int(seed)
         results = [run_protocol(None, per_seed, x_by_role, frames, t0, registry, position_cache, input_audit, source_map)]
@@ -811,6 +1018,8 @@ def run_formal(args: argparse.Namespace) -> None:
     pd.DataFrame(flatten("held_audit")).to_csv(out / "m1_held_exclusion_audit.csv", index=False)
     pd.DataFrame(flatten("support_usage")).to_csv(out / "m1_support_training_usage.csv", index=False)
     pd.DataFrame(flatten("negative")).to_csv(out / "m1_negative_sampling_audit.csv", index=False)
+    pd.DataFrame(flatten("future_label_scope")).to_csv(out / "m1_ssl_future_label_scope.csv", index=False)
+    pd.DataFrame(flatten("event_scope")).to_csv(out / "m1_event_scope_audit.csv", index=False)
     pd.DataFrame(flatten("memory_audit")).to_csv(out / "m1_memory_audit.csv", index=False)
     pd.DataFrame(flatten("ssl_history") + flatten("verifier_history")).to_csv(out / "m1_loss_curves.csv", index=False)
     pd.DataFrame(flatten("selection")).to_csv(out / "m1_candidate_selection.csv", index=False)
@@ -818,11 +1027,15 @@ def run_formal(args: argparse.Namespace) -> None:
     metrics.loc[metrics["protocol"].eq("attack_preservation")].to_csv(out / "attack_preservation_metrics.csv", index=False)
     metrics.loc[metrics["protocol"].eq("strict_leave")].to_csv(out / "strict_level2_metrics.csv", index=False)
     pd.DataFrame(flatten("family_metrics")).to_csv(out / "per_attack_family_metrics.csv", index=False)
+    attack_summary = pd.DataFrame(flatten("attack_summary")); attack_summary.to_csv(out / "attack_preservation_summary.csv", index=False)
+    strict_summary = pd.DataFrame(flatten("strict_summary")); strict_summary.to_csv(out / "strict_level2_summary.csv", index=False)
+    if seeds == [27]:
+        (out / "m1_single_seed_go_no_go.json").write_text(json.dumps(single_seed_go_no_go(attack_summary, strict_summary, extension_audit), indent=2) + "\n", encoding="utf-8")
     manifest = Path(args.t0_root) / "tgn_source_event_plan_frozen.csv"
     manifest_hash = hashlib.sha256(manifest.read_bytes()).hexdigest() if manifest.is_file() else "missing"
-    environment = {"torch": torch.__version__, "pyg": PYG_VERSION, "seeds": seeds, "slurm_job_id": os.environ.get("SLURM_JOB_ID", "local"), "commit_sha": os.environ.get("M1_COMMIT_SHA", "unknown"), "manifest_sha256": manifest_hash, "review_rate": 0.0, "seconds": time.time() - started, "official_pyg_components": ["TGNMemory", "IdentityMessage", "LastAggregator", "LastNeighborLoader", "TGNMemory internal TimeEncoder"]}
+    environment = {"torch": torch.__version__, "pyg": PYG_VERSION, "seeds": seeds, "slurm_job_id": os.environ.get("SLURM_JOB_ID", "local"), "commit_sha": os.environ.get("M1_COMMIT_SHA", "unknown"), "manifest_sha256": manifest_hash, "report_extension_manifest_sha256": extension_audit["extension_manifest_sha256"], "report_extension_targets": extension_audit["extension_targets"], "review_rate": 0.0, "seconds": time.time() - started, "official_pyg_components": ["TGNMemory", "IdentityMessage", "LastAggregator", "LastNeighborLoader", "TGNMemory internal TimeEncoder"]}
     (out / "m1_environment.json").write_text(json.dumps(environment, indent=2) + "\n", encoding="utf-8")
-    spec = {"issue": ISSUE, "mode": "formal", "held_values": requested, "t0_root": str(args.t0_root), "c1_cache": str(args.c1_cache), "input_audit": input_audit, "t0_audit": t0_audit, "environment": environment, "thresholds": [{"seed": result["seed"], "protocol": result["protocol"], "thresholds": result["thresholds"]} for result in all_results], "report_used_for_fit_or_select": False}
+    spec = {"issue": ISSUE, "mode": "formal", "held_values": requested, "t0_root": str(args.t0_root), "report_t0_extension": str(args.report_t0_extension), "c1_cache": str(args.c1_cache), "input_audit": input_audit, "t0_audit": t0_audit, "extension_audit": extension_audit, "environment": environment, "thresholds": [{"seed": result["seed"], "protocol": result["protocol"], "thresholds": result["thresholds"]} for result in all_results], "report_used_for_fit_or_select": False}
     (out / "run_spec.json").write_text(json.dumps(spec, indent=2) + "\n", encoding="utf-8")
     (out / "codex_readout.md").write_text(f"# {ISSUE}\n\nFormal M1 completed. Review is fixed at `0`; see CSV tables for attack preservation and strict leave-family metrics.\n", encoding="utf-8")
     print(json.dumps({"status": "ok", "out": str(out), "seconds": environment["seconds"]}, indent=2))
@@ -877,13 +1090,13 @@ def run_smoke(args: argparse.Namespace) -> None:
     select_attack = [record(8, 1, "select", "attack_a", 0.95)]
     select_benign = [record(9, 0, "select", "benign", 0.05)]
     registry = {source: set(recorded.tolist())}
-    memory, _heads, ssl_history, negative = pretrain_ssl(t0, fit_attack + fit_benign, registry, 8, 4, 2, 4, int(args.seed))
+    memory, _heads, ssl_history, negative, _future_scope = pretrain_ssl(t0, fit_attack + fit_benign, registry, 8, 4, 2, 4, int(args.seed))
     records = fit_attack + fit_benign + select_attack + select_benign
     embeddings, memory_audit = embed_records(memory, t0, records, registry, 8)
     verifier, verifier_history, usage = train_verifier(embeddings, fit_attack, fit_benign, 8, 3, 1, int(args.seed))
     scores = verifier_scores(verifier, embeddings, records)
     threshold, selection = choose_gate("M1-SSL", select_attack, select_benign, scores, 0.5)
-    torch.manual_seed(int(args.seed)); memory_b, _heads_b, history_b, _negative_b = pretrain_ssl(t0, fit_attack + fit_benign, registry, 8, 4, 2, 4, int(args.seed))
+    torch.manual_seed(int(args.seed)); memory_b, _heads_b, history_b, _negative_b, _future_scope_b = pretrain_ssl(t0, fit_attack + fit_benign, registry, 8, 4, 2, 4, int(args.seed))
     reproducible = bool(np.allclose([row.get("link_loss", np.nan) for row in ssl_history], [row.get("link_loss", np.nan) for row in history_b], equal_nan=True))
     finite = all(np.isfinite(value) for row in ssl_history + verifier_history for key, value in row.items() if key.endswith("loss") and not pd.isna(value))
     result = {
