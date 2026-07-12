@@ -15,7 +15,7 @@
 set -euo pipefail
 
 BASE=/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline
-RUN=issue27ckbe_tgn_fullsupport_event_cache_v1_2026-07-12_hpc_fullsupport_r2
+RUN=issue27ckbe_tgn_fullsupport_event_cache_v1_2026-07-12_hpc_fullsupport_r3
 OUT="$BASE/runs/$RUN"
 PLAN="$OUT/tgn_source_event_plan_frozen.csv"
 CACHE="$OUT/tgn_event_cache"
