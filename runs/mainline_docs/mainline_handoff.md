@@ -5,6 +5,26 @@
 Status: active living handoff. This top section is the authoritative current state.
 If older time-log entries conflict with this section, treat the older entry as historical evidence only.
 
+### July 2026 method-route supersession
+
+The pre-July control-panel text below is retained as historical data/support
+lineage, not as the current detector route. The active open-world IDS method
+route is authoritative in `openworld_handoff_20260711.md`:
+
+```text
+mature flow frontend / C1 attack-candidate anchor
++ source-local, past-only PyG TGN interaction-process verifier
++ complete per-packet attack support supervision
+-> constrained hard attack decision
+```
+
+Strict fit/select/report isolation remains frozen. In particular, an unseen
+device/source/family is excluded from both fit and select, raw labels never
+enter the frontend, sources never share online memory, and the first TGN
+comparison has `review=0`. CKBE T0 cache materialization passed on 2026-07-12;
+this is not a model-performance result. See
+`ckbe_t0_fullsupport_cache_20260712.md` before starting M1.
+
 ### Maintenance Protocol
 
 - Keep detailed evidence inside each numbered `runs/issue*/` directory.

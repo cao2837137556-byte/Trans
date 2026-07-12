@@ -51,6 +51,7 @@ Support-memory protocol complete; frozen capability replay pending on HPC.
 | Attack support/query/final roles | certified complete-only attack subset frozen | issue27cb/issue27cc/issue27cd/issue27cg/issue27ch | active | 683,420 certified rows from 93 complete chunks; six partial combined-cycle-1 chunks deferred_not_deleted |
 | Support memory | one ten-label `label_support_region_registry_v1`; immutable 385 train and 127 validation views; archive/candidate/update contracts ready | issue27cf/issue27ci/issue27ckg | active protocol, production updates blocked | wait for issue27ckc then certify one bounded update budget through detector non-regression |
 | Model replay | frozen-medium issue27ckc HPC capability replay pending; geometric region experiments do not alter it | issue27ckc/issue27ckg | running/pending | inspect aggregate, low-FPR, OOD, and per-label results before designing update ablation |
+| Open-world temporal verifier substrate | PyG `TGNMemory` contract-audited and full-source event cache materialized | issue27ckbd/issue27ckbe | T0 passed; no model result | 26 source-local label-free caches, then frozen M1 protocol only |
 | Formal benchmark | not authorized | current governance | blocked | requires clean data contract and frozen system protocol |
 
 ### Active Issue Index
@@ -73,6 +74,8 @@ Support-memory protocol complete; frozen capability replay pending on HPC.
 | issue27cke | Bounded geometric-support extension audit | no material support-val gain and GRE OOD-stress trade-off | rejects E64/E128 as deployment updates | archived negative update evidence |
 | issue27ckf | Fresh geometric-certification holdout feasibility | no fresh pair for current labels; CoAP-only unused pair | relevant only if automatic geometric routing is reopened | no longer blocks label-memory implementation |
 | issue27ckg | Label-support region registry and versioned update protocol | ten exact-label memory regions, immutable 385/127 views, append-only archive, candidate gates, simulation-only promotion, and rollback contract pass | changes the formal region from geometric evidence to label-memory management | wait for issue27ckc, then issue27ckh detector update-budget ablation |
+| issue27ckbd | PyG TGN event contract audit | passed label/future invariance, past sensitivity, source-reset isolation, and held-family role exclusion | maintained TGN adapter is permitted; no classifier claim | materialize full-source event cache |
+| issue27ckbe | Full-support TGN event cache | HPC job 150067 completed 26/26 sources, 34,622 target alignments, no raw label reads | T0 substrate is ready; no training/performance claim | M1 under fixed per-packet support and strict leave-family protocol |
 
 ### Latest Compact Close-out
 

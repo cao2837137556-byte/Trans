@@ -96,14 +96,26 @@ full HPC yet.  The next evidence gap is process observability: connection
 completion/response chains, edge churn, and persistent expansion must be
 tested before adding another neural loss.
 
-### CKBD PyG-TGN T0: adapter contract passes
+### CKBD/CKBE PyG-TGN T0: contract and full-support cache pass
 
-The project now uses maintained PyG `TGNMemory` rather than a hand-written
-temporal graph model. CKBD passed label/future invariance, past sensitivity,
-source-reset isolation, and held-family fit/select exclusion on actual
-canonical raw-source prefixes. It has no classifier or performance claim. M1
-may now be prepared with full support and HPC resources, but must keep direct
-per-packet supervision for all 385 support rows.
+The project uses maintained PyG `TGNMemory` rather than a hand-written temporal
+graph model. CKBD passed label/future invariance, past sensitivity, source-reset
+isolation, and held-family fit/select exclusion on actual canonical raw-source
+prefixes.
+
+CKBE then materialized the frozen full-support event cache on HPC job `150067`:
+all 26 planned sources produced one non-empty NPZ cache, one cache JSON, and
+one runtime JSON; all 34,622 manifest targets aligned to event positions; and
+every source recorded `raw_label_column_read=false`. The provisioned CPU runtime
+passed NumPy/Torch/PyG/fsspec/`TGNMemory` imports, and all 26 array tasks ended
+`COMPLETED 0:0`. See `ckbe_t0_fullsupport_cache_20260712.md` for the compact
+audit record.
+
+This is a data/interface milestone only: it does not train a TGN, score a
+classifier, or establish any IDS/OOD improvement. M1 may begin only as the
+frozen per-packet, family-balanced temporal self-supervised plus support-loss
+protocol; it must retain source-local memory resets and report attack
+preservation separately from strict leave-family results.
 
 ## Evidence index
 
@@ -123,10 +135,12 @@ per-packet supervision for all 385 support rows.
 - `runs/issue27ckay_episode_pooling_strict_l2_smoke_v1_2026-07-11_hpc_fullsupport_groupC/`
 - `runs/mainline_docs/ckbb_erh_smoke_20260711.md`
 - `runs/mainline_docs/ckbd_tgn_contract_20260711.md`
+- `runs/mainline_docs/ckbe_t0_fullsupport_cache_20260712.md`
 
 ## Claim boundary
 
-Do not claim that unknown OOD or cross-device generalization is solved.  The
-current defensible claim is that C1 is a strong Level-1 frontend and that
-episode aggregation exposes a partial Level-2 signal, while the hardest held
-OOD family remains unresolved.
+Do not claim that unknown OOD or cross-device generalization is solved. The
+current defensible claim is that C1 is a strong Level-1 frontend, episode
+aggregation exposes only a partial Level-2 signal, and the TGN event substrate
+is now contract-audited and materialized. The hardest held OOD family remains
+unresolved.
