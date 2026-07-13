@@ -37,7 +37,9 @@ do
   test -s "$PAYLOAD/$relative" || { echo "missing bundle file: $relative" >&2; exit 2; }
   target="$BASE/$relative"
   if test -e "$target" && ! cmp -s "$PAYLOAD/$relative" "$target"; then
-    if test "$relative" = "scripts/issue27ckbj_tgn_m1_formal_v2.slurm" && \
+    if cmp -s <(sed 's/\r$//' "$PAYLOAD/$relative") <(sed 's/\r$//' "$target"); then
+      echo "existing remote target is content-identical after CRLF normalization: $target"
+    elif test "$relative" = "scripts/issue27ckbj_tgn_m1_formal_v2.slurm" && \
        test "$(sha256sum "$target" | awk '{print $1}')" = "$SUPERSEDED_R2_SLURM_SHA256"; then
       echo "replacing exact superseded r2 Slurm launcher: $target"
       install -D -m 0644 "$PAYLOAD/$relative" "$target"

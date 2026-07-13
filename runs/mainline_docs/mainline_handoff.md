@@ -37,7 +37,9 @@ fit/select/report replay.  Its first submission, job `151220`, reached the
 validated PyTorch/PyG environment but exited before training because the
 compute image lacks `/usr/bin/time`; it is not performance evidence.  The
 replacement launcher removes that dependency, pins the Slurm working/log
-paths, and has not yet been submitted.
+paths, and has not yet been submitted.  A later r3 install attempt stopped
+before `sbatch` on a verified CRLF-only Python mismatch; r4 handles only that
+normalized equality while keeping substantive target differences fail-closed.
 
 ### Maintenance Protocol
 

@@ -24,6 +24,11 @@
    legacy bundle-relative path used by job `151220`.
 7. Permit replacement of the remote Slurm file only when its SHA-256 equals
    the exact superseded r2 launcher hash; refuse every other differing target.
+8. The r3 installer stopped before `sbatch` because the existing r2 Python
+   payload used CRLF while the corrected payload used LF.  A normalized diff
+   proved both Python files content-identical.  The replacement installer
+   accepts only CRLF-normalized equality for existing text targets; it still
+   refuses any substantive Python difference.
 
 ## Preserved boundaries
 

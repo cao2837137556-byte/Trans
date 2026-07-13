@@ -12,6 +12,11 @@ Python stderr in the Slurm error log, exports post-run Slurm accounting, and
 submits with an explicit project-root working directory.  Job `151220` must
 not be cited as a model or preflight result.
 
+The subsequent r3 installation attempt also created no job: it stopped before
+`sbatch` on a byte-level CRLF/LF mismatch between content-identical Python
+files.  The r4 installer compares existing text after stripping only a
+trailing carriage return; substantive differences remain fail-closed.
+
 The completed CKBI Stage A cache remains valid and read-only.  Job `150548`
 and any duplicate built from commit `195b1c26` must not be used as formal M1
 evidence: that revision contained deterministic contract failures and an
