@@ -19,4 +19,3 @@ echo "=== stdout tail ==="
 tail -n 80 "$BASE/runs/issue27ckbj_m1_v2_${job_id}.out" 2>/dev/null || true
 echo "=== stderr tail ==="
 tail -n 80 "$BASE/runs/issue27ckbj_m1_v2_${job_id}.err" 2>/dev/null || true
-
