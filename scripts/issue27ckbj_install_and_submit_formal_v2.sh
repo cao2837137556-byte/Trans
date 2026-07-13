@@ -14,6 +14,7 @@ C1_ROOT="$BASE/runs/issue27ckat_canonical_time_c1_canary_v1_2026-07-10_fullsuppo
 EXPECTED_T0_SHA256=b102b04347dd320f9f89a219285285866dbfa09e09bd73d0839cbe1a91bb0f67
 EXPECTED_C1_PLAN_SHA256=414616332159eb90553213d6656c3d072a701ea93a02df464acdfa6cebc128f2
 EXPECTED_C1_TARGET_SHA256=74a1699e29b7b1e227f4532ff81f1546a9ba239f2d2d323d390efa5b07437158
+SUPERSEDED_R2_SLURM_SHA256=f7291416e751b900eea244535f72d60da37e82cf91628505481df02bf9c7006e
 
 test -d "$BASE" || { echo "missing HPC project directory: $BASE" >&2; exit 2; }
 test -d "$PAYLOAD" || { echo "missing bundle payload: $PAYLOAD" >&2; exit 2; }
@@ -36,8 +37,14 @@ do
   test -s "$PAYLOAD/$relative" || { echo "missing bundle file: $relative" >&2; exit 2; }
   target="$BASE/$relative"
   if test -e "$target" && ! cmp -s "$PAYLOAD/$relative" "$target"; then
-    echo "remote new-file target differs; stop rather than overwrite: $target" >&2
-    exit 2
+    if test "$relative" = "scripts/issue27ckbj_tgn_m1_formal_v2.slurm" && \
+       test "$(sha256sum "$target" | awk '{print $1}')" = "$SUPERSEDED_R2_SLURM_SHA256"; then
+      echo "replacing exact superseded r2 Slurm launcher: $target"
+      install -D -m 0644 "$PAYLOAD/$relative" "$target"
+    else
+      echo "remote experiment target differs from both corrected and known r2 content; stop: $target" >&2
+      exit 2
+    fi
   fi
   if test ! -e "$target"; then
     install -D -m 0644 "$PAYLOAD/$relative" "$target"
@@ -47,6 +54,9 @@ done
 M1_COMMIT_SHA=$(tr -d '\r\n' < "$HERE/bundle_commit.txt")
 [[ "$M1_COMMIT_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "invalid bundle commit SHA: $M1_COMMIT_SHA" >&2; exit 2; }
 job_id=$(sbatch --parsable --partition="$PARTITION" \
+  --chdir="$BASE" \
+  --output="$BASE/runs/issue27ckbj_m1_v2_%j.out" \
+  --error="$BASE/runs/issue27ckbj_m1_v2_%j.err" \
   --export="ALL,M1_COMMIT_SHA=$M1_COMMIT_SHA" \
   "$BASE/scripts/issue27ckbj_tgn_m1_formal_v2.slurm")
 job_id=${job_id%%;*}

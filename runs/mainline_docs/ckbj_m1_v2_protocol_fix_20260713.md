@@ -2,7 +2,15 @@
 
 ## Status
 
-`LOCAL_IMPLEMENTATION_AND_CONTRACT_TESTS_COMPLETE; HPC_NOT_SUBMITTED`
+`LAUNCHER_FIX_COMPLETE_AFTER_JOB_151220; CORRECTED_HPC_NOT_SUBMITTED`
+
+The first corrected-bundle submission, job `151220`, exited before training
+with code `127` because the compute image does not provide `/usr/bin/time`.
+Its environment check succeeded (`torch=2.5.1`, `torch_geometric=2.6.1`) and
+it produced no model result.  The launcher now uses Bash timestamps, preserves
+Python stderr in the Slurm error log, exports post-run Slurm accounting, and
+submits with an explicit project-root working directory.  Job `151220` must
+not be cited as a model or preflight result.
 
 The completed CKBI Stage A cache remains valid and read-only.  Job `150548`
 and any duplicate built from commit `195b1c26` must not be used as formal M1
@@ -110,7 +118,7 @@ The single formal job writes attack preservation, strict Level-2, global OOD,
 per-family recall, paired delta CI, support-row/family uses, SSL task balance,
 negative pools, role/target alignment, held exclusion, memory resets/batching,
 source-local-node proxy audit, loss curves, base/extension hashes, environment,
-wall time, in-job RSS, job ID, and a single-seed decision JSON.
+wall time, Slurm MaxRSS/accounting, job ID, and a single-seed decision JSON.
 
 ## Resource envelope and next action
 

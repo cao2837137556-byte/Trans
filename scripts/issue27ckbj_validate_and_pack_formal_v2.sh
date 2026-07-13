@@ -15,6 +15,11 @@ test "$exit_code" = "0:0" || { echo "job exit code is not 0:0: $exit_code" >&2; 
 
 run_name="issue27ckbj_tgn_m1_strict_formal_v2_2026-07-13_hpc_seed27_${job_id}"
 run_dir="$BASE/runs/$run_name"
+test -d "$run_dir" || { echo "missing formal run directory: $run_dir" >&2; exit 2; }
+sacct -j "$job_id" \
+  --format=JobIDRaw,JobName%24,Partition,State,ExitCode,Elapsed,TotalCPU,MaxRSS,MaxVMSize,Start,End -P \
+  > "$run_dir/slurm_accounting.csv"
+test -s "$run_dir/slurm_accounting.csv" || { echo "missing Slurm accounting export" >&2; exit 2; }
 for relative in \
   attack_preservation_summary.csv \
   strict_level2_summary.csv \
@@ -30,7 +35,8 @@ for relative in \
   m1_ssl_future_label_scope.csv \
   m1_memory_audit.csv \
   m1_loss_curves.csv \
-  m1_time_v.txt
+  m1_time_v.txt \
+  slurm_accounting.csv
 do
   test -s "$run_dir/$relative" || { echo "missing formal output: $run_dir/$relative" >&2; exit 2; }
 done

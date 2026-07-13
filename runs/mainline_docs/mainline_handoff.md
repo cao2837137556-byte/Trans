@@ -32,8 +32,12 @@ and report-cache contracts were inconsistent, and its negative sampler drew
 nonexistent cross-source-capacity nodes.  The corrected local implementation
 is documented in `ckbj_m1_v2_protocol_fix_20260713.md`.  It preserves the base
 26-source/34,622-target manifests, adds only a separately hashed report-only C1
-extension, uses source-local past-seen negatives, separates fit/select/report
-replay, and has not yet been submitted to HPC.
+extension, uses source-local past-seen negatives, and separates
+fit/select/report replay.  Its first submission, job `151220`, reached the
+validated PyTorch/PyG environment but exited before training because the
+compute image lacks `/usr/bin/time`; it is not performance evidence.  The
+replacement launcher removes that dependency, pins the Slurm working/log
+paths, and has not yet been submitted.
 
 ### Maintenance Protocol
 

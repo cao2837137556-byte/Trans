@@ -16,6 +16,20 @@ sacct -j "$job_id" --format=JobID,JobName%24,Partition,State,ExitCode,Elapsed,Ma
 echo "=== scheduler detail ==="
 scontrol show job -o "$job_id" || true
 echo "=== stdout tail ==="
-tail -n 80 "$BASE/runs/issue27ckbj_m1_v2_${job_id}.out" 2>/dev/null || true
+if test -f "$BASE/runs/issue27ckbj_m1_v2_${job_id}.out"; then
+  tail -n 80 "$BASE/runs/issue27ckbj_m1_v2_${job_id}.out"
+elif test -f "$HERE/runs/issue27ckbj_m1_v2_${job_id}.out"; then
+  echo "legacy bundle-relative log path"
+  tail -n 80 "$HERE/runs/issue27ckbj_m1_v2_${job_id}.out"
+else
+  echo "stdout log not found"
+fi
 echo "=== stderr tail ==="
-tail -n 80 "$BASE/runs/issue27ckbj_m1_v2_${job_id}.err" 2>/dev/null || true
+if test -f "$BASE/runs/issue27ckbj_m1_v2_${job_id}.err"; then
+  tail -n 80 "$BASE/runs/issue27ckbj_m1_v2_${job_id}.err"
+elif test -f "$HERE/runs/issue27ckbj_m1_v2_${job_id}.err"; then
+  echo "legacy bundle-relative log path"
+  tail -n 80 "$HERE/runs/issue27ckbj_m1_v2_${job_id}.err"
+else
+  echo "stderr log not found"
+fi

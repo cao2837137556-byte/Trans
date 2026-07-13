@@ -62,7 +62,10 @@ python -m py_compile \
   repo/ood/issue27ckbj_tgn_m1_strict_formal_v2.py
 
 mkdir -p "$OUT"
-{ /usr/bin/time -v python -u repo/ood/issue27ckbj_tgn_m1_strict_formal_v2.py \
+started_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+started_epoch=$(date +%s)
+set +e
+python -u repo/ood/issue27ckbj_tgn_m1_strict_formal_v2.py \
   --mode formal \
   --t0-root "$T0" \
   --report-t0-extension "$TGN_EXT" \
@@ -78,7 +81,26 @@ mkdir -p "$OUT"
   --verifier-epochs 30 \
   --verifier-negative-ratio 4 \
   --history-batch-size 200 \
-  --bootstrap-reps 1000; } 2> "$OUT/m1_time_v.txt"
+  --bootstrap-reps 1000
+run_status=$?
+set -e
+ended_epoch=$(date +%s)
+ended_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+wall_seconds=$((ended_epoch - started_epoch))
+printf 'started_utc=%s\nended_utc=%s\nwall_seconds=%s\npython_exit_code=%s\n' \
+  "$started_utc" "$ended_utc" "$wall_seconds" "$run_status" \
+  > "$OUT/m1_time_v.txt"
+
+if command -v sstat >/dev/null 2>&1; then
+  sstat -j "${SLURM_JOB_ID}.batch" \
+    --format=JobID,AveCPU,AveRSS,MaxRSS,MaxVMSize -P \
+    > "$OUT/slurm_in_job_accounting.csv" 2>/dev/null || true
+fi
+
+if test "$run_status" -ne 0; then
+  echo "formal M1 v2 Python failed: exit=$run_status" >&2
+  exit "$run_status"
+fi
 
 echo "slurm_job_id=${SLURM_JOB_ID}" > "$OUT/slurm_job_id.txt"
 echo "formal M1 v2 completed; do not launch seeds 37/47 automatically" >&2
