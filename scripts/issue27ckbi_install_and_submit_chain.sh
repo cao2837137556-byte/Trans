@@ -2,6 +2,8 @@
 # Execute from the extracted CKBI/CKBH upload bundle on HPC.
 # No remote Git, no pip/Conda/container, and no independent preflight job.
 set -euo pipefail
+echo "CKBI Stage A is complete and CKBH-v1 is superseded; use the CKBJ Stage-B-only bundle" >&2
+exit 2
 
 BASE=/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline
 HERE=$(pwd)

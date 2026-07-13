@@ -5,6 +5,7 @@
 #
 # Stage B of the CKBI->CKBH dependency chain.  Submit with an afterok
 # dependency on issue27ckbi_tgn_report_extension.slurm; do not run standalone.
+
 #SBATCH -J ckbh_m1_formal
 #SBATCH -p intel
 #SBATCH -N 1
@@ -16,6 +17,8 @@
 #SBATCH -e runs/issue27ckbh_m1_formal_%j.err
 
 set -euo pipefail
+echo "CKBH-v1 is superseded; use scripts/issue27ckbj_tgn_m1_formal_v2.slurm" >&2
+exit 2
 
 BASE=/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline
 T0="$BASE/runs/issue27ckbe_tgn_fullsupport_event_cache_v1_2026-07-12_hpc_fullsupport_r3"

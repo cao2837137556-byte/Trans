@@ -25,6 +25,16 @@ comparison has `review=0`. CKBE T0 cache materialization passed on 2026-07-12;
 this is not a model-performance result. See
 `ckbe_t0_fullsupport_cache_20260712.md` before starting M1.
 
+CKBI Stage A later completed the separate four-source report-only TGN cache.
+The first CKBH Stage B revision at commit `195b1c26` is invalid and must not be
+used as performance evidence: its CKBI boolean check was inverted, its C1 cap
+and report-cache contracts were inconsistent, and its negative sampler drew
+nonexistent cross-source-capacity nodes.  The corrected local implementation
+is documented in `ckbj_m1_v2_protocol_fix_20260713.md`.  It preserves the base
+26-source/34,622-target manifests, adds only a separately hashed report-only C1
+extension, uses source-local past-seen negatives, separates fit/select/report
+replay, and has not yet been submitted to HPC.
+
 ### Maintenance Protocol
 
 - Keep detailed evidence inside each numbered `runs/issue*/` directory.

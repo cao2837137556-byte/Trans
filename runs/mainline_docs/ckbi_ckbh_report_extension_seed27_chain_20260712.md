@@ -1,5 +1,10 @@
 # CKBI → CKBH one-submit seed-27 chain — 2026-07-12
 
+> **Stage-B supersession (2026-07-13):** CKBI Stage A remains valid, but the
+> CKBH-v1 Stage B code at `195b1c26` is invalid and must not be submitted or
+> cited. Use `ckbj_m1_v2_protocol_fix_20260713.md` and the v2 Slurm entrypoint;
+> do not rerun CKBI.
+
 ## Immutable boundary
 
 - CKBE base T0 remains exactly `26` sources / `34,622` targets with manifest
