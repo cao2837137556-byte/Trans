@@ -122,7 +122,7 @@ printf 'job_id=%s\npartition=%s\ncompute_commit_sha=%s\ncompute_script_sha256=%s
   "$RECOVERY_COMMIT" "$payload_hash" > "$RUN_ROOT/slurm_identity.txt"
 
 CKBM_PARTITION="$PARTITION" CKBM_JOB_ID="$JOB_ID" \
-  bash scripts/issue27ckbm_validate_and_pack_seed27.sh
+  bash "$PAYLOAD/scripts/issue27ckbm_validate_and_pack_seed27.sh"
 
 echo '=== recovered scientific decision ==='
 cat "$RUN_ROOT/ckbm_single_seed_go_no_go.json"
