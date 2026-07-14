@@ -39,7 +39,7 @@ Gotham PCAP -> Kitsune115 -> clean split assets -> versioned label support memor
 Current stage:
 
 ```text
-Support-memory protocol complete; frozen capability replay pending on HPC.
+C1/portable features have transferable rank signal; cross-source calibration and report hard-alarm suppression remain unresolved.
 ```
 
 ### Current Truth Table
@@ -52,6 +52,7 @@ Support-memory protocol complete; frozen capability replay pending on HPC.
 | Support memory | one ten-label `label_support_region_registry_v1`; immutable 385 train and 127 validation views; archive/candidate/update contracts ready | issue27cf/issue27ci/issue27ckg | active protocol, production updates blocked | wait for issue27ckc then certify one bounded update budget through detector non-regression |
 | Model replay | frozen-medium issue27ckc HPC capability replay pending; geometric region experiments do not alter it | issue27ckc/issue27ckg | running/pending | inspect aggregate, low-FPR, OOD, and per-label results before designing update ablation |
 | Open-world temporal verifier | CKBJ v2 seed-27 formal run completed; registered `NO_GO` | issue27ckbd/issue27ckbe/issue27ckbi/issue27ckbj | current realization rejected | stream OOD remained 100%; attack recall fell 1.8996 pp; fix sparse-train/dense-report mismatch before any new formal seed |
+| Frontend observability/calibration gate | CKBL full-source seed 27 completed; valid `OBSERVABILITY_NO_GO` | issue27ckbl | rank signal present, ordered-history mechanism rejected | global attack-preserving thresholds do not transfer; target source/family calibration next |
 | Formal benchmark | not authorized | current governance | blocked | requires clean data contract and frozen system protocol |
 
 ### Active Issue Index

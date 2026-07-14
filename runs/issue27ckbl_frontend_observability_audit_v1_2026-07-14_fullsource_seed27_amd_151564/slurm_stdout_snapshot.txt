@@ -1,0 +1,84 @@
+ENV OK 2.0.1 2.3.3 1.6.1
+CKBL_RUN_STARTED out=/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline/runs/issue27ckbl_frontend_observability_audit_v1_2026-07-14_fullsource_seed27_amd_151564 mode=run read_mode=full
+CKBL_ROLE_INPUTS_LOADED
+CKBL_LEGAL_SCOPE rows=8671 attack=385 sources=8 families=10 known_targets_blocked=198173
+CKBL_SOURCE_START 1/8 source=processed/iotsim-building-monitor-2.csv targets=1690 max_recorded=1739
+CKBL_SOURCE_DONE {"seconds": 3.2200183868408203, "source_count": 8, "source_group": "processed/iotsim-building-monitor-2.csv", "source_number": 1, "status": "FEATURES_COMPLETE", "target_rows": 1690}
+CKBL_SOURCE_START 2/8 source=processed/iotsim-building-monitor-3.csv targets=914 max_recorded=963
+CKBL_SOURCE_DONE {"seconds": 1.6952745914459229, "source_count": 8, "source_group": "processed/iotsim-building-monitor-3.csv", "source_number": 2, "status": "FEATURES_COMPLETE", "target_rows": 914}
+CKBL_SOURCE_START 3/8 source=processed/iotsim-city-power-1.csv targets=137 max_recorded=1500445
+CKBL_SOURCE_DONE {"seconds": 65.73464775085449, "source_count": 8, "source_group": "processed/iotsim-city-power-1.csv", "source_number": 3, "status": "FEATURES_COMPLETE", "target_rows": 137}
+CKBL_SOURCE_START 4/8 source=processed/iotsim-combined-cycle-10.csv targets=33 max_recorded=31678
+CKBL_SOURCE_DONE {"seconds": 4.968675851821899, "source_count": 8, "source_group": "processed/iotsim-combined-cycle-10.csv", "source_number": 4, "status": "FEATURES_COMPLETE", "target_rows": 33}
+CKBL_SOURCE_START 5/8 source=processed/iotsim-combined-cycle-tls-3.csv targets=1894 max_recorded=1943
+CKBL_SOURCE_DONE {"seconds": 3.866757392883301, "source_count": 8, "source_group": "processed/iotsim-combined-cycle-tls-3.csv", "source_number": 5, "status": "FEATURES_COMPLETE", "target_rows": 1894}
+CKBL_SOURCE_START 6/8 source=processed/iotsim-combined-cycle-tls-4.csv targets=1894 max_recorded=1943
+CKBL_SOURCE_DONE {"seconds": 3.8232922554016113, "source_count": 8, "source_group": "processed/iotsim-combined-cycle-tls-4.csv", "source_number": 6, "status": "FEATURES_COMPLETE", "target_rows": 1894}
+CKBL_SOURCE_START 7/8 source=processed/iotsim-combined-cycle-tls-5.csv targets=1894 max_recorded=1943
+CKBL_SOURCE_DONE {"seconds": 3.860935926437378, "source_count": 8, "source_group": "processed/iotsim-combined-cycle-tls-5.csv", "source_number": 7, "status": "FEATURES_COMPLETE", "target_rows": 1894}
+CKBL_SOURCE_START 8/8 source=processed/iotsim-ip-camera-museum-1.csv targets=215 max_recorded=10042290
+CKBL_HEARTBEAT utc=2026-07-14T11:35:22Z job=151564 partition=amd progress_lines=7
+CKBL_SOURCE_DONE {"seconds": 404.15289664268494, "source_count": 8, "source_group": "processed/iotsim-ip-camera-museum-1.csv", "source_number": 8, "status": "FEATURES_COMPLETE", "target_rows": 215}
+CKBL_FOLD 1/25 unseen_source_pair benign=processed/iotsim-building-monitor-2.csv|attack=processed/iotsim-city-power-1.csv
+CKBL_HEARTBEAT utc=2026-07-14T11:40:22Z job=151564 partition=amd progress_lines=8
+CKBL_FOLD 2/25 unseen_source_pair benign=processed/iotsim-building-monitor-2.csv|attack=processed/iotsim-combined-cycle-10.csv
+CKBL_FOLD 3/25 unseen_source_pair benign=processed/iotsim-building-monitor-2.csv|attack=processed/iotsim-ip-camera-museum-1.csv
+CKBL_FOLD 4/25 unseen_source_pair benign=processed/iotsim-building-monitor-3.csv|attack=processed/iotsim-city-power-1.csv
+CKBL_FOLD 5/25 unseen_source_pair benign=processed/iotsim-building-monitor-3.csv|attack=processed/iotsim-combined-cycle-10.csv
+CKBL_FOLD 6/25 unseen_source_pair benign=processed/iotsim-building-monitor-3.csv|attack=processed/iotsim-ip-camera-museum-1.csv
+CKBL_FOLD 7/25 unseen_source_pair benign=processed/iotsim-combined-cycle-tls-3.csv|attack=processed/iotsim-city-power-1.csv
+CKBL_FOLD 8/25 unseen_source_pair benign=processed/iotsim-combined-cycle-tls-3.csv|attack=processed/iotsim-combined-cycle-10.csv
+CKBL_FOLD 9/25 unseen_source_pair benign=processed/iotsim-combined-cycle-tls-3.csv|attack=processed/iotsim-ip-camera-museum-1.csv
+CKBL_FOLD 10/25 unseen_source_pair benign=processed/iotsim-combined-cycle-tls-4.csv|attack=processed/iotsim-city-power-1.csv
+CKBL_FOLD 11/25 unseen_source_pair benign=processed/iotsim-combined-cycle-tls-4.csv|attack=processed/iotsim-combined-cycle-10.csv
+CKBL_FOLD 12/25 unseen_source_pair benign=processed/iotsim-combined-cycle-tls-4.csv|attack=processed/iotsim-ip-camera-museum-1.csv
+CKBL_FOLD 13/25 unseen_source_pair benign=processed/iotsim-combined-cycle-tls-5.csv|attack=processed/iotsim-city-power-1.csv
+CKBL_FOLD 14/25 unseen_source_pair benign=processed/iotsim-combined-cycle-tls-5.csv|attack=processed/iotsim-combined-cycle-10.csv
+CKBL_FOLD 15/25 unseen_source_pair benign=processed/iotsim-combined-cycle-tls-5.csv|attack=processed/iotsim-ip-camera-museum-1.csv
+CKBL_FOLD 16/25 unseen_attack_family_origin family=File Download|origins=processed/iotsim-combined-cycle-10.csv|benign=processed/iotsim-building-monitor-2.csv
+CKBL_FOLD 17/25 unseen_attack_family_origin family=Ingress Tool Transfer|origins=processed/iotsim-combined-cycle-10.csv|benign=processed/iotsim-building-monitor-3.csv
+CKBL_FOLD 18/25 unseen_attack_family_origin family=Merlin C&C Communication|origins=processed/iotsim-ip-camera-museum-1.csv|benign=processed/iotsim-combined-cycle-tls-3.csv
+CKBL_FOLD 19/25 unseen_attack_family_origin family=Merlin ICMP Flooding|origins=processed/iotsim-city-power-1.csv;processed/iotsim-ip-camera-museum-1.csv|benign=processed/iotsim-combined-cycle-tls-4.csv
+CKBL_FOLD 20/25 unseen_attack_family_origin family=Merlin TCP Flooding|origins=processed/iotsim-city-power-1.csv;processed/iotsim-ip-camera-museum-1.csv|benign=processed/iotsim-combined-cycle-tls-5.csv
+CKBL_FOLD 21/25 unseen_attack_family_origin family=Merlin UDP Flooding|origins=processed/iotsim-city-power-1.csv;processed/iotsim-ip-camera-museum-1.csv|benign=processed/iotsim-building-monitor-2.csv
+CKBL_FOLD 22/25 unseen_attack_family_origin family=Mirai C&C Communication|origins=processed/iotsim-ip-camera-museum-1.csv|benign=processed/iotsim-building-monitor-3.csv
+CKBL_FOLD 23/25 unseen_attack_family_origin family=Mirai GRE Flooding|origins=processed/iotsim-city-power-1.csv;processed/iotsim-ip-camera-museum-1.csv|benign=processed/iotsim-combined-cycle-tls-3.csv
+CKBL_FOLD 24/25 unseen_attack_family_origin family=Mirai TCP Flooding|origins=processed/iotsim-city-power-1.csv;processed/iotsim-ip-camera-museum-1.csv|benign=processed/iotsim-combined-cycle-tls-4.csv
+CKBL_FOLD 25/25 unseen_attack_family_origin family=Mirai UDP Flooding|origins=processed/iotsim-city-power-1.csv;processed/iotsim-ip-camera-museum-1.csv|benign=processed/iotsim-combined-cycle-tls-5.csv
+{
+  "status": "CKBL_RUN_COMPLETE",
+  "out": "/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline/runs/issue27ckbl_frontend_observability_audit_v1_2026-07-14_fullsource_seed27_amd_151564",
+  "verdict": "OBSERVABILITY_NO_GO",
+  "formal_complete_protocol": true,
+  "interpretation": "engineered_upper_bound_has_signal_but_compact_process_adapter_is_insufficient",
+  "checks": {
+    "source_compact_macro_auroc_ge_0_75": true,
+    "family_compact_macro_auroc_ge_0_70": true,
+    "source_compact_minus_tgn9_ge_0_03": false,
+    "family_compact_minus_tgn9_ge_0_03": true,
+    "source_order_minus_shuffle_ge_0_02": false,
+    "family_order_minus_shuffle_ge_0_02": false
+  },
+  "metrics": {
+    "source_compact_macro_auroc": 0.9977709569705858,
+    "family_compact_macro_auroc": 0.8894603198809966,
+    "source_tgn9_macro_auroc": 0.9975878204183047,
+    "family_tgn9_macro_auroc": 0.794143234685231,
+    "source_shuffle_macro_auroc": 0.997876317674422,
+    "family_shuffle_macro_auroc": 0.8988650080565496,
+    "source_c1_macro_auroc": 0.9926999964767503,
+    "family_c1_macro_auroc": 0.9175723043529272
+  },
+  "claim_boundary": "This is a fit-only representation gate, not formal report-canary performance and not final IDS evidence.",
+  "elapsed_seconds": 688.6011888980865,
+  "selected_rows": 8671,
+  "selected_attack_rows": 385,
+  "selected_benign_rows": 8286,
+  "source_count": 8,
+  "attack_family_count": 10,
+  "forbidden_family_model_use": {
+    "iotsim-cooler-motor": 0,
+    "iotsim-hydraulic-system": 0,
+    "iotsim-stream-consumer": 0
+  }
+}

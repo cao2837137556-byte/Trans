@@ -1,0 +1,35 @@
+{
+  "attack_family_count": 10,
+  "checks": {
+    "family_compact_macro_auroc_ge_0_70": true,
+    "family_compact_minus_tgn9_ge_0_03": true,
+    "family_order_minus_shuffle_ge_0_02": false,
+    "source_compact_macro_auroc_ge_0_75": true,
+    "source_compact_minus_tgn9_ge_0_03": false,
+    "source_order_minus_shuffle_ge_0_02": false
+  },
+  "claim_boundary": "This is a fit-only representation gate, not formal report-canary performance and not final IDS evidence.",
+  "elapsed_seconds": 688.6011888980865,
+  "forbidden_family_model_use": {
+    "iotsim-cooler-motor": 0,
+    "iotsim-hydraulic-system": 0,
+    "iotsim-stream-consumer": 0
+  },
+  "formal_complete_protocol": true,
+  "interpretation": "engineered_upper_bound_has_signal_but_compact_process_adapter_is_insufficient",
+  "metrics": {
+    "family_c1_macro_auroc": 0.9175723043529272,
+    "family_compact_macro_auroc": 0.8894603198809966,
+    "family_shuffle_macro_auroc": 0.8988650080565496,
+    "family_tgn9_macro_auroc": 0.794143234685231,
+    "source_c1_macro_auroc": 0.9926999964767503,
+    "source_compact_macro_auroc": 0.9977709569705858,
+    "source_shuffle_macro_auroc": 0.997876317674422,
+    "source_tgn9_macro_auroc": 0.9975878204183047
+  },
+  "selected_attack_rows": 385,
+  "selected_benign_rows": 8286,
+  "selected_rows": 8671,
+  "source_count": 8,
+  "verdict": "OBSERVABILITY_NO_GO"
+}

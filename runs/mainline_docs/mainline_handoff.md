@@ -58,20 +58,21 @@ improvement cannot rescue attack preservation or the random-control failure.
 The sealed cooler-motor final holdout remained unopened.  Do not repair only
 the TGN assertion and rerun the same information-poor route.
 
-CKBL is now the active feature-information gate.  It tests exact 9D, current
-20D, a preregistered causal 69D process adapter, a within-source
-history-permuted control, and the existing C1 207D upper bound using only legal
-fit rows.  Its bounded local real-data result is
-`TRUNCATED_LOCAL_NO_SIGNAL`: 9D was weak, ordered 69D was exactly matched by
-its genuinely changed history-permuted control, while 207D was materially
-stronger but still weak in the worst fold.  stream-consumer, hydraulic-system,
-and the sealed cooler-motor family had zero model/selection use.  See
-`ckbl_frontend_observability_prereg_20260714.md` and
-`ckbl_frontend_observability_local_result_20260714.md`.  The next result job is
-the hardened frozen CKBL protocol with full-source chronology, all 385 support
-rows, and 198,173 known non-selected targets blocked from fit-time passive
-state; no new TGN/GraphMixer backend is promoted before that gate.  Its
-implementation is recorded in `ckbl_fullsource_hpc_implementation_20260714.md`.
+CKBL full-source seed 27 completed on AMD job `151564` and passed every data,
+alignment, causality, and fold contract.  It is a scientific
+`OBSERVABILITY_NO_GO`, not an execution failure.  Exact TGN9, Compact69, and
+C1 207D all contain strong unseen-source rank signal; C1 reaches `0.9176` mean
+unseen-family AUROC.  However, ordered 69D history does not beat the genuinely
+changed within-source permuted control.  More importantly, legal
+attack-preserving thresholds do not transfer: mean unseen-source benign FPR is
+`0.3310` for Compact69 and `0.4858` for C1, and only four of ten unseen-family
+folds have complete legal inner-OOF threshold coverage.  The active blocker is
+therefore cross-source/family score calibration and hard-decision transfer,
+not absence of frontend information.  Do not run additional CKBL seeds or
+repair the same TGN/GraphMixer route.  The next result experiment must reuse a
+mature calibration/source-normalization method with label-free past-only
+report adaptation and directly measure report OOD hard alarms plus attack
+preservation.  See `ckbl_fullsource_seed27_formal_result_20260714.md`.
 
 ### Maintenance Protocol
 
