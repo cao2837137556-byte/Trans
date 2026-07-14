@@ -48,18 +48,28 @@ imbalanced. Therefore CKBJ v2 rejects this exact realization, not the entire
 mature-TGN route. The metrics and diagnosis are frozen in
 `ckbj_m1_v2_seed27_formal_result_20260714.md`.
 
-CKBK is the frozen next experiment, not yet performance evidence.  It compares
-an unchanged-architecture `TGNMemory-Repair` against the maintained DyGLib
-GraphMixer temporal-message core under one exact replay/gate contract.  It
-repairs interleaved fit/select handling with per-event masks, disables
-statistically degenerate SSL tasks, enumerates the complete legal gate set, and
-adds learned-versus-random representation audits.  GraphMixer receives no
-global/source node embedding; its Full variant uses only eight anonymous,
-past-only node statistics and is paired with MessageOnly and Random controls.
-The seed-27 run leaves the newly sealed cooler-motor final holdout unopened.
-See `ckbk_temporal_generalization_prereg_20260714.md`.  The only next compute
-action is the paired AMD/Intel result-producing CKBK job; no CKBF, cache,
-environment, preflight-only, or synthetic-smoke job is required.
+CKBK seed 27 ran on AMD job `151489`.  Its TGN child failed a fail-fast
+neighbour-negative assertion, so it supplies no repaired-TGN performance
+claim.  The independent GraphMixer child completed but was `NO_GO`:
+stream-consumer stayed at 100% hard OOD, overall attack recall fell 3.0854 pp,
+the worst major attack family fell 98.2301 pp, and learned-vs-random select
+AUROC improved only 0.0029.  Hydraulic fell to 20.3%, but that isolated canary
+improvement cannot rescue attack preservation or the random-control failure.
+The sealed cooler-motor final holdout remained unopened.  Do not repair only
+the TGN assertion and rerun the same information-poor route.
+
+CKBL is now the active feature-information gate.  It tests exact 9D, current
+20D, a preregistered causal 69D process adapter, a within-source
+history-permuted control, and the existing C1 207D upper bound using only legal
+fit rows.  Its bounded local real-data result is
+`TRUNCATED_LOCAL_NO_SIGNAL`: 9D was weak, ordered 69D was exactly matched by
+its genuinely changed history-permuted control, while 207D was materially
+stronger but still weak in the worst fold.  stream-consumer, hydraulic-system,
+and the sealed cooler-motor family had zero model/selection use.  See
+`ckbl_frontend_observability_prereg_20260714.md` and
+`ckbl_frontend_observability_local_result_20260714.md`.  The next result job is
+the same frozen CKBL protocol with full-source chronology and all 385 support
+rows; no new TGN/GraphMixer backend is promoted before that gate.
 
 ### Maintenance Protocol
 

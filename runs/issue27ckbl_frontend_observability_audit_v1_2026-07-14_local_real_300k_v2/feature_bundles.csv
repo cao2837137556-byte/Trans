@@ -1,0 +1,6 @@
+bundle,feature_dim,candidate,causal,description,feature_names_sha256
+TGN9_exact,9,True,True,Exact CKBE 9D portable event message; no identity features.,f0ae09e9f43b3be138ba02b8433fd2085fa3f6587fec2b1518a28cdaabc3c680
+Current20,20,True,True,Current packet/protocol fields only; no historical state.,89d7bc29597e7acf5271647d0550dc75a124d089355eba6c5700321eb3d1fca2
+CompactProcess69,69,True,True,Preregistered current plus pair/biflow temporal process statistics.,1183fe7dc5fa2172fcb2bf71751616e6c5f1f323b4cb39f0e5d941ebd921e0d8
+CompactProcess69_history_permuted,69,False,False,Noncausal negative control: history columns permuted within source; never a route candidate.,1183fe7dc5fa2172fcb2bf71751616e6c5f1f323b4cb39f0e5d941ebd921e0d8
+C1_207_upper_bound,207,True,True,Existing C1 CICFlow-style feature block as the engineered upper-bound control.,df128872bde800d72ac070fb0e618423e2c31c10b829dcdc1bb69346a455e104

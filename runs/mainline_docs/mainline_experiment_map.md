@@ -78,6 +78,8 @@ Support-memory protocol complete; frozen capability replay pending on HPC.
 | issue27ckbe | Full-support TGN event cache | HPC job 150067 completed 26/26 sources, 34,622 target alignments, no raw label reads | T0 substrate is ready; no training/performance claim | M1 under fixed per-packet support and strict leave-family protocol |
 | issue27ckbi | Four-source report-only TGN extension | Stage A job 150547 completed with separate manifest and zero fit/select use | report coverage completed without changing the 26-source T0 freeze | consume only in label-free past-only report replay |
 | issue27ckbj | Single-seed formal M1 v2 | AMD job 151377 completed; contracts passed; decision `NO_GO` | rejects current sparse-train/dense-report M1 realization; does not establish a general TGN failure | do not run seeds 37/47; repair temporal replay/task/gate audit before another formal seed |
+| issue27ckbk | TGN replay repair plus maintained GraphMixer comparison | AMD job 151489 partial: TGN fail-fast assertion; GraphMixer completed `NO_GO` | rejects GraphMixer realization and blocks same-route rerun; no repaired-TGN metric claim | run feature-information gate before another temporal backend |
+| issue27ckbl | Strict fit-only frontend observability gate | bounded local real-data run `TRUNCATED_LOCAL_NO_SIGNAL`; 9D weak, 69D matched its permuted control, 207D stronger | changes immediate mainline from backend repair to full feature-observability validation | run frozen full-source protocol with all 385 support rows |
 
 ### Latest Compact Close-out
 

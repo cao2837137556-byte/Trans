@@ -1,0 +1,4 @@
+role,phase,class_name,role_rows_before_phase,fit_rows_before_forbidden_exclusion,forbidden_rows_removed,forbidden_breakdown_json,rows_before_recorded_index_cap,rows_selected,max_recorded_index_cap
+support_train,fit,attack,385,385,0,{},385,58,300000
+id_calib,fit,benign,79600,28103,22421,"{""iotsim-cooler-motor"": 22421}",5682,5682,300000
+ood_val,fit,benign,23500,11295,8691,"{""iotsim-hydraulic-system"": 8691}",2604,2604,300000
