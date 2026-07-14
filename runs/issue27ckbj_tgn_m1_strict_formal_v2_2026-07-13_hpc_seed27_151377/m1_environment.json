@@ -1,0 +1,31 @@
+{
+  "python": "3.9.25",
+  "numpy": "2.0.1",
+  "pandas": "2.3.3",
+  "sklearn": "1.6.1",
+  "torch": "2.5.1",
+  "pyg": "2.6.1",
+  "seeds": [
+    27
+  ],
+  "slurm_job_id": "151377",
+  "commit_sha": "f2c8a07526284b1feae4f5454c984f3c0d18622d",
+  "manifest_sha256": "b102b04347dd320f9f89a219285285866dbfa09e09bd73d0839cbe1a91bb0f67",
+  "c1_base_plan_sha256": "414616332159eb90553213d6656c3d072a701ea93a02df464acdfa6cebc128f2",
+  "c1_base_target_sha256": "74a1699e29b7b1e227f4532ff81f1546a9ba239f2d2d323d390efa5b07437158",
+  "report_extension_manifest_sha256": "862a9ae62622c001bdf1c1d9b2c524bc33c25351433599fdd8935fd6e5f2ffb1",
+  "c1_report_extension_manifest_sha256": "6a7c06e1a04d91aa73e9286dd6f5514b2fe15f0437cb75d5aaf742954a0619f3",
+  "report_extension_targets": 290445,
+  "review_rate": 0.0,
+  "seconds": 5236.0873939991,
+  "history_batch_size": 200,
+  "node_capacity_policy": "nonlearned max source-local id upper bound; reset per source; never a negative candidate universe",
+  "official_pyg_components": [
+    "TGNMemory",
+    "IdentityMessage",
+    "LastAggregator",
+    "LastNeighborLoader",
+    "TGNMemory internal TimeEncoder",
+    "TransformerConv graph embedding"
+  ]
+}

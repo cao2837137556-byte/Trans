@@ -1,0 +1,200 @@
+{
+  "issue": "issue27ckbj_tgn_m1_strict_formal_v2_2026-07-13",
+  "mode": "formal",
+  "held_values": [
+    "iotsim-stream-consumer",
+    "iotsim-hydraulic-system",
+    "domotic-monitor",
+    "combined-cycle",
+    "iotsim-ip-camera-street"
+  ],
+  "t0_root": "/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline/runs/issue27ckbe_tgn_fullsupport_event_cache_v1_2026-07-12_hpc_fullsupport_r3",
+  "report_t0_extension": "/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline/runs/issue27ckbi_tgn_report_only_cache_extension_v1_2026-07-12_hpc",
+  "c1_cache": "/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline/runs/issue27ckat_canonical_time_c1_canary_v1_2026-07-10_fullsupport_cacheplan_v1/hpc_canonical_c1_cache",
+  "c1_report_extension": "/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline/runs/issue27ckbj_c1_report_only_cache_extension_v1_2026-07-13_hpc",
+  "input_audit": {
+    "cert_x_shape": [
+      1000000,
+      115
+    ],
+    "attack_root": "/public/home/jiangxinwei.zr/work/paper04/datasets/gotham2025/derived/kitsune115_exact_label_targeted_attack_v1",
+    "support_rows": 512,
+    "certified_complete_chunks": 93,
+    "input_hashes": {
+      "feature_schema": "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+      "support_sidecar": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da",
+      "certified_chunk_manifest": "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+      "certified_subset_contract": "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf",
+      "medium_selection": "68e9c2a1aef4ebde4095f873764247b12401e1c997802d89c3c794b9965e4f4a"
+    }
+  },
+  "t0_audit": {
+    "t0_sources": 26,
+    "t0_targets": 34622,
+    "t0_manifest_sha256": "b102b04347dd320f9f89a219285285866dbfa09e09bd73d0839cbe1a91bb0f67",
+    "raw_label_column_read": false
+  },
+  "extension_audit": {
+    "extension_root": "/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline/runs/issue27ckbi_tgn_report_only_cache_extension_v1_2026-07-12_hpc",
+    "extension_manifest_sha256": "862a9ae62622c001bdf1c1d9b2c524bc33c25351433599fdd8935fd6e5f2ffb1",
+    "extension_sources": [
+      "processed/iotsim-air-quality-1.csv",
+      "processed/iotsim-building-monitor-1.csv",
+      "processed/iotsim-ip-camera-museum-2.csv",
+      "processed/iotsim-ip-camera-street-1.csv"
+    ],
+    "extension_targets": 290445,
+    "report_only_fit_select_exclusion_pass": true,
+    "raw_label_column_read": false
+  },
+  "c1_extension_audit": {
+    "issue": "issue27ckbj_c1_report_only_cache_extension_v1_2026-07-13",
+    "source_count": 4,
+    "target_rows": 290445,
+    "manifest_sha256": "6a7c06e1a04d91aa73e9286dd6f5514b2fe15f0437cb75d5aaf742954a0619f3",
+    "source_plan_sha256": "a38d9fee3d11b3c2e56b3ebea0e217fc4c4f808755c1a56e3d2c4ded310b3d81",
+    "target_index_sha256": "3e3bde77ad8a12747fea8fc8401488a4392985c90881e872d3be8335853a877b",
+    "feature_schema_hash": "ede9a25f30a609ad12bef5bddd552c0d42f48fc1e203b2e6053dc388b936182a",
+    "raw_label_column_read": false,
+    "report_only_fit_select_exclusion_pass": true,
+    "base_c1_plan_sha256": "414616332159eb90553213d6656c3d072a701ea93a02df464acdfa6cebc128f2",
+    "base_c1_target_sha256": "74a1699e29b7b1e227f4532ff81f1546a9ba239f2d2d323d390efa5b07437158",
+    "base_c1_sources": 26,
+    "base_c1_targets": 34622,
+    "tgn_extension_manifest_sha256": "862a9ae62622c001bdf1c1d9b2c524bc33c25351433599fdd8935fd6e5f2ffb1",
+    "tgn_extension_target_index_sha256": "70becf37a4d8954c495d4077c3da7fefe16bbcedf1141ffd8a890a8ca40bf414",
+    "tgn_extension_targets": 290445,
+    "report_only_fit_select_rows": 0,
+    "extension_root": "/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline/runs/issue27ckbj_c1_report_only_cache_extension_v1_2026-07-13_hpc"
+  },
+  "environment": {
+    "python": "3.9.25",
+    "numpy": "2.0.1",
+    "pandas": "2.3.3",
+    "sklearn": "1.6.1",
+    "torch": "2.5.1",
+    "pyg": "2.6.1",
+    "seeds": [
+      27
+    ],
+    "slurm_job_id": "151377",
+    "commit_sha": "f2c8a07526284b1feae4f5454c984f3c0d18622d",
+    "manifest_sha256": "b102b04347dd320f9f89a219285285866dbfa09e09bd73d0839cbe1a91bb0f67",
+    "c1_base_plan_sha256": "414616332159eb90553213d6656c3d072a701ea93a02df464acdfa6cebc128f2",
+    "c1_base_target_sha256": "74a1699e29b7b1e227f4532ff81f1546a9ba239f2d2d323d390efa5b07437158",
+    "report_extension_manifest_sha256": "862a9ae62622c001bdf1c1d9b2c524bc33c25351433599fdd8935fd6e5f2ffb1",
+    "c1_report_extension_manifest_sha256": "6a7c06e1a04d91aa73e9286dd6f5514b2fe15f0437cb75d5aaf742954a0619f3",
+    "report_extension_targets": 290445,
+    "review_rate": 0.0,
+    "seconds": 5236.0873939991,
+    "history_batch_size": 200,
+    "node_capacity_policy": "nonlearned max source-local id upper bound; reset per source; never a negative candidate universe",
+    "official_pyg_components": [
+      "TGNMemory",
+      "IdentityMessage",
+      "LastAggregator",
+      "LastNeighborLoader",
+      "TGNMemory internal TimeEncoder",
+      "TransformerConv graph embedding"
+    ]
+  },
+  "thresholds": [
+    {
+      "seed": 27,
+      "protocol": "GLOBAL_ATTACK_PRESERVATION",
+      "thresholds": {
+        "c1_candidate": 0.0020498713313795458,
+        "M1-Random": 0.07328464463353157,
+        "M1-SSL": 0.06394274160265923,
+        "TGN-only": 0.06485111266374588
+      },
+      "gate_constraint_pass": {
+        "M1-Random": false,
+        "M1-SSL": false,
+        "TGN-only": false
+      }
+    },
+    {
+      "seed": 27,
+      "protocol": "iotsim-stream-consumer",
+      "thresholds": {
+        "c1_candidate": 0.0003644103102766704,
+        "M1-Random": 0.06486746668815613,
+        "M1-SSL": 0.038406115025281906,
+        "TGN-only": 0.039783961012175205
+      },
+      "gate_constraint_pass": {
+        "M1-Random": false,
+        "M1-SSL": true,
+        "TGN-only": true
+      }
+    },
+    {
+      "seed": 27,
+      "protocol": "iotsim-hydraulic-system",
+      "thresholds": {
+        "c1_candidate": 0.001667079643329124,
+        "M1-Random": 0.12178611755371094,
+        "M1-SSL": 0.03715922124683857,
+        "TGN-only": 0.042028410360217094
+      },
+      "gate_constraint_pass": {
+        "M1-Random": false,
+        "M1-SSL": false,
+        "TGN-only": false
+      }
+    },
+    {
+      "seed": 27,
+      "protocol": "domotic-monitor",
+      "thresholds": {
+        "c1_candidate": 0.0020498713313795458,
+        "M1-Random": 0.07328464463353157,
+        "M1-SSL": 0.06394274160265923,
+        "TGN-only": 0.06485111266374588
+      },
+      "gate_constraint_pass": {
+        "M1-Random": false,
+        "M1-SSL": false,
+        "TGN-only": false
+      }
+    },
+    {
+      "seed": 27,
+      "protocol": "combined-cycle",
+      "thresholds": {
+        "c1_candidate": 0.00047157347380678046,
+        "M1-Random": 0.06564492359757423,
+        "M1-SSL": 0.049959052354097366,
+        "TGN-only": 0.05275331437587738
+      },
+      "gate_constraint_pass": {
+        "M1-Random": false,
+        "M1-SSL": false,
+        "TGN-only": false
+      }
+    },
+    {
+      "seed": 27,
+      "protocol": "iotsim-ip-camera-street",
+      "thresholds": {
+        "c1_candidate": 0.0020498713313795458,
+        "M1-Random": 0.07328464463353157,
+        "M1-SSL": 0.06394274160265923,
+        "TGN-only": 0.06485111266374588
+      },
+      "gate_constraint_pass": {
+        "M1-Random": false,
+        "M1-SSL": false,
+        "TGN-only": false
+      }
+    }
+  ],
+  "report_used_for_fit_or_select": false,
+  "development_canaries": [
+    "iotsim-stream-consumer",
+    "iotsim-hydraulic-system"
+  ],
+  "untouched_final_claim_allowed": false,
+  "single_seed_scope": "go_no_go_only_not_paper_evidence"
+}

@@ -1,0 +1,24 @@
+{
+  "seed": 27,
+  "candidate": "M1-SSL",
+  "checks": {
+    "required_metrics_missing": false,
+    "stream_ood_still_near_original": true,
+    "hydraulic_worsened_over_2pp": false,
+    "overall_attack_drop_over_0_5pp": true,
+    "main_attack_family_drop_over_2pp": true,
+    "report_extension_used_in_fit_or_select": false,
+    "target_alignment_incomplete": false,
+    "gate_attack_preservation_constraint_failed": true,
+    "negative_sampling_contract_failed": false,
+    "nonfinite_or_missing_loss": false,
+    "support_usage_incomplete": false,
+    "review_not_zero": false
+  },
+  "decision": "NO_GO",
+  "meaningful_stream_signal": false,
+  "stream_ood_hard_rate": 1.0,
+  "stream_c1_hard_rate": 1.0,
+  "hydraulic_m1_hard_rate": 0.821,
+  "hydraulic_c1_hard_rate": 1.0
+}

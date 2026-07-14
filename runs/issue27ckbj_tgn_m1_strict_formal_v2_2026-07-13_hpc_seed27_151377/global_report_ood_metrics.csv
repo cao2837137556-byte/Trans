@@ -1,0 +1,5 @@
+candidate,protocol,held_value,role,rows,sources,label,metric,hard_rate,ci_low,ci_high,ci_cluster_unit,ci_clusters,review_rate,seed
+M0,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_ood,57950,2,0,benign_ood_hard_rate,0.02886971527178602,0.018666666666666668,0.02942675159235669,source,2,0.0,27
+M1-Random,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_ood,57950,2,0,benign_ood_hard_rate,0.025901639344262296,0.017666666666666667,0.02635122838944495,source,2,0.0,27
+M1-SSL,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_ood,57950,2,0,benign_ood_hard_rate,0.027610008628127698,0.017333333333333333,0.028171064604185624,source,2,0.0,27
+TGN-only,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_ood,57950,2,0,benign_ood_hard_rate,0.9512338222605694,0.8396666666666667,0.9573248407643312,source,2,0.0,27

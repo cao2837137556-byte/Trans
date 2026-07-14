@@ -35,11 +35,18 @@ is documented in `ckbj_m1_v2_protocol_fix_20260713.md`.  It preserves the base
 extension, uses source-local past-seen negatives, and separates
 fit/select/report replay.  Its first submission, job `151220`, reached the
 validated PyTorch/PyG environment but exited before training because the
-compute image lacks `/usr/bin/time`; it is not performance evidence.  The
-replacement launcher removes that dependency, pins the Slurm working/log
-paths, and has not yet been submitted.  A later r3 install attempt stopped
-before `sbatch` on a verified CRLF-only Python mismatch; r4 handles only that
-normalized equality while keeping substantive target differences fail-closed.
+compute image lacks `/usr/bin/time`; it is not performance evidence. The
+replacement launcher removed that dependency and r4 completed the first
+single-seed formal M1 on AMD job `151377` at experiment commit `f2c8a075`.
+The registered result is `NO_GO`: M1-SSL left stream-consumer OOD hard alarms
+at 100%, reduced hydraulic-system only to 82.1%, and lowered overall attack
+hard recall by 1.8996 percentage points. Seeds 37/47 must not be launched.
+Data-use and leakage contracts passed, but post-result review found that
+fit/select replay used sparse target-only histories while report replay used
+dense raw histories in 200-event batches; the SSL targets were also highly
+imbalanced. Therefore CKBJ v2 rejects this exact realization, not the entire
+mature-TGN route. The metrics and diagnosis are frozen in
+`ckbj_m1_v2_seed27_formal_result_20260714.md`.
 
 ### Maintenance Protocol
 
