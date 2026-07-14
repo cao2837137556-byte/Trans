@@ -29,6 +29,10 @@
    proved both Python files content-identical.  The replacement installer
    accepts only CRLF-normalized equality for existing text targets; it still
    refuses any substantive Python difference.
+9. The first AMD pullback-validation attempt reached its Python audit without
+   sourcing `scripts/00_env_issue27ckc.sh` and therefore could not import
+   pandas.  No result artifact was changed or lost.  The validator now loads
+   the same provisioned environment before all Python-based checks.
 
 ## Preserved boundaries
 

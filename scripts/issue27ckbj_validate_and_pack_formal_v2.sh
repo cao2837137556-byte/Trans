@@ -4,6 +4,9 @@ set -euo pipefail
 
 HERE=$(pwd)
 BASE=/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline
+ENV_SCRIPT="$BASE/scripts/00_env_issue27ckc.sh"
+test -s "$ENV_SCRIPT" || { echo "missing provisioned environment script: $ENV_SCRIPT" >&2; exit 2; }
+source "$ENV_SCRIPT"
 JOB_FILE="$HERE/ckbj_formal_seed27_job_id.txt"
 test -s "$JOB_FILE" || { echo "missing job-id file: $JOB_FILE" >&2; exit 2; }
 job_id=$(tr -d '\r\n' < "$JOB_FILE")
