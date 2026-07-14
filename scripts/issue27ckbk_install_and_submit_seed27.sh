@@ -48,13 +48,19 @@ done
 
 M1_COMMIT_SHA=$(tr -d '\r\n' < "$HERE/bundle_commit.txt")
 [[ "$M1_COMMIT_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "invalid bundle commit SHA: $M1_COMMIT_SHA" >&2; exit 2; }
-test ! -e "$HERE/ckbk_seed27_amd_job_id.txt" || { echo "AMD job already recorded" >&2; exit 2; }
-test ! -e "$HERE/ckbk_seed27_intel_job_id.txt" || { echo "Intel job already recorded" >&2; exit 2; }
 
 submit_one() {
   local partition=$1
   local short=$2
   local job_id
+  local record="$HERE/ckbk_seed27_${partition}_job_id.txt"
+  if test -s "$record"; then
+    job_id=$(tr -d '\r\n' < "$record")
+    [[ "$job_id" =~ ^[0-9]+$ ]] || { echo "invalid recorded $partition job id: $job_id" >&2; exit 2; }
+    printf 'CKBK_%s_JOB_ID=%s (already recorded; not resubmitted)\n' "${partition^^}" "$job_id"
+    return
+  fi
+  test ! -e "$record" || { echo "empty $partition job-id record: $record" >&2; exit 2; }
   job_id=$(sbatch --parsable --partition="$partition" --job-name="ckbk_${short}" \
     --chdir="$BASE" \
     --output="$BASE/runs/issue27ckbk_seed27_${partition}_%j.out" \
@@ -63,7 +69,7 @@ submit_one() {
     "$BASE/scripts/issue27ckbk_temporal_generalization_seed27.slurm")
   job_id=${job_id%%;*}
   [[ "$job_id" =~ ^[0-9]+$ ]] || { echo "invalid $partition job id: $job_id" >&2; exit 2; }
-  printf '%s\n' "$job_id" > "$HERE/ckbk_seed27_${partition}_job_id.txt"
+  printf '%s\n' "$job_id" > "$record"
   printf 'CKBK_%s_JOB_ID=%s\n' "${partition^^}" "$job_id"
 }
 

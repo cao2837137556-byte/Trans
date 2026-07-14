@@ -38,6 +38,10 @@ The last command records both IDs in:
 Both copies may finish safely.  They are infrastructure duplicates of the
 same seed, not two scientific seeds.
 
+Submission is partition-idempotent: if one `sbatch` succeeds and the other
+fails transiently, rerunning the same installer keeps the recorded job and
+submits only the missing partition.
+
 ## Status
 
 ```bash
