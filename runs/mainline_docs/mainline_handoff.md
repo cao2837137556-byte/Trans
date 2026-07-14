@@ -74,6 +74,17 @@ mature calibration/source-normalization method with label-free past-only
 report adaptation and directly measure report OOD hard alarms plus attack
 preservation.  See `ckbl_fullsource_seed27_formal_result_20260714.md`.
 
+CKBM is the frozen next result experiment.  It keeps C1 as a high-recall anchor,
+adds the official TabM v0.0.3 verifier, and tests a narrow causal source-relative
+calibration view against global TabM and ExtraTrees controls.  The exact
+support-val attack-retention frontier, full 385-row family-balanced supervision,
+held-family/source exclusion, report-only isolation, review=0, and independent
+AMD/Intel outputs are implemented.  Two real fit-only local runs are exactly
+reproducible and use zero report/canary rows.  No CKBM HPC job has been submitted
+and there is no CKBM performance claim yet.  See
+`ckbm_tabm_causal_source_calibration_prereg_20260714.md` and
+`ckbm_local_implementation_and_smoke_20260714.md`.
+
 ### Maintenance Protocol
 
 - Keep detailed evidence inside each numbered `runs/issue*/` directory.
