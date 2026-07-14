@@ -11,6 +11,7 @@ PARTITION=amd
 JOB_ID=151583
 ORIGINAL_COMPUTE_COMMIT=37b0fb4585d2634fa45fa2db31b1fead7bce886d
 ORIGINAL_COMPUTE_SCRIPT_SHA256=be2936da6cc1548d5aa773b6a36df8eca0a91dfdf9fe47284bcdbffd553f72a6
+KNOWN_R2_RECOVERY_SCRIPT_SHA256=2103d888c9a799c7bb0e901c42d0296b380ff8c49a417d16cdd29805dce7e9de
 
 SOURCE="$PAYLOAD/repo/ood/issue27ckbm_tabm_causal_source_calibration_v1.py"
 TARGET="$BASE/repo/ood/issue27ckbm_tabm_causal_source_calibration_v1.py"
@@ -38,7 +39,7 @@ test "$exit_code" = "1:0" || { echo "original job exit code changed: $exit_code"
 payload_hash=$(sha256sum "$SOURCE" | awk '{print $1}')
 target_hash=$(sha256sum "$TARGET" | awk '{print $1}')
 case "$target_hash" in
-  "$ORIGINAL_COMPUTE_SCRIPT_SHA256")
+  "$ORIGINAL_COMPUTE_SCRIPT_SHA256"|"$KNOWN_R2_RECOVERY_SCRIPT_SHA256")
     install -D -m 0644 "$SOURCE" "$TARGET"
     ;;
   "$payload_hash")
