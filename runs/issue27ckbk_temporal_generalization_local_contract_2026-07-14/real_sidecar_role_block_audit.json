@@ -1,0 +1,51 @@
+{
+  "issue": "issue27ckbk_temporal_generalization_v1",
+  "status": "PASS",
+  "scope": "read_only_real_1m_sidecar_role_block_audit",
+  "training_performed": false,
+  "cache_created": false,
+  "protocols": [
+    {
+      "protocol": "GLOBAL",
+      "legal_fit": 12385,
+      "legal_select": 9069,
+      "fit_hard_block_overlap": 0,
+      "select_report_overlap": 0
+    },
+    {
+      "protocol": "iotsim-stream-consumer",
+      "legal_fit": 8385,
+      "legal_select": 6069,
+      "fit_hard_block_overlap": 0,
+      "select_report_overlap": 0
+    },
+    {
+      "protocol": "iotsim-hydraulic-system",
+      "legal_fit": 10989,
+      "legal_select": 6069,
+      "fit_hard_block_overlap": 0,
+      "select_report_overlap": 0
+    },
+    {
+      "protocol": "domotic-monitor",
+      "legal_fit": 12385,
+      "legal_select": 9069,
+      "fit_hard_block_overlap": 0,
+      "select_report_overlap": 0
+    },
+    {
+      "protocol": "combined-cycle",
+      "legal_fit": 12352,
+      "legal_select": 9063,
+      "fit_hard_block_overlap": 0,
+      "select_report_overlap": 0
+    },
+    {
+      "protocol": "iotsim-ip-camera-street",
+      "legal_fit": 12385,
+      "legal_select": 9069,
+      "fit_hard_block_overlap": 0,
+      "select_report_overlap": 0
+    }
+  ]
+}

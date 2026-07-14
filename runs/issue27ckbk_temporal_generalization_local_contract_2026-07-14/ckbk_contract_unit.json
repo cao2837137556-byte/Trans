@@ -1,0 +1,16 @@
+{
+  "allowed_interval_mask_exact": true,
+  "eligible_task_enabled": true,
+  "degenerate_task_disabled": true,
+  "degenerate_task_reason": "positive<64;negative<64;prevalence_outside_[0.05,0.95];labeled_sources<3;positive_sources<2;negative_sources<2",
+  "future_token_rejected": true,
+  "past_token_shape_valid": true,
+  "graphmixer_finite": true,
+  "graphmixer_pair_shape": true,
+  "complete_gate_has_no_suppression_sentinel": true,
+  "complete_gate_constraint_pass": true,
+  "selected_gate_is_no_fallback": true,
+  "node_or_source_id_absent_from_model_arguments": true,
+  "raw_label_absent_from_model_arguments": true,
+  "status": "PASS"
+}

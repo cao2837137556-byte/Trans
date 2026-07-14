@@ -1,0 +1,39 @@
+{
+  "issue": "issue27ckbk_temporal_generalization_formal_v1_2026-07-14",
+  "mode": "dry-run",
+  "seed": 27,
+  "stages": [
+    "tgn",
+    "graphmixer",
+    "aggregate"
+  ],
+  "candidates": [
+    "M0-C1",
+    "TGNMemory-Repair-Random",
+    "TGNMemory-Repair",
+    "TGNMemory-Repair-only",
+    "GraphMixer-Full-Random",
+    "GraphMixer-Full-Anonymous",
+    "GraphMixer-MessageOnly"
+  ],
+  "official_pyg_components": [
+    "TGNMemory",
+    "IdentityMessage",
+    "LastAggregator",
+    "LastNeighborLoader",
+    "TGNMemory internal TimeEncoder",
+    "TransformerConv"
+  ],
+  "graphmixer_upstream_commit": "3aacc36b94b8d2d8293d70a74fdf6d39089b4163",
+  "strict_held_values": [
+    "iotsim-stream-consumer",
+    "iotsim-hydraulic-system",
+    "domotic-monitor",
+    "combined-cycle",
+    "iotsim-ip-camera-street"
+  ],
+  "review_rate": 0.0,
+  "untouched_final_manifest_opened": false,
+  "seeds_37_47_launched": false,
+  "formal_hpc_submitted": false
+}

@@ -48,6 +48,19 @@ imbalanced. Therefore CKBJ v2 rejects this exact realization, not the entire
 mature-TGN route. The metrics and diagnosis are frozen in
 `ckbj_m1_v2_seed27_formal_result_20260714.md`.
 
+CKBK is the frozen next experiment, not yet performance evidence.  It compares
+an unchanged-architecture `TGNMemory-Repair` against the maintained DyGLib
+GraphMixer temporal-message core under one exact replay/gate contract.  It
+repairs interleaved fit/select handling with per-event masks, disables
+statistically degenerate SSL tasks, enumerates the complete legal gate set, and
+adds learned-versus-random representation audits.  GraphMixer receives no
+global/source node embedding; its Full variant uses only eight anonymous,
+past-only node statistics and is paired with MessageOnly and Random controls.
+The seed-27 run leaves the newly sealed cooler-motor final holdout unopened.
+See `ckbk_temporal_generalization_prereg_20260714.md`.  The only next compute
+action is the paired AMD/Intel result-producing CKBK job; no CKBF, cache,
+environment, preflight-only, or synthetic-smoke job is required.
+
 ### Maintenance Protocol
 
 - Keep detailed evidence inside each numbered `runs/issue*/` directory.

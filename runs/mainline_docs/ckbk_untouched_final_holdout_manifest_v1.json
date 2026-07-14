@@ -1,0 +1,31 @@
+{
+  "schema": "paper04_untouched_final_holdout_manifest_v1",
+  "frozen_utc_date": "2026-07-14",
+  "selection_basis": "role and source-family metadata only; no CKBJ or CKBK family-specific score was used",
+  "status": "SEALED_NOT_OPENED",
+  "device_family": "iotsim-cooler-motor",
+  "source_groups": [
+    "processed/iotsim-cooler-motor-5.csv",
+    "processed/iotsim-cooler-motor-6.csv",
+    "processed/iotsim-cooler-motor-7.csv",
+    "processed/iotsim-cooler-motor-8.csv",
+    "processed/iotsim-cooler-motor-9.csv"
+  ],
+  "selection_reason": "five single-family sources, with source 5 in legal fit metadata and sources 6-9 in legal select metadata, permitting a future strict source-family exclusion and source-clustered final evaluation",
+  "prohibited_in_ckbk_seed27_development_run": true,
+  "prohibited_uses_until_final_open": [
+    "strict metrics",
+    "task selection",
+    "window or token selection",
+    "gate or threshold selection",
+    "model selection",
+    "hard-pair construction",
+    "route go/no-go"
+  ],
+  "opening_condition": "method, candidates, replay masks, task eligibility, seeds, thresholds, and decision rules frozen after development",
+  "final_protocol": "exclude this family and all five sources from self-supervision, support supervision, C1 fit/calibration, standardization, negative sampling, gate selection, and hard pairs; evaluate only after all weights and thresholds are frozen",
+  "development_canaries_not_final": [
+    "iotsim-stream-consumer",
+    "iotsim-hydraulic-system"
+  ]
+}
