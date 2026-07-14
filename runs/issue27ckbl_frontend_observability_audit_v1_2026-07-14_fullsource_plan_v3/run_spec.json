@@ -1,0 +1,41 @@
+{
+  "allowed_roles": [
+    "support_train/fit",
+    "id_calib/fit",
+    "ood_val/fit"
+  ],
+  "declared_commit_sha": "379023c1014eeeee5ea7c2f6a5a3b31fc92d8da7",
+  "development_canaries": [
+    "iotsim-hydraulic-system",
+    "iotsim-stream-consumer"
+  ],
+  "environment": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.1",
+    "python": "3.10.0",
+    "scikit_learn": "1.7.1"
+  },
+  "forbidden_device_families": [
+    "iotsim-cooler-motor",
+    "iotsim-hydraulic-system",
+    "iotsim-stream-consumer"
+  ],
+  "git_head_at_run": "379023c1014eeeee5ea7c2f6a5a3b31fc92d8da7",
+  "histgb_max_iter": 80,
+  "identity_feature_use": false,
+  "input_audit_hash": "2a1c54ca4045f81fe698158d057771adc6a5633e6b50d05a3ec81f275609e69a",
+  "issue": "issue27ckbl_frontend_observability_audit_v1_2026-07-14",
+  "known_nonselected_target_state_rows_blocked": 198173,
+  "max_folds": 0,
+  "max_recorded_index": 0,
+  "mode": "plan",
+  "passive_state_policy": "label-free actual-past raw events; known non-selected target rows blocked from state update",
+  "raw_label_column_read": false,
+  "review": 0,
+  "script_sha256": "c4ea3ab42b2491890f12646fdb1f471c0066f0a4093e02711ca5e7baa4a8ecb4",
+  "sealed_final_holdout_manifest": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\mainline_docs\\ckbk_untouched_final_holdout_manifest_v1.json",
+  "sealed_final_holdout_manifest_sha256": "78832e8760697f39c5df48b75cd9337d83e2a8c6c1903a494bde00c7873b3af5",
+  "sealed_final_holdout_model_use_rows": 0,
+  "seed": 27,
+  "source_read_mode": "full"
+}

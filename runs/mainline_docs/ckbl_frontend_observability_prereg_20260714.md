@@ -100,3 +100,25 @@ The C1 207D upper bound determines what to do after this gate:
 A bounded prefix run is allowed only as local real-data implementation evidence
 and is always reported as truncated/non-formal. No result in CKBL opens or
 tunes against the development canaries or sealed final holdout.
+
+## Pre-formal passive-state hardening addendum
+
+This addendum was frozen before the complete full-source run and after the
+bounded implementation result. It does not use any report-canary score.
+
+For a selected fit target, the frontend may consume unassigned, label-free raw
+events that are earlier in actual timestamp order. However, every raw row that
+is explicitly known through role metadata as a non-selected target is blocked
+from updating fit-time state. This includes support-val, select, same-file,
+future, sealed, report, and locally capped-out targets. Selected fit targets
+remain allowed and are scored before their own state update.
+
+The complete plan contains 198,173 distinct known non-selected target rows to
+block across the eight relevant sources. The block list has zero intersection
+with the 8,671 selected fit rows. The output must include the role/phase block
+lineage and selected-target `state_update_allowed=true` evidence.
+
+This hardening prevents an interleaved select/report target from becoming
+fit-history context merely because its recorded row occurs earlier in canonical
+time. Unassigned raw events remain label-free passive context; they are not
+self-supervised examples and provide no gradient, threshold, or target label.

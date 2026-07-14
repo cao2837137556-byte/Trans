@@ -68,8 +68,10 @@ stronger but still weak in the worst fold.  stream-consumer, hydraulic-system,
 and the sealed cooler-motor family had zero model/selection use.  See
 `ckbl_frontend_observability_prereg_20260714.md` and
 `ckbl_frontend_observability_local_result_20260714.md`.  The next result job is
-the same frozen CKBL protocol with full-source chronology and all 385 support
-rows; no new TGN/GraphMixer backend is promoted before that gate.
+the hardened frozen CKBL protocol with full-source chronology, all 385 support
+rows, and 198,173 known non-selected targets blocked from fit-time passive
+state; no new TGN/GraphMixer backend is promoted before that gate.  Its
+implementation is recorded in `ckbl_fullsource_hpc_implementation_20260714.md`.
 
 ### Maintenance Protocol
 

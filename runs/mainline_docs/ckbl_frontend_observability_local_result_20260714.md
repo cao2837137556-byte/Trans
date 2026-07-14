@@ -15,6 +15,13 @@ report result. It uses label-free canonical prefix replay with an explicit
 `recorded_index <= 300000` target cap. The full-source protocol remains the
 only chronology-complete scientific run.
 
+Post-run protocol review found that this bounded implementation allowed every
+label-free earlier raw event into passive state, including rows later
+identified by metadata as non-selected targets. No raw label was read, but the
+formal protocol is stricter: the pre-formal addendum blocks every known
+non-selected target from fit state. Therefore the bounded numbers remain route
+motivation only and are not a substitute for the hardened full-source result.
+
 ## Scope and contracts
 
 - 8,344 legal fit rows: 8,286 benign and 58 attack;

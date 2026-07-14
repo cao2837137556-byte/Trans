@@ -89,11 +89,20 @@ def source_cache_key(source_group: str) -> str:
 class CanonicalTimeC1Cache:
     """CKAI-compatible cache with label-free canonical-time state replay."""
 
-    def __init__(self, zip_path: Path, episode_seconds: int = EPISODE_SECONDS):
+    def __init__(
+        self,
+        zip_path: Path,
+        episode_seconds: int = EPISODE_SECONDS,
+        state_blocked_rows: dict[str, set[int]] | None = None,
+    ):
         if not zip_path.exists():
             raise FileNotFoundError(f"Missing Gotham raw zip: {zip_path}")
         self.zip_path = zip_path
         self.episode_seconds = int(episode_seconds)
+        self.state_blocked_rows = {
+            str(member): {int(value) for value in values}
+            for member, values in (state_blocked_rows or {}).items()
+        }
         self._features: dict[str, dict[int, np.ndarray]] = {}
         self._audits: dict[str, dict[int, dict[str, Any]]] = {}
         self.audit_rows: list[dict[str, Any]] = []
@@ -185,8 +194,11 @@ class CanonicalTimeC1Cache:
         flow5_state: dict[tuple[Any, ...], dict[int, deque[tuple[Any, ...]]]] = defaultdict(
             lambda: {window: deque(maxlen=window) for window in ckai.WINDOWS}
         )
+        member_blocked_rows = self.state_blocked_rows.get(str(member), set())
+        blocked_state_rows_seen = 0
 
-        for canonical_rank, ridx in enumerate(finite_order.tolist()):
+        for canonical_rank, ridx_value in enumerate(finite_order):
+            ridx = int(ridx_value)
             proto = str(proto_text[ridx]).lower()
             is_tcp = int(ip_proto[ridx] == 6 or tcp_src[ridx] > 0 or tcp_dst[ridx] > 0 or "tcp" in proto)
             is_udp = int(ip_proto[ridx] == 17 or udp_src[ridx] > 0 or udp_dst[ridx] > 0 or "udp" in proto)
@@ -279,14 +291,19 @@ class CanonicalTimeC1Cache:
                     "chronology_status": "CANONICAL_TIMESTAMP_REPLAY",
                 }
 
-            row = (current_ts, float(frame_len_log[ridx]), float(frame_len_raw[ridx]), is_tcp, is_udp, is_icmp, syn, ack, rst, fin, src, dst, sport_i, dport_i)
-            for window in ckai.WINDOWS:
-                file_state[window].append(row)
-                src_state[src][window].append(row)
-                dst_state[dst][window].append(row)
-                pair_state[pair][window].append(row)
-                biflow_state[biflow][window].append(row)
-                flow5_state[flow5][window].append(row)
+            state_update_allowed = int(ridx) not in member_blocked_rows
+            blocked_state_rows_seen += int(not state_update_allowed)
+            if ridx in target_set:
+                audits[ridx]["state_update_allowed"] = bool(state_update_allowed)
+            if state_update_allowed:
+                row = (current_ts, float(frame_len_log[ridx]), float(frame_len_raw[ridx]), is_tcp, is_udp, is_icmp, syn, ack, rst, fin, src, dst, sport_i, dport_i)
+                for window in ckai.WINDOWS:
+                    file_state[window].append(row)
+                    src_state[src][window].append(row)
+                    dst_state[dst][window].append(row)
+                    pair_state[pair][window].append(row)
+                    biflow_state[biflow][window].append(row)
+                    flow5_state[flow5][window].append(row)
 
         self.audit_rows.append(
             {
@@ -298,6 +315,7 @@ class CanonicalTimeC1Cache:
                 "timestamp_parse_failures": int((~finite).sum()),
                 "recorded_order_timestamp_violations": int(violations),
                 "canonical_state_rows": int(len(finite_order)),
+                "known_target_state_rows_blocked": int(blocked_state_rows_seen),
                 "canonical_sort_policy": "timestamp_ascending_then_recorded_index_stable; missing_timestamp_excluded_from_state",
                 "raw_label_column_read": False,
                 "seconds": time.time() - started,

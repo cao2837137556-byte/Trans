@@ -35,9 +35,11 @@ import argparse
 import hashlib
 import json
 import math
+import os
 import platform
 import subprocess
 import sys
+import tempfile
 import time
 import zipfile
 from dataclasses import dataclass
@@ -321,6 +323,64 @@ def assert_scope(table: pd.DataFrame, final_manifest: dict[str, Any]) -> None:
         raise RuntimeError("non-fit phase entered model scope")
 
 
+def known_nonfit_target_blocks(
+    frame_by_role: dict[str, pd.DataFrame],
+    table: pd.DataFrame,
+) -> tuple[dict[str, set[int]], pd.DataFrame]:
+    """Block every known non-selected target from fit-time passive state.
+
+    Raw events without a role assignment remain eligible as label-free,
+    past-only memory context.  A target explicitly assigned to select, query,
+    future, sealed, report, or a locally capped-out fit row is not allowed to
+    update a selected fit target's history.
+    """
+    relevant_sources = set(table["source_group"].astype(str))
+    selected = {
+        (str(source), int(recorded))
+        for source, recorded in zip(table["source_group"], table["recorded_index"])
+    }
+    blocked: dict[str, set[int]] = {source: set() for source in relevant_sources}
+    audit_rows: list[dict[str, Any]] = []
+    selected_collisions: list[tuple[str, int, str, str]] = []
+    for role, frame in frame_by_role.items():
+        if "source_group" not in frame or "recorded_index" not in frame:
+            continue
+        work = frame.loc[frame["source_group"].astype(str).isin(relevant_sources)].copy()
+        if work.empty:
+            continue
+        work["recorded_index"] = pd.to_numeric(work["recorded_index"], errors="coerce").fillna(-1).astype(np.int64)
+        work = work.loc[work["recorded_index"].ge(0)].copy()
+        phase_values = work.get("phase", pd.Series("NA", index=work.index)).astype(str)
+        for phase, part in work.groupby(phase_values, sort=True):
+            added = 0
+            selected_rows = 0
+            for source, recorded in zip(part["source_group"].astype(str), part["recorded_index"].astype(int)):
+                key = (source, int(recorded))
+                if key in selected:
+                    selected_rows += 1
+                    if not (str(role) in {"support_train", "id_calib", "ood_val"} and str(phase) == "fit"):
+                        selected_collisions.append((source, int(recorded), str(role), str(phase)))
+                    continue
+                before = len(blocked[source])
+                blocked[source].add(int(recorded))
+                added += int(len(blocked[source]) > before)
+            audit_rows.append(
+                {
+                    "role": str(role),
+                    "phase": str(phase),
+                    "relevant_source_target_rows": int(len(part)),
+                    "selected_fit_rows_seen": int(selected_rows),
+                    "new_known_target_rows_blocked": int(added),
+                    "raw_label_column_read": False,
+                }
+            )
+    if selected_collisions:
+        raise RuntimeError(f"selected fit target also has a non-fit assignment: {selected_collisions[:8]}")
+    if any((source, recorded) in selected for source, values in blocked.items() for recorded in values):
+        raise RuntimeError("selected fit target entered passive-state block list")
+    return blocked, pd.DataFrame(audit_rows)
+
+
 def exact_tgn9(external: np.ndarray, audit_rows: list[dict[str, Any]]) -> np.ndarray:
     index = {name: position for position, name in enumerate(ckai.FEATURE_NAMES)}
     ports = np.asarray([int(row.get("processed_dst_port", 0)) for row in audit_rows], dtype=np.int64)
@@ -348,32 +408,59 @@ def feature_matrices(
     x_by_role: dict[str, np.ndarray],
     read_mode: str,
     seed: int,
+    state_blocked_rows: dict[str, set[int]] | None = None,
+    progress_path: Path | None = None,
 ) -> tuple[dict[str, np.ndarray], list[dict[str, Any]], list[dict[str, Any]]]:
     cache_cls = FullSourceCanonicalTimeC1Cache if read_mode == "full" else ckat.CanonicalTimeC1Cache
-    cache = cache_cls(cko.GOTHAM_ZIP)
+    cache = cache_cls(cko.GOTHAM_ZIP, state_blocked_rows=state_blocked_rows)
     frontend = ckai.ExternalFlowFrontend(x_by_role, frame_by_role, cache)
-    external_parts: list[np.ndarray] = []
-    row_audits: list[dict[str, Any]] = []
-    for role, part in table.groupby("role", sort=False):
+    external = np.zeros((len(table), len(ckai.FEATURE_NAMES)), dtype=np.float32)
+    row_audits_by_position: list[dict[str, Any] | None] = [None] * len(table)
+    if progress_path is not None:
+        progress_path.parent.mkdir(parents=True, exist_ok=True)
+        progress_path.write_text("", encoding="utf-8")
+    for source_number, (source, part) in enumerate(table.groupby("source_group", sort=True), start=1):
+        roles = part["role"].astype(str).unique().tolist()
+        if len(roles) != 1:
+            raise RuntimeError(f"source spans multiple selected roles: {source}: {roles}")
+        role = str(roles[0])
         idx = part["role_row"].to_numpy(dtype=np.int64)
-        external = frontend.external_matrix(str(role), idx)
-        external_parts.append(external)
-        for _, row in part.iterrows():
-            audit = cache.audit_for_member(str(row["source_group"])).get(int(row["recorded_index"]), {})
-            row_audits.append(
-                {
+        print(
+            f"CKBL_SOURCE_START {source_number}/{table['source_group'].nunique()} "
+            f"source={source} targets={len(part)} max_recorded={int(part['recorded_index'].max())}",
+            flush=True,
+        )
+        source_started = time.time()
+        source_external = frontend.external_matrix(role, idx)
+        positions = part.index.to_numpy(dtype=np.int64)
+        external[positions] = source_external
+        for position, (_, row) in zip(positions.tolist(), part.iterrows()):
+            audit = cache.audit_for_member(str(source)).get(int(row["recorded_index"]), {})
+            row_audits_by_position[int(position)] = {
                     "row_uid": str(row["row_uid"]),
                     "role": str(role),
-                    "source_group": str(row["source_group"]),
+                    "source_group": str(source),
                     "recorded_index": int(row["recorded_index"]),
                     "alignment_ok": bool(audit.get("alignment_ok", False)),
                     "raw_label_column_read": bool(audit.get("raw_label_column_read", True)),
                     "chronology_status": str(audit.get("chronology_status", "")),
                     "canonical_rank": int(audit.get("canonical_rank", -1)),
                     "processed_dst_port": int(audit.get("processed_dst_port", 0)),
-                }
-            )
-    external = np.vstack(external_parts).astype(np.float32)
+                    "state_update_allowed": bool(audit.get("state_update_allowed", True)),
+            }
+        progress = {
+            "source_number": int(source_number),
+            "source_count": int(table["source_group"].nunique()),
+            "source_group": str(source),
+            "target_rows": int(len(part)),
+            "seconds": float(time.time() - source_started),
+            "status": "FEATURES_COMPLETE",
+        }
+        if progress_path is not None:
+            with progress_path.open("a", encoding="utf-8", newline="\n") as handle:
+                handle.write(json.dumps(progress, sort_keys=True) + "\n")
+        print(f"CKBL_SOURCE_DONE {json.dumps(progress, sort_keys=True)}", flush=True)
+    row_audits = [row for row in row_audits_by_position if row is not None]
     if len(external) != len(table) or len(row_audits) != len(table):
         raise RuntimeError("feature/table alignment length mismatch")
     if not all(row["alignment_ok"] for row in row_audits):
@@ -810,6 +897,36 @@ def contract_unit() -> None:
     assert np.isclose(weights[toy["y"].eq(0)].sum(), weights[toy["y"].eq(1)].sum())
     assert np.isclose(weights[toy["source_group"].eq("b1")].sum(), weights[toy["source_group"].eq("b2")].sum())
     assert np.isclose(weights[toy["attack_label"].eq("f1")].sum(), weights[toy["attack_label"].eq("f2")].sum())
+    with tempfile.TemporaryDirectory() as temporary:
+        archive_path = Path(temporary) / "toy.zip"
+        member = "processed/toy.csv"
+        toy_raw = pd.DataFrame(
+            {
+                "frame.time": ["2026-01-01T00:00:00Z", "2026-01-01T00:00:01Z", "2026-01-01T00:00:02Z"],
+                "frame.len": [100, 200, 300],
+                "frame.protocols": ["eth:ip:tcp"] * 3,
+                "eth.src": ["a", "a", "a"],
+                "eth.dst": ["b", "b", "b"],
+                "ip.src": ["10.0.0.1"] * 3,
+                "ip.dst": ["10.0.0.2"] * 3,
+                "ip.proto": [6, 6, 6],
+                "tcp.srcport": [1000, 1000, 1000],
+                "tcp.dstport": [80, 80, 80],
+                "tcp.flags": [2, 16, 4],
+            }
+        )
+        csv_bytes = toy_raw.to_csv(index=False).encode("utf-8")
+        with zipfile.ZipFile(archive_path, "w") as archive:
+            archive.writestr(member, csv_bytes)
+        unmasked = ckat.CanonicalTimeC1Cache(archive_path)
+        masked = ckat.CanonicalTimeC1Cache(archive_path, state_blocked_rows={member: {1}})
+        target = np.asarray([2], dtype=np.int64)
+        unmasked_feature = unmasked.features_for_member(member, target)[2]
+        masked_feature = masked.features_for_member(member, target)[2]
+        count_col = ckai.FEATURE_NAMES.index("file_w16_count_frac")
+        assert np.isclose(unmasked_feature[count_col], 2.0 / 16.0)
+        assert np.isclose(masked_feature[count_col], 1.0 / 16.0)
+        assert masked.audit_rows[-1]["known_target_state_rows_blocked"] == 1
     print(json.dumps({"status": "CKBL_CONTRACT_UNIT_PASS", "dims": {bundle.name: len(bundle.feature_names) for bundle in BUNDLES}}, indent=2))
 
 
@@ -817,15 +934,25 @@ def run(args: argparse.Namespace) -> None:
     started = time.time()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
+    print(f"CKBL_RUN_STARTED out={out} mode={args.mode} read_mode={args.source_read_mode}", flush=True)
     final_manifest, final_hash = load_final_holdout()
     x_by_role, frame_by_role, input_audit, _ = cko.load_role_inputs(False)
+    print("CKBL_ROLE_INPUTS_LOADED", flush=True)
     ckao.add_family_columns(frame_by_role)
     table, scope_audit = legal_fit_table(frame_by_role, int(args.max_recorded_index))
     assert_scope(table, final_manifest)
+    state_blocked_rows, memory_scope_audit = known_nonfit_target_blocks(frame_by_role, table)
+    print(
+        f"CKBL_LEGAL_SCOPE rows={len(table)} attack={int(table['y'].sum())} "
+        f"sources={table['source_group'].nunique()} families={table.loc[table['y'].eq(1), 'attack_label'].nunique()} "
+        f"known_targets_blocked={sum(len(values) for values in state_blocked_rows.values())}",
+        flush=True,
+    )
     if int((table["y"] == 1).sum()) == 0 or int((table["y"] == 0).sum()) == 0:
         raise RuntimeError("selected local scope does not contain both classes")
     plan = source_plan(table, args.source_read_mode)
     scope_audit.to_csv(out / "data_scope_audit.csv", index=False)
+    memory_scope_audit.to_csv(out / "memory_target_scope_audit.csv", index=False)
     plan.to_csv(out / "source_plan.csv", index=False)
     table[
         ["row_uid", "role", "phase", "class_name", "source_group", "device_family", "recorded_index", "attack_label"]
@@ -852,6 +979,8 @@ def run(args: argparse.Namespace) -> None:
         "max_folds": int(args.max_folds),
         "histgb_max_iter": int(args.max_iter),
         "raw_label_column_read": False,
+        "passive_state_policy": "label-free actual-past raw events; known non-selected target rows blocked from state update",
+        "known_nonselected_target_state_rows_blocked": int(sum(len(values) for values in state_blocked_rows.values())),
         "allowed_roles": ["support_train/fit", "id_calib/fit", "ood_val/fit"],
         "forbidden_device_families": sorted(FORBIDDEN_DEVICE_FAMILIES),
         "development_canaries": sorted(DEVELOPMENT_CANARIES),
@@ -861,6 +990,7 @@ def run(args: argparse.Namespace) -> None:
         "identity_feature_use": False,
         "review": 0,
         "git_head_at_run": git_head(),
+        "declared_commit_sha": os.environ.get("CKBL_COMMIT_SHA", git_head()),
         "script_sha256": sha256_file(Path(__file__).resolve()),
         "environment": {
             "python": platform.python_version(),
@@ -875,7 +1005,15 @@ def run(args: argparse.Namespace) -> None:
         print(json.dumps({"status": "CKBL_PLAN_OK", "out": str(out), "rows": len(table), "sources": len(plan)}, indent=2))
         return
 
-    matrices, row_audits, cache_audits = feature_matrices(table, frame_by_role, x_by_role, args.source_read_mode, int(args.seed))
+    matrices, row_audits, cache_audits = feature_matrices(
+        table,
+        frame_by_role,
+        x_by_role,
+        args.source_read_mode,
+        int(args.seed),
+        state_blocked_rows=state_blocked_rows,
+        progress_path=out / "source_progress.jsonl",
+    )
     pd.DataFrame(row_audits).to_csv(out / "frontend_alignment_audit.csv", index=False)
     pd.DataFrame(cache_audits).to_csv(out / "frontend_source_runtime_audit.csv", index=False)
     feature_value_audit(matrices, table).to_csv(out / "feature_value_audit.csv", index=False)
