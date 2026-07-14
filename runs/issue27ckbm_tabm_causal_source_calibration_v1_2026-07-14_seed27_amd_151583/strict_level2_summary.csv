@@ -1,0 +1,16 @@
+candidate,held_value,rows,sources,metric,hard_rate,c1_hard_rate,delta_vs_c1_pp,delta_ci_low_pp,delta_ci_high_pp,ci_cluster_unit,ci_clusters,review_rate,seed
+M0-C1,iotsim-stream-consumer,3000,1,benign_ood_hard_rate,1.0,1.0,0.0,0.0,0.0,episode,28,0.0,27
+M1-ExtraTrees-Global,iotsim-stream-consumer,3000,1,benign_ood_hard_rate,0.9953333333333333,1.0,-0.4666666666666708,-1.0518990134626351,-0.18147511281394538,episode,28,0.0,27
+M2-TabM-Global,iotsim-stream-consumer,3000,1,benign_ood_hard_rate,0.9993333333333333,1.0,-0.06666666666667043,-0.19163574569592937,0.0,episode,28,0.0,27
+M3-TabM-CSR,iotsim-stream-consumer,3000,1,benign_ood_hard_rate,0.996,1.0,-0.40000000000000036,-0.93687415123937,-0.11903284597360336,episode,28,0.0,27
+A1-ExtraTrees-CSR,iotsim-stream-consumer,3000,1,benign_ood_hard_rate,0.9793333333333333,1.0,-2.066666666666672,-4.032835662458007,-1.0838070766545251,episode,28,0.0,27
+M0-C1,iotsim-hydraulic-system,3000,5,benign_ood_hard_rate,1.0,1.0,0.0,0.0,0.0,source,5,0.0,27
+M1-ExtraTrees-Global,iotsim-hydraulic-system,3000,5,benign_ood_hard_rate,0.0,1.0,-100.0,-100.0,-100.0,source,5,0.0,27
+M2-TabM-Global,iotsim-hydraulic-system,3000,5,benign_ood_hard_rate,0.4696666666666667,1.0,-53.03333333333333,-57.54849804126914,-50.0669792364367,source,5,0.0,27
+M3-TabM-CSR,iotsim-hydraulic-system,3000,5,benign_ood_hard_rate,0.4533333333333333,1.0,-54.666666666666664,-56.121091151031266,-53.206412825651306,source,5,0.0,27
+A1-ExtraTrees-CSR,iotsim-hydraulic-system,3000,5,benign_ood_hard_rate,0.0,1.0,-100.0,-100.0,-100.0,source,5,0.0,27
+M0-C1,iotsim-ip-camera-street,3000,1,benign_ood_hard_rate,0.018666666666666668,0.018666666666666668,0.0,0.0,0.0,episode,22,0.0,27
+M1-ExtraTrees-Global,iotsim-ip-camera-street,3000,1,benign_ood_hard_rate,0.0,0.018666666666666668,-1.866666666666667,-5.114298221927649,-0.4761160935662572,episode,22,0.0,27
+M2-TabM-Global,iotsim-ip-camera-street,3000,1,benign_ood_hard_rate,0.0,0.018666666666666668,-1.866666666666667,-5.114298221927649,-0.4761160935662572,episode,22,0.0,27
+M3-TabM-CSR,iotsim-ip-camera-street,3000,1,benign_ood_hard_rate,0.002,0.018666666666666668,-1.666666666666667,-4.421883340414174,-0.4761160935662572,episode,22,0.0,27
+A1-ExtraTrees-CSR,iotsim-ip-camera-street,3000,1,benign_ood_hard_rate,0.0,0.018666666666666668,-1.866666666666667,-5.114298221927649,-0.4761160935662572,episode,22,0.0,27

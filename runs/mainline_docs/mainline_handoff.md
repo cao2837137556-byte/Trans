@@ -74,21 +74,24 @@ mature calibration/source-normalization method with label-free past-only
 report adaptation and directly measure report OOD hard alarms plus attack
 preservation.  See `ckbl_fullsource_seed27_formal_result_20260714.md`.
 
-CKBM is the frozen next result experiment.  It keeps C1 as a high-recall anchor,
-adds the official TabM v0.0.3 verifier, and tests a narrow causal source-relative
-calibration view against global TabM and ExtraTrees controls.  The exact
-support-val attack-retention frontier, full 385-row family-balanced supervision,
-held-family/source exclusion, report-only isolation, review=0, and independent
-AMD/Intel outputs are implemented.  Two real fit-only local runs are exactly
-reproducible and use zero report/canary rows.  AMD job `151583` completed its
-scientific CSV computation but failed before validation at the first final JSON
-write because the frozen Python rejects `Path.write_text(newline=...)`; Intel
-job `151584` was cancelled.  A metadata-only, no-retraining recovery is prepared,
-but there is no CKBM performance claim until its tables pass the formal validator
-and are pulled back.  See
-`ckbm_tabm_causal_source_calibration_prereg_20260714.md` and
-`ckbm_local_implementation_and_smoke_20260714.md`, plus
-`ckbm_amd151583_metadata_recovery_20260714.md`.
+CKBM seed 27 is complete after metadata-only recovery of AMD job `151583`; the
+formal validator passed with zero errors and no model retraining.  The result is
+a diagnostic `NO_GO`.  M3-TabM-CSR changed stream-consumer hard OOD only from
+100% to 99.6%, changed hydraulic-system to 45.33%, and lowered overall attack
+hard recall by 0.4331 pp.  UDP Scan recall fell 71.68 pp, so the major-family
+retention gate failed.  ExtraTrees controls suppressed attacks catastrophically,
+and global TabM was worse than CSR.  Seeds 37/47 must not be launched.
+
+Post-run audit also found that CKBM enforced exclusion of the current held
+family but not the stronger mainline rule that both used development canaries
+remain outside every fit/select scope.  Global fit used 4,000 stream rows and
+3,078 hydraulic rows; strict-stream still used hydraulic and strict-hydraulic
+still used stream.  Therefore CKBM may reject this symmetric backend route but
+cannot support a paper-grade strict positive claim.  Before the next formal
+route, validator logic must enforce all-canary zero use.  The next method must
+keep C1 as the high-recall anchor and test one-sided, source-held-out calibrated
+normal-evidence suppression rather than another larger attack-vs-benign
+classifier.  See `ckbm_seed27_formal_result_20260714.md`.
 
 ### Maintenance Protocol
 

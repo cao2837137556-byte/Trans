@@ -1,0 +1,121 @@
+candidate,metric,rows,hard_recall,c1_hard_recall,delta_vs_c1_pp,delta_ci_low_pp,delta_ci_high_pp,ci_cluster_unit,ci_clusters,review_rate,seed,attack_family
+M0-C1,overall_attack_hard_recall,244050,0.9997951239500102,0.9997951239500102,0.0,0.0,0.0,source,8.0,0.0,27,
+M0-C1,support_val_recall,69,1.0,1.0,0.0,0.0,0.0,source,3.0,0.0,27,
+M0-C1,same_file_attack_recall,2486,1.0,1.0,0.0,0.0,0.0,episode,14.0,0.0,27,
+M0-C1,future_attack_recall,131391,0.9996194564315668,0.9996194564315668,0.0,0.0,0.0,source,5.0,0.0,27,
+M0-C1,sealed_attack_recall,110104,1.0,1.0,0.0,0.0,0.0,episode,208.0,0.0,27,
+M0-C1,domotic_attack_recall,3000,1.0,1.0,0.0,0.0,0.0,episode,77.0,0.0,27,
+M0-C1,combined_attack_recall,5492,1.0,1.0,0.0,0.0,0.0,source,2.0,0.0,27,
+M0-C1,attack_family_recall,179,1.0,1.0,0.0,0.0,0.0,source,4.0,0.0,27,C&C Communication
+M0-C1,attack_family_recall,320,1.0,1.0,0.0,0.0,0.0,episode,2.0,0.0,27,CoAP Amplification
+M0-C1,attack_family_recall,2569,1.0,1.0,0.0,0.0,0.0,source,4.0,0.0,27,File Download
+M0-C1,attack_family_recall,10069,1.0,1.0,0.0,0.0,0.0,source,5.0,0.0,27,Ingress Tool Transfer
+M0-C1,attack_family_recall,9926,1.0,1.0,0.0,0.0,0.0,source,3.0,0.0,27,Merlin C&C Communication
+M0-C1,attack_family_recall,19730,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Merlin ICMP Flooding
+M0-C1,attack_family_recall,27722,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Merlin TCP Flooding
+M0-C1,attack_family_recall,10298,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Merlin UDP Flooding
+M0-C1,attack_family_recall,369,0.8644986449864499,0.8644986449864499,0.0,0.0,0.0,source,3.0,0.0,27,Mirai C&C Communication
+M0-C1,attack_family_recall,27722,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Mirai GRE Flooding
+M0-C1,attack_family_recall,27721,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Mirai TCP Flooding
+M0-C1,attack_family_recall,27722,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Mirai UDP Flooding
+M0-C1,attack_family_recall,167,1.0,1.0,0.0,0.0,0.0,source,4.0,0.0,27,Reporting
+M0-C1,attack_family_recall,39711,1.0,1.0,0.0,0.0,0.0,source,5.0,0.0,27,TCP Scan
+M0-C1,attack_family_recall,39712,1.0,1.0,0.0,0.0,0.0,source,5.0,0.0,27,Telnet Brute Force
+M0-C1,attack_family_recall,113,1.0,1.0,0.0,0.0,0.0,episode,60.0,0.0,27,UDP Scan
+M0-C1,worst_family_recall,369,0.8644986449864499,0.8644986449864499,0.0,,,,,0.0,27,Mirai C&C Communication
+M1-ExtraTrees-Global,overall_attack_hard_recall,244050,0.7930096291743495,0.9997951239500102,-20.678549477566076,-71.57579509142924,-10.380201060463715,source,8.0,0.0,27,
+M1-ExtraTrees-Global,support_val_recall,69,1.0,1.0,0.0,0.0,0.0,source,3.0,0.0,27,
+M1-ExtraTrees-Global,same_file_attack_recall,2486,0.7727272727272727,1.0,-22.72727272727273,-25.258200973740923,-19.81961106989885,episode,14.0,0.0,27,
+M1-ExtraTrees-Global,future_attack_recall,131391,0.7031684057507744,0.9996194564315668,-29.645105068079236,-81.15049458469274,-16.954367668011244,source,5.0,0.0,27,
+M1-ExtraTrees-Global,sealed_attack_recall,110104,0.9005485722589551,1.0,-9.945142774104488,-19.125877876452076,-4.871185210516255,episode,208.0,0.0,27,
+M1-ExtraTrees-Global,domotic_attack_recall,3000,0.8033333333333333,1.0,-19.666666666666664,-33.83158998694816,-12.055904752526327,episode,77.0,0.0,27,
+M1-ExtraTrees-Global,combined_attack_recall,5492,0.7703932993445011,1.0,-22.96067006554989,-32.59968102073365,-10.140008485362749,source,2.0,0.0,27,
+M1-ExtraTrees-Global,attack_family_recall,179,0.35195530726256985,1.0,-64.80446927374301,-80.0,-51.470588235294116,source,4.0,0.0,27,C&C Communication
+M1-ExtraTrees-Global,attack_family_recall,320,0.990625,1.0,-0.9375000000000022,-1.8633540372670807,0.0,episode,2.0,0.0,27,CoAP Amplification
+M1-ExtraTrees-Global,attack_family_recall,2569,1.0,1.0,0.0,0.0,0.0,source,4.0,0.0,27,File Download
+M1-ExtraTrees-Global,attack_family_recall,10069,0.8141821432118383,1.0,-18.581785678816164,-23.23627125268712,-14.363213639886336,source,5.0,0.0,27,Ingress Tool Transfer
+M1-ExtraTrees-Global,attack_family_recall,9926,0.5555107797703002,1.0,-44.44892202296998,-44.506575541058304,0.0,source,3.0,0.0,27,Merlin C&C Communication
+M1-ExtraTrees-Global,attack_family_recall,19730,0.9990369994931576,1.0,-0.0963000506842393,-0.286302860342622,0.0,source,6.0,0.0,27,Merlin ICMP Flooding
+M1-ExtraTrees-Global,attack_family_recall,27722,0.9984849577952528,1.0,-0.15150422047471857,-0.237627007538512,0.0,source,6.0,0.0,27,Merlin TCP Flooding
+M1-ExtraTrees-Global,attack_family_recall,10298,0.9991260438920179,1.0,-0.08739561079821323,-0.528169014084507,-0.01821161901293025,source,6.0,0.0,27,Merlin UDP Flooding
+M1-ExtraTrees-Global,attack_family_recall,369,0.008130081300813009,0.8644986449864499,-85.63685636856368,-100.0,0.0,source,3.0,0.0,27,Mirai C&C Communication
+M1-ExtraTrees-Global,attack_family_recall,27722,0.9996753480989827,1.0,-0.03246519010172699,-0.05262119318555548,0.0,source,6.0,0.0,27,Mirai GRE Flooding
+M1-ExtraTrees-Global,attack_family_recall,27721,0.9999278525305725,1.0,-0.007214746942751926,-0.008194706219782022,0.0,source,6.0,0.0,27,Mirai TCP Flooding
+M1-ExtraTrees-Global,attack_family_recall,27722,0.9988456821297165,1.0,-0.11543178702835277,-0.1893337046165513,-0.0735551118902307,source,6.0,0.0,27,Mirai UDP Flooding
+M1-ExtraTrees-Global,attack_family_recall,167,0.12574850299401197,1.0,-87.42514970059881,-89.47368421052632,-60.0,source,4.0,0.0,27,Reporting
+M1-ExtraTrees-Global,attack_family_recall,39711,0.5299035531716653,1.0,-47.009644682833475,-78.60167798641629,-31.066709635836286,source,5.0,0.0,27,TCP Scan
+M1-ExtraTrees-Global,attack_family_recall,39712,0.3777699435938759,1.0,-62.223005640612406,-88.29897730904442,-39.89752513534416,source,5.0,0.0,27,Telnet Brute Force
+M1-ExtraTrees-Global,attack_family_recall,113,0.017699115044247787,1.0,-98.23008849557522,-100.0,-95.30395873743608,episode,60.0,0.0,27,UDP Scan
+M1-ExtraTrees-Global,worst_family_recall,369,0.008130081300813009,0.8644986449864499,-85.63685636856368,,,,,0.0,27,Mirai C&C Communication
+M2-TabM-Global,overall_attack_hard_recall,244050,0.9832903093628355,0.9997951239500102,-1.6504814587174788,-3.6473376556025245,-0.23465603645946703,source,8.0,0.0,27,
+M2-TabM-Global,support_val_recall,69,1.0,1.0,0.0,0.0,0.0,source,3.0,0.0,27,
+M2-TabM-Global,same_file_attack_recall,2486,0.9698310539018503,1.0,-3.0168946098149685,-6.305305653309115,-0.36063984980160524,episode,14.0,0.0,27,
+M2-TabM-Global,future_attack_recall,131391,0.9700283885502051,0.9996194564315668,-2.9591067881361677,-4.644444444444444,-2.6803478004568566,source,5.0,0.0,27,
+M2-TabM-Global,sealed_attack_recall,110104,0.9994096490590714,1.0,-0.059035094092863005,-0.11695419164577057,-0.030500924934597762,episode,208.0,0.0,27,
+M2-TabM-Global,domotic_attack_recall,3000,0.9906666666666667,1.0,-0.9333333333333305,-1.7536088094199738,-0.46537476443648007,episode,77.0,0.0,27,
+M2-TabM-Global,combined_attack_recall,5492,0.9508375819373635,1.0,-4.916241806263654,-7.382265591854052,-3.062200956937799,source,2.0,0.0,27,
+M2-TabM-Global,attack_family_recall,179,0.9497206703910615,1.0,-5.027932960893855,-5.88235294117647,0.0,source,4.0,0.0,27,C&C Communication
+M2-TabM-Global,attack_family_recall,320,0.99375,1.0,-0.6249999999999978,-1.2422360248447204,0.0,episode,2.0,0.0,27,CoAP Amplification
+M2-TabM-Global,attack_family_recall,2569,1.0,1.0,0.0,0.0,0.0,source,4.0,0.0,27,File Download
+M2-TabM-Global,attack_family_recall,10069,0.9803356837819048,1.0,-1.9664316218095168,-3.162486368593239,-0.051666236114699046,source,5.0,0.0,27,Ingress Tool Transfer
+M2-TabM-Global,attack_family_recall,9926,0.7927664718920008,1.0,-20.723352810799923,-26.89393939393939,0.0,source,3.0,0.0,27,Merlin C&C Communication
+M2-TabM-Global,attack_family_recall,19730,0.9995945261023822,1.0,-0.040547389761780295,-0.286302860342622,-0.018211371624638803,source,6.0,0.0,27,Merlin ICMP Flooding
+M2-TabM-Global,attack_family_recall,27722,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Merlin TCP Flooding
+M2-TabM-Global,attack_family_recall,10298,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Merlin UDP Flooding
+M2-TabM-Global,attack_family_recall,369,0.15176151761517614,0.8644986449864499,-71.27371273712737,-88.88888888888889,0.0,source,3.0,0.0,27,Mirai C&C Communication
+M2-TabM-Global,attack_family_recall,27722,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Mirai GRE Flooding
+M2-TabM-Global,attack_family_recall,27721,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Mirai TCP Flooding
+M2-TabM-Global,attack_family_recall,27722,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Mirai UDP Flooding
+M2-TabM-Global,attack_family_recall,167,0.7664670658682635,1.0,-23.35329341317365,-27.472527472527474,-17.93750000000002,source,4.0,0.0,27,Reporting
+M2-TabM-Global,attack_family_recall,39711,0.9891465840699051,1.0,-1.0853415930094923,-3.0922892528965242,-0.13433590955878505,source,5.0,0.0,27,TCP Scan
+M2-TabM-Global,attack_family_recall,39712,0.9766065672844481,1.0,-2.3393432715551943,-4.014939186874263,-0.32547048208301105,source,5.0,0.0,27,Telnet Brute Force
+M2-TabM-Global,attack_family_recall,113,0.18584070796460178,1.0,-81.41592920353982,-91.39293567894447,-69.00167384026781,episode,60.0,0.0,27,UDP Scan
+M2-TabM-Global,worst_family_recall,369,0.15176151761517614,0.8644986449864499,-71.27371273712737,,,,,0.0,27,Mirai C&C Communication
+M3-TabM-CSR,overall_attack_hard_recall,244050,0.9954640442532268,0.9997951239500102,-0.43310796967834797,-0.9670008493103851,-0.02860451236182508,source,8.0,0.0,27,
+M3-TabM-CSR,support_val_recall,69,1.0,1.0,0.0,0.0,0.0,source,3.0,0.0,27,
+M3-TabM-CSR,same_file_attack_recall,2486,1.0,1.0,0.0,0.0,0.0,episode,14.0,0.0,27,
+M3-TabM-CSR,future_attack_recall,131391,0.9915747653948901,0.9996194564315668,-0.804469103667671,-2.1333333333333333,-0.36384391937647004,source,5.0,0.0,27,
+M3-TabM-CSR,sealed_attack_recall,110104,1.0,1.0,0.0,0.0,0.0,episode,208.0,0.0,27,
+M3-TabM-CSR,domotic_attack_recall,3000,1.0,1.0,0.0,0.0,0.0,episode,77.0,0.0,27,
+M3-TabM-CSR,combined_attack_recall,5492,0.9825200291332847,1.0,-1.7479970866715266,-3.9881204921510394,-0.06379585326953748,source,2.0,0.0,27,
+M3-TabM-CSR,attack_family_recall,179,1.0,1.0,0.0,0.0,0.0,source,4.0,0.0,27,C&C Communication
+M3-TabM-CSR,attack_family_recall,320,1.0,1.0,0.0,0.0,0.0,episode,2.0,0.0,27,CoAP Amplification
+M3-TabM-CSR,attack_family_recall,2569,1.0,1.0,0.0,0.0,0.0,source,4.0,0.0,27,File Download
+M3-TabM-CSR,attack_family_recall,10069,1.0,1.0,0.0,0.0,0.0,source,5.0,0.0,27,Ingress Tool Transfer
+M3-TabM-CSR,attack_family_recall,9926,0.9180938948216805,1.0,-8.190610517831953,-8.356632494563529,0.0,source,3.0,0.0,27,Merlin C&C Communication
+M3-TabM-CSR,attack_family_recall,19730,0.9999493157627978,1.0,-0.005068423720222537,-0.01073998496402105,0.0,source,6.0,0.0,27,Merlin ICMP Flooding
+M3-TabM-CSR,attack_family_recall,27722,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Merlin TCP Flooding
+M3-TabM-CSR,attack_family_recall,10298,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Merlin UDP Flooding
+M3-TabM-CSR,attack_family_recall,369,0.7289972899728997,0.8644986449864499,-13.55013550135502,-77.77777777777779,0.0,source,3.0,0.0,27,Mirai C&C Communication
+M3-TabM-CSR,attack_family_recall,27722,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Mirai GRE Flooding
+M3-TabM-CSR,attack_family_recall,27721,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Mirai TCP Flooding
+M3-TabM-CSR,attack_family_recall,27722,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Mirai UDP Flooding
+M3-TabM-CSR,attack_family_recall,167,1.0,1.0,0.0,0.0,0.0,source,4.0,0.0,27,Reporting
+M3-TabM-CSR,attack_family_recall,39711,0.998640175266299,1.0,-0.13598247337009983,-0.4234918098282061,0.0,source,5.0,0.0,27,TCP Scan
+M3-TabM-CSR,attack_family_recall,39712,0.9985394842868655,1.0,-0.1460515713134547,-0.40671055017762053,-0.008764241893076249,source,5.0,0.0,27,Telnet Brute Force
+M3-TabM-CSR,attack_family_recall,113,0.2831858407079646,1.0,-71.68141592920354,-82.19381365837368,-59.7458237327189,episode,60.0,0.0,27,UDP Scan
+M3-TabM-CSR,worst_family_recall,113,0.2831858407079646,1.0,-71.68141592920354,,,,,0.0,27,UDP Scan
+A1-ExtraTrees-CSR,overall_attack_hard_recall,244050,0.8987379635320631,0.9997951239500102,-10.105716041794711,-44.80375587251417,-2.935286059808837,source,8.0,0.0,27,
+A1-ExtraTrees-CSR,support_val_recall,69,1.0,1.0,0.0,0.0,0.0,source,3.0,0.0,27,
+A1-ExtraTrees-CSR,same_file_attack_recall,2486,0.7063555913113435,1.0,-29.36444086886565,-45.5527591150291,-15.44154292986875,episode,14.0,0.0,27,
+A1-ExtraTrees-CSR,future_attack_recall,131391,0.836579369972068,0.9996194564315668,-16.304008645949875,-50.094846205963876,-8.1420785816871,source,5.0,0.0,27,
+A1-ExtraTrees-CSR,sealed_attack_recall,110104,0.9771942890358207,1.0,-2.280571096417927,-4.188199720797975,-1.319531141831064,episode,208.0,0.0,27,
+A1-ExtraTrees-CSR,domotic_attack_recall,3000,0.8963333333333333,1.0,-10.366666666666669,-18.396450962830272,-6.030931118127736,episode,77.0,0.0,27,
+A1-ExtraTrees-CSR,combined_attack_recall,5492,0.7758557902403496,1.0,-22.414420975965044,-31.38755980861244,-10.47942299533305,source,2.0,0.0,27,
+A1-ExtraTrees-CSR,attack_family_recall,179,0.8268156424581006,1.0,-17.31843575418994,-40.0,-13.385826771653544,source,4.0,0.0,27,C&C Communication
+A1-ExtraTrees-CSR,attack_family_recall,320,0.990625,1.0,-0.9375000000000022,-1.8633540372670807,0.0,episode,2.0,0.0,27,CoAP Amplification
+A1-ExtraTrees-CSR,attack_family_recall,2569,1.0,1.0,0.0,0.0,0.0,source,4.0,0.0,27,File Download
+A1-ExtraTrees-CSR,attack_family_recall,10069,0.8707915383851426,1.0,-12.920846161485745,-29.3140512018761,-6.541937126129565,source,5.0,0.0,27,Ingress Tool Transfer
+A1-ExtraTrees-CSR,attack_family_recall,9926,0.5384847874269595,1.0,-46.151521257304054,-46.21212121212121,0.0,source,3.0,0.0,27,Merlin C&C Communication
+A1-ExtraTrees-CSR,attack_family_recall,19730,0.998226051697922,1.0,-0.1773948302077999,-0.286302860342622,-0.08249854486413627,source,6.0,0.0,27,Merlin ICMP Flooding
+A1-ExtraTrees-CSR,attack_family_recall,27722,0.9992785513310728,1.0,-0.07214486689272048,-0.18955483967528808,-0.0501002004008016,source,6.0,0.0,27,Merlin TCP Flooding
+A1-ExtraTrees-CSR,attack_family_recall,10298,0.992619926199262,1.0,-0.7380073800738018,-1.337776877125588,-0.12951198424767935,source,6.0,0.0,27,Merlin UDP Flooding
+A1-ExtraTrees-CSR,attack_family_recall,369,0.032520325203252036,0.8644986449864499,-83.1978319783198,-100.0,0.0,source,3.0,0.0,27,Mirai C&C Communication
+A1-ExtraTrees-CSR,attack_family_recall,27722,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Mirai GRE Flooding
+A1-ExtraTrees-CSR,attack_family_recall,27721,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Mirai TCP Flooding
+A1-ExtraTrees-CSR,attack_family_recall,27722,1.0,1.0,0.0,0.0,0.0,source,6.0,0.0,27,Mirai UDP Flooding
+A1-ExtraTrees-CSR,attack_family_recall,167,0.5748502994011976,1.0,-42.51497005988024,-63.63636363636363,-41.11111111111111,source,4.0,0.0,27,Reporting
+A1-ExtraTrees-CSR,attack_family_recall,39711,0.812898189418549,1.0,-18.710181058145103,-46.723931282461045,-5.249860607750209,source,5.0,0.0,27,TCP Scan
+A1-ExtraTrees-CSR,attack_family_recall,39712,0.7306355761482676,1.0,-26.936442385173244,-55.80057526366251,-10.415055426656354,source,5.0,0.0,27,Telnet Brute Force
+A1-ExtraTrees-CSR,attack_family_recall,113,0.017699115044247787,1.0,-98.23008849557522,-100.0,-95.30395873743608,episode,60.0,0.0,27,UDP Scan
+A1-ExtraTrees-CSR,worst_family_recall,113,0.017699115044247787,1.0,-98.23008849557522,,,,,0.0,27,UDP Scan

@@ -52,7 +52,7 @@ C1/portable features have transferable rank signal; cross-source calibration and
 | Support memory | one ten-label `label_support_region_registry_v1`; immutable 385 train and 127 validation views; archive/candidate/update contracts ready | issue27cf/issue27ci/issue27ckg | active protocol, production updates blocked | wait for issue27ckc then certify one bounded update budget through detector non-regression |
 | Model replay | frozen-medium issue27ckc HPC capability replay pending; geometric region experiments do not alter it | issue27ckc/issue27ckg | running/pending | inspect aggregate, low-FPR, OOD, and per-label results before designing update ablation |
 | Open-world temporal verifier | CKBJ v2 seed-27 formal run completed; registered `NO_GO` | issue27ckbd/issue27ckbe/issue27ckbi/issue27ckbj | current realization rejected | stream OOD remained 100%; attack recall fell 1.8996 pp; fix sparse-train/dense-report mismatch before any new formal seed |
-| Frontend observability/calibration gate | CKBL full-source seed 27 completed; valid `OBSERVABILITY_NO_GO` | issue27ckbl | rank signal present, ordered-history mechanism rejected | global attack-preserving thresholds do not transfer; target source/family calibration next |
+| Frontend observability/calibration gate | CKBL full-source seed 27 completed; valid `OBSERVABILITY_NO_GO`; CKBM seed 27 validated diagnostic `NO_GO` | issue27ckbl/issue27ckbm | rank signal present; symmetric TabM/ExtraTrees suppression rejected | enforce all-canary zero use and test one-sided source-held-out normal-evidence calibration |
 | Formal benchmark | not authorized | current governance | blocked | requires clean data contract and frozen system protocol |
 
 ### Active Issue Index
@@ -81,6 +81,7 @@ C1/portable features have transferable rank signal; cross-source calibration and
 | issue27ckbj | Single-seed formal M1 v2 | AMD job 151377 completed; contracts passed; decision `NO_GO` | rejects current sparse-train/dense-report M1 realization; does not establish a general TGN failure | do not run seeds 37/47; repair temporal replay/task/gate audit before another formal seed |
 | issue27ckbk | TGN replay repair plus maintained GraphMixer comparison | AMD job 151489 partial: TGN fail-fast assertion; GraphMixer completed `NO_GO` | rejects GraphMixer realization and blocks same-route rerun; no repaired-TGN metric claim | run feature-information gate before another temporal backend |
 | issue27ckbl | Strict fit-only frontend observability gate | bounded local real-data run `TRUNCATED_LOCAL_NO_SIGNAL`; 9D weak, 69D matched its permuted control, 207D stronger | changes immediate mainline from backend repair to full feature-observability validation | run frozen full-source protocol with all 385 support rows |
+| issue27ckbm | Official TabM plus causal source-relative calibration | seed-27 AMD compute recovered without retraining; validator `PASS`, scientific `NO_GO`; stream 99.6%, overall attack -0.4331 pp, UDP Scan -71.68 pp | rejects symmetric TabM/ExtraTrees suppression; diagnostic only because both development canaries were not globally excluded from fit/select | no more seeds; harden all-canary audit and preregister one-sided normal-evidence suppression |
 
 ### Latest Compact Close-out
 

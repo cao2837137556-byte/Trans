@@ -1,0 +1,341 @@
+candidate,protocol,held_value,role,attack_family,rows,sources,hard_recall,ci_low,ci_high,ci_cluster_unit,ci_clusters,review_rate,seed
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,C&C Communication,89,3,1.0,1.0,1.0,source,3,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,CoAP Amplification,320,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,File Download,1230,2,1.0,1.0,1.0,source,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Ingress Tool Transfer,3983,3,1.0,1.0,1.0,source,3,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin C&C Communication,9921,2,1.0,1.0,1.0,source,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin ICMP Flooding,9711,3,1.0,1.0,1.0,source,3,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin TCP Flooding,12711,3,1.0,1.0,1.0,source,3,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin UDP Flooding,5296,3,1.0,1.0,1.0,source,3,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai C&C Communication,367,2,0.8637602179836512,0.8603351955307262,1.0,source,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai GRE Flooding,12712,3,1.0,1.0,1.0,source,3,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai TCP Flooding,12711,3,1.0,1.0,1.0,source,3,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai UDP Flooding,12711,3,1.0,1.0,1.0,source,3,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Reporting,93,3,1.0,1.0,1.0,source,3,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,TCP Scan,24711,4,1.0,1.0,1.0,source,4,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Telnet Brute Force,24712,4,1.0,1.0,1.0,source,4,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,UDP Scan,113,1,1.0,1.0,1.0,episode,60,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,same_file_query,File Download,105,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,same_file_query,Ingress Tool Transfer,2381,1,1.0,1.0,1.0,episode,12,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,C&C Communication,90,1,1.0,1.0,1.0,episode,20,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,File Download,1231,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Ingress Tool Transfer,3702,1,1.0,1.0,1.0,episode,16,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin ICMP Flooding,10011,1,1.0,1.0,1.0,episode,5,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin TCP Flooding,15000,1,1.0,1.0,1.0,episode,4,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin UDP Flooding,4996,1,1.0,,,unavailable,1,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai GRE Flooding,15000,1,1.0,,,unavailable,1,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai TCP Flooding,15000,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai UDP Flooding,15000,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Reporting,74,1,1.0,1.0,1.0,episode,8,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,TCP Scan,15000,1,1.0,1.0,1.0,episode,140,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Telnet Brute Force,15000,1,1.0,1.0,1.0,episode,30,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,File Download,3,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Ingress Tool Transfer,3,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin C&C Communication,5,1,1.0,1.0,1.0,episode,5,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin ICMP Flooding,8,2,1.0,1.0,1.0,source,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin TCP Flooding,11,2,1.0,1.0,1.0,source,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin UDP Flooding,6,2,1.0,1.0,1.0,source,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai C&C Communication,2,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai GRE Flooding,10,2,1.0,1.0,1.0,source,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai TCP Flooding,10,2,1.0,1.0,1.0,source,2,0.0,27
+M0-C1,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai UDP Flooding,11,2,1.0,1.0,1.0,source,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,C&C Communication,89,3,0.21348314606741572,0.0,0.3333333333333333,source,3,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,CoAP Amplification,320,1,0.990625,0.9813664596273292,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,File Download,1230,2,1.0,1.0,1.0,source,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Ingress Tool Transfer,3983,3,0.8044187798142104,0.8028769312733085,0.8333333333333334,source,3,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin C&C Communication,9921,2,0.5552867654470316,0.554934244589417,0.5681818181818182,source,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin ICMP Flooding,9711,3,0.9980434558747812,0.995850622406639,1.0,source,3,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin TCP Flooding,12711,3,0.9977185115254504,0.9975833333333334,1.0,source,3,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin UDP Flooding,5296,3,0.9984894259818731,0.9924812030075187,1.0,source,3,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai C&C Communication,367,2,0.0027247956403269754,0.0,0.002793296089385475,source,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai GRE Flooding,12712,3,0.9999213341724354,0.9999166666666667,1.0,source,3,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai TCP Flooding,12711,3,0.9999213279836362,0.9999166666666667,1.0,source,3,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai UDP Flooding,12711,3,0.9987412477381795,0.9974489795918368,1.0,source,3,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Reporting,93,3,0.11827956989247312,0.10227272727272728,0.5,source,3,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,TCP Scan,24711,4,0.42644975921654327,0.20894702132336776,0.6441574264641968,source,4,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Telnet Brute Force,24712,4,0.2339349303981871,0.1142833589799956,0.3536495114168091,source,4,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,UDP Scan,113,1,0.017699115044247787,0.0,0.04696041262563921,episode,60,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,same_file_query,File Download,105,1,1.0,1.0,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,same_file_query,Ingress Tool Transfer,2381,1,0.7627047459050819,0.738296142627827,0.7856784582893347,episode,12,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,C&C Communication,90,1,0.4888888888888889,0.3201774691358025,0.6389473033151905,episode,20,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,File Download,1231,1,1.0,1.0,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Ingress Tool Transfer,3702,1,0.8576445164775797,0.805218863536172,0.8997454931131227,episode,16,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin ICMP Flooding,10011,1,1.0,1.0,1.0,episode,5,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin TCP Flooding,15000,1,0.9991333333333333,0.9974,1.0,episode,4,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin UDP Flooding,4996,1,0.9997998398718975,,,unavailable,1,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai GRE Flooding,15000,1,0.9994666666666666,,,unavailable,1,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai TCP Flooding,15000,1,0.9999333333333333,0.9998666488865182,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai UDP Flooding,15000,1,0.9989333333333333,0.9989329064959317,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Reporting,74,1,0.13513513513513514,0.017857142857142856,0.39802083333333327,episode,8,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,TCP Scan,15000,1,0.7003333333333334,0.435523643757562,0.8839853558449215,episode,140,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Telnet Brute Force,15000,1,0.6147333333333334,0.5332222869886969,0.7006223444623297,episode,30,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,File Download,3,1,1.0,1.0,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Ingress Tool Transfer,3,1,1.0,1.0,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin C&C Communication,5,1,1.0,1.0,1.0,episode,5,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin ICMP Flooding,8,2,1.0,1.0,1.0,source,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin TCP Flooding,11,2,1.0,1.0,1.0,source,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin UDP Flooding,6,2,1.0,1.0,1.0,source,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai C&C Communication,2,1,1.0,1.0,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai GRE Flooding,10,2,1.0,1.0,1.0,source,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai TCP Flooding,10,2,1.0,1.0,1.0,source,2,0.0,27
+M1-ExtraTrees-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai UDP Flooding,11,2,1.0,1.0,1.0,source,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,C&C Communication,89,3,0.9438202247191011,0.9404761904761905,1.0,source,3,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,CoAP Amplification,320,1,0.99375,0.9875776397515528,1.0,episode,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,File Download,1230,2,1.0,1.0,1.0,source,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Ingress Tool Transfer,3983,3,0.9693698217424053,0.9680340969632392,1.0,source,3,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin C&C Communication,9921,2,0.7926620300372946,0.7310606060606061,0.7943460702081392,source,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin ICMP Flooding,9711,3,0.9993821439604572,0.995850622406639,1.0,source,3,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin TCP Flooding,12711,3,1.0,1.0,1.0,source,3,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin UDP Flooding,5296,3,1.0,1.0,1.0,source,3,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai C&C Communication,367,2,0.14713896457765668,0.1111111111111111,0.14804469273743018,source,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai GRE Flooding,12712,3,1.0,1.0,1.0,source,3,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai TCP Flooding,12711,3,1.0,1.0,1.0,source,3,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai UDP Flooding,12711,3,1.0,1.0,1.0,source,3,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Reporting,93,3,0.7311827956989247,0.6666666666666666,1.0,source,3,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,TCP Scan,24711,4,0.9831249241228602,0.968909814108288,0.9974391336205249,source,4,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Telnet Brute Force,24712,4,0.9636209129168015,0.9592696629213483,0.967295021936461,source,4,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,UDP Scan,113,1,0.18584070796460178,0.08607064321055526,0.3099832615973218,episode,60,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,same_file_query,File Download,105,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,same_file_query,Ingress Tool Transfer,2381,1,0.9685006299874003,0.9314181483943522,0.9963492024681699,episode,12,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,C&C Communication,90,1,0.9555555555555556,0.9058823529411765,0.9894736842105263,episode,20,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,File Download,1231,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Ingress Tool Transfer,3702,1,0.9997298757428417,0.9991525154989929,1.0,episode,16,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin ICMP Flooding,10011,1,0.9998002197582659,0.9986604152712659,1.0,episode,5,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin TCP Flooding,15000,1,1.0,1.0,1.0,episode,4,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin UDP Flooding,4996,1,1.0,,,unavailable,1,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai GRE Flooding,15000,1,1.0,,,unavailable,1,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai TCP Flooding,15000,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai UDP Flooding,15000,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Reporting,74,1,0.8108108108108109,0.5535714285714286,1.0,episode,8,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,TCP Scan,15000,1,0.9990666666666667,0.9896512029185565,0.9997313735646016,episode,140,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Telnet Brute Force,15000,1,0.998,0.9969984992769014,0.9990869338652136,episode,30,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,File Download,3,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Ingress Tool Transfer,3,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin C&C Communication,5,1,1.0,1.0,1.0,episode,5,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin ICMP Flooding,8,2,1.0,1.0,1.0,source,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin TCP Flooding,11,2,1.0,1.0,1.0,source,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin UDP Flooding,6,2,1.0,1.0,1.0,source,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai C&C Communication,2,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai GRE Flooding,10,2,1.0,1.0,1.0,source,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai TCP Flooding,10,2,1.0,1.0,1.0,source,2,0.0,27
+M2-TabM-Global,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai UDP Flooding,11,2,1.0,1.0,1.0,source,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,C&C Communication,89,3,1.0,1.0,1.0,source,3,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,CoAP Amplification,320,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,File Download,1230,2,1.0,1.0,1.0,source,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Ingress Tool Transfer,3983,3,1.0,1.0,1.0,source,3,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin C&C Communication,9921,2,0.9180526156637435,0.9164336750543647,0.9772727272727273,source,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin ICMP Flooding,9711,3,0.9998970239934095,0.9998907103825136,1.0,source,3,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin TCP Flooding,12711,3,1.0,1.0,1.0,source,3,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin UDP Flooding,5296,3,1.0,1.0,1.0,source,3,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai C&C Communication,367,2,0.7275204359673024,0.2222222222222222,0.7402234636871509,source,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai GRE Flooding,12712,3,1.0,1.0,1.0,source,3,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai TCP Flooding,12711,3,1.0,1.0,1.0,source,3,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai UDP Flooding,12711,3,1.0,1.0,1.0,source,3,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Reporting,93,3,1.0,1.0,1.0,source,3,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,TCP Scan,24711,4,0.9978147383756222,0.9956309078918444,1.0,source,4,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Telnet Brute Force,24712,4,0.9976529621236646,0.9955621301775148,0.9994351194318916,source,4,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,UDP Scan,113,1,0.2831858407079646,0.17806186341626315,0.402541762672811,episode,60,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,same_file_query,File Download,105,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,same_file_query,Ingress Tool Transfer,2381,1,1.0,1.0,1.0,episode,12,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,C&C Communication,90,1,1.0,1.0,1.0,episode,20,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,File Download,1231,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Ingress Tool Transfer,3702,1,1.0,1.0,1.0,episode,16,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin ICMP Flooding,10011,1,1.0,1.0,1.0,episode,5,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin TCP Flooding,15000,1,1.0,1.0,1.0,episode,4,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin UDP Flooding,4996,1,1.0,,,unavailable,1,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai GRE Flooding,15000,1,1.0,,,unavailable,1,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai TCP Flooding,15000,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai UDP Flooding,15000,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Reporting,74,1,1.0,1.0,1.0,episode,8,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,TCP Scan,15000,1,1.0,1.0,1.0,episode,140,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Telnet Brute Force,15000,1,1.0,1.0,1.0,episode,30,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,File Download,3,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Ingress Tool Transfer,3,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin C&C Communication,5,1,1.0,1.0,1.0,episode,5,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin ICMP Flooding,8,2,1.0,1.0,1.0,source,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin TCP Flooding,11,2,1.0,1.0,1.0,source,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin UDP Flooding,6,2,1.0,1.0,1.0,source,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai C&C Communication,2,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai GRE Flooding,10,2,1.0,1.0,1.0,source,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai TCP Flooding,10,2,1.0,1.0,1.0,source,2,0.0,27
+M3-TabM-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai UDP Flooding,11,2,1.0,1.0,1.0,source,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,C&C Communication,89,3,0.8539325842696629,0.5,0.8690476190476191,source,3,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,CoAP Amplification,320,1,0.990625,0.9813664596273292,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,File Download,1230,2,1.0,1.0,1.0,source,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Ingress Tool Transfer,3983,3,0.9329651016821491,0.8165137614678899,0.9368673415023975,source,3,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin C&C Communication,9921,2,0.5382521923193226,0.5378787878787878,0.5382624003313659,source,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin ICMP Flooding,9711,3,0.9976315518484193,0.995850622406639,1.0,source,3,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin TCP Flooding,12711,3,0.9990559358036346,0.9974489795918368,1.0,source,3,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Merlin UDP Flooding,5296,3,0.9983006042296072,0.9877300613496932,0.9988,source,3,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai C&C Communication,367,2,0.027247956403269755,0.0,0.027932960893854747,source,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai GRE Flooding,12712,3,1.0,1.0,1.0,source,3,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai TCP Flooding,12711,3,1.0,1.0,1.0,source,3,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Mirai UDP Flooding,12711,3,1.0,1.0,1.0,source,3,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Reporting,93,3,0.5806451612903226,0.3333333333333333,0.5909090909090909,source,3,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,TCP Scan,24711,4,0.7270446359920683,0.5285227522532425,0.9255924998194565,source,4,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,Telnet Brute Force,24712,4,0.623179022337326,0.4385304462519235,0.808548031196381,source,4,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,future_query,UDP Scan,113,1,0.017699115044247787,0.0,0.04696041262563921,episode,60,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,same_file_query,File Download,105,1,1.0,1.0,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,same_file_query,Ingress Tool Transfer,2381,1,0.6934061318773624,0.5211915845254743,0.8312247498161736,episode,12,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,C&C Communication,90,1,0.8,0.6473763368983957,0.9129269449715369,episode,20,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,File Download,1231,1,1.0,1.0,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Ingress Tool Transfer,3702,1,0.917882225823879,0.857730453412248,0.9582430840930902,episode,16,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin ICMP Flooding,10011,1,0.9988013185495954,0.9921215673141326,1.0,episode,5,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin TCP Flooding,15000,1,0.9994666666666666,0.9982395774985997,1.0,episode,4,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Merlin UDP Flooding,4996,1,0.9865892714171337,,,unavailable,1,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai GRE Flooding,15000,1,1.0,,,unavailable,1,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai TCP Flooding,15000,1,1.0,1.0,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Mirai UDP Flooding,15000,1,1.0,1.0,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Reporting,74,1,0.5675675675675675,0.25,0.8333333333333334,episode,8,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,TCP Scan,15000,1,0.9543333333333334,0.650049472685052,0.9792376508995622,episode,140,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,sealed_final_attack,Telnet Brute Force,15000,1,0.9076666666666666,0.8458269451776655,0.9557386068952503,episode,30,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,File Download,3,1,1.0,1.0,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Ingress Tool Transfer,3,1,1.0,1.0,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin C&C Communication,5,1,1.0,1.0,1.0,episode,5,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin ICMP Flooding,8,2,1.0,1.0,1.0,source,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin TCP Flooding,11,2,1.0,1.0,1.0,source,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Merlin UDP Flooding,6,2,1.0,1.0,1.0,source,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai C&C Communication,2,1,1.0,1.0,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai GRE Flooding,10,2,1.0,1.0,1.0,source,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai TCP Flooding,10,2,1.0,1.0,1.0,source,2,0.0,27
+A1-ExtraTrees-CSR,attack_preservation,GLOBAL_ATTACK_PRESERVATION,support_val,Mirai UDP Flooding,11,2,1.0,1.0,1.0,source,2,0.0,27
+M0-C1,strict_leave,domotic-monitor,future_query,C&C Communication,3,1,1.0,1.0,1.0,episode,3,0.0,27
+M0-C1,strict_leave,domotic-monitor,future_query,File Download,39,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,strict_leave,domotic-monitor,future_query,Ingress Tool Transfer,120,1,1.0,1.0,1.0,episode,14,0.0,27
+M0-C1,strict_leave,domotic-monitor,future_query,Merlin ICMP Flooding,320,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,strict_leave,domotic-monitor,future_query,Merlin TCP Flooding,392,1,1.0,1.0,1.0,episode,4,0.0,27
+M0-C1,strict_leave,domotic-monitor,future_query,Merlin UDP Flooding,163,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,strict_leave,domotic-monitor,future_query,Mirai GRE Flooding,392,1,1.0,,,unavailable,1,0.0,27
+M0-C1,strict_leave,domotic-monitor,future_query,Mirai TCP Flooding,392,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,strict_leave,domotic-monitor,future_query,Mirai UDP Flooding,392,1,1.0,,,unavailable,1,0.0,27
+M0-C1,strict_leave,domotic-monitor,future_query,Reporting,3,1,1.0,1.0,1.0,episode,3,0.0,27
+M0-C1,strict_leave,domotic-monitor,future_query,TCP Scan,392,1,1.0,1.0,1.0,episode,33,0.0,27
+M0-C1,strict_leave,domotic-monitor,future_query,Telnet Brute Force,392,1,1.0,1.0,1.0,episode,26,0.0,27
+M1-ExtraTrees-Global,strict_leave,domotic-monitor,future_query,C&C Communication,3,1,0.3333333333333333,0.0,1.0,episode,3,0.0,27
+M1-ExtraTrees-Global,strict_leave,domotic-monitor,future_query,File Download,39,1,1.0,1.0,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,strict_leave,domotic-monitor,future_query,Ingress Tool Transfer,120,1,0.8333333333333334,0.7896837682441398,0.8879289719626168,episode,14,0.0,27
+M1-ExtraTrees-Global,strict_leave,domotic-monitor,future_query,Merlin ICMP Flooding,320,1,1.0,1.0,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,strict_leave,domotic-monitor,future_query,Merlin TCP Flooding,392,1,1.0,1.0,1.0,episode,4,0.0,27
+M1-ExtraTrees-Global,strict_leave,domotic-monitor,future_query,Merlin UDP Flooding,163,1,1.0,1.0,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,strict_leave,domotic-monitor,future_query,Mirai GRE Flooding,392,1,1.0,,,unavailable,1,0.0,27
+M1-ExtraTrees-Global,strict_leave,domotic-monitor,future_query,Mirai TCP Flooding,392,1,1.0,1.0,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,strict_leave,domotic-monitor,future_query,Mirai UDP Flooding,392,1,0.9974489795918368,,,unavailable,1,0.0,27
+M1-ExtraTrees-Global,strict_leave,domotic-monitor,future_query,Reporting,3,1,0.3333333333333333,0.0,1.0,episode,3,0.0,27
+M1-ExtraTrees-Global,strict_leave,domotic-monitor,future_query,TCP Scan,392,1,0.35714285714285715,0.11087078651685393,0.5465022304706647,episode,33,0.0,27
+M1-ExtraTrees-Global,strict_leave,domotic-monitor,future_query,Telnet Brute Force,392,1,0.20153061224489796,0.12184836416421632,0.2793119777158774,episode,26,0.0,27
+M2-TabM-Global,strict_leave,domotic-monitor,future_query,C&C Communication,3,1,1.0,1.0,1.0,episode,3,0.0,27
+M2-TabM-Global,strict_leave,domotic-monitor,future_query,File Download,39,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,strict_leave,domotic-monitor,future_query,Ingress Tool Transfer,120,1,0.9833333333333333,0.959349593495935,1.0,episode,14,0.0,27
+M2-TabM-Global,strict_leave,domotic-monitor,future_query,Merlin ICMP Flooding,320,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,strict_leave,domotic-monitor,future_query,Merlin TCP Flooding,392,1,1.0,1.0,1.0,episode,4,0.0,27
+M2-TabM-Global,strict_leave,domotic-monitor,future_query,Merlin UDP Flooding,163,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,strict_leave,domotic-monitor,future_query,Mirai GRE Flooding,392,1,1.0,,,unavailable,1,0.0,27
+M2-TabM-Global,strict_leave,domotic-monitor,future_query,Mirai TCP Flooding,392,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,strict_leave,domotic-monitor,future_query,Mirai UDP Flooding,392,1,1.0,,,unavailable,1,0.0,27
+M2-TabM-Global,strict_leave,domotic-monitor,future_query,Reporting,3,1,0.6666666666666666,0.0,1.0,episode,3,0.0,27
+M2-TabM-Global,strict_leave,domotic-monitor,future_query,TCP Scan,392,1,0.9795918367346939,0.956926808389214,0.9926432648749669,episode,33,0.0,27
+M2-TabM-Global,strict_leave,domotic-monitor,future_query,Telnet Brute Force,392,1,0.9566326530612245,0.9311783051333524,0.977459706587097,episode,26,0.0,27
+M3-TabM-CSR,strict_leave,domotic-monitor,future_query,C&C Communication,3,1,1.0,1.0,1.0,episode,3,0.0,27
+M3-TabM-CSR,strict_leave,domotic-monitor,future_query,File Download,39,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,strict_leave,domotic-monitor,future_query,Ingress Tool Transfer,120,1,1.0,1.0,1.0,episode,14,0.0,27
+M3-TabM-CSR,strict_leave,domotic-monitor,future_query,Merlin ICMP Flooding,320,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,strict_leave,domotic-monitor,future_query,Merlin TCP Flooding,392,1,1.0,1.0,1.0,episode,4,0.0,27
+M3-TabM-CSR,strict_leave,domotic-monitor,future_query,Merlin UDP Flooding,163,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,strict_leave,domotic-monitor,future_query,Mirai GRE Flooding,392,1,1.0,,,unavailable,1,0.0,27
+M3-TabM-CSR,strict_leave,domotic-monitor,future_query,Mirai TCP Flooding,392,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,strict_leave,domotic-monitor,future_query,Mirai UDP Flooding,392,1,1.0,,,unavailable,1,0.0,27
+M3-TabM-CSR,strict_leave,domotic-monitor,future_query,Reporting,3,1,1.0,1.0,1.0,episode,3,0.0,27
+M3-TabM-CSR,strict_leave,domotic-monitor,future_query,TCP Scan,392,1,1.0,1.0,1.0,episode,33,0.0,27
+M3-TabM-CSR,strict_leave,domotic-monitor,future_query,Telnet Brute Force,392,1,1.0,1.0,1.0,episode,26,0.0,27
+A1-ExtraTrees-CSR,strict_leave,domotic-monitor,future_query,C&C Communication,3,1,0.6666666666666666,0.0,1.0,episode,3,0.0,27
+A1-ExtraTrees-CSR,strict_leave,domotic-monitor,future_query,File Download,39,1,1.0,1.0,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,strict_leave,domotic-monitor,future_query,Ingress Tool Transfer,120,1,0.9166666666666666,0.876622418879056,0.9500861249703016,episode,14,0.0,27
+A1-ExtraTrees-CSR,strict_leave,domotic-monitor,future_query,Merlin ICMP Flooding,320,1,1.0,1.0,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,strict_leave,domotic-monitor,future_query,Merlin TCP Flooding,392,1,0.9974489795918368,0.9784172661870504,1.0,episode,4,0.0,27
+A1-ExtraTrees-CSR,strict_leave,domotic-monitor,future_query,Merlin UDP Flooding,163,1,0.9877300613496932,0.975609756097561,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,strict_leave,domotic-monitor,future_query,Mirai GRE Flooding,392,1,1.0,,,unavailable,1,0.0,27
+A1-ExtraTrees-CSR,strict_leave,domotic-monitor,future_query,Mirai TCP Flooding,392,1,1.0,1.0,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,strict_leave,domotic-monitor,future_query,Mirai UDP Flooding,392,1,1.0,,,unavailable,1,0.0,27
+A1-ExtraTrees-CSR,strict_leave,domotic-monitor,future_query,Reporting,3,1,0.3333333333333333,0.0,1.0,episode,3,0.0,27
+A1-ExtraTrees-CSR,strict_leave,domotic-monitor,future_query,TCP Scan,392,1,0.6913265306122449,0.4806557881773399,0.81909448416055,episode,33,0.0,27
+A1-ExtraTrees-CSR,strict_leave,domotic-monitor,future_query,Telnet Brute Force,392,1,0.5561224489795918,0.4382246376811594,0.6739517547213089,episode,26,0.0,27
+M0-C1,strict_leave,combined-cycle,future_query,C&C Communication,2,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,strict_leave,combined-cycle,future_query,CoAP Amplification,320,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,strict_leave,combined-cycle,future_query,Merlin C&C Communication,264,1,1.0,1.0,1.0,episode,92,0.0,27
+M0-C1,strict_leave,combined-cycle,future_query,Merlin ICMP Flooding,241,1,1.0,1.0,1.0,episode,3,0.0,27
+M0-C1,strict_leave,combined-cycle,future_query,Merlin TCP Flooding,319,1,1.0,1.0,1.0,episode,4,0.0,27
+M0-C1,strict_leave,combined-cycle,future_query,Merlin UDP Flooding,133,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,strict_leave,combined-cycle,future_query,Mirai C&C Communication,9,1,1.0,1.0,1.0,episode,9,0.0,27
+M0-C1,strict_leave,combined-cycle,future_query,Mirai GRE Flooding,320,1,1.0,,,unavailable,1,0.0,27
+M0-C1,strict_leave,combined-cycle,future_query,Mirai TCP Flooding,319,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,strict_leave,combined-cycle,future_query,Mirai UDP Flooding,319,1,1.0,,,unavailable,1,0.0,27
+M0-C1,strict_leave,combined-cycle,future_query,Reporting,2,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,strict_leave,combined-cycle,future_query,TCP Scan,319,1,1.0,1.0,1.0,episode,33,0.0,27
+M0-C1,strict_leave,combined-cycle,future_query,Telnet Brute Force,320,1,1.0,1.0,1.0,episode,26,0.0,27
+M0-C1,strict_leave,combined-cycle,future_query,UDP Scan,113,1,1.0,1.0,1.0,episode,60,0.0,27
+M0-C1,strict_leave,combined-cycle,same_file_query,File Download,105,1,1.0,1.0,1.0,episode,2,0.0,27
+M0-C1,strict_leave,combined-cycle,same_file_query,Ingress Tool Transfer,2381,1,0.989920201595968,0.9809718714121699,0.9969665015713439,episode,12,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,future_query,C&C Communication,2,1,0.0,0.0,0.0,episode,2,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,future_query,CoAP Amplification,320,1,0.990625,0.9813664596273292,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,future_query,Merlin C&C Communication,264,1,0.5340909090909091,0.14795056320400501,0.7202845663808679,episode,92,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,future_query,Merlin ICMP Flooding,241,1,0.995850622406639,0.0,1.0,episode,3,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,future_query,Merlin TCP Flooding,319,1,1.0,1.0,1.0,episode,4,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,future_query,Merlin UDP Flooding,133,1,0.9924812030075187,0.9811320754716981,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,future_query,Mirai C&C Communication,9,1,0.0,0.0,0.0,episode,9,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,future_query,Mirai GRE Flooding,320,1,1.0,,,unavailable,1,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,future_query,Mirai TCP Flooding,319,1,1.0,1.0,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,future_query,Mirai UDP Flooding,319,1,1.0,,,unavailable,1,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,future_query,Reporting,2,1,0.5,0.0,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,future_query,TCP Scan,319,1,0.23197492163009403,0.0,0.4747252747252747,episode,33,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,future_query,Telnet Brute Force,320,1,0.0,0.0,0.0,episode,26,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,future_query,UDP Scan,113,1,0.017699115044247787,0.0,0.04696041262563921,episode,60,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,same_file_query,File Download,105,1,1.0,1.0,1.0,episode,2,0.0,27
+M1-ExtraTrees-Global,strict_leave,combined-cycle,same_file_query,Ingress Tool Transfer,2381,1,0.0,0.0,0.0,episode,12,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,future_query,C&C Communication,2,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,future_query,CoAP Amplification,320,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,future_query,Merlin C&C Communication,264,1,0.7121212121212122,0.42173308986979996,0.8382923326673326,episode,92,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,future_query,Merlin ICMP Flooding,241,1,0.995850622406639,0.0,1.0,episode,3,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,future_query,Merlin TCP Flooding,319,1,1.0,1.0,1.0,episode,4,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,future_query,Merlin UDP Flooding,133,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,future_query,Mirai C&C Communication,9,1,0.2222222222222222,0.0,0.5555555555555556,episode,9,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,future_query,Mirai GRE Flooding,320,1,1.0,,,unavailable,1,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,future_query,Mirai TCP Flooding,319,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,future_query,Mirai UDP Flooding,319,1,1.0,,,unavailable,1,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,future_query,Reporting,2,1,0.5,0.0,1.0,episode,2,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,future_query,TCP Scan,319,1,0.5830721003134797,0.36856643356643354,0.7801682377255771,episode,33,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,future_query,Telnet Brute Force,320,1,0.38125,0.24958034874466392,0.5064671989837581,episode,26,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,future_query,UDP Scan,113,1,0.504424778761062,0.382463891248938,0.6266270661157024,episode,60,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,same_file_query,File Download,105,1,1.0,1.0,1.0,episode,2,0.0,27
+M2-TabM-Global,strict_leave,combined-cycle,same_file_query,Ingress Tool Transfer,2381,1,0.47795044099118017,0.26880108845745654,0.7051759734747367,episode,12,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,future_query,C&C Communication,2,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,future_query,CoAP Amplification,320,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,future_query,Merlin C&C Communication,264,1,0.9962121212121212,0.9849293496765407,1.0,episode,92,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,future_query,Merlin ICMP Flooding,241,1,1.0,1.0,1.0,episode,3,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,future_query,Merlin TCP Flooding,319,1,1.0,1.0,1.0,episode,4,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,future_query,Merlin UDP Flooding,133,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,future_query,Mirai C&C Communication,9,1,0.8888888888888888,0.6666666666666666,1.0,episode,9,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,future_query,Mirai GRE Flooding,320,1,1.0,,,unavailable,1,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,future_query,Mirai TCP Flooding,319,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,future_query,Mirai UDP Flooding,319,1,1.0,,,unavailable,1,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,future_query,Reporting,2,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,future_query,TCP Scan,319,1,1.0,1.0,1.0,episode,33,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,future_query,Telnet Brute Force,320,1,1.0,1.0,1.0,episode,26,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,future_query,UDP Scan,113,1,0.7699115044247787,0.6666666666666666,0.8652396214896215,episode,60,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,same_file_query,File Download,105,1,1.0,1.0,1.0,episode,2,0.0,27
+M3-TabM-CSR,strict_leave,combined-cycle,same_file_query,Ingress Tool Transfer,2381,1,0.989920201595968,0.9809718714121699,0.9969665015713439,episode,12,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,future_query,C&C Communication,2,1,0.0,0.0,0.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,future_query,CoAP Amplification,320,1,0.9875,0.9751552795031055,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,future_query,Merlin C&C Communication,264,1,0.42045454545454547,0.11865093342726313,0.5580133867898885,episode,92,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,future_query,Merlin ICMP Flooding,241,1,0.995850622406639,0.0,1.0,episode,3,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,future_query,Merlin TCP Flooding,319,1,1.0,1.0,1.0,episode,4,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,future_query,Merlin UDP Flooding,133,1,1.0,1.0,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,future_query,Mirai C&C Communication,9,1,0.0,0.0,0.0,episode,9,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,future_query,Mirai GRE Flooding,320,1,1.0,,,unavailable,1,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,future_query,Mirai TCP Flooding,319,1,1.0,1.0,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,future_query,Mirai UDP Flooding,319,1,1.0,,,unavailable,1,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,future_query,Reporting,2,1,0.5,0.0,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,future_query,TCP Scan,319,1,0.2507836990595611,0.0,0.5142857142857142,episode,33,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,future_query,Telnet Brute Force,320,1,0.0,0.0,0.0,episode,26,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,future_query,UDP Scan,113,1,0.035398230088495575,0.0,0.08771929824561403,episode,60,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,same_file_query,File Download,105,1,0.9809523809523809,0.9722222222222222,1.0,episode,2,0.0,27
+A1-ExtraTrees-CSR,strict_leave,combined-cycle,same_file_query,Ingress Tool Transfer,2381,1,0.0,0.0,0.0,episode,12,0.0,27

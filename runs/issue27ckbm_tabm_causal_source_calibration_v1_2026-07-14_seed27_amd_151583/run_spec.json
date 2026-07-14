@@ -1,0 +1,217 @@
+{
+  "c1_extension_audit": {
+    "base_c1_plan_sha256": "414616332159eb90553213d6656c3d072a701ea93a02df464acdfa6cebc128f2",
+    "base_c1_sources": 26,
+    "base_c1_target_sha256": "74a1699e29b7b1e227f4532ff81f1546a9ba239f2d2d323d390efa5b07437158",
+    "base_c1_targets": 34622,
+    "feature_schema_hash": "ede9a25f30a609ad12bef5bddd552c0d42f48fc1e203b2e6053dc388b936182a",
+    "issue": "issue27ckbj_c1_report_only_cache_extension_v1_2026-07-13",
+    "manifest_sha256": "6a7c06e1a04d91aa73e9286dd6f5514b2fe15f0437cb75d5aaf742954a0619f3",
+    "raw_label_column_read": false,
+    "report_only_fit_select_exclusion_pass": true,
+    "report_only_fit_select_rows": 0,
+    "source_count": 4,
+    "source_plan_sha256": "a38d9fee3d11b3c2e56b3ebea0e217fc4c4f808755c1a56e3d2c4ded310b3d81",
+    "target_index_sha256": "3e3bde77ad8a12747fea8fc8401488a4392985c90881e872d3be8335853a877b",
+    "target_rows": 290445,
+    "tgn_extension_manifest_sha256": "862a9ae62622c001bdf1c1d9b2c524bc33c25351433599fdd8935fd6e5f2ffb1",
+    "tgn_extension_target_index_sha256": "70becf37a4d8954c495d4077c3da7fefe16bbcedf1141ffd8a890a8ca40bf414",
+    "tgn_extension_targets": 290445
+  },
+  "candidates": [
+    {
+      "kind": "extratrees",
+      "name": "M1-ExtraTrees-Global",
+      "primary": false,
+      "view": "global"
+    },
+    {
+      "kind": "tabm",
+      "name": "M2-TabM-Global",
+      "primary": false,
+      "view": "global"
+    },
+    {
+      "kind": "tabm",
+      "name": "M3-TabM-CSR",
+      "primary": true,
+      "view": "csr"
+    },
+    {
+      "kind": "extratrees",
+      "name": "A1-ExtraTrees-CSR",
+      "primary": false,
+      "view": "csr"
+    }
+  ],
+  "development_canaries": [
+    "iotsim-stream-consumer",
+    "iotsim-hydraulic-system"
+  ],
+  "environment": {
+    "base_manifest_sha256": "b102b04347dd320f9f89a219285285866dbfa09e09bd73d0839cbe1a91bb0f67",
+    "c1_report_extension_manifest_sha256": "6a7c06e1a04d91aa73e9286dd6f5514b2fe15f0437cb75d5aaf742954a0619f3",
+    "commit_sha": "37b0fb4585d2634fa45fa2db31b1fead7bce886d",
+    "expected_base_manifest_sha256": "b102b04347dd320f9f89a219285285866dbfa09e09bd73d0839cbe1a91bb0f67",
+    "metadata_recovery": {
+      "formal_tables_verified_before_metadata_write": [
+        "attack_preservation_metrics.csv",
+        "attack_preservation_summary.csv",
+        "ckbm_all_metrics.csv",
+        "ckbm_c1_fit_select_audit.csv",
+        "ckbm_candidate_selection.csv",
+        "ckbm_causal_source_state_audit.csv",
+        "ckbm_event_scope_audit.csv",
+        "ckbm_feature_input_audit.csv",
+        "ckbm_held_exclusion_audit.csv",
+        "ckbm_loss_curves.csv",
+        "ckbm_model_audit.csv",
+        "ckbm_negative_sampling_audit.csv",
+        "ckbm_per_attack_family_metrics.csv",
+        "ckbm_preprocessing_audit.csv",
+        "ckbm_role_usage_audit.csv",
+        "ckbm_support_family_training_usage.csv",
+        "ckbm_support_training_usage.csv",
+        "ckbm_training_weight_audit.csv",
+        "strict_level2_metrics.csv",
+        "strict_level2_summary.csv"
+      ],
+      "mode": "existing_completed_formal_tables_no_retraining",
+      "original_compute_commit_sha": "37b0fb4585d2634fa45fa2db31b1fead7bce886d",
+      "original_job_id": "151583",
+      "original_partition": "amd",
+      "reason": "Path.write_text newline keyword unsupported by frozen HPC Python after all scientific CSV writes",
+      "recovery_commit_sha": "1d25fc638691a58063087f86bac62caf9677d4c5"
+    },
+    "numpy": "2.0.1",
+    "pandas": "2.3.3",
+    "python": "3.9.25",
+    "report_extension_manifest_sha256": "862a9ae62622c001bdf1c1d9b2c524bc33c25351433599fdd8935fd6e5f2ffb1",
+    "review_rate": 0.0,
+    "seconds": 1398.0,
+    "seed": 27,
+    "sklearn": "1.6.1",
+    "slurm_job_id": "151583",
+    "slurm_partition": "amd",
+    "tabm": "0.0.3",
+    "tabm_hyperparameters": {
+      "batch_size": 512,
+      "blocks": 3,
+      "epochs": 48,
+      "independent_member_loss": true,
+      "k": 16,
+      "lr": 0.002,
+      "probability_ensemble_at_inference": true,
+      "weight_decay": 0.0003,
+      "width": 256
+    },
+    "torch": "2.5.1",
+    "vendor": {
+      "license": "Apache-2.0",
+      "license_sha256_lf": "24330ebf083bc17c1db833b0109ef6ffc9019449330e9e4ec9797c061185c7a6",
+      "numerical_embeddings": false,
+      "source_modified": false,
+      "tabm_py_sha256_lf": "fc654af6a16bac53d893a8265c79d7af4ebddcb95ad0d600cc6b6bc6b7317ade",
+      "upstream_commit": "a507095893d784c5702059d737ddfbd1299c41dd",
+      "version": "0.0.3"
+    }
+  },
+  "extension_audit": {
+    "event_schema": [
+      "log_packet_length",
+      "is_tcp",
+      "is_udp",
+      "is_icmp",
+      "destination_port_bucket",
+      "tcp_syn",
+      "tcp_ack",
+      "tcp_rst",
+      "tcp_fin"
+    ],
+    "extension_manifest": "report_only_extension_manifest_frozen.csv",
+    "extension_manifest_sha256": "862a9ae62622c001bdf1c1d9b2c524bc33c25351433599fdd8935fd6e5f2ffb1",
+    "input_audit": {
+      "attack_root": "/public/home/jiangxinwei.zr/work/paper04/datasets/gotham2025/derived/kitsune115_exact_label_targeted_attack_v1",
+      "cert_x_shape": [
+        1000000,
+        115
+      ],
+      "certified_complete_chunks": 93,
+      "input_hashes": {
+        "certified_chunk_manifest": "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+        "certified_subset_contract": "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf",
+        "feature_schema": "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+        "medium_selection": "68e9c2a1aef4ebde4095f873764247b12401e1c997802d89c3c794b9965e4f4a",
+        "support_sidecar": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da"
+      },
+      "support_rows": 512
+    },
+    "issue": "issue27ckbi_tgn_report_only_cache_extension_v1_2026-07-12",
+    "raw_label_column_read": false,
+    "recorded_target_index_sha256": "70becf37a4d8954c495d4077c3da7fefe16bbcedf1141ffd8a890a8ca40bf414",
+    "report_only_fit_select_exclusion_pass": true,
+    "source_count": 4,
+    "target_alignment_sha256": "21f6ed5120cbe3f9539b04d213a9a6ed68705c10342f2c47427a7a9baac697be",
+    "target_positions_complete": true,
+    "target_rows": 290445
+  },
+  "held_values": [
+    "iotsim-stream-consumer",
+    "iotsim-hydraulic-system",
+    "domotic-monitor",
+    "combined-cycle",
+    "iotsim-ip-camera-street"
+  ],
+  "input_audit": {
+    "formal_table_sha256": "e387feb4fa4fd0771a270d065908fd0b4376914744a3e4405962d451eac31032",
+    "models_retrained": false,
+    "recovered_from": "ckbm_feature_input_audit.csv",
+    "scientific_compute_reused": true
+  },
+  "issue": "issue27ckbm_tabm_causal_source_calibration_v1_2026-07-14",
+  "metadata_recovery": {
+    "formal_tables_verified_before_metadata_write": [
+      "attack_preservation_metrics.csv",
+      "attack_preservation_summary.csv",
+      "ckbm_all_metrics.csv",
+      "ckbm_c1_fit_select_audit.csv",
+      "ckbm_candidate_selection.csv",
+      "ckbm_causal_source_state_audit.csv",
+      "ckbm_event_scope_audit.csv",
+      "ckbm_feature_input_audit.csv",
+      "ckbm_held_exclusion_audit.csv",
+      "ckbm_loss_curves.csv",
+      "ckbm_model_audit.csv",
+      "ckbm_negative_sampling_audit.csv",
+      "ckbm_per_attack_family_metrics.csv",
+      "ckbm_preprocessing_audit.csv",
+      "ckbm_role_usage_audit.csv",
+      "ckbm_support_family_training_usage.csv",
+      "ckbm_support_training_usage.csv",
+      "ckbm_training_weight_audit.csv",
+      "strict_level2_metrics.csv",
+      "strict_level2_summary.csv"
+    ],
+    "mode": "existing_completed_formal_tables_no_retraining",
+    "original_compute_commit_sha": "37b0fb4585d2634fa45fa2db31b1fead7bce886d",
+    "original_job_id": "151583",
+    "original_partition": "amd",
+    "reason": "Path.write_text newline keyword unsupported by frozen HPC Python after all scientific CSV writes",
+    "recovery_commit_sha": "1d25fc638691a58063087f86bac62caf9677d4c5"
+  },
+  "mode": "formal",
+  "primary_candidate": "M3-TabM-CSR",
+  "report_inference": "label-free, no-grad for TabM, fresh source reset, score-before-update, past-only",
+  "report_used_for_fit_or_select": false,
+  "review_rate": 0.0,
+  "seed": 27,
+  "single_seed_scope": "go/no-go signal only",
+  "support_train_sampling": "coverage-first, equal attack-family occurrences, every legal row at least once per epoch",
+  "support_val_use": "threshold/gate selection only; no fitting or early stopping",
+  "t0_audit": {
+    "manifest_sha256": "b102b04347dd320f9f89a219285285866dbfa09e09bd73d0839cbe1a91bb0f67",
+    "models_retrained": false,
+    "recovered_from_completed_formal_compute": true
+  },
+  "untouched_final_claim_allowed": false
+}

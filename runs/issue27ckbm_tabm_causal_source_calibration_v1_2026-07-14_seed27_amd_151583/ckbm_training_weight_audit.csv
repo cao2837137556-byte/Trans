@@ -1,0 +1,115 @@
+label,balance_unit,group,unique_rows,sampled_occurrences_per_epoch,target_occurrences_per_attack_family,mandatory_full_coverage,family_balanced_sampling,unnormalized_group_mass,normalized_mean_weight,held_value,protocol_run,seed
+1,attack_family,File Download,15,60,60.0,True,True,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+1,attack_family,Ingress Tool Transfer,18,60,60.0,True,True,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+1,attack_family,Merlin C&C Communication,30,60,60.0,True,True,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+1,attack_family,Merlin ICMP Flooding,43,60,60.0,True,True,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+1,attack_family,Merlin TCP Flooding,60,60,60.0,True,True,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+1,attack_family,Merlin UDP Flooding,30,60,60.0,True,True,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+1,attack_family,Mirai C&C Communication,9,60,60.0,True,True,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+1,attack_family,Mirai GRE Flooding,60,60,60.0,True,True,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+1,attack_family,Mirai TCP Flooding,60,60,60.0,True,True,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+1,attack_family,Mirai UDP Flooding,60,60,60.0,True,True,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+0,benign_source,processed/iotsim-building-monitor-2.csv,598,598,,True,False,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+0,benign_source,processed/iotsim-building-monitor-3.csv,324,324,,True,False,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+0,benign_source,processed/iotsim-combined-cycle-tls-3.csv,270,270,,True,False,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+0,benign_source,processed/iotsim-combined-cycle-tls-4.csv,270,270,,True,False,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+0,benign_source,processed/iotsim-combined-cycle-tls-5.csv,269,269,,True,False,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+0,benign_source,processed/iotsim-cooler-motor-5.csv,3191,3191,,True,False,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+0,benign_source,processed/iotsim-hydraulic-system-1.csv,1353,1353,,True,False,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+0,benign_source,processed/iotsim-hydraulic-system-10.csv,869,869,,True,False,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+0,benign_source,processed/iotsim-hydraulic-system-11.csv,856,856,,True,False,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+0,benign_source,processed/iotsim-stream-consumer-1.csv,4000,4000,,True,False,0.05,1.0,GLOBAL_ATTACK_PRESERVATION,GLOBAL_ATTACK_PRESERVATION,27
+1,attack_family,File Download,15,60,60.0,True,True,0.05,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+1,attack_family,Ingress Tool Transfer,18,60,60.0,True,True,0.05,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+1,attack_family,Merlin C&C Communication,30,60,60.0,True,True,0.05,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+1,attack_family,Merlin ICMP Flooding,43,60,60.0,True,True,0.05,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+1,attack_family,Merlin TCP Flooding,60,60,60.0,True,True,0.05,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+1,attack_family,Merlin UDP Flooding,30,60,60.0,True,True,0.05,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+1,attack_family,Mirai C&C Communication,9,60,60.0,True,True,0.05,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+1,attack_family,Mirai GRE Flooding,60,60,60.0,True,True,0.05,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+1,attack_family,Mirai TCP Flooding,60,60,60.0,True,True,0.05,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+1,attack_family,Mirai UDP Flooding,60,60,60.0,True,True,0.05,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+0,benign_source,processed/iotsim-building-monitor-2.csv,598,598,,True,False,0.05555555555555555,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+0,benign_source,processed/iotsim-building-monitor-3.csv,324,324,,True,False,0.05555555555555555,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+0,benign_source,processed/iotsim-combined-cycle-tls-3.csv,270,270,,True,False,0.05555555555555555,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+0,benign_source,processed/iotsim-combined-cycle-tls-4.csv,270,270,,True,False,0.05555555555555555,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+0,benign_source,processed/iotsim-combined-cycle-tls-5.csv,269,269,,True,False,0.05555555555555555,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+0,benign_source,processed/iotsim-cooler-motor-5.csv,3191,3191,,True,False,0.05555555555555555,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+0,benign_source,processed/iotsim-hydraulic-system-1.csv,1353,1353,,True,False,0.05555555555555555,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+0,benign_source,processed/iotsim-hydraulic-system-10.csv,869,869,,True,False,0.05555555555555555,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+0,benign_source,processed/iotsim-hydraulic-system-11.csv,856,856,,True,False,0.05555555555555555,1.0,iotsim-stream-consumer,iotsim-stream-consumer,27
+1,attack_family,File Download,15,60,60.0,True,True,0.05,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+1,attack_family,Ingress Tool Transfer,18,60,60.0,True,True,0.05,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+1,attack_family,Merlin C&C Communication,30,60,60.0,True,True,0.05,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+1,attack_family,Merlin ICMP Flooding,43,60,60.0,True,True,0.05,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+1,attack_family,Merlin TCP Flooding,60,60,60.0,True,True,0.05,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+1,attack_family,Merlin UDP Flooding,30,60,60.0,True,True,0.05,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+1,attack_family,Mirai C&C Communication,9,60,60.0,True,True,0.05,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+1,attack_family,Mirai GRE Flooding,60,60,60.0,True,True,0.05,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+1,attack_family,Mirai TCP Flooding,60,60,60.0,True,True,0.05,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+1,attack_family,Mirai UDP Flooding,60,60,60.0,True,True,0.05,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+0,benign_source,processed/iotsim-building-monitor-2.csv,1690,1690,,True,False,0.07142857142857142,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+0,benign_source,processed/iotsim-building-monitor-3.csv,914,914,,True,False,0.07142857142857142,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+0,benign_source,processed/iotsim-combined-cycle-tls-3.csv,270,270,,True,False,0.07142857142857142,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+0,benign_source,processed/iotsim-combined-cycle-tls-4.csv,270,270,,True,False,0.07142857142857142,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+0,benign_source,processed/iotsim-combined-cycle-tls-5.csv,269,269,,True,False,0.07142857142857142,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+0,benign_source,processed/iotsim-cooler-motor-5.csv,3191,3191,,True,False,0.07142857142857142,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+0,benign_source,processed/iotsim-stream-consumer-1.csv,4000,4000,,True,False,0.07142857142857142,1.0,iotsim-hydraulic-system,iotsim-hydraulic-system,27
+1,attack_family,File Download,15,60,60.0,True,True,0.05,1.0,domotic-monitor,domotic-monitor,27
+1,attack_family,Ingress Tool Transfer,18,60,60.0,True,True,0.05,1.0,domotic-monitor,domotic-monitor,27
+1,attack_family,Merlin C&C Communication,30,60,60.0,True,True,0.05,1.0,domotic-monitor,domotic-monitor,27
+1,attack_family,Merlin ICMP Flooding,43,60,60.0,True,True,0.05,1.0,domotic-monitor,domotic-monitor,27
+1,attack_family,Merlin TCP Flooding,60,60,60.0,True,True,0.05,1.0,domotic-monitor,domotic-monitor,27
+1,attack_family,Merlin UDP Flooding,30,60,60.0,True,True,0.05,1.0,domotic-monitor,domotic-monitor,27
+1,attack_family,Mirai C&C Communication,9,60,60.0,True,True,0.05,1.0,domotic-monitor,domotic-monitor,27
+1,attack_family,Mirai GRE Flooding,60,60,60.0,True,True,0.05,1.0,domotic-monitor,domotic-monitor,27
+1,attack_family,Mirai TCP Flooding,60,60,60.0,True,True,0.05,1.0,domotic-monitor,domotic-monitor,27
+1,attack_family,Mirai UDP Flooding,60,60,60.0,True,True,0.05,1.0,domotic-monitor,domotic-monitor,27
+0,benign_source,processed/iotsim-building-monitor-2.csv,598,598,,True,False,0.05,1.0,domotic-monitor,domotic-monitor,27
+0,benign_source,processed/iotsim-building-monitor-3.csv,324,324,,True,False,0.05,1.0,domotic-monitor,domotic-monitor,27
+0,benign_source,processed/iotsim-combined-cycle-tls-3.csv,270,270,,True,False,0.05,1.0,domotic-monitor,domotic-monitor,27
+0,benign_source,processed/iotsim-combined-cycle-tls-4.csv,270,270,,True,False,0.05,1.0,domotic-monitor,domotic-monitor,27
+0,benign_source,processed/iotsim-combined-cycle-tls-5.csv,269,269,,True,False,0.05,1.0,domotic-monitor,domotic-monitor,27
+0,benign_source,processed/iotsim-cooler-motor-5.csv,3191,3191,,True,False,0.05,1.0,domotic-monitor,domotic-monitor,27
+0,benign_source,processed/iotsim-hydraulic-system-1.csv,1353,1353,,True,False,0.05,1.0,domotic-monitor,domotic-monitor,27
+0,benign_source,processed/iotsim-hydraulic-system-10.csv,869,869,,True,False,0.05,1.0,domotic-monitor,domotic-monitor,27
+0,benign_source,processed/iotsim-hydraulic-system-11.csv,856,856,,True,False,0.05,1.0,domotic-monitor,domotic-monitor,27
+0,benign_source,processed/iotsim-stream-consumer-1.csv,4000,4000,,True,False,0.05,1.0,domotic-monitor,domotic-monitor,27
+1,attack_family,Merlin C&C Communication,30,60,60.0,True,True,0.0625,1.0,combined-cycle,combined-cycle,27
+1,attack_family,Merlin ICMP Flooding,43,60,60.0,True,True,0.0625,1.0,combined-cycle,combined-cycle,27
+1,attack_family,Merlin TCP Flooding,60,60,60.0,True,True,0.0625,1.0,combined-cycle,combined-cycle,27
+1,attack_family,Merlin UDP Flooding,30,60,60.0,True,True,0.0625,1.0,combined-cycle,combined-cycle,27
+1,attack_family,Mirai C&C Communication,9,60,60.0,True,True,0.0625,1.0,combined-cycle,combined-cycle,27
+1,attack_family,Mirai GRE Flooding,60,60,60.0,True,True,0.0625,1.0,combined-cycle,combined-cycle,27
+1,attack_family,Mirai TCP Flooding,60,60,60.0,True,True,0.0625,1.0,combined-cycle,combined-cycle,27
+1,attack_family,Mirai UDP Flooding,60,60,60.0,True,True,0.0625,1.0,combined-cycle,combined-cycle,27
+0,benign_source,processed/iotsim-building-monitor-2.csv,598,598,,True,False,0.05,1.0,combined-cycle,combined-cycle,27
+0,benign_source,processed/iotsim-building-monitor-3.csv,324,324,,True,False,0.05,1.0,combined-cycle,combined-cycle,27
+0,benign_source,processed/iotsim-combined-cycle-tls-3.csv,270,270,,True,False,0.05,1.0,combined-cycle,combined-cycle,27
+0,benign_source,processed/iotsim-combined-cycle-tls-4.csv,270,270,,True,False,0.05,1.0,combined-cycle,combined-cycle,27
+0,benign_source,processed/iotsim-combined-cycle-tls-5.csv,269,269,,True,False,0.05,1.0,combined-cycle,combined-cycle,27
+0,benign_source,processed/iotsim-cooler-motor-5.csv,3191,3191,,True,False,0.05,1.0,combined-cycle,combined-cycle,27
+0,benign_source,processed/iotsim-hydraulic-system-1.csv,1353,1353,,True,False,0.05,1.0,combined-cycle,combined-cycle,27
+0,benign_source,processed/iotsim-hydraulic-system-10.csv,869,869,,True,False,0.05,1.0,combined-cycle,combined-cycle,27
+0,benign_source,processed/iotsim-hydraulic-system-11.csv,856,856,,True,False,0.05,1.0,combined-cycle,combined-cycle,27
+0,benign_source,processed/iotsim-stream-consumer-1.csv,4000,4000,,True,False,0.05,1.0,combined-cycle,combined-cycle,27
+1,attack_family,File Download,15,60,60.0,True,True,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+1,attack_family,Ingress Tool Transfer,18,60,60.0,True,True,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+1,attack_family,Merlin C&C Communication,30,60,60.0,True,True,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+1,attack_family,Merlin ICMP Flooding,43,60,60.0,True,True,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+1,attack_family,Merlin TCP Flooding,60,60,60.0,True,True,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+1,attack_family,Merlin UDP Flooding,30,60,60.0,True,True,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+1,attack_family,Mirai C&C Communication,9,60,60.0,True,True,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+1,attack_family,Mirai GRE Flooding,60,60,60.0,True,True,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+1,attack_family,Mirai TCP Flooding,60,60,60.0,True,True,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+1,attack_family,Mirai UDP Flooding,60,60,60.0,True,True,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+0,benign_source,processed/iotsim-building-monitor-2.csv,598,598,,True,False,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+0,benign_source,processed/iotsim-building-monitor-3.csv,324,324,,True,False,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+0,benign_source,processed/iotsim-combined-cycle-tls-3.csv,270,270,,True,False,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+0,benign_source,processed/iotsim-combined-cycle-tls-4.csv,270,270,,True,False,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+0,benign_source,processed/iotsim-combined-cycle-tls-5.csv,269,269,,True,False,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+0,benign_source,processed/iotsim-cooler-motor-5.csv,3191,3191,,True,False,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+0,benign_source,processed/iotsim-hydraulic-system-1.csv,1353,1353,,True,False,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+0,benign_source,processed/iotsim-hydraulic-system-10.csv,869,869,,True,False,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+0,benign_source,processed/iotsim-hydraulic-system-11.csv,856,856,,True,False,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27
+0,benign_source,processed/iotsim-stream-consumer-1.csv,4000,4000,,True,False,0.05,1.0,iotsim-ip-camera-street,iotsim-ip-camera-street,27

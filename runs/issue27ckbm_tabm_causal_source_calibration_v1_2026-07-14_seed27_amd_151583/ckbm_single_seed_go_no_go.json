@@ -1,0 +1,24 @@
+{
+  "candidate": "M3-TabM-CSR",
+  "checks": {
+    "causal_order_or_reset_contract_failed": false,
+    "gate_constraint_failed": false,
+    "hydraulic_worsened_over_2pp": false,
+    "major_attack_family_drop_over_2pp": true,
+    "overall_attack_drop_over_0_5pp": false,
+    "report_extension_used_in_fit_or_select": false,
+    "required_metrics_missing": false,
+    "review_not_zero": false,
+    "stream_signal_missing": true,
+    "support_usage_incomplete": false,
+    "target_alignment_incomplete": false
+  },
+  "decision": "NO_GO",
+  "development_canaries_not_untouched_final": true,
+  "hydraulic_c1_hard_rate": 1.0,
+  "hydraulic_ood_hard_rate": 0.4533333333333333,
+  "overall_attack_delta_pp": -0.4331079696783479,
+  "seed": 27,
+  "stream_c1_hard_rate": 1.0,
+  "stream_ood_hard_rate": 0.996
+}
