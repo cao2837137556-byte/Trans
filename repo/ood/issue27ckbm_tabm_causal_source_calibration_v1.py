@@ -911,6 +911,12 @@ def run_protocol(
     }
 
 
+def decision_bool_series(series: pd.Series, missing: bool) -> pd.Series:
+    replacement = "true" if missing else "false"
+    values = series.astype(object).where(series.notna(), replacement)
+    return ckbj.bool_series(values)
+
+
 def single_seed_decision(
     attack: pd.DataFrame,
     strict: pd.DataFrame,
@@ -944,8 +950,8 @@ def single_seed_decision(
     ]
     selected = selection.loc[
         selection.get("candidate", pd.Series(dtype=str)).eq(PRIMARY)
-        & ckbj.bool_series(
-            selection.get("selected", pd.Series(False, index=selection.index))
+        & decision_bool_series(
+            selection.get("selected", pd.Series(False, index=selection.index)), False
         )
     ]
     alignment_bad = bool(
@@ -956,15 +962,15 @@ def single_seed_decision(
     support_bad = bool(
         support.empty
         or "used_at_least_once_each_epoch" not in support
-        or not ckbj.bool_series(support["used_at_least_once_each_epoch"]).all()
+        or not decision_bool_series(support["used_at_least_once_each_epoch"], False).all()
     )
     causal_bad = bool(
         causal.empty
         or not pd.to_numeric(causal["score_before_update_records"], errors="coerce").eq(
             pd.to_numeric(causal["records"], errors="coerce")
         ).all()
-        or ckbj.bool_series(causal["label_read_for_state"]).any()
-        or ckbj.bool_series(causal["phase_state_crossing"]).any()
+        or decision_bool_series(causal["label_read_for_state"], True).any()
+        or decision_bool_series(causal["phase_state_crossing"], True).any()
     )
     missing = any(value is None for value in (overall_delta, stream, stream_c1, hydraulic, hydraulic_c1)) or major.empty
     checks = {
@@ -975,7 +981,7 @@ def single_seed_decision(
         "hydraulic_worsened_over_2pp": hydraulic is None or hydraulic_c1 is None or hydraulic > hydraulic_c1 + 0.02,
         "gate_constraint_failed": selected.empty or not selected.get(
             "gate_constraint_pass", pd.Series(False, index=selected.index)
-        ).pipe(ckbj.bool_series).all(),
+        ).pipe(decision_bool_series, False).all(),
         "report_extension_used_in_fit_or_select": not bool(extension_ok),
         "target_alignment_incomplete": alignment_bad,
         "support_usage_incomplete": support_bad,
@@ -1405,7 +1411,10 @@ def contract_unit(args: argparse.Namespace) -> None:
             ]
         ),
         "selection": pd.DataFrame(
-            [{"candidate": PRIMARY, "selected": True, "gate_constraint_pass": True}]
+            [
+                {"candidate": PRIMARY, "selected": True, "gate_constraint_pass": True},
+                {"candidate": PRIMARY, "selected": np.nan, "gate_constraint_pass": np.nan},
+            ]
         ),
         "data": pd.DataFrame([{"target_alignment_incomplete": 0}]),
         "support": pd.DataFrame([{"used_at_least_once_each_epoch": True}]),

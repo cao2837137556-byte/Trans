@@ -39,6 +39,14 @@ the existing scientific tables pass the formal validator and are pulled back.
   commit/hash and state explicitly that models were not retrained.
 - Run the existing full formal validator and create the normal pullback archive.
 
+The first `r2` recovery attempt stopped before writing any metadata because
+unselected threshold rows are serialized with an empty `selected` field.  The
+strict CSV boolean parser correctly rejected that unclassified `NaN`, but the
+recovery contract had not yet assigned its intended meaning.  `r3` now treats
+missing `selected`, gate, and support-use flags as false, while missing causal
+violation flags remain conservatively true.  Contract-unit covers this exact
+CSV round trip.
+
 The recovery script is specific to AMD job `151583`.  It submits no Slurm job,
 does not retrain or rescore a model, does not modify any frozen cache or split,
 and does not use report labels for fit/select.  A recovered result is an urgent
