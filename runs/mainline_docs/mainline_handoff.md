@@ -80,10 +80,15 @@ calibration view against global TabM and ExtraTrees controls.  The exact
 support-val attack-retention frontier, full 385-row family-balanced supervision,
 held-family/source exclusion, report-only isolation, review=0, and independent
 AMD/Intel outputs are implemented.  Two real fit-only local runs are exactly
-reproducible and use zero report/canary rows.  No CKBM HPC job has been submitted
-and there is no CKBM performance claim yet.  See
+reproducible and use zero report/canary rows.  AMD job `151583` completed its
+scientific CSV computation but failed before validation at the first final JSON
+write because the frozen Python rejects `Path.write_text(newline=...)`; Intel
+job `151584` was cancelled.  A metadata-only, no-retraining recovery is prepared,
+but there is no CKBM performance claim until its tables pass the formal validator
+and are pulled back.  See
 `ckbm_tabm_causal_source_calibration_prereg_20260714.md` and
-`ckbm_local_implementation_and_smoke_20260714.md`.
+`ckbm_local_implementation_and_smoke_20260714.md`, plus
+`ckbm_amd151583_metadata_recovery_20260714.md`.
 
 ### Maintenance Protocol
 

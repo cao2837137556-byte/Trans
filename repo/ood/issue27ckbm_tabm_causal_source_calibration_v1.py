@@ -23,6 +23,7 @@ import pickle
 import platform
 import subprocess
 import sys
+import tempfile
 import time
 from collections import Counter, defaultdict
 from dataclasses import dataclass, replace
@@ -109,12 +110,20 @@ def json_ready(value: Any) -> Any:
     return value
 
 
+def write_text_lf(path: Path, text: str) -> None:
+    """Write deterministic LF text on every supported Python version.
+
+    Path.write_text only gained its ``newline`` argument in newer Python
+    releases than the frozen HPC runtime.  Path.open has supported newline
+    control throughout the supported runtime range, so keep the compatibility
+    boundary in one tested helper.
+    """
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(text)
+
+
 def dump_json(path: Path, payload: Any) -> None:
-    path.write_text(
-        json.dumps(json_ready(payload), indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
+    write_text_lf(path, json.dumps(json_ready(payload), indent=2, sort_keys=True) + "\n")
 
 
 def sha256_file_lf(path: Path) -> str:
@@ -935,7 +944,9 @@ def single_seed_decision(
     ]
     selected = selection.loc[
         selection.get("candidate", pd.Series(dtype=str)).eq(PRIMARY)
-        & selection.get("selected", pd.Series(False, index=selection.index)).fillna(False).astype(bool)
+        & ckbj.bool_series(
+            selection.get("selected", pd.Series(False, index=selection.index))
+        )
     ]
     alignment_bad = bool(
         data_audit.empty
@@ -945,15 +956,15 @@ def single_seed_decision(
     support_bad = bool(
         support.empty
         or "used_at_least_once_each_epoch" not in support
-        or not support["used_at_least_once_each_epoch"].fillna(False).astype(bool).all()
+        or not ckbj.bool_series(support["used_at_least_once_each_epoch"]).all()
     )
     causal_bad = bool(
         causal.empty
         or not pd.to_numeric(causal["score_before_update_records"], errors="coerce").eq(
             pd.to_numeric(causal["records"], errors="coerce")
         ).all()
-        or causal["label_read_for_state"].fillna(True).astype(bool).any()
-        or causal["phase_state_crossing"].fillna(True).astype(bool).any()
+        or ckbj.bool_series(causal["label_read_for_state"]).any()
+        or ckbj.bool_series(causal["phase_state_crossing"]).any()
     )
     missing = any(value is None for value in (overall_delta, stream, stream_c1, hydraulic, hydraulic_c1)) or major.empty
     checks = {
@@ -964,7 +975,7 @@ def single_seed_decision(
         "hydraulic_worsened_over_2pp": hydraulic is None or hydraulic_c1 is None or hydraulic > hydraulic_c1 + 0.02,
         "gate_constraint_failed": selected.empty or not selected.get(
             "gate_constraint_pass", pd.Series(False, index=selected.index)
-        ).fillna(False).astype(bool).all(),
+        ).pipe(ckbj.bool_series).all(),
         "report_extension_used_in_fit_or_select": not bool(extension_ok),
         "target_alignment_incomplete": alignment_bad,
         "support_usage_incomplete": support_bad,
@@ -1041,6 +1052,232 @@ def prepare_formal_inputs(args: argparse.Namespace, out: Path) -> tuple[Any, ...
     pd.DataFrame(family_contract).to_csv(out / "ckbm_source_family_contract.csv", index=False)
     pd.DataFrame(ckbj.support_val_lineage(frames)).to_csv(out / "ckbm_support_val_lineage.csv", index=False)
     return x_by_role, frames, input_audit, t0, t0_audit, extension_audit, c1_audit
+
+
+def finalize_formal_metadata(
+    args: argparse.Namespace,
+    out: Path,
+    output_files: dict[str, pd.DataFrame],
+    input_audit: dict[str, Any],
+    t0_audit: dict[str, Any],
+    extension_audit: dict[str, Any],
+    c1_extension_audit: dict[str, Any],
+    vendor: dict[str, Any],
+    started: float,
+    recovery: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    extension_ok = bool(
+        extension_audit["report_only_fit_select_exclusion_pass"]
+        and c1_extension_audit["report_only_fit_select_exclusion_pass"]
+    )
+    decision = single_seed_decision(
+        output_files["attack_preservation_summary.csv"],
+        output_files["strict_level2_summary.csv"],
+        output_files["ckbm_candidate_selection.csv"],
+        output_files["ckbm_role_usage_audit.csv"],
+        output_files["ckbm_support_training_usage.csv"],
+        output_files["ckbm_causal_source_state_audit.csv"],
+        extension_ok,
+    )
+    dump_json(out / "ckbm_single_seed_go_no_go.json", decision)
+    manifest = Path(args.t0_root) / "tgn_source_event_plan_frozen.csv"
+    manifest_hash = hashlib.sha256(manifest.read_bytes()).hexdigest()
+    default_seconds = time.time() - started
+    seconds = float(os.environ.get("CKBM_ORIGINAL_WALL_SECONDS", default_seconds))
+    environment = {
+        "python": platform.python_version(),
+        "numpy": np.__version__,
+        "pandas": pd.__version__,
+        "sklearn": sklearn.__version__,
+        "torch": torch.__version__,
+        "tabm": tabm.__version__,
+        "seed": int(args.seed),
+        "commit_sha": os.environ.get("CKBM_COMMIT_SHA", git_head()),
+        "slurm_job_id": os.environ.get("SLURM_JOB_ID", "local"),
+        "slurm_partition": os.environ.get("SLURM_JOB_PARTITION", "local"),
+        "seconds": seconds,
+        "review_rate": 0.0,
+        "base_manifest_sha256": manifest_hash,
+        "expected_base_manifest_sha256": EXPECTED_T0_MANIFEST_SHA256,
+        "report_extension_manifest_sha256": extension_audit["extension_manifest_sha256"],
+        "c1_report_extension_manifest_sha256": c1_extension_audit["manifest_sha256"],
+        "vendor": vendor,
+        "tabm_hyperparameters": {
+            "k": int(args.tabm_k),
+            "width": int(args.tabm_width),
+            "blocks": int(args.tabm_blocks),
+            "epochs": int(args.epochs),
+            "batch_size": int(args.batch_size),
+            "lr": 0.002,
+            "weight_decay": 0.0003,
+            "probability_ensemble_at_inference": True,
+            "independent_member_loss": True,
+        },
+    }
+    if recovery is not None:
+        environment["metadata_recovery"] = recovery
+    dump_json(out / "ckbm_environment.json", environment)
+    requested = [value.strip() for value in args.held_values.split(",") if value.strip()]
+    run_spec = {
+        "issue": ISSUE,
+        "mode": "formal",
+        "seed": int(args.seed),
+        "held_values": requested,
+        "primary_candidate": PRIMARY,
+        "candidates": [spec.__dict__ for spec in BACKENDS],
+        "input_audit": input_audit,
+        "t0_audit": t0_audit,
+        "extension_audit": extension_audit,
+        "c1_extension_audit": c1_extension_audit,
+        "report_used_for_fit_or_select": False,
+        "report_inference": "label-free, no-grad for TabM, fresh source reset, score-before-update, past-only",
+        "support_val_use": "threshold/gate selection only; no fitting or early stopping",
+        "support_train_sampling": "coverage-first, equal attack-family occurrences, every legal row at least once per epoch",
+        "review_rate": 0.0,
+        "development_canaries": ["iotsim-stream-consumer", "iotsim-hydraulic-system"],
+        "untouched_final_claim_allowed": False,
+        "single_seed_scope": "go/no-go signal only",
+        "environment": environment,
+    }
+    if recovery is not None:
+        run_spec["metadata_recovery"] = recovery
+    dump_json(out / "run_spec.json", run_spec)
+    recovery_note = " Metadata was recovered without retraining." if recovery is not None else ""
+    write_text_lf(
+        out / "codex_readout.md",
+        f"# {ISSUE}\n\nSeed 27 formal result completed. Primary decision: "
+        f"`{decision['decision']}` for `{PRIMARY}`. Review is fixed at `0`."
+        f"{recovery_note}\n",
+    )
+    return decision
+
+
+def finalize_existing(args: argparse.Namespace) -> None:
+    """Finish metadata for a run whose scientific CSVs were already written.
+
+    This mode exists for the seed-27 AMD run that completed all protocol
+    training and metric CSV writes before the legacy Python runtime rejected a
+    Path.write_text(newline=...) call.  It never trains or scores a model.
+    """
+    started = time.time()
+    out = Path(args.out)
+    if int(args.seed) != 27:
+        raise RuntimeError("metadata recovery is restricted to preregistered seed 27")
+    if not out.is_dir():
+        raise RuntimeError(f"missing existing formal output directory: {out}")
+    metadata_outputs = [
+        out / "ckbm_single_seed_go_no_go.json",
+        out / "ckbm_environment.json",
+        out / "run_spec.json",
+        out / "codex_readout.md",
+    ]
+    existing_metadata = [path.name for path in metadata_outputs if path.exists()]
+    if existing_metadata:
+        raise RuntimeError(f"refusing to overwrite existing formal metadata: {existing_metadata}")
+    required_tables = (
+        "ckbm_c1_fit_select_audit.csv",
+        "ckbm_role_usage_audit.csv",
+        "ckbm_held_exclusion_audit.csv",
+        "ckbm_feature_input_audit.csv",
+        "ckbm_causal_source_state_audit.csv",
+        "ckbm_preprocessing_audit.csv",
+        "ckbm_training_weight_audit.csv",
+        "ckbm_model_audit.csv",
+        "ckbm_event_scope_audit.csv",
+        "ckbm_support_training_usage.csv",
+        "ckbm_support_family_training_usage.csv",
+        "ckbm_loss_curves.csv",
+        "ckbm_candidate_selection.csv",
+        "ckbm_all_metrics.csv",
+        "ckbm_per_attack_family_metrics.csv",
+        "attack_preservation_summary.csv",
+        "strict_level2_summary.csv",
+        "ckbm_negative_sampling_audit.csv",
+        "attack_preservation_metrics.csv",
+        "strict_level2_metrics.csv",
+    )
+    output_files: dict[str, pd.DataFrame] = {}
+    for name in required_tables:
+        path = out / name
+        if not path.is_file() or path.stat().st_size == 0:
+            raise RuntimeError(f"missing completed formal table: {path}")
+        table = pd.read_csv(path)
+        if table.empty:
+            raise RuntimeError(f"empty completed formal table: {path}")
+        if "seed" in table and not pd.to_numeric(table["seed"], errors="coerce").eq(27).all():
+            raise RuntimeError(f"non-seed-27 row in completed formal table: {name}")
+        output_files[name] = table
+    selection = output_files["ckbm_candidate_selection.csv"]
+    expected_scopes = {"GLOBAL_ATTACK_PRESERVATION", *[value.strip() for value in args.held_values.split(",") if value.strip()]}
+    actual_scopes = set(selection["held_value"].astype(str))
+    if actual_scopes != expected_scopes:
+        raise RuntimeError(
+            f"completed protocol scopes differ: expected={sorted(expected_scopes)} actual={sorted(actual_scopes)}"
+        )
+    live_path = out / "ckbm_live_report_extension_fit_select_exclusion.csv"
+    if not live_path.is_file():
+        raise RuntimeError(f"missing live report exclusion audit: {live_path}")
+    live = pd.read_csv(live_path)
+    required_zero = live.loc[live.get("required_zero", pd.Series(dtype=object)).notna()]
+    if required_zero.empty or int(pd.to_numeric(required_zero["extension_source_rows_used"]).sum()) != 0:
+        raise RuntimeError("report-only extension entered fit/select in completed compute")
+    extension_audit = json.loads(
+        (Path(args.report_t0_extension) / "extension_ready.json").read_text(encoding="utf-8")
+    )
+    c1_extension_audit = json.loads(
+        (Path(args.c1_report_extension) / "c1_report_extension_ready.json").read_text(encoding="utf-8")
+    )
+    if not bool(extension_audit.get("report_only_fit_select_exclusion_pass")):
+        raise RuntimeError("TGN report extension isolation is not certified")
+    if not bool(c1_extension_audit.get("report_only_fit_select_exclusion_pass")):
+        raise RuntimeError("C1 report extension isolation is not certified")
+    manifest = Path(args.t0_root) / "tgn_source_event_plan_frozen.csv"
+    manifest_hash = hashlib.sha256(manifest.read_bytes()).hexdigest()
+    if manifest_hash != EXPECTED_T0_MANIFEST_SHA256:
+        raise RuntimeError("frozen CKBE manifest changed before metadata recovery")
+    recovery = {
+        "mode": "existing_completed_formal_tables_no_retraining",
+        "reason": "Path.write_text newline keyword unsupported by frozen HPC Python after all scientific CSV writes",
+        "original_compute_commit_sha": os.environ.get("CKBM_COMMIT_SHA", "unknown"),
+        "recovery_commit_sha": os.environ.get("CKBM_RECOVERY_COMMIT_SHA", git_head()),
+        "original_job_id": os.environ.get("SLURM_JOB_ID", "unknown"),
+        "original_partition": os.environ.get("SLURM_JOB_PARTITION", "unknown"),
+        "formal_tables_verified_before_metadata_write": sorted(required_tables),
+    }
+    input_audit = {
+        "recovered_from": "ckbm_feature_input_audit.csv",
+        "formal_table_sha256": hashlib.sha256((out / "ckbm_feature_input_audit.csv").read_bytes()).hexdigest(),
+        "scientific_compute_reused": True,
+        "models_retrained": False,
+    }
+    t0_audit = {
+        "recovered_from_completed_formal_compute": True,
+        "manifest_sha256": manifest_hash,
+        "models_retrained": False,
+    }
+    decision = finalize_formal_metadata(
+        args,
+        out,
+        output_files,
+        input_audit,
+        t0_audit,
+        extension_audit,
+        c1_extension_audit,
+        validate_vendor(),
+        started,
+        recovery,
+    )
+    print(
+        json.dumps(
+            {
+                "status": "CKBM_EXISTING_FORMAL_METADATA_COMPLETE",
+                "out": str(out),
+                "decision": decision["decision"],
+                "models_retrained": False,
+            },
+            indent=2,
+        )
+    )
 
 
 def run_formal(args: argparse.Namespace) -> None:
@@ -1130,86 +1367,66 @@ def run_formal(args: argparse.Namespace) -> None:
     metrics.loc[metrics["protocol"].eq("strict_leave")].to_csv(
         out / "strict_level2_metrics.csv", index=False
     )
-    extension_ok = bool(
-        extension_audit["report_only_fit_select_exclusion_pass"]
-        and c1_extension_audit["report_only_fit_select_exclusion_pass"]
-    )
-    decision = single_seed_decision(
-        output_files["attack_preservation_summary.csv"],
-        output_files["strict_level2_summary.csv"],
-        output_files["ckbm_candidate_selection.csv"],
-        output_files["ckbm_role_usage_audit.csv"],
-        output_files["ckbm_support_training_usage.csv"],
-        output_files["ckbm_causal_source_state_audit.csv"],
-        extension_ok,
-    )
-    dump_json(out / "ckbm_single_seed_go_no_go.json", decision)
-    manifest = Path(args.t0_root) / "tgn_source_event_plan_frozen.csv"
-    manifest_hash = hashlib.sha256(manifest.read_bytes()).hexdigest()
-    environment = {
-        "python": platform.python_version(),
-        "numpy": np.__version__,
-        "pandas": pd.__version__,
-        "sklearn": sklearn.__version__,
-        "torch": torch.__version__,
-        "tabm": tabm.__version__,
-        "seed": int(args.seed),
-        "commit_sha": os.environ.get("CKBM_COMMIT_SHA", git_head()),
-        "slurm_job_id": os.environ.get("SLURM_JOB_ID", "local"),
-        "slurm_partition": os.environ.get("SLURM_JOB_PARTITION", "local"),
-        "seconds": time.time() - started,
-        "review_rate": 0.0,
-        "base_manifest_sha256": manifest_hash,
-        "expected_base_manifest_sha256": EXPECTED_T0_MANIFEST_SHA256,
-        "report_extension_manifest_sha256": extension_audit["extension_manifest_sha256"],
-        "c1_report_extension_manifest_sha256": c1_extension_audit["manifest_sha256"],
-        "vendor": vendor,
-        "tabm_hyperparameters": {
-            "k": int(args.tabm_k),
-            "width": int(args.tabm_width),
-            "blocks": int(args.tabm_blocks),
-            "epochs": int(args.epochs),
-            "batch_size": int(args.batch_size),
-            "lr": 0.002,
-            "weight_decay": 0.0003,
-            "probability_ensemble_at_inference": True,
-            "independent_member_loss": True,
-        },
-    }
-    dump_json(out / "ckbm_environment.json", environment)
-    run_spec = {
-        "issue": ISSUE,
-        "mode": "formal",
-        "seed": int(args.seed),
-        "held_values": requested,
-        "primary_candidate": PRIMARY,
-        "candidates": [spec.__dict__ for spec in BACKENDS],
-        "input_audit": input_audit,
-        "t0_audit": t0_audit,
-        "extension_audit": extension_audit,
-        "c1_extension_audit": c1_extension_audit,
-        "report_used_for_fit_or_select": False,
-        "report_inference": "label-free, no-grad for TabM, fresh source reset, score-before-update, past-only",
-        "support_val_use": "threshold/gate selection only; no fitting or early stopping",
-        "support_train_sampling": "coverage-first, equal attack-family occurrences, every legal row at least once per epoch",
-        "review_rate": 0.0,
-        "development_canaries": ["iotsim-stream-consumer", "iotsim-hydraulic-system"],
-        "untouched_final_claim_allowed": False,
-        "single_seed_scope": "go/no-go signal only",
-        "environment": environment,
-    }
-    dump_json(out / "run_spec.json", run_spec)
-    (out / "codex_readout.md").write_text(
-        f"# {ISSUE}\n\nSeed 27 formal result completed. Primary decision: "
-        f"`{decision['decision']}` for `{PRIMARY}`. Review is fixed at `0`.\n",
-        encoding="utf-8",
-        newline="\n",
+    decision = finalize_formal_metadata(
+        args,
+        out,
+        output_files,
+        input_audit,
+        t0_audit,
+        extension_audit,
+        c1_extension_audit,
+        vendor,
+        started,
     )
     print(json.dumps({"status": "CKBM_FORMAL_COMPLETE", "out": str(out), "decision": decision["decision"]}, indent=2))
 
 
 def contract_unit(args: argparse.Namespace) -> None:
     vendor = validate_vendor()
+    with tempfile.TemporaryDirectory(prefix="ckbm_write_contract_") as temp_root:
+        temp_path = Path(temp_root) / "compat.json"
+        dump_json(temp_path, {"status": "pass", "seed": int(args.seed)})
+        raw = temp_path.read_bytes()
+        assert raw.endswith(b"\n") and b"\r\n" not in raw
+        assert json.loads(raw.decode("utf-8"))["status"] == "pass"
+    decision_tables = {
+        "attack": pd.DataFrame(
+            [
+                {"candidate": PRIMARY, "metric": "overall_attack_hard_recall", "delta_vs_c1_pp": 0.0, "rows": 100, "review_rate": 0.0},
+                {"candidate": PRIMARY, "metric": "attack_family_recall", "delta_vs_c1_pp": 0.0, "rows": 15, "review_rate": 0.0},
+            ]
+        ),
+        "strict": pd.DataFrame(
+            [
+                {"candidate": PRIMARY, "held_value": "iotsim-stream-consumer", "hard_rate": 0.8, "review_rate": 0.0},
+                {"candidate": "M0-C1", "held_value": "iotsim-stream-consumer", "hard_rate": 1.0, "review_rate": 0.0},
+                {"candidate": PRIMARY, "held_value": "iotsim-hydraulic-system", "hard_rate": 0.5, "review_rate": 0.0},
+                {"candidate": "M0-C1", "held_value": "iotsim-hydraulic-system", "hard_rate": 0.5, "review_rate": 0.0},
+            ]
+        ),
+        "selection": pd.DataFrame(
+            [{"candidate": PRIMARY, "selected": True, "gate_constraint_pass": True}]
+        ),
+        "data": pd.DataFrame([{"target_alignment_incomplete": 0}]),
+        "support": pd.DataFrame([{"used_at_least_once_each_epoch": True}]),
+        "causal": pd.DataFrame(
+            [{"records": 1, "score_before_update_records": 1, "label_read_for_state": False, "phase_state_crossing": False}]
+        ),
+    }
+    before_roundtrip = single_seed_decision(
+        decision_tables["attack"], decision_tables["strict"], decision_tables["selection"],
+        decision_tables["data"], decision_tables["support"], decision_tables["causal"], True,
+    )
+    roundtripped = {
+        key: pd.read_csv(io.StringIO(table.to_csv(index=False)))
+        for key, table in decision_tables.items()
+    }
+    after_roundtrip = single_seed_decision(
+        roundtripped["attack"], roundtripped["strict"], roundtripped["selection"],
+        roundtripped["data"], roundtripped["support"], roundtripped["causal"], True,
+    )
+    assert before_roundtrip == after_roundtrip
+    assert after_roundtrip["decision"] == "GO_SIGNAL"
     torch.manual_seed(int(args.seed))
     model = tabm.TabM.make(n_num_features=7, d_out=2, k=4, n_blocks=2, d_block=16)
     logits = model(torch.randn(5, 7))
@@ -1425,7 +1642,11 @@ def dry_run(args: argparse.Namespace) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mode", choices=["contract-unit", "fit-smoke", "dry-run", "formal"], default="dry-run")
+    parser.add_argument(
+        "--mode",
+        choices=["contract-unit", "fit-smoke", "dry-run", "formal", "finalize-existing"],
+        default="dry-run",
+    )
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     parser.add_argument("--seed", type=int, default=SEED)
     parser.add_argument("--held-values", default=",".join(HELD))
@@ -1458,6 +1679,8 @@ def main() -> None:
         fit_smoke(args)
     elif args.mode == "formal":
         run_formal(args)
+    elif args.mode == "finalize-existing":
+        finalize_existing(args)
     else:
         dry_run(args)
 
