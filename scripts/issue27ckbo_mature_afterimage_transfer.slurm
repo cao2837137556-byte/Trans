@@ -16,6 +16,7 @@ COMMIT_SHA=${CKBO_COMMIT_SHA:?missing CKBO_COMMIT_SHA}
 SCRIPT_SHA256=${CKBO_SCRIPT_SHA256:?missing CKBO_SCRIPT_SHA256}
 DEPENDENCY_SHA256=${CKBO_DEPENDENCY_SHA256:?missing CKBO_DEPENDENCY_SHA256}
 RUN_ROOT="$BASE/runs/issue27ckbo_mature_afterimage_transfer_v1_2026-07-15_seed27_${PARTITION}_${JOB_ID}"
+AUX_REUSE_ROOT=${CKBO_AUX_REUSE_ROOT:-}
 
 test -d "$BASE" || { echo "missing project directory: $BASE" >&2; exit 2; }
 test -s "$BASE/scripts/00_env_issue27ckc.sh" || { echo "missing validated environment script" >&2; exit 2; }
@@ -31,6 +32,15 @@ test "$(sha256sum "$BASE/runs/mainline_docs/ckbo_dependency_sha256_20260715.txt"
 test ! -e "$RUN_ROOT" || { echo "refusing to mix existing run root: $RUN_ROOT" >&2; exit 2; }
 
 mkdir -p "$RUN_ROOT"
+if test -n "$AUX_REUSE_ROOT"; then
+  test -d "$AUX_REUSE_ROOT/aux_afterimage_cache" || { echo "missing reusable auxiliary cache: $AUX_REUSE_ROOT" >&2; exit 2; }
+  test -s "$AUX_REUSE_ROOT/ckbo_auxiliary_benign_manifest.csv" || { echo "missing reusable auxiliary manifest" >&2; exit 2; }
+  test -s "$AUX_REUSE_ROOT/ckbo_auxiliary_benign_ready.json" || { echo "missing reusable auxiliary ready marker" >&2; exit 2; }
+  cp -a "$AUX_REUSE_ROOT/aux_afterimage_cache" "$RUN_ROOT/"
+  cp "$AUX_REUSE_ROOT/ckbo_auxiliary_benign_manifest.csv" "$RUN_ROOT/"
+  cp "$AUX_REUSE_ROOT/ckbo_auxiliary_benign_ready.json" "$RUN_ROOT/"
+  echo "CKBO_REUSED_AUXILIARY_CACHE=$AUX_REUSE_ROOT"
+fi
 started_epoch=$(date +%s)
 started_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 heartbeat_pid=""
@@ -92,7 +102,7 @@ python -u repo/ood/issue27ckbo_mature_afterimage_transfer_v1.py \
   --epochs 32 \
   --train-cap 4000 \
   --eval-cap 3000 \
-  --aux-rows-per-source 2000 \
+  --aux-rows-per-source 600 \
   --out "$RUN_ROOT"
 
 ended_epoch=$(date +%s)

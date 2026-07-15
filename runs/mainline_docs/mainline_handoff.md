@@ -102,15 +102,29 @@ hard rate remains `100%`. This narrows the claim to the current representation,
 legal fit diversity, and probe; it does not prove that raw traffic has no
 transferable information. CKBN is diagnostic evidence, not a detector result.
 
-CKBO is the next preregistered result experiment and is implemented but not yet
-run. It reuses the mature vendored Kitsune/AfterImage 115D frontend and official
-TabM, adds only a deterministic multiscale contrast view, and materializes a
-separate 15-source predictive-maintenance benign extension (10 source-disjoint
-fit, 5 select). The original strict 1M split and frozen T0 manifests remain
-unchanged. Stream, hydraulic, and cooler are permanently excluded from every
-fit/select/preprocessing/gate scope. A positive seed-27 result additionally
-requires improvement across legal benign held rotations, so success cannot be
-declared from one named report canary. See
+CKBO AMD job `151772` is an execution failure, not a scientific result.  It
+stopped before C1 fitting because permanent multi-family exclusion shifted the
+linspace-capped row identities outside the immutable CKAT cache.  A real local
+1M replay also proved that zero legal original benign-select rows remain after
+all permanent canaries are removed.  No model/report metric was opened and the
+sealed cooler-motor final remains unopened.
+
+The corrected CKBO implementation retains mature vendored Kitsune/AfterImage
+115D, official TabM, seed 27, and the deterministic multiscale contrast.  It
+restricts fit/select to the immutable C1-target/T0-target intersection, freezes
+a support-val attack-only recall-first C1 candidate threshold, and never fills
+missing features.  A strengthened raw-PCAP extension uses 11 fit plus 5
+source-disjoint select sources from known non-canary families, while all 15
+predictive-maintenance sources become a second unseen development-held family.
+The real local audit passed 385 support-train, 69 legal support-val, 3,413
+original benign fit, zero permanent-canary use, zero auxiliary overlap, and a
+31-source 6,600/3,000/9,000 fit/select/report materialization.  Seed 27 remains
+pending; success now requires five-point improvement on both ip-camera-street
+and predictive-maintenance plus the stream/hydraulic and attack-preservation
+gates.  Final pre-submit review additionally aligned the formal 600-row/source
+argument with validation, added a legal attack-only gate for no-aux ablations,
+and structurally excluded sealed OOD from the global attack pass.  See
+`ckbo_job151772_failure_and_scope_fix_20260715.md` and the amended
 `ckbo_mature_afterimage_transfer_prereg_20260715.md`.
 
 ### Maintenance Protocol
@@ -219,7 +233,7 @@ without admitting report families into any selection scope.
 
 ### Current Next Action
 
-Run CKBO seed 27 once on independent AMD and Intel paths, using the first valid
+Run the corrected CKBO seed 27 once on independent AMD and Intel paths, using the first valid
 completion and stopping the other copy manually if convenient. Do not add seeds
 37/47 unless the preregistered legal multi-held, stream, hydraulic, and attack
 preservation gates jointly return a real `GO_SIGNAL`. If CKBO is `NO_GO`, use
@@ -230,12 +244,12 @@ tune on report-family labels.
 ### Latest Compact Close-out
 
 ```text
-solved: CKBN isolated the stream failure to the current representation/diversity/probe rather than a simple threshold-only defect; CKBO implementation and preregistration are complete.
+solved: CKBN isolated the stream failure to the current representation/diversity/probe; CKBO job 151772 exposed and closed the shifted-cache, absent-benign-select, and single-held protocol defects before producing metrics.
 changed_mainline: yes, the next route is mature AfterImage plus legal benign diversity and a constrained TabM verifier; no CKBO performance claim exists yet.
-active_blocker: seed-27 CKBO must show legal multi-held transfer, stream suppression, hydraulic non-regression, and attack preservation together.
-frozen: original strict 1M split, 385/69 support roles, base T0 manifests, permanent report-only canaries, review=0, and source/episode inference units.
+active_blocker: corrected seed-27 CKBO must show two-family held transfer, stream suppression, hydraulic non-regression, and attack preservation together.
+frozen: original strict 1M split, 385/69 support roles, base T0 manifests, immutable target-cohort intersection, permanent report-only canaries, cooler sealed, review=0, and source/episode inference units.
 superseded: rerunning the same TGN/GraphMixer/CSR route, C1-only threshold repair, and report-family-specific tuning.
-next_action: submit the paired independent CKBO AMD/Intel result jobs and validate the first completion.
+next_action: publish the corrected CKBO bundle, submit the paired independent AMD/Intel result jobs, and validate the first completion.
 ```
 
 ### Decision Log

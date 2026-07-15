@@ -2642,7 +2642,9 @@ marker: `issue27cb_broader_attack_support_candidate_contract_2026-06-14`
 
 ## issue27ckbo mature AfterImage transfer
 
-- status: implementation and seed-27 preregistration complete; no formal result yet.
-- route: frozen C1 anchor plus mature AfterImage115/TabM verifier, deterministic multiscale ablation, and a separate 15-source predictive-maintenance benign extension.
-- guardrails: original strict 1M and frozen T0 manifests unchanged; stream, hydraulic, and cooler have zero fit/select use; review=0; legal benign multi-held improvement is required before a report-canary GO.
-- next: one independent AMD and Intel seed-27 submission; stop after the first valid result and do not expand seeds without GO_SIGNAL.
+- status: AMD job 151772 failed before model fitting or metrics; this is not a scientific result. Corrected seed 27 remains pending.
+- failure: permanent multi-family exclusion shifted capped identities outside the immutable C1 cache; real audit also found zero legal original benign-select rows and only one non-canary held OOD family.
+- corrected route: immutable C1/T0 target intersection, attack-only recall-first C1 candidate threshold, mature AfterImage115/TabM, 11/5 source-disjoint auxiliary fit/select sources, and 15 predictive-maintenance sources as a second unseen held family.
+- local evidence: real 1M scope PASS (385/69, 3,413 original benign fit, zero canary/aux overlap) and real 31-source PCAP materialization PASS (6,600/3,000/9,000 fit/select/report).
+- guardrails: missing-feature zero fill=0; original strict 1M/T0 unchanged; stream/hydraulic/cooler fit/select=0; cooler sealed/unscored; review=0; both ip-camera-street and predictive-maintenance must individually and jointly improve.
+- next: publish one corrected dual-partition bundle; stop after the first valid seed-27 result and do not expand seeds without GO_SIGNAL.

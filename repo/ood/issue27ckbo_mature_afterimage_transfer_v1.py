@@ -6,10 +6,11 @@ verifier built from the maintained Kitsune/AfterImage frontend suppress unseen
 normal processes without sacrificing attacks?
 
 The original strict 1M roles and the frozen CKBE/CKBI caches are read-only.
-Fifteen previously unused predictive-maintenance benign PCAPs are materialized
-into a separate source-disjoint extension manifest.  They never alter the 1M
-split.  Stream, hydraulic and cooler-motor are permanently excluded from every
-fit/select/preprocessing/gate scope and are read only after all choices freeze.
+Thirty-one previously unused benign PCAPs are materialized into a separate
+source-disjoint extension manifest: 16 known-family sources provide legal
+fit/select diversity and 15 predictive-maintenance sources remain report-only.
+They never alter the 1M split.  Stream and hydraulic are read only after all
+choices freeze; cooler-motor remains sealed and is never scored in CKBO.
 """
 
 from __future__ import annotations
@@ -43,6 +44,7 @@ if str(OOD) not in sys.path:
 
 import issue27ab_gotham_kitsune115_frontend_feasibility as ckab  # noqa: E402
 import issue27ckao_c1_strict_leave_device_family_canary_v1 as ckao  # noqa: E402
+import issue27ckai_external_flow_feature_probe_v1 as ckai  # noqa: E402
 import issue27ckbi_tgn_report_only_cache_extension_v1 as ckbi  # noqa: E402
 import issue27ckbj_c1_report_only_cache_extension_v1 as c1ext  # noqa: E402
 import issue27ckbj_tgn_m1_strict_formal_v2 as ckbj  # noqa: E402
@@ -68,11 +70,28 @@ PERMANENT_REPORT_ONLY = (
     "iotsim-hydraulic-system",
     "iotsim-cooler-motor",
 )
-AUX_FAMILY = "iotsim-predictive-maintenance"
-AUX_PREFIX = "raw/benign/iotsim-predictive-maintenance-"
+AUX_FAMILY = "source_disjoint_known_benign_families"
+AUX_HELD_FAMILY = "iotsim-predictive-maintenance"
+AUX_FIT_SELECT_DEVICE_KEYS = (
+    *(f"iotsim-combined-cycle-{index}" for index in range(2, 10)),
+    "iotsim-combined-cycle-tls-1",
+    "iotsim-combined-cycle-tls-2",
+    *(f"iotsim-domotic-monitor-{index}" for index in range(2, 6)),
+    "iotsim-building-monitor-4",
+    "iotsim-building-monitor-5",
+)
+AUX_HELD_DEVICE_KEYS = tuple(f"iotsim-predictive-maintenance-{index}" for index in range(1, 16))
+AUX_SELECT_PER_FAMILY = {
+    "iotsim-combined-cycle": 2,
+    "iotsim-combined-cycle-tls": 1,
+    "iotsim-domotic-monitor": 1,
+    "iotsim-building-monitor": 1,
+}
 WARMUP_PACKETS = 500
-MODEL_READY_PER_SOURCE = 2000
-FIT_SOURCE_COUNT = 10
+MODEL_READY_PER_SOURCE = 600
+FIT_SOURCE_COUNT = 11
+SELECT_SOURCE_COUNT = 5
+HELD_SOURCE_COUNT = 15
 
 
 @dataclass(frozen=True)
@@ -95,6 +114,7 @@ CANDIDATES = (
 class AuxiliaryData:
     records_fit: list[ckbj.Record]
     records_select: list[ckbj.Record]
+    records_report: list[ckbj.Record]
     raw: dict[str, np.ndarray]
     contrast: dict[str, np.ndarray]
     manifest: pd.DataFrame
@@ -188,24 +208,67 @@ def multiscale_contrast(x: np.ndarray, headers: list[str]) -> np.ndarray:
     return out
 
 
-def predictive_members(zf: zipfile.ZipFile) -> list[zipfile.ZipInfo]:
-    members = [
-        info
-        for info in zf.infolist()
-        if info.filename.startswith(AUX_PREFIX) and info.filename.endswith(".pcap")
-    ]
-    members.sort(key=lambda info: stable_rank(info.filename))
-    if len(members) != 15:
-        raise RuntimeError(f"expected 15 predictive-maintenance PCAPs, found {len(members)}")
-    return members
+def device_key(member: str) -> str:
+    match = re.match(r"^raw/benign/(iotsim-.+?)_0-0_to_", str(member))
+    if not match:
+        raise RuntimeError(f"unparsed auxiliary benign member: {member}")
+    return match.group(1)
+
+
+def device_family_from_key(key: str) -> str:
+    family = re.sub(r"-\d+$", "", str(key))
+    if family == key:
+        raise RuntimeError(f"unparsed auxiliary device key: {key}")
+    return family
+
+
+def auxiliary_member_specs(zf: zipfile.ZipFile) -> list[tuple[zipfile.ZipInfo, str, str]]:
+    wanted = set(AUX_FIT_SELECT_DEVICE_KEYS) | set(AUX_HELD_DEVICE_KEYS)
+    by_key: dict[str, zipfile.ZipInfo] = {}
+    for info in zf.infolist():
+        if not info.filename.startswith("raw/benign/") or not info.filename.endswith(".pcap"):
+            continue
+        key = device_key(info.filename)
+        if key in wanted:
+            if key in by_key:
+                raise RuntimeError(f"duplicate auxiliary benign source: {key}")
+            by_key[key] = info
+    if set(by_key) != wanted:
+        raise RuntimeError(f"auxiliary benign source boundary drift: missing={sorted(wanted - set(by_key))}")
+
+    select_keys: set[str] = set()
+    fit_groups: defaultdict[str, list[str]] = defaultdict(list)
+    for key in AUX_FIT_SELECT_DEVICE_KEYS:
+        fit_groups[device_family_from_key(key)].append(key)
+    if set(fit_groups) != set(AUX_SELECT_PER_FAMILY):
+        raise RuntimeError("auxiliary fit/select family boundary drift")
+    for family, keys in sorted(fit_groups.items()):
+        ranked = sorted(keys, key=stable_rank)
+        count = int(AUX_SELECT_PER_FAMILY[family])
+        if count <= 0 or count >= len(ranked):
+            raise RuntimeError(f"invalid auxiliary select source count for {family}: {count}")
+        select_keys.update(ranked[-count:])
+    if len(select_keys) != SELECT_SOURCE_COUNT:
+        raise RuntimeError(f"auxiliary select source count drift: {len(select_keys)}")
+
+    specs: list[tuple[zipfile.ZipInfo, str, str]] = []
+    for key in sorted(wanted, key=stable_rank):
+        family = device_family_from_key(key)
+        role = "aux_report" if key in set(AUX_HELD_DEVICE_KEYS) else ("aux_select" if key in select_keys else "aux_fit")
+        specs.append((by_key[key], family, role))
+    counts = Counter(role for _info, _family, role in specs)
+    expected = {"aux_fit": FIT_SOURCE_COUNT, "aux_select": SELECT_SOURCE_COUNT, "aux_report": HELD_SOURCE_COUNT}
+    if dict(counts) != expected:
+        raise RuntimeError(f"auxiliary role split drift: {dict(counts)} != {expected}")
+    return specs
 
 
 def aux_uid(source: str, role: str, row: int) -> str:
     return f"aux:{role}:{source}:{row}"
 
 
-def make_aux_records(source: str, role: str, count: int) -> list[ckbj.Record]:
-    phase = "fit" if role == "aux_fit" else "select"
+def make_aux_records(source: str, role: str, count: int, family: str = AUX_FAMILY) -> list[ckbj.Record]:
+    phase = {"aux_fit": "fit", "aux_select": "select", "aux_report": "report"}[role]
     return [
         ckbj.Record(
             uid=aux_uid(source, role, index),
@@ -216,8 +279,8 @@ def make_aux_records(source: str, role: str, count: int) -> list[ckbj.Record]:
             event_position=index,
             label=0,
             attack_family="benign",
-            device_family=AUX_FAMILY,
-            source_family=AUX_FAMILY,
+            device_family=family,
+            source_family=family,
             # The auxiliary source has no C1 cache.  Treating every select row
             # as a C1 candidate is conservative: its verifier false positives
             # count in gate selection instead of being hidden by C1.
@@ -246,6 +309,7 @@ def materialize_auxiliary(args: argparse.Namespace, out: Path) -> AuxiliaryData:
     contrast_map: dict[str, np.ndarray] = {}
     fit_records: list[ckbj.Record] = []
     select_records: list[ckbj.Record] = []
+    report_records: list[ckbj.Record] = []
     with zipfile.ZipFile(Path(args.gotham_zip)) as zf:
         malicious_predictive = [
             name
@@ -257,18 +321,30 @@ def materialize_auxiliary(args: argparse.Namespace, out: Path) -> AuxiliaryData:
                 "predictive-maintenance is not a benign-only auxiliary family: "
                 f"{malicious_predictive[:3]}"
             )
-        for rank, info in enumerate(predictive_members(zf)):
-            role = "aux_fit" if rank < FIT_SOURCE_COUNT else "aux_select"
+        specs = auxiliary_member_specs(zf)
+        family_members: defaultdict[str, list[str]] = defaultdict(list)
+        for info, family, _role in specs:
+            family_members[family].append(info.filename)
+        family_rank = {
+            member: rank
+            for family, members in family_members.items()
+            for rank, member in enumerate(sorted(members, key=stable_rank))
+        }
+        for rank, (info, family, role) in enumerate(specs):
             source = source_name(info.filename)
+            key_name = device_key(info.filename)
             key = hashlib.sha256(info.filename.encode("utf-8")).hexdigest()[:20]
             npz_path = cache / f"{key}.npz"
             if npz_path.is_file():
                 with np.load(npz_path, allow_pickle=False) as loaded:
-                    raw = np.asarray(loaded["raw115"], dtype=np.float32)
+                    stored_raw = np.asarray(loaded["raw115"], dtype=np.float32)
                     member = str(loaded["pcap_member"].item())
                     cached_schema = str(loaded["schema_sha256"].item())
                 if member != info.filename or cached_schema != schema_sha:
                     raise RuntimeError(f"stale auxiliary cache: {npz_path}")
+                if len(stored_raw) < int(args.aux_rows_per_source):
+                    raise RuntimeError(f"short existing auxiliary cache: {npz_path}: {stored_raw.shape}")
+                raw = stored_raw[: int(args.aux_rows_per_source)]
             else:
                 smoke = ckab.SmokeFile(
                     role=role,
@@ -305,22 +381,29 @@ def materialize_auxiliary(args: argparse.Namespace, out: Path) -> AuxiliaryData:
             if raw.shape != (int(args.aux_rows_per_source), 115) or not np.isfinite(raw).all():
                 raise RuntimeError(f"invalid auxiliary cache shape for {source}: {raw.shape}")
             contrast = multiscale_contrast(raw, headers)
-            records = make_aux_records(source, role, len(raw))
+            records = make_aux_records(source, role, len(raw), family)
             for record, raw_row, contrast_row in zip(records, raw, contrast):
                 raw_map[record.uid] = raw_row
                 contrast_map[record.uid] = contrast_row
-            (fit_records if role == "aux_fit" else select_records).extend(records)
+            {"aux_fit": fit_records, "aux_select": select_records, "aux_report": report_records}[role].extend(records)
             rows.append(
                 {
                     "source_group": source,
-                    "device_family": AUX_FAMILY,
+                    "device_key": key_name,
+                    "device_family": family,
                     "role": role,
                     "raw_source_path": info.filename,
                     "raw_zip_size": int(info.file_size),
                     "raw_zip_crc32": f"{int(info.CRC):08x}",
                     "stable_split_rank": rank,
+                    "family_stable_split_rank": family_rank[info.filename],
+                    "family_source_count": len(family_members[family]),
+                    "split_rule": "sha256_rank_within_family_frozen_select_counts; predictive_all_report",
                     "warmup_packets": WARMUP_PACKETS,
                     "model_ready_rows": len(raw),
+                    "training_rows": len(raw) if role == "aux_fit" else 0,
+                    "selection_rows": len(raw) if role == "aux_select" else 0,
+                    "report_rows": len(raw) if role == "aux_report" else 0,
                     "source_fresh_reset": True,
                     "current_packet_inclusive": True,
                     "future_events_used": False,
@@ -343,8 +426,11 @@ def materialize_auxiliary(args: argparse.Namespace, out: Path) -> AuxiliaryData:
         "source_count": len(rows),
         "fit_sources": sum(row["role"] == "aux_fit" for row in rows),
         "select_sources": sum(row["role"] == "aux_select" for row in rows),
+        "report_sources": sum(row["role"] == "aux_report" for row in rows),
         "fit_rows": len(fit_records),
         "select_rows": len(select_records),
+        "report_rows": len(report_records),
+        "report_family": AUX_HELD_FAMILY,
         "raw_label_column_read": False,
         "original_1m_assets_modified": False,
         "permanent_report_only_use_count": 0,
@@ -353,7 +439,7 @@ def materialize_auxiliary(args: argparse.Namespace, out: Path) -> AuxiliaryData:
         "provenance": provenance,
     }
     dump_json(out / "ckbo_auxiliary_benign_ready.json", ready)
-    return AuxiliaryData(fit_records, select_records, raw_map, contrast_map, pd.DataFrame(rows), manifest_sha, ready)
+    return AuxiliaryData(fit_records, select_records, report_records, raw_map, contrast_map, pd.DataFrame(rows), manifest_sha, ready)
 
 
 def permanently_mask_frames(frames: dict[str, pd.DataFrame]) -> tuple[dict[str, pd.DataFrame], list[dict[str, Any]]]:
@@ -385,11 +471,270 @@ def permanently_mask_frames(frames: dict[str, pd.DataFrame]) -> tuple[dict[str, 
                     "model_use_count": 0,
                     "preprocessing_use_count": 0,
                     "gate_use_count": 0,
-                    "report_only": True,
+                    "report_only": family != "iotsim-cooler-motor",
+                    "sealed_unopened": family == "iotsim-cooler-motor",
                 }
             )
         masked[role] = frame
     return masked, audits
+
+
+def frozen_target_keys(path: Path) -> set[tuple[str, int]]:
+    table = pd.read_csv(Path(path), usecols=["source_group", "recorded_index"])
+    recorded = pd.to_numeric(table["recorded_index"], errors="coerce")
+    valid = recorded.notna() & recorded.ge(0)
+    return set(
+        zip(
+            table.loc[valid, "source_group"].astype(str),
+            recorded.loc[valid].astype(np.int64),
+        )
+    )
+
+
+def t0_target_keys(t0: Any, frames: dict[str, pd.DataFrame]) -> set[tuple[str, int]]:
+    sources = sorted(
+        {
+            str(source)
+            for frame in frames.values()
+            for source in frame.get("source_group", pd.Series(dtype=str)).astype(str)
+            if str(source)
+        }
+    )
+    keys: set[tuple[str, int]] = set()
+    for source in sources:
+        keys.update((source, int(recorded)) for recorded in t0.target_positions(source))
+    return keys
+
+
+def restrict_model_scope_to_frozen_targets(
+    frames: dict[str, pd.DataFrame],
+    c1_targets: Path,
+    t0: Any,
+    allow_local_t0_manifest_proxy: bool = False,
+) -> tuple[dict[str, pd.DataFrame], list[dict[str, Any]]]:
+    """Keep fit/select membership inside both immutable cache contracts.
+
+    The CKAT C1 cache and CKBE T0 cache contain exact row cohorts selected for
+    the five frozen leave-family folds.  Permanently removing multiple canary
+    families changes the length of a role and therefore changes the rows
+    returned by the old linspace cap.  Re-capping the full role after that
+    removal can request uncached rows.  This function makes the cache cohort an
+    explicit eligibility boundary before any later held-family filter/cap.
+    Missing features are never zero-filled and no new raw row is read.
+    """
+
+    c1_keys = frozen_target_keys(Path(c1_targets))
+    temporal_keys = t0_target_keys(t0, frames)
+    t0_scope_basis = "exact_target_positions"
+    if not temporal_keys and allow_local_t0_manifest_proxy:
+        plan = Path(t0.root) / "tgn_source_event_plan_frozen.csv"
+        audit_path = Path(t0.root) / "t0_cache_audit.csv"
+        if not plan.is_file() or not audit_path.is_file():
+            raise RuntimeError("local T0 proxy requires the frozen plan and completion audit")
+        plan_hash = sha256_file(plan)
+        audit_table = pd.read_csv(audit_path)
+        if (
+            plan_hash != ckbj.EXPECTED_T0_MANIFEST_SHA256
+            or len(pd.read_csv(plan)) != 26
+            or len(audit_table) != 26
+            or int(pd.to_numeric(audit_table["target_rows"], errors="coerce").fillna(0).sum()) != 34622
+        ):
+            raise RuntimeError("local T0 proxy failed frozen hash/cardinality contract")
+        # The local pullback intentionally omits the 26 large NPZ files.  CKBE
+        # certified the exact 34,622 CKAT target rows used to build them; the
+        # formal job below never uses this proxy and re-reads every NPZ target.
+        temporal_keys = set(c1_keys)
+        t0_scope_basis = "local_ckbe_manifest_and_completion_audit_proxy_formal_rechecks_npz"
+    if not c1_keys or not temporal_keys:
+        raise RuntimeError("empty frozen C1/T0 target cohort")
+    allowed = c1_keys & temporal_keys
+    if not allowed:
+        raise RuntimeError("frozen C1 and T0 target cohorts do not intersect")
+
+    scoped: dict[str, pd.DataFrame] = {}
+    audit: list[dict[str, Any]] = []
+    extension_sources = set(getattr(t0, "report_only_sources", set()))
+    for role, original in frames.items():
+        frame = original.copy()
+        phases = frame["phase"].astype(str)
+        for phase in ("fit", "select"):
+            phase_mask = phases.eq(phase).to_numpy()
+            positions = np.flatnonzero(phase_mask)
+            if len(positions):
+                sources = frame.iloc[positions]["source_group"].astype(str).to_numpy()
+                recorded = (
+                    pd.to_numeric(frame.iloc[positions]["recorded_index"], errors="coerce")
+                    .fillna(-1)
+                    .astype(np.int64)
+                    .to_numpy()
+                )
+                c1_ok = np.fromiter(
+                    ((source, int(index)) in c1_keys for source, index in zip(sources, recorded)),
+                    dtype=bool,
+                    count=len(positions),
+                )
+                t0_ok = np.fromiter(
+                    ((source, int(index)) in temporal_keys for source, index in zip(sources, recorded)),
+                    dtype=bool,
+                    count=len(positions),
+                )
+                keep = c1_ok & t0_ok
+                frame.loc[positions[~keep], "phase"] = "outside_frozen_model_cohort"
+                extension_use = int(np.isin(sources[keep], list(extension_sources)).sum())
+            else:
+                c1_ok = t0_ok = np.zeros(0, dtype=bool)
+                keep = np.zeros(0, dtype=bool)
+                extension_use = 0
+            audit.append(
+                {
+                    "role": role,
+                    "phase": phase,
+                    "rows_before_frozen_scope": int(len(positions)),
+                    "rows_in_c1_target_cohort": int(c1_ok.sum()),
+                    "rows_in_t0_target_cohort": int(t0_ok.sum()),
+                    "rows_after_frozen_intersection": int(keep.sum()),
+                    "rows_excluded_for_cache_scope": int(len(positions) - keep.sum()),
+                    "report_extension_rows_retained": extension_use,
+                    "missing_feature_zero_fill": 0,
+                    "raw_rows_materialized": 0,
+                    "t0_scope_basis": t0_scope_basis,
+                }
+            )
+        scoped[role] = frame
+
+    retained = sum(row["rows_after_frozen_intersection"] for row in audit)
+    if retained <= 0:
+        raise RuntimeError("no legal fit/select rows remain in frozen model cohort")
+    if any(row["report_extension_rows_retained"] for row in audit):
+        raise RuntimeError("report-only extension entered frozen model cohort")
+    return scoped, audit
+
+
+def fit_c1_attack_preserving(
+    x_by_role: dict[str, np.ndarray],
+    frames: dict[str, pd.DataFrame],
+    held: str | None,
+    cache_dir: Path,
+    plan: Path,
+    c1_report_extension: Path,
+    train_cap: int,
+) -> tuple[Any, Any, float, list[dict[str, Any]]]:
+    """Fit C1 legally and freeze its candidate threshold from attacks only.
+
+    After all permanent report families are removed, the original 1M split has
+    no legal benign select rows.  Using a report canary to recover that role
+    would be leakage.  The C1 anchor is therefore made deliberately
+    recall-first: the threshold is the value immediately below the minimum
+    legal support_val attack score.  Verifier selection still uses the
+    source-disjoint auxiliary benign select rows and never a report score.
+    """
+
+    cache = ckbj.CompositeCanonicalTimeC1Cache(Path(cache_dir), Path(plan), Path(c1_report_extension))
+    frontend = ckai.ExternalFlowFrontend(x_by_role, frames, cache)
+    sentinel = "__ckbo_global_no_hold__" if held is None else str(held)
+    model, audit = ckao.fit_candidate(ckbj.c1_candidate(), frontend, frames, sentinel, int(train_cap))
+    idx = ckbj.role_indices(frames, "support_val", "select", held, cko.FULL_CAP)
+    if not len(idx):
+        raise RuntimeError(f"{held or 'GLOBAL'} has no legal support_val rows for the C1 recall floor")
+    values = ckai.score_attack(model, frontend.matrix(ckbj.c1_candidate(), "support_val", idx))
+    if not len(values) or not np.isfinite(values).all():
+        raise RuntimeError(f"{held or 'GLOBAL'} produced invalid C1 support_val scores")
+    threshold = attack_recall_floor_threshold(values)
+    retained = values >= threshold
+    if not bool(retained.all()):
+        raise RuntimeError("C1 attack-preserving threshold did not retain every legal support_val row")
+    audit.append(
+        {
+            "candidate": ckbj.c1_candidate().name,
+            "held_field": "device_family",
+            "held_value": held or "GLOBAL",
+            "role": "support_val",
+            "phase": "select",
+            "rows_before_exclude": int(len(idx)),
+            "rows_after_exclude": int(len(idx)),
+            "held_rows_removed": 0,
+            "c1_candidate_threshold": threshold,
+            "threshold_origin": "minimum_legal_support_val_attack_score_nextafter_negative_infinity",
+            "support_val_c1_recall": float(np.mean(retained)),
+            "benign_select_rows_used_for_c1_threshold": 0,
+            "report_rows_used_for_c1_threshold": 0,
+        }
+    )
+    return model, frontend, threshold, audit
+
+
+def attack_recall_floor_threshold(values: np.ndarray) -> float:
+    scores = np.asarray(values, dtype=np.float64)
+    if scores.ndim != 1 or not len(scores) or not np.isfinite(scores).all():
+        raise RuntimeError("C1 recall-floor threshold needs finite legal attack scores")
+    return float(np.nextafter(float(scores.min()), -np.inf))
+
+
+def choose_legal_verifier_gate(
+    name: str,
+    support_val: list[ckbj.Record],
+    select_benign: list[ckbj.Record],
+    verifier: dict[str, float],
+    c1_threshold: float,
+) -> tuple[float, list[dict[str, Any]], bool]:
+    """Choose a legal gate even for the pre-registered no-aux ablations.
+
+    The corrected frozen 1M scope contains no legal benign select rows after
+    the permanent report families are removed.  Auxiliary-enabled candidates
+    therefore use the mature CKBM exact attack-preserving/benign-minimizing
+    frontier.  A no-aux ablation cannot optimize a benign objective without
+    leaking report data, so it uses the most selective support-val-only point
+    that satisfies the same attack-preservation constraints.  The selected
+    threshold and its attack-only origin are emitted explicitly.
+    """
+
+    if select_benign:
+        return ckbm.choose_verifier_gate(name, support_val, select_benign, verifier, c1_threshold)
+    if not support_val:
+        raise RuntimeError(f"{name}: gate selection has no legal support_val rows")
+    attack_values = np.asarray([verifier[item.uid] for item in support_val], dtype=np.float64)
+    if not np.isfinite(attack_values).all():
+        raise RuntimeError(f"{name}: nonfinite support-val-only gate score")
+    c1_attack = np.asarray([item.c1_score >= c1_threshold for item in support_val], dtype=bool)
+    lower = float(np.nextafter(float(attack_values.min()), -np.inf))
+    thresholds = sorted({lower, *(float(value) for value in attack_values.tolist())})
+    rows: list[dict[str, Any]] = []
+    for threshold in thresholds:
+        hard_attack = c1_attack & (attack_values >= threshold)
+        base_recall = float(np.mean(c1_attack))
+        recall = float(np.mean(hard_attack))
+        family_ok = True
+        for family in sorted({item.attack_family for item in support_val}):
+            mask = np.asarray([item.attack_family == family for item in support_val], dtype=bool)
+            if int(mask.sum()) >= 3 and float(np.mean(hard_attack[mask])) < float(np.mean(c1_attack[mask])) - 0.02:
+                family_ok = False
+        rows.append(
+            {
+                "candidate": name,
+                "verifier_threshold": threshold,
+                "threshold_frontier": "exact_support_val_attack_scores_no_legal_benign_select",
+                "selection_objective": "maximum_attack_preserving_threshold_without_benign_or_report_scores",
+                "support_val_c1_recall": base_recall,
+                "support_val_hard_recall": recall,
+                "select_benign_hard_rate": math.nan,
+                "eligible": bool(recall >= base_recall - 0.005 and family_ok),
+                "support_val_rows_used": len(support_val),
+                "select_benign_rows_used": 0,
+                "report_rows_used": 0,
+            }
+        )
+    eligible = [row for row in rows if bool(row["eligible"])]
+    if not eligible:
+        selected = max(rows, key=lambda row: (row["support_val_hard_recall"], -row["verifier_threshold"]))
+        selected["selected"] = True
+        selected["selected_despite_constraint_failure"] = True
+        selected["gate_constraint_pass"] = False
+        return float(selected["verifier_threshold"]), rows, False
+    selected = max(eligible, key=lambda row: row["verifier_threshold"])
+    selected["selected"] = True
+    selected["selected_despite_constraint_failure"] = False
+    selected["gate_constraint_pass"] = True
+    return float(selected["verifier_threshold"]), rows, True
 
 
 def collect_formal_sets(
@@ -430,7 +775,12 @@ def collect_formal_sets(
     take("support_val", "select", "select", 1, cko.FULL_CAP, False, model_frames)
     for role in ckbj.SELECT_BENIGN:
         take(role, "select", "select", 0, eval_cap, False, model_frames)
-    report_specs = ckbj.REPORT_SPECS if held is not None else ckbj.REPORT_SPECS[3:]
+    # Global attack preservation needs attack reports only.  Pulling the
+    # generic tail of REPORT_SPECS would also traverse sealed_final_ood and
+    # could score the cooler-motor final holdout before a final protocol is
+    # authorized.  Strict held protocols include only their named family via
+    # ckbj.report_indices; cooler-motor is never a CKBO held value.
+    report_specs = report_specs_for_protocol(held)
     for role, phase, label, _kind in report_specs:
         take(role, phase, "report", label, eval_cap, True, report_frames)
     blocked = set(PERMANENT_REPORT_ONLY)
@@ -442,7 +792,16 @@ def collect_formal_sets(
         extension_leaked = sorted({record.source for record in sets[key]} & extension_sources)
         if extension_leaked:
             raise RuntimeError(f"report-cache extension source leaked into {key}: {extension_leaked}")
+    sealed_scored = [record for record in sets["report"] if record.device_family == "iotsim-cooler-motor"]
+    if sealed_scored:
+        raise RuntimeError(f"sealed cooler-motor rows entered report scoring: {len(sealed_scored)}")
     return dict(sets), audit
+
+
+def report_specs_for_protocol(held: str | None) -> tuple[tuple[str, str, int, str], ...]:
+    if held is not None:
+        return tuple(ckbj.REPORT_SPECS)
+    return tuple(spec for spec in ckbj.REPORT_SPECS if int(spec[2]) == 1)
 
 
 def existing_feature_map(records: list[ckbj.Record], x_by_role: dict[str, np.ndarray], representation: str, headers: list[str]) -> dict[str, np.ndarray]:
@@ -518,7 +877,7 @@ def run_protocol(
     aux: AuxiliaryData,
 ) -> dict[str, list[dict[str, Any]]]:
     name = protocol_family_name(held)
-    c1_model, frontend, c1_threshold, c1_audit = ckbj.fit_c1(
+    c1_model, frontend, c1_threshold, c1_audit = fit_c1_attack_preserving(
         x_by_role,
         model_frames,
         held,
@@ -526,7 +885,6 @@ def run_protocol(
         Path(args.c1_plan),
         Path(args.c1_report_extension),
         int(args.train_cap),
-        int(args.eval_cap),
     )
     sets, data_audit = collect_formal_sets(
         c1_model,
@@ -543,6 +901,27 @@ def run_protocol(
         raise RuntimeError(f"global protocol lost legal support_train rows: {len(sets['fit_attack'])}")
     if len(sets["select_attack"]) != 69 and held is None:
         raise RuntimeError(f"global protocol lost legal support_val rows: {len(sets['select_attack'])}")
+    if held == AUX_HELD_FAMILY:
+        sets["report"] = list(aux.records_report)
+        data_audit.append(
+            {
+                "role": "aux_report",
+                "frame_phase": "report",
+                "m1_phase": "report",
+                "held_value": AUX_HELD_FAMILY,
+                "eligible_role_rows": len(aux.records_report),
+                "frozen_target_rows": len(aux.records_report),
+                "outside_frozen_target_cohort": 0,
+                "target_alignment_incomplete": 0,
+                "requested_rows": len(aux.records_report),
+                "cache_aligned_rows": len(aux.records_report),
+                "unmapped_rows": 0,
+                "label_for_metric_only": 0,
+                "report": True,
+                "c1_score_contract": "conservative_all_candidate_no_c1_cache",
+                "fit_select_use_count": 0,
+            }
+        )
     headers, schema_sha = afterimage_schema()
     core_records = ckbm.unique_records(
         [sets["fit_attack"], sets["fit_benign"], sets["select_attack"], sets["select_benign"], sets["report"]]
@@ -557,11 +936,16 @@ def run_protocol(
     thresholds: dict[str, float] = {}
 
     for spec in CANDIDATES:
-        use_aux = bool(spec.use_auxiliary_benign and held != AUX_FAMILY)
+        use_aux = bool(spec.use_auxiliary_benign)
         fit_records = sets["fit_attack"] + sets["fit_benign"] + (aux.records_fit if use_aux else [])
         select_records = sets["select_attack"] + sets["select_benign"] + (aux.records_select if use_aux else [])
-        all_records = core_records + ((aux.records_fit + aux.records_select) if use_aux else [])
+        all_records = ckbm.unique_records(
+            [core_records, aux.records_report, aux.records_fit, aux.records_select]
+            if use_aux
+            else [core_records, aux.records_report]
+        )
         base = existing_feature_map(core_records, x_by_role, spec.representation, headers)
+        add_auxiliary_values(base, aux, spec.representation, aux.records_report)
         if use_aux:
             add_auxiliary_values(base, aux, spec.representation, aux.records_fit + aux.records_select)
         transformer, prep = generic_preprocessor(fit_records, base, int(args.seed))
@@ -573,7 +957,7 @@ def run_protocol(
         model, history, model_hash = ckbm.fit_backend(backend_spec, x, y, weights, args, int(args.seed))
         probability = ckbm.backend_scores(model, ckbm.stack_map(all_records, transformed))
         score_map = {record.uid: float(value) for record, value in zip(all_records, probability)}
-        threshold, frontier, gate_pass = ckbm.choose_verifier_gate(
+        threshold, frontier, gate_pass = choose_legal_verifier_gate(
             spec.name,
             sets["select_attack"],
             sets["select_benign"] + (aux.records_select if use_aux else []),
@@ -660,6 +1044,19 @@ def run_protocol(
     event_scope = ckbj.event_scope_rows(sets, set(getattr(t0, "report_only_sources", set())))
     for row in event_scope:
         row.update({"held_value": name, "protocol_run": name})
+    sealed_audit = [
+        {
+            "held_value": name,
+            "sealed_family": "iotsim-cooler-motor",
+            "fit_records_used": 0,
+            "select_records_used": 0,
+            "report_records_scored": int(
+                sum(record.device_family == "iotsim-cooler-motor" for record in sets["report"])
+            ),
+            "metric_labels_opened": 0,
+            "sealed_unopened": True,
+        }
+    ]
     for row in data_audit + c1_audit:
         row["protocol_run"] = name
     return {
@@ -676,42 +1073,54 @@ def run_protocol(
         "attack_summary": attack_summary,
         "strict_summary": strict_summary,
         "event_scope": event_scope,
+        "sealed_audit": sealed_audit,
     }
 
 
-def legal_development_holds(frames: dict[str, pd.DataFrame]) -> list[str]:
-    values: list[str] = []
+def legal_development_holds(frames: dict[str, pd.DataFrame], requested: Iterable[str]) -> list[str]:
+    """Return pre-registered non-canary held families with report evidence.
+
+    The permanent canaries are reported separately and never count as the
+    additional transfer check.  Cooler-motor is absent from ``HELD`` and stays
+    sealed.  A family need not have benign select rows: the entire reason for
+    this corrected protocol is that no such rows remain after permanent canary
+    exclusion.  It must, however, have immutable report rows and is excluded
+    from every model scope by the per-protocol held filter.
+    """
+
     blocked = set(PERMANENT_REPORT_ONLY)
-    for family in sorted(
-        set(frames["id_calib"]["device_family"].astype(str))
-        | set(frames["ood_val"]["device_family"].astype(str))
-    ):
-        if family in blocked or family in {"", "NA", "nan"}:
-            continue
-        fit_rows = 0
-        select_rows = 0
-        for role in ("id_calib", "ood_val"):
-            part = frames[role]
-            fit_rows += int((part["device_family"].astype(str).eq(family) & part["phase"].astype(str).eq("fit")).sum())
-            select_rows += int((part["device_family"].astype(str).eq(family) & part["phase"].astype(str).eq("select")).sum())
-        if fit_rows and select_rows:
-            values.append(family)
+    report_values = {
+        str(value)
+        for role, frame in frames.items()
+        if role in {"id_calib", "ood_val", "ood_stress", "sealed_final_ood"}
+        for value in frame.get("device_family", pd.Series(dtype=str)).astype(str)
+    }
+    values = [
+        str(value)
+        for value in requested
+        if str(value) not in blocked
+        and str(value) not in {"", "NA", "nan"}
+        and str(value) in report_values
+    ]
+    if AUX_HELD_FAMILY not in values:
+        values.append(AUX_HELD_FAMILY)
     return values
 
 
 def prepare_inputs(args: argparse.Namespace, out: Path) -> tuple[Any, ...]:
     x_by_role, frames, input_audit, _labels = cko.load_role_inputs(False)
     ckao.add_family_columns(frames)
+    auxiliary_keys = set(AUX_FIT_SELECT_DEVICE_KEYS) | set(AUX_HELD_DEVICE_KEYS)
     overlap = sorted(
         {
-            str(source)
+            Path(str(source)).stem
             for frame in frames.values()
             for source in frame.get("source_group", pd.Series(dtype=str)).astype(str)
-            if "predictive-maintenance" in str(source)
+            if Path(str(source)).stem in auxiliary_keys
         }
     )
     if overlap:
-        raise RuntimeError(f"auxiliary predictive-maintenance source overlaps the frozen 1M roles: {overlap[:3]}")
+        raise RuntimeError(f"auxiliary raw PCAP source overlaps the frozen 1M roles: {overlap[:3]}")
     live = ckbi.report_only_exclusion(frames)
     live.to_csv(out / "ckbo_live_report_extension_exclusion.csv", index=False)
     required = live.loc[live["required_zero"].notna()]
@@ -754,6 +1163,18 @@ def decision(attack: pd.DataFrame, strict: pd.DataFrame, selection: pd.DataFrame
     dev_c1 = strict.loc[strict.get("candidate", pd.Series(dtype=str)).eq("M0-C1") & strict.get("held_value", pd.Series(dtype=str)).isin(dev_holds)]
     dev_macro = float(dev["hard_rate"].mean()) if len(dev) == len(dev_holds) and dev_holds else None
     dev_c1_macro = float(dev_c1["hard_rate"].mean()) if len(dev_c1) == len(dev_holds) and dev_holds else None
+    dev_rates = {str(row.held_value): float(row.hard_rate) for row in dev.itertuples(index=False)}
+    dev_c1_rates = {str(row.held_value): float(row.hard_rate) for row in dev_c1.itertuples(index=False)}
+    dev_each_pass = bool(
+        len(dev_holds) >= 2
+        and all(
+            value in dev_rates
+            and value in dev_c1_rates
+            and dev_rates[value] <= 0.90
+            and dev_rates[value] <= dev_c1_rates[value] - 0.05
+            for value in dev_holds
+        )
+    )
     selected_flag = (
         ckbm.decision_bool_series(selection["selected"], False)
         if "selected" in selection
@@ -776,7 +1197,13 @@ def decision(attack: pd.DataFrame, strict: pd.DataFrame, selection: pd.DataFrame
         "major_attack_family_drop_over_2pp": bool(not major.empty and (major["delta_vs_c1_pp"] < -2.0).any()),
         "stream_signal_missing": bool(stream is None or stream_c1 is None or stream > 0.90 or stream > stream_c1 - 0.10),
         "hydraulic_worsened_over_2pp": bool(hydraulic is not None and hydraulic_c1 is not None and hydraulic - hydraulic_c1 > 0.02),
-        "legal_multiheld_signal_missing": bool(dev_macro is None or dev_c1_macro is None or dev_macro > dev_c1_macro - 0.05),
+        "legal_multiheld_signal_missing": bool(
+            len(dev_holds) < 2
+            or dev_macro is None
+            or dev_c1_macro is None
+            or dev_macro > dev_c1_macro - 0.05
+            or not dev_each_pass
+        ),
         "permanent_report_family_used": bool(
             permanent.empty
             or permanent[
@@ -802,6 +1229,12 @@ def decision(attack: pd.DataFrame, strict: pd.DataFrame, selection: pd.DataFrame
         "legal_development_held_families": dev_holds,
         "legal_development_macro_hard_rate": dev_macro,
         "legal_development_c1_macro_hard_rate": dev_c1_macro,
+        "legal_development_hard_rates": dev_rates,
+        "legal_development_c1_hard_rates": dev_c1_rates,
+        "legal_development_each_improves_5pp": dev_each_pass,
+        "legal_development_each_at_most_90pct": bool(
+            len(dev_holds) >= 2 and all(value in dev_rates and dev_rates[value] <= 0.90 for value in dev_holds)
+        ),
         "review_rate": 0.0,
         "single_seed_scope": "go/no-go signal only",
     }
@@ -825,15 +1258,26 @@ def run_formal(args: argparse.Namespace) -> None:
     started = time.time()
     if int(args.seed) != SEED:
         raise RuntimeError("first CKBO formal run is preregistered for seed 27 only")
+    if int(args.aux_rows_per_source) != MODEL_READY_PER_SOURCE:
+        raise RuntimeError(
+            f"formal auxiliary row contract drift: {args.aux_rows_per_source} != {MODEL_READY_PER_SOURCE}"
+        )
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     assert_clean_formal_out(out)
     vendor = ckbm.validate_vendor()
-    aux = materialize_auxiliary(args, out)
     x_by_role, report_frames, input_audit, t0, t0_audit, extension_audit, c1_extension_audit = prepare_inputs(args, out)
-    model_frames, permanent_rows = permanently_mask_frames(report_frames)
-    dev_holds = legal_development_holds(model_frames)
     requested = [value.strip() for value in str(args.held_values).split(",") if value.strip()]
+    model_frames, permanent_rows = permanently_mask_frames(report_frames)
+    model_frames, frozen_scope_rows = restrict_model_scope_to_frozen_targets(
+        model_frames,
+        Path(args.c1_targets),
+        t0,
+    )
+    dev_holds = legal_development_holds(report_frames, requested)
+    if set(dev_holds) != {"iotsim-ip-camera-street", AUX_HELD_FAMILY}:
+        raise RuntimeError(f"formal development held-family boundary drift: {dev_holds}")
+    aux = materialize_auxiliary(args, out)
     protocols: list[str | None] = [None]
     for value in dev_holds + requested:
         if value not in protocols:
@@ -859,6 +1303,8 @@ def run_formal(args: argparse.Namespace) -> None:
         "strict_level2_summary.csv": table("strict_summary"),
         "ckbo_event_scope_audit.csv": table("event_scope"),
         "ckbo_permanent_report_only_audit.csv": pd.DataFrame(permanent_rows),
+        "ckbo_frozen_model_scope_audit.csv": pd.DataFrame(frozen_scope_rows),
+        "ckbo_sealed_holdout_audit.csv": table("sealed_audit"),
     }
     outputs["ckbo_negative_sampling_audit.csv"] = pd.DataFrame(
         [
@@ -876,7 +1322,7 @@ def run_formal(args: argparse.Namespace) -> None:
     outputs["ckbo_frontend_state_audit.csv"] = pd.DataFrame(
         [
             {
-                "scope": "auxiliary_predictive_maintenance",
+                "scope": "auxiliary_source_disjoint_fit_select_and_predictive_held",
                 "sources": len(aux.manifest),
                 "fresh_source_resets": len(aux.manifest),
                 "warmup_packets_per_source": WARMUP_PACKETS,
@@ -927,12 +1373,24 @@ def run_formal(args: argparse.Namespace) -> None:
                     "record_set": "aux_select",
                     "m1_scope": "select" if spec.use_auxiliary_benign else "unused_ablation",
                     "events": len(aux.records_select) if spec.use_auxiliary_benign else 0,
-                    "sources": 15 - FIT_SOURCE_COUNT if spec.use_auxiliary_benign else 0,
+                    "sources": SELECT_SOURCE_COUNT if spec.use_auxiliary_benign else 0,
                     "attack_events": 0,
                     "benign_events": len(aux.records_select) if spec.use_auxiliary_benign else 0,
                     "report_only_sources": 0,
                     "held_value": "GLOBAL_ATTACK_PRESERVATION",
                     "protocol_run": "GLOBAL_ATTACK_PRESERVATION",
+                    "candidate": spec.name,
+                },
+                {
+                    "record_set": "aux_report",
+                    "m1_scope": "report",
+                    "events": len(aux.records_report),
+                    "sources": HELD_SOURCE_COUNT,
+                    "attack_events": 0,
+                    "benign_events": len(aux.records_report),
+                    "report_only_sources": HELD_SOURCE_COUNT,
+                    "held_value": AUX_HELD_FAMILY,
+                    "protocol_run": AUX_HELD_FAMILY,
                     "candidate": spec.name,
                 },
             ]
@@ -972,6 +1430,7 @@ def run_formal(args: argparse.Namespace) -> None:
         "report_extension_manifest_sha256": extension_audit["extension_manifest_sha256"],
         "c1_report_extension_manifest_sha256": c1_extension_audit["manifest_sha256"],
         "auxiliary_manifest_sha256": aux.manifest_sha256,
+        "c1_target_manifest_sha256": sha256_file(Path(args.c1_targets)),
         "vendor": vendor,
     }
     dump_json(out / "ckbo_environment.json", environment)
@@ -985,6 +1444,8 @@ def run_formal(args: argparse.Namespace) -> None:
             "protocols": [protocol_family_name(value) for value in protocols],
             "legal_development_holds": dev_holds,
             "permanent_report_only": list(PERMANENT_REPORT_ONLY),
+            "development_canaries": ["iotsim-stream-consumer", "iotsim-hydraulic-system"],
+            "sealed_unopened": ["iotsim-cooler-motor"],
             "original_1m_split_modified": False,
             "auxiliary_extension": aux.ready,
             "input_audit": input_audit,
@@ -993,6 +1454,8 @@ def run_formal(args: argparse.Namespace) -> None:
             "c1_report_extension_audit": c1_extension_audit,
             "support_train_contract": "all 385 legal rows in global protocol; every row at least once per epoch",
             "support_val_contract": "69 legal select rows; gate only",
+            "c1_threshold_contract": "minimum legal support_val attack score; zero benign/report rows",
+            "model_scope_contract": "fit/select rows are restricted to the immutable C1-target and T0-target intersection before held-family filtering/capping",
             "report_contract": "frozen model and preprocessing, no gradients, no thresholds, no label-derived features",
             "frontend_event_semantics": "standard AfterImage current-packet-inclusive statistics; no future packet and no label input; TabM has no mutable report state",
             "review_rate": 0.0,
@@ -1024,8 +1487,27 @@ def contract_unit(args: argparse.Namespace) -> None:
     masked, audit = permanently_mask_frames(frames)
     assert masked["x"].loc[0, "phase"] == "fit"
     assert all(masked["x"].loc[index, "phase"] == "permanent_report_only_forbidden" for index in (1, 2, 3))
+    floor = attack_recall_floor_threshold(np.asarray([0.4, 0.2, 0.8], dtype=np.float64))
+    assert floor < 0.2 and bool((np.asarray([0.4, 0.2, 0.8]) >= floor).all())
     synthetic = make_aux_records("source-a", "aux_select", 3)
     assert all(record.c1_score == 1.0 and record.label == 0 for record in synthetic)
+    support_only = [
+        replace(record, label=1, attack_family="family-a", c1_score=1.0)
+        for record in synthetic
+    ]
+    gate, frontier, gate_pass = choose_legal_verifier_gate(
+        "contract-no-aux",
+        support_only,
+        [],
+        {record.uid: score for record, score in zip(support_only, (0.2, 0.4, 0.8))},
+        0.5,
+    )
+    selected = [row for row in frontier if row.get("selected")]
+    assert gate_pass and len(selected) == 1 and gate == 0.2
+    assert selected[0]["select_benign_rows_used"] == 0 and selected[0]["report_rows_used"] == 0
+    global_report_specs = report_specs_for_protocol(None)
+    assert global_report_specs and all(int(spec[2]) == 1 for spec in global_report_specs)
+    assert not any(spec[0] == "sealed_final_ood" for spec in global_report_specs)
     assert sum(row["model_use_count"] for row in audit) == 0
     outcome = decision(
         pd.DataFrame(
@@ -1042,6 +1524,8 @@ def contract_unit(args: argparse.Namespace) -> None:
                 {"candidate": "M0-C1", "held_value": "iotsim-hydraulic-system", "hard_rate": 0.4},
                 {"candidate": PRIMARY, "held_value": "legal-a", "hard_rate": 0.4},
                 {"candidate": "M0-C1", "held_value": "legal-a", "hard_rate": 0.5},
+                {"candidate": PRIMARY, "held_value": "legal-b", "hard_rate": 0.3},
+                {"candidate": "M0-C1", "held_value": "legal-b", "hard_rate": 0.5},
             ]
         ),
         pd.DataFrame(
@@ -1053,7 +1537,7 @@ def contract_unit(args: argparse.Namespace) -> None:
         pd.DataFrame(audit),
         pd.DataFrame([{"used_at_least_once_each_epoch": True}]),
         pd.DataFrame([{"target_alignment_incomplete": 0}]),
-        ["legal-a"],
+        ["legal-a", "legal-b"],
     )
     assert outcome["decision"] == "GO_SIGNAL", outcome
     with tempfile.TemporaryDirectory(prefix="ckbo_formal_out_contract_") as temp_root:
@@ -1083,9 +1567,69 @@ def contract_unit(args: argparse.Namespace) -> None:
     )
 
 
+def scope_audit(args: argparse.Namespace) -> None:
+    """Run the real 1M membership audit without model fitting or raw replay."""
+
+    x_by_role, frames, input_audit, _labels = cko.load_role_inputs(False)
+    del x_by_role
+    ckao.add_family_columns(frames)
+    auxiliary_keys = set(AUX_FIT_SELECT_DEVICE_KEYS) | set(AUX_HELD_DEVICE_KEYS)
+    overlap = sorted(
+        {
+            Path(str(source)).stem
+            for frame in frames.values()
+            for source in frame.get("source_group", pd.Series(dtype=str)).astype(str)
+            if Path(str(source)).stem in auxiliary_keys
+        }
+    )
+    if overlap:
+        raise RuntimeError(f"real scope auxiliary source overlap: {overlap[:3]}")
+    masked, permanent = permanently_mask_frames(frames)
+    t0 = T0Cache(Path(args.t0_root))
+    scoped, rows = restrict_model_scope_to_frozen_targets(
+        masked,
+        Path(args.c1_targets),
+        t0,
+        allow_local_t0_manifest_proxy=True,
+    )
+    requested = [value.strip() for value in str(args.held_values).split(",") if value.strip()]
+    dev_holds = legal_development_holds(frames, requested)
+
+    def count(role: str, phase: str) -> int:
+        return int(scoped[role]["phase"].astype(str).eq(phase).sum())
+
+    payload = {
+        "status": "CKBO_REAL_1M_SCOPE_PASS",
+        "input_audit": input_audit,
+        "support_train_fit_rows": count("support_train", "fit"),
+        "support_val_select_rows": count("support_val", "select"),
+        "original_benign_fit_rows": sum(count(role, "fit") for role in ckbj.FIT_BENIGN),
+        "original_benign_select_rows": sum(count(role, "select") for role in ckbj.SELECT_BENIGN),
+        "development_held_families": dev_holds,
+        "permanent_report_only": list(PERMANENT_REPORT_ONLY),
+        "permanent_fit_select_rows_after_mask": int(
+            sum(int(row["fit_select_rows_after_mask"]) for row in permanent)
+        ),
+        "frozen_scope_rows": rows,
+        "c1_target_manifest_sha256": sha256_file(Path(args.c1_targets)),
+        "missing_feature_zero_fill": 0,
+        "raw_rows_materialized": 0,
+        "auxiliary_source_overlap": overlap,
+    }
+    if payload["support_train_fit_rows"] != 385:
+        raise RuntimeError(f"real scope lost support_train rows: {payload['support_train_fit_rows']}")
+    if payload["support_val_select_rows"] != 69:
+        raise RuntimeError(f"real scope support_val lineage drift: {payload['support_val_select_rows']}")
+    if payload["permanent_fit_select_rows_after_mask"] != 0:
+        raise RuntimeError("permanent report family survived real scope mask")
+    if set(dev_holds) != {"iotsim-ip-camera-street", AUX_HELD_FAMILY}:
+        raise RuntimeError(f"real scope development held-family boundary drift: {dev_holds}")
+    print(json.dumps(ckbm.json_ready(payload), indent=2, sort_keys=True))
+
+
 def aux_smoke(args: argparse.Namespace) -> None:
     with zipfile.ZipFile(Path(args.gotham_zip)) as zf:
-        info = predictive_members(zf)[0]
+        info, _family, _role = auxiliary_member_specs(zf)[0]
         smoke = ckab.SmokeFile("smoke", "smoke", info.filename, "", "benign", "", "bounded local parser check")
         raw, sidecar, meta = ckab.read_pcap_vectors(
             zf,
@@ -1113,9 +1657,11 @@ def dry_run(args: argparse.Namespace) -> None:
                 "candidates": [spec.__dict__ for spec in CANDIDATES],
                 "permanent_report_only": list(PERMANENT_REPORT_ONLY),
                 "auxiliary_family": AUX_FAMILY,
-                "auxiliary_sources": 15,
+                "auxiliary_held_family": AUX_HELD_FAMILY,
+                "auxiliary_sources": FIT_SOURCE_COUNT + SELECT_SOURCE_COUNT + HELD_SOURCE_COUNT,
                 "auxiliary_fit_sources": FIT_SOURCE_COUNT,
-                "auxiliary_select_sources": 15 - FIT_SOURCE_COUNT,
+                "auxiliary_select_sources": SELECT_SOURCE_COUNT,
+                "auxiliary_report_sources": HELD_SOURCE_COUNT,
                 "auxiliary_rows_per_source": int(args.aux_rows_per_source),
                 "original_1m_split_modified": False,
                 "formal_job": "result-producing attack preservation, legal multi-held development, and frozen report canaries",
@@ -1127,7 +1673,7 @@ def dry_run(args: argparse.Namespace) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mode", choices=["contract-unit", "aux-smoke", "dry-run", "formal"], default="dry-run")
+    parser.add_argument("--mode", choices=["contract-unit", "scope-audit", "aux-smoke", "dry-run", "formal"], default="dry-run")
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     parser.add_argument("--seed", type=int, default=SEED)
     parser.add_argument("--held-values", default=",".join(HELD))
@@ -1156,6 +1702,8 @@ def main() -> None:
     args = parse_args()
     if args.mode == "contract-unit":
         contract_unit(args)
+    elif args.mode == "scope-audit":
+        scope_audit(args)
     elif args.mode == "aux-smoke":
         aux_smoke(args)
     elif args.mode == "formal":
