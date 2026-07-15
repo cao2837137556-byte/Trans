@@ -9,14 +9,14 @@ If older time-log entries conflict with this section, treat the older entry as h
 
 The pre-July control-panel text below is retained as historical data/support
 lineage, not as the current detector route. `openworld_handoff_20260711.md`
-records the mature-TGN starting point; the current post-CKBN route is:
+records the mature-TGN starting point; the current post-CKBO route is:
 
 ```text
 mature flow frontend / C1 attack-candidate anchor
-+ mature AfterImage process verifier
-+ separate source-disjoint legal benign-diversity extension
-+ complete per-packet attack support supervision
--> attack-preserving suppress-or-hard decision
++ raw mature AfterImage115 process evidence
++ broader legal source/family-disjoint normal evidence
++ source-held-out one-sided calibration
+-> suppress only under transferable normal evidence; otherwise retain hard
 ```
 
 Strict fit/select/report isolation remains frozen. In particular, an unseen
@@ -138,6 +138,26 @@ family from auxiliary fit/select, and freezes the formal list to global,
 ip-camera-street, predictive-maintenance, stream, and hydraulic. See
 `ckbo_job151774_duplicate_scope_fix_20260715.md`.
 
+The corrected CKBO seed-27 job `151780` completed on AMD with all data,
+alignment, support-use, report-isolation, and sealed-holdout checks passing. It
+is a valid scientific `NO_GO`. The primary multiscale-contrast plus auxiliary
+TabM candidate changed stream only from `100%` to `99.733%`, IP-camera-street
+from `100%` to `99.767%`, predictive-maintenance to `73.011%`, and hydraulic
+from `72.367%` to `42.533%`, while overall attack hard recall fell `6.091 pp`.
+Merlin TCP Flooding fell `32.573 pp`. Review remained zero and cooler-motor
+remained unopened.
+
+The ablations are decisive. Raw AfterImage115 without auxiliary normals
+reduces predictive and hydraulic by about 34/33 pp but leaves stream and
+IP-camera near 100% and still loses `1.375 pp` attack recall. Auxiliary normal
+diversity improves predictive/hydraulic but worsens attacks. Raw115 plus Aux
+strictly dominates the preregistered multiscale contrast on all four OOD rates
+and overall attack recall, so the contrast route is rejected. Do not run CKBO
+seeds 37/47. The next route must keep C1 as the attack anchor and test
+source-held-out, one-sided normal-evidence calibration with broader legal
+normal-family coverage; it must default to hard when normal evidence does not
+transfer. See `ckbo_seed27_formal_result_20260715.md`.
+
 ### Maintenance Protocol
 
 - Keep detailed evidence inside each numbered `runs/issue*/` directory.
@@ -172,6 +192,8 @@ Gotham raw PCAP
 Frozen parts:
 
 - The official Gotham frontend path is PCAP-derived Kitsune-style 115D.
+- C1 remains the high-recall attack-candidate anchor; raw mature AfterImage115
+  remains the process-evidence control for the next one-sided calibration test.
 - The old 8D strict packet-header asset is an engineering smoke/provenance artifact only.
 - Final/report-only roles cannot be used for fit, support selection, threshold selection, calibration, model selection, or protocol tuning.
 - Data contract cleanliness gates precede model replay.
@@ -211,6 +233,8 @@ Superseded parts:
 - New-capture acquisition is no longer a prerequisite for implementing
   human-label memory management. It remains necessary only for a future claim
   that geometric regions can automatically certify unknown traffic.
+- CKBO's deterministic multiscale-contrast representation and symmetric TabM
+  attack-versus-benign suppression are rejected for additional seeds.
 
 ### Current Data Contract
 
@@ -230,37 +254,39 @@ Superseded parts:
 | Bounded support extension audit | E64 improves historical Mirai GRE attack coverage, but static support evidence is non-material and GRE OOD-stress core+near rises from 0 to about 2.21 percent | issue27cke | exploratory trade-off evidence only; original 512 remains unchanged and no extension is deployment-authorized |
 | Fresh two-sided holdout feasibility | local archive has 4 unmaterialized malicious PCAPs and 51 unused benign PCAPs, but zero fresh attack+benign pairs relevant to the current ten regions; one substantial CoAP pair is outside the registry | issue27ckf | do not submit an HPC materialization job from the existing archive for current-region certification |
 | Label-support region registry | one exact-label registry with ten active memory-management regions, immutable 385/127 views, append-only archive/candidate schemas, versioned promotion and rollback contracts | issue27ckg | current formal region system; production promotion disabled pending budget/model non-regression certification |
+| CKBO auxiliary normal extension | 31 label-free raw-PCAP sources split 11/5/15 fit/select/predictive-report with a separate manifest; permanent canaries and cooler have zero fit/select use | issue27ckbo | reusable only under source/family-held-out one-sided calibration; does not alter the strict 1M or T0 manifests |
 
 ### Active Blocker
 
-`Transferable unseen-normal suppression is not yet demonstrated`
+`Transferable attack-preserving unseen-normal suppression is not yet demonstrated`
 
-C1 retains strong attack-anchor value, but TGN, GraphMixer, source-relative
-TabM, and the current 207D probe have not jointly preserved attacks and reduced
-the hardest unseen-normal alarms. CKBN also shows that the stream failure is
-not just a threshold bug in the current C1 score. The immediate blocker is to
-test a mature process representation under broader legal normal diversity,
-without admitting report families into any selection scope.
+C1 retains strong attack-anchor value. CKBO proves that mature AfterImage115
+and legal normal diversity can suppress predictive and hydraulic, but the same
+evidence does not transfer to stream or IP-camera and a symmetric verifier
+suppresses future attacks. The immediate blocker is a one-sided normal-evidence
+test whose calibration transfers across held sources/families and fails closed
+to C1 hard when normal evidence is uncertain.
 
 ### Current Next Action
 
-Run the corrected CKBO seed 27 once on independent AMD and Intel paths, using the first valid
-completion and stopping the other copy manually if convenient. Do not add seeds
-37/47 unless the preregistered legal multi-held, stream, hydraulic, and attack
-preservation gates jointly return a real `GO_SIGNAL`. If CKBO is `NO_GO`, use
-its raw115/no-aux/multiscale ablations to distinguish representation failure
-from normal-diversity failure before choosing the next mature frontend; do not
-tune on report-family labels.
+Do not run CKBO seeds 37/47 and do not repeat its deterministic contrast or
+symmetric attack-versus-benign verifier. Preregister one seed-27
+source-held-out normal-evidence experiment that reuses raw AfterImage115 as a
+mature control, broadens only legal normal-family diversity, keeps all report
+families out of fit/select, and defaults to C1 hard when normal conformity is
+not confidently transferable. Submit the result job independently to AMD and
+Intel with collision-free outputs; open no sealed family until a real
+multi-held and attack-preservation signal exists.
 
 ### Latest Compact Close-out
 
 ```text
-solved: CKBN isolated the stream failure to the current representation/diversity/probe; CKBO jobs 151772/151774 exposed shifted-cache, absent-benign-select, duplicate-report, and auxiliary held-scope defects before producing metrics.
-changed_mainline: yes, the next route is mature AfterImage plus legal benign diversity and a constrained TabM verifier; no CKBO performance claim exists yet.
-active_blocker: corrected seed-27 CKBO must show two-family held transfer, stream suppression, hydraulic non-regression, and attack preservation together.
+solved: CKBO seed 27 completed validly and decomposed raw AfterImage, auxiliary normal diversity, and contrast effects.
+changed_mainline: yes; contrast and symmetric TabM suppression are rejected, while raw AfterImage115 remains the mature process control.
+active_blocker: source/family-transferable one-sided normal evidence with future-attack preservation is not demonstrated.
 frozen: original strict 1M split, 385/69 support roles, base T0 manifests, immutable target-cohort intersection, permanent report-only canaries, cooler sealed, review=0, and source/episode inference units.
-superseded: rerunning the same TGN/GraphMixer/CSR route, C1-only threshold repair, and report-family-specific tuning.
-next_action: publish the corrected CKBO bundle, submit the paired independent AMD/Intel result jobs, and validate the first completion.
+superseded: CKBO seeds 37/47, deterministic contrast promotion, symmetric verifier scaling, C1-only threshold repair, and report-family-specific tuning.
+next_action: preregister one mature source-held-out normal-evidence calibration experiment with raw115/no-aux control, then run one seed-27 paired AMD/Intel result job.
 ```
 
 ### Decision Log
@@ -280,6 +306,7 @@ next_action: publish the corrected CKBO bundle, submit the paired independent AM
 | 2026-06-22 | Nested +64/+128 support extension audit finds E64 improves historical GRE attack coverage but offers no material support-val gain and raises GRE OOD-stress intrusion to about 2.21 percent. | issue27cke | no registry freeze; construct a fresh attack and benign-OOD temporal holdout before further comparison |
 | 2026-06-22 | Complete Gotham archive audit finds no fresh two-sided pair relevant to the current ten regions; the only substantial unused pair is CoAP, outside the current registry. | issue27ckf | no existing-archive HPC job; design a new Gotham capture or semantically audited second environment |
 | 2026-06-22 | One exact-label support-region registry and versioned archive/candidate/update workflow are instantiated; geometry is diagnostic only and production promotion remains disabled. | issue27ckg | active memory-management architecture; wait for issue27ckc, then certify update budgets through detector non-regression |
+| 2026-07-15 | CKBO seed 27 validates family-dependent raw AfterImage115 normal evidence but rejects deterministic contrast and symmetric TabM suppression; stream/IP-camera remain near 100% and primary attack recall falls 6.091 pp. | issue27ckbo | no more CKBO seeds; next test is source-held-out one-sided normal-evidence calibration |
 
 ---
 
