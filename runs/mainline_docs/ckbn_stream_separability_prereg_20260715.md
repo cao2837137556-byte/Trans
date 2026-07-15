@@ -51,6 +51,10 @@ The probe is CKBL's group-balanced sklearn HistGradientBoosting classifier. All
 report features are causal, source-local, score-before-update, and based on
 label-free past events.
 
+The formal result run reads every raw source in full and replays timestamp
+ascending with recorded-index tie breaking. Prefix reading is permitted only
+for local engineering and is not eligible for the CKBN scientific diagnosis.
+
 ## Interpretation rule
 
 For each representation, report pairwise AUROC between each benign canary and
@@ -73,4 +77,3 @@ AUROC and 0.65 against UDP Scan, the secondary interpretation is
 
 These boundaries classify the known failure. They are not go/no-go thresholds
 for a future detector and must not be optimized on stream or hydraulic.
-

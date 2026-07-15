@@ -197,6 +197,7 @@ def resumable_feature_matrices(
     frame_by_role: dict[str, pd.DataFrame],
     x_by_role: dict[str, np.ndarray],
     seed: int,
+    source_read_mode: str,
     out: Path,
     state_blocked_rows: dict[str, set[int]] | None,
 ) -> tuple[dict[str, np.ndarray], list[dict[str, Any]], list[dict[str, Any]]]:
@@ -236,6 +237,7 @@ def resumable_feature_matrices(
                 "row_uid_sha256": uid_hash,
                 "rows": int(len(part)),
                 "seed": int(seed),
+                "source_read_mode": str(source_read_mode),
             }
             if any(meta.get(field) != value for field, value in expected.items()):
                 raise RuntimeError(f"stale or mismatched source feature cache: {json_path}")
@@ -249,7 +251,7 @@ def resumable_feature_matrices(
                 part,
                 frame_by_role,
                 x_by_role,
-                "prefix",
+                str(source_read_mode),
                 int(seed),
                 state_blocked_rows=state_blocked_rows,
                 progress_path=None,
@@ -269,6 +271,7 @@ def resumable_feature_matrices(
                             "row_uid_sha256": uid_hash,
                             "rows": int(len(part)),
                             "seed": int(seed),
+                            "source_read_mode": str(source_read_mode),
                             "raw_label_column_read": False,
                             "row_audits": row_audits,
                             "source_audits": runtime_audits,
@@ -522,6 +525,7 @@ def run(args: argparse.Namespace) -> None:
         "canary_cap": int(args.canary_cap),
         "attack_family_cap": int(args.attack_family_cap),
         "max_iter": int(args.max_iter),
+        "source_read_mode": str(args.source_read_mode),
         "fit_rows": int(len(fit)),
         "support_train_rows": int(fit["role"].eq("support_train").sum()),
         "fit_sources": int(fit["source_group"].nunique()),
@@ -567,6 +571,7 @@ def run(args: argparse.Namespace) -> None:
             frame_by_role,
             x_by_role,
             int(args.seed),
+            str(args.source_read_mode),
             out,
             blocked if scope == "fit" else None,
         )
@@ -644,6 +649,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--canary-cap", type=int, default=3000)
     parser.add_argument("--attack-family-cap", type=int, default=2000)
     parser.add_argument("--max-iter", type=int, default=80)
+    parser.add_argument("--source-read-mode", choices=["prefix", "full"], default="full")
     return parser.parse_args()
 
 
