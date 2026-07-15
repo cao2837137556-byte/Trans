@@ -158,6 +158,22 @@ source-held-out, one-sided normal-evidence calibration with broader legal
 normal-family coverage; it must default to hard when normal evidence does not
 transfer. See `ckbo_seed27_formal_result_20260715.md`.
 
+CKBP implements that next result experiment locally; no CKBP performance
+result exists yet. The frozen C1 anchor and mature raw AfterImage115 features
+are unchanged. A normal-only QuantileTransformer plus LedoitWolf model is fit
+only on legal benign-fit sources, while its empirical reference is constructed
+from source-disjoint benign-select sources scored by that exact frozen model.
+Leave-one-fit-source-out scores are diagnostic only. The preregistered primary
+uses source-local past history with a 64-record fail-closed burn-in, robust
+update rejection, and a source-shift bound learned only from legal select
+sources. An unbounded version is a non-deployable contamination control.
+Stream, hydraulic, and cooler have zero fit/select use; cooler stays sealed;
+review is zero. Local contract, script syntax, dependency-hash, and real frozen
+1M role-scope audits pass. The next action is one seed-27 dual-partition formal
+run; do not infer improvement until its attack-preservation and multi-held OOD
+tables exist. See `ckbp_source_local_normal_calibration_prereg_20260715.md` and
+`ckbp_local_implementation_and_audit_20260715.md`.
+
 ### Maintenance Protocol
 
 - Keep detailed evidence inside each numbered `runs/issue*/` directory.
