@@ -862,6 +862,32 @@ def add_auxiliary_values(values: dict[str, np.ndarray], aux: AuxiliaryData, repr
         values[record.uid] = source[record.uid]
 
 
+def exclude_held_auxiliary(records: Iterable[ckbj.Record], held: str | None) -> list[ckbj.Record]:
+    values = list(records)
+    if held is None:
+        return values
+    return [record for record in values if record.device_family != held]
+
+
+def candidate_record_scope(
+    core_records: list[ckbj.Record],
+    aux_fit: list[ckbj.Record],
+    aux_select: list[ckbj.Record],
+    use_auxiliary_benign: bool,
+) -> list[ckbj.Record]:
+    """Assemble one candidate scope without duplicating protocol reports.
+
+    ``core_records`` already contains the report records for the current
+    protocol.  In particular, the predictive-maintenance strict protocol puts
+    ``aux_report`` there.  Only fit/select extensions may be appended.
+    """
+
+    groups = [core_records]
+    if use_auxiliary_benign:
+        groups.extend([aux_fit, aux_select])
+    return ckbm.unique_records(groups)
+
+
 def protocol_family_name(held: str | None) -> str:
     return "GLOBAL_ATTACK_PRESERVATION" if held is None else held
 
@@ -923,6 +949,35 @@ def run_protocol(
             }
         )
     headers, schema_sha = afterimage_schema()
+    aux_fit = exclude_held_auxiliary(aux.records_fit, held)
+    aux_select = exclude_held_auxiliary(aux.records_select, held)
+    data_audit.extend(
+        [
+            {
+                "role": role,
+                "frame_phase": phase,
+                "m1_phase": phase,
+                "held_value": held or "GLOBAL",
+                "eligible_role_rows": len(before),
+                "frozen_target_rows": len(after),
+                "outside_frozen_target_cohort": 0,
+                "target_alignment_incomplete": 0,
+                "requested_rows": len(after),
+                "cache_aligned_rows": len(after),
+                "unmapped_rows": 0,
+                "label_for_metric_only": 0,
+                "report": False,
+                "held_family_rows_removed": len(before) - len(after),
+                "held_family_rows_retained": int(
+                    sum(held is not None and record.device_family == held for record in after)
+                ),
+            }
+            for role, phase, before, after in (
+                ("aux_fit", "fit", aux.records_fit, aux_fit),
+                ("aux_select", "select", aux.records_select, aux_select),
+            )
+        ]
+    )
     core_records = ckbm.unique_records(
         [sets["fit_attack"], sets["fit_benign"], sets["select_attack"], sets["select_benign"], sets["report"]]
     )
@@ -937,17 +992,14 @@ def run_protocol(
 
     for spec in CANDIDATES:
         use_aux = bool(spec.use_auxiliary_benign)
-        fit_records = sets["fit_attack"] + sets["fit_benign"] + (aux.records_fit if use_aux else [])
-        select_records = sets["select_attack"] + sets["select_benign"] + (aux.records_select if use_aux else [])
-        all_records = ckbm.unique_records(
-            [core_records, aux.records_report, aux.records_fit, aux.records_select]
-            if use_aux
-            else [core_records, aux.records_report]
-        )
+        fit_records = sets["fit_attack"] + sets["fit_benign"] + (aux_fit if use_aux else [])
+        select_records = sets["select_attack"] + sets["select_benign"] + (aux_select if use_aux else [])
+        all_records = candidate_record_scope(core_records, aux_fit, aux_select, use_aux)
         base = existing_feature_map(core_records, x_by_role, spec.representation, headers)
-        add_auxiliary_values(base, aux, spec.representation, aux.records_report)
+        protocol_aux_report = [record for record in core_records if record.role == "aux_report"]
+        add_auxiliary_values(base, aux, spec.representation, protocol_aux_report)
         if use_aux:
-            add_auxiliary_values(base, aux, spec.representation, aux.records_fit + aux.records_select)
+            add_auxiliary_values(base, aux, spec.representation, aux_fit + aux_select)
         transformer, prep = generic_preprocessor(fit_records, base, int(args.seed))
         transformed = transform_map(transformer, all_records, base)
         sampled_idx, weights, weight_audit, occurrences = ckbm.balanced_training_sample(fit_records, int(args.seed))
@@ -960,7 +1012,7 @@ def run_protocol(
         threshold, frontier, gate_pass = choose_legal_verifier_gate(
             spec.name,
             sets["select_attack"],
-            sets["select_benign"] + (aux.records_select if use_aux else []),
+            sets["select_benign"] + (aux_select if use_aux else []),
             score_map,
             c1_threshold,
         )
@@ -973,8 +1025,8 @@ def run_protocol(
                     "held_value": name,
                     "representation": spec.representation,
                     "auxiliary_benign_enabled": use_aux,
-                    "auxiliary_select_rows": len(aux.records_select) if use_aux else 0,
-                    "auxiliary_rows_conservatively_treated_as_c1_candidates": len(aux.records_select) if use_aux else 0,
+                    "auxiliary_select_rows": len(aux_select) if use_aux else 0,
+                    "auxiliary_rows_conservatively_treated_as_c1_candidates": len(aux_select) if use_aux else 0,
                     "c1_candidate_threshold": c1_threshold,
                     "gate_constraint_pass": gate_pass,
                     "feature_schema_sha256": schema_sha,
@@ -990,7 +1042,13 @@ def run_protocol(
                 "held_value": name,
                 "representation": spec.representation,
                 "auxiliary_benign_enabled": use_aux,
-                "auxiliary_fit_rows": len(aux.records_fit) if use_aux else 0,
+                "auxiliary_fit_rows": len(aux_fit) if use_aux else 0,
+                "auxiliary_held_fit_rows_used": int(
+                    sum(held is not None and record.device_family == held for record in aux_fit)
+                ) if use_aux else 0,
+                "auxiliary_held_select_rows_used": int(
+                    sum(held is not None and record.device_family == held for record in aux_select)
+                ) if use_aux else 0,
             }
         )
         preprocessing_rows.append(prep)
@@ -1007,7 +1065,14 @@ def run_protocol(
                 "fit_rows": len(fit_records),
                 "fit_attack_rows": len(sets["fit_attack"]),
                 "fit_original_benign_rows": len(sets["fit_benign"]),
-                "fit_auxiliary_benign_rows": len(aux.records_fit) if use_aux else 0,
+                "fit_auxiliary_benign_rows": len(aux_fit) if use_aux else 0,
+                "select_auxiliary_benign_rows": len(aux_select) if use_aux else 0,
+                "auxiliary_held_fit_rows_used": int(
+                    sum(held is not None and record.device_family == held for record in aux_fit)
+                ) if use_aux else 0,
+                "auxiliary_held_select_rows_used": int(
+                    sum(held is not None and record.device_family == held for record in aux_select)
+                ) if use_aux else 0,
                 "all_unique_fit_rows_covered": len(occurrences) == len(fit_records),
                 "model_sha256": model_hash,
                 "report_gradient_updates": 0,
@@ -1105,6 +1170,28 @@ def legal_development_holds(frames: dict[str, pd.DataFrame], requested: Iterable
     if AUX_HELD_FAMILY not in values:
         values.append(AUX_HELD_FAMILY)
     return values
+
+
+def formal_protocol_values(requested: Iterable[str], dev_holds: list[str]) -> list[str | None]:
+    report_canaries = [
+        str(value)
+        for value in requested
+        if str(value) in {"iotsim-stream-consumer", "iotsim-hydraulic-system"}
+    ]
+    protocols: list[str | None] = [None]
+    for value in dev_holds + report_canaries:
+        if value not in protocols:
+            protocols.append(value)
+    expected: list[str | None] = [
+        None,
+        "iotsim-ip-camera-street",
+        AUX_HELD_FAMILY,
+        "iotsim-stream-consumer",
+        "iotsim-hydraulic-system",
+    ]
+    if protocols != expected:
+        raise RuntimeError(f"formal protocol boundary drift: {protocols} != {expected}")
+    return protocols
 
 
 def prepare_inputs(args: argparse.Namespace, out: Path) -> tuple[Any, ...]:
@@ -1278,10 +1365,7 @@ def run_formal(args: argparse.Namespace) -> None:
     if set(dev_holds) != {"iotsim-ip-camera-street", AUX_HELD_FAMILY}:
         raise RuntimeError(f"formal development held-family boundary drift: {dev_holds}")
     aux = materialize_auxiliary(args, out)
-    protocols: list[str | None] = [None]
-    for value in dev_holds + requested:
-        if value not in protocols:
-            protocols.append(value)
+    protocols = formal_protocol_values(requested, dev_holds)
     position_cache: dict[str, dict[int, int]] = {}
     results = [run_protocol(value, args, x_by_role, report_frames, model_frames, t0, position_cache, aux) for value in protocols]
 
@@ -1508,6 +1592,25 @@ def contract_unit(args: argparse.Namespace) -> None:
     global_report_specs = report_specs_for_protocol(None)
     assert global_report_specs and all(int(spec[2]) == 1 for spec in global_report_specs)
     assert not any(spec[0] == "sealed_final_ood" for spec in global_report_specs)
+    report_records = make_aux_records("predictive-report", "aux_report", 2, AUX_HELD_FAMILY)
+    fit_records = make_aux_records("domotic-fit", "aux_fit", 2, "iotsim-domotic-monitor")
+    select_records = make_aux_records("building-select", "aux_select", 2, "iotsim-building-monitor")
+    core_with_report = ckbm.unique_records([report_records])
+    assembled = candidate_record_scope(core_with_report, fit_records, select_records, True)
+    assert len(assembled) == 6 and len({record.uid for record in assembled}) == 6
+    assert candidate_record_scope(core_with_report, fit_records, select_records, False) == core_with_report
+    assert exclude_held_auxiliary(fit_records, "iotsim-domotic-monitor") == []
+    assert exclude_held_auxiliary(select_records, "iotsim-domotic-monitor") == select_records
+    assert formal_protocol_values(
+        HELD,
+        ["iotsim-ip-camera-street", AUX_HELD_FAMILY],
+    ) == [
+        None,
+        "iotsim-ip-camera-street",
+        AUX_HELD_FAMILY,
+        "iotsim-stream-consumer",
+        "iotsim-hydraulic-system",
+    ]
     assert sum(row["model_use_count"] for row in audit) == 0
     outcome = decision(
         pd.DataFrame(

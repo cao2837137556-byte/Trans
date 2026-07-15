@@ -34,6 +34,32 @@ The corrected launcher is eligible only after a real local 1M scope audit
 confirms all 385 support-train rows, the 69 legal support-val lineage, zero
 permanent-canary fit/select use, and complete immutable-cache coverage.
 
+## Second execution amendment after failed job 151774
+
+AMD job `151774` completed dependency and cache preparation but stopped before
+formal output materialization. In the predictive-maintenance protocol,
+`aux_report` was already part of the protocol's core report set and was then
+appended a second time while assembling candidate scoring rows. The duplicate
+UID guard correctly rejected the ambiguous scope. No decision, report table,
+or validated pullback was emitted, so this is not performance evidence.
+
+The correction does not change the preregistered features, candidates, data
+roles, thresholds, seed, or go/no-go criteria. It freezes record assembly and
+held-family boundaries more explicitly:
+
+- a protocol's report records occur exactly once; only its legal auxiliary
+  fit/select rows may be appended for auxiliary-enabled candidates;
+- auxiliary fit/select rows matching the current held family are excluded and
+  their actual retained counts must be zero;
+- the formal protocol list is exactly global attack preservation,
+  ip-camera-street, predictive-maintenance, stream-consumer, and
+  hydraulic-system. Historical `HELD` entries that are not part of this
+  corrected preregistration are not silently run with incompatible auxiliary
+  roles.
+
+The completed 31-source label-free AfterImage cache remains reusable. Models
+and metrics from `151774` are not reusable because none were finalized.
+
 ## Scientific question
 
 CKBO tests whether the persistent unseen-normal-family failure is jointly due

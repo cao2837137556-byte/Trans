@@ -17,7 +17,8 @@ for file in run_spec.json ckbo_single_seed_go_no_go.json ckbo_environment.json c
   ckbo_auxiliary_benign_manifest.csv ckbo_auxiliary_benign_ready.json \
   ckbo_permanent_report_only_audit.csv ckbo_candidate_selection.csv \
   ckbo_frozen_model_scope_audit.csv ckbo_sealed_holdout_audit.csv ckbo_c1_fit_select_audit.csv \
-  ckbo_support_training_usage.csv ckbo_role_usage_audit.csv ckbo_loss_curves.csv \
+  ckbo_support_training_usage.csv ckbo_role_usage_audit.csv ckbo_model_audit.csv \
+  ckbo_preprocessing_audit.csv ckbo_loss_curves.csv \
   ckbo_negative_sampling_audit.csv ckbo_frontend_state_audit.csv ckbo_event_scope_audit.csv \
   attack_preservation_summary.csv strict_level2_summary.csv run_timing.txt slurm_identity.txt; do
   test -s "$RUN_ROOT/$file" || { echo "missing result file: $RUN_ROOT/$file" >&2; exit 2; }
@@ -51,6 +52,15 @@ if spec.get("original_1m_split_modified") is not False:
     errors.append("original 1M split changed")
 if spec.get("sealed_unopened") != ["iotsim-cooler-motor"]:
     errors.append("sealed cooler-motor contract changed")
+expected_protocols = [
+    "GLOBAL_ATTACK_PRESERVATION",
+    "iotsim-ip-camera-street",
+    "iotsim-predictive-maintenance",
+    "iotsim-stream-consumer",
+    "iotsim-hydraulic-system",
+]
+if spec.get("protocols") != expected_protocols:
+    errors.append("formal protocol list drift")
 if float(spec.get("review_rate", -1)) != 0.0:
     errors.append("review != 0")
 if int(ready.get("source_count", -1)) != 31 or int(ready.get("fit_sources", -1)) != 11 or int(ready.get("select_sources", -1)) != 5 or int(ready.get("report_sources", -1)) != 15:
@@ -93,6 +103,16 @@ if len(support) != 385 or len({row.get("uid") for row in support}) != 385 or any
 usage = rows("ckbo_role_usage_audit.csv")
 if not usage or any(int(float(row.get("target_alignment_incomplete", 1))) != 0 for row in usage):
     errors.append("target alignment incomplete")
+aux_scope = [row for row in usage if row.get("role") in {"aux_fit", "aux_select"}]
+if not aux_scope or any(int(float(row.get("held_family_rows_retained", 0) or 0)) != 0 for row in aux_scope):
+    errors.append("held family entered auxiliary fit/select scope")
+aux_report_scope = [row for row in usage if row.get("role") == "aux_report"]
+if len(aux_report_scope) != 1 or aux_report_scope[0].get("held_value") != "iotsim-predictive-maintenance" or int(float(aux_report_scope[0].get("fit_select_use_count", -1))) != 0:
+    errors.append("predictive report scope drift")
+for name in ("ckbo_model_audit.csv", "ckbo_preprocessing_audit.csv"):
+    table = rows(name)
+    if not table or any(int(float(row.get("auxiliary_held_fit_rows_used", 0) or 0)) != 0 or int(float(row.get("auxiliary_held_select_rows_used", 0) or 0)) != 0 for row in table):
+        errors.append(f"{name} used held-family auxiliary rows")
 selection = [row for row in rows("ckbo_candidate_selection.csv") if row.get("candidate") == "M3-AfterImageContrast-Aux" and row.get("held_value") == "GLOBAL_ATTACK_PRESERVATION" and row.get("selected") == "True"]
 if len(selection) != 1 or selection[0].get("gate_constraint_pass") != "True" or selection[0].get("report_rows_used") != "0":
     errors.append("primary global gate selection invalid")

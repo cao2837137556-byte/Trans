@@ -127,6 +127,17 @@ and structurally excluded sealed OOD from the global attack pass.  See
 `ckbo_job151772_failure_and_scope_fix_20260715.md` and the amended
 `ckbo_mature_afterimage_transfer_prereg_20260715.md`.
 
+The first corrected rerun, AMD job `151774`, is also an execution failure and
+not performance evidence. It reached the predictive-maintenance protocol but
+the candidate assembler appended that protocol's existing `aux_report` rows a
+second time; the duplicate-UID guard stopped before finalized outputs. Final
+review also found that iterating the historical `HELD` tuple would be
+incompatible with auxiliary families used for normal diversity. The repaired
+scope includes each report once, independently removes the current held
+family from auxiliary fit/select, and freezes the formal list to global,
+ip-camera-street, predictive-maintenance, stream, and hydraulic. See
+`ckbo_job151774_duplicate_scope_fix_20260715.md`.
+
 ### Maintenance Protocol
 
 - Keep detailed evidence inside each numbered `runs/issue*/` directory.
@@ -244,7 +255,7 @@ tune on report-family labels.
 ### Latest Compact Close-out
 
 ```text
-solved: CKBN isolated the stream failure to the current representation/diversity/probe; CKBO job 151772 exposed and closed the shifted-cache, absent-benign-select, and single-held protocol defects before producing metrics.
+solved: CKBN isolated the stream failure to the current representation/diversity/probe; CKBO jobs 151772/151774 exposed shifted-cache, absent-benign-select, duplicate-report, and auxiliary held-scope defects before producing metrics.
 changed_mainline: yes, the next route is mature AfterImage plus legal benign diversity and a constrained TabM verifier; no CKBO performance claim exists yet.
 active_blocker: corrected seed-27 CKBO must show two-family held transfer, stream suppression, hydraulic non-regression, and attack preservation together.
 frozen: original strict 1M split, 385/69 support roles, base T0 manifests, immutable target-cohort intersection, permanent report-only canaries, cooler sealed, review=0, and source/episode inference units.

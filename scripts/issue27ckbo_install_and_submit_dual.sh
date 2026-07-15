@@ -26,14 +26,14 @@ files=(
   scripts/issue27ckbo_install_and_submit_dual.sh
   scripts/issue27ckbo_status_dual.sh
 )
-known_predecessor_sha256() {
+known_predecessor_sha256s() {
   case "$1" in
-    repo/ood/issue27ckbo_mature_afterimage_transfer_v1.py) echo afea03e9eb9bcdc4c37b584941ca00a698b1a863e773cbd6ca945b64ce8744b6 ;;
-    runs/mainline_docs/ckbo_mature_afterimage_transfer_prereg_20260715.md) echo 7574d318d830e4efc52e0dbeb6aa1d48abc736f09ed29b51b69cf42a40ed00a0 ;;
-    runs/mainline_docs/ckbo_dependency_sha256_20260715.txt) echo f5227c3065bd70ddef688bf6bafcfd1cf397925c1d4ae2fba06e9b6e8aa14da1 ;;
-    scripts/issue27ckbo_mature_afterimage_transfer.slurm) echo ee7c7c32aeef92a22e491d74eb3a1b19d1fbc72c480f07269595a2003546eb1c ;;
-    scripts/issue27ckbo_validate_and_pack_seed27.sh) echo 3fd0701d2d8a781b6a0d98754ef95d6830477ffd874007d1ff720d86953c67cb ;;
-    scripts/issue27ckbo_install_and_submit_dual.sh) echo 68116501e9383062e3503e97f8b39e15c73479b402399d1877066dd3e4f446d7 ;;
+    repo/ood/issue27ckbo_mature_afterimage_transfer_v1.py) echo "afea03e9eb9bcdc4c37b584941ca00a698b1a863e773cbd6ca945b64ce8744b6 1d6c85b89f14c603aebbc66135c7e9671cdacd8da2854bdd202837ab66ed9dfd" ;;
+    runs/mainline_docs/ckbo_mature_afterimage_transfer_prereg_20260715.md) echo "7574d318d830e4efc52e0dbeb6aa1d48abc736f09ed29b51b69cf42a40ed00a0 5385a25f5f4100263371308c879b421a960d4908dd9e7065470d603ea5a919fb" ;;
+    runs/mainline_docs/ckbo_dependency_sha256_20260715.txt) echo "f5227c3065bd70ddef688bf6bafcfd1cf397925c1d4ae2fba06e9b6e8aa14da1 73a5e58d6c0a2beac9f9395b2ca733ccbe7abfcf9c2cf985523d7a0baccfb13d" ;;
+    scripts/issue27ckbo_mature_afterimage_transfer.slurm) echo "ee7c7c32aeef92a22e491d74eb3a1b19d1fbc72c480f07269595a2003546eb1c e3d1b643be3c07c60a845eec8ec05baff3fa559019fb1908fdac3829c0a8eafc" ;;
+    scripts/issue27ckbo_validate_and_pack_seed27.sh) echo "3fd0701d2d8a781b6a0d98754ef95d6830477ffd874007d1ff720d86953c67cb 350c37a297395fce8a606854075866e8a188cc15f47618215ac56e7039b68e08" ;;
+    scripts/issue27ckbo_install_and_submit_dual.sh) echo "68116501e9383062e3503e97f8b39e15c73479b402399d1877066dd3e4f446d7 7716f69e4dae31b64fc0d0766c7b9962a1cf5a10b5fb51f4f4f85a58eb3d4774" ;;
     scripts/issue27ckbo_status_dual.sh) echo 2b6d306670683c4c7cc823cb59f9be328a38bd5fb264f89c54aeb071a0bd61b2 ;;
     *) return 1 ;;
   esac
@@ -43,13 +43,16 @@ for relative in "${files[@]}"; do
   target_file="$BASE/$relative"
   test -s "$source_file" || { echo "missing payload file: $source_file" >&2; exit 2; }
   if test -e "$target_file" && ! cmp -s "$source_file" "$target_file"; then
-    expected=$(known_predecessor_sha256 "$relative") || { echo "no predecessor allowlist for: $relative" >&2; exit 2; }
+    expected=$(known_predecessor_sha256s "$relative") || { echo "no predecessor allowlist for: $relative" >&2; exit 2; }
     actual=$(sha256sum "$target_file" | awk '{print $1}')
-    test "$actual" = "$expected" || {
-      echo "target is neither this bundle nor the exact job-151772 predecessor: $target_file" >&2
-      echo "actual_sha256=$actual expected_predecessor_sha256=$expected" >&2
-      exit 2
-    }
+    case " $expected " in
+      *" $actual "*) ;;
+      *)
+        echo "target is neither this bundle nor an exact CKBO predecessor: $target_file" >&2
+        echo "actual_sha256=$actual expected_predecessor_sha256s=$expected" >&2
+        exit 2
+        ;;
+    esac
     echo "CKBO_KNOWN_PREDECESSOR_OK $relative $actual"
   fi
 done
