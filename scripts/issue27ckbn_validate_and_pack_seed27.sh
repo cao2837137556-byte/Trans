@@ -89,4 +89,3 @@ cd "$BASE/runs"
 sha256sum "$(basename "$ARCHIVE")" > "$(basename "$ARCHIVE").sha256"
 sha256sum -c "$(basename "$ARCHIVE").sha256"
 echo "CKBN_PULLBACK_ARCHIVE=$ARCHIVE"
-

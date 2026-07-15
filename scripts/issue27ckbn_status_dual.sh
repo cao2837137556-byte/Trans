@@ -19,4 +19,3 @@ for partition in amd intel; do
   echo "--- stderr tail ---"
   tail -n 25 "$BASE/runs/issue27ckbn_diag_${partition}_${job_id}.err" 2>/dev/null || true
 done
-

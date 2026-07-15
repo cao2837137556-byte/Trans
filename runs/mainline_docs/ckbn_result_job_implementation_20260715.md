@@ -27,4 +27,3 @@ The job writes the actual scientific metrics and packages them automatically.
 It is not an environment-only, preflight-only, audit-only, or synthetic-smoke
 job. Large resumable source feature caches remain on HPC and are excluded from
 the lightweight pullback archive.
-
