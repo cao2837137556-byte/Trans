@@ -8,14 +8,15 @@ If older time-log entries conflict with this section, treat the older entry as h
 ### July 2026 method-route supersession
 
 The pre-July control-panel text below is retained as historical data/support
-lineage, not as the current detector route. The active open-world IDS method
-route is authoritative in `openworld_handoff_20260711.md`:
+lineage, not as the current detector route. `openworld_handoff_20260711.md`
+records the mature-TGN starting point; the current post-CKBN route is:
 
 ```text
 mature flow frontend / C1 attack-candidate anchor
-+ source-local, past-only PyG TGN interaction-process verifier
++ mature AfterImage process verifier
++ separate source-disjoint legal benign-diversity extension
 + complete per-packet attack support supervision
--> constrained hard attack decision
+-> attack-preserving suppress-or-hard decision
 ```
 
 Strict fit/select/report isolation remains frozen. In particular, an unseen
@@ -92,6 +93,25 @@ route, validator logic must enforce all-canary zero use.  The next method must
 keep C1 as the high-recall anchor and test one-sided, source-held-out calibrated
 normal-evidence suppression rather than another larger attack-vs-benign
 classifier.  See `ckbm_seed27_formal_result_20260714.md`.
+
+CKBN full-source stream separability diagnosis completed on Intel job `151721`
+and passed its alignment and zero-use contracts. It found that the current C1
+207D representation does not rank stream-consumer below future attacks:
+stream macro AUROC is `0.2513`, stream versus UDP Scan AUROC is `0.0`, and the
+hard rate remains `100%`. This narrows the claim to the current representation,
+legal fit diversity, and probe; it does not prove that raw traffic has no
+transferable information. CKBN is diagnostic evidence, not a detector result.
+
+CKBO is the next preregistered result experiment and is implemented but not yet
+run. It reuses the mature vendored Kitsune/AfterImage 115D frontend and official
+TabM, adds only a deterministic multiscale contrast view, and materializes a
+separate 15-source predictive-maintenance benign extension (10 source-disjoint
+fit, 5 select). The original strict 1M split and frozen T0 manifests remain
+unchanged. Stream, hydraulic, and cooler are permanently excluded from every
+fit/select/preprocessing/gate scope. A positive seed-27 result additionally
+requires improvement across legal benign held rotations, so success cannot be
+declared from one named report canary. See
+`ckbo_mature_afterimage_transfer_prereg_20260715.md`.
 
 ### Maintenance Protocol
 
@@ -188,51 +208,34 @@ Superseded parts:
 
 ### Active Blocker
 
-`Production support-update budget and detector benefit are not yet certified`
+`Transferable unseen-normal suppression is not yet demonstrated`
 
-The label-management protocol is implemented and validated:
-
-- ten stable exact-label region IDs exist and all are valid for managing
-  human-confirmed labels;
-- original support roles remain 385 train and 127 validation with no overlap;
-- archive events require human confirmation, complete provenance, legal role,
-  feature reference, and append-only IDs;
-- duplicates, final/report-only rows, unknown labels, and incomplete
-  provenance are quarantined;
-- a simulation-only budget produced a 387-row candidate train view without
-  mutating the active 385-row view;
-- production promotion is disabled because global/per-region budgets have not
-  been shown to improve the binary detector without OOD or old-label
-  regression;
-- issue27ckc remains the direct capability evidence needed to design that
-  ablation.
+C1 retains strong attack-anchor value, but TGN, GraphMixer, source-relative
+TabM, and the current 207D probe have not jointly preserved attacks and reduced
+the hardest unseen-normal alarms. CKBN also shows that the stream failure is
+not just a threshold bug in the current C1 score. The immediate blocker is to
+test a mature process representation under broader legal normal diversity,
+without admitting report families into any selection scope.
 
 ### Current Next Action
 
-After issue27ckc completes, run
-`issue27ckh_support_update_budget_and_binary_head_nonregression_ablation`:
-
-- inspect the frozen issue27ckc aggregate and per-label results first;
-- identify the actual weak labels and low-FPR/OOD failure mode;
-- preregister a minimal budget matrix, such as no update versus bounded
-  per-label additions, without using sealed final for selection;
-- keep support_val_view_v1 fixed and freeze positive/ID/OOD weighting;
-- compare binary-head and controller non-regression, not geometric region
-  strong counts;
-- certify one production budget profile only if it improves the target
-  detector metric without unacceptable benign-OOD or old-label regression;
-- otherwise keep support_train_view_v1 and use the archive only for record
-  keeping until stronger evidence exists.
+Run CKBO seed 27 once on independent AMD and Intel paths, using the first valid
+completion and stopping the other copy manually if convenient. Do not add seeds
+37/47 unless the preregistered legal multi-held, stream, hydraulic, and attack
+preservation gates jointly return a real `GO_SIGNAL`. If CKBO is `NO_GO`, use
+its raw115/no-aux/multiscale ablations to distinguish representation failure
+from normal-diversity failure before choosing the next mature frontend; do not
+tune on report-family labels.
 
 ### Latest Compact Close-out
 
 ```text
-solved: issue27ckg instantiated the single formal exact-label support-region registry and validated the archive-to-candidate-to-versioned-view workflow.
-changed_mainline: yes
-active_blocker: production update budgets and detector non-regression are not empirically certified; issue27ckc capability results are still pending.
-frozen: ten label-support regions, immutable 385/127 views, archive/candidate hard gates, version lineage, model-update contract, and rollback semantics.
-superseded: geometric strong/weak regions as the formal registry, automatic unknown-label routing, and new-data acquisition as a prerequisite for label-memory implementation.
-next_action: issue27ckh_support_update_budget_and_binary_head_nonregression_ablation_after_issue27ckc.
+solved: CKBN isolated the stream failure to the current representation/diversity/probe rather than a simple threshold-only defect; CKBO implementation and preregistration are complete.
+changed_mainline: yes, the next route is mature AfterImage plus legal benign diversity and a constrained TabM verifier; no CKBO performance claim exists yet.
+active_blocker: seed-27 CKBO must show legal multi-held transfer, stream suppression, hydraulic non-regression, and attack preservation together.
+frozen: original strict 1M split, 385/69 support roles, base T0 manifests, permanent report-only canaries, review=0, and source/episode inference units.
+superseded: rerunning the same TGN/GraphMixer/CSR route, C1-only threshold repair, and report-family-specific tuning.
+next_action: submit the paired independent CKBO AMD/Intel result jobs and validate the first completion.
 ```
 
 ### Decision Log
