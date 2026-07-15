@@ -191,6 +191,127 @@ def distribution_row(
     return row
 
 
+def resumable_feature_matrices(
+    scope: str,
+    table: pd.DataFrame,
+    frame_by_role: dict[str, pd.DataFrame],
+    x_by_role: dict[str, np.ndarray],
+    seed: int,
+    out: Path,
+    state_blocked_rows: dict[str, set[int]] | None,
+) -> tuple[dict[str, np.ndarray], list[dict[str, Any]], list[dict[str, Any]]]:
+    """Materialize source-local CKBL matrices with exact resume validation.
+
+    CKBL's canonical state is source-local, and its history negative control is
+    permuted within source.  Therefore source-by-source materialization is
+    numerically equivalent to a scope-wide call while allowing a workstation
+    interruption to resume without recomputing completed sources.
+    """
+
+    dims = {bundle.name: len(bundle.feature_names) for bundle in ckbl.BUNDLES}
+    matrices = {name: np.zeros((len(table), dim), dtype=np.float32) for name, dim in dims.items()}
+    row_audits_by_position: list[dict[str, Any] | None] = [None] * len(table)
+    source_audits: list[dict[str, Any]] = []
+    cache_dir = out / "source_feature_cache" / scope
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    progress_path = out / f"{scope}_source_progress.jsonl"
+    if not any(cache_dir.glob("*.npz")):
+        progress_path.write_text("", encoding="utf-8")
+    source_groups = list(table.groupby("source_group", sort=True).indices.items())
+    for source_number, (source, positions) in enumerate(source_groups, start=1):
+        pos = np.asarray(positions, dtype=np.int64)
+        part = table.iloc[pos].reset_index(drop=True).copy()
+        row_uids = part["row_uid"].astype(str).tolist()
+        uid_hash = hashlib.sha256("\n".join(row_uids).encode("utf-8")).hexdigest()
+        key = hashlib.sha256(str(source).encode("utf-8")).hexdigest()[:20]
+        npz_path = cache_dir / f"{key}.npz"
+        json_path = cache_dir / f"{key}.json"
+        status = "CACHE_HIT"
+        source_started = time.time()
+        if npz_path.is_file() and json_path.is_file():
+            meta = json.loads(json_path.read_text(encoding="utf-8"))
+            expected = {
+                "scope": scope,
+                "source_group": str(source),
+                "row_uid_sha256": uid_hash,
+                "rows": int(len(part)),
+                "seed": int(seed),
+            }
+            if any(meta.get(field) != value for field, value in expected.items()):
+                raise RuntimeError(f"stale or mismatched source feature cache: {json_path}")
+            with np.load(npz_path, allow_pickle=False) as payload:
+                source_matrices = {name: np.asarray(payload[name], dtype=np.float32) for name in dims}
+            row_audits = list(meta.get("row_audits", []))
+            runtime_audits = list(meta.get("source_audits", []))
+        else:
+            status = "MATERIALIZED"
+            source_matrices, row_audits, runtime_audits = ckbl.feature_matrices(
+                part,
+                frame_by_role,
+                x_by_role,
+                "prefix",
+                int(seed),
+                state_blocked_rows=state_blocked_rows,
+                progress_path=None,
+            )
+            for name, dim in dims.items():
+                if source_matrices[name].shape != (len(part), dim):
+                    raise RuntimeError(f"source cache matrix shape mismatch: {scope}/{source}/{name}")
+            tmp_npz = npz_path.with_name(npz_path.name + ".tmp.npz")
+            np.savez_compressed(tmp_npz, **{name: source_matrices[name] for name in dims})
+            tmp_meta = json_path.with_name(json_path.name + ".tmp")
+            tmp_meta.write_text(
+                json.dumps(
+                    json_ready(
+                        {
+                            "scope": scope,
+                            "source_group": str(source),
+                            "row_uid_sha256": uid_hash,
+                            "rows": int(len(part)),
+                            "seed": int(seed),
+                            "raw_label_column_read": False,
+                            "row_audits": row_audits,
+                            "source_audits": runtime_audits,
+                        }
+                    ),
+                    indent=2,
+                    sort_keys=True,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            tmp_npz.replace(npz_path)
+            tmp_meta.replace(json_path)
+        if len(row_audits) != len(part):
+            raise RuntimeError(f"source cache row-audit length mismatch: {scope}/{source}")
+        for name, dim in dims.items():
+            matrix = np.asarray(source_matrices[name], dtype=np.float32)
+            if matrix.shape != (len(part), dim) or not np.isfinite(matrix).all():
+                raise RuntimeError(f"invalid source feature matrix: {scope}/{source}/{name}")
+            matrices[name][pos] = matrix
+        for output_position, audit in zip(pos.tolist(), row_audits):
+            if str(audit.get("row_uid", "")) != str(table.iloc[output_position]["row_uid"]):
+                raise RuntimeError(f"source cache row UID mismatch: {scope}/{source}")
+            row_audits_by_position[output_position] = dict(audit)
+        source_audits.extend(dict(row) for row in runtime_audits)
+        progress = {
+            "scope": scope,
+            "source_number": int(source_number),
+            "source_count": int(len(source_groups)),
+            "source_group": str(source),
+            "target_rows": int(len(part)),
+            "seconds": float(time.time() - source_started),
+            "status": status,
+            "row_uid_sha256": uid_hash,
+        }
+        with progress_path.open("a", encoding="utf-8", newline="\n") as handle:
+            handle.write(json.dumps(progress, sort_keys=True) + "\n")
+        print(f"CKBN_SOURCE_CACHE {json.dumps(progress, sort_keys=True)}", flush=True)
+    if any(row is None for row in row_audits_by_position):
+        raise RuntimeError(f"incomplete resumable feature assembly: {scope}")
+    return matrices, [dict(row) for row in row_audits_by_position if row is not None], source_audits
+
+
 def pairwise_rows(
     canary_name: str,
     canary_meta: pd.DataFrame,
@@ -298,6 +419,7 @@ def diagnose(pairwise: pd.DataFrame, distributions: pd.DataFrame) -> dict[str, A
         },
         "candidate_promoted": False,
         "report_used_for_fit_threshold_normalization_or_feature_selection": False,
+        "source_feature_resume_policy": "atomic source-local NPZ plus row-UID contract; completed sources are reused",
         "review": 0,
         "claim_boundary": "Known-canary failure diagnosis only; not final held-family evidence and not a detector go signal.",
     }
@@ -408,6 +530,7 @@ def run(args: argparse.Namespace) -> None:
         "report_attack_families": int(attacks["attack_label"].nunique()),
         "forbidden_family_model_use": {family: 0 for family in sorted(FORBIDDEN)},
         "report_used_for_fit_threshold_normalization_or_feature_selection": False,
+        "source_feature_resume_policy": "atomic source-local NPZ plus row-UID contract; completed sources are reused",
         "raw_label_column_read_by_frontend": False,
         "identity_feature_use": False,
         "review": 0,
@@ -438,14 +561,14 @@ def run(args: argparse.Namespace) -> None:
     source_runtime_rows: list[pd.DataFrame] = []
     for scope, table in {"fit": fit, **reports}.items():
         print(f"CKBN_FEATURE_SCOPE_START scope={scope} rows={len(table)}", flush=True)
-        mats, row_audit, source_audit = ckbl.feature_matrices(
+        mats, row_audit, source_audit = resumable_feature_matrices(
+            scope,
             table,
             frame_by_role,
             x_by_role,
-            "prefix",
             int(args.seed),
-            state_blocked_rows=blocked if scope == "fit" else None,
-            progress_path=out / f"{scope}_source_progress.jsonl",
+            out,
+            blocked if scope == "fit" else None,
         )
         matrices[scope] = mats
         row_frame = pd.DataFrame(row_audit)
