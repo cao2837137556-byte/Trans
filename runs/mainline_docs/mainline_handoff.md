@@ -176,6 +176,19 @@ and populate online state from the same deployment-equivalent label-free full
 stream for attack and OOD before another result run. See
 `ckbp_seed27_result_and_gate_diagnosis_20260717.md`.
 
+CKBQ is the next preregistered result experiment and is implemented locally,
+but has no HPC result yet. It keeps C1 and CKBP's interpretable static
+normal-only control, then adds a BSD-licensed `sktime v0.24.1`
+`MiniRocketMultivariate` execution port over 32-event causal windows. All 385
+legal support-train attacks supervise a family-balanced Ridge head exactly
+once; a C1 candidate is suppressed only when static and temporal evidence both
+support normality. C1 high-confidence rows, evidence disagreement, and cold
+history remain hard. The code rejects target phase inversions, gives report
+rows zero fit/select use, performs no score addition, and keeps review at zero.
+The first run is seed 27 only, with independently safe AMD/Intel copies; it is
+not yet performance evidence. See
+`ckbq_causal_minirocket_consensus_prereg_20260717.md`.
+
 ### Maintenance Protocol
 
 - Keep detailed evidence inside each numbered `runs/issue*/` directory.

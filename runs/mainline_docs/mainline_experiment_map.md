@@ -52,7 +52,7 @@ C1/portable features have transferable rank signal; cross-source calibration and
 | Support memory | one ten-label `label_support_region_registry_v1`; immutable 385 train and 127 validation views; archive/candidate/update contracts ready | issue27cf/issue27ci/issue27ckg | active protocol, production updates blocked | wait for issue27ckc then certify one bounded update budget through detector non-regression |
 | Model replay | frozen-medium issue27ckc HPC capability replay pending; geometric region experiments do not alter it | issue27ckc/issue27ckg | running/pending | inspect aggregate, low-FPR, OOD, and per-label results before designing update ablation |
 | Open-world temporal verifier | CKBJ v2 seed-27 formal run completed; registered `NO_GO` | issue27ckbd/issue27ckbe/issue27ckbi/issue27ckbj | current realization rejected | stream OOD remained 100%; attack recall fell 1.8996 pp; fix sparse-train/dense-report mismatch before any new formal seed |
-| Frontend observability/calibration gate | CKBL/CKBM/CKBO diagnostics and CKBP formal seed 27 completed | issue27ckbl/issue27ckbm/issue27ckbo/issue27ckbp | raw AfterImage has cross-family normality signal, but CKBP M2 is gate-degenerate and loses essentially all warmed attacks | repair score/state/gate semantics before any model expansion or extra seed |
+| Frontend observability/calibration gate | CKBL/CKBM/CKBO/CKBP completed; CKBQ seed-27 result job prepared but not run | issue27ckbl/issue27ckbm/issue27ckbo/issue27ckbp/issue27ckbq | raw AfterImage has cross-family normality signal; CKBQ tests whether mature causal MiniRocket evidence can protect attacks without cold-start artifacts | run only the preregistered CKBQ seed 27 dual-partition result job |
 | Formal benchmark | not authorized | current governance | blocked | requires clean data contract and frozen system protocol |
 
 ### Active Issue Index
@@ -2663,3 +2663,13 @@ marker: `issue27cb_broader_attack_support_candidate_contract_2026-06-14`
 - result: M2 selects verifier threshold `1.0` because all 69 support-val attacks are inside per-source burn-in; warmed scores cannot reach `1.0`. OOD hard counts therefore reduce to cold-start counts while overall attack recall collapses from `91.2997%` to `0.1451%`.
 - retained evidence: M1 global normal conformal has real but insufficient OOD signal and loses `9.0498 pp` attack recall.
 - next: repair the evaluation/state protocol before any new model or additional seed; see `runs/mainline_docs/ckbp_seed27_result_and_gate_diagnosis_20260717.md`.
+
+## issue27ckbq causal MiniRocket normal-consensus verifier
+
+- status: implementation, contracts, dual-partition result job, validator, and preregistration prepared locally; no performance result yet.
+- mature component: BSD-licensed `sktime v0.24.1` MiniRocketMultivariate algorithm with only its Numba backend ported to frozen-environment CPU PyTorch.
+- primary: C1 shield plus static AfterImage normal score plus causal 32-event MiniRocket/Ridge evidence; only joint normal consensus suppresses, with no score addition and review=0.
+- attack contract: all 385 global support-train rows supervise the family-balanced Ridge head once; 69 support-val rows are gate-only and are not claimed as future-attack evidence.
+- leakage/cold contract: strict held exclusion from every fit/select stage, target phase-order inversion rejected, current event inclusive/past-only windows, report gradients and threshold updates zero, cold C1 candidates remain hard.
+- execution: seed 27 only; paired AMD/Intel jobs request 8 CPUs, 16 GiB, and 4 hours with job/partition-isolated outputs.
+- next: run the single CKBQ dual submission, keep the first valid result, and stop after seed 27 for GO/NO_GO review.
