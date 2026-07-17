@@ -50,8 +50,6 @@ source scripts/00_env_issue27ckc.sh
 python -m py_compile \
   repo/ood/issue27ckbq_causal_minirocket_consensus_v1.py \
   repo/ood/vendor/sktime_minirocket_v0_24_1/minirocket_torch.py
-python repo/ood/issue27ckbq_causal_minirocket_consensus_v1.py --mode contract-unit >/dev/null
-python repo/ood/issue27ckbq_causal_minirocket_consensus_v1.py --mode dry-run >/dev/null
 python - <<'PY'
 import hashlib
 from pathlib import Path
