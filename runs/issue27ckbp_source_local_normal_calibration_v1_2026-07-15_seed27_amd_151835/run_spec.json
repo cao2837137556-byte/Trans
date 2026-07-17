@@ -1,0 +1,155 @@
+{
+  "attack_contract": "all 385 support_train rows supervise frozen C1 anchor; 69 support_val rows select gate only",
+  "auxiliary_extension_reused_without_role_change": {
+    "feature_schema_sha256": "d35534302420aef2581e51135a460c6ebffcacc000c7aa3cb7c67eb5f3c4aa0f",
+    "fit_rows": 6600,
+    "fit_sources": 11,
+    "manifest_sha256": "d45bb5c0359555b45d19b4b5d2c62ad83ae9dfb177654a3f36c4393fd3120c4f",
+    "original_1m_assets_modified": false,
+    "permanent_report_only_use_count": 0,
+    "provenance": {
+      "afterimage_py_sha256_lf": "c4a73e4b6bfc8e9f618d439f8fd17369d765a19827c858851c4455da225c87c9",
+      "feature_schema_sha256": "d35534302420aef2581e51135a460c6ebffcacc000c7aa3cb7c67eb5f3c4aa0f",
+      "issue27ab_sha256_lf": "f3c3dc953388e1e7c3769fe15062e113d353675e376057169a0c69374923dbbe",
+      "source_md_sha256_lf": "459006c4ced6139a24ab3341e096cbb0a73773ae54ffadf0c287211e636a5d83"
+    },
+    "raw_label_column_read": false,
+    "report_family": "iotsim-predictive-maintenance",
+    "report_rows": 9000,
+    "report_sources": 15,
+    "sealed_use_count": 0,
+    "select_rows": 3000,
+    "select_sources": 5,
+    "source_count": 31,
+    "status": "CKBO_AUXILIARY_AFTERIMAGE_READY"
+  },
+  "c1_report_extension_audit": {
+    "base_c1_plan_sha256": "414616332159eb90553213d6656c3d072a701ea93a02df464acdfa6cebc128f2",
+    "base_c1_sources": 26,
+    "base_c1_target_sha256": "74a1699e29b7b1e227f4532ff81f1546a9ba239f2d2d323d390efa5b07437158",
+    "base_c1_targets": 34622,
+    "extension_root": "/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline/runs/issue27ckbj_c1_report_only_cache_extension_v1_2026-07-13_hpc",
+    "feature_schema_hash": "ede9a25f30a609ad12bef5bddd552c0d42f48fc1e203b2e6053dc388b936182a",
+    "issue": "issue27ckbj_c1_report_only_cache_extension_v1_2026-07-13",
+    "manifest_sha256": "6a7c06e1a04d91aa73e9286dd6f5514b2fe15f0437cb75d5aaf742954a0619f3",
+    "raw_label_column_read": false,
+    "report_only_fit_select_exclusion_pass": true,
+    "report_only_fit_select_rows": 0,
+    "source_count": 4,
+    "source_plan_sha256": "a38d9fee3d11b3c2e56b3ebea0e217fc4c4f808755c1a56e3d2c4ded310b3d81",
+    "target_index_sha256": "3e3bde77ad8a12747fea8fc8401488a4392985c90881e872d3be8335853a877b",
+    "target_rows": 290445,
+    "tgn_extension_manifest_sha256": "862a9ae62622c001bdf1c1d9b2c524bc33c25351433599fdd8935fd6e5f2ffb1",
+    "tgn_extension_target_index_sha256": "70becf37a4d8954c495d4077c3da7fefe16bbcedf1141ffd8a890a8ca40bf414",
+    "tgn_extension_targets": 290445
+  },
+  "candidates": [
+    {
+      "deployable": true,
+      "mode": "global",
+      "name": "M1-GlobalNormalConformal",
+      "primary": false
+    },
+    {
+      "deployable": true,
+      "mode": "capped_source",
+      "name": "M2-CappedSourceConformal",
+      "primary": true
+    },
+    {
+      "deployable": false,
+      "mode": "unbounded_source",
+      "name": "A1-UnboundedSourceConformal",
+      "primary": false
+    },
+    {
+      "deployable": false,
+      "mode": "local_robust",
+      "name": "A2-LocalRobustDeviation",
+      "primary": false
+    }
+  ],
+  "development_canaries": [
+    "iotsim-stream-consumer",
+    "iotsim-hydraulic-system"
+  ],
+  "environment": {
+    "auxiliary_manifest_sha256": "d45bb5c0359555b45d19b4b5d2c62ad83ae9dfb177654a3f36c4393fd3120c4f",
+    "base_t0_manifest_sha256": "b102b04347dd320f9f89a219285285866dbfa09e09bd73d0839cbe1a91bb0f67",
+    "c1_report_extension_manifest_sha256": "6a7c06e1a04d91aa73e9286dd6f5514b2fe15f0437cb75d5aaf742954a0619f3",
+    "c1_target_manifest_sha256": "74a1699e29b7b1e227f4532ff81f1546a9ba239f2d2d323d390efa5b07437158",
+    "commit_sha": "af9366a340b7348e0ace389f1f13fce639c4e61a",
+    "expected_base_t0_manifest_sha256": "b102b04347dd320f9f89a219285285866dbfa09e09bd73d0839cbe1a91bb0f67",
+    "numpy": "2.0.1",
+    "pandas": "2.3.3",
+    "python": "3.9.25",
+    "report_extension_manifest_sha256": "862a9ae62622c001bdf1c1d9b2c524bc33c25351433599fdd8935fd6e5f2ffb1",
+    "review_rate": 0.0,
+    "seed": 27,
+    "sklearn": "1.6.1",
+    "slurm_job_id": "151835",
+    "slurm_partition": "amd",
+    "wall_seconds": 560.9707033634186
+  },
+  "input_audit": {
+    "attack_root": "/public/home/jiangxinwei.zr/work/paper04/datasets/gotham2025/derived/kitsune115_exact_label_targeted_attack_v1",
+    "cert_x_shape": [
+      1000000,
+      115
+    ],
+    "certified_complete_chunks": 93,
+    "input_hashes": {
+      "certified_chunk_manifest": "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+      "certified_subset_contract": "61032d8a85e64160c48c4ad7a5724cdf202746f0d9510686d0b10acc2e60c3bf",
+      "feature_schema": "ae385a340d8a47bde0acd456f489be6471152f8f98c4e08b2a54b7f555e219bb",
+      "medium_selection": "68e9c2a1aef4ebde4095f873764247b12401e1c997802d89c3c794b9965e4f4a",
+      "support_sidecar": "74d59f41e43fe58a6b82d6a2ac2174cad9dd87fa0b05792895769b8b426c92da"
+    },
+    "support_rows": 512
+  },
+  "issue": "issue27ckbp_source_local_normal_calibration_v1_2026-07-15",
+  "legal_development_holds": [
+    "iotsim-ip-camera-street",
+    "iotsim-predictive-maintenance"
+  ],
+  "mode": "formal",
+  "normal_model_contract": "legal fit benign only; source-balanced; source-disjoint benign-select calibration; fit-source OOF diagnostic; zero attacks and reports",
+  "original_1m_split_modified": false,
+  "permanent_report_only": [
+    "iotsim-stream-consumer",
+    "iotsim-hydraulic-system",
+    "iotsim-cooler-motor"
+  ],
+  "primary_candidate": "M2-CappedSourceConformal",
+  "protocols": [
+    "GLOBAL_ATTACK_PRESERVATION",
+    "iotsim-ip-camera-street",
+    "iotsim-predictive-maintenance",
+    "iotsim-stream-consumer",
+    "iotsim-hydraulic-system"
+  ],
+  "report_contract": "source-and-phase fresh state; score-before-update; label-free past-only bounded adaptation; no gradients or thresholds",
+  "report_extension_audit": {
+    "extension_manifest_sha256": "862a9ae62622c001bdf1c1d9b2c524bc33c25351433599fdd8935fd6e5f2ffb1",
+    "extension_root": "/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline/runs/issue27ckbi_tgn_report_only_cache_extension_v1_2026-07-12_hpc",
+    "extension_sources": [
+      "processed/iotsim-air-quality-1.csv",
+      "processed/iotsim-building-monitor-1.csv",
+      "processed/iotsim-ip-camera-museum-2.csv",
+      "processed/iotsim-ip-camera-street-1.csv"
+    ],
+    "extension_targets": 290445,
+    "raw_label_column_read": false,
+    "report_only_fit_select_exclusion_pass": true
+  },
+  "review_rate": 0.0,
+  "sealed_unopened": [
+    "iotsim-cooler-motor"
+  ],
+  "t0_audit": {
+    "raw_label_column_read": false,
+    "t0_manifest_sha256": "b102b04347dd320f9f89a219285285866dbfa09e09bd73d0839cbe1a91bb0f67",
+    "t0_sources": 26,
+    "t0_targets": 34622
+  }
+}

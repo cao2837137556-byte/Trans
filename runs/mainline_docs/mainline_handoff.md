@@ -158,21 +158,23 @@ source-held-out, one-sided normal-evidence calibration with broader legal
 normal-family coverage; it must default to hard when normal evidence does not
 transfer. See `ckbo_seed27_formal_result_20260715.md`.
 
-CKBP implements that next result experiment locally; no CKBP performance
-result exists yet. The frozen C1 anchor and mature raw AfterImage115 features
-are unchanged. A normal-only QuantileTransformer plus LedoitWolf model is fit
-only on legal benign-fit sources, while its empirical reference is constructed
-from source-disjoint benign-select sources scored by that exact frozen model.
-Leave-one-fit-source-out scores are diagnostic only. The preregistered primary
-uses source-local past history with a 64-record fail-closed burn-in, robust
-update rejection, and a source-shift bound learned only from legal select
-sources. An unbounded version is a non-deployable contamination control.
-Stream, hydraulic, and cooler have zero fit/select use; cooler stays sealed;
-review is zero. Local contract, script syntax, dependency-hash, and real frozen
-1M role-scope audits pass. The next action is one seed-27 dual-partition formal
-run; do not infer improvement until its attack-preservation and multi-held OOD
-tables exist. See `ckbp_source_local_normal_calibration_prereg_20260715.md` and
-`ckbp_local_implementation_and_audit_20260715.md`.
+CKBP seed 27 completed on AMD job `151835` at commit `af9366a`; the job,
+checksum, data isolation, support use, alignment, sealed-holdout, and review=0
+contracts pass. The registered primary is `NO_GO`, and post-pullback audit
+finds a stronger protocol degeneracy. All 69 support-val attacks are inside
+the 64-row-per-source fail-closed window and therefore have verifier score
+`1.0`. Gate selection chooses threshold `1.0`, while every warmed finite-sample
+conformal score is mathematically below `1.0`. M2 consequently retains almost
+only cold-start rows: its attractive stream/IP-camera rates of `2.1333%` and
+predictive rate of `10.6667%` equal the per-source burn-in fractions, while
+overall attack recall collapses from `91.2997%` to `0.1451%`. These OOD rates
+are not generalization evidence. The static M1 global-normal control remains
+interpretable and shows real OOD rank signal, but loses `9.0498 pp` overall
+attack recall. Do not run seeds 37/47 or repeat CKBP unchanged. Separate cold
+fail-closed state from the evidence score, require warmed support-val attacks,
+and populate online state from the same deployment-equivalent label-free full
+stream for attack and OOD before another result run. See
+`ckbp_seed27_result_and_gate_diagnosis_20260717.md`.
 
 ### Maintenance Protocol
 

@@ -1,0 +1,16 @@
+scope,stage,rows,reason
+global,support_sidecar_total,512,original certified support sidecar
+global,support_train_partition,385,"immutable support_train, not eligible for support_val gate selection"
+global,support_val_partition,127,original support_val partition
+global,excluded_phase_fit,58,temporal support_val subphase is fit; select-only gate cannot use it
+global,retained_legal_select,69,legal support_val=69 for threshold/gate selection
+iotsim-stream-consumer,held_family_exclusion,0,strict held-family removal from support_val select
+iotsim-stream-consumer,retained_legal_select,69,support_val select after strict held exclusion
+iotsim-hydraulic-system,held_family_exclusion,0,strict held-family removal from support_val select
+iotsim-hydraulic-system,retained_legal_select,69,support_val select after strict held exclusion
+domotic-monitor,held_family_exclusion,0,strict held-family removal from support_val select
+domotic-monitor,retained_legal_select,69,support_val select after strict held exclusion
+combined-cycle,held_family_exclusion,6,strict held-family removal from support_val select
+combined-cycle,retained_legal_select,63,support_val select after strict held exclusion
+iotsim-ip-camera-street,held_family_exclusion,0,strict held-family removal from support_val select
+iotsim-ip-camera-street,retained_legal_select,69,support_val select after strict held exclusion

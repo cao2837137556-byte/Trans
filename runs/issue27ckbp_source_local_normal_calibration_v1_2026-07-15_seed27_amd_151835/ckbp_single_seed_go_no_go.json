@@ -1,0 +1,42 @@
+{
+  "candidate": "M2-CappedSourceConformal",
+  "checks": {
+    "causal_order_or_reset_contract_failed": false,
+    "gate_constraint_failed": false,
+    "hydraulic_worsened_over_2pp": false,
+    "legal_multiheld_signal_missing": false,
+    "major_attack_family_drop_over_2pp": true,
+    "normal_model_used_attack_or_report": false,
+    "overall_attack_drop_over_0_5pp": true,
+    "permanent_report_family_used": false,
+    "required_metrics_missing": false,
+    "review_not_zero": false,
+    "stream_signal_missing": false,
+    "support_usage_incomplete": false,
+    "target_alignment_incomplete": false
+  },
+  "decision": "NO_GO",
+  "hydraulic_c1_hard_rate": 0.7236666666666667,
+  "hydraulic_hard_rate": 0.08166666666666667,
+  "legal_development_c1_hard_rates": {
+    "iotsim-ip-camera-street": 1.0,
+    "iotsim-predictive-maintenance": 1.0
+  },
+  "legal_development_c1_macro_hard_rate": 1.0,
+  "legal_development_each_improves_5pp": true,
+  "legal_development_hard_rates": {
+    "iotsim-ip-camera-street": 0.021333333333333333,
+    "iotsim-predictive-maintenance": 0.10666666666666667
+  },
+  "legal_development_held_families": [
+    "iotsim-ip-camera-street",
+    "iotsim-predictive-maintenance"
+  ],
+  "legal_development_macro_hard_rate": 0.064,
+  "overall_attack_delta_pp": -91.15468141774227,
+  "review_rate": 0.0,
+  "seed": 27,
+  "single_seed_scope": "calibration-route go/no-go signal only",
+  "stream_c1_hard_rate": 1.0,
+  "stream_hard_rate": 0.021333333333333333
+}
