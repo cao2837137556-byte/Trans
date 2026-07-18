@@ -23,6 +23,7 @@ files=(
   repo/ood/vendor/sktime_minirocket_v0_24_1/UPSTREAM_PROVENANCE.md
   repo/ood/vendor/sktime_minirocket_v0_24_1/minirocket_torch.py
   runs/mainline_docs/ckbq_causal_minirocket_consensus_prereg_20260717.md
+  runs/mainline_docs/ckbq_target_scope_correction_20260718.md
   runs/mainline_docs/ckbq_dependency_sha256_20260717.txt
   scripts/issue27ckbq_causal_minirocket_consensus.slurm
   scripts/issue27ckbq_validate_and_pack_seed27.sh
@@ -30,15 +31,35 @@ files=(
   scripts/issue27ckbq_status_dual.sh
 )
 
+expected_r2_hash() {
+  case "$1" in
+    repo/ood/issue27ckbq_causal_minirocket_consensus_v1.py)
+      echo 9cfcbb6743039212706e0da437960df0072435d45c52bb5aa2d78df6f91deaad ;;
+    runs/mainline_docs/ckbq_causal_minirocket_consensus_prereg_20260717.md)
+      echo 482154ac09494d0c3de42c775d3ad9a6ff6fe34d7efb2820eb9dca87ee1231b0 ;;
+    scripts/issue27ckbq_validate_and_pack_seed27.sh)
+      echo 2993c034ac0199cf1f3098f8097da913f60b900837bbe9af5031ee8d3e215d5f ;;
+    scripts/issue27ckbq_install_and_submit_dual.sh)
+      echo 36503d3054382fbde9b827d5b6c25c3154efac7ffc9d973aca85ff4b10bab4ab ;;
+    *) echo "" ;;
+  esac
+}
+
 for relative in "${files[@]}"; do
   source_file="$PAYLOAD/$relative"
   target_file="$BASE/$relative"
   test -s "$source_file" || { echo "missing payload file: $source_file" >&2; exit 2; }
   if test -e "$target_file" && ! cmp -s "$source_file" "$target_file"; then
-    echo "refusing to overwrite a different remote file: $target_file" >&2
-    echo "remote_sha256=$(sha256sum "$target_file" | awk '{print $1}')" >&2
-    echo "bundle_sha256=$(sha256sum "$source_file" | awk '{print $1}')" >&2
-    exit 2
+    remote_sha256=$(sha256sum "$target_file" | awk '{print $1}')
+    expected_sha256=$(expected_r2_hash "$relative")
+    if test -z "$expected_sha256" || test "$remote_sha256" != "$expected_sha256"; then
+      echo "refusing to overwrite an unknown remote file: $target_file" >&2
+      echo "remote_sha256=$remote_sha256" >&2
+      echo "expected_r2_sha256=${expected_sha256:-NONE}" >&2
+      echo "bundle_sha256=$(sha256sum "$source_file" | awk '{print $1}')" >&2
+      exit 2
+    fi
+    echo "CKBQ_SAFE_REPLACE_R2=$relative"
   fi
 done
 for relative in "${files[@]}"; do

@@ -22,7 +22,7 @@ required=(
   ckbq_sealed_holdout_audit.csv ckbq_c1_fit_select_audit.csv
   ckbq_role_usage_audit.csv ckbq_candidate_selection.csv ckbq_model_audit.csv
   ckbq_source_oof_audit.csv ckbq_source_reference_audit.csv
-  ckbq_temporal_window_audit.csv ckbq_causal_phase_order_audit.csv
+  ckbq_temporal_window_audit.csv ckbq_causal_target_scope_audit.csv
   ckbq_training_trace.csv ckbq_support_training_usage.csv
   ckbq_support_family_training_usage.csv ckbq_negative_sampling_audit.csv
   ckbq_review_audit.csv ckbq_all_metrics.csv ckbq_per_attack_family_metrics.csv
@@ -174,23 +174,27 @@ aux_scope = [row for row in usage if row.get("role") in {"aux_fit", "aux_select"
 if not aux_scope or any(integer(row.get("held_family_rows_retained", 0), 0) != 0 for row in aux_scope):
     errors.append("held auxiliary family entered fit/select")
 
-phase = rows("ckbq_causal_phase_order_audit.csv")
+phase = rows("ckbq_causal_target_scope_audit.csv")
 if not phase or any(
     not truth(row.get("pass"))
-    or integer(row.get("phase_order_violations")) != 0
     or integer(row.get("duplicate_position_cross_phase")) != 0
+    or integer(row.get("collected_target_positions_missing_from_frozen_cache")) != 0
+    or not truth(row.get("target_scope_isolation_enforced"))
     or truth(row.get("fit_prefix_contains_select_or_report_target"))
     or truth(row.get("select_prefix_contains_report_target"))
     for row in phase
 ):
-    errors.append("causal fit/select/report phase order failed")
+    errors.append("causal target-scope isolation failed")
 
 windows = rows("ckbq_temporal_window_audit.csv")
 if not windows or any(
-    row.get("current_event_inclusive") != "True"
-    or row.get("future_events_used") != "False"
-    or row.get("source_fresh_boundary") != "True"
-    or row.get("raw_label_column_read") != "False"
+    not truth(row.get("current_event_inclusive"))
+    or integer(row.get("current_event_missing")) != 0
+    or truth(row.get("future_events_used"))
+    or integer(row.get("forbidden_target_events_used")) != 0
+    or not truth(row.get("target_scope_isolation_enforced"))
+    or not truth(row.get("source_fresh_boundary"))
+    or truth(row.get("raw_label_column_read"))
     or integer(row.get("window_length")) != 32
     for row in windows
 ):

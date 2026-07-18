@@ -97,6 +97,32 @@ class TemporalModel:
 
 
 @dataclass(frozen=True)
+class TemporalTargetScope:
+    """Frozen target positions that each protocol phase may expose.
+
+    Untargeted raw events remain label-free causal context.  Frozen target
+    events from a later protocol phase are removed from an earlier phase's
+    window even when the immutable 1M row split interleaves phases within a
+    source.
+    """
+
+    all_targets: dict[str, frozenset[int]]
+    allowed_fit: dict[str, frozenset[int]]
+    allowed_select: dict[str, frozenset[int]]
+
+    def forbidden(self, source: str, phase: str) -> frozenset[int]:
+        if source not in self.all_targets:
+            raise RuntimeError(f"temporal target scope lacks source: {source}")
+        if phase == "fit":
+            return self.all_targets[source] - self.allowed_fit.get(source, frozenset())
+        if phase == "select":
+            return self.all_targets[source] - self.allowed_select.get(source, frozenset())
+        if phase == "report":
+            return frozenset()
+        raise RuntimeError(f"unknown temporal window phase: {phase}")
+
+
+@dataclass(frozen=True)
 class Gate:
     candidate: str
     c1_shield_threshold: float
@@ -277,10 +303,24 @@ class TemporalWindowStore:
             self._messages[source] = message
         return self._messages[source], 0, False
 
+    def frozen_target_positions(self, source: str) -> frozenset[int]:
+        if source in self.aux.messages:
+            offset = int(self.aux.offsets[source])
+            return frozenset(range(offset, len(self.aux.messages[source])))
+        positions = self.t0.target_positions(source)
+        values = frozenset(int(value) for value in positions.values() if int(value) >= 0)
+        if not values:
+            raise RuntimeError(f"temporal source has no frozen target positions: {source}")
+        return values
+
+    def absolute_target_position(self, record: ckbj.Record) -> int:
+        return int(record.event_position) + int(self.aux.offsets.get(record.source, 0))
+
     def windows(
         self,
         records: list[ckbj.Record],
         phase: str,
+        target_scope: TemporalTargetScope,
     ) -> tuple[np.ndarray, dict[str, int], list[dict[str, Any]]]:
         if not records:
             return np.empty((0, 9, WINDOW_LENGTH), dtype=np.float32), {}, []
@@ -292,17 +332,35 @@ class TemporalWindowStore:
             by_source[record.source].append((index, record))
         for source in sorted(by_source):
             message, offset, is_aux = self.source_messages(source)
+            forbidden = target_scope.forbidden(source, phase)
             cold = 0
             positions: list[int] = []
+            skipped_forbidden = 0
+            future_events_used = 0
+            current_event_missing = 0
             for output_index, record in by_source[source]:
                 position = int(record.event_position) + int(offset)
                 if position < 0 or position >= len(message):
                     raise RuntimeError(
                         f"temporal target outside source: {source}: {position}/{len(message)}"
                     )
-                start = max(0, position - WINDOW_LENGTH + 1)
-                segment = message[start : position + 1]
-                valid = len(segment)
+                selected: list[int] = []
+                candidate = position
+                while candidate >= 0 and len(selected) < WINDOW_LENGTH:
+                    if candidate in forbidden:
+                        skipped_forbidden += 1
+                    else:
+                        selected.append(candidate)
+                    candidate -= 1
+                selected.reverse()
+                if not selected or selected[-1] != position:
+                    current_event_missing += 1
+                    raise RuntimeError(
+                        f"current temporal target excluded from its own {phase} window: {source}:{position}"
+                    )
+                future_events_used += int(any(value > position for value in selected))
+                segment = message[np.asarray(selected, dtype=np.int64)]
+                valid = len(selected)
                 if valid < WINDOW_LENGTH:
                     pad = np.repeat(segment[0:1], WINDOW_LENGTH - valid, axis=0)
                     segment = np.vstack([pad, segment])
@@ -322,7 +380,11 @@ class TemporalWindowStore:
                     "reliable_records": len(by_source[source]) - cold,
                     "window_length": WINDOW_LENGTH,
                     "current_event_inclusive": True,
-                    "future_events_used": False,
+                    "current_event_missing": current_event_missing,
+                    "future_events_used": future_events_used,
+                    "forbidden_target_events_skipped": skipped_forbidden,
+                    "forbidden_target_events_used": 0,
+                    "target_scope_isolation_enforced": True,
                     "source_fresh_boundary": True,
                     "auxiliary_temporal_source": is_aux,
                     "raw_label_column_read": False,
@@ -333,12 +395,17 @@ class TemporalWindowStore:
         return output, lengths, rows
 
 
-def causal_phase_order_audit(records: list[ckbj.Record]) -> list[dict[str, Any]]:
-    """Reject target-role inversions that could expose report rows to fit.
+def causal_target_scope_audit(
+    records: list[ckbj.Record],
+    store: TemporalWindowStore,
+) -> tuple[TemporalTargetScope, list[dict[str, Any]]]:
+    """Build target-level phase isolation for an interleaved frozen split.
 
-    Raw event windows are causal prefixes.  This audit proves that, among all
-    frozen scored targets visible in a protocol, fit targets precede select
-    targets and select targets precede report targets within each source.
+    The immutable 1M cohort assigns roles row-wise, so phase targets can be
+    interleaved inside a source.  That is reported rather than mistaken for a
+    data error.  The executable contract is stronger and local: fit windows
+    may expose only fit targets, select windows only fit/select targets, and
+    no window may expose a future event.
     """
     phase_rank = {"fit": 0, "select": 1, "report": 2}
     by_source: defaultdict[str, list[ckbj.Record]] = defaultdict(list)
@@ -347,28 +414,48 @@ def causal_phase_order_audit(records: list[ckbj.Record]) -> list[dict[str, Any]]
             raise RuntimeError(f"unknown M1 phase in causal audit: {record.m1_phase}")
         by_source[record.source].append(record)
     rows: list[dict[str, Any]] = []
-    total_violations = 0
+    all_targets: dict[str, frozenset[int]] = {}
+    allowed_fit: dict[str, frozenset[int]] = {}
+    allowed_select: dict[str, frozenset[int]] = {}
+    total_collisions = 0
+    total_missing = 0
     for source in sorted(by_source):
         ordered = sorted(
             by_source[source],
-            key=lambda record: (int(record.event_position), phase_rank[record.m1_phase], record.uid),
+            key=lambda record: (
+                store.absolute_target_position(record),
+                phase_rank[record.m1_phase],
+                record.uid,
+            ),
         )
         seen_rank = -1
-        violations = 0
+        interleavings = 0
         duplicate_cross_phase = 0
         positions: defaultdict[int, set[str]] = defaultdict(set)
         for record in ordered:
             rank = phase_rank[record.m1_phase]
-            violations += int(rank < seen_rank)
+            interleavings += int(rank < seen_rank)
             seen_rank = max(seen_rank, rank)
-            positions[int(record.event_position)].add(record.m1_phase)
+            positions[store.absolute_target_position(record)].add(record.m1_phase)
         duplicate_cross_phase = sum(len(phases) > 1 for phases in positions.values())
-        violations += duplicate_cross_phase
-        total_violations += violations
+        total_collisions += duplicate_cross_phase
         phase_positions = {
-            phase: [int(record.event_position) for record in ordered if record.m1_phase == phase]
+            phase: {
+                store.absolute_target_position(record)
+                for record in ordered
+                if record.m1_phase == phase
+            }
             for phase in phase_rank
         }
+        frozen = store.frozen_target_positions(source)
+        present = set().union(*phase_positions.values())
+        missing = present - set(frozen)
+        total_missing += len(missing)
+        all_targets[source] = frozen
+        allowed_fit[source] = frozenset(phase_positions["fit"])
+        allowed_select[source] = frozenset(
+            phase_positions["fit"] | phase_positions["select"]
+        )
         rows.append(
             {
                 "source_group": source,
@@ -376,21 +463,27 @@ def causal_phase_order_audit(records: list[ckbj.Record]) -> list[dict[str, Any]]
                 "fit_targets": len(phase_positions["fit"]),
                 "select_targets": len(phase_positions["select"]),
                 "report_targets": len(phase_positions["report"]),
+                "frozen_target_positions": len(frozen),
                 "fit_max_event_position": max(phase_positions["fit"], default=math.nan),
                 "select_min_event_position": min(phase_positions["select"], default=math.nan),
                 "select_max_event_position": max(phase_positions["select"], default=math.nan),
                 "report_min_event_position": min(phase_positions["report"], default=math.nan),
-                "phase_order_violations": violations,
+                "source_phase_interleavings": interleavings,
+                "phase_block_order_required": False,
                 "duplicate_position_cross_phase": duplicate_cross_phase,
-                "fit_prefix_contains_select_or_report_target": violations > 0,
-                "select_prefix_contains_report_target": violations > 0,
-                "pass": violations == 0,
+                "collected_target_positions_missing_from_frozen_cache": len(missing),
+                "fit_forbidden_frozen_targets": len(frozen - allowed_fit[source]),
+                "select_forbidden_frozen_targets": len(frozen - allowed_select[source]),
+                "fit_prefix_contains_select_or_report_target": False,
+                "select_prefix_contains_report_target": False,
+                "target_scope_isolation_enforced": True,
+                "pass": duplicate_cross_phase == 0 and not missing,
             }
         )
-    if total_violations:
+    if total_collisions or total_missing:
         offenders = [row["source_group"] for row in rows if not row["pass"]]
-        raise RuntimeError(f"causal phase-order contract failed: {offenders[:5]}")
-    return rows
+        raise RuntimeError(f"causal target-scope contract failed: {offenders[:5]}")
+    return TemporalTargetScope(all_targets, allowed_fit, allowed_select), rows
 
 
 def balanced_weights(records: list[ckbj.Record]) -> np.ndarray:
@@ -418,13 +511,16 @@ def fit_temporal_model(
     fit_normal: list[ckbj.Record],
     fit_attack: list[ckbj.Record],
     store: TemporalWindowStore,
+    target_scope: TemporalTargetScope,
     seed: int,
     batch_size: int,
 ) -> tuple[TemporalModel, list[dict[str, Any]]]:
     started = time.time()
     normal_records = ckbp.balanced_normal_records(fit_normal, FIT_ROWS_PER_SOURCE)
     train_records = normal_records + list(fit_attack)
-    train_windows, _lengths, window_rows = store.windows(train_records, "fit")
+    train_windows, _lengths, window_rows = store.windows(
+        train_records, "fit", target_scope
+    )
     normal_windows = train_windows[: len(normal_records)]
     rocket = MiniRocketMultivariateTorch(
         num_features=MINIROCKET_FEATURES,
@@ -518,9 +614,10 @@ def temporal_scores(
     model: TemporalModel,
     records: list[ckbj.Record],
     store: TemporalWindowStore,
+    target_scope: TemporalTargetScope,
     phase: str,
 ) -> tuple[dict[str, float], dict[str, bool], dict[str, int], list[dict[str, Any]]]:
-    windows, lengths, rows = store.windows(records, phase)
+    windows, lengths, rows = store.windows(records, phase, target_scope)
     if not records:
         return {}, {}, lengths, rows
     transformed = model.rocket.transform(windows)
@@ -830,7 +927,10 @@ def run_protocol(
     select_records = ckbm.unique_records([sets["select_attack"], select_normal])
     report_records = ckbm.unique_records([sets["report"]])
     scored_records = ckbm.unique_records([select_records, report_records])
-    phase_order_rows = causal_phase_order_audit(fit_normal + fit_attack + scored_records)
+    target_scope, target_scope_rows = causal_target_scope_audit(
+        fit_normal + fit_attack + scored_records,
+        window_store,
+    )
     feature_records = ckbm.unique_records([fit_normal, scored_records])
     raw115 = ckbo.existing_feature_map(
         feature_records, x_by_role, "raw115", ckbo.afterimage_schema()[0]
@@ -862,14 +962,15 @@ def run_protocol(
         fit_normal,
         fit_attack,
         window_store,
+        target_scope,
         int(args.seed),
         int(args.rocket_batch_size),
     )
     select_temporal, select_reliable, select_lengths, select_window_rows = temporal_scores(
-        temporal_model, select_records, window_store, "select"
+        temporal_model, select_records, window_store, target_scope, "select"
     )
     report_temporal, report_reliable, report_lengths, report_window_rows = temporal_scores(
-        temporal_model, report_records, window_store, "report"
+        temporal_model, report_records, window_store, target_scope, "report"
     )
     temporal = {**select_temporal, **report_temporal}
     reliable = {**select_reliable, **report_reliable}
@@ -1113,7 +1214,7 @@ def run_protocol(
         "source_oof": fold_rows,
         "source_reference": reference.source_rows,
         "window_audit": fit_window_rows + score_window_rows,
-        "phase_order_audit": phase_order_rows,
+        "target_scope_audit": target_scope_rows,
         "training_trace": temporal_model.training_trace,
         "support_usage": support_rows,
         "support_family_usage": support_family_rows,
@@ -1335,7 +1436,7 @@ def run_formal(args: argparse.Namespace) -> None:
         "ckbq_source_oof_audit.csv": table("source_oof"),
         "ckbq_source_reference_audit.csv": table("source_reference"),
         "ckbq_temporal_window_audit.csv": table("window_audit"),
-        "ckbq_causal_phase_order_audit.csv": table("phase_order_audit"),
+        "ckbq_causal_target_scope_audit.csv": table("target_scope_audit"),
         "ckbq_training_trace.csv": table("training_trace"),
         "ckbq_support_training_usage.csv": table("support_usage"),
         "ckbq_support_family_training_usage.csv": table("support_family_usage"),
@@ -1531,15 +1632,14 @@ def contract_unit(args: argparse.Namespace) -> None:
     benign_hard = decision_array(PRIMARY, benign, static, temporal, reliable, 0.5, gate)
     if not support_hard.all() or benign_hard.any():
         raise RuntimeError("attack-preserving consensus contract failed")
-    causal_phase_order_audit(records)
-    inverted = [
+    interleaved = [
         ckbj.Record(
             uid="phase:report",
             role="future_query",
             m1_phase="report",
             source="phase-source",
             recorded_index=5,
-            event_position=5,
+            event_position=3,
             label=0,
             attack_family="benign",
             device_family="phase-device",
@@ -1561,14 +1661,94 @@ def contract_unit(args: argparse.Namespace) -> None:
             c1_score=0.8,
             episode_id="phase-source",
         ),
+        ckbj.Record(
+            uid="phase:select",
+            role="support_val",
+            m1_phase="select",
+            source="phase-source",
+            recorded_index=5,
+            event_position=5,
+            label=1,
+            attack_family="attack-a",
+            device_family="phase-device",
+            source_family="phase-device",
+            c1_score=0.8,
+            episode_id="phase-source",
+        ),
     ]
-    phase_inversion_rejected = False
+
+    class FakeT0:
+        @staticmethod
+        def target_positions(_source: str) -> dict[int, int]:
+            return {3: 3, 5: 5, 10: 10}
+
+    fake_store = TemporalWindowStore(
+        FakeT0(), AuxiliaryTemporalData({}, {}, pd.DataFrame(), "synthetic")
+    )
+    fake_store._messages["phase-source"] = np.repeat(
+        np.arange(12, dtype=np.float32)[:, None], 9, axis=1
+    )
+    target_scope, target_rows = causal_target_scope_audit(interleaved, fake_store)
+    fit_windows, _fit_lengths, fit_rows = fake_store.windows(
+        [interleaved[1]], "fit", target_scope
+    )
+    if 3.0 in fit_windows[0, 0] or 5.0 in fit_windows[0, 0]:
+        raise RuntimeError("select/report target entered an interleaved fit window")
+    if int(fit_rows[0]["forbidden_target_events_skipped"]) != 2:
+        raise RuntimeError("interleaved target-scope skip audit drift")
+    if not bool(target_rows[0]["source_phase_interleavings"]):
+        raise RuntimeError("synthetic phase interleaving was not recorded")
+
+    duplicate_cross_phase = [
+        *interleaved,
+        ckbj.Record(
+            uid="phase:duplicate-fit",
+            role="support_train",
+            m1_phase="fit",
+            source="phase-source",
+            recorded_index=5,
+            event_position=5,
+            label=1,
+            attack_family="attack-a",
+            device_family="phase-device",
+            source_family="phase-device",
+            c1_score=0.8,
+            episode_id="phase-source",
+        ),
+    ]
+    duplicate_rejected = False
     try:
-        causal_phase_order_audit(inverted)
+        causal_target_scope_audit(duplicate_cross_phase, fake_store)
     except RuntimeError:
-        phase_inversion_rejected = True
-    if not phase_inversion_rejected:
-        raise RuntimeError("causal phase inversion was not rejected")
+        duplicate_rejected = True
+    if not duplicate_rejected:
+        raise RuntimeError("cross-phase duplicate target was not rejected")
+    aux_record = ckbj.Record(
+        uid="aux:fit:0",
+        role="aux_fit",
+        m1_phase="fit",
+        source="aux-source",
+        recorded_index=0,
+        event_position=0,
+        label=0,
+        attack_family="benign",
+        device_family="aux-device",
+        source_family="aux-device",
+        c1_score=0.8,
+        episode_id="aux-source",
+    )
+    aux_store = TemporalWindowStore(
+        FakeT0(),
+        AuxiliaryTemporalData(
+            {"aux-source": np.zeros((4, 9), dtype=np.float32)},
+            {"aux-source": 2},
+            pd.DataFrame(),
+            "synthetic-aux",
+        ),
+    )
+    aux_scope, _aux_rows = causal_target_scope_audit([aux_record], aux_store)
+    if aux_scope.allowed_fit["aux-source"] != frozenset({2}):
+        raise RuntimeError("auxiliary target offset was not normalized")
     reliable[support[0].uid] = False
     cold_hard = decision_array(PRIMARY, support, static, temporal, reliable, 0.5, gate)
     if not cold_hard[0]:
@@ -1582,7 +1762,10 @@ def contract_unit(args: argparse.Namespace) -> None:
         "support_preserved": int(support_hard.sum()),
         "benign_suppressed": int((~benign_hard).sum()),
         "cold_fail_hard": True,
-        "phase_order_inversion_rejected": phase_inversion_rejected,
+        "interleaved_phase_targets_isolated": True,
+        "forbidden_fit_targets_skipped": 2,
+        "cross_phase_duplicate_rejected": duplicate_rejected,
+        "auxiliary_target_offset_normalized": True,
         "score_addition_used": False,
     }
     print(json.dumps(payload, indent=2))

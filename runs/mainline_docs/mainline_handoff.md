@@ -176,18 +176,26 @@ and populate online state from the same deployment-equivalent label-free full
 stream for attack and OOD before another result run. See
 `ckbp_seed27_result_and_gate_diagnosis_20260717.md`.
 
-CKBQ is the next preregistered result experiment and is implemented locally,
-but has no HPC result yet. It keeps C1 and CKBP's interpretable static
+CKBQ is the next preregistered result experiment and still has no performance
+result. Its first paired jobs `152413/152414` failed before training because a
+new audit incorrectly assumed a source-contiguous phase split. The frozen 1M
+row-role split actually interleaves phases. The corrected implementation keeps
+all 385/69 rows and enforces target-level isolation: fit windows skip every
+non-fit frozen target, select windows skip report targets, and report remains
+label-free/past-only. A real three-source regression aligned all 3,583 targets,
+skipped 283 cross-stage target-event occurrences, and used zero
+forbidden/future events.
+It keeps C1 and CKBP's interpretable static
 normal-only control, then adds a BSD-licensed `sktime v0.24.1`
 `MiniRocketMultivariate` execution port over 32-event causal windows. All 385
 legal support-train attacks supervise a family-balanced Ridge head exactly
 once; a C1 candidate is suppressed only when static and temporal evidence both
 support normality. C1 high-confidence rows, evidence disagreement, and cold
-history remain hard. The code rejects target phase inversions, gives report
-rows zero fit/select use, performs no score addition, and keeps review at zero.
-The first run is seed 27 only, with independently safe AMD/Intel copies; it is
-not yet performance evidence. See
-`ckbq_causal_minirocket_consensus_prereg_20260717.md`.
+history remain hard. The code gives report rows zero fit/select use, performs
+no score addition, and keeps review at zero. The corrected run remains seed 27
+only with independently safe AMD/Intel copies; it is not yet performance
+evidence. See `ckbq_causal_minirocket_consensus_prereg_20260717.md` and
+`ckbq_target_scope_correction_20260718.md`.
 
 ### Maintenance Protocol
 

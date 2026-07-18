@@ -89,10 +89,14 @@ cross-source state. Histories shorter than nine events are unreliable and
 fail closed to the original C1 hard decision. They never receive a constant
 normal/suppress score.
 
-The implementation rejects any frozen target ordering in which a report target
-precedes a fit target, or a report target precedes a select target, within the
-same source. This makes the use of causal raw prefixes auditable rather than an
-unstated chronological assumption.
+The immutable 1M split is row-role based and does not promise one contiguous
+`fit -> select -> report` block inside every source.  CKBQ therefore enforces
+target-level isolation: a fit window may expose only frozen fit targets, a
+select window may expose only frozen fit/select targets, and a report window
+is label-free and past-only with the model fixed.  Later-phase frozen targets
+are skipped when phases interleave; untargeted raw events remain label-free
+causal context.  Every skipped target, current-target inclusion, and future
+event count is emitted in the formal audit.
 
 Auxiliary temporal sources contain 256 label-free warm-up events plus 600
 frozen target events. Every source is independently parsed and aligned; the
@@ -186,7 +190,7 @@ held-family hard rate and C1 delta. Packet rows are not treated as independent
 replicates for significance.
 
 The output also includes all 385 support visits, family-weight totals, finite
-training loss, causal-window coverage, cold counts, target-order audit,
+training loss, causal-window coverage, cold counts, target-scope audit,
 fit/select/report counts, manifest hashes, model hashes, record-level
 predictions, seed, commit, environment, wall time, and Slurm MaxRSS snapshot.
 
@@ -201,7 +205,7 @@ predictions, seed, commit, environment, wall time, and Slurm MaxRSS snapshot.
   below 90% hard rate (the stream condition therefore implies at least a
   10-point improvement from its current 100% baseline);
 - all 385 global support rows are used exactly once;
-- all target alignments and temporal phase-order checks pass;
+- all target alignments and temporal target-scope checks pass;
 - every cold C1 candidate remains hard;
 - no held/report/sealed row enters fit or select;
 - review remains zero.
