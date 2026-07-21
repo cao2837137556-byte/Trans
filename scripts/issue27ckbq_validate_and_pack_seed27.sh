@@ -135,20 +135,43 @@ if ready.get("raw_label_column_read") is not False or ready.get("original_1m_ass
 temporal_manifest = rows("ckbq_aux_temporal_manifest.csv")
 if len(temporal_manifest) != 31 or len({row.get("source_group") for row in temporal_manifest}) != 31:
     errors.append("auxiliary temporal source coverage drift")
-if temporal_manifest and any(
-    row.get("raw_label_column_read") != "False"
-    or row.get("source_identity_as_feature") != "False"
-    or row.get("current_event_inclusive") != "True"
-    or row.get("future_event_used") != "False"
-    or row.get("event_schema") != "CKBE portable raw_msg9"
-    or integer(row.get("events")) != 856
-    or integer(row.get("target_offset")) != 256
-    or integer(row.get("target_rows")) != 600
-    or len(row.get("raw_msg_sha256", "")) != 64
-    or len(row.get("target_event_positions_sha256", "")) != 64
-    for row in temporal_manifest
-):
-    errors.append("auxiliary temporal causality/schema contract failed")
+aux_manifest = rows("ckbo_auxiliary_benign_manifest.csv")
+aux_by_source = {row.get("source_group"): row for row in aux_manifest}
+if len(aux_manifest) != 31 or len(aux_by_source) != 31:
+    errors.append("frozen auxiliary source coverage drift")
+for row in temporal_manifest:
+    source = row.get("source_group")
+    reference = aux_by_source.get(source)
+    if reference is None:
+        errors.append(f"auxiliary temporal source missing from frozen manifest: {source}")
+        continue
+    warmup = integer(reference.get("warmup_packets"))
+    target_rows = integer(reference.get("model_ready_rows"))
+    expected_positions = b"".join(
+        int(position).to_bytes(8, byteorder="little", signed=True)
+        for position in range(warmup, warmup + target_rows)
+    )
+    cache_path = root / "aux_temporal_cache" / row.get("cache_file", "")
+    cache_hash = hashlib.sha256(cache_path.read_bytes()).hexdigest() if cache_path.is_file() else ""
+    if (
+        row.get("role") != reference.get("role")
+        or row.get("raw_source_path") != reference.get("raw_source_path")
+        or row.get("raw_label_column_read") != "False"
+        or row.get("source_identity_as_feature") != "False"
+        or row.get("current_event_inclusive") != "True"
+        or row.get("future_event_used") != "False"
+        or row.get("event_schema") != "CKBE portable raw_msg9"
+        or warmup != 500
+        or target_rows != 600
+        or integer(row.get("events")) != warmup + target_rows
+        or integer(row.get("target_offset")) != warmup
+        or integer(row.get("target_rows")) != target_rows
+        or len(row.get("raw_msg_sha256", "")) != 64
+        or row.get("target_event_positions_sha256") != hashlib.sha256(expected_positions).hexdigest()
+        or not cache_hash
+        or row.get("cache_sha256") != cache_hash
+    ):
+        errors.append(f"auxiliary temporal causality/schema contract failed: {source}")
 
 permanent = rows("ckbq_permanent_report_only_audit.csv")
 if not permanent or any(
@@ -305,8 +328,11 @@ if env.get("base_t0_manifest_sha256") != env.get("expected_base_t0_manifest_sha2
     errors.append("frozen T0 manifest changed")
 if env.get("seed") != 27 or env.get("torch_deterministic_algorithms") is not True:
     errors.append("seed or deterministic execution contract failed")
-if len(str(env.get("auxiliary_temporal_manifest_sha256", ""))) != 64:
-    errors.append("auxiliary temporal manifest hash missing")
+actual_temporal_manifest_sha256 = hashlib.sha256(
+    (root / "ckbq_aux_temporal_manifest.csv").read_bytes()
+).hexdigest()
+if env.get("auxiliary_temporal_manifest_sha256") != actual_temporal_manifest_sha256:
+    errors.append("auxiliary temporal manifest hash mismatch")
 
 if errors:
     raise SystemExit("; ".join(errors))

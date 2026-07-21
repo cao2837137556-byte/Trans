@@ -98,10 +98,14 @@ are skipped when phases interleave; untargeted raw events remain label-free
 causal context.  Every skipped target, current-target inclusion, and future
 event count is emitted in the formal audit.
 
-Auxiliary temporal sources contain 256 label-free warm-up events plus 600
-frozen target events. Every source is independently parsed and aligned; the
-manifest stores raw source path, role, schema, target offset, deterministic
-event-content hash, target-position hash, and `raw_label_column_read=false`.
+Auxiliary temporal sources contain 500 label-free warm-up events plus 600
+frozen target events, matching the frozen CKBO auxiliary feature contract.
+Every source is independently parsed and aligned; the manifest stores raw
+source path, role, schema, target offset, deterministic event-content hash,
+target-position hash, and `raw_label_column_read=false`. The original text
+incorrectly stated 256 warm-up events; the post-run reconciliation and its
+scientific boundary are recorded in
+`ckbq_aux_warmup_validator_correction_20260721.md`.
 
 ## Training
 
