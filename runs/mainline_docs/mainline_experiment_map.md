@@ -2666,10 +2666,11 @@ marker: `issue27cb_broader_attack_support_candidate_contract_2026-06-14`
 
 ## issue27ckbq causal MiniRocket normal-consensus verifier
 
-- status: first AMD/Intel jobs `152413/152414` failed before training because the audit assumed source-contiguous phases; no performance result was produced. Corrected implementation and validator pass synthetic and real target-position regression.
+- status: corrected AMD job `153037` completed the formal program; a stale post-run warm-up/hash validator was transparently repaired without retraining, and the recovered result passes `CKBQ_RESULT_VALID`.
 - mature component: BSD-licensed `sktime v0.24.1` MiniRocketMultivariate algorithm with only its Numba backend ported to frozen-environment CPU PyTorch.
 - primary: C1 shield plus static AfterImage normal score plus causal 32-event MiniRocket/Ridge evidence; only joint normal consensus suppresses, with no score addition and review=0.
 - attack contract: all 385 global support-train rows supervise the family-balanced Ridge head once; 69 support-val rows are gate-only and are not claimed as future-attack evidence.
 - leakage/cold contract: strict held exclusion from every fit/select stage; target-level windows skip later-phase frozen targets; 3,583-target real regression skipped 283 forbidden target-window occurrences and used zero forbidden/future events; report gradients and threshold updates zero; cold C1 candidates remain hard.
-- execution: seed 27 only; paired AMD/Intel jobs request 8 CPUs, 16 GiB, and 4 hours with job/partition-isolated outputs.
-- next: package the corrected commit, rerun the single CKBQ seed-27 dual submission, keep the first valid result, and stop for GO/NO_GO review.
+- result: valid single-seed `NO_GO`; M3 changes IP-camera/predictive/stream/hydraulic hard OOD from `100/100/100/72.367%` to `8.1/57.589/29.7/45.7%`, but overall attack recall drops `6.945 pp` and future attack recall drops `12.639 pp`.
+- decomposition: temporal-only evidence rescues 37 attacks but adds 68 hydraulic false alarms; M3 is nearly the static branch. Exact post-hoc score-space feasibility finds zero current thresholds satisfying all attack and four-held constraints; the closest still loses `2.418 pp` attack recall.
+- next: no seeds 37/47 and no report threshold tuning; retain static normality as an ablation and replace anonymous raw9 history with mature flow/connection-process evidence targeted at unseen attack preservation.

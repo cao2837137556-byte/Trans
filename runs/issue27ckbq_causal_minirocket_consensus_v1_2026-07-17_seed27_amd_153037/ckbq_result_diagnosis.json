@@ -1,0 +1,110 @@
+{
+  "attack_suppressed_future": 16606,
+  "attack_suppressed_total": 16950,
+  "formal_decision": {
+    "all_required_held_improve_5pp_and_at_most_90pct": true,
+    "candidate": "M3-StaticTemporalConsensus",
+    "checks": {
+      "cold_start_artifact": false,
+      "gate_constraint_failed": false,
+      "major_attack_family_drop_over_2pp": true,
+      "multiheld_signal_missing": false,
+      "overall_attack_drop_over_0_5pp": true,
+      "report_or_held_used_in_fit": false,
+      "required_metrics_missing": false,
+      "review_not_zero": false,
+      "support_usage_incomplete": false,
+      "target_alignment_incomplete": false
+    },
+    "cold_c1_candidates": 0,
+    "cold_fail_hard_verified": true,
+    "decision": "NO_GO",
+    "held_c1_hard_rates": {
+      "iotsim-hydraulic-system": 0.7236666666666667,
+      "iotsim-ip-camera-street": 1.0,
+      "iotsim-predictive-maintenance": 1.0,
+      "iotsim-stream-consumer": 1.0
+    },
+    "held_hard_rates": {
+      "iotsim-hydraulic-system": 0.457,
+      "iotsim-ip-camera-street": 0.081,
+      "iotsim-predictive-maintenance": 0.5758888888888889,
+      "iotsim-stream-consumer": 0.297
+    },
+    "overall_attack_delta_pp": -6.945298094652741,
+    "review_rate": 0.0,
+    "seed": 27,
+    "single_seed_scope": "route go/no-go signal only; no finite-sample 0.5pp guarantee"
+  },
+  "interpretation": {
+    "route": "representation-plus-gate NO_GO; not repairable by selecting another current score threshold",
+    "static_branch": "real multi-held normality signal but suppresses future attacks",
+    "temporal_branch": "does not provide an efficient attack-rescue frontier under the registered gate"
+  },
+  "oracle_score_space_feasibility": {
+    "allowed_overall_suppression_rows": 1220,
+    "closest_boundary": {
+      "attack_delta_pp": -2.418356894079082,
+      "attack_suppressed": 5902,
+      "constraint_violation_rows": 4682,
+      "family_excess_rows": 2781,
+      "static_threshold": 0.9816727757414198,
+      "temporal_threshold": 1.185283184051514
+    },
+    "current_score_space_can_meet_all_registered_constraints": false,
+    "exact_static_boundaries_evaluated": 890,
+    "feasible_boundary_count": 0,
+    "major_family_count": 16,
+    "overall_attack_rows": 244050,
+    "registered_gate_family": "C1 candidate AND (static_attack OR temporal_attack); cold fails hard",
+    "required_held_suppression_rows": {
+      "iotsim-hydraulic-system": 150,
+      "iotsim-ip-camera-street": 300,
+      "iotsim-predictive-maintenance": 900,
+      "iotsim-stream-consumer": 300
+    },
+    "scope": "report-label post-hoc capability diagnosis only; forbidden for model or threshold selection"
+  },
+  "role_attack_loss": [
+    {
+      "c1_hard": 114092,
+      "delta_pp": -12.638612994801775,
+      "primary_hard": 97486,
+      "role": "future_query",
+      "rows": 131391,
+      "suppressed": 16606
+    },
+    {
+      "c1_hard": 1579,
+      "delta_pp": -4.585679806918745,
+      "primary_hard": 1465,
+      "role": "same_file_query",
+      "rows": 2486,
+      "suppressed": 114
+    },
+    {
+      "c1_hard": 107077,
+      "delta_pp": -0.2088934098670348,
+      "primary_hard": 106847,
+      "role": "sealed_final_attack",
+      "rows": 110104,
+      "suppressed": 230
+    },
+    {
+      "c1_hard": 69,
+      "delta_pp": 0.0,
+      "primary_hard": 69,
+      "role": "support_val",
+      "rows": 69,
+      "suppressed": 0
+    }
+  ],
+  "selected_global_thresholds": {
+    "c1_shield_threshold": 1.0000000000019147,
+    "static_threshold": 0.9903782072642452,
+    "temporal_threshold": 1.841346740722656
+  },
+  "status": "CKBQ_RESULT_DIAGNOSIS_COMPLETE",
+  "temporal_only_attack_rescues_at_registered_gate": 37,
+  "temporal_only_hydraulic_false_alarms_at_registered_gate": 68
+}

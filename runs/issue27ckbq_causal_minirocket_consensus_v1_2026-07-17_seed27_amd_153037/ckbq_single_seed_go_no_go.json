@@ -1,0 +1,35 @@
+{
+  "all_required_held_improve_5pp_and_at_most_90pct": true,
+  "candidate": "M3-StaticTemporalConsensus",
+  "checks": {
+    "cold_start_artifact": false,
+    "gate_constraint_failed": false,
+    "major_attack_family_drop_over_2pp": true,
+    "multiheld_signal_missing": false,
+    "overall_attack_drop_over_0_5pp": true,
+    "report_or_held_used_in_fit": false,
+    "required_metrics_missing": false,
+    "review_not_zero": false,
+    "support_usage_incomplete": false,
+    "target_alignment_incomplete": false
+  },
+  "cold_c1_candidates": 0,
+  "cold_fail_hard_verified": true,
+  "decision": "NO_GO",
+  "held_c1_hard_rates": {
+    "iotsim-hydraulic-system": 0.7236666666666667,
+    "iotsim-ip-camera-street": 1.0,
+    "iotsim-predictive-maintenance": 1.0,
+    "iotsim-stream-consumer": 1.0
+  },
+  "held_hard_rates": {
+    "iotsim-hydraulic-system": 0.457,
+    "iotsim-ip-camera-street": 0.081,
+    "iotsim-predictive-maintenance": 0.5758888888888889,
+    "iotsim-stream-consumer": 0.297
+  },
+  "overall_attack_delta_pp": -6.945298094652741,
+  "review_rate": 0.0,
+  "seed": 27,
+  "single_seed_scope": "route go/no-go signal only; no finite-sample 0.5pp guarantee"
+}

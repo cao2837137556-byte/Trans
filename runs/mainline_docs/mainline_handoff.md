@@ -2362,3 +2362,16 @@ marker: `issue27cb_broader_attack_support_candidate_contract_2026-06-14`
 - frozen: issue27cf initial support bank, issue27bz benign/OOD 1M asset, sealed final attack/OOD non-selection rules.
 - superseded: none; this audit narrows issue27cd partial status.
 - next_action: query_alignment_requires_replan_for_combined_cycle_1.
+
+## issue27ckbq causal MiniRocket consensus formal result
+
+- canonical result: AMD job `153037`, experiment commit `7bb51cb087b54c99ffd1df248b3692336ce9637b`, recovered validator commit `aecb2ca65f3c8536587efb7b0df385becb54b9b7`;
+- scientific verdict: valid seed-27 `NO_GO`; execution recovery did not retrain or change scores/gates;
+- OOD signal: IP-camera `100 -> 8.1%`, predictive `100 -> 57.589%`, stream `100 -> 29.7%`, hydraulic `72.367 -> 45.7%`;
+- attack failure: overall `-6.945 pp`, future `-12.639 pp`; 16,606 of 16,950 suppressed C1 attacks are future-query rows;
+- mechanism: temporal-only branch rescues 37 attacks and adds 68 hydraulic false alarms, so the useful normality effect is almost entirely static;
+- capability audit: zero feasible threshold pair in the current score space satisfies the overall/family attack constraints plus all four weak OOD-signal constraints; closest report-oracle point still loses `2.418 pp` attack recall;
+- integrity: 385/385 support once, 69 gate-only support-val, zero report fit/select, zero future/forbidden event use, zero alignment gaps, review zero;
+- frozen: strict 1M/T0 and auxiliary manifests, report canaries, cooler sealed, past-only report, C1 anchor semantics;
+- superseded: CKBQ seeds 37/47, raw9 MiniRocket consensus repeats, and threshold-only repair on the current scores;
+- next_action: source a mature flow/connection-process representation that can protect unseen scan/brute-force and shifted future attacks before another result job.
