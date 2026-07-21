@@ -42,6 +42,13 @@ The failed Slurm state remains part of provenance. Recovery is permitted only
 after verifying that the formal program emitted `CKBQ_FORMAL_COMPLETE` and
 that the sole terminal error was the stale auxiliary temporal validator.
 
+The first recovery validator reproduced only the target-position payload
+bytes. CKBQ's `sha256_arrays` contract also prefixes the NumPy dtype and shape,
+so that recovery attempt conservatively rejected all 31 sources without
+packing. The corrected recovery reproduces the complete
+`dtype || shape || payload` digest. This second validator-only correction also
+does not change or rerun the experiment.
+
 ## Scientific boundary
 
 The recovered result remains the preregistered seed-27 `NO_GO`: it contains a

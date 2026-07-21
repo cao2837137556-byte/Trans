@@ -151,6 +151,12 @@ for row in temporal_manifest:
         int(position).to_bytes(8, byteorder="little", signed=True)
         for position in range(warmup, warmup + target_rows)
     )
+    expected_position_digest = hashlib.sha256()
+    expected_position_digest.update(b"int64")
+    expected_position_digest.update(
+        int(target_rows).to_bytes(8, byteorder="little", signed=True)
+    )
+    expected_position_digest.update(expected_positions)
     cache_path = root / "aux_temporal_cache" / row.get("cache_file", "")
     cache_hash = hashlib.sha256(cache_path.read_bytes()).hexdigest() if cache_path.is_file() else ""
     if (
@@ -167,7 +173,7 @@ for row in temporal_manifest:
         or integer(row.get("target_offset")) != warmup
         or integer(row.get("target_rows")) != target_rows
         or len(row.get("raw_msg_sha256", "")) != 64
-        or row.get("target_event_positions_sha256") != hashlib.sha256(expected_positions).hexdigest()
+        or row.get("target_event_positions_sha256") != expected_position_digest.hexdigest()
         or not cache_hash
         or row.get("cache_sha256") != cache_hash
     ):

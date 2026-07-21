@@ -11,8 +11,9 @@ STDERR="$BASE/runs/issue27ckbq_${PARTITION}_${JOB_ID}.err"
 BUNDLE_ROOT=$(cd "$(dirname "$0")/../.." && pwd)
 PAYLOAD_VALIDATOR="$BUNDLE_ROOT/payload/scripts/issue27ckbq_validate_and_pack_seed27.sh"
 REMOTE_VALIDATOR="$BASE/scripts/issue27ckbq_validate_and_pack_seed27.sh"
-OLD_VALIDATOR_SHA256=4e42712562a8aae6c3c3ec59cc34c20d3541d10064b231230cfeca8f3fb648d6
-NEW_VALIDATOR_SHA256=08b251b3d8cc3461b89eac79786a01df39a277debed2dad5fd87905bad3a3509
+R3_VALIDATOR_SHA256=4e42712562a8aae6c3c3ec59cc34c20d3541d10064b231230cfeca8f3fb648d6
+FIRST_RECOVERY_VALIDATOR_SHA256=08b251b3d8cc3461b89eac79786a01df39a277debed2dad5fd87905bad3a3509
+NEW_VALIDATOR_SHA256=c8d84c7df0a73d387ccec37f12de9fc3948c8596dcc29a73de060c89f4ec9dbe
 
 test -s "$BASE/scripts/00_env_issue27ckc.sh"
 test -d "$RUN_ROOT"
@@ -49,7 +50,7 @@ test "$payload_sha" = "$NEW_VALIDATOR_SHA256" || {
 }
 remote_sha=$(sha256sum "$REMOTE_VALIDATOR" | awk '{print $1}')
 case "$remote_sha" in
-  "$OLD_VALIDATOR_SHA256")
+  "$R3_VALIDATOR_SHA256"|"$FIRST_RECOVERY_VALIDATOR_SHA256")
     install -m 0644 "$PAYLOAD_VALIDATOR" "$REMOTE_VALIDATOR"
     ;;
   "$NEW_VALIDATOR_SHA256")
