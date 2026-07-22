@@ -1,0 +1,9 @@
+source_csv,source_group,materialized_pcap_member,exact_attack_label,timestamp_aligned_unique_rows,certified_query_overlap_rows,unused_aligned_rows_outside_certified_query,alignment_rule,recorded_index_used_as_csv_row
+processed/iotsim-air-quality-1.csv,air-quality-1,raw/malicious/mirai-infection/iotsim-air-quality-1_0-0_to_OpenvSwitch-25_1-0.pcap,Benign,120,0,120,packet_timestamp_epoch_to_frame.time_within_2us,False
+processed/iotsim-air-quality-1.csv,air-quality-1,raw/malicious/mirai-infection/iotsim-air-quality-1_0-0_to_OpenvSwitch-25_1-0.pcap,Ingress Tool Transfer,109,109,0,packet_timestamp_epoch_to_frame.time_within_2us,False
+processed/iotsim-air-quality-1.csv,air-quality-1,raw/malicious/mirai-infection/iotsim-air-quality-1_0-0_to_OpenvSwitch-25_1-0.pcap,TCP Scan,8469,8469,0,packet_timestamp_epoch_to_frame.time_within_2us,False
+processed/iotsim-air-quality-1.csv,air-quality-1,raw/malicious/mirai-infection/iotsim-air-quality-1_0-0_to_OpenvSwitch-25_1-0.pcap,Telnet Brute Force,5780,5780,0,packet_timestamp_epoch_to_frame.time_within_2us,False
+processed/iotsim-city-power-1.csv,city-power-1,raw/malicious/mirai-infection/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,Benign,20,0,20,packet_timestamp_epoch_to_frame.time_within_2us,False
+processed/iotsim-city-power-1.csv,city-power-1,raw/malicious/mirai-infection/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,Ingress Tool Transfer,105,105,0,packet_timestamp_epoch_to_frame.time_within_2us,False
+processed/iotsim-city-power-1.csv,city-power-1,raw/malicious/mirai-infection/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,TCP Scan,7652,7652,0,packet_timestamp_epoch_to_frame.time_within_2us,False
+processed/iotsim-city-power-1.csv,city-power-1,raw/malicious/mirai-infection/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap,Telnet Brute Force,6739,6739,0,packet_timestamp_epoch_to_frame.time_within_2us,False

@@ -1,0 +1,24 @@
+{
+  "legacy_rows": 90000,
+  "reason": "recorded_index_within_file_is_role_local_not_processed_csv_row_index",
+  "replacement_rule": "packet_timestamp_epoch_to_frame.time_within_2us_unique_match",
+  "sources": {
+    "processed/iotsim-air-quality-1.csv": {
+      "ambiguous_sidecar_rows": 24,
+      "materialized_pcap_member": "raw/malicious/mirai-infection/iotsim-air-quality-1_0-0_to_OpenvSwitch-25_1-0.pcap",
+      "multiple_csv_matches": 20,
+      "sidecar_rows": 45000,
+      "timestamp_aligned_unique_rows": 14478,
+      "unmatched_or_nonunique_rows": 30522
+    },
+    "processed/iotsim-city-power-1.csv": {
+      "ambiguous_sidecar_rows": 28,
+      "materialized_pcap_member": "raw/malicious/mirai-infection/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap",
+      "multiple_csv_matches": 26,
+      "sidecar_rows": 45000,
+      "timestamp_aligned_unique_rows": 14516,
+      "unmatched_or_nonunique_rows": 30484
+    }
+  },
+  "status": "LEGACY_INDEX_BASED_EXACT_LABEL_AUDIT_REJECTED"
+}

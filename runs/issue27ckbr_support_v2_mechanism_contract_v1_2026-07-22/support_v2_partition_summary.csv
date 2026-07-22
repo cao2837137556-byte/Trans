@@ -1,0 +1,5 @@
+support_version,source_csv,exact_attack_label,mechanism_family,bank_partition,rows,support_val_fit_rows,support_val_select_rows,active_rows,quarantined_candidate_rows
+v2_candidate_quarantined,processed/iotsim-city-power-1.csv,TCP Scan,reconnaissance_scan,support_train,60,0,0,0,60
+v2_candidate_quarantined,processed/iotsim-city-power-1.csv,TCP Scan,reconnaissance_scan,support_val,20,10,10,0,20
+v2_candidate_quarantined,processed/iotsim-city-power-1.csv,Telnet Brute Force,credential_bruteforce,support_train,60,0,0,0,60
+v2_candidate_quarantined,processed/iotsim-city-power-1.csv,Telnet Brute Force,credential_bruteforce,support_val,20,10,10,0,20

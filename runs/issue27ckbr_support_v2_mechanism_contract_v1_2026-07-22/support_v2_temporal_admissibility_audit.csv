@@ -1,0 +1,3 @@
+exact_attack_label,source_csv,query_rows,query_first_csv_row,query_last_csv_row,query_first_epoch,query_last_epoch,raw_labels_verified,candidate_rows,candidate_first_epoch,candidate_last_epoch,candidate_first_minus_query_last_seconds,same_capture_candidate_after_frozen_query,temporal_admissibility,decision
+TCP Scan,processed/iotsim-city-power-1.csv,12000,2640,21397,1737236014.326398,1737236386.608933,12000,80,1737236709.220403,1737236794.535187,322.61146998405457,True,False,QUARANTINE_FORBIDDEN_FOR_FIT_SELECT
+Telnet Brute Force,processed/iotsim-city-power-1.csv,12000,722,29167,1737235783.576491,1737236524.121581,12000,80,1737236714.273319,1737237043.712605,190.1517379283905,True,False,QUARANTINE_FORBIDDEN_FOR_FIT_SELECT

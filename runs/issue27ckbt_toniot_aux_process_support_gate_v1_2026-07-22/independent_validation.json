@@ -1,0 +1,26 @@
+{
+  "checks": {
+    "all_input_hashes_reproduced": true,
+    "all_selected_raw_conn_lines_verified": true,
+    "all_selected_raw_gt_lines_verified": true,
+    "balanced_fit_select_counts": true,
+    "contract_is_candidate_not_model_result": true,
+    "fit_select_source_files_disjoint": true,
+    "manifest_features_match_raw_conn": true,
+    "mechanism_mapping_not_label_equivalence": true,
+    "no_raw_ip_columns": true,
+    "pair_audit_counts_cover_manifest": true,
+    "scope_flags_fail_closed": true,
+    "selected_conn_keys_unique_in_source": true,
+    "selected_gt_keys_unique_for_label": true,
+    "seven_reserved_sources_zero_use": true,
+    "source_local_anonymous_node_ids_reproduced": true,
+    "support_rows_5000": true,
+    "unique_record_ids": true
+  },
+  "contract_sha256": "9ec01f6df760cdf9bc35836dc049e03e359780bf16278daf7a2466b4904f8940",
+  "failures": [],
+  "scientific_scope": "external_auxiliary_support_gate_only_not_model_performance",
+  "status": "PASS",
+  "support_manifest_sha256": "c637e1e50d86252a590c216c286f53411b83facb60f44be3989afbab1b032fcb"
+}

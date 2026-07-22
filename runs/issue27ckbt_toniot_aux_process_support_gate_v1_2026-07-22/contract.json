@@ -1,0 +1,48 @@
+{
+  "Gotham_report_or_sealed_rows_used": 0,
+  "Gotham_support_mutated": false,
+  "active_Gotham_support_train_rows": 385,
+  "active_Gotham_support_val_rows": 127,
+  "allowed_scope": "static_completed_connection_process_expert_supervision",
+  "auxiliary_counts": {
+    "credential_bruteforce|aux_process_fit": 2000,
+    "credential_bruteforce|aux_process_select": 500,
+    "reconnaissance_scan|aux_process_fit": 2000,
+    "reconnaissance_scan|aux_process_select": 500
+  },
+  "auxiliary_rows": 5000,
+  "created_utc": "2026-07-22T04:14:05.738477+00:00",
+  "cross_dataset_label_policy": "mechanism_family_only_not_exact_attack_label_equivalence",
+  "fit_select_source_overlap": 0,
+  "fit_source_files": [
+    "Network_dataset_Bro/normal_attack_Bro/normal_password/password_normal_1/conn.log",
+    "Network_dataset_Bro/normal_attack_Bro/normal_scanning/normal_scanning_1/conn.log"
+  ],
+  "forbidden_scope": [
+    "Gotham_C1_fit_or_calibration",
+    "Gotham_standardization_or_threshold_selection",
+    "temporal_replay_or_past_only_claim_without_explicit_log_emission_time",
+    "untouched_final_external_validation_claim"
+  ],
+  "hpc_submission": false,
+  "issue": "issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22",
+  "mature_component": "ToN-IoT provided Bro/Zeek conn.log 21-field schema",
+  "model_training": false,
+  "next_gate": "independently validate every selected raw line and exact join; then design the static Zeek process expert without touching Gotham report labels",
+  "permanent_Gotham_report_families_used": 0,
+  "reserved_conn_files": [
+    "Network_dataset_Bro/normal_attack_Bro/normal_scanning/normal_scanning3/conn.log",
+    "Network_dataset_Bro/normal_attack_Bro/normal_scanning/normal_scanning4/conn.log",
+    "Network_dataset_Bro/normal_attack_Bro/normal_scanning/normal_scanning5/conn.log",
+    "Network_dataset_Bro/normal_attack_Bro/normal_scanning/normal_scanning6/conn.log",
+    "Network_dataset_Bro/normal_attack_Bro/normal_password/password_normal2/conn.log",
+    "Network_dataset_Bro/normal_attack_Bro/normal_password/password_normal3/conn.log",
+    "Network_dataset_Bro/normal_attack_Bro/normal_password/password_normal5/conn.log"
+  ],
+  "reserved_rows_used": 0,
+  "select_source_files": [
+    "Network_dataset_Bro/normal_attack_Bro/normal_password/password_normal4/conn.log",
+    "Network_dataset_Bro/normal_attack_Bro/normal_scanning/normal_scanning2/conn.log"
+  ],
+  "status": "TONIOT_AUX_PROCESS_SUPPORT_CANDIDATE_READY_FOR_STATIC_EXPERT_ONLY"
+}

@@ -2613,7 +2613,9 @@ marker: `issue27cb_broader_attack_support_candidate_contract_2026-06-14`
 
 - Verdict: `targeted_multitype_attack_contract_ready_for_slurm_exact_label_materialization`.
 - Current 1M attack roles are not sufficient for model replay because support/query/final attack rows must be exact-label filtered.
-- Reusable current exact support rows: `86336`.
+- Historical `86336` reusable-current-support claim is superseded by CKBR: it
+  came from treating a role-local recorded ordinal as a processed-CSV row
+  index. Exact reuse now requires unique timestamp alignment.
 - Newly planned targeted support rows: `69492`.
 - Planned dev/query attack rows: `125679`.
 - Planned sealed final exact attack rows: `110104`.
@@ -2674,3 +2676,24 @@ marker: `issue27cb_broader_attack_support_candidate_contract_2026-06-14`
 - result: valid single-seed `NO_GO`; M3 changes IP-camera/predictive/stream/hydraulic hard OOD from `100/100/100/72.367%` to `8.1/57.589/29.7/45.7%`, but overall attack recall drops `6.945 pp` and future attack recall drops `12.639 pp`.
 - decomposition: temporal-only evidence rescues 37 attacks but adds 68 hydraulic false alarms; M3 is nearly the static branch. Exact post-hoc score-space feasibility finds zero current thresholds satisfying all attack and four-held constraints; the closest still loses `2.418 pp` attack recall.
 - next: no seeds 37/47 and no report threshold tuning; retain static normality as an ablation and replace anonymous raw9 history with mature flow/connection-process evidence targeted at unseen attack preservation.
+
+## issue27ckbr / issue27ckbs support-v2 mechanism admissibility audit
+
+- status: exact provenance/materialization passes, but the candidate support extension is scientific `NO_GO` and fail-closed; no model training or HPC submission occurred.
+- correction 1: issue27cb's 90,000-row exact-label inventory is rejected because `recorded_index_within_file` is a role-local ordinal, not a processed-CSV row index. The replacement joins packet and CSV timestamps uniquely within 2 microseconds.
+- correction 2: issue27cc's `network-scanning` PCAP choice was a scenario-name heuristic. Exact target times and formal issue27cd chunk metadata select the `mirai-infection` PCAP, where scan/Telnet are labeled infection stages.
+- candidate: 60 proposed train + 20 proposed validation rows per label, each from a distinct segment and 500 rows from query intervals; these proposed roles are not active.
+- chronology: TCP candidates begin 322.611 seconds after the frozen TCP query ends; Telnet candidates begin 190.152 seconds after its query ends, all in the same capture. Row non-overlap therefore cannot justify fit use.
+- output: 160/160 mature AfterImage115 diagnostic rows, shape `(160,115)`, zero missing/ambiguous targets and zero parse errors; all carry selection false and fit/threshold/model-selection forbidden. Active support remains 385/127 (58/69 validation lineage).
+- frozen: original 385/127 support files and hashes, strict 1M/T0/query manifests, report canaries, cooler sealed, and review=0.
+- next: CKBT supplies the independent-source gate; verify an already-installed Zeek binary/module and build one result-producing causal seed-27 chain.
+
+## issue27ckbt ToN-IoT auxiliary process-support gate
+
+- status: local data gate and independent raw-line validator PASS; no model training or HPC submission.
+- mature source: dataset-provided Bro/Zeek 21-field conn logs plus ToN-IoT per-event GroundTruth; prior CKAN timestamp-sort/header policy is reused.
+- exact join: direct `floor(conn.ts)` plus source/destination IP/port and protocol, unique on both conn and GroundTruth sides.
+- bank: reconnaissance scan 2,000 fit + 500 select; credential brute force 2,000 fit + 500 select. Fit/select use different conn-log/GroundTruth source files (not a campaign-independence claim); seven further scan/password conn files have zero use.
+- boundary: this is generic mechanism supervision, not exact Gotham label equivalence. It cannot enter Gotham C1 fit/normalization/thresholds/report roles and cannot support temporal replay because the provided logs lack explicit emission time.
+- frozen Gotham: active support remains 385/127 with 58/69 validation lineage; the CKBR/CKBS 160 remain quarantined.
+- next: verify an already-installed Zeek binary/module, build emission-time-aware Gotham process evidence, and train one small static process expert inside a result-producing seed-27 asymmetric chain.

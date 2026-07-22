@@ -176,26 +176,34 @@ and populate online state from the same deployment-equivalent label-free full
 stream for attack and OOD before another result run. See
 `ckbp_seed27_result_and_gate_diagnosis_20260717.md`.
 
-CKBQ is the next preregistered result experiment and still has no performance
-result. Its first paired jobs `152413/152414` failed before training because a
-new audit incorrectly assumed a source-contiguous phase split. The frozen 1M
-row-role split actually interleaves phases. The corrected implementation keeps
-all 385/69 rows and enforces target-level isolation: fit windows skip every
-non-fit frozen target, select windows skip report targets, and report remains
-label-free/past-only. A real three-source regression aligned all 3,583 targets,
-skipped 283 cross-stage target-event occurrences, and used zero
-forbidden/future events.
-It keeps C1 and CKBP's interpretable static
-normal-only control, then adds a BSD-licensed `sktime v0.24.1`
-`MiniRocketMultivariate` execution port over 32-event causal windows. All 385
-legal support-train attacks supervise a family-balanced Ridge head exactly
-once; a C1 candidate is suppressed only when static and temporal evidence both
-support normality. C1 high-confidence rows, evidence disagreement, and cold
-history remain hard. The code gives report rows zero fit/select use, performs
-no score addition, and keeps review at zero. The corrected run remains seed 27
-only with independently safe AMD/Intel copies; it is not yet performance
-evidence. See `ckbq_causal_minirocket_consensus_prereg_20260717.md` and
-`ckbq_target_scope_correction_20260718.md`.
+CKBQ seed 27 completed its formal program on AMD job `153037`; the final Slurm
+failure was a stale post-result validator constant and recovery changed no
+score or gate. The recovered result is a valid scientific `NO_GO`. Static
+normality produced the first large, simultaneous four-held OOD reduction
+(IP-camera `8.1%`, predictive `57.589%`, stream `29.7%`, hydraulic `45.7%`),
+but overall attack recall fell from `91.300%` to `84.354%`. The current
+temporal branch rescued only 37 attacks. Exact post-hoc score-space enumeration
+found zero threshold pair satisfying both the multi-held signal and attack
+constraints. Most suppressed attacks were future TCP Scan/Telnet, absent from
+the 385-row support bank. Do not run CKBQ seeds 37/47 or retune its score pair.
+See `ckbq_seed27_formal_result_20260721.md`.
+
+CKBR/CKBS audited and exactly materialized 160 candidate TCP Scan/Telnet rows
+without changing support v1, the 1M split, T0, or certified query chunks. The
+features and labels align exactly, but all candidates occur later in the same
+capture than the already frozen future/query rows. They are quarantined from
+fit/select/standardization/thresholding/model selection. The apparent 505/167
+combined bank is hypothetical and forbidden; active support remains 385/127
+with validation lineage 58/69.
+
+This work also corrects two provenance assumptions. The issue27cb 90,000-row
+exact-label audit is invalid because it treated a role-local recorded ordinal
+as a processed-CSV row index. The replacement uses unique timestamp matching.
+The issue27cc `network-scanning` PCAP was only a scenario-name heuristic; the
+selected rows and formal issue27cd chunks map by exact time to the
+`mirai-infection` capture, where scan/Telnet are labeled infection stages. See
+`ckbr_ckbs_support_v2_and_process_frontend_gate_20260722.md` before any next
+training run.
 
 ### Maintenance Protocol
 
@@ -294,38 +302,40 @@ Superseded parts:
 | Fresh two-sided holdout feasibility | local archive has 4 unmaterialized malicious PCAPs and 51 unused benign PCAPs, but zero fresh attack+benign pairs relevant to the current ten regions; one substantial CoAP pair is outside the registry | issue27ckf | do not submit an HPC materialization job from the existing archive for current-region certification |
 | Label-support region registry | one exact-label registry with ten active memory-management regions, immutable 385/127 views, append-only archive/candidate schemas, versioned promotion and rollback contracts | issue27ckg | current formal region system; production promotion disabled pending budget/model non-regression certification |
 | CKBO auxiliary normal extension | 31 label-free raw-PCAP sources split 11/5/15 fit/select/predictive-report with a separate manifest; permanent canaries and cooler have zero fit/select use | issue27ckbo | reusable only under source/family-held-out one-sided calibration; does not alter the strict 1M or T0 manifests |
+| Gotham support-v2 candidates | 160 exact timestamp-aligned city-power rows are quarantined because they occur after the frozen query in the same capture | issue27ckbr/issue27ckbs | diagnostic evidence only; selection false and fit/threshold/model-selection forbidden; active support stays 385/127 |
+| ToN-IoT auxiliary process support | separate source-file-disjoint 4,000 fit + 1,000 select scan/password completed-connection rows; independent raw conn/GroundTruth validator PASS | issue27ckbt | static process-expert supervision only; no claim of campaign independence, no Gotham C1/threshold use, and no temporal replay without emission time |
 
 ### Active Blocker
 
-`Transferable attack-preserving unseen-normal suppression is not yet demonstrated`
+`Transferable attack-preserving process evidence is not yet demonstrated`
 
-C1 retains strong attack-anchor value. CKBO proves that mature AfterImage115
-and legal normal diversity can suppress predictive and hydraulic, but the same
-evidence does not transfer to stream or IP-camera and a symmetric verifier
-suppresses future attacks. The immediate blocker is a one-sided normal-evidence
-test whose calibration transfers across held sources/families and fails closed
-to C1 hard when normal evidence is uncertain.
+C1 retains attack-anchor value and CKBQ proves transferable normal rank signal
+across all four held families. The unresolved failure is attack preservation:
+normal evidence suppresses future attacks that the old support bank never
+represented. CKBT now supplies legal mature scan/password connection-process
+supervision, but no causal Gotham connection cache or trained process expert
+has yet shown that it can rescue those attacks without restoring held OOD
+false alarms.
 
 ### Current Next Action
 
-Do not run CKBO seeds 37/47 and do not repeat its deterministic contrast or
-symmetric attack-versus-benign verifier. Preregister one seed-27
-source-held-out normal-evidence experiment that reuses raw AfterImage115 as a
-mature control, broadens only legal normal-family diversity, keeps all report
-families out of fit/select, and defaults to C1 hard when normal conformity is
-not confidently transferable. Submit the result job independently to AMD and
-Intel with collision-free outputs; open no sealed family until a real
-multi-held and attack-preservation signal exists.
+Do not rerun CKBO/CKBP/CKBQ or tune against the four report families. CKBT has
+closed the independent supervision gate with source-disjoint ToN Bro/Zeek
+rows. Next verify an existing Zeek executable/module without installing
+anything, record explicit log-emission availability for Gotham, and implement
+one small static connection-process expert. Then run one asymmetric seed-27
+AMD/Intel result chain with collision-free outputs; no standalone preflight or
+audit job.
 
 ### Latest Compact Close-out
 
 ```text
-solved: CKBO seed 27 completed validly and decomposed raw AfterImage, auxiliary normal diversity, and contrast effects.
-changed_mainline: yes; contrast and symmetric TabM suppression are rejected, while raw AfterImage115 remains the mature process control.
-active_blocker: source/family-transferable one-sided normal evidence with future-attack preservation is not demonstrated.
-frozen: original strict 1M split, 385/69 support roles, base T0 manifests, immutable target-cohort intersection, permanent report-only canaries, cooler sealed, review=0, and source/episode inference units.
-superseded: CKBO seeds 37/47, deterministic contrast promotion, symmetric verifier scaling, C1-only threshold repair, and report-family-specific tuning.
-next_action: preregister one mature source-held-out normal-evidence calibration experiment with raw115/no-aux control, then run one seed-27 paired AMD/Intel result job.
+solved: CKBQ is registered NO_GO; 160 Gotham candidates are quarantined; CKBT independently validates a separate source-file-disjoint 4000/1000 ToN scan/password process-supervision bank.
+changed_mainline: yes; attack preservation now uses mature completed-connection mechanism supervision plus causal Gotham process evidence, not another threshold repair.
+active_blocker: no Gotham emission-time Zeek cache or asymmetric result yet demonstrates attack rescue plus four-held OOD suppression.
+frozen: original strict 1M split, support-v1 hashes, certified query/T0 manifests, permanent report-only canaries, cooler sealed, review=0, and seed27-first policy.
+superseded: issue27cb index-based exact-label counts, label-name-only PCAP pairing, CKBO/CKBP/CKBQ extra seeds, and report-family-specific tuning.
+next_action: check the existing Zeek module/binary, implement the static process expert and causal Gotham adapter, then prepare one result-producing seed-27 AMD/Intel chain.
 ```
 
 ### Decision Log
@@ -346,6 +356,9 @@ next_action: preregister one mature source-held-out normal-evidence calibration 
 | 2026-06-22 | Complete Gotham archive audit finds no fresh two-sided pair relevant to the current ten regions; the only substantial unused pair is CoAP, outside the current registry. | issue27ckf | no existing-archive HPC job; design a new Gotham capture or semantically audited second environment |
 | 2026-06-22 | One exact-label support-region registry and versioned archive/candidate/update workflow are instantiated; geometry is diagnostic only and production promotion remains disabled. | issue27ckg | active memory-management architecture; wait for issue27ckc, then certify update budgets through detector non-regression |
 | 2026-07-15 | CKBO seed 27 validates family-dependent raw AfterImage115 normal evidence but rejects deterministic contrast and symmetric TabM suppression; stream/IP-camera remain near 100% and primary attack recall falls 6.091 pp. | issue27ckbo | no more CKBO seeds; next test is source-held-out one-sided normal-evidence calibration |
+| 2026-07-21 | CKBQ produces a real four-held OOD suppression signal but loses 6.945 pp attack recall; exact score-space enumeration finds no compliant threshold pair. | issue27ckbq | no extra seeds; add missing transferable attack-process evidence |
+| 2026-07-22 | CKBR/CKBS exactly materialize 160 non-overlapping TCP-Scan/Telnet candidates, then quarantine all because they occur after the frozen query in the same capture; legacy index, label-name PCAP, and row-embargo-only admissibility are rejected. | issue27ckbr/issue27ckbs | NO_GO for Gotham support expansion; active support stays 385/127; audit an independent training source next |
+| 2026-07-22 | CKBT freezes 4,000 fit and 1,000 select ToN Bro/Zeek scan/password rows through unique time+5-tuple GroundTruth joins; fit/select source files are disjoint and seven sources remain unused. | issue27ckbt | legal auxiliary static process supervision; no campaign-independence claim; temporal replay forbidden until explicit emission time exists |
 
 ---
 

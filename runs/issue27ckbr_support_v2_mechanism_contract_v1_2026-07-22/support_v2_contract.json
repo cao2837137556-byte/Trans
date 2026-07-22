@@ -1,0 +1,98 @@
+{
+  "active_mechanism_coverage": [
+    "File Download",
+    "Ingress Tool Transfer",
+    "Merlin C&C Communication",
+    "Merlin ICMP Flooding",
+    "Merlin TCP Flooding",
+    "Merlin UDP Flooding",
+    "Mirai C&C Communication",
+    "Mirai GRE Flooding",
+    "Mirai TCP Flooding",
+    "Mirai UDP Flooding"
+  ],
+  "candidate_pool_v1": {
+    "labels": {
+      "File Download": 605,
+      "Ingress Tool Transfer": 801,
+      "Merlin C&C Communication": 2441,
+      "Merlin ICMP Flooding": 4895,
+      "Merlin TCP Flooding": 10000,
+      "Merlin UDP Flooding": 2500,
+      "Mirai C&C Communication": 250,
+      "Mirai GRE Flooding": 16000,
+      "Mirai TCP Flooding": 16000,
+      "Mirai UDP Flooding": 16000
+    },
+    "rows": 69492
+  },
+  "created_utc": "2026-07-22T03:59:07.622924+00:00",
+  "data_quality_gate": {
+    "label_name_pcap_heuristic_overridden": true,
+    "legacy_issue27cb_index_exact_label_audit_rejected": true,
+    "legacy_rows_affected": 90000,
+    "new_rows_raw_label_verified": 160,
+    "new_rows_report_or_sealed": 0,
+    "new_rows_target_query_overlap": 0,
+    "pcap_override_reason": "selected row frame.time range is covered uniquely by mirai-infection PCAP; the scenario-name network-scanning candidate has no time overlap",
+    "reason": "recorded_index_within_file_is_role_local_not_processed_csv_row_index",
+    "same_capture_candidates_after_frozen_query": 160,
+    "temporal_admissible_new_support_rows": 0,
+    "timestamp_reaudited_existing_tcp_telnet_rows": 28640,
+    "timestamp_reaudited_existing_tcp_telnet_rows_outside_certified_query": 0
+  },
+  "frozen_v1": {
+    "support_train_rows": 385,
+    "support_train_sha256": "6440c9ba57412149008277c0c6ab2fb9d853a3be8d77b19812b20bed59c3ed99",
+    "support_val_fit_rows": 58,
+    "support_val_rows": 127,
+    "support_val_select_rows": 69,
+    "support_val_sha256": "e9ac02ff6d3393613e67c43b7612784d6088afa9dec4eca6ab297c0a1dc427d5"
+  },
+  "hpc_submission": false,
+  "issue": "issue27ckbr_support_v2_mechanism_contract_v1_2026-07-22",
+  "model_training": false,
+  "next_gate": "identify an independent training capture or external dataset training split with legal scan/bruteforce process labels and forward chronology; keep all 160 Gotham candidates quarantined",
+  "quarantined_candidate_mechanisms": [
+    "TCP Scan",
+    "Telnet Brute Force"
+  ],
+  "quarantined_v2_candidate": {
+    "active_support_train_rows": 385,
+    "active_support_val_fit_rows": 58,
+    "active_support_val_rows": 127,
+    "active_support_val_select_rows": 69,
+    "feature_materialization_status": "diagnostic_only_quarantined",
+    "forbidden_for_fit_rows": 160,
+    "heuristic_label_pcap_candidate": "raw/malicious/network-scanning/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap",
+    "hypothetical_illegal_train_rows_if_activated": 505,
+    "hypothetical_illegal_val_fit_rows_if_activated": 78,
+    "hypothetical_illegal_val_rows_if_activated": 167,
+    "hypothetical_illegal_val_select_rows_if_activated": 89,
+    "labels": [
+      "TCP Scan",
+      "Telnet Brute Force"
+    ],
+    "selection_allowed_rows": 0,
+    "source_csv": "processed/iotsim-city-power-1.csv",
+    "support_train_rows": 120,
+    "support_val_fit_rows": 20,
+    "support_val_rows": 40,
+    "support_val_select_rows": 20,
+    "temporal_admissibility": false,
+    "timestamp_selected_pcap_member": "raw/malicious/mirai-infection/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap"
+  },
+  "status": "SUPPORT_V2_CANDIDATE_QUARANTINED_SAME_CAPTURE_FUTURE_ORDER",
+  "strict_contract": {
+    "all_quarantined_candidate_rows_fail_closed": true,
+    "certified_query_rows_mutated": false,
+    "original_1m_split_mutated": false,
+    "original_385_support_mutated": false,
+    "permanent_report_families_used": 0,
+    "quarantined_candidate_rows_used_in_fit_or_select": 0,
+    "report_rows_used": 0,
+    "sealed_rows_used": 0,
+    "strict_held_family_removes_matching_extension_before_fit_select": true,
+    "strict_held_source_removes_all_city_power_extension_before_fit_select": true
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "checks": {
+    "all_materialized_rows_fail_closed": true,
+    "label_array_shape_value": true,
+    "labels_exact": true,
+    "materialization_contract_complete_but_quarantined": true,
+    "matrix_shape_dtype_finite": true,
+    "no_report_or_sealed": true,
+    "partition_counts": true,
+    "plan_hash_frozen": true,
+    "plan_sidecar_cardinality": true,
+    "query_zero_overlap_and_500_row_embargo": true,
+    "raw_csv_exact_160": true,
+    "raw_labels_support_only": true,
+    "raw_pcap_exact_160": true,
+    "row_order_and_identity": true,
+    "row_vector_hashes": true,
+    "same_capture_candidate_after_query_verified": true,
+    "sidecar_hash_frozen": true,
+    "source_and_pcap_exact": true,
+    "support_train_v1_hash_frozen": true,
+    "support_val_lineage_counts": true,
+    "support_val_v1_hash_frozen": true,
+    "x_contract_hash_frozen": true
+  },
+  "failures": [],
+  "frontend_source_hashes": {
+    "repo\\kitsune_frontend_original\\AfterImage.py": "22322ffb85295c05400df05cbe5f8e9d65d92b42e6d65e47898ecf1969a95d0c",
+    "repo\\kitsune_frontend_original\\SOURCE.md": "6ce048cb3f8420e5e1dd2221e9c640db6d4bfd728d77bb74eeb855fcd55b3d4c",
+    "repo\\kitsune_frontend_original\\netStat.py": "692ad0d4b72830555655f3a797179d37eeab55ace424dd0de06b98d576097d7d",
+    "repo\\ood\\issue27ab_gotham_kitsune115_frontend_feasibility.py": "f3c3dc953388e1e7c3769fe15062e113d353675e376057169a0c69374923dbbe"
+  },
+  "plan_sha256": "2807447b5aad1fa7c86d7246e4759d77cc61f0f57c3cf0910fa642c2493bac10",
+  "scientific_scope": "diagnostic_materialization_quarantine_not_model_performance",
+  "sidecar_sha256": "01adf4e97b8205974019cddef89b25c7f61ae47d7a3757b542ba408366b7a08f",
+  "status": "PASS",
+  "x_contract_sha256": "d352881c6bc86089ec07eb86dfb271547297d966b93c130b1c0bc23eaf15d586",
+  "y_contract_sha256": "ee476433409c1566663a15ca565b55163c78e47a0882ecfdc872324fcf29b539"
+}
