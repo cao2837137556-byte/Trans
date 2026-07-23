@@ -31,6 +31,7 @@ CKBT_MANIFEST="$BASE/runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07
 CKBQ_ROOT=${CKBU_CKBQ_ROOT:-$BASE/runs/issue27ckbq_causal_minirocket_consensus_v1_2026-07-17_seed27_amd_153037}
 CKBQ_PREDICTIONS="$CKBQ_ROOT/ckbq_record_predictions.csv.gz"
 CKBO_AUX_MANIFEST="$CKBQ_ROOT/ckbo_auxiliary_benign_manifest.csv"
+TON_PILOT_MANIFEST="$BASE/runs/mainline_docs/ckbu_ton_raw_pcap_pilot_manifest_20260723.csv"
 REPORT_TARGETS="$BASE/runs/issue27ckbi_tgn_report_only_cache_extension_v1_2026-07-12_hpc/report_extension_recorded_targets.csv"
 BASE_TARGETS="$BASE/runs/issue27ckat_canonical_time_c1_canary_v1_2026-07-10_fullsupport_cacheplan_v1/canonical_source_target_index.csv"
 FRONTEND="$BASE/repo/ood/issue27ckbu_unified_tshark_causal_frontend_v1.py"
@@ -41,7 +42,7 @@ test -s "$BASE/scripts/00_env_issue27ckc.sh" || { echo "missing allowed environm
 test -s "$FRONTEND" && test -s "$FORMAL" || { echo "missing CKBU code" >&2; exit 2; }
 test "$(sha256sum "$FRONTEND" | awk '{print $1}')" = "$FRONTEND_SHA256" || { echo "frontend hash mismatch" >&2; exit 2; }
 test "$(sha256sum "$FORMAL" | awk '{print $1}')" = "$FORMAL_SHA256" || { echo "formal hash mismatch" >&2; exit 2; }
-for path in "$GOTHAM_ZIP" "$CKBT_MANIFEST" "$CKBQ_PREDICTIONS" "$CKBO_AUX_MANIFEST" "$REPORT_TARGETS" "$BASE_TARGETS"; do
+for path in "$GOTHAM_ZIP" "$CKBT_MANIFEST" "$CKBQ_PREDICTIONS" "$CKBO_AUX_MANIFEST" "$REPORT_TARGETS" "$BASE_TARGETS" "$TON_PILOT_MANIFEST"; do
   test -s "$path" || { echo "missing required immutable input: $path" >&2; exit 2; }
 done
 for name in normal_1.pcap normal_2.pcap normal_scanning1.pcap password_normal1.pcap injection_normal1.pcap MITM_normal1.pcap; do
@@ -99,6 +100,24 @@ export MKL_NUM_THREADS=${SLURM_CPUS_PER_TASK:-8}
 export NUMEXPR_NUM_THREADS=${SLURM_CPUS_PER_TASK:-8}
 export CKBU_COMMIT_SHA="$COMMIT_SHA"
 export CKBU_TSHARK_VERSION="$TSHARK_VERSION"
+
+python - "$TON_PILOT" "$TON_PILOT_MANIFEST" <<'PY'
+import csv, hashlib, sys
+from pathlib import Path
+
+root=Path(sys.argv[1]); manifest=Path(sys.argv[2])
+for row in csv.DictReader(manifest.open(encoding="utf-8")):
+    path=root/row["source_file"]
+    if path.stat().st_size != int(row["bytes"]):
+        raise SystemExit(f"ToN pilot size mismatch at execution: {path}")
+    digest=hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(4*1024*1024), b""):
+            digest.update(block)
+    if digest.hexdigest() != row["sha256"]:
+        raise SystemExit(f"ToN pilot SHA-256 mismatch at execution: {path}")
+print("CKBU_TON_EXECUTION_HASHES_OK")
+PY
 
 printf 'job_id=%s\npartition=%s\ncommit_sha=%s\nfrontend_sha256=%s\nformal_sha256=%s\ntshark=%s\ntshark_version=%s\nstarted_utc=%s\n' \
   "$JOB_ID" "$PARTITION" "$COMMIT_SHA" "$FRONTEND_SHA256" "$FORMAL_SHA256" "$TSHARK" "$TSHARK_VERSION" "$started_utc" \

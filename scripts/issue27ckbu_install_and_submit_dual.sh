@@ -55,6 +55,24 @@ done
 cd "$BASE"
 source scripts/00_env_issue27ckc.sh
 module load apps/tshark/4.6.6
+python - "$DATA_ROOT/external/ton_iot_raw_network/raw_pcap_pilot_v1" \
+  "$BASE/runs/mainline_docs/ckbu_ton_raw_pcap_pilot_manifest_20260723.csv" <<'PY'
+import csv, hashlib, sys
+from pathlib import Path
+
+root=Path(sys.argv[1]); manifest=Path(sys.argv[2])
+for row in csv.DictReader(manifest.open(encoding="utf-8")):
+    path=root/row["source_file"]
+    if path.stat().st_size != int(row["bytes"]):
+        raise SystemExit(f"ToN pilot size mismatch: {path}")
+    digest=hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(4*1024*1024), b""):
+            digest.update(block)
+    if digest.hexdigest() != row["sha256"]:
+        raise SystemExit(f"ToN pilot SHA-256 mismatch: {path}")
+print("CKBU_TON_UPLOAD_HASHES_OK")
+PY
 python -m py_compile \
   repo/ood/issue27ckbu_unified_tshark_causal_frontend_v1.py \
   repo/ood/issue27ckbu_unified_process_rescue_formal_v1.py
