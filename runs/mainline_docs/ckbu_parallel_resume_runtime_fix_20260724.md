@@ -1,5 +1,19 @@
 # CKBU Parallel Resume Runtime Fix — 2026-07-24
 
+## Bundle correction
+
+The first parallel-resume transfer archive (`r1`) is superseded and must not
+be submitted. Its payload was internally checksum-consistent, but a Windows
+packaging step converted the frozen Python files from LF to CRLF. The remote
+installer correctly rejected the byte mismatch before `sbatch`.
+
+The replacement bundle is built by
+`scripts/issue27ckbu_build_parallel_resume_bundle.ps1`. It copies payload
+bytes without text rewriting, rejects every carriage-return byte in text
+payloads, verifies the archive after a clean extraction, and only then emits
+the upload archive and SHA-256 sidecar. The remote installer independently
+repeats the LF-only rejection before comparing or installing files.
+
 ## Scope
 
 This is an execution-only repair of the registered CKBU seed-27 experiment.

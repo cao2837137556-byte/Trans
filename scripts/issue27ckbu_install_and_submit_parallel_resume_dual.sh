@@ -16,6 +16,22 @@ PCAP_LIB_DIR="/share/software/CST/installed/MCR/bin/glnxa64"
 
 test -d "$BASE" || { echo "missing experiment directory: $BASE" >&2; exit 2; }
 test -s "$BASE/scripts/00_env_issue27ckc.sh" || { echo "missing allowed environment script" >&2; exit 2; }
+
+# A checksum file can be internally self-consistent even when a Windows
+# packaging step has changed LF files to CRLF. Reject that bundle before
+# comparing or installing anything into the experiment tree.
+while IFS= read -r relative; do
+  test -n "$relative" || continue
+  case "$relative" in
+    *.py|*.sh|*.slurm|*.md|*.txt|SHA256SUMS)
+      if LC_ALL=C grep -q $'\r' "$HERE/$relative"; then
+        echo "bundle text file is not LF-only: $relative" >&2
+        exit 2
+      fi
+      ;;
+  esac
+done < <(awk '{print $2}' "$HERE/SHA256SUMS")
+
 test ! -e "$AMD_ID_FILE" && test ! -e "$INTEL_ID_FILE" || {
   echo "parallel-resume bundle already submitted; refusing duplicate submission" >&2
   exit 2
