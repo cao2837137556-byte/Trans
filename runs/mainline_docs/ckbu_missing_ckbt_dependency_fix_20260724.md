@@ -45,3 +45,31 @@ Frozen CKBT hashes:
 
 This correction changes no split, support role, feature, score, model,
 threshold, or preregistered go/no-go rule.
+
+## Compute-node TShark runtime failure
+
+After the immutable-input correction, CKBU jobs `153917` (AMD) and `153918`
+(Intel) reached the compute nodes but failed before PCAP extraction:
+
+- AMD: `FAILED 127:0`, elapsed 8 seconds.
+- Intel: `FAILED 127:0`, elapsed 6 seconds.
+- loader error:
+  `libpcap.so.1: cannot open shared object file: No such file or directory`.
+
+The `apps/tshark/4.6.6` module was validated on the login node, where TShark
+silently resolved `libpcap.so.1` from `/lib64`. That host-local library is not
+available on the compute nodes. The module itself does not add a shared
+libpcap directory.
+
+The correction explicitly prepends the shared ABI-compatible library at:
+
+`/share/software/CST/installed/MCR/bin/glnxa64/libpcap.so.1`
+
+Before submission, the installer now requires `ldd` to resolve TShark against
+that exact shared path and requires TShark to read the first frame of the
+frozen `normal_1.pcap`. The batch script repeats both checks on the compute
+node and records the resolved library in `slurm_identity.txt`.
+
+Jobs `153917` and `153918` are infrastructure failures, not scientific
+`NO_GO` results. No feature extraction, fitting, threshold selection, or
+report evaluation occurred.

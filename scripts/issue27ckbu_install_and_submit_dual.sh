@@ -11,6 +11,7 @@ INTEL_ID_FILE="$HERE/ckbu_seed27_intel_job_id.txt"
 CKBT_REL="runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22"
 CKBT_ROOT="$BASE/$CKBT_REL"
 CKBQ_ROOT="$BASE/runs/issue27ckbq_causal_minirocket_consensus_v1_2026-07-17_seed27_amd_153037"
+PCAP_LIB_DIR="/share/software/CST/installed/MCR/bin/glnxa64"
 
 test -d "$BASE" || { echo "missing experiment directory: $BASE" >&2; exit 2; }
 test -s "$BASE/scripts/00_env_issue27ckc.sh" || { echo "missing allowed environment script" >&2; exit 2; }
@@ -79,6 +80,30 @@ test -d "$DATA_ROOT/external/ton_iot_raw_network/extracted" || {
 cd "$BASE"
 source scripts/00_env_issue27ckc.sh
 module load apps/tshark/4.6.6
+test -s "$PCAP_LIB_DIR/libpcap.so.1" || {
+  echo "shared compute-node libpcap missing: $PCAP_LIB_DIR/libpcap.so.1" >&2
+  exit 2
+}
+export LD_LIBRARY_PATH="$PCAP_LIB_DIR:${LD_LIBRARY_PATH:-}"
+TSHARK=$(command -v tshark)
+PCAP_RESOLVED=$(ldd "$TSHARK" | awk '$1 == "libpcap.so.1" {print $3}')
+test "$PCAP_RESOLVED" = "$PCAP_LIB_DIR/libpcap.so.1" || {
+  echo "TShark did not resolve shared libpcap: $PCAP_RESOLVED" >&2
+  exit 2
+}
+TSHARK_VERSION=$("$TSHARK" --version | head -n 1)
+case "$TSHARK_VERSION" in
+  "TShark (Wireshark) 4.6.6"*) ;;
+  *) echo "unexpected TShark: $TSHARK_VERSION" >&2; exit 2 ;;
+esac
+TSHARK_PROBE=$("$TSHARK" -n \
+  -r "$DATA_ROOT/external/ton_iot_raw_network/raw_pcap_pilot_v1/normal_1.pcap" \
+  -c 1 -T fields -e frame.number 2>/dev/null)
+test "$TSHARK_PROBE" = "1" || {
+  echo "TShark/shared-libpcap real-PCAP probe failed: $TSHARK_PROBE" >&2
+  exit 2
+}
+echo "CKBU_TSHARK_SHARED_LIBPCAP_OK=$PCAP_RESOLVED"
 python - "$CKBT_ROOT" <<'PY'
 import csv, hashlib, json, sys
 from pathlib import Path

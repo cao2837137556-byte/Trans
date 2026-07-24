@@ -36,6 +36,7 @@ REPORT_TARGETS="$BASE/runs/issue27ckbi_tgn_report_only_cache_extension_v1_2026-0
 BASE_TARGETS="$BASE/runs/issue27ckat_canonical_time_c1_canary_v1_2026-07-10_fullsupport_cacheplan_v1/canonical_source_target_index.csv"
 FRONTEND="$BASE/repo/ood/issue27ckbu_unified_tshark_causal_frontend_v1.py"
 FORMAL="$BASE/repo/ood/issue27ckbu_unified_process_rescue_formal_v1.py"
+PCAP_LIB_DIR="/share/software/CST/installed/MCR/bin/glnxa64"
 
 test -d "$BASE" || { echo "missing project directory: $BASE" >&2; exit 2; }
 test -s "$BASE/scripts/00_env_issue27ckc.sh" || { echo "missing allowed environment script" >&2; exit 2; }
@@ -90,9 +91,26 @@ else
   echo "module command unavailable in batch shell" >&2
   exit 2
 fi
+test -s "$PCAP_LIB_DIR/libpcap.so.1" || {
+  echo "shared compute-node libpcap missing: $PCAP_LIB_DIR/libpcap.so.1" >&2
+  exit 2
+}
+export LD_LIBRARY_PATH="$PCAP_LIB_DIR:${LD_LIBRARY_PATH:-}"
 TSHARK=$(command -v tshark)
-TSHARK_VERSION=$(tshark --version | head -n 1)
+PCAP_RESOLVED=$(ldd "$TSHARK" | awk '$1 == "libpcap.so.1" {print $3}')
+test "$PCAP_RESOLVED" = "$PCAP_LIB_DIR/libpcap.so.1" || {
+  echo "TShark did not resolve shared libpcap on compute node: $PCAP_RESOLVED" >&2
+  exit 2
+}
+TSHARK_VERSION=$("$TSHARK" --version | head -n 1)
 case "$TSHARK_VERSION" in "TShark (Wireshark) 4.6.6"*) ;; *) echo "unexpected TShark: $TSHARK_VERSION" >&2; exit 2;; esac
+TSHARK_PROBE=$("$TSHARK" -n -r "$TON_PILOT/normal_1.pcap" \
+  -c 1 -T fields -e frame.number 2>/dev/null)
+test "$TSHARK_PROBE" = "1" || {
+  echo "compute-node TShark real-PCAP probe failed: $TSHARK_PROBE" >&2
+  exit 2
+}
+echo "CKBU_COMPUTE_TSHARK_SHARED_LIBPCAP_OK=$PCAP_RESOLVED"
 
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-8}
 export OPENBLAS_NUM_THREADS=${SLURM_CPUS_PER_TASK:-8}
@@ -119,8 +137,8 @@ for row in csv.DictReader(manifest.open(encoding="utf-8")):
 print("CKBU_TON_EXECUTION_HASHES_OK")
 PY
 
-printf 'job_id=%s\npartition=%s\ncommit_sha=%s\nfrontend_sha256=%s\nformal_sha256=%s\ntshark=%s\ntshark_version=%s\nstarted_utc=%s\n' \
-  "$JOB_ID" "$PARTITION" "$COMMIT_SHA" "$FRONTEND_SHA256" "$FORMAL_SHA256" "$TSHARK" "$TSHARK_VERSION" "$started_utc" \
+printf 'job_id=%s\npartition=%s\ncommit_sha=%s\nfrontend_sha256=%s\nformal_sha256=%s\ntshark=%s\ntshark_version=%s\nlibpcap=%s\nstarted_utc=%s\n' \
+  "$JOB_ID" "$PARTITION" "$COMMIT_SHA" "$FRONTEND_SHA256" "$FORMAL_SHA256" "$TSHARK" "$TSHARK_VERSION" "$PCAP_RESOLVED" "$started_utc" \
   > "$RUN_ROOT/slurm_identity.txt"
 scontrol show job -o "$JOB_ID" > "$RUN_ROOT/slurm_job_at_start.txt" 2>/dev/null || true
 
