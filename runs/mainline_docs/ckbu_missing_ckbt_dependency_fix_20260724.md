@@ -73,3 +73,18 @@ node and records the resolved library in `slurm_identity.txt`.
 Jobs `153917` and `153918` are infrastructure failures, not scientific
 `NO_GO` results. No feature extraction, fitting, threshold selection, or
 report evaluation occurred.
+
+## Known-predecessor installation rule
+
+The first corrected runtime bundle stopped on the login node before submission
+because the installer correctly refused to overwrite the r3 Slurm file. The
+installer now permits exactly two version transitions, each guarded by the
+frozen predecessor SHA-256:
+
+- CKBU Slurm script:
+  `7c99d3644d9f24b371081729cf0d46a8cc5867981ffe1161af3f5dd4b37fcc9b`
+- CKBU infrastructure-failure note:
+  `84edb14b76f40d148c3f21e885c119cc01bb21c1c83cfb10f38c0b725cd03050`
+
+No other differing remote target can be overwritten. This login-node stop
+submitted no job and produced no scientific result.

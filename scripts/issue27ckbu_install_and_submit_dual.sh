@@ -45,10 +45,19 @@ for relative in "${FILES[@]}"; do
   if test -e "$target_path"; then
     source_hash=$(sha256sum "$source_path" | awk '{print $1}')
     target_hash=$(sha256sum "$target_path" | awk '{print $1}')
-    test "$source_hash" = "$target_hash" || {
-      echo "remote target differs; no overwrite allowed: $target_path" >&2
-      exit 2
-    }
+    if test "$source_hash" != "$target_hash"; then
+      case "$relative:$target_hash" in
+        "scripts/issue27ckbu_unified_process_rescue_formal.slurm:7c99d3644d9f24b371081729cf0d46a8cc5867981ffe1161af3f5dd4b37fcc9b" | \
+        "runs/mainline_docs/ckbu_missing_ckbt_dependency_fix_20260724.md:84edb14b76f40d148c3f21e885c119cc01bb21c1c83cfb10f38c0b725cd03050")
+          install -D -m 0644 "$source_path" "$target_path"
+          echo "CKBU_KNOWN_PREDECESSOR_UPGRADED=$relative"
+          ;;
+        *)
+          echo "remote target differs from both current and known predecessor; no overwrite allowed: $target_path" >&2
+          exit 2
+          ;;
+      esac
+    fi
   else
     install -D -m 0644 "$source_path" "$target_path"
   fi
