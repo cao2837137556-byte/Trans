@@ -162,3 +162,50 @@ must be tested against a fixture using the exact producer directory layout.
 For long PCAP extraction, cache-file count can remain unchanged while workers
 are processing large sources; liveness therefore requires CPU/I/O deltas plus
 per-worker progress, not cache count alone.
+
+## 6. CKBU Gotham source-granularity failure
+
+Observed on 2026-07-25:
+
+- AMD job `154081` had run for approximately 17 hours with Gotham cache
+  coverage still at `1/30`.
+- Intel job `154082` showed the same `1/30` behavior before cancellation.
+- The four active Gotham Python workers were each near 99 percent CPU, while
+  their TShark children were mostly sleeping.
+- No `CKBU_PARALLEL_SOURCE_COMPLETE` record or non-empty Gotham worker log had
+  been produced.
+- The ToN pilot was also consuming one full Python core concurrently.
+
+Classification: `RUNTIME_FAILURE_RISK`, specifically a throughput and
+checkpoint-granularity defect. It is not a compute-startup failure and it is
+not scientific evidence.
+
+Root cause:
+
+- TShark streams packet rows correctly, but the Python causal builder consumes
+  and transforms every packet sequentially.
+- Four largest Gotham sources are scheduled first.
+- A cache pair is committed only after an entire source and all of its PCAP
+  members finish.
+- There is no per-member checkpoint, packet/member progress counter, measured
+  throughput estimate, or early wall-time feasibility gate.
+
+Permanent rule: the current source-monolithic CKBU launcher must not be reused
+unchanged. Any successor must, before a full formal run:
+
+1. Measure packets/second and wall time on representative small and largest
+   source members in the same compute-node runtime.
+2. Refuse full dispatch when the conservative projected completion time exceeds
+   70 percent of the requested wall-time.
+3. Emit member start/complete and periodic decoded-packet counters.
+4. Persist validated member-level checkpoints so cancellation or timeout does
+   not discard completed member work.
+5. Resume from validated member/source artifacts without recomputing them.
+6. Separate preprocessing worker allocation from model-training allocation and
+   avoid running two identical shared-filesystem decoders after one copy has
+   begun productive work.
+7. Compare the Python feature-builder throughput with a vectorized or compiled
+   mature implementation before allocating more CPUs.
+
+CPU consumption alone is no longer accepted as evidence that an HPC job is
+making useful bounded progress.
