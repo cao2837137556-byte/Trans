@@ -61,7 +61,8 @@ scientific result from that cancelled run is accepted.
 AMD and Intel submissions have independent run roots, logs, member caches,
 source caches, ToN caches, validation results, and pullback archives. Neither
 job cancels the other automatically. Two hardware copies are not two
-scientific seeds.
+scientific seeds. Automatic Slurm requeue is disabled so a restarted allocation
+cannot reuse and mix a partially written job-specific run root.
 
 ## Resource rationale
 
