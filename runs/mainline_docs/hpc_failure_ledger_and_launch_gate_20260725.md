@@ -209,3 +209,26 @@ unchanged. Any successor must, before a full formal run:
 
 CPU consumption alone is no longer accepted as evidence that an HPC job is
 making useful bounded progress.
+
+### Enforced successor
+
+CKBV implements the permanent rule rather than documenting it only:
+
+- the unit of durable progress is one Gotham ZIP PCAP member;
+- every non-target packet still performs the same causal state maintenance and
+  update, but the 51D vector is emitted only for frozen target candidates;
+- selected-event vectors are bit-exact against the original dense path in the
+  regression test;
+- calibration spans the member-size range, including a largest member;
+- a conservative measured projection must fit the remaining allocation;
+- each member/file has both wall-time and no-progress termination;
+- ToN is checkpointed per eligible PCAP;
+- auxiliary, ToN, Gotham, aggregation, formal training, and validation are
+  sequential named phases;
+- bundle code executes from a content-verified versioned payload and never
+  overwrites a differing remote worktree file;
+- a partial AMD/Intel submission can be safely resumed without duplicating the
+  already recorded job.
+
+The old source-monolithic CKBU launcher remains superseded and must not be
+submitted again.
