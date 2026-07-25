@@ -232,3 +232,40 @@ CKBV implements the permanent rule rather than documenting it only:
 
 The old source-monolithic CKBU launcher remains superseded and must not be
 submitted again.
+
+## 7. CKBV upstream PCAP terminal-truncation failure
+
+Observed on 2026-07-25:
+
+- AMD job `154440` and Intel job `154441` both reached
+  `ton_file_checkpoints`, completed three of four legal ToN checkpoints, and
+  failed on the same file and error signature.
+- `password_normal1.pcap` yielded about 2.35 million complete packets before
+  TShark exit 14 reported one packet cut short at the terminal capture tail.
+- The remote file size and SHA-256 match the frozen locally downloaded file.
+
+Classification: `RUNTIME_FAILURE`, caused by a deterministic upstream capture
+tail defect rather than environment, transfer, resource exhaustion, or model
+code.
+
+Valid artifacts: 31 auxiliary caches and the `normal_1`, `normal_2`, and
+`normal_scanning1` ToN checkpoints. No formal model or scientific conclusion
+was produced.
+
+Permanent gate:
+
+1. Generic decoder failures remain fatal.
+2. The exact TShark exit-14 terminal-truncation signature is accepted only
+   after every preregistered target aligns and the last complete packet is
+   beyond every target stop time plus matching tolerance.
+3. Safe and unsafe cases are regression-tested.
+4. The capture audit records observation, acceptance, reason, last decoded
+   timestamp, maximum target stop, and target closure.
+5. The submit helper no longer equates `sbatch` acceptance with runtime
+   success. It reports `CKBV_SUBMISSION_RECORDED`, then watches the real jobs
+   and prints `CKBV_RUNTIME_GATE_PASS` only after they leave the ToN real-PCAP
+   phase. Immediate terminal failures print their actual status and return
+   non-zero while leaving the terminal open.
+
+Rerunning compute is necessary only for the unfinished ToN file, Gotham member
+checkpoints, and formal model. Validated completed checkpoints are reused.

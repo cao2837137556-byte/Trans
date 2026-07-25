@@ -1,11 +1,14 @@
 """CKBV execution repair for the frozen CKBU unified process experiment.
 
 This module does not change the CKBU feature schema, target rows, data roles,
-model, seed, or decision rule.  It fixes two execution defects:
+model, seed, or decision rule.  It fixes three execution defects:
 
 1. Gotham PCAPs are checkpointed per archive member and can be resumed exactly.
 2. Full 51-D features are emitted only for frozen target candidates.  Every
    other packet still performs the same causal state pruning and update.
+3. A capture with one truncated terminal packet is accepted only when every
+   preregistered target is already aligned and its complete time window ends
+   before the last successfully decoded packet.
 
 The sparse path is therefore an execution optimization, not a new scientific
 feature.  Unit tests compare it bit-for-bit with the original dense path at
@@ -47,6 +50,9 @@ ISSUE = "issue27ckbv_checkpointed_sparse_process_frontend_v1_2026-07-25"
 MEMBER_STATUS = "CKBV_GOTHAM_MEMBER_COMPLETE"
 TON_FILE_STATUS = "CKBV_TON_FILE_COMPLETE"
 PROGRESS_EVERY_DEFAULT = 250_000
+TSHARK_TRUNCATED_PACKET_TEXT = (
+    "appears to have been cut short in the middle of a packet."
+)
 
 
 def atomic_json(path: Path, value: Any) -> None:
@@ -933,6 +939,36 @@ def reservoir_event_ordinals(total: int, budget: int, seed: int) -> list[int]:
     return sorted(reservoir)
 
 
+def terminal_truncated_prefix_contract(
+    error_text: str,
+    last_decoded_timestamp: float,
+    target_stop_times: Sequence[float],
+    all_targets_aligned: bool,
+) -> tuple[bool, str]:
+    """Accept only a harmless truncated tail after every target window.
+
+    TShark yields all complete packets before reporting a partial terminal
+    packet.  Those complete rows are scientifically usable only when the
+    malformed tail cannot affect any selected target or its causal history.
+    """
+    if (
+        not str(error_text).startswith("TShark exited 14:")
+        or TSHARK_TRUNCATED_PACKET_TEXT not in str(error_text)
+    ):
+        return False, "not_exact_terminal_truncation"
+    if not all_targets_aligned:
+        return False, "targets_not_fully_aligned"
+    stops = [float(value) for value in target_stop_times]
+    if not stops or not all(math.isfinite(value) for value in stops):
+        return False, "invalid_target_horizon"
+    if not math.isfinite(float(last_decoded_timestamp)):
+        return False, "missing_last_decoded_timestamp"
+    target_horizon = max(stops) + 0.01
+    if float(last_decoded_timestamp) < target_horizon:
+        return False, "truncation_before_target_horizon"
+    return True, "complete_prefix_after_target_horizon"
+
+
 def count_finite_timestamps(
     tshark: str, pcap: Path, progress_every: int
 ) -> int:
@@ -1058,50 +1094,80 @@ def process_ton_attack_sparse(
     builder = ckbu.CausalFeatureBuilder()
     events = 0
     emitted = 0
+    last_decoded_timestamp = math.nan
+    terminal_truncation_error = ""
     path = Path(args.ton_pilot_dir) / name
     started = time.monotonic()
-    for position, row in enumerate(
-        ckbu.iter_tshark_rows(args.tshark, pcap_path=path)
-    ):
-        event = ckbu.event_from_tshark(row)
-        if not math.isfinite(event.timestamp):
-            continue
-        candidates: dict[str, ckbu.TonConnectionTarget] = {}
-        for key in ckbu.event_connection_keys(event):
-            for target in by_key.get(key, []):
-                if target.start - 0.01 <= event.timestamp <= target.stop + 0.01:
-                    candidates[target.record_id] = target
-        if candidates:
-            feature = builder.emit(event)
-            emitted += 1
-        else:
-            prune_before_update(builder, event)
-            feature = None
-        src_id, dst_id = builder.update(event)
-        if feature is not None:
-            for target in candidates.values():
-                if (
-                    not math.isfinite(target.matched_time)
-                    or event.timestamp >= target.matched_time
-                ):
-                    target.matched_feature = feature.copy()
-                    target.matched_time = event.timestamp
-                    target.matched_position = position
-                    target.src_local_id = src_id
-                    target.dst_local_id = dst_id
-        events += 1
-        if (
-            int(args.progress_every) > 0
-            and events % int(args.progress_every) == 0
+    try:
+        for position, row in enumerate(
+            ckbu.iter_tshark_rows(args.tshark, pcap_path=path)
         ):
-            print(
-                "CKBV_TON_ATTACK_PROGRESS "
-                f"file={name} events={events} sparse_emits={emitted}",
-                flush=True,
-            )
+            event = ckbu.event_from_tshark(row)
+            if not math.isfinite(event.timestamp):
+                continue
+            last_decoded_timestamp = event.timestamp
+            candidates: dict[str, ckbu.TonConnectionTarget] = {}
+            for key in ckbu.event_connection_keys(event):
+                for target in by_key.get(key, []):
+                    if target.start - 0.01 <= event.timestamp <= target.stop + 0.01:
+                        candidates[target.record_id] = target
+            if candidates:
+                feature = builder.emit(event)
+                emitted += 1
+            else:
+                prune_before_update(builder, event)
+                feature = None
+            src_id, dst_id = builder.update(event)
+            if feature is not None:
+                for target in candidates.values():
+                    if (
+                        not math.isfinite(target.matched_time)
+                        or event.timestamp >= target.matched_time
+                    ):
+                        target.matched_feature = feature.copy()
+                        target.matched_time = event.timestamp
+                        target.matched_position = position
+                        target.src_local_id = src_id
+                        target.dst_local_id = dst_id
+            events += 1
+            if (
+                int(args.progress_every) > 0
+                and events % int(args.progress_every) == 0
+            ):
+                print(
+                    "CKBV_TON_ATTACK_PROGRESS "
+                    f"file={name} events={events} sparse_emits={emitted}",
+                    flush=True,
+                )
+    except RuntimeError as exc:
+        terminal_truncation_error = str(exc)
     missing = [
         target.record_id for target in targets if target.matched_feature is None
     ]
+    terminal_truncation_accepted = False
+    terminal_truncation_reason = "not_observed"
+    if terminal_truncation_error:
+        terminal_truncation_accepted, terminal_truncation_reason = (
+            terminal_truncated_prefix_contract(
+                terminal_truncation_error,
+                last_decoded_timestamp,
+                [target.stop for target in targets],
+                not missing,
+            )
+        )
+        if not terminal_truncation_accepted:
+            raise RuntimeError(
+                "unsafe TShark termination for ToN attack PCAP: "
+                f"{name}: {terminal_truncation_reason}: "
+                f"{terminal_truncation_error}"
+            )
+        print(
+            "CKBV_TON_TERMINAL_TRUNCATION_ACCEPTED "
+            f"file={name} decoded_events={events} "
+            f"last_timestamp={last_decoded_timestamp:.6f} "
+            f"max_target_stop={max(target.stop for target in targets):.6f}",
+            flush=True,
+        )
     if missing:
         raise RuntimeError(
             f"ToN attack PCAP alignment incomplete: {name}: {missing[:8]}"
@@ -1142,6 +1208,18 @@ def process_ton_attack_sparse(
         "raw_label_column_read": False,
         "execution_only_sparse_emit": True,
         "sparse_feature_emits": emitted,
+        "terminal_capture_truncation_observed": bool(
+            terminal_truncation_error
+        ),
+        "terminal_capture_truncation_accepted": (
+            terminal_truncation_accepted
+        ),
+        "terminal_capture_truncation_reason": terminal_truncation_reason,
+        "last_decoded_event_timestamp": last_decoded_timestamp,
+        "max_target_stop_timestamp": max(target.stop for target in targets),
+        "all_targets_closed_before_truncation": (
+            terminal_truncation_accepted
+        ),
         "seconds": time.monotonic() - started,
     }
 
@@ -1569,6 +1647,30 @@ def unit_tests() -> dict[str, Any]:
     if reservoir_event_ordinals(100, 13, 27) != sorted(expected_reservoir):
         raise RuntimeError("two-pass reservoir selection drift")
 
+    exact_truncation = (
+        "TShark exited 14: tshark: The file fixture.pcap "
+        + TSHARK_TRUNCATED_PACKET_TEXT
+    )
+    if not terminal_truncated_prefix_contract(
+        exact_truncation, 200.0, [100.0, 150.0], True
+    )[0]:
+        raise RuntimeError("safe terminal truncated prefix rejected")
+    for unsafe in (
+        terminal_truncated_prefix_contract(
+            exact_truncation, 200.0, [100.0, 150.0], False
+        ),
+        terminal_truncated_prefix_contract(
+            exact_truncation, 120.0, [100.0, 150.0], True
+        ),
+        terminal_truncated_prefix_contract(
+            "TShark exited 2: unrelated failure", 200.0, [100.0], True
+        ),
+    ):
+        if unsafe[0]:
+            raise RuntimeError(
+                f"unsafe terminal TShark condition accepted: {unsafe}"
+            )
+
     calibration_fixture = [
         {"member_index": index, "uncompressed_bytes": (index + 1) * 100}
         for index in range(10)
@@ -1697,6 +1799,8 @@ def unit_tests() -> dict[str, Any]:
         "valid_checkpoint_resume_tested": True,
         "corrupted_reuse_rejected": True,
         "two_pass_reservoir_exact": True,
+        "safe_terminal_truncation_contract_tested": True,
+        "unsafe_terminal_truncation_rejected": True,
         "size_range_calibration_includes_largest": True,
         "raw_label_column_read": False,
     }

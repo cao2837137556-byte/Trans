@@ -25,6 +25,8 @@ checkpoint:
    produces no progress record for 15 minutes;
 7. expose actual member/file completion, decoded-packet progress, CPU, memory,
    disk I/O, failure phase, and stderr in the status command.
+8. accept an incomplete terminal PCAP packet only under the exact prefix
+   contract in the section below; all other TShark failures remain fatal.
 
 ## Frozen scientific contract
 
@@ -50,13 +52,38 @@ compares selected-event feature vectors bit-for-bit with the original dense
 path. It does not remove state updates, reorder packets, add fields, read raw
 labels, or change target alignment.
 
+### Exact terminal-truncation prefix contract
+
+Jobs 154440 (AMD) and 154441 (Intel) independently decoded about 2.35 million
+complete packets from `password_normal1.pcap` and then received TShark exit 14:
+the capture ends in the middle of one terminal packet. The remote bytes match
+the frozen local SHA-256, so this is a property of the downloaded upstream
+capture, not a transfer failure.
+
+The complete prefix may be used only when all of the following are true:
+
+1. the error is exactly TShark exit 14 with the terminal truncated-packet
+   signature;
+2. every preregistered target has an aligned feature row;
+3. the last successfully decoded packet is at or after the maximum target stop
+   time plus the frozen 0.01-second matching tolerance;
+4. the exception and all three checks are recorded in the file checkpoint
+   audit.
+
+This rule cannot accept an early truncation, missing target, invalid time
+horizon, unrelated TShark error, or a generic non-zero exit. It changes no
+selected row, feature, label, role, gate, threshold, model, or metric.
+
 ## Recovery and isolation
 
-The cancelled AMD 154081 run is a cache donor only. Every source cache is
-reused only after source identity, target count, completion flag,
-raw-label=false, SHA-256, feature names, and NPZ shape validate. Its 31/31
-auxiliary caches and 1/30 Gotham source cache may therefore be copied. No
-scientific result from that cancelled run is accepted.
+The cancelled AMD 154081 run and failed AMD 154440 run are cache donors only.
+Every cache is reused only after source identity, target count, completion
+flag, raw-label=false, SHA-256, feature names, input identity, and NPZ shape
+validate. Job 154081 contributes 31/31 auxiliary caches and 1/30 Gotham source
+cache. Job 154440 contributes the same validated auxiliary caches plus three
+complete ToN file checkpoints (`normal_1`, `normal_2`, and
+`normal_scanning1`). No scientific result from either incomplete run is
+accepted.
 
 AMD and Intel submissions have independent run roots, logs, member caches,
 source caches, ToN caches, validation results, and pullback archives. Neither

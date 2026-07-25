@@ -16,7 +16,7 @@ CKBT_MANIFEST="$HERE/payload/runs/issue27ckbt_toniot_aux_process_support_gate_v1
 TON_PILOT_MANIFEST="$HERE/payload/runs/mainline_docs/ckbu_ton_raw_pcap_pilot_manifest_20260723.csv"
 CKBQ_ROOT="$BASE/runs/issue27ckbq_causal_minirocket_consensus_v1_2026-07-17_seed27_amd_153037"
 PCAP_LIB_DIR="/share/software/CST/installed/MCR/bin/glnxa64"
-REUSE_ROOTS=${CKBV_REUSE_RUN_ROOTS:-$BASE/runs/issue27ckbu_unified_process_rescue_parallel_v2_2026-07-24_seed27_amd_154081}
+REUSE_ROOTS=${CKBV_REUSE_RUN_ROOTS:-$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154440:$BASE/runs/issue27ckbu_unified_process_rescue_parallel_v2_2026-07-24_seed27_amd_154081}
 
 test -d "$BASE" || {
   echo "missing experiment directory: $BASE" >&2
@@ -204,3 +204,88 @@ fi
 printf 'CKBV_AMD_JOB_ID=%s\nCKBV_INTEL_JOB_ID=%s\n' "$amd" "$intel"
 echo "AMD and Intel outputs/checkpoints are partition-and-job isolated."
 echo "Neither job is auto-cancelled."
+echo "CKBV_SUBMISSION_RECORDED"
+
+phase_rank() {
+  case "$1" in
+    startup) printf 1 ;;
+    contract_checks) printf 2 ;;
+    immutable_planning) printf 3 ;;
+    auxiliary_reuse_or_repair) printf 4 ;;
+    ton_file_checkpoints) printf 5 ;;
+    gotham_member_checkpoints) printf 6 ;;
+    aggregate_causal_features) printf 7 ;;
+    formal_seed27_model) printf 8 ;;
+    validate_and_pack) printf 9 ;;
+    complete) printf 10 ;;
+    *) printf 0 ;;
+  esac
+}
+
+job_state() {
+  local job=$1
+  local state=""
+  state=$(squeue -h -j "$job" -o '%T' 2>/dev/null | head -n 1 || true)
+  if test -z "$state"; then
+    state=$(sacct -j "$job" -X -n -P --format=State 2>/dev/null |
+      head -n 1 | cut -d'|' -f1 | sed 's/+.*//' |
+      tr -d '[:space:]' || true)
+  fi
+  printf '%s' "${state:-UNKNOWN}"
+}
+
+echo "=== CKBV post-submit real-input runtime gate ==="
+echo "This is not a separate job. It watches the submitted result jobs for up to"
+echo "${CKBV_RUNTIME_GATE_SECONDS:-600} seconds and only declares runtime pass"
+echo "after the ToN real-PCAP phase has completed."
+
+deadline=$(( $(date +%s) + ${CKBV_RUNTIME_GATE_SECONDS:-600} ))
+amd_gate=pending
+intel_gate=pending
+runtime_failure=0
+while test "$(date +%s)" -lt "$deadline"; do
+  for item in "amd:$amd" "intel:$intel"; do
+    partition=${item%%:*}
+    job=${item#*:}
+    gate_var="${partition}_gate"
+    gate=${!gate_var}
+    test "$gate" = pending || continue
+    root="$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_${partition}_${job}"
+    phase=unknown
+    test ! -s "$root/current_phase.txt" || \
+      phase=$(awk -F= '$1 == "phase" {print $2; exit}' \
+        "$root/current_phase.txt")
+    state=$(job_state "$job")
+    if test "$(phase_rank "$phase")" -ge 6; then
+      printf -v "$gate_var" '%s' passed
+      echo "CKBV_RUNTIME_GATE_PASS partition=$partition job=$job phase=$phase state=$state"
+      continue
+    fi
+    case "$state" in
+      FAILED|TIMEOUT|OUT_OF_MEMORY|NODE_FAIL|BOOT_FAIL|PREEMPTED)
+        printf -v "$gate_var" '%s' failed
+        runtime_failure=1
+        echo "CKBV_RUNTIME_GATE_FAIL partition=$partition job=$job phase=$phase state=$state" >&2
+        ;;
+      CANCELLED)
+        printf -v "$gate_var" '%s' cancelled
+        echo "CKBV_RUNTIME_GATE_CANCELLED partition=$partition job=$job phase=$phase"
+        ;;
+    esac
+  done
+  test "$runtime_failure" -eq 0 || break
+  test "$amd_gate" = pending -o "$intel_gate" = pending || break
+  sleep 10
+done
+
+if test "$runtime_failure" -ne 0; then
+  bash "$SCRIPT_ROOT/issue27ckbv_status_dual.sh"
+  echo "CKBV_SUBMISSION_RUNTIME_FAILED" >&2
+  exit 4
+fi
+if test "$amd_gate" = passed -o "$intel_gate" = passed; then
+  echo "CKBV_REAL_INPUT_RUNTIME_VALIDATED amd=$amd_gate intel=$intel_gate"
+else
+  echo "CKBV_SUBMITTED_NOT_YET_RUNTIME_VALIDATED amd=$amd_gate intel=$intel_gate"
+  echo "Jobs may still be pending. Use the bundled status command after they start."
+fi
