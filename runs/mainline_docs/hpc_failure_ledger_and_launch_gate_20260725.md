@@ -605,5 +605,43 @@ Permanent gate:
    unmatchable count up front, instead of failing only at aggregation after
    hours of compute.
 
+### Section 11 full-scope sweep (2026-07-26, same day)
+
+Local sweep over all 26 base-T0 sources (34,622 targets from
+`canonical_source_target_index.csv`), counting targets whose processed-CSV
+`ip.src`/`ip.dst` is absent from the union of the source's paired raw pcap
+members' host sets:
+
+- **Total unmatchable: 1,353 of 34,622 (3.91%).**
+- **Concentrated entirely in one source, `iotsim-hydraulic-system-1`, which
+  is 100% unmatchable (1,353/1,353).** All other 25 base sources are exactly
+  0% unmatchable, including multi-member sources (city-power 5 members,
+  combined-cycle 6, domotic 5, ip-camera-museum 5) and the other seven
+  hydraulic-system sources (`-2,-10,-11,-12,-13,-14,-15`), which are clean.
+
+This reclassifies the problem from a systemic granularity mismatch to a
+single mispaired source. `hydraulic-system-1` is paired with
+`..._to_OpenvSwitch-15_1-0.pcap`, whose hosts are `192.168.20.10-30`, while
+its processed CSV targets live on `192.168.20.40-44 -> 192.168.0.4:8883`.
+The held-OOD hydraulic-system family evaluation uses other hydraulic sources
+and is unaffected.
+
+Caveat: the 290,445 report-extension targets (4 sources) were not in this
+sweep because `report_extension_recorded_targets.csv` was not at the expected
+local path; those must be swept on HPC or after the path is restored. The
+base-T0 result is nonetheless decisive for `hydraulic-system-1`.
+
+Given the isolation, the choice narrows to:
+
+- Option B (preregistered exclusion): drop the single mispaired source
+  `hydraulic-system-1` (3.91% of base targets, no held/eval source involved),
+  with the per-source audit above. Cleanest and fastest to a rerun.
+- Option A (re-pair): fix only this one source by pairing it with the pcap(s)
+  actually carrying `192.168.20.40-44`, preserving all 1,353 targets. Small,
+  localized, no global plan redesign.
+
+Either way the pre-materialization coverage validator (permanent gate item 3)
+should be added so a mispaired source fails fast up front, not after hours.
+
 This section records a diagnosis and gate only; no science-facing row,
 feature, label, role, model, threshold, seed, or metric was changed.
