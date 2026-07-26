@@ -532,3 +532,78 @@ Slurm script, and the bundle clean-extract gate now asserts the r8 donors in
 both files so the lists cannot drift apart again. Details:
 `runs/mainline_docs/ckbv_r9_fast_emit_recovery_20260726.md`. No row,
 feature, label, target, role, model, threshold, seed, or metric changed.
+
+## 11. CKBV first aggregation-stage target-coverage failure (data structure)
+
+Observed on 2026-07-26 (r9, AMD job `154695`, commit `94f3c73`):
+
+- **The emit fix succeeded.** All mirai-dos giant members decoded to
+  completion: `iotsim-building-monitor-1...` decoded 5,354,325 in 429 s
+  (36,358 sparse emits); `city-power` and `domotic-monitor` also
+  `CKBV_MEMBER_SCAN_COMPLETE`. The 2,375,000 wall that killed rounds 1-4 is
+  broken. This is the first run ever to finish Gotham member checkpointing
+  and enter source aggregation.
+- The job then failed in `aggregate_one_source`
+  (`issue27ckbv_checkpointed_sparse_process_frontend_v1.py:937`) with
+  `incomplete member target coverage for processed/iotsim-hydraulic-system-1.csv:
+  missing=[50, 52, 55, 58, 61, 64, 66, 69] extra=[]`.
+  `sacct` State=FAILED, ExitCode 1:0, Elapsed 01:25:16.
+
+Classification: `RUNTIME_FAILURE`, subclass
+`FROZEN_TARGET_MEMBER_PAIRING_INCONSISTENCY`. Not caused by the emit fix:
+target matching uses only timestamp (+/-2 us), frame length, and 5-tuple from
+the raw packet, all independent of the emitted feature vector. This is a
+latent inconsistency in the frozen data plan, exposed for the first time
+because no prior round reached aggregation, and because CKBQ used a different
+(MiniRocket) frontend that does not use this per-member raw-pcap alignment.
+
+Verified root cause (local forensic against the frozen ZIP, 2026-07-26):
+
+- The source pairs with exactly one raw pcap member,
+  `raw/benign/iotsim-hydraulic-system-1_0-0_to_OpenvSwitch-15_1-0.pcap`
+  (pairing rule "exact_complete_source_stem...", one candidate member).
+- The missing targets reference host `192.168.20.44 -> 192.168.0.4:8883`
+  (MQTT). That host, and the whole `.40-.44` cluster, has **zero packets** in
+  the paired pcap, which instead contains `192.168.20.10-30`, `192.168.4.x`,
+  `192.168.0.2-3`.
+- Quantified: of 17,432 IP-bearing rows in the processed CSV, **14,926
+  (85.6%)** reference an IP absent from the paired pcap. The Gotham processed
+  CSV aggregates a multi-device vantage point (`192.168.20.10-44` to the
+  broker), while each raw pcap captures a single switch link. The certified
+  target selection (1353 targets) drew from the processed CSV; most targets
+  are on-link and matchable, but a minority reference off-link hosts and are
+  unmatchable in the single paired member.
+
+Scientific-decision required (do NOT patch unilaterally; this changes the
+metric denominator / frozen target set):
+
+- Option A (re-pair): materialize each source against every raw pcap whose
+  hosts its targets reference. The off-link traffic is scattered across other
+  devices' pcaps and the processed vantage point maps to no single raw file,
+  so this is a non-trivial plan redesign.
+- Option B (preregistered exclusion): exclude targets unmatchable in their
+  paired member, with a full per-source audit and count, documented as a
+  known alignment limitation. Requires the total unmatchable count across all
+  30 sources first, to confirm it does not bias metrics.
+- Option C (re-select targets): restrict the certified target set to
+  on-link-matchable targets. Cleanest scientifically, largest change.
+
+Required before any decision: a local full-scope sweep counting unmatchable
+targets across all 30 Gotham sources (feasible offline from the frozen ZIP
+without HPC). Coordinate with the original pipeline author (Codex) because
+the target set and pairing rule are frozen artifacts.
+
+Permanent gate:
+
+1. Do not resubmit the formal run until the target/member coverage
+   inconsistency is resolved by a preregistered rule (A, B, or C) with an
+   audit, so aggregation cannot fail mid-run on frozen-data structure.
+2. Any target-set change is preregistered with per-source unmatchable counts
+   and an argument that metrics are not biased.
+3. Add a pre-materialization validator that, for each source, checks target
+   fingerprints against the paired member's host set and reports the
+   unmatchable count up front, instead of failing only at aggregation after
+   hours of compute.
+
+This section records a diagnosis and gate only; no science-facing row,
+feature, label, role, model, threshold, seed, or metric was changed.
