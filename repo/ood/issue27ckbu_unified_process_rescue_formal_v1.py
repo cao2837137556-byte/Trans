@@ -512,20 +512,43 @@ def run_protocol(
     aux_select = [
         record for record in aux["aux_select"] if held is None or record.device_family != held
     ]
+    # raw51_observable_v1: targets with no legal same-observation-unit raw-51D
+    # input leave the raw-51D process-head pools (fit, preprocessing,
+    # threshold) only. C1 uses the 207D flow space and its fit pool is
+    # unchanged, so the fresh-vs-frozen C1 check is unaffected. Masked records
+    # remain in the evaluation pool and receive a fail-closed process decision.
+    masked_pairs = getattr(args, "raw51_masked_pairs", frozenset())
+
+    def _observable(record: ckbj.Record) -> bool:
+        return (record.source, int(record.recorded_index)) not in masked_pairs
+
     fit_attack = list(sets["fit_attack"]) + list(ton["aux_process_fit"])
-    fit_benign = list(sets["fit_benign"]) + aux_fit + list(ton["aux_normal_fit"])
+    fit_benign = [
+        record
+        for record in (list(sets["fit_benign"]) + aux_fit + list(ton["aux_normal_fit"]))
+        if _observable(record)
+    ]
     fit_records = unique([*fit_attack, *fit_benign])
     select_attack = list(sets["select_attack"])
     select_benign = (
         list(sets["select_benign"]) + aux_select + list(ton["aux_normal_select"])
     )
+    select_benign_observable = [r for r in select_benign if _observable(r)]
     report_records = list(sets["report"])
     scored = unique([*select_attack, *select_benign, *report_records])
+    scored_observable = [record for record in scored if _observable(record)]
     feature_map = dict(ton_features)
-    store.add([record for record in unique([*fit_records, *scored]) if not record.uid.startswith("ton:")], feature_map)
+    store.add(
+        [
+            record
+            for record in unique([*fit_records, *scored_observable])
+            if not record.uid.startswith("ton:")
+        ],
+        feature_map,
+    )
     transformer, prep_audit = fit_preprocessor(fit_records, feature_map, int(args.seed))
     fit_x = transformed(transformer, fit_records, feature_map)
-    all_x = transformed(transformer, scored, feature_map)
+    all_x = transformed(transformer, scored_observable, feature_map)
     labels = np.asarray([record.label for record in fit_records], dtype=np.int64)
     weights, balance_audit = row_weights(fit_records)
 
@@ -543,11 +566,14 @@ def run_protocol(
             spec, fit_x, labels, weights, args, int(args.seed)
         )
         probability = ckbm.backend_scores(model, all_x)
-        score_map = {record.uid: float(value) for record, value in zip(scored, probability)}
+        score_map = {
+            record.uid: float(value)
+            for record, value in zip(scored_observable, probability)
+        }
         gate, frontier = choose_process_gate(
             spec.name,
             select_attack,
-            select_benign,
+            select_benign_observable,
             score_map,
             c1_threshold,
         )
@@ -592,12 +618,23 @@ def run_protocol(
         protocol, strict, frozen_c1, frozen_base, c1_threshold
     )
     strict_index = {record.uid: index for index, record in enumerate(scored)}
+    # A masked record has no process score; it receives a fail-closed process
+    # decision (never rescued), so the final system falls back to the frozen
+    # CKBQ decision for it. Its evaluation-pool membership is unchanged.
+    neg_inf = float("-inf")
     process_extra = np.asarray(
-        [scores[EXTRA_HEAD][record.uid] >= gates[EXTRA_HEAD].threshold for record in strict]
+        [
+            scores[EXTRA_HEAD].get(record.uid, neg_inf) >= gates[EXTRA_HEAD].threshold
+            for record in strict
+        ]
     )
     process_tabm = np.asarray(
-        [scores[TABM_HEAD][record.uid] >= gates[TABM_HEAD].threshold for record in strict]
+        [
+            scores[TABM_HEAD].get(record.uid, neg_inf) >= gates[TABM_HEAD].threshold
+            for record in strict
+        ]
     )
+    strict_observable_mask = np.asarray([_observable(record) for record in strict], dtype=bool)
     decisions = {
         "M0-C1": c1_hard,
         BASELINE: frozen_hard,
@@ -646,6 +683,50 @@ def run_protocol(
                 )
             )
 
+    # Condition 4: report C1 (and the final system) on the raw51-observable
+    # intersection too, so new models are compared on the identical pool while
+    # the full-denominator C1 keeps continuity with historical results.
+    raw51_sensitivity: list[dict[str, Any]] = []
+    if masked_pairs and strict_observable_mask.sum() != len(strict):
+        strict_obs = [r for r, keep in zip(strict, strict_observable_mask) if keep]
+        for base_name, decision in (("M0-C1", c1_hard), (PRIMARY, decisions[PRIMARY])):
+            decision_obs = decision[strict_observable_mask]
+            obs_values, obs_families = ckbj.metric_rows(
+                f"{base_name}-raw51obs",
+                "strict_leave" if held else "attack_preservation",
+                protocol,
+                strict_obs,
+                decision_obs,
+                int(args.bootstrap_reps),
+                int(args.seed),
+            )
+            metrics.extend(obs_values)
+            families.extend(obs_families)
+            if held is not None:
+                strict_rows.extend(
+                    ckbj.strict_level2_summary(
+                        f"{base_name}-raw51obs",
+                        protocol,
+                        strict_obs,
+                        decision_obs,
+                        c1_hard[strict_observable_mask],
+                        int(args.bootstrap_reps),
+                        int(args.seed),
+                    )
+                )
+        raw51_sensitivity.append(
+            {
+                "held_value": protocol,
+                "strict_rows_full": int(len(strict)),
+                "strict_rows_observable": int(strict_observable_mask.sum()),
+                "strict_rows_masked": int((~strict_observable_mask).sum()),
+                "select_benign_full": int(len(select_benign)),
+                "select_benign_observable": int(len(select_benign_observable)),
+                "fit_benign_observable": int(len(fit_benign)),
+                "masked_are_fail_closed": True,
+            }
+        )
+
     prediction_rows: list[dict[str, Any]] = []
     c1_all, base_all = base_decisions(
         protocol,
@@ -662,8 +743,11 @@ def run_protocol(
     }
     for record in scored:
         c1_value, base_value = base_by_uid.get(record.uid, (True, False))
-        ex = scores[EXTRA_HEAD][record.uid] >= gates[EXTRA_HEAD].threshold
-        ta = scores[TABM_HEAD][record.uid] >= gates[TABM_HEAD].threshold
+        observable = _observable(record)
+        extra_score = scores[EXTRA_HEAD].get(record.uid, neg_inf)
+        tabm_score = scores[TABM_HEAD].get(record.uid, neg_inf)
+        ex = observable and extra_score >= gates[EXTRA_HEAD].threshold
+        ta = observable and tabm_score >= gates[TABM_HEAD].threshold
         prediction_rows.append(
             {
                 "held_value": protocol,
@@ -674,11 +758,12 @@ def run_protocol(
                 "device_family": record.device_family,
                 "attack_family": record.attack_family,
                 "label_metric_only": record.label,
+                "raw51_observable": observable,
                 "c1_hard": c1_value,
                 "frozen_ckbq_hard": base_value,
-                "extra_process_score": scores[EXTRA_HEAD][record.uid],
+                "extra_process_score": extra_score if observable else "",
                 "extra_process_threshold": gates[EXTRA_HEAD].threshold,
-                "tabm_process_score": scores[TABM_HEAD][record.uid],
+                "tabm_process_score": tabm_score if observable else "",
                 "tabm_process_threshold": gates[TABM_HEAD].threshold,
                 "hard__M0-C1": c1_value,
                 f"hard__{BASELINE}": base_value,
@@ -738,6 +823,7 @@ def run_protocol(
         "data_audit": data_audit,
         "c1_audit": c1_audit,
         "predictions": prediction_rows,
+        "raw51_mask_sensitivity": raw51_sensitivity,
     }
 
 
@@ -887,6 +973,13 @@ def run_formal(args: argparse.Namespace) -> None:
         "iotsim-hydraulic-system",
     ]:
         raise RuntimeError(f"CKBU protocol boundary drift: {protocols}")
+    if getattr(args, "raw51_mask", None):
+        mask = frontend.load_raw51_mask(args.raw51_mask, args.raw51_mask_sha256)
+        args.raw51_masked_pairs = frozenset(
+            (source, int(index)) for source, indices in mask.items() for index in indices
+        )
+    else:
+        args.raw51_masked_pairs = frozenset()
     store = UnifiedFeatureStore(
         Path(args.gotham_manifest),
         Path(args.gotham_cache),
@@ -941,6 +1034,7 @@ def run_formal(args: argparse.Namespace) -> None:
         "ckbu_negative_sampling_audit.csv": pd.DataFrame(
             [{"seed": SEED, "negative_sampling_used": False, "negative_samples": 0}]
         ),
+        "ckbu_raw51_mask_sensitivity_audit.csv": table("raw51_mask_sensitivity"),
     }
     for filename, frame in outputs.items():
         frame.to_csv(out / filename, index=False)
@@ -1077,6 +1171,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--auxiliary-cache", type=Path, required=False)
     parser.add_argument("--ton-cache", type=Path, required=False)
     parser.add_argument("--ckbq-predictions", type=Path, required=False)
+    parser.add_argument("--raw51-mask", default=None)
+    parser.add_argument("--raw51-mask-sha256", default=None)
     parser.add_argument("--train-cap", type=int, default=4000)
     parser.add_argument("--eval-cap", type=int, default=3000)
     parser.add_argument("--bootstrap-reps", type=int, default=500)

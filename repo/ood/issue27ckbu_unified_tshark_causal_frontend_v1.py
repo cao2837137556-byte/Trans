@@ -171,6 +171,34 @@ def stable_key(value: str) -> str:
     return hashlib.sha256(str(value).encode("utf-8")).hexdigest()[:20]
 
 
+RAW51_MASK_SOURCE = "processed/iotsim-hydraulic-system-1.csv"
+RAW51_MASK_ROWS = 1353
+
+
+def load_raw51_mask(path: Any, expected_sha256: Any) -> dict[str, set[int]]:
+    """Versioned ``raw51_observable_v1`` eligibility mask (ledger section 11).
+
+    Lists frozen targets that have no legal same-observation-unit raw-51D
+    input. Generated only from raw-packet alignment results; loading reads no
+    label, score, or experiment outcome. Version-1 gates are hard: exact
+    SHA-256, exactly one benign source, exactly 1,353 unique rows.
+    """
+    data = Path(path).read_bytes().replace(b"\r\n", b"\n")
+    digest = hashlib.sha256(data).hexdigest()
+    if digest != str(expected_sha256).strip().lower():
+        raise RuntimeError(f"raw51 mask sha256 mismatch: {digest}")
+    masked: defaultdict[str, set[int]] = defaultdict(set)
+    total = 0
+    for row in csv.DictReader(io.StringIO(data.decode("utf-8"))):
+        masked[str(row["source_group"])].add(int(row["recorded_index"]))
+        total += 1
+    if sorted(masked) != [RAW51_MASK_SOURCE]:
+        raise RuntimeError(f"raw51 mask source set unexpected: {sorted(masked)}")
+    if total != RAW51_MASK_ROWS or len(masked[RAW51_MASK_SOURCE]) != RAW51_MASK_ROWS:
+        raise RuntimeError(f"raw51 mask row count unexpected: {total}")
+    return dict(masked)
+
+
 def dump_json(path: Path, value: Any) -> None:
     Path(path).write_text(
         json.dumps(value, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
@@ -974,10 +1002,27 @@ def aggregate_gotham(args: argparse.Namespace) -> None:
     out = Path(args.out)
     plan = pd.read_csv(Path(args.source_plan))
     cache = Path(args.cache_dir)
+    raw51_mask = (
+        load_raw51_mask(args.raw51_mask, args.raw51_mask_sha256)
+        if getattr(args, "raw51_mask", None)
+        else {}
+    )
     rows = []
+    masked_source_total = 0
     for item in plan.itertuples(index=False):
         source = str(item.source_group)
         key = str(item.source_cache_key)
+        masked_rows = len(raw51_mask.get(source, ()))
+        if masked_rows and masked_rows != int(item.target_rows):
+            raise RuntimeError(
+                f"raw51 mask v1 supports only fully-masked sources: {source} "
+                f"{masked_rows}/{item.target_rows}"
+            )
+        if masked_rows:
+            # A fully-masked source has no legal same-observation-unit raw-51D
+            # input; it is absent from the raw-51D materialization by design.
+            masked_source_total += masked_rows
+            continue
         npz = cache / f"{key}.npz"
         meta = cache / f"{key}.json"
         if not npz.is_file() or not meta.is_file():
@@ -1018,6 +1063,11 @@ def aggregate_gotham(args: argparse.Namespace) -> None:
             "status": "CKBU_GOTHAM_UNIFIED_CAUSAL_READY",
             "sources": len(rows),
             "targets": sum(row["target_rows"] for row in rows),
+            "raw51_masked_targets_total": masked_source_total,
+            "raw51_fully_masked_sources": sorted(raw51_mask),
+            "raw51_observable_mask_sha256": (
+                str(args.raw51_mask_sha256).strip().lower() if raw51_mask else None
+            ),
             "manifest_sha256": sha256_file(manifest),
             "feature_schema": FEATURE_NAMES,
             "raw_label_column_read": False,
@@ -1711,9 +1761,39 @@ def unit_tests() -> dict[str, Any]:
     command = tshark_command("tshark", "input.pcap")
     if command.count("-e") != len(TSHARK_FIELDS) or "label" in command:
         raise RuntimeError("TShark command schema test failed")
+
+    # raw51_observable_v1 mask loader gates (ledger section 11).
+    with tempfile.TemporaryDirectory() as raw51_temp:
+        mask_path = Path(raw51_temp) / "mask.csv"
+        body = "source_group,recorded_index\n" + "".join(
+            f"{RAW51_MASK_SOURCE},{index}\n" for index in range(RAW51_MASK_ROWS)
+        )
+        mask_path.write_bytes(body.encode("utf-8"))
+        good_sha = hashlib.sha256(body.encode("utf-8")).hexdigest()
+        loaded = load_raw51_mask(mask_path, good_sha)
+        if len(loaded[RAW51_MASK_SOURCE]) != RAW51_MASK_ROWS:
+            raise RuntimeError("raw51 mask loader row count failed")
+        for corrupted, expected_error in (
+            (body, "0" * 64),
+            (body + f"other.csv,1\n", good_sha),
+            (body.replace(f"{RAW51_MASK_SOURCE},0\n", ""), good_sha),
+        ):
+            mask_path.write_bytes(corrupted.encode("utf-8"))
+            digest = (
+                expected_error
+                if expected_error != good_sha
+                else hashlib.sha256(corrupted.encode("utf-8")).hexdigest()
+            )
+            try:
+                load_raw51_mask(mask_path, digest)
+            except RuntimeError:
+                pass
+            else:
+                raise RuntimeError("raw51 mask loader accepted invalid input")
     return {
         "status": "CKBU_UNIT_PASS",
         "feature_schema_dim": len(FEATURE_NAMES),
+        "raw51_mask_loader_gates_tested": True,
         "future_invariance": True,
         "score_before_update": True,
         "fresh_source_reset": True,
@@ -1747,6 +1827,8 @@ def main() -> None:
     parser.add_argument("--source-index", type=int, default=-1)
     parser.add_argument("--cache-dir", type=Path, default=OUT / "gotham_causal_cache")
     parser.add_argument("--tshark", default="tshark")
+    parser.add_argument("--raw51-mask", default=None)
+    parser.add_argument("--raw51-mask-sha256", default=None)
     parser.add_argument("--alignment-tolerance-us", type=int, default=2)
     parser.add_argument("--aux-manifest", type=Path)
     parser.add_argument("--ton-pilot-dir", type=Path)

@@ -1328,11 +1328,32 @@ def run_gotham_members(args: argparse.Namespace) -> None:
             )
 
     targets = ckbu.load_target_indices([Path(path) for path in args.targets])
+    raw51_mask = (
+        ckbu.load_raw51_mask(args.raw51_mask, args.raw51_mask_sha256)
+        if getattr(args, "raw51_mask", None)
+        else {}
+    )
+    fully_masked = set()
+    for source, masked in raw51_mask.items():
+        expected = targets.get(source, set())
+        if masked != expected:
+            raise RuntimeError(
+                f"raw51 mask v1 supports only fully-masked sources: {source} "
+                f"{len(masked)}/{len(expected)}"
+            )
+        fully_masked.add(source)
     by_source: defaultdict[str, list[dict[str, Any]]] = defaultdict(list)
     for row in member_rows:
         by_source[str(row["source_cache_key"])].append(row)
     aggregation: list[dict[str, Any]] = []
+    materialized_source_rows = []
     for row in source_rows:
+        # A fully-masked source has no legal same-observation-unit raw-51D
+        # input and produces no source cache (ledger section 11 / raw51 mask).
+        if str(row["source_group"]) in fully_masked:
+            print(f"CKBV_SOURCE_FULLY_MASKED source={row['source_group']}", flush=True)
+            continue
+        materialized_source_rows.append(row)
         aggregation.append(
             aggregate_one_source(
                 row,
@@ -1352,7 +1373,7 @@ def run_gotham_members(args: argparse.Namespace) -> None:
         )
     invalid = [
         f"{row['source_group']}:{validate_source_pair(row, source_cache)[1]}"
-        for row in source_rows
+        for row in materialized_source_rows
         if not validate_source_pair(row, source_cache)[0]
     ]
     if invalid:
@@ -1366,7 +1387,8 @@ def run_gotham_members(args: argparse.Namespace) -> None:
     ckbu.write_csv(Path(args.out) / "ckbv_source_aggregation_audit.csv", aggregation)
     summary = {
         "status": "CKBV_GOTHAM_CHECKPOINT_COMPLETE",
-        "sources": len(source_rows),
+        "sources": len(materialized_source_rows),
+        "raw51_fully_masked_sources": sorted(fully_masked),
         "members": len(member_rows),
         "reused_source_caches": sum(
             bool(item["reused_source_cache"]) for item in aggregation
@@ -2490,6 +2512,8 @@ def main() -> None:
     parser.add_argument("--reuse-source-cache", action="append", default=[])
     parser.add_argument("--reuse-member-cache", action="append", default=[])
     parser.add_argument("--targets", action="append", default=[])
+    parser.add_argument("--raw51-mask", default=None)
+    parser.add_argument("--raw51-mask-sha256", default=None)
     parser.add_argument("--tshark", default="tshark")
     parser.add_argument("--alignment-tolerance-us", type=int, default=2)
     parser.add_argument("--progress-every", type=int, default=PROGRESS_EVERY_DEFAULT)
