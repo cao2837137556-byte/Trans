@@ -737,11 +737,14 @@ after matching): **all 1,353 are `roles=ood_val`, `stages=fit`.** Zero
 support bank (385/69) and every paper-metric denominator are untouched;
 the loss is development-phase benign-OOD validation rows (8,682 -> 7,329).
 
-Pending the air-quality-1 source-cache confirmation, the authoritative
-totals are: **1,353 / 325,067 = 0.4163% overall unmatchable** (within the
-pre-declared 0.5% overall gate), with 100% concentration in one benign
-source (per-source gate exceeded, but fully explained by a single
-mispairing whose packets exist in sibling captures).
+Air-quality-1 confirmation (2026-07-26, executed on HPC): the donated
+source-level cache `gotham_causal_cache/d739aac3260e66f35d25.npz` exists and
+holds exactly **24,109 matched targets with features (24109, 51)** — full
+coverage. The authoritative totals are therefore FINAL:
+**1,353 / 325,067 = 0.4163% overall unmatchable** (within the pre-declared
+0.5% overall gate), 29/30 sources at 100%, with 100% concentration in the
+single mispaired benign source (per-source gate exceeded, fully explained;
+packets exist in sibling captures).
 
 Proposed handling (draft for the original author's ruling, see
 `runs/mainline_docs/raw51_observable_v1_mask_prereg_draft_20260726.md`):
