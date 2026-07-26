@@ -710,3 +710,44 @@ Corrected decision status:
 This section records diagnosis, artifacts, and a self-correction only; no
 science-facing row, feature, label, role, model, threshold, seed, or metric
 was changed.
+
+### Section 11 authoritative TShark coverage (2026-07-26, late)
+
+Read-only review of the r9 (`154695`) TShark member checkpoints
+(`ckbv_tshark_coverage_review.csv` in the run root):
+
+- **28 of 30 sources: 100% coverage.** Every target my local parser had
+  misfiled as absent — including all ICMP-embedded-port and GRE attack
+  targets (building-monitor-1 101,282/101,282; ip-camera-street-1
+  110,104/110,104; museum-2 54,950/54,950) — was matched by the formal
+  TShark path. The parser-artifact self-correction is confirmed against
+  TShark ground truth.
+- `iotsim-air-quality-1` shows 24,109 "missing" **only because its four
+  member checkpoints do not exist**: that source is served by the
+  source-level cache donated by job `154081` (the long-standing "1/30
+  Gotham source cache" donor), which the member-level review script did not
+  read. Verification against `gotham_causal_cache` issued; expected 24,109
+  rows.
+- `iotsim-hydraulic-system-1`: 1,353 missing — the only genuine gap,
+  consistent with the local audit's mispairing finding.
+
+Role decomposition of the 1,353 (from the frozen canonical index, joined
+after matching): **all 1,353 are `roles=ood_val`, `stages=fit`.** Zero
+`support_train`, zero `support_val`, zero report/sealed/held rows. The
+support bank (385/69) and every paper-metric denominator are untouched;
+the loss is development-phase benign-OOD validation rows (8,682 -> 7,329).
+
+Pending the air-quality-1 source-cache confirmation, the authoritative
+totals are: **1,353 / 325,067 = 0.4163% overall unmatchable** (within the
+pre-declared 0.5% overall gate), with 100% concentration in one benign
+source (per-source gate exceeded, but fully explained by a single
+mispairing whose packets exist in sibling captures).
+
+Proposed handling (draft for the original author's ruling, see
+`runs/mainline_docs/raw51_observable_v1_mask_prereg_draft_20260726.md`):
+a derived `raw51_observable_v1` eligibility mask excluding exactly these
+1,353 rows for all raw-51D consumers, all compared systems on the identical
+intersection, both denominators reported; no frozen manifest overwritten.
+Re-pairing (option A) is not recommended now: it would introduce a
+multi-capture observation-unit contract (merge/dedup/reset semantics) for
+the sake of 1,353 development-only rows.
