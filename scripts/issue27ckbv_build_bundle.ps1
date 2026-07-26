@@ -83,7 +83,9 @@ $payloadFiles = @(
     'scripts/issue27ckbv_checkpointed_process_formal.slurm',
     'scripts/issue27ckbv_install_and_submit_dual.sh',
     'scripts/issue27ckbv_status_dual.sh',
-    'scripts/issue27ckbv_validate_and_pack_seed27.sh'
+    'scripts/issue27ckbv_validate_and_pack_seed27.sh',
+    'runs/raw51_observable_v1/raw51_observable_v1_mask.csv',
+    'runs/raw51_observable_v1/README.md'
 )
 
 $utf8NoBom = [System.Text.UTF8Encoding]::new($false)
@@ -254,6 +256,20 @@ foreach ($required in @(
 foreach ($required in @('seed27_amd_154620', 'seed27_intel_154621')) {
     if (-not $slurmText.Contains($required)) {
         throw "Slurm donor list drifted from installer: $required"
+    }
+}
+$raw51Expected = 'b16017d2755feaedbe6d3ad76fd7d1e2444cf66a14a70f6bca35f270734ad2df'
+$raw51Path = Join-Path $verifiedStage 'payload\runs\raw51_observable_v1\raw51_observable_v1_mask.csv'
+if (-not (Test-Path -LiteralPath $raw51Path)) {
+    throw "Clean-extract raw51 mask missing from payload"
+}
+$raw51Actual = (Get-FileHash -LiteralPath $raw51Path -Algorithm SHA256).Hash.ToLowerInvariant()
+if ($raw51Actual -ne $raw51Expected) {
+    throw "Clean-extract raw51 mask sha256 mismatch: $raw51Actual"
+}
+foreach ($required in @($raw51Expected, 'CKBV_RAW51_MASK', 'raw51-mask')) {
+    if (-not $installerText.Contains($required)) {
+        throw "Installer missing raw51 wiring token: $required"
     }
 }
 $unexpectedPaths = Get-ChildItem -LiteralPath $verifiedStage -Recurse -Force |

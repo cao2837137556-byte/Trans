@@ -96,16 +96,30 @@ ton = json.loads((root / "ckbu_ton_raw_pcap_pilot_causal_ready.json").read_text(
 checkpoint = json.loads((root / "ckbv_gotham_checkpoint_ready.json").read_text())
 member_contract = json.loads((root / "ckbv_gotham_member_plan.json").read_text())
 
-if gotham.get("sources") != 30 or gotham.get("targets") != 325067:
-    raise SystemExit(f"Gotham coverage drift: {gotham}")
+# raw51_observable_v1 mask (ledger section 11): one fully-masked benign
+# source (hydraulic-system-1, 1,353 ood_val targets) is absent from the
+# raw-51D materialization. Frozen manifest unchanged; observable = 323,714.
+RAW51_MASK_TOTAL = 1353
+RAW51_MASK_SHA256 = "b16017d2755feaedbe6d3ad76fd7d1e2444cf66a14a70f6bca35f270734ad2df"
+RAW51_MASK_SOURCE = "processed/iotsim-hydraulic-system-1.csv"
+if gotham.get("sources") != 29 or gotham.get("targets") != 325067 - RAW51_MASK_TOTAL:
+    raise SystemExit(f"Gotham observable coverage drift: {gotham}")
+if gotham.get("raw51_masked_targets_total") != RAW51_MASK_TOTAL:
+    raise SystemExit(f"raw51 masked total drift: {gotham}")
+if gotham.get("raw51_fully_masked_sources") != [RAW51_MASK_SOURCE]:
+    raise SystemExit(f"raw51 masked source drift: {gotham}")
+if str(gotham.get("raw51_observable_mask_sha256")) != RAW51_MASK_SHA256:
+    raise SystemExit(f"raw51 mask sha256 drift: {gotham}")
 if auxiliary.get("sources") != 31 or auxiliary.get("targets") != 18600:
     raise SystemExit(f"auxiliary coverage drift: {auxiliary}")
 if ton.get("rows") != 12000 or ton.get("reserved_injection_mitm_model_rows") != 0:
     raise SystemExit(f"ToN scope drift: {ton}")
 if ton.get("scientific_protocol_changed") is not False:
     raise SystemExit("ToN scientific protocol changed")
-if checkpoint.get("sources") != 30:
+if checkpoint.get("sources") != 29:
     raise SystemExit(f"checkpoint source coverage drift: {checkpoint}")
+if checkpoint.get("raw51_fully_masked_sources") != [RAW51_MASK_SOURCE]:
+    raise SystemExit(f"checkpoint raw51 masked source drift: {checkpoint}")
 if checkpoint.get("members") != member_contract.get("members"):
     raise SystemExit("member count drift between plan and checkpoint summary")
 if checkpoint.get("scientific_protocol_changed") is not False:
@@ -255,6 +269,9 @@ validation = {
     "wall_seconds": int(timing["wall_seconds"]),
     "gotham_sources": gotham["sources"],
     "gotham_targets": gotham["targets"],
+    "gotham_frozen_targets": 325067,
+    "raw51_masked_targets_total": gotham.get("raw51_masked_targets_total"),
+    "raw51_observable_mask_sha256": gotham.get("raw51_observable_mask_sha256"),
     "gotham_members": len(member_rows),
     "auxiliary_sources": auxiliary["sources"],
     "ton_file_checkpoints": len(ton_names),

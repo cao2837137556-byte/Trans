@@ -65,6 +65,17 @@ for path in \
   }
 done
 
+# The raw51_observable_v1 mask travels in the bundle (self-contained; no
+# remote worktree pull required). Its bytes are already verified against
+# SHA256SUMS at clean extraction; re-check here before submission.
+RAW51_MASK="$HERE/payload/runs/raw51_observable_v1/raw51_observable_v1_mask.csv"
+RAW51_MASK_SHA256=b16017d2755feaedbe6d3ad76fd7d1e2444cf66a14a70f6bca35f270734ad2df
+test -s "$RAW51_MASK" || { echo "bundle missing raw51 mask: $RAW51_MASK" >&2; exit 2; }
+test "$(sha256sum "$RAW51_MASK" | awk '{print $1}')" = "$RAW51_MASK_SHA256" || {
+  echo "raw51 mask sha256 mismatch" >&2
+  exit 2
+}
+
 echo "=== CKBV immutable Gotham ZIP identity ==="
 echo "Hashing the 23.8 GB ZIP can take several minutes; this is expected."
 test "$(stat -c %s "$DATA_ROOT/gotham2025/raw/GothamDataset2025.zip")" = \
@@ -143,7 +154,7 @@ FORMAL_SHA256=$(sha256sum "$CODE_ROOT/issue27ckbu_unified_process_rescue_formal_
 RESUME_SHA256=$(sha256sum "$CODE_ROOT/issue27ckbu_parallel_cache_resume_v1.py" | awk '{print $1}')
 CHECKPOINT_SHA256=$(sha256sum "$CODE_ROOT/issue27ckbv_checkpointed_sparse_process_frontend_v1.py" | awk '{print $1}')
 SLURM="$SCRIPT_ROOT/issue27ckbv_checkpointed_process_formal.slurm"
-EXPORTS="ALL,CKBV_COMMIT_SHA=$COMMIT_SHA,CKBV_CODE_ROOT=$CODE_ROOT,CKBV_SCRIPT_ROOT=$SCRIPT_ROOT,CKBV_CKBT_MANIFEST=$CKBT_MANIFEST,CKBV_TON_PILOT_MANIFEST=$TON_PILOT_MANIFEST,CKBV_FRONTEND_SHA256=$FRONTEND_SHA256,CKBV_FORMAL_SHA256=$FORMAL_SHA256,CKBV_RESUME_SHA256=$RESUME_SHA256,CKBV_CHECKPOINT_SHA256=$CHECKPOINT_SHA256,CKBV_REUSE_RUN_ROOTS=$REUSE_ROOTS"
+EXPORTS="ALL,CKBV_COMMIT_SHA=$COMMIT_SHA,CKBV_CODE_ROOT=$CODE_ROOT,CKBV_SCRIPT_ROOT=$SCRIPT_ROOT,CKBV_CKBT_MANIFEST=$CKBT_MANIFEST,CKBV_TON_PILOT_MANIFEST=$TON_PILOT_MANIFEST,CKBV_FRONTEND_SHA256=$FRONTEND_SHA256,CKBV_FORMAL_SHA256=$FORMAL_SHA256,CKBV_RESUME_SHA256=$RESUME_SHA256,CKBV_CHECKPOINT_SHA256=$CHECKPOINT_SHA256,CKBV_REUSE_RUN_ROOTS=$REUSE_ROOTS,CKBV_RAW51_MASK=$RAW51_MASK,CKBV_RAW51_MASK_SHA256=$RAW51_MASK_SHA256"
 
 echo "=== CKBV Slurm scheduler dry validation ==="
 sbatch --test-only -p amd --export="$EXPORTS" "$SLURM"

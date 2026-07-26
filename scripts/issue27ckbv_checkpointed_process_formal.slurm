@@ -60,6 +60,9 @@ CKBQ_PREDICTIONS="$CKBQ_ROOT/ckbq_record_predictions.csv.gz"
 CKBO_AUX_MANIFEST="$CKBQ_ROOT/ckbo_auxiliary_benign_manifest.csv"
 REPORT_TARGETS="$BASE/runs/issue27ckbi_tgn_report_only_cache_extension_v1_2026-07-12_hpc/report_extension_recorded_targets.csv"
 BASE_TARGETS="$BASE/runs/issue27ckat_canonical_time_c1_canary_v1_2026-07-10_fullsupport_cacheplan_v1/canonical_source_target_index.csv"
+RAW51_MASK=${CKBV_RAW51_MASK:-$BASE/runs/raw51_observable_v1/raw51_observable_v1_mask.csv}
+RAW51_MASK_SHA256=${CKBV_RAW51_MASK_SHA256:-b16017d2755feaedbe6d3ad76fd7d1e2444cf66a14a70f6bca35f270734ad2df}
+test -s "$RAW51_MASK" || { echo "missing raw51 mask: $RAW51_MASK" >&2; exit 2; }
 FRONTEND="$CODE_ROOT/issue27ckbu_unified_tshark_causal_frontend_v1.py"
 FORMAL="$CODE_ROOT/issue27ckbu_unified_process_rescue_formal_v1.py"
 RESUME="$CODE_ROOT/issue27ckbu_parallel_cache_resume_v1.py"
@@ -283,6 +286,7 @@ python -u "$CHECKPOINT" --mode run-gotham-members --out "$RUN_ROOT" \
   --source-cache "$RUN_ROOT/gotham_causal_cache" \
   "${REUSE_GOTHAM[@]}" "${REUSE_MEMBER[@]}" \
   --targets "$BASE_TARGETS" --targets "$REPORT_TARGETS" \
+  --raw51-mask "$RAW51_MASK" --raw51-mask-sha256 "$RAW51_MASK_SHA256" \
   --tshark "$TSHARK" --max-workers "$GOTHAM_WORKERS" \
   --member-timeout-seconds 14400 --stale-seconds 3600 \
   --liveness-seconds 300 --heartbeat-seconds 60 \
@@ -293,7 +297,8 @@ python -u "$CHECKPOINT" --mode run-gotham-members --out "$RUN_ROOT" \
 write_phase aggregate_causal_features
 python "$FRONTEND" --mode aggregate-gotham --out "$RUN_ROOT" \
   --source-plan "$RUN_ROOT/ckbu_gotham_source_plan.csv" \
-  --cache-dir "$RUN_ROOT/gotham_causal_cache"
+  --cache-dir "$RUN_ROOT/gotham_causal_cache" \
+  --raw51-mask "$RAW51_MASK" --raw51-mask-sha256 "$RAW51_MASK_SHA256"
 python "$FRONTEND" --mode aggregate-auxiliary --out "$RUN_ROOT" \
   --source-plan "$RUN_ROOT/ckbu_auxiliary_source_plan.csv" \
   --cache-dir "$RUN_ROOT/auxiliary_causal_cache"
@@ -315,7 +320,8 @@ python -u "$FORMAL" --mode formal --seed 27 \
   --auxiliary-plan "$RUN_ROOT/ckbu_auxiliary_source_plan.csv" \
   --auxiliary-cache "$RUN_ROOT/auxiliary_causal_cache" \
   --ton-cache "$RUN_ROOT/ckbu_ton_raw_pcap_pilot_causal_samples.npz" \
-  --ckbq-predictions "$CKBQ_PREDICTIONS"
+  --ckbq-predictions "$CKBQ_PREDICTIONS" \
+  --raw51-mask "$RAW51_MASK" --raw51-mask-sha256 "$RAW51_MASK_SHA256"
 
 write_phase validate_and_pack
 ended_epoch=$(date +%s)
