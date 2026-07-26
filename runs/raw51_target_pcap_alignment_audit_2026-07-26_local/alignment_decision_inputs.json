@@ -1,0 +1,37 @@
+{
+ "classified_targets": 325067,
+ "codex_gate_overall_le_0.5pct": false,
+ "codex_gate_worst_source_le_2pct": false,
+ "expected_targets": 325067,
+ "inputs": {
+  "base_targets_sha256": "74a1699e29b7b1e227f4532ff81f1546a9ba239f2d2d323d390efa5b07437158",
+  "pcap_members": 110,
+  "report_targets_sha256": "ed6f7cf149e30367879d029e0beaa718586aeb90e7a46a34ebdb740265146a37",
+  "source_plan_sha256": "154c71d6ed03dea875ed90b7f5143731b7dacb5517cb344915a3bb540afb9a26",
+  "zip": {
+   "bytes": 23824968355,
+   "path": "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\gotham2025\\raw\\GothamDataset2025.zip"
+  }
+ },
+ "local_deviation": "packet timestamps re-parsed from pcap headers, not TShark; +/-2us window absorbs <=1us float rounding; frame.len=orig_len",
+ "matching_reads_labels_or_roles": false,
+ "matching_rule": "frozen TargetMatcher.compatible + time key int(round(ts*1e6)) in [t-2, t+2]",
+ "overall_non_exact_unique_pct": 9.1852,
+ "status": "RAW51_ALIGNMENT_AUDIT_V1",
+ "tolerance_us": 2,
+ "totals_by_status": {
+  "absent_from_all_pcaps": 28505,
+  "exact_member_unique": 295209,
+  "non_exact_member_unique": 1353
+ },
+ "worst_sources_pct": {
+  "processed/iotsim-building-monitor-1.csv": 12.112714993779743,
+  "processed/iotsim-city-power-1.csv": 25.0,
+  "processed/iotsim-combined-cycle-1.csv": 15.867628341111583,
+  "processed/iotsim-combined-cycle-tls-4.csv": 6.666666666666667,
+  "processed/iotsim-domotic-monitor-1.csv": 13.133333333333333,
+  "processed/iotsim-hydraulic-system-1.csv": 100.0,
+  "processed/iotsim-ip-camera-museum-1.csv": 14.117647058823529,
+  "processed/iotsim-ip-camera-street-1.csv": 13.932282205914408
+ }
+}

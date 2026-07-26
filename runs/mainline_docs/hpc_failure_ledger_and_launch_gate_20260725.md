@@ -643,5 +643,70 @@ Given the isolation, the choice narrows to:
 Either way the pre-materialization coverage validator (permanent gate item 3)
 should be added so a mispaired source fails fast up front, not after hours.
 
-This section records a diagnosis and gate only; no science-facing row,
-feature, label, role, model, threshold, seed, or metric was changed.
+### Section 11 full TShark-rule audit and a critical self-correction (2026-07-26)
+
+Per Codex's mandate, a read-only full-scope audit reproduced the frozen
+matching rule (`TargetMatcher.compatible` + time key in [t-2, t+2] us) over
+all 325,067 frozen targets against all 110 pcap members in a single hashed
+pass. Artifacts under
+`runs/raw51_target_pcap_alignment_audit_2026-07-26_local/`:
+`alignment_target_audit.csv`, `alignment_source_summary.csv`,
+`alignment_role_family_summary.csv`, `alignment_member_summary.csv`,
+`alignment_decision_inputs.json`, `alignment_scan.py`.
+
+Raw classification (reconciled to 325,067):
+`exact_member_unique=295,209`, `non_exact_member_unique=1,353`,
+`absent_from_all_pcaps=28,505`, ambiguous/multiple/malformed=0.
+
+**These raw counts are NOT decision-grade. The local audit parses pcap bytes
+directly instead of via TShark, and a confirmed systematic bias inflates the
+absent count for attack-role targets:**
+
+- Sampled absent building-monitor-1 targets have fingerprints like
+  `proto=1 (ICMP), tcp.srcport=43432 -> tcp.dstport=23, frame_len=82`. ICMP
+  has no ports; TShark fills these from the ORIGINAL packet header embedded
+  in the ICMP error message (`-E occurrence=f` still yields the embedded L4
+  ports). The local byte parser does not extract L4 ports from ICMP payloads,
+  so the 5-tuple mismatches and the target is misfiled as absent.
+- Confirmed empirically: the referenced len=82 ICMP packets between
+  `192.168.16.12` and `192.168.17.10` at the target's second exist (9 of
+  them, all len=82) in the paired mirai-infection pcap. The packets ARE
+  present; only the local parser cannot reproduce TShark's embedded-port
+  extraction. GRE-tunneled attack traffic (this dataset carries ~1.5M GRE
+  packets in mirai-dos captures) is a second likely inflator.
+- Consequence: the alarming role-level absent counts (support_train 66,
+  support_val 10, sealed_final_attack 15,340, future_query 13,040) are
+  substantially local-parser artifacts and must NOT trigger a data-contract
+  rebuild. The real TShark-based absent count is unknown and likely far
+  smaller.
+
+What the local audit DOES establish reliably:
+
+1. The pipeline and parser match 295,209 clean TCP/UDP targets exactly, so
+   the method works for the common case.
+2. `hydraulic-system-1` (1,353 targets, clean TCP MQTT to `192.168.0.4:8883`)
+   is a GENUINE benign source->pcap mispairing, not an artifact: its targets
+   are `non_exact_member_unique`, found in sibling pcaps
+   `iotsim-hydraulic-system-15_..._OpenvSwitch-16_5-0.pcap` (867) and
+   `iotsim-hydraulic-system-10_..._OpenvSwitch-15_10-0.pcap` (486). Benign
+   TCP, no ICMP/GRE extraction involved, so this conclusion stands.
+
+Corrected decision status:
+
+- Do NOT choose A/B/C or rebuild the data contract on the local absent
+  numbers; they are biased.
+- The authoritative coverage was ALREADY computed by r9 (`154695`) using
+  TShark during member checkpointing for every base-T0 source; only the
+  hydraulic-1 aggregation raised. The cheapest decision-grade audit is a
+  read-only pass that reports per-source TShark coverage over the existing r9
+  member checkpoints (no re-decode), or a TShark-based re-run of this audit
+  script's matching. Recommended before any A/B/C choice.
+- `hydraulic-system-1` re-pairing (option A for this one source) carries the
+  state-semantics caveat Codex raised: sibling pcaps are different capture
+  links, so which observation unit accumulates 51D causal state, and how
+  multiple members merge/reset, is a frontend-contract question, not a plain
+  member-list edit.
+
+This section records diagnosis, artifacts, and a self-correction only; no
+science-facing row, feature, label, role, model, threshold, seed, or metric
+was changed.
