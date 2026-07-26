@@ -269,3 +269,45 @@ Permanent gate:
 
 Rerunning compute is necessary only for the unfinished ToN file, Gotham member
 checkpoints, and formal model. Validated completed checkpoints are reused.
+
+## 8. CKBV heterogeneous audit serialization failure
+
+Observed on 2026-07-25:
+
+- AMD job `154478` and Intel job `154479` completed all four legal ToN file
+  checkpoints and reused all 31 auxiliary caches.
+- Both then failed while finalizing
+  `ckbu_ton_raw_pcap_materialization_audit.csv`.
+- The exact signature was `ValueError: dict contains fields not in
+  fieldnames` for fields present on attack/normal capture audits but absent
+  from the first reserved-source audit row.
+
+Classification: `RUNTIME_FAILURE`, specifically post-preprocessing metadata
+serialization before Gotham dispatch. No model, score, gate, threshold, or
+scientific result was produced.
+
+Root cause: the inherited CSV helper fixed its schema from the first row,
+while the frozen ToN audit intentionally combines heterogeneous role-specific
+dictionaries. The data rows were valid; the serializer contract was not.
+
+Valid artifacts: all four legal ToN file checkpoints from AMD job `154478`,
+all 31 auxiliary caches, and the previously validated Gotham/auxiliary donor
+artifacts. These remain cache donors only and are reused only after their
+existing identity, schema, shape, raw-label, and SHA-256 validation.
+
+Permanent gate:
+
+1. The ToN aggregate audit uses an atomic writer whose schema is the
+   deterministic union of all row keys.
+2. The unit suite writes and reads heterogeneous reserved and attack audit
+   rows, asserts the exact union schema, and verifies that missing cells are
+   empty without dropping or shifting role-specific values.
+3. The shared historical CKBU writer is not changed; only this intentionally
+   heterogeneous CKBV audit uses the union-schema contract.
+4. The default retry donor order starts with AMD job `154478`, so all four
+   validated ToN checkpoints are reused and no ToN PCAP is decoded again.
+
+The correction changes only audit CSV serialization and reuse routing. It does
+not change rows, features, labels, target alignment, fit/select/report roles,
+model, score, gate, threshold, seed, or metric. Gotham preprocessing and the
+formal model still require compute.

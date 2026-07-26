@@ -77,6 +77,31 @@ def read_csv_rows(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
+def atomic_union_csv(path: Path, rows: Sequence[dict[str, Any]]) -> None:
+    """Write heterogeneous audit rows without dropping role-specific fields."""
+    if not rows:
+        raise ValueError(f"cannot write empty CSV: {path}")
+    fieldnames: list[str] = []
+    seen: set[str] = set()
+    for row in rows:
+        for key in row:
+            if key not in seen:
+                seen.add(key)
+                fieldnames.append(key)
+
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_name(f".{path.name}.{os.getpid()}.tmp")
+    try:
+        with temporary.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(rows)
+        os.replace(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
 def prune_before_update(
     builder: ckbu.CausalFeatureBuilder, event: ckbu.PacketEvent
 ) -> None:
@@ -1594,7 +1619,9 @@ def run_ton_files(args: argparse.Namespace) -> None:
         causal_features=features,
         feature_names=np.asarray(ckbu.FEATURE_NAMES),
     )
-    ckbu.write_csv(out / "ckbu_ton_raw_pcap_materialization_audit.csv", audits)
+    atomic_union_csv(
+        out / "ckbu_ton_raw_pcap_materialization_audit.csv", audits
+    )
     roles = Counter(str(row["role"]) for row in selected)
     ready = {
         "status": "CKBU_TON_RAW_PCAP_CAUSAL_READY",
@@ -1692,6 +1719,48 @@ def unit_tests() -> dict[str, Any]:
 
     with tempfile.TemporaryDirectory() as temporary:
         root = Path(temporary)
+        heterogeneous_audit = root / "heterogeneous_audit.csv"
+        atomic_union_csv(
+            heterogeneous_audit,
+            [
+                {
+                    "raw_source_path": "reserved.pcap",
+                    "role": "reserved",
+                    "reserved_no_model_use": True,
+                },
+                {
+                    "raw_source_path": "attack.pcap",
+                    "role": "attack",
+                    "selected_attack_connections": 17,
+                    "target_alignment_complete": True,
+                },
+            ],
+        )
+        heterogeneous_rows = read_csv_rows(heterogeneous_audit)
+        expected_fields = {
+            "raw_source_path",
+            "role",
+            "reserved_no_model_use",
+            "selected_attack_connections",
+            "target_alignment_complete",
+        }
+        with heterogeneous_audit.open(
+            "r", encoding="utf-8", newline=""
+        ) as handle:
+            actual_fields = set(csv.DictReader(handle).fieldnames or [])
+        if actual_fields != expected_fields:
+            raise RuntimeError(
+                "heterogeneous audit union schema drift: "
+                f"{sorted(actual_fields)}"
+            )
+        if (
+            len(heterogeneous_rows) != 2
+            or heterogeneous_rows[0]["selected_attack_connections"] != ""
+            or heterogeneous_rows[1]["reserved_no_model_use"] != ""
+            or heterogeneous_rows[1]["selected_attack_connections"] != "17"
+        ):
+            raise RuntimeError("heterogeneous audit fields were lost or shifted")
+
         archive_path = root / "tiny.zip"
         with zipfile.ZipFile(archive_path, "w") as archive:
             archive.writestr("capture-a.pcap", b"a" * 100)
@@ -1801,6 +1870,7 @@ def unit_tests() -> dict[str, Any]:
         "two_pass_reservoir_exact": True,
         "safe_terminal_truncation_contract_tested": True,
         "unsafe_terminal_truncation_rejected": True,
+        "heterogeneous_audit_union_schema_tested": True,
         "size_range_calibration_includes_largest": True,
         "raw_label_column_read": False,
     }

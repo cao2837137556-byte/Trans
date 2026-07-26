@@ -76,14 +76,17 @@ selected row, feature, label, role, gate, threshold, model, or metric.
 
 ## Recovery and isolation
 
-The cancelled AMD 154081 run and failed AMD 154440 run are cache donors only.
+The cancelled AMD 154081 run and failed AMD 154440 and 154478 runs are cache
+donors only.
 Every cache is reused only after source identity, target count, completion
 flag, raw-label=false, SHA-256, feature names, input identity, and NPZ shape
 validate. Job 154081 contributes 31/31 auxiliary caches and 1/30 Gotham source
 cache. Job 154440 contributes the same validated auxiliary caches plus three
 complete ToN file checkpoints (`normal_1`, `normal_2`, and
-`normal_scanning1`). No scientific result from either incomplete run is
-accepted.
+`normal_scanning1`). Job 154478 contributes all four complete legal ToN file
+checkpoints, including the safely closed `password_normal1` prefix, plus the
+same validated auxiliary caches. No scientific result from any incomplete run
+is accepted.
 
 AMD and Intel submissions have independent run roots, logs, member caches,
 source caches, ToN caches, validation results, and pullback archives. Neither

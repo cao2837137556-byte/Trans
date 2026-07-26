@@ -1,7 +1,7 @@
 param(
     [string]$RepoRoot = 'D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline',
     [string]$TransferRoot = 'D:\study\paper\anomaly_detection\paper04\supercompute_transfer',
-    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260725_r3'
+    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260726_r4'
 )
 
 $ErrorActionPreference = 'Stop'
