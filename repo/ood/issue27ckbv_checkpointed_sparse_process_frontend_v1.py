@@ -26,6 +26,7 @@ import signal
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 import zipfile
 from collections import Counter, defaultdict
@@ -53,6 +54,120 @@ PROGRESS_EVERY_DEFAULT = 250_000
 TSHARK_TRUNCATED_PACKET_TEXT = (
     "appears to have been cut short in the middle of a packet."
 )
+MEMBER_PROGRESS_STATUS = "CKBV_MEMBER_PROGRESS_STATE_V1"
+
+
+class MemberProgressReporter:
+    """Emit an atomic heartbeat without confusing liveness with real progress."""
+
+    def __init__(
+        self,
+        path: Path,
+        row: dict[str, Any],
+        heartbeat_seconds: float,
+    ) -> None:
+        self.path = Path(path)
+        self.heartbeat_seconds = max(float(heartbeat_seconds), 0.1)
+        self.lock = threading.Lock()
+        self.stop_event = threading.Event()
+        self.state: dict[str, Any] = {
+            "status": MEMBER_PROGRESS_STATUS,
+            "member_index": int(row["member_index"]),
+            "member_cache_key": str(row["member_cache_key"]),
+            "archive_member": str(row["archive_member"]),
+            "worker_pid": os.getpid(),
+            "phase": "starting",
+            "decoded_events": 0,
+            "sparse_feature_emits": 0,
+            "heartbeat_sequence": 0,
+            "progress_revision": 0,
+        }
+        self.publish()
+        self.thread = threading.Thread(
+            target=self._heartbeat_loop,
+            name=f"ckbv-heartbeat-{row['member_index']}",
+            daemon=True,
+        )
+        self.thread.start()
+
+    def publish(
+        self,
+        *,
+        phase: str | None = None,
+        decoded_events: int | None = None,
+        sparse_feature_emits: int | None = None,
+    ) -> None:
+        with self.lock:
+            changed = False
+            updates = {
+                "phase": phase,
+                "decoded_events": decoded_events,
+                "sparse_feature_emits": sparse_feature_emits,
+            }
+            for key, value in updates.items():
+                if value is None:
+                    continue
+                normalized: Any = str(value) if key == "phase" else int(value)
+                if self.state[key] != normalized:
+                    self.state[key] = normalized
+                    changed = True
+            if changed:
+                self.state["progress_revision"] = (
+                    int(self.state["progress_revision"]) + 1
+                )
+            self.state["heartbeat_sequence"] = (
+                int(self.state["heartbeat_sequence"]) + 1
+            )
+            self.state["updated_epoch"] = time.time()
+            atomic_json(self.path, self.state)
+
+    def _heartbeat_loop(self) -> None:
+        while not self.stop_event.wait(self.heartbeat_seconds):
+            self.publish()
+
+    def close(self) -> None:
+        self.stop_event.set()
+        self.thread.join(timeout=max(self.heartbeat_seconds * 2.0, 1.0))
+
+
+def read_member_progress_state(
+    path: Path, row: dict[str, Any]
+) -> dict[str, Any] | None:
+    try:
+        state = json.loads(Path(path).read_text(encoding="utf-8"))
+        if (
+            state.get("status") != MEMBER_PROGRESS_STATUS
+            or int(state["member_index"]) != int(row["member_index"])
+            or str(state["member_cache_key"]) != str(row["member_cache_key"])
+            or str(state["archive_member"]) != str(row["archive_member"])
+        ):
+            return None
+        int(state["heartbeat_sequence"])
+        int(state["progress_revision"])
+        int(state["decoded_events"])
+        str(state["phase"])
+        return state
+    except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError):
+        return None
+
+
+def worker_watchdog_reason(
+    *,
+    now: float,
+    started: float,
+    last_heartbeat: float,
+    last_real_progress: float,
+    member_timeout_seconds: float,
+    liveness_seconds: float,
+    progress_stale_seconds: float,
+) -> str | None:
+    if now - started > member_timeout_seconds:
+        return "member_timeout"
+    if now - last_heartbeat > liveness_seconds:
+        return "heartbeat_stale"
+    if now - last_real_progress > progress_stale_seconds:
+        return "real_progress_stale"
+    return None
 
 
 def atomic_json(path: Path, value: Any) -> None:
@@ -142,6 +257,7 @@ def process_gotham_member_sparse(
     member: str,
     matcher: ckbu.TargetMatcher,
     progress_every: int,
+    reporter: MemberProgressReporter | None = None,
 ) -> dict[str, Any]:
     builder = ckbu.CausalFeatureBuilder()
     decoded = 0
@@ -149,6 +265,12 @@ def process_gotham_member_sparse(
     timestamp_violations = 0
     previous = -math.inf
     started = time.monotonic()
+    if reporter is not None:
+        reporter.publish(
+            phase="scanning",
+            decoded_events=decoded,
+            sparse_feature_emits=emitted,
+        )
     print(f"CKBV_MEMBER_START member={member}", flush=True)
     for position, row in enumerate(rows):
         event = ckbu.event_from_tshark(row)
@@ -168,6 +290,12 @@ def process_gotham_member_sparse(
             matcher.observe(member, position, event, feature, src_id, dst_id)
         decoded += 1
         if progress_every > 0 and decoded % progress_every == 0:
+            if reporter is not None:
+                reporter.publish(
+                    phase="scanning",
+                    decoded_events=decoded,
+                    sparse_feature_emits=emitted,
+                )
             elapsed = max(time.monotonic() - started, 1e-9)
             print(
                 "CKBV_MEMBER_PROGRESS "
@@ -176,6 +304,12 @@ def process_gotham_member_sparse(
                 flush=True,
             )
     elapsed = time.monotonic() - started
+    if reporter is not None:
+        reporter.publish(
+            phase="scan_complete",
+            decoded_events=decoded,
+            sparse_feature_emits=emitted,
+        )
     print(
         "CKBV_MEMBER_SCAN_COMPLETE "
         f"member={member} decoded={decoded} sparse_emits={emitted} "
@@ -343,120 +477,148 @@ def materialize_gotham_member(args: argparse.Namespace) -> None:
     if reason != "missing_pair":
         raise RuntimeError(f"invalid existing member checkpoint: {index}: {reason}")
 
-    targets = ckbu.load_target_indices([Path(path) for path in args.targets])
-    source = str(row["source_group"])
-    if source not in targets:
-        raise RuntimeError(f"member source has no frozen targets: {source}")
-    started = time.time()
-    with zipfile.ZipFile(Path(args.gotham_zip)) as archive:
-        member = str(row["archive_member"])
-        info = archive.getinfo(member)
-        if (
-            int(info.CRC) != int(row["archive_crc32"])
-            or int(info.file_size) != int(row["uncompressed_bytes"])
-        ):
-            raise RuntimeError(f"archive member identity drift: {member}")
-        fingerprints = ckbu.read_gotham_target_fingerprints(
-            archive, source, targets[source]
+    reporter = (
+        MemberProgressReporter(
+            Path(args.progress_state), row, float(args.heartbeat_seconds)
         )
-        matcher = ckbu.TargetMatcher(
-            fingerprints, int(args.alignment_tolerance_us)
-        )
-        audit = process_gotham_member_sparse(
-            ckbu.iter_tshark_rows(
-                args.tshark, archive=archive, member=member
-            ),
-            member,
-            matcher,
-            int(args.progress_every),
-        )
-    if matcher.ambiguous:
-        recorded = [
-            fingerprints[item].recorded_index for item in sorted(matcher.ambiguous)
-        ]
-        raise RuntimeError(
-            f"ambiguous target alignment within member {member}: {recorded[:8]}"
-        )
-    selected: list[dict[str, Any]] = []
-    for target_index, values in matcher.matches.items():
-        raw, position, feature, available, src_id, dst_id = values
-        target = fingerprints[target_index]
-        selected.append(
-            {
-                "recorded_index": int(target.recorded_index),
-                "feature_available_time_epoch": float(available),
-                "target_event_position_within_capture": int(position),
-                "src_local_id": int(src_id),
-                "dst_local_id": int(dst_id),
-                "feature": np.asarray(feature, dtype=np.float32),
-                "raw_source_path": str(raw),
-            }
-        )
-    selected.sort(key=lambda item: int(item["recorded_index"]))
-    if selected:
-        features = np.vstack([item["feature"] for item in selected]).astype(
-            np.float32
-        )
-    else:
-        features = np.empty((0, len(ckbu.FEATURE_NAMES)), dtype=np.float32)
-    npz, meta = member_paths(Path(args.member_cache), str(row["member_cache_key"]))
-    atomic_npz(
-        npz,
-        recorded_index=np.asarray(
-            [item["recorded_index"] for item in selected], dtype=np.int64
-        ),
-        feature_available_time_epoch=np.asarray(
-            [item["feature_available_time_epoch"] for item in selected],
-            dtype=np.float64,
-        ),
-        target_event_position_within_capture=np.asarray(
-            [item["target_event_position_within_capture"] for item in selected],
-            dtype=np.int64,
-        ),
-        src_local_id=np.asarray(
-            [item["src_local_id"] for item in selected], dtype=np.int32
-        ),
-        dst_local_id=np.asarray(
-            [item["dst_local_id"] for item in selected], dtype=np.int32
-        ),
-        causal_features=features,
-        feature_names=np.asarray(ckbu.FEATURE_NAMES),
-        raw_source_path=np.asarray(
-            [item["raw_source_path"] for item in selected]
-        ),
+        if args.progress_state is not None
+        else None
     )
-    summary = {
-        "status": MEMBER_STATUS,
-        "source_group": source,
-        "source_cache_key": str(row["source_cache_key"]),
-        "archive_member": str(row["archive_member"]),
-        "member_cache_key": str(row["member_cache_key"]),
-        "archive_crc32": int(row["archive_crc32"]),
-        "uncompressed_bytes": int(row["uncompressed_bytes"]),
-        "compressed_bytes": int(row["compressed_bytes"]),
-        "member_plan_sha256": member_plan_sha256,
-        "matched_target_rows": len(selected),
-        "matched_recorded_indices": [
-            int(item["recorded_index"]) for item in selected
-        ],
-        "capture_audit": audit,
-        "cache_npz": str(npz),
-        "cache_sha256": ckbu.sha256_file(npz),
-        "feature_schema": ckbu.FEATURE_NAMES,
-        "feature_schema_dim": len(ckbu.FEATURE_NAMES),
-        "feature_available_time_recorded": True,
-        "score_before_update": True,
-        "fresh_source_reset": True,
-        "raw_label_column_read": False,
-        "execution_only_sparse_emit": True,
-        "scientific_protocol_changed": False,
-        "seconds": time.time() - started,
-    }
-    atomic_json(meta, summary)
-    valid, reason = validate_member_pair(row, Path(args.member_cache), member_plan_sha256)
-    if not valid:
-        raise RuntimeError(f"new member checkpoint failed validation: {reason}")
-    print(json.dumps(summary, indent=2, sort_keys=True), flush=True)
+    try:
+        if reporter is not None:
+            reporter.publish(phase="loading_frozen_targets")
+        targets = ckbu.load_target_indices([Path(path) for path in args.targets])
+        source = str(row["source_group"])
+        if source not in targets:
+            raise RuntimeError(f"member source has no frozen targets: {source}")
+        started = time.time()
+        with zipfile.ZipFile(Path(args.gotham_zip)) as archive:
+            member = str(row["archive_member"])
+            info = archive.getinfo(member)
+            if (
+                int(info.CRC) != int(row["archive_crc32"])
+                or int(info.file_size) != int(row["uncompressed_bytes"])
+            ):
+                raise RuntimeError(f"archive member identity drift: {member}")
+            if reporter is not None:
+                reporter.publish(phase="loading_target_fingerprints")
+            fingerprints = ckbu.read_gotham_target_fingerprints(
+                archive, source, targets[source]
+            )
+            matcher = ckbu.TargetMatcher(
+                fingerprints, int(args.alignment_tolerance_us)
+            )
+            audit = process_gotham_member_sparse(
+                ckbu.iter_tshark_rows(
+                    args.tshark, archive=archive, member=member
+                ),
+                member,
+                matcher,
+                int(args.progress_every),
+                reporter,
+            )
+        if reporter is not None:
+            reporter.publish(
+                phase="validating_alignment",
+                decoded_events=int(audit["decoded_events"]),
+                sparse_feature_emits=int(audit["sparse_feature_emits"]),
+            )
+        if matcher.ambiguous:
+            recorded = [
+                fingerprints[item].recorded_index for item in sorted(matcher.ambiguous)
+            ]
+            raise RuntimeError(
+                f"ambiguous target alignment within member {member}: {recorded[:8]}"
+            )
+        selected: list[dict[str, Any]] = []
+        for target_index, values in matcher.matches.items():
+            raw, position, feature, available, src_id, dst_id = values
+            target = fingerprints[target_index]
+            selected.append(
+                {
+                    "recorded_index": int(target.recorded_index),
+                    "feature_available_time_epoch": float(available),
+                    "target_event_position_within_capture": int(position),
+                    "src_local_id": int(src_id),
+                    "dst_local_id": int(dst_id),
+                    "feature": np.asarray(feature, dtype=np.float32),
+                    "raw_source_path": str(raw),
+                }
+            )
+        selected.sort(key=lambda item: int(item["recorded_index"]))
+        if selected:
+            features = np.vstack([item["feature"] for item in selected]).astype(
+                np.float32
+            )
+        else:
+            features = np.empty((0, len(ckbu.FEATURE_NAMES)), dtype=np.float32)
+        if reporter is not None:
+            reporter.publish(phase="writing_atomic_checkpoint")
+        npz, meta = member_paths(Path(args.member_cache), str(row["member_cache_key"]))
+        atomic_npz(
+            npz,
+            recorded_index=np.asarray(
+                [item["recorded_index"] for item in selected], dtype=np.int64
+            ),
+            feature_available_time_epoch=np.asarray(
+                [item["feature_available_time_epoch"] for item in selected],
+                dtype=np.float64,
+            ),
+            target_event_position_within_capture=np.asarray(
+                [item["target_event_position_within_capture"] for item in selected],
+                dtype=np.int64,
+            ),
+            src_local_id=np.asarray(
+                [item["src_local_id"] for item in selected], dtype=np.int32
+            ),
+            dst_local_id=np.asarray(
+                [item["dst_local_id"] for item in selected], dtype=np.int32
+            ),
+            causal_features=features,
+            feature_names=np.asarray(ckbu.FEATURE_NAMES),
+            raw_source_path=np.asarray(
+                [item["raw_source_path"] for item in selected]
+            ),
+        )
+        summary = {
+            "status": MEMBER_STATUS,
+            "source_group": source,
+            "source_cache_key": str(row["source_cache_key"]),
+            "archive_member": str(row["archive_member"]),
+            "member_cache_key": str(row["member_cache_key"]),
+            "archive_crc32": int(row["archive_crc32"]),
+            "uncompressed_bytes": int(row["uncompressed_bytes"]),
+            "compressed_bytes": int(row["compressed_bytes"]),
+            "member_plan_sha256": member_plan_sha256,
+            "matched_target_rows": len(selected),
+            "matched_recorded_indices": [
+                int(item["recorded_index"]) for item in selected
+            ],
+            "capture_audit": audit,
+            "cache_npz": str(npz),
+            "cache_sha256": ckbu.sha256_file(npz),
+            "feature_schema": ckbu.FEATURE_NAMES,
+            "feature_schema_dim": len(ckbu.FEATURE_NAMES),
+            "feature_available_time_recorded": True,
+            "score_before_update": True,
+            "fresh_source_reset": True,
+            "raw_label_column_read": False,
+            "execution_only_sparse_emit": True,
+            "scientific_protocol_changed": False,
+            "seconds": time.time() - started,
+        }
+        atomic_json(meta, summary)
+        valid, reason = validate_member_pair(
+            row, Path(args.member_cache), member_plan_sha256
+        )
+        if not valid:
+            raise RuntimeError(f"new member checkpoint failed validation: {reason}")
+        if reporter is not None:
+            reporter.publish(phase="checkpoint_complete")
+        print(json.dumps(summary, indent=2, sort_keys=True), flush=True)
+    finally:
+        if reporter is not None:
+            reporter.close()
 
 
 def validate_source_pair(row: dict[str, Any], cache: Path) -> tuple[bool, str]:
@@ -622,6 +784,10 @@ def run_member_subprocess(
     log_dir = Path(args.out) / "member_logs"
     log_dir.mkdir(parents=True, exist_ok=True)
     log = log_dir / f"{index:04d}_{row['member_cache_key']}.log"
+    progress_state = (
+        log_dir / f"{index:04d}_{row['member_cache_key']}.progress.json"
+    )
+    progress_state.unlink(missing_ok=True)
     command = [
         sys.executable,
         "-u",
@@ -642,6 +808,10 @@ def run_member_subprocess(
         str(args.alignment_tolerance_us),
         "--progress-every",
         str(args.progress_every),
+        "--progress-state",
+        str(progress_state),
+        "--heartbeat-seconds",
+        str(args.heartbeat_seconds),
     ]
     for target in args.targets:
         command.extend(["--targets", str(target)])
@@ -653,26 +823,47 @@ def run_member_subprocess(
             stderr=subprocess.STDOUT,
             start_new_session=(os.name == "posix"),
         )
-        last_size = 0
-        last_progress = time.monotonic()
+        last_heartbeat_sequence: int | None = None
+        last_progress_token: tuple[str, int, int] | None = None
+        last_heartbeat = time.monotonic()
+        last_real_progress = time.monotonic()
         while process.poll() is None:
             time.sleep(5)
-            size = log.stat().st_size if log.exists() else 0
-            if size != last_size:
-                last_size = size
-                last_progress = time.monotonic()
-            elapsed = time.monotonic() - started
-            if elapsed > float(args.member_timeout_seconds):
-                terminate_process_group(process)
-                raise RuntimeError(
-                    f"member timeout after {elapsed:.1f}s: "
-                    f"{row['archive_member']} log={log}"
+            now = time.monotonic()
+            state = read_member_progress_state(progress_state, row)
+            if state is not None:
+                heartbeat_sequence = int(state["heartbeat_sequence"])
+                if heartbeat_sequence != last_heartbeat_sequence:
+                    last_heartbeat_sequence = heartbeat_sequence
+                    last_heartbeat = now
+                progress_token = (
+                    str(state["phase"]),
+                    int(state["decoded_events"]),
+                    int(state["sparse_feature_emits"]),
                 )
-            if time.monotonic() - last_progress > float(args.stale_seconds):
+                if progress_token != last_progress_token:
+                    last_progress_token = progress_token
+                    last_real_progress = now
+            reason = worker_watchdog_reason(
+                now=now,
+                started=started,
+                last_heartbeat=last_heartbeat,
+                last_real_progress=last_real_progress,
+                member_timeout_seconds=float(args.member_timeout_seconds),
+                liveness_seconds=float(args.liveness_seconds),
+                progress_stale_seconds=float(args.stale_seconds),
+            )
+            if reason is not None:
                 terminate_process_group(process)
                 raise RuntimeError(
-                    f"member progress stale for {args.stale_seconds}s: "
-                    f"{row['archive_member']} log={log}"
+                    f"member watchdog {reason}: "
+                    f"member={row['archive_member']} "
+                    f"phase={None if state is None else state['phase']} "
+                    f"decoded={None if state is None else state['decoded_events']} "
+                    f"heartbeat_age={now-last_heartbeat:.1f}s "
+                    f"real_progress_age={now-last_real_progress:.1f}s "
+                    f"elapsed={now-started:.1f}s log={log} "
+                    f"progress_state={progress_state}"
                 )
         code = int(process.returncode or 0)
     if code:
@@ -1648,6 +1839,48 @@ def run_ton_files(args: argparse.Namespace) -> None:
 
 
 def unit_tests() -> dict[str, Any]:
+    watchdog_base = 10_000.0
+    if worker_watchdog_reason(
+        now=watchdog_base + 299.0,
+        started=watchdog_base,
+        last_heartbeat=watchdog_base,
+        last_real_progress=watchdog_base,
+        member_timeout_seconds=14_400.0,
+        liveness_seconds=300.0,
+        progress_stale_seconds=3_600.0,
+    ) is not None:
+        raise RuntimeError("live quiet worker was rejected before liveness gate")
+    if worker_watchdog_reason(
+        now=watchdog_base + 301.0,
+        started=watchdog_base,
+        last_heartbeat=watchdog_base,
+        last_real_progress=watchdog_base + 250.0,
+        member_timeout_seconds=14_400.0,
+        liveness_seconds=300.0,
+        progress_stale_seconds=3_600.0,
+    ) != "heartbeat_stale":
+        raise RuntimeError("missing worker heartbeat was not rejected")
+    if worker_watchdog_reason(
+        now=watchdog_base + 3_601.0,
+        started=watchdog_base,
+        last_heartbeat=watchdog_base + 3_590.0,
+        last_real_progress=watchdog_base,
+        member_timeout_seconds=14_400.0,
+        liveness_seconds=300.0,
+        progress_stale_seconds=3_600.0,
+    ) != "real_progress_stale":
+        raise RuntimeError("live but non-progressing worker was not rejected")
+    if worker_watchdog_reason(
+        now=watchdog_base + 3_601.0,
+        started=watchdog_base,
+        last_heartbeat=watchdog_base + 3_590.0,
+        last_real_progress=watchdog_base + 3_590.0,
+        member_timeout_seconds=14_400.0,
+        liveness_seconds=300.0,
+        progress_stale_seconds=3_600.0,
+    ) is not None:
+        raise RuntimeError("real decoded/phase progress did not reset watchdog")
+
     base = 1_000.0
     events = [
         ckbu.synthetic_event(base + index * 0.017, f"n{index % 4}", f"n{(index + 1) % 5}", stream=index % 7)
@@ -1719,6 +1952,35 @@ def unit_tests() -> dict[str, Any]:
 
     with tempfile.TemporaryDirectory() as temporary:
         root = Path(temporary)
+        reporter_row = {
+            "member_index": 7,
+            "member_cache_key": "fixture-key",
+            "archive_member": "fixture.pcap",
+        }
+        reporter_path = root / "progress.json"
+        reporter = MemberProgressReporter(
+            reporter_path, reporter_row, heartbeat_seconds=60.0
+        )
+        reporter.publish(
+            phase="scanning", decoded_events=25_000, sparse_feature_emits=3
+        )
+        reporter.close()
+        reporter_state = read_member_progress_state(
+            reporter_path, reporter_row
+        )
+        if (
+            reporter_state is None
+            or reporter_state["phase"] != "scanning"
+            or int(reporter_state["decoded_events"]) != 25_000
+            or int(reporter_state["progress_revision"]) < 1
+        ):
+            raise RuntimeError("atomic member progress state contract failed")
+        if read_member_progress_state(
+            reporter_path,
+            {**reporter_row, "member_cache_key": "wrong-key"},
+        ) is not None:
+            raise RuntimeError("foreign member progress state was accepted")
+
         heterogeneous_audit = root / "heterogeneous_audit.csv"
         atomic_union_csv(
             heterogeneous_audit,
@@ -1872,6 +2134,10 @@ def unit_tests() -> dict[str, Any]:
         "unsafe_terminal_truncation_rejected": True,
         "heterogeneous_audit_union_schema_tested": True,
         "size_range_calibration_includes_largest": True,
+        "worker_heartbeat_separate_from_real_progress": True,
+        "heartbeat_stall_rejected": True,
+        "real_progress_stall_rejected": True,
+        "atomic_member_progress_state_tested": True,
         "raw_label_column_read": False,
     }
 
@@ -1906,7 +2172,10 @@ def main() -> None:
     parser.add_argument("--max-workers", type=int, default=4)
     parser.add_argument("--member-timeout-seconds", type=int, default=14_400)
     parser.add_argument("--ton-file-timeout-seconds", type=int, default=21_600)
-    parser.add_argument("--stale-seconds", type=int, default=1_800)
+    parser.add_argument("--stale-seconds", type=int, default=3_600)
+    parser.add_argument("--liveness-seconds", type=int, default=300)
+    parser.add_argument("--heartbeat-seconds", type=float, default=60.0)
+    parser.add_argument("--progress-state", type=Path)
     parser.add_argument("--available-seconds", type=int, default=108_000)
     parser.add_argument("--projection-safety-factor", type=float, default=2.0)
     parser.add_argument("--ton-pilot-dir", type=Path)

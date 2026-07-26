@@ -1,7 +1,7 @@
 param(
     [string]$RepoRoot = 'D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline',
     [string]$TransferRoot = 'D:\study\paper\anomaly_detection\paper04\supercompute_transfer',
-    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260726_r7'
+    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260726_r8'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -201,6 +201,54 @@ foreach ($relative in $checksumFiles) {
 }
 
 $payloadOod = Join-Path $verifiedStage 'payload\repo\ood'
+$verifiedCheckpoint = Join-Path $payloadOod 'issue27ckbv_checkpointed_sparse_process_frontend_v1.py'
+$verifiedSlurm = Join-Path $verifiedStage 'payload\scripts\issue27ckbv_checkpointed_process_formal.slurm'
+$verifiedInstaller = Join-Path $verifiedStage 'payload\scripts\issue27ckbv_install_and_submit_dual.sh'
+$checkpointText = [System.IO.File]::ReadAllText($verifiedCheckpoint)
+$slurmText = [System.IO.File]::ReadAllText($verifiedSlurm)
+$installerText = [System.IO.File]::ReadAllText($verifiedInstaller)
+foreach ($required in @(
+    'MEMBER_PROGRESS_STATUS = "CKBV_MEMBER_PROGRESS_STATE_V1"',
+    'worker_watchdog_reason(',
+    '--progress-state',
+    '--heartbeat-seconds'
+)) {
+    if (-not $checkpointText.Contains($required)) {
+        throw "Clean-extract worker-watchdog contract missing: $required"
+    }
+}
+$memberWatchdogStart = $checkpointText.IndexOf('def run_member_subprocess(')
+$memberWatchdogEnd = $checkpointText.IndexOf(
+    'def run_batch(',
+    $memberWatchdogStart
+)
+if ($memberWatchdogStart -lt 0 -or $memberWatchdogEnd -le $memberWatchdogStart) {
+    throw 'Cannot isolate clean-extract Gotham member watchdog implementation'
+}
+$memberWatchdogText = $checkpointText.Substring(
+    $memberWatchdogStart,
+    $memberWatchdogEnd - $memberWatchdogStart
+)
+if ($memberWatchdogText.Contains('if size != last_size:')) {
+    throw 'Retired log-size-only Gotham watchdog returned in clean extraction'
+}
+foreach ($required in @(
+    'GOTHAM_WORKERS=${CKBV_GOTHAM_WORKERS:-2}',
+    '--member-timeout-seconds 14400 --stale-seconds 3600',
+    '--liveness-seconds 300 --heartbeat-seconds 60'
+)) {
+    if (-not $slurmText.Contains($required)) {
+        throw "Clean-extract Slurm runtime guard missing: $required"
+    }
+}
+foreach ($required in @(
+    'seed27_amd_154606',
+    'seed27_intel_154607'
+)) {
+    if (-not $installerText.Contains($required)) {
+        throw "Clean-extract validated checkpoint donor missing: $required"
+    }
+}
 $unexpectedPaths = Get-ChildItem -LiteralPath $verifiedStage -Recurse -Force |
     Where-Object {
         $_.FullName -match '([\\/])(\.git|__pycache__|datasets|wheelhouse|env)([\\/]|$)' -or

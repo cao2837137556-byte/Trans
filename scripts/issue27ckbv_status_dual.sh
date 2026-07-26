@@ -32,18 +32,17 @@ for item in "amd:$AMD" "intel:$INTEL"; do
 
   if test -s "$root/job_failure.txt"; then
     cat "$root/job_failure.txt"
-    for log in \
-      "$root/auxiliary_checkpoint_stage.log" \
-      "$root/ton_checkpoint_stage.log" \
-      "$root/gotham_checkpoint_stage.log"; do
-      test ! -s "$log" || {
-        echo "--- $(basename "$log") ---"
-        tail -n 80 "$log"
-      }
-    done
-    echo "--- Slurm stderr ---"
-    tail -n 100 "$BASE/runs/issue27ckbv_${partition}_${job}.err" \
+    echo "--- concise failure cause ---"
+    grep -RhE \
+      'RuntimeError:|ValueError:|AssertionError:|member watchdog|subprocess failed|timeout|returned without valid checkpoint' \
+      "$root"/*.log "$root/member_logs" "$root/ton_file_logs" \
+      2>/dev/null | tail -n 12 || true
+    tail -n 12 "$BASE/runs/issue27ckbv_${partition}_${job}.err" \
       2>/dev/null || true
+    echo "Set CKBV_STATUS_VERBOSE=1 and inspect the named log only if needed."
+    if test "${CKBV_STATUS_VERBOSE:-0}" = 1; then
+      tail -n 120 "$root/gotham_checkpoint_stage.log" 2>/dev/null || true
+    fi
     continue
   fi
 
@@ -72,6 +71,20 @@ for item in "amd:$AMD" "intel:$INTEL"; do
     2>/dev/null || true
 
   echo "--- latest real progress ---"
+  find "$root/member_logs" -maxdepth 1 -name '*.progress.json' \
+    -type f -printf '%T@ %p\n' 2>/dev/null |
+    sort -nr | head -n 4 | while read -r _ path; do
+      python - "$path" <<'PY'
+import json
+import sys
+value = json.load(open(sys.argv[1], encoding="utf-8"))
+print(
+    "member_progress "
+    f"index={value['member_index']} phase={value['phase']} "
+    f"decoded={value['decoded_events']} heartbeat={value['heartbeat_sequence']}"
+)
+PY
+    done
   find "$root/member_logs" "$root/ton_file_logs" \
     -maxdepth 1 -type f -printf '%T@ %TY-%Tm-%TdT%TH:%TM:%TS %s %p\n' \
     2>/dev/null |

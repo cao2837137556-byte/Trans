@@ -324,3 +324,56 @@ The correction changes only audit CSV serialization and reuse routing. It does
 not change rows, features, labels, target alignment, fit/select/report roles,
 model, score, gate, threshold, seed, or metric. Gotham preprocessing and the
 formal model still require compute.
+
+## 9. CKBV log-only watchdog observability failure
+
+Observed on 2026-07-26:
+
+- AMD job `154606` and Intel job `154607` independently reached
+  `gotham_member_checkpoints`.
+- Both reused all 31 auxiliary caches and all four legal ToN file checkpoints,
+  and each committed six valid Gotham member checkpoints.
+- Both failed after about 44 minutes on the same two large archive members with
+  `member progress stale for 900s`.
+- At failure, MaxRSS was about 12.6 GiB on AMD and 11.0 GiB on Intel, below the
+  16 GiB request. Neither job reached formal training or produced scientific
+  metrics.
+
+Classification: `RUNTIME_FAILURE`, specifically
+`WATCHDOG_UNOBSERVABLE_STATE`, with a secondary
+`CONCURRENCY_PRESSURE_RISK`. The parent treated any unchanged log size as
+proof of no work. The retained evidence cannot distinguish a live decoder,
+Python GC/I/O delay, checkpoint finalization, and a genuinely stalled child.
+Therefore it would be unjustified to label the event either a proven deadlock
+or a proven false positive. The deterministic cross-partition signature
+invalidates the old 900-second rule; it is not a scientific no-go.
+
+Valid artifacts: the six member checkpoints from each run, all 31 auxiliary
+caches, and all four ToN file checkpoints. Reuse remains conditional on the
+existing member/source identity, schema, raw-label, plan-hash, NPZ shape, and
+payload-hash validators. AMD `154606` is the first donor and Intel `154607` is
+an independent fallback donor.
+
+Permanent gate:
+
+1. Every member child atomically publishes a typed progress state containing
+   member identity, process ID, phase, decoded-event count, emit count,
+   heartbeat sequence, and progress revision.
+2. Parent supervision separates three limits: five minutes without a child
+   heartbeat, one hour without decoded-count or phase progress, and four hours
+   total member time. Log size is not a liveness signal.
+3. Phase transitions such as target loading, scanning, alignment validation,
+   atomic checkpoint writing, and completion count as real bounded progress;
+   repeating heartbeats alone do not reset the one-hour progress limit.
+4. Unit tests prove that a live quiet worker is retained, a missing heartbeat
+   is rejected, a live but non-progressing worker is rejected, real progress
+   resets the timer, and foreign progress-state files are rejected.
+5. Gotham extraction defaults to two workers. This is based on the observed
+   10.9--12.6 GiB four-worker MaxRSS and reduces memory/I/O contention while
+   remaining within the measured 8-CPU, 16-GiB allocation.
+6. The next run resumes validated checkpoints and does not repeat completed
+   auxiliary, ToN, or Gotham member work.
+
+The correction changes only execution supervision, concurrency, and reuse
+routing. It does not change the 51D schema, target rows, labels, fit/select/
+report roles, model, score, gate, threshold, seed, metrics, or review policy.

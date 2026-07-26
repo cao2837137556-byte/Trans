@@ -21,10 +21,12 @@ checkpoint:
 5. calibrate throughput on members spanning the size range and refuse the full
    dispatch unless the safety-adjusted projection fits within 75 percent of
    the post-reserve remaining allocation;
-6. terminate an individual member/file when it exceeds its time bound or
-   produces no progress record for 15 minutes;
-7. expose actual member/file completion, decoded-packet progress, CPU, memory,
-   disk I/O, failure phase, and stderr in the status command.
+6. supervise each Gotham member with separate atomic child heartbeats, decoded
+   or phase progress, and total-runtime bounds; repeating heartbeats do not
+   count as real progress;
+7. expose actual member/file completion, decoded-packet progress, worker
+   phase, CPU, memory, disk I/O, failure phase, and concise errors in the
+   status command.
 8. accept an incomplete terminal PCAP packet only under the exact prefix
    contract in the section below; all other TShark failures remain fatal.
 
@@ -76,8 +78,8 @@ selected row, feature, label, role, gate, threshold, model, or metric.
 
 ## Recovery and isolation
 
-The cancelled AMD 154081 run and failed AMD 154440 and 154478 runs are cache
-donors only.
+The cancelled AMD 154081 run and failed AMD 154440, 154478, 154606, and Intel
+154607 runs are cache donors only.
 Every cache is reused only after source identity, target count, completion
 flag, raw-label=false, SHA-256, feature names, input identity, and NPZ shape
 validate. Job 154081 contributes 31/31 auxiliary caches and 1/30 Gotham source
@@ -85,8 +87,9 @@ cache. Job 154440 contributes the same validated auxiliary caches plus three
 complete ToN file checkpoints (`normal_1`, `normal_2`, and
 `normal_scanning1`). Job 154478 contributes all four complete legal ToN file
 checkpoints, including the safely closed `password_normal1` prefix, plus the
-same validated auxiliary caches. No scientific result from any incomplete run
-is accepted.
+same validated auxiliary caches. Jobs 154606 and 154607 each add six validated
+Gotham member checkpoints; AMD is the first donor and Intel is the fallback.
+No scientific result from any incomplete run is accepted.
 
 AMD and Intel submissions have independent run roots, logs, member caches,
 source caches, ToN caches, validation results, and pullback archives. Neither
@@ -96,11 +99,26 @@ cannot reuse and mix a partially written job-specific run root.
 
 ## Resource rationale
 
-Each job requests 8 CPUs, 16 GiB, and 36 hours. The failed run used about
-2.3 GiB MaxRSS, while four extraction workers each occupied a CPU. CKBV uses
-up to four Gotham workers or two ToN workers, followed by the unchanged formal
-model using the eight allocated CPUs. The requests are therefore bounded by
-observed use rather than inflated defaults.
+Each job requests 8 CPUs, 16 GiB, and 36 hours. The four-worker 154606/154607
+runs reached about 12.6/11.0 GiB MaxRSS. The corrected run therefore uses two
+Gotham workers or two ToN workers, followed by the unchanged formal model using
+the eight allocated CPUs. The requests are bounded by observed use while
+leaving memory and shared-I/O headroom.
+
+### Worker supervision correction
+
+Jobs 154606 and 154607 were killed by the old 900-second unchanged-log rule on
+the same two large PCAP members. That rule is retired. Each child now writes an
+atomic identity-bound progress state once per minute. The parent independently
+enforces:
+
+- no child heartbeat for 300 seconds: fail;
+- no decoded-event or phase progress for 3600 seconds: fail;
+- total member runtime over 14400 seconds: fail.
+
+This prevents a quiet but live decoder or checkpoint finalizer from being
+killed after 15 minutes while still bounding a genuinely stalled child. The
+progress-state and all watchdog branches are covered by local contract tests.
 
 ## Required outputs
 
