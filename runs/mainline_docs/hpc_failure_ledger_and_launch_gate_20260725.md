@@ -377,3 +377,71 @@ Permanent gate:
 The correction changes only execution supervision, concurrency, and reuse
 routing. It does not change the 51D schema, target rows, labels, fit/select/
 report roles, model, score, gate, threshold, seed, metrics, or review policy.
+
+## 10. CKBV data-driven Gotham member decode stall
+
+Observed on 2026-07-26:
+
+- AMD job `154620` and Intel job `154621` (bundle r8, commit `5bc53b8`)
+  resumed all donated caches, entered `gotham_member_checkpoints`, and both
+  failed with the new watchdog reason `real_progress_stale`.
+- Both partitions froze on the same member
+  `raw/malicious/mirai-dos/iotsim-building-monitor-1_0-0_to_OpenvSwitch-28_1-0.pcap`
+  (member index 0006, member log `0006_a44258a2b0e386d0ac15`, the first member
+  after the six donated checkpoints) at the identical progress boundary
+  `decoded_events=2375000` with a live heartbeat (ages 0.0 s and 5.0 s) and
+  `real_progress_age` just over 3600 s.
+- Member elapsed minus stale age places the stop about 185 s into the member
+  after a sustained rate of roughly 12.8k packets/s. The stop is abrupt, not a
+  gradual slowdown.
+
+Local forensic evidence (full record walk of the member inside the frozen
+local ZIP, 2026-07-26):
+
+- The member holds 5,354,325 packets (2.207 GB expanded); no truncated tail,
+  no malformed record, zero IP fragments; snaplen 65535, linktype EN10MB.
+- Packet composition changes exactly at the 2,375,000 boundary: before it a
+  single-pair UDP flood (67-byte packets, 192.168.17.10 to 192.168.18.10,
+  about 89k packets/s of capture time); the transition bucket contains a
+  54.4 s capture-time gap; after it a single-pair TCP flood with an RST storm
+  (3k--7k RST per 25k packets) continues to the end of the member (about 3.0M
+  packets). Roughly 1.5M GRE (protocol 47) packets appear earlier in the
+  member.
+- The four largest files in the entire frozen ZIP are the four mirai-dos
+  members (3.54/2.60/2.25/2.21 GB). The section 9 failure on "the same two
+  large archive members" is consistent with the same wall on two of them.
+
+Classification: `RUNTIME_FAILURE`, specifically `DATA_DRIVEN_DECODE_STALL`.
+The watchdog decision was correct: the typed progress state now proves a live
+child without real progress, which is exactly the evidence section 9 lacked.
+Four independent jobs across two rounds and two partitions stopped at the
+same packet boundary, so the stall is a deterministic property of the member
+content interacting with the decode path. The prime suspect is TShark
+stateful TCP tracking (the frozen field set requires `tcp.stream` and
+`tcp.analysis.*`, which force per-stream sequence analysis) applied to
+single-pair flood traffic. The Python target matcher is excluded because
+candidate lookup is a microsecond-exact dictionary probe and the UDP flood
+phase sustained full throughput under identical single-flow pressure. Raising
+watchdog limits again cannot fix this: the remaining ~3.0M flood packets at
+under 7 packets/s would take days for this member alone.
+
+Valid artifacts: unchanged donors from sections 7--9 plus any additional
+member checkpoints committed by `154620`/`154621` before failure (inventory
+pending pull-back). No formal model or scientific metric was produced.
+
+Permanent gate:
+
+1. Do not resubmit until bounded probes on the stalling member (control
+   range, stall range, stateless field set, candidate mitigation) identify
+   the stalling layer and demonstrate a mitigation that passes the stall
+   window at production throughput.
+2. Any decode-path change must preserve the frozen 51D contract: bit-exact
+   target-row equivalence against the current path on unaffected ranges, and
+   a preregistered documented equivalence argument for affected ranges,
+   before any formal run consumes it.
+3. Full-dispatch throughput projection must include a measured
+   post-mitigation rate for the mirai-dos members specifically, not only the
+   generic small/medium/large member classes.
+
+This section records a diagnosis and a gate only; no science-facing row,
+feature, label, role, model, threshold, seed, or metric changed.
