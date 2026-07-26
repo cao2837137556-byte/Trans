@@ -252,6 +252,250 @@ def sparse_selected_transform(
     return selected
 
 
+class _RingMirror:
+    """Growable ring mirror of one frozen deque as parallel numpy columns.
+
+    Popped views are only valid until the next ``append`` (compaction may
+    move the live region); callers consume them immediately.
+    """
+
+    def __init__(self, spec: dict[str, Any], capacity: int = 1024) -> None:
+        self.spec = dict(spec)
+        self.capacity = int(capacity)
+        self.head = 0
+        self.tail = 0
+        self.columns = {
+            name: np.empty(self.capacity, dtype=dtype)
+            for name, dtype in self.spec.items()
+        }
+
+    def __len__(self) -> int:
+        return self.tail - self.head
+
+    def _reserve(self) -> None:
+        if self.tail < self.capacity:
+            return
+        live = len(self)
+        capacity = self.capacity
+        while live * 2 > capacity:
+            capacity *= 2
+        for name, column in self.columns.items():
+            if capacity == self.capacity:
+                column[:live] = column[self.head : self.tail]
+            else:
+                fresh = np.empty(capacity, dtype=self.spec[name])
+                fresh[:live] = column[self.head : self.tail]
+                self.columns[name] = fresh
+        self.capacity = capacity
+        self.head = 0
+        self.tail = live
+
+    def append(self, **values: Any) -> None:
+        self._reserve()
+        for name, value in values.items():
+            self.columns[name][self.tail] = value
+        self.tail += 1
+
+    def popleft(self, count: int) -> dict[str, np.ndarray]:
+        count = max(int(count), 0)
+        popped = {
+            name: column[self.head : self.head + count]
+            for name, column in self.columns.items()
+        }
+        self.head += count
+        return popped
+
+    def view(self, name: str) -> np.ndarray:
+        return self.columns[name][self.head : self.tail]
+
+
+class FastCausalState:
+    """Bit-exact accelerated execution of the frozen per-event triple.
+
+    Failure-ledger section 10: the frozen ``emit`` rescans the entire
+    60-second source/endpoint history per candidate, which is O(history) per
+    emit and collapses inside single-pair floods (measured 0.92 s per emit at
+    2.38M live entries on the mirai-dos member). This wrapper maintains numpy
+    mirrors of exactly the entries the frozen deques hold and evaluates the
+    same window predicates with vectorized passes, in the same operand order,
+    so every emitted 51D vector is bit-identical to
+    ``CausalFeatureBuilder.emit``; the unit suite asserts this on adversarial
+    streams. The frozen frontend module itself stays byte-identical.
+    """
+
+    def __init__(self, builder: ckbu.CausalFeatureBuilder) -> None:
+        if builder.source_times or builder.endpoints:
+            raise RuntimeError("FastCausalState requires a fresh builder")
+        self.builder = builder
+        self.source_mirror = _RingMirror({"time": np.float64})
+        self.endpoint_mirrors: dict[str, dict[str, Any]] = {}
+
+    def _endpoint_mirror(self, src: str) -> dict[str, Any]:
+        mirror = self.endpoint_mirrors.get(src)
+        if mirror is None:
+            mirror = {
+                "ring": _RingMirror(
+                    {
+                        "time": np.float64,
+                        "peer": np.int64,
+                        "port": np.int64,
+                        "syn": np.int8,
+                        "rst": np.int8,
+                    }
+                ),
+                "peer_ids": {},
+                "syn_total": 0,
+                "rst_total": 0,
+            }
+            self.endpoint_mirrors[src] = mirror
+        return mirror
+
+    def _prune(
+        self, event: ckbu.PacketEvent
+    ) -> tuple[ckbu.EndpointState, dict[str, Any]]:
+        builder = self.builder
+        before = len(builder.source_times)
+        builder._prune_times(builder.source_times, event.timestamp)
+        self.source_mirror.popleft(before - len(builder.source_times))
+        endpoint = builder.endpoints.setdefault(event.src, ckbu.EndpointState())
+        mirror = self._endpoint_mirror(event.src)
+        before = len(endpoint.recent)
+        builder._prune_endpoint(endpoint.recent, event.timestamp)
+        popped = mirror["ring"].popleft(before - len(endpoint.recent))
+        if popped["syn"].size:
+            mirror["syn_total"] -= int(popped["syn"].sum())
+            mirror["rst_total"] -= int(popped["rst"].sum())
+        return endpoint, mirror
+
+    def prune(self, event: ckbu.PacketEvent) -> None:
+        self._prune(event)
+
+    def update(self, event: ckbu.PacketEvent) -> tuple[int, int]:
+        result = self.builder.update(event)
+        self.source_mirror.append(time=event.timestamp)
+        mirror = self._endpoint_mirror(event.src)
+        peer_ids = mirror["peer_ids"]
+        peer = peer_ids.get(event.dst)
+        if peer is None:
+            peer = len(peer_ids)
+            peer_ids[event.dst] = peer
+        mirror["ring"].append(
+            time=event.timestamp,
+            peer=peer,
+            port=event.dst_port,
+            syn=int(event.tcp_syn),
+            rst=int(event.tcp_rst),
+        )
+        mirror["syn_total"] += int(event.tcp_syn)
+        mirror["rst_total"] += int(event.tcp_rst)
+        return result
+
+    def emit(self, event: ckbu.PacketEvent) -> np.ndarray:
+        if not math.isfinite(event.timestamp):
+            raise RuntimeError("nonfinite current event timestamp")
+        builder = self.builder
+        endpoint, mirror = self._prune(event)
+        pair = builder.pairs.get(event.directed_pair, ckbu.PairState())
+        reverse = builder.pairs.get(event.reverse_pair, ckbu.PairState())
+        flow = builder.flows.get(event.flow_key)
+
+        # Same predicate and operand order as the frozen emit:
+        # ``event.timestamp - stamp <= window``.
+        source_ages = event.timestamp - self.source_mirror.view("time")
+        source_rates = [
+            int(np.count_nonzero(source_ages <= window)) / window
+            for window in ckbu.WINDOWS_SECONDS
+        ]
+        ring = mirror["ring"]
+        ages = event.timestamp - ring.view("time")
+        peers = ring.view("peer")
+        ports = ring.view("port")
+        unique_peers = []
+        unique_ports = []
+        for window in ckbu.WINDOWS_SECONDS:
+            inside = ages <= window
+            unique_peers.append(
+                float(int(np.count_nonzero(np.bincount(peers[inside]))))
+            )
+            port_inside = inside & (ports > 0)
+            unique_ports.append(
+                float(int(np.count_nonzero(np.bincount(ports[port_inside]))))
+            )
+        total = len(endpoint.recent)
+        syn_rate = float(mirror["syn_total"] / total) if total else 0.0
+        rst_rate = float(mirror["rst_total"] / total) if total else 0.0
+
+        flow_packets = flow.packets if flow else 0
+        flow_elapsed = event.timestamp - flow.first_time if flow else 0.0
+        vector = np.asarray(
+            [
+                math.log1p(event.frame_len),
+                float(event.ip_version == 4),
+                float(event.ip_version == 6),
+                float(event.is_tcp),
+                float(event.is_udp),
+                float(event.is_icmp),
+                ckbu.port_class(event.src_port),
+                ckbu.port_class(event.dst_port),
+                float(0 < event.dst_port <= 1023),
+                float(event.tcp_syn),
+                float(event.tcp_ack),
+                float(event.tcp_rst),
+                float(event.tcp_fin),
+                float(event.retransmission),
+                float(event.lost_segment),
+                math.log1p(event.tcp_stream_pnum),
+                ckbu.log_ms(event.tcp_time_relative),
+                ckbu.log_ms(event.tcp_time_delta),
+                math.log1p(builder.source_count),
+                ckbu.log_ms(
+                    None
+                    if builder.source_last is None
+                    else event.timestamp - builder.source_last
+                ),
+                *source_rates,
+                math.log1p(endpoint.count),
+                ckbu.log_ms(
+                    None
+                    if endpoint.last_time is None
+                    else event.timestamp - endpoint.last_time
+                ),
+                *unique_peers,
+                *unique_ports,
+                syn_rate,
+                rst_rate,
+                math.log1p(pair.count),
+                math.log1p(reverse.count),
+                ckbu.log_ms(
+                    None if pair.last_time is None else event.timestamp - pair.last_time
+                ),
+                ckbu.log_ms(
+                    None
+                    if reverse.last_time is None
+                    else event.timestamp - reverse.last_time
+                ),
+                float(reverse.count > 0),
+                math.log1p(pair.bytes),
+                math.log1p(reverse.bytes),
+                math.log1p(flow_packets),
+                ckbu.log_ms(flow_elapsed),
+                math.log1p(flow.forward if flow else 0),
+                math.log1p(flow.reverse if flow else 0),
+                float(bool(flow and flow.forward and flow.reverse)),
+                float(bool(flow and flow.syn)),
+                float(bool(flow and flow.ack)),
+                float(bool(flow and flow.rst)),
+                float(bool(flow and flow.fin)),
+                math.log1p(flow.retransmission if flow else 0),
+                math.log1p(flow.lost_segment if flow else 0),
+            ],
+            dtype=np.float32,
+        )
+        if vector.shape != (len(ckbu.FEATURE_NAMES),) or not np.isfinite(vector).all():
+            raise RuntimeError(f"invalid causal feature vector: {vector.shape}")
+        return vector
+
+
 def process_gotham_member_sparse(
     rows: Iterable[dict[str, str]],
     member: str,
@@ -260,6 +504,7 @@ def process_gotham_member_sparse(
     reporter: MemberProgressReporter | None = None,
 ) -> dict[str, Any]:
     builder = ckbu.CausalFeatureBuilder()
+    fast = FastCausalState(builder)
     decoded = 0
     emitted = 0
     timestamp_violations = 0
@@ -280,12 +525,12 @@ def process_gotham_member_sparse(
         previous = max(previous, event.timestamp)
         candidates = matcher_candidates(matcher, event)
         if candidates:
-            feature = builder.emit(event)
+            feature = fast.emit(event)
             emitted += 1
         else:
-            prune_before_update(builder, event)
+            fast.prune(event)
             feature = None
-        src_id, dst_id = builder.update(event)
+        src_id, dst_id = fast.update(event)
         if feature is not None:
             matcher.observe(member, position, event, feature, src_id, dst_id)
         decoded += 1
@@ -1894,6 +2139,83 @@ def unit_tests() -> dict[str, Any]:
         if not np.array_equal(dense_features[position], sparse[position]):
             raise RuntimeError(f"sparse/dense feature drift at {position}")
 
+    # FastCausalState must reproduce the frozen emit bit-exactly on the
+    # adversarial patterns from ledger section 10: a single-pair UDP flood, a
+    # 54.4 s capture gap, a random-port ACK/RST flood, timestamp inversions,
+    # port 0, and the FIFO-prune quirk where a young head shields an expired
+    # deeper entry.
+    rng_fast = np.random.default_rng(1027)
+    fast_events: list[ckbu.PacketEvent] = []
+
+    def _raw_event(
+        ts: float, src: str, dst: str, proto: int, sport: int, dport: int,
+        syn: bool, ack: bool, rst: bool, length: int,
+    ) -> ckbu.PacketEvent:
+        return ckbu.PacketEvent(
+            frame_number=len(fast_events) + 1,
+            timestamp=ts, frame_len=length, src=src, dst=dst,
+            ip_version=4, ip_proto=proto, src_port=sport, dst_port=dport,
+            tcp_syn=syn, tcp_ack=ack, tcp_rst=rst, tcp_fin=False,
+            tcp_stream=(len(fast_events) % 97) if proto == 6 else -1,
+            udp_stream=(len(fast_events) % 89) if proto == 17 else -1,
+            tcp_stream_pnum=1, tcp_time_relative=0.0, tcp_time_delta=0.0,
+            tcp_connection_syn=syn, retransmission=False, lost_segment=False,
+        )
+
+    fast_stamp = 5_000.0
+    for index in range(600):
+        fast_stamp += float(rng_fast.choice([0.001, 0.02, 0.5, -0.004]))
+        fast_events.append(_raw_event(
+            fast_stamp, f"h{index % 5}", f"h{(index + 2) % 7}",
+            int(rng_fast.choice([6, 17, 1])),
+            int(rng_fast.integers(0, 65536)), int(rng_fast.integers(0, 65536)),
+            bool(rng_fast.integers(0, 2)), bool(rng_fast.integers(0, 2)),
+            bool(rng_fast.integers(0, 2)), int(rng_fast.integers(60, 1500)),
+        ))
+    for index in range(900):
+        fast_stamp += 0.000011
+        fast_events.append(_raw_event(
+            fast_stamp, "flood-src", "flood-dst", 17, 40000, 5683,
+            False, False, False, 67,
+        ))
+    fast_stamp += 54.4
+    for index in range(900):
+        fast_stamp += 0.000012
+        fast_events.append(_raw_event(
+            fast_stamp, "flood-src", "flood-dst", 6,
+            int(rng_fast.integers(1024, 65536)), 80,
+            False, True, bool(rng_fast.integers(0, 4) == 0), 470,
+        ))
+    quirk_base = fast_stamp + 10.0
+    fast_events.append(_raw_event(quirk_base, "quirk", "q1", 6, 1, 23, True, False, False, 60))
+    fast_events.append(_raw_event(quirk_base - 70.0, "quirk", "q2", 6, 2, 24, False, False, True, 60))
+    fast_events.append(_raw_event(quirk_base + 0.5, "quirk", "q3", 6, 0, 25, False, True, False, 60))
+
+    fast_selected = set(range(0, len(fast_events), 7)) | {
+        600, 601, 1500, 1501, len(fast_events) - 3,
+        len(fast_events) - 2, len(fast_events) - 1,
+    }
+    fast_reference = sparse_selected_transform(fast_events, fast_selected)
+    fast_builder = ckbu.CausalFeatureBuilder()
+    fast_state = FastCausalState(fast_builder)
+    for position, fast_event in enumerate(fast_events):
+        if position in fast_selected:
+            if fast_state.emit(fast_event).tobytes() != fast_reference[position].tobytes():
+                raise RuntimeError(f"fast emit drift at position {position}")
+        else:
+            fast_state.prune(fast_event)
+        fast_state.update(fast_event)
+    if len(fast_state.source_mirror) != len(fast_builder.source_times):
+        raise RuntimeError("fast source mirror desynchronized")
+    for src, mirror in fast_state.endpoint_mirrors.items():
+        recent = fast_builder.endpoints[src].recent
+        if len(mirror["ring"]) != len(recent):
+            raise RuntimeError(f"fast endpoint mirror desynchronized: {src}")
+        if mirror["syn_total"] != sum(item[3] for item in recent):
+            raise RuntimeError(f"fast syn counter desynchronized: {src}")
+        if mirror["rst_total"] != sum(item[4] for item in recent):
+            raise RuntimeError(f"fast rst counter desynchronized: {src}")
+
     expected_reservoir = []
     rng = np.random.default_rng(27)
     for index in range(100):
@@ -2123,6 +2445,8 @@ def unit_tests() -> dict[str, Any]:
         "status": "CKBV_CHECKPOINT_SPARSE_UNIT_PASS",
         "feature_dim": len(ckbu.FEATURE_NAMES),
         "sparse_dense_selected_rows_bit_exact": True,
+        "fast_emit_bit_exact_on_flood_gap_inversion_streams": True,
+        "fast_state_mirrors_synchronized": True,
         "score_before_update": True,
         "past_only_state_update_preserved": True,
         "member_checkpoint_atomic": True,

@@ -446,6 +446,61 @@ Permanent gate:
 This section records a diagnosis and a gate only; no science-facing row,
 feature, label, role, model, threshold, seed, or metric changed.
 
+### Section 10 outcome and root cause (2026-07-26, same day)
+
+Bounded compute-node probe (AMD job `154681`, run root
+`runs/issue27ckbv_stall_probe_amd_154681`, Intel copy cancelled by design):
+all twelve probes completed with `input_path_verdict=no_stall_reproduced`.
+The formal Python ZIP-producer -> TShark stdin path decoded 2,450,000
+packets in 76 s and every input path (producer, stdin pipe, extracted file),
+every field group (P0/P1/P2/P4), every preference variant, and the full
+member (5,354,325 packets, 182 s) completed at ~30k packets/s. TShark 4.6.6,
+the stdin pipe, and the ZIP producer are exonerated.
+
+Root cause (localized by elimination, then reproduced locally on the frozen
+member): the frozen frontend's `emit` recomputes every window statistic by
+scanning the entire 60-second source/endpoint history per call (three
+generator passes over `source_times`, three list-comprehension passes plus a
+copy and two sums over `endpoint.recent`). The mirai-dos flood is a
+single-pair, random-source-port storm (measured 42,548 distinct 4-tuples and
+62,428 distinct source ports per 50k packets, zero SYN) at ~83k packets/s of
+capture time, so the 60-second FIFO holds millions of live entries. Frozen
+targets cluster inside the attack window, so candidate emits begin exactly at
+the 2,375,000 flood transition; measured frozen-emit cost is 0.92 s at 2.38M
+live entries and linear in history, which collapses the 25k-packet progress
+bucket below the one-hour real-progress limit. The single-flow UDP phase
+fires no candidates and amortized pruning keeps updates O(1), which is why
+decode sustained ~16k packets/s until the boundary in all four failed jobs.
+The watchdog verdicts in sections 9-10 were correct.
+
+Correction (execution-only): `FastCausalState` in the CKBV script maintains
+numpy ring mirrors of exactly the entries the frozen deques hold and
+evaluates the same window predicates in the same operand order; the frozen
+frontend module stays byte-identical
+(`eca60311b0fe6a0eeea06abc83ef386a398e8519444b378624a1ed46928c38c9`). The
+unit suite adds adversarial bit-exact streams (single-pair floods, a 54.4 s
+capture gap, timestamp inversions, port 0, the FIFO-prune quirk where a
+young head shields an expired deeper entry) and mirror-synchronization
+invariants. Real-member parallel validation over the first 2,450,000 packets
+sampled 27 emit positions including deep flood state: zero mismatches;
+frozen emit 0.31-0.66 s versus fast emit 15-31 ms at the same positions.
+
+Gate discharge for section 10:
+
+1. Item 1 discharged: the probe matrix identified the stalling layer by
+   elimination and the local reproduction confirmed it on the frozen member.
+2. Item 2 discharged: the fast path is an exact reimplementation of the
+   frozen semantics, not an approximation, so affected and unaffected ranges
+   share one bit-exactness argument, enforced by the unit suite and the
+   real-member parallel validation above.
+3. Item 3 discharged: the size-range calibration already measures the
+   largest member (a mirai-dos capture) with the fast path in effect, and
+   the unchanged 300/3600/14400 member watchdog remains the backstop.
+
+The r9 resume donor list promotes `154620`/`154621` ahead of the older
+donors so their additional member checkpoints are reused. No row, feature,
+label, target, role, model, threshold, seed, or metric changed.
+
 ### Update 2026-07-26: probe result and confirmed root cause
 
 The bounded compute-node probe (commit `1532332`, AMD job `154681`, node186,

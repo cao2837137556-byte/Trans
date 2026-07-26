@@ -242,11 +242,18 @@ foreach ($required in @(
     }
 }
 foreach ($required in @(
+    'seed27_amd_154620',
+    'seed27_intel_154621',
     'seed27_amd_154606',
     'seed27_intel_154607'
 )) {
     if (-not $installerText.Contains($required)) {
         throw "Clean-extract validated checkpoint donor missing: $required"
+    }
+}
+foreach ($required in @('seed27_amd_154620', 'seed27_intel_154621')) {
+    if (-not $slurmText.Contains($required)) {
+        throw "Slurm donor list drifted from installer: $required"
     }
 }
 $unexpectedPaths = Get-ChildItem -LiteralPath $verifiedStage -Recurse -Force |
