@@ -267,10 +267,13 @@ $raw51Actual = (Get-FileHash -LiteralPath $raw51Path -Algorithm SHA256).Hash.ToL
 if ($raw51Actual -ne $raw51Expected) {
     throw "Clean-extract raw51 mask sha256 mismatch: $raw51Actual"
 }
-foreach ($required in @($raw51Expected, 'CKBV_RAW51_MASK', 'raw51-mask')) {
+foreach ($required in @($raw51Expected, 'CKBV_RAW51_MASK')) {
     if (-not $installerText.Contains($required)) {
         throw "Installer missing raw51 wiring token: $required"
     }
+}
+if (-not $slurmText.Contains('--raw51-mask')) {
+    throw "Slurm missing raw51 CLI wiring: --raw51-mask"
 }
 $unexpectedPaths = Get-ChildItem -LiteralPath $verifiedStage -Recurse -Force |
     Where-Object {
