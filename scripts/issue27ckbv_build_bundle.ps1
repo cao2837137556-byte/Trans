@@ -1,7 +1,7 @@
 param(
     [string]$RepoRoot = 'D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline',
     [string]$TransferRoot = 'D:\study\paper\anomaly_detection\paper04\supercompute_transfer',
-    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260726_r6'
+    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260726_r7'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -87,7 +87,7 @@ $payloadFiles = @(
 )
 
 $utf8NoBom = [System.Text.UTF8Encoding]::new($false)
-$textExtensions = @('.py', '.sh', '.slurm', '.md', '.txt', '.csv', '.json')
+$textExtensions = @('', '.py', '.sh', '.slurm', '.md', '.txt', '.csv', '.json', '.original')
 New-Item -ItemType Directory -Path $stageRoot | Out-Null
 
 foreach ($relative in $payloadFiles) {
