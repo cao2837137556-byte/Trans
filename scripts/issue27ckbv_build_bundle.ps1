@@ -1,7 +1,7 @@
 param(
     [string]$RepoRoot = 'D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline',
     [string]$TransferRoot = 'D:\study\paper\anomaly_detection\paper04\supercompute_transfer',
-    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260726_r5'
+    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260726_r6'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -10,9 +10,10 @@ Set-StrictMode -Version Latest
 $bundleRoot = Join-Path $TransferRoot $BundleName
 $stageRoot = Join-Path $bundleRoot $BundleName
 $archive = Join-Path $TransferRoot "${BundleName}_upload_bundle.tar.gz"
+$archiveCandidate = "$archive.candidate"
 $archiveHash = "$archive.sha256"
 
-foreach ($path in @($bundleRoot, $archive, $archiveHash)) {
+foreach ($path in @($bundleRoot, $archive, $archiveCandidate, $archiveHash)) {
     if (Test-Path -LiteralPath $path) {
         throw "Refusing to overwrite existing bundle artifact: $path"
     }
@@ -56,6 +57,18 @@ $payloadFiles = @(
     'repo/ood/issue27cki_c4_full_data_multiclass_replay.py',
     'repo/ood/issue27cko_mechanism_frontend_v1.py',
     'repo/ood/issue27ckq_flow_temporal_evidence_frontend_v1.py',
+    'repo/kitsune_frontend_original/AfterImage.py',
+    'repo/kitsune_frontend_original/FeatureExtractor.py',
+    'repo/kitsune_frontend_original/LICENSE.original',
+    'repo/kitsune_frontend_original/netStat.py',
+    'repo/kitsune_frontend_original/SOURCE.md',
+    'repo/ood/vendor/sktime_minirocket_v0_24_1/LICENSE',
+    'repo/ood/vendor/sktime_minirocket_v0_24_1/minirocket_torch.py',
+    'repo/ood/vendor/sktime_minirocket_v0_24_1/UPSTREAM_PROVENANCE.md',
+    'repo/ood/vendor/tabm_v0_0_3/LICENSE',
+    'repo/ood/vendor/tabm_v0_0_3/rtdl_num_embeddings.py',
+    'repo/ood/vendor/tabm_v0_0_3/tabm.py',
+    'repo/ood/vendor/tabm_v0_0_3/UPSTREAM_PROVENANCE.md',
     'runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22/aux_process_support_candidate_manifest.csv',
     'runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22/contract.json',
     'runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22/independent_validation.json',
@@ -155,7 +168,7 @@ $checksumLines = foreach ($relative in ($checksumFiles | Sort-Object)) {
 
 Push-Location $bundleRoot
 try {
-    & tar -czf $archive $BundleName
+    & tar -czf $archiveCandidate $BundleName
     if ($LASTEXITCODE -ne 0) {
         throw 'tar archive creation failed'
     }
@@ -166,7 +179,7 @@ finally {
 
 $verifyRoot = Join-Path $bundleRoot '_verify_extract'
 New-Item -ItemType Directory -Path $verifyRoot | Out-Null
-& tar -xzf $archive -C $verifyRoot
+& tar -xzf $archiveCandidate -C $verifyRoot
 if ($LASTEXITCODE -ne 0) {
     throw 'tar archive verification extraction failed'
 }
@@ -188,6 +201,16 @@ foreach ($relative in $checksumFiles) {
 }
 
 $payloadOod = Join-Path $verifiedStage 'payload\repo\ood'
+$unexpectedPaths = Get-ChildItem -LiteralPath $verifiedStage -Recurse -Force |
+    Where-Object {
+        $_.FullName -match '([\\/])(\.git|__pycache__|datasets|wheelhouse|env)([\\/]|$)' -or
+        $_.Extension -in @('.pcap', '.pcapng', '.npz', '.pt', '.pth', '.whl')
+    }
+if ($unexpectedPaths) {
+    $listed = ($unexpectedPaths.FullName -join '; ')
+    throw "Clean-extract payload contains forbidden runtime/data artifacts: $listed"
+}
+
 $previousPythonPath = $env:PYTHONPATH
 try {
     $env:PYTHONPATH = $payloadOod
@@ -231,6 +254,7 @@ finally {
     $env:PYTHONPATH = $previousPythonPath
 }
 
+Move-Item -LiteralPath $archiveCandidate -Destination $archive
 $archiveSha = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLowerInvariant()
 [System.IO.File]::WriteAllText(
     $archiveHash,
@@ -242,3 +266,4 @@ Write-Output "CKBV_BUNDLE=$archive"
 Write-Output "CKBV_BUNDLE_SHA256=$archiveSha"
 Write-Output "CKBV_BUNDLE_BYTES=$((Get-Item -LiteralPath $archive).Length)"
 Write-Output "CKBV_BUNDLE_COMMIT=$commit"
+Write-Output 'CKBV_CLEAN_EXTRACT_FULL_CONTRACT_PASS'

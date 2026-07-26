@@ -311,6 +311,14 @@ Permanent gate:
    and all four contract suites from a clean extraction with only the bundled
    module directory on `PYTHONPATH`; remote worktree code cannot silently
    satisfy a missing payload dependency.
+6. That dependency closure includes the exact mature AfterImage frontend and
+   the frozen MiniRocket and TabM vendor sources at their repository-relative
+   paths, including license/provenance files.
+7. The builder creates only a temporary candidate archive before clean-extract
+   verification. It publishes the final archive and hash only after checksum,
+   LF, import, compile, all four contract-suite, and forbidden-artifact checks
+   pass. A failed local build therefore cannot be mistaken for an uploadable
+   bundle.
 
 The correction changes only audit CSV serialization and reuse routing. It does
 not change rows, features, labels, target alignment, fit/select/report roles,
