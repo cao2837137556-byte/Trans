@@ -445,3 +445,55 @@ Permanent gate:
 
 This section records a diagnosis and a gate only; no science-facing row,
 feature, label, role, model, threshold, seed, or metric changed.
+
+### Update 2026-07-26: probe result and confirmed root cause
+
+The bounded compute-node probe (commit `1532332`, AMD job `154681`, node186,
+19m35s, exit 0) ran the full twelve-probe matrix. Every probe COMPLETED:
+
+- The formal Python ZIP-producer path (`A_producer_P4`) decoded 2,450,000
+  packets in 76 s; the stdin-pipe and pre-extracted-file paths matched.
+- The full member (5,354,325 packets) decoded end to end in 176-182 s across
+  the field-group and preference variants.
+- Verdict: `no_stall_reproduced`; `first_stalling_field_group=null`.
+
+This falsifies the prime suspect recorded above. TShark 4.6.6 and the
+producer pipeline decode this member, with the full production field set,
+in under three minutes. The stall is not in decoding.
+
+The probe isolates the stall to the only layer it did not exercise: the
+Python causal state machine that runs after row iteration
+(`event_from_tshark` -> `matcher_candidates` -> `emit`/`prune_before_update`
+-> `update`). A local reproduction on the real member (frozen ZIP, frozen
+`CausalFeatureBuilder`) confirms the mechanism:
+
+- Single `emit()` cost scales linearly with retained state:
+  0.92 s at 2,379,429 endpoint records, 0.38 s at 904,726, 0.31 s at 549,228.
+- The cost is the per-call full scans inside `emit()`:
+  `source_rates` sums over the entire `source_times` deque once per window,
+  and `unique_peers`/`unique_ports` rebuild a list and set over the entire
+  `endpoint.recent` deque once per window (`WINDOWS_SECONDS = (1, 10, 60)`).
+- The flood after packet 2,375,000 is a random-source-port TCP/ACK flood
+  (measured: 42,548 distinct 4-tuples and 62,428 distinct source ports per
+  50k packets, zero SYN) at about 83k packets/s, so the 60 s window retains
+  several million records and every `emit()` becomes an O(N) scan of that
+  state. `prune_before_update` on non-candidate packets stays amortized O(1),
+  which is why the UDP single-flow prefix and the probe (no builder) are fast.
+- The frozen targets for this member fall inside the flood window, so
+  candidate hits are dense there; each hit triggers one O(N) `emit()` of a
+  few seconds, and a single 25,000-packet progress bucket accumulates enough
+  of them to exceed the 3,600 s real-progress watchdog. `sparse_feature_emits`
+  freezing at 12,167 with `decoded_events` frozen at 2,375,000 is consistent
+  with the process being inside `emit()` calls after the last published
+  bucket.
+
+Classification refinement: the section 10 class `DATA_DRIVEN_DECODE_STALL`
+is superseded by `DATA_DRIVEN_FEATURE_SCAN_STALL`. The watchdog decision
+remains correct. The fix is an execution-performance change to `emit()` /
+state maintenance (incremental sliding-window statistics reducing per-emit
+cost from O(N) to amortized O(1)) that must be proven bit-exact against the
+current path on all frozen target rows before any formal run consumes it; it
+does not change the 51D schema, target rows, labels, roles, model, threshold,
+seed, or metric. The permanent gate items from section 10 stand; gate item 1
+is now discharged (the stalling layer is identified) and gate item 2
+(bit-exact equivalence) governs the fix.
