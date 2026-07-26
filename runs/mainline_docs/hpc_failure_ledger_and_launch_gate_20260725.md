@@ -306,6 +306,11 @@ Permanent gate:
    heterogeneous CKBV audit uses the union-schema contract.
 4. The default retry donor order starts with AMD job `154478`, so all four
    validated ToN checkpoints are reused and no ToN PCAP is decoded again.
+5. The upload bundle contains and hashes the complete local Python dependency
+   closure used by the four primary scripts. The builder runs Python compile
+   and all four contract suites from a clean extraction with only the bundled
+   module directory on `PYTHONPATH`; remote worktree code cannot silently
+   satisfy a missing payload dependency.
 
 The correction changes only audit CSV serialization and reuse routing. It does
 not change rows, features, labels, target alignment, fit/select/report roles,

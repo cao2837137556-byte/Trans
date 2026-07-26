@@ -1,7 +1,7 @@
 param(
     [string]$RepoRoot = 'D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline',
     [string]$TransferRoot = 'D:\study\paper\anomaly_detection\paper04\supercompute_transfer',
-    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260726_r4'
+    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260726_r5'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -19,10 +19,43 @@ foreach ($path in @($bundleRoot, $archive, $archiveHash)) {
 }
 
 $payloadFiles = @(
+    'repo/ood/issue27ab_gotham_kitsune115_frontend_feasibility.py',
+    'repo/ood/issue27ac_gotham_kitsune115_attack_onset_alignment.py',
+    'repo/ood/issue27ad_gotham_kitsune115_split_aware_smoke_expansion.py',
+    'repo/ood/issue27af_gotham_kitsune115_larger_materialization_plan.py',
+    'repo/ood/issue27ar_old_lowguardpp_protocol_fidelity_migration_on_gotham115_medium.py',
+    'repo/ood/issue27as_old_protocol_bounded_calibration_and_coverage_repair.py',
+    'repo/ood/issue27au_coverage_aware_active_labeling_viability_diagnostic.py',
+    'repo/ood/issue27ay_region_aware_attack_bank_and_score_gate_diagnostic.py',
+    'repo/ood/issue27az_region_aware_ood_safe_gate_repair.py',
+    'repo/ood/issue27ba_disjoint_ood_stress_pool_before_mixed_stream.py',
+    'repo/ood/issue27bo_attack_future_shift_validation_without_new_support.py',
+    'repo/ood/issue27bp_attack_preserving_ood_gate_repair_after_future_shift_validation.py',
+    'repo/ood/issue27ckai_external_flow_feature_probe_v1.py',
+    'repo/ood/issue27ckao_c1_strict_leave_device_family_canary_v1.py',
+    'repo/ood/issue27ckat_canonical_time_c1_canary_v1.py',
+    'repo/ood/issue27ckaw_canonical_interaction_episode_frontend_v1.py',
+    'repo/ood/issue27ckbe_tgn_fullsupport_event_cache_v1.py',
+    'repo/ood/issue27ckbf_tgn_m1_preflight_v1.py',
+    'repo/ood/issue27ckbi_tgn_report_only_cache_extension_v1.py',
+    'repo/ood/issue27ckbj_c1_report_only_cache_extension_v1.py',
+    'repo/ood/issue27ckbj_tgn_m1_strict_formal_v2.py',
+    'repo/ood/issue27ckbl_frontend_observability_audit_v1.py',
+    'repo/ood/issue27ckbm_tabm_causal_source_calibration_v1.py',
+    'repo/ood/issue27ckbo_mature_afterimage_transfer_v1.py',
+    'repo/ood/issue27ckbp_source_local_normal_calibration_v1.py',
+    'repo/ood/issue27ckbq_causal_minirocket_consensus_v1.py',
     'repo/ood/issue27ckbu_parallel_cache_resume_v1.py',
     'repo/ood/issue27ckbu_unified_process_rescue_formal_v1.py',
     'repo/ood/issue27ckbu_unified_tshark_causal_frontend_v1.py',
     'repo/ood/issue27ckbv_checkpointed_sparse_process_frontend_v1.py',
+    'repo/ood/issue27ckc_frozen_medium_mainline_replay_on_certified_1m.py',
+    'repo/ood/issue27ckf_hard_ood_calibrated_worst_group_veto.py',
+    'repo/ood/issue27ckg_basic_capability_diagnostic.py',
+    'repo/ood/issue27ckh_direct_multihead_detector.py',
+    'repo/ood/issue27cki_c4_full_data_multiclass_replay.py',
+    'repo/ood/issue27cko_mechanism_frontend_v1.py',
+    'repo/ood/issue27ckq_flow_temporal_evidence_frontend_v1.py',
     'runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22/aux_process_support_candidate_manifest.csv',
     'runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22/contract.json',
     'runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22/independent_validation.json',
@@ -152,6 +185,50 @@ foreach ($relative in $checksumFiles) {
     if ([System.IO.File]::ReadAllBytes($path) -contains 13) {
         throw "Post-extraction CR byte found: $relative"
     }
+}
+
+$payloadOod = Join-Path $verifiedStage 'payload\repo\ood'
+$previousPythonPath = $env:PYTHONPATH
+try {
+    $env:PYTHONPATH = $payloadOod
+    $primaryModules = @(
+        'issue27ckbu_unified_tshark_causal_frontend_v1.py',
+        'issue27ckbu_unified_process_rescue_formal_v1.py',
+        'issue27ckbu_parallel_cache_resume_v1.py',
+        'issue27ckbv_checkpointed_sparse_process_frontend_v1.py'
+    ) | ForEach-Object { Join-Path $payloadOod $_ }
+    & python -m py_compile @primaryModules
+    if ($LASTEXITCODE -ne 0) {
+        throw 'Clean-extract Python compile/import verification failed'
+    }
+    $contractTests = @(
+        [pscustomobject]@{
+            Script = 'issue27ckbu_unified_tshark_causal_frontend_v1.py'
+            Mode = 'unit'
+        },
+        [pscustomobject]@{
+            Script = 'issue27ckbu_unified_process_rescue_formal_v1.py'
+            Mode = 'contract-unit'
+        },
+        [pscustomobject]@{
+            Script = 'issue27ckbu_parallel_cache_resume_v1.py'
+            Mode = 'unit'
+        },
+        [pscustomobject]@{
+            Script = 'issue27ckbv_checkpointed_sparse_process_frontend_v1.py'
+            Mode = 'unit'
+        }
+    )
+    foreach ($test in $contractTests) {
+        $script = Join-Path $payloadOod $test.Script
+        & python $script --mode $test.Mode
+        if ($LASTEXITCODE -ne 0) {
+            throw "Clean-extract contract test failed: $($test.Script)"
+        }
+    }
+}
+finally {
+    $env:PYTHONPATH = $previousPythonPath
 }
 
 $archiveSha = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLowerInvariant()
