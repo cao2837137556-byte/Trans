@@ -1,7 +1,7 @@
 # CKBV r13 finalization boundary fix
 
-Date: 2026-07-27  
-Scope: local correction before any r12 HPC submission  
+Date: 2026-07-27
+Scope: local correction before any r12 HPC submission
 Scientific protocol changed: no
 
 ## Deterministic r12 failure prevented
