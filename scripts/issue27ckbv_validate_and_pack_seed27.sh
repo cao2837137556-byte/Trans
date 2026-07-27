@@ -137,6 +137,147 @@ for column in ("held_value", "pool", "source_group", "row_kind", "rows_full",
                "rows_observable", "rows_masked"):
     if column not in sens.columns:
         raise SystemExit(f"sensitivity audit missing column: {column}")
+EXPECTED_PROTOCOLS = {
+    "GLOBAL_ATTACK_PRESERVATION",
+    "iotsim-ip-camera-street",
+    "iotsim-predictive-maintenance",
+    "iotsim-stream-consumer",
+    "iotsim-hydraulic-system",
+}
+EXPECTED_POOLS = {
+    "core_fit_benign",
+    "core_select_benign",
+    "core_ood_val_select",
+    "aux_fit_benign",
+    "aux_select_benign",
+    "ton_fit_benign",
+    "ton_select_benign",
+    "strict_eval",
+}
+observed_protocols = set(sens["held_value"].astype(str))
+if observed_protocols != EXPECTED_PROTOCOLS:
+    raise SystemExit(
+        f"sensitivity protocol coverage drift: {sorted(observed_protocols)}"
+    )
+
+composition = sens[sens["row_kind"].isin({"per_source", "pool_total"})].copy()
+for column in ("rows_full", "rows_observable", "rows_masked"):
+    composition[column] = pd.to_numeric(composition[column], errors="coerce")
+    if (
+        composition[column].isna().any()
+        or (composition[column] < 0).any()
+        or (composition[column] % 1 != 0).any()
+    ):
+        raise SystemExit(f"invalid sensitivity count column: {column}")
+if not (
+    composition["rows_full"]
+    == composition["rows_observable"] + composition["rows_masked"]
+).all():
+    raise SystemExit("sensitivity rows_full != rows_observable + rows_masked")
+
+pool_totals = composition[composition["row_kind"] == "pool_total"]
+observed_total_keys = set(
+    zip(pool_totals["held_value"].astype(str), pool_totals["pool"].astype(str))
+)
+expected_total_keys = {
+    (protocol, pool)
+    for protocol in EXPECTED_PROTOCOLS
+    for pool in EXPECTED_POOLS
+}
+if observed_total_keys != expected_total_keys or len(pool_totals) != len(expected_total_keys):
+    missing_keys = sorted(expected_total_keys - observed_total_keys)
+    extra_keys = sorted(observed_total_keys - expected_total_keys)
+    raise SystemExit(
+        f"sensitivity pool_total coverage drift: missing={missing_keys} extra={extra_keys}"
+    )
+
+for (protocol, pool), total in pool_totals.groupby(["held_value", "pool"], sort=True):
+    if len(total) != 1:
+        raise SystemExit(f"duplicated pool_total: {protocol}/{pool}")
+    total = total.iloc[0]
+    per_source = composition[
+        (composition["held_value"] == protocol)
+        & (composition["pool"] == pool)
+        & (composition["row_kind"] == "per_source")
+    ]
+    expected = (
+        int(total["rows_full"]),
+        int(total["rows_observable"]),
+        int(total["rows_masked"]),
+    )
+    actual = tuple(
+        int(per_source[column].sum())
+        for column in ("rows_full", "rows_observable", "rows_masked")
+    )
+    if actual != expected:
+        raise SystemExit(
+            f"per-source sensitivity reconciliation failed for {protocol}/{pool}: "
+            f"{actual} != {expected}"
+        )
+    if expected[0] > 0 and per_source.empty:
+        raise SystemExit(f"non-empty pool has no per-source rows: {protocol}/{pool}")
+
+gate_columns = (
+    "c1_hard_full",
+    "c1_hard_observable",
+    "c1_hard_rate_full",
+    "c1_hard_rate_observable",
+    "c1_frozen_prediction_rows",
+    "c1_threshold_only_ton_rows",
+    "c1_ton_policy",
+    "process_gate_threshold_extra",
+    "process_gate_threshold_tabm",
+    "masked_are_fail_closed",
+)
+for column in gate_columns:
+    if column not in sens.columns:
+        raise SystemExit(f"sensitivity gate audit missing column: {column}")
+gate_rows = sens[sens["row_kind"] == "select_c1_gate"].copy()
+if (
+    len(gate_rows) != len(EXPECTED_PROTOCOLS)
+    or set(gate_rows["held_value"].astype(str)) != EXPECTED_PROTOCOLS
+    or not (gate_rows["source_group"].astype(str) == "__ALL__").all()
+):
+    raise SystemExit("select_c1_gate must have exactly one __ALL__ row per protocol")
+for column in gate_columns:
+    if gate_rows[column].isna().any():
+        raise SystemExit(f"select_c1_gate contains null values: {column}")
+for _, gate in gate_rows.iterrows():
+    full = int(gate["rows_full"])
+    observable = int(gate["rows_observable"])
+    hard_full = int(gate["c1_hard_full"])
+    hard_observable = int(gate["c1_hard_observable"])
+    frozen_rows = int(gate["c1_frozen_prediction_rows"])
+    ton_rows = int(gate["c1_threshold_only_ton_rows"])
+    if not (0 <= hard_full <= full and 0 <= hard_observable <= observable):
+        raise SystemExit(f"invalid select C1 hard counts: {gate.to_dict()}")
+    if frozen_rows + ton_rows != full or ton_rows != 4000:
+        raise SystemExit(
+            f"select C1 provenance boundary drift: frozen={frozen_rows} "
+            f"ton_threshold_only={ton_rows} full={full}"
+        )
+    if gate["c1_ton_policy"] != "conservative_all_hard_no_frozen_ckbq":
+        raise SystemExit(f"select C1 ToN policy drift: {gate['c1_ton_policy']}")
+    expected_full_rate = round(hard_full / full, 6) if full else 0.0
+    expected_observable_rate = (
+        round(hard_observable / observable, 6) if observable else 0.0
+    )
+    if (
+        abs(float(gate["c1_hard_rate_full"]) - expected_full_rate) > 1e-6
+        or abs(
+            float(gate["c1_hard_rate_observable"]) - expected_observable_rate
+        ) > 1e-6
+    ):
+        raise SystemExit(f"select C1 rate/count mismatch: {gate.to_dict()}")
+    for column in ("process_gate_threshold_extra", "process_gate_threshold_tabm"):
+        value = float(gate[column])
+        if not np.isfinite(value) or not 0.0 <= value <= 1.0:
+            raise SystemExit(f"invalid process gate threshold {column}={value}")
+    if str(gate["masked_are_fail_closed"]).strip().lower() not in {
+        "true", "1"
+    }:
+        raise SystemExit("masked rows are not fail-closed in select C1 gate audit")
+
 core = sens[
     (sens["held_value"] == "GLOBAL_ATTACK_PRESERVATION")
     & (sens["pool"] == "core_ood_val_select")
@@ -271,6 +412,17 @@ if (
     or environment.get("commit_sha") != commit_sha
 ):
     raise SystemExit("job identity drift")
+if (
+    not str(environment.get("raw51_observable_mask", "")).endswith(
+        "raw51_observable_v1_mask.csv"
+    )
+    or environment.get("raw51_observable_mask_sha256") != RAW51_MASK_SHA256
+    or environment.get("raw51_frozen_targets") != 325067
+    or environment.get("raw51_masked_targets") != RAW51_MASK_TOTAL
+    or environment.get("raw51_observable_targets") != 325067 - RAW51_MASK_TOTAL
+    or environment.get("raw51_masked_source") != RAW51_MASK_SOURCE
+):
+    raise SystemExit("environment raw51 provenance drift")
 if not str(environment.get("tshark", "")).startswith(
     "TShark (Wireshark) 4.6.6"
 ):
@@ -302,6 +454,7 @@ if (
 
 run_spec = json.loads((root / "run_spec.json").read_text())
 frontend = run_spec.get("unified_frontend", {})
+raw51_spec = run_spec.get("raw51_observable_v1", {})
 if (
     run_spec.get("original_1m_split_modified") is not False
     or run_spec.get("review_rate") != 0.0
@@ -311,6 +464,19 @@ if (
     or frontend.get("raw_label_column_read") is not False
 ):
     raise SystemExit("frozen formal run specification drift")
+if (
+    not str(raw51_spec.get("mask_path", "")).endswith(
+        "raw51_observable_v1_mask.csv"
+    )
+    or raw51_spec.get("mask_sha256") != RAW51_MASK_SHA256
+    or raw51_spec.get("frozen_targets") != 325067
+    or raw51_spec.get("masked_targets") != RAW51_MASK_TOTAL
+    or raw51_spec.get("observable_targets") != 325067 - RAW51_MASK_TOTAL
+    or raw51_spec.get("masked_source") != RAW51_MASK_SOURCE
+    or raw51_spec.get("masked_rows_are_fail_closed") is not True
+    or raw51_spec.get("frozen_manifest_unchanged") is not True
+):
+    raise SystemExit("run_spec raw51 provenance drift")
 
 validation = {
     "status": "CKBV_RESULT_VALID",

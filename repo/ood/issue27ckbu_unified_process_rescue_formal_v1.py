@@ -469,6 +469,40 @@ def base_decisions(
     return c1, np.asarray([base_map[key] for key in keys], dtype=bool)
 
 
+def select_c1_audit_decisions(
+    protocol: str,
+    records: list[ckbj.Record],
+    c1_map: dict[tuple[str, str], bool],
+    base_map: dict[tuple[str, str], bool],
+    c1_threshold: float,
+) -> np.ndarray:
+    """Audit C1 on a mixed core/auxiliary/ToN select pool.
+
+    Frozen CKBQ predictions cover the original core/auxiliary records only.
+    ToN pilot records were introduced later and intentionally have no frozen
+    CKBQ row.  Their C1 audit decision is therefore computed from the same
+    already-selected C1 threshold, while every non-ToN decision is still
+    required to match the frozen CKBQ artifact exactly.
+    """
+
+    decisions = np.asarray(
+        [record.c1_score >= c1_threshold for record in records], dtype=bool
+    )
+    frozen_indices = [
+        index for index, record in enumerate(records) if not record.uid.startswith("ton:")
+    ]
+    frozen_records = [records[index] for index in frozen_indices]
+    if frozen_records:
+        frozen_c1, _ = base_decisions(
+            protocol, frozen_records, c1_map, base_map, c1_threshold
+        )
+        if not np.array_equal(decisions[frozen_indices], frozen_c1):
+            raise RuntimeError(
+                f"select C1 audit differs from frozen CKBQ: {protocol}"
+            )
+    return decisions
+
+
 def run_protocol(
     held: str | None,
     args: argparse.Namespace,
@@ -788,7 +822,7 @@ def run_protocol(
         # C1 dual-denominator on the threshold-selection benign pool plus the
         # selected process-gate thresholds (Codex r12 issue 3). Audit only:
         # nothing here re-selects a threshold or changes a score.
-        select_c1_hard, _select_frozen = base_decisions(
+        select_c1_hard = select_c1_audit_decisions(
             protocol, select_benign, frozen_c1, frozen_base, c1_threshold
         )
         select_obs_flags = np.asarray(
@@ -819,6 +853,13 @@ def run_protocol(
                 "c1_hard_rate_observable": round(select_c1_hard_obs / select_obs, 6)
                 if select_obs
                 else 0.0,
+                "c1_frozen_prediction_rows": int(
+                    sum(not record.uid.startswith("ton:") for record in select_benign)
+                ),
+                "c1_threshold_only_ton_rows": int(
+                    sum(record.uid.startswith("ton:") for record in select_benign)
+                ),
+                "c1_ton_policy": "conservative_all_hard_no_frozen_ckbq",
                 "process_gate_threshold_extra": float(gates[EXTRA_HEAD].threshold),
                 "process_gate_threshold_tabm": float(gates[TABM_HEAD].threshold),
                 "masked_are_fail_closed": True,
@@ -1277,6 +1318,48 @@ def contract_unit() -> None:
     if not np.array_equal(base | process, np.asarray([False, True, True])):
         raise RuntimeError("asymmetric OR rescue unit failed")
 
+    # r13 regression: the legal select pool contains later-added ToN records,
+    # while the immutable CKBQ prediction artifact does not.  The mixed audit
+    # must use the frozen artifact for every non-ToN row and the same frozen C1
+    # threshold for ToN, without weakening fail-closed coverage for core rows.
+    protocol = "GLOBAL_ATTACK_PRESERVATION"
+    core_record = ckbj.Record(
+        "core:1", "ood_val", "select", "core-source", 1, 1, 0,
+        "benign", "core-device", "gotham", 0.9, "core-episode"
+    )
+    ton_record = ckbj.Record(
+        "ton:normal_2.pcap:1", "aux_select", "select", "ton-source", 1, 1, 0,
+        "benign", "ton-device", "ton_iot", 0.1, "ton-episode"
+    )
+    frozen_key = (protocol, core_record.uid)
+    mixed = select_c1_audit_decisions(
+        protocol,
+        [core_record, ton_record],
+        {frozen_key: True},
+        {frozen_key: False},
+        0.5,
+    )
+    if not np.array_equal(mixed, np.asarray([True, False])):
+        raise RuntimeError("mixed core/ToN C1 audit regression failed")
+    try:
+        select_c1_audit_decisions(
+            protocol,
+            [
+                ckbj.Record(
+                    "core:missing", "ood_val", "select", "core-source", 2, 2, 0,
+                    "benign", "core-device", "gotham", 0.1, "core-episode"
+                )
+            ],
+            {frozen_key: True},
+            {frozen_key: False},
+            0.5,
+        )
+    except RuntimeError as exc:
+        if "frozen CKBQ prediction coverage missing" not in str(exc):
+            raise
+    else:
+        raise RuntimeError("missing non-ToN frozen coverage was not rejected")
+
     # Codex r12 requirement 5: mask-active output finalization test. Build a
     # sensitivity-audit frame, write it to disk, read it back, and check the
     # exact numbers and the required per-source / dual-denominator schema, so a
@@ -1299,6 +1382,8 @@ def contract_unit() -> None:
              "source_group": "__ALL__", "row_kind": "select_c1_gate",
              "rows_full": 8682, "rows_observable": 7329, "rows_masked": 1353,
              "mask_rate": round(1353 / 8682, 6), "c1_hard_full": 10, "c1_hard_observable": 8,
+             "c1_frozen_prediction_rows": 4682, "c1_threshold_only_ton_rows": 4000,
+             "c1_ton_policy": "conservative_all_hard_no_frozen_ckbq",
              "process_gate_threshold_extra": 0.5, "process_gate_threshold_tabm": 0.5,
              "masked_are_fail_closed": True},
         ]
@@ -1318,6 +1403,8 @@ def contract_unit() -> None:
             raise RuntimeError(f"mask finalization: masked source round-trip drift {masked_srcs}")
         gate_row = back[back["row_kind"] == "select_c1_gate"]
         for column in ("c1_hard_full", "c1_hard_observable",
+                       "c1_frozen_prediction_rows", "c1_threshold_only_ton_rows",
+                       "c1_ton_policy",
                        "process_gate_threshold_extra", "process_gate_threshold_tabm"):
             if column not in gate_row.columns or pd.isna(gate_row.iloc[0][column]):
                 raise RuntimeError(f"mask finalization: select_c1_gate missing {column}")

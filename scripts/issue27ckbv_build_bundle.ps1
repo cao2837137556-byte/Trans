@@ -79,6 +79,7 @@ $payloadFiles = @(
     'runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22/summary.md',
     'runs/mainline_docs/ckbu_ton_raw_pcap_pilot_manifest_20260723.csv',
     'runs/mainline_docs/ckbv_checkpointed_sparse_recovery_preregistered_20260725.md',
+    'runs/mainline_docs/ckbv_r13_finalization_boundary_fix_20260727.md',
     'runs/mainline_docs/hpc_failure_ledger_and_launch_gate_20260725.md',
     'scripts/issue27ckbv_checkpointed_process_formal.slurm',
     'scripts/issue27ckbv_install_and_submit_dual.sh',
@@ -205,11 +206,37 @@ foreach ($relative in $checksumFiles) {
 
 $payloadOod = Join-Path $verifiedStage 'payload\repo\ood'
 $verifiedCheckpoint = Join-Path $payloadOod 'issue27ckbv_checkpointed_sparse_process_frontend_v1.py'
+$verifiedFormal = Join-Path $payloadOod 'issue27ckbu_unified_process_rescue_formal_v1.py'
 $verifiedSlurm = Join-Path $verifiedStage 'payload\scripts\issue27ckbv_checkpointed_process_formal.slurm'
 $verifiedInstaller = Join-Path $verifiedStage 'payload\scripts\issue27ckbv_install_and_submit_dual.sh'
+$verifiedValidator = Join-Path $verifiedStage 'payload\scripts\issue27ckbv_validate_and_pack_seed27.sh'
 $checkpointText = [System.IO.File]::ReadAllText($verifiedCheckpoint)
+$formalText = [System.IO.File]::ReadAllText($verifiedFormal)
 $slurmText = [System.IO.File]::ReadAllText($verifiedSlurm)
 $installerText = [System.IO.File]::ReadAllText($verifiedInstaller)
+$validatorText = [System.IO.File]::ReadAllText($verifiedValidator)
+foreach ($required in @(
+    'def select_c1_audit_decisions(',
+    'not record.uid.startswith("ton:")',
+    '"c1_threshold_only_ton_rows"',
+    '"c1_ton_policy": "conservative_all_hard_no_frozen_ckbq"',
+    'missing non-ToN frozen coverage was not rejected'
+)) {
+    if (-not $formalText.Contains($required)) {
+        throw "Clean-extract mixed C1 audit regression gate missing: $required"
+    }
+}
+foreach ($required in @(
+    'EXPECTED_PROTOCOLS = {',
+    'per-source sensitivity reconciliation failed',
+    'select C1 provenance boundary drift',
+    'environment raw51 provenance drift',
+    'run_spec raw51 provenance drift'
+)) {
+    if (-not $validatorText.Contains($required)) {
+        throw "Clean-extract result-finalization gate missing: $required"
+    }
+}
 foreach ($required in @(
     'MEMBER_PROGRESS_STATUS = "CKBV_MEMBER_PROGRESS_STATE_V1"',
     'worker_watchdog_reason(',
