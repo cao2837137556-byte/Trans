@@ -1,9 +1,12 @@
-# raw51_observable_v1 Eligibility Mask (DRAFT Preregistration)
+# raw51_observable_v1 Eligibility Mask (FROZEN Preregistration)
 
-Date: 2026-07-26
-Status: **DRAFT — pending ruling by the original pipeline author (Codex) and
-the user.** Nothing here modifies the frozen 325,067-target manifest, the
-1M split, roles, hashes, or any existing artifact.
+Date: 2026-07-26; frozen 2026-07-27.
+Status: **FROZEN — conditionally approved by the original pipeline author
+(Codex) with nine hard constraints; ruling recorded in ledger section 11.**
+Nothing here modifies the frozen 325,067-target manifest, the 1M split,
+roles, hashes, or any existing artifact. air-quality-1 coverage is CONFIRMED
+(24,109/24,109 via the donated source-level cache), so the authoritative
+unmatchable total is final: 1,353 / 325,067 = 0.4163%, observable = 323,714.
 
 ## Problem being resolved
 
@@ -15,8 +18,8 @@ processed CSV's hosts (`192.168.20.40-44 -> 192.168.0.4:8883`) are not on
 that capture link. The packets exist in sibling captures
 (`hydraulic-system-15...OpenvSwitch-16_5-0`: 867;
 `hydraulic-system-10...OpenvSwitch-15_10-0`: 486). Every other source is
-100% covered (air-quality-1 via the donated source-level cache, pending
-final confirmation).
+100% covered (air-quality-1 via the donated source-level cache, CONFIRMED
+24,109/24,109 on 2026-07-27).
 
 ## Role safety (decisive)
 
@@ -53,11 +56,25 @@ frontend — disproportionate for 1,353 development-only rows. This option
 remains open as a future versioned contract if hydraulic-1 coverage is ever
 needed.
 
-## Open questions for the ruling
+## Ruling (resolved)
 
-1. Confirm air-quality-1 source-cache coverage (24,109 rows) so the overall
-   unmatchable total is finalized at 1,353 (0.4163%, within the 0.5%
-   overall gate).
-2. Accept the per-source concentration (one source at 100%) as explained
-   mispairing rather than a systemic contract failure.
-3. Approve the mask naming/versioning and its placement in the bundle.
+1. air-quality-1 source-cache coverage CONFIRMED 24,109/24,109 (2026-07-27);
+   authoritative unmatchable total finalized at 1,353 (0.4163%, within the
+   0.5% overall gate).
+2. Per-source concentration (one source at 100%) accepted as an explained
+   single-source capture mispairing, not a systemic contract failure.
+3. Mask naming/versioning and bundle placement approved; the mask travels in
+   the bundle payload with SHA-256 and a machine-readable contract
+   (`raw51_observable_v1_contract.json`).
+
+## r10/r11 reporting requirements (from Codex's conditional approval)
+
+The formal run must, whenever the mask is active, unconditionally emit:
+- `M0-C1-raw51obs` and `M4-...-raw51obs` on the 323,714-row intersection for
+  every protocol, including the GLOBAL attack-preservation summary (proving
+  the attack denominator is unchanged since no attack target is masked);
+- `ckbu_raw51_mask_sensitivity_audit.csv` with per-protocol, per-pool,
+  per-source composition (full/observable/masked, mask rate) separating core
+  vs auxiliary vs ToN, and the core `ood_val` select pool explicitly;
+- mask path/SHA-256/frozen(325,067)/masked(1,353)/observable(323,714)/masked
+  source in `ckbu_environment.json` and `run_spec.json`.

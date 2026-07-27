@@ -85,6 +85,7 @@ $payloadFiles = @(
     'scripts/issue27ckbv_status_dual.sh',
     'scripts/issue27ckbv_validate_and_pack_seed27.sh',
     'runs/raw51_observable_v1/raw51_observable_v1_mask.csv',
+    'runs/raw51_observable_v1/raw51_observable_v1_contract.json',
     'runs/raw51_observable_v1/README.md'
 )
 

@@ -1,0 +1,21 @@
+{
+  "status": "RAW51_OBSERVABLE_V1_FROZEN",
+  "version": "raw51_observable_v1",
+  "date_frozen": "2026-07-27",
+  "mask_file": "raw51_observable_v1_mask.csv",
+  "mask_sha256": "b16017d2755feaedbe6d3ad76fd7d1e2444cf66a14a70f6bca35f270734ad2df",
+  "frozen_targets": 325067,
+  "masked_targets": 1353,
+  "observable_targets": 323714,
+  "masked_sources": ["processed/iotsim-hydraulic-system-1.csv"],
+  "masked_roles": ["ood_val"],
+  "masked_stages": ["fit"],
+  "support_train_hits": 0,
+  "support_val_hits": 0,
+  "attack_hits": 0,
+  "report_or_sealed_hits": 0,
+  "frozen_manifest_modified": false,
+  "provenance": "raw-packet TShark alignment only; no label/score/outcome read",
+  "authoritative_coverage_source": "r9 job 154695 TShark member checkpoints; air-quality-1 24109/24109 via donated source cache",
+  "semantics": "masked targets have no legal same-observation-unit raw-51D input; excluded from 51D fit/preprocess/threshold pools; retained in evaluation with fail-closed process decision (final system falls back to frozen CKBQ); C1 uses full 207D and is reported on both denominators"
+}

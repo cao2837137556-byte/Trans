@@ -683,12 +683,18 @@ def run_protocol(
                 )
             )
 
-    # Condition 4: report C1 (and the final system) on the raw51-observable
-    # intersection too, so new models are compared on the identical pool while
-    # the full-denominator C1 keeps continuity with historical results.
+    # Conditions 4 & 5: whenever the mask is active, unconditionally emit the
+    # raw51-observable dual-denominator metrics (so C1 and the final system are
+    # compared on the identical 323,714-row intersection, and the attack
+    # denominator is shown unchanged even though no attack is masked) plus a
+    # per-protocol / per-pool / per-source-class sensitivity audit. The trigger
+    # is mask activation, NOT masked rows appearing in ``strict``: the mask's
+    # real effect is on the fit and threshold-selection benign pools, which are
+    # not part of the evaluation set.
     raw51_sensitivity: list[dict[str, Any]] = []
-    if masked_pairs and strict_observable_mask.sum() != len(strict):
+    if masked_pairs:
         strict_obs = [r for r, keep in zip(strict, strict_observable_mask) if keep]
+        c1_hard_obs = c1_hard[strict_observable_mask]
         for base_name, decision in (("M0-C1", c1_hard), (PRIMARY, decisions[PRIMARY])):
             decision_obs = decision[strict_observable_mask]
             obs_values, obs_families = ckbj.metric_rows(
@@ -702,27 +708,76 @@ def run_protocol(
             )
             metrics.extend(obs_values)
             families.extend(obs_families)
-            if held is not None:
+            if held is None:
+                attack.extend(
+                    ckbj.attack_summary_rows(
+                        f"{base_name}-raw51obs",
+                        strict_obs,
+                        decision_obs,
+                        c1_hard_obs,
+                        int(args.bootstrap_reps),
+                        int(args.seed),
+                    )
+                )
+            else:
                 strict_rows.extend(
                     ckbj.strict_level2_summary(
                         f"{base_name}-raw51obs",
                         protocol,
                         strict_obs,
                         decision_obs,
-                        c1_hard[strict_observable_mask],
+                        c1_hard_obs,
                         int(args.bootstrap_reps),
                         int(args.seed),
                     )
                 )
+
+        def _compose(records: list[ckbj.Record]) -> tuple[int, int, int]:
+            full = len(records)
+            observable = sum(1 for record in records if _observable(record))
+            return full, observable, full - observable
+
+        core_ood_val_select = [r for r in sets["select_benign"] if r.role == "ood_val"]
+        pools = {
+            "core_fit_benign": list(sets["fit_benign"]),
+            "core_select_benign": list(sets["select_benign"]),
+            "core_ood_val_select": core_ood_val_select,
+            "aux_fit_benign": aux_fit,
+            "aux_select_benign": aux_select,
+            "ton_fit_benign": list(ton["aux_normal_fit"]),
+            "ton_select_benign": list(ton["aux_normal_select"]),
+            "strict_eval": strict,
+        }
+        for pool_name, records in pools.items():
+            full, observable, masked = _compose(records)
+            by_source = Counter(
+                r.source for r in records if not _observable(r)
+            )
+            raw51_sensitivity.append(
+                {
+                    "held_value": protocol,
+                    "pool": pool_name,
+                    "rows_full": full,
+                    "rows_observable": observable,
+                    "rows_masked": masked,
+                    "mask_rate": round(masked / full, 6) if full else 0.0,
+                    "masked_sources": ";".join(
+                        f"{s}:{c}" for s, c in sorted(by_source.items())
+                    ),
+                }
+            )
         raw51_sensitivity.append(
             {
                 "held_value": protocol,
-                "strict_rows_full": int(len(strict)),
-                "strict_rows_observable": int(strict_observable_mask.sum()),
-                "strict_rows_masked": int((~strict_observable_mask).sum()),
-                "select_benign_full": int(len(select_benign)),
-                "select_benign_observable": int(len(select_benign_observable)),
-                "fit_benign_observable": int(len(fit_benign)),
+                "pool": "c1_dual_denominator",
+                "rows_full": int(len(strict)),
+                "rows_observable": int(strict_observable_mask.sum()),
+                "rows_masked": int((~strict_observable_mask).sum()),
+                "mask_rate": round(int((~strict_observable_mask).sum()) / len(strict), 6)
+                if len(strict)
+                else 0.0,
+                "c1_hard_full": int(c1_hard.sum()),
+                "c1_hard_observable": int(c1_hard_obs.sum()),
                 "masked_are_fail_closed": True,
             }
         )
@@ -1073,6 +1128,16 @@ def run_formal(args: argparse.Namespace) -> None:
             Path(args.t0_root) / "tgn_source_event_plan_frozen.csv"
         ),
         "report_extension_manifest_sha256": extension_audit["extension_manifest_sha256"],
+        "raw51_observable_mask": str(args.raw51_mask) if getattr(args, "raw51_mask", None) else None,
+        "raw51_observable_mask_sha256": (
+            str(args.raw51_mask_sha256).strip().lower()
+            if getattr(args, "raw51_mask", None)
+            else None
+        ),
+        "raw51_frozen_targets": 325067,
+        "raw51_masked_targets": len(getattr(args, "raw51_masked_pairs", ())),
+        "raw51_observable_targets": 325067 - len(getattr(args, "raw51_masked_pairs", ())),
+        "raw51_masked_source": frontend.RAW51_MASK_SOURCE if getattr(args, "raw51_mask", None) else None,
     }
     dump_json(out / "ckbu_environment.json", environment)
     dump_json(
