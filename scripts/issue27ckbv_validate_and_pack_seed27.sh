@@ -73,6 +73,7 @@ required = [
     "ckbv_gotham_checkpoint_ready.json",
     "ckbv_source_reuse_audit.csv",
     "ckbv_source_aggregation_audit.csv",
+    "ckbu_raw51_mask_sensitivity_audit.csv",
     "current_phase.txt",
     "run_timing.txt",
     "slurm_identity.txt",
@@ -126,6 +127,58 @@ if checkpoint.get("scientific_protocol_changed") is not False:
     raise SystemExit("Gotham scientific protocol changed")
 if checkpoint.get("execution_only_sparse_emit") is not True:
     raise SystemExit("sparse execution audit missing")
+
+# raw51_observable_v1 evidence closure (Codex r12 requirement 4). The
+# sensitivity audit and dual-denominator attack metrics must be present with
+# the exact preregistered numbers, or packaging fails even if a CSV is empty
+# or degraded.
+sens = pd.read_csv(root / "ckbu_raw51_mask_sensitivity_audit.csv")
+for column in ("held_value", "pool", "source_group", "row_kind", "rows_full",
+               "rows_observable", "rows_masked"):
+    if column not in sens.columns:
+        raise SystemExit(f"sensitivity audit missing column: {column}")
+core = sens[
+    (sens["held_value"] == "GLOBAL_ATTACK_PRESERVATION")
+    & (sens["pool"] == "core_ood_val_select")
+    & (sens["row_kind"] == "pool_total")
+]
+if len(core) != 1:
+    raise SystemExit(f"core ood_val pool_total row missing/duplicated: {len(core)}")
+row = core.iloc[0]
+if (int(row["rows_full"]), int(row["rows_observable"]), int(row["rows_masked"])) != (
+    8682, 7329, 1353
+):
+    raise SystemExit(
+        f"core ood_val composition drift: {row['rows_full']}/"
+        f"{row['rows_observable']}/{row['rows_masked']} != 8682/7329/1353"
+    )
+masked_sources = set(
+    sens[(sens["row_kind"] == "per_source") & (sens["rows_masked"] > 0)]["source_group"]
+)
+if masked_sources != {RAW51_MASK_SOURCE}:
+    raise SystemExit(f"sensitivity masked source drift: {masked_sources}")
+core_masked = sens[
+    (sens["source_group"] == RAW51_MASK_SOURCE)
+    & (sens["pool"] == "core_ood_val_select")
+    & (sens["row_kind"] == "per_source")
+]
+if len(core_masked) != 1 or int(core_masked.iloc[0]["rows_masked"]) != 1353:
+    raise SystemExit("hydraulic-1 per-source masked count != 1353")
+
+attack = pd.read_csv(root / "attack_preservation_summary.csv")
+overall = attack[attack["metric"] == "overall_attack_hard_recall"]
+for candidate in ("M0-C1", "M4-CKBQ-TabMProcessRescue"):
+    for suffix in ("", "-raw51obs"):
+        name = candidate + suffix
+        if not (overall["candidate"] == name).any():
+            raise SystemExit(f"attack preservation missing candidate: {name}")
+    full_rows = int(overall[overall["candidate"] == candidate]["rows"].iloc[0])
+    obs_rows = int(overall[overall["candidate"] == candidate + "-raw51obs"]["rows"].iloc[0])
+    if full_rows != obs_rows:
+        raise SystemExit(
+            f"attack denominator changed under mask for {candidate}: "
+            f"{full_rows} != {obs_rows}"
+        )
 
 member_rows = ckbv.read_csv_rows(root / "ckbv_gotham_member_plan.csv")
 member_sha = ckbv.ckbu.sha256_file(root / "ckbv_gotham_member_plan.csv")

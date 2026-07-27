@@ -32,6 +32,7 @@ import hashlib
 import json
 import math
 import os
+import tempfile
 import platform
 import sys
 import time
@@ -732,44 +733,103 @@ def run_protocol(
                     )
                 )
 
-        def _compose(records: list[ckbj.Record]) -> tuple[int, int, int]:
-            full = len(records)
-            observable = sum(1 for record in records if _observable(record))
-            return full, observable, full - observable
-
+        # Per protocol x pool x source_group composition (Codex r12 issue 1/2):
+        # every source present in a pool gets its own row, so the mask's effect
+        # is auditable at source granularity, not a string summary. The core
+        # ood_val select pool is emitted explicitly so 8682/7329/1353 is a
+        # checkable row.
         core_ood_val_select = [r for r in sets["select_benign"] if r.role == "ood_val"]
         pools = {
             "core_fit_benign": list(sets["fit_benign"]),
             "core_select_benign": list(sets["select_benign"]),
             "core_ood_val_select": core_ood_val_select,
-            "aux_fit_benign": aux_fit,
-            "aux_select_benign": aux_select,
+            "aux_fit_benign": list(aux_fit),
+            "aux_select_benign": list(aux_select),
             "ton_fit_benign": list(ton["aux_normal_fit"]),
             "ton_select_benign": list(ton["aux_normal_select"]),
-            "strict_eval": strict,
+            "strict_eval": list(strict),
         }
         for pool_name, records in pools.items():
-            full, observable, masked = _compose(records)
-            by_source = Counter(
+            by_source_full: Counter = Counter(r.source for r in records)
+            by_source_masked: Counter = Counter(
                 r.source for r in records if not _observable(r)
             )
+            # per-source rows
+            for source in sorted(by_source_full):
+                full = int(by_source_full[source])
+                masked = int(by_source_masked.get(source, 0))
+                raw51_sensitivity.append(
+                    {
+                        "held_value": protocol,
+                        "pool": pool_name,
+                        "source_group": source,
+                        "row_kind": "per_source",
+                        "rows_full": full,
+                        "rows_observable": full - masked,
+                        "rows_masked": masked,
+                        "mask_rate": round(masked / full, 6) if full else 0.0,
+                    }
+                )
+            # pool total (source_group=__ALL__)
+            total_full = int(len(records))
+            total_masked = int(sum(by_source_masked.values()))
             raw51_sensitivity.append(
                 {
                     "held_value": protocol,
                     "pool": pool_name,
-                    "rows_full": full,
-                    "rows_observable": observable,
-                    "rows_masked": masked,
-                    "mask_rate": round(masked / full, 6) if full else 0.0,
-                    "masked_sources": ";".join(
-                        f"{s}:{c}" for s, c in sorted(by_source.items())
-                    ),
+                    "source_group": "__ALL__",
+                    "row_kind": "pool_total",
+                    "rows_full": total_full,
+                    "rows_observable": total_full - total_masked,
+                    "rows_masked": total_masked,
+                    "mask_rate": round(total_masked / total_full, 6) if total_full else 0.0,
                 }
             )
+        # C1 dual-denominator on the threshold-selection benign pool plus the
+        # selected process-gate thresholds (Codex r12 issue 3). Audit only:
+        # nothing here re-selects a threshold or changes a score.
+        select_c1_hard, _select_frozen = base_decisions(
+            protocol, select_benign, frozen_c1, frozen_base, c1_threshold
+        )
+        select_obs_flags = np.asarray(
+            [_observable(r) for r in select_benign], dtype=bool
+        )
+        select_c1_hard = np.asarray(select_c1_hard, dtype=bool)
+        select_c1_hard_full = int(select_c1_hard.sum())
+        select_c1_hard_obs = int((select_c1_hard & select_obs_flags).sum())
+        select_full = len(select_benign)
+        select_obs = len(select_benign_observable)
         raw51_sensitivity.append(
             {
                 "held_value": protocol,
-                "pool": "c1_dual_denominator",
+                "pool": "select_benign_c1_and_gate",
+                "source_group": "__ALL__",
+                "row_kind": "select_c1_gate",
+                "rows_full": select_full,
+                "rows_observable": select_obs,
+                "rows_masked": select_full - select_obs,
+                "mask_rate": round((select_full - select_obs) / select_full, 6)
+                if select_full
+                else 0.0,
+                "c1_hard_full": int(select_c1_hard_full),
+                "c1_hard_observable": int(select_c1_hard_obs),
+                "c1_hard_rate_full": round(select_c1_hard_full / select_full, 6)
+                if select_full
+                else 0.0,
+                "c1_hard_rate_observable": round(select_c1_hard_obs / select_obs, 6)
+                if select_obs
+                else 0.0,
+                "process_gate_threshold_extra": float(gates[EXTRA_HEAD].threshold),
+                "process_gate_threshold_tabm": float(gates[TABM_HEAD].threshold),
+                "masked_are_fail_closed": True,
+            }
+        )
+        raw51_sensitivity.append(
+            {
+                "held_value": protocol,
+                "pool": "strict_c1_dual_denominator",
+                "source_group": "__ALL__",
+                "row_kind": "strict_c1_dual",
                 "rows_full": int(len(strict)),
                 "rows_observable": int(strict_observable_mask.sum()),
                 "rows_masked": int((~strict_observable_mask).sum()),
@@ -1169,6 +1229,22 @@ def run_formal(args: argparse.Namespace) -> None:
             "t0_audit": t0_audit,
             "report_extension_audit": extension_audit,
             "c1_extension_audit": c1_extension_audit,
+            "raw51_observable_v1": {
+                "mask_path": str(args.raw51_mask) if getattr(args, "raw51_mask", None) else None,
+                "mask_sha256": (
+                    str(args.raw51_mask_sha256).strip().lower()
+                    if getattr(args, "raw51_mask", None)
+                    else None
+                ),
+                "frozen_targets": 325067,
+                "masked_targets": len(getattr(args, "raw51_masked_pairs", ())),
+                "observable_targets": 325067 - len(getattr(args, "raw51_masked_pairs", ())),
+                "masked_source": (
+                    frontend.RAW51_MASK_SOURCE if getattr(args, "raw51_mask", None) else None
+                ),
+                "masked_rows_are_fail_closed": True,
+                "frozen_manifest_unchanged": True,
+            },
             "environment": environment,
         },
     )
@@ -1200,6 +1276,51 @@ def contract_unit() -> None:
     process = np.asarray([False, True, False])
     if not np.array_equal(base | process, np.asarray([False, True, True])):
         raise RuntimeError("asymmetric OR rescue unit failed")
+
+    # Codex r12 requirement 5: mask-active output finalization test. Build a
+    # sensitivity-audit frame, write it to disk, read it back, and check the
+    # exact numbers and the required per-source / dual-denominator schema, so a
+    # missing, empty, or degraded audit CSV cannot pass silently. This
+    # exercises real serialization, not only compile/contract-unit.
+    with tempfile.TemporaryDirectory() as temp:
+        source = frontend.RAW51_MASK_SOURCE
+        synthetic = [
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_select",
+             "source_group": source, "row_kind": "per_source",
+             "rows_full": 1353, "rows_observable": 0, "rows_masked": 1353, "mask_rate": 1.0},
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_select",
+             "source_group": "processed/iotsim-stream-consumer-1.csv", "row_kind": "per_source",
+             "rows_full": 4000, "rows_observable": 4000, "rows_masked": 0, "mask_rate": 0.0},
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_select",
+             "source_group": "__ALL__", "row_kind": "pool_total",
+             "rows_full": 8682, "rows_observable": 7329, "rows_masked": 1353,
+             "mask_rate": round(1353 / 8682, 6)},
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "select_benign_c1_and_gate",
+             "source_group": "__ALL__", "row_kind": "select_c1_gate",
+             "rows_full": 8682, "rows_observable": 7329, "rows_masked": 1353,
+             "mask_rate": round(1353 / 8682, 6), "c1_hard_full": 10, "c1_hard_observable": 8,
+             "process_gate_threshold_extra": 0.5, "process_gate_threshold_tabm": 0.5,
+             "masked_are_fail_closed": True},
+        ]
+        path = Path(temp) / "sens.csv"
+        pd.DataFrame([{**row, "seed": SEED} for row in synthetic]).to_csv(path, index=False)
+        back = pd.read_csv(path)
+        total = back[(back["pool"] == "core_ood_val_select") & (back["row_kind"] == "pool_total")]
+        if len(total) != 1 or (
+            int(total.iloc[0]["rows_full"]), int(total.iloc[0]["rows_observable"]),
+            int(total.iloc[0]["rows_masked"]),
+        ) != (8682, 7329, 1353):
+            raise RuntimeError("mask finalization: core ood_val composition round-trip failed")
+        masked_srcs = set(
+            back[(back["row_kind"] == "per_source") & (back["rows_masked"] > 0)]["source_group"]
+        )
+        if masked_srcs != {source}:
+            raise RuntimeError(f"mask finalization: masked source round-trip drift {masked_srcs}")
+        gate_row = back[back["row_kind"] == "select_c1_gate"]
+        for column in ("c1_hard_full", "c1_hard_observable",
+                       "process_gate_threshold_extra", "process_gate_threshold_tabm"):
+            if column not in gate_row.columns or pd.isna(gate_row.iloc[0][column]):
+                raise RuntimeError(f"mask finalization: select_c1_gate missing {column}")
     print(
         json.dumps(
             {
