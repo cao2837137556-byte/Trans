@@ -68,11 +68,16 @@ FORMAL="$CODE_ROOT/issue27ckbu_unified_process_rescue_formal_v1.py"
 RESUME="$CODE_ROOT/issue27ckbu_parallel_cache_resume_v1.py"
 CHECKPOINT="$CODE_ROOT/issue27ckbv_checkpointed_sparse_process_frontend_v1.py"
 VALIDATOR="$SCRIPT_ROOT/issue27ckbv_validate_and_pack_seed27.sh"
+PAYLOAD_ROOT=$(cd "$CODE_ROOT/../.." && pwd)
 PCAP_LIB_DIR="/share/software/CST/installed/MCR/bin/glnxa64"
 
 for path in \
   "$BASE/scripts/00_env_issue27ckc.sh" \
   "$FRONTEND" "$FORMAL" "$RESUME" "$CHECKPOINT" "$VALIDATOR" \
+  "$PAYLOAD_ROOT/runs/issue27cf_initial_support_bank_instantiation_from_complete_exact_label_pool_2026-06-16/support_bank_sidecar.csv" \
+  "$PAYLOAD_ROOT/runs/issue27ch_certified_attack_subset_freeze_for_protocol_replay_2026-06-17/certified_chunk_manifest.csv" \
+  "$PAYLOAD_ROOT/runs/issue27ch_certified_attack_subset_freeze_for_protocol_replay_2026-06-17/certified_attack_subset_v1.json" \
+  "$PAYLOAD_ROOT/runs/issue27bu_unified_temporal_attack_ood_heads_certification_2026-06-10/unified_two_head_selection_audit.csv" \
   "$GOTHAM_ZIP" "$TON_PILOT_MANIFEST" "$CKBT_MANIFEST" "$CKBQ_PREDICTIONS" \
   "$CKBO_AUX_MANIFEST" "$REPORT_TARGETS" "$BASE_TARGETS"; do
   test -s "$path" || {

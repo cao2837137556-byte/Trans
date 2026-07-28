@@ -134,6 +134,43 @@ CKBV_FORMAL_HANDOFF_FILES = frozenset(
     }
 )
 
+# These four frozen artifacts are not optional metadata: the CKBQ input loader
+# reaches them through issue27cko -> issue27ckc before any formal model can
+# run.  Paths are relative to the execution root (the repository locally and
+# payload/ inside a transfer bundle).  Hashes bind the canonical UTF-8/LF
+# representation because the Windows bundle builder intentionally normalizes
+# text line endings before transfer.
+FROZEN_FORMAL_DEPENDENCIES = (
+    (
+        Path(
+            "runs/issue27cf_initial_support_bank_instantiation_from_complete_exact_label_pool_"
+            "2026-06-16/support_bank_sidecar.csv"
+        ),
+        "1db1e0e090398218f1d107e8468e17ac457c9e837c389722036b27b74e4962dd",
+    ),
+    (
+        Path(
+            "runs/issue27ch_certified_attack_subset_freeze_for_protocol_replay_"
+            "2026-06-17/certified_chunk_manifest.csv"
+        ),
+        "ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851",
+    ),
+    (
+        Path(
+            "runs/issue27ch_certified_attack_subset_freeze_for_protocol_replay_"
+            "2026-06-17/certified_attack_subset_v1.json"
+        ),
+        "940842193c5e56db679270135d3c9d9fbbf1db0b14bfa01048435bfb6fae3d0c",
+    ),
+    (
+        Path(
+            "runs/issue27bu_unified_temporal_attack_ood_heads_certification_"
+            "2026-06-10/unified_two_head_selection_audit.csv"
+        ),
+        "3fa394628211df286dd71d66da077201c9b6fd85367d9a7f2c9d7593d6a4f189",
+    ),
+)
+
 
 @dataclass(frozen=True)
 class Gate:
@@ -174,6 +211,50 @@ def sha256_file(path: Path) -> str:
         for block in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def sha256_canonical_lf_text(path: Path) -> str:
+    """Hash the same UTF-8/LF bytes that the transfer builder materializes."""
+    text = Path(path).read_bytes().decode("utf-8-sig")
+    canonical = text.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
+    return hashlib.sha256(canonical).hexdigest()
+
+
+def validate_frozen_formal_dependency_closure(root: Path = ROOT) -> dict[str, Any]:
+    """Fail before model setup when the exact formal dependency set is absent."""
+    missing: list[str] = []
+    drift: list[str] = []
+    verified: list[dict[str, Any]] = []
+    root = Path(root)
+    for relative, expected_sha256 in FROZEN_FORMAL_DEPENDENCIES:
+        path = root / relative
+        if not path.is_file():
+            missing.append(relative.as_posix())
+            continue
+        actual_sha256 = sha256_canonical_lf_text(path)
+        if actual_sha256 != expected_sha256:
+            drift.append(
+                f"{relative.as_posix()}:expected={expected_sha256}:actual={actual_sha256}"
+            )
+            continue
+        verified.append(
+            {
+                "relative_path": relative.as_posix(),
+                "canonical_lf_sha256": actual_sha256,
+                "bytes_on_disk": int(path.stat().st_size),
+            }
+        )
+    if missing or drift:
+        raise RuntimeError(
+            "frozen formal dependency closure failed: "
+            f"missing={missing} drift={drift}"
+        )
+    return {
+        "status": "CKBV_FROZEN_FORMAL_DEPENDENCY_CLOSURE_PASS",
+        "root": str(root),
+        "verified_count": len(verified),
+        "dependencies": verified,
+    }
 
 
 def validate_formal_handoff_dir(out: Path) -> None:
@@ -1148,6 +1229,8 @@ def run_formal(args: argparse.Namespace) -> None:
     started = time.time()
     if int(args.seed) != SEED:
         raise RuntimeError("first CKBU formal run is preregistered for seed 27 only")
+    dependency_audit = validate_frozen_formal_dependency_closure()
+    print(json.dumps(dependency_audit, indent=2, sort_keys=True))
     np.random.seed(SEED)
     torch.manual_seed(SEED)
     torch.use_deterministic_algorithms(True)
@@ -1349,6 +1432,9 @@ def run_formal(args: argparse.Namespace) -> None:
 
 
 def contract_unit() -> None:
+    dependency_audit = validate_frozen_formal_dependency_closure()
+    if dependency_audit["verified_count"] != len(FROZEN_FORMAL_DEPENDENCIES):
+        raise RuntimeError("frozen formal dependency closure count drift")
     support = [
         ckbj.Record(f"a:{i}", "support_val", "select", "s", i, i, 1, "f", "d", "d", 1.0, "e")
         for i in range(4)

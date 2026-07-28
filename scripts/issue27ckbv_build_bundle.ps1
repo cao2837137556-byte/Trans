@@ -1,7 +1,7 @@
 param(
     [string]$RepoRoot = 'D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline',
     [string]$TransferRoot = 'D:\study\paper\anomaly_detection\paper04\supercompute_transfer',
-    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260727_r14'
+    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260728_r15'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -77,10 +77,15 @@ $payloadFiles = @(
     'runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22/pair_exact_join_audit.csv',
     'runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22/reserved_toniot_conn_sources.csv',
     'runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22/summary.md',
+    'runs/issue27cf_initial_support_bank_instantiation_from_complete_exact_label_pool_2026-06-16/support_bank_sidecar.csv',
+    'runs/issue27ch_certified_attack_subset_freeze_for_protocol_replay_2026-06-17/certified_chunk_manifest.csv',
+    'runs/issue27ch_certified_attack_subset_freeze_for_protocol_replay_2026-06-17/certified_attack_subset_v1.json',
+    'runs/issue27bu_unified_temporal_attack_ood_heads_certification_2026-06-10/unified_two_head_selection_audit.csv',
     'runs/mainline_docs/ckbu_ton_raw_pcap_pilot_manifest_20260723.csv',
     'runs/mainline_docs/ckbv_checkpointed_sparse_recovery_preregistered_20260725.md',
     'runs/mainline_docs/ckbv_r13_finalization_boundary_fix_20260727.md',
     'runs/mainline_docs/ckbv_r14_formal_handoff_contract_fix_20260727.md',
+    'runs/mainline_docs/ckbv_r15_formal_dependency_closure_fix_20260728.md',
     'runs/mainline_docs/hpc_failure_ledger_and_launch_gate_20260725.md',
     'scripts/issue27ckbv_checkpointed_process_formal.slurm',
     'scripts/issue27ckbv_install_and_submit_dual.sh',
@@ -135,6 +140,9 @@ CKBU seed-27 formal model and result validator.
 
 All text transfer copies are canonicalized to UTF-8/LF. Scientific table
 records are unchanged and every transferred byte is bound by SHA256SUMS.
+The complete frozen formal-input closure is included and checked by canonical
+LF SHA-256 locally, after clean extraction, before submission, and again on
+the compute node.
 
 Run `payload/scripts/issue27ckbv_install_and_submit_dual.sh` from this extracted
 directory in the already logged-in VS Code HPC terminal. The exact versioned
@@ -231,7 +239,14 @@ foreach ($required in @(
     '"ton_file_cache"',
     '"ckbv_throughput_projection.json"',
     'unexpected staged output was not rejected',
-    'wrong-type staged output was not rejected'
+    'wrong-type staged output was not rejected',
+    'FROZEN_FORMAL_DEPENDENCIES = (',
+    'def validate_frozen_formal_dependency_closure(',
+    'frozen formal dependency closure failed',
+    '1db1e0e090398218f1d107e8468e17ac457c9e837c389722036b27b74e4962dd',
+    'ea222d777ea9911264e906418749868936810a8bf8c4f185078fb190ca7ed851',
+    '940842193c5e56db679270135d3c9d9fbbf1db0b14bfa01048435bfb6fae3d0c',
+    '3fa394628211df286dd71d66da077201c9b6fd85367d9a7f2c9d7593d6a4f189'
 )) {
     if (-not $formalText.Contains($required)) {
         throw "Clean-extract mixed C1 audit regression gate missing: $required"
@@ -362,6 +377,45 @@ try {
         if ($LASTEXITCODE -ne 0) {
             throw "Clean-extract contract test failed: $($test.Script)"
         }
+    }
+
+    # Negative packaging regression: reproduce the r14 omission in the clean
+    # extraction.  The formal contract must fail before any scientific work,
+    # then pass again after the exact file is restored.
+    $omissionTarget = Join-Path $verifiedStage (
+        'payload\runs\issue27cf_initial_support_bank_instantiation_from_complete_exact_label_pool_' +
+        '2026-06-16\support_bank_sidecar.csv'
+    )
+    $omissionBackup = "$omissionTarget.omitted"
+    $omissionStdout = Join-Path $verifyRoot 'formal_dependency_omission.stdout.txt'
+    $omissionStderr = Join-Path $verifyRoot 'formal_dependency_omission.stderr.txt'
+    Move-Item -LiteralPath $omissionTarget -Destination $omissionBackup
+    $omissionExit = $null
+    try {
+        $pythonExe = (Get-Command python -ErrorAction Stop).Source
+        $omissionProcess = Start-Process `
+            -FilePath $pythonExe `
+            -ArgumentList @($verifiedFormal, '--mode', 'contract-unit') `
+            -NoNewWindow `
+            -Wait `
+            -PassThru `
+            -RedirectStandardOutput $omissionStdout `
+            -RedirectStandardError $omissionStderr
+        $omissionExit = $omissionProcess.ExitCode
+    }
+    finally {
+        Move-Item -LiteralPath $omissionBackup -Destination $omissionTarget
+    }
+    if ($omissionExit -eq 0) {
+        throw 'Clean-extract negative omission regression did not fail closed'
+    }
+    $omissionEvidence = [System.IO.File]::ReadAllText($omissionStderr)
+    if (-not $omissionEvidence.Contains('frozen formal dependency closure failed')) {
+        throw 'Clean-extract negative omission regression failed for the wrong reason'
+    }
+    & python $verifiedFormal --mode contract-unit
+    if ($LASTEXITCODE -ne 0) {
+        throw 'Clean-extract formal dependency restoration regression failed'
     }
 }
 finally {

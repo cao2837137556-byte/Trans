@@ -53,6 +53,10 @@ for path in \
   "$SCRIPT_ROOT/issue27ckbv_checkpointed_process_formal.slurm" \
   "$SCRIPT_ROOT/issue27ckbv_validate_and_pack_seed27.sh" \
   "$SCRIPT_ROOT/issue27ckbv_status_dual.sh" \
+  "$HERE/payload/runs/issue27cf_initial_support_bank_instantiation_from_complete_exact_label_pool_2026-06-16/support_bank_sidecar.csv" \
+  "$HERE/payload/runs/issue27ch_certified_attack_subset_freeze_for_protocol_replay_2026-06-17/certified_chunk_manifest.csv" \
+  "$HERE/payload/runs/issue27ch_certified_attack_subset_freeze_for_protocol_replay_2026-06-17/certified_attack_subset_v1.json" \
+  "$HERE/payload/runs/issue27bu_unified_temporal_attack_ood_heads_certification_2026-06-10/unified_two_head_selection_audit.csv" \
   "$DATA_ROOT/gotham2025/raw/GothamDataset2025.zip" \
   "$TON_PILOT_MANIFEST" "$CKBT_MANIFEST" \
   "$CKBQ_ROOT/ckbq_record_predictions.csv.gz" \

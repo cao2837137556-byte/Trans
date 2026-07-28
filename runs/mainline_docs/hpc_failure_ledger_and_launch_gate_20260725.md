@@ -809,3 +809,60 @@ Rejected retry paths:
   reuse;
 - changing features, target rows, mask, roles, thresholds, model, seed, or
   decision rules to repair this operational failure.
+
+## Section 13: CKBV r14 frozen formal dependency omission (2026-07-28)
+
+Affected jobs: AMD `154875`, Intel `154876`.
+
+Observed boundary:
+
+- both jobs reused validated preprocessing and entered
+  `phase=formal_seed27_model`;
+- AMD failed after `00:01:49` and Intel after `00:02:04`, both with
+  `ExitCode=1:0`;
+- `issue27ckc.validate_inputs()` rejected four missing immutable inputs under
+  the bundle-local `payload/runs/` root:
+  `support_bank_sidecar.csv`, `certified_chunk_manifest.csv`,
+  `certified_attack_subset_v1.json`, and
+  `unified_two_head_selection_audit.csv`;
+- no model result or scientific GO/NO_GO was produced.
+
+Classification: **package/transfer dependency-closure failure**. This is not a
+data-alignment, TShark, checkpoint, model, scheduler, memory, or scientific
+failure. Reaching the formal phase in roughly two minutes also confirms that
+the r13-to-r14 formal handoff repair and validated checkpoint reuse worked.
+
+Root cause:
+
+`issue27ckbv_build_bundle.ps1` staged the Python import chain but omitted four
+frozen data artifacts reached through
+`issue27ckbu -> issue27ckbq -> issue27cko -> issue27ckc`. The existing local
+contract-unit tested formal logic and stage handoff but did not prove the full
+runtime dependency closure of the clean extracted payload.
+
+Permanent repair and regression gate:
+
+1. Name the exact four paths in the bundle manifest, installer input check, and
+   compute-node input check.
+2. Bind their canonical UTF-8/LF SHA-256 values in the formal program. This
+   matches the bundle builder's intentional CRLF-to-LF normalization and avoids
+   treating platform line endings as scientific changes.
+3. Invoke the same closure validator in local contract-unit, clean-extract
+   contract-unit, installer regression checks, and the compute-node formal
+   process before model setup.
+4. In clean extraction, deliberately remove one dependency and require
+   contract-unit to fail with the dependency-closure signature; restore it and
+   require the same contract to pass again.
+5. Keep all four artifacts read-only and covered by bundle `SHA256SUMS`.
+
+Accepted retry path: a new r15 partition/job-isolated run using only validated
+checkpoint donors. No PCAP re-decoding is required.
+
+Rejected retry paths:
+
+- ad hoc copying the four files into an already extracted r14 directory;
+- weakening `issue27ckc.validate_inputs()` or changing any input hash;
+- rerunning in either failed r14 output root;
+- changing features, target rows, roles, masks, thresholds, model, seed, or
+  decision rules;
+- recomputing valid raw-PCAP checkpoints for a packaging-only failure.
