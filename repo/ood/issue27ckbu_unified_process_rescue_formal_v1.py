@@ -81,6 +81,59 @@ ALL_CANDIDATES = (
     PRIMARY,
 )
 
+# The formal model deliberately shares a run root with the validated CKBV
+# preprocessing stages.  Keep this handoff fail-closed: every artifact that
+# may legitimately exist before formal scoring is named exactly, and anything
+# else (including partial scientific output from an earlier formal attempt)
+# is rejected.
+CKBV_FORMAL_HANDOFF_DIRECTORIES = frozenset(
+    {
+        "gotham_causal_cache",
+        "auxiliary_causal_cache",
+        "source_runtime",
+        "auxiliary_worker",
+        "ton_file_cache",
+        "ton_file_logs",
+        "gotham_member_cache",
+        "member_logs",
+    }
+)
+CKBV_FORMAL_HANDOFF_FILES = frozenset(
+    {
+        "resource_usage.txt",
+        "slurm_identity.txt",
+        "slurm_job_at_start.txt",
+        "current_phase.txt",
+        "auxiliary_checkpoint_stage.log",
+        "ton_checkpoint_stage.log",
+        "gotham_checkpoint_stage.log",
+        "ckbu_gotham_source_plan.csv",
+        "ckbu_gotham_plan.json",
+        "ckbu_auxiliary_source_plan.csv",
+        "ckbu_auxiliary_plan.json",
+        "ckbu_ton_raw_pcap_pilot_manifest.csv",
+        "ckbu_ton_raw_pcap_pilot_ready.json",
+        "ckbv_gotham_member_plan.csv",
+        "ckbv_gotham_member_plan.json",
+        "ckbu_auxiliary_parallel_reuse_audit.csv",
+        "ckbu_auxiliary_parallel_runtime.csv",
+        "ckbu_auxiliary_parallel_ready.json",
+        "ckbu_ton_raw_pcap_materialization_audit.csv",
+        "ckbu_ton_raw_pcap_pilot_causal_samples.npz",
+        "ckbu_ton_raw_pcap_pilot_causal_ready.json",
+        "ckbv_ton_file_runtime.csv",
+        "ckbv_throughput_projection.json",
+        "ckbv_member_runtime.csv",
+        "ckbv_source_reuse_audit.csv",
+        "ckbv_source_aggregation_audit.csv",
+        "ckbv_gotham_checkpoint_ready.json",
+        "ckbu_gotham_unified_causal_manifest.csv",
+        "ckbu_gotham_unified_causal_ready.json",
+        "ckbu_auxiliary_unified_causal_manifest.csv",
+        "ckbu_auxiliary_unified_causal_ready.json",
+    }
+)
+
 
 @dataclass(frozen=True)
 class Gate:
@@ -121,6 +174,25 @@ def sha256_file(path: Path) -> str:
         for block in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def validate_formal_handoff_dir(out: Path) -> None:
+    unexpected: list[str] = []
+    wrong_type: list[str] = []
+    for path in sorted(Path(out).iterdir(), key=lambda value: value.name):
+        if path.name in CKBV_FORMAL_HANDOFF_DIRECTORIES:
+            if not path.is_dir():
+                wrong_type.append(f"{path.name}:expected_directory")
+        elif path.name in CKBV_FORMAL_HANDOFF_FILES:
+            if not path.is_file():
+                wrong_type.append(f"{path.name}:expected_file")
+        else:
+            unexpected.append(path.name)
+    if unexpected or wrong_type:
+        raise RuntimeError(
+            "refusing invalid CKBV formal handoff directory: "
+            f"unexpected={unexpected[:8]} wrong_type={wrong_type[:8]}"
+        )
 
 
 def unique(records: Iterable[ckbj.Record]) -> list[ckbj.Record]:
@@ -1081,30 +1153,7 @@ def run_formal(args: argparse.Namespace) -> None:
     torch.use_deterministic_algorithms(True)
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    allowed = {
-        "resource_usage.txt",
-        "slurm_identity.txt",
-        "slurm_job_at_start.txt",
-        "gotham_causal_cache",
-        "auxiliary_causal_cache",
-        "source_runtime",
-        "ckbu_gotham_source_plan.csv",
-        "ckbu_gotham_plan.json",
-        "ckbu_gotham_unified_causal_manifest.csv",
-        "ckbu_gotham_unified_causal_ready.json",
-        "ckbu_auxiliary_source_plan.csv",
-        "ckbu_auxiliary_plan.json",
-        "ckbu_auxiliary_unified_causal_manifest.csv",
-        "ckbu_auxiliary_unified_causal_ready.json",
-        "ckbu_ton_raw_pcap_pilot_manifest.csv",
-        "ckbu_ton_raw_pcap_pilot_ready.json",
-        "ckbu_ton_raw_pcap_materialization_audit.csv",
-        "ckbu_ton_raw_pcap_pilot_causal_samples.npz",
-        "ckbu_ton_raw_pcap_pilot_causal_ready.json",
-    }
-    unexpected = [path.name for path in out.iterdir() if path.name not in allowed]
-    if unexpected:
-        raise RuntimeError(f"refusing mixed CKBU output directory: {unexpected[:5]}")
+    validate_formal_handoff_dir(out)
     (
         x_by_role,
         report_frames,
@@ -1317,6 +1366,37 @@ def contract_unit() -> None:
     process = np.asarray([False, True, False])
     if not np.array_equal(base | process, np.asarray([False, True, True])):
         raise RuntimeError("asymmetric OR rescue unit failed")
+
+    # r14 regression: reproduce the exact stage boundary that jobs 154761 and
+    # 154762 reached after successful checkpoint materialization.  Every
+    # legitimate preprocessing artifact must pass, while an unknown/partial
+    # formal artifact must still fail closed.
+    with tempfile.TemporaryDirectory() as temp:
+        handoff = Path(temp)
+        for name in CKBV_FORMAL_HANDOFF_DIRECTORIES:
+            (handoff / name).mkdir()
+        for name in CKBV_FORMAL_HANDOFF_FILES:
+            write_text(handoff / name, "contract-unit\n")
+        validate_formal_handoff_dir(handoff)
+        unexpected = handoff / "unexpected_partial_science.csv"
+        write_text(unexpected, "must,fail\n")
+        try:
+            validate_formal_handoff_dir(handoff)
+        except RuntimeError as exc:
+            if unexpected.name not in str(exc):
+                raise
+        else:
+            raise RuntimeError("unexpected staged output was not rejected")
+        unexpected.unlink()
+        (handoff / "member_logs").rmdir()
+        write_text(handoff / "member_logs", "wrong type\n")
+        try:
+            validate_formal_handoff_dir(handoff)
+        except RuntimeError as exc:
+            if "member_logs:expected_directory" not in str(exc):
+                raise
+        else:
+            raise RuntimeError("wrong-type staged output was not rejected")
 
     # r13 regression: the legal select pool contains later-added ToN records,
     # while the immutable CKBQ prediction artifact does not.  The mixed audit

@@ -16,7 +16,7 @@ CKBT_MANIFEST="$HERE/payload/runs/issue27ckbt_toniot_aux_process_support_gate_v1
 TON_PILOT_MANIFEST="$HERE/payload/runs/mainline_docs/ckbu_ton_raw_pcap_pilot_manifest_20260723.csv"
 CKBQ_ROOT="$BASE/runs/issue27ckbq_causal_minirocket_consensus_v1_2026-07-17_seed27_amd_153037"
 PCAP_LIB_DIR="/share/software/CST/installed/MCR/bin/glnxa64"
-REUSE_ROOTS=${CKBV_REUSE_RUN_ROOTS:-$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154620:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_intel_154621:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154606:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_intel_154607:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154478:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154440:$BASE/runs/issue27ckbu_unified_process_rescue_parallel_v2_2026-07-24_seed27_amd_154081}
+REUSE_ROOTS=${CKBV_REUSE_RUN_ROOTS:-$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154761:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154620:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_intel_154621:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154606:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_intel_154607:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154478:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154440:$BASE/runs/issue27ckbu_unified_process_rescue_parallel_v2_2026-07-24_seed27_amd_154081}
 
 test -d "$BASE" || {
   echo "missing experiment directory: $BASE" >&2

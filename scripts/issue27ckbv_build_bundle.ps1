@@ -1,7 +1,7 @@
 param(
     [string]$RepoRoot = 'D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline',
     [string]$TransferRoot = 'D:\study\paper\anomaly_detection\paper04\supercompute_transfer',
-    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260726_r8'
+    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260727_r14'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -80,6 +80,7 @@ $payloadFiles = @(
     'runs/mainline_docs/ckbu_ton_raw_pcap_pilot_manifest_20260723.csv',
     'runs/mainline_docs/ckbv_checkpointed_sparse_recovery_preregistered_20260725.md',
     'runs/mainline_docs/ckbv_r13_finalization_boundary_fix_20260727.md',
+    'runs/mainline_docs/ckbv_r14_formal_handoff_contract_fix_20260727.md',
     'runs/mainline_docs/hpc_failure_ledger_and_launch_gate_20260725.md',
     'scripts/issue27ckbv_checkpointed_process_formal.slurm',
     'scripts/issue27ckbv_install_and_submit_dual.sh',
@@ -220,7 +221,17 @@ foreach ($required in @(
     'not record.uid.startswith("ton:")',
     '"c1_threshold_only_ton_rows"',
     '"c1_ton_policy": "conservative_all_hard_no_frozen_ckbq"',
-    'missing non-ToN frozen coverage was not rejected'
+    'missing non-ToN frozen coverage was not rejected',
+    'CKBV_FORMAL_HANDOFF_DIRECTORIES = frozenset(',
+    'CKBV_FORMAL_HANDOFF_FILES = frozenset(',
+    'def validate_formal_handoff_dir(',
+    '"member_logs"',
+    '"ckbv_gotham_checkpoint_ready.json"',
+    '"ckbv_source_aggregation_audit.csv"',
+    '"ton_file_cache"',
+    '"ckbv_throughput_projection.json"',
+    'unexpected staged output was not rejected',
+    'wrong-type staged output was not rejected'
 )) {
     if (-not $formalText.Contains($required)) {
         throw "Clean-extract mixed C1 audit regression gate missing: $required"
@@ -272,6 +283,7 @@ foreach ($required in @(
     }
 }
 foreach ($required in @(
+    'seed27_amd_154761',
     'seed27_amd_154620',
     'seed27_intel_154621',
     'seed27_amd_154606',
@@ -281,7 +293,7 @@ foreach ($required in @(
         throw "Clean-extract validated checkpoint donor missing: $required"
     }
 }
-foreach ($required in @('seed27_amd_154620', 'seed27_intel_154621')) {
+foreach ($required in @('seed27_amd_154761', 'seed27_amd_154620', 'seed27_intel_154621')) {
     if (-not $slurmText.Contains($required)) {
         throw "Slurm donor list drifted from installer: $required"
     }

@@ -754,3 +754,58 @@ intersection, both denominators reported; no frozen manifest overwritten.
 Re-pairing (option A) is not recommended now: it would introduce a
 multi-capture observation-unit contract (merge/dedup/reset semantics) for
 the sake of 1,353 development-only rows.
+
+## Section 12: CKBV formal-stage handoff rejection (2026-07-27)
+
+Affected jobs: AMD `154761`, Intel `154762`.
+
+Observed boundary:
+
+- real CKBV member/checkpoint processing ran successfully;
+- an earlier AMD `154761` live snapshot showed 58/62 Gotham member
+  checkpoints, 25/30 Gotham source caches, 31/31 auxiliary caches, and 4/4
+  ToN file caches; it subsequently entered `formal_seed27_model`, proving
+  that the required pre-formal readiness and aggregation gates completed;
+- entry to `formal_seed27_model` failed with
+  `refusing mixed CKBU output directory`;
+- the rejected names (`member_logs`,
+  `ckbv_gotham_checkpoint_ready.json`,
+  `ckbv_source_aggregation_audit.csv`, `ton_file_cache`,
+  `ckbv_throughput_projection.json`) are legitimate products of the current
+  CKBV launcher.
+
+Classification: **stage-handoff/metadata contract failure**. It is not a
+scientific NO_GO and not a raw-data, TShark, model, memory, or scheduler
+failure.
+
+Root cause: the formal program retained a stale CKBU-only output-directory
+whitelist while CKBV intentionally runs validated preprocessing and formal
+scoring in the same new partition/job-isolated root.
+
+Permanent repair and regression gate:
+
+1. Preserve a fail-closed, exact list of legal pre-formal files and
+   directories, including expected path types.
+2. Contract-unit materializes the complete legal staged run root and must
+   accept it.
+3. The same test adds an unknown partial-science CSV and a wrong-type
+   checkpoint path; both must be rejected.
+4. Clean-extract bundle validation requires those tests/tokens before an
+   archive can be published.
+5. AMD `154761` is the first reuse donor. New jobs make no blanket assumption
+   that every donor file is valid: they reuse only source/member/file
+   checkpoint pairs accepted by the existing schema, coverage, identity, and
+   hash validators, and never write into the failed run root.
+
+Accepted retry path: a new partition/job-isolated r14 run using `154761` as
+the first donor, then earlier validated donors as fallbacks.
+
+Rejected retry paths:
+
+- rerunning formal in the failed `154761`/`154762` root;
+- deleting the mixed-directory guard;
+- allowing arbitrary existing files;
+- re-decoding all raw PCAPs without first attempting validated checkpoint
+  reuse;
+- changing features, target rows, mask, roles, thresholds, model, seed, or
+  decision rules to repair this operational failure.
