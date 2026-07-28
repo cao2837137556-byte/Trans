@@ -15,6 +15,13 @@ SCRIPT_ROOT="$HERE/payload/scripts"
 CKBT_MANIFEST="$HERE/payload/runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22/aux_process_support_candidate_manifest.csv"
 TON_PILOT_MANIFEST="$HERE/payload/runs/mainline_docs/ckbu_ton_raw_pcap_pilot_manifest_20260723.csv"
 CKBQ_ROOT="$BASE/runs/issue27ckbq_causal_minirocket_consensus_v1_2026-07-17_seed27_amd_153037"
+T0_ROOT="$BASE/runs/issue27ckbe_tgn_fullsupport_event_cache_v1_2026-07-12_hpc_fullsupport_r3"
+REPORT_T0_EXTENSION="$BASE/runs/issue27ckbi_tgn_report_only_cache_extension_v1_2026-07-12_hpc"
+C1_ROOT="$BASE/runs/issue27ckat_canonical_time_c1_canary_v1_2026-07-10_fullsupport_cacheplan_v1"
+C1_PLAN="$C1_ROOT/canonical_source_load_plan.csv"
+C1_TARGETS="$C1_ROOT/canonical_source_target_index.csv"
+C1_CACHE="$C1_ROOT/hpc_canonical_c1_cache"
+C1_REPORT_EXTENSION="$BASE/runs/issue27ckbj_c1_report_only_cache_extension_v1_2026-07-13_hpc"
 PCAP_LIB_DIR="/share/software/CST/installed/MCR/bin/glnxa64"
 REUSE_ROOTS=${CKBV_REUSE_RUN_ROOTS:-$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154761:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154620:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_intel_154621:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154606:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_intel_154607:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154478:$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed27_amd_154440:$BASE/runs/issue27ckbu_unified_process_rescue_parallel_v2_2026-07-24_seed27_amd_154081}
 
@@ -61,10 +68,31 @@ for path in \
   "$TON_PILOT_MANIFEST" "$CKBT_MANIFEST" \
   "$CKBQ_ROOT/ckbq_record_predictions.csv.gz" \
   "$CKBQ_ROOT/ckbo_auxiliary_benign_manifest.csv" \
-  "$BASE/runs/issue27ckbi_tgn_report_only_cache_extension_v1_2026-07-12_hpc/report_extension_recorded_targets.csv" \
-  "$BASE/runs/issue27ckat_canonical_time_c1_canary_v1_2026-07-10_fullsupport_cacheplan_v1/canonical_source_target_index.csv"; do
+  "$T0_ROOT/tgn_source_event_plan_frozen.csv" \
+  "$T0_ROOT/t0_cache_audit.csv" \
+  "$REPORT_T0_EXTENSION/report_only_extension_manifest_frozen.csv" \
+  "$REPORT_T0_EXTENSION/report_only_extension_manifest_sha256.txt" \
+  "$REPORT_T0_EXTENSION/extension_ready.json" \
+  "$REPORT_T0_EXTENSION/report_only_fit_select_exclusion_audit.csv" \
+  "$REPORT_T0_EXTENSION/report_extension_recorded_targets.csv" \
+  "$C1_PLAN" "$C1_TARGETS" \
+  "$C1_REPORT_EXTENSION/c1_report_extension_ready.json" \
+  "$C1_REPORT_EXTENSION/c1_report_only_extension_manifest.csv" \
+  "$C1_REPORT_EXTENSION/c1_report_only_extension_manifest_sha256.txt" \
+  "$C1_REPORT_EXTENSION/canonical_source_load_plan.csv" \
+  "$C1_REPORT_EXTENSION/canonical_source_target_index.csv"; do
   test -s "$path" || {
     echo "missing immutable input: $path" >&2
+    exit 2
+  }
+done
+for directory in \
+  "$T0_ROOT/tgn_event_cache" \
+  "$REPORT_T0_EXTENSION/tgn_event_cache" \
+  "$C1_CACHE" \
+  "$C1_REPORT_EXTENSION/c1_report_cache"; do
+  test -d "$directory" || {
+    echo "missing immutable input directory: $directory" >&2
     exit 2
   }
 done
@@ -158,7 +186,37 @@ FORMAL_SHA256=$(sha256sum "$CODE_ROOT/issue27ckbu_unified_process_rescue_formal_
 RESUME_SHA256=$(sha256sum "$CODE_ROOT/issue27ckbu_parallel_cache_resume_v1.py" | awk '{print $1}')
 CHECKPOINT_SHA256=$(sha256sum "$CODE_ROOT/issue27ckbv_checkpointed_sparse_process_frontend_v1.py" | awk '{print $1}')
 SLURM="$SCRIPT_ROOT/issue27ckbv_checkpointed_process_formal.slurm"
-EXPORTS="ALL,CKBV_COMMIT_SHA=$COMMIT_SHA,CKBV_CODE_ROOT=$CODE_ROOT,CKBV_SCRIPT_ROOT=$SCRIPT_ROOT,CKBV_CKBT_MANIFEST=$CKBT_MANIFEST,CKBV_TON_PILOT_MANIFEST=$TON_PILOT_MANIFEST,CKBV_FRONTEND_SHA256=$FRONTEND_SHA256,CKBV_FORMAL_SHA256=$FORMAL_SHA256,CKBV_RESUME_SHA256=$RESUME_SHA256,CKBV_CHECKPOINT_SHA256=$CHECKPOINT_SHA256,CKBV_REUSE_RUN_ROOTS=$REUSE_ROOTS,CKBV_RAW51_MASK=$RAW51_MASK,CKBV_RAW51_MASK_SHA256=$RAW51_MASK_SHA256"
+EXPORTS="ALL,CKBV_COMMIT_SHA=$COMMIT_SHA,CKBV_CODE_ROOT=$CODE_ROOT,CKBV_SCRIPT_ROOT=$SCRIPT_ROOT,CKBV_CKBT_MANIFEST=$CKBT_MANIFEST,CKBV_TON_PILOT_MANIFEST=$TON_PILOT_MANIFEST,CKBV_FRONTEND_SHA256=$FRONTEND_SHA256,CKBV_FORMAL_SHA256=$FORMAL_SHA256,CKBV_RESUME_SHA256=$RESUME_SHA256,CKBV_CHECKPOINT_SHA256=$CHECKPOINT_SHA256,CKBV_REUSE_RUN_ROOTS=$REUSE_ROOTS,CKBV_RAW51_MASK=$RAW51_MASK,CKBV_RAW51_MASK_SHA256=$RAW51_MASK_SHA256,CKBV_T0_ROOT=$T0_ROOT,CKBV_REPORT_T0_EXTENSION=$REPORT_T0_EXTENSION,CKBV_C1_PLAN=$C1_PLAN,CKBV_C1_TARGETS=$C1_TARGETS,CKBV_C1_CACHE=$C1_CACHE,CKBV_C1_REPORT_EXTENSION=$C1_REPORT_EXTENSION"
+
+for name in \
+  CKBV_T0_ROOT CKBV_REPORT_T0_EXTENSION CKBV_C1_PLAN \
+  CKBV_C1_TARGETS CKBV_C1_CACHE CKBV_C1_REPORT_EXTENSION; do
+  case ",$EXPORTS," in
+    *",$name="*) ;;
+    *)
+      echo "missing external runtime asset in Slurm EXPORTS: $name" >&2
+      exit 2
+      ;;
+  esac
+done
+for token in \
+  'T0_ROOT=${CKBV_T0_ROOT:?missing CKBV_T0_ROOT}' \
+  'REPORT_T0_EXTENSION=${CKBV_REPORT_T0_EXTENSION:?missing CKBV_REPORT_T0_EXTENSION}' \
+  'C1_PLAN=${CKBV_C1_PLAN:?missing CKBV_C1_PLAN}' \
+  'C1_TARGETS=${CKBV_C1_TARGETS:?missing CKBV_C1_TARGETS}' \
+  'C1_CACHE=${CKBV_C1_CACHE:?missing CKBV_C1_CACHE}' \
+  'C1_REPORT_EXTENSION=${CKBV_C1_REPORT_EXTENSION:?missing CKBV_C1_REPORT_EXTENSION}' \
+  '--t0-root "$T0_ROOT"' \
+  '--report-t0-extension "$REPORT_T0_EXTENSION"' \
+  '--c1-plan "$C1_PLAN"' \
+  '--c1-targets "$C1_TARGETS"' \
+  '--c1-cache "$C1_CACHE"' \
+  '--c1-report-extension "$C1_REPORT_EXTENSION"'; do
+  grep -Fq -- "$token" "$SLURM" || {
+    echo "Slurm external runtime asset wiring missing: $token" >&2
+    exit 2
+  }
+done
 
 echo "=== CKBV Slurm scheduler dry validation ==="
 sbatch --test-only -p amd --export="$EXPORTS" "$SLURM"

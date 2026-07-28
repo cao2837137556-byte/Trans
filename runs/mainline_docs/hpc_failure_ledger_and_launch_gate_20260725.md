@@ -866,3 +866,64 @@ Rejected retry paths:
 - changing features, target rows, roles, masks, thresholds, model, seed, or
   decision rules;
 - recomputing valid raw-PCAP checkpoints for a packaging-only failure.
+
+## Section 14: CKBV r15 external runtime-asset path audit block (2026-07-28)
+
+Affected artifact: the r15 upload bundle built from commit
+`270e9233fd76cf3bdedbb6f5a8c24a7cd6d8476f`. It was blocked by independent
+review before upload or Slurm submission; therefore there are no affected job
+IDs and no runtime or scientific result.
+
+Observed boundary:
+
+- r15 correctly bundled and hash-bound the four small frozen dependencies
+  omitted by r14;
+- the formal parser still defaulted six larger inputs from its executing
+  bundle root: T0, report T0 extension, C1 plan, C1 targets, C1 cache, and C1
+  report extension;
+- those large immutable assets are intentionally not in the bundle and exist
+  only under the remote worktree `runs` directory;
+- the r15 Slurm invocation did not override the defaults, so a submitted job
+  would have failed at formal input validation after checkpoint reuse.
+
+Classification: **pre-submission package/launch path-resolution closure
+failure**. This is not a data, cache, alignment, feature, model, scheduler,
+memory, threshold, or scientific failure.
+
+Root cause:
+
+The dependency review closed the bundle-local Python/data import chain but did
+not separately model assets that are intentionally remote-worktree-resident.
+Existence checks for two derivative files did not prove that every parser
+default had an explicit edge from the remote worktree into the formal command.
+
+Permanent repair and regression gate:
+
+1. Define the exact CKBE, CKBI, CKAT, and CKBJ roots from `$BASE` in the
+   installer, export all six values through `sbatch --export`, and require the
+   corresponding environment variables in the compute-node script.
+2. Fail closed on every manifest, ready record, audit, target index, and cache
+   directory required by the downstream runtime validators.
+3. Pass all six external runtime paths explicitly to the formal Python
+   invocation; do not rely on bundle-relative parser defaults.
+4. In clean extraction, require the exact path definitions, checks, and CLI
+   edges.
+5. Deliberately remove one CLI edge and one installer input check in memory and
+   require both altered launch contracts to be rejected before an archive can
+   be published.
+6. Remove all six bundle-relative formal parser defaults. A clean-extract
+   subprocess that passes only five assets must fail immediately with a stable
+   missing-option signature; the same mode with all six assets must pass.
+
+Accepted retry path: independent review of a new r16 clean bundle, followed
+only after approval by a new partition/job-isolated AMD/Intel submission that
+reuses individually validated checkpoints.
+
+Rejected retry paths:
+
+- submitting or editing the retired r15 bundle;
+- copying large caches, PCAPs, or environments into the upload bundle;
+- relying on Python parser defaults for remote-worktree assets;
+- weakening downstream validators to accept absent inputs;
+- changing scientific inputs or recomputing valid preprocessing checkpoints
+  to repair this launch-path error.

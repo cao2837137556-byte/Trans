@@ -1,7 +1,7 @@
 param(
     [string]$RepoRoot = 'D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline',
     [string]$TransferRoot = 'D:\study\paper\anomaly_detection\paper04\supercompute_transfer',
-    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260728_r15'
+    [string]$BundleName = 'issue27ckbv_checkpointed_process_seed27_dual_20260728_r16'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -86,6 +86,7 @@ $payloadFiles = @(
     'runs/mainline_docs/ckbv_r13_finalization_boundary_fix_20260727.md',
     'runs/mainline_docs/ckbv_r14_formal_handoff_contract_fix_20260727.md',
     'runs/mainline_docs/ckbv_r15_formal_dependency_closure_fix_20260728.md',
+    'runs/mainline_docs/ckbv_r16_external_runtime_asset_closure_fix_20260728.md',
     'runs/mainline_docs/hpc_failure_ledger_and_launch_gate_20260725.md',
     'scripts/issue27ckbv_checkpointed_process_formal.slurm',
     'scripts/issue27ckbv_install_and_submit_dual.sh',
@@ -224,6 +225,173 @@ $formalText = [System.IO.File]::ReadAllText($verifiedFormal)
 $slurmText = [System.IO.File]::ReadAllText($verifiedSlurm)
 $installerText = [System.IO.File]::ReadAllText($verifiedInstaller)
 $validatorText = [System.IO.File]::ReadAllText($verifiedValidator)
+
+function Get-CkbvExternalRuntimeAssetClosureErrors {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$FormalText,
+        [Parameter(Mandatory = $true)]
+        [string]$SlurmText,
+        [Parameter(Mandatory = $true)]
+        [string]$InstallerText
+    )
+
+    $errors = [System.Collections.Generic.List[string]]::new()
+    $installerPathDefinitions = @(
+        'T0_ROOT="$BASE/runs/issue27ckbe_tgn_fullsupport_event_cache_v1_2026-07-12_hpc_fullsupport_r3"',
+        'REPORT_T0_EXTENSION="$BASE/runs/issue27ckbi_tgn_report_only_cache_extension_v1_2026-07-12_hpc"',
+        'C1_ROOT="$BASE/runs/issue27ckat_canonical_time_c1_canary_v1_2026-07-10_fullsupport_cacheplan_v1"',
+        'C1_PLAN="$C1_ROOT/canonical_source_load_plan.csv"',
+        'C1_TARGETS="$C1_ROOT/canonical_source_target_index.csv"',
+        'C1_CACHE="$C1_ROOT/hpc_canonical_c1_cache"',
+        'C1_REPORT_EXTENSION="$BASE/runs/issue27ckbj_c1_report_only_cache_extension_v1_2026-07-13_hpc"'
+    )
+    foreach ($required in $installerPathDefinitions) {
+        if (-not $InstallerText.Contains($required)) {
+            $errors.Add("installer path definition missing: $required")
+        }
+    }
+
+    $slurmExportImports = @(
+        'T0_ROOT=${CKBV_T0_ROOT:?missing CKBV_T0_ROOT}',
+        'REPORT_T0_EXTENSION=${CKBV_REPORT_T0_EXTENSION:?missing CKBV_REPORT_T0_EXTENSION}',
+        'C1_PLAN=${CKBV_C1_PLAN:?missing CKBV_C1_PLAN}',
+        'C1_TARGETS=${CKBV_C1_TARGETS:?missing CKBV_C1_TARGETS}',
+        'C1_CACHE=${CKBV_C1_CACHE:?missing CKBV_C1_CACHE}',
+        'C1_REPORT_EXTENSION=${CKBV_C1_REPORT_EXTENSION:?missing CKBV_C1_REPORT_EXTENSION}'
+    )
+    foreach ($required in $slurmExportImports) {
+        if (-not $SlurmText.Contains($required)) {
+            $errors.Add("slurm required export import missing: $required")
+        }
+    }
+
+    $installerExports = @(
+        'CKBV_T0_ROOT=$T0_ROOT',
+        'CKBV_REPORT_T0_EXTENSION=$REPORT_T0_EXTENSION',
+        'CKBV_C1_PLAN=$C1_PLAN',
+        'CKBV_C1_TARGETS=$C1_TARGETS',
+        'CKBV_C1_CACHE=$C1_CACHE',
+        'CKBV_C1_REPORT_EXTENSION=$C1_REPORT_EXTENSION'
+    )
+    foreach ($required in $installerExports) {
+        if (-not $InstallerText.Contains($required)) {
+            $errors.Add("installer Slurm export missing: $required")
+        }
+    }
+
+    $formalCliWiring = @(
+        '--t0-root "$T0_ROOT"',
+        '--report-t0-extension "$REPORT_T0_EXTENSION"',
+        '--c1-plan "$C1_PLAN"',
+        '--c1-targets "$C1_TARGETS"',
+        '--c1-cache "$C1_CACHE"',
+        '--c1-report-extension "$C1_REPORT_EXTENSION"'
+    )
+    foreach ($required in $formalCliWiring) {
+        if (-not $SlurmText.Contains($required)) {
+            $errors.Add("slurm formal CLI wiring missing: $required")
+        }
+    }
+
+    $formalRequiredAssets = @(
+        'parser.add_argument("--t0-root", type=Path, default=None)',
+        'parser.add_argument("--report-t0-extension", type=Path, default=None)',
+        'parser.add_argument("--c1-plan", type=Path, default=None)',
+        'parser.add_argument("--c1-targets", type=Path, default=None)',
+        'parser.add_argument("--c1-cache", type=Path, default=None)',
+        'parser.add_argument("--c1-report-extension", type=Path, default=None)',
+        'if args.mode in {"formal", "runtime-asset-contract"}:',
+        '"formal mode requires explicit remote runtime assets; "',
+        '"status": "CKBU_FORMAL_RUNTIME_ASSET_CONTRACT_PASS"'
+    )
+    foreach ($required in $formalRequiredAssets) {
+        if (-not $FormalText.Contains($required)) {
+            $errors.Add("formal explicit runtime-asset gate missing: $required")
+        }
+    }
+
+    $requiredAssetChecks = @(
+        '"$T0_ROOT/tgn_source_event_plan_frozen.csv"',
+        '"$T0_ROOT/t0_cache_audit.csv"',
+        '"$REPORT_T0_EXTENSION/report_only_extension_manifest_frozen.csv"',
+        '"$REPORT_T0_EXTENSION/report_only_extension_manifest_sha256.txt"',
+        '"$REPORT_T0_EXTENSION/extension_ready.json"',
+        '"$REPORT_T0_EXTENSION/report_only_fit_select_exclusion_audit.csv"',
+        '"$C1_PLAN"',
+        '"$C1_TARGETS"',
+        '"$C1_REPORT_EXTENSION/c1_report_extension_ready.json"',
+        '"$C1_REPORT_EXTENSION/c1_report_only_extension_manifest.csv"',
+        '"$C1_REPORT_EXTENSION/c1_report_only_extension_manifest_sha256.txt"',
+        '"$C1_REPORT_EXTENSION/canonical_source_load_plan.csv"',
+        '"$C1_REPORT_EXTENSION/canonical_source_target_index.csv"',
+        '"$T0_ROOT/tgn_event_cache"',
+        '"$REPORT_T0_EXTENSION/tgn_event_cache"',
+        '"$C1_CACHE"',
+        '"$C1_REPORT_EXTENSION/c1_report_cache"'
+    )
+    foreach ($required in $requiredAssetChecks) {
+        if (-not $SlurmText.Contains($required)) {
+            $errors.Add("slurm immutable asset check missing: $required")
+        }
+        if (-not $InstallerText.Contains($required)) {
+            $errors.Add("installer immutable asset check missing: $required")
+        }
+    }
+    return $errors
+}
+
+$externalRuntimeClosureErrors = @(
+    Get-CkbvExternalRuntimeAssetClosureErrors `
+        -FormalText $formalText `
+        -SlurmText $slurmText `
+        -InstallerText $installerText
+)
+if ($externalRuntimeClosureErrors.Count -ne 0) {
+    throw (
+        "Clean-extract external runtime asset closure failed: " +
+        ($externalRuntimeClosureErrors -join '; ')
+    )
+}
+
+# Negative wiring regressions: deleting either a formal CLI edge or an
+# installer-side immutable-input check must be detected before publication.
+$negativeSlurmText = $slurmText.Replace('--t0-root "$T0_ROOT"', '')
+$negativeSlurmErrors = @(
+    Get-CkbvExternalRuntimeAssetClosureErrors `
+        -FormalText $formalText `
+        -SlurmText $negativeSlurmText `
+        -InstallerText $installerText
+)
+if (
+    $negativeSlurmErrors.Count -eq 0 -or
+    -not ($negativeSlurmErrors -contains 'slurm formal CLI wiring missing: --t0-root "$T0_ROOT"')
+) {
+    throw 'Clean-extract negative formal CLI wiring regression did not fail closed'
+}
+
+$negativeInstallerText = $installerText.Replace(
+    '"$T0_ROOT/tgn_source_event_plan_frozen.csv"',
+    ''
+)
+$negativeInstallerErrors = @(
+    Get-CkbvExternalRuntimeAssetClosureErrors `
+        -FormalText $formalText `
+        -SlurmText $slurmText `
+        -InstallerText $negativeInstallerText
+)
+if (
+    $negativeInstallerErrors.Count -eq 0 -or
+    -not (
+        $negativeInstallerErrors -contains (
+            'installer immutable asset check missing: ' +
+            '"$T0_ROOT/tgn_source_event_plan_frozen.csv"'
+        )
+    )
+) {
+    throw 'Clean-extract negative installer asset-check regression did not fail closed'
+}
+
 foreach ($required in @(
     'def select_c1_audit_decisions(',
     'not record.uid.startswith("ton:")',
@@ -377,6 +545,53 @@ try {
         if ($LASTEXITCODE -ne 0) {
             throw "Clean-extract contract test failed: $($test.Script)"
         }
+    }
+
+    # Exercise the formal parser itself, not only static text inspection.
+    # Omitting one of the six remote-worktree assets must fail immediately
+    # with a stable signature; restoring all six must pass without touching
+    # data, checkpoints, or the scientific model.
+    $runtimeAssetArgs = @(
+        '--mode', 'runtime-asset-contract',
+        '--t0-root', '/explicit/t0',
+        '--report-t0-extension', '/explicit/report-t0',
+        '--c1-plan', '/explicit/c1-plan.csv',
+        '--c1-targets', '/explicit/c1-targets.csv',
+        '--c1-cache', '/explicit/c1-cache'
+    )
+    $runtimeAssetNegativeStdout = Join-Path $verifyRoot 'formal_runtime_asset_negative.stdout.txt'
+    $runtimeAssetNegativeStderr = Join-Path $verifyRoot 'formal_runtime_asset_negative.stderr.txt'
+    $pythonExe = (Get-Command python -ErrorAction Stop).Source
+    $runtimeAssetNegativeProcess = Start-Process `
+        -FilePath $pythonExe `
+        -ArgumentList (@($verifiedFormal) + $runtimeAssetArgs) `
+        -NoNewWindow `
+        -Wait `
+        -PassThru `
+        -RedirectStandardOutput $runtimeAssetNegativeStdout `
+        -RedirectStandardError $runtimeAssetNegativeStderr
+    if ($runtimeAssetNegativeProcess.ExitCode -eq 0) {
+        throw 'Clean-extract missing explicit runtime asset did not fail closed'
+    }
+    $runtimeAssetNegativeEvidence = [System.IO.File]::ReadAllText(
+        $runtimeAssetNegativeStderr
+    )
+    $runtimeAssetNegativeSignature = (
+        'formal mode requires explicit remote runtime assets; ' +
+        'missing: --c1-report-extension'
+    )
+    if (-not $runtimeAssetNegativeEvidence.Contains($runtimeAssetNegativeSignature)) {
+        throw 'Clean-extract missing explicit runtime asset failed for the wrong reason'
+    }
+    Write-Output (
+        'CKBV_NEGATIVE_RUNTIME_ASSET_GATE_PASS=' +
+        $runtimeAssetNegativeSignature
+    )
+
+    & python $verifiedFormal @runtimeAssetArgs `
+        --c1-report-extension /explicit/c1-report
+    if ($LASTEXITCODE -ne 0) {
+        throw 'Clean-extract restored explicit runtime assets did not pass'
     }
 
     # Negative packaging regression: reproduce the r14 omission in the clean

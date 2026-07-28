@@ -1592,17 +1592,29 @@ def contract_unit() -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mode", choices=["contract-unit", "dry-run", "formal"], default="dry-run")
+    parser.add_argument(
+        "--mode",
+        choices=[
+            "contract-unit",
+            "runtime-asset-contract",
+            "dry-run",
+            "formal",
+        ],
+        default="dry-run",
+    )
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     parser.add_argument("--seed", type=int, default=SEED)
     parser.add_argument("--held-values", default=",".join(HELD))
     parser.add_argument("--gotham-zip", type=Path, default=ckbo.DEFAULT_ZIP)
-    parser.add_argument("--t0-root", type=Path, default=ckbo.DEFAULT_T0)
-    parser.add_argument("--report-t0-extension", type=Path, default=ckbo.DEFAULT_REPORT_EXTENSION)
-    parser.add_argument("--c1-plan", type=Path, default=ckbo.DEFAULT_C1_PLAN)
-    parser.add_argument("--c1-targets", type=Path, default=ckbo.DEFAULT_C1_TARGETS)
-    parser.add_argument("--c1-cache", type=Path, default=ckbo.DEFAULT_C1_CACHE)
-    parser.add_argument("--c1-report-extension", type=Path, default=ckbo.DEFAULT_C1_REPORT_EXTENSION)
+    # These assets intentionally have no bundle-relative defaults.  Formal
+    # execution must receive the exact remote-worktree paths from the
+    # installer -> Slurm export -> CLI chain.
+    parser.add_argument("--t0-root", type=Path, default=None)
+    parser.add_argument("--report-t0-extension", type=Path, default=None)
+    parser.add_argument("--c1-plan", type=Path, default=None)
+    parser.add_argument("--c1-targets", type=Path, default=None)
+    parser.add_argument("--c1-cache", type=Path, default=None)
+    parser.add_argument("--c1-report-extension", type=Path, default=None)
     parser.add_argument("--gotham-manifest", type=Path, required=False)
     parser.add_argument("--gotham-cache", type=Path, required=False)
     parser.add_argument("--auxiliary-manifest", type=Path, required=False)
@@ -1623,13 +1635,44 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--tabm-blocks", type=int, default=3)
     parser.add_argument("--extra-trees", type=int, default=500)
     parser.add_argument("--aux-rows-per-source", type=int, default=600)
-    return parser.parse_args()
+    args = parser.parse_args()
+    if args.mode in {"formal", "runtime-asset-contract"}:
+        explicit_runtime_assets = {
+            "--t0-root": args.t0_root,
+            "--report-t0-extension": args.report_t0_extension,
+            "--c1-plan": args.c1_plan,
+            "--c1-targets": args.c1_targets,
+            "--c1-cache": args.c1_cache,
+            "--c1-report-extension": args.c1_report_extension,
+        }
+        missing = [
+            option
+            for option, value in explicit_runtime_assets.items()
+            if value is None
+        ]
+        if missing:
+            parser.error(
+                "formal mode requires explicit remote runtime assets; "
+                "missing: " + ", ".join(missing)
+            )
+    return args
 
 
 def main() -> None:
     args = parse_args()
     if args.mode == "contract-unit":
         contract_unit()
+    elif args.mode == "runtime-asset-contract":
+        print(
+            json.dumps(
+                {
+                    "status": "CKBU_FORMAL_RUNTIME_ASSET_CONTRACT_PASS",
+                    "explicit_runtime_asset_count": 6,
+                    "bundle_relative_defaults_used": False,
+                },
+                indent=2,
+            )
+        )
     elif args.mode == "formal":
         required = (
             args.gotham_manifest,

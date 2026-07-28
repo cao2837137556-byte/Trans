@@ -58,8 +58,14 @@ CKBT_MANIFEST=${CKBV_CKBT_MANIFEST:?missing CKBV_CKBT_MANIFEST}
 CKBQ_ROOT=${CKBV_CKBQ_ROOT:-$BASE/runs/issue27ckbq_causal_minirocket_consensus_v1_2026-07-17_seed27_amd_153037}
 CKBQ_PREDICTIONS="$CKBQ_ROOT/ckbq_record_predictions.csv.gz"
 CKBO_AUX_MANIFEST="$CKBQ_ROOT/ckbo_auxiliary_benign_manifest.csv"
-REPORT_TARGETS="$BASE/runs/issue27ckbi_tgn_report_only_cache_extension_v1_2026-07-12_hpc/report_extension_recorded_targets.csv"
-BASE_TARGETS="$BASE/runs/issue27ckat_canonical_time_c1_canary_v1_2026-07-10_fullsupport_cacheplan_v1/canonical_source_target_index.csv"
+T0_ROOT=${CKBV_T0_ROOT:?missing CKBV_T0_ROOT}
+REPORT_T0_EXTENSION=${CKBV_REPORT_T0_EXTENSION:?missing CKBV_REPORT_T0_EXTENSION}
+C1_PLAN=${CKBV_C1_PLAN:?missing CKBV_C1_PLAN}
+C1_TARGETS=${CKBV_C1_TARGETS:?missing CKBV_C1_TARGETS}
+C1_CACHE=${CKBV_C1_CACHE:?missing CKBV_C1_CACHE}
+C1_REPORT_EXTENSION=${CKBV_C1_REPORT_EXTENSION:?missing CKBV_C1_REPORT_EXTENSION}
+REPORT_TARGETS="$REPORT_T0_EXTENSION/report_extension_recorded_targets.csv"
+BASE_TARGETS="$C1_TARGETS"
 RAW51_MASK=${CKBV_RAW51_MASK:-$BASE/runs/raw51_observable_v1/raw51_observable_v1_mask.csv}
 RAW51_MASK_SHA256=${CKBV_RAW51_MASK_SHA256:-b16017d2755feaedbe6d3ad76fd7d1e2444cf66a14a70f6bca35f270734ad2df}
 test -s "$RAW51_MASK" || { echo "missing raw51 mask: $RAW51_MASK" >&2; exit 2; }
@@ -79,9 +85,32 @@ for path in \
   "$PAYLOAD_ROOT/runs/issue27ch_certified_attack_subset_freeze_for_protocol_replay_2026-06-17/certified_attack_subset_v1.json" \
   "$PAYLOAD_ROOT/runs/issue27bu_unified_temporal_attack_ood_heads_certification_2026-06-10/unified_two_head_selection_audit.csv" \
   "$GOTHAM_ZIP" "$TON_PILOT_MANIFEST" "$CKBT_MANIFEST" "$CKBQ_PREDICTIONS" \
-  "$CKBO_AUX_MANIFEST" "$REPORT_TARGETS" "$BASE_TARGETS"; do
+  "$CKBO_AUX_MANIFEST" \
+  "$T0_ROOT/tgn_source_event_plan_frozen.csv" \
+  "$T0_ROOT/t0_cache_audit.csv" \
+  "$REPORT_T0_EXTENSION/report_only_extension_manifest_frozen.csv" \
+  "$REPORT_T0_EXTENSION/report_only_extension_manifest_sha256.txt" \
+  "$REPORT_T0_EXTENSION/extension_ready.json" \
+  "$REPORT_T0_EXTENSION/report_only_fit_select_exclusion_audit.csv" \
+  "$REPORT_TARGETS" \
+  "$C1_PLAN" "$C1_TARGETS" \
+  "$C1_REPORT_EXTENSION/c1_report_extension_ready.json" \
+  "$C1_REPORT_EXTENSION/c1_report_only_extension_manifest.csv" \
+  "$C1_REPORT_EXTENSION/c1_report_only_extension_manifest_sha256.txt" \
+  "$C1_REPORT_EXTENSION/canonical_source_load_plan.csv" \
+  "$C1_REPORT_EXTENSION/canonical_source_target_index.csv"; do
   test -s "$path" || {
     echo "missing immutable input: $path" >&2
+    exit 2
+  }
+done
+for directory in \
+  "$T0_ROOT/tgn_event_cache" \
+  "$REPORT_T0_EXTENSION/tgn_event_cache" \
+  "$C1_CACHE" \
+  "$C1_REPORT_EXTENSION/c1_report_cache"; do
+  test -d "$directory" || {
+    echo "missing immutable input directory: $directory" >&2
     exit 2
   }
 done
@@ -326,6 +355,12 @@ python -u "$FORMAL" --mode formal --seed 27 \
   --auxiliary-cache "$RUN_ROOT/auxiliary_causal_cache" \
   --ton-cache "$RUN_ROOT/ckbu_ton_raw_pcap_pilot_causal_samples.npz" \
   --ckbq-predictions "$CKBQ_PREDICTIONS" \
+  --t0-root "$T0_ROOT" \
+  --report-t0-extension "$REPORT_T0_EXTENSION" \
+  --c1-plan "$C1_PLAN" \
+  --c1-targets "$C1_TARGETS" \
+  --c1-cache "$C1_CACHE" \
+  --c1-report-extension "$C1_REPORT_EXTENSION" \
   --raw51-mask "$RAW51_MASK" --raw51-mask-sha256 "$RAW51_MASK_SHA256"
 
 write_phase validate_and_pack
