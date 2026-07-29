@@ -1026,3 +1026,69 @@ Permanent repair and regression gate:
 3. The builder rejects any `__pycache__`, `.pyc`, or `.pyo` before archive
    creation and after clean-extract testing.
 4. The corrected artifact uses an `r19` suffix; `r18` must not be uploaded.
+
+## Section 18: CKBV r19 recovery contract falsified by the run's own audits (2026-07-29)
+
+Affected artifact: the r19 post-formal recovery bundle executed on HPC against
+AMD job `154917`.  No scientific output was modified; the recovery program
+failed closed before writing anything, the run root is untouched, and the
+source job remains `FAILED` in `validate_and_pack`.
+
+Observed boundary:
+
+- the recovery aborted with
+  `GLOBAL fit role provenance drift for id_calib: 809/809/0/0 != 0/0/0/0`;
+- the r17/r19 contract had hard-coded `id_calib=0, ood_val=8682` for the
+  GLOBAL fit pool and `8682/7329/1353` as the fit composition, and the r17
+  document even claimed the immutable role-usage audit "proves" those values;
+- the run's actual immutable audits contradict both: the role-usage audit
+  records GLOBAL fit as `support_train=385, id_calib=809, ood_val=2604,
+  ood_stress=0`, and the sensitivity audit records
+  `core_fit_benign=3413/3413/0` (= 809 + 2604, all observable) with
+  `core_ood_val_select=0/0/0` and zero masked rows in every pool.
+
+Root cause:
+
+The `8682/7329/1353` figures describe the raw51 mask at the frozen-target
+materialization layer (325,067 -> 323,714 targets, 1,353 masked; recorded in
+`ckbu_environment.json` / `run_spec.json`).  They were copied from planning
+documents into validator/recovery constants as if they were the composition
+of the pools this run actually drew.  The masked hydraulic-system-1 rows never
+entered any materialized pool, so no pool carries masked rows.  Two
+consecutive repairs (r16 validator, r17/r19 recovery) encoded planning-doc
+constants without checking them against the run's own artifacts.
+
+Classification: **recovery-contract falsification (planning-doc constants
+substituted for run-grounded evidence)**.  This is not a scientific,
+data-computation, checkpoint, model, threshold, seed, or scheduler failure.
+The completed `NO_GO` result and every scientific hash remain intact.
+
+Permanent repair and regression gate:
+
+1. Every constant in a validator or recovery contract must be traceable to a
+   named immutable run artifact (file plus expected value), never to a
+   planning or prereg document.
+2. Cross-checks must close arithmetically: role-split fit pools
+   (`core_id_calib_fit=809/809/0`, `core_ood_val_fit=2604/2604/0`) must sum to
+   the emitted `core_fit_benign=3413/3413/0`; the select pool must remain
+   `0/0/0`; every pool masked count must remain zero.
+3. Mask evidence is reported at the layer where it actually exists: the
+   frozen-target materialization totals 325,067/323,714/1,353 from
+   `ckbu_environment.json` and `run_spec.json`, with the masked source named.
+4. Scientific-output hash verification before and after recovery is unchanged
+   and remains mandatory.
+5. The recovery exercises first-run, idempotent-rerun, wrong-provenance,
+   fit-drift, and select-leakage cases locally before any bundle is built.
+
+Accepted retry path: a run-grounded r20 metadata-only recovery of AMD job
+`154917`, followed by corrected validation and pullback.  No Slurm submission,
+no retraining, no PCAP decoding, no score/gate/threshold change, and no change
+to the `NO_GO` decision.
+
+Rejected paths:
+
+- re-encoding constants from any planning document without run-artifact
+  citation;
+- inventing phantom masked rows inside pools that contain none;
+- rerunning the formal model to repair audit labelling;
+- weakening the scientific-hash-unchanged requirement.

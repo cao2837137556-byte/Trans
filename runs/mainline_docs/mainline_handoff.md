@@ -5,38 +5,44 @@
 Status: active living handoff. This top section is the authoritative current state.
 If older time-log entries conflict with this section, treat the older entry as historical evidence only.
 
-### 2026-07-29 CKBV result and r17 recovery state
+### 2026-07-29 CKBV result and r20 run-grounded recovery state
 
 CKBV r16 AMD job `154917` completed the formal seed-27 computation and emitted
 a scientific `NO_GO`, then failed only during `validate_and_pack`.  The
 duplicate Intel job `154918` reached the same post-computation validator
-failure.  The failure is not a model or data-computation failure: the
-validator expected the raw51 mask composition under
-`core_ood_val_select`, while the frozen role contract places all 1,353 masked
-`hydraulic-system-1` rows in `ood_val / fit`.
+failure.  Neither failure is a model or data-computation failure.
 
-The immutable role-usage audit proves the GLOBAL fit roles are
-`id_calib=0`, `ood_val=8682`, and `ood_stress=0`.  The corrected contract is
-therefore `core_ood_val_fit=8682/7329/1353` and
-`core_ood_val_select=0/0/0`.  r17 is a metadata-only recovery for AMD job
-`154917`: it preserves the original audit, adds the missing fit-pool labels,
-proves all scientific hashes unchanged, reruns validation, and produces the
-pullback.  It must not submit Slurm work, retrain, re-decode PCAPs, change
-scores/gates, or recover the Intel duplicate.
+Two attempted validator/recovery repairs then failed closed because they
+encoded planning-document constants instead of run-grounded evidence.  The
+run's own immutable audits record the truth (failure-ledger Section 18):
+
+- role-usage audit: GLOBAL fit `support_train=385, id_calib=809,
+  ood_val=2604, ood_stress=0`, benign select all zero;
+- sensitivity audit: `core_fit_benign=3413/3413/0` (= 809 + 2604),
+  `core_ood_val_select=0/0/0`, zero masked rows in every pool;
+- environment/run_spec: raw51 mask at the materialization layer,
+  325,067 -> 323,714 targets, 1,353 masked, source
+  `processed/iotsim-hydraulic-system-1.csv`.  The masked rows never entered
+  any pool, so the planning figures 8,682/7,329/1,353 describe the target
+  universe, not pool composition.
+
+r20 is a metadata-only recovery of AMD job `154917` grounded in those
+artifacts: preserve the original audit, append explicit `core_id_calib_fit`
+809/809/0 and `core_ood_val_fit` 2604/2604/0 rows plus the
+target-materialization mask row, prove all scientific hashes unchanged, rerun
+the corrected validator, and produce the pullback.  It must not submit Slurm
+work, retrain, re-decode PCAPs, change scores/gates, or recover the Intel
+duplicate.  See `ckbv_r20_run_grounded_pool_recovery_20260729.md`.
 
 The scientific result remains `NO_GO`: held OOD hard rates improve and overall
-attack hard recall increases, but at least one major attack family violates
-the 2 percentage-point preservation gate.  See
-`ckbv_r17_postformal_pool_semantic_recovery_20260729.md` and failure-ledger
-Section 15.  Do not launch seeds 37/47 from this result.
+attack hard recall increases by about 7.416 pp, but at least one major attack
+family violates the 2 percentage-point preservation gate.  Do not launch
+seeds 37/47 from this result.
 
-The first local r17 packager invocation exposed a PowerShell 5 compatibility
-failure before upload (`Path.GetRelativePath` unavailable).  No HPC work was
-submitted.  The builder now uses a root-confined compatibility helper plus a
-positive and negative startup probe.  Independent archive inspection then
-rejected `r18` because its staging contract generated Python bytecode.  The
-builder now uses `python -B` and rejects `__pycache__`, `.pyc`, and `.pyo`;
-only the new `r19` artifact is uploadable.  See failure-ledger Sections 16-17.
+(The r17-r19 local packager history — PowerShell 5 compatibility, bytecode
+contamination, and the falsified recovery constants — is recorded in
+failure-ledger Sections 16-18.  r17/r18/r19 artifacts are retired; only the
+run-grounded r20 artifact is uploadable.)
 
 ### July 2026 method-route supersession
 

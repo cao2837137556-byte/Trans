@@ -923,16 +923,15 @@ def run_protocol(
         # Per protocol x pool x source_group composition (Codex r12 issue 1/2):
         # every source present in a pool gets its own row, so the mask's effect
         # is auditable at source granularity, not a string summary. The core
-        # ood_val fit pool is emitted explicitly so 8682/7329/1353 is a
-        # checkable row. The core select pool remains explicit and empty under
-        # this frozen protocol; moving fit-only ood_val rows into select would
-        # violate fit/select isolation.
-        core_ood_val_fit = [r for r in sets["fit_benign"] if r.role == "ood_val"]
+        # select pool remains explicit and empty under this frozen protocol;
+        # moving fit-only ood_val rows into select would violate fit/select
+        # isolation. The fit pool's role decomposition and the raw51 mask are
+        # emitted below as run-grounded evidence rows (ledger section 18):
+        # the mask acts at target materialization, never inside a pool.
         core_ood_val_select = [r for r in sets["select_benign"] if r.role == "ood_val"]
         pools = {
             "core_fit_benign": list(sets["fit_benign"]),
             "core_select_benign": list(sets["select_benign"]),
-            "core_ood_val_fit": core_ood_val_fit,
             "core_ood_val_select": core_ood_val_select,
             "aux_fit_benign": list(aux_fit),
             "aux_select_benign": list(aux_select),
@@ -974,6 +973,58 @@ def run_protocol(
                     "rows_observable": total_full - total_masked,
                     "rows_masked": total_masked,
                     "mask_rate": round(total_masked / total_full, 6) if total_full else 0.0,
+                }
+            )
+        # Run-grounded evidence rows (ledger section 18, 2026-07-29). The
+        # raw51 core fit decomposes by role, and the mask acts at target
+        # materialization only -- no emitted pool ever carries masked rows.
+        # These rows report the run's own counts; the validator gates them
+        # against the frozen expectations.
+        if held is None:
+            for split_pool, split_role in (
+                ("core_id_calib_fit", "id_calib"),
+                ("core_ood_val_fit", "ood_val"),
+            ):
+                split_records = [
+                    record for record in sets["fit_benign"] if record.role == split_role
+                ]
+                split_full = int(len(split_records))
+                split_masked = int(sum(1 for record in split_records if not _observable(record)))
+                raw51_sensitivity.append(
+                    {
+                        "held_value": protocol,
+                        "pool": split_pool,
+                        "source_group": "__ALL__",
+                        "row_kind": "role_split",
+                        "rows_full": split_full,
+                        "rows_observable": split_full - split_masked,
+                        "rows_masked": split_masked,
+                        "mask_rate": round(split_masked / split_full, 6) if split_full else 0.0,
+                    }
+                )
+            masked_pairs = int(len(getattr(args, "raw51_masked_pairs", ())))
+            raw51_sensitivity.append(
+                {
+                    "held_value": protocol,
+                    "pool": "raw51_target_materialization",
+                    "source_group": "__ALL__",
+                    "row_kind": "target_materialization",
+                    "rows_full": 325067,
+                    "rows_observable": 325067 - masked_pairs,
+                    "rows_masked": masked_pairs,
+                    "mask_rate": round(masked_pairs / 325067, 6),
+                }
+            )
+            raw51_sensitivity.append(
+                {
+                    "held_value": protocol,
+                    "pool": "raw51_target_materialization",
+                    "source_group": frontend.RAW51_MASK_SOURCE,
+                    "row_kind": "target_materialization",
+                    "rows_full": masked_pairs,
+                    "rows_observable": 0,
+                    "rows_masked": masked_pairs,
+                    "mask_rate": 1.0 if masked_pairs else 0.0,
                 }
             )
         # C1 dual-denominator on the threshold-selection benign pool plus the
@@ -1535,19 +1586,38 @@ def contract_unit() -> None:
     # exact numbers and the required per-source / dual-denominator schema, so a
     # missing, empty, or degraded audit CSV cannot pass silently. This
     # exercises real serialization, not only compile/contract-unit.
+    # Ledger section 18 (2026-07-29): the fixture mirrors the run-grounded
+    # account -- pools are fully observable, the fit decomposes by role, and
+    # the mask appears only at target materialization.
     with tempfile.TemporaryDirectory() as temp:
         source = frontend.RAW51_MASK_SOURCE
         synthetic = [
-            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_fit",
-             "source_group": source, "row_kind": "per_source",
-             "rows_full": 1353, "rows_observable": 0, "rows_masked": 1353, "mask_rate": 1.0},
-            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_fit",
-             "source_group": "processed/iotsim-stream-consumer-1.csv", "row_kind": "per_source",
-             "rows_full": 4000, "rows_observable": 4000, "rows_masked": 0, "mask_rate": 0.0},
-            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_fit",
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_fit_benign",
+             "source_group": "processed/iotsim-building-monitor-2.csv", "row_kind": "per_source",
+             "rows_full": 1690, "rows_observable": 1690, "rows_masked": 0, "mask_rate": 0.0},
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_fit_benign",
+             "source_group": "processed/iotsim-combined-cycle-tls-3.csv", "row_kind": "per_source",
+             "rows_full": 1723, "rows_observable": 1723, "rows_masked": 0, "mask_rate": 0.0},
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_fit_benign",
              "source_group": "__ALL__", "row_kind": "pool_total",
-             "rows_full": 8682, "rows_observable": 7329, "rows_masked": 1353,
-             "mask_rate": round(1353 / 8682, 6)},
+             "rows_full": 3413, "rows_observable": 3413, "rows_masked": 0,
+             "mask_rate": 0.0},
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_id_calib_fit",
+             "source_group": "__ALL__", "row_kind": "role_split",
+             "rows_full": 809, "rows_observable": 809, "rows_masked": 0,
+             "mask_rate": 0.0},
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_fit",
+             "source_group": "__ALL__", "row_kind": "role_split",
+             "rows_full": 2604, "rows_observable": 2604, "rows_masked": 0,
+             "mask_rate": 0.0},
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "raw51_target_materialization",
+             "source_group": "__ALL__", "row_kind": "target_materialization",
+             "rows_full": 325067, "rows_observable": 323714, "rows_masked": 1353,
+             "mask_rate": round(1353 / 325067, 6)},
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "raw51_target_materialization",
+             "source_group": source, "row_kind": "target_materialization",
+             "rows_full": 1353, "rows_observable": 0, "rows_masked": 1353,
+             "mask_rate": 1.0},
             {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_select",
              "source_group": "__ALL__", "row_kind": "pool_total",
              "rows_full": 0, "rows_observable": 0, "rows_masked": 0,
@@ -1564,12 +1634,23 @@ def contract_unit() -> None:
         path = Path(temp) / "sens.csv"
         pd.DataFrame([{**row, "seed": SEED} for row in synthetic]).to_csv(path, index=False)
         back = pd.read_csv(path)
-        total = back[(back["pool"] == "core_ood_val_fit") & (back["row_kind"] == "pool_total")]
-        if len(total) != 1 or (
-            int(total.iloc[0]["rows_full"]), int(total.iloc[0]["rows_observable"]),
-            int(total.iloc[0]["rows_masked"]),
-        ) != (8682, 7329, 1353):
-            raise RuntimeError("mask finalization: core ood_val fit composition round-trip failed")
+        fit_total = back[(back["pool"] == "core_fit_benign") & (back["row_kind"] == "pool_total")]
+        if len(fit_total) != 1 or (
+            int(fit_total.iloc[0]["rows_full"]), int(fit_total.iloc[0]["rows_observable"]),
+            int(fit_total.iloc[0]["rows_masked"]),
+        ) != (3413, 3413, 0):
+            raise RuntimeError("mask finalization: core fit composition round-trip failed")
+        id_calib = back[(back["pool"] == "core_id_calib_fit") & (back["row_kind"] == "role_split")]
+        ood_val = back[(back["pool"] == "core_ood_val_fit") & (back["row_kind"] == "role_split")]
+        if (
+            len(id_calib) != 1
+            or len(ood_val) != 1
+            or int(id_calib.iloc[0]["rows_full"]) != 809
+            or int(ood_val.iloc[0]["rows_full"]) != 2604
+            or int(id_calib.iloc[0]["rows_full"]) + int(ood_val.iloc[0]["rows_full"])
+            != int(fit_total.iloc[0]["rows_full"])
+        ):
+            raise RuntimeError("mask finalization: role-split closure round-trip failed")
         select_total = back[
             (back["pool"] == "core_ood_val_select")
             & (back["row_kind"] == "pool_total")
@@ -1580,11 +1661,25 @@ def contract_unit() -> None:
             int(select_total.iloc[0]["rows_masked"]),
         ) != (0, 0, 0):
             raise RuntimeError("mask finalization: core ood_val select must remain empty")
+        pool_rows = back[back["row_kind"].isin({"per_source", "pool_total"})]
+        if (pool_rows["rows_masked"] != 0).any():
+            raise RuntimeError("mask finalization: masked rows appeared inside an emitted pool")
+        materialization = back[back["row_kind"] == "target_materialization"]
         masked_srcs = set(
-            back[(back["row_kind"] == "per_source") & (back["rows_masked"] > 0)]["source_group"]
+            materialization[
+                (materialization["rows_masked"] > 0)
+                & (materialization["source_group"] != "__ALL__")
+            ]["source_group"]
         )
         if masked_srcs != {source}:
             raise RuntimeError(f"mask finalization: masked source round-trip drift {masked_srcs}")
+        all_materialization = materialization[materialization["source_group"] == "__ALL__"]
+        if len(all_materialization) != 1 or (
+            int(all_materialization.iloc[0]["rows_full"]),
+            int(all_materialization.iloc[0]["rows_observable"]),
+            int(all_materialization.iloc[0]["rows_masked"]),
+        ) != (325067, 323714, 1353):
+            raise RuntimeError("mask finalization: target materialization round-trip failed")
         gate_row = back[back["row_kind"] == "select_c1_gate"]
         if (
             len(gate_row) != 1

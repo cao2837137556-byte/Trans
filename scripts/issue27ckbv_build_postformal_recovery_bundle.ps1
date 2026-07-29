@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string]$BundleName = 'issue27ckbv_postformal_recovery_amd154917_20260729_r19',
+    [string]$BundleName = 'issue27ckbv_postformal_recovery_amd154917_20260729_r20',
     [string]$OutputRoot = '',
     [string]$CommitSha = ''
 )
@@ -85,7 +85,8 @@ $PayloadFiles = @(
     'repo/ood/issue27ckbv_postformal_recovery_v1.py',
     'scripts/issue27ckbv_validate_and_pack_seed27.sh',
     'scripts/issue27ckbv_recover_postformal_154917.sh',
-    'runs/mainline_docs/ckbv_r17_postformal_pool_semantic_recovery_20260729.md'
+    'runs/mainline_docs/ckbv_r20_run_grounded_pool_recovery_20260729.md',
+    'runs/mainline_docs/hpc_failure_ledger_and_launch_gate_20260725.md'
 )
 foreach ($RelativePath in $PayloadFiles) {
     Copy-LfText $RelativePath
@@ -122,11 +123,17 @@ foreach ($Token in @(
 )
 
 $Readme = @"
-# CKBV r17 post-formal recovery
+# CKBV r20 post-formal run-grounded recovery
 
-This bundle repairs only the fit/select labels in the already-emitted
-raw51 sensitivity audit for AMD job 154917. It does not submit Slurm work,
-train a model, decode a PCAP, change a score, or select a new gate.
+This bundle appends run-grounded evidence rows to the already-emitted raw51
+sensitivity audit for AMD job 154917: the fit pool's role decomposition
+(support_train 385 + id_calib 809 + ood_val 2,604 = 3,413) and the raw51
+target-materialization record (325,067 frozen / 323,714 observable / 1,353
+masked on the hydraulic-1 source). It does not submit Slurm work, train a
+model, decode a PCAP, change a score, or select a gate. See
+payload/runs/mainline_docs/ckbv_r20_run_grounded_pool_recovery_20260729.md
+and ledger section 18 in
+payload/runs/mainline_docs/hpc_failure_ledger_and_launch_gate_20260725.md.
 
 Run in the already logged-in VS Code HPC Bash terminal:
 
@@ -155,6 +162,12 @@ The validated pullback is written to:
 $Python = Get-Command python -ErrorAction SilentlyContinue
 if (-not $Python) {
     throw 'python is required for recovery contract validation'
+}
+# Use the Windows bsdtar explicitly: a GNU tar earlier in PATH misreads the
+# drive-letter colon in D:\... archive paths as a remote host and aborts.
+$TarExe = Join-Path $env:SystemRoot 'System32\tar.exe'
+if (-not (Test-Path -LiteralPath $TarExe -PathType Leaf)) {
+    $TarExe = 'tar'
 }
 $RecoveryProgram = Join-Path `
     $BundleRoot `
@@ -210,7 +223,7 @@ $HashLines = foreach ($File in $Files) {
 
 Push-Location $OutputRoot
 try {
-    & tar -czf $ArchiveName $BundleName
+    & $TarExe -czf $ArchiveName $BundleName
     if ($LASTEXITCODE -ne 0) {
         throw 'tar creation failed'
     }
@@ -233,7 +246,7 @@ $ExtractRoot = Join-Path ([System.IO.Path]::GetTempPath()) (
 )
 New-Item -ItemType Directory -Force -Path $ExtractRoot | Out-Null
 try {
-    & tar -xzf $Archive -C $ExtractRoot
+    & $TarExe -xzf $Archive -C $ExtractRoot
     if ($LASTEXITCODE -ne 0) {
         throw 'clean extraction failed'
     }

@@ -165,12 +165,14 @@ for column in ("held_value", "pool", "source_group", "row_kind", "rows_full",
     if column not in sens.columns:
         raise SystemExit(f"sensitivity audit missing column: {column}")
 
-# Independent provenance for the recovered fit-only composition.  The
-# combined core_fit_benign count cannot by itself prove that all 8,682 rows
-# came from ood_val rather than id_calib or ood_stress.
+# Run-grounded expected fit composition (ledger section 18, 2026-07-29).
+# AMD 154917 actually fit the raw51 core on support_train + id_calib + ood_val.
+# The earlier 0/8682/0 expectation came from the planning document and was
+# falsified by the run's own immutable audits.
 EXPECTED_GLOBAL_FIT_ROLES = {
-    "id_calib": 0,
-    "ood_val": 8682,
+    "support_train": 385,
+    "id_calib": 809,
+    "ood_val": 2604,
     "ood_stress": 0,
 }
 role_usage_path = root / "ckbu_role_usage_audit.csv"
@@ -231,7 +233,6 @@ EXPECTED_PROTOCOLS = {
 EXPECTED_POOLS = {
     "core_fit_benign",
     "core_select_benign",
-    "core_ood_val_fit",
     "core_ood_val_select",
     "aux_fit_benign",
     "aux_select_benign",
@@ -369,64 +370,115 @@ for _, gate in gate_rows.iterrows():
     }:
         raise SystemExit("masked rows are not fail-closed in select C1 gate audit")
 
-core_fit = sens[
-    (sens["held_value"] == "GLOBAL_ATTACK_PRESERVATION")
-    & (sens["pool"] == "core_ood_val_fit")
-    & (sens["row_kind"] == "pool_total")
-]
-if len(core_fit) != 1:
-    raise SystemExit(
-        f"core ood_val fit pool_total row missing/duplicated: {len(core_fit)}"
+# Run-grounded raw51 fit/mask closure (ledger section 18, 2026-07-29).
+# AMD 154917's immutable audits prove the 1,353 masked rows act at target
+# materialization only; every emitted pool is fully observable; the raw51
+# core fit consumed support_train(385) + id_calib(809) + ood_val(2,604).
+GLOBAL_PROTOCOL = "GLOBAL_ATTACK_PRESERVATION"
+
+
+def _single_row(frame, *, pool, row_kind, source_group=None):
+    rows = frame[
+        (frame["held_value"] == GLOBAL_PROTOCOL)
+        & (frame["pool"] == pool)
+        & (frame["row_kind"] == row_kind)
+    ]
+    if source_group is not None:
+        rows = rows[rows["source_group"] == source_group]
+    if len(rows) != 1:
+        raise SystemExit(
+            f"expected exactly one {pool}/{row_kind} row"
+            + (f" for {source_group}" if source_group else "")
+            + f"; got {len(rows)}"
+        )
+    return rows.iloc[0]
+
+
+def _counts(row):
+    return (
+        int(row["rows_full"]),
+        int(row["rows_observable"]),
+        int(row["rows_masked"]),
     )
-row = core_fit.iloc[0]
-if (int(row["rows_full"]), int(row["rows_observable"]), int(row["rows_masked"])) != (
-    8682, 7329, 1353
+
+
+id_calib_fit = _counts(
+    _single_row(sens, pool="core_id_calib_fit", row_kind="role_split")
+)
+if id_calib_fit != (809, 809, 0):
+    raise SystemExit(
+        f"core id_calib fit split drift: {id_calib_fit} != (809, 809, 0)"
+    )
+ood_val_fit = _counts(
+    _single_row(sens, pool="core_ood_val_fit", row_kind="role_split")
+)
+if ood_val_fit != (2604, 2604, 0):
+    raise SystemExit(
+        f"core ood_val fit split drift: {ood_val_fit} != (2604, 2604, 0)"
+    )
+core_fit = _counts(
+    _single_row(sens, pool="core_fit_benign", row_kind="pool_total")
+)
+if (
+    id_calib_fit[0] + ood_val_fit[0] != core_fit[0]
+    or id_calib_fit[1] + ood_val_fit[1] != core_fit[1]
+    or core_fit != (3413, 3413, 0)
 ):
     raise SystemExit(
-        f"core ood_val fit composition drift: {row['rows_full']}/"
-        f"{row['rows_observable']}/{row['rows_masked']} != 8682/7329/1353"
+        "role-split rows do not close against core_fit_benign: "
+        f"{id_calib_fit} + {ood_val_fit} != {core_fit}"
     )
-core_select = sens[
-    (sens["held_value"] == "GLOBAL_ATTACK_PRESERVATION")
-    & (sens["pool"] == "core_ood_val_select")
-    & (sens["row_kind"] == "pool_total")
-]
-if len(core_select) != 1:
+core_select = _counts(
+    _single_row(sens, pool="core_ood_val_select", row_kind="pool_total")
+)
+if core_select != (0, 0, 0):
     raise SystemExit(
-        "core ood_val select pool_total row missing/duplicated: "
-        f"{len(core_select)}"
+        f"fit-only ood_val rows leaked into select: {core_select} != (0, 0, 0)"
     )
-select_row = core_select.iloc[0]
-if (
-    int(select_row["rows_full"]),
-    int(select_row["rows_observable"]),
-    int(select_row["rows_masked"]),
-) != (0, 0, 0):
-    raise SystemExit(
-        "fit-only ood_val rows leaked into select: "
-        f"{select_row['rows_full']}/{select_row['rows_observable']}/"
-        f"{select_row['rows_masked']} != 0/0/0"
-    )
+
+# No emitted pool row may carry masked rows: the mask lives only at target
+# materialization (already numerically validated composition frame).
+if (composition["rows_masked"] != 0).any():
+    raise SystemExit("masked rows appeared inside an emitted pool")
+
+materialization = sens[sens["row_kind"] == "target_materialization"].copy()
+materialization["rows_masked"] = pd.to_numeric(
+    materialization["rows_masked"], errors="coerce"
+)
 masked_sources = set(
-    sens[(sens["row_kind"] == "per_source") & (sens["rows_masked"] > 0)]["source_group"]
+    materialization[
+        (materialization["rows_masked"] > 0)
+        & (materialization["source_group"] != "__ALL__")
+    ]["source_group"].astype(str)
 )
 if masked_sources != {RAW51_MASK_SOURCE}:
     raise SystemExit(f"sensitivity masked source drift: {masked_sources}")
-core_masked = sens[
-    (sens["source_group"] == RAW51_MASK_SOURCE)
-    & (sens["pool"] == "core_ood_val_fit")
-    & (sens["row_kind"] == "per_source")
-]
-if len(core_masked) != 1 or int(core_masked.iloc[0]["rows_masked"]) != 1353:
-    raise SystemExit("hydraulic-1 fit per-source masked count != 1353")
-if (
-    (
-        (sens["source_group"] == RAW51_MASK_SOURCE)
-        & (sens["pool"] == "core_ood_val_select")
-        & (sens["row_kind"] == "per_source")
+all_materialization = _counts(
+    _single_row(
+        sens,
+        pool="raw51_target_materialization",
+        row_kind="target_materialization",
+        source_group="__ALL__",
     )
-).any():
-    raise SystemExit("hydraulic-1 fit-only rows appeared in core ood_val select")
+)
+expected_materialization = (325067, 325067 - RAW51_MASK_TOTAL, RAW51_MASK_TOTAL)
+if all_materialization != expected_materialization:
+    raise SystemExit(
+        f"raw51 target materialization drift: {all_materialization} != "
+        f"{expected_materialization}"
+    )
+masked_materialization = _counts(
+    _single_row(
+        sens,
+        pool="raw51_target_materialization",
+        row_kind="target_materialization",
+        source_group=RAW51_MASK_SOURCE,
+    )
+)
+if masked_materialization != (RAW51_MASK_TOTAL, 0, RAW51_MASK_TOTAL):
+    raise SystemExit(
+        f"hydraulic-1 materialization drift: {masked_materialization}"
+    )
 
 attack = pd.read_csv(root / "attack_preservation_summary.csv")
 overall = attack[attack["metric"] == "overall_attack_hard_recall"]
@@ -553,20 +605,39 @@ if not str(environment.get("tshark", "")).startswith(
 recovery = None
 if postformal_recovery:
     recovery = json.loads((root / "ckbv_postformal_recovery.json").read_text())
+    environment_mask = recovery.get("environment_mask", {})
     if (
-        recovery.get("status") != "CKBV_POSTFORMAL_POOL_SEMANTIC_RECOVERY"
+        recovery.get("status") != "CKBV_POSTFORMAL_RUN_GROUNDED_RECOVERY"
         or recovery.get("source_job_id") != job
         or recovery.get("source_partition") != partition
         or recovery.get("models_retrained") is not False
         or recovery.get("pcap_redecoded") is not False
         or recovery.get("scores_or_gates_changed") is not False
         or recovery.get("scientific_hashes_unchanged") is not True
-        or recovery.get("fit_pool_full") != 8682
-        or recovery.get("fit_pool_observable") != 7329
-        or recovery.get("fit_pool_masked") != 1353
+        or recovery.get("id_calib_fit_full") != 809
+        or recovery.get("id_calib_fit_observable") != 809
+        or recovery.get("id_calib_fit_masked") != 0
+        or recovery.get("ood_val_fit_full") != 2604
+        or recovery.get("ood_val_fit_observable") != 2604
+        or recovery.get("ood_val_fit_masked") != 0
+        or recovery.get("fit_benign_full") != 3413
+        or recovery.get("fit_benign_observable") != 3413
+        or recovery.get("fit_benign_masked") != 0
         or recovery.get("select_pool_full") != 0
         or recovery.get("select_pool_observable") != 0
         or recovery.get("select_pool_masked") != 0
+        or recovery.get("target_materialization_full") != 325067
+        or recovery.get("target_materialization_observable")
+        != 325067 - RAW51_MASK_TOTAL
+        or recovery.get("target_materialization_masked") != RAW51_MASK_TOTAL
+        or recovery.get("raw51_masked_source") != RAW51_MASK_SOURCE
+        or environment_mask.get("raw51_frozen_targets") != 325067
+        or environment_mask.get("raw51_observable_targets")
+        != 325067 - RAW51_MASK_TOTAL
+        or environment_mask.get("raw51_masked_targets") != RAW51_MASK_TOTAL
+        or environment_mask.get("raw51_masked_source") != RAW51_MASK_SOURCE
+        or environment_mask.get("raw51_observable_mask_sha256")
+        != RAW51_MASK_SHA256
         or recovery.get("fit_role_rows") != observed_global_fit_roles
         or recovery.get("role_usage_audit_sha256") != role_usage_sha256
     ):

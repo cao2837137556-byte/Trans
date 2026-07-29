@@ -27,8 +27,12 @@ All 1,353 rows are `roles=ood_val`, `stages=fit`:
 
 - support_train (385) and support_val (69): **untouched**;
 - report / sealed / held-family evaluation denominators: **untouched**;
-- impact is confined to the development-phase benign-OOD **fit** pool:
-  full 8,682 -> observable 7,329, with 1,353 masked rows;
+- impact is confined to the development-phase benign-OOD targets at the
+  materialization layer: frozen 325,067 -> observable 323,714, with 1,353
+  masked rows. (Corrected 2026-07-29, ledger section 18: an earlier wording
+  asserted a fit-pool composition of 8,682/7,329/1,353; the run's own audits
+  record the GLOBAL fit pools as id_calib 809 + ood_val 2,604 = 3,413, all
+  observable, and the masked rows enter no pool at all.);
 - the corresponding `core_ood_val_select` pool is empty (0/0/0), so these
   fit-only rows never participate in threshold or gate selection.
 
@@ -77,7 +81,12 @@ The formal run must, whenever the mask is active, unconditionally emit:
   the attack denominator is unchanged since no attack target is masked);
 - `ckbu_raw51_mask_sensitivity_audit.csv` with per-protocol, per-pool,
   per-source composition (full/observable/masked, mask rate) separating core
-  vs auxiliary vs ToN, with the core `ood_val` fit pool explicitly reported as
-  8,682/7,329/1,353 and the select pool explicitly reported as 0/0/0;
+  vs auxiliary vs ToN. (Corrected 2026-07-29, ledger section 18: the audit
+  must report the pools the run actually draws — `core_id_calib_fit`
+  809/809/0 and `core_ood_val_fit` 2,604/2,604/0 summing to
+  `core_fit_benign` 3,413/3,413/0, select 0/0/0, zero masked rows in any
+  pool — plus a target-materialization row 325,067/323,714/1,353 with the
+  named masked source. The earlier "core ood_val fit pool 8,682/7,329/1,353"
+  requirement encoded planning-doc numbers the run never produced.);
 - mask path/SHA-256/frozen(325,067)/masked(1,353)/observable(323,714)/masked
   source in `ckbu_environment.json` and `run_spec.json`.
