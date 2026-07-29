@@ -33,8 +33,10 @@ Section 15.  Do not launch seeds 37/47 from this result.
 The first local r17 packager invocation exposed a PowerShell 5 compatibility
 failure before upload (`Path.GetRelativePath` unavailable).  No HPC work was
 submitted.  The builder now uses a root-confined compatibility helper plus a
-positive and negative startup probe; the corrected upload artifact uses an
-`r18` suffix.  See failure-ledger Section 16.
+positive and negative startup probe.  Independent archive inspection then
+rejected `r18` because its staging contract generated Python bytecode.  The
+builder now uses `python -B` and rejects `__pycache__`, `.pyc`, and `.pyo`;
+only the new `r19` artifact is uploadable.  See failure-ledger Sections 16-17.
 
 ### July 2026 method-route supersession
 

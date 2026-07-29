@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string]$BundleName = 'issue27ckbv_postformal_recovery_amd154917_20260729_r18',
+    [string]$BundleName = 'issue27ckbv_postformal_recovery_amd154917_20260729_r19',
     [string]$OutputRoot = '',
     [string]$CommitSha = ''
 )
@@ -156,16 +156,38 @@ $Python = Get-Command python -ErrorAction SilentlyContinue
 if (-not $Python) {
     throw 'python is required for recovery contract validation'
 }
-& $Python.Source -m py_compile `
-    (Join-Path $BundleRoot 'payload/repo/ood/issue27ckbv_postformal_recovery_v1.py')
+$RecoveryProgram = Join-Path `
+    $BundleRoot `
+    'payload/repo/ood/issue27ckbv_postformal_recovery_v1.py'
+$CompileProbe = @"
+from pathlib import Path
+path = Path(r'''$RecoveryProgram''')
+compile(path.read_text(encoding='utf-8'), str(path), 'exec')
+"@
+& $Python.Source -B -c $CompileProbe
 if ($LASTEXITCODE -ne 0) {
     throw 'recovery Python compile failed'
 }
-& $Python.Source `
-    (Join-Path $BundleRoot 'payload/repo/ood/issue27ckbv_postformal_recovery_v1.py') `
+& $Python.Source -B `
+    $RecoveryProgram `
     --mode contract-unit
 if ($LASTEXITCODE -ne 0) {
     throw 'recovery contract-unit failed'
+}
+
+$ForbiddenBytecode = @(
+    Get-ChildItem -LiteralPath $BundleRoot -Recurse -Force |
+        Where-Object {
+            $_.Name -eq '__pycache__' -or
+            $_.Extension -eq '.pyc' -or
+            $_.Extension -eq '.pyo'
+        }
+)
+if ($ForbiddenBytecode.Count -ne 0) {
+    throw (
+        'forbidden Python bytecode in bundle staging: ' +
+        (($ForbiddenBytecode | ForEach-Object FullName) -join ', ')
+    )
 }
 
 $Files = Get-ChildItem -LiteralPath $BundleRoot -Recurse -File |
@@ -207,7 +229,7 @@ $ArchiveDigest = (
 )
 
 $ExtractRoot = Join-Path ([System.IO.Path]::GetTempPath()) (
-    'ckbv_r17_clean_' + [guid]::NewGuid().ToString('N')
+    'ckbv_recovery_clean_' + [guid]::NewGuid().ToString('N')
 )
 New-Item -ItemType Directory -Force -Path $ExtractRoot | Out-Null
 try {
@@ -216,7 +238,7 @@ try {
         throw 'clean extraction failed'
     }
     $CleanBundle = Join-Path $ExtractRoot $BundleName
-    & $Python.Source `
+    & $Python.Source -B `
         (Join-Path $CleanBundle 'payload/repo/ood/issue27ckbv_postformal_recovery_v1.py') `
         --mode contract-unit
     if ($LASTEXITCODE -ne 0) {
@@ -225,13 +247,24 @@ try {
     if (-not (Test-Path -LiteralPath (Join-Path $CleanBundle 'SHA256SUMS'))) {
         throw 'clean-extract SHA256SUMS missing'
     }
+    $CleanForbiddenBytecode = @(
+        Get-ChildItem -LiteralPath $CleanBundle -Recurse -Force |
+            Where-Object {
+                $_.Name -eq '__pycache__' -or
+                $_.Extension -eq '.pyc' -or
+                $_.Extension -eq '.pyo'
+            }
+    )
+    if ($CleanForbiddenBytecode.Count -ne 0) {
+        throw 'clean-extract contract generated forbidden Python bytecode'
+    }
 }
 finally {
     Remove-Item -LiteralPath $ExtractRoot -Recurse -Force
 }
 
 $Info = Get-Item -LiteralPath $Archive
-Write-Output 'CKBV_R17_RECOVERY_BUNDLE_PASS'
+Write-Output 'CKBV_POSTFORMAL_RECOVERY_BUNDLE_PASS'
 Write-Output "BUNDLE=$Archive"
 Write-Output "SIZE_BYTES=$($Info.Length)"
 Write-Output "SHA256=$ArchiveDigest"

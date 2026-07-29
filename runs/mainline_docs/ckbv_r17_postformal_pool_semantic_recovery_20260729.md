@@ -57,8 +57,10 @@ held set.
 
 The local bundle builder is compatible with Windows PowerShell 5.  Its
 relative-path helper is root-confined and exercised before payload hashing;
-the archive is then clean-extracted and revalidated.  The corrected local
-artifact uses an `r18` suffix to avoid the incomplete first-build directory.
+the archive is then clean-extracted and revalidated.  Independent archive
+inspection rejected `r18` because its staging contract generated Python
+bytecode.  The builder now uses `python -B` and fails closed on
+`__pycache__`, `.pyc`, or `.pyo`; only the `r19` artifact is uploadable.
 
 ## Scientific result
 
