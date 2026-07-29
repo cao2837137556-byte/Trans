@@ -55,6 +55,11 @@ It does not submit Slurm work, retrain a model, re-decode a PCAP, change a
 score, modify a gate or threshold, alter a target denominator, or open a new
 held set.
 
+The local bundle builder is compatible with Windows PowerShell 5.  Its
+relative-path helper is root-confined and exercised before payload hashing;
+the archive is then clean-extracted and revalidated.  The corrected local
+artifact uses an `r18` suffix to avoid the incomplete first-build directory.
+
 ## Scientific result
 
 The scientific decision remains `NO_GO`.  The result is nevertheless valid

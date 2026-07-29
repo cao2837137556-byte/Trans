@@ -984,3 +984,28 @@ Rejected paths:
 - moving fit-only records into select to satisfy the old validator;
 - weakening the `8682/7329/1353` or `0/0/0` assertions;
 - changing any scientific artifact during recovery.
+
+## Section 16: CKBV r17 local bundle-builder compatibility failure (2026-07-29)
+
+No HPC job was submitted.  The first local r17 bundle build stopped after its
+recovery contract-unit passed because Windows PowerShell 5 / .NET Framework
+does not provide `System.IO.Path.GetRelativePath`.
+
+Classification: **local pre-upload packager compatibility failure**.  It is
+not an HPC, data, model, checkpoint, validation, or scientific-result failure.
+
+Permanent repair and regression gate:
+
+1. The builder now uses a PowerShell-5-compatible, root-confined relative-path
+   function based on normalized absolute paths and prefix removal.
+2. A startup probe must produce exactly `payload/probe.txt`; failure stops the
+   build before an archive is created.
+3. The helper rejects children outside the bundle root.
+4. The clean-extract contract still verifies every checksum and recovery
+   contract after archive creation.
+
+Rejected path: requiring a newer local PowerShell/.NET installation merely to
+build this metadata-only recovery archive.
+
+The corrected upload artifact uses a new `r18` bundle suffix so it cannot be
+confused with the incomplete local `r17` directory.

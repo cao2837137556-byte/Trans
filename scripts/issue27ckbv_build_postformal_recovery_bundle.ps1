@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string]$BundleName = 'issue27ckbv_postformal_recovery_amd154917_20260729_r17',
+    [string]$BundleName = 'issue27ckbv_postformal_recovery_amd154917_20260729_r18',
     [string]$OutputRoot = '',
     [string]$CommitSha = ''
 )
@@ -43,6 +43,42 @@ function Copy-LfText {
     $Text = [System.IO.File]::ReadAllText($Source)
     $Text = $Text.Replace("`r`n", "`n").Replace("`r", "`n")
     [System.IO.File]::WriteAllText($Target, $Text, $Utf8NoBom)
+}
+
+function Get-RelativePathCompat {
+    param(
+        [Parameter(Mandatory = $true)][string]$RootPath,
+        [Parameter(Mandatory = $true)][string]$ChildPath
+    )
+    $RootFull = [System.IO.Path]::GetFullPath($RootPath)
+    $ChildFull = [System.IO.Path]::GetFullPath($ChildPath)
+    $Prefix = $RootFull + [System.IO.Path]::DirectorySeparatorChar
+    if (-not $ChildFull.StartsWith(
+        $Prefix,
+        [System.StringComparison]::OrdinalIgnoreCase
+    )) {
+        throw "path is outside bundle root: $ChildFull"
+    }
+    return $ChildFull.Substring($Prefix.Length).Replace('\', '/')
+}
+
+$RelativePathProbe = Get-RelativePathCompat `
+    -RootPath $BundleRoot `
+    -ChildPath (Join-Path $BundleRoot 'payload/probe.txt')
+if ($RelativePathProbe -ne 'payload/probe.txt') {
+    throw "PowerShell relative-path compatibility gate failed: $RelativePathProbe"
+}
+$OutsidePathRejected = $false
+try {
+    $null = Get-RelativePathCompat `
+        -RootPath $BundleRoot `
+        -ChildPath (Join-Path (Split-Path $BundleRoot -Parent) 'outside.txt')
+}
+catch {
+    $OutsidePathRejected = $true
+}
+if (-not $OutsidePathRejected) {
+    throw 'PowerShell relative-path confinement negative gate failed'
 }
 
 $PayloadFiles = @(
@@ -136,9 +172,9 @@ $Files = Get-ChildItem -LiteralPath $BundleRoot -Recurse -File |
     Where-Object { $_.Name -ne 'SHA256SUMS' } |
     Sort-Object FullName
 $HashLines = foreach ($File in $Files) {
-    $Relative = (
-        [System.IO.Path]::GetRelativePath($BundleRoot, $File.FullName)
-    ).Replace('\', '/')
+    $Relative = Get-RelativePathCompat `
+        -RootPath $BundleRoot `
+        -ChildPath $File.FullName
     $Hash = (
         Get-FileHash -LiteralPath $File.FullName -Algorithm SHA256
     ).Hash.ToLowerInvariant()

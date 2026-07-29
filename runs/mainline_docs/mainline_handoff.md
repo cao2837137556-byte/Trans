@@ -30,6 +30,12 @@ the 2 percentage-point preservation gate.  See
 `ckbv_r17_postformal_pool_semantic_recovery_20260729.md` and failure-ledger
 Section 15.  Do not launch seeds 37/47 from this result.
 
+The first local r17 packager invocation exposed a PowerShell 5 compatibility
+failure before upload (`Path.GetRelativePath` unavailable).  No HPC work was
+submitted.  The builder now uses a root-confined compatibility helper plus a
+positive and negative startup probe; the corrected upload artifact uses an
+`r18` suffix.  See failure-ledger Section 16.
+
 ### July 2026 method-route supersession
 
 The pre-July control-panel text below is retained as historical data/support
