@@ -6,6 +6,7 @@ DATA_ROOT=${CKBV_DATA_ROOT:-/public/home/jiangxinwei.zr/work/paper04/datasets}
 PARTITION=${CKBV_PARTITION:?missing CKBV_PARTITION}
 JOB_ID=${CKBV_JOB_ID:?missing CKBV_JOB_ID}
 ALLOW_RUNNING=${CKBV_ALLOW_RUNNING:-0}
+ALLOW_POSTFORMAL_FAILED=${CKBV_ALLOW_POSTFORMAL_FAILED:-0}
 CODE_ROOT=${CKBV_CODE_ROOT:?missing CKBV_CODE_ROOT}
 COMMIT_SHA=${CKBV_COMMIT_SHA:?missing CKBV_COMMIT_SHA}
 
@@ -20,21 +21,33 @@ test -d "$RUN_ROOT" || {
   echo "missing CKBV run root: $RUN_ROOT" >&2
   exit 2
 }
+state=$(sacct -j "$JOB_ID" -X -n -P --format=State |
+  head -n 1 |
+  cut -d'|' -f1 |
+  sed 's/+.*//' |
+  tr -d '[:space:]')
 if test "$ALLOW_RUNNING" != 1; then
-  state=$(sacct -j "$JOB_ID" -X -n -P --format=State |
-    head -n 1 |
-    cut -d'|' -f1 |
-    sed 's/+.*//' |
-    tr -d '[:space:]')
-  test "$state" = COMPLETED || {
-    echo "job is not COMPLETED: $state" >&2
-    exit 2
-  }
+  if test "$ALLOW_POSTFORMAL_FAILED" = 1; then
+    test "$state" = FAILED || {
+      echo "post-formal recovery requires FAILED job, got: $state" >&2
+      exit 2
+    }
+    grep -Fxq 'phase=validate_and_pack' "$RUN_ROOT/job_failure.txt" || {
+      echo "post-formal recovery refused: failure was not validate_and_pack" >&2
+      exit 2
+    }
+  else
+    test "$state" = COMPLETED || {
+      echo "job is not COMPLETED: $state" >&2
+      exit 2
+    }
+  fi
 fi
 
 python - "$RUN_ROOT" "$PARTITION" "$JOB_ID" "$CODE_ROOT" "$DATA_ROOT" \
-  "$COMMIT_SHA" <<'PY'
+  "$COMMIT_SHA" "$ALLOW_POSTFORMAL_FAILED" "$state" <<'PY'
 import csv
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -48,9 +61,20 @@ job = sys.argv[3]
 code_root = Path(sys.argv[4])
 data_root = Path(sys.argv[5])
 commit_sha = sys.argv[6]
+postformal_recovery = sys.argv[7] == "1"
+slurm_state = sys.argv[8]
 sys.path.insert(0, str(code_root))
 
 import issue27ckbv_checkpointed_sparse_process_frontend_v1 as ckbv
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
 
 required = [
     "ckbu_single_seed_go_no_go.json",
@@ -58,6 +82,7 @@ required = [
     "strict_level2_summary.csv",
     "ckbu_candidate_selection.csv",
     "ckbu_support_training_usage.csv",
+    "ckbu_role_usage_audit.csv",
     "ckbu_record_predictions.csv.gz",
     "ckbu_environment.json",
     "run_spec.json",
@@ -79,6 +104,8 @@ required = [
     "slurm_identity.txt",
     "slurm_in_job_accounting.csv",
 ]
+if postformal_recovery:
+    required.append("ckbv_postformal_recovery.json")
 missing = [
     name
     for name in required
@@ -137,6 +164,63 @@ for column in ("held_value", "pool", "source_group", "row_kind", "rows_full",
                "rows_observable", "rows_masked"):
     if column not in sens.columns:
         raise SystemExit(f"sensitivity audit missing column: {column}")
+
+# Independent provenance for the recovered fit-only composition.  The
+# combined core_fit_benign count cannot by itself prove that all 8,682 rows
+# came from ood_val rather than id_calib or ood_stress.
+EXPECTED_GLOBAL_FIT_ROLES = {
+    "id_calib": 0,
+    "ood_val": 8682,
+    "ood_stress": 0,
+}
+role_usage_path = root / "ckbu_role_usage_audit.csv"
+role_usage = pd.read_csv(role_usage_path)
+required_role_columns = {
+    "protocol_run",
+    "role",
+    "frame_phase",
+    "m1_phase",
+    "eligible_role_rows",
+    "frozen_target_rows",
+    "outside_frozen_target_cohort",
+    "target_alignment_incomplete",
+}
+missing_role_columns = required_role_columns - set(role_usage.columns)
+if missing_role_columns:
+    raise SystemExit(
+        f"role usage audit missing columns: {sorted(missing_role_columns)}"
+    )
+global_fit_roles = role_usage[
+    (role_usage["protocol_run"] == "GLOBAL_ATTACK_PRESERVATION")
+    & (role_usage["frame_phase"] == "fit")
+    & (role_usage["m1_phase"] == "fit")
+    & (role_usage["role"].isin(EXPECTED_GLOBAL_FIT_ROLES))
+].copy()
+observed_global_fit_roles = {}
+for role, expected in EXPECTED_GLOBAL_FIT_ROLES.items():
+    rows = global_fit_roles[global_fit_roles["role"] == role]
+    if len(rows) != 1:
+        raise SystemExit(
+            f"expected one GLOBAL fit role audit row for {role}; got {len(rows)}"
+        )
+    row = rows.iloc[0]
+    actual = tuple(
+        int(float(row[column]))
+        for column in (
+            "eligible_role_rows",
+            "frozen_target_rows",
+            "outside_frozen_target_cohort",
+            "target_alignment_incomplete",
+        )
+    )
+    if actual != (expected, expected, 0, 0):
+        raise SystemExit(
+            f"GLOBAL fit role provenance drift for {role}: "
+            f"{actual} != {(expected, expected, 0, 0)}"
+        )
+    observed_global_fit_roles[role] = expected
+role_usage_sha256 = sha256_file(role_usage_path)
+
 EXPECTED_PROTOCOLS = {
     "GLOBAL_ATTACK_PRESERVATION",
     "iotsim-ip-camera-street",
@@ -147,6 +231,7 @@ EXPECTED_PROTOCOLS = {
 EXPECTED_POOLS = {
     "core_fit_benign",
     "core_select_benign",
+    "core_ood_val_fit",
     "core_ood_val_select",
     "aux_fit_benign",
     "aux_select_benign",
@@ -249,6 +334,12 @@ for _, gate in gate_rows.iterrows():
     hard_observable = int(gate["c1_hard_observable"])
     frozen_rows = int(gate["c1_frozen_prediction_rows"])
     ton_rows = int(gate["c1_threshold_only_ton_rows"])
+    masked = int(gate["rows_masked"])
+    if masked != 0 or full != observable:
+        raise SystemExit(
+            "fit-only raw51 mask leaked into select C1 gate audit: "
+            f"full={full} observable={observable} masked={masked}"
+        )
     if not (0 <= hard_full <= full and 0 <= hard_observable <= observable):
         raise SystemExit(f"invalid select C1 hard counts: {gate.to_dict()}")
     if frozen_rows + ton_rows != full or ton_rows != 4000:
@@ -278,20 +369,43 @@ for _, gate in gate_rows.iterrows():
     }:
         raise SystemExit("masked rows are not fail-closed in select C1 gate audit")
 
-core = sens[
+core_fit = sens[
     (sens["held_value"] == "GLOBAL_ATTACK_PRESERVATION")
-    & (sens["pool"] == "core_ood_val_select")
+    & (sens["pool"] == "core_ood_val_fit")
     & (sens["row_kind"] == "pool_total")
 ]
-if len(core) != 1:
-    raise SystemExit(f"core ood_val pool_total row missing/duplicated: {len(core)}")
-row = core.iloc[0]
+if len(core_fit) != 1:
+    raise SystemExit(
+        f"core ood_val fit pool_total row missing/duplicated: {len(core_fit)}"
+    )
+row = core_fit.iloc[0]
 if (int(row["rows_full"]), int(row["rows_observable"]), int(row["rows_masked"])) != (
     8682, 7329, 1353
 ):
     raise SystemExit(
-        f"core ood_val composition drift: {row['rows_full']}/"
+        f"core ood_val fit composition drift: {row['rows_full']}/"
         f"{row['rows_observable']}/{row['rows_masked']} != 8682/7329/1353"
+    )
+core_select = sens[
+    (sens["held_value"] == "GLOBAL_ATTACK_PRESERVATION")
+    & (sens["pool"] == "core_ood_val_select")
+    & (sens["row_kind"] == "pool_total")
+]
+if len(core_select) != 1:
+    raise SystemExit(
+        "core ood_val select pool_total row missing/duplicated: "
+        f"{len(core_select)}"
+    )
+select_row = core_select.iloc[0]
+if (
+    int(select_row["rows_full"]),
+    int(select_row["rows_observable"]),
+    int(select_row["rows_masked"]),
+) != (0, 0, 0):
+    raise SystemExit(
+        "fit-only ood_val rows leaked into select: "
+        f"{select_row['rows_full']}/{select_row['rows_observable']}/"
+        f"{select_row['rows_masked']} != 0/0/0"
     )
 masked_sources = set(
     sens[(sens["row_kind"] == "per_source") & (sens["rows_masked"] > 0)]["source_group"]
@@ -300,11 +414,19 @@ if masked_sources != {RAW51_MASK_SOURCE}:
     raise SystemExit(f"sensitivity masked source drift: {masked_sources}")
 core_masked = sens[
     (sens["source_group"] == RAW51_MASK_SOURCE)
-    & (sens["pool"] == "core_ood_val_select")
+    & (sens["pool"] == "core_ood_val_fit")
     & (sens["row_kind"] == "per_source")
 ]
 if len(core_masked) != 1 or int(core_masked.iloc[0]["rows_masked"]) != 1353:
-    raise SystemExit("hydraulic-1 per-source masked count != 1353")
+    raise SystemExit("hydraulic-1 fit per-source masked count != 1353")
+if (
+    (
+        (sens["source_group"] == RAW51_MASK_SOURCE)
+        & (sens["pool"] == "core_ood_val_select")
+        & (sens["row_kind"] == "per_source")
+    )
+).any():
+    raise SystemExit("hydraulic-1 fit-only rows appeared in core ood_val select")
 
 attack = pd.read_csv(root / "attack_preservation_summary.csv")
 overall = attack[attack["metric"] == "overall_attack_hard_recall"]
@@ -428,6 +550,61 @@ if not str(environment.get("tshark", "")).startswith(
 ):
     raise SystemExit(f"TShark version drift: {environment.get('tshark')}")
 
+recovery = None
+if postformal_recovery:
+    recovery = json.loads((root / "ckbv_postformal_recovery.json").read_text())
+    if (
+        recovery.get("status") != "CKBV_POSTFORMAL_POOL_SEMANTIC_RECOVERY"
+        or recovery.get("source_job_id") != job
+        or recovery.get("source_partition") != partition
+        or recovery.get("models_retrained") is not False
+        or recovery.get("pcap_redecoded") is not False
+        or recovery.get("scores_or_gates_changed") is not False
+        or recovery.get("scientific_hashes_unchanged") is not True
+        or recovery.get("fit_pool_full") != 8682
+        or recovery.get("fit_pool_observable") != 7329
+        or recovery.get("fit_pool_masked") != 1353
+        or recovery.get("select_pool_full") != 0
+        or recovery.get("select_pool_observable") != 0
+        or recovery.get("select_pool_masked") != 0
+        or recovery.get("fit_role_rows") != observed_global_fit_roles
+        or recovery.get("role_usage_audit_sha256") != role_usage_sha256
+    ):
+        raise SystemExit(f"invalid post-formal recovery contract: {recovery}")
+    backup = (
+        root
+        / "ckbu_raw51_mask_sensitivity_audit.pre_pool_semantic_recovery.csv"
+    )
+    if not backup.is_file() or not backup.stat().st_size:
+        raise SystemExit("post-formal recovery is missing immutable audit backup")
+    if (
+        recovery.get("audit_sha256_before") != sha256_file(backup)
+        or recovery.get("audit_sha256_after")
+        != sha256_file(root / "ckbu_raw51_mask_sensitivity_audit.csv")
+    ):
+        raise SystemExit("post-formal audit before/after hash mismatch")
+    scientific_files = {
+        "ckbu_single_seed_go_no_go.json",
+        "attack_preservation_summary.csv",
+        "strict_level2_summary.csv",
+        "ckbu_candidate_selection.csv",
+        "ckbu_support_training_usage.csv",
+        "ckbu_role_usage_audit.csv",
+        "ckbu_record_predictions.csv.gz",
+        "ckbu_review_audit.csv",
+        "ckbu_environment.json",
+        "run_spec.json",
+        "codex_readout.md",
+    }
+    recorded_hashes = recovery.get("scientific_hashes", {})
+    if set(recorded_hashes) != scientific_files:
+        raise SystemExit("post-formal scientific hash inventory drift")
+    actual_hashes = {
+        name: sha256_file(root / name) for name in sorted(scientific_files)
+    }
+    if recorded_hashes != actual_hashes:
+        raise SystemExit("scientific outputs changed after post-formal recovery")
+
 identity = {}
 for line in (root / "slurm_identity.txt").read_text().splitlines():
     key, separator, value = line.partition("=")
@@ -498,6 +675,14 @@ validation = {
     "support_rows_used": len(tabm),
     "review_rate": 0.0,
     "scientific_protocol_changed": False,
+    "source_slurm_state": slurm_state,
+    "postformal_recovery": postformal_recovery,
+    "models_retrained_during_recovery": (
+        recovery.get("models_retrained") if recovery is not None else None
+    ),
+    "scores_or_gates_changed_during_recovery": (
+        recovery.get("scores_or_gates_changed") if recovery is not None else None
+    ),
 }
 (root / "ckbv_result_validation.json").write_text(
     json.dumps(validation, indent=2, sort_keys=True) + "\n",

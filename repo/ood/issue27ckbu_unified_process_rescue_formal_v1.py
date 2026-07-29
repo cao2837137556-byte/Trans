@@ -923,12 +923,16 @@ def run_protocol(
         # Per protocol x pool x source_group composition (Codex r12 issue 1/2):
         # every source present in a pool gets its own row, so the mask's effect
         # is auditable at source granularity, not a string summary. The core
-        # ood_val select pool is emitted explicitly so 8682/7329/1353 is a
-        # checkable row.
+        # ood_val fit pool is emitted explicitly so 8682/7329/1353 is a
+        # checkable row. The core select pool remains explicit and empty under
+        # this frozen protocol; moving fit-only ood_val rows into select would
+        # violate fit/select isolation.
+        core_ood_val_fit = [r for r in sets["fit_benign"] if r.role == "ood_val"]
         core_ood_val_select = [r for r in sets["select_benign"] if r.role == "ood_val"]
         pools = {
             "core_fit_benign": list(sets["fit_benign"]),
             "core_select_benign": list(sets["select_benign"]),
+            "core_ood_val_fit": core_ood_val_fit,
             "core_ood_val_select": core_ood_val_select,
             "aux_fit_benign": list(aux_fit),
             "aux_select_benign": list(aux_select),
@@ -1534,21 +1538,25 @@ def contract_unit() -> None:
     with tempfile.TemporaryDirectory() as temp:
         source = frontend.RAW51_MASK_SOURCE
         synthetic = [
-            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_select",
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_fit",
              "source_group": source, "row_kind": "per_source",
              "rows_full": 1353, "rows_observable": 0, "rows_masked": 1353, "mask_rate": 1.0},
-            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_select",
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_fit",
              "source_group": "processed/iotsim-stream-consumer-1.csv", "row_kind": "per_source",
              "rows_full": 4000, "rows_observable": 4000, "rows_masked": 0, "mask_rate": 0.0},
-            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_select",
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_fit",
              "source_group": "__ALL__", "row_kind": "pool_total",
              "rows_full": 8682, "rows_observable": 7329, "rows_masked": 1353,
              "mask_rate": round(1353 / 8682, 6)},
+            {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "core_ood_val_select",
+             "source_group": "__ALL__", "row_kind": "pool_total",
+             "rows_full": 0, "rows_observable": 0, "rows_masked": 0,
+             "mask_rate": 0.0},
             {"held_value": "GLOBAL_ATTACK_PRESERVATION", "pool": "select_benign_c1_and_gate",
              "source_group": "__ALL__", "row_kind": "select_c1_gate",
-             "rows_full": 8682, "rows_observable": 7329, "rows_masked": 1353,
-             "mask_rate": round(1353 / 8682, 6), "c1_hard_full": 10, "c1_hard_observable": 8,
-             "c1_frozen_prediction_rows": 4682, "c1_threshold_only_ton_rows": 4000,
+             "rows_full": 4000, "rows_observable": 4000, "rows_masked": 0,
+             "mask_rate": 0.0, "c1_hard_full": 4000, "c1_hard_observable": 4000,
+             "c1_frozen_prediction_rows": 0, "c1_threshold_only_ton_rows": 4000,
              "c1_ton_policy": "conservative_all_hard_no_frozen_ckbq",
              "process_gate_threshold_extra": 0.5, "process_gate_threshold_tabm": 0.5,
              "masked_are_fail_closed": True},
@@ -1556,18 +1564,35 @@ def contract_unit() -> None:
         path = Path(temp) / "sens.csv"
         pd.DataFrame([{**row, "seed": SEED} for row in synthetic]).to_csv(path, index=False)
         back = pd.read_csv(path)
-        total = back[(back["pool"] == "core_ood_val_select") & (back["row_kind"] == "pool_total")]
+        total = back[(back["pool"] == "core_ood_val_fit") & (back["row_kind"] == "pool_total")]
         if len(total) != 1 or (
             int(total.iloc[0]["rows_full"]), int(total.iloc[0]["rows_observable"]),
             int(total.iloc[0]["rows_masked"]),
         ) != (8682, 7329, 1353):
-            raise RuntimeError("mask finalization: core ood_val composition round-trip failed")
+            raise RuntimeError("mask finalization: core ood_val fit composition round-trip failed")
+        select_total = back[
+            (back["pool"] == "core_ood_val_select")
+            & (back["row_kind"] == "pool_total")
+        ]
+        if len(select_total) != 1 or (
+            int(select_total.iloc[0]["rows_full"]),
+            int(select_total.iloc[0]["rows_observable"]),
+            int(select_total.iloc[0]["rows_masked"]),
+        ) != (0, 0, 0):
+            raise RuntimeError("mask finalization: core ood_val select must remain empty")
         masked_srcs = set(
             back[(back["row_kind"] == "per_source") & (back["rows_masked"] > 0)]["source_group"]
         )
         if masked_srcs != {source}:
             raise RuntimeError(f"mask finalization: masked source round-trip drift {masked_srcs}")
         gate_row = back[back["row_kind"] == "select_c1_gate"]
+        if (
+            len(gate_row) != 1
+            or int(gate_row.iloc[0]["rows_masked"]) != 0
+            or int(gate_row.iloc[0]["rows_full"])
+            != int(gate_row.iloc[0]["rows_observable"])
+        ):
+            raise RuntimeError("mask finalization: fit-only mask leaked into select gate")
         for column in ("c1_hard_full", "c1_hard_observable",
                        "c1_frozen_prediction_rows", "c1_threshold_only_ton_rows",
                        "c1_ton_policy",

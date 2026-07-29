@@ -927,3 +927,60 @@ Rejected retry paths:
 - weakening downstream validators to accept absent inputs;
 - changing scientific inputs or recomputing valid preprocessing checkpoints
   to repair this launch-path error.
+
+## Section 15: CKBV r16 post-formal pool-semantic validator failure (2026-07-28)
+
+Affected jobs:
+
+- AMD `154917`: scientific computation completed, then Slurm `FAILED 1:0` in
+  `phase=validate_and_pack`;
+- Intel `154918`: independent duplicate reached the same terminal condition.
+
+The formal outputs and the registered `NO_GO` decision exist.  The validator
+failed with:
+
+```text
+core ood_val composition drift: 0/0/0 != 8682/7329/1353
+```
+
+Classification: **post-computation audit pool-semantic mismatch**.  This is
+not a scheduler, environment, PCAP, checkpoint, alignment, memory, model,
+threshold, or scientific-computation failure.
+
+Root cause:
+
+The 1,353 raw51-masked `hydraulic-system-1` records have frozen
+`role=ood_val` and `stage=fit`.  The formal program correctly left
+`core_ood_val_select` empty, but the r16 validator incorrectly required the
+fit composition `8682/7329/1353` under the select-pool label.  The immutable
+role-usage audit independently proves that the GLOBAL fit composition is
+`id_calib=0`, `ood_val=8682`, and `ood_stress=0`.
+
+Permanent repair and regression gate:
+
+1. Emit explicit, disjoint `core_ood_val_fit` and `core_ood_val_select` pools.
+2. Require GLOBAL fit to be `8682/7329/1353` and select to remain `0/0/0`.
+3. Do not infer role provenance from the aggregate count alone; require the
+   immutable role-usage audit to prove `ood_val=8682` and both other fit roles
+   zero.
+4. Reject any masked record in select C1/gate rows.
+5. For post-formal recovery, require the source job to be `FAILED` exactly in
+   `validate_and_pack`, preserve an immutable pre-recovery audit, atomically
+   finalize the corrected audit, and prove all scientific output hashes are
+   unchanged.
+6. Exercise first recovery, idempotent recovery, invalid role provenance,
+   fit-count drift, and select-leakage negative cases locally and in clean
+   extraction.
+
+Accepted recovery path: metadata-only recovery of AMD job `154917`, corrected
+validation, and pullback packaging.  This path does not submit Slurm work,
+retrain, re-decode PCAPs, recompute checkpoints, alter scores/gates/thresholds,
+or change the `NO_GO` decision.
+
+Rejected paths:
+
+- rerunning the formal model merely to repair a post-result audit label;
+- recovering both partition copies and treating them as independent seeds;
+- moving fit-only records into select to satisfy the old validator;
+- weakening the `8682/7329/1353` or `0/0/0` assertions;
+- changing any scientific artifact during recovery.

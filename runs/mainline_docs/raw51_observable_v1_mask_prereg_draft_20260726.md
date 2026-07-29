@@ -27,8 +27,10 @@ All 1,353 rows are `roles=ood_val`, `stages=fit`:
 
 - support_train (385) and support_val (69): **untouched**;
 - report / sealed / held-family evaluation denominators: **untouched**;
-- impact is confined to development-phase benign-OOD validation
-  (8,682 -> 7,329 rows).
+- impact is confined to the development-phase benign-OOD **fit** pool:
+  full 8,682 -> observable 7,329, with 1,353 masked rows;
+- the corresponding `core_ood_val_select` pool is empty (0/0/0), so these
+  fit-only rows never participate in threshold or gate selection.
 
 ## Proposed rule
 
@@ -75,6 +77,7 @@ The formal run must, whenever the mask is active, unconditionally emit:
   the attack denominator is unchanged since no attack target is masked);
 - `ckbu_raw51_mask_sensitivity_audit.csv` with per-protocol, per-pool,
   per-source composition (full/observable/masked, mask rate) separating core
-  vs auxiliary vs ToN, and the core `ood_val` select pool explicitly;
+  vs auxiliary vs ToN, with the core `ood_val` fit pool explicitly reported as
+  8,682/7,329/1,353 and the select pool explicitly reported as 0/0/0;
 - mask path/SHA-256/frozen(325,067)/masked(1,353)/observable(323,714)/masked
   source in `ckbu_environment.json` and `run_spec.json`.

@@ -5,6 +5,31 @@
 Status: active living handoff. This top section is the authoritative current state.
 If older time-log entries conflict with this section, treat the older entry as historical evidence only.
 
+### 2026-07-29 CKBV result and r17 recovery state
+
+CKBV r16 AMD job `154917` completed the formal seed-27 computation and emitted
+a scientific `NO_GO`, then failed only during `validate_and_pack`.  The
+duplicate Intel job `154918` reached the same post-computation validator
+failure.  The failure is not a model or data-computation failure: the
+validator expected the raw51 mask composition under
+`core_ood_val_select`, while the frozen role contract places all 1,353 masked
+`hydraulic-system-1` rows in `ood_val / fit`.
+
+The immutable role-usage audit proves the GLOBAL fit roles are
+`id_calib=0`, `ood_val=8682`, and `ood_stress=0`.  The corrected contract is
+therefore `core_ood_val_fit=8682/7329/1353` and
+`core_ood_val_select=0/0/0`.  r17 is a metadata-only recovery for AMD job
+`154917`: it preserves the original audit, adds the missing fit-pool labels,
+proves all scientific hashes unchanged, reruns validation, and produces the
+pullback.  It must not submit Slurm work, retrain, re-decode PCAPs, change
+scores/gates, or recover the Intel duplicate.
+
+The scientific result remains `NO_GO`: held OOD hard rates improve and overall
+attack hard recall increases, but at least one major attack family violates
+the 2 percentage-point preservation gate.  See
+`ckbv_r17_postformal_pool_semantic_recovery_20260729.md` and failure-ledger
+Section 15.  Do not launch seeds 37/47 from this result.
+
 ### July 2026 method-route supersession
 
 The pre-July control-panel text below is retained as historical data/support
