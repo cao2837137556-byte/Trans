@@ -1092,3 +1092,85 @@ Rejected paths:
 - inventing phantom masked rows inside pools that contain none;
 - rerunning the formal model to repair audit labelling;
 - weakening the scientific-hash-unchanged requirement.
+
+## Section 19: CKBV r20 pack-time evidence-chain gaps closed by member re-materialization and a bounded masked-source exemption (2026-07-29)
+
+Affected artifacts: the r20 post-formal recovery and corrected validator
+executed on HPC against AMD job `154917`.  The r20 recovery itself succeeded
+(`CKBV_POSTFORMAL_RUN_GROUNDED_RECOVERY`, scientific hashes unchanged) and is
+idempotent; the failures below surfaced afterwards, in validator stages that
+no previous attempt had ever reached.
+
+Observed boundaries (two independent gaps):
+
+- `invalid member checkpoints: ['0:missing_pair', '1:missing_pair',
+  '2:missing_pair', '3:missing_pair']` — the four members of
+  `processed/iotsim-air-quality-1.csv` existed nowhere in the CKBV run chain
+  (verified by a cluster-wide `find` over `runs/`).  The run's own stage log
+  records the mechanism: `missing_sources=1 pending_members=0
+  reused_members=58` — the source's aggregate was reused whole from job
+  `154761`, so the pipeline never needed, copied, or materialized its
+  member-level checkpoints.  This gap, not a scientific defect, is the root
+  cause of the original r16 death in `validate_and_pack`: every earlier
+  attempt failed in earlier validator stages and never reached this check.
+- `invalid source checkpoints:
+  ['processed/iotsim-hydraulic-system-1.csv:missing_pair']` — the one fully
+  masked raw51 source has no observable rows, so no causal aggregate exists
+  by design.  The validator's plan-level checks were already mask-aware
+  (`sources=29`, `raw51_fully_masked_sources=[hydraulic-system-1]`,
+  `targets=323714`), but its pair-level source check and its aggregation
+  audit coverage check still assumed 30 sources / 30 rows.  The run's
+  aggregation audit truthfully has 29 rows with the masked source absent.
+
+Repairs applied (evidence-only; no scientific output touched):
+
+1. The four air-quality-1 members were re-materialized on the HPC login node
+   with the byte-identical frozen r16 frontend, the same Gotham ZIP, target
+   indices and TShark 4.6.6 (no Slurm submission; ~13.5 MB of PCAPs).  Each
+   member self-validated on write (`CKBV_GOTHAM_MEMBER_COMPLETE`);
+   `matched_target_rows=0` is the legitimate account for this source and is
+   consistent with the reused aggregate that the run actually consumed.
+   These files are pack-time evidence only; the run's causal chain never
+   read them, and no score, gate, threshold, model, or denominator changed.
+2. The validator now applies a bounded exemption for the fully-masked source:
+   the named source may be absent from `gotham_causal_cache` only with
+   `missing_pair` and only while its source-plan `target_rows` equals the
+   masked total 1,353; the absence is additionally asserted in the
+   aggregation audit (29 rows, masked source absent), and the masked source
+   must never gain a pair or an audit row.
+
+Classification: **pack-time evidence-chain completion**.  Not a scientific,
+data-computation, model, threshold, seed, or scheduler failure; the completed
+`NO_GO` decision and all scientific hashes remain intact.
+
+Permanent repair and regression gate:
+
+1. Evidence the packager requires must be produced, copied, or explicitly
+   exempted at checkpoint time.  A reused source aggregate must not silently
+   orphan its member-level evidence: future runs either complete the member
+   chain for every plan row or record a named exemption in the checkpoint
+   summary.
+2. Any validator expectation over per-entity evidence must account for
+   masked-out entities explicitly.  Exemptions must be named, bounded to the
+   named entity and the exact absence reason, cross-pinned by independent
+   artifacts (plan `target_rows`, environment, run_spec, checkpoint summary),
+   and mirrored by an absence assertion.
+3. Never-before-reached validator stages are unverified code.  When a run
+   advances into one, a further failure is expected process, not a new
+   crisis: diagnose against the run's artifacts and ledger the category
+   before retrying.
+
+Accepted retry path: an r21 bundle carrying the bounded masked-source
+exemption, re-running the idempotent r20 recovery followed by validation and
+pullback of AMD job `154917`.  No Slurm submission, no retraining, no PCAP
+re-decoding beyond the four evidence members above, and no change to the
+`NO_GO` decision.
+
+Rejected paths:
+
+- weakening or deleting member/source evidence checks so packaging passes;
+- fabricating or backdating checkpoint metadata;
+- routing the four-member evidence rebuild through the scheduler when the
+  frozen frontend produces it deterministically on the login node;
+- broadening the masked-source exemption beyond the single named source or
+  beyond `missing_pair`.

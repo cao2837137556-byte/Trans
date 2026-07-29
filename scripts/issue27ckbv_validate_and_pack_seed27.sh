@@ -509,14 +509,30 @@ if invalid_members:
     raise SystemExit(f"invalid member checkpoints: {invalid_members[:8]}")
 
 source_rows = ckbv.read_csv_rows(root / "ckbu_gotham_source_plan.csv")
-invalid_sources = [
-    f"{row['source_group']}:{reason}"
-    for row in source_rows
-    for valid, reason in [
-        ckbv.validate_source_pair(row, root / "gotham_causal_cache")
-    ]
-    if not valid
-]
+invalid_sources = []
+masked_source_absent = False
+for row in source_rows:
+    valid, reason = ckbv.validate_source_pair(row, root / "gotham_causal_cache")
+    if valid:
+        continue
+    if (
+        str(row["source_group"]) == RAW51_MASK_SOURCE
+        and reason == "missing_pair"
+        and int(row["target_rows"]) == RAW51_MASK_TOTAL
+    ):
+        # raw51_observable_v1: this source is fully masked at target
+        # materialization (1,353/1,353 rows), so no observable aggregate can
+        # exist.  The exemption is bounded to this one named source and the
+        # mask is independently pinned by the plan summary, the checkpoint
+        # summary, the environment, run_spec and the target-materialization
+        # audit rows (ledger section 19).
+        masked_source_absent = True
+        continue
+    invalid_sources.append(f"{row['source_group']}:{reason}")
+if not masked_source_absent:
+    raise SystemExit(
+        "fully-masked raw51 source unexpectedly holds a causal aggregate"
+    )
 if invalid_sources:
     raise SystemExit(f"invalid source checkpoints: {invalid_sources[:8]}")
 
@@ -557,14 +573,23 @@ if int(checkpoint.get("materialized_member_caches", 0)) > 0:
     if projection.get("projection_pass") is not True:
         raise SystemExit(f"throughput projection failed: {projection}")
 
+# The reuse audits cover all 30 Gotham / 31 auxiliary sources.  The
+# aggregation audit covers only the 29 observable sources: the fully-masked
+# raw51 source has no observable rows to aggregate and must be absent
+# (ledger section 19).
 for name, expected in (
     ("ckbv_source_reuse_audit.csv", 30),
-    ("ckbv_source_aggregation_audit.csv", 30),
+    ("ckbv_source_aggregation_audit.csv", 29),
     ("ckbu_auxiliary_parallel_reuse_audit.csv", 31),
 ):
     frame = pd.read_csv(root / name)
     if len(frame) != expected or frame.source_group.nunique() != expected:
         raise SystemExit(f"audit coverage drift: {name}")
+    if (
+        name == "ckbv_source_aggregation_audit.csv"
+        and (frame.source_group == RAW51_MASK_SOURCE).any()
+    ):
+        raise SystemExit("fully-masked source appeared in aggregation audit")
 
 support = pd.read_csv(root / "ckbu_support_training_usage.csv")
 tabm = support[support.candidate.eq("H2-TabMProcessHead")]

@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string]$BundleName = 'issue27ckbv_postformal_recovery_amd154917_20260729_r20',
+    [string]$BundleName = 'issue27ckbv_postformal_recovery_amd154917_20260729_r21',
     [string]$OutputRoot = '',
     [string]$CommitSha = ''
 )
@@ -86,6 +86,7 @@ $PayloadFiles = @(
     'scripts/issue27ckbv_validate_and_pack_seed27.sh',
     'scripts/issue27ckbv_recover_postformal_154917.sh',
     'runs/mainline_docs/ckbv_r20_run_grounded_pool_recovery_20260729.md',
+    'runs/mainline_docs/ckbv_r21_masked_source_evidence_closure_20260729.md',
     'runs/mainline_docs/hpc_failure_ledger_and_launch_gate_20260725.md'
 )
 foreach ($RelativePath in $PayloadFiles) {
@@ -123,17 +124,17 @@ foreach ($Token in @(
 )
 
 $Readme = @"
-# CKBV r20 post-formal run-grounded recovery
+# CKBV r21 post-formal masked-source evidence closure
 
-This bundle appends run-grounded evidence rows to the already-emitted raw51
-sensitivity audit for AMD job 154917: the fit pool's role decomposition
-(support_train 385 + id_calib 809 + ood_val 2,604 = 3,413) and the raw51
-target-materialization record (325,067 frozen / 323,714 observable / 1,353
-masked on the hydraulic-1 source). It does not submit Slurm work, train a
-model, decode a PCAP, change a score, or select a gate. See
-payload/runs/mainline_docs/ckbv_r20_run_grounded_pool_recovery_20260729.md
-and ledger section 18 in
-payload/runs/mainline_docs/hpc_failure_ledger_and_launch_gate_20260725.md.
+This bundle re-runs the idempotent r20 run-grounded recovery for AMD job
+154917 and then validates with the bounded masked-source exemption from
+ledger section 19: the fully-masked raw51 source (hydraulic-system-1,
+1,353/1,353 masked) may lack a causal aggregate, the aggregation audit holds
+exactly 29 observable sources, and the four re-materialized air-quality-1
+member checkpoints complete the member evidence chain. It does not submit
+Slurm work, train a model, change a score, or select a gate. See
+payload/runs/mainline_docs/ckbv_r21_masked_source_evidence_closure_20260729.md
+and payload/runs/mainline_docs/hpc_failure_ledger_and_launch_gate_20260725.md.
 
 Run in the already logged-in VS Code HPC Bash terminal:
 
