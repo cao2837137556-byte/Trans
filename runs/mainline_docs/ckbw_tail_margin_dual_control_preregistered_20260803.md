@@ -1,8 +1,8 @@
-# CKBW：共享过程评分器的 Tail-Pair Margin 与双边控制预注册（初稿）
+# CKBW：共享过程评分器的 Tail-Pair Margin 与双边控制预注册（FROZEN）
 
-> 状态：**DRAFT FOR USER/KIMI REVIEW — NOT AUTHORIZED FOR IMPLEMENTATION OR HPC**
+> 状态：**FROZEN SCIENTIFIC PROTOCOL — AWAITING KIMI FINAL REVIEW AND USER IMPLEMENTATION AUTHORIZATION**
 >
-> 本文只冻结拟议科学协议。用户与 Kimi 审查批准前，不得据此写正式模型代码、构建 HPC bundle 或提交作业。
+> 冻结日期：**2026-08-03**。本文内容由独立 SHA-256 锁定；Kimi 对该精确版本终审且用户明确授权前，不得据此写正式模型代码、构建 HPC bundle 或提交作业。任何内容变更必须生成新的版本文件与 SHA-256，不得静默改写本文件。
 
 ## 1. 本轮要回答的问题
 
@@ -541,17 +541,16 @@ PRIMARY 必须同时满足：
 
 ## 14. 审查与实现授权
 
-本初稿完成后：
+本冻结版完成后的授权顺序固定为：
 
-1. Kimi 按数据合法性、损失、阈值、消融、不可晋升和输出清单逐项审查；
-2. 用户确认最终系统含义和成功门槛；
-3. 审查意见全部关闭后，生成 `FROZEN` 版本及 SHA-256；
-4. 只有冻结后才允许写 CKBW 实现；
-5. 实现完成后再次独立代码审查；
-6. 用户最终批准后才构建并提交 seed 27 HPC。
+1. Kimi 按本文件 SHA-256 对数据合法性、损失、阈值、消融、不可晋升和输出清单做最终审查；
+2. 用户确认最终系统含义、成功门槛并明确授权实现；
+3. 只有上述两项均完成后才允许写 CKBW 实现；
+4. 实现完成后再次独立代码审查，逐项验证本协议及第 14.1 节配置一致性硬门；
+5. 用户最终批准后才允许构建并提交 seed 27 HPC。
 
 ### 14.1 实现期配置一致性硬门
 
 实现完成后的独立代码审查必须逐项核对 CKBW TabM 与 CKBV 实际实现中的固定配置：`width=192`、`blocks=3`、`k=16`、`batch_size=512`、`epochs=24`、`numerical_embeddings=false`。当前仓库 CKBV formal 参数接口已显示这些数值，但它们不因写入本预注册而自动视为运行事实；CKBW 必须在模型构造、命令行默认/显式参数、run spec、model audit 和最终输出五处一致。任一缺失或不一致均阻断 bundle 构建与 HPC 提交，不得运行后补写。
 
-当前状态仍为：**未冻结、未授权实现、未授权提交 HPC**。
+当前状态为：**科学协议已冻结；等待 Kimi 对精确 SHA-256 终审；未授权实现、未授权提交 HPC**。
