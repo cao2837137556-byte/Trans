@@ -1174,3 +1174,59 @@ Rejected paths:
   frozen frontend produces it deterministically on the login node;
 - broadening the masked-source exemption beyond the single named source or
   beyond `missing_pair`.
+
+## 20. 2026-08-05 — CKBW implementation continuation at the Codex token breakpoint
+
+Category: process continuation, not a failure.  Codex stopped mid-pipeline
+(frozen-score contract, tail-margin loss and dual-gate core were complete and
+self-tested; the `--formal` wiring was not started) when its token quota ran
+out.  With user authorization, Kimi continued under the standing constraints:
+no redesign, no changes to the existing core logic, data assembly by reusing
+the validated CKBU functions, evidence at every step, no bundle, no HPC.
+
+What was done:
+
+- Appended the formal pipeline to
+  `repo/ood/issue27ckbw_tail_margin_dual_control_v1.py` (954 -> 2,745 lines):
+  protocol assembly mirroring `ckbu.run_protocol`, global pool contract,
+  cross-protocol single-scorer identity assertions, frozen-frame alignment and
+  fresh-vs-frozen C1 audit, lambda-grid training driver with frontier replay,
+  eight-arm evaluation, dual-gate scope accounting with both identities
+  asserted per scope, transition matrix, UDP Scan diagnostics, section-9
+  outcome logic, and the full section-11 output set.
+- Four additive touch-points inside pre-existing code (flagged for Codex
+  review in `ckbw_implementation_handoff_20260805.md`): one audit-only field
+  in `fit_candidate` histories, CLI/dispatch extensions, and relocation of the
+  `__main__` guard below the appended constants.
+
+Evidence (all executed locally, real artifacts):
+
+- `--contract-unit` and `--validate-frozen` re-pass unchanged (no regression).
+- `--frozen-arm-preview` on the real 154917 scores: CE-Dual gate
+  (tau_normal=0.853938, tau_attack=1.0) and ExtraTrees-Dual gate
+  (tau_normal=0.489414, tau_attack=1.0) selected with support_val 69/69
+  preserved; benign-select accounting suppress=27/rescue=0/net=+27
+  (aux 3,000 = 27, ToN 4,000 = 0) with both section-7.4 identities holding.
+- Preview also quantifies the preregistration's core tension on real data:
+  CE-Dual OOD macro ~0.72% but GLOBAL attack recall -10.42 pp vs C1 —
+  dual control suppresses benign OOD strongly, and the tail-margin objective
+  is exactly the attack-side protection still to be trained.
+- `--smoke-store` and `--smoke-formal` (external harness with EPOCHS=2,
+  single lambda; repo file untouched) pass end-to-end mechanics, including
+  per-epoch `tail_selection_audit` with 12 attack groups (>=128 pairs each)
+  and a source-balanced 16-row benign tail.
+
+Rejected paths:
+
+- reconstructing evaluation records from the frozen frame for the formal run
+  (episode lineage would degrade bootstrap CI; formal uses the assembled
+  records and cross-validates them against the frozen frame);
+- retraining CE/ExtraTrees heads for the dual arms (pre registration fixes
+  frozen score reuse; hashes are asserted);
+- shrinking the fit/select pools or patching epochs in the repo file for local
+  testing (the epoch patch lives only in an out-of-repo harness).
+
+Launch gate: unchanged and still closed.  Next steps are Codex review of the
+handoff document and diff, user authorization, bundle construction with the
+CKBU-style asset chain, then the first HPC `--formal` run.  No Slurm
+submission was made from this continuation.
