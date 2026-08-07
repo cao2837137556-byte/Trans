@@ -129,3 +129,30 @@ GPT accepts Kimi's 69-row statistical-budget caution and finalizes the diagnosti
 5. GPT votes "start" — the read-only feasibility diagnostic only (no CKBX code, no thresholds, no training, no HPC, no FINAL data).
 
 Kimi position: all accepted without amendment; the ladder and stability gate directly answer my 69-row budget caution. Execution is staged and waits for the USER's explicit "开始" (GPT's suggested authorization sentence is logged in the conversation; authorization must come from the user, not from GPT).
+
+---
+
+## Round 5 (2026-08-07, Kimi 执行): veto 可行性诊断完成 — VERDICT = STATE_1，A+C 终止，转 episode B
+
+用户 11:47 明确授权"开始"后，Kimi 完成只读诊断（无训练/无阈值变更/无 FINAL 数据）。
+报告与全部产物：`runs/mainline_docs/ckbx_veto_feasibility_20260807/`（report.md + 5 图 + 7 表 + verdict.json + 复现脚本）。
+
+**方法核验**：M7 判定公式逐行反推验证通过（M7 = frozen_ckbq_hard AND tail>=0.971323，suppress 方向为 tail **低** 压掉）；
+两表按 (held_value, uid) 精确 join（both=277,326；ton: 20,000 行无 C1 覆盖，如实标注）；
+c1_hard 与 (c1_score >= c1_candidate_threshold) 277,326 行零不一致；C1 阈值为全局单一值 0.998085199899140。
+
+**裁决：STATE_1_ORACLE_INSEPARABLE_GO_EPISODE_B**——oracle 层即不可分，A+C 记录级 veto 路线终止，不烧超算，CKBX 主干转入 episode 级仲裁（方案 B）。
+
+两条独立致死原因（seed-27 实测）：
+1. 收益侧：veto 召回天花板（= c1_hard 比例）7/8 族 < 0.90——Merlin C&C 0.998（唯一达标）、Reporting 0.742、TCP Scan 0.734、Telnet 0.667、Ingress 0.631、Mirai C&C 0.054、CoAP/UDP 0.000。任何 δ 都无法让最差族召回达标。
+2. 代价侧：合法良性 aux_select 3,000 行 c1_score **全部为 1.0**（全局最大值，单源内零方差），pm-OOD 9,000 行同；任何能救攻击的 δ（≤0.0015）先把合法良性池 100% 打成误报。Legal 层唯一满足良性预算的 δ_b=0.001915 全域零救援（退化稳定，LOFO 不变）。
+3. Level 2 单调二维区域（veto 仅限被 M7 压掉的行）同样不存在有用区间。
+
+附带审计：27 行基线硬告警良性全部为 M1-static 分支判因、c1_score=1.0，非杂散；support_val 69 确认为攻击验证行（10 族混合，三臂召回 100%），δ 约束只能来自良性池（GPT 防退化警告成立）；16,212 条被 M7 压掉的攻击 100% c1_hard。
+
+对 episode B 的三条定性假设（仅定性，数值阈值须由 LEGAL 池重选）：
+1. C1 的源级饱和形态本身是 episode 级信号（良性 OOD 源整源 1.0 饱和；攻击源高但不饱和）——episode 特征应吃"源/窗口内分数分布形态"而非单条分数；
+2. 窗口内 c1_hard 密度对找回 Merlin 类压制攻击可能有用，按 episode 评估；
+3. Mirai C&C / CoAP / UDP Scan 对 C1 通路不可见，episode 仲裁需 51D/上下文通路单独承载这三族，预注册中明确口径（不打补丁）。
+
+下一步：GPT + Kimi 起草 CKBX（episode 级仲裁）预注册，等 Codex 8 月 10 日回归评审；本诊断给出的禁令——不得再从记录级 C1 分数设计救援机制。

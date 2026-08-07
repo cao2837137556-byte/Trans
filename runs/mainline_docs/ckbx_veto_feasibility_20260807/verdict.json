@@ -1,0 +1,28 @@
+{
+  "verdict": "STATE_1_ORACLE_INSEPARABLE_GO_EPISODE_B",
+  "reasons": [
+    "worst stealth family recall < 0.90 at EVERY delta: veto ceilings (c1_hard frac) = Merlin C&C Communication=0.998, Telnet Brute Force=0.667, Ingress Tool Transfer=0.631, Reporting=0.742, TCP Scan=0.734, Mirai C&C Communication=0.054, CoAP Amplification=0.000, UDP Scan=0.000",
+    "benign aux_select (legal select pool) sits at the GLOBAL score max (c1_score=1.0, margin=0.001915) for 100% of rows; any delta that rescues stealth attacks fires on all of them"
+  ],
+  "oracle_useful_region_exists_L1_6fam": false,
+  "oracle_useful_region_excl_mirai": false,
+  "oracle_useful_region_L2_suppressed_only": false,
+  "legal_delta_b_aux_budget_1pct": 0.001915,
+  "stealth_worst_recall_at_delta_b": 0.04465275677855055,
+  "c1_recall_ceiling_per_family": {
+    "Merlin C&C Communication": 0.998185666767463,
+    "Telnet Brute Force": 0.6668824862415021,
+    "Ingress Tool Transfer": 0.6311825257343711,
+    "Reporting": 0.7419354838709677,
+    "TCP Scan": 0.734328841406661,
+    "Mirai C&C Communication": 0.05449591280653951,
+    "CoAP Amplification": 0.0,
+    "UDP Scan": 0.0
+  },
+  "suppressed_attacks": 16212,
+  "suppressed_attacks_c1_hard_frac": 1.0,
+  "ton_rows_no_c1_coverage": 20000,
+  "c1_threshold": 0.99808519989914,
+  "tau_n": 0.971323,
+  "note": "VIEWED diagnostic pools used for oracle leg; qualitative hypothesis only, no numeric cut may be carried into CKBX prereg from these pools."
+}
