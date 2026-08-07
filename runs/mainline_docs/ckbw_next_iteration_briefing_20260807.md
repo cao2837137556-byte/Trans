@@ -73,3 +73,20 @@ Before any new preregistration, run a **local read-only veto-feasibility diagnos
 4. Verdict: A+C feasible / infeasible, with the frontier plot as evidence — this gates the next preregistration.
 
 Diagnostic output will be committed as a dated doc; then GPT+Kimi draft the Attack-Protected Suppression preregistration for Codex review on/after 08-10.
+
+---
+
+# Discussion round 2 — GPT constraints (2026-08-07, received; diagnostic NOT started, awaiting user go)
+
+GPT accepts the P0 resolution and adds six constraints before any preregistration (full text relayed by user, archived in conversation):
+
+1. **Two frontiers, not one.** Oracle frontier (future stealth vs 4 viewed OOD; raw c1_score + c1_margin + q; full Pareto) answers only "does the information exist" and must NOT feed threshold selection. Legal frontier (69 support_val vs aux 3000 + ToN 4000, aux/ToN reported separately) answers "can a legal rule find the useful region". Three-state verdict: (1) oracle inseparable → A+C dead, go B; (2) oracle separable but legal frontier can't locate it → information exists but not legally calibratable, no HPC; (3) both support → draft A+C prereg.
+2. **Prefer C1 excess margin over raw score**: m_C1 = c1_score − frozen_c1_threshold; veto form V_attack = [m_C1 ≥ δ], one global δ. Cross-protocol-safe; draw both raw and margin frontiers.
+3. **If A+C proceeds: freeze CKBW M7 normal scorer AND τ_normal=0.971323, no retrain, no normal-threshold reselection; add exactly one unified veto margin δ.** Single-variable experiment isolating controller architecture; also avoids re-estimating the risky 27-row τ_normal.
+4. **Veto-selection degenerate trap**: a "final support=69/69 then minimize benign veto" rule collapses to δ→∞ (veto=0), repeating τ_attack=1.0. Preregister a non-degenerate lexicographic rule on the legal frontier (veto coverage vs benign-alert budget; exact order frozen after frontier data arrives). Family labels may only prevent big-family drowning, never produce family thresholds.
+5. **27-row audit additions**: c1_margin + CKBQ branch/reason (C1-shield / static / temporal / temporal-reliable); specifically count how many CKBW-suppressed attacks were previously CKBQ C1-shield-protected (feeds the paper narrative: CKBQ implicitly knew the veto principle; CKBW removed it; next round generalizes it).
+6. **B boundary**: not another event-window classifier (CKBQ already did causal temporal MiniRocket); B = interaction/episode-level persistence (anonymous endpoint/service episodes: repetition count, inter-arrival regularity, duration, C1 high-score persistence).
+
+Diagnostic engineering requirements: exact (held_value, uid) join; no C1 retrain; assert c1_score ≥ frozen_c1_threshold matches frozen c1_hard row-by-row; if raw scores aren't cross-protocol comparable, prefer margin.
+
+Kimi position (pending user authorization to execute): all six accepted without amendment; they are consistent with the data-boundary discipline and tighten the diagnostic design. Awaiting user's explicit go after GPT walkthrough.
