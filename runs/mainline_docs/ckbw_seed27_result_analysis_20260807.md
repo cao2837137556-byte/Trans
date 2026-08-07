@@ -5,18 +5,20 @@
 - Contract checks: **16/16 PASS** (data boundary, five-place config consistency, frozen hashes, review=0, cooler-motor sealed, seeds 37/47 locked all held). The NO_GO is purely scientific, not procedural.
 - Winner candidate: λ_tail=0.25, λ_family=0.25, selected epoch 6, τ_normal=0.971323, τ_attack=1.0 (rescue never activated; 27 select-pool baseline-hard rows all suppressed).
 
-## 1. Headline numbers (GLOBAL protocol, future_query unless noted)
+## 1. Headline numbers (GLOBAL protocol; attack recalls shown in BOTH scopes after the GPT P0 audit)
 
-| Arm | Benign-OOD macro hard rate | Attack overall recall | Δ attack vs C1 |
-|---|---:|---:|---:|
-| M0-C1 | 0.931 (0.724 hydraulic + 3×1.000) | 0.868 | — |
-| M1-FrozenCKBQ | 0.3527 | 0.742 | −12.6 pp |
-| **M7-PRIMARY (TailMargin-Dual)** | **0.0015** | **0.632** | **−13.6 pp (gate ≥ −0.5: FAIL)** |
-| M5-TabM-CE-Dual | 0.0071 | 0.678 | −19.0 pp |
-| A4-ExtraTrees-Dual | 0.0894 | 0.726 | −14.2 pp |
-| M6-TailMargin-OR | 0.3527 (= CKBQ) | 0.742 (= CKBQ) | −12.6 pp |
-| A2-ExtraTreesRescue | 0.616 | 0.742 | −12.6 pp |
-| M4-TabMProcessRescue | 0.3536 | 0.742 | −12.6 pp |
+Gate scope note (P0 resolution, 2026-08-07): the preregistered gate metric `attack_overall` is computed on the **all-role attack pool** (244,050 rows = support_val 69 + same_file 2,486 + sealed_final 110,104 + future_query 131,391), where the sealed pool's 110k easy rows dilute the future_query collapse. The **future_query-only** lens is stricter and is the one that matches the open-world claim. Both scopes are raw results from `ckbw_attack_preservation_summary.csv`; an earlier version of this table quoted future-only recalls next to the overall-pool gate delta, mixing scopes (caught by GPT, fixed here).
+
+| Arm | Benign-OOD macro | Attack recall (future_query) | Δ vs C1 (future) | Attack recall (all-role pool) | Δ vs C1 (pool = gate) |
+|---|---:|---:|---:|---:|---:|
+| M0-C1 | 0.931 (0.724 hydraulic + 3×1.000) | 0.8683 | — | 0.9130 | — |
+| M1-FrozenCKBQ | 0.3527 | 0.7420 | −12.64 pp | 0.8435 | −6.95 pp |
+| **M7-PRIMARY (TailMargin-Dual)** | **0.0015** | **0.6319** | **−23.64 pp** | **0.7771** | **−13.59 pp (gate ≥ −0.5: FAIL)** |
+| M5-TabM-CE-Dual | 0.0071 | 0.6783 | −19.00 pp | 0.8088 | −10.42 pp |
+| A4-ExtraTrees-Dual | 0.0894 | 0.7264 | −14.20 pp | 0.8351 | −7.79 pp |
+| M6-TailMargin-OR | 0.3527 (= CKBQ) | 0.7420 (= CKBQ) | −12.64 pp | 0.8435 (= CKBQ) | −6.95 pp |
+| A2-ExtraTreesRescue | 0.616 | 0.7420 | −12.64 pp | 0.8435 | −6.95 pp |
+| M4-TabMProcessRescue | 0.3536 | 0.7420 | −12.64 pp | 0.8435 | −6.95 pp |
 
 M7 per-family benign-OOD: hydraulic 0.457→0.000, predictive-maintenance 0.576→0.006, stream-consumer 0.297→0.000, ip-camera-street 0.081→0.000. Worst-family OOD = 0.61%. support_val attack recall 69/69 = 1.0.
 
@@ -38,7 +40,7 @@ The losses are exactly the **low-volume, stealthy families** (C&C, brute force, 
 
 ## 3. Diagnosis — mechanism boundary, not a tuning problem
 
-1. **The dual control is purely suppressive in practice.** τ_attack=1.0 and rescue=0 on every dual arm; the select pool offered only 27 suppressible baseline-hard rows. Everything the mechanism does is "revoke baseline alarms when the process score looks benign".
+1. **The dual control is purely suppressive in practice.** τ_attack=1.0 and rescue=0 on every dual arm; the select pool offered only 27 suppressible baseline-hard rows. Everything the mechanism does is "revoke baseline alarms when the process score looks benign". (P1 refinement from GPT, accepted: τ_attack=1.0 is at least partly a *degenerate optimum of the legal selection objective* — with no support rows needing rescue, the maximal attack cut is optimal — so the precise statement is "no 51D rescue was authorized under the legal objective", which is weaker than "the 51D score carries no attack signal". M6's byte-identity to CKBQ likewise proves only that nothing was authorized at the legal OR cut.)
 2. **Record-level process normality cannot separate stealthy attacks from benign OOD.** Both look process-normal per record; τn=0.9713 suppresses both. The spectacular OOD number (0.15% macro) and the stealthy-attack collapse are the *same* mechanism acting on two populations that are indistinguishable in this feature space.
 3. **Tail-margin training did not change this.** M7 ≈ M5 (plain CE) family-by-family, and M7 is even worse on Merlin C&C (0.045 vs 0.162). The margin loss protected the 69 support rows (recall 1.0) but nothing generalizes to unseen same-family attack records — the separating information is simply not in the record-level causal features.
 4. **The attack evidence exists in another view.** C1 catches Merlin C&C at 0.998 while the process side scores it benign-like. Suppression currently ignores that view: it revokes whenever the process scorer is confident, even when an attack-oriented view is firing.
