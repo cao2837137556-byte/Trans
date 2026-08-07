@@ -263,3 +263,38 @@ CKBY 冻结授权链变为：用户授权 + GPT round-8 评审已并入 + Kimi �
 uid 逐一 join 角色，失败即中止）→ 拉回本地 → 训练 → 一次性评估 → 结果文档。
 导出前需先读 ckbu 装配接口（issue27ckbu_unified_process_rescue_formal_v1.py）确认
 feature_map/fit_preprocessor 签名——只读，不改。
+
+---
+
+## Round 10 (2026-08-07, Kimi 执行): 勘误 1 + 特征快照导出程序与上传包完成（待用户提交 HPC）
+
+**勘误 1（执行前）**：`ckby_preregistered_erratum_1_feature_snapshot_contract_20260807.md`。
+核验发现 FROZEN §9 "快照行数=297,326" 假设不成立——CKBW 记录表只含 select/report 两阶段
+（35,345 + 261,981，跨 5 个 held_value 切片），**不含 fit 行**，且 uid 跨切片重复。
+修正后合同：快照 = GLOBAL fit 18,398（14,013 benign + 4,385 attack，attack 仅供断言）
+∪ 记录表全部唯一 uid，按 uid 去重；硬性断言=记录表覆盖率 100%、fit/select 基数精确、
+矩阵 (N,51) 无 NaN/Inf。科学面零变化。附带澄清：raw51 masked 1,353 行有 51D 特征
+（CKBW job 157624 全局 store.add 成功为证），CKBY 将对其直接打分并单列 masked 口径对照。
+
+**导出程序**（commit 9439ba1）：
+
+- `repo/ood/issue27ckby_drocc_feature_dump_v1.py`——逐行复用 CKBW `run_formal` 装配半段
+  （prepare_inputs→mask→restrict→protocols→assemble_protocol×5→assert_global_pool_contract→
+  assert_protocol_identity→UnifiedFeatureStore.add），在任何预处理/训练/打分**之前**停止，
+  导出 quantile 变换**前**的原始 51D 因果特征 + 行级元数据（uid/role/m1_phase/source/label/
+  attack_family/recorded_index/raw51_observable/global_pool）。
+- `scripts/issue27ckby_drocc_feature_dump_formal.slurm`——amd 分区、4h 上限、禁重排、
+  60s 心跳（phase + 日志行数）、job_failure.txt 失败落盘、自动打 pullback 包。
+- `scripts/issue27ckby_install_and_submit.sh`——镜像 CKBW installer：不可变资产哈希全钉
+  （154917 五资产 + 157624 记录表 f53f1e3d… + raw51 掩码 b16017d2…）、SHA256SUMS 校验、
+  sbatch --test-only 干跑、job id 幂等记录、900s runtime gate（到达 snapshot_dump 阶段即判
+  提交有效）。
+
+**上传包**：`supercompute_transfer/issue27ckby_drocc_feature_dump_20260807_upload_bundle.tar.gz`
+（1,512,335 bytes，236 个 .py 全量闭包 + slurm + installer + raw51 掩码 + bundle_commit.txt
+= 9439ba1 + SHA256SUMS 240 项），SHA-256
+`b478febe9bcb43678f32a6cd6658cd62032134716b35274a851abbacce7ed4e9`。
+脚本行尾 LF 已验证；掩码哈希包内复验一致。
+
+**状态**：等用户在 HPC 上传→提交→监控→拉回快照。拉回后本地训练 DROCC（FROZEN §2.1
+超参，torch 环境待确认）→ 一次性评估 → 结果文档。FINAL 全程封存。
