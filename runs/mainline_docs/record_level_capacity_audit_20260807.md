@@ -47,14 +47,16 @@ HyperVision 实为 NDSS 2023，本审计已逐条核实。
 
 ### I.2 文献侧结论
 
-1. **没有任何一个高水平 benign-only 系统在"留一 device/source 良性环境 + 冻结合法阈值 +
-   同时报 unseen 攻击召回"的协议下被评估过。** Kitsune/Whisper/HyperVision 的良性训练和
-   测试全部来自同一网络环境（同一 capture、同一骨干、同一集群）。"别人只训 benign 也能
-   高泛化"与我们的开放世界任务**不可比**（GPT 的 R3 判断成立）。
-2. **该领域最强的 benign-only 系统没有一个停留在单记录粒度**：Whisper 用流内包长序列的
-   频域表示，HyperVision 用跨流交互图，NetVigil 用图特征 + 对比学习，pVoxel 干脆在告警
-   点云上工作。顶级系统的共同选择就是**跳出单记录、吃跨记录上下文**——这本身是支持
-   episode 方向的间接证据。
+1. **在我们审计的代表性高水平系统中，未发现与"留一 device/source 良性环境 +
+   冻结合法阈值 + 同时报 unseen 攻击召回"完全匹配的评测。** Kitsune/Whisper/
+   HyperVision 的良性训练和测试全部来自同一网络环境（同一 capture、同一骨干、
+   同一集群）。"别人只训 benign 也能高泛化"与我们的开放世界任务**不可比**
+   （GPT 的 R3 判断成立）。
+2. **在我们审计的代表性系统中，后续更现代的高性能方法越来越多地利用流窗口、
+   频域、跨流图或告警级上下文，而非仅依赖单记录决策**：Whisper 用流内包长序列的
+   频域表示，HyperVision 用跨流交互图，NetVigil 用图特征 + 对比学习，pVoxel 在告警
+   点云上工作（Kitsune 是其中的早期单记录代表）。这构成支持 episode 方向的间接
+   证据。
 3. pVoxel 证明"检测器告警 → 后处理分诊"路线能减 95.55% FP，但它假设已有检测器且只处理
    告警点，不解决 unseen 攻击召回，和我们的双约束任务不同。
 
@@ -120,12 +122,17 @@ baseline，先预注册它，再决定 episode 主线。
 
 ---
 
-## IV. 给 GPT / Codex 的评审点
+## IV. 评审决议（2026-08-07 更新，原"给 GPT/Codex 的评审点"已关闭）
 
-1. 候选模型是否就定 DeepSVDD 类（vs 归一化流密度估计）？二者只许选一个进预注册。
-2. GO/NO_GO 草案门槛（OOD macro ≤ 30.27% 且 future 召回损失 ≤ 2pp vs C1）是否过宽/过严？
-3. 训练池是否仅 id_calib=809 足够，还是需要合法扩大（须先核验 provenance）？
-4. 是否需要同时报 episode 化后的口径以防"记录级赢、告警量输"？
+GPT 评审 8 条全部并入，Kimi 复核通过（14,013 fit 池与 7,000 select 池已对照
+CKBW FROZEN 原文第 3.1/3.2 节逐条核验一致）。要点：候选定为 DROCC（非 DeepSVDD/Flow）；
+训练池为全部 14,013 合法 benign fit；阈值选择不接触攻击标签（pure zero-positive，
+support_val 69 仅作报告）；Gate 拆为 CAPACITY_SIGNAL 与 Mainline GO 两层；
+保留冻结 per-family 检查；本实验不加 episode 口径；文献表述按论文纪律收紧
+（上文 I.2 已改）。
+
+后续载体：`ckby_drocc_record_capacity_baseline_prereg_draft_20260807.md`（DRAFT，
+待 GPT 确认 + Codex 8 月 10 日终审后转 FROZEN；冻结前不训练、不上 HPC）。
 
 本文档 + 本审计所用检索 CSV（`_kimi_review/capacity_audit/lit*.csv`）可供复核。
 完成三方评审前，不启动新的超算任务。

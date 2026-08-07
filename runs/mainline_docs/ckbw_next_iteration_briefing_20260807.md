@@ -178,3 +178,23 @@ LEGAL benign fit 训练，CKBW 相同分母，GO/NO_GO 草案门槛已写（OOD 
 明确排除新前端（Whisper 式频域 = 新管线工程，排除）。若该 baseline 同样撞墙 → 假设 A 钉死、R1 自动成立、episode 必要性闭环；
 若明显解决 → 暂停 episode 回头研究表示。四个评审点已列给 GPT/Codex（模型二选一、门槛宽严、训练池是否仅 id_calib=809、是否加报 episode 口径）。
 三方评审通过前不启动新超算任务。
+
+---
+
+## Round 7 (2026-08-07, Kimi 执行): GPT 评审并入 + CKBY DROCC 预注册草案（DRAFT）完成
+
+GPT 对 68bdeb2 的 8 条评审全部接受并入。Kimi 独立复核意见：
+
+- **核验通过**：GPT 所称 LEGAL benign fit = 14,013（id_calib 809 + ood_val 2,604 + aux fit 6,600 + ToN normal_1 4,000）
+  与 benign select = 7,000（aux 3,000 + ToN normal_2 4,000）已对照 CKBW FROZEN 原文第 3.1/3.2 节逐条一致；非转述采信。
+- **接受 DROCC 替代 DeepSVDD**：collapse 风险论证成立；DROCC 合成负样本不接触真实攻击，保持 zero-positive。
+- **接受 pure zero-positive 阈值纪律**：support_val 69 不参与训练/阈值/checkpoint 选择，仅作报告；
+  若不遵守则须降级表述（草案选择不降级）。
+- **Kimi 补充的两条设计**（GPT 未覆盖，已写入草案 §2.2/§4）：(a) checkpoint/早停规则必须 benign-only——
+  从 14,013 fit 按 source 分层切 10% benign 验证集，仅凭 benign 验证损失选模型；(b) 工作点采用
+  OP-1（99 分位，1% 预算）与 OP-0.1（99.9 分位）双冻结点，report 池 ROC 仅诊断、不得反馈选择。
+- 文献表述已按论文纪律收紧（"代表性系统中未发现完全匹配协议"/"现代方法越来越多利用跨记录上下文"）。
+
+产物：`runs/mainline_docs/ckby_drocc_record_capacity_baseline_prereg_draft_20260807.md`（DRAFT，含双重门：
+Gate A CAPACITY_SIGNAL = OOD macro ≤ 30.27% 且 future 召回 ≥ 84.83%；Gate B 沿用冻结严格契约；
+四个待评审开口项列于 §9）。冻结前不训练、不上 HPC；等 GPT 确认措辞 + Codex 8 月 10 日终审。
