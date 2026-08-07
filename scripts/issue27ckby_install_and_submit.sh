@@ -23,7 +23,7 @@ C1_REPORT_EXTENSION="$BASE/runs/issue27ckbj_c1_report_only_cache_extension_v1_20
 RAW51_MASK="$HERE/payload/runs/raw51_observable_v1/raw51_observable_v1_mask.csv"
 RAW51_MASK_SHA256=b16017d2755feaedbe6d3ad76fd7d1e2444cf66a14a70f6bca35f270734ad2df
 RECORD_PREDICTIONS="$CKBW157624/ckbw_record_predictions.csv.gz"
-RECORD_PREDICTIONS_SHA256=f53f1e3d465dc02208cc982a799ba268a9d14ff44ab2622256a79bf7d8b13536
+RECORD_PREDICTIONS_SHA256=d1e905924e74bf390aaaae79ee68f10312dc0bc1cdebff88848d4d3ee64adf85
 
 for path in \
   "$BASE/scripts/00_env_issue27ckc.sh" \

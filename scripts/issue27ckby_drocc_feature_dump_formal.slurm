@@ -39,7 +39,7 @@ AUX_PLAN="$RUN154917/ckbu_auxiliary_source_plan.csv"
 AUX_CACHE="$RUN154917/auxiliary_causal_cache"
 TON_CACHE="$RUN154917/ckbu_ton_raw_pcap_pilot_causal_samples.npz"
 RECORD_PREDICTIONS="$CKBW157624/ckbw_record_predictions.csv.gz"
-RECORD_PREDICTIONS_SHA256=f53f1e3d465dc02208cc982a799ba268a9d14ff44ab2622256a79bf7d8b13536
+RECORD_PREDICTIONS_SHA256=d1e905924e74bf390aaaae79ee68f10312dc0bc1cdebff88848d4d3ee64adf85
 
 case "$PARTITION" in
   amd) ;;
