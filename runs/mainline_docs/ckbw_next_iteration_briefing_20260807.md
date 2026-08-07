@@ -293,7 +293,7 @@ feature_map/fit_preprocessor 签名——只读，不改。
 **上传包**：`supercompute_transfer/issue27ckby_drocc_feature_dump_20260807_upload_bundle.tar.gz`
 （1,512,335 bytes，236 个 .py 全量闭包 + slurm + installer + raw51 掩码 + bundle_commit.txt
 = 9439ba1 + SHA256SUMS 240 项），SHA-256
-`b478febe9bcb43678f32a6cd6658cd62032134716b35274a851abbacce7ed4e9`。
+`1b1a0129ae74bf8ef5ea7861dec555debb7731e61b6ba7e4e852bc2dc44e9e70`（v2，12d06dd 修复 installer 包根路径 `dirname/..`→`dirname/../..` 后重建；v1 b478febe… 作废未提交作业）。
 脚本行尾 LF 已验证；掩码哈希包内复验一致。
 
 **状态**：等用户在 HPC 上传→提交→监控→拉回快照。拉回后本地训练 DROCC（FROZEN §2.1
