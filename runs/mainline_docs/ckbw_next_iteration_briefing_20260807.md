@@ -90,3 +90,28 @@ GPT accepts the P0 resolution and adds six constraints before any preregistratio
 Diagnostic engineering requirements: exact (held_value, uid) join; no C1 retrain; assert c1_score ≥ frozen_c1_threshold matches frozen c1_hard row-by-row; if raw scores aren't cross-protocol comparable, prefer margin.
 
 Kimi position (pending user authorization to execute): all six accepted without amendment; they are consistent with the data-boundary discipline and tighten the diagnostic design. Awaiting user's explicit go after GPT walkthrough.
+
+---
+
+# Discussion round 3 — GPT framework proposal + Kimi assessment (2026-08-07; still parked awaiting user go)
+
+## GPT proposal (full text relayed by user, archived in conversation)
+
+Main idea: stop building single-score detectors; build an **Asymmetric Evidence Arbitration** system. Attack evidence and normal evidence are different in kind, not two signs of one probability. Normal evidence may grant suppression *permission*; it may never override explicit attack evidence. Conflict resolution: attack priority. Decision table: attack-strong → hard (regardless of normal); attack-weak + normal-strong → suppress; both weak → keep baseline; both strong → hard.
+
+- Direction 1 🥇: **2D evidence-space diagnosis** — scatter (C1 excess margin × 51D process score) colored by {support attack, future stealth, benign select, held OOD}; *conflict itself* (C1 says attack while 51D says benign) may be the signal. If stealth and OOD show structural separation in 2D, do a simple uniform 2D evidence region instead of episode B.
+- Direction 2: **Fail-safe suppression** — revoking an attack alarm is a high-risk action that must be *earned* (strong normal evidence + no strong attack evidence + evidence present + no unresolved conflict). Secondary metric proposal: **Safe Suppression Rate** = revoked benign-OOD alarms / FrozenCKBQ benign-OOD alarms, reported only under attack-safe PASS. Hard GO gates unchanged.
+- Direction 3: if B, narrow to **attack persistence evidence** (4 minimal past-only quantities per anonymous entity: C1 exceedance count, top-k C1 margin mean, recurrence count, inter-arrival regularity) — answers "is attack evidence persistent", not "is this episode attack".
+- Bold framing: **multi-scale veto** — record-level C1 + episode persistence → attack veto side; 51D normality → suppression side. Paper story: "when may normality evidence revoke a security alarm in open-world IDS", not "yet another detector".
+- Discipline warning: future stealth families are becoming an **invisible training set** through repeated inspection. Formalize three tiers: LEGAL SELECT (parameter selection), VIEWED DIAGNOSTIC (mechanism hypotheses only), FINAL (never look: cooler-motor, seeds 37/47). Every design doc must state: which qualitative hypotheses came from viewed diagnostics, and that no numeric cut was derived from them.
+- Priority: 2D arbitration 🥇 > C1-margin veto 🥈 > episode veto 🥉 > calibration ablation; roadmap CKBX (record-level arbitration) → CKBY (episode veto) with clean negative chains.
+
+## Kimi assessment (recorded same day)
+
+1. **Accept the arbitration framing** — it is the correct generalization of A+C and a stronger paper contribution than a detector tweak. The A+C/C1-margin veto becomes its minimal first experiment, not a competitor.
+2. **2D scatter folds into the already-planned diagnostic for free** (same pulled-back tables, one more plot). Accept; it also subsumes GPT's "conflict-as-signal" question visually before any rule is designed.
+3. **No real conflict between GPT's 2D region and the C1-margin veto**: the 2D region is the veto defined on (margin × q) instead of margin alone; same mechanism family, and the *legal selectability* question applies to both. One caution to carry into the diagnostic: with only 69 legal support attacks across 10 families, a 2D boundary is more data-hungry than a 1D δ — the legal-frontier analysis must explicitly test whether any 2D region is non-degenerately selectable, or whether only the 1D margin cut survives legal discipline.
+4. **Three-tier data concept adopted** (LEGAL SELECT / VIEWED DIAGNOSTIC / FINAL) + the mandatory per-design statement. Additional honest note: the 4 viewed OOD families and Merlin/Telnet/Ingress are already "viewed"; their evidentiary weight is now hypothesis-generation, and the persuasive evaluation increasingly rests on cooler-motor + seeds 37/47 + any second dataset — plan the final evaluation budget accordingly.
+5. SSR accepted as a secondary reported metric under attack-safe PASS; gates stay lexicographic, no weighted sum.
+
+Status: diagnostic still parked. On user's go, run the two-layer frontier + 2D scatter + 27-row audit (with c1_margin and CKBQ reason fields) exactly as scoped in rounds 1-3, then GPT+Kimi draft the CKBX preregistration skeleton for Codex review (back ~08-10).
