@@ -1239,3 +1239,11 @@ submission was made from this continuation.
 - Local verification: clean-extract `sha256sum -c SHA256SUMS` all OK; LF-only check OK; `bash -n` on installer+slurm OK; installer wiring tokens all present in slurm.
 - Submission design: single AMD job, 8 CPU/16G/24h; phases startup -> contract_checks (py_compile + --contract-unit + --validate-frozen vs real 154917 assets) -> formal_model -> pack (pullback tar.gz + sha256) -> complete; heartbeat 300s; trap writes job_failure.txt; installer is idempotent (job-id file) and runs `sbatch --test-only` first; six 154917 asset SHA-256 identities pinned in both installer and slurm.
 - Launch gate: OPEN for this job only (user authorized 2026-08-05, reconfirmed 2026-08-07). Awaiting user-run upload + install/submit; no HPC submission has happened yet.
+
+## 22. CKBW seed-27 completed: clean pipeline, scientific NO_GO (2026-08-07, Kimi)
+
+- Job amd 157624 ran to `complete` in 1,371 s; pullback SHA-verified; no failure entry — this is a result, not an incident.
+- Decision NO_GO: contract checks 16/16 PASS; benign-OOD macro 0.3527 -> 0.0015 (all four held families <= 0.61%); attack overall -13.59 pp vs C1 (gate >= -0.5) and worst family Merlin C&C -95.35 pp (gate >= -2.0). support_val 69/69.
+- Root cause located: record-level process-normality suppression cannot distinguish stealthy attacks (C&C/brute-force/ingress/scan) from benign OOD; tau_attack=1.0, rescue=0 on all dual arms; tail-margin ~= CE per family. Attack evidence exists in the C1 view (Merlin C&C 0.998) but suppression ignores it.
+- Full analysis: `runs/mainline_docs/ckbw_seed27_result_analysis_20260807.md`. Next-iteration candidates (Option A evidence-gated suppression / B episode aggregation / C attack-view veto) are discussion items only; nothing implemented.
+- Launch gate: closed again pending Codex+Kimi+user decision on the next preregistration.
