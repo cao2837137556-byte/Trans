@@ -198,3 +198,37 @@ GPT 对 68bdeb2 的 8 条评审全部接受并入。Kimi 独立复核意见：
 产物：`runs/mainline_docs/ckby_drocc_record_capacity_baseline_prereg_draft_20260807.md`（DRAFT，含双重门：
 Gate A CAPACITY_SIGNAL = OOD macro ≤ 30.27% 且 future 召回 ≥ 84.83%；Gate B 沿用冻结严格契约；
 四个待评审开口项列于 §9）。冻结前不训练、不上 HPC；等 GPT 确认措辞 + Codex 8 月 10 日终审。
+
+---
+
+## Round 8 (2026-08-07, Kimi 执行): GPT round-8 评审并入 + Claude handoff 登记为历史假设库
+
+GPT 复核 7473a0e 整体接受，5 条收紧已全部落入 CKBY 草案（仍 DRAFT）：
+1. §8 因果表述收紧——Gate A FAIL 封死的是"冻结 51D 表示上的模型容量解释"，不声称所有记录级表示不可能、
+   不声称 episode 数学上必要；FAIL 后先开 Episode Design Review 再起草 episode 预注册。
+2. benign 验证集改为 per-source 时序尾部 10%（前 90% train），无法定义时序的源退回预注册 deterministic hash split，
+   禁止临时随机（Codex 终审重点）。
+3. OP-1 定 PRIMARY、OP-0.1 定预声明副压力点，禁止择优晋升；双点用于观察 capacity curve（渐降 vs 崩塌）。
+4. Gate A（30.27% / C1−2pp）冻结为 capacity signal，不再磨数字；Gate B 保持 mainline 严格契约。
+5. 14,013/7,000 核验无异议。
+
+**Claude handoff（claude_handoff_next_steps_20260727.md，Kimi 已逐条核对原文）登记为 historical hypothesis registry
+（不是执行计划，现在不实现、不上 HPC）**：
+
+- 已正式淘汰、不得复活：§3.1 记录级双信号/二维 veto（被 a23c5fa oracle-inseparable 实证判死）；
+  §3.2 按机制分阈值（scan/bruteforce 双头）与 §3.3 flood 机制库——机制粒度的分阈值/机制库有长成
+  family patchwork 的风险，不进主线（GPT 裁定）。
+- 保留为 episode 假设（统一机制、禁止 family 专家）：
+  (a) generic interaction persistence——recurrence、inter-arrival median/MAD/CV、C1-high persistence、
+      endpoint/service persistence、destination/service rarity（Claude §3.4 beaconing 思想的通用化：
+      "beaconing 机制思想保留，Merlin 专家不做"）；
+  (b) 反例约束——IoT 良性遥测本身高度周期，periodicity alone 禁止作为 attack shortcut，
+      必须与 persistence/rarity/score trajectory 组合（Claude §3.4 可行性门原意）；
+  (c) episode 定义方向——interaction-conditioned、source-local、anonymous、past-only 的上下文单元，
+      不是重复 CKBQ 已否决的 32-event MiniRocket 滑窗（Claude §3.5 的升级版）。
+- 储备路线（不进入 CKBY，DROCC FAIL 也不自动启动）：ET-BERT / YaTC / netFound 预训练流量表征
+  （Claude §3.6/§4），仅在 episode 主线仍失败或出现表示疑问时经新预注册启用。
+
+**后续路由（三方一致）**：CKBY DROCC（待 Codex 8/10 终审转 FROZEN）→ PASS 则暂停 episode 研究其机制 /
+FAIL 则停止换模型 → Episode Design Review（统一三方 episode 假设，明确相对 CKBQ 旧 temporal 分支的新增信息）
+→ episode 预注册。FINAL cooler-motor、seed 37/47 全程封存。

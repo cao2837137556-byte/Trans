@@ -36,10 +36,13 @@
   验证损失（见 2.2）。
 - 随机性：仅 seed 27。seeds 37/47 继续锁定。
 
-### 2.2 训练与 checkpoint 选择（benign-only，Kimi 补充）
+### 2.2 训练与 checkpoint 选择（benign-only）
 
-- 从 14,013 benign fit 中按 source 分层切出 10% 作为 **benign 验证集**（切分规则
-  冻结时写明；该子集不得再用于训练）。
+- 从 14,013 benign fit 中切出 **benign 验证集**：**每个 source 内按时间顺序取尾部
+  10%**（前 90% train，尾部 10% validation）。网络流量时序相关性强，随机切分会让
+  训练/验证样本高度相邻造成泄漏；51D 本身 past-only，时序尾部切分符合部署逻辑
+  （GPT round-8 #3）。若某来源无法可靠定义时间顺序，退回**预注册 deterministic
+  hash split**（冻结时写明哈希规则），禁止临时随机。该验证子集不得再用于训练。
 - 训练早停/模型选择只依据 benign 验证集上的 DROCC 损失；**禁止用任何攻击或
   held OOD 指标选 checkpoint**。
 - support_val 69 条攻击**不参与**训练、不参与阈值、不参与 checkpoint 选择；
@@ -81,11 +84,13 @@ cooler-motor、seeds 37/47——本实验不触碰。
 
 在打开任何 report 池之前，用 7,000 benign select 按以下规则确定并冻结：
 
-- **主工作点 OP-1**：select 分数的 99 分位（良性误报预算 1%）；
-- **副工作点 OP-0.1**：99.9 分位（预算 0.1%）。
+- **OP-1（PRIMARY capacity working point）**：select 分数的 99 分位（良性误报预算 1%）；
+- **OP-0.1（预声明 secondary stress point）**：99.9 分位（预算 0.1%）。
 
-两个点都在预注册中定死；评估时对两个点分别报告。**禁止**根据 future 攻击召回
-反向调整；report 池 ROC/AUC 只作诊断输出，不得反馈进任何选择。
+两点都在预注册中定死、主副分明，**不得结果出来后择优晋升**（GPT round-8 #4）。
+双点的科学用途：观察良性预算从 1% 收紧到 0.1% 时攻击召回是渐降还是崩塌——
+这本身就是 capacity curve 信息。**禁止**根据 future 攻击召回反向调整；report 池
+ROC/AUC 只作诊断输出，不得反馈进任何选择。
 
 ## 5. 双重门（GPT 评审 #4，措辞已收紧）
 
@@ -125,17 +130,24 @@ run_spec.json（含全部冻结超参）、fit/select 逐行 provenance 与角�
 两个工作点的全套 per-family / per-pool 表、与 C1 / FrozenCKBQ / CKBW M7 的
 同分母对照表、结果一次性评估声明（无重复窥探）。
 
-## 8. 结果路由
+## 8. 结果路由（措辞按 GPT round-8 #2 收紧）
 
-- Gate A FAIL（预期内结果）：假设 A 封死 → 记录级 capacity 解释关闭 →
-  episode/context 必要性证据链闭环（文献不可比 + 六模型类同墙 + 最强记录级
-  baseline 失败）→ 进入 CKBX episode 预注册。
-- Gate A PASS：暂停 episode，分析 DROCC 成功机制；是否转入主线由三方另行
+- **Gate A FAIL（预期内结果）**：封死的是"**现有冻结 51D 表示上模型容量不够**"
+  这一剩余替代解释。连同 conformal / reconstruction / tree / TabM / C1+51D 仲裁
+  在同一 trade-off 上的重复失败，继续更换记录级学习器的科学边际价值已经很低，
+  主线据此转向跨记录上下文/episode 证据。**我们不声称"所有可能的记录级表示
+  均不可能"**（预训练流量表征等路线作为储备保留，见简报 round 8 假设库）——
+  对审稿人的标准回答是：多类模型在统一因果表征下达到一致性能边界，因此选择
+  增加新的上下文信息，而非继续增加模型复杂度。随后进入一次专门的
+  **Episode Design Review**（统一比较 GPT/Kimi/Claude 的 episode 假设、明确相对
+  CKBQ 旧时序分支的新增信息），通过后才起草 episode 预注册。
+- **Gate A PASS**：暂停 episode，分析 DROCC 成功机制；是否转入主线由三方另行
   预注册决定，本实验不自动晋升。
 
 ## 9. 待评审开口项
 
 1. DROCC 具体超参数值（冻结时从原论文 tabular 设置填入）；
-2. benign 验证集 10% 的确切切分规则；
-3. OP-1 / OP-0.1 双工作点是否保留，还是只留 OP-1；
-4. Gate A 的 30.27% / 2pp 是否最终值。
+2. ~~benign 验证集 10% 切分规则~~（已定：per-source 时序尾部 10%，hash split 兜底，
+   Codex 终审重点）；
+3. ~~双工作点去留~~（已定：OP-1 PRIMARY + OP-0.1 预声明副压力点，禁止择优晋升）；
+4. ~~Gate A 门槛终值~~（已定：30.27% / C1−2pp 冻结为 capacity signal，不再微调）。
