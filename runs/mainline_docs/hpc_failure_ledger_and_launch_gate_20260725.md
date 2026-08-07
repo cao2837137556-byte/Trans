@@ -1230,3 +1230,12 @@ Launch gate: unchanged and still closed.  Next steps are Codex review of the
 handoff document and diff, user authorization, bundle construction with the
 CKBU-style asset chain, then the first HPC `--formal` run.  No Slurm
 submission was made from this continuation.
+
+## 21. CKBW seed-27 bundle built and submitted for launch (2026-08-07, Kimi)
+
+- Bundle: `issue27ckbw_tail_margin_dual_control_20260805_upload_bundle.tar.gz` in `supercompute_transfer`, 466,713 bytes, SHA-256 `4fa0b8f0a22d7f2c806f77412b18e55ed8e306c559983a5d93bfc0f86fb5a6c4`.
+- `bundle_commit.txt` = `b2ae81097717b8d46aa468d0303fe380f6e176a0` (the exact code state of all 36 payload modules). Scripts + self-review doc were committed right after as `6d359b8` with byte-identical content to the bundle copies (SHA256SUMS pins bytes at install time).
+- Payload: 36-module transitive import closure + vendored TabM/minirocket + kitsune frontend (fully self-contained; no remote-worktree repo/ood dependency), 4 frozen formal dependency files, raw51 mask (LF identity re-verified), installer/slurm, prereg + handoff + self-review docs. 61 files.
+- Local verification: clean-extract `sha256sum -c SHA256SUMS` all OK; LF-only check OK; `bash -n` on installer+slurm OK; installer wiring tokens all present in slurm.
+- Submission design: single AMD job, 8 CPU/16G/24h; phases startup -> contract_checks (py_compile + --contract-unit + --validate-frozen vs real 154917 assets) -> formal_model -> pack (pullback tar.gz + sha256) -> complete; heartbeat 300s; trap writes job_failure.txt; installer is idempotent (job-id file) and runs `sbatch --test-only` first; six 154917 asset SHA-256 identities pinned in both installer and slurm.
+- Launch gate: OPEN for this job only (user authorized 2026-08-05, reconfirmed 2026-08-07). Awaiting user-run upload + install/submit; no HPC submission has happened yet.
