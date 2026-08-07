@@ -156,3 +156,25 @@ c1_hard 与 (c1_score >= c1_candidate_threshold) 277,326 行零不一致；C1 �
 3. Mirai C&C / CoAP / UDP Scan 对 C1 通路不可见，episode 仲裁需 51D/上下文通路单独承载这三族，预注册中明确口径（不打补丁）。
 
 下一步：GPT + Kimi 起草 CKBX（episode 级仲裁）预注册，等 Codex 8 月 10 日回归评审；本诊断给出的禁令——不得再从记录级 C1 分数设计救援机制。
+
+---
+
+## Round 6 (2026-08-07, Kimi 执行): Record-level Capacity Audit 完成 — 裁决 R2（有界版）
+
+GPT 提议、用户转发授权：在 CKBX episode 预注册前先钉死"是不是我们模型太弱"的替代解释。
+审计文档：`runs/mainline_docs/record_level_capacity_audit_20260807.md`，检索证据 CSV 在同名目录。
+全程无训练、无 HPC、无 FINAL、无 VIEWED 选阈值。
+
+**文献侧（协议逐条核对，已核实 venue：Whisper=CCS 2021、HyperVision=NDSS 2023、pVoxel=CCS 2023、NetVigil=NSDI 2024、Kitsune=NDSS 2018）**：
+无一高水平 benign-only 系统在"留一 device/source 良性环境 + 冻结合法阈值 + 同时报 unseen 攻击召回"协议下被评估；
+Kitsune/Whisper/HyperVision 良性 train/test 全部同源（同 capture / 同 MAWI 骨干 / 同集群）。
+且顶级 benign-only 系统无一停留在单记录粒度（频域流序列 / 跨流交互图 / 告警点云）——领域自己早已走向跨记录上下文。
+
+**内部侧**：六个模型类别（保形 C1/A0、静态护盾 M1、时序 M2、共识 M3、raw AfterImage115、少样本 TabM/CKBW）全部撞上同一堵墙
+（攻击高→OOD 爆炸；OOD 低→隐蔽攻击崩），但未覆盖深度一类表示学习。
+
+**裁决：R2（有界版）**——预注册且仅预注册一个强 benign-only 记录级 baseline：Deep One-Class（DeepSVDD 类）on 冻结 51D 特征，
+LEGAL benign fit 训练，CKBW 相同分母，GO/NO_GO 草案门槛已写（OOD macro ≤ 30.27% 且 future 召回损失 ≤ 2pp vs C1，待评审）。
+明确排除新前端（Whisper 式频域 = 新管线工程，排除）。若该 baseline 同样撞墙 → 假设 A 钉死、R1 自动成立、episode 必要性闭环；
+若明显解决 → 暂停 episode 回头研究表示。四个评审点已列给 GPT/Codex（模型二选一、门槛宽严、训练池是否仅 id_calib=809、是否加报 episode 口径）。
+三方评审通过前不启动新超算任务。
