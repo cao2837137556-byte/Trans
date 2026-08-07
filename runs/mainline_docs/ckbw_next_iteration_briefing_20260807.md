@@ -115,3 +115,17 @@ Main idea: stop building single-score detectors; build an **Asymmetric Evidence 
 5. SSR accepted as a secondary reported metric under attack-safe PASS; gates stay lexicographic, no weighted sum.
 
 Status: diagnostic still parked. On user's go, run the two-layer frontier + 2D scatter + 27-row audit (with c1_margin and CKBQ reason fields) exactly as scoped in rounds 1-3, then GPT+Kimi draft the CKBX preregistration skeleton for Codex review (back ~08-10).
+
+---
+
+# Discussion round 4 — GPT launch design (2026-08-07; logged, still awaiting USER's explicit go)
+
+GPT accepts Kimi's 69-row statistical-budget caution and finalizes the diagnostic design:
+
+1. **Complexity ladder, fixed in advance** (prevents viewed-diagnostic creep): Level 0 = C1-hard veto (frozen reference, known-bad); Level 1 = 1D C1 excess-margin veto `V=[m_C1 ≥ δ]` (one degree of freedom, first priority); Level 2 = simplest monotone 2D region only (`m_C1 ≥ δA` AND/OR one monotone 51D condition). Explicitly forbidden: logistic/SVM/tree/learned 2D classifiers, hand-drawn polygons. CKBX primary complexity is decided by the Legal frontier, not by how pretty the 2D scatter looks.
+2. **Stability gate**: leave-one-support-family-out on the legal δ frontier (family used only to stress-test the *shared* δ, never to make per-family cuts). Fragile calibration (δ jumping around per excluded family) blocks HPC even if Oracle is beautiful.
+3. **Four-state verdict** (supersedes three-state): (1) oracle inseparable → episode B; (2) oracle separable but legal not selectable → no HPC, calibration redesign/episode; (3) legal selectable but unstable → no HPC; (4) oracle+legal+stable → only state that authorizes CKBX preregistration.
+4. **Evaluation hierarchy formalized**: viewed diagnostics (hypothesis generation) → seed 27 (preregistered dev) → seeds 37/47 (stability) → cooler-motor (final held) → second data source (external generalization). Merlin/Telnet/Ingress + the 4 viewed OOD families are now formally VIEWED DIAGNOSTIC tier.
+5. GPT votes "start" — the read-only feasibility diagnostic only (no CKBX code, no thresholds, no training, no HPC, no FINAL data).
+
+Kimi position: all accepted without amendment; the ladder and stability gate directly answer my 69-row budget caution. Execution is staged and waits for the USER's explicit "开始" (GPT's suggested authorization sentence is logged in the conversation; authorization must come from the user, not from GPT).
