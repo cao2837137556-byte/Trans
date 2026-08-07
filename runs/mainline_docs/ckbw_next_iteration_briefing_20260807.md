@@ -232,3 +232,34 @@ GPT 复核 7473a0e 整体接受，5 条收紧已全部落入 CKBY 草案（仍 D
 **后续路由（三方一致）**：CKBY DROCC（待 Codex 8/10 终审转 FROZEN）→ PASS 则暂停 episode 研究其机制 /
 FAIL 则停止换模型 → Episode Design Review（统一三方 episode 假设，明确相对 CKBQ 旧 temporal 分支的新增信息）
 → episode 预注册。FINAL cooler-motor、seed 37/47 全程封存。
+
+---
+
+## Round 9 (2026-08-07, Kimi 执行): CKBY 转 FROZEN（用户治理调整：Codex 终审非阻塞）
+
+**治理变更**：用户 15:37 明确指令"codex 不在，就记录好我们干了啥就行，不用等他拍板，实验效率会被拉低"。
+CKBY 冻结授权链变为：用户授权 + GPT round-8 评审已并入 + Kimi 执行。Codex 回归后按 commit 记录审查，
+不构成解冻条件；若 Codex 有异议，走新预注册而非修改本冻结文件。
+
+**FROZEN 产物**：
+
+- `ckby_drocc_record_capacity_baseline_preregistered_20260807.md`
+- SHA-256：`bbb113eaef19325099c997e8af8c8ff1a623ea60a01933fff7dcc3271a8a69f0`（侧车同名 `.sha256`）
+- 与草案 736c7a2 的差异仅限：填入 §2.1 冻结超参、写明哈希兜底规则、新增 §9 特征快照合同、
+  §10 冻结确认、状态转 FROZEN。数据角色/双重门/工作点/路由零变化。
+
+**冻结时填入的关键技术决策**（来源：microsoft/EdgeML 官方 master 分支
+`pytorch/edgeml_pytorch/trainer/drocc_trainer.py` 2026-08-07 原文逐行核对）：
+
+- 实现=自包含脚本逐行复刻官方 DROCCTrainer（不装 edgeml 依赖，避免依赖漂移）。
+- 算法精确细节：对抗点初始化 x_adv = x + N(0,I)；50 步归一化梯度上升（step 0.001）最大化
+  "判为负类"的 BCE；每 10 步（含第 50 步）把位移投影到环带 [r, γr]；损失 = CE(normal→1) + λ·CE(adv→0)。
+- 架构 MLP 51→128→1（logit 即异常分）；Adam lr=1e-3 官方四段式调度；λ=1，γ=2，r=7（√51 规则），
+  only_ce=50 / 总 200 epoch / batch 256；纯 CPU + seed 27 固定全部随机源。
+- checkpoint=benign 验证 CE 损失最低 epoch（并列取早）；哈希兜底=md5(uid) 末位为 'f' 入验证集
+  （单字符方案，禁止凑比例），逐 source 声明入 run_spec。
+
+**下一步（已获冻结授权范围）**：HPC 导出 51D 特征快照（只读复用 ckbu 装配，行数断言=297,326，
+uid 逐一 join 角色，失败即中止）→ 拉回本地 → 训练 → 一次性评估 → 结果文档。
+导出前需先读 ckbu 装配接口（issue27ckbu_unified_process_rescue_formal_v1.py）确认
+feature_map/fit_preprocessor 签名——只读，不改。
