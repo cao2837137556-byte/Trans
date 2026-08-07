@@ -4,7 +4,7 @@
 # structure.  Idempotent: a recorded job id is never resubmitted.
 set -euo pipefail
 
-HERE=$(cd "$(dirname "$0")/.." && pwd)
+HERE=$(cd "$(dirname "$0")/../.." && pwd)
 BASE=${CKBY_BASE:-/public/home/jiangxinwei.zr/work/paper04/worktrees/kitnet-exp-mainline}
 COMMIT_SHA=$(tr -d '\r\n' < "$HERE/bundle_commit.txt")
 AMD_ID_FILE="$HERE/ckby_dump_seed27_amd_job_id.txt"
