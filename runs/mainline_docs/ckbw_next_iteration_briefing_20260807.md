@@ -293,7 +293,7 @@ feature_map/fit_preprocessor 签名——只读，不改。
 **上传包**：`supercompute_transfer/issue27ckby_drocc_feature_dump_20260807_upload_bundle.tar.gz`
 （1,512,335 bytes，236 个 .py 全量闭包 + slurm + installer + raw51 掩码 + bundle_commit.txt
 = 9439ba1 + SHA256SUMS 240 项），SHA-256
-`aaaea1c1320df96b865eab570148e79f0e9025938c316b4219a70b31bbfc78ef`（v4，3671c2b。作废史：v1=installer 包根路径错；v2=记录表哈希误钉 ckbv 表（正确 d1e90592…）；v3=接线检查串变量名与 slurm 不符（本地预演已全部通过）。均未提交作业。v1-v3 属打包层错误，科学管线与冻结方案零变化）。
+`88ed26debac88311c24f43b19831f411a1bec3fff166e453ce14c0f0e860bc80`（v5。作废史：v1=installer 包根路径错；v2=记录表哈希误钉；v3=接线检查串变量名；v4=作业 157815 实际提交并进入 snapshot_dump 后失败：`import AfterImage` 缺 kitsune_frontend_original——v1-v4 打包时漏掉 CKBW 包内的 payload/repo/kitsune_frontend_original（5 文件）与 4 个 payload/runs 冻结输入；v5 从 CKBW 157624 原上传包逐字节提取补齐，非 ood 文件结构与 CKBW 完全一致。科学管线与冻结方案零变化，157815 未产出任何数据）。
 脚本行尾 LF 已验证；掩码哈希包内复验一致。
 
 **状态**：等用户在 HPC 上传→提交→监控→拉回快照。拉回后本地训练 DROCC（FROZEN §2.1
