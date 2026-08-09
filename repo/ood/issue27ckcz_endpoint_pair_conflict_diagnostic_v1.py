@@ -13,6 +13,7 @@ import argparse
 import csv
 import gzip
 import hashlib
+import io
 import json
 import math
 import os
@@ -168,6 +169,93 @@ def atomic_csv(path: Path, rows: Sequence[dict[str, Any]], *, compress: bool = F
         raise RuntimeError(f"CSV readback failed: {path}")
 
 
+def atomic_dataframe_csv(path: Path, frame: pd.DataFrame, *, compress: bool = False) -> None:
+    if frame.empty or not len(frame.columns):
+        raise RuntimeError(f"refusing to write empty DataFrame CSV: {path}")
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=str(path.parent))
+    os.close(fd)
+    try:
+        if compress:
+            with open(tmp_name, "wb") as raw:
+                with gzip.GzipFile(fileobj=raw, mode="wb", mtime=0, filename="") as zipped:
+                    with io.TextIOWrapper(zipped, encoding="utf-8", newline="") as text_handle:
+                        frame.to_csv(text_handle, index=False, lineterminator="\n")
+        else:
+            frame.to_csv(tmp_name, index=False, lineterminator="\n", encoding="utf-8")
+        with open(tmp_name, "r+b") as handle:
+            os.fsync(handle.fileno())
+        check = pd.read_csv(tmp_name, compression="gzip" if compress else None, nrows=5)
+        if check.columns.tolist() != frame.columns.tolist():
+            raise RuntimeError(f"DataFrame CSV schema readback failed: {path}")
+        opener = gzip.open if compress else open
+        with opener(tmp_name, "rt", encoding="utf-8", newline="") as handle:
+            rows = sum(1 for _ in handle) - 1
+        if rows != len(frame):
+            raise RuntimeError(f"DataFrame CSV row readback failed: {path}: {rows}/{len(frame)}")
+        os.replace(tmp_name, path)
+    finally:
+        if os.path.exists(tmp_name):
+            os.unlink(tmp_name)
+
+
+class AtomicCsvSink:
+    """Streaming atomic CSV writer with deterministic fixed union schema."""
+
+    def __init__(self, path: Path, fields: Sequence[str]) -> None:
+        self.path = Path(path)
+        self.fields = list(fields)
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        fd, self.tmp_name = tempfile.mkstemp(prefix=f".{self.path.name}.", dir=str(self.path.parent))
+        self.handle = os.fdopen(fd, "w", encoding="utf-8", newline="")
+        self.writer = csv.DictWriter(
+            self.handle, fieldnames=self.fields, extrasaction="raise", lineterminator="\n"
+        )
+        self.writer.writeheader()
+        self.rows = 0
+        self.closed = False
+
+    def write(self, rows: Iterable[dict[str, Any]]) -> None:
+        for row in rows:
+            self.writer.writerow(row)
+            self.rows += 1
+
+    def close(self) -> None:
+        if self.closed:
+            return
+        try:
+            if not self.rows:
+                raise RuntimeError(f"refusing to finalize empty streamed CSV: {self.path}")
+            self.handle.flush()
+            os.fsync(self.handle.fileno())
+            self.handle.close()
+            with open(self.tmp_name, "r", encoding="utf-8", newline="") as handle:
+                reader = csv.reader(handle)
+                header = next(reader)
+                count = sum(1 for _ in reader)
+            if header != self.fields or count != self.rows:
+                raise RuntimeError(f"streamed CSV readback failed: {self.path}")
+            os.replace(self.tmp_name, self.path)
+            self.closed = True
+        finally:
+            if not self.handle.closed:
+                self.handle.close()
+            if os.path.exists(self.tmp_name):
+                os.unlink(self.tmp_name)
+
+    def __enter__(self) -> "AtomicCsvSink":
+        return self
+
+    def __exit__(self, exc_type: object, exc: object, traceback: object) -> None:
+        if exc_type is None:
+            self.close()
+        else:
+            self.handle.close()
+            if os.path.exists(self.tmp_name):
+                os.unlink(self.tmp_name)
+
+
 def bool_series(series: pd.Series) -> pd.Series:
     if pd.api.types.is_bool_dtype(series.dtype):
         return series.astype(bool)
@@ -185,7 +273,7 @@ def load_allowlist(path: Path, expected_sha256: str, kind: str) -> pd.DataFrame:
     if actual != expected_sha256.lower():
         raise RuntimeError(f"{kind} allowlist SHA drift: {actual}")
     frame = pd.read_csv(path, dtype=str, keep_default_na=False)
-    required = {"source_group", "source_cache_key", "target_rows", "cache_sha256"}
+    required = {"source_group"}
     missing = required - set(frame.columns)
     if missing:
         raise RuntimeError(f"{kind} allowlist missing fields: {sorted(missing)}")
@@ -208,21 +296,29 @@ def validate_manifest(
     if actual != expected_manifest_sha256.lower():
         raise RuntimeError(f"{kind} manifest SHA drift: {actual}")
     manifest = pd.read_csv(manifest_path, dtype=str, keep_default_na=False)
-    keys = ["source_group", "source_cache_key", "target_rows", "cache_sha256"]
-    missing = set(keys) - set(manifest.columns)
+    manifest_keys = ["source_group", "source_cache_key", "target_rows", "cache_sha256"]
+    missing = set(manifest_keys) - set(manifest.columns)
     if missing:
         raise RuntimeError(f"{kind} manifest missing fields: {sorted(missing)}")
-    selected = allowlist[keys].merge(
-        manifest[keys], on=keys, how="left", indicator=True, validate="one_to_one"
+    optional = {"source_cache_key", "target_rows", "cache_sha256"} & set(allowlist.columns)
+    if optional and optional != {"source_cache_key", "target_rows", "cache_sha256"}:
+        raise RuntimeError(f"{kind} allowlist has incomplete optional manifest contract fields")
+    keys = manifest_keys if optional else ["source_group"]
+    selected = allowlist[keys].astype(str).merge(
+        manifest[manifest_keys].astype(str),
+        on=keys,
+        how="left",
+        indicator=True,
+        validate="one_to_one",
     )
     if not selected["_merge"].eq("both").all():
         raise RuntimeError(f"{kind} allowlist is not an exact manifest subset")
     if len(allowlist) != expected_sources:
         raise RuntimeError(f"{kind} source count drift: {len(allowlist)}/{expected_sources}")
-    rows = int(pd.to_numeric(allowlist["target_rows"], errors="raise").sum())
+    rows = int(pd.to_numeric(selected["target_rows"], errors="raise").sum())
     if rows != expected_rows:
         raise RuntimeError(f"{kind} target count drift: {rows}/{expected_rows}")
-    return allowlist.copy()
+    return selected[manifest_keys].copy()
 
 
 def _expanded_string(values: np.lib.npyio.NpzFile, key: str, count: int) -> np.ndarray:
@@ -343,6 +439,118 @@ def pair_cardinality(metadata: pd.DataFrame) -> tuple[list[dict[str, Any]], list
                 }
             )
     return rows, pair_sizes
+
+
+def metadata_temporal_audit(metadata: pd.DataFrame) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for (kind, source, member), part in metadata.groupby(
+        ["cache_kind", "source_group", "raw_source_path"], sort=True
+    ):
+        ordered = part.sort_values("target_event_position_within_capture", kind="mergesort")
+        stamps = pd.to_numeric(
+            ordered["feature_available_time_epoch"], errors="coerce"
+        ).to_numpy(dtype=float)
+        finite = stamps[np.isfinite(stamps)]
+        rows.append(
+            {
+                "cache_kind": kind,
+                "source_group": source,
+                "raw_source_path": member,
+                "target_rows": len(part),
+                "nonfinite_timestamp_rows": int((~np.isfinite(stamps)).sum()),
+                "duplicate_event_positions": int(
+                    ordered["target_event_position_within_capture"].duplicated().sum()
+                ),
+                "timestamp_monotonicity_violations": int(
+                    (np.diff(finite) < 0).sum() if len(finite) >= 2 else 0
+                ),
+                "timestamp_min": float(finite.min()) if len(finite) else math.nan,
+                "timestamp_max": float(finite.max()) if len(finite) else math.nan,
+                "timestamp_span_seconds": (
+                    float(finite.max() - finite.min()) if len(finite) else math.nan
+                ),
+            }
+        )
+    return rows
+
+
+def gini(values: np.ndarray) -> float:
+    values = np.asarray(values, dtype=float)
+    values = values[np.isfinite(values) & (values >= 0)]
+    if not len(values) or float(values.sum()) == 0.0:
+        return 0.0
+    ordered = np.sort(values)
+    index = np.arange(1, len(ordered) + 1, dtype=float)
+    return float(
+        (2.0 * np.dot(index, ordered) / (len(ordered) * ordered.sum()))
+        - (len(ordered) + 1.0) / len(ordered)
+    )
+
+
+def conflict_descriptive_audit(
+    state: pd.DataFrame,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    summaries: list[dict[str, Any]] = []
+    ecdf_rows: list[dict[str, Any]] = []
+    for held, protocol in state.groupby("held_value", sort=True):
+        valid = protocol.loc[protocol["state_available"].astype(bool)].copy()
+        conflict = valid.loc[valid["current_conflict"].astype(bool)].copy()
+        pair_counts = conflict.groupby("interaction_key", sort=False).size().to_numpy(dtype=int)
+        deltas: list[float] = []
+        for _key, part in conflict.groupby("interaction_key", sort=False):
+            ordered = part.sort_values(
+                ["feature_available_time_epoch", "target_event_position_within_capture", "uid"],
+                kind="mergesort",
+            )
+            stamps = pd.to_numeric(
+                ordered["feature_available_time_epoch"], errors="raise"
+            ).to_numpy(dtype=float)
+            if len(stamps) >= 2:
+                deltas.extend(np.diff(stamps).astype(float).tolist())
+        delta_array = np.sort(np.asarray(deltas, dtype=float))
+        median = float(np.median(delta_array)) if len(delta_array) else math.nan
+        mad = (
+            float(np.median(np.abs(delta_array - median)))
+            if len(delta_array) else math.nan
+        )
+        summaries.append(
+            {
+                "held_value": held,
+                "rows": len(protocol),
+                "state_available_rows": len(valid),
+                "current_conflict_rows": len(conflict),
+                "pairs_with_conflict": len(pair_counts),
+                "conflict_concentration_gini": gini(pair_counts),
+                "conflict_delta_count": len(delta_array),
+                "conflict_delta_median_seconds": median,
+                "conflict_delta_mad_seconds": mad,
+                "max_consecutive_conflicts": int(
+                    pd.to_numeric(
+                        valid["pair_consecutive_conflicts_so_far"], errors="coerce"
+                    ).max()
+                    if len(valid) else 0
+                ),
+            }
+        )
+        for index, value in enumerate(delta_array, start=1):
+            ecdf_rows.append(
+                {
+                    "held_value": held,
+                    "rank": index,
+                    "delta_seconds": float(value),
+                    "ecdf": index / len(delta_array),
+                }
+            )
+    if not ecdf_rows:
+        ecdf_rows.append(
+            {
+                "held_value": "NO_CONFLICT_DELTAS",
+                "rank": 0,
+                "delta_seconds": math.nan,
+                "ecdf": math.nan,
+            }
+        )
+    return summaries, ecdf_rows
 
 
 def validate_predictions(path: Path, expected_sha256: str = EXPECTED_PREDICTION_SHA256) -> pd.DataFrame:
@@ -480,7 +688,14 @@ def build_causal_pair_state(joined: pd.DataFrame) -> pd.DataFrame:
                         "pair_conflict_span_seconds_so_far": span,
                     }
                 )
-        state = pd.DataFrame(result_rows)
+        state = pd.DataFrame(
+            result_rows,
+            columns=[
+                "_row_id", "interaction_key", "pair_target_count_so_far",
+                "pair_conflict_count_so_far", "pair_consecutive_conflicts_so_far",
+                "pair_conflict_fraction_so_far", "pair_conflict_span_seconds_so_far",
+            ],
+        )
         base = protocol.merge(state, on="_row_id", how="left", suffixes=("", "_state"), validate="one_to_one")
         if "interaction_key_state" in base:
             base.loc[base["state_available"], "interaction_key"] = base.loc[
@@ -559,6 +774,225 @@ def _curve_for_group(
     return hard / total, increments, total, int(c1[mask].sum())
 
 
+def _activation_ranks(values: np.ndarray, cuts: np.ndarray) -> np.ndarray:
+    """First frontier index at which value >= cut; len(cuts) means never."""
+    result = np.searchsorted(-cuts[1:], -values.astype(float), side="left") + 1
+    return result.astype(np.int64)
+
+
+def first_trigger_audit(frame: pd.DataFrame, scalar: str, cuts: np.ndarray) -> dict[str, np.ndarray]:
+    """Aggregate causal first-veto delay over VIEWED report-attack pairs.
+
+    Delay is measured from a pair's first current conflict to its first veto.
+    The implementation records pair counts, total preceding conflict misses,
+    and mean delay; it does not select a cut or summarize by family.
+    """
+    held = frame["held_value"].astype(str)
+    role = frame["role"].astype(str)
+    label = pd.to_numeric(frame["label_metric_only"], errors="raise").eq(1)
+    viewed_attack = held.eq(GLOBAL) & role.isin(VIEWED_ATTACK_ROLES) & label
+    conflict = frame["current_conflict"].astype(bool)
+    available = frame["state_available"].astype(bool)
+    work = frame.loc[viewed_attack & conflict & available].copy()
+    n = len(cuts)
+    pair_delta = np.zeros(n, dtype=np.int64)
+    miss_delta = np.zeros(n, dtype=np.int64)
+    delay_delta = np.zeros(n, dtype=np.float64)
+    if work.empty:
+        return {
+            "triggered_pairs": pair_delta,
+            "preceding_conflict_misses": miss_delta,
+            "mean_time_to_first_veto_seconds": np.full(n, np.nan),
+        }
+    work = work.sort_values(
+        ["interaction_key", "feature_available_time_epoch", "target_event_position_within_capture", "uid"],
+        kind="mergesort",
+    )
+    for _key, part in work.groupby("interaction_key", sort=False):
+        values = pd.to_numeric(part[scalar], errors="raise").to_numpy(dtype=float)
+        stamps = pd.to_numeric(part["feature_available_time_epoch"], errors="raise").to_numpy(dtype=float)
+        ranks = _activation_ranks(values, cuts)
+        best_position: int | None = None
+        best_delay = 0.0
+        # At each newly reached threshold, only an earlier event can improve
+        # the first trigger.  Multiple events activating at the same rank are
+        # collapsed before updating the global difference arrays.
+        for rank in sorted(set(int(value) for value in ranks if int(value) < n)):
+            positions = np.flatnonzero(ranks == rank)
+            candidate = int(positions.min())
+            if best_position is None:
+                pair_delta[rank] += 1
+                miss_delta[rank] += candidate
+                delay = float(stamps[candidate] - stamps[0])
+                delay_delta[rank] += delay
+                best_position = candidate
+                best_delay = delay
+            elif candidate < best_position:
+                miss_delta[rank] += candidate - best_position
+                delay = float(stamps[candidate] - stamps[0])
+                delay_delta[rank] += delay - best_delay
+                best_position = candidate
+                best_delay = delay
+    triggered = np.cumsum(pair_delta)
+    misses = np.cumsum(miss_delta)
+    delay_sum = np.cumsum(delay_delta)
+    mean_delay = np.divide(
+        delay_sum,
+        triggered,
+        out=np.full(n, np.nan, dtype=float),
+        where=triggered > 0,
+    )
+    return {
+        "triggered_pairs": triggered,
+        "preceding_conflict_misses": misses,
+        "mean_time_to_first_veto_seconds": mean_delay,
+    }
+
+
+def rescued_viewed_curve(frame: pd.DataFrame, scalar: str, cuts: np.ndarray) -> np.ndarray:
+    held = frame["held_value"].astype(str)
+    role = frame["role"].astype(str)
+    viewed = held.eq(GLOBAL) & role.isin(VIEWED_ATTACK_ROLES)
+    for protocol, pool_role in OOD_PROTOCOL_ROLE.items():
+        viewed |= held.eq(protocol) & role.eq(pool_role)
+    eligible = (
+        viewed.to_numpy(dtype=bool)
+        & frame["state_available"].to_numpy(dtype=bool)
+        & frame["current_conflict"].to_numpy(dtype=bool)
+    )
+    values = pd.to_numeric(frame.loc[eligible, scalar], errors="raise").to_numpy(dtype=float)
+    ranks = _activation_ranks(values, cuts)
+    increments = np.bincount(ranks[ranks < len(cuts)], minlength=len(cuts))
+    return np.cumsum(increments).astype(np.int64)
+
+
+def _cluster_labels(frame: pd.DataFrame, unit: str) -> np.ndarray:
+    if unit == "source":
+        return (
+            frame["held_value"].astype(str) + "\x1f" + frame["source_group"].astype(str)
+        ).to_numpy()
+    if unit != "pair":
+        raise ValueError(f"unknown bootstrap cluster unit: {unit}")
+    labels = (
+        frame["held_value"].astype(str) + "\x1f" + frame["interaction_key"].astype(str)
+    )
+    missing = ~frame["state_available"].astype(bool)
+    labels.loc[missing] = (
+        frame.loc[missing, "held_value"].astype(str)
+        + "\x1fmissing\x1f" + frame.loc[missing, "uid"].astype(str)
+    )
+    return labels.to_numpy()
+
+
+def bootstrap_curve_replicates(
+    frame: pd.DataFrame,
+    mask: np.ndarray,
+    scalar: str,
+    cuts: np.ndarray,
+    unit: str,
+    reps: int,
+    seed: int,
+) -> tuple[np.ndarray, int]:
+    part = frame.loc[mask].copy()
+    if part.empty:
+        raise RuntimeError("bootstrap group is empty")
+    labels = _cluster_labels(part, unit)
+    codes, unique = pd.factorize(labels, sort=True)
+    clusters = len(unique)
+    if not clusters:
+        raise RuntimeError("bootstrap cluster set is empty")
+    base = bool_series(part[M7]).to_numpy(dtype=np.int8)
+    eligible = (
+        part["state_available"].to_numpy(dtype=bool)
+        & part["current_conflict"].to_numpy(dtype=bool)
+    )
+    scalar_values = pd.to_numeric(part[scalar], errors="coerce").to_numpy(dtype=float)
+    eligible &= np.isfinite(scalar_values)
+    ranks = _activation_ranks(scalar_values[eligible], cuts)
+    eligible_positions = np.flatnonzero(eligible)
+    kept = ranks < len(cuts)
+    ranks = ranks[kept]
+    eligible_positions = eligible_positions[kept]
+    rng = np.random.default_rng(int(seed))
+    curves = np.empty((int(reps), len(cuts)), dtype=np.float32)
+    for replicate in range(int(reps)):
+        sampled = rng.integers(0, clusters, size=clusters)
+        cluster_weights = np.bincount(sampled, minlength=clusters).astype(np.int64)
+        weights = cluster_weights[codes]
+        denominator = int(weights.sum())
+        if denominator <= 0:
+            raise RuntimeError("bootstrap sampled zero rows")
+        base_hard = int(np.dot(weights, base))
+        increments = np.bincount(
+            ranks,
+            weights=weights[eligible_positions],
+            minlength=len(cuts),
+        )
+        curves[replicate] = (base_hard + np.cumsum(increments)) / denominator
+    return curves, clusters
+
+
+def bootstrap_interval_rows(
+    frame: pd.DataFrame,
+    scalar: str,
+    cuts: np.ndarray,
+    reps: int,
+    seed: int,
+) -> Iterable[dict[str, Any]]:
+    groups = {group.name: group.mask for group in metric_groups(frame)}
+    named_masks = {
+        "attack_overall_recall": groups["attack_overall"],
+        "future_attack_recall": groups["attack_role:future_query"],
+        "same_file_attack_recall": groups["attack_role:same_file_query"],
+        "sealed_attack_recall": groups["attack_role:sealed_final_attack"],
+        "support_val_recall": groups["attack_role:support_val"],
+    }
+    pool_masks = [groups[f"ood_pool:{protocol}"] for protocol in OOD_PROTOCOL_ROLE]
+    for unit_index, unit in enumerate(("source", "pair")):
+        for metric_index, (metric, mask) in enumerate(named_masks.items()):
+            curves, clusters = bootstrap_curve_replicates(
+                frame, mask, scalar, cuts, unit, reps,
+                int(seed) + 10_000 * unit_index + 100 * metric_index,
+            )
+            low, high = np.quantile(curves, [0.025, 0.975], axis=0)
+            for index, cut in enumerate(cuts):
+                yield {
+                    "scalar": scalar,
+                    "frontier_index": index,
+                    "cut": float(cut),
+                    "metric": metric,
+                    "cluster_unit": unit,
+                    "clusters": clusters,
+                    "pool_cluster_counts": "",
+                    "bootstrap_reps": int(reps),
+                    "ci_low": float(low[index]),
+                    "ci_high": float(high[index]),
+                }
+        macro = np.zeros((int(reps), len(cuts)), dtype=np.float32)
+        pool_clusters: list[int] = []
+        for pool_index, mask in enumerate(pool_masks):
+            curves, clusters = bootstrap_curve_replicates(
+                frame, mask, scalar, cuts, unit, reps,
+                int(seed) + 10_000 * unit_index + 2_000 + 100 * pool_index,
+            )
+            macro += curves / len(pool_masks)
+            pool_clusters.append(clusters)
+        low, high = np.quantile(macro, [0.025, 0.975], axis=0)
+        for index, cut in enumerate(cuts):
+            yield {
+                "scalar": scalar,
+                "frontier_index": index,
+                "cut": float(cut),
+                "metric": "ood_macro_hard_rate",
+                "cluster_unit": unit,
+                "clusters": min(pool_clusters),
+                "pool_cluster_counts": json.dumps(pool_clusters, separators=(",", ":")),
+                "bootstrap_reps": int(reps),
+                "ci_low": float(low[index]),
+                "ci_high": float(high[index]),
+            }
+
+
 def oracle_frontier(
     frame: pd.DataFrame, scalar: str
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]], bool, np.ndarray]:
@@ -572,6 +1006,11 @@ def oracle_frontier(
         curves[group.name] = curve
         totals[group.name] = total
         c1_counts[group.name] = c1_count
+    rescued = rescued_viewed_curve(frame, scalar, cuts)
+    trigger = first_trigger_audit(frame, scalar, cuts)
+    metadata_missing = ~frame["metadata_matched"].to_numpy(dtype=bool)
+    missing_rows = int(metadata_missing.sum())
+    missing_m7_hard = int(bool_series(frame[M7]).to_numpy()[metadata_missing].sum())
     family_names = [group.name for group in groups if group.kind == "attack_family"]
     pool_names = [group.name for group in groups if group.kind == "ood_pool"]
     frontier: list[dict[str, Any]] = []
@@ -606,7 +1045,19 @@ def oracle_frontier(
                 "sealed_attack_recall": float(curves["attack_role:sealed_final_attack"][index]),
                 "support_val_recall": float(support),
                 "ood_macro_hard_rate": float(np.mean(ood_rates)),
-                "worst_family_delta_vs_c1_pp": float(min(family_delta.values())),
+                "worst_family_delta_vs_c1_pp": (
+                    float(min(family_delta.values())) if family_delta else math.nan
+                ),
+                "rescued_viewed_rows": int(rescued[index]),
+                "metadata_missing_rows_kept_at_m7": missing_rows,
+                "metadata_missing_m7_hard_rows": missing_m7_hard,
+                "attack_pairs_with_veto": int(trigger["triggered_pairs"][index]),
+                "attack_conflict_misses_before_first_veto": int(
+                    trigger["preceding_conflict_misses"][index]
+                ),
+                "mean_time_to_first_veto_seconds": float(
+                    trigger["mean_time_to_first_veto_seconds"][index]
+                ),
                 "oracle_compatible": feasible,
                 "review_rate": 0.0,
             }
@@ -641,6 +1092,8 @@ def oracle_frontier(
 def run(args: argparse.Namespace) -> dict[str, Any]:
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
+    if any(out.iterdir()):
+        raise RuntimeError(f"CKCZ output directory must start empty: {out}")
     stage = "validate_inputs"
     try:
         run_root = Path(args.ckbv_root)
@@ -648,8 +1101,12 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             (run_root, "CKBV root"), (args.predictions, "predictions"),
             (args.gotham_allowlist, "Gotham allowlist"),
             (args.auxiliary_allowlist, "auxiliary allowlist"),
+            (args.preregistered_protocol, "preregistered protocol"),
         ):
             assert_no_final_text(value, context)
+        protocol_sha = sha256_file(Path(args.preregistered_protocol))
+        if protocol_sha != str(args.preregistered_protocol_sha256).lower():
+            raise RuntimeError(f"preregistered protocol SHA drift: {protocol_sha}")
         gotham_allow = load_allowlist(Path(args.gotham_allowlist), args.gotham_allowlist_sha256, "gotham")
         auxiliary_allow = load_allowlist(Path(args.auxiliary_allowlist), args.auxiliary_allowlist_sha256, "auxiliary")
         gotham_allow = validate_manifest(
@@ -667,52 +1124,61 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         auxiliary_meta, auxiliary_audit = export_cache_metadata(run_root, auxiliary_allow, "auxiliary")
         metadata = pd.concat([gotham_meta, auxiliary_meta], ignore_index=True)
         stage = "export_metadata"
-        atomic_csv(out / "ckcz_target_metadata.csv.gz", metadata.to_dict("records"), compress=True)
+        atomic_dataframe_csv(out / "ckcz_target_metadata.csv.gz", metadata, compress=True)
         stage = "pair_cardinality"
         by_source, distribution = pair_cardinality(metadata)
         atomic_csv(out / "ckcz_pair_cardinality_by_source.csv", by_source)
         atomic_csv(out / "ckcz_pair_cardinality_distribution.csv", distribution)
+        atomic_csv(out / "ckcz_metadata_temporal_audit.csv", metadata_temporal_audit(metadata))
         stage = "join_predictions"
         predictions = validate_predictions(Path(args.predictions), args.predictions_sha256)
         joined, join_audit = join_predictions(predictions, metadata)
         atomic_csv(out / "ckcz_prediction_join_audit.csv", join_audit)
         stage = "build_causal_state"
         state = build_causal_pair_state(joined)
-        atomic_csv(out / "ckcz_pair_state_rows.csv.gz", state.to_dict("records"), compress=True)
+        atomic_dataframe_csv(out / "ckcz_pair_state_rows.csv.gz", state, compress=True)
+        conflict_summary, conflict_ecdf = conflict_descriptive_audit(state)
+        atomic_csv(out / "ckcz_conflict_descriptive_audit.csv", conflict_summary)
+        atomic_csv(out / "ckcz_conflict_delta_time_ecdf.csv", conflict_ecdf)
         stage = "oracle_frontiers"
         scalar_feasible: dict[str, bool] = {}
-        bootstrap_notice: list[dict[str, Any]] = []
-        for scalar_index, scalar in enumerate(SCALARS):
-            frontier, families, pools, feasible, cuts = oracle_frontier(state, scalar)
-            scalar_feasible[scalar] = feasible
-            atomic_csv(out / f"ckcz_oracle_frontier_{scalar}.csv", frontier)
-            atomic_csv(out / f"ckcz_attack_family_metrics_{scalar}.csv", families)
-            atomic_csv(out / f"ckcz_ood_pool_metrics_{scalar}.csv", pools)
-            # Bootstrap calculation is a separately audited implementation stage;
-            # never silently represent point estimates as intervals.
-            bootstrap_notice.append(
-                {
-                    "scalar": scalar,
-                    "frontier_points": len(cuts),
-                    "bootstrap_status": "PENDING_IMPLEMENTATION_BLOCKS_HPC",
-                    "source_pair_intervals_emitted": False,
-                    "seed": int(args.seed) + scalar_index,
-                }
+        if int(args.bootstrap_reps) < 20:
+            raise RuntimeError("bootstrap_reps must be at least 20")
+        bootstrap_fields = [
+            "scalar", "frontier_index", "cut", "metric", "cluster_unit", "clusters",
+            "pool_cluster_counts", "bootstrap_reps", "ci_low", "ci_high",
+        ]
+        expected_bootstrap_rows = 0
+        with AtomicCsvSink(out / "ckcz_bootstrap_intervals.csv", bootstrap_fields) as bootstrap_sink:
+            for scalar_index, scalar in enumerate(SCALARS):
+                frontier, families, pools, feasible, cuts = oracle_frontier(state, scalar)
+                scalar_feasible[scalar] = feasible
+                atomic_csv(out / f"ckcz_oracle_frontier_{scalar}.csv", frontier)
+                atomic_csv(out / f"ckcz_attack_family_metrics_{scalar}.csv", families)
+                atomic_csv(out / f"ckcz_ood_pool_metrics_{scalar}.csv", pools)
+                expected_bootstrap_rows += 12 * len(cuts)
+                bootstrap_sink.write(
+                    bootstrap_interval_rows(
+                        state, scalar, cuts, int(args.bootstrap_reps),
+                        int(args.seed) + 100_000 * scalar_index,
+                    )
+                )
+        if bootstrap_sink.rows != expected_bootstrap_rows:
+            raise RuntimeError(
+                f"bootstrap frontier coverage drift: {bootstrap_sink.rows}/{expected_bootstrap_rows}"
             )
-        atomic_csv(out / "ckcz_bootstrap_intervals.csv", bootstrap_notice)
         verdict = {
             "status": (
                 "CKCZ_ORACLE_INFORMATION_EXISTS_LEGAL_NOT_TESTED"
                 if any(scalar_feasible.values()) else "CKCZ_ORACLE_NO_INFORMATION"
             ),
             "scalar_oracle_compatible": scalar_feasible,
-            "bootstrap_complete": False,
-            "scientific_verdict_valid": False,
-            "reason": "source/pair bootstrap intervals are not implemented; HPC is blocked",
+            "bootstrap_complete": True,
+            "bootstrap_reps": int(args.bootstrap_reps),
+            "scientific_verdict_valid": True,
         }
-        atomic_json(out / "ckcz_verdict.json", verdict)
         audit = {
-            "status": "CKCZ_IMPLEMENTATION_DRY_RUN_ONLY",
+            "status": "CKCZ_INPUT_CONTRACT_PASS",
             "gotham": gotham_audit,
             "auxiliary": auxiliary_audit,
             "prediction_sha256": sha256_file(Path(args.predictions)),
@@ -724,18 +1190,50 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         run_spec = {
             "issue": ISSUE,
             "seed": int(args.seed),
-            "frozen_preregistered_protocol": args.preregistered_protocol,
-            "frozen_preregistered_protocol_sha256": args.preregistered_protocol_sha256,
+            "frozen_preregistered_protocol": str(args.preregistered_protocol),
+            "frozen_preregistered_protocol_sha256": protocol_sha,
             "hpc_submission_authorized": False,
-            "bootstrap_complete": False,
-            "scientific_verdict_valid": False,
+            "bootstrap_reps": int(args.bootstrap_reps),
+            "bootstrap_complete": True,
+            "scientific_verdict_valid": True,
         }
         atomic_json(out / "run_spec.json", run_spec)
+        required = {
+            "ckcz_input_audit.json",
+            "ckcz_source_allowlist_audit.csv",
+            "ckcz_target_metadata.csv.gz",
+            "ckcz_pair_cardinality_by_source.csv",
+            "ckcz_pair_cardinality_distribution.csv",
+            "ckcz_metadata_temporal_audit.csv",
+            "ckcz_prediction_join_audit.csv",
+            "ckcz_pair_state_rows.csv.gz",
+            "ckcz_conflict_descriptive_audit.csv",
+            "ckcz_conflict_delta_time_ecdf.csv",
+            "ckcz_bootstrap_intervals.csv",
+            "run_spec.json",
+        }
+        for scalar in SCALARS:
+            required.update(
+                {
+                    f"ckcz_oracle_frontier_{scalar}.csv",
+                    f"ckcz_attack_family_metrics_{scalar}.csv",
+                    f"ckcz_ood_pool_metrics_{scalar}.csv",
+                }
+            )
+        actual_names = {path.name for path in out.iterdir() if path.is_file()}
+        if not required.issubset(actual_names):
+            raise RuntimeError(f"required CKCZ outputs missing: {sorted(required - actual_names)}")
+        if any(not (out / name).is_file() or (out / name).stat().st_size <= 0 for name in required):
+            raise RuntimeError("required CKCZ output is empty")
+        atomic_json(out / "ckcz_verdict.json", verdict)
         output_files = sorted(path for path in out.iterdir() if path.is_file() and path.name != "SHA256SUMS")
         sums = "".join(f"{sha256_file(path)}  {path.name}\n" for path in output_files)
         atomic_bytes(out / "SHA256SUMS", sums.encode("utf-8"))
         return verdict
     except Exception as exc:
+        verdict_path = out / "ckcz_verdict.json"
+        if verdict_path.exists():
+            verdict_path.unlink()
         atomic_json(
             out / "job_failure.txt",
             {"status": "CKCZ_ENGINEERING_FAILURE", "stage": stage, "error_type": type(exc).__name__, "error": str(exc)},
@@ -759,6 +1257,7 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument("--auxiliary-sources", type=int, default=31)
     result.add_argument("--auxiliary-rows", type=int, default=18_600)
     result.add_argument("--seed", type=int, default=SEED)
+    result.add_argument("--bootstrap-reps", type=int, default=200)
     result.add_argument("--preregistered-protocol", type=Path, required=True)
     result.add_argument("--preregistered-protocol-sha256", required=True)
     result.add_argument("--out", type=Path, required=True)
@@ -769,8 +1268,6 @@ def main() -> None:
     args = parser().parse_args()
     verdict = run(args)
     print(json.dumps(verdict, indent=2, sort_keys=True))
-    if not verdict["bootstrap_complete"]:
-        raise SystemExit("CKCZ implementation incomplete: bootstrap stage blocks HPC")
 
 
 if __name__ == "__main__":

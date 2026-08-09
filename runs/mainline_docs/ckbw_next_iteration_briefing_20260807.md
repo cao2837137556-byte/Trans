@@ -332,3 +332,36 @@ FINAL 全程未触碰。Codex 已于 8/9 回归，同步稿已发给用户转发
 
 **三方状态**：Kimi 执行完毕；GPT 立场（8/8）：DROCC=closure baseline，episode 设计讨论可
 并行开始（不冻结/不写码/不碰 FINAL）；Codex 审查中。
+
+---
+
+## Round 12 (2026-08-09, Codex 执行): CKCZ FROZEN + 实现完成，待 Kimi 独立审查
+
+**治理分工由用户重新明确**：Codex 负责预注册、实现、测试、组包与命令；Kimi 负责独立
+方案/代码审查；用户负责 HPC 提交授权。GPT 不进入 CKCZ 审查/签字链，只在用户需要理解
+方案时担任讲解者。
+
+**冻结链**：
+
+- Kimi 对 DRAFT 独立核验并 PASS：`a51fcb2`；
+- 12 个训练 strata 与 16 个报告 family 口径闭环：`97adfe0`；
+- FROZEN + SHA 侧车：`e7022ee`，正文 SHA-256
+  `dad558902f2dfe2dc0dd4bf76cbf2e9e727be9f5d22ed2e91a5267586e8d3fde`；
+- 唯一系统方向仍只是待诊断的 `hard=M7 OR V_episode`，CKCZ 只做 endpoint-pair conflict
+  persistence Oracle；任一可行只授权 D1-Legal，四 scalar 全失败才封当前路线。
+
+**实现**：`issue27ckcz_endpoint_pair_conflict_diagnostic_v1.py` 已完成 manifest/allowlist/cache
+hash/schema、UID exact join、protocol/member-local causal state、四 exact frontier、16 族/四池
+门、source/pair bootstrap、first-trigger/time-to-veto、描述性 ECDF/Gini、原子输出/readback/
+SHA256SUMS 与失败无 verdict。自包含完整 synthetic pipeline 与冻结 297,326 行预测分母故障
+回放均 PASS。
+
+**allowlist**：Gotham 24 与 auxiliary 31 已按冻结 lineage 显式入库并带 SHA。CKBY snapshot
+55 source 的 `24+31` 只是总数巧合（实际 20 processed +31 auxiliary +4 ToN），不再作为
+成员证明；正式实现以 positive source list + 已钉 154917 manifest SHA 的 pre-open exact join
+为准。
+
+**状态**：实现完成稿为
+`runs/mainline_docs/ckcz_implementation_ready_for_kimi_review_20260809.md`。按 FROZEN，等待 Kimi
+独立代码/allowlist PASS 后才构建 Slurm bundle。尚未运行在线 154917 cache、未提交 HPC、
+未产生 CKCZ 科学结果；FINAL 全程未触碰。
