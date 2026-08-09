@@ -298,3 +298,37 @@ feature_map/fit_preprocessor 签名——只读，不改。
 
 **状态**：等用户在 HPC 上传→提交→监控→拉回快照。拉回后本地训练 DROCC（FROZEN §2.1
 超参，torch 环境待确认）→ 一次性评估 → 结果文档。FINAL 全程封存。
+
+---
+
+## Round 11 (2026-08-09, Kimi 执行): CKBY 完成——DROCC Gate A FAIL，记录级路线正式封口
+
+**HPC 导出**：job 157930（v6 包，210 秒）成功，快照 287,448 行（fit 18,398 = 14,013 benign +
+4,385 attack；select 7,000+69；report 池全覆盖），合同断言全过，SHA-256
+`b2ef1f7d0244cc7abb8665c25364744f794190f411482e4e202e346cb850279c`。本地拉回校验一致。
+打包迭代史（v1-v5 全部打包层错误：路径/哈希钉值/检查串/漏 kitsune_frontend_original/
+漏 vendor tabm+minirocket；v6 与 157624 实际运行版逐字节对账 0 差异后一次通过）。
+
+**本地训练**（torch 2.13.0+cpu，600 秒，分段断点续跑=连续运行逐位等价，已验证）：
+两处实现修正透明记录——(1) lr 调度按官方 epoch-shifted 分段改正（初版误录）；
+(2) 官方 `grad/grad_norm` 在 float32 饱和点 0/0=NaN（3 个常量特征 + std floor 1e-4
+→ 噪声放大 10^4 → logit 饱和 → 梯度下溢），两处除法加 1e-12 护栏，非退化点逐位不变。
+
+**结果（一次性评估，ckby_drocc_seed27_result_20260809.md）**：
+
+- **Gate A FAIL 双重惨败**：OP-1 future 召回 9.04%（门槛 84.83%）、OOD macro 55.57%
+  （门槛 30.27%）；OP-0.1 更差（5.52%/47.63%）——budget 收紧召回崩塌。
+- 同分母对照：C1 86.83/93.09、FrozenCKBQ 74.20/35.27、M7 63.19/0.15、DROCC 9.04/55.57——
+  记录级最差，两轴同时劣化，无 trade-off 优势点。
+- 失败形态=双重不可分：良性 OOD 两池近全池误报（99.8%/99.3%，流形外同向），
+  15/16 攻击族召回残缺（流形内同域）。
+- **过程发现**：benign-only checkpoint 规则永远选中 epoch 49（纯 CE 模型）——对抗阶段
+  必然抬高 benign 验证 CE，纯良性选择压力下 DROCC 的对抗训练原则上不可能被选中；
+  "strong benign-only learner" 范畴在 51D 上自我瓦解。
+
+**路由**：按 FROZEN §8——封死"51D 表示上模型容量"解释，**记录级换模型路线正式封口，
+不再开新记录级模型**（GPT 8/8 "跑一次即收枪"已执行）。下一步 Episode Design Review。
+FINAL 全程未触碰。Codex 已于 8/9 回归，同步稿已发给用户转发。
+
+**三方状态**：Kimi 执行完毕；GPT 立场（8/8）：DROCC=closure baseline，episode 设计讨论可
+并行开始（不冻结/不写码/不碰 FINAL）；Codex 审查中。
