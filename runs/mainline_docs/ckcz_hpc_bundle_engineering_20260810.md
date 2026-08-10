@@ -70,3 +70,16 @@ bundle builder 只打包 CKCZ 自有的 14 个已审文件，执行 18 项合同
 `CKCZ_HPC_SUBMISSION_NOT_AUTHORIZED` 退出且不调用正式 `sbatch`。
 
 当前仍然：**HPC NOT SUBMITTED**。
+
+## 7. 本地首包拒收与永久回归门
+
+commit `8cb7ae2` 后的首次本地构建虽然逐文件 SHA 复验通过，但独立 tar member audit 发现合同
+测试的 Python import 在 staging 内生成了未审的 `__pycache__/*.pyc`。分类为
+**package/transfer validation failure**：没有上传、安装或提交 HPC，不构成任何科学证据；该首包
+立即拒收。
+
+根因是 builder 在 staging 内运行测试时没有禁止 bytecode 写入，而当时的 SHA 逻辑会忠实地把
+新增文件一并纳入，故“SHA 全通过”不能替代“成员集合精确”。永久修复为：测试时强制
+`PYTHONDONTWRITEBYTECODE=1`，随后显式拒绝任何 `__pycache__`/`.pyc`，并断言最终文件数严格
+等于 14 个 reviewed copy + `bundle_commit.txt` + `SHA256SUMS`。只有修复后的重建包可交 Kimi
+审查。

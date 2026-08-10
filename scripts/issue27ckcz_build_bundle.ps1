@@ -87,8 +87,26 @@ try {
   Assert-FileSha (Join-Path $Root 'payload\runs\mainline_docs\ckcz_auxiliary_source_allowlist_20260809.csv') 'be4ad12a9b0807b15b120d91ec2f9519a1743120ef0e9f04e0d8bab573252c49'
 
   $contract = Join-Path $Root 'payload\repo\ood\issue27ckcz_endpoint_pair_conflict_contract_tests_v1.py'
-  & python $contract
-  if ($LASTEXITCODE -ne 0) { throw "CKCZ contract tests failed with exit $LASTEXITCODE" }
+  $previousNoBytecode = $env:PYTHONDONTWRITEBYTECODE
+  $env:PYTHONDONTWRITEBYTECODE = '1'
+  try {
+    & python $contract
+    if ($LASTEXITCODE -ne 0) { throw "CKCZ contract tests failed with exit $LASTEXITCODE" }
+  }
+  finally {
+    if ($null -eq $previousNoBytecode) {
+      Remove-Item Env:PYTHONDONTWRITEBYTECODE -ErrorAction SilentlyContinue
+    }
+    else {
+      $env:PYTHONDONTWRITEBYTECODE = $previousNoBytecode
+    }
+  }
+  $forbiddenPayload = @(Get-ChildItem -LiteralPath $Root -Recurse -Force | Where-Object {
+      $_.Name -eq '__pycache__' -or $_.Extension -eq '.pyc'
+    })
+  if ($forbiddenPayload.Count -ne 0) {
+    throw "generated Python cache entered CKCZ payload: $($forbiddenPayload.FullName -join ', ')"
+  }
 
   $head = (git -C $Worktree rev-parse HEAD).Trim()
   Write-LfUtf8 (Join-Path $Root 'bundle_commit.txt') ($head + "`n")
@@ -102,6 +120,11 @@ try {
     }
   }
   Write-LfUtf8 (Join-Path $Root 'SHA256SUMS') (($sums -join "`n") + "`n")
+  $expectedFileCount = $Copies.Count + 2  # reviewed copies + bundle_commit + SHA256SUMS
+  $actualFileCount = @(Get-ChildItem -LiteralPath $Root -Recurse -File).Count
+  if ($actualFileCount -ne $expectedFileCount) {
+    throw "CKCZ bundle member-count drift: actual=$actualFileCount expected=$expectedFileCount"
+  }
 
   New-Item -ItemType Directory -Force -Path $OutDir | Out-Null
   $resolvedOut = [IO.Path]::GetFullPath($OutDir).TrimEnd('\')
