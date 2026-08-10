@@ -183,6 +183,44 @@ def run() -> dict[str, bool | str]:
             readback.columns.tolist() == ["a", "b"] and len(readback) == 2
         )
 
+        oversized_path = Path(tmp) / "oversized.bin"
+        try:
+            ckcz.atomic_bytes(oversized_path, b"x" * (ckcz.ATOMIC_BYTES_MAX + 1))
+            oversized_failed = False
+        except RuntimeError:
+            oversized_failed = True
+        result["oversized_atomic_bytes_fail_closed"] = bool(
+            oversized_failed and not oversized_path.exists()
+        )
+
+        large_path = Path(tmp) / "large.csv"
+        large_rows = [
+            {"row": index, "payload": "x" * 2048, **({"late_field": index} if index else {})}
+            for index in range(5_000)
+        ]
+        original_atomic_bytes = ckcz.atomic_bytes
+        atomic_bytes_called = False
+
+        def reject_atomic_bytes(_path: Path, _payload: bytes) -> None:
+            nonlocal atomic_bytes_called
+            atomic_bytes_called = True
+            raise AssertionError("large CSV regressed through atomic_bytes")
+
+        ckcz.atomic_bytes = reject_atomic_bytes
+        try:
+            ckcz.atomic_csv(large_path, large_rows)
+        finally:
+            ckcz.atomic_bytes = original_atomic_bytes
+        large_readback = pd.read_csv(large_path)
+        leaked_large_temps = list(Path(tmp).glob(f".{large_path.name}.*"))
+        result["large_csv_streams_without_atomic_bytes"] = bool(
+            not atomic_bytes_called
+            and large_path.stat().st_size > (8 << 20)
+            and large_readback.columns.tolist() == ["row", "payload", "late_field"]
+            and len(large_readback) == len(large_rows)
+            and not leaked_large_temps
+        )
+
         root = Path(tmp) / "ckbv"
         gotham_cache = root / "gotham_causal_cache"
         auxiliary_cache = root / "auxiliary_causal_cache"
@@ -352,6 +390,7 @@ def run() -> dict[str, bool | str]:
             preregistered_protocol_sha256=ckcz.sha256_file(protocol_path),
             preregistered_erratum=erratum_path,
             preregistered_erratum_sha256=ckcz.sha256_file(erratum_path),
+            progress_file=Path(tmp) / "progress.json",
             out=Path(tmp) / "out",
         )
         try:
@@ -359,6 +398,7 @@ def run() -> dict[str, bool | str]:
         finally:
             ckcz.EXPECTED_PROTOCOL_ROWS = old_counts
         out = Path(run_args.out)
+        progress = json.loads(Path(run_args.progress_file).read_text(encoding="utf-8"))
         result["full_synthetic_pipeline_is_terminal_and_hashed"] = bool(
             verdict["bootstrap_complete"]
             and verdict["scientific_verdict_valid"]
@@ -366,8 +406,14 @@ def run() -> dict[str, bool | str]:
             and not (out / "job_failure.txt").exists()
             and len(pd.read_csv(out / "ckcz_bootstrap_intervals.csv")) == 48
         )
+        result["node_local_progress_reaches_complete"] = bool(
+            progress["stage"] == "complete"
+            and progress["sequence"] > 1
+            and progress["output_files"] > 1
+        )
         bad_args = SimpleNamespace(**vars(run_args))
         bad_args.out = Path(tmp) / "failure-out"
+        bad_args.progress_file = Path(tmp) / "failure-progress.json"
         bad_args.preregistered_protocol_sha256 = "0" * 64
         try:
             ckcz.run(bad_args)
@@ -378,6 +424,8 @@ def run() -> dict[str, bool | str]:
             failed_closed
             and (Path(bad_args.out) / "job_failure.txt").is_file()
             and not (Path(bad_args.out) / "ckcz_verdict.json").exists()
+            and json.loads(Path(bad_args.progress_file).read_text(encoding="utf-8"))["stage"]
+            == "engineering_failure"
         )
 
     result["status"] = "PASS" if all(bool(value) for value in result.values()) else "FAIL"

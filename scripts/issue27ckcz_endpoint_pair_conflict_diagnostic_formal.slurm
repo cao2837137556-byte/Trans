@@ -55,6 +55,8 @@ RUN_NAME="issue27ckcz_endpoint_pair_conflict_diagnostic_v1_2026-08-10_seed27_${P
 RUN_ROOT="$BASE/runs/$RUN_NAME"
 CONTROL_ROOT="$BASE/runs/${RUN_NAME}_control"
 STDOUT_TMP="$BASE/runs/${RUN_NAME}.diagnostic_stdout.tmp"
+PROGRESS_FILE="${SLURM_TMPDIR:-/tmp}/ckcz_${JOB_ID}_diagnostic_progress.json"
+STALL_SECONDS=1200
 
 for path in \
   "$BASE/scripts/00_env_issue27ckc.sh" "$DIAGNOSTIC" "$VALIDATOR" \
@@ -75,6 +77,9 @@ started_epoch=$(date +%s)
 started_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 phase=startup
 heartbeat_pid=""
+watchdog_pid=""
+diagnostic_pid=""
+wrapper_pid=$$
 
 write_phase() {
   phase=$1
@@ -84,13 +89,19 @@ write_phase() {
 
 cleanup() {
   status=$?
-  test -z "$heartbeat_pid" || kill "$heartbeat_pid" >/dev/null 2>&1 || true
-  wait >/dev/null 2>&1 || true
+  for background_pid in "$heartbeat_pid" "$watchdog_pid" "$diagnostic_pid"; do
+    test -z "$background_pid" || kill "$background_pid" >/dev/null 2>&1 || true
+  done
+  for background_pid in "$heartbeat_pid" "$watchdog_pid"; do
+    test -z "$background_pid" || wait "$background_pid" >/dev/null 2>&1 || true
+  done
   if test "$status" -ne 0; then
     printf 'status=FAILED\nphase=%s\nexit_code=%s\nfailed_utc=%s\n' \
       "$phase" "$status" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
       > "$CONTROL_ROOT/job_failure.txt"
     test ! -e "$STDOUT_TMP" || mv "$STDOUT_TMP" "$CONTROL_ROOT/diagnostic_stdout.log" || true
+    test ! -s "$PROGRESS_FILE" || \
+      cp "$PROGRESS_FILE" "$CONTROL_ROOT/diagnostic_progress_last.json" || true
     if test -d "$RUN_ROOT"; then
       cp "$CONTROL_ROOT/job_failure.txt" "$RUN_ROOT/slurm_failure.txt" || true
     fi
@@ -103,16 +114,55 @@ heartbeat() {
   while true; do
     sleep 60
     live_phase=unknown
+    diagnostic_stage=not_started
+    progress_sequence=0
+    progress_age=-1
     log_bytes=0
     test ! -s "$CONTROL_ROOT/current_phase.txt" || \
       live_phase=$(awk -F= '$1 == "phase" {print $2; exit}' "$CONTROL_ROOT/current_phase.txt")
     test ! -e "$STDOUT_TMP" || log_bytes=$(wc -c < "$STDOUT_TMP")
-    printf 'CKCZ_PROGRESS utc=%s phase=%s job=%s partition=%s diagnostic_log_bytes=%s\n' \
-      "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$live_phase" "$JOB_ID" "$PARTITION" "$log_bytes"
+    if test -s "$PROGRESS_FILE"; then
+      diagnostic_stage=$(sed -n 's/^[[:space:]]*"stage": "\([^"]*\)",*$/\1/p' \
+        "$PROGRESS_FILE" | head -n 1)
+      progress_sequence=$(sed -n 's/^[[:space:]]*"sequence": \([0-9][0-9]*\),*$/\1/p' \
+        "$PROGRESS_FILE" | head -n 1)
+      progress_mtime=$(stat -c %Y "$PROGRESS_FILE")
+      progress_age=$(( $(date +%s) - progress_mtime ))
+    fi
+    printf 'CKCZ_PROGRESS utc=%s phase=%s diagnostic_stage=%s sequence=%s age_seconds=%s job=%s partition=%s diagnostic_log_bytes=%s\n' \
+      "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$live_phase" "${diagnostic_stage:-unknown}" \
+      "${progress_sequence:-0}" "$progress_age" "$JOB_ID" "$PARTITION" "$log_bytes"
+  done
+}
+
+watchdog() {
+  watched_pid=$1
+  while kill -0 "$watched_pid" >/dev/null 2>&1; do
+    sleep 60
+    progress_reference=$started_epoch
+    diagnostic_stage=not_started
+    if test -s "$PROGRESS_FILE"; then
+      progress_reference=$(stat -c %Y "$PROGRESS_FILE")
+      diagnostic_stage=$(sed -n 's/^[[:space:]]*"stage": "\([^"]*\)",*$/\1/p' \
+        "$PROGRESS_FILE" | head -n 1)
+    fi
+    progress_age=$(( $(date +%s) - progress_reference ))
+    if test "$progress_age" -ge "$STALL_SECONDS"; then
+      printf 'status=FAILED\nreason=NO_COMPLETED_UNIT_PROGRESS\nstage=%s\nage_seconds=%s\nthreshold_seconds=%s\nfailed_utc=%s\n' \
+        "${diagnostic_stage:-unknown}" "$progress_age" "$STALL_SECONDS" \
+        "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > "$CONTROL_ROOT/progress_stall.txt"
+      echo "CKCZ_PROGRESS_STALL stage=${diagnostic_stage:-unknown} age_seconds=$progress_age threshold_seconds=$STALL_SECONDS" >&2
+      kill -TERM "$watched_pid" >/dev/null 2>&1 || true
+      sleep 30
+      kill -KILL "$watched_pid" >/dev/null 2>&1 || true
+      kill -TERM "$wrapper_pid" >/dev/null 2>&1 || true
+      return
+    fi
   done
 }
 
 write_phase startup
+rm -f "$PROGRESS_FILE"
 heartbeat &
 heartbeat_pid=$!
 
@@ -181,8 +231,21 @@ python -u "$DIAGNOSTIC" \
   --preregistered-protocol-sha256 "$PREREG_SHA256" \
   --preregistered-erratum "$ERRATUM" \
   --preregistered-erratum-sha256 "$ERRATUM_SHA256" \
+  --progress-file "$PROGRESS_FILE" \
   --out "$RUN_ROOT" \
-  > "$STDOUT_TMP" 2>&1
+  > "$STDOUT_TMP" 2>&1 &
+diagnostic_pid=$!
+watchdog "$diagnostic_pid" &
+watchdog_pid=$!
+set +e
+wait "$diagnostic_pid"
+diagnostic_status=$?
+set -e
+diagnostic_pid=""
+test -z "$watchdog_pid" || kill "$watchdog_pid" >/dev/null 2>&1 || true
+test -z "$watchdog_pid" || wait "$watchdog_pid" >/dev/null 2>&1 || true
+watchdog_pid=""
+test "$diagnostic_status" -eq 0 || exit "$diagnostic_status"
 
 write_phase validate_result
 bash "$VALIDATOR" "$RUN_ROOT" > "$CONTROL_ROOT/validation_stdout.log" 2>&1
@@ -207,6 +270,7 @@ heartbeat_pid=""
 mv "$STDOUT_TMP" "$CONTROL_ROOT/diagnostic_stdout.log"
 mkdir "$RUN_ROOT/runtime_control"
 cp "$CONTROL_ROOT"/* "$RUN_ROOT/runtime_control/"
+cp "$PROGRESS_FILE" "$RUN_ROOT/runtime_control/diagnostic_progress_final.json"
 
 PULLBACK="$BASE/runs/issue27ckcz_endpoint_pair_conflict_diagnostic_seed27_${PARTITION}_${JOB_ID}_pullback.tar.gz"
 tar -C "$BASE/runs" -czf "$PULLBACK" "$RUN_NAME"

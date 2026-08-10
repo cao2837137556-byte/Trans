@@ -18,10 +18,11 @@ import json
 import math
 import os
 import tempfile
+import time
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Iterable, Sequence
+from typing import Any, Callable, Iterable, Sequence
 
 import numpy as np
 import pandas as pd
@@ -130,6 +131,8 @@ FINAL_MARKERS = (
     "seed_47",
     "seed-47",
 )
+ATOMIC_BYTES_MAX = 8 << 20
+CSV_PROGRESS_ROWS = 100_000
 
 
 def sha256_file(path: Path) -> str:
@@ -148,6 +151,11 @@ def assert_no_final_text(value: object, context: str) -> None:
 
 def atomic_bytes(path: Path, payload: bytes) -> None:
     path = Path(path)
+    if len(payload) > ATOMIC_BYTES_MAX:
+        raise RuntimeError(
+            f"refusing oversized atomic byte payload: {path}: "
+            f"{len(payload)} > {ATOMIC_BYTES_MAX}"
+        )
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, tmp_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=str(path.parent))
     try:
@@ -179,21 +187,98 @@ def union_fields(rows: Sequence[dict[str, Any]]) -> list[str]:
     return fields
 
 
-def atomic_csv(path: Path, rows: Sequence[dict[str, Any]], *, compress: bool = False) -> None:
+def atomic_csv(
+    path: Path,
+    rows: Sequence[dict[str, Any]],
+    *,
+    compress: bool = False,
+    progress: Callable[[int], None] | None = None,
+) -> None:
+    """Stream CSV rows to a same-directory temporary file, then rename.
+
+    Large scientific tables must never be re-materialized as one bytes object.
+    Periodic flushes bound userspace buffering and allow node-local completed-row
+    progress to stop if the shared filesystem itself stops accepting writes.
+    """
     fields = union_fields(rows)
     if not fields:
         raise RuntimeError(f"refusing to write empty CSV: {path}")
-    stream = tempfile.SpooledTemporaryFile(mode="w+", encoding="utf-8", newline="", max_size=8 << 20)
-    writer = csv.DictWriter(stream, fieldnames=fields, extrasaction="raise", lineterminator="\n")
-    writer.writeheader()
-    writer.writerows(rows)
-    stream.seek(0)
-    raw = stream.read().encode("utf-8")
-    stream.close()
-    atomic_bytes(path, gzip.compress(raw, mtime=0) if compress else raw)
-    check = pd.read_csv(path, compression="gzip" if compress else None)
-    if len(check) != len(rows) or check.columns.tolist() != fields:
-        raise RuntimeError(f"CSV readback failed: {path}")
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=str(path.parent))
+    os.close(fd)
+    written = 0
+    try:
+        if compress:
+            raw_handle = open(tmp_name, "wb", buffering=1024 * 1024)
+            zipped = gzip.GzipFile(fileobj=raw_handle, mode="wb", mtime=0, filename="")
+            text_handle = io.TextIOWrapper(zipped, encoding="utf-8", newline="")
+        else:
+            raw_handle = None
+            zipped = None
+            text_handle = open(
+                tmp_name, "w", encoding="utf-8", newline="", buffering=1024 * 1024
+            )
+        try:
+            writer = csv.DictWriter(
+                text_handle, fieldnames=fields, extrasaction="raise", lineterminator="\n"
+            )
+            writer.writeheader()
+            for written, row in enumerate(rows, start=1):
+                writer.writerow(row)
+                if written % CSV_PROGRESS_ROWS == 0:
+                    text_handle.flush()
+                    if progress is not None:
+                        progress(written)
+            text_handle.flush()
+        finally:
+            text_handle.close()
+            if zipped is not None and not zipped.closed:
+                zipped.close()
+            if raw_handle is not None and not raw_handle.closed:
+                raw_handle.close()
+        if written != len(rows):
+            raise RuntimeError(f"CSV write row drift: {path}: {written}/{len(rows)}")
+        with open(tmp_name, "r+b") as handle:
+            os.fsync(handle.fileno())
+        opener = gzip.open if compress else open
+        with opener(tmp_name, "rt", encoding="utf-8", newline="") as handle:
+            reader = csv.reader(handle)
+            header = next(reader)
+            read_rows = sum(1 for _ in reader)
+        if header != fields or read_rows != len(rows):
+            raise RuntimeError(
+                f"CSV readback failed: {path}: header={header == fields} "
+                f"rows={read_rows}/{len(rows)}"
+            )
+        os.replace(tmp_name, path)
+        if progress is not None:
+            progress(written)
+    finally:
+        if os.path.exists(tmp_name):
+            os.unlink(tmp_name)
+
+
+class ProgressRecorder:
+    """Small node-local progress marker; never a scientific output."""
+
+    def __init__(self, path: Path | None) -> None:
+        self.path = None if path is None else Path(path)
+        self.sequence = 0
+
+    def update(self, stage: str, **details: object) -> None:
+        if self.path is None:
+            return
+        self.sequence += 1
+        atomic_json(
+            self.path,
+            {
+                "stage": str(stage),
+                "sequence": self.sequence,
+                "updated_epoch": time.time(),
+                **details,
+            },
+        )
 
 
 def atomic_dataframe_csv(path: Path, frame: pd.DataFrame, *, compress: bool = False) -> None:
@@ -230,7 +315,12 @@ def atomic_dataframe_csv(path: Path, frame: pd.DataFrame, *, compress: bool = Fa
 class AtomicCsvSink:
     """Streaming atomic CSV writer with deterministic fixed union schema."""
 
-    def __init__(self, path: Path, fields: Sequence[str]) -> None:
+    def __init__(
+        self,
+        path: Path,
+        fields: Sequence[str],
+        progress: Callable[[int], None] | None = None,
+    ) -> None:
         self.path = Path(path)
         self.fields = list(fields)
         self.path.parent.mkdir(parents=True, exist_ok=True)
@@ -242,11 +332,16 @@ class AtomicCsvSink:
         self.writer.writeheader()
         self.rows = 0
         self.closed = False
+        self.progress = progress
 
     def write(self, rows: Iterable[dict[str, Any]]) -> None:
         for row in rows:
             self.writer.writerow(row)
             self.rows += 1
+            if self.rows % CSV_PROGRESS_ROWS == 0:
+                self.handle.flush()
+                if self.progress is not None:
+                    self.progress(self.rows)
 
     def close(self) -> None:
         if self.closed:
@@ -265,6 +360,8 @@ class AtomicCsvSink:
                 raise RuntimeError(f"streamed CSV readback failed: {self.path}")
             os.replace(self.tmp_name, self.path)
             self.closed = True
+            if self.progress is not None:
+                self.progress(self.rows)
         finally:
             if not self.handle.closed:
                 self.handle.close()
@@ -1194,8 +1291,27 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     out.mkdir(parents=True, exist_ok=True)
     if any(out.iterdir()):
         raise RuntimeError(f"CKCZ output directory must start empty: {out}")
+    progress = ProgressRecorder(
+        None if getattr(args, "progress_file", None) is None else Path(args.progress_file)
+    )
+
+    def mark(progress_stage: str, **details: object) -> None:
+        progress.update(progress_stage, **details)
+
+    def emit_csv(name: str, rows: Sequence[dict[str, Any]], **details: object) -> None:
+        mark("csv_write_started", artifact=name, expected_rows=len(rows), **details)
+        atomic_csv(
+            out / name,
+            rows,
+            progress=lambda count: mark(
+                "csv_write_rows", artifact=name, rows_written=count, **details
+            ),
+        )
+        mark("csv_write_complete", artifact=name, rows_written=len(rows), **details)
+
     stage = "validate_inputs"
     try:
+        mark(stage)
         run_root = Path(args.ckbv_root)
         for value, context in (
             (run_root, "CKBV root"), (args.predictions, "predictions"),
@@ -1225,34 +1341,45 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             int(args.auxiliary_sources), int(args.auxiliary_rows),
         )
         stage = "validate_schema"
+        mark(stage)
         gotham_meta, gotham_audit = export_cache_metadata(run_root, gotham_allow, "gotham")
         auxiliary_meta, auxiliary_audit = export_cache_metadata(run_root, auxiliary_allow, "auxiliary")
         metadata = pd.concat([gotham_meta, auxiliary_meta], ignore_index=True)
         stage = "validate_lineage"
+        mark(stage)
         gotham_lineage, lineage_audit = load_gotham_lineage(
             Path(args.gotham_lineage_snapshot),
             args.gotham_lineage_snapshot_sha256,
             int(args.gotham_lineage_rows),
         )
         atomic_json(out / "ckcz_gotham_lineage_audit.json", lineage_audit)
+        mark("lineage_complete", snapshot_rows=int(lineage_audit["snapshot_rows"]))
         stage = "export_metadata"
+        mark(stage, expected_rows=len(metadata))
         atomic_dataframe_csv(out / "ckcz_target_metadata.csv.gz", metadata, compress=True)
+        mark("metadata_export_complete", rows=len(metadata))
         stage = "pair_cardinality"
+        mark(stage)
         by_source, distribution = pair_cardinality(metadata)
-        atomic_csv(out / "ckcz_pair_cardinality_by_source.csv", by_source)
-        atomic_csv(out / "ckcz_pair_cardinality_distribution.csv", distribution)
-        atomic_csv(out / "ckcz_metadata_temporal_audit.csv", metadata_temporal_audit(metadata))
+        emit_csv("ckcz_pair_cardinality_by_source.csv", by_source)
+        emit_csv("ckcz_pair_cardinality_distribution.csv", distribution)
+        emit_csv("ckcz_metadata_temporal_audit.csv", metadata_temporal_audit(metadata))
         stage = "join_predictions"
+        mark(stage)
         predictions = validate_predictions(Path(args.predictions), args.predictions_sha256)
         joined, join_audit = join_predictions(predictions, metadata, gotham_lineage)
-        atomic_csv(out / "ckcz_prediction_join_audit.csv", join_audit)
+        emit_csv("ckcz_prediction_join_audit.csv", join_audit)
+        mark("prediction_join_complete", rows=len(joined))
         stage = "build_causal_state"
+        mark(stage, expected_rows=len(joined))
         state = build_causal_pair_state(joined)
         atomic_dataframe_csv(out / "ckcz_pair_state_rows.csv.gz", state, compress=True)
+        mark("causal_state_complete", rows=len(state))
         conflict_summary, conflict_ecdf = conflict_descriptive_audit(state)
-        atomic_csv(out / "ckcz_conflict_descriptive_audit.csv", conflict_summary)
-        atomic_csv(out / "ckcz_conflict_delta_time_ecdf.csv", conflict_ecdf)
+        emit_csv("ckcz_conflict_descriptive_audit.csv", conflict_summary)
+        emit_csv("ckcz_conflict_delta_time_ecdf.csv", conflict_ecdf)
         stage = "oracle_frontiers"
+        mark(stage)
         scalar_feasible: dict[str, bool] = {}
         if int(args.bootstrap_reps) < 20:
             raise RuntimeError("bootstrap_reps must be at least 20")
@@ -1261,19 +1388,36 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             "pool_cluster_counts", "bootstrap_reps", "ci_low", "ci_high",
         ]
         expected_bootstrap_rows = 0
-        with AtomicCsvSink(out / "ckcz_bootstrap_intervals.csv", bootstrap_fields) as bootstrap_sink:
+        with AtomicCsvSink(
+            out / "ckcz_bootstrap_intervals.csv",
+            bootstrap_fields,
+            progress=lambda count: mark("bootstrap_rows", rows_written=count),
+        ) as bootstrap_sink:
             for scalar_index, scalar in enumerate(SCALARS):
+                mark("scalar_compute_started", scalar=scalar, scalar_index=scalar_index)
                 frontier, families, pools, feasible, cuts = oracle_frontier(state, scalar)
                 scalar_feasible[scalar] = feasible
-                atomic_csv(out / f"ckcz_oracle_frontier_{scalar}.csv", frontier)
-                atomic_csv(out / f"ckcz_attack_family_metrics_{scalar}.csv", families)
-                atomic_csv(out / f"ckcz_ood_pool_metrics_{scalar}.csv", pools)
+                mark("scalar_compute_complete", scalar=scalar, cuts=len(cuts))
+                emit_csv(f"ckcz_oracle_frontier_{scalar}.csv", frontier, scalar=scalar)
+                emit_csv(
+                    f"ckcz_attack_family_metrics_{scalar}.csv", families, scalar=scalar
+                )
+                emit_csv(f"ckcz_ood_pool_metrics_{scalar}.csv", pools, scalar=scalar)
                 expected_bootstrap_rows += 12 * len(cuts)
+                mark("scalar_bootstrap_started", scalar=scalar, expected_rows=12 * len(cuts))
                 bootstrap_sink.write(
                     bootstrap_interval_rows(
                         state, scalar, cuts, int(args.bootstrap_reps),
                         int(args.seed) + 100_000 * scalar_index,
                     )
+                )
+                mark(
+                    "scalar_complete",
+                    scalar=scalar,
+                    frontier_rows=len(frontier),
+                    family_rows=len(families),
+                    pool_rows=len(pools),
+                    bootstrap_rows_total=bootstrap_sink.rows,
                 )
         if bootstrap_sink.rows != expected_bootstrap_rows:
             raise RuntimeError(
@@ -1298,8 +1442,9 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             "final_markers_loaded": False,
         }
         atomic_json(out / "ckcz_input_audit.json", audit)
-        atomic_csv(out / "ckcz_source_allowlist_audit.csv", gotham_audit + auxiliary_audit)
+        emit_csv("ckcz_source_allowlist_audit.csv", gotham_audit + auxiliary_audit)
         stage = "validate_outputs"
+        mark(stage)
         run_spec = {
             "issue": ISSUE,
             "seed": int(args.seed),
@@ -1347,11 +1492,21 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         output_files = sorted(path for path in out.iterdir() if path.is_file() and path.name != "SHA256SUMS")
         sums = "".join(f"{sha256_file(path)}  {path.name}\n" for path in output_files)
         atomic_bytes(out / "SHA256SUMS", sums.encode("utf-8"))
+        mark("complete", verdict_status=verdict["status"], output_files=len(output_files) + 1)
         return verdict
     except Exception as exc:
         verdict_path = out / "ckcz_verdict.json"
         if verdict_path.exists():
             verdict_path.unlink()
+        try:
+            mark(
+                "engineering_failure",
+                failed_stage=stage,
+                error_type=type(exc).__name__,
+                error=str(exc),
+            )
+        except Exception:
+            pass
         atomic_json(
             out / "job_failure.txt",
             {"status": "CKCZ_ENGINEERING_FAILURE", "stage": stage, "error_type": type(exc).__name__, "error": str(exc)},
@@ -1387,6 +1542,7 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument("--preregistered-protocol-sha256", required=True)
     result.add_argument("--preregistered-erratum", type=Path, required=True)
     result.add_argument("--preregistered-erratum-sha256", required=True)
+    result.add_argument("--progress-file", type=Path)
     result.add_argument("--out", type=Path, required=True)
     return result
 

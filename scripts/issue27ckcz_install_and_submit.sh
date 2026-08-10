@@ -128,6 +128,9 @@ for token in \
   '--bootstrap-reps 200' \
   '--preregistered-protocol "$PREREG"' \
   '--preregistered-erratum "$ERRATUM"' \
+  '--progress-file "$PROGRESS_FILE"' \
+  'STALL_SECONDS=1200' \
+  'CKCZ_PROGRESS_STALL' \
   'write_phase diagnostic_real_inputs' \
   'write_phase validate_result' \
   'bash "$VALIDATOR" "$RUN_ROOT"' \
