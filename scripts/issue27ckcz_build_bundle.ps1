@@ -27,7 +27,8 @@ $Copies = @(
   @{ Src = 'runs\mainline_docs\ckcz_attack_family_scope_clarification_20260809.md'; Dst = 'payload\runs\mainline_docs\ckcz_attack_family_scope_clarification_20260809.md' },
   @{ Src = 'runs\mainline_docs\ckcz_implementation_ready_for_kimi_review_20260809.md'; Dst = 'payload\runs\mainline_docs\ckcz_implementation_ready_for_kimi_review_20260809.md' },
   @{ Src = 'runs\mainline_docs\ckcz_implementation_kimi_final_review_20260809.md'; Dst = 'payload\runs\mainline_docs\ckcz_implementation_kimi_final_review_20260809.md' },
-  @{ Src = 'runs\mainline_docs\ckcz_job158015_lineage_repair_ready_for_kimi_review_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_job158015_lineage_repair_ready_for_kimi_review_20260810.md' }
+  @{ Src = 'runs\mainline_docs\ckcz_job158015_lineage_repair_ready_for_kimi_review_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_job158015_lineage_repair_ready_for_kimi_review_20260810.md' },
+  @{ Src = 'runs\mainline_docs\ckcz_lineage_repair_kimi_review_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_lineage_repair_kimi_review_20260810.md' }
 )
 
 function Assert-SafeTempPath([string]$Path, [string]$ExpectedLeaf) {
