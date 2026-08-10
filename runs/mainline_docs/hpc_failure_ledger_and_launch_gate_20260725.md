@@ -1247,3 +1247,33 @@ submission was made from this continuation.
 - Root cause located: record-level process-normality suppression cannot distinguish stealthy attacks (C&C/brute-force/ingress/scan) from benign OOD; tau_attack=1.0, rescue=0 on all dual arms; tail-margin ~= CE per family. Attack evidence exists in the C1 view (Merlin C&C 0.998) but suppression ignores it.
 - Full analysis: `runs/mainline_docs/ckbw_seed27_result_analysis_20260807.md`. Next-iteration candidates (Option A evidence-gated suppression / B episode aggregation / C attack-view veto) are discussion items only; nothing implemented.
 - Launch gate: closed again pending Codex+Kimi+user decision on the next preregistration.
+
+## 23. CKCZ job 158015 failed at Gotham UID-to-cache lineage join (2026-08-10)
+
+Category: **compute/runtime engineering failure**, not a scientific result.
+
+- AMD job `158015` passed bundle/input/cache/contract gates, then failed after 22 seconds in
+  `join_predictions`; validator never ran and no `ckcz_verdict.json` exists.
+- Exact signature: Gotham `support_val:select:*` rows were reported as unexpected metadata misses.
+- Root cause: CKCZ r1 parsed the final integer in CKBJ UID
+  `{role}:{m1_phase}:{row_index_in_role_frame}` as the cache `recorded_index`. These are different
+  frozen coordinates; e.g. UID suffix 0 maps to recorded_index 16621, and suffix 13 maps to 9665572.
+- Partial metadata/cardinality files are invalid as scientific outputs and cannot be reused as a result.
+
+Permanent repair and regression gate:
+
+1. Reuse the frozen CKBY 157930 lineage snapshot (287,448 rows, SHA-256
+   `b2ef1f7d0244cc7abb8665c25364744f794190f411482e4e202e346cb850279c`) and read only
+   `uid/source/role/m1_phase/recorded_index`.
+2. Recover Gotham indices by exact `(uid, source, role, phase)` join; retain the frozen auxiliary UID
+   function and ToN-only expected-missing rule. Never allow an unexpected miss or fuzzy fallback.
+3. Add a contract case where UID suffix differs from recorded_index, plus a real-artifact audit proving
+   complete non-ToN lineage coverage against the CKBW 297,326-row table.
+4. Pin the lineage snapshot path/hash in installer and compute-node Slurm before any scientific output.
+
+Rejected retry paths: clearing the idempotent job-id file and rerunning the r1 bundle; treating unexpected
+Gotham rows as metadata-missing singletons; reconstructing indices by source order, timestamps, labels, or
+family-specific exceptions.
+
+Accepted retry path: erratum + implementation/test repair + new hash-pinned bundle, Kimi independent review,
+then a new explicit user submission authorization. Job 158015 remains preserved as failure evidence.
