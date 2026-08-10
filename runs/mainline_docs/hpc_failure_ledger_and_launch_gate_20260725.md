@@ -1277,3 +1277,34 @@ family-specific exceptions.
 
 Accepted retry path: erratum + implementation/test repair + new hash-pinned bundle, Kimi independent review,
 then a new explicit user submission authorization. Job 158015 remains preserved as failure evidence.
+
+## 24. CKCZ job 158038 hard-stalled in Lustre OSC extent writeback (2026-08-10)
+
+Category: **compute/runtime engineering failure**, not a scientific result.
+
+- AMD job `158038` used the independently reviewed r2 bundle and passed all pre-submit gates, including the
+  repaired real Gotham lineage gate (`253326` protocol rows, `missing=0`). It crossed the job 158015 failure
+  point and materialized pair state, conflict audits, three scalar frontiers, and part of the fourth scalar.
+- The fourth attack-family CSV temporary file stopped at exactly `67108864` bytes. Three 30-second samples
+  showed identical size/mtime, `AveCPU=00:01:19`, MaxRSS, reads, and writes after more than one hour.
+- In-allocation process inspection at about 1h33m showed the Python process as `STAT=Il`,
+  `WCHAN=osc_extent_wait`. `/public`, OST2, inode capacity, and the user's unlimited quota all had headroom.
+- Exact implementation cause: `atomic_csv` materialized the complete CSV with `read().encode()` and passed
+  the resulting large bytes object to one `atomic_bytes(... handle.write(payload))` call. The large Lustre
+  write hard-stalled in OSC extent writeback. Heartbeats continued but were not completed-unit progress.
+- No `ckcz_verdict.json` exists and the post-result validator never ran. All partial files are invalid as
+  scientific outputs; r2 SHA `4c29122a...fc96` is revoked and must not be resubmitted.
+
+Permanent repair and regression gate:
+
+1. Stream CSV rows directly into a same-directory temporary file; never route a large CSV through
+   `atomic_bytes`, and cap `atomic_bytes` to small control artifacts.
+2. Validate schema and exact row count from the temporary stream before same-filesystem atomic rename.
+3. Add a contract that exceeds the old spool threshold, forbids any `atomic_bytes` call, verifies union
+   schema/row count, and rejects temporary-file leakage.
+4. Expose node-local completed-unit progress and enforce a no-progress watchdog in the result-producing job.
+5. Keep the scientific protocol and all four scalar outputs unchanged; do not delete detailed rows, patch a
+   family, reuse partial output, increase resources, or extend the wall-time as a substitute for repair.
+
+Accepted retry path: implementation/test repair + real-artifact validation + Kimi review + independently
+verified r3 bundle + new explicit user authorization. Job 158038 remains preserved as failure evidence.
