@@ -6,7 +6,7 @@ $ErrorActionPreference = 'Stop'
 
 $Worktree = 'D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline'
 $OutDir = 'D:\study\paper\anomaly_detection\paper04\supercompute_transfer'
-$BundleName = 'issue27ckcz_endpoint_pair_conflict_diagnostic_20260810'
+$BundleName = 'issue27ckcz_endpoint_pair_conflict_diagnostic_20260810_r2'
 $Archive = Join-Path $OutDir ($BundleName + '_upload_bundle.tar.gz')
 $Utf8NoBom = New-Object Text.UTF8Encoding($false)
 
@@ -18,13 +18,16 @@ $Copies = @(
   @{ Src = 'scripts\issue27ckcz_validate_and_pack_seed27.sh'; Dst = 'payload\scripts\issue27ckcz_validate_and_pack_seed27.sh' },
   @{ Src = 'runs\mainline_docs\ckcz_endpoint_pair_conflict_diagnostic_preregistered_20260809.md'; Dst = 'payload\runs\mainline_docs\ckcz_endpoint_pair_conflict_diagnostic_preregistered_20260809.md' },
   @{ Src = 'runs\mainline_docs\ckcz_endpoint_pair_conflict_diagnostic_preregistered_20260809.md.sha256'; Dst = 'payload\runs\mainline_docs\ckcz_endpoint_pair_conflict_diagnostic_preregistered_20260809.md.sha256' },
+  @{ Src = 'runs\mainline_docs\ckcz_preregistered_erratum_1_gotham_lineage_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_preregistered_erratum_1_gotham_lineage_20260810.md' },
+  @{ Src = 'runs\mainline_docs\ckcz_preregistered_erratum_1_gotham_lineage_20260810.md.sha256'; Dst = 'payload\runs\mainline_docs\ckcz_preregistered_erratum_1_gotham_lineage_20260810.md.sha256' },
   @{ Src = 'runs\mainline_docs\ckcz_gotham_source_allowlist_20260809.csv'; Dst = 'payload\runs\mainline_docs\ckcz_gotham_source_allowlist_20260809.csv' },
   @{ Src = 'runs\mainline_docs\ckcz_gotham_source_allowlist_20260809.csv.sha256'; Dst = 'payload\runs\mainline_docs\ckcz_gotham_source_allowlist_20260809.csv.sha256' },
   @{ Src = 'runs\mainline_docs\ckcz_auxiliary_source_allowlist_20260809.csv'; Dst = 'payload\runs\mainline_docs\ckcz_auxiliary_source_allowlist_20260809.csv' },
   @{ Src = 'runs\mainline_docs\ckcz_auxiliary_source_allowlist_20260809.csv.sha256'; Dst = 'payload\runs\mainline_docs\ckcz_auxiliary_source_allowlist_20260809.csv.sha256' },
   @{ Src = 'runs\mainline_docs\ckcz_attack_family_scope_clarification_20260809.md'; Dst = 'payload\runs\mainline_docs\ckcz_attack_family_scope_clarification_20260809.md' },
   @{ Src = 'runs\mainline_docs\ckcz_implementation_ready_for_kimi_review_20260809.md'; Dst = 'payload\runs\mainline_docs\ckcz_implementation_ready_for_kimi_review_20260809.md' },
-  @{ Src = 'runs\mainline_docs\ckcz_implementation_kimi_final_review_20260809.md'; Dst = 'payload\runs\mainline_docs\ckcz_implementation_kimi_final_review_20260809.md' }
+  @{ Src = 'runs\mainline_docs\ckcz_implementation_kimi_final_review_20260809.md'; Dst = 'payload\runs\mainline_docs\ckcz_implementation_kimi_final_review_20260809.md' },
+  @{ Src = 'runs\mainline_docs\ckcz_job158015_lineage_repair_ready_for_kimi_review_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_job158015_lineage_repair_ready_for_kimi_review_20260810.md' }
 )
 
 function Assert-SafeTempPath([string]$Path, [string]$ExpectedLeaf) {
@@ -83,6 +86,7 @@ try {
   }
 
   Assert-FileSha (Join-Path $Root 'payload\runs\mainline_docs\ckcz_endpoint_pair_conflict_diagnostic_preregistered_20260809.md') 'dad558902f2dfe2dc0dd4bf76cbf2e9e727be9f5d22ed2e91a5267586e8d3fde'
+  Assert-FileSha (Join-Path $Root 'payload\runs\mainline_docs\ckcz_preregistered_erratum_1_gotham_lineage_20260810.md') '9dfa6f1c6b14e6dc0c61810f71275612f617cf4d97611008da20de78f5bb5968'
   Assert-FileSha (Join-Path $Root 'payload\runs\mainline_docs\ckcz_gotham_source_allowlist_20260809.csv') '65b4804109914d50c3efb6b9ae40d2b7d7befc903be571a92ebee90624ab6de7'
   Assert-FileSha (Join-Path $Root 'payload\runs\mainline_docs\ckcz_auxiliary_source_allowlist_20260809.csv') 'be4ad12a9b0807b15b120d91ec2f9519a1743120ef0e9f04e0d8bab573252c49'
 

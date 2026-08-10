@@ -63,6 +63,10 @@ EXPECTED_GOTHAM_MANIFEST_SHA256 = (
 EXPECTED_AUXILIARY_MANIFEST_SHA256 = (
     "f2a674235cb929ed4b7ebb8723c53a4f314f4e4563e727e3f4a2e0a4ab201e43"
 )
+EXPECTED_GOTHAM_LINEAGE_SHA256 = (
+    "b2ef1f7d0244cc7abb8665c25364744f794190f411482e4e202e346cb850279c"
+)
+EXPECTED_GOTHAM_LINEAGE_ROWS = 287_448
 EXPECTED_PROTOCOL_ROWS = {
     GLOBAL: 251_050,
     "iotsim-hydraulic-system": 10_069,
@@ -93,6 +97,29 @@ AUXILIARY_FIELDS = frozenset(
         "feature_names",
         "raw_source_path",
     }
+)
+GOTHAM_LINEAGE_SNAPSHOT_FIELDS = frozenset(
+    {
+        "uid",
+        "x",
+        "role",
+        "m1_phase",
+        "source",
+        "device_family",
+        "attack_family",
+        "label",
+        "recorded_index",
+        "raw51_observable",
+        "global_pool",
+        "feature_names",
+    }
+)
+GOTHAM_LINEAGE_ARRAYS_READ = (
+    "uid",
+    "source",
+    "role",
+    "m1_phase",
+    "recorded_index",
 )
 FINAL_MARKERS = (
     "cooler-motor",
@@ -398,6 +425,55 @@ def export_cache_metadata(
     return frame, audits
 
 
+def load_gotham_lineage(
+    path: Path, expected_sha256: str, expected_rows: int
+) -> tuple[pd.DataFrame, dict[str, Any]]:
+    """Load only the five frozen Record-lineage arrays from CKBY 157930."""
+
+    path = Path(path)
+    assert_no_final_text(path, "Gotham lineage snapshot path")
+    actual_sha = sha256_file(path)
+    if actual_sha != str(expected_sha256).lower():
+        raise RuntimeError(f"Gotham lineage snapshot SHA drift: {actual_sha}")
+    with np.load(path, allow_pickle=False) as values:
+        if frozenset(values.files) != GOTHAM_LINEAGE_SNAPSHOT_FIELDS:
+            raise RuntimeError(f"Gotham lineage snapshot fields drift: {sorted(values.files)}")
+        # x/label/family/global_pool share the frozen container but remain
+        # forbidden CKCZ inputs and are deliberately never accessed here.
+        arrays = {
+            name: np.asarray(values[name])
+            for name in GOTHAM_LINEAGE_ARRAYS_READ
+        }
+    lengths = {name: len(value) for name, value in arrays.items()}
+    if set(lengths.values()) != {int(expected_rows)}:
+        raise RuntimeError(f"Gotham lineage row drift: {lengths}/{expected_rows}")
+    frame = pd.DataFrame(
+        {
+            "uid": arrays["uid"].astype(str),
+            "source_group": arrays["source"].astype(str),
+            "role": arrays["role"].astype(str),
+            "phase": arrays["m1_phase"].astype(str),
+            "target_index": arrays["recorded_index"].astype(np.int64),
+        }
+    )
+    keys = ["uid", "source_group", "role", "phase"]
+    if frame.duplicated(keys).any():
+        raise RuntimeError("Gotham lineage key collision")
+    if frame["target_index"].lt(0).any():
+        raise RuntimeError("Gotham lineage contains negative recorded_index")
+    for value in frame["source_group"].unique().tolist():
+        assert_no_final_text(value, "Gotham lineage source")
+    audit = {
+        "status": "CKCZ_GOTHAM_LINEAGE_PASS",
+        "snapshot_sha256": actual_sha,
+        "snapshot_rows": int(len(frame)),
+        "lineage_key_unique": True,
+        "arrays_read": list(GOTHAM_LINEAGE_ARRAYS_READ),
+        "forbidden_arrays_read": [],
+    }
+    return frame, audit
+
+
 def pair_cardinality(metadata: pd.DataFrame) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     rows: list[dict[str, Any]] = []
     pair_sizes: list[dict[str, Any]] = []
@@ -560,7 +636,7 @@ def validate_predictions(path: Path, expected_sha256: str = EXPECTED_PREDICTION_
         raise RuntimeError(f"prediction SHA drift: {actual}")
     frame = pd.read_csv(path)
     required = {
-        "held_value", "uid", "role", "source_group", "device_family", "attack_family",
+        "held_value", "uid", "role", "phase", "source_group", "device_family", "attack_family",
         "label_metric_only", "c1_hard", M7, "review",
     }
     missing = required - set(frame.columns)
@@ -591,17 +667,41 @@ def _prediction_target_index(row: pd.Series) -> tuple[str, int | None]:
         if len(pieces) < 4 or pieces[1] != role or ":".join(pieces[2:-1]) != source:
             raise RuntimeError(f"auxiliary UID contract failed: {uid}")
         return "auxiliary", index
-    if len(pieces) != 3 or pieces[0] != role:
+    if len(pieces) != 3 or pieces[0] != role or pieces[1] != str(row["phase"]):
         raise RuntimeError(f"Gotham UID contract failed: {uid}")
-    return "gotham", index
+    return "gotham", None
 
 
-def join_predictions(predictions: pd.DataFrame, metadata: pd.DataFrame) -> tuple[pd.DataFrame, list[dict[str, Any]]]:
+def join_predictions(
+    predictions: pd.DataFrame,
+    metadata: pd.DataFrame,
+    gotham_lineage: pd.DataFrame,
+) -> tuple[pd.DataFrame, list[dict[str, Any]]]:
     classified = predictions.apply(_prediction_target_index, axis=1, result_type="expand")
     work = predictions.copy()
     work["cache_kind"] = classified[0]
     work["target_index"] = classified[1].astype("Int64")
     work["_row_id"] = np.arange(len(work), dtype=np.int64)
+    lineage_keys = ["uid", "source_group", "role", "phase"]
+    if gotham_lineage.duplicated(lineage_keys).any():
+        raise RuntimeError("Gotham lineage key collision before prediction join")
+    gotham_rows = work["cache_kind"].eq("gotham")
+    mapped = work.loc[gotham_rows, ["_row_id", *lineage_keys]].merge(
+        gotham_lineage[lineage_keys + ["target_index"]],
+        on=lineage_keys,
+        how="left",
+        validate="many_to_one",
+        indicator=True,
+    )
+    lineage_missing = ~mapped["_merge"].eq("both")
+    if lineage_missing.any():
+        sample = mapped.loc[lineage_missing, lineage_keys].head(10)
+        raise RuntimeError(f"Gotham frozen lineage join miss:\n{sample.to_string(index=False)}")
+    target_by_row = mapped.set_index("_row_id")["target_index"]
+    work.loc[gotham_rows, "target_index"] = (
+        work.loc[gotham_rows, "_row_id"].map(target_by_row).astype("Int64")
+    )
+    work["target_index"] = work["target_index"].astype("Int64")
     meta_keys = ["cache_kind", "source_group", "target_index"]
     if metadata.duplicated(meta_keys).any():
         raise RuntimeError("metadata collision on cache/source/target index")
@@ -1101,12 +1201,17 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             (run_root, "CKBV root"), (args.predictions, "predictions"),
             (args.gotham_allowlist, "Gotham allowlist"),
             (args.auxiliary_allowlist, "auxiliary allowlist"),
+            (args.gotham_lineage_snapshot, "Gotham lineage snapshot"),
             (args.preregistered_protocol, "preregistered protocol"),
+            (args.preregistered_erratum, "preregistered erratum"),
         ):
             assert_no_final_text(value, context)
         protocol_sha = sha256_file(Path(args.preregistered_protocol))
         if protocol_sha != str(args.preregistered_protocol_sha256).lower():
             raise RuntimeError(f"preregistered protocol SHA drift: {protocol_sha}")
+        erratum_sha = sha256_file(Path(args.preregistered_erratum))
+        if erratum_sha != str(args.preregistered_erratum_sha256).lower():
+            raise RuntimeError(f"preregistered erratum SHA drift: {erratum_sha}")
         gotham_allow = load_allowlist(Path(args.gotham_allowlist), args.gotham_allowlist_sha256, "gotham")
         auxiliary_allow = load_allowlist(Path(args.auxiliary_allowlist), args.auxiliary_allowlist_sha256, "auxiliary")
         gotham_allow = validate_manifest(
@@ -1123,6 +1228,13 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         gotham_meta, gotham_audit = export_cache_metadata(run_root, gotham_allow, "gotham")
         auxiliary_meta, auxiliary_audit = export_cache_metadata(run_root, auxiliary_allow, "auxiliary")
         metadata = pd.concat([gotham_meta, auxiliary_meta], ignore_index=True)
+        stage = "validate_lineage"
+        gotham_lineage, lineage_audit = load_gotham_lineage(
+            Path(args.gotham_lineage_snapshot),
+            args.gotham_lineage_snapshot_sha256,
+            int(args.gotham_lineage_rows),
+        )
+        atomic_json(out / "ckcz_gotham_lineage_audit.json", lineage_audit)
         stage = "export_metadata"
         atomic_dataframe_csv(out / "ckcz_target_metadata.csv.gz", metadata, compress=True)
         stage = "pair_cardinality"
@@ -1132,7 +1244,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         atomic_csv(out / "ckcz_metadata_temporal_audit.csv", metadata_temporal_audit(metadata))
         stage = "join_predictions"
         predictions = validate_predictions(Path(args.predictions), args.predictions_sha256)
-        joined, join_audit = join_predictions(predictions, metadata)
+        joined, join_audit = join_predictions(predictions, metadata, gotham_lineage)
         atomic_csv(out / "ckcz_prediction_join_audit.csv", join_audit)
         stage = "build_causal_state"
         state = build_causal_pair_state(joined)
@@ -1182,6 +1294,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             "gotham": gotham_audit,
             "auxiliary": auxiliary_audit,
             "prediction_sha256": sha256_file(Path(args.predictions)),
+            "gotham_lineage": lineage_audit,
             "final_markers_loaded": False,
         }
         atomic_json(out / "ckcz_input_audit.json", audit)
@@ -1192,6 +1305,10 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             "seed": int(args.seed),
             "frozen_preregistered_protocol": str(args.preregistered_protocol),
             "frozen_preregistered_protocol_sha256": protocol_sha,
+            "frozen_preregistered_erratum": str(args.preregistered_erratum),
+            "frozen_preregistered_erratum_sha256": erratum_sha,
+            "gotham_lineage_snapshot": str(args.gotham_lineage_snapshot),
+            "gotham_lineage_snapshot_sha256": lineage_audit["snapshot_sha256"],
             "hpc_submission_authorized": False,
             "bootstrap_reps": int(args.bootstrap_reps),
             "bootstrap_complete": True,
@@ -1200,6 +1317,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         atomic_json(out / "run_spec.json", run_spec)
         required = {
             "ckcz_input_audit.json",
+            "ckcz_gotham_lineage_audit.json",
             "ckcz_source_allowlist_audit.csv",
             "ckcz_target_metadata.csv.gz",
             "ckcz_pair_cardinality_by_source.csv",
@@ -1245,6 +1363,13 @@ def parser() -> argparse.ArgumentParser:
     result = argparse.ArgumentParser(description=__doc__)
     result.add_argument("--ckbv-root", type=Path, required=True)
     result.add_argument("--predictions", type=Path, required=True)
+    result.add_argument("--gotham-lineage-snapshot", type=Path, required=True)
+    result.add_argument(
+        "--gotham-lineage-snapshot-sha256", default=EXPECTED_GOTHAM_LINEAGE_SHA256
+    )
+    result.add_argument(
+        "--gotham-lineage-rows", type=int, default=EXPECTED_GOTHAM_LINEAGE_ROWS
+    )
     result.add_argument("--gotham-allowlist", type=Path, required=True)
     result.add_argument("--auxiliary-allowlist", type=Path, required=True)
     result.add_argument("--gotham-allowlist-sha256", required=True)
@@ -1260,6 +1385,8 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument("--bootstrap-reps", type=int, default=200)
     result.add_argument("--preregistered-protocol", type=Path, required=True)
     result.add_argument("--preregistered-protocol-sha256", required=True)
+    result.add_argument("--preregistered-erratum", type=Path, required=True)
+    result.add_argument("--preregistered-erratum-sha256", required=True)
     result.add_argument("--out", type=Path, required=True)
     return result
 

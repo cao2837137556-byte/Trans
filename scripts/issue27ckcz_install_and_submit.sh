@@ -16,6 +16,9 @@ RUN154917="$BASE/runs/issue27ckbv_checkpointed_process_formal_v1_2026-07-25_seed
 CKBW157624="$BASE/runs/issue27ckbw_tail_margin_dual_control_v1_2026-08-03_seed27_amd_157624"
 PREDICTIONS="$CKBW157624/ckbw_record_predictions.csv.gz"
 PREDICTIONS_SHA256=d1e905924e74bf390aaaae79ee68f10312dc0bc1cdebff88848d4d3ee64adf85
+CKBY157930="$BASE/runs/issue27ckby_drocc_feature_dump_v1_2026-08-07_seed27_amd_157930"
+GOTHAM_LINEAGE="$CKBY157930/ckby_drocc_feature_snapshot_seed27.npz"
+GOTHAM_LINEAGE_SHA256=b2ef1f7d0244cc7abb8665c25364744f794190f411482e4e202e346cb850279c
 GOTHAM_MANIFEST="$RUN154917/ckbu_gotham_unified_causal_manifest.csv"
 GOTHAM_MANIFEST_SHA256=aaef2a0c0e4cc28d3815dbff4152db2fbe8c7d953dc35cf05cd817c4135d4c22
 AUXILIARY_MANIFEST="$RUN154917/ckbu_auxiliary_unified_causal_manifest.csv"
@@ -29,6 +32,8 @@ VALIDATOR="$SCRIPT_ROOT/issue27ckcz_validate_and_pack_seed27.sh"
 SLURM="$SCRIPT_ROOT/issue27ckcz_endpoint_pair_conflict_diagnostic_formal.slurm"
 PREREG="$PAYLOAD/runs/mainline_docs/ckcz_endpoint_pair_conflict_diagnostic_preregistered_20260809.md"
 PREREG_SHA256=dad558902f2dfe2dc0dd4bf76cbf2e9e727be9f5d22ed2e91a5267586e8d3fde
+ERRATUM="$PAYLOAD/runs/mainline_docs/ckcz_preregistered_erratum_1_gotham_lineage_20260810.md"
+ERRATUM_SHA256=9dfa6f1c6b14e6dc0c61810f71275612f617cf4d97611008da20de78f5bb5968
 GOTHAM_ALLOWLIST="$PAYLOAD/runs/mainline_docs/ckcz_gotham_source_allowlist_20260809.csv"
 GOTHAM_ALLOWLIST_SHA256=65b4804109914d50c3efb6b9ae40d2b7d7befc903be571a92ebee90624ab6de7
 AUXILIARY_ALLOWLIST="$PAYLOAD/runs/mainline_docs/ckcz_auxiliary_source_allowlist_20260809.csv"
@@ -36,8 +41,8 @@ AUXILIARY_ALLOWLIST_SHA256=be4ad12a9b0807b15b120d91ec2f9519a1743120ef0e9f04e0d8b
 
 for path in \
   "$BASE/scripts/00_env_issue27ckc.sh" "$DIAGNOSTIC" "$CONTRACT_TESTS" \
-  "$VALIDATOR" "$SLURM" "$PREREG" "$GOTHAM_ALLOWLIST" "$AUXILIARY_ALLOWLIST" \
-  "$GOTHAM_MANIFEST" "$AUXILIARY_MANIFEST" "$PREDICTIONS"; do
+  "$VALIDATOR" "$SLURM" "$PREREG" "$ERRATUM" "$GOTHAM_ALLOWLIST" "$AUXILIARY_ALLOWLIST" \
+  "$GOTHAM_MANIFEST" "$AUXILIARY_MANIFEST" "$PREDICTIONS" "$GOTHAM_LINEAGE"; do
   test -s "$path" || { echo "missing CKCZ runtime asset: $path" >&2; exit 2; }
 done
 for directory in "$GOTHAM_CACHE" "$AUXILIARY_CACHE"; do
@@ -51,11 +56,13 @@ sha256sum -c SHA256SUMS
 echo "=== CKCZ immutable input identities ==="
 for pair in \
   "$PREREG:$PREREG_SHA256" \
+  "$ERRATUM:$ERRATUM_SHA256" \
   "$GOTHAM_ALLOWLIST:$GOTHAM_ALLOWLIST_SHA256" \
   "$AUXILIARY_ALLOWLIST:$AUXILIARY_ALLOWLIST_SHA256" \
   "$GOTHAM_MANIFEST:$GOTHAM_MANIFEST_SHA256" \
   "$AUXILIARY_MANIFEST:$AUXILIARY_MANIFEST_SHA256" \
-  "$PREDICTIONS:$PREDICTIONS_SHA256"; do
+  "$PREDICTIONS:$PREDICTIONS_SHA256" \
+  "$GOTHAM_LINEAGE:$GOTHAM_LINEAGE_SHA256"; do
   asset=${pair%%:*}
   expected=${pair#*:}
   test "$(sha256sum "$asset" | awk '{print $1}')" = "$expected" || {
@@ -77,6 +84,33 @@ source scripts/00_env_issue27ckc.sh
 export PYTHONPATH="$CODE_ROOT${PYTHONPATH:+:$PYTHONPATH}"
 python -m py_compile "$DIAGNOSTIC" "$CONTRACT_TESTS"
 python "$CONTRACT_TESTS"
+python - "$PREDICTIONS" "$GOTHAM_LINEAGE" <<'PY'
+import sys
+from pathlib import Path
+
+import issue27ckcz_endpoint_pair_conflict_diagnostic_v1 as ckcz
+
+predictions = ckcz.validate_predictions(Path(sys.argv[1]))
+lineage, audit = ckcz.load_gotham_lineage(
+    Path(sys.argv[2]), ckcz.EXPECTED_GOTHAM_LINEAGE_SHA256,
+    ckcz.EXPECTED_GOTHAM_LINEAGE_ROWS,
+)
+uid = predictions["uid"].astype(str)
+gotham = predictions.loc[
+    ~uid.str.startswith("ton:") & ~uid.str.startswith("aux:"),
+    ["uid", "source_group", "role", "phase"],
+]
+keys = ["uid", "source_group", "role", "phase"]
+joined = gotham.merge(lineage, on=keys, how="left", validate="many_to_one", indicator=True)
+missing = int((~joined["_merge"].eq("both")).sum())
+if missing:
+    raise RuntimeError(f"real Gotham lineage coverage miss: {missing}")
+print(
+    "CKCZ_REAL_LINEAGE_GATE_PASS "
+    f"protocol_rows={len(gotham)} unique_uids={gotham['uid'].nunique()} "
+    f"snapshot_rows={audit['snapshot_rows']} missing={missing}"
+)
+PY
 bash -n "$VALIDATOR" "$SLURM"
 
 DIAGNOSTIC_SHA256=$(sha256sum "$DIAGNOSTIC" | awk '{print $1}')
@@ -89,8 +123,11 @@ for token in \
   'VALIDATOR_SHA256=${CKCZ_VALIDATOR_SHA256:?missing CKCZ_VALIDATOR_SHA256}' \
   '--gotham-allowlist "$GOTHAM_ALLOWLIST"' \
   '--auxiliary-allowlist "$AUXILIARY_ALLOWLIST"' \
+  '--gotham-lineage-snapshot "$GOTHAM_LINEAGE"' \
+  '--gotham-lineage-snapshot-sha256 "$GOTHAM_LINEAGE_SHA256"' \
   '--bootstrap-reps 200' \
   '--preregistered-protocol "$PREREG"' \
+  '--preregistered-erratum "$ERRATUM"' \
   'write_phase diagnostic_real_inputs' \
   'write_phase validate_result' \
   'bash "$VALIDATOR" "$RUN_ROOT"' \

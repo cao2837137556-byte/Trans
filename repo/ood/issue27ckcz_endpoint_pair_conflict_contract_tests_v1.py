@@ -211,6 +211,22 @@ def run() -> dict[str, bool | str]:
             feature_names=feature_names,
             raw_source_path=np.asarray("a-member.pcap"),
         )
+        lineage_path = Path(tmp) / "ckby_lineage_snapshot.npz"
+        np.savez_compressed(
+            lineage_path,
+            uid=np.asarray(["future_query:report:0", "future_query:report:1"]),
+            x=np.zeros((2, 2), dtype=np.float32),
+            role=np.asarray(["future_query", "future_query"]),
+            m1_phase=np.asarray(["report", "report"]),
+            source=np.asarray(["g-source", "g-source"]),
+            device_family=np.asarray(["device", "device"]),
+            attack_family=np.asarray(["family", "family"]),
+            label=np.ones(2, dtype=np.int8),
+            recorded_index=np.asarray([10, 11], dtype=np.int64),
+            raw51_observable=np.ones(2, dtype=bool),
+            global_pool=np.asarray(["report-only", "report-only"]),
+            feature_names=feature_names,
+        )
         g_allow = pd.DataFrame(
             [{
                 "source_group": "g-source", "source_cache_key": "g-key", "target_rows": 2,
@@ -235,26 +251,32 @@ def run() -> dict[str, bool | str]:
         )
         g_meta, _ = ckcz.export_cache_metadata(root, checked_g, "gotham")
         a_meta, _ = ckcz.export_cache_metadata(root, checked_a, "auxiliary")
+        lineage, lineage_audit = ckcz.load_gotham_lineage(
+            lineage_path, ckcz.sha256_file(lineage_path), 2
+        )
         result["gotham_and_scalar_aux_metadata_export"] = bool(
             len(g_meta) == 2 and len(a_meta) == 1
             and a_meta.iloc[0]["raw_source_path"] == "a-member.pcap"
         )
         prediction_fixture = pd.DataFrame(
             [
-                {"held_value": ckcz.GLOBAL, "uid": "future_query:report:10", "role": "future_query",
-                 "source_group": "g-source"},
+                {"held_value": ckcz.GLOBAL, "uid": "future_query:report:0", "role": "future_query",
+                 "phase": "report", "source_group": "g-source"},
                 {"held_value": "iotsim-predictive-maintenance",
-                 "uid": "aux:aux_report:a-source:0", "role": "aux_report", "source_group": "a-source"},
+                 "uid": "aux:aux_report:a-source:0", "role": "aux_report", "phase": "report",
+                 "source_group": "a-source"},
                 {"held_value": ckcz.GLOBAL, "uid": "ton:ton_normal:normal_2:1",
-                 "role": "aux_normal_select", "source_group": "normal_2.pcap"},
+                 "role": "aux_normal_select", "phase": "select", "source_group": "normal_2.pcap"},
             ]
         )
         joined_meta, audit = ckcz.join_predictions(
-            prediction_fixture, pd.concat([g_meta, a_meta], ignore_index=True)
+            prediction_fixture, pd.concat([g_meta, a_meta], ignore_index=True), lineage
         )
-        result["exact_uid_join_and_expected_ton_miss"] = bool(
+        result["exact_lineage_join_with_nonindex_uid_suffix"] = bool(
             joined_meta["metadata_matched"].tolist() == [True, True, False]
             and sum(int(row["unexpected_unmatched"]) for row in audit) == 0
+            and int(joined_meta.iloc[0]["target_index"]) == 10
+            and lineage_audit["forbidden_arrays_read"] == []
         )
 
         g_allow_path = Path(tmp) / "g_allow.csv"
@@ -272,6 +294,7 @@ def run() -> dict[str, bool | str]:
                     "held_value": ckcz.GLOBAL,
                     "uid": f"ton:synthetic:attack:{index}",
                     "role": role,
+                    "phase": "select" if role == "support_val" else "report",
                     "source_group": "normal_2.pcap",
                     "device_family": "synthetic-device",
                     "attack_family": family,
@@ -287,6 +310,7 @@ def run() -> dict[str, bool | str]:
                     "held_value": protocol,
                     "uid": f"ton:synthetic:ood:{index}",
                     "role": role,
+                    "phase": "report",
                     "source_group": "normal_2.pcap",
                     "device_family": protocol,
                     "attack_family": "benign",
@@ -301,11 +325,16 @@ def run() -> dict[str, bool | str]:
         prediction_frame.to_csv(prediction_path, index=False, compression="gzip")
         protocol_path = Path(tmp) / "frozen.md"
         protocol_path.write_text("synthetic frozen protocol\n", encoding="utf-8")
+        erratum_path = Path(tmp) / "erratum.md"
+        erratum_path.write_text("synthetic frozen lineage erratum\n", encoding="utf-8")
         old_counts = ckcz.EXPECTED_PROTOCOL_ROWS
         ckcz.EXPECTED_PROTOCOL_ROWS = prediction_frame.groupby("held_value").size().to_dict()
         run_args = SimpleNamespace(
             ckbv_root=root,
             predictions=prediction_path,
+            gotham_lineage_snapshot=lineage_path,
+            gotham_lineage_snapshot_sha256=ckcz.sha256_file(lineage_path),
+            gotham_lineage_rows=2,
             gotham_allowlist=g_allow_path,
             auxiliary_allowlist=a_allow_path,
             gotham_allowlist_sha256=ckcz.sha256_file(g_allow_path),
@@ -321,6 +350,8 @@ def run() -> dict[str, bool | str]:
             bootstrap_reps=20,
             preregistered_protocol=protocol_path,
             preregistered_protocol_sha256=ckcz.sha256_file(protocol_path),
+            preregistered_erratum=erratum_path,
+            preregistered_erratum_sha256=ckcz.sha256_file(erratum_path),
             out=Path(tmp) / "out",
         )
         try:

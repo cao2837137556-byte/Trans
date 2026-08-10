@@ -1,6 +1,10 @@
-# CKCZ bundle 已构建：提交 Kimi 独立审查（2026-08-10）
+# CKCZ r1 bundle 构建与审查历史（2026-08-10，已作废）
 
-状态：**BUNDLE BUILT AND LOCALLY VALIDATED — KIMI BUNDLE REVIEW REQUESTED — HPC NOT SUBMITTED**
+状态：**REVOKED AFTER JOB 158015 ENGINEERING FAILURE — SHA 9c3da516... MUST NOT BE RESUBMITTED**
+
+> 本文记录的包完整性审查在当时成立，但包内实现后来被真实运行证明存在 Gotham UID lineage
+> 坐标错误。完整性 PASS 不等于运行语义正确。本文以下内容仅保留为历史证据；修复走勘误 1
+> 与独立 r2 bundle。
 
 ## 1. 唯一有效候选包
 

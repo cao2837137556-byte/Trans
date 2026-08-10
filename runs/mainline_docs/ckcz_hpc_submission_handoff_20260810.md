@@ -1,6 +1,10 @@
-# CKCZ HPC 提交交接（2026-08-10）
+# CKCZ HPC 提交交接（2026-08-10，已作废）
 
-状态：**ALL TECHNICAL GATES PASS — USER EXECUTION REQUIRED — NOT YET SUBMITTED**
+状态：**REVOKED AFTER JOB 158015 ENGINEERING FAILURE — DO NOT RUN — DO NOT RESUBMIT R1**
+
+> 本文命令只对应 SHA `9c3da516...` 的 r1 bundle。该实现错误地把 Gotham UID 尾段当作
+> recorded_index，job 158015 已在严格 join 处 fail-closed。本文以下内容仅保留为提交历史，
+> 不再构成可执行指令。修复必须走 erratum、r2 bundle、Kimi 新审查与用户重新授权。
 
 ## 1. 已解除的门
 

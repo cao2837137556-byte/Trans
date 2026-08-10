@@ -13,7 +13,7 @@ test ! -e "$RUN_ROOT/job_failure.txt" || {
 }
 
 for name in \
-  ckcz_input_audit.json ckcz_source_allowlist_audit.csv \
+  ckcz_input_audit.json ckcz_gotham_lineage_audit.json ckcz_source_allowlist_audit.csv \
   ckcz_target_metadata.csv.gz ckcz_pair_cardinality_by_source.csv \
   ckcz_pair_cardinality_distribution.csv ckcz_metadata_temporal_audit.csv \
   ckcz_prediction_join_audit.csv ckcz_pair_state_rows.csv.gz \
@@ -39,7 +39,9 @@ import pandas as pd
 
 root = Path(sys.argv[1])
 protocol_sha = "dad558902f2dfe2dc0dd4bf76cbf2e9e727be9f5d22ed2e91a5267586e8d3fde"
+erratum_sha = "9dfa6f1c6b14e6dc0c61810f71275612f617cf4d97611008da20de78f5bb5968"
 prediction_sha = "d1e905924e74bf390aaaae79ee68f10312dc0bc1cdebff88848d4d3ee64adf85"
+lineage_sha = "b2ef1f7d0244cc7abb8665c25364744f794190f411482e4e202e346cb850279c"
 scalars = (
     "pair_conflict_count_so_far",
     "pair_consecutive_conflicts_so_far",
@@ -72,6 +74,7 @@ def load_json(name):
 verdict = load_json("ckcz_verdict.json")
 spec = load_json("run_spec.json")
 audit = load_json("ckcz_input_audit.json")
+lineage = load_json("ckcz_gotham_lineage_audit.json")
 require(verdict.get("status") in allowed_verdicts, "invalid scientific verdict status")
 require(verdict.get("scientific_verdict_valid") is True, "scientific verdict not valid")
 require(verdict.get("bootstrap_complete") is True, "bootstrap is incomplete")
@@ -86,14 +89,25 @@ require(
 require(spec.get("issue") == "issue27ckcz_endpoint_pair_conflict_diagnostic_v1_2026-08-09", "issue drift")
 require(spec.get("seed") == 27, "seed drift")
 require(spec.get("frozen_preregistered_protocol_sha256") == protocol_sha, "protocol SHA drift")
+require(spec.get("frozen_preregistered_erratum_sha256") == erratum_sha, "erratum SHA drift")
+require(spec.get("gotham_lineage_snapshot_sha256") == lineage_sha, "run_spec lineage SHA drift")
 require(spec.get("hpc_submission_authorized") is False, "implementation rewrote authorization history")
 require(spec.get("bootstrap_reps") == 200 and spec.get("bootstrap_complete") is True, "run_spec bootstrap drift")
 require(spec.get("scientific_verdict_valid") is True, "run_spec scientific verdict invalid")
 require(audit.get("status") == "CKCZ_INPUT_CONTRACT_PASS", "input contract did not pass")
 require(audit.get("prediction_sha256") == prediction_sha, "prediction SHA drift")
+require(audit.get("gotham_lineage") == lineage, "input/lineage audit mismatch")
 require(audit.get("final_markers_loaded") is False, "FINAL marker was loaded")
 require(len(audit.get("gotham", [])) == 24, "Gotham selected-source count drift")
 require(len(audit.get("auxiliary", [])) == 31, "auxiliary selected-source count drift")
+require(lineage.get("status") == "CKCZ_GOTHAM_LINEAGE_PASS", "lineage contract did not pass")
+require(lineage.get("snapshot_sha256") == lineage_sha, "lineage SHA drift")
+require(lineage.get("snapshot_rows") == 287448, "lineage row drift")
+require(
+    lineage.get("arrays_read") == ["uid", "source", "role", "m1_phase", "recorded_index"],
+    "lineage arrays-read contract drift",
+)
+require(lineage.get("forbidden_arrays_read") == [], "forbidden lineage array was read")
 
 allow = pd.read_csv(root / "ckcz_source_allowlist_audit.csv")
 require(len(allow) == 55, "source allowlist audit row drift")
@@ -115,6 +129,7 @@ require(
     "metadata misses are not exactly the frozen ToN rows",
 )
 require(int(join["metadata_unmatched"].sum()) > 0, "expected ToN metadata-miss rows disappeared")
+require(int(join["metadata_unmatched"].sum()) == 20000, "ToN metadata-miss denominator drift")
 
 state = pd.read_csv(
     root / "ckcz_pair_state_rows.csv.gz",
@@ -167,6 +182,7 @@ report = {
     "metadata_rows": int(len(metadata)),
     "pair_state_rows": int(len(state)),
     "selected_sources": int(len(allow)),
+    "gotham_lineage_rows": int(lineage["snapshot_rows"]),
     "attack_families": int(len(all_families)),
     "bootstrap_rows": int(len(bootstrap)),
     "core_sha256sum_verified": True,
