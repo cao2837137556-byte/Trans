@@ -30,7 +30,8 @@ $Copies = @(
   @{ Src = 'runs\mainline_docs\ckcz_job158015_lineage_repair_ready_for_kimi_review_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_job158015_lineage_repair_ready_for_kimi_review_20260810.md' },
   @{ Src = 'runs\mainline_docs\ckcz_lineage_repair_kimi_review_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_lineage_repair_kimi_review_20260810.md' },
   @{ Src = 'runs\mainline_docs\ckcz_job158038_lustre_stall_triage_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_job158038_lustre_stall_triage_20260810.md' },
-  @{ Src = 'runs\mainline_docs\ckcz_job158038_streaming_repair_ready_for_kimi_review_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_job158038_streaming_repair_ready_for_kimi_review_20260810.md' }
+  @{ Src = 'runs\mainline_docs\ckcz_job158038_streaming_repair_ready_for_kimi_review_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_job158038_streaming_repair_ready_for_kimi_review_20260810.md' },
+  @{ Src = 'runs\mainline_docs\ckcz_streaming_repair_kimi_review_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_streaming_repair_kimi_review_20260810.md' }
 )
 
 function Assert-SafeTempPath([string]$Path, [string]$ExpectedLeaf) {
