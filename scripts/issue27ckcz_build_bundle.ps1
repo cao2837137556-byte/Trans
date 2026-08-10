@@ -1,12 +1,12 @@
 # CKCZ seed-27 upload bundle builder.
 # Stages only the reviewed CKCZ payload, normalizes text to LF, executes the
-# 18-test contract suite, verifies immutable sidecars, archives, extracts into
+# 22-check contract suite, verifies immutable sidecars, archives, extracts into
 # a second temporary root, and independently verifies every bundled SHA-256.
 $ErrorActionPreference = 'Stop'
 
 $Worktree = 'D:\study\paper\anomaly_detection\paper04\worktrees\kitnet-exp-mainline'
 $OutDir = 'D:\study\paper\anomaly_detection\paper04\supercompute_transfer'
-$BundleName = 'issue27ckcz_endpoint_pair_conflict_diagnostic_20260810_r2'
+$BundleName = 'issue27ckcz_endpoint_pair_conflict_diagnostic_20260810_r3'
 $Archive = Join-Path $OutDir ($BundleName + '_upload_bundle.tar.gz')
 $Utf8NoBom = New-Object Text.UTF8Encoding($false)
 
@@ -28,7 +28,9 @@ $Copies = @(
   @{ Src = 'runs\mainline_docs\ckcz_implementation_ready_for_kimi_review_20260809.md'; Dst = 'payload\runs\mainline_docs\ckcz_implementation_ready_for_kimi_review_20260809.md' },
   @{ Src = 'runs\mainline_docs\ckcz_implementation_kimi_final_review_20260809.md'; Dst = 'payload\runs\mainline_docs\ckcz_implementation_kimi_final_review_20260809.md' },
   @{ Src = 'runs\mainline_docs\ckcz_job158015_lineage_repair_ready_for_kimi_review_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_job158015_lineage_repair_ready_for_kimi_review_20260810.md' },
-  @{ Src = 'runs\mainline_docs\ckcz_lineage_repair_kimi_review_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_lineage_repair_kimi_review_20260810.md' }
+  @{ Src = 'runs\mainline_docs\ckcz_lineage_repair_kimi_review_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_lineage_repair_kimi_review_20260810.md' },
+  @{ Src = 'runs\mainline_docs\ckcz_job158038_lustre_stall_triage_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_job158038_lustre_stall_triage_20260810.md' },
+  @{ Src = 'runs\mainline_docs\ckcz_job158038_streaming_repair_ready_for_kimi_review_20260810.md'; Dst = 'payload\runs\mainline_docs\ckcz_job158038_streaming_repair_ready_for_kimi_review_20260810.md' }
 )
 
 function Assert-SafeTempPath([string]$Path, [string]$ExpectedLeaf) {

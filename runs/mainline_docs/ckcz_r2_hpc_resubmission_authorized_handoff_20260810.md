@@ -1,6 +1,10 @@
 # CKCZ r2 HPC 重新提交授权交接（2026-08-10）
 
-状态：**KIMI R2 BUNDLE PASS + USER RESUBMISSION AUTHORIZED；READY TO RUN COMMANDS**
+状态：**REVOKED AFTER JOB 158038 LUSTRE HARD STALL — DO NOT RUN — DO NOT RESUBMIT R2**
+
+> 本文命令仅对应 SHA `4c29122a...fc96` 的 r2 bundle。job 158038 已证明该实现会在大型
+> attack-family CSV 的整体原子写入中卡入 `osc_extent_wait`。本文以下内容只保留为历史证据，
+> 不再构成可执行指令。必须使用流式写入修复、r3 bundle、Kimi 新审查和用户新授权。
 
 ## 1. 授权与范围
 

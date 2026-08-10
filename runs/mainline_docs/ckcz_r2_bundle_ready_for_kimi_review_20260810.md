@@ -1,6 +1,9 @@
 # CKCZ lineage 修复 r2 bundle：待 Kimi 独立审查（2026-08-10）
 
-状态：**R2 BUNDLE BUILT AND LOCALLY VALIDATED；HPC NOT RESUBMITTED**
+状态：**REVOKED AFTER JOB 158038 LUSTRE HARD STALL — SHA 4c29122a...fc96 MUST NOT BE RESUBMITTED**
+
+> r2 的包完整性在构建时成立，但真实运行暴露大型 CSV 整体原子写入的 Lustre
+> `osc_extent_wait` 硬停滞。本文只保留为历史证据；修复走独立 r3 bundle。
 
 ## 1. 唯一有效候选包
 
