@@ -1385,3 +1385,21 @@ The redundant preliminary probe is removed. Every remaining native command
 that may legitimately return nonzero is executed under a locally saved and
 restored `Continue` policy, with its numeric exit captured before fail-closed
 handling. The caller's preference is restored and not modified globally.
+
+VS Code Remote-SSH was independently blocked during the same launch window.
+The 1.132.0 client authenticated to `school-hpc`, created the expected remote
+install directory, and then failed locally with
+`LocalDownloadFailed: Failed to fetch` for commit
+`df53daabb18cd157bdb08c7f01c34df936cf12f4`. This is a local proxy/download
+failure after SSH authentication, not evidence that the HPC login node was
+down. The exact official `server-linux-x64` archive was downloaded through the
+existing localhost proxy with HTTP/1.1 resume/retry: 227,503,960 bytes,
+SHA-256 `adf5816366a9a8c430745f96fd783df70e7606a35311999aac53b70b257aebc0`,
+and full tar readback PASS.
+
+The accepted repair is
+`scripts/issue27ckda_vscode_server_bootstrap.ps1`: it uploads that pinned
+archive with automatic SFTP resume to the precise server-commit directory and
+creates `vscode-server.tar.gz.done` only after remote size and SHA validation.
+It does not change the VPN/proxy interface, delete another VS Code Server
+version, or treat a listening SSH port as completed Remote-SSH installation.
