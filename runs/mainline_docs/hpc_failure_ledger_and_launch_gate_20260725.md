@@ -1345,3 +1345,18 @@ Permanent correction and gate:
 Recomputation is unnecessary: the locally validated archive remains the exact
 authorized object. Only transfer must resume. Formal CKDA D0 submission has
 not happened yet.
+
+Follow-up evidence: the first manual `reput` resumed from 202,745,660 bytes,
+then the SSH server closed the connection again at about 307 MiB (48 percent).
+Because the interactive SFTP process had exited, subsequent `put`, `ls`, and
+`bye` text was interpreted by PowerShell. This is a handoff-design defect in
+addition to the recurring transport reset; requiring the user to track which
+prompt is active is rejected.
+
+The accepted durable transfer path is now
+`scripts/issue27ckda_d0_resumable_upload.ps1`: after one purpose-specific SSH
+public-key installation, it uses noninteractive SFTP batch mode, rate limits
+the stream to 6,000 kbit/s, limits outstanding requests to four, automatically
+reconnects up to 100 times, resumes the same remote file on every attempt, and
+returns success only after remote byte count plus both outer SHA checks pass.
+The private key is not stored in Git or the experiment bundle.
