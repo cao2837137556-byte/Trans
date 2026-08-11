@@ -11,13 +11,20 @@ $RepoCanonical = [IO.Path]::GetFullPath($Repo).TrimEnd([char[]]'\/')
 $GitRootCanonical = [IO.Path]::GetFullPath($GitRoot).TrimEnd([char[]]'\/')
 if ($GitRootCanonical -ne $RepoCanonical) { throw "unexpected Git root: $GitRoot" }
 $Commit = (git -C $Repo rev-parse HEAD).Trim()
-$BundleName = 'issue27ckda_d0_representation_compatibility_20260811'
+$BaseBundleName = 'issue27ckda_d0_representation_compatibility_20260811'
+$BundleName = 'issue27ckda_d0_representation_compatibility_20260811_r2'
+$BaseBundle = Join-Path $TransferRoot $BaseBundleName
 $Bundle = Join-Path $TransferRoot $BundleName
 $Archive = Join-Path $TransferRoot ($BundleName + '_upload_bundle.tar.gz')
 $ArchiveSidecar = $Archive + '.sha256'
+$RepairArchive = Join-Path $TransferRoot ($BundleName + '_repair_overlay.tar.gz')
+$RepairArchiveSidecar = $RepairArchive + '.sha256'
 
-foreach ($target in @($Bundle, $Archive, $ArchiveSidecar)) {
+foreach ($target in @($Bundle, $Archive, $ArchiveSidecar, $RepairArchive, $RepairArchiveSidecar)) {
   if (Test-Path -LiteralPath $target) { Remove-Item -LiteralPath $target -Recurse -Force }
+}
+if (-not (Test-Path -LiteralPath $BaseBundle -PathType Container)) {
+  throw "missing verified r1 bundle required for repair overlay: $BaseBundle"
 }
 New-Item -ItemType Directory -Force -Path (Join-Path $Bundle 'payload') | Out-Null
 
@@ -32,6 +39,7 @@ function Copy-ScopedFile([string]$Relative) {
 $RepoFiles = @(
   'repo\ood\issue27ckda_d0_representation_compatibility_audit_v1.py',
   'repo\ood\issue27ckda_d0_resource_pilot_v1.py',
+  'repo\ood\issue27ckda_netfound_py39_compat_v1.py',
   'repo\ood\issue27ckda_d0_validate_and_pack_v1.py',
   'repo\ood\issue27ckbu_unified_tshark_causal_frontend_v1.py',
   'scripts\issue27ckda_d0_representation_compatibility_audit_formal.slurm',
@@ -62,6 +70,14 @@ Copy-Item -LiteralPath (Join-Path $NetFoundSource 'src') -Destination $NetFoundD
 Copy-Item -LiteralPath (Join-Path $NetFoundSource 'LICENSE') -Destination $NetFoundDest -Force
 Copy-Item -LiteralPath (Join-Path $NetFoundSource 'configs\DefaultConfigNoTCPOptions.json') -Destination $NetFoundDest -Force
 Set-Content -LiteralPath (Join-Path $NetFoundDest 'OFFICIAL_REPO_COMMIT.txt') -Value 'b3ab5a3aa72640cc725ef207fb0145b039a57d35' -Encoding ascii
+$CompatScript = Join-Path $Bundle 'payload\repo\ood\issue27ckda_netfound_py39_compat_v1.py'
+$CompatAudit = Join-Path $NetFoundDest 'PY39_COMPAT_AUDIT.json'
+python $CompatScript --source-root (Join-Path $NetFoundDest 'src') --audit $CompatAudit
+if ($LASTEXITCODE -ne 0) { throw "netFound Python-3.9 compatibility patch failed: exit $LASTEXITCODE" }
+$CompatReport = Get-Content -LiteralPath $CompatAudit -Raw | ConvertFrom-Json
+if ($CompatReport.status -ne 'CKDA_NETFOUND_PY39_COMPAT_PASS' -or $CompatReport.replacement_count -ne 1) {
+  throw 'netFound Python-3.9 compatibility audit failed closed'
+}
 
 $ModelDest = Join-Path $Vendor 'netFound-base'
 New-Item -ItemType Directory -Force -Path $ModelDest | Out-Null
@@ -131,6 +147,9 @@ $Identity = [ordered]@{
   contract_sha256 = 'ac4e2c2093811929e0fd20b65bb0c727ef3f872f6f7586b3049cf5758fc9c8b5'
   netfound_repo_commit = 'b3ab5a3aa72640cc725ef207fb0145b039a57d35'
   netfound_model_commit = 'b812e625999165376ddb47a39d0d5579d4edce89'
+  netfound_py39_upstream_file_sha256 = $CompatReport.upstream_file_sha256
+  netfound_py39_patched_file_sha256 = $CompatReport.patched_file_sha256
+  netfound_py39_ast_files = $CompatReport.python39_ast_files
   netfound_checkpoint_bytes = 698780900
   netfound_checkpoint_sha256 = 'e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105'
   linux_wheels = @($Wheels | ForEach-Object { [ordered]@{ name = $_.Name; sha256 = (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant() } })
@@ -160,6 +179,41 @@ if ($LASTEXITCODE -ne 0) { throw "tar build failed: exit $LASTEXITCODE" }
 $ArchiveHash = (Get-FileHash -LiteralPath $Archive -Algorithm SHA256).Hash.ToLowerInvariant()
 [System.IO.File]::WriteAllText($ArchiveSidecar, "$ArchiveHash  $([IO.Path]::GetFileName($Archive))`n", $Utf8NoBom)
 
+$BaseFiles = Get-ChildItem -LiteralPath $BaseBundle -Recurse -File
+$RemovedFiles = @($BaseFiles | Where-Object {
+  $relative = $_.FullName.Substring($BaseBundle.Length + 1)
+  -not (Test-Path -LiteralPath (Join-Path $Bundle $relative) -PathType Leaf)
+})
+if ($RemovedFiles.Count -ne 0) {
+  throw "r2 repair overlay cannot represent removed r1 files: $($RemovedFiles.Count)"
+}
+$OverlayEntries = @()
+foreach ($file in Get-ChildItem -LiteralPath $Bundle -Recurse -File | Sort-Object FullName) {
+  $relative = $file.FullName.Substring($Bundle.Length + 1)
+  $base = Join-Path $BaseBundle $relative
+  if (-not (Test-Path -LiteralPath $base -PathType Leaf) -or
+      (Get-FileHash -LiteralPath $file.FullName -Algorithm SHA256).Hash -ne
+      (Get-FileHash -LiteralPath $base -Algorithm SHA256).Hash) {
+    $OverlayEntries += ($BundleName + '/' + $relative.Replace('\', '/'))
+  }
+}
+if ($OverlayEntries.Count -eq 0) { throw 'r2 repair overlay is unexpectedly empty' }
+$OverlayList = [IO.Path]::GetTempFileName()
+try {
+  [System.IO.File]::WriteAllText($OverlayList, ($OverlayEntries -join "`n") + "`n", $Utf8NoBom)
+  tar -czf $RepairArchive -C $TransferRoot -T $OverlayList
+  if ($LASTEXITCODE -ne 0) { throw "repair-overlay tar build failed: exit $LASTEXITCODE" }
+}
+finally {
+  if (Test-Path -LiteralPath $OverlayList) { Remove-Item -LiteralPath $OverlayList -Force }
+}
+$RepairArchiveHash = (Get-FileHash -LiteralPath $RepairArchive -Algorithm SHA256).Hash.ToLowerInvariant()
+[System.IO.File]::WriteAllText(
+  $RepairArchiveSidecar,
+  "$RepairArchiveHash  $([IO.Path]::GetFileName($RepairArchive))`n",
+  $Utf8NoBom
+)
+
 $VerifyRoot = Join-Path $TransferRoot ($BundleName + '_clean_verify')
 if (Test-Path -LiteralPath $VerifyRoot) { Remove-Item -LiteralPath $VerifyRoot -Recurse -Force }
 New-Item -ItemType Directory -Force -Path $VerifyRoot | Out-Null
@@ -174,16 +228,36 @@ foreach ($line in Get-Content -LiteralPath (Join-Path $Extracted 'SHA256SUMS')) 
 }
 Remove-Item -LiteralPath $VerifyRoot -Recurse -Force
 
+$OverlayVerifyRoot = Join-Path $TransferRoot ($BundleName + '_overlay_verify')
+if (Test-Path -LiteralPath $OverlayVerifyRoot) { Remove-Item -LiteralPath $OverlayVerifyRoot -Recurse -Force }
+New-Item -ItemType Directory -Force -Path $OverlayVerifyRoot | Out-Null
+$OverlayExtracted = Join-Path $OverlayVerifyRoot $BundleName
+Copy-Item -LiteralPath $BaseBundle -Destination $OverlayExtracted -Recurse -Force
+tar -xzf $RepairArchive -C $OverlayVerifyRoot
+if ($LASTEXITCODE -ne 0) { throw "repair-overlay extraction failed: exit $LASTEXITCODE" }
+foreach ($line in Get-Content -LiteralPath (Join-Path $OverlayExtracted 'SHA256SUMS')) {
+  if (-not $line.Trim()) { continue }
+  $parts = $line -split '  ', 2
+  $actual = (Get-FileHash -LiteralPath (Join-Path $OverlayExtracted $parts[1].Replace('/', '\')) -Algorithm SHA256).Hash.ToLowerInvariant()
+  if ($actual -ne $parts[0]) { throw "repair-overlay SHA mismatch: $($parts[1])" }
+}
+Remove-Item -LiteralPath $OverlayVerifyRoot -Recurse -Force
+
 [ordered]@{
   status = 'CKDA_D0_BUNDLE_BUILD_PASS'
   bundle = $Bundle
   archive = $Archive
   archive_bytes = (Get-Item -LiteralPath $Archive).Length
   archive_sha256 = $ArchiveHash
+  repair_overlay = $RepairArchive
+  repair_overlay_bytes = (Get-Item -LiteralPath $RepairArchive).Length
+  repair_overlay_sha256 = $RepairArchiveHash
+  repair_overlay_files = $OverlayEntries.Count
   payload_files = $Files.Count
   commit_sha = $Commit
   netfound_checkpoint_bytes = 698780900
   netfound_checkpoint_sha256 = 'e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105'
   clean_extract_sha_check = 'PASS'
+  clean_overlay_sha_check = 'PASS'
   lf_only = 'PASS'
 } | ConvertTo-Json -Depth 3

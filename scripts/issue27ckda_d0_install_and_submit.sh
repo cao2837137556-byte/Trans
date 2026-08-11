@@ -39,10 +39,12 @@ for path in \
   "$SLURM" "$STATUS" \
   "$PAYLOAD/repo/ood/issue27ckda_d0_representation_compatibility_audit_v1.py" \
   "$PAYLOAD/repo/ood/issue27ckda_d0_resource_pilot_v1.py" \
+  "$PAYLOAD/repo/ood/issue27ckda_netfound_py39_compat_v1.py" \
   "$PAYLOAD/repo/ood/issue27ckda_d0_validate_and_pack_v1.py" \
   "$PAYLOAD/repo/ood/issue27ckbu_unified_tshark_causal_frontend_v1.py" \
   "$PAYLOAD/vendor/netFound-base/config.json" \
   "$PAYLOAD/vendor/netFound-base/model.safetensors" \
+  "$PAYLOAD/vendor/netFound/PY39_COMPAT_AUDIT.json" \
   "$RUN154917/ckbu_gotham_source_plan.csv" \
   "$RUN154917/ckbu_auxiliary_source_plan.csv" \
   "$RUN154917/ckbu_ton_raw_pcap_materialization_audit.csv" \
@@ -79,7 +81,25 @@ export TRANSFORMERS_OFFLINE=1 HF_HUB_OFFLINE=1
 python -m py_compile \
   "$PAYLOAD/repo/ood/issue27ckda_d0_representation_compatibility_audit_v1.py" \
   "$PAYLOAD/repo/ood/issue27ckda_d0_resource_pilot_v1.py" \
+  "$PAYLOAD/repo/ood/issue27ckda_netfound_py39_compat_v1.py" \
   "$PAYLOAD/repo/ood/issue27ckda_d0_validate_and_pack_v1.py"
+python - "$PAYLOAD/vendor/netFound" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+root = Path(sys.argv[1])
+audit = json.loads((root / "PY39_COMPAT_AUDIT.json").read_text(encoding="utf-8"))
+assert audit["status"] == "CKDA_NETFOUND_PY39_COMPAT_PASS"
+assert audit["replacement_count"] == 1
+assert audit["semantic_change"] == "NONE_SYNTAX_EQUIVALENT_IF_ELIF"
+count = 0
+for path in sorted((root / "src").rglob("*.py")):
+    compile(path.read_text(encoding="utf-8"), str(path), "exec")
+    count += 1
+assert count == audit["python39_ast_files"]
+print("CKDA_D0_NETFOUND_PY39_SOURCE_GATE_PASS", count, audit["patched_file_sha256"])
+PY
 bash -n "$SLURM"
 bash -n "$STATUS"
 python "$PAYLOAD/repo/ood/issue27ckda_d0_representation_compatibility_audit_v1.py" contract-test

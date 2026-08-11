@@ -1438,3 +1438,43 @@ a raw `C:\...` argument through `wsl.exe` could lose backslashes before
 `wslpath`; both helpers therefore use a deterministic drive-letter conversion
 to `/mnt/<drive>/...` and no longer delegate that boundary to native argument
 serialization.
+
+Sixth transfer follow-up: `ssh-copy-id` reported one key added, but both WSL
+and Windows clients offered the exact ED25519 fingerprint and the OpenSSH 9.9
+server rejected it.  Therefore unattended public-key reconnection is not an
+available launch assumption for this account.  The already-partial archive was
+completed with one password-backed WSL rsync `--append-verify` session and the
+remote artifact passed 665,814,425-byte and frozen SHA-256 checks.  Future
+large-transfer automation must either use an administrator-confirmed key path
+or a site-supported transfer service; it may not claim key authentication from
+`authorized_keys` write success alone.
+
+## 26. CKDA D0 job 158187 netFound Python-3.9 syntax failure (2026-08-11)
+
+Category: **ENVIRONMENT_OR_DEPENDENCY_FAILURE**, not a scientific result.
+
+- The frozen environment is Python 3.9.  Official netFound commit
+  `b3ab5a3aa72640cc725ef207fb0145b039a57d35` contains Python-3.10-only
+  `match problem_type:` syntax in `modules/netFoundModels.py:344`.
+- Login-node tests compiled CKDA-owned modules but did not compile the vendored
+  model source.  Job `158187` therefore reached
+  `resource_pilot_real_fit_prefixes` and failed at the first E3 import.
+- The resource pilot produced no row and D0 produced no verdict.  The failure
+  is not evidence for or against any representation candidate.
+- The preceding real-data census completed without labels or FINAL access:
+  I1 gate PASS, 4,764,022 sessions, 11,705,453 tokens, 27 source checkpoints,
+  fit-prefix SHA-256
+  `9184cd018efcc6547832bf04ce6d3046c687b8e48cac73234482d9fb3ba89689`.
+
+Permanent correction: pin the exact upstream source-file SHA, replace the one
+`match/case` dispatch with a syntax-equivalent `if/elif` dispatch only in the
+bundled copy, parse all 17 vendor Python files with the Python-3.9 grammar, and
+compile the entire vendored source tree with the actual HPC Python before
+submission.  Source drift, a non-unique target, any remaining Python-3.10
+syntax, or a missing compatibility audit fails closed.
+
+Accepted retry path: Kimi-reviewed r2 repair overlay, independent overlay
+SHA/readback, preserved job `158187`, reuse of only the content-addressed
+27-source census checkpoints, regenerated census summary, and a new user
+authorization before `sbatch`.  No family patch, FINAL access, threshold
+selection, or scientific-contract change is permitted.

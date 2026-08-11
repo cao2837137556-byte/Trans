@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import ast
 import csv
 import importlib.util
 import json
@@ -29,6 +30,12 @@ VALIDATOR_SPEC = importlib.util.spec_from_file_location("ckda_d0_validator_test_
 assert VALIDATOR_SPEC is not None and VALIDATOR_SPEC.loader is not None
 validator = importlib.util.module_from_spec(VALIDATOR_SPEC)
 VALIDATOR_SPEC.loader.exec_module(validator)
+
+COMPAT_PATH = Path(__file__).with_name("issue27ckda_netfound_py39_compat_v1.py")
+COMPAT_SPEC = importlib.util.spec_from_file_location("ckda_netfound_py39_compat_test_target", COMPAT_PATH)
+assert COMPAT_SPEC is not None and COMPAT_SPEC.loader is not None
+compat = importlib.util.module_from_spec(COMPAT_SPEC)
+COMPAT_SPEC.loader.exec_module(compat)
 
 ROOT = Path(__file__).resolve().parents[2]
 CONTRACT = ROOT / "runs/mainline_docs/ckda_d0_representation_compatibility_audit_preregistered_20260811.md"
@@ -393,6 +400,38 @@ class CKDAD0ContractTests(unittest.TestCase):
             report = json.loads((result / "ckda_d0_validation_report.json").read_text(encoding="utf-8"))
             self.assertEqual(report["status"], "PASS")
             self.assertEqual(report["resource_pilot_candidates"], ["E3"])
+
+    def test_31_netfound_py39_patch_is_exact_and_semantics_preserving(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            target = root / compat.TARGET_RELATIVE
+            target.parent.mkdir(parents=True)
+            prefix = "def f(logits, labels, problem_type, num_labels):\n    loss = None\n"
+            suffix = "    return loss\n"
+            source = prefix + compat.OLD_BLOCK + suffix
+            target.write_text(source, encoding="utf-8")
+            original_expected = compat.UPSTREAM_FILE_SHA256
+            try:
+                compat.UPSTREAM_FILE_SHA256 = compat.sha256_bytes(target.read_bytes())
+                audit = root / "audit.json"
+                report = compat.apply_patch(root, audit)
+            finally:
+                compat.UPSTREAM_FILE_SHA256 = original_expected
+            patched = target.read_text(encoding="utf-8")
+            self.assertEqual(report["replacement_count"], 1)
+            self.assertEqual(report["semantic_change"], "NONE_SYNTAX_EQUIVALENT_IF_ELIF")
+            self.assertNotIn("match problem_type", patched)
+            ast.parse(patched, feature_version=(3, 9))
+            self.assertEqual(json.loads(audit.read_text(encoding="utf-8"))["status"], "CKDA_NETFOUND_PY39_COMPAT_PASS")
+
+    def test_32_netfound_py39_patch_rejects_source_drift(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            target = root / compat.TARGET_RELATIVE
+            target.parent.mkdir(parents=True)
+            target.write_text("drift\n", encoding="utf-8")
+            with self.assertRaisesRegex(RuntimeError, "upstream source drift"):
+                compat.apply_patch(root, root / "audit.json")
 
 
 if __name__ == "__main__":
