@@ -1375,3 +1375,13 @@ quotes, verifies batch authentication, and returns immediately when the key is
 already active. The resumable uploader has a separate fail-fast batch-auth
 gate before its retry loop; permission/authentication failure can no longer
 consume transport retry attempts.
+
+Third follow-up: on Windows PowerShell with the caller's
+`$ErrorActionPreference='Stop'`, the installer's preliminary BatchMode probe
+emitted native SSH stderr and PowerShell promoted it to a terminating
+`NativeCommandError` before the password-backed installation step. This was
+an installer control-flow defect, not a server rejection of key installation.
+The redundant preliminary probe is removed. Every remaining native command
+that may legitimately return nonzero is executed under a locally saved and
+restored `Continue` policy, with its numeric exit captured before fail-closed
+handling. The caller's preference is restored and not modified globally.
