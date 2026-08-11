@@ -11,7 +11,7 @@ foreach ($path in @($IdentityFile, $PublicKey)) {
   }
 }
 
-& ssh.exe -o BatchMode=yes -o ConnectTimeout=15 -i $IdentityFile $HostAlias 'true'
+& ssh.exe -o BatchMode=yes -o ConnectTimeout=15 -i $IdentityFile $HostAlias 'true' 2>$null
 if ($LASTEXITCODE -eq 0) {
   'CKDA_D0_TRANSFER_KEY_ALREADY_ACTIVE'
   return
