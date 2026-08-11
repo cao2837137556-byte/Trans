@@ -1417,3 +1417,24 @@ archive with automatic SFTP resume to the precise server-commit directory and
 creates `vscode-server.tar.gz.done` only after remote size and SHA validation.
 It does not change the VPN/proxy interface, delete another VS Code Server
 version, or treat a listening SSH port as completed Remote-SSH installation.
+
+Fifth follow-up: repeated interactive `reput` attempts reached about 80 percent
+but still required the user to reopen SFTP and enter a password after every
+school-side reset.  The purpose-specific key had previously been piped through
+Windows native-argument serialization, so the remote shell received malformed
+fields and batch authentication remained unavailable.  This is rejected as a
+durable handoff even though each individual `reput` correctly preserved bytes.
+
+Permanent correction: the key installer now stages the purpose-specific key in
+the local Ubuntu WSL home with strict permissions and delegates the one-time
+remote installation to OpenSSH `ssh-copy-id`; both WSL and Windows batch-key
+authentication must pass.  The uploader now uses WSL rsync 3.2.7 with
+`--partial --append-verify`, automatic reconnects, and the unchanged remote
+byte/SHA/sidecar gates.  WSL-to-login-node TCP/22 reachability was verified
+before this change.  Existing remote partial bytes remain reusable.  A school
+transport reset may delay completion, but must no longer require another user
+command or password entry.  The local regression check also found that passing
+a raw `C:\...` argument through `wsl.exe` could lose backslashes before
+`wslpath`; both helpers therefore use a deterministic drive-letter conversion
+to `/mnt/<drive>/...` and no longer delegate that boundary to native argument
+serialization.
