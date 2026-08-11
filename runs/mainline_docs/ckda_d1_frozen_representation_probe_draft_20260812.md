@@ -1,11 +1,16 @@
 # CKDA D1 frozen representation probe — freeze-review draft
 
-Date: 2026-08-12  
-Status: **DRAFT FOR FREEZE REVIEW — NOT FROZEN**  
-Route: `CKDA`  
-D0 authority: `ckda_d0_result_20260811.md` + Kimi final review `bfbeaf9`  
-Primary representation: `I1`  
-Predeclared backup/control: `E3`  
+Date: 2026-08-12
+
+Status: **DRAFT FOR FREEZE REVIEW — NOT FROZEN**
+
+Route: `CKDA`
+
+D0 authority: `ckda_d0_result_20260811.md` + Kimi final review `bfbeaf9`
+
+Primary representation: `I1`
+
+Predeclared backup/control: `E3`
 
 > This document freezes a proposed D1 information canary for review. It does not
 > authorize implementation, encoder training, embedding generation, report
