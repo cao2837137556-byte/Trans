@@ -137,7 +137,8 @@ $Identity = [ordered]@{
   final_included = $false
   seed37_47_included = $false
 }
-[System.IO.File]::WriteAllText((Join-Path $Bundle 'bundle_identity.json'), ($Identity | ConvertTo-Json -Depth 5) + "`n", $Utf8NoBom)
+$IdentityJson = ($Identity | ConvertTo-Json -Depth 5).Replace("`r`n", "`n").Replace("`r", "`n")
+[System.IO.File]::WriteAllText((Join-Path $Bundle 'bundle_identity.json'), $IdentityJson + "`n", $Utf8NoBom)
 
 $Files = Get-ChildItem -LiteralPath $Bundle -Recurse -File | Where-Object { $_.Name -ne 'SHA256SUMS' } | Sort-Object FullName
 $SumLines = foreach ($file in $Files) {
