@@ -87,3 +87,24 @@ printf 'CKDA_D0_R2_REMOTE_PREPARE_PASS root=%s commit=%s\n' "$R2" c4276bd3074dcc
 ```
 
 No job is submitted by either block.
+
+## Explicit r2 resubmission authorization
+
+The user explicitly authorized `CKDA D0 r2` resubmission on 2026-08-11 after
+observing `CKDA_D0_R2_REMOTE_PREPARE_PASS`.  The authorization applies only to
+the reviewed r2 root and one AMD submission through its hash-gated installer:
+
+```bash
+(
+set -euo pipefail
+R2=/public/home/jiangxinwei.zr/work/issue27ckda_d0_representation_compatibility_20260811_r2
+test -d "$R2"
+test "$(tr -d '\r\n' < "$R2/bundle_commit.txt")" = c4276bd3074dccb900c361d09772ae4bc97eb656
+cd "$R2"
+export CKDA_D0_SUBMIT_AUTHORIZATION=YES
+bash payload/scripts/issue27ckda_d0_install_and_submit.sh
+)
+```
+
+No other partition, seed, candidate, FINAL source, or repeat submission is
+authorized by this record.
