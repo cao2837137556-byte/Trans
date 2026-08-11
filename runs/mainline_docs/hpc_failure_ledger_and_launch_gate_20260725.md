@@ -1308,3 +1308,40 @@ Permanent repair and regression gate:
 
 Accepted retry path: implementation/test repair + real-artifact validation + Kimi review + independently
 verified r3 bundle + new explicit user authorization. Job 158038 remains preserved as failure evidence.
+
+## 25. CKDA D0 archive upload interrupted by SSH connection reset (2026-08-11)
+
+Category: **PACKAGE_OR_TRANSFER_FAILURE**, not an install, compute, or scientific result.
+
+- Authorized archive:
+  `issue27ckda_d0_representation_compatibility_20260811_upload_bundle.tar.gz`,
+  665,814,425 bytes, SHA-256
+  `c979638ecf430946cdd9e2614b082c42bc5f78f6cadd4bf545ff88afd70aade9`.
+- The local pre-upload archive and sidecar SHA checks passed.
+- `scp` transferred about 197 MiB (30 percent) before failing with exact
+  signature `client_loop: send disconnect: Connection reset`, followed by
+  `scp.exe: Connection closed` and exit 255.
+- No archive extraction, installer execution, `sbatch`, allocation, or data
+  access occurred. The remote partial archive is not a valid input until the
+  complete-file SHA gate passes.
+- Root-cause boundary: the SSH/VPN transport was interrupted. This transfer
+  does not use Git's HTTP proxy; the concurrent Git proxy listener on
+  `127.0.0.1:7897` and a live `git ls-remote` both passed. The evidence does
+  not identify the deeper network-provider cause.
+
+Permanent correction and gate:
+
+1. Resume the existing remote target with OpenSSH SFTP `reput`; do not restart
+   the 665 MiB transfer after each tunnel interruption.
+2. Use conservative SFTP request/buffer settings plus SSH keepalives. A later
+   disconnect is handled by reconnecting and issuing the same `reput` again.
+3. Upload the sidecar only after the archive reaches its complete byte count.
+4. Recompute the remote archive SHA-256 and compare it both with the frozen
+   expected value and the uploaded sidecar before extraction.
+5. Preserve the installer's complete internal `SHA256SUMS` verification. No
+   partial remote bytes may be reused after either the outer or inner hash
+   fails.
+
+Recomputation is unnecessary: the locally validated archive remains the exact
+authorized object. Only transfer must resume. Formal CKDA D0 submission has
+not happened yet.
