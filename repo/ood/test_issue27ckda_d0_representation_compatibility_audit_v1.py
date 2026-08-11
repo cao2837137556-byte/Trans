@@ -40,6 +40,7 @@ COMPAT_SPEC.loader.exec_module(compat)
 ROOT = Path(__file__).resolve().parents[2]
 CONTRACT = ROOT / "runs/mainline_docs/ckda_d0_representation_compatibility_audit_preregistered_20260811.md"
 EVIDENCE = ROOT / "runs/mainline_docs/ckda_d0_official_candidate_evidence_20260811.json"
+TAIL_RECOVERY = ROOT / "scripts/issue27ckda_d0_tail_recover_158210.sh"
 
 
 def write_csv(path: Path, fields: list[str], rows: list[dict[str, object]]) -> None:
@@ -432,6 +433,36 @@ class CKDAD0ContractTests(unittest.TestCase):
             target.write_text("drift\n", encoding="utf-8")
             with self.assertRaisesRegex(RuntimeError, "upstream source drift"):
                 compat.apply_patch(root, root / "audit.json")
+
+    def test_33_ckda_owned_write_text_has_no_python310_newline_keyword(self):
+        for path in (MODULE_PATH, PILOT_PATH, VALIDATOR_PATH, COMPAT_PATH):
+            tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path), feature_version=(3, 9))
+            for node in ast.walk(tree):
+                if not isinstance(node, ast.Call):
+                    continue
+                if not isinstance(node.func, ast.Attribute) or node.func.attr != "write_text":
+                    continue
+                self.assertNotIn(
+                    "newline",
+                    {keyword.arg for keyword in node.keywords},
+                    f"Python 3.9 Path.write_text incompatibility in {path}:{node.lineno}",
+                )
+
+    def test_34_validator_atomic_text_contract(self):
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "atomic.txt"
+            validator.atomic_text(target, "alpha\nbeta\n")
+            self.assertEqual(target.read_bytes(), b"alpha\nbeta\n")
+            self.assertEqual(list(target.parent.glob(f".{target.name}.*.tmp")), [])
+
+    def test_35_tail_recovery_is_pinned_noncompute_and_preserves_failed_stage(self):
+        source = TAIL_RECOVERY.read_text(encoding="utf-8")
+        self.assertIn("JOB=158210", source)
+        self.assertIn('test "$STATE" = FAILED', source)
+        self.assertIn('cp -a "$FAILED_STAGE/." "$RECOVERY_STAGE/"', source)
+        self.assertIn("POST_RESULT_TAIL_RECOVERY", source)
+        self.assertNotIn("sbatch", source)
+        self.assertNotIn('mv "$FAILED_STAGE"', source)
 
 
 if __name__ == "__main__":

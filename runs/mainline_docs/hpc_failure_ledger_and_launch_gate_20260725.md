@@ -1478,3 +1478,40 @@ SHA/readback, preserved job `158187`, reuse of only the content-addressed
 27-source census checkpoints, regenerated census summary, and a new user
 authorization before `sbatch`.  No family patch, FINAL access, threshold
 selection, or scientific-contract change is permitted.
+
+## 27. CKDA D0 job 158210 Python-3.9 validator API failure (2026-08-11)
+
+Category: **POST_RESULT_VALIDATION_PACKAGING_FAILURE**, not a scientific
+failure and not a representation-candidate verdict failure.
+
+- Job `158210` completed the real fit-prefix resource pilot, candidate audit,
+  boundary audit, and D0 verdict.  The preserved stage reports primary `I1`,
+  optional backup `E3`, I1 data gate PASS (`4,764,022` sessions and
+  `11,705,453` tokens), zero FINAL files opened, zero labels read, and zero
+  performance embeddings persisted.
+- The job failed only in `validate_and_finalize` when
+  `Path.write_text(..., newline="\n")` raised
+  `TypeError: write_text() got an unexpected keyword argument 'newline'` under
+  Python 3.9.  `pathlib.Path.write_text` gained that keyword after the frozen
+  runtime; Python syntax compilation could not detect this stdlib API mismatch.
+- The original hidden stage, control logs, failure marker, and Slurm FAILED
+  state remain evidence and must not be rewritten or relabelled COMPLETED.
+
+Permanent correction and gate:
+
+1. Replace every CKDA-owned `Path.write_text(..., newline=...)` call with an
+   explicit `Path.open("w", encoding="utf-8", newline="\n")` context and
+   atomic `os.replace`.
+2. Scan all four CKDA D0 owned Python modules by AST and fail if a `newline`
+   keyword appears on any `.write_text` call.
+3. Execute the validator's atomic-write contract test in both login-node and
+   compute-node gates under the actual project Python.
+4. Preserve the failed stage unchanged.  A Kimi-reviewed, SHA-pinned login-node
+   tail-recovery kit may copy it to a distinct recovery stage, retain the prior
+   engineering marker as lineage, rerun only the validator, package the
+   validated result, and mark the output explicitly as post-result recovery.
+
+Recomputation is forbidden and unnecessary.  The accepted path performs no
+`sbatch`, no raw-data reopen, no model forward pass, no FINAL access, no label
+read, and no scientific selection.  Job `158210` remains FAILED even if its
+preserved scientific outputs are independently validated and packaged.

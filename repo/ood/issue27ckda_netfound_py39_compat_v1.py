@@ -6,6 +6,7 @@ import argparse
 import ast
 import hashlib
 import json
+import os
 from pathlib import Path
 
 
@@ -48,6 +49,14 @@ def sha256_bytes(value: bytes) -> str:
     return hashlib.sha256(value).hexdigest()
 
 
+def atomic_text(path: Path, text: str) -> None:
+    path = Path(path)
+    temp = path.with_name(f".{path.name}.{os.getpid()}.tmp")
+    with temp.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(text)
+    os.replace(temp, path)
+
+
 def assert_python39_tree(source_root: Path) -> int:
     count = 0
     for path in sorted(source_root.rglob("*.py")):
@@ -71,7 +80,7 @@ def apply_patch(source_root: Path, audit_path: Path) -> dict[str, object]:
     if text.count(OLD_BLOCK) != 1:
         raise RuntimeError("netFound Python-3.9 compatibility target is not unique")
     patched = text.replace(OLD_BLOCK, NEW_BLOCK, 1)
-    target.write_text(patched, encoding="utf-8", newline="\n")
+    atomic_text(target, patched)
     parsed_files = assert_python39_tree(source_root)
     report: dict[str, object] = {
         "status": "CKDA_NETFOUND_PY39_COMPAT_PASS",
@@ -84,7 +93,7 @@ def apply_patch(source_root: Path, audit_path: Path) -> dict[str, object]:
         "semantic_change": "NONE_SYNTAX_EQUIVALENT_IF_ELIF",
     }
     audit_path.parent.mkdir(parents=True, exist_ok=True)
-    audit_path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
+    atomic_text(audit_path, json.dumps(report, indent=2, sort_keys=True) + "\n")
     return report
 
 

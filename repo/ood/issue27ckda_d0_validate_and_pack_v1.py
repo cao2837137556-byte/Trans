@@ -15,6 +15,8 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import sys
+import tempfile
 from typing import Any
 
 
@@ -56,8 +58,21 @@ def sha256_file(path: Path) -> str:
 def atomic_text(path: Path, text: str) -> None:
     path = Path(path)
     temp = path.with_name(f".{path.name}.{os.getpid()}.tmp")
-    temp.write_text(text, encoding="utf-8", newline="\n")
+    with temp.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(text)
     os.replace(temp, path)
+
+
+def contract_test() -> None:
+    """Exercise the Python-3.9-sensitive atomic text boundary."""
+    with tempfile.TemporaryDirectory() as directory:
+        target = Path(directory) / "atomic.txt"
+        atomic_text(target, "line-1\nline-2\n")
+        if target.read_bytes() != b"line-1\nline-2\n":
+            raise RuntimeError("atomic text LF/readback contract failed")
+        if list(target.parent.glob(f".{target.name}.*.tmp")):
+            raise RuntimeError("atomic text temporary file survived replacement")
+    print("CKDA_D0_VALIDATOR_CONTRACT_PASS")
 
 
 def atomic_json(path: Path, value: Any) -> None:
@@ -239,4 +254,7 @@ def parser() -> argparse.ArgumentParser:
 
 
 if __name__ == "__main__":
-    validate(parser().parse_args())
+    if sys.argv[1:] == ["contract-test"]:
+        contract_test()
+    else:
+        validate(parser().parse_args())

@@ -104,6 +104,7 @@ bash -n "$SLURM"
 bash -n "$STATUS"
 python "$PAYLOAD/repo/ood/issue27ckda_d0_representation_compatibility_audit_v1.py" contract-test
 python "$PAYLOAD/repo/ood/issue27ckda_d0_resource_pilot_v1.py" contract-test
+python "$PAYLOAD/repo/ood/issue27ckda_d0_validate_and_pack_v1.py" contract-test
 python - <<'PY'
 import psutil, safetensors, tokenizers, transformers
 print("CKDA_D0_LOGIN_DEPENDENCY_GATE_PASS", transformers.__version__, safetensors.__version__, tokenizers.__version__, psutil.__version__)

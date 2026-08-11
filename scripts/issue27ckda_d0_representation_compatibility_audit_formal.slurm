@@ -171,6 +171,7 @@ write_phase contract_and_dependency_gates
 python -m py_compile "$AUDIT" "$PILOT" "$VALIDATOR" "$CKBU"
 python "$AUDIT" contract-test
 python "$PILOT" contract-test
+python "$VALIDATOR" contract-test
 python - <<'PY'
 import psutil, safetensors, tokenizers, transformers
 print("CKDA_D0_DEPENDENCY_GATE_PASS", transformers.__version__, safetensors.__version__, tokenizers.__version__, psutil.__version__)
