@@ -1386,6 +1386,20 @@ that may legitimately return nonzero is executed under a locally saved and
 restored `Continue` policy, with its numeric exit captured before fail-closed
 handling. The caller's preference is restored and not modified globally.
 
+Fourth follow-up: later manual resumes were closed by the remote side at about
+75 percent and 80 percent. The latter used only about 465 KiB/s, so lowering
+transfer throughput did not remove the failure. An immediate reconnect was
+also closed at port 22, while one read-only SSH probe 15 seconds later
+completed key exchange normally. This bounds the recurring cause to the
+school VPN/SSH transport or its transient connection throttling; it is not an
+archive, SFTP-command, or scientific-compute failure. A verbose batch probe
+also proved that the local ED25519 key with fingerprint
+`SHA256:VXDEET84GZy6MSNnUTOIswbFeiHrwxc6SaxE2xWmjSU` was offered but rejected,
+so the remote authorized-key installation was not effective. The uploader now
+retries its noninteractive authentication gate at 15-second intervals before
+entering the existing resumable-transfer loop. Remote installation must verify
+the exact fingerprint from the effective `authorized_keys` before launch.
+
 VS Code Remote-SSH was independently blocked during the same launch window.
 The 1.132.0 client authenticated to `school-hpc`, created the expected remote
 install directory, and then failed locally with

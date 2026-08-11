@@ -3,6 +3,8 @@ param(
   [string]$HostAlias = 'school-hpc',
   [string]$RemoteWork = '/public/home/jiangxinwei.zr/work',
   [string]$IdentityFile = "$env:USERPROFILE\.ssh\id_ed25519_school_hpc_ckda",
+  [int]$AuthMaxAttempts = 12,
+  [int]$AuthRetrySeconds = 15,
   [int]$MaxAttempts = 100,
   [int]$RetrySeconds = 5
 )
@@ -29,10 +31,22 @@ if ($ActualSha256 -ne $ExpectedSha256 -or $SidecarSha256 -ne $ExpectedSha256) {
 }
 
 $PreviousErrorActionPreference = $ErrorActionPreference
-$ErrorActionPreference = 'Continue'
-& ssh.exe -o BatchMode=yes -o ConnectTimeout=15 -i $IdentityFile $HostAlias 'true' 2>$null
-$KeyTestExit = $LASTEXITCODE
-$ErrorActionPreference = $PreviousErrorActionPreference
+$KeyTestExit = 255
+for ($authAttempt = 1; $authAttempt -le $AuthMaxAttempts; $authAttempt++) {
+  $ErrorActionPreference = 'Continue'
+  & ssh.exe -o BatchMode=yes -o ConnectTimeout=15 -o ConnectionAttempts=1 `
+    -i $IdentityFile $HostAlias 'true' 2>$null
+  $KeyTestExit = $LASTEXITCODE
+  $ErrorActionPreference = $PreviousErrorActionPreference
+  if ($KeyTestExit -eq 0) {
+    "CKDA_D0_TRANSFER_AUTH_PASS attempt=$authAttempt"
+    break
+  }
+  "CKDA_D0_TRANSFER_AUTH_RETRY attempt=$authAttempt max=$AuthMaxAttempts ssh_exit=$KeyTestExit"
+  if ($authAttempt -lt $AuthMaxAttempts) {
+    Start-Sleep -Seconds $AuthRetrySeconds
+  }
+}
 if ($KeyTestExit -ne 0) {
   throw 'CKDA transfer key authentication is unavailable; run issue27ckda_d0_install_transfer_key.ps1 first'
 }
