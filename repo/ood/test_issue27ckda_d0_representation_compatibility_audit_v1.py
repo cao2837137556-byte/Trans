@@ -4,6 +4,7 @@ import argparse
 import csv
 import importlib.util
 import json
+import shutil
 import tempfile
 import unittest
 from pathlib import Path
@@ -16,6 +17,18 @@ SPEC = importlib.util.spec_from_file_location("ckda_d0_test_target", MODULE_PATH
 assert SPEC is not None and SPEC.loader is not None
 ckda = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(ckda)
+
+PILOT_PATH = Path(__file__).with_name("issue27ckda_d0_resource_pilot_v1.py")
+PILOT_SPEC = importlib.util.spec_from_file_location("ckda_d0_pilot_test_target", PILOT_PATH)
+assert PILOT_SPEC is not None and PILOT_SPEC.loader is not None
+pilot = importlib.util.module_from_spec(PILOT_SPEC)
+PILOT_SPEC.loader.exec_module(pilot)
+
+VALIDATOR_PATH = Path(__file__).with_name("issue27ckda_d0_validate_and_pack_v1.py")
+VALIDATOR_SPEC = importlib.util.spec_from_file_location("ckda_d0_validator_test_target", VALIDATOR_PATH)
+assert VALIDATOR_SPEC is not None and VALIDATOR_SPEC.loader is not None
+validator = importlib.util.module_from_spec(VALIDATOR_SPEC)
+VALIDATOR_SPEC.loader.exec_module(validator)
 
 ROOT = Path(__file__).resolve().parents[2]
 CONTRACT = ROOT / "runs/mainline_docs/ckda_d0_representation_compatibility_audit_preregistered_20260811.md"
@@ -245,6 +258,141 @@ class CKDAD0ContractTests(unittest.TestCase):
         self.assertLess(ckda.compare_ranked(left, right), 0)
         left["projected_nonfinal_wall_seconds"] = "111"
         self.assertGreater(ckda.compare_ranked(left, right), 0)
+
+    def test_26_resource_pilot_schema_is_exact(self):
+        self.assertEqual(len(pilot.PILOT_FIELDS), 19)
+        self.assertEqual(pilot.PILOT_FIELDS[0], "candidate_id")
+        self.assertEqual(pilot.PILOT_FIELDS[-1], "final_files_opened")
+
+    def test_27_pilot_bidirectional_session_key(self):
+        left = {
+            "ip.src": "10.0.0.2", "ip.dst": "10.0.0.1", "ip.proto": "6",
+            "tcp.srcport": "443", "tcp.dstport": "50000",
+        }
+        right = {
+            "ip.src": "10.0.0.1", "ip.dst": "10.0.0.2", "ip.proto": "6",
+            "tcp.srcport": "50000", "tcp.dstport": "443",
+        }
+        self.assertEqual(pilot.canonical_session(left), pilot.canonical_session(right))
+
+    def test_28_netfound_token_width_and_payload_placeholder(self):
+        row = {field: "" for field in pilot.TSHARK_FIELDS}
+        row.update(
+            {
+                "frame.number": "1", "frame.time_epoch": "1.0", "frame.len": "60",
+                "ip.src": "10.0.0.1", "ip.dst": "10.0.0.2", "ip.proto": "6",
+                "ip.hdr_len": "20", "ip.len": "60", "ip.ttl": "64",
+                "tcp.srcport": "1", "tcp.dstport": "2", "tcp.flags": "0x02",
+                "tcp.window_size_value": "1024", "tcp.seq_raw": "100",
+                "tcp.ack_raw": "0", "tcp.urgent_pointer": "0",
+            }
+        )
+        flow = pilot.netfound_flow([row])
+        self.assertEqual(flow["protocol"], 6)
+        self.assertEqual(len(flow["burst_tokens"][0]), 18)
+        self.assertEqual(flow["burst_tokens"][0][-6:], [0] * 6)
+
+    def test_29_pilot_final_marker_fails_closed(self):
+        with self.assertRaisesRegex(RuntimeError, "FINAL_EXCLUSION"):
+            pilot.fail_if_final("seed_47", "test")
+
+    def test_30_resource_pilot_has_no_label_or_score_field(self):
+        lowered = {field.lower() for field in pilot.TSHARK_FIELDS}
+        self.assertFalse(any("label" in field or "attack" in field or "score" in field for field in lowered))
+
+    def test_31_compile_boundary_and_validator_end_to_end(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            result = root / "result"
+            result.mkdir()
+            census = {
+                "status": "CKDA_D0_DATA_CENSUS_COMPLETE",
+                "contract_sha256": ckda.CONTRACT_SHA256,
+                "fit_visible_unique_packets": 1000,
+                "fit_encodable_unique_packets": {candidate: 900 for candidate in ckda.CANDIDATES},
+                "i1_fit_sessions": 499_999,
+                "i1_fit_tokens": 20_000_000,
+                "i1_data_gate": "FAIL",
+                "source_checkpoint_manifest_sha256": "1" * 64,
+                "final_files_opened": 0,
+                "raw_label_columns_read": 0,
+            }
+            census_path = result / "ckda_d0_data_census.json"
+            census_path.write_text(json.dumps(census), encoding="utf-8")
+
+            pilot_row = {field: "" for field in pilot.PILOT_FIELDS}
+            pilot_row.update(
+                {
+                    "candidate_id": "E3",
+                    "status": "PASS",
+                    "pilot_raw_packets": "1000",
+                    "pilot_candidate_tokens": "1200",
+                    "pilot_peak_rss_bytes": "1000000",
+                    "pilot_peak_vram_bytes": "",
+                    "pilot_median_raw_packets_per_second": "100",
+                    "pilot_median_candidate_tokens_per_second": "120",
+                    "projected_nonfinal_wall_seconds": "1000",
+                    "forward_finite": "true",
+                    "custom_adapter_files": "1",
+                    "custom_adapter_loc": "500",
+                    "performance_embeddings_persisted": "0",
+                    "labels_read": "0",
+                    "final_files_opened": "0",
+                }
+            )
+            pilot_path = result / "ckda_d0_resource_pilot.csv"
+            write_csv(pilot_path, pilot.PILOT_FIELDS, [pilot_row])
+            measurements = {
+                "status": "CKDA_D0_RESOURCE_PILOT_COMPLETE",
+                "runs_per_candidate": 3,
+                "warmup_runs_per_candidate": 1,
+                "candidates": {"E3": {"run_seconds": [1.0, 1.1, 1.2], "session_count": 100}},
+            }
+            (result / "ckda_d0_resource_pilot_measurements.json").write_text(
+                json.dumps(measurements), encoding="utf-8"
+            )
+
+            evidence_manifest = ROOT / "runs/mainline_docs/ckda_d0_official_evidence_manifest_20260811.csv"
+            ckda.compile_audit(
+                argparse.Namespace(
+                    contract=CONTRACT,
+                    evidence=EVIDENCE,
+                    evidence_manifest=evidence_manifest,
+                    census=census_path,
+                    resource_pilot=pilot_path,
+                    out=result,
+                )
+            )
+            shutil.copy2(evidence_manifest, result / "ckda_d0_evidence_manifest.csv")
+            cutoff = {
+                "status": "CKDA_D0_FIT_PREFIX_MANIFEST_READY",
+                "excluded_frozen_fit_source_reasons": ckda.EXPECTED_NONALLOWLIST_FIT_SOURCES,
+                "final_files_opened": 0,
+                "label_columns_read": 0,
+                "manifest_sha256": "2" * 64,
+            }
+            cutoff_path = root / "cutoff.json"
+            cutoff_path.write_text(json.dumps(cutoff), encoding="utf-8")
+            exclusion_path = result / "ckda_d0_final_exclusion_audit.json"
+            ckda.finalize_boundary(
+                argparse.Namespace(
+                    contract=CONTRACT,
+                    cutoff_audit=cutoff_path,
+                    census=census_path,
+                    out=exclusion_path,
+                )
+            )
+            validator.validate(
+                argparse.Namespace(
+                    result=result,
+                    contract=CONTRACT,
+                    audit_module=MODULE_PATH,
+                    pilot_module=PILOT_PATH,
+                )
+            )
+            report = json.loads((result / "ckda_d0_validation_report.json").read_text(encoding="utf-8"))
+            self.assertEqual(report["status"], "PASS")
+            self.assertEqual(report["resource_pilot_candidates"], ["E3"])
 
 
 if __name__ == "__main__":

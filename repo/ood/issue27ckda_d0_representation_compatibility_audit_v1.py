@@ -286,8 +286,20 @@ def prepare_cutoffs(args: argparse.Namespace) -> None:
 
     ton_manifest = pd.read_csv(Path(args.ton_manifest))
     ton_audit = pd.read_csv(Path(args.ton_audit))
+    needed_ton = {"source_file", "role"}
+    if needed_ton - set(ton_manifest.columns):
+        raise RuntimeError(f"ToN manifest missing fields: {sorted(needed_ton - set(ton_manifest.columns))}")
+    has_absolute = "absolute_path" in ton_manifest.columns
+    ton_pcap_root = getattr(args, "ton_pcap_root", None)
+    if not has_absolute and ton_pcap_root is None:
+        raise RuntimeError("ToN manifest lacks absolute_path and --ton-pcap-root was not provided")
     ton_paths = {
-        str(item.source_file): (str(item.absolute_path), str(item.role))
+        str(item.source_file): (
+            str(item.absolute_path)
+            if has_absolute
+            else str(Path(ton_pcap_root) / str(item.source_file)),
+            str(item.role),
+        )
         for item in ton_manifest.itertuples(index=False)
     }
     for item in ton_audit.itertuples(index=False):
@@ -436,6 +448,7 @@ def run_census(args: argparse.Namespace) -> None:
                 break
             if session_hash not in pilot_sessions:
                 pilot_sessions[session_hash] = {
+                    "selection_order": len(pilot_sessions),
                     "session_sha256": session_hash,
                     "source_id": record["source_id"],
                     "pcap_member": record["pcap_member"],
@@ -572,8 +585,8 @@ def run_census(args: argparse.Namespace) -> None:
     atomic_json(out / "ckda_d0_data_census.json", result)
     write_csv(
         out / "ckda_d0_pilot_session_manifest.csv",
-        sorted(pilot_sessions.values(), key=lambda value: value["session_sha256"]),
-        ("session_sha256", "source_id", "pcap_member", "packets"),
+        sorted(pilot_sessions.values(), key=lambda value: int(value["selection_order"])),
+        ("selection_order", "session_sha256", "source_id", "pcap_member", "packets"),
     )
     print(json.dumps(result, indent=2, sort_keys=True))
 
@@ -777,6 +790,41 @@ def compile_audit(args: argparse.Namespace) -> None:
     print(json.dumps(verdict, indent=2, sort_keys=True))
 
 
+def finalize_boundary(args: argparse.Namespace) -> None:
+    verify_contract(args.contract)
+    cutoff = json.loads(Path(args.cutoff_audit).read_text(encoding="utf-8"))
+    census = json.loads(Path(args.census).read_text(encoding="utf-8"))
+    if cutoff.get("status") != "CKDA_D0_FIT_PREFIX_MANIFEST_READY":
+        raise RuntimeError("fit-prefix audit is not terminal")
+    if census.get("status") != "CKDA_D0_DATA_CENSUS_COMPLETE":
+        raise RuntimeError("census is not terminal")
+    reasons = cutoff.get("excluded_frozen_fit_source_reasons")
+    if reasons != EXPECTED_NONALLOWLIST_FIT_SOURCES:
+        raise RuntimeError("P0-B exclusion reason-code drift")
+    for value in (
+        cutoff.get("final_files_opened"),
+        cutoff.get("label_columns_read"),
+        census.get("final_files_opened"),
+        census.get("raw_label_columns_read"),
+    ):
+        if int(value) != 0:
+            raise RuntimeError("D0 data boundary counter is nonzero")
+    result = {
+        "status": "PASS",
+        "contract_sha256": CONTRACT_SHA256,
+        "excluded_fit_source_reasons": reasons,
+        "hydraulic_contract": "UPSTREAM_RAW51_UNOBSERVABLE_MASK_NOT_OPENED",
+        "final_contract": "FINAL_DENYLIST_NOT_OPENED",
+        "final_files_opened": 0,
+        "raw_label_columns_read": 0,
+        "performance_embeddings_persisted": 0,
+        "fit_prefix_manifest_sha256": cutoff["manifest_sha256"],
+        "source_checkpoint_manifest_sha256": census["source_checkpoint_manifest_sha256"],
+    }
+    atomic_json(Path(args.out), result)
+    print(json.dumps(result, indent=2, sort_keys=True))
+
+
 def contract_test(_: argparse.Namespace) -> None:
     assert len(AUDIT_FIELDS) == 50, len(AUDIT_FIELDS)
     assert len(CUTOFF_FIELDS) == 7
@@ -822,6 +870,7 @@ def parser() -> argparse.ArgumentParser:
     cutoffs.add_argument("--aux-source-plan", type=Path, required=True)
     cutoffs.add_argument("--ton-manifest", type=Path, required=True)
     cutoffs.add_argument("--ton-audit", type=Path, required=True)
+    cutoffs.add_argument("--ton-pcap-root", type=Path)
     cutoffs.add_argument("--gotham-zip", type=Path, required=True)
     cutoffs.add_argument("--out", type=Path, required=True)
     cutoffs.set_defaults(func=prepare_cutoffs)
@@ -842,6 +891,13 @@ def parser() -> argparse.ArgumentParser:
     compile_cmd.add_argument("--resource-pilot", type=Path)
     compile_cmd.add_argument("--out", type=Path, required=True)
     compile_cmd.set_defaults(func=compile_audit)
+
+    boundary = sub.add_parser("finalize-boundary")
+    boundary.add_argument("--contract", type=Path, default=default_contract)
+    boundary.add_argument("--cutoff-audit", type=Path, required=True)
+    boundary.add_argument("--census", type=Path, required=True)
+    boundary.add_argument("--out", type=Path, required=True)
+    boundary.set_defaults(func=finalize_boundary)
     return result
 
 
