@@ -28,6 +28,11 @@ if ($ActualSha256 -ne $ExpectedSha256 -or $SidecarSha256 -ne $ExpectedSha256) {
   throw "CKDA archive identity mismatch: actual=$ActualSha256 sidecar=$SidecarSha256"
 }
 
+& ssh.exe -o BatchMode=yes -o ConnectTimeout=15 -i $IdentityFile $HostAlias 'true'
+if ($LASTEXITCODE -ne 0) {
+  throw 'CKDA transfer key authentication is unavailable; run issue27ckda_d0_install_transfer_key.ps1 first'
+}
+
 $ArchiveSftp = $Archive.Replace('\', '/')
 $SidecarSftp = $Sidecar.Replace('\', '/')
 $BatchFile = [IO.Path]::GetTempFileName()

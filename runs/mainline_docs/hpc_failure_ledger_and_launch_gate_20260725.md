@@ -1360,3 +1360,18 @@ the stream to 6,000 kbit/s, limits outstanding requests to four, automatically
 reconnects up to 100 times, resumes the same remote file on every attempt, and
 returns success only after remote byte count plus both outer SHA checks pass.
 The private key is not stored in Git or the experiment bundle.
+
+Second follow-up: the first key-install handoff used a compound remote shell
+argument with nested quoted variables. Windows native-argument serialization
+removed the intended grouping, so `grep` treated public-key fields as
+filenames; the key was not appended and the subsequent batch-auth test failed
+with exit 255. The upload helper then retried authentication failures as if
+they were transport resets. Classification: `INSTALL_OR_SUBMIT_FAILURE` in the
+transfer-authentication setup, still before extraction or Slurm.
+
+Permanent correction: `issue27ckda_d0_install_transfer_key.ps1` now sends the
+public key to a remote command containing no remote variables or nested path
+quotes, verifies batch authentication, and returns immediately when the key is
+already active. The resumable uploader has a separate fail-fast batch-auth
+gate before its retry loop; permission/authentication failure can no longer
+consume transport retry attempts.
