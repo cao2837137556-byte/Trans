@@ -7,7 +7,9 @@ param(
 $ErrorActionPreference = 'Stop'
 $Repo = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 $GitRoot = (git -C $Repo rev-parse --show-toplevel).Trim()
-if ($GitRoot -ne $Repo) { throw "unexpected Git root: $GitRoot" }
+$RepoCanonical = [IO.Path]::GetFullPath($Repo).TrimEnd([char[]]'\/')
+$GitRootCanonical = [IO.Path]::GetFullPath($GitRoot).TrimEnd([char[]]'\/')
+if ($GitRootCanonical -ne $RepoCanonical) { throw "unexpected Git root: $GitRoot" }
 $Commit = (git -C $Repo rev-parse HEAD).Trim()
 $BundleName = 'issue27ckda_d0_representation_compatibility_20260811'
 $Bundle = Join-Path $TransferRoot $BundleName
