@@ -48,6 +48,7 @@ $Files = @(
   'runs\mainline_docs\ckda_d1_frozen_representation_probe_preregistered_20260812.md.sha256',
   'runs\mainline_docs\ckda_d1_frozen_kimi_verification_20260812.md',
   'runs\mainline_docs\ckda_d1_implementation_report_20260812.md',
+  'runs\mainline_docs\ckda_d1_implementation_kimi_review_20260812.md',
   'runs\mainline_docs\ckcz_gotham_source_allowlist_20260809.csv',
   'runs\mainline_docs\ckcz_gotham_source_allowlist_20260809.csv.sha256',
   'runs\mainline_docs\ckcz_auxiliary_source_allowlist_20260809.csv',
