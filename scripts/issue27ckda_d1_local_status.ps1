@@ -25,20 +25,22 @@ Write-Output ("count={0} bytes={1}" -f $Files.Count, (($Files | Measure-Object L
 if ($Files.Count -gt 0) {
     $Files | Sort-Object LastWriteTime -Descending | Select-Object -First 5 Name, Length, LastWriteTime
 }
-Write-Output '===== STDOUT PROGRESS TAIL ====='
-$Stdout = Get-ChildItem -LiteralPath $ControlRoot -File -Filter 'launcher*.stdout.log' -ErrorAction SilentlyContinue |
+Write-Output '===== PHASE PROGRESS TAIL ====='
+$PhaseLogRoot = Join-Path $ControlRoot 'logs'
+$PhaseStdout = Get-ChildItem -LiteralPath $PhaseLogRoot -File -Filter '*.log' -ErrorAction SilentlyContinue |
+    Where-Object { $_.Name -notlike '*.stderr.log' } |
     Sort-Object LastWriteTime -Descending | Select-Object -First 1
-if ($null -ne $Stdout) {
-    Write-Output ("stdout={0} bytes={1} updated={2}" -f $Stdout.FullName, $Stdout.Length, $Stdout.LastWriteTime)
-    Get-Content -LiteralPath $Stdout.FullName -Tail 35
+if ($null -ne $PhaseStdout) {
+    Write-Output ("phase_stdout={0} bytes={1} updated={2}" -f $PhaseStdout.FullName, $PhaseStdout.Length, $PhaseStdout.LastWriteTime)
+    Get-Content -LiteralPath $PhaseStdout.FullName -Tail 35
 }
-Write-Output '===== STDERR TAIL ====='
-$Stderr = Get-ChildItem -LiteralPath $ControlRoot -File -Filter 'launcher*.stderr.log' -ErrorAction SilentlyContinue |
+Write-Output '===== PHASE STDERR TAIL ====='
+$PhaseStderr = Get-ChildItem -LiteralPath $PhaseLogRoot -File -Filter '*.stderr.log' -ErrorAction SilentlyContinue |
     Sort-Object LastWriteTime -Descending | Select-Object -First 1
-if ($null -ne $Stderr) {
-    Write-Output ("stderr={0} bytes={1} updated={2}" -f $Stderr.FullName, $Stderr.Length, $Stderr.LastWriteTime)
-    if ($Stderr.Length -gt 0) {
-        Get-Content -LiteralPath $Stderr.FullName -Tail 25
+if ($null -ne $PhaseStderr) {
+    Write-Output ("phase_stderr={0} bytes={1} updated={2}" -f $PhaseStderr.FullName, $PhaseStderr.Length, $PhaseStderr.LastWriteTime)
+    if ($PhaseStderr.Length -gt 0) {
+        Get-Content -LiteralPath $PhaseStderr.FullName -Tail 25
     } else {
         Write-Output 'empty'
     }
