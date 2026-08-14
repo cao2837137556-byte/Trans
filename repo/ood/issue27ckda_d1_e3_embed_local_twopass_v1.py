@@ -195,6 +195,7 @@ def process_member_twopass(
     member = str(part.iloc[0]["raw_source_path"])
     owner, iterator = frozen.open_member(ckbu, kind, container, member, tshark, maximum + 1)
     sessions: Dict[Tuple[Any, ...], frozen.BoundedNetfoundPrefix] = {}
+    unencodable_sessions = set()
     pending_rows = []
     pending_flows: List[List[Dict[str, str]]] = []
     output: Dict[str, Tuple[np.ndarray, bool, str, float, int]] = {}
@@ -222,17 +223,23 @@ def process_member_twopass(
             session = canonical_session(event)
             timestamp = float(event.timestamp)
             if target_session_is_active(session, position, last_target):
-                state = sessions.setdefault(session, frozen.BoundedNetfoundPrefix())
-                state.append(dict(raw), timestamp)
+                frozen.append_or_mark_unencodable(
+                    sessions, unencodable_sessions, session, dict(raw), timestamp
+                )
                 peak_sessions = max(peak_sessions, len(sessions))
             target = by_position.get(position)
             if target is None:
                 continue
             uid = str(target.uid)
             target_session = discovered[position]
-            if target_session is None:
+            if target_session is None or target_session in unencodable_sessions:
+                reason = (
+                    "UNENCODABLE_TIMESTAMP_REGRESSION"
+                    if target_session in unencodable_sessions
+                    else "UNENCODABLE"
+                )
                 missing_session_id = hashlib.sha256(
-                    repr((str(target.source_group), member, "UNENCODABLE", position, uid)).encode("utf-8")
+                    repr((str(target.source_group), member, reason, position, uid)).encode("utf-8")
                 ).hexdigest()
                 output[uid] = (
                     np.empty(0, dtype=np.float32), True, missing_session_id, timestamp, position
@@ -247,8 +254,8 @@ def process_member_twopass(
                 pending_flows.append(sessions[target_session].flow(d0))
                 if len(pending_rows) >= batch_size:
                     flush()
-                if position == last_target[target_session]:
-                    del sessions[target_session]
+            if target_session is not None and position == last_target[target_session]:
+                sessions.pop(target_session, None)
             if decoded % 50_000 == 0:
                 print(
                     "CKDA_D1_LOCAL_EMBED_PROGRESS member=%s packets=%d/%d targets=%d/%d active=%d peak=%d" %

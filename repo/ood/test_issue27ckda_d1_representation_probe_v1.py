@@ -446,6 +446,26 @@ class CKDAD1ContractTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "timestamp regressed"):
             state.append(dict(row, **{"frame.number": "2"}), 1.0)
 
+    def test_36ca_e3_timestamp_regression_poison_is_causal_and_persistent(self) -> None:
+        session = (6, ("10.0.0.1", 10), ("10.0.0.2", 443))
+        sessions = {}
+        unencodable = set()
+        first = {"frame.number": "1", "ip.src": "10.0.0.1"}
+        second = {"frame.number": "2", "ip.src": "10.0.0.2"}
+        third = {"frame.number": "3", "ip.src": "10.0.0.1"}
+        self.assertTrue(e3_embed.append_or_mark_unencodable(
+            sessions, unencodable, session, first, 2.0
+        ))
+        self.assertFalse(e3_embed.append_or_mark_unencodable(
+            sessions, unencodable, session, second, 1.0
+        ))
+        self.assertIn(session, unencodable)
+        self.assertNotIn(session, sessions)
+        self.assertFalse(e3_embed.append_or_mark_unencodable(
+            sessions, unencodable, session, third, 3.0
+        ))
+        self.assertNotIn(session, sessions)
+
     def test_36d_target_metadata_report_marker_is_fully_bound(self) -> None:
         marker = {
             "status": "CKDA_D1_THRESHOLDS_FROZEN",

@@ -31,6 +31,10 @@ CHECKPOINT_FIELDS = {
 }
 
 
+class SessionTimestampRegression(RuntimeError):
+    """A capture-order session prefix cannot represent the frozen time order."""
+
+
 class BoundedNetfoundPrefix:
     """Exact netFound prefix state with a fixed 144-packet memory bound."""
 
@@ -51,7 +55,9 @@ class BoundedNetfoundPrefix:
         if not math.isfinite(timestamp):
             raise RuntimeError("non-finite timestamp in encodable session")
         if self.last_event_timestamp is not None and timestamp < float(self.last_event_timestamp):
-            raise RuntimeError("session timestamp regressed; frozen causal order is not representable")
+            raise SessionTimestampRegression(
+                "session timestamp regressed; frozen causal order is not representable"
+            )
         self.last_event_timestamp = timestamp
         src = (row.get("ip.src") or row.get("ipv6.src") or "").strip()
         if not self.first_src:
@@ -83,6 +89,31 @@ class BoundedNetfoundPrefix:
             0, int(round((float(self.latest_timestamp) - float(self.first_timestamp)) * 1e6))
         )
         return value
+
+
+def append_or_mark_unencodable(
+    sessions: Dict[Tuple[Any, ...], BoundedNetfoundPrefix],
+    unencodable_sessions: set,
+    session: Tuple[Any, ...],
+    row: Dict[str, str],
+    timestamp: float,
+) -> bool:
+    """Append causally, or permanently poison a regressed session prefix.
+
+    Once a negative IAT is observed, the current and later targets in that
+    session use the preregistered unified missing state. Earlier targets remain
+    valid because the regression was not yet present in their causal prefix.
+    """
+    if session in unencodable_sessions:
+        return False
+    state = sessions.setdefault(session, BoundedNetfoundPrefix())
+    try:
+        state.append(row, timestamp)
+    except SessionTimestampRegression:
+        sessions.pop(session, None)
+        unencodable_sessions.add(session)
+        return False
+    return True
 
 
 def import_file(name: str, path: Path):
@@ -208,6 +239,7 @@ def process_member(
     maximum = max(by_position)
     owner, iterator = open_member(ckbu, kind, container, member, tshark, maximum + 1)
     sessions: Dict[Tuple[Any, ...], BoundedNetfoundPrefix] = {}
+    unencodable_sessions = set()
     pending_rows = []
     pending_flows: List[List[Dict[str, str]]] = []
     output: Dict[str, Tuple[np.ndarray, bool, str, float, int]] = {}
@@ -242,17 +274,27 @@ def process_member(
                 left = (str(event.src), int(event.src_port))
                 right = (str(event.dst), int(event.dst_port))
                 session = (int(event.ip_proto),) + tuple(sorted((left, right)))
-                if session not in sessions:
-                    sessions[session] = BoundedNetfoundPrefix()
-                sessions[session].append(dict(raw), float(event.timestamp))
+                append_or_mark_unencodable(
+                    sessions, unencodable_sessions, session, dict(raw), float(event.timestamp)
+                )
             target = by_position.get(position)
             if target is None:
                 continue
             uid = str(target.uid)
             timestamp = float(event.timestamp)
-            if session is None or int(event.ip_proto) not in {6, 17} or not math.isfinite(timestamp):
+            if (
+                session is None
+                or int(event.ip_proto) not in {6, 17}
+                or not math.isfinite(timestamp)
+                or session in unencodable_sessions
+            ):
+                reason = (
+                    "UNENCODABLE_TIMESTAMP_REGRESSION"
+                    if session in unencodable_sessions
+                    else "UNENCODABLE"
+                )
                 missing_session_id = hashlib.sha256(
-                    repr((str(target.source_group), member, "UNENCODABLE", position, uid)).encode("utf-8")
+                    repr((str(target.source_group), member, reason, position, uid)).encode("utf-8")
                 ).hexdigest()
                 output[uid] = (
                     np.empty(0, dtype=np.float32), True, missing_session_id, timestamp, position
