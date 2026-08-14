@@ -89,6 +89,23 @@ def canonical_session(event: Any) -> Optional[Tuple[Any, ...]]:
     return (int(event.ip_proto),) + tuple(sorted((left, right)))
 
 
+def target_session_is_active(
+    session: Optional[Tuple[Any, ...]],
+    position: int,
+    last_target: Dict[Tuple[Any, ...], int],
+) -> bool:
+    """Return whether this packet can still contribute to a frozen target.
+
+    A target session may occur again after its own last selected target while
+    another session keeps the capture-level prefix open.  Such tail packets
+    must not recreate state that was deliberately released at the last target.
+    """
+    if session is None:
+        return False
+    cutoff = last_target.get(session)
+    return cutoff is not None and position <= cutoff
+
+
 def discover_target_sessions(
     part: pd.DataFrame,
     ckbu: Any,
@@ -204,7 +221,7 @@ def process_member_twopass(
             event = ckbu.event_from_tshark(raw)
             session = canonical_session(event)
             timestamp = float(event.timestamp)
-            if session in wanted:
+            if target_session_is_active(session, position, last_target):
                 state = sessions.setdefault(session, frozen.BoundedNetfoundPrefix())
                 state.append(dict(raw), timestamp)
                 peak_sessions = max(peak_sessions, len(sessions))

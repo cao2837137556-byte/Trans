@@ -21,6 +21,7 @@ import issue27ckda_d1_e3_embed_v1 as e3_embed
 import issue27ckda_d0_resource_pilot_v1 as d0_pilot
 import issue27ckda_d1_metrics_v1 as metrics
 import issue27ckda_d1_validate_and_pack_v1 as validator
+import issue27ckda_d1_e3_embed_local_twopass_v1 as local_twopass
 
 
 class CKDAD1ContractTests(unittest.TestCase):
@@ -505,6 +506,20 @@ class CKDAD1ContractTests(unittest.TestCase):
             "ckda_d1_p1_threshold_frontier.csv",
             "ckda_d1_p2_threshold_frontier.csv",
         }.issubset(required))
+
+    def test_36g_local_twopass_does_not_recreate_released_session_state(self) -> None:
+        first = (6, ("10.0.0.1", 10), ("10.0.0.2", 443))
+        second = (6, ("10.0.0.3", 20), ("10.0.0.4", 443))
+        last_target = {first: 2, second: 5}
+        self.assertTrue(local_twopass.target_session_is_active(first, 2, last_target))
+        self.assertFalse(local_twopass.target_session_is_active(first, 3, last_target))
+        self.assertTrue(local_twopass.target_session_is_active(second, 3, last_target))
+        self.assertTrue(local_twopass.target_session_is_active(second, 5, last_target))
+        self.assertFalse(local_twopass.target_session_is_active(second, 6, last_target))
+        self.assertFalse(local_twopass.target_session_is_active(None, 1, last_target))
+        self.assertFalse(local_twopass.target_session_is_active(
+            (17, ("10.0.0.5", 53), ("10.0.0.6", 50000)), 1, last_target
+        ))
 
     def test_37_weighted_cluster_bootstrap_matches_slow_sampling(self) -> None:
         import pandas as pd

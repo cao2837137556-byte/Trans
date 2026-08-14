@@ -243,6 +243,9 @@ try {
         return
     }
 
+    $AttemptText = "status=STARTED`nstarted_utc=$([DateTime]::UtcNow.ToString('o'))`nreport_opened=0`n"
+    [IO.File]::WriteAllText((Join-Path $ControlRoot 'local_embedding_attempt.txt'), $AttemptText, [Text.UTF8Encoding]::new($false))
+
     $FitPlan = Join-Path $StageRoot 'ckda_d1_fit_select_plan.csv'
     $FitSha = Get-Sha256 $FitPlan
     Invoke-PythonPhase 'e3_fit_select_embeddings' @(

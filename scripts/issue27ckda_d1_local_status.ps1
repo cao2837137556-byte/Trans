@@ -26,5 +26,5 @@ if ($null -ne $Log) {
 }
 Write-Output '===== TERMINAL MARKERS ====='
 Get-ChildItem -LiteralPath $ControlRoot -File -ErrorAction SilentlyContinue |
-    Where-Object { $_.Name -in @('local_precompute_success.txt','local_phase_a_success.txt','engineering_failure.json') } |
+    Where-Object { $_.Name -in @('local_precompute_success.txt','local_embedding_attempt.txt','local_phase_a_success.txt','engineering_failure.json') } |
     ForEach-Object { Write-Output $_.Name; Get-Content -LiteralPath $_.FullName }
