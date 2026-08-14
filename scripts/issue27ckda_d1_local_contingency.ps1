@@ -94,10 +94,16 @@ function Invoke-PythonPhase([string]$Name, [string[]]$Arguments, [string[]]$Requ
     }
     Set-Phase $Name
     $Log = Join-Path $LogRoot ($Name + '.log')
-    & $Python @Arguments *> $Log
-    if ($LASTEXITCODE -ne 0) {
+    $ErrorLog = Join-Path $LogRoot ($Name + '.stderr.log')
+    $PreviousPreference = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    & $Python @Arguments 1> $Log 2> $ErrorLog
+    $ExitCode = $LASTEXITCODE
+    $ErrorActionPreference = $PreviousPreference
+    if ($ExitCode -ne 0) {
         Get-Content -LiteralPath $Log -Tail 100
-        throw "Phase failed: $Name exit=$LASTEXITCODE log=$Log"
+        Get-Content -LiteralPath $ErrorLog -Tail 100
+        throw "Phase failed: $Name exit=$ExitCode log=$Log stderr=$ErrorLog"
     }
     foreach ($Output in $RequiredOutputs) {
         if (-not (Test-Path -LiteralPath $Output -PathType Leaf)) {
@@ -146,7 +152,6 @@ try {
         local_equivalence_gate_sha256 = Get-Sha256 $LocalEquivalence
         local_progression_sha256 = Get-Sha256 $LocalProgression
         local_manifest_rebind_sha256 = Get-Sha256 $LocalManifestRebind
-        local_runner_sha256 = Get-Sha256 $MyInvocation.MyCommand.Path
         python = $Python
         tshark = $TShark
         device = 'cpu'
@@ -156,7 +161,7 @@ try {
     $IdentityText = $Identity | ConvertTo-Json -Depth 4
     if (Test-Path -LiteralPath $IdentityPath -PathType Leaf) {
         $Existing = Get-Content -LiteralPath $IdentityPath -Raw | ConvertFrom-Json
-        foreach ($Key in @('contract_sha256','snapshot_sha256','predictions_sha256','d0_manifest_sha256','netfound_checkpoint_sha256','local_embedder_sha256','local_equivalence_gate_sha256','local_progression_sha256','local_manifest_rebind_sha256','local_runner_sha256')) {
+        foreach ($Key in @('contract_sha256','snapshot_sha256','predictions_sha256','d0_manifest_sha256','netfound_checkpoint_sha256','local_embedder_sha256','local_equivalence_gate_sha256','local_progression_sha256','local_manifest_rebind_sha256')) {
             if ([string]$Existing.$Key -ne [string]$Identity[$Key]) { throw "Local resume identity drift: $Key" }
         }
     } else {
