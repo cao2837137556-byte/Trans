@@ -1,8 +1,11 @@
 # CKDA D1 local L1 tail-reentry engineering failure and repair
 
-Date: 2026-08-14  
-Scope: local emergency L1 fit/select embedding only  
-Scientific verdict: **none**  
+Date: 2026-08-14
+
+Scope: local emergency L1 fit/select embedding only
+
+Scientific verdict: **none**
+
 Report opened: **no**
 
 ## 1. Observed failure
@@ -93,4 +96,3 @@ After independent PASS, the same L1 scope may resume from zero completed member
 checkpoints: 25,467 E3 fit/select embeddings, G0/P1/P2 probes, and threshold
 freezing, stopping before report opening. L2 and any paper claim remain
 separately gated.
-
