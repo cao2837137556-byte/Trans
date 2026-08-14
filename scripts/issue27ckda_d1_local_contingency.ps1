@@ -31,10 +31,11 @@ $NetFoundModel = Join-Path $D0Payload 'vendor\netFound-base'
 $LocalEmbed = Join-Path $RepoRoot 'repo\ood\issue27ckda_d1_e3_embed_local_twopass_v1.py'
 $LocalEquivalence = Join-Path $RepoRoot 'repo\ood\issue27ckda_d1_e3_embed_local_twopass_equivalence_v1.py'
 $LocalProgression = Join-Path $RepoRoot 'repo\ood\issue27ckda_d1_local_progression_v1.py'
+$LocalManifestRebind = Join-Path $RepoRoot 'repo\ood\issue27ckda_d1_local_manifest_rebind_v1.py'
 
 $Snapshot = Join-Path $TransferRoot 'ckby_157930_extract\issue27ckby_drocc_feature_dump_v1_2026-08-07_seed27_amd_157930\ckby_drocc_feature_snapshot_seed27.npz'
 $Predictions = Join-Path $TransferRoot 'ckbw_157624_extract\issue27ckbw_tail_margin_dual_control_v1_2026-08-03_seed27_amd_157624\ckbw_record_predictions.csv.gz'
-$D0Manifest = Join-Path $TransferRoot 'ckda_d0_local_lineage_inputs_20260811\ckda_d0_fit_prefix_manifest.csv'
+$D0ManifestFormal = Join-Path $RepoRoot '_hpc_pullback\issue27ckda_d0_representation_compatibility_audit_v1_2026-08-11_amd_158210\ckda_d0_fit_prefix_manifest.csv'
 $GothamManifest = Join-Path $CacheRoot 'ckbu_gotham_unified_causal_manifest.csv'
 $AuxiliaryManifest = Join-Path $CacheRoot 'ckbu_auxiliary_unified_causal_manifest.csv'
 $GothamAllowlist = Join-Path $D1Payload 'runs\mainline_docs\ckcz_gotham_source_allowlist_20260809.csv'
@@ -44,6 +45,7 @@ $TonRoot = Join-Path $PaperRoot 'datasets\external\ton_iot_raw_network\raw_pcap_
 
 $RunName = 'issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu'
 $StageRoot = Join-Path $RepoRoot "runs\.$RunName.stage"
+$D0ManifestLocal = Join-Path $StageRoot 'ckda_d1_local_fit_prefix_manifest.csv'
 $ControlRoot = Join-Path $RepoRoot "runs\${RunName}_control"
 $CheckpointRoot = Join-Path $RepoRoot 'runs\issue27ckda_d1_checkpoint_v1_localwin_ecb429926507d2c4'
 $LogRoot = Join-Path $ControlRoot 'logs'
@@ -106,13 +108,17 @@ function Invoke-PythonPhase([string]$Name, [string[]]$Arguments, [string[]]$Requ
 }
 
 New-Item -ItemType Directory -Force -Path $StageRoot, $ControlRoot, $CheckpointRoot, (Join-Path $CheckpointRoot 'e3_fit_select'), $LogRoot | Out-Null
+if (Test-Path -LiteralPath $FailurePath -PathType Leaf) {
+    $PreviousFailure = Join-Path $ControlRoot ("engineering_failure_previous_" + [DateTime]::UtcNow.ToString('yyyyMMddTHHmmssZ') + '.json')
+    Move-Item -LiteralPath $FailurePath -Destination $PreviousFailure
+}
 Set-Phase 'startup'
 
 try {
     $RequiredFiles = @(
         $Python, $TShark, $Contract, $RolePlan, $Census, $TargetMetadata, $Probe,
         $CKBU, $D0Audit, $D0Pilot, $LocalEmbed, $LocalEquivalence, $LocalProgression,
-        $Snapshot, $Predictions, $D0Manifest, $GothamManifest, $AuxiliaryManifest,
+        $LocalManifestRebind, $Snapshot, $Predictions, $D0ManifestFormal, $GothamManifest, $AuxiliaryManifest,
         $GothamAllowlist, $AuxiliaryAllowlist, $GothamZip,
         (Join-Path $NetFoundModel 'config.json'), (Join-Path $NetFoundModel 'model.safetensors')
     )
@@ -126,7 +132,7 @@ try {
     Assert-FileSha $Contract 'ecb429926507d2c4f8f666edc2d7e50f3e94fc2ec74bc1e26e78ca4813950aa9'
     Assert-FileSha $Predictions 'd1e905924e74bf390aaaae79ee68f10312dc0bc1cdebff88848d4d3ee64adf85'
     Assert-FileSha $Snapshot 'b2ef1f7d0244cc7abb8665c25364744f794190f411482e4e202e346cb850279c'
-    Assert-FileSha $D0Manifest '9184cd018efcc6547832bf04ce6d3046c687b8e48cac73234482d9fb3ba89689'
+    Assert-FileSha $D0ManifestFormal '9184cd018efcc6547832bf04ce6d3046c687b8e48cac73234482d9fb3ba89689'
     Assert-FileSha (Join-Path $NetFoundModel 'model.safetensors') 'e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105'
 
     $Identity = [ordered]@{
@@ -134,10 +140,13 @@ try {
         contract_sha256 = Get-Sha256 $Contract
         snapshot_sha256 = Get-Sha256 $Snapshot
         predictions_sha256 = Get-Sha256 $Predictions
-        d0_manifest_sha256 = Get-Sha256 $D0Manifest
+        d0_manifest_sha256 = Get-Sha256 $D0ManifestFormal
         netfound_checkpoint_sha256 = Get-Sha256 (Join-Path $NetFoundModel 'model.safetensors')
         local_embedder_sha256 = Get-Sha256 $LocalEmbed
         local_equivalence_gate_sha256 = Get-Sha256 $LocalEquivalence
+        local_progression_sha256 = Get-Sha256 $LocalProgression
+        local_manifest_rebind_sha256 = Get-Sha256 $LocalManifestRebind
+        local_runner_sha256 = Get-Sha256 $MyInvocation.MyCommand.Path
         python = $Python
         tshark = $TShark
         device = 'cpu'
@@ -147,7 +156,7 @@ try {
     $IdentityText = $Identity | ConvertTo-Json -Depth 4
     if (Test-Path -LiteralPath $IdentityPath -PathType Leaf) {
         $Existing = Get-Content -LiteralPath $IdentityPath -Raw | ConvertFrom-Json
-        foreach ($Key in @('contract_sha256','snapshot_sha256','predictions_sha256','d0_manifest_sha256','netfound_checkpoint_sha256','local_embedder_sha256','local_equivalence_gate_sha256')) {
+        foreach ($Key in @('contract_sha256','snapshot_sha256','predictions_sha256','d0_manifest_sha256','netfound_checkpoint_sha256','local_embedder_sha256','local_equivalence_gate_sha256','local_progression_sha256','local_manifest_rebind_sha256','local_runner_sha256')) {
             if ([string]$Existing.$Key -ne [string]$Identity[$Key]) { throw "Local resume identity drift: $Key" }
         }
     } else {
@@ -178,6 +187,16 @@ try {
         '--out', (Join-Path $RuntimeRoot 'equivalence')
     ) @((Join-Path $RuntimeRoot 'equivalence\ckda_d1_local_twopass_equivalence.json'))
 
+    Invoke-PythonPhase 'local_manifest_path_rebind' @(
+        $LocalManifestRebind, '--contract', $Contract,
+        '--formal-manifest', $D0ManifestFormal, '--gotham-zip', $GothamZip,
+        '--ton-root', $TonRoot, '--out', $D0ManifestLocal
+    ) @($D0ManifestLocal, ($D0ManifestLocal + '.audit.json'))
+    $ManifestAudit = Get-Content -LiteralPath ($D0ManifestLocal + '.audit.json') -Raw | ConvertFrom-Json
+    if ([string]$ManifestAudit.local_manifest_sha256 -ne (Get-Sha256 $D0ManifestLocal)) {
+        throw 'Local manifest path-rebind audit/hash drift'
+    }
+
     Invoke-PythonPhase 'fit_select_role_plan' @(
         $RolePlan, '--scope', 'fit-select', '--contract', $Contract,
         '--snapshot', $Snapshot, '--out', $StageRoot
@@ -188,7 +207,7 @@ try {
     if (-not (Test-Path -LiteralPath $FitRoleAudit -PathType Leaf)) { throw "Fit/select role audit is absent" }
 
     Invoke-PythonPhase 'benign_only_i1_census' @(
-        $Census, '--contract', $Contract, '--fit-prefix-manifest', $D0Manifest,
+        $Census, '--contract', $Contract, '--fit-prefix-manifest', $D0ManifestLocal,
         '--d0-audit', $D0Audit, '--ckbu-decoder', $CKBU, '--tshark', $TShark,
         '--out', $StageRoot
     ) @((Join-Path $StageRoot 'ckda_d1_benign_census.json'))

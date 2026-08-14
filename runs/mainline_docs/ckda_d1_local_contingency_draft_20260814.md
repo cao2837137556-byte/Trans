@@ -32,6 +32,8 @@ No `cooler-motor`, seed 37, seed 47, or other FINAL asset may be opened. No fami
 
 The locally regenerated fit/select role plan has SHA-256 `eed3d431ab8d71117db7a02b5ee0022eefe7932888001e7d9bcccfd54199aeac`, matching its deterministic frozen inputs. Target metadata contains exactly 25,467 unique UIDs with 0 FINAL files opened.
 
+The formal D0 manifest itself remains SHA-pinned. For local decoding, a generated derivative changes only `container_path` from the HPC mount to the corresponding local Gotham ZIP or ToN PCAP. All other six columns, including source ID, member, cutoff, role, and original lineage source, must be cell-identical to the formal manifest. The derivative and an audit JSON are generated atomically before census; it is not a new scientific manifest. The verified derivative has SHA-256 `afd8f700e64d799d15c2375c3a887b388423a982c7af72d1cb45b85de2ac8e01`, with 27/27 path cells rebound and zero non-path changes.
+
 ## 3. Local environment
 
 - Windows 11, Intel i7-12700H, 16 GiB RAM.

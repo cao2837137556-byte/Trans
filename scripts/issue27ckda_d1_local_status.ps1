@@ -8,7 +8,7 @@ $CheckpointRoot = Join-Path $RepoRoot 'runs\issue27ckda_d1_checkpoint_v1_localwi
 
 Write-Output '===== CKDA D1 LOCAL PROCESS ====='
 Get-CimInstance Win32_Process -ErrorAction SilentlyContinue |
-    Where-Object { $_.CommandLine -like '*issue27ckda_d1_local_contingency.ps1*' } |
+    Where-Object { $_.CommandLine -like '*-File*issue27ckda_d1_local_contingency.ps1*' } |
     Select-Object ProcessId, CreationDate, CommandLine
 Write-Output '===== PHASE ====='
 if (Test-Path -LiteralPath (Join-Path $ControlRoot 'current_phase.txt')) {
