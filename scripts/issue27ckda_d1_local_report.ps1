@@ -53,7 +53,14 @@ $ReportOpenMarker = Join-Path $ControlRoot 'local_report_opened.txt'
 $Pullback = Join-Path $RepoRoot "runs\${RunName}_pullback.tar.gz"
 
 function Get-Sha256([string]$Path) {
-    return (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash.ToLowerInvariant()
+    $Stream = [IO.File]::OpenRead($Path)
+    $Hasher = [Security.Cryptography.SHA256]::Create()
+    try {
+        return ([BitConverter]::ToString($Hasher.ComputeHash($Stream))).Replace('-', '').ToLowerInvariant()
+    } finally {
+        $Hasher.Dispose()
+        $Stream.Dispose()
+    }
 }
 
 function Assert-File([string]$Path) {

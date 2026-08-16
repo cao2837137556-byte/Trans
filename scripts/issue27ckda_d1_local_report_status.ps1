@@ -8,7 +8,7 @@ $CheckpointRoot = Join-Path $RepoRoot 'runs\issue27ckda_d1_checkpoint_v1_localwi
 
 Write-Output '===== CKDA D1 LOCAL L2 PROCESS ====='
 $Processes = @(Get-CimInstance Win32_Process -ErrorAction SilentlyContinue |
-    Where-Object { $_.CommandLine -like '*-File*issue27ckda_d1_local_report.ps1*' } |
+    Where-Object { $_.Name -eq 'powershell.exe' -and $_.CommandLine -like '*-File*issue27ckda_d1_local_report.ps1*' } |
     Select-Object ProcessId, CreationDate, CommandLine)
 if ($Processes.Count -eq 0) { Write-Output 'no active CKDA D1 L2 launcher' } else { $Processes }
 Write-Output '===== PHASE ====='
