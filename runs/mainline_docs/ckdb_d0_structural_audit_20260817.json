@@ -1,0 +1,448 @@
+{
+  "claim_boundary": "diagnostic_only_no_training_no_selection_no_final_open",
+  "domain_identifiability": {
+    "attack_domain_rows": {
+      "city-power": 137,
+      "combined-cycle": 33,
+      "ip-camera-museum": 215,
+      "ton-iot-external": 4000
+    },
+    "attack_rows": 4385,
+    "attack_rows_from_ton": 4000,
+    "attack_rows_from_ton_fraction": 0.9122006841505131,
+    "benign_domain_rows": {
+      "building-monitor": 3204,
+      "combined-cycle": 3600,
+      "combined-cycle-tls": 1409,
+      "domotic-monitor": 1800,
+      "ton-iot-external": 4000
+    },
+    "benign_rows": 14013,
+    "coarse_benign_domain_count": 5,
+    "domain_label_contingency": [
+      {
+        "attack_rows": 0,
+        "benign_rows": 3204,
+        "domain": "building-monitor"
+      },
+      {
+        "attack_rows": 137,
+        "benign_rows": 0,
+        "domain": "city-power"
+      },
+      {
+        "attack_rows": 33,
+        "benign_rows": 3600,
+        "domain": "combined-cycle"
+      },
+      {
+        "attack_rows": 0,
+        "benign_rows": 1409,
+        "domain": "combined-cycle-tls"
+      },
+      {
+        "attack_rows": 0,
+        "benign_rows": 1800,
+        "domain": "domotic-monitor"
+      },
+      {
+        "attack_rows": 215,
+        "benign_rows": 0,
+        "domain": "ip-camera-museum"
+      },
+      {
+        "attack_rows": 4000,
+        "benign_rows": 4000,
+        "domain": "ton-iot-external"
+      }
+    ],
+    "domain_majority_label_accuracy_all": 0.7807913903685183,
+    "domain_majority_label_accuracy_excluding_ton": 0.9968263127524524,
+    "effective_benign_domain_count_hhi": 4.417552451191254,
+    "fit_rows": 18398,
+    "fit_sources": 22
+  },
+  "hydraulic_structure": {
+    "causal_report_rows": 253050,
+    "causal_report_sources": 15,
+    "groups": {
+      "attacks": {
+        "flow_bidirectional_seen_fraction": 0.46398688793280063,
+        "flow_elapsed_ms": {
+          "p25": 0.0,
+          "p50": 64.07154003783921,
+          "p75": 4088.1259853707356,
+          "p90": 39997.94098192599
+        },
+        "flow_packets": {
+          "p25": 0.0,
+          "p50": 5.999999629792443,
+          "p75": 976.0000226856163,
+          "p90": 6428.0027678069755
+        },
+        "flow_rst_seen_fraction": 8.195041999590248e-05,
+        "flow_syn_seen_fraction": 0.42057365293997134,
+        "frame_len": {
+          "p25": 54.00000513829466,
+          "p50": 68.99999019155533,
+          "p75": 554.0001011790572,
+          "p90": 577.9999410696504
+        },
+        "is_icmp_fraction": 0.08349108789182545,
+        "is_tcp_fraction": 0.6480024585125999,
+        "is_udp_fraction": 0.2712435976234378,
+        "pair_forward_iat_ms": {
+          "p25": 0.011205673139705523,
+          "p50": 0.287055978885372,
+          "p75": 4.003763381121943,
+          "p90": 75.13681230771132
+        },
+        "rows": 244050,
+        "source_iat_ms": {
+          "p25": 0.010967254547701635,
+          "p50": 0.0240802772048512,
+          "p75": 0.680923452581,
+          "p90": 2.6478765328535916
+        },
+        "sources": 8
+      },
+      "hydraulic": {
+        "flow_bidirectional_seen_fraction": 0.7666666666666667,
+        "flow_elapsed_ms": {
+          "p25": 273966.90904565103,
+          "p50": 2674871.383976957,
+          "p75": 5135172.328173922,
+          "p90": 6605758.842378364
+        },
+        "flow_packets": {
+          "p25": 47.99999481709434,
+          "p50": 662.0001061550665,
+          "p75": 1274.2500557487585,
+          "p90": 1640.1997558338985
+        },
+        "flow_rst_seen_fraction": 0.0,
+        "flow_syn_seen_fraction": 0.0,
+        "frame_len": {
+          "p25": 66.00001481941042,
+          "p50": 89.99999844609019,
+          "p75": 1513.9999151339443,
+          "p90": 1513.9999151339443
+        },
+        "is_icmp_fraction": 0.008666666666666666,
+        "is_tcp_fraction": 0.7543333333333333,
+        "is_udp_fraction": 0.237,
+        "pair_forward_iat_ms": {
+          "p25": 0.024974346311103623,
+          "p50": 2001.211080377774,
+          "p75": 30033.929230727557,
+          "p90": 60016.92165810715
+        },
+        "rows": 3000,
+        "source_iat_ms": {
+          "p25": 0.0240802772048512,
+          "p50": 0.43201447961273304,
+          "p75": 8.61716313496085,
+          "p90": 7691.002154431394
+        },
+        "sources": 5
+      },
+      "hydraulic_p2_hard": {
+        "flow_bidirectional_seen_fraction": 0.9982525120139799,
+        "flow_elapsed_ms": {
+          "p25": 1966420.441421879,
+          "p50": 3815785.5097065493,
+          "p75": 5719482.79915037,
+          "p90": 6841272.228369547
+        },
+        "flow_packets": {
+          "p25": 483.9999502946152,
+          "p50": 951.9999480008659,
+          "p75": 1419.0002989806242,
+          "p90": 1699.2000421160842
+        },
+        "flow_rst_seen_fraction": 0.0,
+        "flow_syn_seen_fraction": 0.0,
+        "frame_len": {
+          "p25": 66.00001481941042,
+          "p50": 97.0000131858659,
+          "p75": 1513.9999151339443,
+          "p90": 1513.9999151339443
+        },
+        "is_icmp_fraction": 0.011358671909130624,
+        "is_tcp_fraction": 0.9886413280908694,
+        "is_udp_fraction": 0.0,
+        "pair_forward_iat_ms": {
+          "p25": 0.01907348629647105,
+          "p50": 6.404162140766953,
+          "p75": 15016.106546643994,
+          "p90": 30029.504129459558
+        },
+        "rows": 2289,
+        "source_iat_ms": {
+          "p25": 0.01907348629647105,
+          "p50": 0.03814697401567306,
+          "p75": 8.316039701670812,
+          "p90": 7029.9411074195605
+        },
+        "sources": 5
+      },
+      "hydraulic_p2_normal": {
+        "flow_bidirectional_seen_fraction": 0.02109704641350211,
+        "flow_elapsed_ms": {
+          "p25": 0.0,
+          "p50": 0.0290870660704464,
+          "p75": 5.913853480292522,
+          "p90": 7.050990796025035
+        },
+        "flow_packets": {
+          "p25": 0.0,
+          "p50": 1.0000000038093084,
+          "p75": 1.0000000038093084,
+          "p90": 1.0000000038093084
+        },
+        "flow_rst_seen_fraction": 0.0,
+        "flow_syn_seen_fraction": 0.0,
+        "frame_len": {
+          "p25": 74.9999968816471,
+          "p50": 84.00000130302892,
+          "p75": 89.99999844609019,
+          "p90": 89.99999844609019
+        },
+        "is_icmp_fraction": 0.0,
+        "is_tcp_fraction": 0.0,
+        "is_udp_fraction": 1.0,
+        "pair_forward_iat_ms": {
+          "p25": 60015.14732027277,
+          "p50": 60016.578233787244,
+          "p75": 60018.066420032614,
+          "p90": 60019.72636360871
+        },
+        "rows": 711,
+        "source_iat_ms": {
+          "p25": 0.11503696318908727,
+          "p50": 5.838155386362663,
+          "p75": 55.50898074991543,
+          "p90": 9947.028038375951
+        },
+        "sources": 5
+      },
+      "ip_camera_street_benign": {
+        "flow_bidirectional_seen_fraction": 0.0036666666666666666,
+        "flow_elapsed_ms": {
+          "p25": 246467.8516355904,
+          "p50": 488300.647386734,
+          "p75": 730761.6236732358,
+          "p90": 874802.93497579
+        },
+        "flow_packets": {
+          "p25": 24667.9929660857,
+          "p50": 49584.50711053802,
+          "p75": 74533.51048736152,
+          "p90": 89531.41016990102
+        },
+        "flow_rst_seen_fraction": 0.0,
+        "flow_syn_seen_fraction": 0.0,
+        "frame_len": {
+          "p25": 1513.9999151339443,
+          "p50": 1513.9999151339443,
+          "p75": 1513.9999151339443,
+          "p90": 1513.9999151339443
+        },
+        "is_icmp_fraction": 0.0,
+        "is_tcp_fraction": 0.0006666666666666666,
+        "is_udp_fraction": 0.9993333333333333,
+        "pair_forward_iat_ms": {
+          "p25": 0.010967254547701635,
+          "p50": 0.015020370371242459,
+          "p75": 0.02598762471307364,
+          "p90": 60.450807144308214
+        },
+        "rows": 3000,
+        "source_iat_ms": {
+          "p25": 0.010967254547701635,
+          "p50": 0.015020370371242459,
+          "p75": 0.02598762471307364,
+          "p90": 60.425223012992504
+        },
+        "sources": 1
+      },
+      "stream_consumer": {
+        "flow_bidirectional_seen_fraction": 0.9343333333333333,
+        "flow_elapsed_ms": {
+          "p25": 13564.134706756724,
+          "p50": 27205.99399538804,
+          "p75": 42496.350051427384,
+          "p90": 53017.45138956081
+        },
+        "flow_packets": {
+          "p25": 2163.000186271348,
+          "p50": 4377.000817871195,
+          "p75": 6850.24718614788,
+          "p90": 8554.59690831813
+        },
+        "flow_rst_seen_fraction": 0.0003333333333333333,
+        "flow_syn_seen_fraction": 0.003,
+        "frame_len": {
+          "p25": 1513.9999151339443,
+          "p50": 1513.9999151339443,
+          "p75": 1513.9999151339443,
+          "p90": 1513.9999151339443
+        },
+        "is_icmp_fraction": 0.0,
+        "is_tcp_fraction": 0.0033333333333333335,
+        "is_udp_fraction": 0.9966666666666667,
+        "pair_forward_iat_ms": {
+          "p25": 0.008106231522747876,
+          "p50": 0.015974044585517166,
+          "p75": 1.0312199425642476,
+          "p90": 39.12188991732286
+        },
+        "rows": 3000,
+        "source_iat_ms": {
+          "p25": 0.008106231522747876,
+          "p50": 0.015974044585517166,
+          "p75": 1.0030866024709177,
+          "p90": 38.837910461204615
+        },
+        "sources": 1
+      },
+      "viewed_benign_controls": {
+        "flow_bidirectional_seen_fraction": 0.469,
+        "flow_elapsed_ms": {
+          "p25": 25836.70355740214,
+          "p50": 56134.71487267099,
+          "p75": 488250.2374473701,
+          "p90": 778668.555967813
+        },
+        "flow_packets": {
+          "p25": 3991.5002087384205,
+          "p50": 8666.499506321405,
+          "p75": 49576.2552807505,
+          "p90": 79507.38691052185
+        },
+        "flow_rst_seen_fraction": 0.00016666666666666666,
+        "flow_syn_seen_fraction": 0.0015,
+        "frame_len": {
+          "p25": 1513.9999151339443,
+          "p50": 1513.9999151339443,
+          "p75": 1513.9999151339443,
+          "p90": 1513.9999151339443
+        },
+        "is_icmp_fraction": 0.0,
+        "is_tcp_fraction": 0.002,
+        "is_udp_fraction": 0.998,
+        "pair_forward_iat_ms": {
+          "p25": 0.010013580615031078,
+          "p50": 0.015020370371242459,
+          "p75": 0.03701448425569636,
+          "p90": 41.006402104357456
+        },
+        "rows": 6000,
+        "source_iat_ms": {
+          "p25": 0.010013580615031078,
+          "p50": 0.015020370371242459,
+          "p75": 0.03600120651351657,
+          "p90": 40.65418444954508
+        },
+        "sources": 2
+      }
+    },
+    "hydraulic_distance_diagnostic": [
+      {
+        "attack_closer": true,
+        "attack_closer_margin": 0.7267564023765622,
+        "distance_kind": "absolute_prevalence_difference",
+        "feature": "is_udp",
+        "to_attacks": 0.034243597623437816,
+        "to_viewed_benign_controls": 0.761
+      },
+      {
+        "attack_closer": true,
+        "attack_closer_margin": 0.6460024585125999,
+        "distance_kind": "absolute_prevalence_difference",
+        "feature": "is_tcp",
+        "to_attacks": 0.10633087482073345,
+        "to_viewed_benign_controls": 0.7523333333333333
+      },
+      {
+        "attack_closer": true,
+        "attack_closer_margin": 0.42393034214300346,
+        "distance_kind": "KS",
+        "feature": "flow_packets",
+        "to_attacks": 0.45506965785699655,
+        "to_viewed_benign_controls": 0.879
+      },
+      {
+        "attack_closer": true,
+        "attack_closer_margin": 0.3740241753738988,
+        "distance_kind": "KS",
+        "feature": "frame_len",
+        "to_attacks": 0.31130915795943453,
+        "to_viewed_benign_controls": 0.6853333333333333
+      },
+      {
+        "attack_closer": true,
+        "attack_closer_margin": 0.07706504814587178,
+        "distance_kind": "KS",
+        "feature": "pair_forward_iat_ms",
+        "to_attacks": 0.4397682851874616,
+        "to_viewed_benign_controls": 0.5168333333333334
+      },
+      {
+        "attack_closer": true,
+        "attack_closer_margin": 0.01656689203032169,
+        "distance_kind": "KS",
+        "feature": "source_iat_ms",
+        "to_attacks": 0.40476644130301165,
+        "to_viewed_benign_controls": 0.42133333333333334
+      },
+      {
+        "attack_closer": true,
+        "attack_closer_margin": 8.471624667076418e-05,
+        "distance_kind": "absolute_prevalence_difference",
+        "feature": "flow_rst_seen",
+        "to_attacks": 8.195041999590248e-05,
+        "to_viewed_benign_controls": 0.00016666666666666666
+      },
+      {
+        "attack_closer": false,
+        "attack_closer_margin": -0.0050131120671993434,
+        "distance_kind": "absolute_prevalence_difference",
+        "feature": "flow_bidirectional_seen",
+        "to_attacks": 0.3026797787338661,
+        "to_viewed_benign_controls": 0.29766666666666675
+      },
+      {
+        "attack_closer": false,
+        "attack_closer_margin": -0.023490268387625468,
+        "distance_kind": "KS",
+        "feature": "flow_elapsed_ms",
+        "to_attacks": 0.6994902683876254,
+        "to_viewed_benign_controls": 0.6759999999999999
+      },
+      {
+        "attack_closer": false,
+        "attack_closer_margin": -0.06615775455849211,
+        "distance_kind": "absolute_prevalence_difference",
+        "feature": "is_icmp",
+        "to_attacks": 0.07482442122515878,
+        "to_viewed_benign_controls": 0.008666666666666666
+      },
+      {
+        "attack_closer": false,
+        "attack_closer_margin": -0.41907365293997134,
+        "distance_kind": "absolute_prevalence_difference",
+        "feature": "flow_syn_seen",
+        "to_attacks": 0.42057365293997134,
+        "to_viewed_benign_controls": 0.0015
+      }
+    ]
+  },
+  "input_sha256": {
+    "causal_manifest": "aaef2a0c0e4cc28d3815dbff4152db2fbe8c7d953dc35cf05cd817c4135d4c22",
+    "fit_select_plan": "eed3d431ab8d71117db7a02b5ee0022eefe7932888001e7d9bcccfd54199aeac",
+    "report_metadata": "628c542108b4b582e74cd6ed0e5474a5f69225bd6a7c054200998d7448bfe65e",
+    "report_scores": "7ed1c0e9ebd0cbfc95669a064dcf1f57dd343fc4106611216575232432a0e6f9"
+  },
+  "status": "CKDB_D0_READ_ONLY_AUDIT_COMPLETE"
+}
