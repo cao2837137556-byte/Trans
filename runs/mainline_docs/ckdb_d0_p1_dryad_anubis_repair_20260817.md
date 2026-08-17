@@ -79,6 +79,12 @@ certificates into an otherwise standard verified SSL context.  Certificate
 verification and hostname checking remain mandatory; no unverified TLS mode is
 permitted.  Test 30 freezes those invariants.
 
+The first implementation loaded Windows `ROOT` certificates but the active
+proxy chain required an intermediate from the Windows `CA` store.  A diagnostic
+verified that loading both stores returns the UNB page with HTTP 200 and 74,301
+bytes under full certificate and hostname validation.  The production context
+therefore loads both stores; the failed retry remains engineering evidence.
+
 ## Retry rule
 
 The failed first output is retained as engineering evidence.  The repaired

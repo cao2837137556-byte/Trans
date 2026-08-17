@@ -471,6 +471,9 @@ class CKDBD0P1ContractTests(unittest.TestCase):
         context = ckdb.build_verified_ssl_context()
         self.assertEqual(context.verify_mode, ckdb.ssl.CERT_REQUIRED)
         self.assertTrue(context.check_hostname)
+        if callable(getattr(ckdb.ssl, "enum_certificates", None)):
+            self.assertGreater(len(ckdb.ssl.enum_certificates("ROOT")), 0)
+            self.assertGreater(len(ckdb.ssl.enum_certificates("CA")), 0)
 
 
 if __name__ == "__main__":

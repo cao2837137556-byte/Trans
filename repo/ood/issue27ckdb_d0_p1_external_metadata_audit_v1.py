@@ -475,9 +475,10 @@ def build_verified_ssl_context() -> ssl.SSLContext:
     enum_certificates = getattr(ssl, "enum_certificates", None)
     if callable(enum_certificates):
         roots: List[str] = []
-        for certificate, encoding, _trust in enum_certificates("ROOT"):
-            if encoding == "x509_asn":
-                roots.append(ssl.DER_cert_to_PEM_cert(certificate))
+        for store in ("ROOT", "CA"):
+            for certificate, encoding, _trust in enum_certificates(store):
+                if encoding == "x509_asn":
+                    roots.append(ssl.DER_cert_to_PEM_cert(certificate))
         if roots:
             context.load_verify_locations(cadata="".join(roots))
     if context.verify_mode != ssl.CERT_REQUIRED or not context.check_hostname:
