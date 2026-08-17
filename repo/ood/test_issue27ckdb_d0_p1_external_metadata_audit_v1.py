@@ -467,6 +467,11 @@ class CKDBD0P1ContractTests(unittest.TestCase):
             with self.assertRaisesRegex(ckdb.SafetyError, "JSON"):
                 ckdb.validate_object_kind(bad, "json")
 
+    def test_30_tls_uses_system_roots_without_disabling_verification(self):
+        context = ckdb.build_verified_ssl_context()
+        self.assertEqual(context.verify_mode, ckdb.ssl.CERT_REQUIRED)
+        self.assertTrue(context.check_hostname)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

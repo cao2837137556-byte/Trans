@@ -72,6 +72,13 @@ After all five Dryad metadata objects passed, a later Tier-A DOI object returned
 an empty HTTP 202 AWS WAF shell.  That independent failure is addressed by the
 separate IEEE DOI metadata erratum; it does not alter the Dryad adapter.
 
+The following clean retry completed every UNSW Tier-A object, then stopped at
+the UNB HTTPS endpoint because Python/OpenSSL did not inherit the Windows trust
+store used by the active local proxy.  The executor now imports Windows ROOT
+certificates into an otherwise standard verified SSL context.  Certificate
+verification and hostname checking remain mandatory; no unverified TLS mode is
+permitted.  Test 30 freezes those invariants.
+
 ## Retry rule
 
 The failed first output is retained as engineering evidence.  The repaired

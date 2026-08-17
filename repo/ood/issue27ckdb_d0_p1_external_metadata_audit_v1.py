@@ -18,6 +18,7 @@ import math
 import os
 import re
 import shutil
+import ssl
 import stat
 import sys
 import tarfile
@@ -469,13 +470,33 @@ def _is_allowed_dryad_payload_url(url: str, allowed_final_hosts: Sequence[str]) 
     )
 
 
+def build_verified_ssl_context() -> ssl.SSLContext:
+    context = ssl.create_default_context()
+    enum_certificates = getattr(ssl, "enum_certificates", None)
+    if callable(enum_certificates):
+        roots: List[str] = []
+        for certificate, encoding, _trust in enum_certificates("ROOT"):
+            if encoding == "x509_asn":
+                roots.append(ssl.DER_cert_to_PEM_cert(certificate))
+        if roots:
+            context.load_verify_locations(cadata="".join(roots))
+    if context.verify_mode != ssl.CERT_REQUIRED or not context.check_hostname:
+        raise RetrievalError("verified TLS context invariant failed")
+    return context
+
+
 class Fetcher:
     def __init__(self, opener: Any = None, allow_dryad_anubis: bool = False) -> None:
-        self.opener = opener or urllib.request.urlopen
+        tls_context = build_verified_ssl_context()
+        default_opener = urllib.request.build_opener(
+            urllib.request.HTTPSHandler(context=tls_context)
+        )
+        self.opener = opener or default_opener.open
         self.allow_dryad_anubis = bool(allow_dryad_anubis)
         self._dryad_cookie_jar = http.cookiejar.CookieJar()
         self._dryad_opener = urllib.request.build_opener(
-            urllib.request.HTTPCookieProcessor(self._dryad_cookie_jar)
+            urllib.request.HTTPCookieProcessor(self._dryad_cookie_jar),
+            urllib.request.HTTPSHandler(context=tls_context),
         )
 
     def _open_dryad_file(
