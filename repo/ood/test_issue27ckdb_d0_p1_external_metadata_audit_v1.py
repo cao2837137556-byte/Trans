@@ -413,6 +413,18 @@ class CKDBD0P1ContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ckdb.RetrievalError, "difficulty mismatch"):
             ckdb._parse_anubis_challenge(payload.replace(b'"difficulty":1}', b'"difficulty":2}', 1))
 
+    def test_27_anubis_pass_endpoint_is_same_origin_but_never_a_manifest_identity(self):
+        pass_url = (
+            "https://datadryad.org/.within.website/x/cmd/anubis/api/pass-challenge"
+            "?id=secret&response=secret&nonce=1"
+        )
+        parsed = ckdb.urllib.parse.urlparse(pass_url)
+        self.assertEqual(parsed.hostname, ckdb.DRYAD_HOST)
+        self.assertEqual(parsed.path, ckdb.DRYAD_CHALLENGE_PATH)
+        self.assertFalse(ckdb._is_dryad_file_stream(pass_url))
+        original = "https://datadryad.org/downloads/file_stream/4322597"
+        self.assertTrue(ckdb._is_dryad_file_stream(original))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

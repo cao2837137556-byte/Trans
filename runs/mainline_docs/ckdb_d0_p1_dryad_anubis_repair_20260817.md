@@ -46,6 +46,14 @@ that the two difficulty declarations agree, and ignores challenge metadata;
 the suite is extended to 26 tests.  That retry is retained as a second
 engineering-failure artifact and is not reused.
 
+The next fail-closed retry established that successful validation serves the
+official file body directly from the same-origin Anubis pass endpoint instead
+of redirecting the response URL back to `file_stream`.  The adapter now
+accepts that exact official endpoint as a transport response while the audit
+manifest always records the original allowlisted `file_stream` identity; no
+challenge query parameter is persisted.  A 27th regression test freezes this
+identity separation.
+
 ## Retry rule
 
 The failed first output is retained as engineering evidence.  The repaired

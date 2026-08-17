@@ -496,7 +496,16 @@ class Fetcher:
         passed = urllib.request.Request(pass_url, headers=headers)
         response = self._dryad_opener.open(passed, timeout=120)
         final_url = str(response.geturl())
-        if not _is_dryad_file_stream(final_url):
+        final_parsed = urllib.parse.urlparse(final_url)
+        final_is_official_payload = (
+            final_parsed.scheme == "https"
+            and (final_parsed.hostname or "").lower() == DRYAD_HOST
+            and (
+                final_parsed.path.startswith(DRYAD_FILE_PREFIX)
+                or final_parsed.path == DRYAD_CHALLENGE_PATH
+            )
+        )
+        if not final_is_official_payload:
             response.close()
             raise RetrievalError("Dryad challenge did not return the authorized file stream")
         if "text/html" in _response_header(response, "Content-Type").lower():
@@ -548,7 +557,7 @@ class Fetcher:
             if offset and status == 200:
                 offset = 0
                 append = False
-            final_url = str(response.geturl())
+            final_url = url if _is_dryad_file_stream(url) else str(response.geturl())
             final_host = (urllib.parse.urlparse(final_url).hostname or "").lower()
             allowed = {str(item).lower() for item in spec["allowed_final_hosts"]}
             if final_host not in allowed:
