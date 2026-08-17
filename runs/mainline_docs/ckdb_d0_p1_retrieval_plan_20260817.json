@@ -1,0 +1,122 @@
+{
+  "candidate_order": [
+    "UNSW_IOTRAFFIC",
+    "CIC_MODBUS_2023"
+  ],
+  "contract_sha256": "9e96ad2860f812595d51376bc7b0bc1c3ae30e264e1918c946750689d363a3ba",
+  "future_large_objects": [
+    {
+      "candidate_id": "UNSW_IOTRAFFIC",
+      "destination_identity": "UNSW_IOTRAFFIC/pcaps.zip",
+      "expected_size_or_ceiling": "published 13.92 GB; exact bytes to be frozen before download",
+      "expected_sha256": "NOT_PUBLISHED_REQUIRE_POST_DOWNLOAD_SHA256",
+      "intended_use": "FUTURE_CAUSAL_SESSION_CENSUS_AND_PREREGISTERED_SELF_SUPERVISION",
+      "object_id": "unsw_pcaps",
+      "official_url": "https://datadryad.org/downloads/file_stream/4322593"
+    },
+    {
+      "candidate_id": "CIC_MODBUS_2023",
+      "destination_identity": "CIC_MODBUS_2023/benign_only_tree",
+      "expected_size_or_ceiling": "PENDING_OFFICIAL_INVENTORY",
+      "expected_sha256": "PENDING_OFFICIAL_INVENTORY",
+      "intended_use": "FUTURE_INDUSTRIAL_BENIGN_DOMAIN_CENSUS_ONLY",
+      "object_id": "cic_benign_pcaps",
+      "official_url": "PENDING_FORM_RESOLVED_OFFICIAL_OBJECT_URL"
+    }
+  ],
+  "objects": [
+    {
+      "allowed_final_hosts": ["iotanalytics.unsw.edu.au"],
+      "candidate_id": "UNSW_IOTRAFFIC",
+      "expected_kind": "html",
+      "max_bytes": 2097152,
+      "object_id": "unsw_official_page",
+      "published_size_text": "not published",
+      "tier": "A",
+      "url": "https://iotanalytics.unsw.edu.au/unsw-iotraffic.html"
+    },
+    {
+      "allowed_final_hosts": ["datadryad.org"],
+      "candidate_id": "UNSW_IOTRAFFIC",
+      "expected_kind": "html",
+      "max_bytes": 5242880,
+      "object_id": "unsw_dryad_inventory",
+      "published_size_text": "not published",
+      "tier": "A",
+      "url": "https://datadryad.org/dataset/doi%3A10.5061/dryad.w0vt4b94b"
+    },
+    {
+      "allowed_final_hosts": ["datadryad.org"],
+      "candidate_id": "UNSW_IOTRAFFIC",
+      "expected_kind": "csv",
+      "max_bytes": 65536,
+      "object_id": "unsw_device_summary",
+      "published_size_text": "1.84 KB",
+      "tier": "A",
+      "url": "https://datadryad.org/downloads/file_stream/4322597"
+    },
+    {
+      "allowed_final_hosts": ["datadryad.org"],
+      "candidate_id": "UNSW_IOTRAFFIC",
+      "expected_kind": "csv",
+      "max_bytes": 65536,
+      "object_id": "unsw_protocol_summary",
+      "published_size_text": "384 B",
+      "tier": "A",
+      "url": "https://datadryad.org/downloads/file_stream/4322598"
+    },
+    {
+      "allowed_final_hosts": ["datadryad.org"],
+      "candidate_id": "UNSW_IOTRAFFIC",
+      "expected_kind": "markdown",
+      "max_bytes": 131072,
+      "object_id": "unsw_readme",
+      "published_size_text": "11.19 KB",
+      "tier": "A",
+      "url": "https://datadryad.org/downloads/file_stream/4322603"
+    },
+    {
+      "allowed_final_hosts": ["doi.org", "ieeexplore.ieee.org"],
+      "candidate_id": "UNSW_IOTRAFFIC",
+      "expected_kind": "html",
+      "max_bytes": 5242880,
+      "object_id": "unsw_descriptor_landing",
+      "published_size_text": "not published",
+      "tier": "A",
+      "url": "https://doi.org/10.1109/IEEEDATA.2025.3602010"
+    },
+    {
+      "allowed_final_hosts": ["www.unb.ca"],
+      "candidate_id": "CIC_MODBUS_2023",
+      "expected_kind": "html",
+      "max_bytes": 2097152,
+      "object_id": "cic_official_page",
+      "published_size_text": "not published",
+      "tier": "A",
+      "url": "https://www.unb.ca/cic/datasets/modbus-2023.html"
+    },
+    {
+      "allowed_final_hosts": ["cicresearch.ca"],
+      "candidate_id": "CIC_MODBUS_2023",
+      "expected_kind": "html",
+      "max_bytes": 2097152,
+      "object_id": "cic_download_inventory",
+      "published_size_text": "not published",
+      "tier": "A",
+      "url": "https://cicresearch.ca/CICDataset/CICModbusDataset2023/"
+    },
+    {
+      "allowed_final_hosts": ["datadryad.org"],
+      "candidate_id": "UNSW_IOTRAFFIC",
+      "expected_kind": "zip_flow_metadata",
+      "max_bytes": 115343360,
+      "object_id": "unsw_flows",
+      "published_size_text": "95.51 MB",
+      "tier": "B",
+      "url": "https://datadryad.org/downloads/file_stream/4322594"
+    }
+  ],
+  "schema_version": "CKDB_D0_P1_RETRIEVAL_PLAN_V1",
+  "tier_a_candidate_cap_bytes": 20971520,
+  "tier_b_candidate_cap_bytes": 134217728
+}
