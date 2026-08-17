@@ -440,6 +440,26 @@ def _browser_headers(referer: str = "") -> Dict[str, str]:
     return headers
 
 
+def _is_allowed_dryad_payload_url(url: str, allowed_final_hosts: Sequence[str]) -> bool:
+    parsed = urllib.parse.urlparse(str(url))
+    host = (parsed.hostname or "").lower()
+    allowed = {str(item).lower() for item in allowed_final_hosts}
+    return bool(
+        parsed.scheme == "https"
+        and host in allowed
+        and (
+            (
+                host == DRYAD_HOST
+                and (
+                    parsed.path.startswith(DRYAD_FILE_PREFIX)
+                    or parsed.path == DRYAD_CHALLENGE_PATH
+                )
+            )
+            or (host == DRYAD_ASSET_HOST and parsed.path.startswith("/v3/"))
+        )
+    )
+
+
 class Fetcher:
     def __init__(self, opener: Any = None, allow_dryad_anubis: bool = False) -> None:
         self.opener = opener or urllib.request.urlopen
@@ -466,7 +486,9 @@ class Fetcher:
         else:
             content_type = _response_header(response, "Content-Type").lower()
             final_url = str(response.geturl())
-            if "text/html" not in content_type and _is_dryad_file_stream(final_url):
+            if "text/html" not in content_type and _is_allowed_dryad_payload_url(
+                final_url, allowed_final_hosts
+            ):
                 return response
             payload = response.read(2 * 1024 * 1024 + 1)
             response.close()
@@ -499,24 +521,7 @@ class Fetcher:
         passed = urllib.request.Request(pass_url, headers=headers)
         response = self._dryad_opener.open(passed, timeout=120)
         final_url = str(response.geturl())
-        final_parsed = urllib.parse.urlparse(final_url)
-        allowed = {str(item).lower() for item in allowed_final_hosts}
-        final_host = (final_parsed.hostname or "").lower()
-        final_is_official_payload = (
-            final_parsed.scheme == "https"
-            and final_host in allowed
-            and (
-                (
-                    final_host == DRYAD_HOST
-                    and (
-                        final_parsed.path.startswith(DRYAD_FILE_PREFIX)
-                        or final_parsed.path == DRYAD_CHALLENGE_PATH
-                    )
-                )
-                or (final_host == DRYAD_ASSET_HOST and final_parsed.path.startswith("/v3/"))
-            )
-        )
-        if not final_is_official_payload:
+        if not _is_allowed_dryad_payload_url(final_url, allowed_final_hosts):
             response.close()
             raise RetrievalError("Dryad challenge did not return the authorized file stream")
         if "text/html" in _response_header(response, "Content-Type").lower():

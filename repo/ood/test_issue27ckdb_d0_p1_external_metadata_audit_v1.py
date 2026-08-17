@@ -435,6 +435,21 @@ class CKDBD0P1ContractTests(unittest.TestCase):
             all(ckdb.DRYAD_ASSET_HOST in item["allowed_final_hosts"] for item in dryad_files)
         )
 
+    def test_28_dryad_authenticated_direct_asset_is_exactly_bounded(self):
+        allowed = [ckdb.DRYAD_HOST, ckdb.DRYAD_ASSET_HOST]
+        self.assertTrue(
+            ckdb._is_allowed_dryad_payload_url(
+                "https://dryad-assetstore-merritt-west.s3.us-west-2.amazonaws.com/v3/x/data.csv?X=1",
+                allowed,
+            )
+        )
+        for refused in (
+            "http://dryad-assetstore-merritt-west.s3.us-west-2.amazonaws.com/v3/x/data.csv",
+            "https://dryad-assetstore-merritt-west.s3.us-west-2.amazonaws.com/private/x",
+            "https://other-bucket.s3.us-west-2.amazonaws.com/v3/x/data.csv",
+        ):
+            self.assertFalse(ckdb._is_allowed_dryad_payload_url(refused, allowed), refused)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -61,6 +61,13 @@ also failed closed.  A separate frozen engineering erratum adds only this
 exact host to the four pre-existing Dryad file-stream objects and re-pins the
 plan identity; no scientific or authorization field changes.
 
+One further fail-closed retry showed the authenticated-session fast path:
+after the first proof, subsequent allowlisted files redirect directly to the
+same exact asset host without a second challenge page.  The same host/path
+predicate is now shared by both the challenge-response and authenticated
+direct-response branches.  Test 28 freezes rejection of HTTP, other S3
+buckets, and non-`/v3/` paths.
+
 ## Retry rule
 
 The failed first output is retained as engineering evidence.  The repaired
