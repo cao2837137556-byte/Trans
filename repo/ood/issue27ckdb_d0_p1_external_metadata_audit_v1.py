@@ -24,7 +24,9 @@ import tarfile
 import tempfile
 import time
 import urllib.parse
+import urllib.error
 import urllib.request
+import http.cookiejar
 import zipfile
 from pathlib import Path
 from typing import Any, Dict, Iterable, Iterator, List, Mapping, Optional, Sequence, Tuple
@@ -75,6 +77,14 @@ PCAP_MAGICS = {
 }
 LONG_TCP_PACKET_CUT = 256
 LONG_TCP_DURATION_CUT = 300.0
+DRYAD_HOST = "datadryad.org"
+DRYAD_FILE_PREFIX = "/downloads/file_stream/"
+DRYAD_CHALLENGE_PATH = "/.within.website/x/cmd/anubis/api/pass-challenge"
+DRYAD_BROWSER_USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/126.0.0.0 Safari/537.36"
+)
 
 RETRIEVAL_FIELDS = (
     "candidate_id",
@@ -352,9 +362,136 @@ def _response_header(response: Any, name: str) -> str:
     return ""
 
 
+def _is_dryad_file_stream(url: str) -> bool:
+    parsed = urllib.parse.urlparse(str(url))
+    return (
+        parsed.scheme == "https"
+        and (parsed.hostname or "").lower() == DRYAD_HOST
+        and parsed.path.startswith(DRYAD_FILE_PREFIX)
+    )
+
+
+def _parse_anubis_challenge(payload: bytes) -> Mapping[str, Any]:
+    if len(payload) > 2 * 1024 * 1024:
+        raise RetrievalError("Dryad challenge document exceeds safety ceiling")
+    text = payload.decode("utf-8", errors="strict")
+    match = re.search(
+        r'<script[^>]+id=["\']anubis_challenge["\'][^>]*>(.*?)</script>',
+        text,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    if match is None:
+        raise RetrievalError("Dryad response is neither data nor a recognized Anubis challenge")
+    try:
+        value = json.loads(html.unescape(match.group(1)).strip())
+    except (ValueError, TypeError) as error:
+        raise RetrievalError("invalid Dryad Anubis challenge JSON") from error
+    required = {"algorithm", "difficulty", "id", "randomData"}
+    if not isinstance(value, dict) or not required.issubset(value):
+        raise RetrievalError("incomplete Dryad Anubis challenge")
+    if str(value["algorithm"]) != "fast":
+        raise RetrievalError("unsupported Dryad Anubis algorithm")
+    difficulty = int(value["difficulty"])
+    if difficulty < 1 or difficulty > 6:
+        raise RetrievalError("Dryad Anubis difficulty outside frozen engineering bound")
+    if not re.fullmatch(r"[A-Za-z0-9_-]{8,256}", str(value["id"])):
+        raise RetrievalError("invalid Dryad Anubis challenge id")
+    if not re.fullmatch(r"[A-Za-z0-9+/=_-]{8,4096}", str(value["randomData"])):
+        raise RetrievalError("invalid Dryad Anubis random data")
+    return value
+
+
+def _solve_anubis_pow(random_data: str, difficulty: int) -> Tuple[int, str, int]:
+    prefix = "0" * int(difficulty)
+    started = time.monotonic()
+    nonce = 0
+    while True:
+        digest = hashlib.sha256((str(random_data) + str(nonce)).encode("utf-8")).hexdigest()
+        if digest.startswith(prefix):
+            elapsed_ms = max(1, int((time.monotonic() - started) * 1000))
+            return nonce, digest, elapsed_ms
+        nonce += 1
+
+
+def _browser_headers(referer: str = "") -> Dict[str, str]:
+    headers = {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "same-origin" if referer else "none",
+        "Upgrade-Insecure-Requests": "1",
+        "User-Agent": DRYAD_BROWSER_USER_AGENT,
+    }
+    if referer:
+        headers["Referer"] = referer
+    return headers
+
+
 class Fetcher:
-    def __init__(self, opener: Any = None) -> None:
+    def __init__(self, opener: Any = None, allow_dryad_anubis: bool = False) -> None:
         self.opener = opener or urllib.request.urlopen
+        self.allow_dryad_anubis = bool(allow_dryad_anubis)
+        self._dryad_cookie_jar = http.cookiejar.CookieJar()
+        self._dryad_opener = urllib.request.build_opener(
+            urllib.request.HTTPCookieProcessor(self._dryad_cookie_jar)
+        )
+
+    def _open_dryad_file(self, url: str, offset: int) -> Any:
+        if not self.allow_dryad_anubis:
+            raise RetrievalError("Dryad Anubis access requires explicit user authorization flag")
+        if not _is_dryad_file_stream(url):
+            raise RetrievalError("Dryad Anubis adapter refused non-file-stream URL")
+        initial = urllib.request.Request(url, headers=_browser_headers())
+        try:
+            response = self._dryad_opener.open(initial, timeout=120)
+        except urllib.error.HTTPError as error:
+            payload = error.read(2 * 1024 * 1024 + 1)
+            error.close()
+            challenge = _parse_anubis_challenge(payload)
+        else:
+            content_type = _response_header(response, "Content-Type").lower()
+            final_url = str(response.geturl())
+            if "text/html" not in content_type and _is_dryad_file_stream(final_url):
+                return response
+            payload = response.read(2 * 1024 * 1024 + 1)
+            response.close()
+            challenge = _parse_anubis_challenge(payload)
+
+        nonce, digest, elapsed_ms = _solve_anubis_pow(
+            str(challenge["randomData"]), int(challenge["difficulty"])
+        )
+        pass_url = urllib.parse.urlunparse(
+            (
+                "https",
+                DRYAD_HOST,
+                DRYAD_CHALLENGE_PATH,
+                "",
+                urllib.parse.urlencode(
+                    {
+                        "id": str(challenge["id"]),
+                        "response": digest,
+                        "nonce": nonce,
+                        "redir": url,
+                        "elapsedTime": elapsed_ms,
+                    }
+                ),
+                "",
+            )
+        )
+        headers = _browser_headers(referer=url)
+        if offset:
+            headers["Range"] = "bytes=%d-" % offset
+        passed = urllib.request.Request(pass_url, headers=headers)
+        response = self._dryad_opener.open(passed, timeout=120)
+        final_url = str(response.geturl())
+        if not _is_dryad_file_stream(final_url):
+            response.close()
+            raise RetrievalError("Dryad challenge did not return the authorized file stream")
+        if "text/html" in _response_header(response, "Content-Type").lower():
+            response.close()
+            raise RetrievalError("Dryad challenge remained unresolved")
+        return response
 
     def fetch(self, spec: Mapping[str, Any], destination: Path) -> Dict[str, Any]:
         destination = Path(destination)
@@ -378,11 +515,15 @@ class Fetcher:
         else:
             atomic_json(resume_meta, identity)
 
-        headers = {"User-Agent": "CKDB-D0-P1-metadata-audit/1"}
-        if offset:
-            headers["Range"] = "bytes=%d-" % offset
-        request = urllib.request.Request(str(spec["url"]), headers=headers)
-        response = self.opener(request, timeout=120)
+        url = str(spec["url"])
+        if _is_dryad_file_stream(url):
+            response = self._open_dryad_file(url, offset)
+        else:
+            headers = {"User-Agent": "CKDB-D0-P1-metadata-audit/1"}
+            if offset:
+                headers["Range"] = "bytes=%d-" % offset
+            request = urllib.request.Request(url, headers=headers)
+            response = self.opener(request, timeout=120)
         try:
             status = _response_status(response)
             content_type = _response_header(response, "Content-Type")
@@ -1110,7 +1251,9 @@ def execute(args: argparse.Namespace, fetcher: Optional[Fetcher] = None) -> None
     ensure_empty_output_root(output)
     downloads = output / "downloads"
     retrieval_rows: List[Dict[str, Any]] = []
-    fetcher = fetcher or Fetcher()
+    fetcher = fetcher or Fetcher(
+        allow_dryad_anubis=bool(getattr(args, "allow_dryad_anubis", False))
+    )
     try:
         tier_a_specs = [spec for spec in plan["objects"] if spec["tier"] == "A"]
         for spec in tier_a_specs:
@@ -1205,6 +1348,11 @@ def build_parser() -> argparse.ArgumentParser:
     execute_parser.add_argument("--plan", type=Path, required=True)
     execute_parser.add_argument("--output", type=Path, required=True)
     execute_parser.add_argument("--tier-a-only", action="store_true")
+    execute_parser.add_argument(
+        "--allow-dryad-anubis",
+        action="store_true",
+        help="Use the user-authorized official Dryad Anubis proof-of-work flow for exact file_stream URLs",
+    )
     return parser
 
 

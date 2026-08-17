@@ -373,6 +373,35 @@ class CKDBD0P1ContractTests(unittest.TestCase):
         self.assertNotIn("unsw_flows", {row["object_id"] for row in rows})
         self.assertTrue(all(row["authorization_status"].endswith("NOT_EXECUTABLE") for row in rows))
 
+    def test_24_dryad_anubis_adapter_is_exact_path_and_explicitly_authorized(self):
+        self.assertTrue(
+            ckdb._is_dryad_file_stream("https://datadryad.org/downloads/file_stream/4322597")
+        )
+        for refused in (
+            "http://datadryad.org/downloads/file_stream/4322597",
+            "https://example.com/downloads/file_stream/4322597",
+            "https://datadryad.org/dataset/doi:test",
+        ):
+            self.assertFalse(ckdb._is_dryad_file_stream(refused), refused)
+        with self.assertRaisesRegex(ckdb.RetrievalError, "explicit user authorization"):
+            ckdb.Fetcher()._open_dryad_file(
+                "https://datadryad.org/downloads/file_stream/4322597", 0
+            )
+
+    def test_25_anubis_parser_and_pow_are_deterministic_and_bounded(self):
+        payload = b'''<!doctype html><script id="anubis_challenge" type="application/json">{"algorithm":"fast","difficulty":1,"id":"challenge_123","randomData":"randomData_123"}</script>'''
+        challenge = ckdb._parse_anubis_challenge(payload)
+        self.assertEqual(challenge["algorithm"], "fast")
+        nonce, digest, elapsed_ms = ckdb._solve_anubis_pow("randomData_123", 1)
+        self.assertEqual(
+            digest,
+            ckdb.hashlib.sha256(("randomData_123" + str(nonce)).encode("utf-8")).hexdigest(),
+        )
+        self.assertTrue(digest.startswith("0"))
+        self.assertGreaterEqual(elapsed_ms, 1)
+        with self.assertRaisesRegex(ckdb.RetrievalError, "difficulty"):
+            ckdb._parse_anubis_challenge(payload.replace(b'"difficulty":1', b'"difficulty":9'))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
