@@ -34,7 +34,7 @@ from typing import Any, Dict, Iterable, Iterator, List, Mapping, Optional, Seque
 
 ISSUE = "issue27ckdb_d0_p1_external_metadata_audit_v1_2026-08-17"
 CONTRACT_SHA256 = "9e96ad2860f812595d51376bc7b0bc1c3ae30e264e1918c946750689d363a3ba"
-PLAN_SHA256 = "ca28462274bd0fe2256e8eefaead9bfc6e768b74f2dbc99a89479e34a3d46bfe"
+PLAN_SHA256 = "0abf7b61faf4259caefc106c65ea0128a69b0c460ea7a772d72fac53d6fe161b"
 CANDIDATES = ("UNSW_IOTRAFFIC", "CIC_MODBUS_2023")
 TIER_A_CAP = 20 * 1024 * 1024
 TIER_B_CAP = 128 * 1024 * 1024
@@ -341,6 +341,15 @@ def validate_object_kind(path: Path, expected_kind: str) -> None:
         raise SafetyError("PCAP magic prohibited")
     if expected_kind == "html" and observed != "html":
         raise SafetyError("expected HTML")
+    if expected_kind == "json":
+        if observed in {"html", "zip"}:
+            raise SafetyError("expected JSON metadata")
+        try:
+            value = json.loads(Path(path).read_text(encoding="utf-8-sig"))
+        except (ValueError, UnicodeError) as error:
+            raise SafetyError("invalid JSON metadata") from error
+        if not isinstance(value, dict):
+            raise SafetyError("JSON metadata must be an object")
     if expected_kind in {"csv", "markdown"} and observed == "html":
         raise SafetyError("HTML masquerading as data")
     if expected_kind == "zip_flow_metadata" and observed != "zip":
@@ -539,6 +548,7 @@ class Fetcher:
             "url": spec["url"],
             "expected_kind": spec["expected_kind"],
             "max_bytes": int(spec["max_bytes"]),
+            "request_accept": str(spec.get("request_accept", "")),
         }
         offset = 0
         if part.exists() or resume_meta.exists():
@@ -556,6 +566,8 @@ class Fetcher:
             response = self._open_dryad_file(url, offset, spec["allowed_final_hosts"])
         else:
             headers = {"User-Agent": "CKDB-D0-P1-metadata-audit/1"}
+            if spec.get("request_accept"):
+                headers["Accept"] = str(spec["request_accept"])
             if offset:
                 headers["Range"] = "bytes=%d-" % offset
             request = urllib.request.Request(url, headers=headers)
@@ -1277,6 +1289,7 @@ def _extension_for_kind(kind: str) -> str:
     return {
         "html": ".html",
         "csv": ".csv",
+        "json": ".json",
         "markdown": ".md",
         "zip_flow_metadata": ".zip",
     }[kind]

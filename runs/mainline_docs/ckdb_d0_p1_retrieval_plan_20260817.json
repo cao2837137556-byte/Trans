@@ -76,12 +76,13 @@
       "url": "https://datadryad.org/downloads/file_stream/4322603"
     },
     {
-      "allowed_final_hosts": ["doi.org", "ieeexplore.ieee.org"],
+      "allowed_final_hosts": ["doi.org", "api.crossref.org"],
       "candidate_id": "UNSW_IOTRAFFIC",
-      "expected_kind": "html",
+      "expected_kind": "json",
       "max_bytes": 5242880,
       "object_id": "unsw_descriptor_landing",
       "published_size_text": "not published",
+      "request_accept": "application/vnd.citationstyles.csl+json",
       "tier": "A",
       "url": "https://doi.org/10.1109/IEEEDATA.2025.3602010"
     },

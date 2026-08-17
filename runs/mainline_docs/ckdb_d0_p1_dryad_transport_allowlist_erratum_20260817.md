@@ -37,3 +37,7 @@ Plan identities:
 
 - superseded: `07eddd242b49b71b81a0421017bdf85a5682254bb794ea703aa32b964ef5d74f`
 - active: `ca28462274bd0fe2256e8eefaead9bfc6e768b74f2dbc99a89479e34a3d46bfe`
+
+That active identity was later superseded only by the independent IEEE DOI
+metadata representation erratum; the Dryad host entries themselves did not
+change.

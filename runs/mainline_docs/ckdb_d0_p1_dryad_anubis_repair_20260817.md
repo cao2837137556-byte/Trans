@@ -68,6 +68,10 @@ predicate is now shared by both the challenge-response and authenticated
 direct-response branches.  Test 28 freezes rejection of HTTP, other S3
 buckets, and non-`/v3/` paths.
 
+After all five Dryad metadata objects passed, a later Tier-A DOI object returned
+an empty HTTP 202 AWS WAF shell.  That independent failure is addressed by the
+separate IEEE DOI metadata erratum; it does not alter the Dryad adapter.
+
 ## Retry rule
 
 The failed first output is retained as engineering evidence.  The repaired

@@ -124,7 +124,7 @@ def tier_a_payloads() -> Dict[str, bytes]:
         "unsw_device_summary": device_summary(),
         "unsw_protocol_summary": b"Protocol,Number of Devices,Number of Flows\nTLS,27,100\n",
         "unsw_readme": b"Traces include interactions and autonomous background activities. No ground-truth annotations are provided.\n",
-        "unsw_descriptor_landing": b"<!doctype html><html>IEEE descriptor 10.1109/IEEEDATA.2025.3602010</html>",
+        "unsw_descriptor_landing": b'{"DOI":"10.1109/IEEEDATA.2025.3602010","title":"Descriptor: UNSW IoT Traffic Data"}',
         "cic_official_page": cic_page(),
         "cic_download_inventory": b"<!doctype html><html>First Name Email download form</html>",
     }
@@ -449,6 +449,23 @@ class CKDBD0P1ContractTests(unittest.TestCase):
             "https://other-bucket.s3.us-west-2.amazonaws.com/v3/x/data.csv",
         ):
             self.assertFalse(ckdb._is_allowed_dryad_payload_url(refused, allowed), refused)
+
+    def test_29_descriptor_uses_doi_registered_metadata_not_waf_html(self):
+        plan = json.loads(PLAN.read_text(encoding="utf-8"))
+        descriptor = next(
+            item for item in plan["objects"] if item["object_id"] == "unsw_descriptor_landing"
+        )
+        self.assertEqual(descriptor["expected_kind"], "json")
+        self.assertEqual(descriptor["request_accept"], "application/vnd.citationstyles.csl+json")
+        self.assertEqual(descriptor["allowed_final_hosts"], ["doi.org", "api.crossref.org"])
+        with tempfile.TemporaryDirectory() as temp:
+            good = Path(temp) / "descriptor.json"
+            good.write_bytes(tier_a_payloads()["unsw_descriptor_landing"])
+            ckdb.validate_object_kind(good, "json")
+            bad = Path(temp) / "waf.json"
+            bad.write_bytes(b"<!doctype html><html>verify robot</html>")
+            with self.assertRaisesRegex(ckdb.SafetyError, "JSON"):
+                ckdb.validate_object_kind(bad, "json")
 
 
 if __name__ == "__main__":
