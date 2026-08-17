@@ -34,7 +34,7 @@ from typing import Any, Dict, Iterable, Iterator, List, Mapping, Optional, Seque
 
 ISSUE = "issue27ckdb_d0_p1_external_metadata_audit_v1_2026-08-17"
 CONTRACT_SHA256 = "9e96ad2860f812595d51376bc7b0bc1c3ae30e264e1918c946750689d363a3ba"
-PLAN_SHA256 = "07eddd242b49b71b81a0421017bdf85a5682254bb794ea703aa32b964ef5d74f"
+PLAN_SHA256 = "ca28462274bd0fe2256e8eefaead9bfc6e768b74f2dbc99a89479e34a3d46bfe"
 CANDIDATES = ("UNSW_IOTRAFFIC", "CIC_MODBUS_2023")
 TIER_A_CAP = 20 * 1024 * 1024
 TIER_B_CAP = 128 * 1024 * 1024
@@ -80,6 +80,7 @@ LONG_TCP_DURATION_CUT = 300.0
 DRYAD_HOST = "datadryad.org"
 DRYAD_FILE_PREFIX = "/downloads/file_stream/"
 DRYAD_CHALLENGE_PATH = "/.within.website/x/cmd/anubis/api/pass-challenge"
+DRYAD_ASSET_HOST = "dryad-assetstore-merritt-west.s3.us-west-2.amazonaws.com"
 DRYAD_BROWSER_USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -448,7 +449,9 @@ class Fetcher:
             urllib.request.HTTPCookieProcessor(self._dryad_cookie_jar)
         )
 
-    def _open_dryad_file(self, url: str, offset: int) -> Any:
+    def _open_dryad_file(
+        self, url: str, offset: int, allowed_final_hosts: Sequence[str]
+    ) -> Any:
         if not self.allow_dryad_anubis:
             raise RetrievalError("Dryad Anubis access requires explicit user authorization flag")
         if not _is_dryad_file_stream(url):
@@ -497,12 +500,20 @@ class Fetcher:
         response = self._dryad_opener.open(passed, timeout=120)
         final_url = str(response.geturl())
         final_parsed = urllib.parse.urlparse(final_url)
+        allowed = {str(item).lower() for item in allowed_final_hosts}
+        final_host = (final_parsed.hostname or "").lower()
         final_is_official_payload = (
             final_parsed.scheme == "https"
-            and (final_parsed.hostname or "").lower() == DRYAD_HOST
+            and final_host in allowed
             and (
-                final_parsed.path.startswith(DRYAD_FILE_PREFIX)
-                or final_parsed.path == DRYAD_CHALLENGE_PATH
+                (
+                    final_host == DRYAD_HOST
+                    and (
+                        final_parsed.path.startswith(DRYAD_FILE_PREFIX)
+                        or final_parsed.path == DRYAD_CHALLENGE_PATH
+                    )
+                )
+                or (final_host == DRYAD_ASSET_HOST and final_parsed.path.startswith("/v3/"))
             )
         )
         if not final_is_official_payload:
@@ -537,7 +548,7 @@ class Fetcher:
 
         url = str(spec["url"])
         if _is_dryad_file_stream(url):
-            response = self._open_dryad_file(url, offset)
+            response = self._open_dryad_file(url, offset, spec["allowed_final_hosts"])
         else:
             headers = {"User-Agent": "CKDB-D0-P1-metadata-audit/1"}
             if offset:
@@ -557,11 +568,12 @@ class Fetcher:
             if offset and status == 200:
                 offset = 0
                 append = False
-            final_url = url if _is_dryad_file_stream(url) else str(response.geturl())
-            final_host = (urllib.parse.urlparse(final_url).hostname or "").lower()
+            response_url = str(response.geturl())
+            final_host = (urllib.parse.urlparse(response_url).hostname or "").lower()
             allowed = {str(item).lower() for item in spec["allowed_final_hosts"]}
             if final_host not in allowed:
                 raise RetrievalError("unapproved redirect host: " + final_host)
+            final_url = url if _is_dryad_file_stream(url) else response_url
             mode = "ab" if append else "wb"
             written = offset
             with part.open(mode) as handle:

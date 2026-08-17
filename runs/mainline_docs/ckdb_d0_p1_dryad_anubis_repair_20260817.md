@@ -54,6 +54,13 @@ manifest always records the original allowlisted `file_stream` identity; no
 challenge query parameter is persisted.  A 27th regression test freezes this
 identity separation.
 
+The official pass subsequently exposed the exact final transport host as
+`dryad-assetstore-merritt-west.s3.us-west-2.amazonaws.com` under `/v3/`.
+Because the original retrieval plan did not allow that host, the next retry
+also failed closed.  A separate frozen engineering erratum adds only this
+exact host to the four pre-existing Dryad file-stream objects and re-pins the
+plan identity; no scientific or authorization field changes.
+
 ## Retry rule
 
 The failed first output is retained as engineering evidence.  The repaired

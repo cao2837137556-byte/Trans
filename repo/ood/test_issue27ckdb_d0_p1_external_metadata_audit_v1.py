@@ -385,7 +385,7 @@ class CKDBD0P1ContractTests(unittest.TestCase):
             self.assertFalse(ckdb._is_dryad_file_stream(refused), refused)
         with self.assertRaisesRegex(ckdb.RetrievalError, "explicit user authorization"):
             ckdb.Fetcher()._open_dryad_file(
-                "https://datadryad.org/downloads/file_stream/4322597", 0
+                "https://datadryad.org/downloads/file_stream/4322597", 0, [ckdb.DRYAD_HOST]
             )
 
     def test_25_anubis_parser_and_pow_are_deterministic_and_bounded(self):
@@ -424,6 +424,16 @@ class CKDBD0P1ContractTests(unittest.TestCase):
         self.assertFalse(ckdb._is_dryad_file_stream(pass_url))
         original = "https://datadryad.org/downloads/file_stream/4322597"
         self.assertTrue(ckdb._is_dryad_file_stream(original))
+        plan = json.loads(PLAN.read_text(encoding="utf-8"))
+        dryad_files = [
+            item
+            for item in plan["objects"]
+            if ckdb._is_dryad_file_stream(item["url"])
+        ]
+        self.assertEqual(len(dryad_files), 4)
+        self.assertTrue(
+            all(ckdb.DRYAD_ASSET_HOST in item["allowed_final_hosts"] for item in dryad_files)
+        )
 
 
 if __name__ == "__main__":
