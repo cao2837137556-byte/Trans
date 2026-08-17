@@ -39,6 +39,13 @@ flag remains off by default.
   published identity: 1,840 bytes, SHA-256
   `34455dadf9aaada1110ca130082cec643430a6d456f1b7ce1303cd3da6f53e95`.
 
+The first integrated retry exposed the current Anubis wrapper shape
+(`rules` plus `challenge`) rather than the flat fixture shape.  It again
+failed closed before a verdict.  The parser now normalizes both forms, checks
+that the two difficulty declarations agree, and ignores challenge metadata;
+the suite is extended to 26 tests.  That retry is retained as a second
+engineering-failure artifact and is not reused.
+
 ## Retry rule
 
 The failed first output is retained as engineering evidence.  The repaired

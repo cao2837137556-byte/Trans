@@ -386,8 +386,19 @@ def _parse_anubis_challenge(payload: bytes) -> Mapping[str, Any]:
         value = json.loads(html.unescape(match.group(1)).strip())
     except (ValueError, TypeError) as error:
         raise RetrievalError("invalid Dryad Anubis challenge JSON") from error
+    if not isinstance(value, dict):
+        raise RetrievalError("incomplete Dryad Anubis challenge")
+    if {"challenge", "rules"}.issubset(value):
+        challenge = value.get("challenge")
+        rules = value.get("rules")
+        if not isinstance(challenge, dict) or not isinstance(rules, dict):
+            raise RetrievalError("incomplete Dryad Anubis challenge")
+        value = dict(challenge)
+        value["algorithm"] = rules.get("algorithm")
+        if int(value.get("difficulty", -1)) != int(rules.get("difficulty", -2)):
+            raise RetrievalError("Dryad Anubis challenge/rules difficulty mismatch")
     required = {"algorithm", "difficulty", "id", "randomData"}
-    if not isinstance(value, dict) or not required.issubset(value):
+    if not required.issubset(value):
         raise RetrievalError("incomplete Dryad Anubis challenge")
     if str(value["algorithm"]) != "fast":
         raise RetrievalError("unsupported Dryad Anubis algorithm")

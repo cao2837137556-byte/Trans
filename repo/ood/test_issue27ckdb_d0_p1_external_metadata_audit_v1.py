@@ -402,6 +402,17 @@ class CKDBD0P1ContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ckdb.RetrievalError, "difficulty"):
             ckdb._parse_anubis_challenge(payload.replace(b'"difficulty":1', b'"difficulty":9'))
 
+    def test_26_anubis_live_schema_wrapper_is_normalized_without_metadata_use(self):
+        payload = b'''<!doctype html><script id="anubis_challenge" type="application/json">{"rules":{"algorithm":"fast","difficulty":1},"challenge":{"difficulty":1,"id":"challenge_456","issuedAt":"unused","metadata":{"User-Agent":"unused","X-Real-Ip":"unused"},"method":"fast","policyRuleHash":"unused","randomData":"randomData_456","spent":false}}</script>'''
+        normalized = ckdb._parse_anubis_challenge(payload)
+        self.assertEqual(
+            set(normalized).intersection({"algorithm", "difficulty", "id", "randomData"}),
+            {"algorithm", "difficulty", "id", "randomData"},
+        )
+        self.assertNotIn("metadata", ckdb._browser_headers())
+        with self.assertRaisesRegex(ckdb.RetrievalError, "difficulty mismatch"):
+            ckdb._parse_anubis_challenge(payload.replace(b'"difficulty":1}', b'"difficulty":2}', 1))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
