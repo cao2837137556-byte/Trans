@@ -1,0 +1,95 @@
+{
+  "candidate_order": [
+    "PNNL_ELECTRICITY_AND_GAS_IDS"
+  ],
+  "contract_sha256": "16926b7eb860322dc380a45c98bcb9d116d78dabcee32e8743d0639fef41c4b6",
+  "future_large_objects": [
+    {
+      "authorization_status": "NOT_EXECUTABLE_REQUIRES_NEW_USER_AUTHORIZATION",
+      "candidate_id": "PNNL_ELECTRICITY_AND_GAS_IDS",
+      "destination_identity": "PNNL_ELECTRICITY_AND_GAS_IDS/official_opaque_tar",
+      "expected_size_or_ceiling": "PENDING_AUTHENTICATED_OFFICIAL_METADATA",
+      "expected_sha256": "PENDING_AUTHENTICATED_OFFICIAL_METADATA",
+      "intended_use": "POST_DOWNLOAD_PRE_USE_BENIGN_BOUNDARY_VERIFICATION_THEN_CENSUS_ONLY_IF_PASS",
+      "object_id": "pnnl_opaque_tar",
+      "official_url": "PENDING_MANUAL_REGISTRATION_OBJECT_URL"
+    }
+  ],
+  "objects": [
+    {
+      "allowed_final_hosts": [
+        "data.pnnl.gov"
+      ],
+      "candidate_id": "PNNL_ELECTRICITY_AND_GAS_IDS",
+      "expected_kind": "html",
+      "max_bytes": 4194304,
+      "object_id": "pnnl_datahub_page",
+      "published_size_text": "not published",
+      "tier": "A",
+      "url": "https://data.pnnl.gov/group/nodes/dataset/13470"
+    },
+    {
+      "allowed_final_hosts": [
+        "doi.org",
+        "data.pnnl.gov"
+      ],
+      "candidate_id": "PNNL_ELECTRICITY_AND_GAS_IDS",
+      "expected_kind": "html",
+      "max_bytes": 2097152,
+      "object_id": "pnnl_doi_landing",
+      "published_size_text": "not published",
+      "tier": "A",
+      "url": "https://doi.org/10.25584/PNNLDH/1838670"
+    },
+    {
+      "allowed_final_hosts": [
+        "www.osti.gov"
+      ],
+      "candidate_id": "PNNL_ELECTRICITY_AND_GAS_IDS",
+      "expected_kind": "html",
+      "max_bytes": 3145728,
+      "object_id": "pnnl_osti_page",
+      "published_size_text": "not published",
+      "tier": "A",
+      "url": "https://www.osti.gov/biblio/1838670"
+    },
+    {
+      "allowed_final_hosts": [
+        "data.pnnl.gov"
+      ],
+      "candidate_id": "PNNL_ELECTRICITY_AND_GAS_IDS",
+      "expected_kind": "html",
+      "max_bytes": 3145728,
+      "object_id": "pnnl_policy",
+      "published_size_text": "not published",
+      "tier": "A",
+      "url": "https://data.pnnl.gov/policy"
+    },
+    {
+      "allowed_final_hosts": [
+        "api.datacite.org"
+      ],
+      "candidate_id": "PNNL_ELECTRICITY_AND_GAS_IDS",
+      "expected_kind": "json",
+      "max_bytes": 2097152,
+      "object_id": "pnnl_datacite_json",
+      "published_size_text": "not published",
+      "tier": "A",
+      "url": "https://api.datacite.org/dois/10.25584/PNNLDH/1838670"
+    },
+    {
+      "allowed_final_hosts": [
+        "www.osti.gov"
+      ],
+      "candidate_id": "PNNL_ELECTRICITY_AND_GAS_IDS",
+      "expected_kind": "json",
+      "max_bytes": 2097152,
+      "object_id": "pnnl_osti_json",
+      "published_size_text": "not published",
+      "tier": "A",
+      "url": "https://www.osti.gov/api/v1/records/1838670"
+    }
+  ],
+  "schema_version": "CKDB_D0_P2_RETRIEVAL_PLAN_V1",
+  "tier_a_total_cap_bytes": 20971520
+}
