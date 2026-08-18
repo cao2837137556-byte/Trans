@@ -1,0 +1,131 @@
+{
+  "schema_version": "CKDB_D0_P3_EXECUTION_PLAN_V1",
+  "issue": "issue27ckdb_d0_p3_combined_large_download_and_census_v1_2026-08-18",
+  "contract_path": "runs/mainline_docs/ckdb_d0_p3_combined_large_download_and_census_preregistered_20260818.md",
+  "contract_sha256": "de864fdb54a071a4db082c79071188f1445c244cd5c05376a4ad4f191fade5a1",
+  "candidate_order": [
+    "UNSW_IOTRAFFIC",
+    "CIC_MODBUS_2023",
+    "PNNL_ELECTRICITY_AND_GAS_IDS"
+  ],
+  "corpus_search_allowed": false,
+  "large_download_authorized": false,
+  "decoder_contract": {
+    "path": "repo/ood/issue27ckbu_unified_tshark_causal_frontend_v1.py",
+    "sha256": "127efd212932d9330af790f17a069a84b3ee48205d68bed7e2e9f00778bb2820",
+    "label_fields_permitted": false
+  },
+  "execution_site": {
+    "kind": "LOCAL_WINDOWS_D",
+    "root": "D:\\study\\paper\\anomaly_detection\\paper04\\external_corpora\\ckdb_d0_p3",
+    "hpc_fallback_authorized": false
+  },
+  "objects": [
+    {
+      "candidate_id": "UNSW_IOTRAFFIC",
+      "object_id": "unsw_pcaps",
+      "stable_dataset_id": "10.5061/dryad.w0vt4b94b",
+      "publisher_relative_path": "pcaps.zip",
+      "destination_relative_path": "quarantine/UNSW_IOTRAFFIC/pcaps.zip",
+      "expected_archive_kind": "zip",
+      "published_bytes": null,
+      "publisher_sha256": null,
+      "stream_hard_cap_bytes": 17179869184,
+      "allowed_final_hosts": [
+        "datadryad.org",
+        "datadryad.s3.amazonaws.com"
+      ],
+      "p0_status": "PUBLIC_IDENTITY_CLOSED",
+      "transfer_enabled": false
+    },
+    {
+      "candidate_id": "CIC_MODBUS_2023",
+      "object_id": "cic_benign_pcaps",
+      "stable_dataset_id": "CICModbusDataset2023",
+      "publisher_relative_path": "P0_B_PENDING",
+      "destination_relative_path": "quarantine/CIC_MODBUS_2023/benign_only_tree",
+      "expected_archive_kind": "P0_B_PENDING",
+      "published_bytes": null,
+      "publisher_sha256": null,
+      "stream_hard_cap_bytes": null,
+      "allowed_final_hosts": [],
+      "p0_status": "P0_B_PENDING_AUTHENTICATED_INVENTORY",
+      "transfer_enabled": false
+    },
+    {
+      "candidate_id": "PNNL_ELECTRICITY_AND_GAS_IDS",
+      "object_id": "pnnl_opaque_tar",
+      "stable_dataset_id": "10.25584/PNNLDH/1838670",
+      "publisher_relative_path": "P0_A_PENDING",
+      "destination_relative_path": "quarantine/PNNL_ELECTRICITY_AND_GAS_IDS/official_opaque_tar",
+      "expected_archive_kind": "tar",
+      "published_bytes": null,
+      "publisher_sha256": null,
+      "stream_hard_cap_bytes": null,
+      "allowed_final_hosts": [],
+      "p0_status": "P0_A_PENDING_AUTHENTICATED_INVENTORY",
+      "transfer_enabled": false
+    }
+  ],
+  "p0_requirements": {
+    "P0_A": "PENDING_REVIEWED_LAUNCH_APPENDIX",
+    "P0_B": "PENDING_REVIEWED_LAUNCH_APPENDIX",
+    "P0_C": "PENDING_REVIEWED_LAUNCH_APPENDIX",
+    "P0_D": "PENDING_FRESH_LAUNCH_MEASUREMENT"
+  },
+  "holdout": {
+    "salt": "CKDB_EXTERNAL_BENIGN_REPORT_HOLDOUT_V1",
+    "candidate_id": "UNSW_IOTRAFFIC",
+    "source_unit_ids": [
+      "UNSW_DEVICE_001",
+      "UNSW_DEVICE_027",
+      "UNSW_DEVICE_018",
+      "UNSW_DEVICE_009",
+      "UNSW_DEVICE_024"
+    ],
+    "role": "EXTERNAL_BENIGN_REPORT_HOLDOUT",
+    "aggregate_warning": "SMALL_N_FIVE_DEVICE_PROBE"
+  },
+  "industrial_policy": {
+    "minimum_coarse_domains": 3,
+    "cic_coarse_domains": 1,
+    "pnnl_coarse_domains_after_boundary_pass": 2,
+    "option": "USE_ALL_THREE_INDUSTRIAL_DOMAINS_FOR_FIT_SELECT",
+    "claim_cap": "FORBID_BROAD_UNSEEN_INDUSTRIAL_DOMAIN_CLAIM_BEFORE_FINAL",
+    "replacement_corpus_allowed": false
+  },
+  "i1_scale_gate": {
+    "minimum_benign_fit_sessions": 500000,
+    "minimum_benign_fit_tokens": 10000000
+  },
+  "coverage_quality_gate": {
+    "minimum_sessions": 100,
+    "minimum_packets": 10000,
+    "minimum_source_units": 2,
+    "route_kill_enabled": false,
+    "regions": [
+      "R1_sparse_short",
+      "R2_packet_dense",
+      "R3_long_lived",
+      "R4_bidirectional_tcp",
+      "R5_polling_like",
+      "R6_bursty"
+    ]
+  },
+  "storage_policy": {
+    "safety_multiplier": 1.2,
+    "derived_floor_bytes": 21474836480,
+    "derived_fraction_of_extracted": 0.1,
+    "maximum_inode_use_fraction": 0.85,
+    "fresh_measurement_required": true
+  },
+  "non_authorizations": {
+    "account_automation": false,
+    "attack_or_fault_use": false,
+    "training": false,
+    "embedding": false,
+    "threshold_selection": false,
+    "hpc": false,
+    "final_contact": false
+  }
+}
