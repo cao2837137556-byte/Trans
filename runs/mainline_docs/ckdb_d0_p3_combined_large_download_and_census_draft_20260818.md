@@ -347,21 +347,23 @@ other branch covers retained compressed sources, bounded extraction, and
 derived census state. Launch requires `available_bytes >= required_free` on
 the resolved destination filesystem and inode use below 85%.
 
-Current read-only evidence on 2026-08-18:
+Current read-only evidence after user-authorized cache/download cleanup on
+2026-08-18:
 
 ```text
 C: free 21.32 GiB
-D: free 15.09 GiB
+D: free 40.48 GiB
 minimum UNSW-only partial+final need: 27.84 GB before safety margin
-decision: CURRENT_LOCAL_VOLUMES_FAIL_STORAGE_GATE
+decision: D_PASSES_COMPRESSED_UNSW_STAGING_FLOOR_ONLY
+full D0-P3 decision: PENDING_P0_A_TO_P0_C_AND_FRESH_P0_D
 ```
 
-Therefore neither C: nor D: is an authorized large-object destination. The
-default proposed destination, subject to a fresh launch-time `df`/inode gate,
-is:
+The user has fixed the execution site to local Windows D: while the school HPC
+is unavailable. The proposed destination, outside every Git worktree and
+subject to a fresh launch-time free-space gate, is:
 
 ```text
-/public/home/jiangxinwei.zr/work/paper04/external_corpora/ckdb_d0_p3/
+D:\study\paper\anomaly_detection\paper04\external_corpora\ckdb_d0_p3\
   partial/
   quarantine/
   boundary_verified/
@@ -369,11 +371,12 @@ is:
   control/
 ```
 
-UNSW may be downloaded directly on the destination host. Authenticated PNNL
-and CIC transport uses either a short-lived official URL supplied through a
-mode-0600 runtime secret file or a newly provisioned local external volume plus
-resumable `rsync`; the selected method is recorded without secrets before
-launch. Passwords/cookies/tokens are never exported to Slurm or command logs.
+All three objects are downloaded directly on the local destination host with a
+resumable client. Authenticated PNNL and CIC transport uses a short-lived
+official URL supplied through a local ACL-restricted runtime secret file; the
+selected method is recorded without secrets before launch. Passwords, cookies,
+tokens, and signed URLs are never written to Git, task logs, or screenshots.
+No HPC fallback is part of this protocol revision.
 
 Cleanup order after result review:
 
@@ -494,8 +497,9 @@ authorizes:
    systems into two usable normal domains without reading packet bodies first?
 6. Should CIC remain launch-blocked unless a benign-only remote object/member
    set is available, even if the publisher offers only a mixed whole archive?
-7. Is the storage formula sufficiently conservative, and should direct HPC
-   download remain the default given that both current local volumes fail?
+7. Is the storage formula sufficiently conservative for the user-selected D:
+   destination, given that 40.48 GiB only clears the UNSW compressed staging
+   floor and full clearance awaits P0-A--P0-C?
 
 No item in this draft is executable until these questions are reviewed,
 `P0-A`--`P0-C` are closed, a FROZEN sidecar is verified, implementation passes
