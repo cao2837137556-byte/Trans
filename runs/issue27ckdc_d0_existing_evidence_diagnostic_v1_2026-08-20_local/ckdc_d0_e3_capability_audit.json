@@ -1,0 +1,19 @@
+{
+  "burst_gap_seconds": 0.01,
+  "checks": {
+    "adapter_earliest_first_sort": true,
+    "adapter_max_merged_bursts_12": true,
+    "adapter_max_packets_per_burst_6": true,
+    "duration_uses_latest_timestamp": true,
+    "embedder_burst_gap_0_010": true,
+    "embedder_max_bursts_per_direction_12": true,
+    "embedder_max_packets_per_burst_6": true
+  },
+  "later_duration_visible": true,
+  "later_packet_content_beyond_caps_visible": false,
+  "max_merged_bursts": 12,
+  "max_packet_content_records": 72,
+  "max_packets_per_burst": 6,
+  "status": "PASS",
+  "verdict": "EARLY_BURST_CONTENT_CAPPED_DURATION_VISIBLE"
+}

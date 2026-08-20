@@ -1,0 +1,32 @@
+{
+  "e3_capability_verdict": "EARLY_BURST_CONTENT_CAPPED_DURATION_VISIBLE",
+  "final_opened": false,
+  "h1": {
+    "eligible_sources": 0,
+    "negative_signal_sources": 0,
+    "positive_signal_sources": 0,
+    "signal": "INSUFFICIENT_EARLY_LATE_SUPPORT",
+    "verdict": "INSUFFICIENT_EARLY_LATE_SUPPORT"
+  },
+  "h3": {
+    "attack_conflict_families": 0,
+    "attack_conflict_rows": 0,
+    "attack_max_family_share": null,
+    "benign_conflict_rows": 4986,
+    "benign_conflict_source_groups": 6,
+    "benign_max_source_share": 0.7394705174488568,
+    "clauses": {
+      "attack_families_ge_3": false,
+      "attack_max_share_le_0_80": false,
+      "attack_rows_ge_30": false,
+      "benign_max_share_le_0_80": true,
+      "benign_rows_ge_300": true,
+      "benign_source_groups_ge_3": true
+    },
+    "verdict": "NO_IDENTIFIABLE_LEGAL_CONFLICT_SUPPORT"
+  },
+  "pcap_opened": false,
+  "report_used_for_selection": false,
+  "status": "PASS",
+  "training_performed": false
+}

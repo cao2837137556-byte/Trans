@@ -1,0 +1,85 @@
+{
+  "final_opened": 0,
+  "hydraulic_report": {
+    "capture_position_is_session_packet_count": false,
+    "hydraulic_rows": 3000,
+    "hydraulic_sessions": 742,
+    "hydraulic_sources": 5,
+    "m7_hard_rows": 0,
+    "p2_hard_rows": 2289
+  },
+  "identities": {
+    "ckbw_predictions": {
+      "bytes": 6341170,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\supercompute_transfer\\ckbw_157624_extract\\issue27ckbw_tail_margin_dual_control_v1_2026-08-03_seed27_amd_157624\\ckbw_record_predictions.csv.gz",
+      "sha256": "d1e905924e74bf390aaaae79ee68f10312dc0bc1cdebff88848d4d3ee64adf85"
+    },
+    "ckda_contract": {
+      "bytes": 22563,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\mainline_docs\\ckda_d1_frozen_representation_probe_preregistered_20260812.md",
+      "sha256": "ecb429926507d2c4f8f666edc2d7e50f3e94fc2ec74bc1e26e78ca4813950aa9"
+    },
+    "ckdc_contract": {
+      "bytes": 11335,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\mainline_docs\\ckdc_d0_existing_evidence_diagnostic_preregistered_20260820.md",
+      "sha256": "2088de963f70c3b783a9c4f9c2a6e6a3f2f6053e2117c68067592c8f2d742d18"
+    },
+    "e3_adapter": {
+      "bytes": 30280,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood\\issue27ckda_d0_resource_pilot_v1.py",
+      "sha256": "ec1cb7be1f47e2ef7862905f3e89c75c0295fb1565fa0820d174a6e11409856a"
+    },
+    "e3_embedder": {
+      "bytes": 20364,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood\\issue27ckda_d1_e3_embed_v1.py",
+      "sha256": "360cbaa72f818e6fc423b16f3b4989333bfba002a1423085ff15b2cb1569de14"
+    },
+    "fit_select_plan": {
+      "bytes": 3945736,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage\\ckda_d1_fit_select_plan.csv",
+      "sha256": "eed3d431ab8d71117db7a02b5ee0022eefe7932888001e7d9bcccfd54199aeac"
+    },
+    "report_embedding_metadata": {
+      "bytes": 7926900,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage\\ckda_d1_report_embeddings.npz.metadata.csv.gz",
+      "sha256": "4d44d605bd00ac5065a2cacc9ff02ebf5384b2df6bb8f68ac6e8644a3090fb10"
+    },
+    "report_scores": {
+      "bytes": 4281323,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage\\ckda_d1_report_scores.csv.gz",
+      "sha256": "7ed1c0e9ebd0cbfc95669a064dcf1f57dd343fc4106611216575232432a0e6f9"
+    },
+    "report_target_metadata": {
+      "bytes": 167400766,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage\\ckda_d1_report_target_metadata.csv",
+      "sha256": "628c542108b4b582e74cd6ed0e5474a5f69225bd6a7c054200998d7448bfe65e"
+    },
+    "select_scores": {
+      "bytes": 116096,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage\\ckda_d1_select_scores.csv.gz",
+      "sha256": "bc34268eea2c4545a425cba8adf641a214f75dae5435858a86ee0bb3aabe3419"
+    },
+    "threshold_marker": {
+      "bytes": 1545,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage\\ckda_d1_threshold_freeze_marker.json",
+      "sha256": "84576a5008259f4381c46eecbc3ee3bda9d06b9dc7068cd52d7c2232e884dd5b"
+    }
+  },
+  "pcap_opened": 0,
+  "select": {
+    "duplicate_view_disagreements": {
+      "hard__M7-TabM-TailMargin-DualControl": 0,
+      "tail_margin_score": 0,
+      "tail_margin_tau_attack": 0,
+      "tail_margin_tau_normal": 0
+    },
+    "roles": {
+      "aux_normal_select": 4000,
+      "aux_select": 3000,
+      "support_val": 69
+    },
+    "select_rows": 7069,
+    "select_unique_uids": 7069
+  },
+  "status": "PASS"
+}

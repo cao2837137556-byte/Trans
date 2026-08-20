@@ -1,0 +1,29 @@
+role,label_metric_only,attack_family,source_group,quadrant,rows
+aux_normal_select,0,benign,normal_2.pcap,P2_HARD__M7_NORMAL,3687
+aux_normal_select,0,benign,normal_2.pcap,P2_NORMAL__M7_NORMAL,313
+aux_select,0,benign,iotsim-building-monitor-4_0-0_to_OpenvSwitch-28_4-0,P2_HARD__M7_NORMAL,225
+aux_select,0,benign,iotsim-building-monitor-4_0-0_to_OpenvSwitch-28_4-0,P2_NORMAL__M7_NORMAL,375
+aux_select,0,benign,iotsim-combined-cycle-2_0-0_to_OpenvSwitch-13_2-0,P2_HARD__M7_NORMAL,331
+aux_select,0,benign,iotsim-combined-cycle-2_0-0_to_OpenvSwitch-13_2-0,P2_NORMAL__M7_NORMAL,269
+aux_select,0,benign,iotsim-combined-cycle-4_0-0_to_OpenvSwitch-13_4-0,P2_HARD__M7_NORMAL,333
+aux_select,0,benign,iotsim-combined-cycle-4_0-0_to_OpenvSwitch-13_4-0,P2_NORMAL__M7_NORMAL,267
+aux_select,0,benign,iotsim-combined-cycle-tls-2_0-0_to_OpenvSwitch-14_2-0,P2_HARD__M7_NORMAL,182
+aux_select,0,benign,iotsim-combined-cycle-tls-2_0-0_to_OpenvSwitch-14_2-0,P2_NORMAL__M7_NORMAL,418
+aux_select,0,benign,iotsim-domotic-monitor-4_0-0_to_OpenvSwitch-23_4-0,P2_HARD__M7_NORMAL,228
+aux_select,0,benign,iotsim-domotic-monitor-4_0-0_to_OpenvSwitch-23_4-0,P2_NORMAL__M7_NORMAL,372
+support_val,1,File Download,processed/iotsim-combined-cycle-10.csv,P2_HARD__M7_HARD,3
+support_val,1,Ingress Tool Transfer,processed/iotsim-combined-cycle-10.csv,P2_HARD__M7_HARD,3
+support_val,1,Merlin C&C Communication,processed/iotsim-ip-camera-museum-1.csv,P2_HARD__M7_HARD,5
+support_val,1,Merlin ICMP Flooding,processed/iotsim-city-power-1.csv,P2_HARD__M7_HARD,1
+support_val,1,Merlin ICMP Flooding,processed/iotsim-ip-camera-museum-1.csv,P2_HARD__M7_HARD,7
+support_val,1,Merlin TCP Flooding,processed/iotsim-city-power-1.csv,P2_HARD__M7_HARD,6
+support_val,1,Merlin TCP Flooding,processed/iotsim-ip-camera-museum-1.csv,P2_HARD__M7_HARD,5
+support_val,1,Merlin UDP Flooding,processed/iotsim-city-power-1.csv,P2_HARD__M7_HARD,3
+support_val,1,Merlin UDP Flooding,processed/iotsim-ip-camera-museum-1.csv,P2_HARD__M7_HARD,3
+support_val,1,Mirai C&C Communication,processed/iotsim-ip-camera-museum-1.csv,P2_HARD__M7_HARD,2
+support_val,1,Mirai GRE Flooding,processed/iotsim-city-power-1.csv,P2_HARD__M7_HARD,4
+support_val,1,Mirai GRE Flooding,processed/iotsim-ip-camera-museum-1.csv,P2_HARD__M7_HARD,6
+support_val,1,Mirai TCP Flooding,processed/iotsim-city-power-1.csv,P2_HARD__M7_HARD,4
+support_val,1,Mirai TCP Flooding,processed/iotsim-ip-camera-museum-1.csv,P2_HARD__M7_HARD,6
+support_val,1,Mirai UDP Flooding,processed/iotsim-city-power-1.csv,P2_HARD__M7_HARD,5
+support_val,1,Mirai UDP Flooding,processed/iotsim-ip-camera-museum-1.csv,P2_HARD__M7_HARD,6
