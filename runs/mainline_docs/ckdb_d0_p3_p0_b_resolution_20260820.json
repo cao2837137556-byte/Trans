@@ -1,0 +1,46 @@
+{
+  "schema_version": "CKDB_D0_P3_P0_B_RESOLUTION_V1",
+  "issue": "issue27ckdb_d0_p3_combined_large_download_and_census_v1_2026-08-18",
+  "observed_utc": "2026-08-20T05:08:29.0837412Z",
+  "contract_sha256": "de864fdb54a071a4db082c79071188f1445c244cd5c05376a4ad4f191fade5a1",
+  "execution_plan_sha256": "8d5010647134096d4494006e43b30c7752fde5ed8b103582d51b792f4e6862a1",
+  "publisher_inventory": {
+    "candidate_id": "CIC_MODBUS_2023",
+    "stable_dataset_id": "CICModbusDataset2023",
+    "inventory_root": "/",
+    "visible_entry_count": 1,
+    "visible_entries": [
+      {
+        "publisher_relative_path": "Modbus Dataset.zip",
+        "entry_kind": "WHOLE_DATASET_ZIP"
+      }
+    ],
+    "inventory_shape": "SINGLE_WHOLE_DATASET_ZIP",
+    "benign_member_paths_visible": 0,
+    "benign_subtree_visible": false,
+    "attack_exclusion_before_transfer": false,
+    "expected_bytes": null,
+    "publisher_sha256": null
+  },
+  "observation_boundaries": {
+    "body_downloads_performed": 0,
+    "download_clicked": false,
+    "personal_form_values_recorded": 0,
+    "credential_values_recorded": 0,
+    "transient_urls_recorded": 0,
+    "final_files_opened": 0
+  },
+  "p0_b_status": "FAILED_NO_BENIGN_ONLY_REMOTE_IDENTITY",
+  "reason_code": "NO_IDENTIFIABLE_THREE_INDUSTRIAL_DOMAINS_CIC_IDENTITY_UNRESOLVED",
+  "frozen_verdict": {
+    "status": "NO_IDENTIFIABLE_THREE_INDUSTRIAL_DOMAINS_CIC_IDENTITY_UNRESOLVED",
+    "cic_industrial_domains": 0,
+    "pnnl_maximum_industrial_domains": 2,
+    "combined_industrial_maximum": 2,
+    "minimum_required": 3,
+    "route_terminated": true,
+    "replacement_corpus_allowed": false,
+    "third_corpus_search_allowed": false
+  },
+  "overall_status": "ROUTE_TERMINATED_NO_TRANSFER"
+}
