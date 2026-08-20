@@ -1,0 +1,85 @@
+{
+  "schema_version": "CKDB_D0_P3_P0_METADATA_EVIDENCE_V1",
+  "issue": "issue27ckdb_d0_p3_combined_large_download_and_census_v1_2026-08-18",
+  "observed_utc": "2026-08-20T04:56:44.4115351Z",
+  "contract_sha256": "de864fdb54a071a4db082c79071188f1445c244cd5c05376a4ad4f191fade5a1",
+  "execution_plan_sha256": "8d5010647134096d4494006e43b30c7752fde5ed8b103582d51b792f4e6862a1",
+  "body_downloads_performed": 0,
+  "credential_values_recorded": 0,
+  "transient_urls_recorded": 0,
+  "objects": [
+    {
+      "candidate_id": "UNSW_IOTRAFFIC",
+      "object_id": "unsw_pcaps",
+      "stable_dataset_id": "10.5061/dryad.w0vt4b94b",
+      "publisher_relative_path": "pcaps.zip",
+      "official_url": "https://datadryad.org/downloads/file_stream/4322593",
+      "expected_bytes": null,
+      "publisher_sha256": "NOT_PUBLISHED",
+      "stream_hard_cap_bytes": 17179869184,
+      "extracted_size_cap_bytes": 34359738368,
+      "identity_status": "PUBLIC_IDENTITY_CLOSED",
+      "cap_basis": "FROZEN 16 GiB stream cap plus conservative 32 GiB extracted ceiling above the publisher-described approximately 26.9 GB uncompressed corpus"
+    },
+    {
+      "candidate_id": "CIC_MODBUS_2023",
+      "object_id": "cic_benign_pcaps",
+      "stable_dataset_id": "CICModbusDataset2023",
+      "official_page": "https://www.unb.ca/cic/datasets/modbus-2023.html",
+      "official_form": "https://cicresearch.ca/CICDataset/CICModbusDataset2023/",
+      "required_form_fields": [
+        "First Name",
+        "Last Name",
+        "Email",
+        "Organization/Company",
+        "Job Title",
+        "Country"
+      ],
+      "publisher_relative_path": null,
+      "expected_bytes": null,
+      "publisher_sha256": null,
+      "stream_hard_cap_bytes": null,
+      "extracted_size_cap_bytes": null,
+      "identity_status": "P0_B_USER_FORM_ACTION_REQUIRED",
+      "boundary_status": "BENIGN_ONLY_REMOTE_SET_NOT_YET_VISIBLE"
+    },
+    {
+      "candidate_id": "PNNL_ELECTRICITY_AND_GAS_IDS",
+      "object_id": "pnnl_opaque_tar",
+      "stable_dataset_id": "10.25584/PNNLDH/1838670",
+      "dataset_page": "https://data.pnnl.gov/group/nodes/dataset/13470",
+      "publisher_relative_path": "cartuids/14271_2329f583703f14b8991e1b9c259b8a4b.tar",
+      "official_url": "https://g-83fdd0.1beed.03c0.data.globus.org/cartuids/14271_2329f583703f14b8991e1b9c259b8a4b.tar",
+      "http_status": 200,
+      "content_type": "application/x-tar",
+      "accept_ranges": "bytes",
+      "expected_bytes": 7957268480,
+      "publisher_sha256": "NOT_PUBLISHED",
+      "stream_hard_cap_bytes": 8589934592,
+      "extracted_size_cap_bytes": 8589934592,
+      "identity_status": "P0_A_CLOSED_FROM_OFFICIAL_PAGE_AND_BODY_FREE_HEAD",
+      "cap_basis": "8 GiB ceiling for an uncompressed tar whose exact published HTTP Content-Length is 7,957,268,480 bytes"
+    }
+  ],
+  "storage_preview": {
+    "measurement_kind": "NON_LAUNCH_PREVIEW_NOT_P0_D",
+    "destination_volume": "D:",
+    "available_bytes": 84489347072,
+    "available_gib": 78.69,
+    "known_compressed_or_stream_cap_bytes_before_cic": 25137137664,
+    "known_extracted_cap_bytes_before_cic": 42949672960,
+    "derived_floor_bytes": 21474836480,
+    "required_free_bytes_before_cic": 107473976525,
+    "required_free_gib_before_cic": 100.09,
+    "shortfall_bytes_before_cic": 22984629453,
+    "shortfall_gib_before_cic": 21.41,
+    "status": "PREVIEW_BLOCKED_STORAGE_EVEN_BEFORE_CIC"
+  },
+  "p0_status": {
+    "P0_A": "CLOSED",
+    "P0_B": "PENDING_USER_FORM_AND_OFFICIAL_BENIGN_INVENTORY",
+    "P0_C": "PARTIAL_UNSW_AND_PNNL_CLOSED_CIC_PENDING",
+    "P0_D": "NOT_MEASURED_AT_LAUNCH_PREVIEW_ONLY"
+  },
+  "overall_status": "P0_LAUNCH_APPENDIX_NOT_YET_ELIGIBLE"
+}
