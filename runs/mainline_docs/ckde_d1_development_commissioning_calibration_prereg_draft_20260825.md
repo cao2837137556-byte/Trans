@@ -1,7 +1,7 @@
 # CKDE D1 — development-only benign commissioning calibration (POST-D0 DRAFT)
 
-**Date:** 2026-08-25  
-**Status:** DRAFT for independent review; no score opening or execution authorized  
+**Date:** 2026-08-25
+**Status:** DRAFT for independent review; no score opening or execution authorized
 **Parent D0 verdict:** `CKDE_D0_UNPAIRED_DEVELOPMENT_ONLY`
 
 ## 1. Question and claim ceiling
