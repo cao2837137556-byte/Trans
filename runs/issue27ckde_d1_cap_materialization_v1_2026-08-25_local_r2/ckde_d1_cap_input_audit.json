@@ -1,0 +1,63 @@
+{
+  "embedding_container_rows": 25467,
+  "embedding_rows_selected_by_exact_uid_before_scoring": 4385,
+  "finite_fit_attack_scores": 4385,
+  "fit_attack_family_counts": {
+    "File Download": 15,
+    "Ingress Tool Transfer": 18,
+    "Merlin C&C Communication": 30,
+    "Merlin ICMP Flooding": 43,
+    "Merlin TCP Flooding": 60,
+    "Merlin UDP Flooding": 30,
+    "Mirai C&C Communication": 9,
+    "Mirai GRE Flooding": 60,
+    "Mirai TCP Flooding": 60,
+    "Mirai UDP Flooding": 60,
+    "ToN-credential_bruteforce": 2000,
+    "ToN-reconnaissance_scan": 2000
+  },
+  "fit_attack_role_counts": {
+    "aux_process_fit": 4000,
+    "support_train": 385
+  },
+  "fit_attack_rows": 4385,
+  "fitted_parameters": 0,
+  "gate_eligible_family_count": 11,
+  "identities": {
+    "family_scope_clarification": {
+      "bytes": 3617,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\mainline_docs\\ckcz_attack_family_scope_clarification_20260809.md",
+      "sha256": "09962ec34a5a4657be9fd39fcde9adeb70ffedbbe74846df8e4f89761a2b3536"
+    },
+    "fit_select_embeddings": {
+      "bytes": 34314736,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage\\ckda_d1_fit_select_embeddings.npz",
+      "sha256": "b1b4f2fde168a69e0cf7a53aaede2ddef9bd6d92b0ce58e56a9d6fcde37b6099"
+    },
+    "fit_select_plan": {
+      "bytes": 3945736,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage\\ckda_d1_fit_select_plan.csv",
+      "sha256": "eed3d431ab8d71117db7a02b5ee0022eefe7932888001e7d9bcccfd54199aeac"
+    },
+    "precap_contract": {
+      "bytes": 17232,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\mainline_docs\\ckde_d1_development_commissioning_calibration_preregistered_precap_20260825.md",
+      "sha256": "9e7a4904dc72c0a7f81a5510e26432128478f0a17101acbece433870804697c9"
+    },
+    "probe_state": {
+      "bytes": 41186234,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage\\ckda_d1_probe_state.npz",
+      "sha256": "50a9bcfc18287d51bf8afda7367b57decdf3179dd41fc3aa61399d4098360c38"
+    },
+    "threshold_marker": {
+      "bytes": 1545,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage\\ckda_d1_threshold_freeze_marker.json",
+      "sha256": "84576a5008259f4381c46eecbc3ee3bda9d06b9dc7068cd52d7c2232e884dd5b"
+    }
+  },
+  "missing_embedding_rows": 139,
+  "non_fit_rows_scored": 0,
+  "optimizer_steps": 0,
+  "score_rule": "FROZEN_P2_FLOAT64_RECONSTRUCTION_SCORE_GE_THRESHOLD_TIES_HARD",
+  "status": "PASS"
+}
