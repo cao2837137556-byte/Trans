@@ -1,0 +1,99 @@
+{
+  "canonical_payload_sha256": "40d1be0e87ddcffdf134770755b7164f39d28bcd60c3974015586610d2f92231",
+  "clauses": [
+    {
+      "clause": "01_literal_frozen_formula",
+      "observed": "exact section-4 formula",
+      "passed": true
+    },
+    {
+      "clause": "02_covered_benign_ge_300",
+      "observed": 0,
+      "passed": false
+    },
+    {
+      "clause": "03_covered_fraction_ge_0_05",
+      "observed": 0.0,
+      "passed": false
+    },
+    {
+      "clause": "04_covered_source_groups_ge_3",
+      "observed": 0,
+      "passed": false
+    },
+    {
+      "clause": "05_max_source_share_le_0_80",
+      "observed": null,
+      "passed": false
+    },
+    {
+      "clause": "06_support_attacks_preserved_69_of_69",
+      "observed": 69,
+      "passed": true
+    },
+    {
+      "clause": "07_changed_benign_ge_300",
+      "observed": 0,
+      "passed": false
+    },
+    {
+      "clause": "08_not_equivalent_to_p2_and_m7",
+      "observed": 4986,
+      "passed": true
+    },
+    {
+      "clause": "09_certificate_not_equivalent_to_m7_normal",
+      "observed": 7000,
+      "passed": true
+    },
+    {
+      "clause": "10_zero_forbidden_operations",
+      "observed": 0,
+      "passed": true
+    }
+  ],
+  "denominator": 7069,
+  "evidence_sha256": {
+    "ckdc_d0f_phase_a_certificate_rows.csv": "5a89f356d4f4e78e03149d69d3cbc3d9609f1425ac6574ecb54d997f9e01e538",
+    "ckdc_d0f_phase_a_clause_table.csv": "7de071bdd77f757056fa2a0c318f3ff851d95cafb634bf77ab7590c47fdda36c",
+    "ckdc_d0f_phase_a_input_audit.json": "36495b23517af19c58f51cbb1171e8ac35d3a30e1f27d3979642275db383e119",
+    "ckdc_d0f_phase_a_summary.json": "be14c8687124c57b006bba9618aef2944f76383518241febc5e25a1dde3a88e5"
+  },
+  "formula": {
+    "c1_normal": "c1_hard == 0",
+    "candidate_hard": "P2_hard AND NOT normality_certificate",
+    "ckbq_normal": "frozen_ckbq_hard == 0",
+    "missing_behavior": "non-finite evidence preserves P2 hard",
+    "normality_certificate": "tail_normal AND c1_normal AND ckbq_normal",
+    "tail_normal": "tail_margin_score <= tail_margin_tau_normal"
+  },
+  "input_sha256": {
+    "ckbw_predictions": "d1e905924e74bf390aaaae79ee68f10312dc0bc1cdebff88848d4d3ee64adf85",
+    "ckda_contract": "ecb429926507d2c4f8f666edc2d7e50f3e94fc2ec74bc1e26e78ca4813950aa9",
+    "contract": "534e0cd4a0617dacbc37ce72e0a6ccad9b138438c7c68c48386edb48b5c93fc1",
+    "d0_select": "90e817b11a7d08aa2ce09749f816aadb1c13160f46bc5a2d8c09217ff5daeb67",
+    "d0_sha256s": "9a842341e7cea2f4379ee4a834874927f7b411a61c7c033ad0e67ecadda20161",
+    "fit_select_plan": "eed3d431ab8d71117db7a02b5ee0022eefe7932888001e7d9bcccfd54199aeac",
+    "threshold_marker": "84576a5008259f4381c46eecbc3ee3bda9d06b9dc7068cd52d7c2232e884dd5b"
+  },
+  "phase_b_authorized": false,
+  "positive_generalization_evidence": false,
+  "role_counts": {
+    "aux_normal_select": 4000,
+    "aux_select": 3000,
+    "support_val": 69
+  },
+  "status": "CKDC_D0F_NO_CERTIFICATE",
+  "summary": {
+    "all_clauses_passed": false,
+    "benign_conflict_rows": 4986,
+    "changed_benign_conflicts": 0,
+    "coverage_fraction": 0.0,
+    "covered_benign_conflicts": 0,
+    "covered_source_groups": 0,
+    "max_covered_source_share": null,
+    "rows_certificate_differing_from_m7_normal": 7000,
+    "rows_differing_from_p2_and_m7": 4986,
+    "support_attacks_preserved": 69
+  }
+}
