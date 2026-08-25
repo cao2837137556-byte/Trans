@@ -1,0 +1,16 @@
+{
+  "d0_cut_rule": "COUNT_ONLY_MEDIAN_EVENT_POSITION_WHOLE_SESSION_CENSUS_NOT_D1_FORMULA",
+  "d1_executable": false,
+  "device_key": "source_group_with_one_to_one_raw_source_path_lineage",
+  "devices_total": 28,
+  "devices_with_causal_benign_prefix_suffix": 23,
+  "devices_with_same_device_attack_pairing": 0,
+  "eligible_prefix_sessions": 7493,
+  "eligible_suffix_sessions": 7550,
+  "prefix_quantile_engineering_study_authorized_for_drafting": true,
+  "record_count_never_upgrades_session_gate": true,
+  "same_device_attack_preservation_positive_claim": false,
+  "session_key": "precomputed_sha256(source_id+pcap_member+canonical_bidirectional_5tuple_with_protocol)",
+  "status": "CKDE_D0_UNPAIRED_DEVELOPMENT_ONLY",
+  "strict_session_conformal_claim_authorized": false
+}

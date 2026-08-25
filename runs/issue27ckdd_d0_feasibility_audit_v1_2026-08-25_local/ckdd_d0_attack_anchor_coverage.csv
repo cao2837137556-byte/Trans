@@ -1,0 +1,35 @@
+role,source_group,attack_family,rows,sessions
+aux_process_fit,normal_scanning1.pcap,ToN-reconnaissance_scan,2000,2000
+aux_process_fit,password_normal1.pcap,ToN-credential_bruteforce,2000,1986
+support_train,processed/iotsim-city-power-1.csv,Merlin ICMP Flooding,13,13
+support_train,processed/iotsim-city-power-1.csv,Merlin TCP Flooding,24,21
+support_train,processed/iotsim-city-power-1.csv,Merlin UDP Flooding,12,12
+support_train,processed/iotsim-city-power-1.csv,Mirai GRE Flooding,30,30
+support_train,processed/iotsim-city-power-1.csv,Mirai TCP Flooding,33,27
+support_train,processed/iotsim-city-power-1.csv,Mirai UDP Flooding,25,7
+support_train,processed/iotsim-combined-cycle-10.csv,File Download,15,4
+support_train,processed/iotsim-combined-cycle-10.csv,Ingress Tool Transfer,18,1
+support_train,processed/iotsim-ip-camera-museum-1.csv,Merlin C&C Communication,30,28
+support_train,processed/iotsim-ip-camera-museum-1.csv,Merlin ICMP Flooding,30,30
+support_train,processed/iotsim-ip-camera-museum-1.csv,Merlin TCP Flooding,36,29
+support_train,processed/iotsim-ip-camera-museum-1.csv,Merlin UDP Flooding,18,18
+support_train,processed/iotsim-ip-camera-museum-1.csv,Mirai C&C Communication,9,1
+support_train,processed/iotsim-ip-camera-museum-1.csv,Mirai GRE Flooding,30,30
+support_train,processed/iotsim-ip-camera-museum-1.csv,Mirai TCP Flooding,27,24
+support_train,processed/iotsim-ip-camera-museum-1.csv,Mirai UDP Flooding,35,1
+support_val,processed/iotsim-city-power-1.csv,Merlin ICMP Flooding,1,1
+support_val,processed/iotsim-city-power-1.csv,Merlin TCP Flooding,6,6
+support_val,processed/iotsim-city-power-1.csv,Merlin UDP Flooding,3,3
+support_val,processed/iotsim-city-power-1.csv,Mirai GRE Flooding,4,4
+support_val,processed/iotsim-city-power-1.csv,Mirai TCP Flooding,4,4
+support_val,processed/iotsim-city-power-1.csv,Mirai UDP Flooding,5,1
+support_val,processed/iotsim-combined-cycle-10.csv,File Download,3,1
+support_val,processed/iotsim-combined-cycle-10.csv,Ingress Tool Transfer,3,1
+support_val,processed/iotsim-ip-camera-museum-1.csv,Merlin C&C Communication,5,5
+support_val,processed/iotsim-ip-camera-museum-1.csv,Merlin ICMP Flooding,7,7
+support_val,processed/iotsim-ip-camera-museum-1.csv,Merlin TCP Flooding,5,5
+support_val,processed/iotsim-ip-camera-museum-1.csv,Merlin UDP Flooding,3,3
+support_val,processed/iotsim-ip-camera-museum-1.csv,Mirai C&C Communication,2,1
+support_val,processed/iotsim-ip-camera-museum-1.csv,Mirai GRE Flooding,6,6
+support_val,processed/iotsim-ip-camera-museum-1.csv,Mirai TCP Flooding,6,6
+support_val,processed/iotsim-ip-camera-museum-1.csv,Mirai UDP Flooding,6,1
