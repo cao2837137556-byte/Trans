@@ -1,0 +1,27 @@
+{
+  "audit0": {
+    "attack_devices": 5,
+    "attack_records": 4385,
+    "audit0_pass": false,
+    "device_prior_benign_session_counts": {
+      "normal_scanning1.pcap": 0,
+      "password_normal1.pcap": 0,
+      "processed/iotsim-city-power-1.csv": 0,
+      "processed/iotsim-combined-cycle-10.csv": 0,
+      "processed/iotsim-ip-camera-museum-1.csv": 0
+    },
+    "fit_benign_devices": 15,
+    "fit_benign_records": 11409
+  },
+  "claim_ceiling": "NO_REPRESENTATION_COMMISSIONING_EXPERIMENT_JUSTIFIED_FROM_CURRENT_EVIDENCE",
+  "d1_drafting_authorized": false,
+  "embedding_arrays_opened": 0,
+  "reason_codes": [
+    "ATTACK_DEVICE_UNMAPPED",
+    "INSUFFICIENT_ATTACK_SESSIONS_PER_CELL",
+    "NO_SAME_DEVICE_FIT_BENIGN_CENTER",
+    "NO_TWO_BY_TWO_DEVICE_FAMILY_CYCLE"
+  ],
+  "scientific_state": "A",
+  "status": "A_NO_IDENTIFIABLE_PAIRED_DEVICE_SUPPORT"
+}
