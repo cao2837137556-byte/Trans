@@ -3,7 +3,7 @@
 **Date:** 2026-08-26
 **Status:** FROZEN; non-executable pending independent hash/diff review and separate user authorization
 **Route:** CKDE-R / deterministic representation-level commissioning
-**Reviewed design basis:** `ckde_r_route_kimi_round2_convergence_20260826.md` at commit `c730a17`  
+**Reviewed design basis:** `ckde_r_route_kimi_round2_convergence_20260826.md` at commit `c730a17`
 **Independent draft review:** `ckde_r_d0_draft_kimi_review_20260826.md` at commit `54c4a3f`
 
 ## 1. Question and claim ceiling
