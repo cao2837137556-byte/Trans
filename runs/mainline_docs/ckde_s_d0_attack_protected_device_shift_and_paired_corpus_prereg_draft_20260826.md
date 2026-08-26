@@ -1,7 +1,7 @@
 # CKDE-S D0 — attack-protected device-shift and paired-corpus feasibility (DRAFT)
 
-**Date:** 2026-08-26  
-**Status:** DRAFT FOR KIMI REVIEW; NON-EXECUTABLE  
+**Date:** 2026-08-26
+**Status:** DRAFT FOR KIMI REVIEW; NON-EXECUTABLE
 **Route:** one remaining capability attempt after CKDE-Q scalar calibration closure and
 CKDE-R state-A identifiability stop
 
@@ -456,4 +456,3 @@ This DRAFT authorizes nothing.  After review, Codex may generate a FROZEN protoc
 only with explicit approval.  Implementation, embedding opening, network metadata retrieval,
 bulk download, training, adapter execution, score opening, HPC, report, and FINAL each remain
 separately unauthorized.
-
