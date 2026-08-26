@@ -122,11 +122,24 @@ class LaneGContractTests(unittest.TestCase):
         vectors = []
         for device in range(9):
             for session in range(64):
-                records.append({"source_group": str(device), "session_id": str(session), "event_position": session, "uid": "%d:%d" % (device, session), "embedding_index": len(vectors)})
+                records.append({"source_group": str(device), "session_id": str(session), "timestamp_epoch": float(session), "event_position": session, "uid": "%d:%d" % (device, session), "embedding_index": len(vectors)})
                 vectors.append([float(device), 0.001 * session])
         frame, summary = lane_g.between_within(pd.DataFrame(records), np.asarray(vectors), np.eye(2)[:, :1], np.asarray([4.0, 0.0]))
         self.assertEqual(len(frame), 9)
         self.assertTrue(summary["pass"])
+
+    def test_11b_between_within_uses_causal_timestamp_not_session_length(self):
+        records = [
+            {"source_group": "device", "session_id": "s1", "timestamp_epoch": 1.0, "event_position": 1, "uid": "u1", "embedding_index": 0},
+            {"source_group": "device", "session_id": "s2", "timestamp_epoch": 2.0, "event_position": 4, "uid": "u2", "embedding_index": 1},
+            {"source_group": "device", "session_id": "s3", "timestamp_epoch": 3.0, "event_position": 2, "uid": "u3", "embedding_index": 2},
+            {"source_group": "device", "session_id": "s4", "timestamp_epoch": 4.0, "event_position": 3, "uid": "u4", "embedding_index": 3},
+        ]
+        vectors = np.asarray([[0.0], [0.0], [10.0], [10.0]])
+        frame, _ = lane_g.between_within(
+            pd.DataFrame(records), vectors, np.eye(1), np.zeros(1)
+        )
+        self.assertAlmostEqual(float(frame.iloc[0]["within_early_late_norm"]), 10.0)
 
     def _state(self):
         state = {

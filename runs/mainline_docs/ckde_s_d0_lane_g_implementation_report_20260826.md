@@ -83,13 +83,17 @@ Command executed with the actual Python 3.9 runtime:
 py -3.9 repo/ood/issue27ckde_s_d0_lane_g_geometry_audit_contract_tests_v1.py
 ```
 
-Result: `22/22 PASS`.
+Result after the conditional-review R1 repair: `23/23 PASS`.
 
 The suite covers all eight erratum regression gates plus terminal-session equal weighting, fixed
 rank, LODO geometry, early/late stability, analytic P2 gradient behavior, projection sign
 invariance, literal state identities, role separation, and engineering-failure cleanup.  In
 particular it tests strict SVD equality rejection, exact inclusive orthogonality at `1e-10`, and
 zero/floor-equal/non-finite gradient rejection.
+
+The added R1 regression constructs four sessions whose causal timestamp order conflicts with their
+terminal `event_position` (session-length) order. It requires the early/late drift statistic to
+follow `timestamp_epoch`; sorting by `event_position` would yield a different statistic and fail.
 
 Additional checks:
 
@@ -123,3 +127,13 @@ array, probe-state array, scientific Lane G output, network request, model train
 or FINAL artifact has been opened or produced by this implementation turn.
 
 Real Lane G execution remains blocked until the user separately authorizes it after review.
+
+## 8. Conditional-review R1 repair
+
+Kimi's implementation review at commit `7c7524b` identified one blocking semantic deviation:
+`between_within()` ordered terminal session rows by `event_position`, which measures terminal
+session length rather than cross-session causal time. The narrow repair changes only this ordering
+to stable `['timestamp_epoch', 'uid']` order and adds the discriminative regression described in
+Section 5. Terminal-target selection within each session remains intentionally ordered by
+`event_position`; no numerical constant, threshold, state name, identity pin, or authorization
+boundary changed. No real embedding array was opened while making or testing this repair.

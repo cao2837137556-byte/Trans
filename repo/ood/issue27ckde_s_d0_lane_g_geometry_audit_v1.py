@@ -244,7 +244,7 @@ def between_within(session_rows: pd.DataFrame, representations: np.ndarray, basi
     records: List[Dict[str, object]] = []
     projector = projection(basis)
     for device, part in session_rows.groupby("source_group", sort=True):
-        part = part.sort_values(["event_position", "uid"], kind="mergesort")
+        part = part.sort_values(["timestamp_epoch", "uid"], kind="mergesort")
         values = representations[part["embedding_index"].to_numpy(dtype=np.int64)]
         cut = len(values) // 2
         if cut < 1 or len(values) - cut < 1:
