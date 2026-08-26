@@ -1,8 +1,8 @@
 # CKDE-R D0 — representation commissioning identifiability audit (DRAFT)
 
-**Date:** 2026-08-26  
-**Status:** DRAFT for independent review; non-executable  
-**Route:** CKDE-R / deterministic representation-level commissioning  
+**Date:** 2026-08-26
+**Status:** DRAFT for independent review; non-executable
+**Route:** CKDE-R / deterministic representation-level commissioning
 **Reviewed design basis:** `ckde_r_route_kimi_round2_convergence_20260826.md` at commit `c730a17`
 
 ## 1. Question and claim ceiling
