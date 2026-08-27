@@ -1,0 +1,86 @@
+{
+  "claim_scope": "geometry of the encodable (`missing=false`) subset of the frozen fit pool",
+  "denominators": {
+    "devices": {
+      "finite_eligible": 13,
+      "finite_rank": 4,
+      "metadata_eligible": 15,
+      "metadata_rank": 4
+    },
+    "records": {
+      "fit_attack": 4385,
+      "fit_benign": 11409
+    },
+    "sessions": {
+      "fit_attack_finite_terminal": 4123,
+      "fit_attack_missing_terminal": 139,
+      "fit_attack_terminal": 4262,
+      "fit_benign_finite_terminal": 2087,
+      "fit_benign_missing_terminal": 6285,
+      "fit_benign_terminal": 8372
+    }
+  },
+  "embedding_arrays_opened": 1,
+  "embedding_uid_missing_arrays_opened": 1,
+  "excluded_devices": [
+    "iotsim-combined-cycle-tls-1_0-0_to_OpenvSwitch-14_1-0",
+    "normal_1.pcap"
+  ],
+  "final_files_opened": 0,
+  "lane_m_authorized": false,
+  "network_requests_made": 0,
+  "probe_state_arrays_opened": 1,
+  "protected_attack_families": [
+    "Merlin TCP Flooding",
+    "Merlin UDP Flooding",
+    "Mirai TCP Flooding",
+    "ToN-credential_bruteforce",
+    "ToN-reconnaissance_scan"
+  ],
+  "rank": 4,
+  "rank_retry_permitted": false,
+  "report_files_opened": 0,
+  "representation_arrays_opened": 1,
+  "scientific_state": "G1",
+  "status": "UNSTABLE_OR_TEMPORAL_DEVICE_SUBSPACE",
+  "training_steps_run": 0,
+  "unprotected_attack_families": [
+    {
+      "attack_family": "File Download",
+      "protection_status": "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+    },
+    {
+      "attack_family": "Ingress Tool Transfer",
+      "protection_status": "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+    },
+    {
+      "attack_family": "Merlin C&C Communication",
+      "protection_status": "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+    },
+    {
+      "attack_family": "Merlin ICMP Flooding",
+      "protection_status": "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+    },
+    {
+      "attack_family": "Mirai C&C Communication",
+      "protection_status": "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+    },
+    {
+      "attack_family": "Mirai GRE Flooding",
+      "protection_status": "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+    },
+    {
+      "attack_family": "Mirai UDP Flooding",
+      "protection_status": "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+    }
+  ],
+  "unprotected_attack_family_names": [
+    "File Download",
+    "Ingress Tool Transfer",
+    "Merlin C&C Communication",
+    "Merlin ICMP Flooding",
+    "Mirai C&C Communication",
+    "Mirai GRE Flooding",
+    "Mirai UDP Flooding"
+  ]
+}

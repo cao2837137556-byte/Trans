@@ -1,0 +1,40 @@
+{
+  "between_within": {
+    "devices_ratio_at_least_1": 13,
+    "median_ratio": 8.46433499287308,
+    "pass": true,
+    "required_devices_ratio_at_least_1": 11
+  },
+  "denominators": {
+    "eligible_devices": 13,
+    "fit_attack_independent_sessions": 4123,
+    "fit_attack_records": 4385,
+    "fit_attack_terminal_sessions_all": 4262,
+    "fit_benign_independent_sessions": 2010,
+    "fit_benign_records": 6809,
+    "fit_benign_terminal_sessions_all": 8372
+  },
+  "stability": {
+    "median_principal_angle_degrees": 18.23863399859085,
+    "median_projection_distance": 0.15653714549278153,
+    "pass": false,
+    "svd_singular_values": [
+      17.081291827964385,
+      11.607900526354872,
+      7.239298535325611,
+      3.64594346424094,
+      0.8229364903709339,
+      0.52584017281991,
+      0.46699553930009285,
+      0.3810770919920323,
+      0.29760975698170106,
+      0.2297657579001363,
+      0.18417924241872957,
+      0.16426185007443223,
+      0.13537304358382535
+    ],
+    "worst_principal_angle_degrees": 89.36350188154476,
+    "worst_projection_distance": 0.5757291952002892
+  },
+  "status": "NOT_REACHED"
+}
