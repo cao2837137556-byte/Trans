@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """CKDE-S D0 Lane G attack-protected device-subspace audit.
 
-The count gate is deliberately evaluated from CSV metadata before either NPZ
-array is opened.  All numerical conventions are pinned by the Lane G erratum.
-No model is trained and no threshold/report/FINAL material is reachable.
+The metadata count gate precedes all NPZ access.  A second deterministic
+availability recensus may read only uid/missing before representation or probe
+state access.  All numerical and missingness conventions are frozen by the two
+Lane G errata.  No model is trained and no threshold/report/FINAL material is
+reachable.
 """
 
 from __future__ import annotations
@@ -26,6 +28,15 @@ CONTRACT_REL = Path("runs/mainline_docs/ckde_s_d0_attack_protected_device_shift_
 CONTRACT_SHA256 = "e2de3bd75ac0f4e9a1d90180bcc9db938418e44719f08bac5a89d07b29cf29e6"
 ERRATUM_REL = Path("runs/mainline_docs/ckde_s_d0_lane_g_preimplementation_erratum_frozen_20260826.md")
 ERRATUM_SHA256 = "156932108d48495c4b6c7156ef2af8e3f10ca74494c75451cb0a30f5222a149d"
+MISSINGNESS_ERRATUM_REL = Path("runs/mainline_docs/ckde_s_d0_lane_g_missingness_erratum_frozen_20260827.md")
+MISSINGNESS_ERRATUM_SHA256 = "c7077dbae15b4792e9b66694ebc453f61f1ad990dd7e61afd89b9a576fba0976"
+MISSINGNESS_RULE_REL = Path("runs/mainline_docs/ckda_d1_frozen_representation_probe_preregistered_20260812.md")
+MISSINGNESS_RULE_SHA256 = "ecb429926507d2c4f8f666edc2d7e50f3e94fc2ec74bc1e26e78ca4813950aa9"
+MISSINGNESS_RULE_QUOTE = (
+    "For G0, an unencodable target has score `+infinity`. For P1/P2, its finite\n"
+    "representation dimensions are zero and `missing_embedding=1`. No target may be\n"
+    "dropped. Missing counts and hard decisions remain in every denominator."
+)
 STAGE_REL = Path("runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage")
 
 PINS = {
@@ -50,6 +61,21 @@ MIN_DEVICE_SESSIONS = 64
 MIN_DEVICE_COUNT = 9
 MAX_RANK = 4
 MIN_FAMILY_SESSIONS = 15
+CLAIM_SCOPE = "geometry of the encodable (`missing=false`) subset of the frozen fit pool"
+EXPECTED_ATTACK_FAMILIES = (
+    "File Download",
+    "Ingress Tool Transfer",
+    "Merlin C&C Communication",
+    "Merlin ICMP Flooding",
+    "Merlin TCP Flooding",
+    "Merlin UDP Flooding",
+    "Mirai C&C Communication",
+    "Mirai GRE Flooding",
+    "Mirai TCP Flooding",
+    "Mirai UDP Flooding",
+    "ToN-credential_bruteforce",
+    "ToN-reconnaissance_scan",
+)
 
 SVD_RELATIVE_TOLERANCE = 1e-10
 ORTHOGONALITY_TOLERANCE = 1e-10
@@ -67,6 +93,10 @@ ALL_RESIDUAL_SHARE_MIN = 0.80
 RETAINED_ENERGY_MIN = 0.25
 
 SCIENTIFIC_OUTPUTS = {
+    "ckde_s_d0_embedding_availability_recensus.json",
+    "ckde_s_d0_embedding_availability_by_device.csv",
+    "ckde_s_d0_embedding_availability_by_attack_family.csv",
+    "ckde_s_d0_embedding_availability_session_diagnostic.csv",
     "ckde_s_d0_count_rank.json",
     "ckde_s_d0_device_subspace_stability.csv",
     "ckde_s_d0_between_within_by_device.csv",
@@ -114,7 +144,16 @@ def pin_inputs(root: Path) -> Dict[str, object]:
     identities = {
         "contract": require_sha(root / CONTRACT_REL, CONTRACT_SHA256),
         "erratum": require_sha(root / ERRATUM_REL, ERRATUM_SHA256),
+        "missingness_erratum": require_sha(
+            root / MISSINGNESS_ERRATUM_REL, MISSINGNESS_ERRATUM_SHA256
+        ),
+        "missingness_rule": require_sha(
+            root / MISSINGNESS_RULE_REL, MISSINGNESS_RULE_SHA256
+        ),
     }
+    source = (root / MISSINGNESS_RULE_REL).read_text(encoding="utf-8")
+    if MISSINGNESS_RULE_QUOTE not in source:
+        raise RuntimeError("frozen missingness quotation drift")
     for name, (relative, digest) in PINS.items():
         identities[name] = require_sha(root / relative, digest)
     return identities
@@ -163,6 +202,8 @@ def count_rank_gate(joined: pd.DataFrame) -> Tuple[pd.DataFrame, Dict[str, objec
     passed = len(eligible) >= MIN_DEVICE_COUNT and rank >= 2
     payload = {
         "status": "PASS" if passed else "NO_IDENTIFIABLE_DEVICE_SUBSPACE_BY_COUNT",
+        "D_metadata": len(eligible),
+        "r_metadata": rank,
         "eligible_devices": len(eligible),
         "eligible_device_keys": eligible,
         "minimum_sessions_per_device": MIN_DEVICE_SESSIONS,
@@ -267,18 +308,225 @@ def between_within(session_rows: pd.DataFrame, representations: np.ndarray, basi
     return frame, summary
 
 
-def load_arrays(root: Path, joined: pd.DataFrame, role_audit: Dict[str, object]) -> Tuple[pd.DataFrame, np.ndarray, np.ndarray, Dict[str, np.ndarray]]:
+def _require_embedding_schema(data: Mapping[str, np.ndarray]) -> None:
+    required = {"uid", "representation", "missing", "candidate_id", "plan_sha256", "contract_sha256"}
+    if set(data.files) != required:
+        raise RuntimeError("embedding schema drift")
+
+
+def load_availability(
+    root: Path, joined: pd.DataFrame, role_audit: Dict[str, object]
+) -> pd.DataFrame:
+    """Read only uid/missing and align deterministic availability to the frozen plan."""
     with np.load(root / PINS["embeddings"][0], allow_pickle=False) as data:
-        required = {"uid", "representation", "missing", "candidate_id", "plan_sha256", "contract_sha256"}
-        if set(data.files) != required:
-            raise RuntimeError("embedding schema drift")
-        uids = data["uid"].astype(str)
+        _require_embedding_schema(data)
+        uid_raw = np.asarray(data["uid"])
+        missing_raw = np.asarray(data["missing"])
+    role_audit["embedding_uid_missing_arrays_opened"] = 1
+    if uid_raw.ndim != 1 or missing_raw.ndim != 1:
+        raise RuntimeError("availability array rank drift")
+    if missing_raw.dtype.kind != "b":
+        raise RuntimeError("availability must be boolean")
+    uids = uid_raw.astype(str)
+    missing = missing_raw.astype(bool, copy=False)
+    if len(uids) != EXPECTED_ROWS or missing.shape != (EXPECTED_ROWS,):
+        raise RuntimeError("availability shape drift")
+    if len(set(uids.tolist())) != EXPECTED_ROWS:
+        raise RuntimeError("embedding UID drift")
+    positions = pd.Series(np.arange(EXPECTED_ROWS, dtype=np.int64), index=uids)
+    take = positions.reindex(joined["uid"].astype(str)).to_numpy()
+    if pd.isna(take).any() or len(set(take.astype(int).tolist())) != EXPECTED_ROWS:
+        raise RuntimeError("availability exact UID join failure")
+    take = take.astype(np.int64)
+    result = joined.copy()
+    result["embedding_archive_index"] = take
+    result["embedding_missing"] = missing[take]
+    return result
+
+
+def availability_gate_status(
+    d_finite: int, r_finite: int, r_metadata: int
+) -> Dict[str, object]:
+    """Apply the three independent, literal recensus stop conditions."""
+    stop_d = int(d_finite) < MIN_DEVICE_COUNT
+    stop_rank = int(r_finite) < 2
+    stop_mismatch = int(r_finite) != int(r_metadata)
+    return {
+        "status": (
+            "NO_IDENTIFIABLE_COMPLETE_SESSION_EMBEDDING_DENOMINATOR"
+            if stop_d or stop_rank or stop_mismatch
+            else "RECENSUS_PASS"
+        ),
+        "stop_D_finite_lt_9": stop_d,
+        "stop_r_finite_lt_2": stop_rank,
+        "stop_r_finite_ne_r_metadata": stop_mismatch,
+        "rank_retry_permitted": False,
+    }
+
+
+def availability_recensus(
+    joined: pd.DataFrame,
+    count_gate: Mapping[str, object],
+    identities: Mapping[str, object],
+    role_audit: Mapping[str, object],
+) -> Tuple[
+    pd.DataFrame, pd.DataFrame, pd.DataFrame, Dict[str, object], pd.DataFrame, pd.DataFrame
+]:
+    """Materialize deterministic terminal availability and claim-bounding diagnostics."""
+    benign_all = joined.loc[joined["role"].isin(FIT_BENIGN_ROLES)].copy()
+    attack_all = joined.loc[joined["role"].isin(FIT_ATTACK_ROLES)].copy()
+    if attack_all.groupby(["source_group", "session_id"])["attack_family"].nunique().gt(1).any():
+        raise RuntimeError("attack session crosses exact-family strata")
+    observed_families = tuple(sorted(attack_all["attack_family"].astype(str).unique()))
+    if observed_families != EXPECTED_ATTACK_FAMILIES:
+        raise RuntimeError("exact attack-family universe drift")
+
+    benign_sessions = terminal_session_rows(benign_all)
+    attack_sessions = terminal_session_rows(attack_all)
+    benign_sessions["finite_terminal_embedding"] = ~benign_sessions["embedding_missing"].astype(bool)
+    attack_sessions["finite_terminal_embedding"] = ~attack_sessions["embedding_missing"].astype(bool)
+
+    benign_records = benign_all.groupby(["source_group", "session_id"], sort=True).size()
+    attack_records = attack_all.groupby(["source_group", "session_id"], sort=True).size()
+
+    device_rows: List[Dict[str, object]] = []
+    for device in sorted(benign_all["source_group"].astype(str).unique()):
+        part = benign_sessions.loc[benign_sessions["source_group"].astype(str).eq(device)]
+        total = int(len(part))
+        finite = int(part["finite_terminal_embedding"].sum())
+        device_rows.append({
+            "device": device,
+            "total_terminal_sessions": total,
+            "finite_terminal_sessions": finite,
+            "missing_terminal_sessions": total - finite,
+            "finite_rate": float(finite / total) if total else 0.0,
+            "finite_geometry_eligible": bool(finite >= MIN_DEVICE_SESSIONS),
+        })
+    device_frame = pd.DataFrame(device_rows).sort_values("device", kind="mergesort").reset_index(drop=True)
+
+    family_rows: List[Dict[str, object]] = []
+    for family in EXPECTED_ATTACK_FAMILIES:
+        part = attack_sessions.loc[attack_sessions["attack_family"].astype(str).eq(family)]
+        total = int(len(part))
+        finite = int(part["finite_terminal_embedding"].sum())
+        eligible = bool(finite >= MIN_FAMILY_SESSIONS)
+        family_rows.append({
+            "attack_family": family,
+            "total_terminal_sessions": total,
+            "finite_terminal_sessions": finite,
+            "missing_terminal_sessions": total - finite,
+            "finite_rate": float(finite / total) if total else 0.0,
+            "finite_gradient_eligible": eligible,
+            "protection_status": (
+                "PROTECTED_BY_REPRESENTATION_EVIDENCE"
+                if eligible else "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+            ),
+        })
+    family_frame = pd.DataFrame(family_rows).sort_values("attack_family", kind="mergesort").reset_index(drop=True)
+
+    diagnostic_rows: List[Dict[str, object]] = []
+    for stratum, sessions, record_counts in (
+        ("fit_benign", benign_sessions, benign_records),
+        ("fit_attack", attack_sessions, attack_records),
+    ):
+        for row in sessions.itertuples(index=False):
+            key = (row.source_group, row.session_id)
+            diagnostic_rows.append({
+                "stratum": stratum,
+                "device": str(row.source_group),
+                "session_id": str(row.session_id),
+                "attack_family": "" if stratum == "fit_benign" else str(row.attack_family),
+                "terminal_uid": str(row.uid),
+                "terminal_event_position": row.event_position,
+                "records_in_frozen_session": int(record_counts.loc[key]),
+                "finite_terminal_embedding": bool(row.finite_terminal_embedding),
+            })
+    diagnostic = pd.DataFrame(diagnostic_rows).sort_values(
+        ["stratum", "device", "session_id", "terminal_uid"], kind="mergesort"
+    ).reset_index(drop=True)
+
+    finite_devices = device_frame.loc[device_frame["finite_geometry_eligible"], "device"].astype(str).tolist()
+    excluded_devices = device_frame.loc[~device_frame["finite_geometry_eligible"], "device"].astype(str).tolist()
+    protected = family_frame.loc[family_frame["finite_gradient_eligible"], "attack_family"].astype(str).tolist()
+    unprotected = family_frame.loc[~family_frame["finite_gradient_eligible"], "attack_family"].astype(str).tolist()
+    d_finite = len(finite_devices)
+    r_finite = min(MAX_RANK, int(math.floor((d_finite - 1) / 3))) if d_finite else 0
+    r_metadata = int(count_gate["rank"])
+    gate = availability_gate_status(d_finite, r_finite, r_metadata)
+
+    missing_with_earlier_finite = 0
+    for rows, terminals in ((benign_all, benign_sessions), (attack_all, attack_sessions)):
+        missing_keys = set(
+            zip(
+                terminals.loc[~terminals["finite_terminal_embedding"], "source_group"],
+                terminals.loc[~terminals["finite_terminal_embedding"], "session_id"],
+            )
+        )
+        if missing_keys:
+            finite_rows = rows.loc[~rows["embedding_missing"].astype(bool)]
+            finite_keys = set(zip(finite_rows["source_group"], finite_rows["session_id"]))
+            missing_with_earlier_finite += len(missing_keys & finite_keys)
+
+    payload: Dict[str, object] = {
+        "status": gate["status"],
+        "claim_scope": CLAIM_SCOPE,
+        "pinned_hashes": {name: value["sha256"] for name, value in identities.items()},
+        "missingness_rule_source": str(MISSINGNESS_RULE_REL),
+        "missingness_rule_sha256": MISSINGNESS_RULE_SHA256,
+        "missingness_rule_quote": MISSINGNESS_RULE_QUOTE,
+        "D_metadata": int(count_gate["eligible_devices"]),
+        "r_metadata": r_metadata,
+        "D_finite": d_finite,
+        "r_finite": r_finite,
+        "rank_formula": "min(4,floor((D-1)/3))",
+        "fit_benign_terminal_sessions": int(len(benign_sessions)),
+        "fit_benign_records": int(len(benign_all)),
+        "fit_benign_finite_terminal_sessions": int(benign_sessions["finite_terminal_embedding"].sum()),
+        "fit_benign_missing_terminal_sessions": int((~benign_sessions["finite_terminal_embedding"]).sum()),
+        "fit_attack_terminal_sessions": int(len(attack_sessions)),
+        "fit_attack_records": int(len(attack_all)),
+        "fit_attack_finite_terminal_sessions": int(attack_sessions["finite_terminal_embedding"].sum()),
+        "fit_attack_missing_terminal_sessions": int((~attack_sessions["finite_terminal_embedding"]).sum()),
+        "missing_terminal_sessions_with_earlier_finite_target": int(missing_with_earlier_finite),
+        "stop_D_finite_lt_9": gate["stop_D_finite_lt_9"],
+        "stop_r_finite_lt_2": gate["stop_r_finite_lt_2"],
+        "stop_r_finite_ne_r_metadata": gate["stop_r_finite_ne_r_metadata"],
+        "eligible_devices": finite_devices,
+        "excluded_devices": excluded_devices,
+        "protected_attack_families": protected,
+        "unprotected_attack_families": unprotected,
+        "role_open_audit": dict(role_audit),
+        "rank_retry_permitted": gate["rank_retry_permitted"],
+    }
+    return benign_sessions, attack_sessions, diagnostic, payload, device_frame, family_frame
+
+
+def load_representations(
+    root: Path, joined: pd.DataFrame, role_audit: Dict[str, object]
+) -> Tuple[pd.DataFrame, np.ndarray]:
+    with np.load(root / PINS["embeddings"][0], allow_pickle=False) as data:
+        _require_embedding_schema(data)
         representations = np.asarray(data["representation"], dtype=np.float64)
-        missing = np.asarray(data["missing"], dtype=bool)
         candidate = data["candidate_id"].astype(str).reshape(-1).tolist()
         plan_identity = data["plan_sha256"].astype(str).reshape(-1).tolist()
         contract_identity = data["contract_sha256"].astype(str).reshape(-1).tolist()
+    role_audit["representation_arrays_opened"] = 1
     role_audit["embedding_arrays_opened"] = 1
+    if representations.shape != (EXPECTED_ROWS, WIDTH):
+        raise RuntimeError("embedding shape drift")
+    if candidate != ["E3"] or plan_identity != [PINS["plan"][1]] or contract_identity != [EMBEDDING_PARENT_CONTRACT_SHA256]:
+        raise RuntimeError("embedding internal identity drift")
+    take = joined["embedding_archive_index"].to_numpy(dtype=np.int64)
+    reordered = representations[take]
+    finite = ~joined["embedding_missing"].to_numpy(dtype=bool)
+    if not np.isfinite(reordered[finite]).all():
+        raise RuntimeError("non-finite nonmissing embedding")
+    result = joined.copy()
+    result["embedding_index"] = np.arange(EXPECTED_ROWS, dtype=np.int64)
+    return result, reordered
+
+
+def load_probe_state(root: Path, role_audit: Dict[str, object]) -> Dict[str, np.ndarray]:
     with np.load(root / PINS["probe_state"][0], allow_pickle=False) as data:
         required_state = {
             "normalizer_mean", "normalizer_scale", "g0_reference", "g0_reference_uids",
@@ -289,22 +537,7 @@ def load_arrays(root: Path, joined: pd.DataFrame, role_audit: Dict[str, object])
             raise RuntimeError("probe state schema drift")
         state = {name: np.asarray(data[name]) for name in data.files}
     role_audit["probe_state_arrays_opened"] = 1
-    if representations.shape != (EXPECTED_ROWS, WIDTH) or missing.shape != (EXPECTED_ROWS,):
-        raise RuntimeError("embedding shape drift")
-    if candidate != ["E3"] or plan_identity != [PINS["plan"][1]] or contract_identity != [EMBEDDING_PARENT_CONTRACT_SHA256]:
-        raise RuntimeError("embedding internal identity drift")
-    if not np.isfinite(representations[~missing]).all():
-        raise RuntimeError("non-finite nonmissing embedding")
-    if len(uids) != EXPECTED_ROWS or len(set(uids)) != EXPECTED_ROWS:
-        raise RuntimeError("embedding UID drift")
-    positions = pd.Series(np.arange(EXPECTED_ROWS, dtype=np.int64), index=uids)
-    take = positions.reindex(joined["uid"].astype(str)).to_numpy()
-    if pd.isna(take).any() or len(set(take.astype(int).tolist())) != EXPECTED_ROWS:
-        raise RuntimeError("embedding exact join failure")
-    take = take.astype(np.int64)
-    joined = joined.copy()
-    joined["embedding_index"] = np.arange(EXPECTED_ROWS, dtype=np.int64)
-    return joined, representations[take], missing[take], state
+    return state
 
 
 def p2_gradients(representations: np.ndarray, missing: np.ndarray, state: Mapping[str, np.ndarray]) -> np.ndarray:
@@ -349,7 +582,16 @@ def orthonormal_span(rows: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
     return basis, singular
 
 
-def attack_protection(attack_sessions: pd.DataFrame, representations: np.ndarray, missing: np.ndarray, state: Mapping[str, np.ndarray], global_center: np.ndarray, device_basis: np.ndarray, device_shifts: np.ndarray) -> Tuple[pd.DataFrame, pd.DataFrame, Dict[str, object]]:
+def attack_protection(
+    attack_sessions: pd.DataFrame,
+    representations: np.ndarray,
+    missing: np.ndarray,
+    state: Mapping[str, np.ndarray],
+    global_center: np.ndarray,
+    device_basis: np.ndarray,
+    device_shifts: np.ndarray,
+    all_families: Sequence[str] = EXPECTED_ATTACK_FAMILIES,
+) -> Tuple[pd.DataFrame, pd.DataFrame, Dict[str, object]]:
     indices = attack_sessions["embedding_index"].to_numpy(dtype=np.int64)
     values = representations[indices]
     gradients = p2_gradients(values, missing[indices], state)
@@ -358,7 +600,8 @@ def attack_protection(attack_sessions: pd.DataFrame, representations: np.ndarray
     contrast_rows: List[Dict[str, object]] = []
     directions: List[np.ndarray] = []
     eligible_families: List[str] = []
-    for family, part in attack_sessions.groupby("attack_family", sort=True):
+    for family in all_families:
+        part = attack_sessions.loc[attack_sessions["attack_family"].astype(str).eq(str(family))]
         local = part.index.to_numpy(dtype=np.int64)
         count = len(local)
         if count < MIN_FAMILY_SESSIONS:
@@ -417,6 +660,76 @@ def write_sha256s(out: Path) -> None:
     atomic_text(out / "SHA256SUMS", "\n".join(rows) + "\n")
 
 
+def validate_role_open_audit(role_audit: Mapping[str, object]) -> None:
+    required = (
+        "embedding_uid_missing_arrays_opened",
+        "representation_arrays_opened",
+        "probe_state_arrays_opened",
+        "report_files_opened",
+        "final_files_opened",
+        "network_requests_made",
+        "training_steps_run",
+    )
+    if any(type(role_audit.get(name)) is not int for name in required):
+        raise RuntimeError("role-open audit counter type drift")
+    if role_audit.get("embedding_arrays_opened") != role_audit.get("representation_arrays_opened"):
+        raise RuntimeError("legacy embedding counter alias drift")
+    for name in ("report_files_opened", "final_files_opened", "network_requests_made", "training_steps_run"):
+        if role_audit[name] != 0:
+            raise RuntimeError("sealed boundary counter is nonzero: %s" % name)
+
+
+def verdict_family_claims(unprotected: Sequence[str]) -> Dict[str, object]:
+    names = [str(value) for value in unprotected]
+    return {
+        "unprotected_attack_family_names": names,
+        "unprotected_attack_families": [
+            {
+                "attack_family": name,
+                "protection_status": "UNPROTECTED_BY_REPRESENTATION_EVIDENCE",
+            }
+            for name in names
+        ],
+    }
+
+
+def verdict_counter_fields(role_audit: Mapping[str, object]) -> Dict[str, int]:
+    names = (
+        "embedding_uid_missing_arrays_opened",
+        "representation_arrays_opened",
+        "embedding_arrays_opened",
+        "probe_state_arrays_opened",
+        "report_files_opened",
+        "final_files_opened",
+        "network_requests_made",
+        "training_steps_run",
+    )
+    return {name: int(role_audit[name]) for name in names}
+
+
+def recensus_verdict_denominators(recensus: Mapping[str, object]) -> Dict[str, object]:
+    return {
+        "devices": {
+            "metadata_eligible": int(recensus["D_metadata"]),
+            "finite_eligible": int(recensus["D_finite"]),
+            "metadata_rank": int(recensus["r_metadata"]),
+            "finite_rank": int(recensus["r_finite"]),
+        },
+        "sessions": {
+            "fit_benign_terminal": int(recensus["fit_benign_terminal_sessions"]),
+            "fit_benign_finite_terminal": int(recensus["fit_benign_finite_terminal_sessions"]),
+            "fit_benign_missing_terminal": int(recensus["fit_benign_missing_terminal_sessions"]),
+            "fit_attack_terminal": int(recensus["fit_attack_terminal_sessions"]),
+            "fit_attack_finite_terminal": int(recensus["fit_attack_finite_terminal_sessions"]),
+            "fit_attack_missing_terminal": int(recensus["fit_attack_missing_terminal_sessions"]),
+        },
+        "records": {
+            "fit_benign": int(recensus["fit_benign_records"]),
+            "fit_attack": int(recensus["fit_attack_records"]),
+        },
+    }
+
+
 def materialize(root: Path, out: Path) -> Dict[str, object]:
     stage = out.with_name(".%s.stage" % out.name)
     control = out.with_name("%s_control" % out.name)
@@ -427,9 +740,12 @@ def materialize(root: Path, out: Path) -> Dict[str, object]:
     stage.mkdir(parents=True, exist_ok=False)
     role_audit: Dict[str, object] = {
         "status": "PRE_OPEN", "plan_metadata_opened": 0, "session_metadata_opened": 0,
-        "embedding_arrays_opened": 0, "probe_state_arrays_opened": 0,
+        "embedding_uid_missing_arrays_opened": 0,
+        "representation_arrays_opened": 0, "embedding_arrays_opened": 0,
+        "probe_state_arrays_opened": 0,
         "support_val_rows_opened": 0, "report_files_opened": 0, "final_files_opened": 0,
-        "pcap_files_opened": 0, "training_runs": 0,
+        "pcap_files_opened": 0, "network_requests_made": 0,
+        "training_steps_run": 0, "training_runs": 0,
     }
     try:
         identities = pin_inputs(root)
@@ -441,30 +757,104 @@ def materialize(root: Path, out: Path) -> Dict[str, object]:
         atomic_json(stage / "ckde_s_d0_count_rank.json", {**count_gate, "device_counts": device_counts.to_dict(orient="records")})
         if count_gate["status"] != "PASS":
             role_audit["status"] = "COUNT_GATE_FAIL_CLOSED_BEFORE_NPZ_OPEN"
+            validate_role_open_audit(role_audit)
             atomic_json(stage / "ckde_s_d0_role_open_audit.json", role_audit)
-            verdict = {"status": "NO_IDENTIFIABLE_DEVICE_SUBSPACE_BY_COUNT", "scientific_state": "G0", "rank_retry_permitted": False, "embedding_arrays_opened": 0, "lane_m_authorized": False}
+            benign_meta = joined.loc[joined["role"].isin(FIT_BENIGN_ROLES)]
+            attack_meta = joined.loc[joined["role"].isin(FIT_ATTACK_ROLES)]
+            verdict = {
+                "status": "NO_IDENTIFIABLE_DEVICE_SUBSPACE_BY_COUNT",
+                "scientific_state": "G0",
+                "rank_retry_permitted": False,
+                "availability_recensus_status": "NOT_OPENED_G0M",
+                **verdict_counter_fields(role_audit),
+                "claim_scope": "NO_GEOMETRY_CLAIM",
+                "excluded_devices": [],
+                "protected_attack_families": [],
+                **verdict_family_claims([]),
+                "denominators": {
+                    "devices": {
+                        "metadata_eligible": int(count_gate["eligible_devices"]),
+                        "finite_eligible": "NOT_OPENED_G0M",
+                        "metadata_rank": int(count_gate["rank"]),
+                        "finite_rank": "NOT_OPENED_G0M",
+                    },
+                    "sessions": {
+                        "fit_benign_terminal": int(len(terminal_session_rows(benign_meta))),
+                        "fit_attack_terminal": int(len(terminal_session_rows(attack_meta))),
+                    },
+                    "records": {
+                        "fit_benign": int(len(benign_meta)),
+                        "fit_attack": int(len(attack_meta)),
+                    },
+                },
+                "lane_m_authorized": False,
+            }
             atomic_json(stage / "ckde_s_d0_geometry_verdict.json", verdict)
             write_sha256s(stage)
             os.replace(str(stage), str(out))
             return verdict
 
-        joined, reps, missing, state = load_arrays(root, joined, role_audit)
-        eligible = set(count_gate["eligible_device_keys"])
-        benign_all = joined.loc[joined["role"].isin(FIT_BENIGN_ROLES) & joined["source_group"].astype(str).isin(eligible)].copy()
+        joined = load_availability(root, joined, role_audit)
+        role_audit["status"] = "AVAILABILITY_RECENSUS"
+        (
+            benign_terminal_all,
+            attack_terminal_all,
+            session_diagnostic,
+            recensus,
+            availability_by_device,
+            availability_by_family,
+        ) = availability_recensus(joined, count_gate, identities, role_audit)
+        atomic_csv(stage / "ckde_s_d0_embedding_availability_by_device.csv", availability_by_device)
+        atomic_csv(stage / "ckde_s_d0_embedding_availability_by_attack_family.csv", availability_by_family)
+        atomic_csv(stage / "ckde_s_d0_embedding_availability_session_diagnostic.csv", session_diagnostic)
+        if recensus["status"] != "RECENSUS_PASS":
+            role_audit["status"] = "AVAILABILITY_RECENSUS_FAIL_CLOSED"
+            validate_role_open_audit(role_audit)
+            recensus["role_open_audit"] = dict(role_audit)
+            atomic_json(stage / "ckde_s_d0_embedding_availability_recensus.json", recensus)
+            atomic_json(stage / "ckde_s_d0_role_open_audit.json", role_audit)
+            verdict = {
+                "status": "NO_IDENTIFIABLE_COMPLETE_SESSION_EMBEDDING_DENOMINATOR",
+                "scientific_state": "G0",
+                "rank_retry_permitted": False,
+                "claim_scope": CLAIM_SCOPE,
+                "excluded_devices": recensus["excluded_devices"],
+                "protected_attack_families": recensus["protected_attack_families"],
+                **verdict_family_claims(recensus["unprotected_attack_families"]),
+                "denominators": recensus_verdict_denominators(recensus),
+                **verdict_counter_fields(role_audit),
+                "lane_m_authorized": False,
+            }
+            atomic_json(stage / "ckde_s_d0_geometry_verdict.json", verdict)
+            for pre_recensus in (
+                stage / "ckde_s_d0_input_identity.json",
+                stage / "ckde_s_d0_count_rank.json",
+            ):
+                pre_recensus.unlink()
+            write_sha256s(stage)
+            os.replace(str(stage), str(out))
+            return verdict
+
+        role_audit["status"] = "AVAILABILITY_RECENSUS_PASS"
+        recensus["role_open_audit"] = dict(role_audit)
+        atomic_json(stage / "ckde_s_d0_embedding_availability_recensus.json", recensus)
+
+        joined, reps = load_representations(root, joined, role_audit)
+        state = load_probe_state(root, role_audit)
+        missing = joined["embedding_missing"].to_numpy(dtype=bool)
+        eligible = set(str(value) for value in recensus["eligible_devices"])
+        benign_all = joined.loc[
+            joined["role"].isin(FIT_BENIGN_ROLES)
+            & joined["source_group"].astype(str).isin(eligible)
+        ].copy()
         attack_all = joined.loc[joined["role"].isin(FIT_ATTACK_ROLES)].copy()
-        if attack_all.groupby(["source_group", "session_id"])["attack_family"].nunique().gt(1).any():
-            raise RuntimeError("attack session crosses exact-family strata")
         benign_sessions = terminal_session_rows(benign_all)
         attack_sessions = terminal_session_rows(attack_all)
-        selected = np.concatenate((
-            benign_sessions["embedding_index"].to_numpy(dtype=np.int64),
-            attack_sessions["embedding_index"].to_numpy(dtype=np.int64),
-        ))
-        if missing[selected].any():
-            raise RuntimeError("complete Lane G session embedding is missing")
+        benign_sessions = benign_sessions.loc[~benign_sessions["embedding_missing"].astype(bool)].reset_index(drop=True)
+        attack_sessions = attack_sessions.loc[~attack_sessions["embedding_missing"].astype(bool)].reset_index(drop=True)
         centers = {str(device): np.median(reps[part["embedding_index"].to_numpy(dtype=np.int64)], axis=0) for device, part in benign_sessions.groupby("source_group", sort=True)}
         global_center = np.median(np.stack([centers[d] for d in sorted(centers)]), axis=0)
-        basis, stability, stability_summary = lodo_stability(centers, global_center, int(count_gate["rank"]))
+        basis, stability, stability_summary = lodo_stability(centers, global_center, int(recensus["r_finite"]))
         benign_denominators = benign_all.groupby("source_group", sort=True).agg(
             independent_sessions=("session_id", "nunique"), records=("uid", "size")
         ).reset_index().rename(columns={"source_group": "device_key"})
@@ -478,21 +868,36 @@ def materialize(root: Path, out: Path) -> Dict[str, object]:
             benign_denominators, on="device_key", how="left", validate="one_to_one"
         )
         atomic_csv(stage / "ckde_s_d0_between_within_by_device.csv", ratios)
+        attack_denominators = attack_all.groupby("attack_family", sort=True).agg(
+            records=("uid", "size"), independent_sessions_all=("session_id", "nunique")
+        ).reset_index()
         if not stability_summary["pass"] or not ratio_summary["pass"]:
             status, state_name = "UNSTABLE_OR_TEMPORAL_DEVICE_SUBSPACE", "G1"
-            gradient_frame = pd.DataFrame(columns=["attack_family", "independent_sessions", "gradient_norm", "eligible", "records", "independent_sessions_all"])
+            gradient_frame = availability_by_family.rename(columns={
+                "finite_terminal_sessions": "independent_sessions",
+                "finite_gradient_eligible": "eligible",
+            }).copy()
+            gradient_frame["gradient_norm"] = ""
+            gradient_frame = gradient_frame.merge(
+                attack_denominators, on="attack_family", how="left", validate="one_to_one"
+            )
             contrast_frame = pd.DataFrame(columns=["attack_family", "independent_sessions", "projection_fraction", "residual_fraction", "major_family", "records", "independent_sessions_all"])
             removable = {"status": "NOT_REACHED", "stability": stability_summary, "between_within": ratio_summary}
         else:
             device_shifts = np.stack([centers[device] - global_center for device in sorted(centers)])
             gradient_frame, contrast_frame, removable = attack_protection(
-                attack_sessions, reps, missing, state, global_center, basis, device_shifts
+                attack_sessions, reps, missing, state, global_center, basis, device_shifts,
+                all_families=EXPECTED_ATTACK_FAMILIES,
             )
-            attack_denominators = attack_all.groupby("attack_family", sort=True).agg(
-                records=("uid", "size"), independent_sessions_all=("session_id", "nunique")
-            ).reset_index()
             gradient_frame = gradient_frame.merge(
                 attack_denominators, on="attack_family", how="left", validate="one_to_one"
+            )
+            gradient_frame = gradient_frame.merge(
+                availability_by_family[[
+                    "attack_family", "total_terminal_sessions", "finite_terminal_sessions",
+                    "missing_terminal_sessions", "finite_rate", "protection_status",
+                ]],
+                on="attack_family", how="left", validate="one_to_one",
             )
             contrast_frame = contrast_frame.merge(
                 attack_denominators, on="attack_family", how="left", validate="one_to_one"
@@ -511,19 +916,27 @@ def materialize(root: Path, out: Path) -> Dict[str, object]:
             "fit_benign_records": int(len(benign_all)),
             "fit_attack_independent_sessions": int(len(attack_sessions)),
             "fit_attack_records": int(len(attack_all)),
+            "fit_benign_terminal_sessions_all": int(len(benign_terminal_all)),
+            "fit_attack_terminal_sessions_all": int(len(attack_terminal_all)),
         }
         atomic_csv(stage / "ckde_s_d0_attack_gradient_by_family.csv", gradient_frame)
         atomic_csv(stage / "ckde_s_d0_attack_contrast_contamination.csv", contrast_frame)
         atomic_json(stage / "ckde_s_d0_removable_subspace_audit.json", removable)
         role_audit["status"] = "LANE_G_COMPLETE"
+        validate_role_open_audit(role_audit)
         atomic_json(stage / "ckde_s_d0_role_open_audit.json", role_audit)
         verdict = {
             "status": status,
             "scientific_state": state_name,
-            "rank": int(count_gate["rank"]),
+            "rank": int(recensus["r_finite"]),
             "rank_retry_permitted": False,
             "lane_m_authorized": False,
-            "claim_scope": "OBSERVED_FIT_DEVICE_GEOMETRY_ONLY",
+            "claim_scope": CLAIM_SCOPE,
+            "excluded_devices": recensus["excluded_devices"],
+            "protected_attack_families": recensus["protected_attack_families"],
+            **verdict_family_claims(recensus["unprotected_attack_families"]),
+            "denominators": recensus_verdict_denominators(recensus),
+            **verdict_counter_fields(role_audit),
         }
         atomic_json(stage / "ckde_s_d0_geometry_verdict.json", verdict)
         write_sha256s(stage)

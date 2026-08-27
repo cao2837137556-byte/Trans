@@ -38,10 +38,52 @@ def metadata(devices: int, sessions: int) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def recensus_metadata(
+    devices: int = 9,
+    sessions: int = 64,
+    missing_devices: int = 0,
+    attack_sessions_per_family: int = 1,
+) -> pd.DataFrame:
+    rows = []
+    for device in range(devices):
+        for session in range(sessions):
+            rows.append({
+                "uid": "b%d:%d" % (device, session),
+                "role": "aux_fit",
+                "source_group": "d%d" % device,
+                "attack_family": "benign",
+                "label_metric_only": 0,
+                "recorded_index": session,
+                "session_id": "s%d" % session,
+                "timestamp_epoch": float(session),
+                "event_position": 1,
+                "embedding_archive_index": len(rows),
+                "embedding_missing": bool(device < missing_devices),
+            })
+    for family_index, family in enumerate(lane_g.EXPECTED_ATTACK_FAMILIES):
+        for session in range(attack_sessions_per_family):
+            rows.append({
+                "uid": "a%d:%d" % (family_index, session),
+                "role": "support_train",
+                "source_group": "attack-device-%d" % family_index,
+                "attack_family": family,
+                "label_metric_only": 1,
+                "recorded_index": session,
+                "session_id": "as%d" % session,
+                "timestamp_epoch": float(session),
+                "event_position": 1,
+                "embedding_archive_index": len(rows),
+                "embedding_missing": False,
+            })
+    return pd.DataFrame(rows)
+
+
 class LaneGContractTests(unittest.TestCase):
     def test_01_literal_identity_and_numeric_conventions(self):
         self.assertEqual(lane_g.CONTRACT_SHA256, "e2de3bd75ac0f4e9a1d90180bcc9db938418e44719f08bac5a89d07b29cf29e6")
         self.assertEqual(lane_g.ERRATUM_SHA256, "156932108d48495c4b6c7156ef2af8e3f10ca74494c75451cb0a30f5222a149d")
+        self.assertEqual(lane_g.MISSINGNESS_ERRATUM_SHA256, "c7077dbae15b4792e9b66694ebc453f61f1ad990dd7e61afd89b9a576fba0976")
+        self.assertEqual(lane_g.MISSINGNESS_RULE_SHA256, "ecb429926507d2c4f8f666edc2d7e50f3e94fc2ec74bc1e26e78ca4813950aa9")
         self.assertEqual(lane_g.SVD_RELATIVE_TOLERANCE, 1e-10)
         self.assertEqual(lane_g.ORTHOGONALITY_TOLERANCE, 1e-10)
         self.assertEqual(lane_g.GRADIENT_NORM_FLOOR, 1e-12)
@@ -66,7 +108,7 @@ class LaneGContractTests(unittest.TestCase):
             rows = metadata(8, 64)
             with mock.patch.object(lane_g, "pin_inputs", return_value={}), mock.patch.object(
                 lane_g, "load_metadata_only", return_value=rows
-            ), mock.patch.object(lane_g, "load_arrays", side_effect=AssertionError("NPZ opened")):
+            ), mock.patch.object(lane_g, "load_availability", side_effect=AssertionError("NPZ opened")):
                 verdict = lane_g.materialize(root, out)
             self.assertEqual(verdict["scientific_state"], "G0")
             role = json.loads((out / "ckde_s_d0_role_open_audit.json").read_text(encoding="utf-8"))
@@ -228,12 +270,407 @@ class LaneGContractTests(unittest.TestCase):
             np.zeros(768),
             np.eye(768)[:, :1],
             np.asarray([np.eye(768)[0], -np.eye(768)[0]]),
+            all_families=("f1", "f2"),
         )
         self.assertEqual(len(gradients), 2)
         self.assertEqual(len(contrasts), 2)
         self.assertTrue(summary["pass"])
         self.assertLessEqual(summary["orthogonality_spectral_norm"], 1e-10)
         self.assertAlmostEqual(summary["median_retained_between_device_energy"], 1.0)
+
+    def test_22_missingness_rule_quote_and_claim_are_literal(self):
+        self.assertIn("No target may be\ndropped.", lane_g.MISSINGNESS_RULE_QUOTE)
+        self.assertEqual(
+            lane_g.CLAIM_SCOPE,
+            "geometry of the encodable (`missing=false`) subset of the frozen fit pool",
+        )
+        root = HERE.parents[1]
+        lane_g.require_sha(root / lane_g.MISSINGNESS_RULE_REL, lane_g.MISSINGNESS_RULE_SHA256)
+        source = (root / lane_g.MISSINGNESS_RULE_REL).read_text(encoding="utf-8")
+        self.assertIn(lane_g.MISSINGNESS_RULE_QUOTE, source)
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "recensus.json"
+            lane_g.atomic_json(path, {
+                "source": str(lane_g.MISSINGNESS_RULE_REL),
+                "sha256": lane_g.MISSINGNESS_RULE_SHA256,
+                "quote": lane_g.MISSINGNESS_RULE_QUOTE,
+            })
+            readback = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(readback["quote"], lane_g.MISSINGNESS_RULE_QUOTE)
+        self.assertEqual(readback["sha256"], lane_g.MISSINGNESS_RULE_SHA256)
+
+    def test_23_load_availability_reads_boolean_uid_missing_only(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            archive = root / "availability.npz"
+            np.savez(
+                archive,
+                uid=np.asarray(["u2", "u1"]),
+                representation=np.asarray([[np.nan], [np.nan]]),
+                missing=np.asarray([True, False], dtype=bool),
+                candidate_id=np.asarray(["unused"]),
+                plan_sha256=np.asarray(["unused"]),
+                contract_sha256=np.asarray(["unused"]),
+            )
+            joined = pd.DataFrame({"uid": ["u1", "u2"]})
+            role = {"embedding_uid_missing_arrays_opened": 0}
+            with mock.patch.object(lane_g, "EXPECTED_ROWS", 2), mock.patch.dict(
+                lane_g.PINS, {"embeddings": (Path("availability.npz"), "unused")}
+            ):
+                result = lane_g.load_availability(root, joined, role)
+            self.assertEqual(role["embedding_uid_missing_arrays_opened"], 1)
+            self.assertEqual(result["embedding_archive_index"].tolist(), [1, 0])
+            self.assertEqual(result["embedding_missing"].tolist(), [False, True])
+
+    def test_24_load_availability_rejects_nonboolean_missing(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            np.savez(
+                root / "availability.npz",
+                uid=np.asarray(["u1"]),
+                representation=np.asarray([[0.0]]),
+                missing=np.asarray([0], dtype=np.int8),
+                candidate_id=np.asarray(["unused"]),
+                plan_sha256=np.asarray(["unused"]),
+                contract_sha256=np.asarray(["unused"]),
+            )
+            with mock.patch.object(lane_g, "EXPECTED_ROWS", 1), mock.patch.dict(
+                lane_g.PINS, {"embeddings": (Path("availability.npz"), "unused")}
+            ):
+                with self.assertRaisesRegex(RuntimeError, "boolean"):
+                    lane_g.load_availability(
+                        root,
+                        pd.DataFrame({"uid": ["u1"]}),
+                        {"embedding_uid_missing_arrays_opened": 0},
+                    )
+
+    def test_25_three_recensus_stop_conditions_are_independent_and_no_retry(self):
+        cases = (
+            (8, 2, 2, "stop_D_finite_lt_9"),
+            (9, 1, 1, "stop_r_finite_lt_2"),
+            (9, 2, 3, "stop_r_finite_ne_r_metadata"),
+        )
+        for d_finite, r_finite, r_metadata, field in cases:
+            with self.subTest(field=field):
+                result = lane_g.availability_gate_status(d_finite, r_finite, r_metadata)
+                self.assertEqual(result["status"], "NO_IDENTIFIABLE_COMPLETE_SESSION_EMBEDDING_DENOMINATOR")
+                self.assertTrue(result[field])
+                self.assertFalse(result["rank_retry_permitted"])
+        self.assertEqual(lane_g.availability_gate_status(9, 2, 2)["status"], "RECENSUS_PASS")
+
+    def test_26_terminal_missing_never_substitutes_earlier_finite_target(self):
+        joined = recensus_metadata()
+        terminal_uid = "b0:0"
+        joined.loc[joined["uid"].eq(terminal_uid), "embedding_missing"] = True
+        earlier = joined.loc[joined["uid"].eq(terminal_uid)].iloc[0].copy()
+        earlier["uid"] = "b0:0:earlier"
+        earlier["event_position"] = 0
+        earlier["timestamp_epoch"] = -1.0
+        earlier["embedding_missing"] = False
+        joined = pd.concat([joined, pd.DataFrame([earlier])], ignore_index=True)
+        _, count_gate = lane_g.count_rank_gate(joined)
+        benign, _, diagnostic, payload, _, _ = lane_g.availability_recensus(
+            joined, count_gate, {}, {}
+        )
+        chosen = benign.loc[benign["source_group"].eq("d0") & benign["session_id"].eq("s0")]
+        self.assertEqual(chosen["terminal_uid"].tolist() if "terminal_uid" in chosen else chosen["uid"].tolist(), [terminal_uid])
+        self.assertFalse(bool(chosen.iloc[0]["finite_terminal_embedding"]))
+        self.assertEqual(payload["missing_terminal_sessions_with_earlier_finite_target"], 1)
+        row = diagnostic.loc[diagnostic["terminal_uid"].eq(terminal_uid)].iloc[0]
+        self.assertFalse(bool(row["finite_terminal_embedding"]))
+        self.assertEqual(int(row["terminal_event_position"]), 1)
+        self.assertEqual(int(row["records_in_frozen_session"]), 2)
+
+    def test_27_recensus_emits_exact_device_family_and_session_schemas(self):
+        joined = recensus_metadata(attack_sessions_per_family=15)
+        _, count_gate = lane_g.count_rank_gate(joined)
+        benign, attack, diagnostic, payload, devices, families = lane_g.availability_recensus(
+            joined, count_gate, {}, {"embedding_uid_missing_arrays_opened": 1}
+        )
+        self.assertEqual(payload["status"], "RECENSUS_PASS")
+        self.assertEqual(len(benign), 9 * 64)
+        self.assertEqual(len(attack), 12 * 15)
+        self.assertEqual(families["attack_family"].tolist(), list(lane_g.EXPECTED_ATTACK_FAMILIES))
+        self.assertEqual(set(families["protection_status"]), {"PROTECTED_BY_REPRESENTATION_EVIDENCE"})
+        self.assertEqual(
+            list(devices.columns),
+            ["device", "total_terminal_sessions", "finite_terminal_sessions", "missing_terminal_sessions", "finite_rate", "finite_geometry_eligible"],
+        )
+        self.assertEqual(
+            list(diagnostic.columns),
+            ["stratum", "device", "session_id", "attack_family", "terminal_uid", "terminal_event_position", "records_in_frozen_session", "finite_terminal_embedding"],
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "families.csv"
+            lane_g.atomic_csv(path, families)
+            readback = pd.read_csv(path, keep_default_na=False)
+        self.assertEqual(readback["attack_family"].tolist(), list(lane_g.EXPECTED_ATTACK_FAMILIES))
+        self.assertEqual(len(readback), 12)
+
+    def test_28_recensus_is_deterministic_under_row_permutation(self):
+        joined = recensus_metadata(attack_sessions_per_family=2)
+        _, count_gate = lane_g.count_rank_gate(joined)
+        left = lane_g.availability_recensus(joined, count_gate, {}, {})
+        shuffled = joined.sample(frac=1.0, random_state=7).reset_index(drop=True)
+        right = lane_g.availability_recensus(shuffled, count_gate, {}, {})
+        pd.testing.assert_frame_equal(left[2], right[2])
+        pd.testing.assert_frame_equal(left[4], right[4])
+        pd.testing.assert_frame_equal(left[5], right[5])
+        self.assertEqual(left[3]["status"], right[3]["status"])
+
+    def test_29_recensus_failure_blocks_representation_and_probe_open(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            out = root / "out"
+            rows = metadata(9, 64)
+            rows["embedding_archive_index"] = np.arange(len(rows))
+            rows["embedding_missing"] = False
+            benign = lane_g.terminal_session_rows(rows)
+            empty = pd.DataFrame()
+            recensus = {
+                "status": "NO_IDENTIFIABLE_COMPLETE_SESSION_EMBEDDING_DENOMINATOR",
+                "D_metadata": 9,
+                "r_metadata": 2,
+                "D_finite": 8,
+                "r_finite": 2,
+                "fit_benign_terminal_sessions": 576,
+                "fit_benign_finite_terminal_sessions": 512,
+                "fit_benign_missing_terminal_sessions": 64,
+                "fit_benign_records": 1152,
+                "fit_attack_terminal_sessions": 0,
+                "fit_attack_finite_terminal_sessions": 0,
+                "fit_attack_missing_terminal_sessions": 0,
+                "fit_attack_records": 0,
+                "excluded_devices": [
+                    "normal_1.pcap",
+                    "iotsim-combined-cycle-tls-1_0-0_to_OpenvSwitch-14_1-0",
+                ],
+                "protected_attack_families": [],
+                "unprotected_attack_families": [
+                    "File Download",
+                    "Ingress Tool Transfer",
+                    "Merlin C&C Communication",
+                    "Merlin ICMP Flooding",
+                    "Mirai C&C Communication",
+                    "Mirai GRE Flooding",
+                    "Mirai UDP Flooding",
+                ],
+            }
+
+            def availability(_root, frame, audit):
+                audit["embedding_uid_missing_arrays_opened"] = 1
+                return frame
+
+            with mock.patch.object(lane_g, "pin_inputs", return_value={}), mock.patch.object(
+                lane_g, "load_metadata_only", return_value=rows
+            ), mock.patch.object(lane_g, "load_availability", side_effect=availability), mock.patch.object(
+                lane_g,
+                "availability_recensus",
+                return_value=(benign, empty, empty, recensus, empty, empty),
+            ), mock.patch.object(
+                lane_g, "load_representations", side_effect=AssertionError("representation opened")
+            ), mock.patch.object(
+                lane_g, "load_probe_state", side_effect=AssertionError("probe opened")
+            ):
+                verdict = lane_g.materialize(root, out)
+            self.assertEqual(verdict["status"], "NO_IDENTIFIABLE_COMPLETE_SESSION_EMBEDDING_DENOMINATOR")
+            self.assertEqual(verdict["representation_arrays_opened"], 0)
+            self.assertEqual(verdict["embedding_arrays_opened"], 0)
+            self.assertEqual(verdict["probe_state_arrays_opened"], 0)
+            for name in ("report_files_opened", "final_files_opened", "network_requests_made", "training_steps_run"):
+                self.assertEqual(verdict[name], 0)
+            self.assertEqual(set(verdict["denominators"]), {"devices", "sessions", "records"})
+            self.assertEqual(
+                verdict["excluded_devices"],
+                ["normal_1.pcap", "iotsim-combined-cycle-tls-1_0-0_to_OpenvSwitch-14_1-0"],
+            )
+            self.assertEqual(len(verdict["unprotected_attack_families"]), 7)
+            self.assertTrue(all(
+                row["protection_status"] == "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+                for row in verdict["unprotected_attack_families"]
+            ))
+            allowed = {
+                "ckde_s_d0_embedding_availability_recensus.json",
+                "ckde_s_d0_embedding_availability_by_device.csv",
+                "ckde_s_d0_embedding_availability_by_attack_family.csv",
+                "ckde_s_d0_embedding_availability_session_diagnostic.csv",
+                "ckde_s_d0_role_open_audit.json",
+                "ckde_s_d0_geometry_verdict.json",
+                "SHA256SUMS",
+            }
+            self.assertEqual({path.name for path in out.iterdir()}, allowed)
+            joined_json = "\n".join(
+                path.read_text(encoding="utf-8")
+                for path in out.iterdir()
+                if path.suffix == ".json"
+            ).lower()
+            for forbidden in ("principal_angle", "singular_value", "device_center", "gradient_norm", "projection_fraction"):
+                self.assertNotIn(forbidden, joined_json)
+
+    def test_30_legacy_embedding_counter_is_exact_representation_alias(self):
+        source = TARGET.read_text(encoding="utf-8")
+        self.assertEqual(source.count('role_audit["representation_arrays_opened"] = 1'), 1)
+        self.assertEqual(source.count('role_audit["embedding_arrays_opened"] = 1'), 1)
+        self.assertLess(
+            source.index('role_audit["representation_arrays_opened"] = 1'),
+            source.index('role_audit["embedding_arrays_opened"] = 1'),
+        )
+
+    def test_31_new_scientific_state_and_no_retry_are_literal(self):
+        source = TARGET.read_text(encoding="utf-8")
+        self.assertIn("NO_IDENTIFIABLE_COMPLETE_SESSION_EMBEDDING_DENOMINATOR", source)
+        self.assertNotIn("r_finite -", source)
+        self.assertNotIn("r_finite -=", source)
+
+    def test_32_protected_and_unprotected_family_lists_follow_finite_counts(self):
+        joined = recensus_metadata(attack_sessions_per_family=15)
+        missing_family = lane_g.EXPECTED_ATTACK_FAMILIES[0]
+        joined.loc[joined["attack_family"].eq(missing_family), "embedding_missing"] = True
+        _, count_gate = lane_g.count_rank_gate(joined)
+        result = lane_g.availability_recensus(joined, count_gate, {}, {})
+        payload, families = result[3], result[5]
+        self.assertEqual(payload["unprotected_attack_families"], [missing_family])
+        self.assertNotIn(missing_family, payload["protected_attack_families"])
+        status = families.set_index("attack_family").loc[missing_family, "protection_status"]
+        self.assertEqual(status, "UNPROTECTED_BY_REPRESENTATION_EVIDENCE")
+
+    def test_33_attack_span_uses_one_direction_per_family(self):
+        state = self._state()
+        device_basis = np.eye(768)[:, 1:2]
+        shifts = np.asarray([np.eye(768)[1], -np.eye(768)[1]])
+
+        def run(count_f2):
+            count = 15 + count_f2
+            representations = np.ones((count, 768), dtype=np.float64)
+            sessions = pd.DataFrame({
+                "embedding_index": np.arange(count),
+                "attack_family": ["f1"] * 15 + ["f2"] * count_f2,
+            })
+            return lane_g.attack_protection(
+                sessions,
+                representations,
+                np.zeros(count, dtype=bool),
+                state,
+                np.zeros(768),
+                device_basis,
+                shifts,
+                all_families=("f1", "f2"),
+            )
+
+        baseline = run(15)
+        duplicated = run(30)
+        self.assertEqual(baseline[0]["attack_family"].tolist(), ["f1", "f2"])
+        self.assertEqual(baseline[2]["eligible_attack_families"], ["f1", "f2"])
+        self.assertEqual(baseline[2]["attack_basis_rank"], duplicated[2]["attack_basis_rank"])
+        self.assertAlmostEqual(
+            baseline[2]["orthogonality_spectral_norm"],
+            duplicated[2]["orthogonality_spectral_norm"],
+        )
+
+    def test_34_missing_channel_immunity_is_not_promoted_to_geometry_claim(self):
+        source = TARGET.read_text(encoding="utf-8")
+        self.assertNotIn("missing channel is attack-safe", source.lower())
+        self.assertNotIn("missing rows are protected", source.lower())
+        self.assertIn("encodable (`missing=false`) subset", lane_g.CLAIM_SCOPE)
+
+    def test_35_all_four_missingness_diagnostics_are_scientific_outputs(self):
+        expected = {
+            "ckde_s_d0_embedding_availability_recensus.json",
+            "ckde_s_d0_embedding_availability_by_device.csv",
+            "ckde_s_d0_embedding_availability_by_attack_family.csv",
+            "ckde_s_d0_embedding_availability_session_diagnostic.csv",
+        }
+        self.assertTrue(expected.issubset(lane_g.SCIENTIFIC_OUTPUTS))
+
+    def test_36_viewed_recensus_values_are_not_encoded_as_success_expectations(self):
+        source = TARGET.read_text(encoding="utf-8")
+        for viewed in ("13827", "11640", "8372", "2087", "4262", "4123", "6424"):
+            self.assertNotIn(viewed, source)
+
+    def test_37_duplicate_and_missing_uid_availability_fail_engineering(self):
+        cases = (
+            (np.asarray(["u1", "u1"]), pd.DataFrame({"uid": ["u1", "u2"]}), "UID drift"),
+            (np.asarray(["u1", "u3"]), pd.DataFrame({"uid": ["u1", "u2"]}), "exact UID join"),
+        )
+        for uids, joined, message in cases:
+            with self.subTest(message=message), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                np.savez(
+                    root / "availability.npz",
+                    uid=uids,
+                    representation=np.zeros((2, 1)),
+                    missing=np.zeros(2, dtype=bool),
+                    candidate_id=np.asarray(["unused"]),
+                    plan_sha256=np.asarray(["unused"]),
+                    contract_sha256=np.asarray(["unused"]),
+                )
+                with mock.patch.object(lane_g, "EXPECTED_ROWS", 2), mock.patch.dict(
+                    lane_g.PINS, {"embeddings": (Path("availability.npz"), "unused")}
+                ):
+                    with self.assertRaisesRegex(RuntimeError, message):
+                        lane_g.load_availability(
+                            root, joined, {"embedding_uid_missing_arrays_opened": 0}
+                        )
+
+    def test_38_role_open_alias_disagreement_fails_engineering(self):
+        audit = {
+            "embedding_uid_missing_arrays_opened": 1,
+            "representation_arrays_opened": 1,
+            "embedding_arrays_opened": 0,
+            "probe_state_arrays_opened": 1,
+            "report_files_opened": 0,
+            "final_files_opened": 0,
+            "network_requests_made": 0,
+            "training_steps_run": 0,
+        }
+        with self.assertRaisesRegex(RuntimeError, "alias drift"):
+            lane_g.validate_role_open_audit(audit)
+
+    def test_39_recensus_pass_opens_representation_then_probe_and_publishes_alias(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            out = root / "out"
+            rows = recensus_metadata(attack_sessions_per_family=1)
+
+            def availability(_root, frame, audit):
+                audit["embedding_uid_missing_arrays_opened"] = 1
+                return frame.copy()
+
+            def representations(_root, frame, audit):
+                audit["representation_arrays_opened"] = 1
+                audit["embedding_arrays_opened"] = 1
+                result = frame.copy().reset_index(drop=True)
+                result["embedding_index"] = np.arange(len(result))
+                values = np.zeros((len(result), lane_g.WIDTH), dtype=np.float64)
+                for index, row in result.iterrows():
+                    if row["role"] in lane_g.FIT_BENIGN_ROLES:
+                        device = int(str(row["source_group"])[1:])
+                        session = int(str(row["session_id"])[1:])
+                        values[index, 0] = float(device) + (10.0 if session >= 32 else 0.0)
+                        values[index, 1] = float(device % 3)
+                return result, values
+
+            def probe(_root, audit):
+                audit["probe_state_arrays_opened"] = 1
+                return {}
+
+            with mock.patch.object(lane_g, "pin_inputs", return_value={}), mock.patch.object(
+                lane_g, "load_metadata_only", return_value=rows
+            ), mock.patch.object(lane_g, "load_availability", side_effect=availability), mock.patch.object(
+                lane_g, "load_representations", side_effect=representations
+            ), mock.patch.object(lane_g, "load_probe_state", side_effect=probe):
+                verdict = lane_g.materialize(root, out)
+            self.assertEqual(verdict["scientific_state"], "G1")
+            self.assertEqual(verdict["embedding_uid_missing_arrays_opened"], 1)
+            self.assertEqual(verdict["representation_arrays_opened"], 1)
+            self.assertEqual(verdict["embedding_arrays_opened"], 1)
+            self.assertEqual(verdict["probe_state_arrays_opened"], 1)
+            role = json.loads((out / "ckde_s_d0_role_open_audit.json").read_text(encoding="utf-8"))
+            self.assertEqual(role["representation_arrays_opened"], role["embedding_arrays_opened"])
+            self.assertEqual(role["report_files_opened"], 0)
+            self.assertEqual(role["final_files_opened"], 0)
+            self.assertEqual(role["network_requests_made"], 0)
+            self.assertEqual(role["training_steps_run"], 0)
 
 
 if __name__ == "__main__":
