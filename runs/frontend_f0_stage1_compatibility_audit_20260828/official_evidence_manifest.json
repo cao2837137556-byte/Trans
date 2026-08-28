@@ -1,0 +1,71 @@
+{
+  "adapter_feasible": true,
+  "candidate": "Pcap-Encoder",
+  "checkpoint": {
+    "displayed_name": "weights.pth",
+    "official_link": "https://drive.google.com/file/d/1j5ubI--9HflSFc_STpzFb9SHPmimvQiv/view?usp=share_link",
+    "published_bytes": 0,
+    "published_sha256": "",
+    "retrieved": false
+  },
+  "known_current_role_overlap": false,
+  "observed_utc": "2026-08-28T00:00:00Z",
+  "official_code_license_clear": true,
+  "official_repo": "https://github.com/SmartData-Polito/Debunk_Traffic_Representation",
+  "official_repo_commit": "1a48f44c0a09665865271e60614c1dd5ee9735b2",
+  "output": {
+    "deterministic_terminal_session_representation_upstream": false,
+    "dimension": 768,
+    "encoder": "T5-base",
+    "unit": "packet"
+  },
+  "pretraining_corpora": [
+    "MAWI",
+    "UNSW-NB15",
+    "anonymous university campus trace"
+  ],
+  "protocol_support": {
+    "missing_reasons": [
+      "NO_IPV4_OR_IPV6_LAYER",
+      "UNSUPPORTED_DECLARED_PROTOCOL",
+      "PACKET_SERIALIZATION_FAILURE",
+      "TOKENIZATION_FAILURE",
+      "MODEL_FORWARD_FAILURE",
+      "NONFINITE_OUTPUT"
+    ],
+    "outside_scope": [
+      "NON_IP",
+      "IP_OTHER_THAN_TCP_UDP_ICMP",
+      "IPV6_ICMP_UNCONFIRMED"
+    ],
+    "supported": [
+      "IPV4_TCP",
+      "IPV4_UDP",
+      "IPV4_ICMP",
+      "IPV6_TCP",
+      "IPV6_UDP"
+    ]
+  },
+  "python39_syntax_compatible": true,
+  "python39_syntax_files_checked": 22,
+  "resource_estimate": {
+    "derived_from": "T5-base parameter class and official pinned environment; not a benchmark",
+    "downstream_head_training": "separate later authorization; same frozen P2 contract",
+    "encoder_parameters_approx": 220000000,
+    "frozen_inference_cpu_possible": true,
+    "frozen_inference_disk_gib_estimate": [2, 4],
+    "frozen_inference_gpu_preferred": true,
+    "frozen_inference_ram_gib_estimate": [8, 16],
+    "runtime_measured": false
+  },
+  "source_evidence": {
+    "code_environment_sha256": "77c2e238ac1e3dbb4feefb38347ebf475c4aa38060d20c1dc0f1a31a1dd0aada",
+    "code_license_sha256": "375f4d26364e18cef7c9c43c883ab402f63575d8fc214ce86653699dafe7cf87",
+    "code_preprocess_sha256": "a309f536511cf738d9c9db1d470679c32292236768cfd8baad255b72a0365943",
+    "code_readme_sha256": "565935bf76a3608a736b7e42880ae882cb40218a6ecf0fa22a189650d9a9904a",
+    "code_repo_readme_sha256": "1815597bbae7016694b2e1d4e73c0ba633646081a49ea782c87b0c9ac677cbf6",
+    "code_retriever_sha256": "5aa86f9a9483961612b626ce653552dc170094bf1550a307dbd4cc8016dcef1a",
+    "paper_arxiv": "https://arxiv.org/abs/2507.16438",
+    "paper_institutional_pdf": "https://iris.polito.it/retrieve/21f8a7c5-c796-4cc1-ab4d-3c6cea41412e/3718958.3750498.pdf"
+  }
+}
