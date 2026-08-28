@@ -1,0 +1,111 @@
+{
+  "availability_arrays_opened": [
+    "uid",
+    "missing"
+  ],
+  "availability_npz_member_names": [
+    "candidate_id.npy",
+    "contract_sha256.npy",
+    "missing.npy",
+    "plan_sha256.npy",
+    "representation.npy",
+    "uid.npy"
+  ],
+  "contract_sha256": "f188afc0f9a0564a9f193b2e13637efdb660077f6ce74ba5c1d9cfc638fb1e8e",
+  "devices": 8,
+  "evidence_inventory": {
+    "all_primitive_predicates_target_identifiable": false,
+    "artifacts": [
+      {
+        "fields": [
+          "uid",
+          "role",
+          "phase",
+          "source_group",
+          "device_family",
+          "attack_family",
+          "recorded_index",
+          "global_pool",
+          "plan_scope",
+          "label_metric_only",
+          "cache_kind",
+          "target_index",
+          "raw_source_path",
+          "feature_available_time_epoch",
+          "target_event_position_within_capture",
+          "src_local_id",
+          "dst_local_id",
+          "dataset_kind",
+          "container_path",
+          "metadata_matched"
+        ],
+        "missing_uid_coverage": 11640,
+        "path": "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_fit_select_target_metadata.csv",
+        "sha256": "d6fbba24a1997db24597a800cf952f80f739284e5ca13db5ce04497f1540c36d"
+      },
+      {
+        "array_names_from_zip_directory_only": [
+          "contract_sha256",
+          "event_position",
+          "member_identity_sha256",
+          "missing",
+          "plan_sha256",
+          "representation",
+          "session_id",
+          "timestamp_epoch",
+          "uid"
+        ],
+        "array_values_opened": 0,
+        "npz_files": 30,
+        "path": "runs/issue27ckda_d1_checkpoint_v1_localwin_ecb429926507d2c4/e3_fit_select"
+      }
+    ],
+    "final_opened": 0,
+    "missing_target_count": 11640,
+    "model_weights_opened": 0,
+    "pcap_opened": 0,
+    "probe_state_opened": 0,
+    "reason_hash_is_noninvertible": true,
+    "report_opened": 0,
+    "representation_arrays_opened": 0,
+    "required_evidence_recoverable": {
+      "finite_target_timestamp": true,
+      "ip_protocol": false,
+      "ip_version_or_session_key": false,
+      "per_session_causal_monotonicity": false
+    },
+    "target_metadata_missing_uid_coverage": 11640
+  },
+  "finite_rows": 13827,
+  "input_sha256": {
+    "repo/ood/issue27ckda_d1_e3_embed_local_twopass_v1.py": "9f11d03b31e640de28f11fd7570b1495c7b9452b124b8b99b248689031b24ca2",
+    "repo/ood/issue27ckda_d1_e3_embed_v1.py": "360cbaa72f818e6fc423b16f3b4989333bfba002a1423085ff15b2cb1569de14",
+    "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_fit_select_embeddings.npz": "b1b4f2fde168a69e0cf7a53aaede2ddef9bd6d92b0ce58e56a9d6fcde37b6099",
+    "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_fit_select_embeddings.npz.metadata.csv.gz": "120ed5ccc752c1210a655dbcb972e08b6263bdeb1e08093d76b3e2f9c1b3d8dd",
+    "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_fit_select_plan.csv": "eed3d431ab8d71117db7a02b5ee0022eefe7932888001e7d9bcccfd54199aeac",
+    "runs/mainline_docs/ckde_s_d0_lane_g_r2_result_kimi_terminal_review_20260827.md": "fddd32a9758743b0627ca64e1265b984a24fec74b3c0cab860fe2ca20939b61f",
+    "runs/mainline_docs/frontend_f0_missingness_mechanism_audit_frozen_20260828.md": "f188afc0f9a0564a9f193b2e13637efdb660077f6ce74ba5c1d9cfc638fb1e8e"
+  },
+  "missing_rows": 11640,
+  "rows": 25467,
+  "sessions": 19380,
+  "static_branch_audit": {
+    "checks": {
+      "generic_reason": true,
+      "local_canonical_tcp_udp": true,
+      "no_ip_session_key": true,
+      "nonfinite_timestamp": true,
+      "reason_is_hashed": true,
+      "regression_reason": true,
+      "timestamp_regression": true,
+      "unsupported_protocol": true
+    },
+    "primitive_predicates": [
+      "NO_IP_SESSION_KEY",
+      "UNSUPPORTED_IP_PROTOCOL_NOT_TCP_UDP",
+      "NONFINITE_TARGET_TIMESTAMP",
+      "SESSION_TIMESTAMP_REGRESSION"
+    ]
+  },
+  "status": "NO_IDENTIFIABLE_MISSINGNESS_MECHANISM_WITHOUT_REDECODE"
+}
