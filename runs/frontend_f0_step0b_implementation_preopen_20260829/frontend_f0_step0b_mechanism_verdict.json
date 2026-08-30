@@ -1,0 +1,99 @@
+{
+  "all_targets": 25467,
+  "claim_boundary": "Pinned frozen-E3 fit/select terminal-target missingness-cause topology only; no performance or deployment claim.",
+  "contract_sha256": "ace6a37fa1ad84fb1660426d4e6c6876fdd3bc407577e3b0709908465b910794",
+  "devices": 8,
+  "equivalence_matches": 25467,
+  "excluded_attack_families_from_frontend_claim": [
+    {
+      "attack_family": "File Download",
+      "status": "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+    },
+    {
+      "attack_family": "Merlin C&C Communication",
+      "status": "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+    },
+    {
+      "attack_family": "Merlin ICMP Flooding",
+      "status": "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+    },
+    {
+      "attack_family": "Mirai GRE Flooding",
+      "status": "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+    },
+    {
+      "attack_family": "Mirai UDP Flooding",
+      "status": "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+    },
+    {
+      "attack_family": "benign",
+      "status": "UNPROTECTED_BY_REPRESENTATION_EVIDENCE"
+    }
+  ],
+  "excluded_devices_from_frontend_claim": [
+    "city-power",
+    "combined-cycle",
+    "iotsim-building-monitor",
+    "iotsim-combined-cycle",
+    "iotsim-combined-cycle-tls",
+    "iotsim-domotic-monitor",
+    "ip-camera-museum",
+    "ton-iot-external"
+  ],
+  "final_opened": 0,
+  "finite_targets": 13827,
+  "input_sha256": {
+    "availability": "b1b4f2fde168a69e0cf7a53aaede2ddef9bd6d92b0ce58e56a9d6fcde37b6099",
+    "ckbu": "127efd212932d9330af790f17a069a84b3ee48205d68bed7e2e9f00778bb2820",
+    "ckda_contract": "ecb429926507d2c4f8f666edc2d7e50f3e94fc2ec74bc1e26e78ca4813950aa9",
+    "formal_embedder": "360cbaa72f818e6fc423b16f3b4989333bfba002a1423085ff15b2cb1569de14",
+    "local_manifest": "afd8f700e64d799d15c2375c3a887b388423a982c7af72d1cb45b85de2ac8e01",
+    "local_twopass": "9f11d03b31e640de28f11fd7570b1495c7b9452b124b8b99b248689031b24ca2",
+    "metadata": "120ed5ccc752c1210a655dbcb972e08b6263bdeb1e08093d76b3e2f9c1b3d8dd",
+    "plan": "eed3d431ab8d71117db7a02b5ee0022eefe7932888001e7d9bcccfd54199aeac",
+    "protocol": "ace6a37fa1ad84fb1660426d4e6c6876fdd3bc407577e3b0709908465b910794",
+    "rebind_audit": "78bdbc0a5d3b38127ef1a06fb6bfd4af5a4be47735b9bc723ada1d2374afafe3",
+    "step0_contract": "f188afc0f9a0564a9f193b2e13637efdb660077f6ce74ba5c1d9cfc638fb1e8e",
+    "step0_verdict": "a4611c854a139bb663ea64e1599beffa10d4bfbf9f82f86f433408153feee9dc",
+    "target_audit": "fec780565a8c2f706316c90d76ee5af83136522c20e688b1b6d94f439f7fc906",
+    "target_metadata": "d6fbba24a1997db24597a800cf952f80f739284e5ca13db5ce04497f1540c36d"
+  },
+  "mechanism_any_true_missing_target_counts": {
+    "CAUSAL_TIMESTAMP_ORDER": 47,
+    "INPUT_SESSION_KEY": 9605,
+    "PROTOCOL_COVERAGE": 11605,
+    "TIMESTAMP_VALIDITY": 0
+  },
+  "missing_targets": 11640,
+  "model_opened": 0,
+  "new_frontend_mechanism_classes": [
+    "CAUSAL_TIMESTAMP_ORDER",
+    "INPUT_SESSION_KEY",
+    "PROTOCOL_COVERAGE"
+  ],
+  "packet_members_opened": 30,
+  "primary_reason_distribution": {
+    "NO_IP_SESSION_KEY": 9605,
+    "SESSION_TIMESTAMP_REGRESSION": 47,
+    "UNSUPPORTED_IP_PROTOCOL_NOT_TCP_UDP": 1988
+  },
+  "primitive_any_true_missing_target_counts": {
+    "NONFINITE_TARGET_TIMESTAMP": 0,
+    "NO_IP_SESSION_KEY": 9605,
+    "SESSION_TIMESTAMP_REGRESSION": 47,
+    "UNSUPPORTED_IP_PROTOCOL_NOT_TCP_UDP": 11605
+  },
+  "records": 25467,
+  "report_opened": 0,
+  "score_opened": 0,
+  "sessions": 8464,
+  "status": "MIXED_MISSINGNESS_MECHANISMS",
+  "training_started": 0,
+  "tshark_identity": {
+    "executable_bytes": 623784,
+    "executable_path": "C:\\Program Files\\Wireshark\\tshark.exe",
+    "executable_sha256": "908a3b04da69ee45be9bd54627a722741d895262b4ce0b39f6d79a03daa24087",
+    "version_output": "TShark (Wireshark) 4.6.6 (v4.6.6-0-g3a22c3ef473d).\n\nCopyright 1998-2026 Gerald Combs <gerald@wireshark.org> and contributors.\nLicensed under the terms of the GNU General Public License (version 2 or later).\nThis is free software; see the file named COPYING in the distribution. There is\nNO WARRANTY; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nCompile-time info:\n Bit width: 64-bit\n  Compiler: Microsoft Visual Studio 2022 (VC++ 14.44, build 35223)\n      GLib: 2.86.3\n With:\n  +brotli                     +MaxMind\n  +Gcrypt 1.12.2              +nghttp2 1.65.0\n  +GnuTLS 3.8.13 and PKCS#11  +nghttp3 1.8.0\n  +Kerberos (MIT)             +PCRE2 10.47 2025-10-21\n  +libpcap                    +Snappy 1.1.9\n  +libsmi 0.5.0               +xxhash 0.8.3\n  +libxml2 2.15.1             +zlib 1.3.1\n  +Lua 5.4.6 (UfW patched)    +zlib-ng 2.2.3\n  +LZ4 1.10.0                 +Zstandard 1.5.7\n\nRuntime info:\n      OS: 64-bit Windows 11 (25H2), build 26200\n     CPU: 12th Gen Intel(R) Core(TM) i7-12700H (with SSE4.2)\n  Memory: 16176 MB of physical memory\n    GLib: 2.86.3\n  Locale: LC_TYPE=Chinese (Simplified)_China.utf8\n Plugins: supported, 0 loaded\n With:\n  +brotli 1.2.0            +LZ4 1.10.0              +xxhash 803\n  +c-ares 1.34.6           +nghttp2 1.65.0          +Zstandard 1.5.7\n  +Gcrypt 1.12.2           +nghttp3 1.8.0\n  +GnuTLS 3.8.13           +PCRE2 10.47 2025-10-21\n Without:\n  -Npcap",
+    "version_output_sha256": "dcee62e0a11d238d29968462a48ee58de34be848c7c1afb728eb223e8c5964cc"
+  }
+}
