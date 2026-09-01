@@ -676,4 +676,3 @@ training, and any D1 action each require later explicit authorization.  Given
 the frozen 29 < 30 attack-context result, no implementation may silently
 reinterpret the expected `CEL_D1_INSUFFICIENT_INDEPENDENT_ATTACK_CONTEXTS`
 terminal state as an engineering failure or lower the bound.
-
