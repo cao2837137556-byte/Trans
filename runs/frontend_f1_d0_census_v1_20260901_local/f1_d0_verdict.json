@@ -1,0 +1,51 @@
+{
+  "all_contexts": 18187,
+  "checkpoint_opened": 0,
+  "claim_boundary": "Count-only D0 census and synthetic resource evidence only. No training or performance claim.",
+  "contract_sha256": "98f2b73a051ee9c392631e85f4cc84d787306ed8333bfe2125f77870790c41b4",
+  "cross_fit_rows": 132,
+  "cross_phase_contexts": 19,
+  "cross_select_rows": 32,
+  "equations": {
+    "b_attack_contexts_before_minus_cross_equals_after": [
+      40,
+      11,
+      29
+    ],
+    "fit_plus_select_equals_all": [
+      18398,
+      7069,
+      25467
+    ],
+    "legal_fit_contexts_plus_select_contexts_equals_all_contexts": [
+      12889,
+      5298,
+      18187
+    ],
+    "legal_fit_plus_cross_fit_equals_fit": [
+      18266,
+      132,
+      18398
+    ]
+  },
+  "final_opened": 0,
+  "fit_rows": 18398,
+  "legal_fit_contexts": 12889,
+  "legal_fit_rows": 18266,
+  "owner_a": 13827,
+  "owner_b": 11640,
+  "pcap_opened": 0,
+  "probe_state_opened": 0,
+  "real_representation_opened": 0,
+  "reason": "AUTHORIZED_COUNT_ONLY_TEACHER_BENIGN_VERDICT_NOT_MATERIALIZED",
+  "report_opened": 0,
+  "resource_gate_pass": true,
+  "score_opened": 0,
+  "select_rows": 7069,
+  "selected_candidate": "torch.nn.GRU",
+  "status": "F1_D0_IDENTITY_OR_SCOPE_FAILURE",
+  "targets": 25467,
+  "teacher_coverage_complete": false,
+  "training_started": 0,
+  "viewed_opened": 0
+}

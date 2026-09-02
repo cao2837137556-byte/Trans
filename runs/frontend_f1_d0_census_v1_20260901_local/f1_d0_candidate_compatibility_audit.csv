@@ -1,0 +1,4 @@
+candidate_id,kind,maintained_upstream,python39_compatible,consumes_h1_h4,causal_max_context_256,isolated_context_state,output_768d,endpoint_mask_arm,checkpoint_resume_supported,network_required,parameter_count,eligible,rejection_reason,selected,selection_order
+torch.nn.GRU,gru,True,True,True,True,True,True,True,True,False,292352,True,,True,maintained_upstream_then_parameter_count_then_lexicographic
+torch.nn.LSTM,lstm,True,True,True,True,True,True,True,True,False,313088,True,,False,maintained_upstream_then_parameter_count_then_lexicographic
+torch.nn.TransformerEncoder,transformer,True,True,True,True,True,True,True,True,False,499328,True,,False,maintained_upstream_then_parameter_count_then_lexicographic
