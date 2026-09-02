@@ -1,11 +1,11 @@
-# Frontend-F1 D1 numerical/training addendum (DRAFT)
+# Frontend-F1 D1 numerical/training addendum (FROZEN)
 
 - Date: 2026-09-02
 - Parent FROZEN protocol SHA-256: `98f2b73a051ee9c392631e85f4cc84d787306ed8333bfe2125f77870790c41b4`
 - D0 r2 state: `F1_D0_CENSUS_PASS`
 - Execution target: local Windows CPU only
 - HPC state: unavailable until approximately 2026-09-08; not a dependency of this run
-- Authorization state: drafting only; this document does **not** authorize implementation or training
+- Authorization state: scientific and numerical rules frozen; implementation and training remain unauthorized
 
 ## 0. Decision summary
 
@@ -115,8 +115,11 @@ Owner/label detail:
 | internal-val | B | attack | 0 | 0 |
 
 The absence of B attack contexts in internal validation is disclosed and may
-not be repaired by moving sources. B attack safety remains a fit diagnostic
-plus the frozen 23-row select kill-only sentinel.
+not be repaired by moving sources. The internal-validation attack AUROC is a
+unified-encoder diagnostic dominated entirely by A; it is **not** independent
+B-side attack evidence. B attack safety remains limited to the `29` legal-fit
+contexts plus the frozen `23`-row select kill-only sentinel, with the inherited
+small-sample claim boundary.
 
 ## 3. Frozen semantic tensor
 
@@ -267,15 +270,18 @@ Only teacher-correct A targets are eligible:
 
 ```text
 A true attack, old hard:
-    ReLU((z_old - 0.25) - z_new) / 0.25
+    ReLU((z_0 + tau_teacher) - z_new) / tau_teacher
 
 A true benign, old normal:
-    ReLU(z_new - (z_old + 0.25)) / 0.25
+    ReLU(z_new - (z_0 - tau_teacher)) / tau_teacher
 ```
 
 A true-benign old-hard rows (`28/7,347` globally) are excluded from this term
 and remain in `L_label_fit`, allowing them to soften. B never receives a
-teacher score or teacher embedding.
+teacher score or teacher embedding. The attack-side teacher term is
+intentionally a functional A-inheritance sentinel and is mathematically
+weaker than the universal true-attack margin at `z_0 + 0.5`; it is retained as
+an explicit contract check, not presented as an independent source of gain.
 
 ### 5.5 Total loss and weights
 
@@ -308,6 +314,38 @@ learning_rate_scheduler = none
 maximum_epochs = 100
 minimum_epochs_before_patience_stop = 20
 ```
+
+The launch runtime is frozen literally:
+
+```text
+python_executable = C:\Users\28371\AppData\Local\Programs\Python\Python39\python.exe
+Python = 3.9.13, MSC v.1929, 64 bit AMD64
+NumPy = 2.0.2
+PyTorch = 2.8.0+cpu
+scikit-learn = 1.6.1
+Windows = 10.0.26200.9168
+CPU = 12th Gen Intel(R) Core(TM) i7-12700H, 14 cores / 20 logical processors
+PYTHONHASHSEED = 2701  # set before interpreter start
+OMP_NUM_THREADS = 4    # set before interpreter start
+MKL_NUM_THREADS = 4    # set before interpreter start
+```
+
+Before model or optimizer construction, the runner executes exactly:
+
+```text
+random.seed(2701)
+numpy.random.seed(2701)
+torch.manual_seed(2701)
+torch.set_num_threads(4)
+torch.set_num_interop_threads(1)
+torch.use_deterministic_algorithms(True)
+```
+
+The exact runtime manifest is hashed into the run identity. Initial execution
+and every resume must match it byte-for-byte; mismatch is
+`F1_ENGINEERING_OR_PROTOCOL_FAILURE`, not a scientific result. A resume may
+not change interpreter, package build, OS build, CPU identity, environment
+thread variables, or deterministic settings.
 
 Training-context order at epoch `e` is the deterministic permutation generated
 by a fresh CPU `torch.Generator` seeded with `2701 + e`. Events and targets
@@ -401,24 +439,21 @@ On centered legal-fit context-terminal representations, all must hold:
 
 Failure is `F1_REPRESENTATION_NO_GO` and cannot activate another encoder.
 
-### 9.3 Fixed deterministic 35D semantic control
+### 9.3 Fixed deterministic 4097D order-free control
 
-For every target prefix, the non-learned control is the concatenation of:
+For every target prefix, the non-learned control consumes the **same frozen
+token sequence** as the GRU and removes only event order:
 
-- tier one-hot: 4;
-- direction fractions: 3;
-- IP-version fractions `{4,6,NONE}`: 3;
-- protocol-group fractions: 7;
-- frame-length histogram: 8 bins from §3.2;
-- delta histogram: 6 bins `0`, `(0,1e-3]`, `(1e-3,1e-1]`, `(1e-1,1]`,
-  `(1,60]`, and `>60` seconds;
-- `log1p(event_count)/log(257)`: 1;
-- `log1p(span_seconds)/log(301)`: 1;
-- timestamp-regression fraction: 1;
-- transport-port-present fraction: 1.
+1. coordinates `0..4095`: normalized histogram of frozen vocabulary token IDs
+   over actual prefix events (`PAD=0` is therefore always zero; `UNK=1` is
+   counted normally);
+2. coordinate `4096`: `log1p(event_count) / log(257)`.
 
-Total dimension is `35`. All fractions divide by the current causal prefix
-event count. No learned parameter or endpoint identifier enters this control.
+Total dimension is `4,097`. The histogram divides by current causal-prefix
+event count. Exact span or any other field unavailable to the GRU token tensor
+is forbidden. The representation has no learned parameter and no endpoint
+identifier. Its only deliberate difference from the learned arm is the loss
+of order; downstream diagnostic probes retain the same frozen fitting rules.
 
 ### 9.4 Device leakage
 
@@ -475,8 +510,10 @@ device.
 Fit one binary L2 logistic probe (`C=1.0`, `liblinear`, maximum 2,000
 iterations, seed 2701) on frozen train representations after train-only
 z-score normalization. Evaluate on the source-held-out internal-val split from
-§2 with context-equal weights. The deterministic 35D control uses the identical
-split and probe capacity.
+§2 with context-equal weights. The deterministic 4097D order-free control uses
+the identical token inputs, split, normalization procedure, and probe fitting
+rules. Its higher raw dimension cannot disadvantage it in favor of the GRU;
+the learned arm must win through sequence information rather than extra fields.
 
 The primary metric is target-level AUROC after equal context weighting. The
 nonparametric nearest-centroid cosine AUROC is reported but is not a separate
@@ -496,6 +533,12 @@ endpoint-masked arm independently satisfies the same three inequalities
 Every exact family/source/context denominator is reported. Fewer than three
 contexts for a family remains `INSUFFICIENT_INDEPENDENT_ATTACK_CONTEXTS` and
 cannot become a per-family positive claim.
+
+Because internal-val contains zero B attack contexts, these AUROCs measure
+unified representation quality on the frozen source-held-out split and are
+dominated by A-side attack evidence. They cannot be cited as a positive B-side
+attack result. The only B-specific attack evidence remains the `29` legal-fit
+contexts and the `23` select rows used as a kill-only sentinel.
 
 ## 10. One-shot select shadow gates
 
@@ -564,10 +607,12 @@ At least the parent 25 tests plus the following numerical tests must pass:
 12. no class/source/device/family weighting path exists;
 13. checkpoint eligibility rejects one attack flip and one new benign hard;
 14. earliest-epoch tie behavior and patience are exact;
-15. interrupted/resumed synthetic run is byte-identical to uninterrupted run;
+15. interrupted/resumed synthetic run is byte-identical to uninterrupted run,
+    and runtime-manifest drift blocks both initial execution and resume;
 16. cumulative wall time survives resume and cannot reset;
 17. endpoint-masked arm is input/representation-identical;
-18. 35D deterministic control has exact dimension and no learned state;
+18. 4097D order-free control has exact dimension, consumes the same token
+    sequence, excludes exact span/extra fields, and has no learned state;
 19. collapse gates fail on constant, low-rank, duplicate, nonfinite fixtures;
 20. device and attack permutations operate at context level;
 21. select cannot be opened before checkpoint and fit-artifact hashes freeze;
@@ -576,30 +621,36 @@ At least the parent 25 tests plus the following numerical tests must pass:
 24. frozen P2/normalizer/threshold hashes are unchanged before and after;
 25. engineering failure removes scientific verdict and preserves diagnostics.
 
-## 13. Requested independent review
+## 13. Independent-review rulings incorporated before freeze
 
-The reviewer should give `ACCEPT`, `MODIFY`, or `REJECT` for each:
-
-1. Is the source-stratified, source-held-out split identifiable and free of
-   target/context leakage despite the disclosed absence of B attack val?
-2. Is the fixed signature/vocabulary sufficiently expressive without raw
-   endpoint or port values, and is the 4,094-token no-go preferable to hashing?
-3. Are the four normalized loss definitions, `0.5` attack margin,
-   `0.25` teacher tolerance, and all-one lambdas a defensible one-shot choice?
-4. Are checkpoint eligibility, `1e-4` improvement, epoch 20, patience 12, and
-   maximum epoch 100 strict enough without creating a hidden search surface?
-5. Are the collapse gates and the 35D deterministic control mechanically
-   complete and dimensionally correct?
-6. Are `0.05` device-leakage excess, `0.80` attack AUROC, and `0.02` learned
-   improvement margins defensible before any learned representation exists?
-7. Is the local resource contract consistent with the D0 synthetic pilot and
-   the user's decision to wait until about 2026-09-08 for HPC?
-8. Do the one-shot 69-row attack and 4,812/482 B-benign gates preserve the
-   parent protocol without silently upgrading the small-sample claim?
+1. **ACCEPT:** the source-stratified, source-held-out split is identifiable and
+   target/context safe. Zero B attack contexts in internal validation is a
+   mandatory claim limitation, not a split defect to repair after inspection.
+2. **ACCEPT:** the fixed signature/vocabulary is sufficiently expressive for
+   this one attempt; the literal 4,094-observed-signature no-go is preferable
+   to a collision-bearing hashing fallback.
+3. **MODIFY, incorporated:** all-one normalized losses, `0.5` universal attack
+   margin, and `0.25` teacher tolerance remain frozen, but teacher preservation
+   is threshold-relative and label-aware. It protects correct functions rather
+   than cloning incumbent logit distances.
+4. **ACCEPT:** checkpoint eligibility, `1e-4` improvement, epoch 20, patience
+   12, and epoch 100 expose no additional tuning route.
+5. **MODIFY, incorporated:** the hand-designed 35D control is replaced by the
+   4097D same-token order-free control so the comparison isolates sequence
+   value rather than unequal input semantics.
+6. **ACCEPT:** `0.05` device-leakage excess, `0.80` attack AUROC, and `0.02`
+   learned-over-control margins remain literal pre-result gates.
+7. **MODIFY, incorporated:** the local resource contract remains consistent
+   with D0, and the full local runtime/RNG identity is now frozen. HPC remains
+   unavailable until approximately 2026-09-08 and is not a dependency.
+8. **ACCEPT with claim boundary:** the 69-row inheritance and 4,812/482 utility
+   gates preserve the parent protocol. The 23 B attack rows remain kill-only
+   small-sample evidence and do not support a per-family claim.
 
 ## 14. Authorization boundary
 
-The present user authorization covers this DRAFT only. It does not authorize:
+This FROZEN addendum fixes the scientific and numerical design. The present
+user authorization does not authorize:
 
 - implementation;
 - real semantic-corpus materialization for training;
@@ -608,5 +659,6 @@ The present user authorization covers this DRAFT only. It does not authorize:
 - HPC submission;
 - a performance or paper claim.
 
-After independent review, only mechanical corrections may enter FROZEN. Real
-implementation and real training each require explicit user authorization.
+Only implementation mechanics that preserve this document may now be added.
+Implementation and real training each require separate explicit user
+authorization.
