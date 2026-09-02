@@ -9,6 +9,7 @@ import importlib.util
 import json
 import math
 import os
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -414,6 +415,7 @@ class Contracts(unittest.TestCase):
         self.assertEqual(M.sha256_file(ROOT / M.D0_REL / "f1_d0_uid_context_phase_owner_conservation.csv.gz"), M.D0_TABLE_SHA256)
         self.assertEqual(M.sha256_file(ROOT / M.TEACHER_REL / "f1_teacher_benign_counts.json"), M.TEACHER_COUNTS_SHA256)
         self.assertEqual(M.sha256_file(ROOT / M.TEACHER_REL / "f1_teacher_benign_uid_verdicts.csv.gz"), M.TEACHER_UID_SHA256)
+        self.assertEqual(M.sha256_file(ROOT / M.EMBEDDING_METADATA_REL), M.EMBEDDING_METADATA_SHA256)
 
     def test_58_loss_reports_exact_context_denominators(self):
         contexts = [example("a", "train", label=0), example("b", "train", label=1)]
@@ -550,6 +552,26 @@ class Contracts(unittest.TestCase):
             value = json.loads((output / "f1_d1_scientific_stop.json").read_text(encoding="utf-8"))
             self.assertEqual(value["status"], "F1_TEST_NO_GO")
             self.assertFalse((output / "engineering_failure.json").exists())
+
+    def test_71_replay_checkpoint_identity_matches_first_authorized_implementation(self):
+        payload = subprocess.check_output([
+            "git", "cat-file", "blob", "d074cea:repo/ood/issue27frontend_f1_d1_train_v1.py"
+        ], cwd=str(ROOT))
+        self.assertEqual(M.sha256_bytes(payload), M.REPLAY_IMPLEMENTATION_SHA256)
+
+    def test_72_inherited_timestamp_metadata_closes_target_plan_nan(self):
+        target = pd.read_csv(
+            ROOT / M.STAGE_REL / "ckda_d1_fit_select_target_metadata.csv",
+            usecols=["uid", "feature_available_time_epoch"], keep_default_na=False,
+        )
+        inherited = pd.read_csv(
+            ROOT / M.EMBEDDING_METADATA_REL, usecols=["uid", "timestamp_epoch"], keep_default_na=False,
+        )
+        self.assertEqual(int(target["feature_available_time_epoch"].astype(str).str.lower().eq("nan").sum()), 12000)
+        self.assertEqual(len(inherited), M.EXPECTED_ALL)
+        self.assertTrue(inherited["uid"].is_unique)
+        self.assertTrue(np.isfinite(pd.to_numeric(inherited["timestamp_epoch"], errors="raise")).all())
+        self.assertEqual(len(target.merge(inherited, on="uid", how="inner", validate="one_to_one")), M.EXPECTED_ALL)
 
 
 if __name__ == "__main__":

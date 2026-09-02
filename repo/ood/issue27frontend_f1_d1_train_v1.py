@@ -66,6 +66,12 @@ TEACHER_UID_SHA256 = "f7deceac0ac76fb25e577714f7a94da047e15ed77cb9bee19a9ea9c295
 STAGE_REL = Path("runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage")
 PROBE_STATE_SHA256 = "50a9bcfc18287d51bf8afda7367b57decdf3179dd41fc3aa61399d4098360c38"
 THRESHOLD_SHA256 = "84576a5008259f4381c46eecbc3ee3bda9d06b9dc7068cd52d7c2232e884dd5b"
+EMBEDDING_METADATA_REL = STAGE_REL / "ckda_d1_fit_select_embeddings.npz.metadata.csv.gz"
+EMBEDDING_METADATA_SHA256 = "120ed5ccc752c1210a655dbcb972e08b6263bdeb1e08093d76b3e2f9c1b3d8dd"
+# The first authorized materialization decoded every member with this exact
+# semantic-replay implementation. Post-replay metadata repair must not force a
+# scientifically identical 24-member re-decode.
+REPLAY_IMPLEMENTATION_SHA256 = "f5b38023244485415570a6235be8160706b8ace0aad449d30481e7a9b3efc7e9"
 
 MATERIALIZE_TOKEN = "I_AUTHORIZE_F1_D1_FIT_CORPUS_MATERIALIZATION"
 TRAIN_TOKEN = "I_AUTHORIZE_F1_D1_ONE_SHOT_LOCAL_TRAINING"
@@ -1497,6 +1503,7 @@ def materialize_fit(args: argparse.Namespace) -> None:
         "d0_table": require_sha(ROOT, D0_REL / "f1_d0_uid_context_phase_owner_conservation.csv.gz", D0_TABLE_SHA256),
         "teacher_benign_counts": require_sha(ROOT, TEACHER_REL / "f1_teacher_benign_counts.json", TEACHER_COUNTS_SHA256),
         "teacher_benign_uids": require_sha(ROOT, TEACHER_REL / "f1_teacher_benign_uid_verdicts.csv.gz", TEACHER_UID_SHA256),
+        "embedding_metadata": require_sha(ROOT, EMBEDDING_METADATA_REL, EMBEDDING_METADATA_SHA256),
     }
     if shutil.disk_usage(str(out.anchor)).free < 12 * 1024 ** 3:
         raise ScientificStop("F1_D0_RESOURCE_OR_CANDIDATE_NO_GO", "free space below 12 GiB")
@@ -1528,7 +1535,8 @@ def materialize_fit(args: argparse.Namespace) -> None:
     session_started = time.perf_counter()
     all_buckets: List[ReplayBucket] = []
     member_rows: List[Dict[str, object]] = []
-    runner_sha = sha256_file(Path(__file__))
+    implementation_sha = sha256_file(Path(__file__))
+    runner_sha = REPLAY_IMPLEMENTATION_SHA256
     groups = list(construction_targets.groupby(identity_keys, sort=True))
     for member_index, (raw_key, part) in enumerate(groups, start=1):
         key = tuple(str(item) for item in raw_key)
@@ -1599,10 +1607,15 @@ def materialize_fit(args: argparse.Namespace) -> None:
         ROOT / D0_REL / "f1_d0_uid_context_phase_owner_conservation.csv.gz", keep_default_na=False
     )
     descriptors["legal_fit"] = descriptors["legal_fit"].astype(str).str.lower().eq("true")
+    # The target plan legitimately stores `nan` for 12,000 ToN rows. The
+    # inherited Lane-G timestamp ordering is defined by the already-pinned
+    # embedding metadata, which has one finite causal timestamp per frozen UID.
     timestamp_frame = pd.read_csv(
-        zt_runner.TARGET_PATH, usecols=["uid", "feature_available_time_epoch"], keep_default_na=False
-    ).rename(columns={"feature_available_time_epoch": "timestamp_epoch"})
+        ROOT / EMBEDDING_METADATA_REL, usecols=["uid", "timestamp_epoch"], keep_default_na=False
+    )
     timestamp_frame["timestamp_epoch"] = pd.to_numeric(timestamp_frame["timestamp_epoch"], errors="raise")
+    if timestamp_frame["uid"].duplicated().any() or not np.isfinite(timestamp_frame["timestamp_epoch"]).all():
+        raise F1Failure("inherited timestamp metadata identity/conservation drift")
     descriptors = descriptors.merge(timestamp_frame, on="uid", how="left", validate="one_to_one")
     if descriptors["timestamp_epoch"].isna().any():
         raise F1Failure("target timestamp join drift")
@@ -1627,6 +1640,8 @@ def materialize_fit(args: argparse.Namespace) -> None:
         "internal_val_rows": EXPECTED_VAL_ROWS, "internal_val_contexts": EXPECTED_VAL_CONTEXTS,
         "corpus_sha256": sha256_file(corpus_path), "input_identities": identities,
         "zt_pins": zt_pins, "tshark_identity": tshark_identity,
+        "implementation_sha256": implementation_sha,
+        "replay_implementation_sha256": REPLAY_IMPLEMENTATION_SHA256,
         "materialization_cumulative_seconds": previous_seconds + (time.perf_counter() - session_started),
         "resource_usage": enforce_resource_caps(stage),
         "labels_read_during_semantic_construction": 0, "select_targets_materialized": 0,
