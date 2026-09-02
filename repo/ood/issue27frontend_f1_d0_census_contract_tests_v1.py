@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import ast
+import gzip
 import importlib.util
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -106,6 +108,39 @@ class F1D0Tests(unittest.TestCase):
     def test_20_no_hyperparameter_sweep(self):
         source = TARGET.read_text(encoding="utf-8")
         self.assertIn('"hyperparameter_sweeps_authorized": 0', source)
+
+    def test_21_teacher_artifact_exact_uid_gate(self):
+        old_expected = MOD.EXPECTED_A_LEGAL_FIT_BENIGN_ROWS
+        try:
+            MOD.EXPECTED_A_LEGAL_FIT_BENIGN_ROWS = 2
+            with tempfile.TemporaryDirectory() as td:
+                root = Path(td)
+                counts = {
+                    "status": "F1_TEACHER_BENIGN_COUNTS_MATERIALIZED",
+                    "authorized_rows": 2,
+                    "hard_rows": 1,
+                    "normal_rows": 1,
+                    "threshold": 0.065159872174263,
+                    "score_values_persisted": 0,
+                }
+                (root / "f1_teacher_benign_counts.json").write_text(json.dumps(counts), encoding="utf-8")
+                with gzip.open(str(root / "f1_teacher_benign_uid_verdicts.csv.gz"), "wt", encoding="utf-8", newline="") as handle:
+                    handle.write("uid,hard\nu1,true\nu2,false\n")
+                for name in ["f1_teacher_benign_input_audit.json", "f1_teacher_benign_boundary_audit.json", "f1_teacher_benign_validation_report.json"]:
+                    (root / name).write_text("{}\n", encoding="utf-8")
+                members = sorted(path for path in root.iterdir() if path.name != "SHA256SUMS")
+                sidecar = "".join(f"{MOD.sha256(path)}  {path.name}\n" for path in members)
+                (root / "SHA256SUMS").write_text(sidecar, encoding="utf-8")
+                loaded = MOD.load_teacher_benign_artifact(root, {"u1", "u2"})
+                self.assertEqual((loaded["hard_rows"], loaded["normal_rows"]), (1, 1))
+                with self.assertRaises(RuntimeError):
+                    MOD.load_teacher_benign_artifact(root, {"u1", "wrong"})
+        finally:
+            MOD.EXPECTED_A_LEGAL_FIT_BENIGN_ROWS = old_expected
+
+    def test_22_teacher_artifact_has_no_score_column(self):
+        source = TARGET.read_text(encoding="utf-8")
+        self.assertIn('verdicts.columns.tolist() != ["uid", "hard"]', source)
 
 
 if __name__ == "__main__":

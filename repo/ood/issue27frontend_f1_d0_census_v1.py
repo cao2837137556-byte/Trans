@@ -21,7 +21,7 @@ import statistics
 import tempfile
 import time
 from pathlib import Path
-from typing import Dict, Iterable, List, Sequence, Tuple
+from typing import Dict, Iterable, List, Optional, Sequence, Set, Tuple
 
 import numpy as np
 import pandas as pd
@@ -44,6 +44,7 @@ EXPECTED_FIT_ATTACKS_BEFORE = 4_385
 EXPECTED_B_ATTACK_CONTEXTS_BEFORE = 40
 EXPECTED_B_ATTACK_CROSS_CONTEXTS = 11
 EXPECTED_B_ATTACK_CONTEXTS_AFTER = 29
+EXPECTED_A_LEGAL_FIT_BENIGN_ROWS = 7_347
 
 FORBIDDEN_BASENAMES = {
     "ckda_d1_probe_state.npz",
@@ -110,6 +111,71 @@ def load_old_availability(path: Path) -> pd.DataFrame:
         uid = data["uid"].astype(str)
         missing = data["missing"].astype(bool)
     return pd.DataFrame({"uid": uid, "old_missing": missing})
+
+
+def verify_result_sha256s(directory: Path) -> Dict[str, str]:
+    sidecar = directory / "SHA256SUMS"
+    if not sidecar.is_file():
+        raise RuntimeError("teacher-benign SHA256SUMS missing")
+    expected: Dict[str, str] = {}
+    for line in sidecar.read_text(encoding="utf-8").splitlines():
+        digest, name = line.split("  ", 1)
+        if name in expected or len(digest) != 64:
+            raise RuntimeError("teacher-benign SHA256SUMS malformed")
+        expected[name] = digest
+    required = {
+        "f1_teacher_benign_counts.json",
+        "f1_teacher_benign_uid_verdicts.csv.gz",
+        "f1_teacher_benign_input_audit.json",
+        "f1_teacher_benign_boundary_audit.json",
+        "f1_teacher_benign_validation_report.json",
+    }
+    if set(expected) != required:
+        raise RuntimeError("teacher-benign result member set drift")
+    for name, digest in expected.items():
+        path = directory / name
+        if not path.is_file() or sha256(path) != digest:
+            raise RuntimeError("teacher-benign result hash mismatch: " + name)
+    return expected
+
+
+def load_teacher_benign_artifact(directory: Path, expected_uids: Set[str]) -> Dict[str, object]:
+    hashes = verify_result_sha256s(directory)
+    counts_path = directory / "f1_teacher_benign_counts.json"
+    uid_path = directory / "f1_teacher_benign_uid_verdicts.csv.gz"
+    counts = json.loads(counts_path.read_text(encoding="utf-8"))
+    if counts.get("status") != "F1_TEACHER_BENIGN_COUNTS_MATERIALIZED":
+        raise RuntimeError("teacher-benign scientific status drift")
+    if int(counts.get("authorized_rows", -1)) != EXPECTED_A_LEGAL_FIT_BENIGN_ROWS:
+        raise RuntimeError("teacher-benign denominator drift")
+    if int(counts.get("score_values_persisted", -1)) != 0:
+        raise RuntimeError("teacher-benign artifact persisted forbidden scores")
+    if float(counts.get("threshold", math.nan)) != 0.065159872174263:
+        raise RuntimeError("teacher-benign threshold drift")
+
+    verdicts = pd.read_csv(uid_path, dtype={"uid": str, "hard": str})
+    if verdicts.columns.tolist() != ["uid", "hard"]:
+        raise RuntimeError("teacher-benign UID verdict schema drift")
+    if len(verdicts) != EXPECTED_A_LEGAL_FIT_BENIGN_ROWS or verdicts["uid"].duplicated().any():
+        raise RuntimeError("teacher-benign UID verdict denominator drift")
+    if set(verdicts["uid"].astype(str)) != expected_uids:
+        raise RuntimeError("teacher-benign UID allowlist mismatch")
+    hard_values = verdicts["hard"].astype(str).str.lower()
+    if not hard_values.isin(["true", "false"]).all():
+        raise RuntimeError("teacher-benign hard value drift")
+    hard_rows = int(hard_values.eq("true").sum())
+    normal_rows = int(hard_values.eq("false").sum())
+    if hard_rows != int(counts.get("hard_rows", -1)) or normal_rows != int(counts.get("normal_rows", -1)):
+        raise RuntimeError("teacher-benign aggregate/UID mismatch")
+    if hard_rows + normal_rows != EXPECTED_A_LEGAL_FIT_BENIGN_ROWS:
+        raise RuntimeError("teacher-benign verdict conservation failure")
+    return {
+        "hard_rows": hard_rows,
+        "normal_rows": normal_rows,
+        "authorized_rows": len(verdicts),
+        "counts_sha256": hashes["f1_teacher_benign_counts.json"],
+        "uid_verdicts_sha256": hashes["f1_teacher_benign_uid_verdicts.csv.gz"],
+    }
 
 
 def quantile_rows(values: pd.Series, prefix: Dict[str, object]) -> List[Dict[str, object]]:
@@ -265,7 +331,9 @@ def synthetic_pilot(output_dir: Path, total_contexts: int) -> Tuple[pd.DataFrame
     return pd.DataFrame(rows), resource
 
 
-def build_census(repo_root: Path, output_dir: Path) -> Dict[str, object]:
+def build_census(
+    repo_root: Path, output_dir: Path, teacher_benign_dir: Optional[Path] = None
+) -> Dict[str, object]:
     contract = repo_root / "runs/mainline_docs/frontend_f1_teacher_constrained_unified_encoder_d0_d1_frozen_20260901.md"
     challenge = repo_root / "runs/mainline_docs/frontend_f0_challenger_requirements_frozen_20260830.md"
     ce = repo_root / "runs/mainline_docs/frontend_f0_coverage_extension_protocol_frozen_20260831.md"
@@ -286,6 +354,11 @@ def build_census(repo_root: Path, output_dir: Path) -> Dict[str, object]:
         contract, challenge, ce, zt_contract, blindspot, zt_verdict, zt_status,
         target_meta, old_availability, threshold_marker, incumbent_verdict, cap_audit, cap_json,
     ]
+    if teacher_benign_dir is not None:
+        inputs += [
+            teacher_benign_dir / "f1_teacher_benign_counts.json",
+            teacher_benign_dir / "f1_teacher_benign_uid_verdicts.csv.gz",
+        ]
     assert_no_forbidden_open(inputs)
     missing_inputs = [str(path) for path in inputs if not path.is_file()]
     if missing_inputs:
@@ -405,6 +478,13 @@ def build_census(repo_root: Path, output_dir: Path) -> Dict[str, object]:
     a_legal = legal.loc[legal["owner"].eq("A")]
     a_attack = a_legal.loc[a_legal["label_kind"].eq("attack")]
     a_benign = a_legal.loc[a_legal["label_kind"].eq("benign")]
+    if len(a_benign) != EXPECTED_A_LEGAL_FIT_BENIGN_ROWS:
+        raise RuntimeError("A legal-fit benign denominator drift")
+    teacher_benign = None
+    if teacher_benign_dir is not None:
+        teacher_benign = load_teacher_benign_artifact(
+            teacher_benign_dir, set(a_benign["uid"].astype(str))
+        )
     fit_attack_anchor_all_hard = (
         int(cap_input.get("finite_fit_attack_scores", -1)) == EXPECTED_FIT_ATTACKS_BEFORE
         and int(cap.get("baseline_global_hard", -1)) == EXPECTED_FIT_ATTACKS_BEFORE
@@ -421,10 +501,20 @@ def build_census(repo_root: Path, output_dir: Path) -> Dict[str, object]:
         "a_true_attack_hard_contexts": int(a_attack["semantic_context_key"].nunique()) if fit_attack_anchor_all_hard else None,
         "a_true_benign_rows": int(len(a_benign)),
         "a_true_benign_contexts": int(a_benign["semantic_context_key"].nunique()),
-        "a_true_benign_hard_rows": None,
-        "a_true_benign_normal_rows": None,
-        "teacher_benign_verdict_status": "NOT_MATERIALIZED_IN_AUTHORIZED_COUNT_ONLY_ARTIFACTS",
-        "teacher_benign_verdict_reason": "Exact legal-fit benign P2 hard/normal counts require opening a forbidden score/probe artifact or fitting/reconstructing P2; D0 refuses both.",
+        "a_true_benign_hard_rows": None if teacher_benign is None else teacher_benign["hard_rows"],
+        "a_true_benign_normal_rows": None if teacher_benign is None else teacher_benign["normal_rows"],
+        "teacher_benign_verdict_status": (
+            "NOT_MATERIALIZED_IN_AUTHORIZED_COUNT_ONLY_ARTIFACTS"
+            if teacher_benign is None
+            else "AUTHORIZED_COUNT_ONLY_ARTIFACT_VERIFIED"
+        ),
+        "teacher_benign_verdict_reason": (
+            "Exact legal-fit benign P2 hard/normal counts require an authorized count-only artifact."
+            if teacher_benign is None
+            else "Exact UID equality, aggregate conservation, threshold identity, and result hashes verified."
+        ),
+        "teacher_benign_counts_sha256": None if teacher_benign is None else teacher_benign["counts_sha256"],
+        "teacher_benign_uid_verdicts_sha256": None if teacher_benign is None else teacher_benign["uid_verdicts_sha256"],
         "fit_attack_anchor_all_hard": bool(fit_attack_anchor_all_hard),
         "missing_score_pinning_used_as_teacher": False,
         "b_teacher_rows": 0,
@@ -496,8 +586,12 @@ def build_census(repo_root: Path, output_dir: Path) -> Dict[str, object]:
             f"- cross-phase exclusion: `{len(cross_contexts)}` contexts, `{cross_fit_rows}` fit rows, `{cross_select_rows}` select rows",
             f"- mechanically selected candidate: `{verdict['selected_candidate']}`",
             f"- synthetic resource cap: `{resource['wall_time_cap_hours']:.3f}` hours; gate `{resource_pass}`",
-            "- blocking evidence: exact legal-fit benign P2 hard/normal counts were not persisted in an authorized count-only artifact.",
-            "- fail-closed action: D0 did not open score/probe/representation arrays and did not authorize D1 training.",
+            (
+                "- teacher-benign evidence: exact authorized count-only artifact was not supplied."
+                if teacher_benign is None
+                else f"- teacher-benign evidence: `{teacher_benign['hard_rows']:,}` hard / `{teacher_benign['normal_rows']:,}` normal across `{teacher_benign['authorized_rows']:,}` exact legal-fit benign UIDs."
+            ),
+            "- D0 itself opened no score/probe/representation arrays and did not authorize D1 training.",
             "",
         ]
     )
@@ -513,8 +607,10 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", type=Path, default=Path(__file__).resolve().parents[2])
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--teacher-benign-dir", type=Path)
     args = parser.parse_args()
-    verdict = build_census(args.repo_root.resolve(), args.output_dir.resolve())
+    teacher_dir = None if args.teacher_benign_dir is None else args.teacher_benign_dir.resolve()
+    verdict = build_census(args.repo_root.resolve(), args.output_dir.resolve(), teacher_dir)
     print(json.dumps(verdict, indent=2, sort_keys=True))
     return 0
 
