@@ -1,0 +1,85 @@
+{
+  "contexts": 12889,
+  "contract_sha256": "7cf06c5885e21b813f9f5933360bc18308f41038bdb60809e2343a612fafd860",
+  "corpus_sha256": "623d4e0bbec6ddfad4e98c08a9fc90df137e51e7692ff3453ac7f38c5e84097e",
+  "final_opened": 0,
+  "implementation_sha256": "6e2df7059b9bb0aba9be80adb11e7e918c3f1ddfef3ecc690b571b0f0af18634",
+  "input_identities": {
+    "d0_table": {
+      "bytes": 921420,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend_f1_d0_census_v1_20260902_local_r2\\f1_d0_uid_context_phase_owner_conservation.csv.gz",
+      "sha256": "c02937de7c5660688c60578adb2801f5a12b709745652fa8303b6c8e0d0b0ae9"
+    },
+    "d0_verdict": {
+      "bytes": 1266,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend_f1_d0_census_v1_20260902_local_r2\\f1_d0_verdict.json",
+      "sha256": "5109826a86d5e109cc7d51c57cbecf0dcb7bbd214b0f22483904cf5b08b66ec4"
+    },
+    "embedding_metadata": {
+      "bytes": 1122045,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage\\ckda_d1_fit_select_embeddings.npz.metadata.csv.gz",
+      "sha256": "120ed5ccc752c1210a655dbcb972e08b6263bdeb1e08093d76b3e2f9c1b3d8dd"
+    },
+    "frozen": {
+      "bytes": 26748,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\mainline_docs\\frontend_f1_d1_numerical_addendum_frozen_20260902.md",
+      "sha256": "7cf06c5885e21b813f9f5933360bc18308f41038bdb60809e2343a612fafd860"
+    },
+    "parent": {
+      "bytes": 22969,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\mainline_docs\\frontend_f1_teacher_constrained_unified_encoder_d0_d1_frozen_20260901.md",
+      "sha256": "98f2b73a051ee9c392631e85f4cc84d787306ed8333bfe2125f77870790c41b4"
+    },
+    "teacher_benign_counts": {
+      "bytes": 347,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend_f1_teacher_benign_count_only_v1_20260902_local\\f1_teacher_benign_counts.json",
+      "sha256": "922a7a4faacdbaf370adfdf72e44e88b990ba54ac07c85286be40a6e7a86063e"
+    },
+    "teacher_benign_uids": {
+      "bytes": 23168,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend_f1_teacher_benign_count_only_v1_20260902_local\\f1_teacher_benign_uid_verdicts.csv.gz",
+      "sha256": "f7deceac0ac76fb25e577714f7a94da047e15ed77cb9bee19a9ea9c2954c493b"
+    },
+    "zt_engine": {
+      "bytes": 24635,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood\\issue27frontend_f0_zero_training_semantics_v1.py",
+      "sha256": "00366fdef9d644c2ac60fab68047938e6bcc4425aab68e1f6c1ae552db40affa"
+    },
+    "zt_runner": {
+      "bytes": 38933,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood\\issue27frontend_f0_zero_training_semantics_real_v1.py",
+      "sha256": "ca34ff39bfe7289fee1048d74e04de53dd4d4f096228fa837104cb65388b6f60"
+    }
+  },
+  "internal_val_contexts": 3582,
+  "internal_val_rows": 4400,
+  "labels_read_during_semantic_construction": 0,
+  "materialization_cumulative_seconds": 829.6873433,
+  "replay_implementation_sha256": "f5b38023244485415570a6235be8160706b8ace0aad449d30481e7a9b3efc7e9",
+  "report_opened": 0,
+  "resource_usage": {
+    "durable_output_bytes": 3056391,
+    "peak_working_set_bytes": 412626944
+  },
+  "rows": 18266,
+  "select_targets_materialized": 0,
+  "status": "F1_D1_FIT_CORPUS_MATERIALIZED",
+  "train_contexts": 9307,
+  "train_rows": 13866,
+  "tshark_identity": {
+    "executable_bytes": 623784,
+    "executable_path": "C:\\Program Files\\Wireshark\\tshark.exe",
+    "executable_sha256": "908a3b04da69ee45be9bd54627a722741d895262b4ce0b39f6d79a03daa24087",
+    "version_output": "TShark (Wireshark) 4.6.6 (v4.6.6-0-g3a22c3ef473d).\n\nCopyright 1998-2026 Gerald Combs <gerald@wireshark.org> and contributors.\nLicensed under the terms of the GNU General Public License (version 2 or later).\nThis is free software; see the file named COPYING in the distribution. There is\nNO WARRANTY; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nCompile-time info:\n Bit width: 64-bit\n  Compiler: Microsoft Visual Studio 2022 (VC++ 14.44, build 35223)\n      GLib: 2.86.3\n With:\n  +brotli                     +MaxMind\n  +Gcrypt 1.12.2              +nghttp2 1.65.0\n  +GnuTLS 3.8.13 and PKCS#11  +nghttp3 1.8.0\n  +Kerberos (MIT)             +PCRE2 10.47 2025-10-21\n  +libpcap                    +Snappy 1.1.9\n  +libsmi 0.5.0               +xxhash 0.8.3\n  +libxml2 2.15.1             +zlib 1.3.1\n  +Lua 5.4.6 (UfW patched)    +zlib-ng 2.2.3\n  +LZ4 1.10.0                 +Zstandard 1.5.7\n\nRuntime info:\n      OS: 64-bit Windows 11 (25H2), build 26200\n     CPU: 12th Gen Intel(R) Core(TM) i7-12700H (with SSE4.2)\n  Memory: 16176 MB of physical memory\n    GLib: 2.86.3\n  Locale: LC_TYPE=Chinese (Simplified)_China.utf8\n Plugins: supported, 0 loaded\n With:\n  +brotli 1.2.0            +LZ4 1.10.0              +xxhash 803\n  +c-ares 1.34.6           +nghttp2 1.65.0          +Zstandard 1.5.7\n  +Gcrypt 1.12.2           +nghttp3 1.8.0\n  +GnuTLS 3.8.13           +PCRE2 10.47 2025-10-21\n Without:\n  -Npcap",
+    "version_output_sha256": "dcee62e0a11d238d29968462a48ee58de34be848c7c1afb728eb223e8c5964cc"
+  },
+  "viewed_opened": 0,
+  "zt_pins": {
+    "availability": "b1b4f2fde168a69e0cf7a53aaede2ddef9bd6d92b0ce58e56a9d6fcde37b6099",
+    "contract": "532bb52e4d03c0321f1e874cc4bd7a49fca3391943c0dd23a1968fd69ac3c0ee",
+    "engine": "00366fdef9d644c2ac60fab68047938e6bcc4425aab68e1f6c1ae552db40affa",
+    "identity_attachment": "5deddd66248d036250da7b82d97437c4dfff343ed4ac25ac3fe157b8669a849c",
+    "r0_audit": "41b524918af9fd07d65460bc2e7c86367b1ba1bc6c1522bc0a9683adc2c68e11",
+    "target_metadata": "d6fbba24a1997db24597a800cf952f80f739284e5ca13db5ce04497f1540c36d"
+  }
+}

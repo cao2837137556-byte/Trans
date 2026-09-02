@@ -1,0 +1,7 @@
+{
+  "error": "Unable to parse string \"nan\" at position 0",
+  "error_type": "ValueError",
+  "scientific_verdict_emitted": false,
+  "status": "F1_ENGINEERING_OR_PROTOCOL_FAILURE",
+  "traceback": "Traceback (most recent call last):\n  File \"pandas/_libs/lib.pyx\", line 2407, in pandas._libs.lib.maybe_convert_numeric\nValueError: Unable to parse string \"nan\"\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood\\issue27frontend_f1_d1_train_v1.py\", line 1776, in main\n    args.function(args)\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood\\issue27frontend_f1_d1_train_v1.py\", line 1605, in materialize_fit\n    timestamp_frame[\"timestamp_epoch\"] = pd.to_numeric(timestamp_frame[\"timestamp_epoch\"], errors=\"raise\")\n  File \"C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\pandas\\core\\tools\\numeric.py\", line 235, in to_numeric\n    values, new_mask = lib.maybe_convert_numeric(  # type: ignore[call-overload]\n  File \"pandas/_libs/lib.pyx\", line 2449, in pandas._libs.lib.maybe_convert_numeric\nValueError: Unable to parse string \"nan\" at position 0\n"
+}
