@@ -1,0 +1,48 @@
+{
+  "categories": {
+    "STRONG_5PP": 5
+  },
+  "decision_rule": "score >= threshold; exact ties hard",
+  "identities": {
+    "contract": {
+      "bytes": 5077,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\mainline_docs\\frontend_f1_d1_incumbent_five_margin_materialization_frozen_20260904.md",
+      "sha256": "2c35d80f63c9ea0337e33244192e5218b56e5a2287ff1d6dbbfc5bba2288a67a"
+    },
+    "d0_census": {
+      "bytes": 921420,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend_f1_d0_census_v1_20260902_local_r2\\f1_d0_uid_context_phase_owner_conservation.csv.gz",
+      "sha256": "c02937de7c5660688c60578adb2801f5a12b709745652fa8303b6c8e0d0b0ae9"
+    },
+    "diagnostic": {
+      "bytes": 1790,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend_f1_d1_terminal_no_eligible_diagnostic_v1_20260904\\f1_d1_terminal_flipped_attacks.csv",
+      "sha256": "3adb43c349b59bc85a66024ef2533796081cca935a0f92ccd88cee008e7ca3be"
+    },
+    "embeddings": {
+      "bytes": 34314736,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage\\ckda_d1_fit_select_embeddings.npz",
+      "sha256": "b1b4f2fde168a69e0cf7a53aaede2ddef9bd6d92b0ce58e56a9d6fcde37b6099"
+    },
+    "probe_state": {
+      "bytes": 41186234,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage\\ckda_d1_probe_state.npz",
+      "sha256": "50a9bcfc18287d51bf8afda7367b57decdf3179dd41fc3aa61399d4098360c38"
+    },
+    "threshold_marker": {
+      "bytes": 1545,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage\\ckda_d1_threshold_freeze_marker.json",
+      "sha256": "84576a5008259f4381c46eecbc3ee3bda9d06b9dc7068cd52d7c2232e884dd5b"
+    }
+  },
+  "incumbent_hard_rows": 5,
+  "maximum_score": 0.9999999908255032,
+  "maximum_score_margin": 0.9348401186512402,
+  "median_score": 0.9992767823243878,
+  "median_score_margin": 0.9341169101501248,
+  "minimum_score": 0.9990673865228457,
+  "minimum_score_margin": 0.9339075143485827,
+  "rows": 5,
+  "status": "F1_D1_INCUMBENT_FIVE_MARGIN_MATERIALIZED",
+  "threshold": 0.065159872174263
+}
