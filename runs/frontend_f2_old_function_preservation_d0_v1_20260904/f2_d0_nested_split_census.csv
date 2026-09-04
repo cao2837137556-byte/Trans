@@ -1,0 +1,50 @@
+nested_split,owner,label,teacher_kind,source_group,attack_family,rows,contexts
+internal_val,A,0,benign_hard,iotsim-domotic-monitor-3_0-0_to_OpenvSwitch-23_3-0,benign,2,2
+internal_val,A,0,benign_normal,iotsim-combined-cycle-6_0-0_to_OpenvSwitch-13_6-0,benign,267,182
+internal_val,A,0,benign_normal,iotsim-domotic-monitor-3_0-0_to_OpenvSwitch-23_3-0,benign,368,139
+internal_val,A,0,benign_normal,normal_1.pcap,benign,843,672
+internal_val,A,1,attack_hard,processed/iotsim-combined-cycle-10.csv,Ingress Tool Transfer,3,1
+internal_val,B,0,none,iotsim-combined-cycle-6_0-0_to_OpenvSwitch-13_6-0,benign,333,282
+internal_val,B,0,none,iotsim-domotic-monitor-3_0-0_to_OpenvSwitch-23_3-0,benign,230,50
+internal_val,B,0,none,normal_1.pcap,benign,3157,2995
+internal_val,B,1,none,processed/iotsim-combined-cycle-10.csv,File Download,3,2
+train,A,0,benign_hard,iotsim-building-monitor-5_0-0_to_OpenvSwitch-28_5-0,benign,3,3
+train,A,0,benign_hard,iotsim-domotic-monitor-5_0-0_to_OpenvSwitch-23_5-0,benign,2,2
+train,A,0,benign_hard,processed/iotsim-building-monitor-2.csv,benign,12,12
+train,A,0,benign_hard,processed/iotsim-building-monitor-3.csv,benign,7,7
+train,A,0,benign_normal,iotsim-building-monitor-5_0-0_to_OpenvSwitch-28_5-0,benign,375,138
+train,A,0,benign_normal,iotsim-combined-cycle-5_0-0_to_OpenvSwitch-13_5-0,benign,268,182
+train,A,0,benign_normal,iotsim-combined-cycle-9_0-0_to_OpenvSwitch-13_9-0,benign,266,182
+train,A,0,benign_normal,iotsim-combined-cycle-tls-1_0-0_to_OpenvSwitch-14_1-0,benign,422,48
+train,A,0,benign_normal,iotsim-domotic-monitor-5_0-0_to_OpenvSwitch-23_5-0,benign,372,141
+train,A,0,benign_normal,processed/iotsim-building-monitor-2.csv,benign,1430,520
+train,A,0,benign_normal,processed/iotsim-building-monitor-3.csv,benign,774,278
+train,A,0,benign_normal,processed/iotsim-combined-cycle-tls-3.csv,benign,256,120
+train,A,0,benign_normal,processed/iotsim-combined-cycle-tls-4.csv,benign,252,121
+train,A,0,benign_normal,processed/iotsim-combined-cycle-tls-5.csv,benign,252,121
+train,A,1,attack_hard,password_normal1.pcap,ToN-credential_bruteforce,2000,1998
+train,A,1,attack_hard,processed/iotsim-city-power-1.csv,Merlin TCP Flooding,23,20
+train,A,1,attack_hard,processed/iotsim-city-power-1.csv,Merlin UDP Flooding,12,12
+train,A,1,attack_hard,processed/iotsim-city-power-1.csv,Mirai TCP Flooding,33,27
+train,A,1,attack_hard,processed/iotsim-city-power-1.csv,Mirai UDP Flooding,4,4
+train,A,1,attack_hard,processed/iotsim-ip-camera-museum-1.csv,Merlin TCP Flooding,35,28
+train,A,1,attack_hard,processed/iotsim-ip-camera-museum-1.csv,Merlin UDP Flooding,18,18
+train,A,1,attack_hard,processed/iotsim-ip-camera-museum-1.csv,Mirai C&C Communication,6,2
+train,A,1,attack_hard,processed/iotsim-ip-camera-museum-1.csv,Mirai TCP Flooding,27,24
+train,A,1,attack_hard,processed/iotsim-ip-camera-museum-1.csv,Mirai UDP Flooding,21,16
+train,B,0,none,iotsim-building-monitor-5_0-0_to_OpenvSwitch-28_5-0,benign,222,61
+train,B,0,none,iotsim-combined-cycle-5_0-0_to_OpenvSwitch-13_5-0,benign,332,282
+train,B,0,none,iotsim-combined-cycle-9_0-0_to_OpenvSwitch-13_9-0,benign,334,283
+train,B,0,none,iotsim-combined-cycle-tls-1_0-0_to_OpenvSwitch-14_1-0,benign,178,138
+train,B,0,none,iotsim-domotic-monitor-5_0-0_to_OpenvSwitch-23_5-0,benign,226,55
+train,B,0,none,processed/iotsim-building-monitor-2.csv,benign,248,59
+train,B,0,none,processed/iotsim-building-monitor-3.csv,benign,133,32
+train,B,0,none,processed/iotsim-combined-cycle-tls-3.csv,benign,14,14
+train,B,0,none,processed/iotsim-combined-cycle-tls-4.csv,benign,18,17
+train,B,0,none,processed/iotsim-combined-cycle-tls-5.csv,benign,17,16
+train,B,1,none,processed/iotsim-city-power-1.csv,Merlin ICMP Flooding,10,8
+train,B,1,none,processed/iotsim-city-power-1.csv,Mirai GRE Flooding,27,5
+train,B,1,none,processed/iotsim-city-power-1.csv,Mirai UDP Flooding,6,1
+train,B,1,none,processed/iotsim-ip-camera-museum-1.csv,Merlin C&C Communication,5,3
+train,B,1,none,processed/iotsim-ip-camera-museum-1.csv,Merlin ICMP Flooding,15,5
+train,B,1,none,processed/iotsim-ip-camera-museum-1.csv,Mirai GRE Flooding,5,5

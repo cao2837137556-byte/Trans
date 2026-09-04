@@ -1,0 +1,34 @@
+{
+  "eligibility_row_counts": {
+    "internal_val|a_correct_attack": 3,
+    "internal_val|a_correct_benign": 1478,
+    "internal_val|b_attack": 3,
+    "internal_val|b_benign": 3720,
+    "train|a_correct_attack": 2179,
+    "train|a_correct_benign": 4667,
+    "train|b_attack": 68,
+    "train|b_benign": 1722
+  },
+  "internal_validation_sources": [
+    "iotsim-combined-cycle-6_0-0_to_OpenvSwitch-13_6-0",
+    "iotsim-domotic-monitor-3_0-0_to_OpenvSwitch-23_3-0",
+    "normal_1.pcap",
+    "processed/iotsim-combined-cycle-10.csv"
+  ],
+  "split_feasible": true,
+  "train_sources": [
+    "iotsim-building-monitor-5_0-0_to_OpenvSwitch-28_5-0",
+    "iotsim-combined-cycle-5_0-0_to_OpenvSwitch-13_5-0",
+    "iotsim-combined-cycle-9_0-0_to_OpenvSwitch-13_9-0",
+    "iotsim-combined-cycle-tls-1_0-0_to_OpenvSwitch-14_1-0",
+    "iotsim-domotic-monitor-5_0-0_to_OpenvSwitch-23_5-0",
+    "password_normal1.pcap",
+    "processed/iotsim-building-monitor-2.csv",
+    "processed/iotsim-building-monitor-3.csv",
+    "processed/iotsim-city-power-1.csv",
+    "processed/iotsim-combined-cycle-tls-3.csv",
+    "processed/iotsim-combined-cycle-tls-4.csv",
+    "processed/iotsim-combined-cycle-tls-5.csv",
+    "processed/iotsim-ip-camera-museum-1.csv"
+  ]
+}
