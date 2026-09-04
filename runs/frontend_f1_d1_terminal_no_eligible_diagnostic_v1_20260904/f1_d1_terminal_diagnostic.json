@@ -1,0 +1,69 @@
+{
+  "all_epochs_eligible_false": true,
+  "claim_boundary": {
+    "does_not_identify_every_epoch_failure": true,
+    "final_opened": 0,
+    "old_continuous_teacher_score_available": false,
+    "reason": "The authorized fit corpus carries only label-aware teacher_kind bits, not incumbent continuous scores.",
+    "report_opened": 0,
+    "select_opened": 0,
+    "training_or_resume_started": 0,
+    "viewed_opened": 0
+  },
+  "epochs_in_ledger": 31,
+  "failed_families": {
+    "ToN-reconnaissance_scan": 5
+  },
+  "failed_margin_quantiles": {
+    "max": -0.7502401613768153,
+    "median": -5.021720960098129,
+    "min": -75.31469400163255,
+    "q01": -75.21553872819504,
+    "q05": -74.81891763444504,
+    "q95": -1.1129628920134123
+  },
+  "failed_prefix_event_counts": [
+    2,
+    3,
+    28,
+    29,
+    49
+  ],
+  "failed_rows_with_unknown_prefix_event": 1,
+  "failed_sources": {
+    "normal_scanning1.pcap": 5
+  },
+  "failed_target_protocol_groups": {
+    "TCP": 4,
+    "UDP": 1
+  },
+  "failed_unique_contexts": 5,
+  "input_sha256": {
+    "repo/ood/issue27frontend_f1_d1_train_v1.py": "6e2df7059b9bb0aba9be80adb11e7e918c3f1ddfef3ecc690b571b0f0af18634",
+    "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_probe_state.npz": "50a9bcfc18287d51bf8afda7367b57decdf3179dd41fc3aa61399d4098360c38",
+    "runs/frontend_f1_d1_fit_corpus_v1_20260902_local/f1_d1_fit_contexts.jsonl.gz": "623d4e0bbec6ddfad4e98c08a9fc90df137e51e7692ff3453ac7f38c5e84097e",
+    "runs/frontend_f1_d1_one_shot_training_v1_20260902_local/f1_d1_resume.pt": "12fccfa359c5d909f13cd1a821a88ec53dc6c9fd0e01cf8b1a1c5bffc1ecfefa",
+    "runs/frontend_f1_d1_one_shot_training_v1_20260902_local/f1_d1_training_status.json": "9dc4735c34df1202a123d3c140ab445d35a7f826f0ba62b194f77acde0046e62",
+    "runs/mainline_docs/frontend_f1_d1_numerical_addendum_frozen_20260902.md": "7cf06c5885e21b813f9f5933360bc18308f41038bdb60809e2343a612fafd860"
+  },
+  "protected_attack_margin_quantiles": {
+    "max": 146.15913717512527,
+    "median": 27.52479116682448,
+    "min": -75.31469400163255,
+    "q01": 13.54110567335524,
+    "q05": 13.54110567335524,
+    "q95": 54.05087606672682
+  },
+  "protected_attack_rows": 2000,
+  "protected_benign_rows": 1174,
+  "representations_finite": true,
+  "scope": "FIT_INTERNAL_VAL_TERMINAL_STATE_ONLY",
+  "status": "F1_D1_TERMINAL_NO_ELIGIBLE_DIAGNOSTIC_COMPLETE",
+  "terminal_attack_flips": 5,
+  "terminal_attack_retention": 0.9975,
+  "terminal_epoch": 31,
+  "terminal_new_benign_hard": 0,
+  "threshold_logit": -2.66353170637526,
+  "threshold_probability": 0.06515987217426301,
+  "vocabulary_sha256": "e5ca926798949ca0da1c87795d38aec9fc10c17ae52ecc844a489a98781efd4c"
+}
