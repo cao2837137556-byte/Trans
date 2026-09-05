@@ -353,9 +353,11 @@ def execute(output: Path, tshark: Path) -> Dict[str, object]:
         raise F3BFailure("output must be under runs") from exc
     output.mkdir(parents=True, exist_ok=True)
     prior_failure = output / "engineering_failure.json"
-    archived_failure = output / "engineering_failure_attempt1.json"
-    if prior_failure.is_file() and not archived_failure.exists():
-        os.replace(str(prior_failure), str(archived_failure))
+    if prior_failure.is_file():
+        attempt = 1
+        while (output / ("engineering_failure_attempt%d.json" % attempt)).exists():
+            attempt += 1
+        os.replace(str(prior_failure), str(output / ("engineering_failure_attempt%d.json" % attempt)))
     checkpoint_dir = output / "checkpoints"
     checkpoint_dir.mkdir(parents=True, exist_ok=True)
     pins = {
