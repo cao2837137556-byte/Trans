@@ -1,0 +1,98 @@
+{
+  "fields": [
+    "frame.number",
+    "frame.time_epoch",
+    "frame.encap_type",
+    "frame.len",
+    "eth.src",
+    "eth.dst",
+    "eth.type",
+    "ip.src",
+    "ip.dst",
+    "ipv6.src",
+    "ipv6.dst",
+    "ip.proto",
+    "ipv6.nxt",
+    "tcp.srcport",
+    "tcp.dstport",
+    "udp.srcport",
+    "udp.dstport",
+    "sctp.srcport",
+    "sctp.dstport",
+    "icmp.type",
+    "icmp.code",
+    "icmpv6.type",
+    "icmpv6.code",
+    "gre.key",
+    "ip.len",
+    "ipv6.plen",
+    "ip.ttl",
+    "ipv6.hlim",
+    "tcp.flags",
+    "tcp.len",
+    "udp.length"
+  ],
+  "members": 8,
+  "pins": {
+    "conflicts": {
+      "bytes": 19812,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend_f2_old_function_preservation_d0_v1_20260904\\f2_d0_conflicting_prefix_buckets.csv",
+      "sha256": "b044270974ff281b0a6ad4d32741e19e011d497fdfa613990e1433ed5d2a1535"
+    },
+    "contract": {
+      "bytes": 5195,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\mainline_docs\\frontend_f3_conflict_field_sufficiency_frozen_20260905.md",
+      "sha256": "1b5c222d6a72050d27e0ed957cc101e1e46e827174d519a9790d9ca617570553"
+    },
+    "engine": {
+      "bytes": 24635,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood\\issue27frontend_f0_zero_training_semantics_v1.py",
+      "sha256": "00366fdef9d644c2ac60fab68047938e6bcc4425aab68e1f6c1ae552db40affa"
+    },
+    "f1_runner": {
+      "bytes": 90082,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood\\issue27frontend_f1_d1_train_v1.py",
+      "sha256": "6e2df7059b9bb0aba9be80adb11e7e918c3f1ddfef3ecc690b571b0f0af18634"
+    },
+    "identity_attachment": {
+      "bytes": 11399,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend_f0_step0b_implementation_preopen_20260829\\frontend_f0_step0b_packet_identity_attachment.csv",
+      "sha256": "5deddd66248d036250da7b82d97437c4dfff343ed4ac25ac3fe157b8669a849c"
+    },
+    "r0": {
+      "bytes": 3709,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\frontend_f0_step0b_implementation_preopen_20260829\\frontend_f0_step0b_r0_identity_audit.json",
+      "sha256": "41b524918af9fd07d65460bc2e7c86367b1ba1bc6c1522bc0a9683adc2c68e11"
+    },
+    "target_identity_attachment": {
+      "bytes": 6934,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\mainline_docs\\frontend_f3_conflict_target_identity_attachment_20260905.csv",
+      "sha256": "83270314a539332ca40c047b4f6e1626876b18b70dc85bd47e01146176858d82"
+    },
+    "zt_runner": {
+      "bytes": 38933,
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood\\issue27frontend_f0_zero_training_semantics_real_v1.py",
+      "sha256": "ca34ff39bfe7289fee1048d74e04de53dd4d4f096228fa837104cb65388b6f60"
+    }
+  },
+  "prior_observation_disclosure": "UDP bucket exact lengths/port 53 were viewed before freeze and are non-positive evidence.",
+  "selected_candidate_level": "L1",
+  "status": "F3_CONFLICT_FIELDS_CANDIDATE_PASS",
+  "target_attachment_source_sha256": "d6fbba24a1997db24597a800cf952f80f739284e5ca13db5ce04497f1540c36d",
+  "targets": 28,
+  "tshark_identity": {
+    "executable_bytes": 623784,
+    "executable_path": "C:\\Program Files\\Wireshark\\tshark.exe",
+    "executable_sha256": "908a3b04da69ee45be9bd54627a722741d895262b4ce0b39f6d79a03daa24087",
+    "version_output": "TShark (Wireshark) 4.6.6 (v4.6.6-0-g3a22c3ef473d).\n\nCopyright 1998-2026 Gerald Combs <gerald@wireshark.org> and contributors.\nLicensed under the terms of the GNU General Public License (version 2 or later).\nThis is free software; see the file named COPYING in the distribution. There is\nNO WARRANTY; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\nCompile-time info:\n Bit width: 64-bit\n  Compiler: Microsoft Visual Studio 2022 (VC++ 14.44, build 35223)\n      GLib: 2.86.3\n With:\n  +brotli                     +MaxMind\n  +Gcrypt 1.12.2              +nghttp2 1.65.0\n  +GnuTLS 3.8.13 and PKCS#11  +nghttp3 1.8.0\n  +Kerberos (MIT)             +PCRE2 10.47 2025-10-21\n  +libpcap                    +Snappy 1.1.9\n  +libsmi 0.5.0               +xxhash 0.8.3\n  +libxml2 2.15.1             +zlib 1.3.1\n  +Lua 5.4.6 (UfW patched)    +zlib-ng 2.2.3\n  +LZ4 1.10.0                 +Zstandard 1.5.7\n\nRuntime info:\n      OS: 64-bit Windows 11 (25H2), build 26200\n     CPU: 12th Gen Intel(R) Core(TM) i7-12700H (with SSE4.2)\n  Memory: 16176 MB of physical memory\n    GLib: 2.86.3\n  Locale: LC_TYPE=Chinese (Simplified)_China.utf8\n Plugins: supported, 0 loaded\n With:\n  +brotli 1.2.0            +LZ4 1.10.0              +xxhash 803\n  +c-ares 1.34.6           +nghttp2 1.65.0          +Zstandard 1.5.7\n  +Gcrypt 1.12.2           +nghttp3 1.8.0\n  +GnuTLS 3.8.13           +PCRE2 10.47 2025-10-21\n Without:\n  -Npcap",
+    "version_output_sha256": "dcee62e0a11d238d29968462a48ee58de34be848c7c1afb728eb223e8c5964cc"
+  },
+  "tshark_resource_profile": {
+    "ip.defragment": false,
+    "ipv6.defragment": false,
+    "session_auto_reset_packets": 100000,
+    "tcp.analyze_sequence_numbers": false,
+    "tcp.desegment_tcp_streams": false,
+    "tcp.reassemble_out_of_order": false
+  }
+}
