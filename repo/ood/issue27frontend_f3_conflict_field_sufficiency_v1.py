@@ -64,6 +64,7 @@ TSHARK_RESOURCE_PROFILE = {
     "tcp.reassemble_out_of_order": False,
     "tcp.analyze_sequence_numbers": False,
 }
+SESSION_AUTO_RESET_PACKETS = int(TSHARK_RESOURCE_PROFILE["session_auto_reset_packets"])
 
 EXTRA_FIELDS = [
     "ip.len", "ipv6.plen", "ip.ttl", "ipv6.hlim",
@@ -204,6 +205,17 @@ def normalize_tshark_cell(value: object) -> str:
     return str(value)
 
 
+def normalize_reset_frame_number(observed: str, emitted_zero_based: int) -> str:
+    try:
+        value = int(str(observed))
+    except ValueError as exc:
+        raise F3Failure("noninteger TShark frame number") from exc
+    expected_local = int(emitted_zero_based) % SESSION_AUTO_RESET_PACKETS + 1
+    if value != expected_local:
+        raise F3Failure("TShark auto-reset frame sequence drift: %d != %d" % (value, expected_local))
+    return str(int(emitted_zero_based) + 1)
+
+
 def iter_tshark_rows(
     tshark: Path, identity: Mapping[str, object], packet_limit: int, fields: Sequence[str],
 ) -> Iterator[Dict[str, str]]:
@@ -257,8 +269,10 @@ def iter_tshark_rows(
         process.kill()
         raise F3Failure("TShark schema drift")
     try:
-        for row in reader:
-            yield {field: normalize_tshark_cell(row.get(field)) for field in fields}
+        for emitted, row in enumerate(reader):
+            normalized = {field: normalize_tshark_cell(row.get(field)) for field in fields}
+            normalized["frame.number"] = normalize_reset_frame_number(normalized["frame.number"], emitted)
+            yield normalized
     finally:
         text_stream.close()
         code = process.wait()

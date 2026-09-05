@@ -50,6 +50,7 @@ def main() -> int:
     tests.append(("system_port_kept", subject.port_semantic(53) == "SYSTEM:53"))
     tests.append(("ttl_bins", [subject.ttl_bucket(x) for x in (None, 31, 32, 64, 128, 192)] == ["NONE", "0_31", "32_63", "64_127", "128_191", "192_255"]))
     tests.append(("empty_cell_normalization", subject.normalize_tshark_cell(None) == "" and subject.normalize_tshark_cell("None") == "" and subject.normalize_tshark_cell("0") == "0"))
+    tests.append(("autoreset_frame_normalization", subject.normalize_reset_frame_number("1", 0) == "1" and subject.normalize_reset_frame_number("100000", 99999) == "100000" and subject.normalize_reset_frame_number("1", 100000) == "100001"))
 
     udp = SimpleNamespace(ip_protocol=17, src_port=37103, dst_port=53)
     sig = subject.extended_signatures("BASE", base_raw(), udp, 3e-6)
