@@ -186,6 +186,12 @@ def tshark_command(tshark: Path, read_path: str, packet_limit: int, fields: Sequ
     return command
 
 
+def normalize_tshark_cell(value: object) -> str:
+    if value is None or str(value).strip() == "None":
+        return ""
+    return str(value)
+
+
 def iter_tshark_rows(
     tshark: Path, identity: Mapping[str, object], packet_limit: int, fields: Sequence[str],
 ) -> Iterator[Dict[str, str]]:
@@ -240,7 +246,7 @@ def iter_tshark_rows(
         raise F3Failure("TShark schema drift")
     try:
         for row in reader:
-            yield {field: str(row.get(field, "")) for field in fields}
+            yield {field: normalize_tshark_cell(row.get(field)) for field in fields}
     finally:
         text_stream.close()
         code = process.wait()

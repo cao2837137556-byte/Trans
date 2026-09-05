@@ -49,6 +49,7 @@ def main() -> int:
     tests.append(("high_port_masked", subject.port_semantic(37103) == "REGISTERED" and "37103" not in subject.port_semantic(37103)))
     tests.append(("system_port_kept", subject.port_semantic(53) == "SYSTEM:53"))
     tests.append(("ttl_bins", [subject.ttl_bucket(x) for x in (None, 31, 32, 64, 128, 192)] == ["NONE", "0_31", "32_63", "64_127", "128_191", "192_255"]))
+    tests.append(("empty_cell_normalization", subject.normalize_tshark_cell(None) == "" and subject.normalize_tshark_cell("None") == "" and subject.normalize_tshark_cell("0") == "0"))
 
     udp = SimpleNamespace(ip_protocol=17, src_port=37103, dst_port=53)
     sig = subject.extended_signatures("BASE", base_raw(), udp, 3e-6)
