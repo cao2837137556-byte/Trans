@@ -1,0 +1,45 @@
+{
+  "boundary": {
+    "final_opened": 0,
+    "model_opened": 0,
+    "optimizer_steps": 0,
+    "payload_bytes_opened": 0,
+    "report_opened": 0,
+    "representation_opened": 0,
+    "score_opened": 0,
+    "select_opened": 0,
+    "viewed_opened": 0
+  },
+  "claim_boundary": "Necessary input identifiability only; no inheritance, detection, or OOD claim.",
+  "level_summary": [
+    {
+      "hard_protected_mixed_buckets": 2,
+      "level": "L0",
+      "mixed_label_buckets": 2,
+      "unique_prefixes": 2
+    },
+    {
+      "hard_protected_mixed_buckets": 0,
+      "level": "L1",
+      "mixed_label_buckets": 0,
+      "unique_prefixes": 6
+    },
+    {
+      "hard_protected_mixed_buckets": 0,
+      "level": "L2",
+      "mixed_label_buckets": 0,
+      "unique_prefixes": 8
+    },
+    {
+      "hard_protected_mixed_buckets": 0,
+      "level": "L3",
+      "mixed_label_buckets": 0,
+      "unique_prefixes": 8
+    }
+  ],
+  "members_decoded_two_pass": 8,
+  "next_authorized_by_pass": "full_fit_collision_and_shortcut_audit_only",
+  "selected_candidate_level": "L1",
+  "status": "F3_CONFLICT_FIELDS_CANDIDATE_PASS",
+  "targets_conserved": 28
+}

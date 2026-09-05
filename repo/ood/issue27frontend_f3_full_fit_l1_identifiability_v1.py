@@ -45,6 +45,11 @@ F3_REL = Path("repo/ood/issue27frontend_f3_conflict_field_sufficiency_v1.py")
 F3_SHA = "187048a4b42c2aab6a8381144e3927ad74843a2a08595ba9c3463d130ebd00ff"
 TARGETED_VERDICT_REL = Path("runs/frontend_f3_conflict_field_sufficiency_v1_20260905/f3_verdict.json")
 TARGETED_VERDICT_SHA = "eab4d7dca26a37f488b94822220cab871d6f04fe6991311299eb5ae099268230"
+TARGETED_PREFIX_REL = Path("runs/frontend_f3_conflict_field_sufficiency_v1_20260905/f3_target_prefix_signatures.jsonl.gz")
+TARGETED_PREFIX_SHA = "ca8d9cd42801a6cdd4044839f6fd9f33c2c8533309d5bf88c7bb3fb3dff46afe"
+RESOURCE_CANARY_REL = Path("runs/frontend_f3_conflict_field_sufficiency_resource_canary_v1_20260905")
+RESOURCE_CANARY_IDENTITIES_SHA = "258613e5d562127374521eb599bec459360d0b40a6d9f7defef554ebf39ab019"
+RESOURCE_CANARY_PREFIX_SHA = "ca8d9cd42801a6cdd4044839f6fd9f33c2c8533309d5bf88c7bb3fb3dff46afe"
 
 EXECUTION_TOKEN = "I_AUTHORIZE_FRONTEND_F3_FULL_FIT_L1_AUDIT"
 EXPECTED_PARENT_ROWS = 13_866
@@ -365,6 +370,9 @@ def execute(output: Path, tshark: Path) -> Dict[str, object]:
         "f1_runner": require_sha(ROOT / F1_REL, F1_SHA),
         "f3_runner": require_sha(ROOT / F3_REL, F3_SHA),
         "targeted_verdict": require_sha(ROOT / TARGETED_VERDICT_REL, TARGETED_VERDICT_SHA),
+        "targeted_prefixes": require_sha(ROOT / TARGETED_PREFIX_REL, TARGETED_PREFIX_SHA),
+        "resource_canary_identities": require_sha(ROOT / RESOURCE_CANARY_REL / "f3_identities.json", RESOURCE_CANARY_IDENTITIES_SHA),
+        "resource_canary_prefixes": require_sha(ROOT / RESOURCE_CANARY_REL / "f3_target_prefix_signatures.jsonl.gz", RESOURCE_CANARY_PREFIX_SHA),
     }
     engine = import_file("f3b_engine", ROOT / ENGINE_REL)
     zt = import_file("f3b_zt", ROOT / ZT_REL)
