@@ -42,7 +42,7 @@ ZT_SHA = "ca34ff39bfe7289fee1048d74e04de53dd4d4f096228fa837104cb65388b6f60"
 F1_REL = Path("repo/ood/issue27frontend_f1_d1_train_v1.py")
 F1_SHA = "6e2df7059b9bb0aba9be80adb11e7e918c3f1ddfef3ecc690b571b0f0af18634"
 F3_REL = Path("repo/ood/issue27frontend_f3_conflict_field_sufficiency_v1.py")
-F3_SHA = "31952bc56adf3dab77fd7b069621734c21ed40cf6150ac56eb08555501e58d80"
+F3_SHA = "187048a4b42c2aab6a8381144e3927ad74843a2a08595ba9c3463d130ebd00ff"
 TARGETED_VERDICT_REL = Path("runs/frontend_f3_conflict_field_sufficiency_v1_20260905/f3_verdict.json")
 TARGETED_VERDICT_SHA = "eab4d7dca26a37f488b94822220cab871d6f04fe6991311299eb5ae099268230"
 
@@ -633,6 +633,7 @@ def execute(output: Path, tshark: Path) -> Dict[str, object]:
         "status": status, "pins": pins, "implementation_sha256": implementation_sha,
         "checkpoint_semantic_implementation_sha256": CHECKPOINT_SEMANTIC_IMPLEMENTATION_SHA,
         "tshark_identity": current_tshark, "fields": fields,
+        "tshark_resource_profile": f3.TSHARK_RESOURCE_PROFILE,
         "vocabulary_sha256": sha256_value({"PAD": 0, "UNK": 1, "items": ordered_vocabulary}),
         "nested_split": {
             "salt": NESTED_SALT,

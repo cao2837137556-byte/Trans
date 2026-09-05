@@ -56,6 +56,13 @@ EXPECTED_TARGETS = 28
 EXPECTED_MEMBERS = 8
 EXPECTED_L0_CONFLICT_BUCKETS = 2
 LEVELS = ("L0", "L1", "L2", "L3")
+TSHARK_RESOURCE_PROFILE = {
+    "ip.defragment": False,
+    "ipv6.defragment": False,
+    "tcp.desegment_tcp_streams": False,
+    "tcp.reassemble_out_of_order": False,
+    "tcp.analyze_sequence_numbers": False,
+}
 
 EXTRA_FIELDS = [
     "ip.len", "ipv6.plen", "ip.ttl", "ipv6.hlim",
@@ -178,7 +185,11 @@ def verify_packet_identity(identity: Mapping[str, object]) -> None:
 
 def tshark_command(tshark: Path, read_path: str, packet_limit: int, fields: Sequence[str]) -> List[str]:
     command = [
-        str(tshark), "-n", "-r", read_path, "-T", "fields", "-E", "header=y",
+        str(tshark), "-n", "-r", read_path,
+        "-o", "ip.defragment:FALSE", "-o", "ipv6.defragment:FALSE",
+        "-o", "tcp.desegment_tcp_streams:FALSE", "-o", "tcp.reassemble_out_of_order:FALSE",
+        "-o", "tcp.analyze_sequence_numbers:FALSE",
+        "-T", "fields", "-E", "header=y",
         "-E", "separator=/t", "-E", "quote=d", "-E", "occurrence=f", "-c", str(packet_limit),
     ]
     for field in fields:
@@ -592,6 +603,7 @@ def execute(output: Path, tshark: Path) -> Dict[str, object]:
         "status": status, "selected_candidate_level": selected,
         "targets": len(target_results), "members": len(groups), "pins": pins,
         "tshark_identity": current_tshark, "fields": fields,
+        "tshark_resource_profile": TSHARK_RESOURCE_PROFILE,
         "target_attachment_source_sha256": TARGET_ATTACHMENT_SOURCE_SHA,
         "prior_observation_disclosure": "UDP bucket exact lengths/port 53 were viewed before freeze and are non-positive evidence.",
     }
