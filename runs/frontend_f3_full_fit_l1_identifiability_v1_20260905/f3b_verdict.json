@@ -1,0 +1,37 @@
+{
+  "all_target_prefixes_have_known_event": false,
+  "boundary": {
+    "final_opened": 0,
+    "kill_only_rows_opened_after_l1_freeze": 5,
+    "model_opened": 0,
+    "optimizer_steps": 0,
+    "payload_bytes_opened": 0,
+    "report_opened": 0,
+    "representation_opened": 0,
+    "score_opened": 0,
+    "select_opened": 0,
+    "viewed_opened": 0
+  },
+  "canonical_mixed_label_buckets": 0,
+  "claim_boundary": "Input identifiability only; no ability inheritance, detector, or OOD claim.",
+  "gates": {
+    "canonical_mixed_label_zero": true,
+    "denominator_conservation": true,
+    "kill_only_not_structurally_blocked": false,
+    "l0_prefix_reproduction": true,
+    "nested_split_feasible": true,
+    "static_emission_scope": true,
+    "token_mixed_label_zero": true,
+    "vocabulary_capacity_and_non_unk": false
+  },
+  "kill_only_collision_count": 0,
+  "kill_only_targets": 5,
+  "l0_prefix_mismatches": 0,
+  "next_authorized_by_pass": "close_unified_encoder_frozen_p2_route",
+  "parent_train_contexts": 9307,
+  "parent_train_targets": 13866,
+  "status": "F3_FULL_FIT_L1_NO_GO",
+  "token_mixed_label_buckets": 0,
+  "vocabulary_cap": 4094,
+  "vocabulary_size": 1001
+}

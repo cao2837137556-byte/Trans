@@ -5,6 +5,45 @@
 Status: active living handoff. This top section is the authoritative current state.
 If older time-log entries conflict with this section, treat the older entry as historical evidence only.
 
+### 2026-09-05 Frontend-F3 closure and F4 implementation handoff
+
+Finalized 2026-09-06. F4 code and real feature audit have not run yet; this is
+the completed design handoff, not an implementation PASS.
+
+This entry supersedes the older control-panel experiment state below for the
+current frontend work. Frontend-F1's single local GRU/frozen-P2 training ended
+without an eligible checkpoint. F2 then found two deterministic contradictory
+coarse-input buckets. F3's L1 refinement removed those exact conflicts, but its
+full-fit audit is now closed as `F3_FULL_FIT_L1_NO_GO`: a whole-signature
+dictionary maps 3,173/5,206 nested-validation target prefixes and two exposed
+attack prefixes entirely to UNK. Vocabulary size 1,001 is below 4,094; capacity
+and mixed-label collisions are not the blocker. Result package 12/12 and saved
+member checkpoints 20/20 SHA checks pass. All 13,871 L0 prefixes reproduce.
+
+The raw F3 verdict's broad interface-closure policy string is qualified in
+`frontend_f3_full_fit_l1_result_closure_20260905.md`: this run stops; it does
+not prove that all unified encoders or frozen-P2 interfaces are impossible.
+Do not change or rerun the original verdict. Internal-val A attack evidence
+is only one independent context / three rows; no positive inheritance claim.
+
+Current authorized work: completed F3 closure and an implementation-ready
+Frontend-F4 fieldwise-input draft, followed by Sol High implementation,
+synthetic tests, and a no-model offline audit after mechanical freezing.
+Read `frontend_f4_sol_high_implementation_handoff_20260905.md` and
+`frontend_f4_fieldwise_input_feasibility_draft_20260905.md` before acting.
+F4 preserves the same L1 fields in a fixed invertible 131D float32 input,
+uses existing cached signatures, and introduces no learned component.
+Implementation/execution are authorized; training is not. The user prefers
+design/review at very-high reasoning, implementation with Sol High. The same
+authorization carries forward on a model switch; do not request it again.
+
+Incumbent deployment remains frozen. CE, select/report/FINAL, additional
+model/score opens, external downloads, and commissioning experiments are not
+authorized by F4. CKDA HPC replay waits for confirmed cluster access (user's
+latest estimate is around September 8); no login or job action is requested.
+New-device benign/attack pairing remains an independent unresolved evidence
+requirement, not something F4 PASS can establish.
+
 ### 2026-07-29 CKBV result and r20 run-grounded recovery state
 
 CKBV r16 AMD job `154917` completed the formal seed-27 computation and emitted

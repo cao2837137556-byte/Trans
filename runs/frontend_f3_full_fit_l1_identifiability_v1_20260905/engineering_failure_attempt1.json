@@ -1,0 +1,7 @@
+{
+  "error": "invalid literal for int() with base 10: 'None'",
+  "error_type": "ValueError",
+  "scientific_verdict_emitted": false,
+  "status": "F3_FULL_FIT_L1_ENGINEERING_FAILURE",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood\\issue27frontend_f3_full_fit_l1_identifiability_v1.py\", line 660, in main\n    verdict = execute(output, Path(args.tshark))\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood\\issue27frontend_f3_full_fit_l1_identifiability_v1.py\", line 443, in execute\n    decoded_rows, lifecycle = replay_member_once(engine, zt, f1, f3, decoded(), targets, maximum)\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood\\issue27frontend_f3_full_fit_l1_identifiability_v1.py\", line 227, in replay_member_once\n    base = f1.canonical_signature(raw, event, route, direction, delta_seconds, regression)\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood\\issue27frontend_f1_d1_train_v1.py\", line 428, in canonical_signature\n    optional_decimal(icmp_type), optional_decimal(icmp_code),\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood\\issue27frontend_f1_d1_train_v1.py\", line 412, in optional_decimal\n    return str(int(value))\nValueError: invalid literal for int() with base 10: 'None'\n"
+}

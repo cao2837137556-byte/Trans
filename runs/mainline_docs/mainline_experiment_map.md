@@ -5,6 +5,16 @@
 Status: active index. This top section is the current navigation map.
 Older sections below are historical archive unless explicitly revalidated under this control panel.
 
+### 2026-09-05 frontend navigation override
+
+Current frontend state is governed by the September 5 entry in
+`mainline_handoff.md` (finalized September 6); older architecture/status tables
+below are historical. F4 implementation/audit is the next step, not completed.
+
+| Issue | Current evidence | Next authorized action |
+|---|---|---|
+| Frontend-F3 / F4 | F3 full-fit L1 NO_GO confirmed: zero exact label conflicts, whole-signature OOV; 12/12 package hashes; inherited validation attack support sparse | Completed F4 fieldwise-input draft -> Sol High mechanical freeze, implementation, tests and no-model audit; no training |
+
 ### Maintenance Protocol
 
 - This file is an index, not the full lab notebook.
