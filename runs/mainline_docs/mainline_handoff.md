@@ -5,7 +5,25 @@
 Status: active living handoff. This top section is the authoritative current state.
 If older time-log entries conflict with this section, treat the older entry as historical evidence only.
 
-### 2026-09-06 Frontend-F5 one-shot unified-student design drafted
+### 2026-09-06 Frontend-F5 frozen; numerical core verified, runner pending
+
+The user authorized implementation/synthetic work using the current Astra
+setting. The accepted numerical draft is mechanically FROZEN with SHA
+`b8069e6556d6719eef3e689b1ab9a8676c24a00a82e8b5f810a401c9c42786b6`.
+Read `frontend_f5_implementation_checkpoint_20260906.md` first.
+
+Core model/loss/causality/selective-reader/checkpoint regressions pass 22/22;
+the single synthetic resource pilot passes (threefold projection 27,962.99 s
+below 47,494.34 s). Status is deliberately
+`F5_I1_NUMERICAL_CORE_VERIFIED_I2_RUNNER_PENDING`, NOT full Stage I acceptance.
+The production preflight, real controller, full accounting, one-shot seal and
+launcher/monitor integration tests remain to implement under this authorization.
+Do not repeat design or select another architecture. Do not rerun the bounded
+pilot to obtain a better time. No real feature/teacher/score opens or real
+training occurred; P/T/K remain separately unauthorized. No real-run CLI exists
+yet. The historical Sol handoff is role-based, not a required model switch.
+
+### 2026-09-06 Frontend-F5 original design milestone (superseded authorization)
 
 F4 is complete; do not repeat its audit. The user's follow-up authorizes the
 next training **design**, not implementation or a real run. Read

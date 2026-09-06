@@ -1,0 +1,28 @@
+{
+  "status": "F5_I1_NUMERICAL_CORE_VERIFIED_I2_RUNNER_PENDING",
+  "date": "2026-09-06",
+  "protocol_sha256": "b8069e6556d6719eef3e689b1ab9a8676c24a00a82e8b5f810a401c9c42786b6",
+  "core_sha256": "5b5c54903ea9793f87d63e9dc273316350168f8b5eb3d3d81a42abd113862429",
+  "core_tests_sha256": "524fd41a0ffee7d8c36bb37c138cd3d552d3c7842c2f8f3d55a86ff60dd4d08f",
+  "core_tests_passed": 22,
+  "core_tests_total": 22,
+  "full_protocol_acceptance_suite_complete": false,
+  "synthetic_resource_status": "F5_SYNTHETIC_RESOURCE_PASS",
+  "real_P_T_K_runner_complete": false,
+  "real_training_authorized": false,
+  "teacher_materialization_authorized": false,
+  "real_teacher_numeric_opens": 0,
+  "real_feature_numeric_opens": 0,
+  "real_optimizer_steps": 0,
+  "select_report_FINAL_opens": 0,
+  "deployment_changed": false,
+  "scientific_verdict": null,
+  "pending_under_existing_implementation_authorization": [
+    "Production 19-pin preflight and exact UID/source/census joins",
+    "6870-row teacher scope enforcement at production call boundary",
+    "Real trajectory controller with resource, heartbeat and crash-time receipts",
+    "Per-epoch full-split metrics and exact per-key denominator assertions",
+    "Checkpoint seal before one-shot kill-only access",
+    "Complete synthetic runner integration battery and operator launcher/monitor"
+  ]
+}

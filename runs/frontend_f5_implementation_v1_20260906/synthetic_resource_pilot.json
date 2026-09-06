@@ -1,0 +1,52 @@
+{
+  "cap_seconds": 47494.34391,
+  "code_sha256": "5b5c54903ea9793f87d63e9dc273316350168f8b5eb3d3d81a42abd113862429",
+  "events_per_context": 256,
+  "inference_seconds": [
+    0.0661360000000002,
+    0.061112500000000125,
+    0.06239290000000075,
+    0.06073050000000002,
+    0.060469900000001076,
+    0.06072359999999932,
+    0.06493660000000112,
+    0.06347279999999955
+  ],
+  "initial_tensor_sha256": "4e3220fb9848f1eebe08226d75c2cc3b9d28630b0168fd0ce537584119332909",
+  "pass": true,
+  "projected_seconds": 9320.996680000018,
+  "protocol_sha256": "b8069e6556d6719eef3e689b1ab9a8676c24a00a82e8b5f810a401c9c42786b6",
+  "real_array_opens": 0,
+  "real_optimizer_steps": 0,
+  "real_teacher_opens": 0,
+  "runtime": {
+    "environment": {
+      "MKL_NUM_THREADS": "4",
+      "OMP_NUM_THREADS": "4",
+      "PYTHONHASHSEED": "2705"
+    },
+    "executable": "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+    "interop_threads": 1,
+    "numpy": "2.0.2",
+    "os": "Windows-10-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "python": "3.9.13",
+    "threads": 4,
+    "torch": "2.8.0+cpu"
+  },
+  "status": "F5_SYNTHETIC_RESOURCE_PASS",
+  "synthetic_contexts": 32,
+  "synthetic_optimizer_steps": 10,
+  "targets_per_context": 256,
+  "threefold_seconds": 27962.990040000055,
+  "train_seconds": [
+    0.4665177000000007,
+    0.5057977999999999,
+    0.4862769,
+    0.4790661000000007,
+    0.4916786000000002,
+    0.48475670000000015,
+    0.458090799999999,
+    0.47059419999999896
+  ]
+}
