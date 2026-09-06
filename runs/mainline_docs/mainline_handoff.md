@@ -5,7 +5,25 @@
 Status: active living handoff. This top section is the authoritative current state.
 If older time-log entries conflict with this section, treat the older entry as historical evidence only.
 
-### 2026-09-06 Frontend-F5 frozen; numerical core verified, runner pending
+### 2026-09-06 Frontend-F5 Stage I complete; real P/T/K not authorized
+
+Current result: `F5_IMPLEMENTATION_SYNTHETIC_ACCEPTANCE_PASS`. Read
+`frontend_f5_implementation_and_synthetic_verification_report_20260906.md`.
+The accepted F5 is frozen; core + real-stage controller + launch/monitor are
+implemented. 47/47 synthetic tests and two PowerShell parser checks pass.
+The single resource pilot passed; its numerical path is unchanged and no
+second timing pilot was used. Current source/runtime/test pins are in
+`runs/frontend_f5_implementation_v1_20260906/stage_i_acceptance.json`.
+
+No real F5 feature/teacher data was opened, no real optimizer step was taken,
+and no real F5 run directory/background job exists. **Next gate is explicit P
+authorization** for byte/census checks and 6,870-row teacher materialization;
+T (one real trajectory) and K (sealed candidate/utility/kill-only evaluation)
+remain separately authorized stages. Do not repeat design or redo F4. Current
+Astra implementation setting is accepted; no Sol switch is required. Earlier
+I1 runner-pending status below is now historical. Incumbent remains untouched.
+
+### 2026-09-06 Frontend-F5 earlier I1 checkpoint (superseded)
 
 The user authorized implementation/synthetic work using the current Astra
 setting. The accepted numerical draft is mechanically FROZEN with SHA

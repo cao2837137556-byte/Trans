@@ -341,21 +341,23 @@ def selective_npy_rows(npz_path: Path, member: str, indices: Sequence[int], expe
                 audit["opaque_bytes_streamed"] = audit.get("opaque_bytes_streamed", 0) + len(data)
                 if i in wanted:
                     row = np.frombuffer(data, dtype="<f4").copy()
+                    audit["numeric_rows_opened"] = audit.get("numeric_rows_opened", 0) + 1
                     require(np.isfinite(row).all(), "selected nonfinite row")
                     selected.append(row)
-                    audit["numeric_rows_opened"] = audit.get("numeric_rows_opened", 0) + 1
             require(stream.read(1) == b"", "NPY trailing bytes")
     return np.stack(selected) if selected else np.empty((0, expected_shape[1]), dtype=np.float32)
 
 
 @torch.no_grad()
-def evaluate(model, contexts):
+def evaluate(model, contexts, budget_check=None):
     """No teacher values needed: only labels and categorical correct-kind flags."""
     model.eval()
     groups = {g: [] for g in LABEL_GROUPS}
     predictions, violations = [], []
     seen = set()
     for start in range(0, len(contexts), 32):
+        if budget_check is not None:
+            budget_check()
         batch = contexts[start:start + 32]
         qlist, _, _ = model([c.x for c in batch], [c.key for c in batch])
         for c, q in zip(batch, qlist):

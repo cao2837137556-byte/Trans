@@ -9,12 +9,13 @@ Older sections below are historical archive unless explicitly revalidated under 
 
 Current frontend state is governed by the September 6 entries in
 `mainline_handoff.md`; older architecture/status tables below are historical.
-F4 implementation/audit is complete. F5 is a numerical training draft only.
+F4 implementation/audit is complete. F5 is FROZEN and implementation/synthetic
+verification passed; real P/T/K has not been authorized or started.
 
 | Issue | Current evidence | Next authorized action |
 |---|---|---|
-| Frontend-F3 / F4 | F3 whole-signature OOV diagnosed; F4 fieldwise input PASS: 13,866/13,866 targets, 205,470/205,470 events exact round-trip, 3,173 all-UNK recovered, zero collisions, 28/28 tests | Higher-reasoning one-shot training protocol draft only; no training/model/score access authorized |
-| Frontend-F5 | One-shot shared GRU/student-head numerical DRAFT written; continuous label-aware P2 teacher; fixed nested split and development-only claim ceiling | Design acceptance, then separately authorized Sol implementation/synthetic tests; no real teacher/model/training or evaluation access yet |
+| Frontend-F3 / F4 | F3 whole-signature OOV diagnosed; F4 fieldwise input PASS: 13,866/13,866 targets, 205,470/205,470 events exact round-trip, 3,173 all-UNK recovered, zero collisions, 28/28 tests | Closed input audit; continue via F5, do not repeat F4 |
+| Frontend-F5 | FROZEN shared GRU/student head; 47/47 synthetic tests; resource screen PASS; P/T/K controller and monitor ready; zero real training | Await explicit P teacher-preflight authorization, then separately authorized T/K; all scientific capability claims remain open |
 
 ### Maintenance Protocol
 

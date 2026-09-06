@@ -1,0 +1,55 @@
+{
+  "K_authorized": false,
+  "P_authorized": false,
+  "T_authorized": false,
+  "code_pins": {
+    "repo/ood/issue27frontend_f5_unified_student_contract_tests_v1.py": "524fd41a0ffee7d8c36bb37c138cd3d552d3c7842c2f8f3d55a86ff60dd4d08f",
+    "repo/ood/issue27frontend_f5_unified_student_integration_tests_v1.py": "35675d53da2d16ea230f5a503ff31528088687c2213394c468624d75a926bd6a",
+    "repo/ood/issue27frontend_f5_unified_student_runner_v1.py": "1b897c6f80ed7b7a0f705e176f14c32d37285d134c021e772a50ff1cc2cbeca0",
+    "repo/ood/issue27frontend_f5_unified_student_v1.py": "78898ad6cf5d59bbe3505fe5fb7536f7e29b8aeed1cb4c00aaf9f38108bf8136",
+    "repo/ood/issue27frontend_f5_verify_implementation_v1.py": "5b8994e83d6c10ed79d5e598659c05347cebeb09dd165ee72d8e6a9dc236a834",
+    "scripts/start_frontend_f5_local.ps1": "71750356b7f7e8a02e8dc0c416e16fd7272f9646ce7c2b61a409039d8c9e60c2",
+    "scripts/watch_frontend_f5_local.ps1": "65d8220d236b3f1bcbb02079c4b94f15d9fc0b081ae1b10428dca636c5953fea"
+  },
+  "date": "2026-09-06",
+  "deployment_changed": false,
+  "pilot_measured_source_commit": "117e43f",
+  "pilot_numeric_path_sha256": "2cfdc9bfd44d5db0a176c018a9af7531c4fe0db9cee3e8a034931ae9adcff2a4",
+  "pilot_repeated": false,
+  "pilot_sha256": "1730bc93af23b276ef4706339e2a47daa4dc0b593be4a39a75ee6f2d7bfe5bc4",
+  "powershell_parsers_passed": 2,
+  "protocol_sha256": "b8069e6556d6719eef3e689b1ab9a8676c24a00a82e8b5f810a401c9c42786b6",
+  "real_feature_numeric_opens": 0,
+  "real_optimizer_steps": 0,
+  "real_teacher_numeric_opens": 0,
+  "runtime": {
+    "environment": {
+      "MKL_NUM_THREADS": "4",
+      "OMP_NUM_THREADS": "4",
+      "PYTHONHASHSEED": "2705"
+    },
+    "executable": "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+    "interop_threads": 1,
+    "numpy": "2.0.2",
+    "os": "Windows-10-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "python": "3.9.13",
+    "threads": 4,
+    "torch": "2.8.0+cpu"
+  },
+  "scientific_verdict": null,
+  "status": "F5_IMPLEMENTATION_SYNTHETIC_ACCEPTANCE_PASS",
+  "suites": {
+    "core": {
+      "passed": 22,
+      "sha256": "63ecefd989a20f604389214474ce85cf6bb4a2d9473c96c4a262f439258fd2b2",
+      "total": 22
+    },
+    "integration": {
+      "passed": 25,
+      "sha256": "7974490aaa4c2123665d7381fcad0c6b0eef936f66a5c007832430e04392d766",
+      "total": 25
+    }
+  },
+  "total_tests": 47
+}
