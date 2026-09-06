@@ -5,15 +5,16 @@
 Status: active index. This top section is the current navigation map.
 Older sections below are historical archive unless explicitly revalidated under this control panel.
 
-### 2026-09-05 frontend navigation override
+### 2026-09-06 frontend navigation override
 
-Current frontend state is governed by the September 5 entry in
-`mainline_handoff.md` (finalized September 6); older architecture/status tables
-below are historical. F4 implementation/audit is the next step, not completed.
+Current frontend state is governed by the September 6 entries in
+`mainline_handoff.md`; older architecture/status tables below are historical.
+F4 implementation/audit is complete. F5 is a numerical training draft only.
 
 | Issue | Current evidence | Next authorized action |
 |---|---|---|
 | Frontend-F3 / F4 | F3 whole-signature OOV diagnosed; F4 fieldwise input PASS: 13,866/13,866 targets, 205,470/205,470 events exact round-trip, 3,173 all-UNK recovered, zero collisions, 28/28 tests | Higher-reasoning one-shot training protocol draft only; no training/model/score access authorized |
+| Frontend-F5 | One-shot shared GRU/student-head numerical DRAFT written; continuous label-aware P2 teacher; fixed nested split and development-only claim ceiling | Design acceptance, then separately authorized Sol implementation/synthetic tests; no real teacher/model/training or evaluation access yet |
 
 ### Maintenance Protocol
 

@@ -5,6 +5,25 @@
 Status: active living handoff. This top section is the authoritative current state.
 If older time-log entries conflict with this section, treat the older entry as historical evidence only.
 
+### 2026-09-06 Frontend-F5 one-shot unified-student design drafted
+
+F4 is complete; do not repeat its audit. The user's follow-up authorizes the
+next training **design**, not implementation or a real run. Read
+`frontend_f5_unified_student_one_shot_training_draft_20260906.md` and the compact
+`frontend_f5_sol_implementation_handoff_20260906.md`; rationale/self-review is
+`frontend_f5_design_decision_record_20260906.md`.
+
+The proposed F5 is one shared fieldwise GRU + small student head, with old P2
+only a label-aware continuous teacher on 6,870 nested-train A rows. It is not a
+new 768D/frozen-P2 attempt or CE deployment change. The inherited 8,660/5,206
+source split stays fixed. Numeric losses, one seed, checkpoint rules, resource
+limits, A/B attack guards and per-key B utility are specified before any new
+score/model access. Internal-validation A attack evidence is still one context
+/ three rows; any PASS would be development-only. Training, teacher opens,
+implementation, select/report/FINAL, deployment and commissioning remain
+unauthorized. The next deliverable after design acceptance is Sol implementation
+and synthetic verification, followed by separate bounded real-run authorization.
+
 ### 2026-09-06 Frontend-F4 fieldwise input PASS
 
 The authorized Sol High implementation and no-model audit completed as
