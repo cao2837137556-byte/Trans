@@ -5,10 +5,30 @@
 Status: active living handoff. This top section is the authoritative current state.
 If older time-log entries conflict with this section, treat the older entry as historical evidence only.
 
+### 2026-09-06 Frontend-F4 fieldwise input PASS
+
+The authorized Sol High implementation and no-model audit completed as
+`F4_FIELDWISE_INPUT_PASS`. All 13,866 parent targets / 9,307 contexts / 205,470
+events encode to fixed 131D float32 inputs and round-trip exactly. The 3,173
+old all-UNK validation targets are now losslessly represented; canonical and
+feature mixed-label buckets are zero; feature collisions are zero; all five
+kill-only attack prefixes encode and none equals a nested-train benign prefix.
+Synthetic tests pass 28/28 and the result manifest passes 14/14 independent
+hash checks. Runtime 54.484 s, peak working set 388,538,368 bytes.
+
+This is input feasibility only. It is not inherited attack capability, OOD
+improvement, hydraulic repair, or commissioning evidence. Validation has only
+one A attack context / three rows; the five exposed attacks remain kill-only.
+Read `frontend_f4_fieldwise_input_result_report_20260906.md` and
+`frontend_f4_to_f5_training_design_brief_20260906.md`. The only permitted next
+action is a separate higher-reasoning training protocol draft. Training,
+teacher/model/score opens, select/report/FINAL, CE deployment changes, external
+data, and HPC remain unauthorized.
+
 ### 2026-09-05 Frontend-F3 closure and F4 implementation handoff
 
-Finalized 2026-09-06. F4 code and real feature audit have not run yet; this is
-the completed design handoff, not an implementation PASS.
+Historical design state, superseded by the September 6 PASS above. At this
+point F4 code and the real feature audit had not run.
 
 This entry supersedes the older control-panel experiment state below for the
 current frontend work. Frontend-F1's single local GRU/frozen-P2 training ended

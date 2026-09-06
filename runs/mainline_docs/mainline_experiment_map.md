@@ -13,7 +13,7 @@ below are historical. F4 implementation/audit is the next step, not completed.
 
 | Issue | Current evidence | Next authorized action |
 |---|---|---|
-| Frontend-F3 / F4 | F3 full-fit L1 NO_GO confirmed: zero exact label conflicts, whole-signature OOV; 12/12 package hashes; inherited validation attack support sparse | Completed F4 fieldwise-input draft -> Sol High mechanical freeze, implementation, tests and no-model audit; no training |
+| Frontend-F3 / F4 | F3 whole-signature OOV diagnosed; F4 fieldwise input PASS: 13,866/13,866 targets, 205,470/205,470 events exact round-trip, 3,173 all-UNK recovered, zero collisions, 28/28 tests | Higher-reasoning one-shot training protocol draft only; no training/model/score access authorized |
 
 ### Maintenance Protocol
 

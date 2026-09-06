@@ -1,0 +1,57 @@
+group_kind,group_value,nested_split,targets,contexts,encoded_targets,roundtrip_targets,old_all_unk_targets
+attack_family,File Download,internal_val,3,2,3,3,0
+attack_family,Ingress Tool Transfer,internal_val,3,1,3,3,0
+attack_family,Merlin C&C Communication,train,5,3,5,5,0
+attack_family,Merlin ICMP Flooding,train,25,13,25,25,0
+attack_family,Merlin TCP Flooding,train,58,48,58,58,0
+attack_family,Merlin UDP Flooding,train,30,30,30,30,0
+attack_family,Mirai C&C Communication,train,6,2,6,6,0
+attack_family,Mirai GRE Flooding,train,32,10,32,32,0
+attack_family,Mirai TCP Flooding,train,60,51,60,60,0
+attack_family,Mirai UDP Flooding,train,31,21,31,31,0
+attack_family,ToN-credential_bruteforce,train,2000,1998,2000,2000,0
+attack_family,benign,internal_val,5200,4320,5200,5200,3173
+attack_family,benign,train,6413,2808,6413,6413,0
+context_tier,H1,internal_val,1515,1020,1515,1515,45
+context_tier,H1,train,6875,4003,6875,6875,0
+context_tier,H2,internal_val,274,190,274,274,140
+context_tier,H2,train,848,400,848,848,0
+context_tier,H3,internal_val,3403,3104,3403,3403,2974
+context_tier,H3,train,937,581,937,937,0
+context_tier,H4,internal_val,14,9,14,14,14
+device_family,city-power,train,115,77,115,115,0
+device_family,combined-cycle,internal_val,6,3,6,6,0
+device_family,iotsim-building-monitor,train,3204,1088,3204,3204,0
+device_family,iotsim-combined-cycle,internal_val,600,464,600,600,0
+device_family,iotsim-combined-cycle,train,1200,929,1200,1200,0
+device_family,iotsim-combined-cycle-tls,train,1409,595,1409,1409,0
+device_family,iotsim-domotic-monitor,internal_val,600,189,600,600,0
+device_family,iotsim-domotic-monitor,train,600,196,600,600,0
+device_family,ip-camera-museum,train,132,101,132,132,0
+device_family,ton-iot-external,internal_val,4000,3667,4000,4000,3173
+device_family,ton-iot-external,train,2000,1998,2000,2000,0
+label,0,internal_val,5200,4320,5200,5200,3173
+label,0,train,6413,2808,6413,6413,0
+label,1,internal_val,6,3,6,6,0
+label,1,train,2247,2176,2247,2247,0
+owner,A,internal_val,1483,994,1483,1483,16
+owner,A,train,6870,4000,6870,6870,0
+owner,B,internal_val,3723,3329,3723,3723,3157
+owner,B,train,1790,984,1790,1790,0
+source,iotsim-building-monitor-5_0-0_to_OpenvSwitch-28_5-0,train,600,199,600,600,0
+source,iotsim-combined-cycle-5_0-0_to_OpenvSwitch-13_5-0,train,600,464,600,600,0
+source,iotsim-combined-cycle-6_0-0_to_OpenvSwitch-13_6-0,internal_val,600,464,600,600,0
+source,iotsim-combined-cycle-9_0-0_to_OpenvSwitch-13_9-0,train,600,465,600,600,0
+source,iotsim-combined-cycle-tls-1_0-0_to_OpenvSwitch-14_1-0,train,600,186,600,600,0
+source,iotsim-domotic-monitor-3_0-0_to_OpenvSwitch-23_3-0,internal_val,600,189,600,600,0
+source,iotsim-domotic-monitor-5_0-0_to_OpenvSwitch-23_5-0,train,600,196,600,600,0
+source,normal_1.pcap,internal_val,4000,3667,4000,4000,3173
+source,password_normal1.pcap,train,2000,1998,2000,2000,0
+source,processed/iotsim-building-monitor-2.csv,train,1690,579,1690,1690,0
+source,processed/iotsim-building-monitor-3.csv,train,914,310,914,914,0
+source,processed/iotsim-city-power-1.csv,train,115,77,115,115,0
+source,processed/iotsim-combined-cycle-10.csv,internal_val,6,3,6,6,0
+source,processed/iotsim-combined-cycle-tls-3.csv,train,270,134,270,270,0
+source,processed/iotsim-combined-cycle-tls-4.csv,train,270,138,270,270,0
+source,processed/iotsim-combined-cycle-tls-5.csv,train,269,137,269,269,0
+source,processed/iotsim-ip-camera-museum-1.csv,train,132,101,132,132,0

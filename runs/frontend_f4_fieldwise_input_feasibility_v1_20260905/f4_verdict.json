@@ -1,0 +1,93 @@
+{
+  "canonical_mixed_label_buckets": 0,
+  "claim_ceiling": "LOSSLESS_FIELD_INPUT_ON_EXPOSED_DEVELOPMENT_UNIVERSE",
+  "feature_collisions": 0,
+  "feature_mixed_label_buckets": 0,
+  "gates": {
+    "G1_identity_and_conservation": true,
+    "G2_roundtrip_finite_width": true,
+    "G3_collision_and_mixed_label_zero": true,
+    "G4_causal_prefix": true,
+    "G5_fixed_no_forbidden_io": true,
+    "G6_kill_only_noncollision": true,
+    "G7_synthetic_tests": true,
+    "G8_resources_and_serialization": true
+  },
+  "internal_val_contexts": 4323,
+  "internal_val_targets": 5206,
+  "kill_only": [
+    {
+      "collides_with_nested_train_benign": "false",
+      "context_key": "normal_scanning1.pcap\u001f6c72f8aed077430e1d69cdb970e6ffc9f191d97a898d124145b546c7d9b54fff\u001f0",
+      "feature_prefix_sha256": "c2c7b1c31d8714dbd41d7e8eed3b575a2196c1eaff260e0142f1a0357dbcd75a",
+      "finite": "true",
+      "old_known_events": "0",
+      "old_unk_events": "2",
+      "prefix_events": 2,
+      "roundtrip_exact": "true",
+      "uid": "ton:ckbt_01dad899cff4388f69a7"
+    },
+    {
+      "collides_with_nested_train_benign": "false",
+      "context_key": "normal_scanning1.pcap\u001f35c2faf271d2b57efa978a4a4e84232175e8a2c9794cea825587bc2ad957a2e0\u001f0",
+      "feature_prefix_sha256": "eb80bfb762b352e8a47010823ae116868c7ccd5b5bbbd9efce9810d969bdaf86",
+      "finite": "true",
+      "old_known_events": "10",
+      "old_unk_events": "18",
+      "prefix_events": 28,
+      "roundtrip_exact": "true",
+      "uid": "ton:ckbt_03cee2b1ee1f725a3cc7"
+    },
+    {
+      "collides_with_nested_train_benign": "false",
+      "context_key": "normal_scanning1.pcap\u001fe0e2ae90a9457f674e85f0c7dc1ac41c175bfd7dbafdf4b638b0289951e66207\u001f0",
+      "feature_prefix_sha256": "1df90f13d80ed13d704b7afcc46999395a65fda1ea8d9d1f887823ae92384c84",
+      "finite": "true",
+      "old_known_events": "8",
+      "old_unk_events": "21",
+      "prefix_events": 29,
+      "roundtrip_exact": "true",
+      "uid": "ton:ckbt_2430e72b8306da7ee37a"
+    },
+    {
+      "collides_with_nested_train_benign": "false",
+      "context_key": "normal_scanning1.pcap\u001fd655f6fdecad7bd61b2fbcb3dd42038329706da8e1b8c8fcbf1017b1564378f1\u001f0",
+      "feature_prefix_sha256": "3b90d04bea06173e209fc891eb7002eedd8981ba438b2093e76767b0ce163a83",
+      "finite": "true",
+      "old_known_events": "0",
+      "old_unk_events": "3",
+      "prefix_events": 3,
+      "roundtrip_exact": "true",
+      "uid": "ton:ckbt_2f8a4b08f3ad6eaaeeea"
+    },
+    {
+      "collides_with_nested_train_benign": "false",
+      "context_key": "normal_scanning1.pcap\u001fe862f5886887494b0db0cdf5b5f6f74be8bd12e4803ba25853131e76801adc09\u001f0",
+      "feature_prefix_sha256": "52b4d66e28d722da14c7af65a50c8c8571f81189be3bec0805464580e7b731ab",
+      "finite": "true",
+      "old_known_events": "17",
+      "old_unk_events": "32",
+      "prefix_events": 49,
+      "roundtrip_exact": "true",
+      "uid": "ton:ckbt_31ba7d482a97ce8eb9d6"
+    }
+  ],
+  "next_permitted_action": "DRAFT_ONE_SHOT_TRAINING_PROTOCOL_ONLY",
+  "old_all_unk_targets_losslessly_encoded": 3173,
+  "parent_contexts": 9307,
+  "parent_events": 205470,
+  "parent_targets": 13866,
+  "positive_attack_generalization_evidence": false,
+  "resource": {
+    "output_bytes": 110306450,
+    "peak_working_set_bytes": 388538368,
+    "wall_seconds": 54.48400000005495
+  },
+  "roundtrip_targets": 13866,
+  "status": "F4_FIELDWISE_INPUT_PASS",
+  "train_contexts": 4984,
+  "train_targets": 8660,
+  "training_authorized": false,
+  "unique_canonical_events": 12524,
+  "unique_feature_events": 12524
+}
