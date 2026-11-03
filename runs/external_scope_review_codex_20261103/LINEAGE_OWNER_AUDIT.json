@@ -1,0 +1,127 @@
+{
+  "status": "OBSERVED_METADATA_OWNER_COMPARISON_COMPLETE",
+  "target_owner": "dc:a6:32:fb:69:b5",
+  "inputs": [
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV.jsonl.gz",
+      "bytes": 20489530,
+      "sha256": "666c2e2dc648ab539b8e2bb5e1b1fb8fee8cd3bf92223a72d6631fc4c851f64f",
+      "records": 179886,
+      "missing_owner": 0,
+      "owners": [
+        "44:01:bb:ec:10:4a",
+        "8c:85:80:6c:b6:47"
+      ],
+      "edge_owner_matches": false,
+      "prior_sha256_pin_check": "MATCHED",
+      "current_sha256_recorded": true,
+      "input_unchanged": true
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV.jsonl.gz",
+      "bytes": 16428540,
+      "sha256": "d334f18c3a2857fe8b63f491fd78ba3dc984bbd0fa7a55a4f030d9e797098503",
+      "records": 148316,
+      "missing_owner": 0,
+      "owners": [
+        "00:16:6c:ab:6b:88",
+        "50:c7:bf:00:56:39",
+        "70:ee:50:18:34:43",
+        "ec:1a:59:79:f4:89",
+        "ec:1a:59:83:28:11"
+      ],
+      "edge_owner_matches": false,
+      "prior_sha256_pin_check": "MATCHED",
+      "current_sha256_recorded": true,
+      "input_unchanged": true
+    },
+    {
+      "path": "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/CIC_DEV/SELECTED_REFERENCES.jsonl.gz",
+      "bytes": 755851,
+      "sha256": "376b8d83da5f15acc1dd2c3eaa3c9b6919fae5cf2278e73c54a0409ef9af4f64",
+      "records": 8574,
+      "missing_owner": 0,
+      "owners": [
+        "44:01:bb:ec:10:4a",
+        "8c:85:80:6c:b6:47"
+      ],
+      "edge_owner_matches": false,
+      "prior_sha256_pin_check": "MATCHED",
+      "current_sha256_recorded": true,
+      "input_unchanged": true
+    },
+    {
+      "path": "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/UNSW_DEV/SELECTED_REFERENCES.jsonl.gz",
+      "bytes": 1207067,
+      "sha256": "850b68302ccf94138138e55455136dbe5bb1d5e2e122c41420763c597d89c456",
+      "records": 13247,
+      "missing_owner": 0,
+      "owners": [
+        "00:16:6c:ab:6b:88",
+        "50:c7:bf:00:56:39",
+        "70:ee:50:18:34:43",
+        "ec:1a:59:79:f4:89",
+        "ec:1a:59:83:28:11"
+      ],
+      "edge_owner_matches": false,
+      "prior_sha256_pin_check": "MATCHED",
+      "current_sha256_recorded": true,
+      "input_unchanged": true
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.jsonl.gz",
+      "bytes": 14893,
+      "sha256": "997e1c4ab68781fba3787969a37938ef0a36d899559543e243aabeeda1953fb3",
+      "records": 75,
+      "missing_owner": 0,
+      "owners": [
+        "44:01:bb:ec:10:4a",
+        "8c:85:80:6c:b6:47"
+      ],
+      "edge_owner_matches": false,
+      "prior_sha256_pin_check": "MATCHED",
+      "current_sha256_recorded": true,
+      "input_unchanged": true
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN.jsonl.gz",
+      "bytes": 93547174,
+      "sha256": "295a714ab573baf50086464d0c5e97ddfa9ca9e065a06cf282037df75541ae91",
+      "records": 766727,
+      "missing_owner": 0,
+      "owners": [
+        "00:17:88:60:d6:4f",
+        "10:2c:6b:1b:43:be",
+        "40:5d:82:35:14:c8",
+        "50:02:91:b1:68:0c",
+        "68:57:2d:56:ac:47",
+        "9c:8e:cd:1d:ab:9f"
+      ],
+      "edge_owner_matches": false,
+      "prior_sha256_pin_check": "NOT_PROVIDED",
+      "current_sha256_recorded": true,
+      "input_unchanged": true
+    }
+  ],
+  "observed_overlap": false,
+  "limitations": [
+    "This is the named current source/A/B/bank metadata scope, not all ever downloaded datasets.",
+    "Historical target-owner roster and raw-source provenance must also be checked.",
+    "Absence of a MAC match does not prove encoder pretraining provenance or hardware serial identity."
+  ],
+  "model_execution": false,
+  "elapsed_seconds": 19.610000000000582,
+  "historical_target_roster": {
+    "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/common.py",
+    "sha256": "51a26970685ab909bce9ccde9888c441f65fadec8e876865b0d0d0f481f3502f",
+    "owners": [
+      "00:16:6c:ab:6b:88",
+      "44:01:bb:ec:10:4a",
+      "50:c7:bf:00:56:39",
+      "70:ee:50:18:34:43",
+      "ec:1a:59:79:f4:89"
+    ],
+    "edge_owner_matches": false
+  },
+  "historical_raw_provenance": "C1-C4 current historical targets are CICIoT2022 and UNSW IoT Traces/2018 assets; fixed Edge files are the distinct Ferrag Edge-IIoTset release. This does not prove encoder pretraining provenance."
+}

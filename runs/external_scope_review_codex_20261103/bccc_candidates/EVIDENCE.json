@@ -1,0 +1,192 @@
+{
+  "status": "READ_ONLY_BCCC_AND_BOUNDED_ADDITIONAL_CANDIDATES_REVIEW_COMPLETE",
+  "created_utc": "2026-11-03T08:50:13.305237+00:00",
+  "sources": [
+    {
+      "path": "runs/external_scope_review_codex_20261103/bccc_candidates/sources/bccc_official.html",
+      "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/large-scale-iot-zwave-intrusion-detection-dataset-bccc-iot-ids-zwave-2025/",
+      "role": "Official dataset statement; paragraph beginning The BCCC-IoT-IDS-ZWave-2025 Dataset",
+      "bytes": 65683,
+      "sha256": "89d88d447d2830f12bebb14fe29d28d1d0b4d936beb8836f2d3972a32ebffebf"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/bccc_candidates/sources/crossref.json",
+      "url": "https://api.crossref.org/works/10.1016/j.iot.2025.101747",
+      "role": "Publisher-deposited DOI/title/authors/date/license",
+      "bytes": 25105,
+      "sha256": "7b36560648a236a9b5f03e0f7c3f78c292e7b4dd3e3b56ec2b47f242e24573bb"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/bccc_candidates/sources/openalex.json",
+      "url": "https://api.openalex.org/works/https://doi.org/10.1016/j.iot.2025.101747",
+      "role": "OA discovery; no repository full text location",
+      "bytes": 17673,
+      "sha256": "87b1ac6f3fe34649661fc6271fc5bbbc4de2506c1ab723ec6f3baf4b8e903701"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/bccc_candidates/sources/publisher_api.xml",
+      "url": "https://api.elsevier.com/content/article/PII:S2542660525002616?httpAccept=text/xml",
+      "role": "Publisher coredata says openaccessArticle=true and CC BY-NC; no originalText body",
+      "bytes": 2058,
+      "sha256": "a76c53e03a0657ee04821e0004ea6a3dbd11b4e9a91067c07b492b4d4380b447"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/bccc_candidates/sources/bccc_publications.html",
+      "url": "https://www.yorku.ca/research/bccc/publications/",
+      "role": "Author-center publications points to publisher, not separate manuscript",
+      "bytes": 99088,
+      "sha256": "92e626cc517c2f4e331e9ee00d0c869602de6d2dfd16564c593705c44043760c"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/bccc_candidates/sources/bccc_request_retry.html",
+      "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/dataset-request/",
+      "role": "Request landing page; no public member manifest retrieved; no form submitted",
+      "bytes": 52828,
+      "sha256": "05d165a4511f868b19c44549dde30eaa54bda887cef388526fec7b829e2207c4"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/bccc_candidates/sources/arxiv.xml",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22IoT-Zwave%22&max_results=10",
+      "role": "Bounded title-term arXiv lookup returned zero; not proof no preprint exists",
+      "bytes": 708,
+      "sha256": "995afc8c08af4a0ab09d9849195fe3175988f5bd51c6644354edbcfe42cd59fa"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/bccc_candidates/sources/zwave_arxiv_retry.xml",
+      "url": "https://export.arxiv.org/api/query?search_query=au%3AShafi%20AND%20all%3AZwave&max_results=10",
+      "role": "Bounded author+term lookup; no discovered manuscript",
+      "bytes": 718,
+      "sha256": "38b56f7b846203d63ef4ce91f0e06919eeaacae2b3ebdab9e35936a6c9d3b7de"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/bccc_candidates/sources/mqttset_fulltext.xml",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7698741/fullTextXML",
+      "role": "MQTTset author full text; data generation/attack methods/availability sections only used",
+      "bytes": 182855,
+      "sha256": "ce447e39594090a53c79daf99669d94a4a082cf2d2def86d82f4cd3271efcaa9"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/bccc_candidates/sources/mqtt_ids_hindy.pdf",
+      "url": "https://rke.abertay.ac.uk/ws/files/31256069/Hindy_Bayne_MachineLearningBasedIoTIntrusion_Accepted_2020.pdf",
+      "role": "Author accepted manuscript; section 2 states VM-simulated devices",
+      "bytes": 433341,
+      "sha256": "aa61f63689389515141b699a929e08c1532e08baef7a1741144f2541418b652e"
+    }
+  ],
+  "facts": [
+    {
+      "id": "B1",
+      "claim": "Official dataset developed over five months; 20 TB; more than 1 billion multi-source records; more than 110 devices",
+      "status": "VERIFIED_OFFICIAL_WEB_NOT_RAW",
+      "source": "bccc_official.html",
+      "limitations": "Campaign duration is not a per-device continuous normal prefix; record count is not packet count."
+    },
+    {
+      "id": "B2",
+      "claim": "88 distinct attack scenarios; 81 IP network traffic classes; 24 Z-Wave classes",
+      "status": "VERIFIED_WITH_CORRECTION",
+      "source": "bccc_official.html",
+      "correction": "Do not state that 81 of the 88 attack scenarios are IP attacks; classes and attack scenarios have different denominators, and benign membership is not resolved."
+    },
+    {
+      "id": "B3",
+      "claim": "Five sources: IP-based traffic, Z-Wave protocol communication, device activity logs, MQTT traffic, MQTT message logs; raw packets/CSV/metadata/labeling files advertised",
+      "status": "VERIFIED_OFFICIAL_WEB_NOT_FILE_MANIFEST",
+      "source": "bccc_official.html"
+    },
+    {
+      "id": "B4",
+      "claim": "Shafi and Lashkari, Internet of Things vol34 November2025, DOI10.1016/j.iot.2025.101747",
+      "status": "VERIFIED_PRIMARY_METADATA",
+      "sources": [
+        "bccc_official.html",
+        "crossref.json"
+      ]
+    },
+    {
+      "id": "B5",
+      "claim": "Paper is published OA with CC BY-NC4.0; publisher HTTP403 is not proof it requires payment",
+      "status": "VERIFIED_OA_METADATA_FULLTEXT_NOT_OBTAINED",
+      "sources": [
+        "crossref.json",
+        "openalex.json",
+        "publisher_api.xml"
+      ],
+      "limitations": "FULL API request returned401, ScienceDirect403. No credentials or anti-bot gate were bypassed. No usable author/repository/arXiv full text discovered in bounded lookup."
+    },
+    {
+      "id": "B6",
+      "claim": "Exact capture dates, per-target normal-before-attack7200s, post-window normal, raw identity/MAC roster, event-to-packet label algorithm",
+      "status": "UNRESOLVED",
+      "source": "bccc_official.html",
+      "limitations": "Advertised label files are not sufficient to establish S4. Dataset request page is not file access."
+    },
+    {
+      "id": "B7",
+      "claim": "S6 identity overlap with CICIoT2022 is unknown",
+      "status": "UNRESOLVED",
+      "limitations": "Shared author/institutional history is an audit reason, not evidence of same MAC or reused packets."
+    },
+    {
+      "id": "N1",
+      "candidate": "MQTTset",
+      "doi": "10.3390/s20226578",
+      "official_data_entry": "https://www.kaggle.com/cnrieiit/mqttset",
+      "status": "METADATA_RESERVE_NOT_QUALIFIED",
+      "source": "mqttset_fulltext.xml",
+      "primary_details": {
+        "section3": "IoT-Flock generates emulated sensors; broker Eclipse Mosquitto1.6.2 at10.16.100.73:1883; rawPCAP captured at broker",
+        "capture_statement": "one week (from Friday at11:40 to Friday at11:45),11915716packets,1093676216bytes",
+        "section3_1": "five separate attackPCAP categories: floodingDoS, MQTTPublishFlood, SlowITe, malformeddata, brute-forceauthentication",
+        "section6": "author Kaggle dataset entry"
+      },
+      "unresolved": [
+        "Physical broker/edge device identity and MAC",
+        "Actual per-target benign chronology before attacks and capture gaps",
+        "Precise direct attack labels",
+        "MAC/source separation from all prior material"
+      ],
+      "scope_limit": "Emulated sensors cannot be counted as independent real attacked endpoints. Pure malformed-payload cases cannot establish S5 for the frozen header-only method."
+    },
+    {
+      "id": "N2",
+      "candidate": "MQTT-IoT-IDS2020 (Hindy etal)",
+      "doi": "10.1007/978-3-030-64758-2_6",
+      "status": "DO_NOT_PROMOTE_TO_REAL_DEVICE_MAIN_CONFIRMATION",
+      "source": "mqtt_ids_hindy.pdf",
+      "reason": "Section2 explicitly: Virtual machines are used to simulate the network devices; 12 MQTT sensors and camera feed simulation. RawPCAP and four attack categories do not establish real-target S1 or S3."
+    }
+  ],
+  "BCCC_S1_S6": {
+    "S1": "POSSIBLE_ADVERTISED_PHYSICAL_TESTBED_IDENTITY_UNVERIFIED",
+    "S2": "ADVERTISED_RAW_PACKETS_REAL_TIMESTAMPS_UNVERIFIED",
+    "S3": "UNKNOWN",
+    "S4": "UNKNOWN",
+    "S5": "NETWORK_LAYER_SCENARIOS_ADVERTISED_EVENT_SCOPE_UNVERIFIED",
+    "S6": "UNKNOWN"
+  },
+  "actions": {
+    "raw_capture_downloads": 0,
+    "dataset_request_submissions": 0,
+    "logins_or_purchases": 0,
+    "model_evaluations": 0,
+    "cloud_jobs": 0,
+    "old_artifact_modifications": 0
+  },
+  "newly_qualified_dataset_count": 0,
+  "literature_benchmark_scores_not_used_for_selection": true,
+  "input_documents": [
+    {
+      "path": "runs/mainline_docs/collab/20261102_external_candidate_survey_claude.md",
+      "sha256": "a85378e2434454a4f13d39abd67edcf43cbab5cd40689f465c165b92bca6f872"
+    },
+    {
+      "path": "runs/mainline_docs/collab/20261102_external_scope_criteria_and_edge_review_claude.md",
+      "sha256": "9ab5dce6d1f24b912b79c4a86a73710a6c84d9c07080e9ddf01698e18b0a8b22"
+    },
+    {
+      "path": "runs/mainline_docs/collab/20261102_external_dataset_rescreen_and_next_acquisition_codex.md",
+      "sha256": "195449e13a1c07d167d78e9997f85292d7efe03db71ba15806a7aec67ce8ba92"
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "status": "PUBLIC_METADATA_REVIEW_COMPLETE_CANDIDATES_NOT_QUALIFIED",
+  "review_date": "2026-11-03",
+  "created_utc": "2026-11-03T08:45:59.129853+00:00",
+  "scope": "Public metadata only; no login/subscription bypass, forms, messages, purchases, raw PCAP acquisition or model computation",
+  "source_urls": {
+    "sharp": "https://ieee-dataport.org/documents/sharp-smart-home-attacks-across-residential-multi-protocols",
+    "sharp_datacite": "https://api.datacite.org/dois/10.21227/ray1-ag27",
+    "aci": "https://ieee-dataport.org/documents/aci-iot-network-traffic-dataset-2023",
+    "aci_author_paper": "https://doi.org/10.1109/MILCOM61039.2024.10773916"
+  },
+  "claims": [
+    {
+      "id": "SHARP_ID",
+      "claim": "SHARP title, DOI 10.21227/ray1-ag27, Cardiff authors Alosaimi/Rana/Perera, CC BY 4.0",
+      "status": "CONFIRMED_CURRENT_DATAPORT_PAGE_WITH_DATACITE_CONFLICT",
+      "source": "sharp.html"
+    },
+    {
+      "id": "SHARP_DATES",
+      "claim": "Occupied two-bedroom flat; normal household operation 2025-06-20 to 2025-07-05; controlled campaign 2025-08-13",
+      "status": "CONFIRMED_PAGE_ONLY_NOT_PER_DEVICE_CONTINUITY",
+      "source": "sharp.html"
+    },
+    {
+      "id": "SHARP_COUNTS",
+      "claim": "1677 complete captures = 512 router/IP + 779 over-air WiFi + 386 Zigbee; core contains 22 of those, not 22 independent additional captures",
+      "status": "CONFIRMED_PAGE_ONLY",
+      "source": "sharp.html"
+    },
+    {
+      "id": "SHARP_ZIP",
+      "claim": "Anonymous file list exposes v1.0.0.zip 172.24GB and restricted v1.0.0_zip tree; no separate public small archive link",
+      "status": "CONFIRMED_LISTING_DOWNLOAD_NOT_ATTEMPTED",
+      "source": "sharp.html"
+    },
+    {
+      "id": "SHARP_LEDGER",
+      "claim": "36 attacks and tests, A001-A035 and A038; A036/A037 absent; records have times/sources/targets and separate outcomes",
+      "status": "CONFIRMED_PAGE_ONLY_NOT_36_SUCCESSFUL_IP_ATTACKS",
+      "source": "sharp.html"
+    },
+    {
+      "id": "SHARP_LABELS",
+      "claim": "Attack-day telemetry not_assessed; interval attack_context is not a verified per-observation effect label",
+      "status": "CONFIRMED_PAGE_ONLY_PACKET_LABEL_CONTRACT_UNKNOWN",
+      "source": "sharp.html"
+    },
+    {
+      "id": "SHARP_IP_ATTACKS",
+      "claim": "Number/type of network-layer IP attacks and packet-level source/victim rules",
+      "status": "UNKNOWN_LEDGER_NOT_ACQUIRED",
+      "source": "sharp.html"
+    },
+    {
+      "id": "SHARP_PAPER",
+      "claim": "No companion paper exists",
+      "status": "NOT_ESTABLISHED_PAGE_DOES_NOT_LINK_ONE",
+      "source": "sharp.html"
+    },
+    {
+      "id": "SHARP_DATACITE",
+      "claim": "DataCite DOI record has quoted TON-IoT title, ton-iot URL and temporary-text description, despite matching authors/DOI/year; DOI resolver reaches current SHARP page",
+      "status": "METADATA_IDENTITY_CONFLICT_REQUIRES_CLARIFICATION_NOT_PROOF_OF_TON_OVERLAP",
+      "sources": [
+        "sharp_datacite.json",
+        "sharp_doi.html"
+      ]
+    },
+    {
+      "id": "ACI_SOURCE",
+      "claim": "Dataset-author paper is Nack/McKenzie/Bastian, MILCOM 2024, DOI 10.1109/MILCOM61039.2024.10773916",
+      "status": "CONFIRMED_PRIMARY_BIBLIOGRAPHY_PRIOR_CROSSREF_AND_CURRENT_OPENALEX",
+      "sources": [
+        "aci_openalex_primary.json",
+        "runs/external_dataset_rescreen_v1_20261102/aci/crossref_primary.json"
+      ]
+    },
+    {
+      "id": "ACI_PHYSICAL_FIVE_DAYS",
+      "claim": "Physical IoT devices and five days of capture, benign + reconnaissance/DoS/brute-force/spoofing",
+      "status": "SUPPORTED_BY_SECONDARY_INDEX_OF_PRIMARY_ABSTRACT_NOT_RAW_VERIFIED",
+      "source": "aci_openalex_primary.json"
+    },
+    {
+      "id": "ACI_30_DEVICES",
+      "claim": "About 30 physical devices",
+      "status": "NOT_VERIFIED_FROM_ACQUIRED_AUTHOR_MATERIAL",
+      "source": "aci.html"
+    },
+    {
+      "id": "ACI_8M_PACKETS",
+      "claim": "About eight million packets",
+      "status": "NOT_VERIFIED_NUMBER_AND_UNIT_UNKNOWN",
+      "source": "aci.html"
+    },
+    {
+      "id": "ACI_NORMAL_5PCT",
+      "claim": "Normal traffic is about five percent",
+      "status": "NOT_VERIFIED_DO_NOT_USE_AS_S3_DURATION_PROXY",
+      "source": "aci.html"
+    },
+    {
+      "id": "ACI_FILE_LIST",
+      "claim": "Attack Timesheets 2.5KB, PCAP Files32.27GB, Labeled Netflow596.91MB, Labeled Payload5.15GB; ACI-IoT-2023-README named in instructions",
+      "status": "CONFIRMED_CURRENT_OFFICIAL_LISTING",
+      "source": "aci.html"
+    },
+    {
+      "id": "BOTH_ACCESS",
+      "claim": "Both current official pages require DataPort subscription; ordinary free IEEE login is insufficient; exact member access requires entitled login",
+      "status": "CONFIRMED_ANONYMOUS_VIEW_NOT_ACCOUNT_ENTITLEMENT_VERIFIED",
+      "sources": [
+        "aci.html",
+        "sharp.html"
+      ]
+    }
+  ],
+  "small_file_inventory": [
+    {
+      "dataset": "SHARP",
+      "name": "researcher_documentation/DEVICE_GUIDE.md",
+      "name_status": "EXACT_PATH_VISIBLE_IN_OFFICIAL_INSTRUCTIONS",
+      "download": "VISIBLE_RELATIVE_WEB_LINK_HTTP404; archived member access not verified"
+    },
+    {
+      "dataset": "SHARP",
+      "name": "researcher_documentation/ATTACK_GUIDE.md",
+      "name_status": "EXACT_PATH_VISIBLE_IN_OFFICIAL_INSTRUCTIONS",
+      "download": "VISIBLE_RELATIVE_WEB_LINK_HTTP404; archived member access not verified"
+    },
+    {
+      "dataset": "SHARP",
+      "name": "researcher_documentation/LABELS_AND_ATTACKS.md",
+      "name_status": "EXACT_PATH_VISIBLE_IN_OFFICIAL_INSTRUCTIONS",
+      "download": "VISIBLE_RELATIVE_WEB_LINK_HTTP404; archived member access not verified"
+    },
+    {
+      "dataset": "SHARP",
+      "name": "researcher_documentation/QUICK_START.md",
+      "name_status": "EXACT_PATH_VISIBLE_IN_OFFICIAL_INSTRUCTIONS",
+      "download": "NOT_REQUESTED; archived member access not verified"
+    },
+    {
+      "dataset": "SHARP",
+      "name": "metadata/FILE_MANIFEST.csv",
+      "name_status": "EXACT_PATH_VISIBLE_IN_OFFICIAL_INSTRUCTIONS",
+      "download": "NOT_EXPOSED_AS_STANDALONE_LINK"
+    },
+    {
+      "dataset": "SHARP",
+      "name": "02_PUBLIC_RESEARCHER_DOCUMENTATION",
+      "name_status": "ARCHIVE_BASE_IDENTIFIER_ONLY_EXTENSION_AND_SIZE_UNKNOWN",
+      "download": "MENTIONED_IN_PROSE_NOT_SEPARATELY_LISTED"
+    },
+    {
+      "dataset": "SHARP",
+      "name": "Attack ledger / device inventory / identifier mapping / README",
+      "name_status": "PURPOSE_DESCRIBED_EXACT_FILENAMES_NOT_VISIBLE",
+      "download": "UNKNOWN_PENDING_DOCUMENTATION_MANIFEST"
+    },
+    {
+      "dataset": "ACI",
+      "name": "Attack Timesheets",
+      "name_status": "EXACT_DISPLAY_LABEL;2.5KB;restricted tree identifier Timesheets_zip;actual archive/member filename not visible",
+      "download": "SEPARATE_TOP_LEVEL_ITEM_BUT_NO_ANONYMOUS_DOWNLOAD;SUBSCRIBED_DOWNLOAD_NOT_VERIFIED"
+    },
+    {
+      "dataset": "ACI",
+      "name": "ACI-IoT-2023-README",
+      "name_status": "EXACT_README_TITLE;extension_and_member_path_unknown",
+      "download": "NO_SEPARATE_PUBLIC_LINK"
+    },
+    {
+      "dataset": "ACI",
+      "name": "device MAC/IP map and raw archive member listing",
+      "name_status": "REQUIRED_MATERIAL_NOT_VISIBLE_AS_NAMED_FILES",
+      "download": "UNKNOWN"
+    }
+  ],
+  "search_limitations": [
+    "Google returned JS redirect shell, not readable search results",
+    "Bing exact queries returned generic ACI concrete/payment results, not usable confirmation",
+    "OpenAlex lists the author paper as closed with no repository full text; this is not proof no open copy exists"
+  ],
+  "qualification_decisions": {
+    "SHARP": "RETAIN_METADATA_CANDIDATE_S1_S2_PROMISING_S3_S4_S5_S6_UNCONFIRMED_AND_METADATA_CONFLICT",
+    "ACI": "RETAIN_METADATA_CANDIDATE_NO_BENIGN_PERCENTAGE_EXCLUSION"
+  },
+  "all_candidate_model_outputs_untouched": true,
+  "sources_sha256": [
+    {
+      "path": "runs/external_scope_review_codex_20261103/sharp_aci/sharp.html",
+      "bytes": 67242,
+      "sha256": "44799ae81ba87282fd18033f98749ff03e69ef8ecc2ee6fe827774c9fdc75b35"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/sharp_aci/sharp_doi.html",
+      "bytes": 67242,
+      "sha256": "44799ae81ba87282fd18033f98749ff03e69ef8ecc2ee6fe827774c9fdc75b35"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/sharp_aci/aci.html",
+      "bytes": 63772,
+      "sha256": "f3e26bdd18a7a97fc3cc8b1ea5d0c33558c2db2c3089b684224042d19c8a8c2f"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/sharp_aci/sharp_datacite.json",
+      "bytes": 5221,
+      "sha256": "a1a7b480fddee715285618c4e2fddaf15742b5b97f84d7ff51004d37807d4b13"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/sharp_aci/aci_openalex_primary.json",
+      "bytes": 15189,
+      "sha256": "d6ba603adf59177870d54c7c6633e06972aabd2da02d7227abb9e2f7362e1d00"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/sharp_aci/FETCH.json",
+      "bytes": 1197,
+      "sha256": "fdcf47ce4a3292fba642775b2aad6430f85036469d0ead6aa7831222db3dc4e2"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/sharp_aci/FETCH_SECONDARY.json",
+      "bytes": 1933,
+      "sha256": "631e484cdf3761bca5f29025efc4e53ccde8edcb3d95a2ed53ec2c0fed8bbb28"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/sharp_aci/FETCH_ACI_SEARCH.json",
+      "bytes": 1703,
+      "sha256": "a1335d8fdac45f8544e216a7bf64c827df8463eca64d6cfccdfcbadb9eab3985"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/sharp_aci/FETCH_BING.json",
+      "bytes": 8757,
+      "sha256": "d5416ef78f2b0aa8c10405414e630883081cf75292ef07d6124741d52a9d2926"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/sharp_aci/sharp_links.json",
+      "bytes": 936,
+      "sha256": "5016494387e165fa677d5c461d45aea26f262e798653695a59b37cd32f57379f"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/sharp_aci/aci_links.json",
+      "bytes": 783,
+      "sha256": "dce1809fcfeac924f26626f3b80cfc4b4ae238d33a21e7c84edba79ea5bdc904"
+    },
+    {
+      "path": "runs/external_dataset_rescreen_v1_20261102/aci/crossref_primary.json",
+      "bytes": 5309,
+      "sha256": "cd5fc2e95ddc999821ba44f23852c1afbb3cfc68622daec23b82564072303254"
+    },
+    {
+      "path": "runs/external_dataset_rescreen_v1_20261102/aci/ACI_QUALIFICATION_FACTS.json",
+      "bytes": 6191,
+      "sha256": "b129ac533b3ddeef71ca74bef448b08d8b3bb9f26676ba2649c219f17ae23162"
+    }
+  ]
+}

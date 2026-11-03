@@ -1,0 +1,61 @@
+{
+  "HTTP": {
+    "input_sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+    "input_unchanged": true,
+    "counts": {
+      "all_capture_records": 229142,
+      "inbound_to_target": 152373,
+      "direct_rule_HTTP_source_target_dport80": 152352,
+      "direct_HTTP_PSH_ACK": 77043,
+      "direct_HTTP_ACK_NO_SYN": 88262,
+      "neither_target": 91,
+      "outbound_from_target": 76641,
+      "direct_HTTP_ACK_ONLY": 7817,
+      "non_IPv4": 37
+    },
+    "inbound_target_protocol_dport": {
+      "6|80": 152352,
+      "17|54031": 1,
+      "6|42162": 19,
+      "17|60051": 1
+    },
+    "HTTP_direct_flags": {
+      "2": 61641,
+      "24": 77043,
+      "17": 3003,
+      "16": 7817,
+      "4": 2449,
+      "25": 399
+    },
+    "HTTP_direct_strata": {
+      "TCP_SYN_NO_ACK": 61641,
+      "TCP_ACK_NO_SYN": 88262,
+      "TCP_OTHER": 2449
+    },
+    "HTTP_direct_first_ns": 1637836529350784000,
+    "HTTP_direct_last_ns": 1637836799441278000,
+    "elapsed_seconds": 0.8280000000013388,
+    "limit": "Header/direction population is not certified per-packet malicious truth"
+  },
+  "UDP": {
+    "input_sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+    "input_unchanged": true,
+    "counts": {
+      "all_capture_records": 3215732,
+      "inbound_to_target": 2898830,
+      "direct_rule_UDP_dst_target_dport0": 2898830,
+      "non_IPv4": 213,
+      "outbound_from_target": 316686,
+      "neither_target": 3
+    },
+    "inbound_target_protocol_dport": {
+      "17|0": 2898830
+    },
+    "HTTP_direct_flags": {},
+    "HTTP_direct_strata": {},
+    "HTTP_direct_first_ns": null,
+    "HTTP_direct_last_ns": null,
+    "elapsed_seconds": 9.73399999999674,
+    "limit": "Header/direction population is not certified per-packet malicious truth"
+  }
+}

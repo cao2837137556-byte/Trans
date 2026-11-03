@@ -1,0 +1,89 @@
+{
+  "status": "READ_ONLY_SCOPE_AND_CANDIDATE_REVIEW_COMPLETE",
+  "date": "2026-11-03 America/Los_Angeles",
+  "edge_scope_eligible": true,
+  "edge_qualified_for_model_evaluation": false,
+  "execution_card_frozen": false,
+  "second_external_dataset_qualified": false,
+  "external_model_evaluations": 0,
+  "new_feature_encodings": 0,
+  "distance_pairs": 0,
+  "training_runs": 0,
+  "cloud_jobs": 0,
+  "new_raw_downloads": 0,
+  "original_files_modified_or_deleted": 0,
+  "selected_critical_artifacts": [
+    {
+      "path": "runs/external_scope_review_codex_20261103/SCOPE_CRITERIA.json",
+      "bytes": 1931,
+      "sha256": "d060323660a7899416ba6c40d9e7907e684ffd0f887b4510dd46f1ec46bffe41"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/EDGE_EXECUTION_CARD_DRAFT.json",
+      "bytes": 12617,
+      "sha256": "0755167ae19033e06d2557a9ee3744f82abc4b4587a9e6452e87727ba12e706e"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/FIRST_WINDOW.json",
+      "bytes": 1014,
+      "sha256": "d223381f679d46ef19af69202eb2f7a536f5606038cc24656cf884652ef5b9ee"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/EXACT_DUPLICATES.json",
+      "bytes": 3339,
+      "sha256": "8d7a65823d4678f8f429b42ccd623eabf1c411c25ede95ed9d20e34e4d68b83f"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/LINEAGE_OWNER_AUDIT.json",
+      "bytes": 4608,
+      "sha256": "9370542ddaf37fda2a7b83a113f68b0517e37b2e09bbfcac3f785af947f61e1d"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/INPUT_IDENTITIES.json",
+      "bytes": 672,
+      "sha256": "7573ea3457ed9324ca84bb4bba4bd526a91ee3f4ad09ff242e3b684d1e224fc4"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/edge_audit/EVIDENCE.json",
+      "bytes": 10782,
+      "sha256": "1d7cd92cf3b6503807e4212c35e0269891f7abc9b1bc2e37976d64ec289f08c3"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/edge_audit/REVIEW.md",
+      "bytes": 6511,
+      "sha256": "7701a041ac34598674faae45f269a6b17742334a68aa298635f4eae08707ba03"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/edge_audit/RAW_PORT_SEGMENT_RESULT.json",
+      "bytes": 66304,
+      "sha256": "b5fc4fffeaee909dcb47b22ea8a73a01f5be23c7860fc17be1369ec33408e394"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/edge_audit/ATTACK_PORT_RESULT.json",
+      "bytes": 1855,
+      "sha256": "8f0237a31ea7fb8a233774db5278dc0b3503abee58a53288228a43b3b7e317aa"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/sharp_aci/EVIDENCE.json",
+      "bytes": 10815,
+      "sha256": "de5bc96e6c91d8f949c498ab64a78257775ece848c7ece2625c6792005cb6af8"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/sharp_aci/REVIEW.md",
+      "bytes": 5928,
+      "sha256": "07deb3b6deca09a6c0b0cc57da93c56042ffc097e9859e2e48730a500ec5531c"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/bccc_candidates/EVIDENCE.json",
+      "bytes": 9559,
+      "sha256": "4a5b7809899cf47a8dc7d52a7ae8729f34adcb621f1238f4034c17028fda00d5"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/bccc_candidates/REVIEW.md",
+      "bytes": 4861,
+      "sha256": "df3a84cfdd781ea2e907b1428f3868e3850077ea822f40a57dba8ada608fcc22"
+    }
+  ],
+  "entry_sha256": "12e0528d2fd21401bc3d57340eb6856dd3016fd71cd61d0aba486aef1560dd2d",
+  "scope_note": "Only pre-score data metadata, raw headers, exact duplication, documented labels and lineage were inspected. Scope eligibility is distinct from decoder/context/adapter/baseline/resource readiness."
+}

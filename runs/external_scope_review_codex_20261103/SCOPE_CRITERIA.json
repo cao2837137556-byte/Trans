@@ -1,0 +1,36 @@
+{
+  "schema": "EXTERNAL_DATA_SCOPE_S1_S6_V1",
+  "status": "REGISTERED_BEFORE_EXTERNAL_MODEL_OUTPUTS",
+  "date": "2026-11-03 America/Los_Angeles",
+  "authority": {
+    "path": "runs/mainline_docs/collab/20261102_external_scope_criteria_and_edge_review_claude.md",
+    "sha256": "9ab5dce6d1f24b912b79c4a86a73710a6c84d9c07080e9ddf01698e18b0a8b22"
+  },
+  "rules": {
+    "S1": "IoT or edge-network target with identifiable L2/L3 identity; document Pi/server role.",
+    "S2": "Original PCAP/PCAPNG with actual packet clocks; feature CSV alone is insufficient.",
+    "S3": "Same target has trusted normal observation >=7200 real seconds before evaluation, plus later normal queries; no clock shifting or joining short windows.",
+    "S4": "Attack against the target with reproducible legal packet labels supported by direction, time interval or official filters; whole-file attack labeling is insufficient.",
+    "S5": "Network-visible attacks in the threat model; payload-only/physical attacks are out of scope.",
+    "S6": "No overlap with CICIoT2022 A, UNSW2018 B or admitted history; compare MAC and provenance."
+  },
+  "normal_gap_rule_seconds": 3600,
+  "gap_comparison": "strictly greater than",
+  "direction_label_evidence": "Researcher-reconstructed attack-associated packets are allowed when provenance and direction are established; distinguish these from publisher per-packet payload truth.",
+  "descriptive_only_not_selection": [
+    "Normal protocol mix",
+    "Same-protocol and target-local port overlap",
+    "Direct ACK share",
+    "Reference coverage",
+    "Target/day/event counts"
+  ],
+  "prohibited_selection_inputs": [
+    "model scores",
+    "FPR",
+    "recall",
+    "support",
+    "embedding distances"
+  ],
+  "inclusion": "Evaluate every dataset that passes the registered scope and execution prerequisites; report all outcomes.",
+  "external_candidate_model_evaluations": 0
+}

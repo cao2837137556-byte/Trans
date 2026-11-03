@@ -1,0 +1,267 @@
+{
+  "status": "RAW_SCOPE_REVIEW_COMPLETE_NOT_EXECUTION_READY",
+  "created_utc": "2026-11-03T08:49:01.319490+00:00",
+  "normal_ports": {
+    "ALL": {
+      "target_local_TCP80": 0,
+      "either_endpoint_TCP80": 0,
+      "target_local_UDP0": 0,
+      "either_endpoint_UDP0": 0,
+      "protocol_counts": {
+        "6": 1332428,
+        "17": 2430,
+        "2": 694,
+        "1": 93
+      },
+      "target_IP_records": 1335645
+    },
+    "GLOBAL_FIRST_7200": {
+      "target_local_TCP80": 0,
+      "either_endpoint_TCP80": 0,
+      "target_local_UDP0": 0,
+      "either_endpoint_UDP0": 0,
+      "protocol_counts": {
+        "6": 114408,
+        "17": 28,
+        "2": 58
+      },
+      "target_IP_records": 114494
+    },
+    "AFTER_GLOBAL_7200": {
+      "target_local_TCP80": 0,
+      "either_endpoint_TCP80": 0,
+      "target_local_UDP0": 0,
+      "either_endpoint_UDP0": 0,
+      "protocol_counts": {
+        "6": 1218020,
+        "2": 636,
+        "17": 2402,
+        "1": 93
+      },
+      "target_IP_records": 1221151
+    }
+  },
+  "segments": [
+    {
+      "segment": 1,
+      "first_frame": 1,
+      "last_frame": 884555,
+      "first_utc": "2021-11-21T10:44:10.081753000Z",
+      "last_utc": "2021-11-21T21:31:12.740630000Z",
+      "capture_span_seconds": 38822.658877,
+      "target_span_seconds": 38822.658877,
+      "target_t0_equals_capture_t0": true,
+      "before_first_attack": true,
+      "target_records": 604474,
+      "observed_first_7200_target_records": 114494,
+      "post_7200_target_records": 489980,
+      "window_partition_start": "capture-segment min_ns; segment2 target first appearance is later",
+      "capture_cutoff_ns": 1637498650081753000
+    },
+    {
+      "segment": 2,
+      "first_frame": 884556,
+      "last_frame": 1279552,
+      "first_utc": "2021-11-22T14:34:20.252618000Z",
+      "last_utc": "2021-11-22T21:50:05.757227000Z",
+      "capture_span_seconds": 26145.504609,
+      "target_span_seconds": 26135.913998,
+      "target_t0_equals_capture_t0": false,
+      "before_first_attack": true,
+      "target_records": 391072,
+      "observed_first_7200_target_records": 114838,
+      "post_7200_target_records": 276234,
+      "window_partition_start": "capture-segment min_ns; segment2 target first appearance is later",
+      "capture_cutoff_ns": 1637598860252618000
+    },
+    {
+      "segment": 3,
+      "first_frame": 1279553,
+      "last_frame": 1469919,
+      "first_utc": "2021-11-23T14:55:38.804754000Z",
+      "last_utc": "2021-11-23T18:07:10.421639000Z",
+      "capture_span_seconds": 11491.616885,
+      "target_span_seconds": 11490.905076,
+      "target_t0_equals_capture_t0": true,
+      "before_first_attack": true,
+      "target_records": 181752,
+      "observed_first_7200_target_records": 113898,
+      "post_7200_target_records": 67854,
+      "window_partition_start": "capture-segment min_ns; segment2 target first appearance is later",
+      "capture_cutoff_ns": 1637686538804754000
+    },
+    {
+      "segment": 4,
+      "first_frame": 1469920,
+      "last_frame": 1626212,
+      "first_utc": "2021-11-23T19:27:30.270762000Z",
+      "last_utc": "2021-11-23T22:10:29.988676000Z",
+      "capture_span_seconds": 9779.717914,
+      "target_span_seconds": 9779.717914,
+      "target_t0_equals_capture_t0": true,
+      "before_first_attack": true,
+      "target_records": 154991,
+      "observed_first_7200_target_records": 114014,
+      "post_7200_target_records": 40977,
+      "window_partition_start": "capture-segment min_ns; segment2 target first appearance is later",
+      "capture_cutoff_ns": 1637702850270762000
+    },
+    {
+      "segment": 5,
+      "first_frame": 1626213,
+      "last_frame": 1629749,
+      "first_utc": "2021-12-20T00:22:47.981993000Z",
+      "last_utc": "2021-12-20T00:40:55.043322000Z",
+      "capture_span_seconds": 1087.061329,
+      "target_span_seconds": 1086.421364,
+      "target_t0_equals_capture_t0": true,
+      "before_first_attack": false,
+      "target_records": 3356,
+      "observed_first_7200_target_records": 3356,
+      "post_7200_target_records": 0,
+      "window_partition_start": "capture-segment min_ns; segment2 target first appearance is later",
+      "capture_cutoff_ns": 1639966967981993000
+    }
+  ],
+  "HTTP_direct_rule": "capture HTTP; src=192.168.0.170 & dst=192.168.0.128 & protocol=6 & dport=80; original clock, complete captured frames",
+  "HTTP_direct_counts": {
+    "all_capture_records": 229142,
+    "inbound_to_target": 152373,
+    "direct_rule_HTTP_source_target_dport80": 152352,
+    "direct_HTTP_PSH_ACK": 77043,
+    "direct_HTTP_ACK_NO_SYN": 88262,
+    "neither_target": 91,
+    "outbound_from_target": 76641,
+    "direct_HTTP_ACK_ONLY": 7817,
+    "non_IPv4": 37
+  },
+  "HTTP_direct_flag_counts": {
+    "2": 61641,
+    "24": 77043,
+    "17": 3003,
+    "16": 7817,
+    "4": 2449,
+    "25": 399
+  },
+  "HTTP_ACK_no_SYN_fraction_of_direct_packets": 0.579329447595043,
+  "HTTP_ACK_no_SYN_correction": {
+    "old_documented_source_pool_count": 88280,
+    "new_target_port_rule_count": 88262,
+    "excluded_background_or_source_role_unmatched_ACK": 18,
+    "excluded_public_source_total": 19,
+    "basis": "216.58.198.74 packets go to target-local 42162, not the HTTP80 attack service; do not label by broad author-IP membership"
+  },
+  "UDP_direct_rule": "capture UDP; dst=192.168.0.128 & protocol=17 & dport=0; do not require fixed spoofed source IP",
+  "UDP_direct_counts": {
+    "all_capture_records": 3215732,
+    "inbound_to_target": 2898830,
+    "direct_rule_UDP_dst_target_dport0": 2898830,
+    "non_IPv4": 213,
+    "outbound_from_target": 316686,
+    "neither_target": 3
+  },
+  "S1": "PASS_WITH_DOCUMENTED_RASPBERRY_PI_EDGE_ROLE_AND_SAME_OBSERVED_MAC",
+  "S2": "PASS_ORIGINAL_PCAP_AND_CLOCKS_PRESENT_WITH_RECORDED_BACKTRACKS",
+  "S3": "FOUR_PREATTACK_GAP_SEPARATED_EPISODES_HAVE_7200S_PLUS_LATER_TARGET_NORMAL; EPISODE_POLICY_MUST_BE_FIXED_WITHOUT_SPLICING",
+  "S4": "PASS_RECONSTRUCTABLE_ATTACK_ASSOCIATED_DIRECTION_LABEL_WITH_EXPLICIT_EVIDENCE_LEVEL; NOT_OFFICIAL_PER_PACKET_PAYLOAD_TRUTH",
+  "S5": "PASS_HTTP_AND_UDP_FLOOD_NETWORK_VISIBLE_SCOPE",
+  "S6": "PARENT_LINEAGE_ROSTER_CROSSCHECK_PENDING_NOT_PERFORMED_BY_THIS_SUBAGENT",
+  "normal_protocol_difficulty": {
+    "TCP_packets": 1332428,
+    "UDP_packets": 2430,
+    "TCP_local_1883": 1330654,
+    "TCP_local_502": 1745,
+    "TCP_local_44252": 29,
+    "UDP_fraction_of_target_IP_records": 0.0018193457093763686,
+    "both_attack_target_protocol_ports_unseen_in_all_normal": true,
+    "not_an_exclusion_criterion": true
+  },
+  "context_notes": {
+    "normal_capture_backtracks": 119,
+    "HTTP_capture_backtracks": 1146,
+    "UDP_capture_backtracks": 3489,
+    "must_preserve_original_record_order": true,
+    "root_reported_source_contract": "Capture-level clock backtrack alone does not necessarily fail every context; Contexts checks per(owner,capture,key) last_seen and poisons that namespace on within-key backtrack; root owns direct context audit",
+    "one_hour_gap_segmentation_is_descriptive_not_capture_provenance": true,
+    "paper_claim_max_capture_hours": 3,
+    "first_two_descriptive_blocks_exceed_paper_single_capture_bound": true
+  },
+  "label_reporting": {
+    "primary_unit": "packet within fixed attack-associated direction",
+    "TCP_ACK_only_handshake_FIN_control": "separate stratum; not claim independent malicious-payload packets or ACK-flood type",
+    "HTTP_payload_evidence": "19076 GET-start packets from .170 to .128:80 in old whole-file audit; parser-visible lower bound, not stream-reassembled request count",
+    "nonmatching_attack_file_traffic": "exclude from attack and trusted-normal/reference; keep full raw context separately",
+    "event_independence": "two scenario captures; no audited individual event IDs, do not turn flow/packet counts into independent events"
+  },
+  "raw_input_unchanged": true,
+  "new_active_raw_scan_seconds": 137.56199999999808,
+  "new_download_bytes": 0,
+  "model_evaluations": 0,
+  "encodings": 0,
+  "distance_pairs": 0,
+  "training": 0,
+  "cloud_jobs": 0,
+  "old_asset_writes": 0,
+  "inputs": [
+    {
+      "path": "runs/mainline_docs/collab/20261102_external_scope_criteria_and_edge_review_claude.md",
+      "bytes": 4122,
+      "sha256": "9ab5dce6d1f24b912b79c4a86a73710a6c84d9c07080e9ddf01698e18b0a8b22"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/RESULT.json",
+      "bytes": 14487,
+      "sha256": "0c37095100ef312d03ba765f7e3dab70bd7ad23ea5f3b8fb10b2d1fef7f4c76c"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/NORMAL_AUDIT.json",
+      "bytes": 94491,
+      "sha256": "3784b3bd0b1ccdea96be9277b1032fb1912d9a42946cab295f963c9e25dea6f5"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/HTTP_AUDIT.json",
+      "bytes": 59338,
+      "sha256": "42764644ab3d3ca71b9542b635feb595d8b45d085aedc5ca4985d3b5918793a9"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/UDP_AUDIT.json",
+      "bytes": 65719,
+      "sha256": "c4553c496d0e2209373ff00c0c2be7bfcfcfbf9dcaa2376b0cb8c2b42d143022"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/scan_raw.py",
+      "bytes": 27407,
+      "sha256": "f8b732409e098aecb37d23e20735c98659a75dccc50ca9df975973901e8c9518"
+    },
+    {
+      "path": "runs/external_dataset_rescreen_v1_20261102/edge_paper_check/page_12.txt",
+      "bytes": 6498,
+      "sha256": "a628cb552616d2994aecc595c07eb0f78a1eedf0d21c54369fe23cdf1596afed"
+    },
+    {
+      "path": "runs/external_dataset_rescreen_v1_20261102/edge_paper_check/page_13.txt",
+      "bytes": 4800,
+      "sha256": "1dce39df0af03b4290c34ad894fc631fb4284effe23a70643f172c12be56484d"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/edge_audit/port_segment_audit.py",
+      "bytes": 5719,
+      "sha256": "c1f0dfd7c2148db0bddca4f1770d04053177521d86c56b5061f90cd0144b0a7f"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/edge_audit/attack_port_audit.py",
+      "bytes": 3939,
+      "sha256": "1516f1ba3add5e0929bd4eb326b57d36a167859114c5ea7355e984b460087f45"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/edge_audit/RAW_PORT_SEGMENT_RESULT.json",
+      "bytes": 66304,
+      "sha256": "b5fc4fffeaee909dcb47b22ea8a73a01f5be23c7860fc17be1369ec33408e394"
+    },
+    {
+      "path": "runs/external_scope_review_codex_20261103/edge_audit/ATTACK_PORT_RESULT.json",
+      "bytes": 1855,
+      "sha256": "8f0237a31ea7fb8a233774db5278dc0b3503abee58a53288228a43b3b7e317aa"
+    }
+  ]
+}

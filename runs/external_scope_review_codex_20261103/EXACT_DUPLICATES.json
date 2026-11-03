@@ -1,0 +1,66 @@
+{
+  "results": {
+    "HTTP": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS HTTP Flood Attacks.pcap",
+      "sha256_before": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+      "sha256_after": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+      "input_unchanged": true,
+      "records_processed": 229142,
+      "complete": true,
+      "error": null,
+      "exact_duplicate_records": 0,
+      "cross_interface_exact_duplicates": 0,
+      "peak_retained_keys": 6471,
+      "examples": [],
+      "semantics": "Same integer timestamp, linktype, captured/wire lengths and exact captured bytes",
+      "proof": "All records verified within 1s of high-water timestamp; eviction cannot hide a duplicate unless a later record violates this bound, which fails the audit.",
+      "not_proven": [
+        "Clock-shifted mirrors",
+        "Different-time repeated bytes are not automatically duplicates",
+        "Physical hardware serial identity"
+      ]
+    },
+    "UDP": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS UDP Flood Attacks.pcap",
+      "sha256_before": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+      "sha256_after": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+      "input_unchanged": true,
+      "records_processed": 3215732,
+      "complete": true,
+      "error": null,
+      "exact_duplicate_records": 0,
+      "cross_interface_exact_duplicates": 0,
+      "peak_retained_keys": 18024,
+      "examples": [],
+      "semantics": "Same integer timestamp, linktype, captured/wire lengths and exact captured bytes",
+      "proof": "All records verified within 1s of high-water timestamp; eviction cannot hide a duplicate unless a later record violates this bound, which fails the audit.",
+      "not_proven": [
+        "Clock-shifted mirrors",
+        "Different-time repeated bytes are not automatically duplicates",
+        "Physical hardware serial identity"
+      ]
+    },
+    "NORMAL": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\Temperature_and_Humidity.pcap",
+      "sha256_before": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+      "sha256_after": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+      "input_unchanged": true,
+      "records_processed": 1629749,
+      "complete": true,
+      "error": null,
+      "exact_duplicate_records": 0,
+      "cross_interface_exact_duplicates": 0,
+      "peak_retained_keys": 1172,
+      "examples": [],
+      "semantics": "Same integer timestamp, linktype, captured/wire lengths and exact captured bytes",
+      "proof": "All records verified within 1s of high-water timestamp; eviction cannot hide a duplicate unless a later record violates this bound, which fails the audit.",
+      "not_proven": [
+        "Clock-shifted mirrors",
+        "Different-time repeated bytes are not automatically duplicates",
+        "Physical hardware serial identity"
+      ]
+    }
+  },
+  "complete": true,
+  "scope": "Whole-file exact observations; no timestamps, order or input bytes changed"
+}

@@ -1,0 +1,19 @@
+{
+  "status": "UNFILTERED_FIRST_PREFIX_BOUNDARY_OBSERVED",
+  "input_sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+  "t0_ns": 1637491450081753000,
+  "cutoff_ns": 1637498650081753000,
+  "last_prefix_frame": 117376,
+  "first_strictly_after_cutoff": {
+    "frame": 117377,
+    "timestamp_ns": 1637498650081789000
+  },
+  "prefix_max_adjacent_positive_gap_seconds": 4.194477,
+  "prefix_timestamp_backtrack_count": 10,
+  "no_positive_gap_over_3600s_in_first_prefix": true,
+  "limitation": "Observed file prefix continuity under the preregistered gap rule; not a guarantee the capture hardware lost no packets. Namespace/context validation remains required.",
+  "model_evaluations": 0,
+  "whole_file_time_mask_records": 117376,
+  "whole_file_time_mask_equals_physical_prefix": true,
+  "proof": "Complete original scan counts exactly the first 117376 records at/before cutoff; since the first greater timestamp is frame117377, no later record crosses back below cutoff."
+}
