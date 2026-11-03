@@ -811,3 +811,11 @@ __pycache__/
 !/runs/edge_linux_preflight_deployment_v1_20261103/**/*.sha256
 /runs/edge_linux_preflight_deployment_v1_20261103/.private/**
 /runs/edge_linux_preflight_deployment_v1_20261103/RUN_IN_HPC_TERMINAL.txt
+
+# Bounded no-model throughput diagnostic: source and small receipts only.
+!/runs/edge_decode_throughput_diagnostic_v1_20261103/
+/runs/edge_decode_throughput_diagnostic_v1_20261103/**
+!/runs/edge_decode_throughput_diagnostic_v1_20261103/diagnose.py
+!/runs/edge_decode_throughput_diagnostic_v1_20261103/RESULT.json
+!/runs/edge_decode_throughput_diagnostic_v1_20261103/README.md
+!/runs/edge_decode_throughput_diagnostic_v1_20261103/*.sha256

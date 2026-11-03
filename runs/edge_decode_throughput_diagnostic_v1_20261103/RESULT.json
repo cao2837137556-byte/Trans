@@ -1,0 +1,231 @@
+{
+  "scope": "LOCAL_HTTP_CONTEXT_THROUGHPUT_ONLY",
+  "model_evaluations": 0,
+  "encoder_loaded": false,
+  "training": false,
+  "cloud_run": false,
+  "packet_cap": 32768,
+  "wall_hard_seconds": 60,
+  "db_cap_bytes": 268435456,
+  "process_cpu_affinity": [
+    0
+  ],
+  "python": "3.10.0 (tags/v3.10.0:b494f59, Oct  4 2021, 19:00:18) [MSC v.1929 64 bit (AMD64)]",
+  "snapshots": [],
+  "raw_input": {
+    "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS HTTP Flood Attacks.pcap",
+    "sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+    "bytes": 28307602
+  },
+  "code_pins": {
+    "runs/edge_external_test1_engineering_v1_20261103/adapter/edge_adapter.py": "000fcf92592ca212c23537bfcda0b74c73cbf84a783813f01f5f997e4155db3b",
+    "repo/ood/continuous_input_v3.py": "a503c7b21c35234462a735d3890fa4cda918573ceeda072604e4bec6872b405d",
+    "repo/ood/continuous_input_engineering_v1.py": "c70b0be31fd5ec40432bc9f851e6ee8611c3b0ed18262122ddc964fba347b415",
+    "repo/ood/spill_mapping_v1.py": "f919f02351dc3cfc8255b2eec989c0b506221a9608b98c300fdcee316e93f4aa"
+  },
+  "status": "COMPLETE_32768_PACKET_DIAGNOSTIC",
+  "rows_completed": 32768,
+  "samples": [
+    {
+      "frame": 4096,
+      "elapsed_seconds": 1.5,
+      "decode_next_seconds": 0.9029999999984284,
+      "context_append_seconds": 0.4720000000015716,
+      "state_store": {
+        "hits": 2892,
+        "loads": 1201,
+        "spills": 2101,
+        "serialized_bytes": 3637773,
+        "peak_resident": 256,
+        "peak_entries": 1156
+      },
+      "state_count": 1156,
+      "db_files_bytes": {
+        "http_context.sqlite": 3907584,
+        "http_context.sqlite-journal": 135944
+      },
+      "db_total_bytes": 4043528,
+      "tree_rss_bytes": 150380544
+    },
+    {
+      "frame": 8192,
+      "elapsed_seconds": 2.6719999999986612,
+      "decode_next_seconds": 1.29400000001624,
+      "context_append_seconds": 1.2369999999864376,
+      "state_store": {
+        "hits": 5209,
+        "loads": 2980,
+        "spills": 3950,
+        "serialized_bytes": 9325443,
+        "peak_resident": 256,
+        "peak_entries": 1226
+      },
+      "state_count": 1226,
+      "db_files_bytes": {
+        "http_context.sqlite": 4595712,
+        "http_context.sqlite-journal": 2800176
+      },
+      "db_total_bytes": 7395888,
+      "tree_rss_bytes": 158941184
+    },
+    {
+      "frame": 12288,
+      "elapsed_seconds": 3.860000000000582,
+      "decode_next_seconds": 1.7490000000107102,
+      "context_append_seconds": 1.9699999999938882,
+      "state_store": {
+        "hits": 7953,
+        "loads": 4331,
+        "spills": 5549,
+        "serialized_bytes": 15381601,
+        "peak_resident": 256,
+        "peak_entries": 1474
+      },
+      "state_count": 1474,
+      "db_files_bytes": {
+        "http_context.sqlite": 8536064,
+        "http_context.sqlite-journal": 1766176
+      },
+      "db_total_bytes": 10302240,
+      "tree_rss_bytes": 165933056
+    },
+    {
+      "frame": 16384,
+      "elapsed_seconds": 5.438000000001921,
+      "decode_next_seconds": 2.1860000000160653,
+      "context_append_seconds": 3.0639999999839347,
+      "state_store": {
+        "hits": 9837,
+        "loads": 6541,
+        "spills": 8085,
+        "serialized_bytes": 25954080,
+        "peak_resident": 256,
+        "peak_entries": 1800
+      },
+      "state_count": 1800,
+      "db_files_bytes": {
+        "http_context.sqlite": 10547200,
+        "http_context.sqlite-journal": 5522504
+      },
+      "db_total_bytes": 16069704,
+      "tree_rss_bytes": 171401216
+    },
+    {
+      "frame": 20480,
+      "elapsed_seconds": 7.078000000001339,
+      "decode_next_seconds": 2.657000000013795,
+      "context_append_seconds": 4.202999999986787,
+      "state_store": {
+        "hits": 11672,
+        "loads": 8800,
+        "spills": 10600,
+        "serialized_bytes": 38938120,
+        "peak_resident": 256,
+        "peak_entries": 2056
+      },
+      "state_count": 2056,
+      "db_files_bytes": {
+        "http_context.sqlite": 12296192,
+        "http_context.sqlite-journal": 2574496
+      },
+      "db_total_bytes": 14870688,
+      "tree_rss_bytes": 178917376
+    },
+    {
+      "frame": 24576,
+      "elapsed_seconds": 8.81300000000192,
+      "decode_next_seconds": 3.047999999995227,
+      "context_append_seconds": 5.5310000000026776,
+      "state_store": {
+        "hits": 13527,
+        "loads": 11040,
+        "spills": 13074,
+        "serialized_bytes": 52841483,
+        "peak_resident": 256,
+        "peak_entries": 2290
+      },
+      "state_count": 2290,
+      "db_files_bytes": {
+        "http_context.sqlite": 15515648,
+        "http_context.sqlite-journal": 6613984
+      },
+      "db_total_bytes": 22129632,
+      "tree_rss_bytes": 192761856
+    },
+    {
+      "frame": 28672,
+      "elapsed_seconds": 10.14100000000326,
+      "decode_next_seconds": 3.4240000000063446,
+      "context_append_seconds": 6.466999999989639,
+      "state_store": {
+        "hits": 16208,
+        "loads": 12454,
+        "spills": 14646,
+        "serialized_bytes": 61793083,
+        "peak_resident": 256,
+        "peak_entries": 2448
+      },
+      "state_count": 2448,
+      "db_files_bytes": {
+        "http_context.sqlite": 17350656,
+        "http_context.sqlite-journal": 3239384
+      },
+      "db_total_bytes": 20590040,
+      "tree_rss_bytes": 197898240
+    },
+    {
+      "frame": 32768,
+      "elapsed_seconds": 11.76600000000326,
+      "decode_next_seconds": 3.8479999999981374,
+      "context_append_seconds": 7.651999999994587,
+      "state_store": {
+        "hits": 18366,
+        "loads": 14389,
+        "spills": 16732,
+        "serialized_bytes": 74798370,
+        "peak_resident": 256,
+        "peak_entries": 2599
+      },
+      "state_count": 2599,
+      "db_files_bytes": {
+        "http_context.sqlite": 18714624,
+        "http_context.sqlite-journal": 4179544
+      },
+      "db_total_bytes": 22894168,
+      "tree_rss_bytes": 57090048
+    },
+    {
+      "frame": 32768,
+      "elapsed_seconds": 11.781000000002678,
+      "decode_next_seconds": 3.8479999999981374,
+      "context_append_seconds": 7.651999999994587,
+      "state_store": {
+        "hits": 18366,
+        "loads": 14389,
+        "spills": 16732,
+        "serialized_bytes": 74798370,
+        "peak_resident": 256,
+        "peak_entries": 2599
+      },
+      "state_count": 2599,
+      "db_files_bytes": {
+        "http_context.sqlite": 18714624,
+        "http_context.sqlite-journal": 4179544
+      },
+      "db_total_bytes": 22894168,
+      "tree_rss_bytes": 57090048
+    }
+  ],
+  "elapsed_seconds": 11.781000000002678,
+  "final_store_stats": {
+    "hits": 18366,
+    "loads": 14389,
+    "spills": 16732,
+    "serialized_bytes": 74798370,
+    "peak_resident": 256,
+    "peak_entries": 2599
+  },
+  "numerical_snapshots_emitted": 0,
+  "raw_sha256_unchanged": true,
+  "owned_temporary_database_removed": true
+}

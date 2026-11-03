@@ -1,0 +1,80 @@
+{
+  "job_id": "181403",
+  "scope": "READ_ONLY_FAILED_JOB_METADATA",
+  "new_job_submitted": false,
+  "model_loaded": false,
+  "files": [
+    {
+      "path": "DELIVERY_RESULT.json",
+      "bytes": 639,
+      "mtime_ns": 1793720509000000000
+    },
+    {
+      "path": "DELIVERY_STATUS.json",
+      "bytes": 639,
+      "mtime_ns": 1793720509000000000
+    },
+    {
+      "path": "RUNTIME_IDENTITY.json",
+      "bytes": 5716,
+      "mtime_ns": 1793719968000000000
+    },
+    {
+      "path": "preflight_supervisor.log",
+      "bytes": 0,
+      "mtime_ns": 1793719969000000000
+    },
+    {
+      "path": "real_slice/STATUS.json",
+      "bytes": 649,
+      "mtime_ns": 1793719971000000000
+    },
+    {
+      "path": "real_slice/decode_00/EDGE_NORMAL_SEGMENT_1.sqlite",
+      "bytes": 73654272,
+      "mtime_ns": 1793720048000000000
+    },
+    {
+      "path": "real_slice/decode_00/decoder.stderr.log",
+      "bytes": 0,
+      "mtime_ns": 1793719972000000000
+    },
+    {
+      "path": "real_slice/decode_01/EDGE_HTTP.sqlite",
+      "bytes": 92540928,
+      "mtime_ns": 1793720508000000000
+    },
+    {
+      "path": "real_slice/decode_01/EDGE_HTTP.sqlite-journal",
+      "bytes": 6589576,
+      "mtime_ns": 1793720509000000000
+    },
+    {
+      "path": "real_slice/decode_01/decoder.stderr.log",
+      "bytes": 0,
+      "mtime_ns": 1793720048000000000
+    }
+  ],
+  "databases": [
+    {
+      "path": "real_slice/decode_00/EDGE_NORMAL_SEGMENT_1.sqlite",
+      "readonly": true,
+      "object_rows": 14581,
+      "serialized_bytes": 68534439,
+      "max_object_bytes": 6861,
+      "database_bytes_and_mtime_unchanged": true
+    },
+    {
+      "path": "real_slice/decode_01/EDGE_HTTP.sqlite",
+      "readonly": true,
+      "read_error": "OperationalError('attempt to write a readonly database')",
+      "database_bytes_and_mtime_unchanged": true
+    }
+  ],
+  "scheduler": {
+    "returncode": 0,
+    "stdout": "181403|FAILED|00:09:24|01:23.900|01:12.297|00:11.602|||\n181403.batch|FAILED|00:09:24|01:23.900|01:12.297|00:11.602|405112K|4720.06M|1919.39M\n",
+    "stderr": ""
+  },
+  "elapsed_seconds": 0.6997999926097691
+}
