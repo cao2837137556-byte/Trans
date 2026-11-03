@@ -1,0 +1,20 @@
+{
+  "status": "ENGINEERING_REGRESSION_PASS_NOT_LINUX_RUNTIME_PASS",
+  "tests_run": 39,
+  "tests_passed": 39,
+  "elapsed_seconds": 2.410,
+  "test_modules": ["test_prepare_repair", "test_local_pipeline", "test_receiver"],
+  "receiver_source_sha256": "e33aae00c97ab52d8ed51a9c4650c00cea845890755f26b0ba71bf8412892a80",
+  "coverage": [
+    "Decoder uses worker library environment and preserves real failure output",
+    "Wrong decoder versions, partial extraction and changed files remain rejected",
+    "Completed extraction resumes only after full manifest byte verification",
+    "Slurm spool relocation and paths containing spaces preserve resources and commands",
+    "Changed Slurm adapter rejected before submission intent",
+    "Loaded receiver identity remains stable if disk source changes",
+    "Explicit prepare recovery preserves prior failure and never clears a submission intent",
+    "Original interrupted-transfer and exactly-one-submission regressions"
+  ],
+  "sealed_package_changed": false,
+  "formal_external_evaluation": false
+}

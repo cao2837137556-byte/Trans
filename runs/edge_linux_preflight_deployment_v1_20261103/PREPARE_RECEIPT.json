@@ -1,0 +1,57 @@
+{
+  "status": "PREPARED_NOT_SUBMITTED",
+  "archive_sha256": "c683ccbe4e3f1b92fc51638ed9345777f6577edc1f171486279e20248f9541d9",
+  "manifest_files_verified": 863,
+  "runtime_metadata": {
+    "python": "3.11.11",
+    "numpy": "2.0.1",
+    "torch": "2.5.1",
+    "transformers": "4.57.3"
+  },
+  "tshark_version": "TShark (Wireshark) 4.6.6 (Git commit 3a22c3ef473d).",
+  "submit_wrapper_sha256": "a689641457a419f2c5763d8d3eb6fa02ca91e83e534be2fdcb8319281cbc50cb",
+  "reused_verified_extraction": true,
+  "slurm_path_adapter": {
+    "schema": "EDGE_PREFLIGHT_SLURM_PATH_ADAPTER_V1",
+    "original_slurm_path": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_linux_preflight_deployment_v1_20261103/unpacked/edge_preflight_checkout/runs/edge_linux_preflight_package_v1_20261103/preflight.slurm",
+    "original_slurm_sha256": "631bded8b84233eac50bdf9beb67ee0c57a86c8bb871c05a912562dcd5e8f7a1",
+    "adapter_path": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_linux_preflight_deployment_v1_20261103/PREFLIGHT_PATH_ADAPTER.slurm",
+    "adapter_sha256": "11ad2a27f6e6d8debd883ff317e482780a04713ff8ed3e458a69f1d005e96741",
+    "checkout_root": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_linux_preflight_deployment_v1_20261103/unpacked/edge_preflight_checkout",
+    "package_directory": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_linux_preflight_deployment_v1_20261103/unpacked/edge_preflight_checkout/runs/edge_linux_preflight_package_v1_20261103",
+    "replacements": [
+      {
+        "variable": "EDGE_PACKAGE_DIR",
+        "original": "EDGE_PACKAGE_DIR=\"$(cd -- \"$(dirname -- \"${BASH_SOURCE[0]}\")\" && pwd)\"",
+        "replacement": "EDGE_PACKAGE_DIR=/public/home/jiangxinwei.zr/work/paper04/runs/edge_linux_preflight_deployment_v1_20261103/unpacked/edge_preflight_checkout/runs/edge_linux_preflight_package_v1_20261103"
+      },
+      {
+        "variable": "EDGE_ROOT",
+        "original": "EDGE_ROOT=\"$(cd -- \"${EDGE_PACKAGE_DIR}/../..\" && pwd)\"",
+        "replacement": "EDGE_ROOT=/public/home/jiangxinwei.zr/work/paper04/runs/edge_linux_preflight_deployment_v1_20261103/unpacked/edge_preflight_checkout"
+      }
+    ],
+    "resource_directives_unchanged": true
+  },
+  "storage": {
+    "free_bytes": 552131404759040,
+    "total_bytes": 560901133434880,
+    "shared_filesystem_free_is_not_personal_quota": true,
+    "df": {
+      "returncode": 0,
+      "stdout": "Filesystem                  Size  Used Avail Use% Mounted on\n12.12.12.242@o2ib:/hpc2610  511T  8.0T  503T   2% /public\n",
+      "stderr": ""
+    },
+    "quota": {
+      "unavailable": "FileNotFoundError(2, 'No such file or directory')"
+    },
+    "lustre_quota": {
+      "returncode": 0,
+      "stdout": "Disk quotas for usr 18326 (uid 18326):\n     Filesystem  kbytes   quota   limit   grace   files   quota   limit   grace\n/public/home/jiangxinwei.zr/work/paper04/runs/edge_linux_preflight_deployment_v1_20261103\n                94847958       0       0       -  102223       0       0       -\nuid 18326 is using default block quota setting\nuid 18326 is using default file quota setting\n",
+      "stderr": ""
+    }
+  },
+  "training": false,
+  "model_loaded": false,
+  "formal_external_evaluation": false
+}

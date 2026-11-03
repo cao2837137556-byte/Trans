@@ -20,6 +20,11 @@ import tarfile
 import threading
 import time
 
+# Snapshot at module load, before the source path can be replaced by a later
+# deployment. State reports this running instance's identity, not disk's latest
+# bytes. The installer starts this source through runpy with __file__ set.
+RECEIVER_SOURCE_SHA256 = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+
 ROOT = Path('/public/home/jiangxinwei.zr/work/paper04')
 PORT = 18817
 DEPLOYMENT = 'edge_linux_preflight_deployment_v1_20261103'
@@ -30,6 +35,10 @@ MAX_CHUNK = 4 * 1024**2
 MAX_RESULT = 64 * 1024**2
 ARCHIVE_SHA = 'c683ccbe4e3f1b92fc51638ed9345777f6577edc1f171486279e20248f9541d9'
 MANIFEST_SHA = 'f61af6ca64c629565e6914ef520c85352b65a5987e7af6d9515d1848cc4ccbd6'
+SLURM_PATH_ASSIGNMENTS = {
+    'EDGE_PACKAGE_DIR': 'EDGE_PACKAGE_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"',
+    'EDGE_ROOT': 'EDGE_ROOT="$(cd -- "${EDGE_PACKAGE_DIR}/../.." && pwd)"',
+}
 
 
 def need(ok, message):
@@ -83,6 +92,23 @@ def regular_members(archive, maximum_bytes):
     return members
 
 
+def adapt_slurm_paths(source, checkout, package):
+    """Replace exactly two known assignments; preserve every other source byte."""
+    lines = source.decode('utf-8').splitlines(keepends=True)
+    replacements = []
+    for name, value in (('EDGE_PACKAGE_DIR', package), ('EDGE_ROOT', checkout)):
+        expected = SLURM_PATH_ASSIGNMENTS[name]
+        positions = [i for i, line in enumerate(lines) if line.rstrip('\r\n').startswith(name + '=')]
+        need(len(positions) == 1 and lines[positions[0]].rstrip('\r\n') == expected,
+             'SLURM_PATH_ASSIGNMENT_IDENTITY:' + name)
+        index = positions[0]
+        ending = lines[index][len(expected):]
+        replacement = name + '=' + shlex.quote(str(value))
+        lines[index] = replacement + ending
+        replacements.append(dict(variable=name, original=expected, replacement=replacement))
+    return ''.join(lines).encode('utf-8'), replacements
+
+
 class Receiver:
     def __init__(self, config, root=ROOT, runner=subprocess.run):
         self.root = Path(root).resolve()
@@ -93,6 +119,7 @@ class Receiver:
         self.checkout = self.unpack / 'edge_preflight_checkout'
         self.outputs = self.here / 'outputs'
         self.config = config
+        self.receiver_source_sha256 = RECEIVER_SOURCE_SHA256
         self.runner = runner
         self.lock = threading.RLock()
         self.last_error = None
@@ -209,6 +236,41 @@ class Receiver:
              and not contract['full_quality_evaluation_authorized'], 'PREFLIGHT_SCOPE')
         return dict(files=checked, manifest_sha256=sha(manifest_path), contract=contract)
 
+    def create_path_adapter(self):
+        original = self.checkout / PACKAGE / 'preflight.slurm'
+        manifest = read(self.checkout / PACKAGE / 'PACKAGE_MANIFEST.json')
+        need(sha(original) == manifest['files'][PACKAGE + '/preflight.slurm']['sha256'],
+             'ORIGINAL_SLURM_MANIFEST_PIN')
+        adapted, replacements = adapt_slurm_paths(original.read_bytes(),
+            self.checkout.resolve().as_posix(), (self.checkout / PACKAGE).resolve().as_posix())
+        target = self.here / 'PREFLIGHT_PATH_ADAPTER.slurm'
+        target.write_bytes(adapted)
+        syntax = self.runner(['bash', '-n', str(target)], capture_output=True, text=True, timeout=10)
+        need(syntax.returncode == 0, 'SLURM_PATH_ADAPTER_SYNTAX')
+        return dict(schema='EDGE_PREFLIGHT_SLURM_PATH_ADAPTER_V1',
+                    original_slurm_path=original.resolve().as_posix(), original_slurm_sha256=sha(original),
+                    adapter_path=target.resolve().as_posix(), adapter_sha256=sha(target),
+                    checkout_root=self.checkout.resolve().as_posix(),
+                    package_directory=(self.checkout / PACKAGE).resolve().as_posix(),
+                    replacements=replacements, resource_directives_unchanged=True)
+
+    def validate_path_adapter(self, prepared):
+        adapter = prepared.get('slurm_path_adapter')
+        need(isinstance(adapter, dict), 'SLURM_PATH_ADAPTER_REQUIRED')
+        target = self.here / 'PREFLIGHT_PATH_ADAPTER.slurm'
+        original = self.checkout / PACKAGE / 'preflight.slurm'
+        need(adapter['adapter_path'] == target.resolve().as_posix()
+             and adapter['original_slurm_path'] == original.resolve().as_posix()
+             and adapter['checkout_root'] == self.checkout.resolve().as_posix()
+             and adapter['package_directory'] == (self.checkout / PACKAGE).resolve().as_posix(),
+             'SLURM_PATH_ADAPTER_BINDING')
+        need(sha(target) == adapter['adapter_sha256'], 'SLURM_PATH_ADAPTER_CHANGED')
+        need(sha(original) == adapter['original_slurm_sha256'], 'ORIGINAL_SLURM_CHANGED')
+        expected, replacements = adapt_slurm_paths(original.read_bytes(),
+            adapter['checkout_root'], adapter['package_directory'])
+        need(hashlib.sha256(expected).hexdigest() == adapter['adapter_sha256']
+             and replacements == adapter['replacements'], 'SLURM_PATH_ADAPTER_SCOPE')
+
     def prepare(self):
         with self.lock:
             receipt_path = self.here / 'PREPARE_RECEIPT.json'
@@ -216,6 +278,7 @@ class Receiver:
                 receipt = read(receipt_path)
                 need(receipt['status'] == 'PREPARED_NOT_SUBMITTED', 'PREVIOUS_PREPARE_FAILED')
                 self.validate_extracted()
+                self.validate_path_adapter(receipt)
                 return receipt
             self.phase('INPUT_HASHES_AND_STORAGE')
             for key in self.config['files']:
@@ -225,20 +288,29 @@ class Receiver:
             need(storage['free_bytes'] > self.config['files']['archive']['bytes'] + 512 * 1024**2,
                  'EXTRACTION_DISK_HEADROOM')
             self.phase('SAFE_EXTRACT')
-            if self.unpack.exists():
-                need(not any(self.unpack.iterdir()), 'PARTIAL_EXTRACTION_REQUIRES_MANUAL_REVIEW')
+            reused_extraction = self.unpack.exists() and any(self.unpack.iterdir())
+            if reused_extraction:
+                # A decoder/runtime check can fail after extraction completed.
+                # Reuse only a complete byte-verified checkout; partial or
+                # changed files still require explicit repair and review.
+                self.phase('EXISTING_EXTRACTION_MANIFEST_READBACK')
+                try:
+                    validated = self.validate_extracted()
+                except (OSError, ValueError, KeyError, TypeError) as error:
+                    raise ValueError('PARTIAL_EXTRACTION_REQUIRES_MANUAL_REVIEW:'
+                                     + repr(error)) from error
             else:
-                self.unpack.mkdir()
-            with tarfile.open(self.path('archive'), 'r:') as archive:
-                members = regular_members(archive, self.config['files']['archive']['bytes'])
-                for member in members:
-                    destination = self.unpack.joinpath(*PurePosixPath(member.name).parts)
-                    destination.parent.mkdir(parents=True, exist_ok=True)
-                    need(not destination.exists(), 'EXTRACTION_DESTINATION_EXISTS')
-                    with archive.extractfile(member) as src, destination.open('xb') as out:
-                        shutil.copyfileobj(src, out, 4 * 1024**2)
-            self.phase('MANIFEST_READBACK')
-            validated = self.validate_extracted()
+                self.unpack.mkdir(exist_ok=True)
+                with tarfile.open(self.path('archive'), 'r:') as archive:
+                    members = regular_members(archive, self.config['files']['archive']['bytes'])
+                    for member in members:
+                        destination = self.unpack.joinpath(*PurePosixPath(member.name).parts)
+                        destination.parent.mkdir(parents=True, exist_ok=True)
+                        need(not destination.exists(), 'EXTRACTION_DESTINATION_EXISTS')
+                        with archive.extractfile(member) as src, destination.open('xb') as out:
+                            shutil.copyfileobj(src, out, 4 * 1024**2)
+                self.phase('MANIFEST_READBACK')
+                validated = self.validate_extracted()
             for role, item in validated['contract']['raw_inputs_separate_not_archived'].items():
                 need(self.path(role).name == item['filename']
                      and self.path(role).stat().st_size == item['bytes'] and sha(self.path(role)) == item['sha256'],
@@ -253,22 +325,50 @@ class Receiver:
             need(observed['python'] == expected['Python'] and observed['numpy'] == expected['numpy']
                  and observed['torch'].split('+')[0] == expected['torch']
                  and observed['transformers'] == expected['transformers'], 'RUNTIME_METADATA_IDENTITY')
-            decoder = self.runner([TSHARK, '--version'], capture_output=True, text=True, timeout=15)
-            need(decoder.returncode == 0 and '4.6.6' in decoder.stdout.splitlines()[0], 'TSHARK_IDENTITY')
+            # Decoder uses the same library environment as the actual Slurm
+            # worker. A bare binary invocation can fail before main() when
+            # shared libraries are supplied by environment.sh.
+            decoder_command = self.shell_environment() + 'exec ' + shlex.quote(TSHARK) + ' --version'
+            try:
+                decoder = self.runner(['bash', '-c', decoder_command],
+                                      capture_output=True, text=True, timeout=15)
+            except (OSError, subprocess.SubprocessError) as error:
+                captured = {}
+                for field in ('stdout', 'stderr'):
+                    value = getattr(error, field, None)
+                    captured[field] = value.decode('utf-8', errors='replace') if isinstance(value, bytes) else value
+                write(self.here / 'DECODER_IDENTITY.json', dict(
+                    status='FAILED', binary=TSHARK, expected_version=expected['TShark'],
+                    same_worker_environment=True, returncode=None,
+                    error=repr(error), **captured))
+                raise
+            decoder_first_line = decoder.stdout.splitlines()[0] if decoder.stdout.splitlines() else ''
+            decoder_ok = (decoder.returncode == 0 and re.search(
+                r'(?<![\d.])' + re.escape(expected['TShark']) + r'(?![\d.])',
+                decoder_first_line) is not None)
+            write(self.here / 'DECODER_IDENTITY.json', dict(
+                status='PASS' if decoder_ok else 'FAILED', binary=TSHARK,
+                expected_version=expected['TShark'], same_worker_environment=True,
+                returncode=decoder.returncode, stdout=decoder.stdout, stderr=decoder.stderr))
+            need(decoder_ok, 'TSHARK_IDENTITY')
+            self.phase('SEALED_SLURM_PATH_ADAPTER')
+            path_adapter = self.create_path_adapter()
             wrapper = ('#!/usr/bin/env bash\nset -euo pipefail\numask 077\n' + self.shell_environment()
                        + 'export EDGE_PYTHON=' + shlex.quote(PYTHON) + '\n'
                        + 'export EDGE_TSHARK=' + shlex.quote(TSHARK) + '\n'
                        + 'export EDGE_RAW_DIRECTORY=' + shlex.quote(self.raw.as_posix()) + '\n'
                        + 'export EDGE_OUTPUT_BASE=' + shlex.quote(self.outputs.as_posix()) + '\n'
                        + 'cd ' + shlex.quote(self.checkout.as_posix()) + '\n'
-                       + 'exec sbatch --parsable --partition=amd ' + shlex.quote(PACKAGE + '/preflight.slurm') + '\n')
+                       + 'exec sbatch --parsable --partition=amd ' + shlex.quote(path_adapter['adapter_path']) + '\n')
             script = self.here / 'SUBMIT_PREFLIGHT_ONCE.sh'
             script.write_bytes(wrapper.encode('utf-8'))
             syntax = self.runner(['bash', '-n', str(script)], capture_output=True, text=True, timeout=10)
             need(syntax.returncode == 0, 'SUBMIT_WRAPPER_SYNTAX')
             receipt = dict(status='PREPARED_NOT_SUBMITTED', archive_sha256=ARCHIVE_SHA,
                            manifest_files_verified=validated['files'], runtime_metadata=observed,
-                           tshark_version=decoder.stdout.splitlines()[0], submit_wrapper_sha256=sha(script),
+                           tshark_version=decoder_first_line, submit_wrapper_sha256=sha(script),
+                           reused_verified_extraction=bool(reused_extraction),
+                           slurm_path_adapter=path_adapter,
                            storage=storage, training=False, model_loaded=False, formal_external_evaluation=False)
             write(receipt_path, receipt)
             self.phase('COMPLETE_PREPARED_NOT_SUBMITTED')
@@ -286,6 +386,7 @@ class Receiver:
             script = self.here / 'SUBMIT_PREFLIGHT_ONCE.sh'
             need(sha(script) == prepared['submit_wrapper_sha256'], 'SUBMIT_WRAPPER_CHANGED')
             self.validate_extracted()
+            self.validate_path_adapter(prepared)
             write(attempted, dict(status='SUBMIT_ATTEMPT_RECORDED_NO_RETRY',
                   created_utc=datetime.now(timezone.utc).isoformat(), script_sha256=sha(script),
                   allowed_jobs=1, wall_seconds=600, formal_external_evaluation=False))
@@ -314,6 +415,7 @@ class Receiver:
             files = {key: self.file_state(key) for key in self.config['files']}
             job = read(self.here / 'SUBMIT_RECEIPT.json') if (self.here / 'SUBMIT_RECEIPT.json').exists() else None
             state = dict(status='READY_TO_UPLOAD', files=files, job=job, last_error=self.last_error,
+                         receiver_source_sha256=self.receiver_source_sha256,
                          scheduler=None, delivery_status=None, delivery_result=None,
                          real_slice_status=None, result_ready=False,
                          prepare_receipt=read(self.here / 'PREPARE_RECEIPT.json')
