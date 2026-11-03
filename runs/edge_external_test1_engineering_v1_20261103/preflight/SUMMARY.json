@@ -1,0 +1,98 @@
+{
+  "status": "ENGINEERING_IMPLEMENTED_LOCAL_E2E_FAILED_FINAL_RUNTIME_PENDING",
+  "complete_real_slice_e2e_pass": false,
+  "strict_clone_gate_changed": false,
+  "final_linux_gate_pass": false,
+  "model_evaluation_authorized": false,
+  "formal_external_evaluation_started": false,
+  "training": false,
+  "cloud_jobs_submitted": 0,
+  "local_environment": {
+    "system": "Windows",
+    "python": "3.10.0",
+    "executable": "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "versions": {
+      "numpy": "2.2.6",
+      "torch": "2.8.0",
+      "transformers": "4.57.3",
+      "safetensors": "0.6.2",
+      "psutil": "7.2.2"
+    },
+    "expected_linux_hpc_runtime_exact": false,
+    "expected": {
+      "system": "Linux",
+      "python": "3.11.11",
+      "numpy": "2.0.1",
+      "torch": "2.5.1",
+      "transformers": "4.57.3"
+    }
+  },
+  "slice_sha256": "c0fb6bebfd5c37c2ec4f8ceb426cfb13ba3ed8b44898af4ad632926335d464d5",
+  "slice_logical_endpoints": 65,
+  "real_decode_descriptor_pass": true,
+  "local_attempt_v1_seconds": 47.31299999999828,
+  "local_diagnostic_v2_seconds": 44.26600000000326,
+  "two_local_engineering_attempts_seconds": 91.57900000000154,
+  "v1_exact_forward_counts": "NOT_RECORDED_DO_NOT_INFER_FROM_V2",
+  "v2_completed_encoding_batches": 8,
+  "v2_completed_logical_rows": 36,
+  "v2_completed_physical_rows": 66,
+  "v2_attempted_logical_rows": 37,
+  "v2_attempted_physical_rows": 82,
+  "v2_failed_shape": [
+    6,
+    61,
+    2
+  ],
+  "v2_failure_maxabs": 3.5762786865234375e-07,
+  "v2_completed_forward_seconds": 5.842000000004191,
+  "v2_failed_forward_seconds": 3.547000000002299,
+  "E3_vectors_persisted": 0,
+  "reusable_encoded_outputs": 0,
+  "external_head_scoring_started": false,
+  "external_distance_pairs": 0,
+  "external_reporting_started": false,
+  "external_quality_results_exported": false,
+  "backend_changed": false,
+  "dropout_not_root_cause": "Frozen e3_forward_batches calls model.eval() and torch.inference_mode()",
+  "exact_hardware_kernel_cause": "NOT_ISOLATED; observed on nonproduction Windows/Torch2.8 runtime",
+  "input_readback_after_both_failures": {
+    "HTTP": {
+      "bytes": 28307602,
+      "sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+      "unchanged": true
+    },
+    "NORMAL": {
+      "bytes": 345868816,
+      "sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+      "unchanged": true
+    },
+    "UDP": {
+      "bytes": 247560012,
+      "sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+      "unchanged": true
+    }
+  },
+  "source_only_parity": {
+    "rows": 16,
+    "input_sha256": {
+      "CAL_FIXED_INPUTS.npz": "955c153c94e478bbdf8e03fc57acbf301d6750ae73c671681947c5c529f17736",
+      "CAL_E3.npy": "215eb659bdc973df7f0f7699692b005acbc2864f9934023007f9b007f1a89266"
+    },
+    "head_score_bit_exact": false,
+    "max_absolute_score_error": 1.1444091796875e-05,
+    "four_head_decision_exact": true,
+    "tolerance_1e_4_pass": true,
+    "uid_sha256": "95bf6e52bee776f26fd0d4fc2d5f045ded98e77096ed754fced5cd38b7e9226d",
+    "scope": "Source CAL saved features through frozen three heads; not raw-to-E3 source parity"
+  },
+  "code_identity_caution": "v1/v2 did not retain a pre-run code manifest. New final entrypoint now records it before execution; this improvement is not claimed executed.",
+  "regression_tests": {
+    "total": 4,
+    "passed": 4,
+    "real_pipeline_pass": false
+  },
+  "no_more_local_forward_retries": true,
+  "required_next": "Same fixed slice on intended Linux3.11/Torch2.5.1/NumPy2.0.1 delivery; stop on any gate failure",
+  "runtime_budget": "NOT_FROZEN: actual encoding runtime incompatible and whole-population shape/unique-tensor census not complete"
+}

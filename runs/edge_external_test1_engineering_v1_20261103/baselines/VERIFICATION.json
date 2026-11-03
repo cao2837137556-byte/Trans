@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "array_and_source_join": true,
+  "raw_fallback_exact": true,
+  "strict_threshold_decisions_exact": true,
+  "source_normal_weighted_fpr_match": true,
+  "threshold_minimality": [
+    {
+      "cut": 1.1929950558809033,
+      "previous_distinct": 1.1928944087859708,
+      "minimal": true
+    },
+    {
+      "cut": 1.1996403182574658,
+      "previous_distinct": 1.1995378686480418,
+      "minimal": true
+    },
+    {
+      "cut": 1.1966587586932518,
+      "previous_distinct": 1.1965428751336125,
+      "minimal": true
+    },
+    {
+      "cut": 1.1923376342171,
+      "previous_distinct": 1.192269193282728,
+      "minimal": true
+    }
+  ],
+  "direct_euclidean_sample_rows": 64,
+  "maximum_absolute_distance_error": 7.216449660063518e-16,
+  "external_arrays_read": false,
+  "source_result_sha256": "a47221412ee24096a9827ad9cdaf45b63306e3b15afe137c720b99a564deed54"
+}

@@ -1,0 +1,44 @@
+{
+  "status": "LOCKED_BEFORE_DISTANCE",
+  "inputs": [
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/CAL_QUERIES.jsonl.gz",
+      "bytes": 9607682,
+      "sha256": "f510727ab6a252e023cf2843b95b79e673ba009c8ea0697ef567f4999ac12070"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/CAL_E3.npy",
+      "bytes": 457172096,
+      "sha256": "215eb659bdc973df7f0f7699692b005acbc2864f9934023007f9b007f1a89266"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/CAL_FIXED_INPUTS.npz",
+      "bytes": 9392300,
+      "sha256": "955c153c94e478bbdf8e03fc57acbf301d6750ae73c671681947c5c529f17736"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/SOURCE_REFS/references.jsonl.gz",
+      "bytes": 322617,
+      "sha256": "574d70d4b26ae46309b23f52b87aa0ff1ed1089a22b05127d2a2fe3fba95bac6"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/SOURCE_REFS/bank.npz",
+      "bytes": 13232992,
+      "sha256": "8f5afbb9132c07d32c3ea8c96826110a01a17f2725148d3c4b3902ac7981fc36"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz",
+      "bytes": 12792,
+      "sha256": "ba92b5439255435e854ee14b74738cae0e3606060456de37927b2b6a0e2ab8b2"
+    }
+  ],
+  "contract_sha256": "2d0f4b58ce0110460735debcd2605895d27f484ac93deeada548d879c8398585",
+  "implementation_sha256": "ece31abe2c080eb7e555783660dbe91b581fb7ca3e1a246ab1a210a4b4e84460",
+  "calibration_script_sha256": "9f79b9faa5a9f9c73b8551225f1ebbc7a86f071aeb447f9f83e3ccd42cbc5e5c",
+  "static_upper_pairs": 46931467,
+  "estimated_wall_seconds_upper": 600,
+  "runtime": {
+    "python": "3.10.0",
+    "numpy": "2.2.6"
+  }
+}

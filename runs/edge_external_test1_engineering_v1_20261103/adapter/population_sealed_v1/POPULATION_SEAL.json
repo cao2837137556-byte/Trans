@@ -1,0 +1,406 @@
+{
+  "status": "SEALED_NO_EXTERNAL_MODEL_EVALUATION",
+  "population_manifest_sha256": "a6fd66b8cb28351875b7020f5990337ebfbaa6b4cf58ec75be6e5063d2aa8eee",
+  "reporting_metadata_added": [
+    "scenario=NORMAL/HTTP/UDP"
+  ],
+  "reporting_metadata_does_not_change": [
+    "UID",
+    "eligibility",
+    "reference selection",
+    "scores"
+  ],
+  "population": {
+    "status": "COMPLETE_POPULATION_NO_MODEL_EVALUATION",
+    "version": "EDGE_CAUSAL_RAW_ADAPTER_V1_20261103",
+    "roles": {
+      "NORMAL": {
+        "counts": {
+          "raw_records": 1629749,
+          "truth_candidates": 1334858,
+          "eligible": 1334562,
+          "eligible|1|VALID": 114436,
+          "eligible|2|VALID": 1220126,
+          "unscored": 296,
+          "unscored|2|NEW_TIMESTAMP_REGRESSION": 21,
+          "unscored|2|POISONED_PREFIX": 275
+        },
+        "truth_strata": {
+          "1": 114436,
+          "0": 294891,
+          "2": 1220422
+        },
+        "segments": [
+          {
+            "capture_id": "EDGE_NORMAL_SEGMENT_1",
+            "events": {
+              "PROTOCOL_OR_OWNER_OUTSIDE": 280184,
+              "CAPTURE_REGRESSION_CROSS_KEY": 17,
+              "NEW_TIMESTAMP_REGRESSION": 5,
+              "POISONED_PREFIX": 27,
+              "CAPTURE_REGRESSION_OUTSIDE_SCOPE": 26
+            },
+            "namespaces": 16184,
+            "poisoned": 5,
+            "tainted": 0
+          },
+          {
+            "capture_id": "EDGE_NORMAL_SEGMENT_2",
+            "events": {
+              "PROTOCOL_OR_OWNER_OUTSIDE": 3760,
+              "NEW_TIMESTAMP_REGRESSION": 16,
+              "POISONED_PREFIX": 248,
+              "CAPTURE_REGRESSION_CROSS_KEY": 42
+            },
+            "namespaces": 15555,
+            "poisoned": 16,
+            "tainted": 0
+          },
+          {
+            "capture_id": "EDGE_NORMAL_SEGMENT_3",
+            "events": {
+              "CAPTURE_REGRESSION_CROSS_KEY": 2,
+              "PROTOCOL_OR_OWNER_OUTSIDE": 8690,
+              "CAPTURE_REGRESSION_OUTSIDE_SCOPE": 6
+            },
+            "namespaces": 11393,
+            "poisoned": 0,
+            "tainted": 0
+          },
+          {
+            "capture_id": "EDGE_NORMAL_SEGMENT_4",
+            "events": {
+              "PROTOCOL_OR_OWNER_OUTSIDE": 1374,
+              "CAPTURE_REGRESSION_CROSS_KEY": 5
+            },
+            "namespaces": 9815,
+            "poisoned": 0,
+            "tainted": 0
+          },
+          {
+            "capture_id": "EDGE_NORMAL_SEGMENT_5",
+            "events": {
+              "PROTOCOL_OR_OWNER_OUTSIDE": 199
+            },
+            "namespaces": 379,
+            "poisoned": 0,
+            "tainted": 0
+          }
+        ],
+        "full_uid_sha256": "e52511f2e4ca40a3e3b94c7ab64eb9e0f4c380810f0c1bfcb6591cb1bd50f2f3",
+        "primary_uid_sha256": "41b6e6cc97d3eb5d7f435f329e0fe332c0ce606eebcb88b6ad0a7a34783be2ca",
+        "mask_file": "NORMAL_FRAME_POPULATION.u8x2.bin",
+        "mask_sha256": "86f223af69d7f4fb48ea45439ddab26069c8ee4710c14c500a01d2966fcb6d31",
+        "mask_bytes": 3259498,
+        "elapsed_seconds": 129.3279999999977,
+        "features_generated": 0
+      },
+      "HTTP": {
+        "counts": {
+          "raw_records": 229142,
+          "truth_candidates": 152352,
+          "eligible": 152352,
+          "eligible|3|VALID": 152352
+        },
+        "truth_strata": {
+          "3": 152352,
+          "0": 76790
+        },
+        "segments": [
+          {
+            "capture_id": "EDGE_HTTP",
+            "events": {
+              "PROTOCOL_OR_OWNER_OUTSIDE": 130,
+              "CAPTURE_REGRESSION_CROSS_KEY": 1146
+            },
+            "namespaces": 12119,
+            "poisoned": 0,
+            "tainted": 0
+          }
+        ],
+        "full_uid_sha256": "d3412c5aab5ddd1d87008432951453e173d9b75028e08f29560129d6facbe5c1",
+        "primary_uid_sha256": "d3412c5aab5ddd1d87008432951453e173d9b75028e08f29560129d6facbe5c1",
+        "mask_file": "HTTP_FRAME_POPULATION.u8x2.bin",
+        "mask_sha256": "d3c3712fae9688c6c19a3afe41483c9cce6f21bb7e39f2eaa5652af65fa6fc96",
+        "mask_bytes": 458284,
+        "elapsed_seconds": 17.42199999999866,
+        "features_generated": 0
+      },
+      "UDP": {
+        "counts": {
+          "raw_records": 3215732,
+          "truth_candidates": 2898830,
+          "eligible": 2898830,
+          "eligible|4|VALID": 2898830
+        },
+        "truth_strata": {
+          "4": 2898830,
+          "0": 316902
+        },
+        "segments": [
+          {
+            "capture_id": "EDGE_UDP",
+            "events": {
+              "PROTOCOL_OR_OWNER_OUTSIDE": 316902,
+              "CAPTURE_REGRESSION_CROSS_KEY": 3489
+            },
+            "namespaces": 2898538,
+            "poisoned": 0,
+            "tainted": 0
+          }
+        ],
+        "full_uid_sha256": "e0742bec9e5097ac23e36cf03cf0d9d1bdc332d31cc86a2e1cae8b820112640d",
+        "primary_uid_sha256": "e0742bec9e5097ac23e36cf03cf0d9d1bdc332d31cc86a2e1cae8b820112640d",
+        "mask_file": "UDP_FRAME_POPULATION.u8x2.bin",
+        "mask_sha256": "938f31333557353398372ca795c9e2250a5751095b1d59e67aa05b155b21137c",
+        "mask_bytes": 6431464,
+        "elapsed_seconds": 246.23400000000038,
+        "features_generated": 0
+      }
+    },
+    "inputs": {
+      "NORMAL": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\Temperature_and_Humidity.pcap",
+        "sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+        "bytes": 345868816,
+        "unchanged": true
+      },
+      "HTTP": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS HTTP Flood Attacks.pcap",
+        "sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+        "bytes": 28307602,
+        "unchanged": true
+      },
+      "UDP": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS UDP Flood Attacks.pcap",
+        "sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+        "bytes": 247560012,
+        "unchanged": true
+      }
+    },
+    "physical_logical_mapping": {
+      "NORMAL": [
+        {
+          "first_frame": 1,
+          "last_frame": 884555,
+          "min_ns": 1637491450081753000,
+          "max_ns": 1637530272740630000,
+          "span_seconds": 38822.658877,
+          "capture_id": "EDGE_NORMAL_SEGMENT_1"
+        },
+        {
+          "first_frame": 884556,
+          "last_frame": 1279552,
+          "min_ns": 1637591660252618000,
+          "max_ns": 1637617805757227000,
+          "span_seconds": 26145.504609,
+          "capture_id": "EDGE_NORMAL_SEGMENT_2"
+        },
+        {
+          "first_frame": 1279553,
+          "last_frame": 1469919,
+          "min_ns": 1637679338804754000,
+          "max_ns": 1637690830421639000,
+          "span_seconds": 11491.616885,
+          "capture_id": "EDGE_NORMAL_SEGMENT_3"
+        },
+        {
+          "first_frame": 1469920,
+          "last_frame": 1626212,
+          "min_ns": 1637695650270762000,
+          "max_ns": 1637705429988676000,
+          "span_seconds": 9779.717914,
+          "capture_id": "EDGE_NORMAL_SEGMENT_4"
+        },
+        {
+          "first_frame": 1626213,
+          "last_frame": 1629749,
+          "min_ns": 1639959767981993000,
+          "max_ns": 1639960855043322000,
+          "span_seconds": 1087.061329,
+          "capture_id": "EDGE_NORMAL_SEGMENT_5"
+        }
+      ],
+      "HTTP": [
+        {
+          "first_frame": 1,
+          "last_frame": 229142,
+          "capture_id": "EDGE_HTTP"
+        }
+      ],
+      "UDP": [
+        {
+          "first_frame": 1,
+          "last_frame": 3215732,
+          "capture_id": "EDGE_UDP"
+        }
+      ]
+    },
+    "frame_semantics": "row.frame/provenance frames are original physical ordinals; logical_frame=physical-first+1 is audit-only",
+    "mask_schema": {
+      "bytes_per_raw_record": 2,
+      "first_byte": {
+        "0": "OUTSIDE_TRUTH",
+        "1": "NORMAL_FIRST_7200",
+        "2": "NORMAL_POST_7200",
+        "3": "HTTP_DIRECT",
+        "4": "UDP_DIRECT"
+      },
+      "second_byte": {
+        "OUTSIDE_TRUTH": 0,
+        "VALID": 1,
+        "NEW_TIMESTAMP_REGRESSION": 2,
+        "POISONED_PREFIX": 3
+      }
+    },
+    "eligibility_implementation": "Frozen continuous_input_v3.Contexts.append with explicitly non-numerical state sink; no flow/state snapshots can be emitted.",
+    "reference_legal_positions": 114436,
+    "reference_distinct_components": 7121,
+    "selected_reference_rows": 4124,
+    "model_evaluations": 0,
+    "features_generated": 0,
+    "distance_pairs": 0,
+    "elapsed_seconds": 395.8909999999996,
+    "card_sha256": "0755167ae19033e06d2557a9ee3744f82abc4b4587a9e6452e87727ba12e706e",
+    "decoder_identity_sha256": "738b20c0c1fff672b50ed12fe2542f0d11e035d9fc4811e5c686d689eef3197d"
+  },
+  "protocol_and_stratum_counts": {
+    "NORMAL": {
+      "candidate|truth1|proto6": 114408,
+      "eligible|truth1|proto6": 114408,
+      "candidate|truth1|proto17": 28,
+      "eligible|truth1|proto17": 28,
+      "candidate|truth2|proto6": 1218020,
+      "eligible|truth2|proto6": 1217724,
+      "candidate|truth2|proto17": 2402,
+      "eligible|truth2|proto17": 2402,
+      "unscored|truth2|proto6": 296
+    },
+    "HTTP": {
+      "candidate|truth3|proto6": 152352,
+      "eligible|truth3|proto6": 152352,
+      "HTTP_flags|2": 61641,
+      "HTTP_SYN_guarded": 61641,
+      "HTTP_flags|24": 77043,
+      "HTTP_ACK_no_SYN": 88262,
+      "HTTP_payload_containing": 77442,
+      "HTTP_flags|17": 3003,
+      "HTTP_flags|16": 7817,
+      "HTTP_flags|4": 2449,
+      "HTTP_flags|25": 399
+    },
+    "UDP": {
+      "candidate|truth4|proto17": 2898830,
+      "eligible|truth4|proto17": 2898830
+    }
+  },
+  "references": {
+    "rows": 4124,
+    "by_protocol": {
+      "6": 4096,
+      "17": 28
+    },
+    "reference_rows_sha256": "baa227bdb327d5ab47187b12a4d403ef6278d64346d1518d032f6e92fd330f32",
+    "selected_uid_sha256": "ebb548bb427b12d365636bdf21fd32f6701eefcfdb52689fbd294769bc219727",
+    "original_dense_plan_sha256": "4d1152345b0094972fa1f42f98f06fde26d2d6b34c7de03028a0f227e25e8468",
+    "sparse_b2_anchor_rows": 64,
+    "scheduled_anchor_priority": [
+      "b2f29c5c94dcb05f56c3dd170817ff882997b4fd3ea70430c49f9d7cfedc9caf",
+      "1bb92df375b38817f3eba5f92b306858fa2c4726a81b4d73979a9c7ca74a768d",
+      "72d0e09b58d0e7babd5861db65783a5a08c9513a7338090bfd4b914258d8ae69",
+      "e73e642da6b8a9011fac921a4899dac4eef48b8097bca31c725d1c7fda1643dc",
+      "e4de0240a20b26ae5d7c37bc324c2ae17726c62ffbf9b9257f775063d2641cd0",
+      "01a9640247b59d07dffbc1737833a2c369591e76a448864bd07f2b9d4620cd6b",
+      "c04ff1d1483b773b3ac55acf449915d1bef0bc091eedcc0dd8a912a7cac084b5",
+      "f4b0639f82d41a604c5bfd8d5d2934b0ce8d22c7506ba2e7a0c91b1b3f660599",
+      "97dd225112fa9eda3eefabb5a1a86b3e9a296a5d8ef815e109380e52720e3ae6",
+      "ca9d1ca46f679b61c25be0a1b7b2f9d8306977b4cb2b9a4e03389cbb476e519b",
+      "480a7aaffa2e20aec77914b16fe5300c48d769cd23cc1615bcd506501805552f",
+      "fae57ada268148603bb3fffacf1d90332490a66c12c65079fd7d05d7551673f8",
+      "64b318d609db955f3b0700b91866885554138bbbef674882acb93c453cbf489e",
+      "b2ebc69a1f2229b64ea47035e455010948532048dbbdd101f7f158edd2475fb7",
+      "d9d8f6049b021575df71b19cfc8b7131ba49a26261fa7d70431fd8a04b30572e",
+      "2d750a18bfc0f697ae732ada0f0cb3b8f3e3cc94c7ac9ad272e24fdd374da6e0",
+      "a8a1d62aa1f97b3f2109f535b9ebfed0e2cbdf17f3b21efb7849a622bfc63b62",
+      "9aabb34b14741d044caa4175c35ee7740f8262f570bc8ab5565e067a2ebada73",
+      "f17dba31deb66b5ad07e08947b0d20e2cc8f4188de51ed20e04da3ccc92dcc04",
+      "3690a3b500a4f4d34ac976483cb8b183e23ffd76db539b320caa83a8ad3cb1d2",
+      "e19b350f6f097a3750621eee52ddfec0fcb2f9b5ee2c27c626d3c07f02d82fce",
+      "25e22e3e66d691639521836092de60f73b4ff9a09a8177d08cd0a8ad139067dd",
+      "d74e6d18aaee9ab412001ef13906721e978e0410464d6111efa4be691edc2b02",
+      "40172472815a8da9ecb8be67774a4f49da6ec85de714a4dfb756ec00b4c62221",
+      "49225494eddd3b6efe7774aa663e5c400a9f918c1f500d3fd55add104110f9aa",
+      "bc11778847aeaa6e69a326b1399a0c5aac904be494d1b6ff01ffeb30898a29b9",
+      "b97ef994d25288fcd7983ffad33d7620c43e4309cc14983114ec8123c2bb4379",
+      "d14ad38d0f38b1bc47c9b8cee3e32d4b97e1ee86063aac4688227063e14bce7d",
+      "ef0c614ec974a2a8dc5a55d867e463098d0902c3fbd11db25877292432717438",
+      "b854afe3e83273d3775fb469150c1799da497c5013222798c421331d82d522b3",
+      "706458a76848c1f72e70ee5ee4adfe914dc9157f3f5731954e700b4ade70e425",
+      "954637f71f0edbc1125ddba6680ff7b93ae0ec3da56b645bc3e29830dbd1e816",
+      "60d78b4d5cb6480465028d5ecf2c2a297331b7e78c2b35b0cba16d629dd936ec",
+      "b8b00b1bcead97baf19d7058fb5b0d8f15823acac9f29b092ab7352fbcb6bad7",
+      "de44ec306d65d9dfa7ee391664bf102f63f67b960428fd98c36b050a5a88f404",
+      "0e70234bd5f0a97ed3d53dc202a577ba7c2bf7dcdbf04efa95c7f0118af8cac3",
+      "8c4bf37257b5660e5dd9b811ee36dcc62b1811fc00012c6a1ede11190448d822",
+      "a203a79f76726e9b4e981ccbddc3896f7b83b8835eb6f6fcef9e7b97e7629400",
+      "8fdce5b4afdc463a2bbd671a1d5148bb40fc98a65706184525fcc4c43aa571cc",
+      "5875bcc41fd182c8627ec7ea14015c4b00707600b403181770d4f76fd6ef867f",
+      "3729a0b2950cafee0cced28054ca5cca50830000dfa88dfd249a2c5f3c00daa4",
+      "67b7884f1ded717615079425ca94527329f607dceff7b697f26f354fb6a9a72f",
+      "06b580a2db7668fdf6c728ced15a670c7227a31dfd6fb114809d76d895640c2d",
+      "353f22e0b23eb9ad6dfad31d829444a14d25fbe7a68a2ddffeede5c00d668c19",
+      "4d668cbf3e4987b017de8582b05ca2cf4cef7485543ad748b58fe0ea2e182f22",
+      "a48a8e03dd8a0f59483b6710a821c0493a31cd1e8a02e271a29aefa8534e5164",
+      "913e56476c5ba72a3b2add2f032cd165f758807df02963e74576b70c7f9ecf9c",
+      "cdbdcb50e80b184776a4153c0c27597e9ffa91b8dd6fe87071fcbfc4a37bd2bc",
+      "9b4ebadfcf1245fc03fb7b71a6f3bf29961d1fbeb8f1c2099c0b6ee92ae2531c",
+      "cb21a2e4f372bf4315f286edbc8a422a45f01efceb145dbe375c86cab4f14ef4",
+      "70be42c8acc0488c713db327453b6eeb9e56dea34bd36d325b140fef71267865",
+      "81d8fe39a8e2bb11e0caf261557572477748fc76a1b667eb0b9d43db458a9b56",
+      "bb66ae07cb95509bda320fc1b51dee4ce3ed24aef8b0e3d28a8f8f9daed3a678",
+      "eb9778985535e97eff67f4fee92abe598b3139ca3e0da6b707e2c0dd3656196e",
+      "09448483d982cd403d41b64effc293a7dd890ff6c7e24af64e4e1872b29a64e8",
+      "f36fe77e9295b7f97fa1453fe14c718b9a955fb31632d9ea66e8fea696d59e8d",
+      "3e1ed4bed3ea8613b5ac78c2fe7fd085bb998ddf4b0a34e378e5e3501ca472ce",
+      "fe34fd93a9478570380fbc69da2edf6e42a176f1686d5aa8e7600f731969d95b",
+      "d42e0f8ff88f3740960e1a848167378b21ad0bb97c0ef06d8d085b3eff397180",
+      "0c1d4a6388c46e410b7b6827b1c592fc26845757602b2861e318ea924561fad0",
+      "bfe9149f2859c13447c97b638d516d5e2411115ec75ec3871734452701f2044f",
+      "7374f53118a7f51f4adc389ad79726be70fdd5898d3e05216e2bde34d33ed638",
+      "be78e6dd9fe10ebd38027614f69d8ec36304f3f0d8a58dc67d3f3169b2a61ff6",
+      "533cac11ca758a5cab03cb6b46ea30b6372d57a5efce14e64794a179999a8d6d"
+    ],
+    "actual_encoded_available": 0,
+    "actual_total_encoding_required": 4124,
+    "selection_internal_encoded_parameter": "SCHEDULING_PRIORITY_ONLY_NOT_CACHE_AVAILABILITY",
+    "bank_activation": "Encode all anchors then other selected rows; activate only complete selected identity-joined bank"
+  },
+  "full_view_overlap": {
+    "reference_uids_are_full_view_queries": true,
+    "selected_references": 4124,
+    "no_duplicate_logical_encoding": true,
+    "adapter": "prebank_query_for_reference",
+    "behavior": "Query and reference retain exact physical UID; QUERY before cutoff is forced exact RAW, no reference distance."
+  },
+  "adapter_sha256": "000fcf92592ca212c23537bfcda0b74c73cbf84a783813f01f5f997e4155db3b",
+  "mask_files": {
+    "NORMAL": {
+      "path": "runs\\edge_external_test1_engineering_v1_20261103\\adapter\\population_v1\\NORMAL_FRAME_POPULATION.u8x2.bin",
+      "sha256": "86f223af69d7f4fb48ea45439ddab26069c8ee4710c14c500a01d2966fcb6d31",
+      "bytes": 3259498
+    },
+    "HTTP": {
+      "path": "runs\\edge_external_test1_engineering_v1_20261103\\adapter\\population_v1\\HTTP_FRAME_POPULATION.u8x2.bin",
+      "sha256": "d3c3712fae9688c6c19a3afe41483c9cce6f21bb7e39f2eaa5652af65fa6fc96",
+      "bytes": 458284
+    },
+    "UDP": {
+      "path": "runs\\edge_external_test1_engineering_v1_20261103\\adapter\\population_v1\\UDP_FRAME_POPULATION.u8x2.bin",
+      "sha256": "938f31333557353398372ca795c9e2250a5751095b1d59e67aa05b155b21137c",
+      "bytes": 6431464
+    }
+  },
+  "elapsed_seconds": 71.375,
+  "model_rows": 0,
+  "distance_pairs": 0
+}

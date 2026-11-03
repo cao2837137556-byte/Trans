@@ -1,0 +1,99 @@
+{
+  "schema": "EDGE_ENGINEERING_REAL_SLICE_PREFLIGHT_V1",
+  "scope": "ENGINEERING_ONLY_NOT_EXTERNAL_EVALUATION",
+  "training": false,
+  "cloud_jobs_submitted": 0,
+  "external_quality_metrics": false,
+  "automatic_retry": false,
+  "budget_seconds": 600,
+  "budget_cpu_threads": 1,
+  "environment": {
+    "system": "Windows",
+    "python": "3.10.0",
+    "executable": "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "versions": {
+      "numpy": "2.2.6",
+      "torch": "2.8.0",
+      "transformers": "4.57.3",
+      "safetensors": "0.6.2",
+      "psutil": "7.2.2"
+    },
+    "expected_linux_hpc_runtime_exact": false,
+    "expected": {
+      "system": "Linux",
+      "python": "3.11.11",
+      "numpy": "2.0.1",
+      "torch": "2.5.1",
+      "transformers": "4.57.3"
+    }
+  },
+  "input_pins": {
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/cuts.json": "d4c391302d2d32c5d8813a45612b6f4203468e4b52bbd58233cbd6f274c84bbd",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/geometry.json": "080c069fa41f6eb7fbcea2e890873be462f8471b8ff2a039a8a30935674ca124",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz": "ba92b5439255435e854ee14b74738cae0e3606060456de37927b2b6a0e2ab8b2",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/protection.json": "306afefda32b398fdb9dfabcd9562e44b79555dcb551add8dad9c9a51cab37e2",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/scales.json": "06870509e49b642e1a03444e425542cc4559b5375d522cbb27295dc70d208fa2",
+    "runs/legacy_query_tail_learning_delivery_v2r1_20261010/bundle/design_contract.json": "c6027a90f1f997b1bb1e8dd44409237531d7dc97cc13813e9bec364dc40b21af",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_127/endpoint.json": "2d59878ba5857dfd6e0c204b6c9ad4a6f0a72f3ecc5d62682066fcced23c850b",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_127/head.npz": "e356f4bd633e80657bef9d823786bccda7e87533a9c165a5889e4efaae344a29",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_227/endpoint.json": "28c0887d7cc860f966b4b2513f49f7a05a08daa083fbbff794dd3581f0305415",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_227/head.npz": "38915803019303377afc5c3b5531a591f388de87bfdee0371521b0e44b933083",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_27/endpoint.json": "197ffc5727f3c4a49e1c5f22dc0cadb936b05f951b33e5277c8bcaded1fa5f99",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_27/head.npz": "35f4a892f6629e9995fcedc52b14a3f6abd64a4f01dedacb595a3073858415b7"
+  },
+  "slice_sha256": "c0fb6bebfd5c37c2ec4f8ceb426cfb13ba3ed8b44898af4ad632926335d464d5",
+  "raw_input_pins": {
+    "HTTP": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS HTTP Flood Attacks.pcap",
+      "bytes": 28307602,
+      "sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+      "mtime_ns": 1793688693970398500
+    },
+    "NORMAL": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\Temperature_and_Humidity.pcap",
+      "bytes": 345868816,
+      "sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+      "mtime_ns": 1793689265442638900
+    },
+    "UDP": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS UDP Flood Attacks.pcap",
+      "bytes": 247560012,
+      "sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+      "mtime_ns": 1793688762809497200
+    }
+  },
+  "decoded_snapshots": 65,
+  "status": "STOPPED_NO_RETRY",
+  "error": "ValueError('SINGLETON_CLONES_OUTPUT_EXACT')",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\edge_external_test1_engineering_v1_20261103\\preflight\\run_preflight.py\", line 141, in worker\n    e3, q14, encoded = encode_snapshots(entries, budget, progress)\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\edge_external_test1_engineering_v1_20261103\\preflight\\engine.py\", line 171, in encode_snapshots\n    require(all(v.tobytes() == values[0].tobytes() for v in values), 'SINGLETON_CLONES_OUTPUT_EXACT')\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\edge_external_test1_engineering_v1_20261103\\preflight\\engine.py\", line 21, in require\n    raise ValueError(message)\nValueError: SINGLETON_CLONES_OUTPUT_EXACT\n",
+  "final_linux_runtime_gate_pass": false,
+  "elapsed_seconds": 47.31299999999828,
+  "peak_tree_rss_bytes": 1365561344,
+  "stages": [
+    {
+      "name": "ENVIRONMENT",
+      "status": "PASS",
+      "started_utc": "2026-11-03T11:04:09.459325+00:00",
+      "seconds": 0.0319999999992433
+    },
+    {
+      "name": "INPUT_PINS",
+      "status": "PASS",
+      "started_utc": "2026-11-03T11:04:09.541181+00:00",
+      "seconds": 0.9220000000022992
+    },
+    {
+      "name": "REAL_UNFILTERED_DECODE_CONTEXT_DESCRIPTOR",
+      "status": "PASS",
+      "started_utc": "2026-11-03T11:04:10.488906+00:00",
+      "seconds": 13.687999999998283
+    },
+    {
+      "name": "REAL_FROZEN_ENCODER",
+      "status": "FAIL",
+      "started_utc": "2026-11-03T11:04:24.189139+00:00",
+      "error": "ValueError('SINGLETON_CLONES_OUTPUT_EXACT')",
+      "seconds": 32.57900000000154
+    }
+  ]
+}

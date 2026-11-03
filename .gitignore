@@ -771,3 +771,14 @@ __pycache__/
 /runs/**/transport/
 /runs/**/user_supplied/
 /runs/**/RUN_IN_HPC_TERMINAL.txt
+
+# Curated Edge engineering source/receipts; binary populations and private
+# transport remain local. Staging still uses an explicit small-file list.
+!/runs/edge_external_test1_engineering_v1_20261103/
+/runs/edge_external_test1_engineering_v1_20261103/**
+!/runs/edge_external_test1_engineering_v1_20261103/**/
+!/runs/edge_external_test1_engineering_v1_20261103/**/*.py
+!/runs/edge_external_test1_engineering_v1_20261103/**/*.md
+!/runs/edge_external_test1_engineering_v1_20261103/**/*.json
+!/runs/edge_external_test1_engineering_v1_20261103/**/*.sha256
+!/runs/edge_external_test1_engineering_v1_20261103/**/*.jsonl

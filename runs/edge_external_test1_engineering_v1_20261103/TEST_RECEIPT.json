@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "tests": 9,
+  "failures": 0,
+  "scope": "External metrics/UID joins/suppression and runtime authorization gates; no model inference",
+  "command": "python -X utf8 -B -m unittest -v test_evaluation_gate.py",
+  "actual_run_wall_seconds": 0.013,
+  "implementation_sha256": {
+    "evaluation.py": "cc056f5b715a56481705aea76c8e72e8c98a3149f8d26cba6c1e086db19fd932",
+    "execution_gate.py": "6e1a860e6b2e2811d7dd30c0a7f31d6343fd1368f8313c03e4ef9c942ed176bf",
+    "test_evaluation_gate.py": "65c870f59a7d56183a84f010b85d605243427fb686962c60fa0c07d50c51bc38"
+  }
+}

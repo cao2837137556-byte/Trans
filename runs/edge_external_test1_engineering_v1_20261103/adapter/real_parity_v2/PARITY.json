@@ -1,0 +1,39 @@
+{
+  "status": "PASS_REAL_RAW_PREFIX_ELIGIBILITY_PARITY",
+  "roles": {
+    "NORMAL": {
+      "original_unfiltered_prefix_frames": 4096,
+      "numerical_vs_eligibility_per_packet_exact": true,
+      "events": {
+        "PROTOCOL_OR_OWNER_OUTSIDE": 104
+      },
+      "namespaces": 253,
+      "poisoned": 0
+    },
+    "HTTP": {
+      "original_unfiltered_prefix_frames": 4096,
+      "numerical_vs_eligibility_per_packet_exact": true,
+      "events": {
+        "PROTOCOL_OR_OWNER_OUTSIDE": 3,
+        "CAPTURE_REGRESSION_CROSS_KEY": 17
+      },
+      "namespaces": 1156,
+      "poisoned": 0
+    },
+    "UDP": {
+      "original_unfiltered_prefix_frames": 4096,
+      "numerical_vs_eligibility_per_packet_exact": true,
+      "events": {
+        "PROTOCOL_OR_OWNER_OUTSIDE": 536
+      },
+      "namespaces": 3560,
+      "poisoned": 0
+    }
+  },
+  "adapter_sha256": "000fcf92592ca212c23537bfcda0b74c73cbf84a783813f01f5f997e4155db3b",
+  "frozen_append_file_sha256": "a503c7b21c35234462a735d3890fa4cda918573ceeda072604e4bec6872b405d",
+  "model_evaluations": 0,
+  "features_generated": 0,
+  "distance_pairs": 0,
+  "elapsed_seconds": 2.9689999999973224
+}

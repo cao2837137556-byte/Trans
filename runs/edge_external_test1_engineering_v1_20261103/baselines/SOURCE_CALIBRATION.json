@@ -1,0 +1,123 @@
+{
+  "status": "SOURCE_CALIBRATED_NO_EXTERNAL_EVALUATION",
+  "method": "KNN5_UNIT_E3_EUCLIDEAN",
+  "single_score_four_source_working_points": true,
+  "cuts": [
+    1.1929950558809033,
+    1.1996403182574658,
+    1.1966587586932518,
+    1.1923376342171
+  ],
+  "working_points": [
+    {
+      "target_weighted_fpr": 0.009755209847071766,
+      "achieved_weighted_fpr": 0.009753144403111763,
+      "fallback_fp_mass": 0.001040856609847857,
+      "finite_tail_budget": 0.008714353237223908,
+      "tie_gap": 2.065443960003188e-06,
+      "cut": 1.1929950558809033
+    },
+    {
+      "target_weighted_fpr": 0.009112727279654119,
+      "achieved_weighted_fpr": 0.008527008887847907,
+      "fallback_fp_mass": 0.0006146599021529211,
+      "finite_tail_budget": 0.008498067377501197,
+      "tie_gap": 0.0005857183918062114,
+      "cut": 1.1996403182574658
+    },
+    {
+      "target_weighted_fpr": 0.009581074128220254,
+      "achieved_weighted_fpr": 0.009580701210807048,
+      "fallback_fp_mass": 0.000961532927537945,
+      "finite_tail_budget": 0.008619541200682309,
+      "tie_gap": 3.7291741320638616e-07,
+      "cut": 1.1966587586932518
+    },
+    {
+      "target_weighted_fpr": 0.00974305262004952,
+      "achieved_weighted_fpr": 0.009742126163812693,
+      "fallback_fp_mass": 0.001007099750680194,
+      "finite_tail_budget": 0.008735952869369326,
+      "tie_gap": 9.264562368278828e-07,
+      "cut": 1.1923376342171
+    }
+  ],
+  "metrics": {
+    "normal_raw_weighted_fpr": [
+      0.009755209847071766,
+      0.009112727279654119,
+      0.009581074128220254,
+      0.00974305262004952
+    ],
+    "normal_knn_weighted_fpr": [
+      0.009753144403111763,
+      0.008527008887847905,
+      0.009580701210807048,
+      0.009742126163812693
+    ],
+    "attack_raw_weighted_recall": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "attack_knn_weighted_recall": [
+      0.8920426160945009,
+      0.8912519893349148,
+      0.8916429604075018,
+      0.8921052565078477
+    ],
+    "normal_sample_fpr": [
+      0.05979424985669895,
+      0.05656620508643316,
+      0.05804446857935861,
+      0.05952273207228407
+    ],
+    "attack_sample_recall": [
+      0.9028892039560136,
+      0.8989988934227816,
+      0.9009959194965074,
+      0.9031831385296355
+    ],
+    "normal_fp_count": [
+      1982,
+      1875,
+      1924,
+      1973
+    ],
+    "attack_fn_count": [
+      11233,
+      11683,
+      11452,
+      11199
+    ],
+    "raw_source_tp_withdrawal_count": [
+      11233,
+      11683,
+      11452,
+      11199
+    ]
+  },
+  "source_population": {
+    "normal": 33147,
+    "attack": 115672,
+    "normal_finite_knn": 30197,
+    "attack_finite_knn": 108593,
+    "fallback_reasons": {
+      "KNN5_SCORED": 138790,
+      "FEWER_THAN_FIVE_LEGAL_POINTS": 10029
+    }
+  },
+  "actual_distance_pairs": 46931467,
+  "static_upper_pairs": 46931467,
+  "resources": {
+    "CPU_threads": 2,
+    "elapsed_seconds": 11.187999999998283,
+    "peak_rss_bytes": 1076592640
+  },
+  "contract_sha256": "2d0f4b58ce0110460735debcd2605895d27f484ac93deeada548d879c8398585",
+  "input_seal_sha256": "ac9c9e90297deb57d4e46a1f37b46d41c0eeaa20f189ceba8337214ab26ea128",
+  "arrays_sha256": "75ad4ee49e43d740018eaeb0edc4ccbbf1822189958094781c66eb24fae0e5b3",
+  "external_scores_read": false,
+  "interpretation": "Source CAL operating-point calibration only; no evidence of external performance or general source test performance."
+}

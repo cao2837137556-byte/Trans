@@ -1,0 +1,57 @@
+{
+  "status": "FIXED_BEFORE_FORMAL_EXTERNAL_SCORES",
+  "methods": [
+    "RAW",
+    "SAME_BANK_P1_MECHANISM_ABLATION",
+    "FROZEN_C5_P3",
+    "STANDARD_KNN5"
+  ],
+  "C5_head_order": [
+    "27",
+    "127",
+    "227",
+    "ensemble"
+  ],
+  "KNN": "One distance score, four source-matched operating points; independent detector can add RAW-negative alarms.",
+  "independent_method_uses_C5_suppression_only_gate": false,
+  "required_ordered_UID_joins": true,
+  "views": [
+    "full",
+    "post_window_primary"
+  ],
+  "primary": "Same-population per-packet ensemble FPR/attack-associated recall, FP/FN/counts.",
+  "normal_weight_fields": [
+    "device",
+    "capture_id",
+    "component_id"
+  ],
+  "attack_weight_fields": [
+    "device",
+    "scenario",
+    "component_id"
+  ],
+  "allocation": "Each present class has unit mass; equal nonempty child mass, rebuild per view, condition for groups.",
+  "scenario": "HTTP/UDP capture groups, not invented independent events.",
+  "unavailable_event_gate": "NOT_EVALUABLE",
+  "safety": "Cumulative RAW TP withdrawal device<=1pp, observed scenario<=5pp; low RAW weighted recall<99% requires zero withdrawal. Four C5 heads/two views reported. No retuning after failure.",
+  "descriptive_targets": {
+    "packet_FPR_max": 0.02,
+    "packet_recall_min": 0.99
+  },
+  "required_strata": [
+    "normal segment/day/protocol",
+    "HTTP SYN guard",
+    "HTTP ACK_no_SYN",
+    "HTTP ACK_only",
+    "HTTP PSH_ACK",
+    "HTTP GET/payload",
+    "UDP"
+  ],
+  "uncertainty": "Finite captured-population descriptive rates and segment/scenario tables; no independent-packet/Wilson CI, no claim of independent millions of attacks.",
+  "unscored": {
+    "normal": 296,
+    "attack": 0,
+    "policy": "Report separately by cause; do not count as correct negatives."
+  },
+  "fixture_metrics": "Engineering schema/count checks only; no quality statistics or individual decisions exported or used to choose method/dataset."
+}

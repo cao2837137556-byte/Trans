@@ -1,0 +1,54 @@
+{
+  "status": "PREPARED_NOT_SUBMITTED_OR_AUTHORIZED_AS_HPC_JOB",
+  "purpose": "Strict real-slice engineering gate on the intended full-evaluation runtime; no full external model evaluation",
+  "budget": {
+    "CPU": 1,
+    "RAM_GiB": 6,
+    "process_tree_hard_wall_seconds": 600,
+    "unique_Edge_encoding_endpoints": 65,
+    "maximum_logical_encoding_endpoints": 100,
+    "small_distance_pair_limit": 10000,
+    "automatic_retry": false,
+    "automatic_full_evaluation_on_pass": false,
+    "training": false
+  },
+  "required_existing_runtime": {
+    "OS": "Linux",
+    "Python": "3.11.11",
+    "numpy": "2.0.1",
+    "torch": "2.5.1",
+    "transformers": "4.57.3",
+    "TShark": "4.6.6",
+    "no_installation_or_backend_precision_change": true
+  },
+  "command_template": [
+    "<existing-python-3.11>", "-X", "utf8", "-B",
+    "runs/edge_external_test1_engineering_v1_20261103/preflight/run_preflight.py",
+    "--slice", "runs/edge_external_test1_engineering_v1_20261103/preflight/SLICE_CARD.json",
+    "--output", "<new-durable-output-directory>",
+    "--strict-runtime", "--tshark", "<existing-tshark-4.6.6>",
+    "--raw-directory", "<directory-containing-the-three-byte-identical-Edge-PCAPs>"
+  ],
+  "required_delivery": [
+    "Same checked-out source byte manifest for preflight, adapter, evaluation, baseline and frozen numeric modules",
+    "Pinned C5 freeze and calibration, three QUERY_TAIL heads, design contract, normalizer",
+    "Complete pinned vendor/netFound and vendor/netFound-base encoder tree (existing model.safetensors SHA e6237f49...f5105)",
+    "Two pinned existing source CAL artifacts CAL_E3.npy and CAL_FIXED_INPUTS.npz plus SHA sidecars",
+    "SLICE_CARD.json and original header-only stratified plan with SHA sidecars",
+    "Three byte-identical Edge raw PCAPs; full SHA/size checked before and after",
+    "Frozen KNN5 source-calibration JSON; no external threshold fitting"
+  ],
+  "required_actual_chain": [
+    "Environment and delivery-code/input byte pins",
+    "Original unfiltered raw prefix decode and frozen causal contexts/descriptors for 65 fixed endpoints",
+    "Frozen E3 with exact input/output singleton clone identity and per-batch durable ATTEMPT/COMPLETE ledger",
+    "Source CAL16 saved-feature/three-head score and four-head decision parity with observed roundoff disclosed",
+    "Actual same-bank C5 distances and bit-identical p3 arithmetic against sealed independent audit",
+    "Actual KNN5 distance/decision interface at source-calibrated workpoints",
+    "Real reference UID replayed as prebank query remains exact RAW, including baseline fallback",
+    "External weight/measure/safety schema and denominator conservation; tiny quality values discarded",
+    "Input and code unchanged readback; terminal receipt and SHA"
+  ],
+  "stop_rule": "Any failure preserves partial ledger and terminates; never extend budget, retry, alter C5, relax clone identity, or start full external evaluation automatically",
+  "missing_now": "No confirmed matching Linux runtime reachable locally; independent HPC SSH closed. Full delivery unpack/real execution has not happened."
+}

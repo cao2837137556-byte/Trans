@@ -1,0 +1,19 @@
+{
+  "status": "READ_ONLY_INTEGRATION_REVIEW_PRE_REPAIR_SNAPSHOT",
+  "inputs": {
+    "evaluation.py": "cc056f5b715a56481705aea76c8e72e8c98a3149f8d26cba6c1e086db19fd932",
+    "execution_gate.py": "e1673f3027c43195e918efcfae5f7688efd37834819aea0126831b032fe78e86",
+    "adapter/edge_adapter.py": "000fcf92592ca212c23537bfcda0b74c73cbf84a783813f01f5f997e4155db3b",
+    "preflight/engine.py": "574bdbd9a6098f04fccfba462146b1f09c85c4260971f712254f7c0617ca0b45",
+    "preflight/run_preflight.py": "ed2da8a0bbe9fc1488f1e9fca7ad3e8b60466d5b6945ed2ace25d55ce1c76993"
+  },
+  "models_or_distances_run": false,
+  "post_repair_readback": {
+    "evaluation.py": "cc056f5b715a56481705aea76c8e72e8c98a3149f8d26cba6c1e086db19fd932",
+    "test_evaluation_gate.py": "65c870f59a7d56183a84f010b85d605243427fb686962c60fa0c07d50c51bc38"
+  },
+  "confirmed_fixes": [
+    "INDEPENDENT_KNN_NO_C5_MONOTONIC_GATE",
+    "ORDERED_RAW_AND_PREDICTION_UIDS"
+  ]
+}

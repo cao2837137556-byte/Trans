@@ -1,0 +1,64 @@
+{
+  "status": "PASS_ADAPTER_POPULATION_ENGINEERING",
+  "unit_tests": {
+    "passed": 10,
+    "failed": 0,
+    "command": "python -X utf8 -B -m unittest discover -s runs/edge_external_test1_engineering_v1_20261103/adapter -p test_edge_adapter.py -v"
+  },
+  "real_eligibility_parity": {
+    "files": 3,
+    "unfiltered_frames_per_file": 4096,
+    "per_frame_exact": true
+  },
+  "inputs_unchanged": true,
+  "full_external_model_evaluation": false,
+  "model_training": false,
+  "cloud_run": false,
+  "scope": "Population and adapter receipt only; E3/source-parity/full E2E gates are separate",
+  "files": {
+    "edge_adapter.py": {
+      "sha256": "000fcf92592ca212c23537bfcda0b74c73cbf84a783813f01f5f997e4155db3b",
+      "bytes": 23694
+    },
+    "test_edge_adapter.py": {
+      "sha256": "663dd59d17c1af22f752491061d656b562060d417d316cc72e9148b3afa1ef5a",
+      "bytes": 7257
+    },
+    "plan_preflight.py": {
+      "sha256": "1c34bc36a0494405145f9a4d69433b6d0e8a876811cb3894694fbb901c29de0a",
+      "bytes": 4431
+    },
+    "parity_real.py": {
+      "sha256": "c28739fdef41453530635a595fefbaadc15c08b1adbfadfa625a5bb2e61a9c5a",
+      "bytes": 2308
+    },
+    "seal_population.py": {
+      "sha256": "ccb40467e85c542db409a387e517b78f666ee04820decea13dbed011a4f7293c",
+      "bytes": 5700
+    },
+    "README.md": {
+      "sha256": "332d77dbc4e26b4ac383bf85fd04062db182ac4d4f6208d9fb11da9b66dd31b6",
+      "bytes": 4412
+    },
+    "population_v1/POPULATION.json": {
+      "sha256": "a6fd66b8cb28351875b7020f5990337ebfbaa6b4cf58ec75be6e5063d2aa8eee",
+      "bytes": 8319
+    },
+    "population_sealed_v1/POPULATION_SEAL.json": {
+      "sha256": "22b904a2d392ed0e225276ece0a42777cfc9aaf73a3ed77bcd4dbe072ee29bd7",
+      "bytes": 17000
+    },
+    "population_sealed_v1/REFERENCE_ROWS.jsonl.gz": {
+      "sha256": "baa227bdb327d5ab47187b12a4d403ef6278d64346d1518d032f6e92fd330f32",
+      "bytes": 684549
+    },
+    "real_parity_v2/PARITY.json": {
+      "sha256": "526d40bc22af7912b17418452889c7471d167d894d45db1fc379974560c56c67",
+      "bytes": 1183
+    },
+    "preflight_plan_r2_stratified/SLICE_FRAME_PLAN.json": {
+      "sha256": "af564107d26c11d947c3a2e70ef1b65ac845e876abd3fd2fe852169ccbcef3d1",
+      "bytes": 3919
+    }
+  }
+}

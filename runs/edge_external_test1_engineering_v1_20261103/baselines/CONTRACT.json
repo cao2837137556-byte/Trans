@@ -1,0 +1,34 @@
+{
+  "schema": "EDGE_STANDARD_KNN5_SOURCE_CALIBRATION_CONTRACT_V1",
+  "status": "RULES_LOCKED_BEFORE_SOURCE_DISTANCE_AND_EXTERNAL_SCORE",
+  "method": "KNN5_UNIT_E3_EUCLIDEAN",
+  "k": 5,
+  "distance": "5th-nearest Euclidean distance after frozen source feature standardization and L2 normalization of 768-dimensional E3",
+  "uses_q14": false,
+  "uses_head_logits_as_features": false,
+  "reason_for_lower_input_use": "A standard independent distance detector may use a subset of the common information budget; no new external information is supplied.",
+  "reference_bank": "Same admitted target commissioning rows and same 7200s bank as C5, with identical original times/frame lineage. No extra history or post-window absorption.",
+  "point_policy": "Point kNN, including repeated stages in a component. No C5 two-component requirement; fewer than five legal reference points yields RAW fallback.",
+  "query_causality": "Complete bank available only when reference_end < query timestamp, and frozen same-capture bank-end-frame/individual-frame constraints pass.",
+  "unsupported_or_reference_replay": "RAW fallback, retained in reported populations",
+  "SYN_guard": "Not imposed on this independent detector; unlike C5, it replaces the alarm using normal-distance score where available.",
+  "calibration": {
+    "population": "Existing 179602 source CAL, source-own device/protocol/causal banks",
+    "normal_weights": "Frozen core.class_weights on source normal CAL rows",
+    "targets": "Four original RAW source normal weighted FPR working points",
+    "threshold_rule": "Hold RAW-fallback FP mass fixed. Select smallest observed finite distance cut with strict distance > cut weighted FPR no greater than RAW target; group equal distances; conservative ties. If all finite rows fit the target use nextafter(min,-inf); if none scored use null and RAW fallback.",
+    "attack_use": "Report source own-bank recall after normal-only threshold lock; attacks do not select thresholds. No extra donor pressure task.",
+    "head_interpretation": "One common distance score at four RAW source working points, not four independent neural heads",
+    "external_refit_or_threshold_selection": false
+  },
+  "resources": {
+    "CPU_threads": 2,
+    "RSS_bytes": 1610612736,
+    "wall_seconds": 600,
+    "no_automatic_budget_extension": true,
+    "local_only": true
+  },
+  "comparison_scope": "Independent standard nonparametric reference comparator. RAW and same-bank p1 remain separately required; p1 is an ablation. This comparator alone does not establish that the eventual paper's complete strong-baseline portfolio is ready.",
+  "no_external_model_results": true,
+  "no_training": true
+}

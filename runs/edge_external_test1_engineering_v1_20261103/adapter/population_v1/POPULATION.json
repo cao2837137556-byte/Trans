@@ -1,0 +1,254 @@
+{
+  "status": "COMPLETE_POPULATION_NO_MODEL_EVALUATION",
+  "version": "EDGE_CAUSAL_RAW_ADAPTER_V1_20261103",
+  "roles": {
+    "NORMAL": {
+      "counts": {
+        "raw_records": 1629749,
+        "truth_candidates": 1334858,
+        "eligible": 1334562,
+        "eligible|1|VALID": 114436,
+        "eligible|2|VALID": 1220126,
+        "unscored": 296,
+        "unscored|2|NEW_TIMESTAMP_REGRESSION": 21,
+        "unscored|2|POISONED_PREFIX": 275
+      },
+      "truth_strata": {
+        "1": 114436,
+        "0": 294891,
+        "2": 1220422
+      },
+      "segments": [
+        {
+          "capture_id": "EDGE_NORMAL_SEGMENT_1",
+          "events": {
+            "PROTOCOL_OR_OWNER_OUTSIDE": 280184,
+            "CAPTURE_REGRESSION_CROSS_KEY": 17,
+            "NEW_TIMESTAMP_REGRESSION": 5,
+            "POISONED_PREFIX": 27,
+            "CAPTURE_REGRESSION_OUTSIDE_SCOPE": 26
+          },
+          "namespaces": 16184,
+          "poisoned": 5,
+          "tainted": 0
+        },
+        {
+          "capture_id": "EDGE_NORMAL_SEGMENT_2",
+          "events": {
+            "PROTOCOL_OR_OWNER_OUTSIDE": 3760,
+            "NEW_TIMESTAMP_REGRESSION": 16,
+            "POISONED_PREFIX": 248,
+            "CAPTURE_REGRESSION_CROSS_KEY": 42
+          },
+          "namespaces": 15555,
+          "poisoned": 16,
+          "tainted": 0
+        },
+        {
+          "capture_id": "EDGE_NORMAL_SEGMENT_3",
+          "events": {
+            "CAPTURE_REGRESSION_CROSS_KEY": 2,
+            "PROTOCOL_OR_OWNER_OUTSIDE": 8690,
+            "CAPTURE_REGRESSION_OUTSIDE_SCOPE": 6
+          },
+          "namespaces": 11393,
+          "poisoned": 0,
+          "tainted": 0
+        },
+        {
+          "capture_id": "EDGE_NORMAL_SEGMENT_4",
+          "events": {
+            "PROTOCOL_OR_OWNER_OUTSIDE": 1374,
+            "CAPTURE_REGRESSION_CROSS_KEY": 5
+          },
+          "namespaces": 9815,
+          "poisoned": 0,
+          "tainted": 0
+        },
+        {
+          "capture_id": "EDGE_NORMAL_SEGMENT_5",
+          "events": {
+            "PROTOCOL_OR_OWNER_OUTSIDE": 199
+          },
+          "namespaces": 379,
+          "poisoned": 0,
+          "tainted": 0
+        }
+      ],
+      "full_uid_sha256": "e52511f2e4ca40a3e3b94c7ab64eb9e0f4c380810f0c1bfcb6591cb1bd50f2f3",
+      "primary_uid_sha256": "41b6e6cc97d3eb5d7f435f329e0fe332c0ce606eebcb88b6ad0a7a34783be2ca",
+      "mask_file": "NORMAL_FRAME_POPULATION.u8x2.bin",
+      "mask_sha256": "86f223af69d7f4fb48ea45439ddab26069c8ee4710c14c500a01d2966fcb6d31",
+      "mask_bytes": 3259498,
+      "elapsed_seconds": 129.3279999999977,
+      "features_generated": 0
+    },
+    "HTTP": {
+      "counts": {
+        "raw_records": 229142,
+        "truth_candidates": 152352,
+        "eligible": 152352,
+        "eligible|3|VALID": 152352
+      },
+      "truth_strata": {
+        "3": 152352,
+        "0": 76790
+      },
+      "segments": [
+        {
+          "capture_id": "EDGE_HTTP",
+          "events": {
+            "PROTOCOL_OR_OWNER_OUTSIDE": 130,
+            "CAPTURE_REGRESSION_CROSS_KEY": 1146
+          },
+          "namespaces": 12119,
+          "poisoned": 0,
+          "tainted": 0
+        }
+      ],
+      "full_uid_sha256": "d3412c5aab5ddd1d87008432951453e173d9b75028e08f29560129d6facbe5c1",
+      "primary_uid_sha256": "d3412c5aab5ddd1d87008432951453e173d9b75028e08f29560129d6facbe5c1",
+      "mask_file": "HTTP_FRAME_POPULATION.u8x2.bin",
+      "mask_sha256": "d3c3712fae9688c6c19a3afe41483c9cce6f21bb7e39f2eaa5652af65fa6fc96",
+      "mask_bytes": 458284,
+      "elapsed_seconds": 17.42199999999866,
+      "features_generated": 0
+    },
+    "UDP": {
+      "counts": {
+        "raw_records": 3215732,
+        "truth_candidates": 2898830,
+        "eligible": 2898830,
+        "eligible|4|VALID": 2898830
+      },
+      "truth_strata": {
+        "4": 2898830,
+        "0": 316902
+      },
+      "segments": [
+        {
+          "capture_id": "EDGE_UDP",
+          "events": {
+            "PROTOCOL_OR_OWNER_OUTSIDE": 316902,
+            "CAPTURE_REGRESSION_CROSS_KEY": 3489
+          },
+          "namespaces": 2898538,
+          "poisoned": 0,
+          "tainted": 0
+        }
+      ],
+      "full_uid_sha256": "e0742bec9e5097ac23e36cf03cf0d9d1bdc332d31cc86a2e1cae8b820112640d",
+      "primary_uid_sha256": "e0742bec9e5097ac23e36cf03cf0d9d1bdc332d31cc86a2e1cae8b820112640d",
+      "mask_file": "UDP_FRAME_POPULATION.u8x2.bin",
+      "mask_sha256": "938f31333557353398372ca795c9e2250a5751095b1d59e67aa05b155b21137c",
+      "mask_bytes": 6431464,
+      "elapsed_seconds": 246.23400000000038,
+      "features_generated": 0
+    }
+  },
+  "inputs": {
+    "NORMAL": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\Temperature_and_Humidity.pcap",
+      "sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+      "bytes": 345868816,
+      "unchanged": true
+    },
+    "HTTP": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS HTTP Flood Attacks.pcap",
+      "sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+      "bytes": 28307602,
+      "unchanged": true
+    },
+    "UDP": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS UDP Flood Attacks.pcap",
+      "sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+      "bytes": 247560012,
+      "unchanged": true
+    }
+  },
+  "physical_logical_mapping": {
+    "NORMAL": [
+      {
+        "first_frame": 1,
+        "last_frame": 884555,
+        "min_ns": 1637491450081753000,
+        "max_ns": 1637530272740630000,
+        "span_seconds": 38822.658877,
+        "capture_id": "EDGE_NORMAL_SEGMENT_1"
+      },
+      {
+        "first_frame": 884556,
+        "last_frame": 1279552,
+        "min_ns": 1637591660252618000,
+        "max_ns": 1637617805757227000,
+        "span_seconds": 26145.504609,
+        "capture_id": "EDGE_NORMAL_SEGMENT_2"
+      },
+      {
+        "first_frame": 1279553,
+        "last_frame": 1469919,
+        "min_ns": 1637679338804754000,
+        "max_ns": 1637690830421639000,
+        "span_seconds": 11491.616885,
+        "capture_id": "EDGE_NORMAL_SEGMENT_3"
+      },
+      {
+        "first_frame": 1469920,
+        "last_frame": 1626212,
+        "min_ns": 1637695650270762000,
+        "max_ns": 1637705429988676000,
+        "span_seconds": 9779.717914,
+        "capture_id": "EDGE_NORMAL_SEGMENT_4"
+      },
+      {
+        "first_frame": 1626213,
+        "last_frame": 1629749,
+        "min_ns": 1639959767981993000,
+        "max_ns": 1639960855043322000,
+        "span_seconds": 1087.061329,
+        "capture_id": "EDGE_NORMAL_SEGMENT_5"
+      }
+    ],
+    "HTTP": [
+      {
+        "first_frame": 1,
+        "last_frame": 229142,
+        "capture_id": "EDGE_HTTP"
+      }
+    ],
+    "UDP": [
+      {
+        "first_frame": 1,
+        "last_frame": 3215732,
+        "capture_id": "EDGE_UDP"
+      }
+    ]
+  },
+  "frame_semantics": "row.frame/provenance frames are original physical ordinals; logical_frame=physical-first+1 is audit-only",
+  "mask_schema": {
+    "bytes_per_raw_record": 2,
+    "first_byte": {
+      "0": "OUTSIDE_TRUTH",
+      "1": "NORMAL_FIRST_7200",
+      "2": "NORMAL_POST_7200",
+      "3": "HTTP_DIRECT",
+      "4": "UDP_DIRECT"
+    },
+    "second_byte": {
+      "OUTSIDE_TRUTH": 0,
+      "VALID": 1,
+      "NEW_TIMESTAMP_REGRESSION": 2,
+      "POISONED_PREFIX": 3
+    }
+  },
+  "eligibility_implementation": "Frozen continuous_input_v3.Contexts.append with explicitly non-numerical state sink; no flow/state snapshots can be emitted.",
+  "reference_legal_positions": 114436,
+  "reference_distinct_components": 7121,
+  "selected_reference_rows": 4124,
+  "model_evaluations": 0,
+  "features_generated": 0,
+  "distance_pairs": 0,
+  "elapsed_seconds": 395.8909999999996,
+  "card_sha256": "0755167ae19033e06d2557a9ee3744f82abc4b4587a9e6452e87727ba12e706e",
+  "decoder_identity_sha256": "738b20c0c1fff672b50ed12fe2542f0d11e035d9fc4811e5c686d689eef3197d"
+}

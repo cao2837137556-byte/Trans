@@ -1,0 +1,110 @@
+{
+  "status": "FIXED_HEADER_ONLY_ENGINEERING_SLICE",
+  "model_evaluations": 0,
+  "features_generated": 0,
+  "distance_pairs": 0,
+  "frame_id_semantics": "original physical frame",
+  "rules": {
+    "reference": "First 8 canonical component digests lexicographically in complete legal first7200 universe; first up to2 legal frames each",
+    "normal_query": "First16 legal post7200 physical frames",
+    "attack_query": "First16 legal direct attack-associated frames per fixed original file; no selection by flags or scores"
+  },
+  "NORMAL": {
+    "query_frames": [
+      117378,
+      117379,
+      117380,
+      117381,
+      117382,
+      117383,
+      117384,
+      117385,
+      117386,
+      117387,
+      117388,
+      117389,
+      117390,
+      117391,
+      117392,
+      117393
+    ],
+    "eligible_component_count": 7154,
+    "decoder_prefix_frames": 117888,
+    "query_frame_count": 16,
+    "reference_frames": [
+      105453,
+      105454,
+      49833,
+      49834,
+      37133,
+      37134,
+      93394,
+      93395,
+      22057,
+      22058,
+      28851,
+      28852,
+      103523,
+      103524,
+      8516,
+      8517
+    ],
+    "reference_components": [
+      "00000dc5fb7414f033db33941e0da109963f5ce1d8c32faab66afc7cb86f88e9",
+      "000530199118501e19202f5cae37dd1e2480776d6c0dc9c47126d5771aa154c6",
+      "00058fa8c34628690d82d7126b21f053f3fe74aa8756719a4f2e5e2e811161d7",
+      "0014201269cdf6deb4d7cc877dafc2f636caac429827f075d8e3d6c36ec3347e",
+      "001a4a71d12ebee8b999816f3a7d597a16e56a9a26d4ebea33ebbf88ed182fe5",
+      "00218a5643134921bdf27fc4c43f3af4a0b37d451fb8496d4c3783e1ed13efa8",
+      "002ff79ab0e43b871d5f430652e9d02223c32d5988d497d2089327b2264fd009",
+      "0035dad7518e3bfd9acb91daeb8e4dc2fbe8067e1f53cfc301bfd1a3f760e29b"
+    ]
+  },
+  "HTTP": {
+    "query_frames": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "eligible_component_count": 1156,
+    "decoder_prefix_frames": 4096,
+    "query_frame_count": 16
+  },
+  "UDP": {
+    "query_frames": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "eligible_component_count": 3560,
+    "decoder_prefix_frames": 4096,
+    "query_frame_count": 16
+  },
+  "elapsed_seconds": 9.89100000000326
+}
