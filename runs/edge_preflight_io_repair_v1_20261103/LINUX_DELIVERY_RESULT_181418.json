@@ -1,0 +1,36 @@
+{
+  "scope": "ENGINEERING_ONLY_NOT_FULL_EVALUATION",
+  "automatic_retry": false,
+  "cloud_jobs_submitted": 0,
+  "training": false,
+  "formal_external_evaluation": false,
+  "created_utc": "2026-11-03T17:01:01.324699+00:00",
+  "frozen_root": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_linux_preflight_deployment_v1_20261103/unpacked/edge_preflight_checkout",
+  "package": {
+    "status": "PACKAGE_BYTES_PASS_NOT_RUNTIME_PASS",
+    "files": 863,
+    "bytes": 1209454543,
+    "manifest_sha256": "f61af6ca64c629565e6914ef520c85352b65a5987e7af6d9515d1848cc4ccbd6"
+  },
+  "original_probe_entry": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_linux_preflight_deployment_v1_20261103/unpacked/edge_preflight_checkout/runs/edge_query_selection_v1_20261103/run_preflight_with_probes.py",
+  "frozen_contract_sha256": "521fddd1ee5c0160d0f56afd5c81d3f4debba1089c9f929e84551b5b76a937b9",
+  "deadline_contract": {
+    "setup_seconds": 15.935341914184391,
+    "child_hard_seconds": 520.0,
+    "receipt_reserve_seconds": 15.0,
+    "overall_reserve_at_least_seconds": 40.0
+  },
+  "child_exit_code": 0,
+  "package_after": {
+    "status": "PACKAGE_BYTES_PASS_NOT_RUNTIME_PASS",
+    "files": 863,
+    "bytes": 1209454543,
+    "manifest_sha256": "f61af6ca64c629565e6914ef520c85352b65a5987e7af6d9515d1848cc4ccbd6"
+  },
+  "status": "LINUX_PREFLIGHT_PASS",
+  "real_slice_status": "SAME_RUNTIME_REAL_SLICE_E2E_PASS",
+  "strict_shape_probe_status": "PASS",
+  "final_runtime_gate_pass": true,
+  "full_execution_ready": false,
+  "elapsed_seconds": 464.78127717017196
+}
