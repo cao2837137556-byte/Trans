@@ -800,3 +800,14 @@ __pycache__/
 !/runs/edge_linux_preflight_package_v1_20261103/**/*.json
 !/runs/edge_linux_preflight_package_v1_20261103/**/*.sha256
 !/runs/edge_linux_preflight_package_v1_20261103/**/*.slurm
+
+# Edge manual preflight delivery: source and small receipts only.
+!/runs/edge_linux_preflight_deployment_v1_20261103/
+/runs/edge_linux_preflight_deployment_v1_20261103/**
+!/runs/edge_linux_preflight_deployment_v1_20261103/**/
+!/runs/edge_linux_preflight_deployment_v1_20261103/**/*.py
+!/runs/edge_linux_preflight_deployment_v1_20261103/**/*.md
+!/runs/edge_linux_preflight_deployment_v1_20261103/**/*.json
+!/runs/edge_linux_preflight_deployment_v1_20261103/**/*.sha256
+/runs/edge_linux_preflight_deployment_v1_20261103/.private/**
+/runs/edge_linux_preflight_deployment_v1_20261103/RUN_IN_HPC_TERMINAL.txt

@@ -1,0 +1,44 @@
+{
+  "schema": "EDGE_PREFLIGHT_DEPLOYMENT_V1",
+  "scope": "ONE_BOUNDED_LINUX_PREFLIGHT_ONLY",
+  "status": "READY_FOR_USER_TERMINAL_BOOTSTRAP_NOT_SUBMITTED",
+  "files": {
+    "archive": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\edge_linux_preflight_package_v1_20261103\\edge_linux_preflight_20261103.tar",
+      "filename": "edge_linux_preflight_20261103.tar",
+      "bytes": 1210388480,
+      "sha256": "c683ccbe4e3f1b92fc51638ed9345777f6577edc1f171486279e20248f9541d9"
+    },
+    "HTTP": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS HTTP Flood Attacks.pcap",
+      "filename": "DDoS HTTP Flood Attacks.pcap",
+      "bytes": 28307602,
+      "sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba"
+    },
+    "UDP": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS UDP Flood Attacks.pcap",
+      "filename": "DDoS UDP Flood Attacks.pcap",
+      "bytes": 247560012,
+      "sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5"
+    },
+    "NORMAL": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\Temperature_and_Humidity.pcap",
+      "filename": "Temperature_and_Humidity.pcap",
+      "bytes": 345868816,
+      "sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f"
+    }
+  },
+  "archive_manifest_sha256": "f61af6ca64c629565e6914ef520c85352b65a5987e7af6d9515d1848cc4ccbd6",
+  "receiver_source_sha256": "652e5f4a71007b1b05c897eb829bae1a7ef8a3a18858035d17bdad76028948ff",
+  "bootstrap_sha256": "1a3d0ca1377238aba13f21f4de829f918fc82a58f7d577d435ec0235fa28d97c",
+  "remote_port": 18817,
+  "manual_connection_reused": true,
+  "remote_directory": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_linux_preflight_deployment_v1_20261103",
+  "cpu": 1,
+  "ram_gib": 6,
+  "slurm_seconds": 600,
+  "reviewer": "Antigravity PASS relayed by the human user; no new on-disk review asserted",
+  "model_training": false,
+  "formal_external_evaluation": false,
+  "automatic_resubmission": false
+}

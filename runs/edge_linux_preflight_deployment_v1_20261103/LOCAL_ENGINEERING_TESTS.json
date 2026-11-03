@@ -1,0 +1,29 @@
+{
+  "status": "PASS_LOCAL_DELIVERY_SYNTHETIC_TESTS_ONLY",
+  "tests": 14,
+  "runner_seconds": 0.096,
+  "source_sha256": {
+    "client.py": "4b9022c9de75b6a2cff77f12db968ad684457f1af7e30564b03b891bd54ff43e",
+    "pipeline.py": "a1f4c131866f2c6939ebb0c3224e4f5457c66315df83031a51633567f6ac11f2",
+    "progress_server.py": "0286b6b5d899cfe315db6aefe7939cb116d810dcc8ef7a56650ba8504a7dfa7e",
+    "test_local_pipeline.py": "93ae1a246ae42e915940afbe5b5c4cf78260292b14ccc6ee051503efbb71355c"
+  },
+  "tested_faults": [
+    "lost upload acknowledgement resumes using durable remote offset",
+    "remote artifact identity mismatch rejected",
+    "unsafe result paths/links rejected",
+    "result member hash mismatch rejected",
+    "missing final receipt preserves failed job logs",
+    "three independent real numerical receipts required for Linux PASS",
+    "unknown submit persists intent and forbids automatic second POST",
+    "lost submit reply reconciles existing job only",
+    "prepare disconnect recovered using GET state only",
+    "prepare restart ambiguity has bounded stop and no second POST",
+    "scheduler completion alone does not imply numerical success",
+    "actual receiver preparation status and top-level scheduler schema"
+  ],
+  "remote_connections": 0,
+  "real_services_started": 0,
+  "model_loaded": false,
+  "hpc_submitted": false
+}

@@ -6,6 +6,6 @@
 - 查询封存：正常/HTTP/UDP各20,000条；原参考4,124点，总64,124逻辑编码端点。
 - 预检切片：完整人口与选中目标top10/极值共13种形状，78行+13次严格单行探针=91。
 - 核验：28项合成工程检查通过；实际归档1.127 GiB，863个载荷逐文件SHA通过。Linux数值门尚未运行。
-- 下一步：按用户最新分工，由小anti接续候选包的独立复核，不再等待Claude；完整流式续跑/故障恢复、Linux实测预算与正式评价卡仍待闭合。不持续AI监测。
+- 下一步：小anti包审查PASS已由用户转达，用户明确授权仅一次10分钟预检；工具拦截后台启动，待按[交付说明](../edge_linux_preflight_deployment_v1_20261103/README.md)手动启动。完整续跑/恢复、Linux实测预算与正式评价卡仍待闭合，不持续AI监测。
 
 [第6节完整回执](../mainline_docs/collab/20261103_edge_query_selection_convergence_reply_codex.md) · [查询封存](seal20k/QUERY_SELECTION_SEAL.json) · [预检包及操作/取回清单](../edge_linux_preflight_package_v1_20261103/README.md) · [归档核验回执](../edge_linux_preflight_package_v1_20261103/BUILD_RECEIPT.json)
