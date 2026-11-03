@@ -1,0 +1,45 @@
+{
+  "status": "PASS_TECHNICAL_COMPLETE_FULL_RESULTS_AUDITED",
+  "job_id": "179700",
+  "scheduler": {
+    "job_id": "179700",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed": "00:19:01",
+    "node": "node185"
+  },
+  "scientific_status": "FAIL",
+  "completed_pools": [
+    "CIC_DEV",
+    "UNSW_DEV"
+  ],
+  "evaluated_arm_epsilon_cells": 24,
+  "peak_rss_bytes": 2761551872,
+  "matrix_output_bytes": 444156803,
+  "cleanup_confirmed": true,
+  "matrix_result_sha256": "e0299eca5ea00a7d8acb033b8eb45682edbb0cd704396cdf93f54ac0e9142e5d",
+  "original_registered_matrix_complete": false,
+  "third_pool_evaluated": false,
+  "full_results_downloaded": true,
+  "ai_polling": false,
+  "automatic_retry": false,
+  "checked_utc": "2026-10-28T05:08:46.485983+00:00",
+  "evidence_bundle_sha256": "4688451cf554dcc5ae85f541c5eb5db732abc268429da664b4daa9d6e4f13f3b",
+  "offline_result_audit": "PASS",
+  "offline_result_audit_path": "result_retrieval_179700_20261028/OFFLINE_AUDIT.json",
+  "offline_result_audit_sha256": "5f17dd5a7415a505bb903abeae17935b0ef044f7221df765aa7e8fede1a83a62",
+  "result_readout": "../mainline_docs/collab/20261028_dense_reference_ab_final_result_readout_codex.md",
+  "primary_ensemble_epsilon_pp": 0.1,
+  "primary_ensemble": {
+    "CIC_DEV": {
+      "dense_fpr_percent": 3.9934815308699236,
+      "dense_recall_percent": 100.0,
+      "added_attack_misses": 0
+    },
+    "UNSW_DEV": {
+      "dense_fpr_percent": 9.519653948711488,
+      "dense_recall_percent": 99.96659432321516,
+      "added_attack_misses": 6
+    }
+  }
+}

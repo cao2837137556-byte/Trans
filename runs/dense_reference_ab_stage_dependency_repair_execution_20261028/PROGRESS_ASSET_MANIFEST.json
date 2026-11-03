@@ -1,0 +1,47 @@
+{
+  "schema": "paper04-repair-progress-assets-v1",
+  "remote_port": 18789,
+  "local_port": 18771,
+  "failed_predecessor_history_port": 18773,
+  "files": {
+    "status_bridge.py": {
+      "sha256": "a9c9bcd0ab9adbbbfee5a778e2a9c5bfea985104b20c3e29895681299ce93d37",
+      "bytes": 9760
+    },
+    "start_remote_status.py": {
+      "sha256": "527aea7cc49854875e7e26d25d15384e06560e37b668c153a4443ef4fa1dc70a",
+      "bytes": 2282
+    },
+    "status_sync.py": {
+      "sha256": "22233cb40822648ab0711c79772174285c092aea9e3b99b3a11747390ed776b2",
+      "bytes": 8929
+    },
+    "progress_server.py": {
+      "sha256": "b018621d3e35355b36737eb01fd7404ed1ff73fb2d65c37e02bd774dc3c6a704",
+      "bytes": 14549
+    },
+    "start_progress.py": {
+      "sha256": "381fda41918a493391f313e749e28658faa3cad339613d467bb74a657a948d93",
+      "bytes": 4887
+    },
+    "STATUS_CONFIG.template.json": {
+      "sha256": "e5b22294b531ecef77376af865a0918d96ae24f670588b816d51697454144edb",
+      "bytes": 147
+    },
+    "PROGRESS_README.md": {
+      "sha256": "6346d7c5b637faf3d1f15a1ddf525b0c0cf2cba17c4af7dc1639e7ff4173b10c",
+      "bytes": 1796
+    },
+    "tests/test_progress.py": {
+      "sha256": "ffb7b132f4232740ef47391b6d5364716cdad4f9af74df857e41909db926a76d",
+      "bytes": 11196
+    }
+  },
+  "remote_files": [
+    "status_bridge.py",
+    "start_remote_status.py"
+  ],
+  "science_submission": false,
+  "ai_polling": false,
+  "automatic_retry": false
+}

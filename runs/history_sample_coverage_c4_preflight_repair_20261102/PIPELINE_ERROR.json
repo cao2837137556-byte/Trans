@@ -1,0 +1,5 @@
+{
+  "error": "HPC_WORKER_STOPPED: WALL_SECONDS_LIMIT",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\history_sample_coverage_c4_preflight_repair_20261102\\pipeline.py\", line 70, in <module>\n    try:main()\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\history_sample_coverage_c4_preflight_repair_20261102\\pipeline.py\", line 58, in main\n    need(worker.get('technical_status')!='EXCEPTION_STOPPED','HPC_WORKER_STOPPED: '+str(worker.get('error')))\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\history_sample_coverage_c4_preflight_repair_20261102\\controller.py\", line 22, in need\n    if not ok:raise ValueError(msg)\nValueError: HPC_WORKER_STOPPED: WALL_SECONDS_LIMIT\n",
+  "automatic_retry": false
+}

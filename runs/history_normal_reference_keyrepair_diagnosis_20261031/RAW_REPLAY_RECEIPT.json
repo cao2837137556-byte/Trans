@@ -1,0 +1,39 @@
+{
+  "source_pcap_sha256": "3f7944ddd8d80a439db28e9a419f94666f4c155a6aa4ed470d588caed91c24d3",
+  "diagnostic_only": true,
+  "model_forwards": 0,
+  "AB_evaluated": false,
+  "rows": 8192,
+  "frozen_failure": {
+    "frame": 1601,
+    "logical_frame": 255553,
+    "error": "MISSING_NAMESPACE_HEADERS"
+  },
+  "status": "PASS",
+  "replay": [
+    {
+      "frames": 8192,
+      "endpoints": 5943,
+      "snapshot_digest": "5d3da357c9c3088a413c766bb5b648302189383a55c7534c301ffe7fdf5dddfe",
+      "reasons": {
+        "PROTOCOL_OR_OWNER_OUTSIDE": 1440,
+        "MISSING_NAMESPACE_HEADERS_TAINT": 282,
+        "MISSING_NAMESPACE_HISTORY": 527,
+        "MISSING_NAMESPACE_GROUP_IDLE_RESET": 30,
+        "MISSING_NAMESPACE_STATE_RESET": 1
+      }
+    },
+    {
+      "frames": 8192,
+      "endpoints": 5943,
+      "snapshot_digest": "5d3da357c9c3088a413c766bb5b648302189383a55c7534c301ffe7fdf5dddfe",
+      "reasons": {
+        "PROTOCOL_OR_OWNER_OUTSIDE": 1440,
+        "MISSING_NAMESPACE_HEADERS_TAINT": 282,
+        "MISSING_NAMESPACE_HISTORY": 527,
+        "MISSING_NAMESPACE_GROUP_IDLE_RESET": 30,
+        "MISSING_NAMESPACE_STATE_RESET": 1
+      }
+    }
+  ]
+}

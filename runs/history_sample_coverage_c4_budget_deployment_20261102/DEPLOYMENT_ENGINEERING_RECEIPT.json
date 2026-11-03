@@ -1,0 +1,71 @@
+{
+  "status": "PASS_DEPLOYMENT_ENGINEERING_ONLY",
+  "observed_at_utc": "2026-11-02T04:49:17.611237+00:00",
+  "command": "python -X utf8 -B -m unittest -v test_controller test_pipeline test_preflight_worker test_client",
+  "cwd": "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/history_sample_coverage_c4_budget_deployment_20261102",
+  "exit_code": 0,
+  "tests_run": 31,
+  "failures": 0,
+  "errors": 0,
+  "test_runner_elapsed_seconds": 0.703,
+  "source_sha256": {
+    "controller.py": "70d5b0aca05a1927a9963e4567a8f892ccdec9c03dcdc6bbbb560b14fccb5aa8",
+    "client.py": "2b4767117c799dcd9cef2faa04b628702ac97939f4bceb5ee7b7267fa954c8ef",
+    "pipeline.py": "60617f739767583229db3be38a7995108064f600b9dbe9ef74a169442816ec2b",
+    "preflight_worker.py": "98a7e791f12f43922d4d1c55cb278758fc3d529cd52bc11f2d21a1f4996b23c3",
+    "test_controller.py": "e4a7be2e95462c7a54b38af94ef189d0e6a09266e3abd09f5bba51e9abb4cf28",
+    "test_pipeline.py": "51c166ce0ba836ef24219c4f9964cabf35ebb1351136723580cd3fe28a327719",
+    "test_preflight_worker.py": "8a66101f225fcbbf73d51c3e43c098dffb58a3251d3855ee4996655455cecd46",
+    "test_client.py": "77abcdd4c0c96fef3fb4e205300442cd7dc742faae6807851633c44caff0b70c"
+  },
+  "test_modules": [
+    "test_controller",
+    "test_pipeline",
+    "test_preflight_worker",
+    "test_client"
+  ],
+  "integrated_remote_test_count_if_science_103": 134,
+  "config_required": [
+    "token",
+    "bundle",
+    "files",
+    "execution_card_sha256",
+    "preflight_worker_sha256",
+    "environment_sha256",
+    "previous_hpc_config_sha256"
+  ],
+  "config_optional": [
+    "expected_environment",
+    "test_modules",
+    "expected_test_count",
+    "controller_lifetime_seconds"
+  ],
+  "controller_interface": "controller.main(config), port 18816, root /public/home/jiangxinwei.zr/work/paper04; science package history_sample_coverage_c4_batch_resume_v1_20261102",
+  "bootstrap_files": [
+    "controller.py",
+    "client.py",
+    "pipeline.py",
+    "preflight_worker.py",
+    "test_controller.py",
+    "test_pipeline.py",
+    "test_preflight_worker.py",
+    "test_client.py"
+  ],
+  "coverage": [
+    "Code-only offset/hash checked upload; strict archive membership/path/link checks; fresh atomic installation.",
+    "One sbatch action; uncertain submission cannot retry; repeat confirmed submit returns same saved job.",
+    "Asynchronous staged preflight durable START/DONE/FAIL and timeout group cleanup.",
+    "Transient scheduler query timeout retains running state and surfaces scheduler_error.",
+    "Global additional 18000-second deadline begins from HPC STATUS.started_utc, excludes queue, cannot be extended by polls.",
+    "Completed result exports every STAGE_RECEIPT output hash including persisted batches; refuses raw PCAP/SQLite scratch; maximum512MiB.",
+    "Result download resumes existing or interrupted byte stream; local disk must retain at least1GiB or2xarchive+256MiB.",
+    "Local evaluation/verification subprocesses share global deadline and process-group cleanup; budget and verification acceptance receipts persist."
+  ],
+  "scientific_assets_modified": false,
+  "model_forwards": 0,
+  "distance_pairs": 0,
+  "slurm_calls": 0,
+  "actual_tokens_created": false,
+  "services_started": false,
+  "note": "Only synthetic fixture files and mock process/network calls were used; parent owns build_delivery, credentials, sealing and activation."
+}

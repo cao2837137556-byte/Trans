@@ -1,0 +1,178 @@
+{
+  "schema": "learned-onboarding-frame-coverage-v1",
+  "version": 1,
+  "spec_sha256": "a07d736c7c9c756478a7d163873611132ff0b14abc855ab3a3709257433674b8",
+  "lineage": "NEW_RECONSTRUCTION_LINEAGE",
+  "parent_parity": "PARENT_PARITY_UNAVAILABLE",
+  "status": "READY",
+  "normal_devices": [
+    "Amcrest Camera",
+    "ArloQ Camera",
+    "Philips Hue Bridge",
+    "SimCam"
+  ],
+  "attack_own_bank_devices": [
+    "ArloQ Camera",
+    "Philips Hue Bridge",
+    "SimCam"
+  ],
+  "fit_rows": 617908,
+  "frame_causality_checked": true,
+  "source_reference_rows": 104,
+  "groups": [
+    {
+      "device": "Amcrest Camera",
+      "protocol": 6,
+      "label": 0,
+      "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+      "rows": 10251
+    },
+    {
+      "device": "Amcrest Camera",
+      "protocol": 6,
+      "label": 1,
+      "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+      "rows": 87
+    },
+    {
+      "device": "Amcrest Camera",
+      "protocol": 17,
+      "label": 0,
+      "reason": "ELIGIBLE",
+      "rows": 22689
+    },
+    {
+      "device": "ArloQ Camera",
+      "protocol": 6,
+      "label": 0,
+      "reason": "ELIGIBLE",
+      "rows": 34772
+    },
+    {
+      "device": "ArloQ Camera",
+      "protocol": 6,
+      "label": 1,
+      "reason": "ELIGIBLE",
+      "rows": 2345
+    },
+    {
+      "device": "ArloQ Camera",
+      "protocol": 17,
+      "label": 0,
+      "reason": "ELIGIBLE",
+      "rows": 3038
+    },
+    {
+      "device": "ArloQ Camera",
+      "protocol": 17,
+      "label": 1,
+      "reason": "ELIGIBLE",
+      "rows": 13683
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "protocol": 6,
+      "label": 0,
+      "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+      "rows": 2708
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "protocol": 6,
+      "label": 1,
+      "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+      "rows": 4793
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "protocol": 17,
+      "label": 0,
+      "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+      "rows": 581
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "protocol": 17,
+      "label": 1,
+      "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+      "rows": 13728
+    },
+    {
+      "device": "Globe Lamp",
+      "protocol": 6,
+      "label": 0,
+      "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+      "rows": 562
+    },
+    {
+      "device": "Globe Lamp",
+      "protocol": 6,
+      "label": 1,
+      "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+      "rows": 5011
+    },
+    {
+      "device": "Globe Lamp",
+      "protocol": 17,
+      "label": 0,
+      "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+      "rows": 365
+    },
+    {
+      "device": "Globe Lamp",
+      "protocol": 17,
+      "label": 1,
+      "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+      "rows": 12647
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "protocol": 6,
+      "label": 0,
+      "reason": "ELIGIBLE",
+      "rows": 10711
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "protocol": 6,
+      "label": 1,
+      "reason": "ELIGIBLE",
+      "rows": 149612
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "protocol": 17,
+      "label": 0,
+      "reason": "ELIGIBLE",
+      "rows": 38181
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "protocol": 17,
+      "label": 1,
+      "reason": "ELIGIBLE",
+      "rows": 13536
+    },
+    {
+      "device": "SimCam",
+      "protocol": 6,
+      "label": 0,
+      "reason": "ELIGIBLE",
+      "rows": 8559
+    },
+    {
+      "device": "SimCam",
+      "protocol": 6,
+      "label": 1,
+      "reason": "ELIGIBLE",
+      "rows": 267973
+    },
+    {
+      "device": "SimCam",
+      "protocol": 17,
+      "label": 0,
+      "reason": "ELIGIBLE",
+      "rows": 2076
+    }
+  ]
+}

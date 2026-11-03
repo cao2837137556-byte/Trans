@@ -1,0 +1,18 @@
+{
+  "status": "SUBMITTED",
+  "candidate": "C3_ADMITTED_SMALL_BANK_COMPLETE",
+  "submitted": true,
+  "preflight": {
+    "returncode": 0,
+    "log_sha256": "7b192178e71de4ce8f19a893a2600ddfbe43345ffaeecd7c73377564213a4187",
+    "log_tail": "{\"python\": \"3.11.11\", \"numpy\": \"2.0.1\", \"torch\": \"2.5.1\"}\ntest_changed_denominator_or_weights_is_error (test_c3.AdoptionTests.test_changed_denominator_or_weights_is_error) ... ok\ntest_device_normal_regression_cannot_hide_in_pool (test_c3.AdoptionTests.test_device_normal_regression_cannot_hide_in_pool) ... ok\ntest_full_view_single_head_attack_failure_rejects (test_c3.AdoptionTests.test_full_view_single_head_attack_failure_rejects) ... ok\ntest_guard_and_strict_cut_under_new_support (test_c3.AdoptionTests.test_guard_and_strict_cut_under_new_support) ... ok\ntest_no_gain_falls_back (test_c3.AdoptionTests.test_no_gain_falls_back) ... ok\ntest_safe_partial_gain_adopts_without_claiming_two_percent (test_c3.AdoptionTests.test_safe_partial_gain_adopts_without_claiming_two_percent) ... ok\ntest_all_legal_endpoints_and_current_flags (test_c3.CausalTests.test_all_legal_endpoints_and_current_flags) ... ok\ntest_captures_never_share_context_or_session (test_c3.CausalTests.test_captures_never_share_context_or_session) ... ok\ntest_missing_packet_and_missing_namespace_fail_closed (test_c3.CausalTests.test_missing_packet_and_missing_namespace_fail_closed) ... ok\ntest_truncation_recorded_not_silently_selected (test_c3.CausalTests.test_truncation_recorded_not_silently_selected) ... ok\ntest_complete_small_domain_and_preserve_existing (test_c3.SelectionTests.test_complete_small_domain_and_preserve_existing) ... ok\ntest_fixed_cap_boundary (test_c3.SelectionTests.test_fixed_cap_boundary) ... ok\ntest_old_reference_missing_or_reidentified_stops (test_c3.SelectionTests.test_old_reference_missing_or_reidentified_stops) ... ok\ntest_same_packet_different_uid_cannot_become_extra (test_c3.SelectionTests.test_same_packet_different_uid_cannot_become_extra) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.323s\n\nOK\n",
+    "config_sha256": "b2c80539fa91008191cecb1fa81899e0ce49e3a3f0c764a05d98677b7bed7c3d",
+    "environment_script_sha256": "8da8564e759d51df121eaf9230a3e34c358e3abd10d9ce8dc8fe4b92e0763fcf"
+  },
+  "submission": {
+    "returncode": 0,
+    "stdout": "180460\n",
+    "stderr": ""
+  },
+  "job_id": "180460"
+}

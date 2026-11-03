@@ -1,0 +1,315 @@
+{
+  "automatic_retry": false,
+  "directories": {
+    "runs/learned_onboarding_v1_20261023/results/fit": [
+      {
+        "bytes": null,
+        "is_file": false,
+        "name": "AUX_G0"
+      },
+      {
+        "bytes": null,
+        "is_file": false,
+        "name": "AUX_G1"
+      },
+      {
+        "bytes": 8753,
+        "is_file": true,
+        "name": "EXCEPTION_STOP.json"
+      },
+      {
+        "bytes": 108133903,
+        "is_file": true,
+        "name": "dependency_folds.json"
+      },
+      {
+        "bytes": 2011,
+        "is_file": true,
+        "name": "implementation_code.json"
+      },
+      {
+        "bytes": 6473,
+        "is_file": true,
+        "name": "input_binding.json"
+      },
+      {
+        "bytes": 2480,
+        "is_file": true,
+        "name": "runtime.json"
+      },
+      {
+        "bytes": 1136,
+        "is_file": true,
+        "name": "source_isolation.json"
+      },
+      {
+        "bytes": 75074821,
+        "is_file": true,
+        "name": "source_metadata.jsonl.gz"
+      },
+      {
+        "bytes": 3736,
+        "is_file": true,
+        "name": "source_task_receipt.json"
+      },
+      {
+        "bytes": 431,
+        "is_file": true,
+        "name": "status.json"
+      }
+    ],
+    "runs/learned_onboarding_v1_20261023/results/fit/AUX_G0": [
+      {
+        "bytes": 709,
+        "is_file": true,
+        "name": "SEAL.json"
+      },
+      {
+        "bytes": 6232,
+        "is_file": true,
+        "name": "endpoint.json"
+      },
+      {
+        "bytes": 8466944,
+        "is_file": true,
+        "name": "final.pt"
+      },
+      {
+        "bytes": 8464696,
+        "is_file": true,
+        "name": "init.pt"
+      },
+      {
+        "bytes": 737,
+        "is_file": true,
+        "name": "isolation.json"
+      },
+      {
+        "bytes": 457,
+        "is_file": true,
+        "name": "replay.json"
+      }
+    ],
+    "runs/learned_onboarding_v1_20261023/results/fit/AUX_G1": [
+      {
+        "bytes": 38109056,
+        "is_file": true,
+        "name": "final.pt"
+      },
+      {
+        "bytes": 38106872,
+        "is_file": true,
+        "name": "init.pt"
+      },
+      {
+        "bytes": 737,
+        "is_file": true,
+        "name": "isolation.json"
+      }
+    ],
+    "runs/learned_onboarding_v1_20261023/results/fit/L_HARD": null,
+    "runs/learned_onboarding_v1_20261023/results/fit/L_QUERY_ONLY": null,
+    "runs/learned_onboarding_v1_20261023/results/fit/L_STANDARD": null
+  },
+  "files": [
+    {
+      "bytes": 867,
+      "complete": true,
+      "exists": true,
+      "local_path": "state/status.json",
+      "local_sha256": "24cb5c1490ebbac64b3794851965fd21e5270a5b8a0d137a8fb5bed8b6f91860",
+      "path": "state/status.json",
+      "sha256": "24cb5c1490ebbac64b3794851965fd21e5270a5b8a0d137a8fb5bed8b6f91860"
+    },
+    {
+      "bytes": 1208,
+      "complete": true,
+      "exists": true,
+      "local_path": "state/EXCEPTION_STOP.json",
+      "local_sha256": "b5d21c16abb60e946325159b17b9ed0a49ebdd76e0247c675ba264f88655f291",
+      "path": "state/EXCEPTION_STOP.json",
+      "sha256": "b5d21c16abb60e946325159b17b9ed0a49ebdd76e0247c675ba264f88655f291"
+    },
+    {
+      "bytes": 36,
+      "complete": true,
+      "exists": true,
+      "local_path": "state/stages/fit/output.log",
+      "local_sha256": "8faca02df47cdea2961b39a75412b5397247d10f3486ac3a0123645007d6bef5",
+      "path": "state/stages/fit/output.log",
+      "sha256": "8faca02df47cdea2961b39a75412b5397247d10f3486ac3a0123645007d6bef5"
+    },
+    {
+      "exists": false,
+      "path": "state/stages/fit/child_exception.json"
+    },
+    {
+      "bytes": 218,
+      "complete": true,
+      "exists": true,
+      "local_path": "state/stages/fit/process_exit.json",
+      "local_sha256": "b0f720a0cae81df328daad51ce28e19e4d0d4ff3c6152d13d022489699a49fa3",
+      "path": "state/stages/fit/process_exit.json",
+      "sha256": "b0f720a0cae81df328daad51ce28e19e4d0d4ff3c6152d13d022489699a49fa3"
+    },
+    {
+      "bytes": 2333,
+      "complete": true,
+      "exists": true,
+      "local_path": "state/stages/fit/runtime.json",
+      "local_sha256": "6ef8d40336bd0bc09b7849a46925014d57d3a17958c0acd8e23a4656623b64f6",
+      "path": "state/stages/fit/runtime.json",
+      "sha256": "6ef8d40336bd0bc09b7849a46925014d57d3a17958c0acd8e23a4656623b64f6"
+    },
+    {
+      "bytes": 975,
+      "complete": true,
+      "exists": true,
+      "local_path": "state/stages/fit/invocation.json",
+      "local_sha256": "130d96488b18efe3af4f57d8c99d23110a472362df1e995c8f14803d922e9ef5",
+      "path": "state/stages/fit/invocation.json",
+      "sha256": "130d96488b18efe3af4f57d8c99d23110a472362df1e995c8f14803d922e9ef5"
+    },
+    {
+      "bytes": 8753,
+      "complete": true,
+      "exists": true,
+      "local_path": "runs/learned_onboarding_v1_20261023/results/fit/EXCEPTION_STOP.json",
+      "local_sha256": "c3a2265cfe8f85218975fc642e046d075a8d97214cf9f3cdf111b045a4d4d01f",
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/EXCEPTION_STOP.json",
+      "sha256": "c3a2265cfe8f85218975fc642e046d075a8d97214cf9f3cdf111b045a4d4d01f"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/FIT_COMPLETE.json"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/source_signal.json"
+    },
+    {
+      "bytes": 3736,
+      "complete": true,
+      "exists": true,
+      "local_path": "runs/learned_onboarding_v1_20261023/results/fit/source_task_receipt.json",
+      "local_sha256": "d834dd8ff3cd5261e51ee601bf9c0dca01e34195fbc26c2a3234b5db6d3016b7",
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/source_task_receipt.json",
+      "sha256": "d834dd8ff3cd5261e51ee601bf9c0dca01e34195fbc26c2a3234b5db6d3016b7"
+    },
+    {
+      "bytes": 431,
+      "complete": true,
+      "exists": true,
+      "local_path": "runs/learned_onboarding_v1_20261023/results/fit/status.json",
+      "local_sha256": "539eb54f2c72a9e66dce12b2606384be785bcf47fd571a74d18d60116ef5b100",
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/status.json",
+      "sha256": "539eb54f2c72a9e66dce12b2606384be785bcf47fd571a74d18d60116ef5b100"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/numeric_source_replay.json"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/hard_task_receipt.json"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/sampling_receipt.json"
+    },
+    {
+      "bytes": 6232,
+      "complete": true,
+      "exists": true,
+      "local_path": "runs/learned_onboarding_v1_20261023/results/fit/AUX_G0/endpoint.json",
+      "local_sha256": "9f2370b32cae2427e710d72b2066d7046ec1d42e3691daf9265da607eea14544",
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/AUX_G0/endpoint.json",
+      "sha256": "9f2370b32cae2427e710d72b2066d7046ec1d42e3691daf9265da607eea14544"
+    },
+    {
+      "bytes": 457,
+      "complete": true,
+      "exists": true,
+      "local_path": "runs/learned_onboarding_v1_20261023/results/fit/AUX_G0/replay.json",
+      "local_sha256": "d09cc2871a2602363ef48243cecc8bc68d03eca9bd988096d7ceb516cf477e78",
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/AUX_G0/replay.json",
+      "sha256": "d09cc2871a2602363ef48243cecc8bc68d03eca9bd988096d7ceb516cf477e78"
+    },
+    {
+      "bytes": 737,
+      "complete": true,
+      "exists": true,
+      "local_path": "runs/learned_onboarding_v1_20261023/results/fit/AUX_G0/isolation.json",
+      "local_sha256": "c0431fe2dcbc63b449f7a02294a4d6035f6a85dae252b30d510e124d78715029",
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/AUX_G0/isolation.json",
+      "sha256": "c0431fe2dcbc63b449f7a02294a4d6035f6a85dae252b30d510e124d78715029"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/AUX_G1/endpoint.json"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/AUX_G1/replay.json"
+    },
+    {
+      "bytes": 737,
+      "complete": true,
+      "exists": true,
+      "local_path": "runs/learned_onboarding_v1_20261023/results/fit/AUX_G1/isolation.json",
+      "local_sha256": "cac9469790cd5dead17809b14bf9a089b3724739962910b7cf970cccf46af19a",
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/AUX_G1/isolation.json",
+      "sha256": "cac9469790cd5dead17809b14bf9a089b3724739962910b7cf970cccf46af19a"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/L_STANDARD/endpoint.json"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/L_STANDARD/replay.json"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/L_STANDARD/isolation.json"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/L_HARD/endpoint.json"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/L_HARD/replay.json"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/L_HARD/isolation.json"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/L_QUERY_ONLY/endpoint.json"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/L_QUERY_ONLY/replay.json"
+    },
+    {
+      "exists": false,
+      "path": "runs/learned_onboarding_v1_20261023/results/fit/L_QUERY_ONLY/isolation.json"
+    },
+    {
+      "bytes": 4352,
+      "complete": true,
+      "exists": true,
+      "local_path": "runs/learned_onboarding_v1_20261023/results/preflight/resource_plan.json",
+      "local_sha256": "e868021e0fad7afd75425861c59595615a9fe3506e75d54ad82359dacd8ec665",
+      "path": "runs/learned_onboarding_v1_20261023/results/preflight/resource_plan.json",
+      "sha256": "e868021e0fad7afd75425861c59595615a9fe3506e75d54ad82359dacd8ec665"
+    }
+  ],
+  "observed_at": "2026-10-24T04:50:43.260745+00:00",
+  "remote_root": "/srv/paper04/learned_onboarding_20261024_v2",
+  "remote_writes": 0,
+  "schema": "paper04-fit-stop-read-only-evidence-v1",
+  "target_data_opened": false
+}

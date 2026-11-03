@@ -1,0 +1,44 @@
+{
+  "status": "N1_DESIGN_INPUT_PINS_NOT_EXECUTION_AUTHORIZATION",
+  "base_branch": "codex/exp-mainline",
+  "base_head": "4b28747b09480471e2bac1beb3a9badf27280efb",
+  "provenance": "Existing artifact digests are copied from sealed F5/N0 manifests and receipts; numeric artifacts were not opened during this design. Runtime files were inspected as source/metadata or hashed opaquely. Future execution must independently verify every required digest before numeric access.",
+  "repository_inputs": {
+    "repo/ood/issue27frontend_f5_unified_student_v1.py": "78898ad6cf5d59bbe3505fe5fb7536f7e29b8aeed1cb4c00aaf9f38108bf8136",
+    "repo/ood/issue27frontend_f5_unified_student_runner_v1.py": "1b897c6f80ed7b7a0f705e176f14c32d37285d134c021e772a50ff1cc2cbeca0",
+    "repo/ood/issue27frontend_f4_fieldwise_input_v1.py": "9c729a3165d19042549723f029235734595131d5e7ba344a3f605cca89677200",
+    "runs/frontend_f3_full_fit_l1_identifiability_v1_20260905/f3b_identities.json": "073b28f5f3617d8c2c1ff0fd919cd02116b961d35ccc7ea5de6e7581d03f2b09",
+    "runs/frontend_f4_fieldwise_input_feasibility_v1_20260905/SHA256SUMS": "432c03f543e3dc9c2bdc97cc9842e53fb846e4cf62f92fb5642b2896855d4df5",
+    "runs/frontend_f4_fieldwise_input_feasibility_v1_20260905/f4_context_index.csv": "c62d9fb84db7edf6eaa733fcb5ac72b928f3c783db9f2549afa81a3a77700444",
+    "runs/frontend_f4_fieldwise_input_feasibility_v1_20260905/f4_target_audit.csv.gz": "fa4cb5efa3af5cc65cafc562c7c5e3d71aa2416910edd213ef5535f0a2da7c51",
+    "runs/frontend_f4_fieldwise_input_feasibility_v1_20260905/f4_schema.json": "5d66120b8f1b224bdcb66ff46ae6923641d923cb1eee4554a6c8bf80179c3681",
+    "runs/frontend_f4_fieldwise_input_feasibility_v1_20260905/f4_parent_features.f32le": "5c4b20abcca4b192f91c6094eda370fb3c5e977c8106a69f713aa059f93b450d",
+    "runs/frontend_f5_unified_student_v1_20260906_local/SHA256SUMS": "27cd3ac6575b251462fa272e3bdb7763938adde70e544bfd43571f9879863c53",
+    "runs/frontend_f5_unified_student_v1_20260906_local/preflight/uid_scope.csv": "529ec944e31463f98173ec1103920f6ca21e4a7ad9cff080bd85cebb3b9394e9",
+    "runs/frontend_f5_unified_student_v1_20260906_local/preflight/census.json": "b7924a3c40b838e483783c2feff1ec58b360959e961300d5ac93047d230815e6",
+    "runs/frontend_f5_unified_student_v1_20260906_local/preflight/identities.json": "f01f8c682b52dee1edeb43f4215731caa4658f6f0503c4388d56720952b44734",
+    "runs/frontend_f5_unified_student_v1_20260906_local/training/resume.pt": "1b9e82c15ad2808228724c0d465dccc59cbf40afbb63ee4b3094ddbd2a3697a9",
+    "runs/frontend_f5_unified_student_v1_20260906_local/training/resume.pt.receipt.json": "ac93796ac4514498be55e43eebb070d90d499091215b939825f444ca46f7e140",
+    "runs/frontend_f5_unified_student_v1_20260906_local/training/terminal.json": "0ba787170fc126e1d3a44d188a4f39f8c28d0d2a763fb557e55e6f9aa2c33a27",
+    "runs/frontend_inheritance_n0_inventory_v1_20260907/inventory_summary.json": "86c5c9236ddaa86f87cc7da744116b2a526e7e691643a6a58b8a08336a6becb3"
+  },
+  "runtime_root": "C:/Users/28371/AppData/Local/Programs/Python/Python39",
+  "runtime_file_sha256": {
+    "python.exe": "07c96337729e3c4c986e8f5660a97cb475c4c04842606be2654b37892af57de9",
+    "Lib/site-packages/scipy/optimize/_highs/_highs_wrapper.cp39-win_amd64.pyd": "31df702fefbd1c5e5a4cbd8d7dbc012e6ad3ca07532ca233502b6709a99ff91d",
+    "Lib/site-packages/scipy/optimize/_highs/_highs_constants.cp39-win_amd64.pyd": "1b958bb74930b4eecae3d36fc56c1fe888562a8f63d979fa27fba4bae23c2cbf",
+    "Lib/site-packages/scipy/optimize/_linprog_highs.py": "bf33477794058ab93e7dbde3edd0532c5e8a0b77c72fc7db5fd95371fc9b0824",
+    "Lib/site-packages/scipy-1.13.1.dist-info/METADATA": "2e7d8038b7699fd5e1dc4b051ac5eff2ba0e0b4d8e73ba6dd5e3bcdfb9b16802",
+    "Lib/site-packages/numpy-2.0.2.dist-info/METADATA": "0b1e601244cc69655bad407b02e8a160976ee7a1e3a2035836d3b3a6bbd0d5ce",
+    "Lib/site-packages/torch-2.8.0.dist-info/METADATA": "21d59cbe983b22e72dab5ba788617a631a4ec30357544ce90ca7d75aa51b3c04"
+  },
+  "runtime_versions": {
+    "python": "3.9.13",
+    "numpy": "2.0.2",
+    "torch_runtime": "2.8.0+cpu",
+    "torch_package_metadata": "2.8.0",
+    "scipy": "1.13.1",
+    "highs": "Bundled binary identity pinned above; semantic version not inferred."
+  },
+  "numeric_access_during_design": false
+}

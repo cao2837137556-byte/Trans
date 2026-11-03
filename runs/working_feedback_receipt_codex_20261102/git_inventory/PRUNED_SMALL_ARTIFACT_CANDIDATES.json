@@ -1,0 +1,3682 @@
+{
+  "note": "Pruned candidate whitelist, not staged. Parent must review content and merge with all requested docs + source. Literal-auth regex can flag code examples; values never emitted.",
+  "pruned_candidates": [
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/DELIVERY_SHA256.json",
+      "bytes": 3978,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "bytes": 673955,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EXISTING_D2_SUMMARY.json",
+      "bytes": 1554,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/NETATMO_CHRONOLOGY_AND_ROLE_PROPOSAL.json",
+      "bytes": 8286,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/NETATMO_EXTRACTION.json",
+      "bytes": 643,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/NETATMO_RAW_ACCEPTANCE.json",
+      "bytes": 1416,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/NetatmoWelcome_70ee50183443.capinfos.txt",
+      "bytes": 723,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/NetatmoWelcome_70ee50183443.raw_stats.json",
+      "bytes": 9635,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/TRACE_CARD.json",
+      "bytes": 24705,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/TRACE_SUMMARY.json",
+      "bytes": 10881,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/TRACE_SUMMARY_RECOVERED.json",
+      "bytes": 14731,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/VERIFICATION.json",
+      "bytes": 141,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/audit.py",
+      "bytes": 7604,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/finalize_trace.py",
+      "bytes": 2620,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/index_netatmo.py",
+      "bytes": 1203,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/prepare_netatmo_raw.py",
+      "bytes": 3231,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/qualify_netatmo_resume.py",
+      "bytes": 1772,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/seal_delivery.py",
+      "bytes": 4871,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/trace_netatmo.py",
+      "bytes": 6865,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_readonly_audit_v1_20261101/AUDIT_NOTE.md",
+      "bytes": 3503,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_readonly_audit_v1_20261101/AUDIT_NOTE.md.sha256",
+      "bytes": 81,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_readonly_audit_v1_20261101/EVIDENCE_SHA256.json",
+      "bytes": 262,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/b_sample_fpr_readonly_audit_v1_20261101/audit.py",
+      "bytes": 4985,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/ACQUISITION_MANIFEST_DRAFT.json",
+      "bytes": 3581,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/ACQUISITION_MANIFEST_DRAFT.json.sha256",
+      "bytes": 99,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/DELIVERY_VERIFICATION.json",
+      "bytes": 1273,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/DELIVERY_VERIFICATION.json.sha256",
+      "bytes": 94,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/EXECUTION_CARD_DRAFT.json",
+      "bytes": 4258,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/EXECUTION_CARD_DRAFT.json.sha256",
+      "bytes": 93,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/PREPARATION_RECEIPT.json",
+      "bytes": 1868,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/PREPARATION_RECEIPT.json.sha256",
+      "bytes": 92,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/ACQUISITION_VERIFICATION.json",
+      "bytes": 648,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/ACQUISITION_VERIFICATION.json.sha256",
+      "bytes": 97,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/HTTP_RECEIPT.json",
+      "bytes": 18375,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/PROGRESS.md",
+      "bytes": 1395,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/PROGRESS.md.sha256",
+      "bytes": 79,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/RAW_QUALIFICATION_CANDIDATES.json",
+      "bytes": 3384,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/RAW_QUALIFICATION_CANDIDATES.json.sha256",
+      "bytes": 101,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/README_DOWNLOAD_RECEIPT.json",
+      "bytes": 926,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/README_DOWNLOAD_RECEIPT.json.sha256",
+      "bytes": 96,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/REGISTERED_DIRECTORY_MANIFEST.json",
+      "bytes": 47455,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/REGISTERED_DIRECTORY_MANIFEST.json.sha256",
+      "bytes": 102,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/acquire_metadata.py",
+      "bytes": 3326,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/build_registered_manifest.py",
+      "bytes": 7159,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/readmes/README.pdf.sha256",
+      "bytes": 78,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/readmes/README_Wifi_and_MQTT_attacks.pdf.sha256",
+      "bytes": 100,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/readmes/README_profiling.pdf.sha256",
+      "bytes": 88,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/review/README.pdf.txt",
+      "bytes": 1009,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/review/README_REVIEW.json",
+      "bytes": 3720,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/review/README_REVIEW.json.sha256",
+      "bytes": 86,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/review/README_REVIEW.md",
+      "bytes": 3575,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/review/README_REVIEW.md.sha256",
+      "bytes": 84,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/review/README_Wifi_and_MQTT_attacks.manual_visual_transcription.txt",
+      "bytes": 542,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/review/README_Wifi_and_MQTT_attacks.manual_visual_transcription.txt.sha256",
+      "bytes": 128,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/review/README_Wifi_and_MQTT_attacks.pdf.txt",
+      "bytes": 30,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquired_direct/review/README_profiling.pdf.txt",
+      "bytes": 5912,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquisition/ACQUISITION_RESEARCH.md",
+      "bytes": 8603,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquisition/ACQUISITION_RESEARCH.md.sha256",
+      "bytes": 91,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquisition/FACTS_AND_MINIMUM_ROLES.json",
+      "bytes": 3610,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquisition/FACTS_AND_MINIMUM_ROLES.json.sha256",
+      "bytes": 96,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquisition/SHA256.json",
+      "bytes": 556,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquisition/official.html.sha256",
+      "bytes": 81,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/acquisition/registration.html.sha256",
+      "bytes": 85,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/build_preparation_receipt.py",
+      "bytes": 8616,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/contract/CONTRACT_REVIEW.md",
+      "bytes": 12454,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/contract/CONTRACT_REVIEW.md.sha256",
+      "bytes": 86,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/contract/EVIDENCE.json",
+      "bytes": 1656,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_external_test_preparation_codex_20261102/contract/EVIDENCE.json.sha256",
+      "bytes": 81,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/AB_SAVED_ARRAY_VERIFICATION.json",
+      "bytes": 102175,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/AB_SAVED_ARRAY_VERIFICATION.json.sha256",
+      "bytes": 100,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "bytes": 107874,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json.sha256",
+      "bytes": 99,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/CONTRACT_AUDIT.json",
+      "bytes": 6912,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/CONTRACT_AUDIT.json.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/METRIC_TABLES.md",
+      "bytes": 55536,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/METRIC_TABLES.md.sha256",
+      "bytes": 84,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/VERIFICATION.json",
+      "bytes": 19178,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/VERIFICATION.json.sha256",
+      "bytes": 85,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_REPLAY.npz.sha256",
+      "bytes": 86,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_p2_127_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 109,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_p2_227_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 109,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_p2_27_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 108,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_p2_ensemble_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 114,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_p3_127_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 109,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_p3_227_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 109,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_p3_27_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 108,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_p3_ensemble_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 114,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_p4_127_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 109,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_p4_227_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 109,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_p4_27_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 108,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_p4_ensemble_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 114,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_psaturation_127_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 118,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_psaturation_227_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 118,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_psaturation_27_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 117,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_psaturation_ensemble_new_attack_misses.jsonl.gz.sha256",
+      "bytes": 123,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/ENGINEERING_P1_SCHEMA_PRE_FIX.py",
+      "bytes": 14715,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/ENGINEERING_P1_SCHEMA_PRE_FIX.py.sha256",
+      "bytes": 100,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/ENGINEERING_P1_SCHEMA_STOP.log.sha256",
+      "bytes": 98,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/PARTIAL_RESULT.json.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/PROGRESS.json",
+      "bytes": 71,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/PROGRESS.json.sha256",
+      "bytes": 81,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/RESULT.json.sha256",
+      "bytes": 79,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/RUN.log.sha256",
+      "bytes": 75,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/SUMMARY.json",
+      "bytes": 75684,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/SUMMARY.json.sha256",
+      "bytes": 80,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/UNSW_DEV_REPLAY.npz.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/replay.py",
+      "bytes": 15215,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/ab/replay.py.sha256",
+      "bytes": 77,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/export_metric_tables.py",
+      "bytes": 4725,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/export_metric_tables.py.sha256",
+      "bytes": 91,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/seal_audit.py",
+      "bytes": 4511,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/seal_audit.py.sha256",
+      "bytes": 81,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/ATTACK_ELIGIBLE.npy.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/ATTACK_SAME_COMPONENT.npy.sha256",
+      "bytes": 93,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/ATTACK_SECOND_JOINT.npy.sha256",
+      "bytes": 91,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/ATTACK_SUPPORT.npy.sha256",
+      "bytes": 86,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/CAL_E3.npy.sha256",
+      "bytes": 78,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/CAL_FIXED_INPUTS.npz.sha256",
+      "bytes": 88,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/CAL_QUERIES.jsonl.gz.sha256",
+      "bytes": 88,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/CAP_REACHABLE_ATTACK_CASES.json",
+      "bytes": 4343,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/CAP_REACHABLE_ATTACK_CASES.json.sha256",
+      "bytes": 99,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/DONOR_ROSTER.json",
+      "bytes": 358301,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/DONOR_ROSTER.json.sha256",
+      "bytes": 85,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/INPUT_SEAL.json",
+      "bytes": 5923,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/INPUT_SEAL.json.sha256",
+      "bytes": 83,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/INTERPRETATION.json",
+      "bytes": 590,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/INTERPRETATION.json.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/NORMAL_OWN_SUPPORT.npz.sha256",
+      "bytes": 90,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/P1_179602_IDENTITY.json",
+      "bytes": 640,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/P1_179602_IDENTITY.json.sha256",
+      "bytes": 91,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/RESULT.json",
+      "bytes": 109900,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/RESULT.json.sha256",
+      "bytes": 79,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/SAVED_ARRAY_VERIFICATION.json",
+      "bytes": 1425,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/SAVED_ARRAY_VERIFICATION.json.sha256",
+      "bytes": 97,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/p1_DECISIONS.npz.sha256",
+      "bytes": 84,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/p2_DECISIONS.npz.sha256",
+      "bytes": 84,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/p3_DECISIONS.npz.sha256",
+      "bytes": 84,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/p4_DECISIONS.npz.sha256",
+      "bytes": 84,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/positive_saturation_DECISIONS.npz.sha256",
+      "bytes": 101,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/progress.json",
+      "bytes": 646,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/progress.json.sha256",
+      "bytes": 81,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/replay_source_cal.py",
+      "bytes": 20185,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/replay_source_cal.py.sha256",
+      "bytes": 88,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/verify_saved_replay.py",
+      "bytes": 4610,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/verify_saved_replay.py.sha256",
+      "bytes": 90,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/verify_saved_arrays_independent.py",
+      "bytes": 12707,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/verify_saved_arrays_independent.py.sha256",
+      "bytes": 102,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_method_freeze_v1_20261102/DECISION_AUTHORITY_SNAPSHOT.md",
+      "bytes": 4902,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_method_freeze_v1_20261102/DECISION_AUTHORITY_SNAPSHOT.md.sha256",
+      "bytes": 98,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_method_freeze_v1_20261102/METHOD_FREEZE.json",
+      "bytes": 30271,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_method_freeze_v1_20261102/METHOD_FREEZE.json.sha256",
+      "bytes": 86,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_method_freeze_v1_20261102/VERIFICATION.json",
+      "bytes": 530,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_method_freeze_v1_20261102/VERIFICATION.json.sha256",
+      "bytes": 85,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/c5_method_freeze_v1_20261102/freeze.py",
+      "bytes": 9384,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_antigravity_review_v1_20261031/D1_FROZEN_SHIFT_BOUND.json",
+      "bytes": 60266,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_antigravity_review_v1_20261031/D1_FROZEN_SHIFT_BOUND.json.sha256",
+      "bytes": 94,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_antigravity_review_v1_20261031/check_frozen_shift_bound.py",
+      "bytes": 6574,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/DELIVERY_SHA256.json",
+      "bytes": 1743,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/ENVIRONMENT.json",
+      "bytes": 237,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/ENVIRONMENT.json.sha256",
+      "bytes": 84,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/EXECUTION_ATTEMPT.json",
+      "bytes": 354,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/EXECUTION_CARD.json",
+      "bytes": 1678,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/EXECUTION_CARD.json.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/EXPORT_REQUEST.json",
+      "bytes": 4075,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/FINAL_ACCEPTANCE.json",
+      "bytes": 848,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/FINAL_ACCEPTANCE.json.sha256",
+      "bytes": 89,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/IMPLEMENTATION_CHECK.json",
+      "bytes": 832,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/IMPLEMENTATION_CHECK.json.sha256",
+      "bytes": 93,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/INPUT_MANIFEST.json",
+      "bytes": 8976,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/INPUT_MANIFEST.json.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/PROGRESS.md",
+      "bytes": 1242,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/RESULT_READOUT.json",
+      "bytes": 241398,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/RESULT_READOUT.json.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/RETRIEVAL_RECEIPT.json",
+      "bytes": 368,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/RUNTIME_RECEIPT.json",
+      "bytes": 235,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/RUNTIME_RECEIPT.json.sha256",
+      "bytes": 88,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/STATUS.json",
+      "bytes": 327,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/build_contract.py",
+      "bytes": 5182,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/common.py",
+      "bytes": 5442,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/guarded_run.py",
+      "bytes": 3375,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/ARTIFACTS.json",
+      "bytes": 2571,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/RESULT.json",
+      "bytes": 976614,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/RESULT.json.sha256",
+      "bytes": 79,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/ab/AB_ATTEMPT.json",
+      "bytes": 160,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/ab/CIC_DEV/RESULT.json",
+      "bytes": 217247,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/ab/RESULT.json",
+      "bytes": 973380,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/ab/UNSW_DEV/RESULT.json",
+      "bytes": 655658,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/dev/GATE.json",
+      "bytes": 2786,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/source/G0/CAL/PRECHECK.json",
+      "bytes": 562788,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/source/G0/S/PRECHECK.json",
+      "bytes": 1032588,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/source/G1/CAL/PRECHECK.json",
+      "bytes": 722096,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/source/G1/S/PRECHECK.json",
+      "bytes": 861996,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/source/SUMMARY.json",
+      "bytes": 213881,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/proxy_existing_tunnel.py",
+      "bytes": 1746,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/remote_export.py",
+      "bytes": 3702,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/retrieve.py",
+      "bytes": 4318,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/run.py",
+      "bytes": 21581,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/test_c2.py",
+      "bytes": 4390,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/verify_result.py",
+      "bytes": 7212,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_deployment_20261101/DELIVERY_MANIFEST.json",
+      "bytes": 3875,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_deployment_20261101/PREFLIGHT_RECEIPT.json",
+      "bytes": 2268,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_deployment_20261101/RETRIEVAL_RECEIPT.json",
+      "bytes": 524,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_deployment_20261101/STATE_RECEIPT.json",
+      "bytes": 3106,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_deployment_20261101/STATUS_BRIDGE.json",
+      "bytes": 720,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_deployment_20261101/SUBMIT_RECEIPT.json",
+      "bytes": 2451,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_deployment_20261101/UPLOAD_RECEIPT.json",
+      "bytes": 47,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_deployment_20261101/build_delivery.py",
+      "bytes": 3939,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_deployment_20261101/client.py",
+      "bytes": 2799,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_deployment_20261101/proxy_existing_tunnel.py",
+      "bytes": 1482,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_deployment_20261101/receiver.py",
+      "bytes": 10437,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_deployment_20261101/status_bridge.py",
+      "bytes": 2728,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_deployment_20261101/test_delivery.py",
+      "bytes": 1875,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/ENCODE_REQUEST.json",
+      "bytes": 1033,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/EVALUATE_GUARD_ATTEMPT.json",
+      "bytes": 286,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/EVALUATE_RUNTIME.json",
+      "bytes": 316,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/EXECUTION_CARD.json",
+      "bytes": 8903,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/EXECUTION_CARD.json.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/FINAL_ACCEPTANCE.json",
+      "bytes": 921,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/FINAL_DELIVERY_SHA256.json",
+      "bytes": 12738,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/FINAL_DELIVERY_SHA256.json.sha256",
+      "bytes": 94,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/FINAL_REPORT_AUDIT.json",
+      "bytes": 19569,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/IMPLEMENTATION_CHECK.json",
+      "bytes": 305,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/INPUT_MANIFEST.json",
+      "bytes": 193256,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/INPUT_MANIFEST.json.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/PROGRESS.md",
+      "bytes": 1210,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/RESULT_READOUT.json",
+      "bytes": 44884,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/STATUS.json",
+      "bytes": 305,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/build_contract.py",
+      "bytes": 6314,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/common.py",
+      "bytes": 8079,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/encode.py",
+      "bytes": 5624,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/evaluate.py",
+      "bytes": 10922,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/freeze_repair.py",
+      "bytes": 3590,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/guarded_run.py",
+      "bytes": 3027,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/AB_ATTEMPT.json",
+      "bytes": 163,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/ARTIFACTS.json",
+      "bytes": 1235,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/DEV_GATE.json",
+      "bytes": 1331,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/METHOD_FREEZE.json",
+      "bytes": 583,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/PAIR_PLAN.json",
+      "bytes": 198,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/RESULT.json",
+      "bytes": 1020133,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/ab/CIC_DEV/RESULT.json",
+      "bytes": 262291,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/ab/UNSW_DEV/RESULT.json",
+      "bytes": 653637,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/prepare.py",
+      "bytes": 7378,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/prepared/PREPARE_RESULT.json",
+      "bytes": 8448,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/run_encode.slurm",
+      "bytes": 890,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/summarize_saved_result.py",
+      "bytes": 4640,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/test_c3.py",
+      "bytes": 6728,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/test_progress_repair.py",
+      "bytes": 4265,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/verify_result.py",
+      "bytes": 5379,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/ENCODE_REQUEST.json",
+      "bytes": 1033,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/EVALUATE_GUARD_ATTEMPT.json",
+      "bytes": 286,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/EVALUATE_RUNTIME.json",
+      "bytes": 204,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/EXECUTION_CARD.json",
+      "bytes": 2138,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/EXECUTION_CARD.json.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/IMPLEMENTATION_CHECK.json",
+      "bytes": 1263,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/INPUT_MANIFEST.json",
+      "bytes": 193256,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/INPUT_MANIFEST.json.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/PREPARE_ATTEMPT.json",
+      "bytes": 85,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/PREPARE_GUARD_ATTEMPT.json",
+      "bytes": 285,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/PREPARE_RUNTIME.json",
+      "bytes": 195,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/PROGRESS.md",
+      "bytes": 526,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/STATUS.json",
+      "bytes": 418,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/build_contract.py",
+      "bytes": 6314,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/common.py",
+      "bytes": 7643,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/encode.py",
+      "bytes": 5624,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/evaluate.py",
+      "bytes": 9518,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/guarded_run.py",
+      "bytes": 2609,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/output/AB_ATTEMPT.json",
+      "bytes": 163,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/output/DEV_GATE.json",
+      "bytes": 1331,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/output/PAIR_PLAN.json",
+      "bytes": 105,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/prepare.py",
+      "bytes": 7378,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/prepared/PREPARE_RESULT.json",
+      "bytes": 8448,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/run_encode.slurm",
+      "bytes": 890,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/summarize_saved_result.py",
+      "bytes": 4640,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/test_c3.py",
+      "bytes": 6728,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/verify_result.py",
+      "bytes": 4283,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_review_v1_20261031/REVIEW_EVIDENCE.json",
+      "bytes": 19046,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_review_v1_20261031/REVIEW_EVIDENCE.json.sha256",
+      "bytes": 88,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_review_v1_20261031/audit.py",
+      "bytes": 11439,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_review_v1_20261031/audit.py.sha256",
+      "bytes": 76,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/EVIDENCE_SHA256.json",
+      "bytes": 4883,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/EXECUTION_ATTEMPT.json",
+      "bytes": 185,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/EXECUTION_CARD.json",
+      "bytes": 1286,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/RETRIEVAL_RECEIPT.json",
+      "bytes": 240,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/RUNTIME_RECEIPT.json",
+      "bytes": 201,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/guarded_run.py",
+      "bytes": 2182,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/output/COHORTS.json",
+      "bytes": 1906943,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/output/OBSERVED_QUERY_STAGES.json",
+      "bytes": 524,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/output/PAIR_PLAN.json",
+      "bytes": 5187,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/output/SAVED_SUPPORT_AUDIT.json",
+      "bytes": 3709,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/output/STATUS.json",
+      "bytes": 6798,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/output/TRACE_EXAMPLES.json",
+      "bytes": 3706,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/output/TRACE_SUMMARY.json",
+      "bytes": 39553,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/proxy_existing_tunnel.py",
+      "bytes": 1676,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/remote_export.py",
+      "bytes": 4768,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/retrieve.py",
+      "bytes": 3859,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/summarize.py",
+      "bytes": 5358,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/trace.py",
+      "bytes": 15459,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d3_readonly_v1_20261031/D3_EVIDENCE.json",
+      "bytes": 42360,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d3_readonly_v1_20261031/D3_EVIDENCE.json.sha256",
+      "bytes": 84,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d3_readonly_v1_20261031/DELIVERY_SHA256.json",
+      "bytes": 1888,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d3_readonly_v1_20261031/VERIFICATION.json",
+      "bytes": 639,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d3_readonly_v1_20261031/VERIFICATION.json.sha256",
+      "bytes": 85,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d3_readonly_v1_20261031/audit.py",
+      "bytes": 20293,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_d3_readonly_v1_20261031/audit.py.sha256",
+      "bytes": 76,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/BUILD_RECEIPT.json",
+      "bytes": 765,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/DELIVERY_INPUTS.json",
+      "bytes": 868401,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/DEPLOYMENT_TEST_REPORT.json",
+      "bytes": 890,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/HANDOFF_STATE.before_submission.json",
+      "bytes": 1284,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/HANDOFF_STATE.json",
+      "bytes": 1449,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/README.md",
+      "bytes": 2020,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/build_delivery.py",
+      "bytes": 11696,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/install_delivery.py",
+      "bytes": 3847,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/map_verified_decoder.py",
+      "bytes": 3232,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/remote_preflight.py",
+      "bytes": 9935,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/socks_stdio.py",
+      "bytes": 1932,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/submit_once.py",
+      "bytes": 3482,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/BUILD_RECEIPT.json",
+      "bytes": 571,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/DELIVERY_INPUTS.json",
+      "bytes": 884228,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/README.md",
+      "bytes": 1241,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/bind_transport.py",
+      "bytes": 1768,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/build_delivery.py",
+      "bytes": 12542,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/completion/DEV_RESULT.json",
+      "bytes": 2748,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/completion/PRESERVATION_RECEIPT.json",
+      "bytes": 713,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/completion/RESULT.json",
+      "bytes": 982250,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/completion/SUMMARY.json",
+      "bytes": 3338,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/completion/TERMINAL_REMOTE_READBACK.json",
+      "bytes": 1075888,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/completion/WORKER_STATUS.json",
+      "bytes": 5991,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/install_delivery.py",
+      "bytes": 3847,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/remote_preflight.py",
+      "bytes": 10274,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/submit_once.py",
+      "bytes": 3533,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_diagnosis_20261031/MISSING_NAMESPACE_ROWS.json",
+      "bytes": 211226,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_diagnosis_20261031/RAW_REPLAY_RECEIPT.json",
+      "bytes": 1191,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/CODE_MANIFEST.json",
+      "bytes": 219393,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/CODE_MANIFEST.json.sha256",
+      "bytes": 86,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/EXECUTION_CARD.md",
+      "bytes": 2555,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/README.md",
+      "bytes": 5228,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/config/ASSETS.json",
+      "bytes": 16091,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/config/ENCODER_RUNTIME_FILES.json",
+      "bytes": 2291,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/config/EXECUTION.json",
+      "bytes": 6494,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/hnr/__init__.py",
+      "bytes": 84,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/hnr/assets.py",
+      "bytes": 7277,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/hnr/checks.py",
+      "bytes": 12629,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/hnr/common.py",
+      "bytes": 3141,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/hnr/contexts.py",
+      "bytes": 7621,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/hnr/encoding.py",
+      "bytes": 10049,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/hnr/evaluation.py",
+      "bytes": 21426,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/hnr/history.py",
+      "bytes": 15772,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/hnr/runtime.py",
+      "bytes": 13926,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/hnr/selection.py",
+      "bytes": 15362,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/hpc/run_history.slurm",
+      "bytes": 2561,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/progress.py",
+      "bytes": 3156,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/run.py",
+      "bytes": 8624,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/tests/test_checks.py",
+      "bytes": 9241,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/tests/test_encoding.py",
+      "bytes": 1665,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/tests/test_evaluation.py",
+      "bytes": 13464,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/tests/test_history.py",
+      "bytes": 7541,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/tests/test_integration_review.py",
+      "bytes": 4171,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/tests/test_namespace_repair.py",
+      "bytes": 12837,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/tests/test_orchestration.py",
+      "bytes": 5174,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/tests/test_pipeline.py",
+      "bytes": 6252,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/tests/test_progress.py",
+      "bytes": 1608,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/tests/test_runtime.py",
+      "bytes": 8223,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_v1_20261031/tests/test_selection.py",
+      "bytes": 8984,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/CODE_MANIFEST.json",
+      "bytes": 220667,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/CODE_MANIFEST.json.sha256",
+      "bytes": 86,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/EXECUTION_CARD.md",
+      "bytes": 2555,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/README.md",
+      "bytes": 4091,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/config/ASSETS.json",
+      "bytes": 16091,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/config/ENCODER_RUNTIME_FILES.json",
+      "bytes": 2291,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/config/EXECUTION.json",
+      "bytes": 6599,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/hnr/__init__.py",
+      "bytes": 84,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/hnr/assets.py",
+      "bytes": 7277,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/hnr/checks.py",
+      "bytes": 12629,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/hnr/common.py",
+      "bytes": 3131,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/hnr/encoding.py",
+      "bytes": 10049,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/hnr/evaluation.py",
+      "bytes": 21426,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/hnr/history.py",
+      "bytes": 15794,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/hnr/runtime.py",
+      "bytes": 13926,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/hnr/selection.py",
+      "bytes": 15362,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/hpc/run_history.slurm",
+      "bytes": 2541,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/progress.py",
+      "bytes": 3156,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/run.py",
+      "bytes": 8624,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/tests/test_checks.py",
+      "bytes": 9241,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/tests/test_encoding.py",
+      "bytes": 1665,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/tests/test_evaluation.py",
+      "bytes": 13464,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/tests/test_history.py",
+      "bytes": 7541,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/tests/test_integration_review.py",
+      "bytes": 4171,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/tests/test_orchestration.py",
+      "bytes": 5174,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/tests/test_pipeline.py",
+      "bytes": 6252,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/tests/test_progress.py",
+      "bytes": 1608,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/tests/test_runtime.py",
+      "bytes": 8223,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_normal_reference_v1_20261031/tests/test_selection.py",
+      "bytes": 8984,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/BUDGET_AMENDMENT_ENGINEERING_RECEIPT.json",
+      "bytes": 2388,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/BUDGET_SEAL_RECEIPT.json",
+      "bytes": 542,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/CHECKPOINT_ENGINEERING_CHECK.json",
+      "bytes": 2328,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/COPIED_PRIOR_CARD.json",
+      "bytes": 8791,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/EVALUATE_ATTEMPT.json",
+      "bytes": 132,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/EXECUTION_AUTHORIZATION.json",
+      "bytes": 848,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/EXECUTION_CARD.json",
+      "bytes": 10624,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/EXECUTION_CARD.json.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/FINAL_ACCEPTANCE.json",
+      "bytes": 625,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/IMPLEMENTATION_CHECK.json",
+      "bytes": 1159,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/INPUT_MANIFEST.json",
+      "bytes": 93584,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/NOT_EXECUTION_READY.md",
+      "bytes": 800,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/bootstrap.py",
+      "bytes": 4185,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/build_contract.py",
+      "bytes": 5504,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/check_saved_baseline.py",
+      "bytes": 1883,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/config/ASSETS.json",
+      "bytes": 16091,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/config/ENCODER_RUNTIME_FILES.json",
+      "bytes": 2291,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/config/EXECUTION.json",
+      "bytes": 8189,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/coordinator.py",
+      "bytes": 5423,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/decoder_guard.py",
+      "bytes": 13107,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/gates.py",
+      "bytes": 3311,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/header_qualification.py",
+      "bytes": 1404,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/__init__.py",
+      "bytes": 85,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/assets.py",
+      "bytes": 7430,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/common.py",
+      "bytes": 3413,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/component_selection.py",
+      "bytes": 15629,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/contexts.py",
+      "bytes": 7756,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/encoding.py",
+      "bytes": 26254,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/evaluation.py",
+      "bytes": 21798,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/history.py",
+      "bytes": 16468,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/runtime.py",
+      "bytes": 15614,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/selection.py",
+      "bytes": 4214,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hpc/run_encode.slurm",
+      "bytes": 906,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/member_worker.py",
+      "bytes": 5322,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/prepared_reuse.py",
+      "bytes": 10403,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/recovery.py",
+      "bytes": 8168,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/resume_prepare.py",
+      "bytes": 11108,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/run.py",
+      "bytes": 18029,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/seal_budget.py",
+      "bytes": 5071,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/test_budget_amendment.py",
+      "bytes": 8080,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/test_decoder_guard.py",
+      "bytes": 12186,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/test_encoding_resume.py",
+      "bytes": 18696,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/test_memory_worker.py",
+      "bytes": 5824,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/test_prepared_reuse.py",
+      "bytes": 19451,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/test_recovery.py",
+      "bytes": 3431,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/test_resume_prepare.py",
+      "bytes": 4064,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/test_runner.py",
+      "bytes": 6764,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/test_topup.py",
+      "bytes": 3139,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/topup_selector.py",
+      "bytes": 5485,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/verify_result.py",
+      "bytes": 7309,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/worker_runtime.py",
+      "bytes": 4488,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/COMPLETE_ACK.json",
+      "bytes": 19101,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/DELIVERY_MANIFEST.json",
+      "bytes": 7846,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/DEPLOYMENT_ENGINEERING_RECEIPT.json",
+      "bytes": 3478,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/GLOBAL_BUDGET_RECEIPT.json",
+      "bytes": 357,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/INSTALL_RECEIPT.json",
+      "bytes": 268,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/PIPELINE_ATTEMPT.json",
+      "bytes": 48,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/PREFLIGHT_PROGRESS.json",
+      "bytes": 43362,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/PREFLIGHT_RECEIPT.json",
+      "bytes": 43362,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/RESULT_TRANSFER_META.json",
+      "bytes": 109,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/RETRIEVAL_RECEIPT.json",
+      "bytes": 192,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/STARTUP_VERIFICATION.json",
+      "bytes": 22084,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/STATE_RECEIPT.json",
+      "bytes": 482046,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/SUBMIT_RECEIPT.json",
+      "bytes": 18799,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/build_delivery.py",
+      "bytes": 6388,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/client.py",
+      "bytes": 7358,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/controller.py",
+      "bytes": 21215,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/pipeline.py",
+      "bytes": 10105,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/preflight_worker.py",
+      "bytes": 13016,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/progress_server.py",
+      "bytes": 5237,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/superseded_before_remote_install/DELIVERY_MANIFEST.json",
+      "bytes": 7846,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/test_client.py",
+      "bytes": 5150,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/test_controller.py",
+      "bytes": 10553,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/test_pipeline.py",
+      "bytes": 5088,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_budget_deployment_20261102/test_preflight_worker.py",
+      "bytes": 2976,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/DELIVERY_MANIFEST.json",
+      "bytes": 7636,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/INSTALL_RECEIPT.json",
+      "bytes": 106,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/PIPELINE_ATTEMPT.json",
+      "bytes": 47,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/PIPELINE_ERROR.json",
+      "bytes": 1251,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/PREFLIGHT_RECEIPT.json",
+      "bytes": 5214,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/REMOTE_DIAGNOSTICS.json",
+      "bytes": 149594,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/STARTUP_VERIFICATION.json",
+      "bytes": 404,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/START_DIAGNOSTIC.txt",
+      "bytes": 1607,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/STATE_RECEIPT.json",
+      "bytes": 8860,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/SUBMIT_RECEIPT.json",
+      "bytes": 5323,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/build_delivery.py",
+      "bytes": 4889,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/client.py",
+      "bytes": 5314,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/pipeline.py",
+      "bytes": 3846,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/progress_server.py",
+      "bytes": 5697,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/receiver.py",
+      "bytes": 11747,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/test_delivery.py",
+      "bytes": 2216,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/EXECUTION_CARD.json",
+      "bytes": 8228,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/EXECUTION_CARD.json.sha256",
+      "bytes": 86,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/IMPLEMENTATION_CHECK.json",
+      "bytes": 487,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/INPUT_MANIFEST.json",
+      "bytes": 93584,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/bootstrap.py",
+      "bytes": 4185,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/build_contract.py",
+      "bytes": 5504,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/check_saved_baseline.py",
+      "bytes": 1883,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/config/ASSETS.json",
+      "bytes": 16091,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/config/ENCODER_RUNTIME_FILES.json",
+      "bytes": 2291,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/config/EXECUTION.json",
+      "bytes": 8194,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/coordinator.py",
+      "bytes": 3977,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/decoder_guard.py",
+      "bytes": 12557,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/gates.py",
+      "bytes": 3311,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/hnr/__init__.py",
+      "bytes": 85,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/hnr/assets.py",
+      "bytes": 7430,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/hnr/common.py",
+      "bytes": 3413,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/hnr/component_selection.py",
+      "bytes": 15629,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/hnr/contexts.py",
+      "bytes": 7756,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/hnr/encoding.py",
+      "bytes": 10315,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/hnr/evaluation.py",
+      "bytes": 21798,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/hnr/history.py",
+      "bytes": 16468,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/hnr/runtime.py",
+      "bytes": 15456,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/hnr/selection.py",
+      "bytes": 4214,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/hpc/run_encode.slurm",
+      "bytes": 916,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/member_worker.py",
+      "bytes": 2645,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/recovery.py",
+      "bytes": 5373,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/resume_prepare.py",
+      "bytes": 9282,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/run.py",
+      "bytes": 13590,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/test_decoder_guard.py",
+      "bytes": 10499,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/test_memory_worker.py",
+      "bytes": 5824,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/test_recovery.py",
+      "bytes": 3431,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/test_resume_prepare.py",
+      "bytes": 3183,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/test_runner.py",
+      "bytes": 6764,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/test_topup.py",
+      "bytes": 3139,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/topup_selector.py",
+      "bytes": 5485,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/verify_result.py",
+      "bytes": 4137,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/worker_runtime.py",
+      "bytes": 4488,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/CURRENT_SUBMIT_RECEIPT.json",
+      "bytes": 18880,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/DELIVERY_MANIFEST.json",
+      "bytes": 6212,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/INSTALL_RECEIPT.json",
+      "bytes": 106,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/LOCAL_ORCHESTRATION_SHA256.json",
+      "bytes": 634,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/PIPELINE_ATTEMPT.json",
+      "bytes": 48,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/PIPELINE_ERROR.json",
+      "bytes": 805,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/PREFLIGHT_RECEIPT.json",
+      "bytes": 780,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/PROGRESS.json",
+      "bytes": 1068505,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/SUBMIT_RECEIPT.json",
+      "bytes": 3600,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/build_delivery.py",
+      "bytes": 4767,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/client.py",
+      "bytes": 5306,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/pipeline.py",
+      "bytes": 3641,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/progress_server.py",
+      "bytes": 4923,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/receiver.py",
+      "bytes": 11462,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/test_delivery.py",
+      "bytes": 1995,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_repair_v1_20261101/PIPELINE_ATTEMPT.json",
+      "bytes": 48,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_repair_v1_20261101/PIPELINE_ERROR.json",
+      "bytes": 910,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_repair_v1_20261101/PREFLIGHT_RECEIPT.json",
+      "bytes": 3409,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_repair_v1_20261101/REMOTE_EXECUTION.json",
+      "bytes": 7854,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_repair_v1_20261101/REPAIR_ACCEPTANCE.json",
+      "bytes": 1460,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_repair_v1_20261101/REPAIR_MANIFEST.json",
+      "bytes": 1026,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_repair_v1_20261101/STATE_RECEIPT.json",
+      "bytes": 6057,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_repair_v1_20261101/SUBMIT_RECEIPT.json",
+      "bytes": 3518,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_repair_v1_20261101/build_repair.py",
+      "bytes": 7731,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_repair_v1_20261101/client.py",
+      "bytes": 5410,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_repair_v1_20261101/pipeline.py",
+      "bytes": 3935,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_repair_v1_20261101/receiver.py",
+      "bytes": 13223,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/EXECUTION_CARD.json",
+      "bytes": 6487,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/EXECUTION_CARD.json.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/EXECUTION_CARD_PREFLIGHT_R0.json",
+      "bytes": 5995,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/IMPLEMENTATION_CHECK.json",
+      "bytes": 457,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/INPUT_MANIFEST.json",
+      "bytes": 93584,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/VENDOR_ORIGIN.json",
+      "bytes": 1366,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/bootstrap.py",
+      "bytes": 4185,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/build_contract.py",
+      "bytes": 5504,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/check_saved_baseline.py",
+      "bytes": 1883,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/config/ASSETS.json",
+      "bytes": 16091,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/config/ENCODER_RUNTIME_FILES.json",
+      "bytes": 2291,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/config/EXECUTION.json",
+      "bytes": 8343,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/gates.py",
+      "bytes": 3311,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/hnr/__init__.py",
+      "bytes": 85,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/hnr/assets.py",
+      "bytes": 7430,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/hnr/common.py",
+      "bytes": 3413,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/hnr/component_selection.py",
+      "bytes": 15629,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/hnr/contexts.py",
+      "bytes": 7756,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/hnr/encoding.py",
+      "bytes": 10315,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/hnr/evaluation.py",
+      "bytes": 21798,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/hnr/history.py",
+      "bytes": 16355,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/hnr/runtime.py",
+      "bytes": 14524,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/hnr/selection.py",
+      "bytes": 4216,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/hpc/run_encode.slurm",
+      "bytes": 900,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/run.py",
+      "bytes": 15759,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/test_runner.py",
+      "bytes": 6764,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/test_topup.py",
+      "bytes": 3139,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/topup_selector.py",
+      "bytes": 5485,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/verify_result.py",
+      "bytes": 4137,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_final_readout_20261102/READOUT.json",
+      "bytes": 22532,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_final_readout_20261102/READOUT.json.sha256",
+      "bytes": 80,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_final_readout_20261102/RESIDUAL_COUNTS.json",
+      "bytes": 102414,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_final_readout_20261102/RESIDUAL_COUNTS.json.sha256",
+      "bytes": 88,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_final_readout_20261102/VERIFICATION.json",
+      "bytes": 2231,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/CURRENT_DELIVERY_CHECK.json",
+      "bytes": 556,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/DELIVERY_MANIFEST.json",
+      "bytes": 7941,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/HANDOFF_STOPPED.json",
+      "bytes": 11389,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/HEADER_PROBE.json",
+      "bytes": 485380,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/INSTALL_RECEIPT.json",
+      "bytes": 106,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/PIPELINE_ATTEMPT.json",
+      "bytes": 48,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/PIPELINE_ERROR.json",
+      "bytes": 11362,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/REAL_HEADER_AUDIT.json",
+      "bytes": 230827,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/REPAIR_FACTS.json",
+      "bytes": 854,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/RUN_PROBE_ENV.txt",
+      "bytes": 573,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/START_PROBE.txt",
+      "bytes": 3336,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/build_delivery.py",
+      "bytes": 4947,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/client.py",
+      "bytes": 5414,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/fetch_probe.py",
+      "bytes": 1150,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/finish_handoff.py",
+      "bytes": 1467,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/pipeline.py",
+      "bytes": 3909,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/probe_remote.py",
+      "bytes": 4009,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/receiver.py",
+      "bytes": 13079,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/test_delivery.py",
+      "bytes": 2256,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/write_handoff.py",
+      "bytes": 5603,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/EXECUTION_CARD.json",
+      "bytes": 8988,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/EXECUTION_CARD.json.sha256",
+      "bytes": 87,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/IMPLEMENTATION_CHECK.json",
+      "bytes": 356,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/INPUT_MANIFEST.json",
+      "bytes": 93584,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/bootstrap.py",
+      "bytes": 4185,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/build_contract.py",
+      "bytes": 5504,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/check_saved_baseline.py",
+      "bytes": 1883,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/config/ASSETS.json",
+      "bytes": 16091,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/config/ENCODER_RUNTIME_FILES.json",
+      "bytes": 2291,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/config/EXECUTION.json",
+      "bytes": 8347,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/coordinator.py",
+      "bytes": 3977,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/decoder_guard.py",
+      "bytes": 13107,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/gates.py",
+      "bytes": 3311,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/header_qualification.py",
+      "bytes": 1404,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/hnr/__init__.py",
+      "bytes": 85,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/hnr/assets.py",
+      "bytes": 7430,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/hnr/common.py",
+      "bytes": 3413,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/hnr/component_selection.py",
+      "bytes": 15629,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/hnr/contexts.py",
+      "bytes": 7756,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/hnr/encoding.py",
+      "bytes": 10315,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/hnr/evaluation.py",
+      "bytes": 21798,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/hnr/history.py",
+      "bytes": 16468,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/hnr/runtime.py",
+      "bytes": 15456,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/hnr/selection.py",
+      "bytes": 4214,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/hpc/run_encode.slurm",
+      "bytes": 908,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/member_worker.py",
+      "bytes": 2645,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/recovery.py",
+      "bytes": 6143,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/resume_prepare.py",
+      "bytes": 11108,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/run.py",
+      "bytes": 13590,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/test_decoder_guard.py",
+      "bytes": 12186,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/test_memory_worker.py",
+      "bytes": 5824,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/test_recovery.py",
+      "bytes": 3431,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/test_resume_prepare.py",
+      "bytes": 4064,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/test_runner.py",
+      "bytes": 6764,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/test_topup.py",
+      "bytes": 3139,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/topup_selector.py",
+      "bytes": 5485,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/verify_result.py",
+      "bytes": 4137,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101/worker_runtime.py",
+      "bytes": 4488,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_deployment_20261101/DELIVERY_MANIFEST.json",
+      "bytes": 7057,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_deployment_20261101/INSTALL_RECEIPT.json",
+      "bytes": 106,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_deployment_20261101/PIPELINE_ATTEMPT.json",
+      "bytes": 47,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_deployment_20261101/PIPELINE_ERROR.json",
+      "bytes": 867,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_deployment_20261101/PREFLIGHT_RECEIPT.json",
+      "bytes": 4909,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_deployment_20261101/SUBMIT_RECEIPT.json",
+      "bytes": 5124,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_deployment_20261101/build_delivery.py",
+      "bytes": 4817,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_deployment_20261101/client.py",
+      "bytes": 5414,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_deployment_20261101/pipeline.py",
+      "bytes": 3909,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_deployment_20261101/receiver.py",
+      "bytes": 11751,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_deployment_20261101/test_delivery.py",
+      "bytes": 2032,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/EXECUTION_CARD.json",
+      "bytes": 7385,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/EXECUTION_CARD.json.sha256",
+      "bytes": 86,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/IMPLEMENTATION_CHECK.json",
+      "bytes": 415,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/INPUT_MANIFEST.json",
+      "bytes": 93584,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/bootstrap.py",
+      "bytes": 4185,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/build_contract.py",
+      "bytes": 5504,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/check_saved_baseline.py",
+      "bytes": 1883,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/config/ASSETS.json",
+      "bytes": 16091,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/config/ENCODER_RUNTIME_FILES.json",
+      "bytes": 2291,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/config/EXECUTION.json",
+      "bytes": 8349,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/coordinator.py",
+      "bytes": 3804,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/gates.py",
+      "bytes": 3311,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/hnr/__init__.py",
+      "bytes": 85,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/hnr/assets.py",
+      "bytes": 7430,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/hnr/common.py",
+      "bytes": 3413,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/hnr/component_selection.py",
+      "bytes": 15629,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/hnr/contexts.py",
+      "bytes": 7756,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/hnr/encoding.py",
+      "bytes": 10315,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/hnr/evaluation.py",
+      "bytes": 21798,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/hnr/history.py",
+      "bytes": 16355,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/hnr/runtime.py",
+      "bytes": 14812,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/hnr/selection.py",
+      "bytes": 4216,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/hpc/run_encode.slurm",
+      "bytes": 908,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/member_worker.py",
+      "bytes": 2474,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/recovery.py",
+      "bytes": 5176,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/run.py",
+      "bytes": 13590,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/test_memory_worker.py",
+      "bytes": 5824,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/test_recovery.py",
+      "bytes": 3431,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/test_runner.py",
+      "bytes": 6764,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/test_topup.py",
+      "bytes": 3139,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/topup_selector.py",
+      "bytes": 5485,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/verify_result.py",
+      "bytes": 4137,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/worker_runtime.py",
+      "bytes": 4488,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/DELIVERY_MANIFEST.json",
+      "bytes": 7058,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/INSTALL_RECEIPT.json",
+      "bytes": 376,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/PIPELINE_ATTEMPT.json",
+      "bytes": 48,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/PIPELINE_ERROR.json",
+      "bytes": 1252,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/PREFLIGHT_RECEIPT.json",
+      "bytes": 5179,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/REPAIR_BEFORE.json",
+      "bytes": 389,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/STARTUP_VERIFICATION.json",
+      "bytes": 2036,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/STATE_RECEIPT.json",
+      "bytes": 9246,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/SUBMIT_RECEIPT.json",
+      "bytes": 5288,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/build_delivery.py",
+      "bytes": 4950,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/client.py",
+      "bytes": 5310,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/pipeline.py",
+      "bytes": 3846,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/receiver.py",
+      "bytes": 12277,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/test_delivery.py",
+      "bytes": 2216,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/DELIVERY_MANIFEST.json",
+      "bytes": 615,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/PIPELINE_ATTEMPT.json",
+      "bytes": 48,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/PIPELINE_ERROR.json",
+      "bytes": 906,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/PREFLIGHT_PROGRESS.json",
+      "bytes": 39831,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/PREFLIGHT_RECEIPT.json",
+      "bytes": 39831,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/REMOTE_STARTUP_DIAGNOSTICS.json",
+      "bytes": 67,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/STARTUP_STATE.json",
+      "bytes": 41292,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/STARTUP_VERIFICATION.json",
+      "bytes": 43805,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/STATE_RECEIPT.json",
+      "bytes": 43662,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/SUBMIT_RECEIPT.json",
+      "bytes": 17644,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/TEST_CONTROLLER.json",
+      "bytes": 1068,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/build_control.py",
+      "bytes": 2235,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/client.py",
+      "bytes": 5430,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/controller.py",
+      "bytes": 11572,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/pipeline.py",
+      "bytes": 5221,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/preflight_worker.py",
+      "bytes": 12431,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/test_preflight_worker.py",
+      "bytes": 2976,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/AUDIT_RESULT.json",
+      "bytes": 8102,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/AUDIT_RESULT.json.sha256",
+      "bytes": 85,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/LOCAL_STORAGE_AUDIT.json",
+      "bytes": 16212,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/LOCAL_STORAGE_AUDIT.json.sha256",
+      "bytes": 92,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/REMOTE_REPORT.json",
+      "bytes": 407190,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/REMOTE_REPORT.json.sha256",
+      "bytes": 86,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/RUN_READONLY_EXPORT.txt",
+      "bytes": 2300,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/TIMING_CROSSCHECK.json",
+      "bytes": 8189,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/TIMING_CROSSCHECK.json.sha256",
+      "bytes": 90,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/build_audit.py",
+      "bytes": 6589,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/export_remote.py",
+      "bytes": 2204,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/fetch.py",
+      "bytes": 1272,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_v1_20261101/IMPLEMENTATION_STATUS.json",
+      "bytes": 2771,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_v1_20261101/NEXT_STEP.md",
+      "bytes": 5804,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_v1_20261101/selection.py",
+      "bytes": 5485,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_v1_20261101/test_selection.py",
+      "bytes": 3069,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/unweighted_fpr_discussion_review_codex_20261102/FACTS_AUDIT.json",
+      "bytes": 9667,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/unweighted_fpr_discussion_review_codex_20261102/FACTS_AUDIT.json.sha256",
+      "bytes": 84,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/unweighted_fpr_discussion_review_codex_20261102/LOCAL_FEASIBILITY.json",
+      "bytes": 54362,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/unweighted_fpr_discussion_review_codex_20261102/LOCAL_FEASIBILITY.json.sha256",
+      "bytes": 90,
+      "git_state": "ignored"
+    },
+    {
+      "path": "runs/unweighted_fpr_discussion_review_codex_20261102/VERIFICATION.json",
+      "bytes": 5285,
+      "git_state": "ignored"
+    }
+  ],
+  "excluded_count": 2882,
+  "secret_pattern_hits": []
+}

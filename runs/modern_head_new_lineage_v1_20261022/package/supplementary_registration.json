@@ -1,0 +1,34 @@
+{
+  "schema": "modern-new-lineage-registration-v1",
+  "registered": "2026-10-22",
+  "authority": "User approval following next_head_and_onboarding_plan_20261022.md",
+  "original_contract_sha256": "729f923fa4613b0edeff45c99ddf6efaf6ac6435c2dd9b4b6b0a16725d7ff93c",
+  "lineage": "NEW_RECONSTRUCTION_LINEAGE",
+  "parent_parity": "PARENT_PARITY_UNAVAILABLE",
+  "paired_families": [
+    "MLP_QUERY_BCE",
+    "TabM",
+    "LightGBM"
+  ],
+  "policies": [
+    "OLD_BANK",
+    "B0",
+    "B1",
+    "B2"
+  ],
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "maximum_new_training_endpoints": 9,
+  "MLP_reuse": "RETRAIN_IF_SEALED_NUMERIC_RUNTIME_UNAVAILABLE",
+  "head_scientific_FAIL_does_not_block_modules": true,
+  "module_protection": "zero newly missed attacks for every seed and ensemble relative to its own head",
+  "source_only_cut_and_module_fit": true,
+  "target_calibration": false,
+  "front_end_regeneration": false,
+  "automatic_model_selection": false,
+  "three_device_regression": "NOT_RUN",
+  "independent_confirmation": "NOT_RUN"
+}

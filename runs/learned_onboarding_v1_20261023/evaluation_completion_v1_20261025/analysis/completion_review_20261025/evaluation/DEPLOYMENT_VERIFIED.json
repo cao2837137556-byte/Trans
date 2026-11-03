@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "python_executable": "/opt/paper04-venv/bin/python",
+  "manifest_sha256": "3dbdc6482da8aa54dedfd557c607b20604da6c29428b377d1eb91f739aef95e1",
+  "at": "2026-10-25T03:08:25.934820+00:00",
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_forecast_counts_all_52_cells_and_large_final_outputs (test_run_evaluation.BudgetTests) ... ok\ntest_output_or_memory_over_registered_limit_is_rejected (test_run_evaluation.BudgetTests) ... ok\ntest_embedded_paired_summary_must_equal_sealed_leaf_summary (test_run_evaluation.EvaluationAcceptanceTests) ... ok\ntest_full_matrix_with_scientific_fail_is_engineering_complete (test_run_evaluation.EvaluationAcceptanceTests) ... ok\ntest_gzip_truncated_row_or_wrong_count_cannot_pass_acceptance (test_run_evaluation.EvaluationAcceptanceTests) ... ok\ntest_missing_control_rejected_even_with_40_main_cells_and_fresh_seal (test_run_evaluation.EvaluationAcceptanceTests) ... ok\ntest_previously_completed_summary_must_remain_identical (test_run_evaluation.EvaluationAcceptanceTests) ... ok\ntest_registered_prior_summary_must_exist_and_all_be_compared (test_run_evaluation.EvaluationAcceptanceTests) ... ok\ntest_existing_state_or_results_cannot_resume_or_spawn_worker (test_run_evaluation.ExecutionBoundaryTests) ... ok\ntest_guard_stop_records_actual_child_exit_and_requested_termination (test_run_evaluation.ExecutionBoundaryTests) ... ok\ntest_manifest_hash_payload_and_execution_identity_are_pinned (test_run_evaluation.ExecutionBoundaryTests) ... ok\ntest_terminal_worker_status_overrides_stale_running_and_keeps_internal_snapshot (test_run_evaluation.ExecutionBoundaryTests) ... ok\ntest_terminate_finished_negative_returncode_never_reaps_or_rewrites_it (test_run_evaluation.ExecutionBoundaryTests) ... ok\ntest_inventory_rejects_census_addition_mtime_and_same_stat_sha_changes (test_run_evaluation.ProtectedInputTests) ... ok\ntest_path_escape_and_substituted_seal_identity_are_rejected (test_run_evaluation.ProtectedInputTests) ... ok\ntest_seal_validates_and_rejects_extra_missing_and_tampered_files (test_run_evaluation.ProtectedInputTests) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 0.451s\n\nOK\n",
+  "real_model_training_updates": 0,
+  "real_target_queries_read": 0
+}

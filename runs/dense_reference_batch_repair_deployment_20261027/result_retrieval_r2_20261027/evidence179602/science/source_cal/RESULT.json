@@ -1,0 +1,473 @@
+{
+  "status": "SOURCE_CAL_COMPLETE",
+  "created_utc": "2026-10-27T13:52:46.258715+00:00",
+  "elapsed_seconds": 207.47071727807634,
+  "arms": {
+    "R-B2": {
+      "reference_rows": 104,
+      "selections": {
+        "0.0": {
+          "version": "onboarding-budget-selection-v1",
+          "epsilon_pp": 0.0,
+          "epsilon_fraction": 0.0,
+          "status": "SOURCE_DRY_RUN_WORKPOINT",
+          "selected_lambda": 0.25,
+          "selected_budget_acceptance": {
+            "passes": true,
+            "failures": []
+          },
+          "selected_can_evaluate": false,
+          "selection_mode": "LEGACY_ZERO_WITHDRAWAL_COMPATIBILITY",
+          "candidates": [
+            {
+              "lambda_value": 0.0,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.0
+            },
+            {
+              "lambda_value": 0.05,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 2.957224096169051e-05
+            },
+            {
+              "lambda_value": 0.1,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.001589233343124988
+            },
+            {
+              "lambda_value": 0.25,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.008292640929288454
+            }
+          ],
+          "epsilon_zero_matches_legacy_selection": true,
+          "no_target_scores_used": true,
+          "target_evaluation_authorized": false
+        },
+        "0.05": {
+          "version": "onboarding-budget-selection-v1",
+          "epsilon_pp": 0.05,
+          "epsilon_fraction": 0.0005,
+          "status": "SOURCE_DRY_RUN_WORKPOINT",
+          "selected_lambda": 0.25,
+          "selected_budget_acceptance": {
+            "passes": true,
+            "failures": []
+          },
+          "selected_can_evaluate": false,
+          "selection_mode": "WEIGHTED_BUDGET",
+          "candidates": [
+            {
+              "lambda_value": 0.0,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.0
+            },
+            {
+              "lambda_value": 0.05,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 2.957224096169051e-05
+            },
+            {
+              "lambda_value": 0.1,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.001589233343124988
+            },
+            {
+              "lambda_value": 0.25,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.008292640929288454
+            }
+          ],
+          "epsilon_zero_matches_legacy_selection": false,
+          "no_target_scores_used": true,
+          "target_evaluation_authorized": false
+        },
+        "0.1": {
+          "version": "onboarding-budget-selection-v1",
+          "epsilon_pp": 0.1,
+          "epsilon_fraction": 0.001,
+          "status": "SOURCE_DRY_RUN_WORKPOINT",
+          "selected_lambda": 0.25,
+          "selected_budget_acceptance": {
+            "passes": true,
+            "failures": []
+          },
+          "selected_can_evaluate": false,
+          "selection_mode": "WEIGHTED_BUDGET",
+          "candidates": [
+            {
+              "lambda_value": 0.0,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.0
+            },
+            {
+              "lambda_value": 0.05,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 2.957224096169051e-05
+            },
+            {
+              "lambda_value": 0.1,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.001589233343124988
+            },
+            {
+              "lambda_value": 0.25,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.008292640929288454
+            }
+          ],
+          "epsilon_zero_matches_legacy_selection": false,
+          "no_target_scores_used": true,
+          "target_evaluation_authorized": false
+        },
+        "0.2": {
+          "version": "onboarding-budget-selection-v1",
+          "epsilon_pp": 0.2,
+          "epsilon_fraction": 0.002,
+          "status": "SOURCE_DRY_RUN_WORKPOINT",
+          "selected_lambda": 0.25,
+          "selected_budget_acceptance": {
+            "passes": true,
+            "failures": []
+          },
+          "selected_can_evaluate": false,
+          "selection_mode": "WEIGHTED_BUDGET",
+          "candidates": [
+            {
+              "lambda_value": 0.0,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.0
+            },
+            {
+              "lambda_value": 0.05,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 2.957224096169051e-05
+            },
+            {
+              "lambda_value": 0.1,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.001589233343124988
+            },
+            {
+              "lambda_value": 0.25,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.008292640929288454
+            }
+          ],
+          "epsilon_zero_matches_legacy_selection": false,
+          "no_target_scores_used": true,
+          "target_evaluation_authorized": false
+        }
+      },
+      "zero_epsilon_matches_this_bank_legacy": true,
+      "parity": {
+        "epsilon_zero_full_CAL_same_environment_legacy_bytes_equal": true,
+        "corrected_logits_sha256": "02660fba04cd8e3da941fcf29d20790f445a379ce82716e5d9f1d256527dbd6b",
+        "corrected_decisions_sha256": "e5b8ed3f1bc943b76650b000d31a230a97e308035c5b9113c229a64fb6353bbf",
+        "prior_local_environment_logits_bytes_equal_report_only": false,
+        "prior_local_environment_decisions_bytes_equal": true
+      }
+    },
+    "R-DENSE": {
+      "reference_rows": 4728,
+      "selections": {
+        "0.0": {
+          "version": "onboarding-budget-selection-v1",
+          "epsilon_pp": 0.0,
+          "epsilon_fraction": 0.0,
+          "status": "SOURCE_DRY_RUN_WORKPOINT",
+          "selected_lambda": 0.25,
+          "selected_budget_acceptance": {
+            "passes": true,
+            "failures": []
+          },
+          "selected_can_evaluate": false,
+          "selection_mode": "LEGACY_ZERO_WITHDRAWAL_COMPATIBILITY",
+          "candidates": [
+            {
+              "lambda_value": 0.0,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.0
+            },
+            {
+              "lambda_value": 0.05,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.003153914446024637
+            },
+            {
+              "lambda_value": 0.1,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.008317755240537069
+            },
+            {
+              "lambda_value": 0.25,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.008347804084423389
+            }
+          ],
+          "epsilon_zero_matches_legacy_selection": true,
+          "no_target_scores_used": true,
+          "target_evaluation_authorized": false
+        },
+        "0.05": {
+          "version": "onboarding-budget-selection-v1",
+          "epsilon_pp": 0.05,
+          "epsilon_fraction": 0.0005,
+          "status": "SOURCE_DRY_RUN_WORKPOINT",
+          "selected_lambda": 0.25,
+          "selected_budget_acceptance": {
+            "passes": true,
+            "failures": []
+          },
+          "selected_can_evaluate": false,
+          "selection_mode": "WEIGHTED_BUDGET",
+          "candidates": [
+            {
+              "lambda_value": 0.0,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.0
+            },
+            {
+              "lambda_value": 0.05,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.003153914446024637
+            },
+            {
+              "lambda_value": 0.1,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.008317755240537069
+            },
+            {
+              "lambda_value": 0.25,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.008347804084423389
+            }
+          ],
+          "epsilon_zero_matches_legacy_selection": false,
+          "no_target_scores_used": true,
+          "target_evaluation_authorized": false
+        },
+        "0.1": {
+          "version": "onboarding-budget-selection-v1",
+          "epsilon_pp": 0.1,
+          "epsilon_fraction": 0.001,
+          "status": "SOURCE_DRY_RUN_WORKPOINT",
+          "selected_lambda": 0.25,
+          "selected_budget_acceptance": {
+            "passes": true,
+            "failures": []
+          },
+          "selected_can_evaluate": false,
+          "selection_mode": "WEIGHTED_BUDGET",
+          "candidates": [
+            {
+              "lambda_value": 0.0,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.0
+            },
+            {
+              "lambda_value": 0.05,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.003153914446024637
+            },
+            {
+              "lambda_value": 0.1,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.008317755240537069
+            },
+            {
+              "lambda_value": 0.25,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.008347804084423389
+            }
+          ],
+          "epsilon_zero_matches_legacy_selection": false,
+          "no_target_scores_used": true,
+          "target_evaluation_authorized": false
+        },
+        "0.2": {
+          "version": "onboarding-budget-selection-v1",
+          "epsilon_pp": 0.2,
+          "epsilon_fraction": 0.002,
+          "status": "SOURCE_DRY_RUN_WORKPOINT",
+          "selected_lambda": 0.25,
+          "selected_budget_acceptance": {
+            "passes": true,
+            "failures": []
+          },
+          "selected_can_evaluate": false,
+          "selection_mode": "WEIGHTED_BUDGET",
+          "candidates": [
+            {
+              "lambda_value": 0.0,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.0
+            },
+            {
+              "lambda_value": 0.05,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.003153914446024637
+            },
+            {
+              "lambda_value": 0.1,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.008317755240537069
+            },
+            {
+              "lambda_value": 0.25,
+              "selection_pass": true,
+              "budget_acceptance": {
+                "passes": true,
+                "failures": []
+              },
+              "normal_quality": 0.008347804084423389
+            }
+          ],
+          "epsilon_zero_matches_legacy_selection": false,
+          "no_target_scores_used": true,
+          "target_evaluation_authorized": false
+        }
+      },
+      "zero_epsilon_matches_this_bank_legacy": true,
+      "parity": {
+        "epsilon_zero_full_CAL_same_environment_legacy_bytes_equal": true,
+        "corrected_logits_sha256": "476c51943e28a2fdee6c6c174ce61a56ee584c5e765e394b2033f9a301429f72",
+        "corrected_decisions_sha256": "62819a0991ecf72c02eefd9d40debc62c33812202742aa9f8787f786a86a1f0b"
+      }
+    }
+  },
+  "no_AB_loaded": true,
+  "no_model_forward": true,
+  "no_FIT_geometry_scale_cut_fit": true,
+  "true_dense_reference_rows": 4728,
+  "optimizer_updates": 0,
+  "retries": 0,
+  "scientific_fail_must_not_abort_registered_target_matrix": true,
+  "matrix_execution_ready": false,
+  "matrix_blocker": "REQUIRES_SEPARATE_VERIFIED_MATRIX_MANIFEST",
+  "adaptation": "new HPC chain; prior seal comparisons resolve canonical-view symlinks"
+}

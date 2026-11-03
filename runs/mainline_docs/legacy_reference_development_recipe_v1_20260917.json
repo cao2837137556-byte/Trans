@@ -1,0 +1,1046 @@
+{
+  "schema": "legacy-reference-joint-development-v1",
+  "status": "FROZEN_PROSPECTIVE_NOT_EXECUTED",
+  "authority": {
+    "preparation_authorized": true,
+    "features": false,
+    "training": false,
+    "scoring": false,
+    "hpc": false,
+    "new_download": false
+  },
+  "objective": "Earlier certified device-normal reference reduces later normal OOD false alarms while retaining SAME-device attack recall.",
+  "data": {
+    "manifests": {
+      "REFERENCE": {
+        "path": "runs\\legacy_reference_sample_preparation_v1_20260917\\finalized\\references.jsonl.gz",
+        "sha256": "23ff015e31f055f7cb1957c0ced167fd353af792d4a204fd18a7fb079d13244c",
+        "rows": 227,
+        "sorted_uid_lines_sha256": "32b495f1e7a3aa37c8776a0a5c06679698fb518cde7c46edddf0ec93b567e899"
+      },
+      "LEARN": {
+        "path": "runs\\legacy_reference_sample_preparation_v1_20260917\\finalized\\learn.jsonl.gz",
+        "sha256": "693a1281e94d54f426e39c293652642ab8ed96eadd88bc71c00725b5b29679db",
+        "rows": 766727,
+        "sorted_uid_lines_sha256": "5ed3b2bb21970ecc29cdb288ac3a58522cef784207dcbf1164478440b515ef23"
+      },
+      "DEV": {
+        "path": "runs\\legacy_reference_sample_preparation_v1_20260917\\finalized\\dev.jsonl.gz",
+        "sha256": "5f36429749aea58ce0ab758f38034050f5ff81b1203c516535b0a65c6025659f",
+        "rows": 179886,
+        "sorted_uid_lines_sha256": "445369f8aeab600985fbd63df1cea9c2f9cac73b0c40d39654f530ad56821d7e"
+      },
+      "DEVICE_HOLDOUT": {
+        "path": "runs\\legacy_reference_sample_preparation_v1_20260917\\finalized\\device_holdout.jsonl.gz",
+        "sha256": "b47b3db2b189bb6f2d16d989fd343343c4d64f2113d803e2985cc993c62b10d7",
+        "rows": 341222,
+        "sorted_uid_lines_sha256": "d3ba9fcc04b65f69fb87b0763f8d32754d03fb900ecca12f0a62704dadc15484"
+      }
+    },
+    "devices": [
+      {
+        "device": "Amcrest Camera",
+        "partition": "LEARN",
+        "normal": 41177,
+        "attack": 108,
+        "references": 64,
+        "captures": 16,
+        "canonical_capture_sessions": 10820,
+        "canonical_dependency_components": 10808,
+        "normal_active_dates": 7,
+        "reference_shared_component_queries": 0,
+        "attack_modes": {
+          "Hydra": 108
+        },
+        "raw_counts_are_not_independent_units": true
+      },
+      {
+        "device": "ArloQ Camera",
+        "partition": "LEARN",
+        "normal": 46756,
+        "attack": 20330,
+        "references": 12,
+        "captures": 28,
+        "canonical_capture_sessions": 7132,
+        "canonical_dependency_components": 7078,
+        "normal_active_dates": 7,
+        "reference_shared_component_queries": 34,
+        "attack_modes": {
+          "TCP": 3006,
+          "UDP": 17324
+        },
+        "raw_counts_are_not_independent_units": true
+      },
+      {
+        "device": "Atomi Coffee Maker",
+        "partition": "LEARN",
+        "normal": 3930,
+        "attack": 22723,
+        "references": 2,
+        "captures": 40,
+        "canonical_capture_sessions": 3907,
+        "canonical_dependency_components": 3840,
+        "normal_active_dates": 7,
+        "reference_shared_component_queries": 372,
+        "attack_modes": {
+          "TCP": 6049,
+          "UDP": 16674
+        },
+        "raw_counts_are_not_independent_units": true
+      },
+      {
+        "device": "Borun Camera",
+        "partition": "DEVICE_HOLDOUT",
+        "normal": 176503,
+        "attack": 16869,
+        "references": 41,
+        "captures": 25,
+        "canonical_capture_sessions": 56044,
+        "canonical_dependency_components": 49287,
+        "normal_active_dates": 7,
+        "reference_shared_component_queries": 332,
+        "attack_modes": {
+          "UDP": 16869
+        },
+        "raw_counts_are_not_independent_units": true
+      },
+      {
+        "device": "Eufy Home Base",
+        "partition": "DEV",
+        "normal": 99833,
+        "attack": 13507,
+        "references": 64,
+        "captures": 21,
+        "canonical_capture_sessions": 11391,
+        "canonical_dependency_components": 10603,
+        "normal_active_dates": 7,
+        "reference_shared_component_queries": 0,
+        "attack_modes": {
+          "TCP": 9289,
+          "UDP": 4218
+        },
+        "raw_counts_are_not_independent_units": true
+      },
+      {
+        "device": "Globe Lamp",
+        "partition": "LEARN",
+        "normal": 1107,
+        "attack": 21770,
+        "references": 2,
+        "captures": 64,
+        "canonical_capture_sessions": 3654,
+        "canonical_dependency_components": 3552,
+        "normal_active_dates": 7,
+        "reference_shared_component_queries": 289,
+        "attack_modes": {
+          "TCP": 6179,
+          "UDP": 15591
+        },
+        "raw_counts_are_not_independent_units": true
+      },
+      {
+        "device": "HeimVision Camera",
+        "partition": "DEV",
+        "normal": 997,
+        "attack": 65549,
+        "references": 11,
+        "captures": 21,
+        "canonical_capture_sessions": 14221,
+        "canonical_dependency_components": 14182,
+        "normal_active_dates": 6,
+        "reference_shared_component_queries": 0,
+        "attack_modes": {
+          "UDP": 17867,
+          "TCP": 36375,
+          "HTTP": 11307
+        },
+        "raw_counts_are_not_independent_units": true
+      },
+      {
+        "device": "Netatmo Camera",
+        "partition": "DEVICE_HOLDOUT",
+        "normal": 26525,
+        "attack": 99650,
+        "references": 6,
+        "captures": 18,
+        "canonical_capture_sessions": 37811,
+        "canonical_dependency_components": 20025,
+        "normal_active_dates": 7,
+        "reference_shared_component_queries": 99,
+        "attack_modes": {
+          "TCP": 40194,
+          "HTTP": 43051,
+          "UDP": 16405
+        },
+        "raw_counts_are_not_independent_units": true
+      },
+      {
+        "device": "Philips Hue Bridge",
+        "partition": "LEARN",
+        "normal": 61268,
+        "attack": 202095,
+        "references": 9,
+        "captures": 37,
+        "canonical_capture_sessions": 14564,
+        "canonical_dependency_components": 14432,
+        "normal_active_dates": 7,
+        "reference_shared_component_queries": 182,
+        "attack_modes": {
+          "TCP": 185231,
+          "UDP": 16864
+        },
+        "raw_counts_are_not_independent_units": true
+      },
+      {
+        "device": "Ring Basestation",
+        "partition": "DEVICE_HOLDOUT",
+        "normal": 2317,
+        "attack": 19358,
+        "references": 1,
+        "captures": 34,
+        "canonical_capture_sessions": 3800,
+        "canonical_dependency_components": 3772,
+        "normal_active_dates": 7,
+        "reference_shared_component_queries": 255,
+        "attack_modes": {
+          "TCP": 3006,
+          "UDP": 16352
+        },
+        "raw_counts_are_not_independent_units": true
+      },
+      {
+        "device": "SimCam",
+        "partition": "LEARN",
+        "normal": 13402,
+        "attack": 332061,
+        "references": 15,
+        "captures": 19,
+        "canonical_capture_sessions": 11959,
+        "canonical_dependency_components": 11917,
+        "normal_active_dates": 7,
+        "reference_shared_component_queries": 0,
+        "attack_modes": {
+          "TCP": 331485,
+          "Hydra": 576
+        },
+        "raw_counts_are_not_independent_units": true
+      }
+    ],
+    "labels": "normal-source provenance; LOIC verified source/victim/local service and current data/SYN/request; Hydra current authorized DESCRIBE; all other attack-capture traffic unassigned",
+    "reference_costs": [
+      {
+        "device": "Amcrest Camera",
+        "partition": "LEARN",
+        "reference_end": 1633532109.461121,
+        "candidate_endpoints": 166,
+        "canonical_components": 164,
+        "selected": 64,
+        "protocols": [
+          6,
+          17
+        ],
+        "reference_uids": [
+          "8e8f5750a340cd978b16d18c794434d9599575c4f01ad90e7e6cf0f33af2496e",
+          "d7a4741bcc74ee001b359273f4515923f1d54e0f2b301fc2d609c63cbb76c179",
+          "96ea0576d9ccbd4343bbb6be15731b4d85048b27c2ae0379402ded16d95deaeb",
+          "bfda4259fc711de6cdf17acaa97a409807c386eef5476d29164b6e175c7a4931",
+          "18d607ba45cff0a97b9688943f31aef22fae6bb6716e43a7abfbf764ab46c232",
+          "5c3b45aa7355481637fc7f24ad02714401e4a0a78ce977e08bb9d5b0f0d6f819",
+          "e91c27bf4011224d88d34a550ebbfe1ac2921f1aafb169250c073ed87e173fd8",
+          "0dad5924045558a763e9ce4b3faaafeeb24d28cfc7bfcd383bd2902653863a16",
+          "5946a527bf7e8b26a8a31842ccc53fdf1a76e4ee5f7a439c84c952be2e858d33",
+          "507e76421b4f56b2a133009ad622e4aa7cd07bc6e121ce9506e57e16be9e23f6",
+          "b7776e3b8743c18b135e09e23c4ae059a1dac1fccf513d1565a20f7f3194bf50",
+          "5a0bfeac72755d8039f12a9845b7c10c3e73eded564f45f318c6b50c4779a223",
+          "2b8e8b4f81f2f117be46b2bbe98c21af372c9f9696c7cd618bb81dc8fbeaa940",
+          "a25e21c4b34f508d69989c30bb5bac82c7c01a9d2cbbfacce2e529a765ac6fae",
+          "8801558a85b63685c5d9fd967e0401e720cb61826a4a515f3b0b229bc28871a0",
+          "8efedb594ef1defd020a3efbb913179dbca863d57aa3c1230ff912b524289d4c",
+          "9e60d1f50b3171814f15d1cacc96e0272cb02dc008f0ad3a2e55459137d76032",
+          "a53516b2612e961d8ec63dc58cf44968e99a9df84cba4f3c94a06a7602af439b",
+          "1992c029e98d13c01fa149c1d37dfdef0a22f158aa2bdea9601786ce13ba849d",
+          "f659e9ba4ff91586ab814d0acc6e66ea6e6159a05a2fcc4b51d6a048fbd679dc",
+          "1fcff362e2a31f75ddf0779b1567f2248383e4cb2b2d90840716583b28c433e1",
+          "6de32ddaeb86df14faa5e7775a69667960b6219332e535a6b8300b5cbec9766c",
+          "3fa327c27696aa075602c30b19949872c74d7cc490cd2381d01bfc41a84fc982",
+          "8235d5412ba7490a28b701113ff93fcadeea0eab6fc33af43393403ff8702e38",
+          "c81b250c49ea3dcddf69ccbd78b9d9214dab7e17174e5d30138812a6693ed861",
+          "e360e9ced2d971955b30c705b6135f66fdd47b0aed824aaa389dec94228c6a69",
+          "deae23e0e5c9af8eded2fda82ddddeabc6d963c0f0208c6b854c995c00e28720",
+          "901041b5a17a4d148950fdb0e363415b4f2135368c923bb3912c16b057464f34",
+          "647a5db56e92e79165113ff77b1860dce2aa9d5dad9c8374b45bf31f3e1c41ea",
+          "5a2b568f57b5715978126af24cb6e7346ac608e1db8ef39e12eac0bcea82b57f",
+          "1f3f0fd996a68778175b768e34dcdd929edcab83a331b563d663a9e541d46318",
+          "0527f4520f79f0ccb30c5cff395d0e204236bc59ec882646aad02a4529723d08",
+          "0ddc248b851b9f6c693b374c977200ac0a8e2aea16bec6cc69a37d1e16f287fe",
+          "77ae8dbfc1e12dc3be0ab9f71cc78cc722a54912d11a54edf50bb61dae132c93",
+          "1eea9db12a550d418fd77c268f6fc4070b59782947884c383717d5b200e58c2e",
+          "0847625d50877b2e8d9b5a7a36e43aebcbad857a49f19d1b921314d6690071f0",
+          "7304b7259e130517058116936400344494239dc1dbdb79c16894d2f2afb6b0b5",
+          "064572da06b1c171541a86d6ff67567290fd12c3c9853f8f85abcb59e9f17dba",
+          "5f96be51bf87df70e975a57b6237e77175ad5dc7f470c33f02c1eac7206b16cf",
+          "82e66b24295f85e382b155a0eedf49aa1baa35bbd45920affa853672f45b1336",
+          "a465c2f36f8263865758ee89c8fdd2663e067b1e18f3749dc3f35009ac8ff381",
+          "f9cfda8d12d671038475a0005f2807bfa5780a6e76880267b4de8e69a257f5ff",
+          "e31632374aa7a23bc3d3e864dca488c93b736508f80c3be0bc6b2f7404db18ec",
+          "25b271583151fc6e07b75d87d3c5e4a035602d1f1b1c1af887a2b546cf9f55c7",
+          "88efa007517caa320408b48457752dde1e9e58ce931b40c41206872885a924af",
+          "1e457286f53280697081f6532d9ce6c5a2e8005fa8d299b054d38d3a14d0c4c3",
+          "fef5b87bcad99a6646d2bc016957b636c6b705e3f78923a45a080cf2220a71ea",
+          "5ac1808d9064d5cac83054c30641fd668d8c065491571a13961f02bbbdf57592",
+          "3fa8c8cd1818c1aeeebbca3b94992c8e3b58ee2f4033fae4e1d1113553f093f8",
+          "80cdb3a894674103446329b6a6b99c5f14b05dd61c8d21e2cdce68203a65b194",
+          "ebdb2a0fcbd09aec95e2b08736e0e963c3d11c7e7d9e9632462deeb503c8a0a8",
+          "0f8b7b4f7a371fbc579f99077aeec29e0cd956fef39fe6c108966eebf66462af",
+          "21dcf4631f857e8c79168fd8a2cd232d33422a686fae07aba5300ceb94a50307",
+          "989fa7ba32888ade229f0cfd9375755a9072e1b9dd6f522ea63c05c9a64d767b",
+          "15cf0806754b3d978cf62d069d7e2cca3636596c0fde0799bb8c8ce21ce7f3ca",
+          "ccce5cbaf239c0fe756d79be2f6561dec2c71821b4360e20e3ad364172f80510",
+          "7e859c9d9ee19f2c68e09115f92e01ba66ff156399ce54a6d828763b5f42b5e0",
+          "a24fe9252f55e3ce7c758735057fe60c95ec65c8998e5668e77f9154d6fa1353",
+          "7b091734e59f6c845cfd955e09552e71446bfec0515d9ae01bfca0bd03bc7399",
+          "ee4950b0be58bcd1195ce2356bfa529b2f34bb316dcab53e2e8ab425a297e5ec",
+          "a547d3c3ba0622c983a87e40469e02a95f3d998e8982cb842fd3177c7c2d8a32",
+          "7b2df249429bcc43dac51e6002eed6c15a16db5aa962e80a3c911a70d96514ba",
+          "0483c9030db65932b21a02e06ae90ffa431143adea9065230c8b3874964efba4",
+          "d443b690672c314fe148976fced327a0158250a7ffe0adee9796974c3eeb9b57"
+        ],
+        "selected_activities": [
+          "LAN_WATCH"
+        ],
+        "first": 1633531897.761746,
+        "independent_session_count": null,
+        "observed_capture_ids": [
+          "interaction-attack-007",
+          "interaction-attack-008",
+          "interaction-attack-009"
+        ],
+        "observed_capture_bytes": 74184,
+        "observed_seconds_sum": 69.62414312362671,
+        "observation_interval_start": 1633531897.761746,
+        "observed_activities": [
+          "LAN_WATCH"
+        ]
+      },
+      {
+        "device": "ArloQ Camera",
+        "partition": "LEARN",
+        "reference_end": 1633531542.09702,
+        "candidate_endpoints": 16,
+        "canonical_components": 12,
+        "selected": 12,
+        "protocols": [
+          6,
+          17
+        ],
+        "reference_uids": [
+          "b39058a7c1604f6baefbcc0100a945d8848673f599d49fd5eed7f125ab919854",
+          "08435fcba19c73034542fac8b7cccec2142eaf1fbce8c126f498745070b9da03",
+          "7b02f10f0ce84033a2fc510a3681cf34b9515a6aa19c78ac7b2586993094eece",
+          "4057993785c8c0b274bf01205e95b96e1625feee66f9583e0da627955d48f6e3",
+          "de201676a4d9fab421bdfff55caefca4f6b654617744912adfa330e7402b7762",
+          "474a4a3986f640192b04e1219381e2db7ea2df985b9279ea9c3554a8a2275e75",
+          "4cb3656d7074f656b96e04f84219c88e0e37475bbc58b41e9a802a29decd6775",
+          "8981c967d1e7af1aeb810912a51b0d54f57c7a587e965f5304199dd4d647b59e",
+          "d7d81077638d86101dfeacc012082a45c6b1cf98a4f3e472a098163a7dff9846",
+          "a36fbcf327f76c31a8f89b6a3749f78551b239e5ed54fb40a865a5a93ed8d385",
+          "59245b8f27ef558b56b7b0940a096df5f844a02fd46c8af8231925cc096aeb36",
+          "c654caedf6b53fb054805b3ef737e3f415826d652600bfe6bcd25cda40659539"
+        ],
+        "selected_activities": [
+          "WAN_WATCH"
+        ],
+        "first": 1633531403.33715,
+        "independent_session_count": null,
+        "observed_capture_ids": [
+          "interaction-attack-028",
+          "interaction-attack-029",
+          "interaction-attack-030"
+        ],
+        "observed_capture_bytes": 3209968,
+        "observed_seconds_sum": 55.75084185600281,
+        "observation_interval_start": 1633531403.209223,
+        "observed_activities": [
+          "WAN_WATCH"
+        ]
+      },
+      {
+        "device": "Atomi Coffee Maker",
+        "partition": "LEARN",
+        "reference_end": 1634131492.850729,
+        "candidate_endpoints": 6,
+        "canonical_components": 2,
+        "selected": 2,
+        "protocols": [
+          6,
+          17
+        ],
+        "reference_uids": [
+          "dd358ae302232cfa918b5087d191834b9179a49652cd2de0dca66475d8f520eb",
+          "2d2dc8b2e3e0c9bb550cfa1ecf63ecc8abff9e84639c22b41be1b882ca5b8a00"
+        ],
+        "selected_activities": [
+          "LAN_ON"
+        ],
+        "first": 1634131406.930864,
+        "independent_session_count": null,
+        "observed_capture_ids": [
+          "interaction-attack-053",
+          "interaction-attack-055",
+          "interaction-attack-057"
+        ],
+        "observed_capture_bytes": 7138,
+        "observed_seconds_sum": 44.85533690452576,
+        "observation_interval_start": 1634131406.676978,
+        "observed_activities": [
+          "LAN_OFF",
+          "LAN_ON"
+        ]
+      },
+      {
+        "device": "Borun Camera",
+        "partition": "DEVICE_HOLDOUT",
+        "reference_end": 1633540823.028416,
+        "candidate_endpoints": 44,
+        "canonical_components": 41,
+        "selected": 41,
+        "protocols": [
+          6,
+          17
+        ],
+        "reference_uids": [
+          "e03c63073a9029bf030016c3eee226679807d5b45f7d043a13c36cca7a7f2919",
+          "6d77911fd9e31ed259e31797ef4b7682007ecd297723e607b2fbabf54811d6c8",
+          "00846d53ded41cfe7ecc695f8ebf35a0d9a736c65dcbaa7d5d04ffab9825ba97",
+          "b9c5a6b8a8a247325f868431b9d3def6ab033eca5a674638fb27f984e1f30b44",
+          "6aecc7858ef043ab4593aa304f0c16f1ebd998b91630cdf850f6107ac290184f",
+          "b748ec3df8ac3dbb0671497f0038820f771635c5e6e9c164ed89488ba1813653",
+          "463ad4fe6d8ab979b8b08bbd6ba30ed0123cb9b95830ca3aecd7299ff4783270",
+          "f375c048c543e8b8d31b9854f17d5c633d4821bbd41543923755759b56d142a4",
+          "79b946f106dae94242fcb604935a7cd6c054ada553482f486727339919d5bbec",
+          "db7737bcf1c2bfd2c86e592593f826b77236c8e14dd3a9a5b2641b4cbaf92549",
+          "2f43864cd630f342f7f0bd32434b0915a61f512c05c7b0e006ff6ebef38df8cf",
+          "2be47d8fb4abd20515bd191ec5499c826f5b1769128635bb480b482e031cf8af",
+          "624eccc465446f2bc71d1355727d08ff5b424fa2fee1cf7f67a9f7120cc677b5",
+          "de84a9c3ad6fe826b53b2724c3dbf0be3cde7d2335a596482daf9661c7f7e0da",
+          "8ad0df9b7c91b4cfb57e6492ff520c73341cdb448ef4c4c2ec95f27bfd1d0898",
+          "491fba2ed64bbaec6b6a50c7eb694e043fae52556705ada7c9fba9f1f418d405",
+          "6ecce5dc3cd0204b83a65a4fc8620927df4236203d9a566759145b9ad8e31e5a",
+          "5818792b56aa0ce322ee37975d8a1ab07f3ae8f53e08520c0a42ec46b45e9103",
+          "dfd6b6fe0da86e822130160ac77d905d4cf28b43949359d9c3294a4f4e60bf22",
+          "343aae789bc3114a960b8e0ccd997ba85535a36acba4005d9a270a40e03dcfda",
+          "695a0d00f03763f17414c770f21b47e26d96a46e9bc723b368cd1cea7eea67ec",
+          "d68f90f83013adebddd173c7894b9db39b033a288456e8908bc28f33326ec132",
+          "562211a1498a48cbe25d6867eec502a0427f5428abd395663036e13fbd251117",
+          "46fb9de05f3f6af37daf4a5a567c7cda0023f41cbc3bb8512c0760bb6261f0d1",
+          "1fc97f76602ae63a796b5c4b7134eecfdbbda3872af31f9479f44e96bc7294ef",
+          "fe3990930a05c1f6792a500c19ade6e43154a8ac67992ecf1b269162fee63920",
+          "24c8395f2461147cbf02145383e82ff47724f2a0a7917ffb179ccd365a16c38a",
+          "af1b891be31ed347c24fbfd30ded14951fa992922a5088a266193bcdc0e3a118",
+          "1d54fd1a90b8d687a93bbab4fcfc3c889b7465fd3646a66d83b43b3fe2400442",
+          "08436c032588e0bf504b1c623efa5d53801b1a7407a5612af4529916455d061a",
+          "d5a1cc1212a1667fc286ebd5752c100a12e655a943c7bf9e741672da05be8693",
+          "9d8f60211b98c39b0a2aedfc0ab545e327c392077c9a1f56f6e4d0e558bcb53f",
+          "eed5cd327672eb41a6805db6e3b23332af00a3593eaed91aa192a65cc780e304",
+          "967fbdfff2d7efc6797145b8deea79d794f133d676b3da1b401389f89c481e92",
+          "46f63e1b515e05ddbb1e85b34e944a4a9617479ac55d0ec0c250acb7181dfbef",
+          "fa17cb670e6a0b5ca2341603296db3b267f875a7e06d6fc68976b42cc42cc527",
+          "bebdfb4e0fda5c6209d3f28d2964fe47215aa0e873e646f04799478f4b3dd628",
+          "327a7c41ceb08580e9474f514588046da91bd8ae2c9a340acb9f33d6cc21f79e",
+          "215e1d157fbc365e0592a38a42d5ae6222c4131dc0416a7b6878cfbbd4e84607",
+          "45275e250feced37c6002c38d5e08ee2e0e10b77d58943b9c8a55c840952c654",
+          "6ae18499d824ce8681fd957c899be50ccd4bce827be05902b9e5b4212b5b7482"
+        ],
+        "selected_activities": [
+          "WAN_WATCH"
+        ],
+        "first": 1633540597.265846,
+        "independent_session_count": null,
+        "observed_capture_ids": [
+          "interaction-attack-094",
+          "interaction-attack-095",
+          "interaction-attack-096"
+        ],
+        "observed_capture_bytes": 713212,
+        "observed_seconds_sum": 91.0889937877655,
+        "observation_interval_start": 1633540597.261753,
+        "observed_activities": [
+          "WAN_WATCH"
+        ]
+      },
+      {
+        "device": "Eufy Home Base",
+        "partition": "DEV",
+        "reference_end": 1634135656.079564,
+        "candidate_endpoints": 79,
+        "canonical_components": 79,
+        "selected": 64,
+        "protocols": [
+          6,
+          17
+        ],
+        "reference_uids": [
+          "2356cbbdeae1ebb9cafc5fe07ebd1a016b514e5a98dcb85e3dcd457e86fcafac",
+          "3155c3c7a7ddc9be2109091be6fe50b938d2c1d774b441598a6f008eb478b19c",
+          "e731296cae85b0c752757c8ae6f121862cec358ef59ae362e8d9b80d5e4852bd",
+          "aa994cd6ba9b399b95a1d6634967aded756906bb2270334bab7ba7a72fb78d25",
+          "728a85950899f7c7d6238b9ba17cd3819748640807b384e615e93342b2f23b49",
+          "cd95a762a43bfb26f84622abad8c9f4c5c2786849ac0850ca9768844d69071f8",
+          "d9d5a6d3890cc79eab7d8874f834d032fd73cfe4bf4b8b33a89dba9217166802",
+          "9ebd03815a568a0a7709c45eb76b6075d6a5874d97739b08685591e5efada7c5",
+          "1b6a2e287ac26bcbcb24773ca545f143d3489e8f0ed7d69962dc0e2e1ab05173",
+          "7306b92083b6e14836377fe43aaa9fbbbfbe4533dceb08b3915926e6d7216bcd",
+          "4e27572c76df85b4e7530e3ab528c94dac2c4806c04e6dd755da655601440a93",
+          "94565d4d24a905ef229930f70b6167206b8b07a0df1ab4b8c5a86a019fae16a2",
+          "84993068581a5afbfbf52a1940c5cb3277af3639be0cd01ec5c742ccd313c940",
+          "102ea3c60339eaf2caac059f403620f065b84ebcf6c4b0adc7e5191141309745",
+          "9ba5fdea0e7d2da579e65b6a87946c8222f9fdd44567744b3a6fe866163bae0b",
+          "c9be6915a46bbe67cc22bf12ae3e5c5f44f63a1e7d156bf3d8721ae13355a5fd",
+          "2888cdbfc07f9b6e62aac50389fceaf6f59f0daaabb7313dae61fbdfa3a38b86",
+          "2855cd395d87a89798e085e2b40d0f61d2f70e2b75955cb2f48f46b665a91d39",
+          "2b735628ec6515da6e1d7203aa790c74843a216aee117a6d8c9489c545251f3f",
+          "5228e9130587ca40bad07199afd8b58113610c7cd734273134671a9f64fec64b",
+          "164264443f801a49f9603c6541e3fa0b15391ce953eb303dd30ea5260c3627f8",
+          "e9b3ccef7f3721919fe99e71097629abc19886f26bf6cead564009fbe0bbee09",
+          "1dfd6570911db3f34e7b170afe4a3abb33c086ead40384a6ba605cbcc42622d6",
+          "bfaf6efdf07a07a7325bd41f9dd49a94ba1b1f09861c6eda43f2a02381d5b6a8",
+          "d9e14ee68239be57d45ecf2ec8bb11f99f3a19033b7a1a40e65c00f3b6c851e0",
+          "9e047cc1d854eadba2ba759faaee3d211895db8a0ddd9772f64cab7e31296327",
+          "365f73870e76c4d43e7253de401c6d28e1a32410d334b8a699868d2238b739b8",
+          "6e17e2d6fbbf9f233a815cc2bed2c9bc90e8e3bd7fd6e4176173deb9c7c3a9e9",
+          "fde882a4b725c6cae36ba86082e61935c803b72b8dd96d0c818ea5038475b73d",
+          "7a679a52716ac37f972b7291f2bfd4c02e3eb26fd584f154c2e53a6110c4041f",
+          "8e3add56a20e8dd6d8892bc2e3ef372e4931230cb3c8fea328227a5eb750617c",
+          "f8ba6811ceb7f4c12766f455b271c63be4a67e3190263308d65f61ae862124b7",
+          "b75d1aedfdd559288e09fecdeecb615b6b7ebab6dbcdaf1a506aa14382ce9ce3",
+          "743c2c87168cbd02d4a37b402250526d351528cb7590f5e480b4dfb0ce3e75b7",
+          "df3fa6aaf173a9dfd8d5b7e43d7eeef7d5adc70fa1ed739d2fea750852146b84",
+          "0811527460546b2407621ba5453504e53243fa0175aa4dd9270b6590ba12cdea",
+          "245983eac4edf5c58f5632674909cc0f3cb9f9da0e3a69baa02168633a0c3d9a",
+          "3f6da142691fa8ffab8c36c86ea8bce165b994b95ef54e6f31f6b54472e869ed",
+          "47d61c711708a2029709495b73c701fd9f8591f3525fe65db3165ecc8dfd7c28",
+          "c73665f407b7378087fd17e95116ac8dc73af0032a7f5b5a70b4d8a877ea2c3b",
+          "042fcba2cb6e987c91c69b32eece92d6d174550c12231073c6384b9124058d32",
+          "b2d8b4cd18a7b14f77e8d8f110d64cea8288c649c0cedcfb54336b3a4cce12b6",
+          "16b6969cb9b62fef378b1905347d9fd6861fd8f74a451e0d117559f97458acd0",
+          "956d7a38fd6c0951100891b09f11d5f50f21b9321dcfd1cd03fab0b4d3bb59a0",
+          "e245322bbda77c5e4a5011791f7d2b86d1112c6f1d5caaf2ad087d7c11cc5f6d",
+          "f8abb194192421ca2bca5c71de51f81cdb2f4b7f3e4c85a7a064d0ec551a68bf",
+          "9f5e31a099f7fe755605e119b7bc8e4870eb87eb2a62e60a988e6feea1711a65",
+          "22b703b0ab8ea7bad5bab58976ba0271c23ae0a2f2e53ed404bdce57d710b9f9",
+          "1305d0a11f897c723475568a8a9381584d028be0463f5f974534a810d58decee",
+          "585dce6a35aadf82e0e5cfcd389029b628b9b5e0d16383496e934a1f13b0d5d6",
+          "3656349b4aacf7125ad3a5b9079ac0f65ba18324b18f7f15e0aacb6fd443b330",
+          "09d9ceeb2b7803d531a365fb736301ae2e38865968c295f83a3070050f327850",
+          "416fc48f519a822360b1f603e926f58912a6b7a6ca2fe20ef1da1c48e1d2a375",
+          "ddc6bf2bce9047190e0aa3d232f5fb1cf8d16d16f66504562529202e6739294a",
+          "0e1048f09d495e58a253187555b8ec326873af33fdf7a367efe203eea6d984d1",
+          "b6462fdbbe15ca0f0027480b0c0f316a910e81a039affa57ac92544a298739e3",
+          "3503168e89c576714f46f4f547eb636802a354e731904fb18101f5228773064e",
+          "96653de45dd7309052e413a2d77fa4e0345027c1c0e79ad6cc15bfc91d770083",
+          "e323e9b797f07f9bbfbdd207dcc687d17ca5ae8de9a187c51d1aad113d0f7460",
+          "33cf8bcfe7fa282cdc53d30856f2208c101ef6f915aa8e3d75427c7249a76835",
+          "955dcfe7c8408a47631cbf3749f53ac02f287593d60b0269ba5944124e1d341e",
+          "827ed51a944ac4475c6e9cad210b5826dea72747d038de795c364415d1458b7e",
+          "8e429e58a040bc947987482bd84c175084c16e542e38a8b594d678992a17fc44",
+          "aca9da90af16d63d6db9763b656bdd2d60f9f9664b886e6faf19f10c7866d10c"
+        ],
+        "selected_activities": [
+          "LOCAL_RING"
+        ],
+        "first": 1634135503.817705,
+        "independent_session_count": null,
+        "observed_capture_ids": [
+          "interaction-attack-106",
+          "interaction-attack-107",
+          "interaction-attack-108"
+        ],
+        "observed_capture_bytes": 255878,
+        "observed_seconds_sum": 34.77858090400696,
+        "observation_interval_start": 1634135503.784101,
+        "observed_activities": [
+          "LOCAL_RING"
+        ]
+      },
+      {
+        "device": "Globe Lamp",
+        "partition": "LEARN",
+        "reference_end": 1633630653.218999,
+        "candidate_endpoints": 6,
+        "canonical_components": 2,
+        "selected": 2,
+        "protocols": [
+          6,
+          17
+        ],
+        "reference_uids": [
+          "ea91cecb5f034a3270650554a3a5dc33b8c256751c9df380d913de4fff67e7a6",
+          "46523781556fb1a8696c59177bbb48b5457ea2bff609a23f8214c93ac807d072"
+        ],
+        "selected_activities": [
+          "LOCAL_OFF"
+        ],
+        "first": 1633630466.88076,
+        "independent_session_count": null,
+        "observed_capture_ids": [
+          "interaction-attack-156",
+          "interaction-attack-157",
+          "interaction-attack-159"
+        ],
+        "observed_capture_bytes": 4760,
+        "observed_seconds_sum": 40.81928277015686,
+        "observation_interval_start": 1633630466.588249,
+        "observed_activities": [
+          "LOCAL_OFF",
+          "LOCAL_ON"
+        ]
+      },
+      {
+        "device": "HeimVision Camera",
+        "partition": "DEV",
+        "reference_end": 1633540171.541785,
+        "candidate_endpoints": 17,
+        "canonical_components": 11,
+        "selected": 11,
+        "protocols": [
+          6,
+          17
+        ],
+        "reference_uids": [
+          "85a2afab42b19149513e949dabb385d3c0a9b95f4858b3d67417c0fe0deb78ee",
+          "05f16a02f6eccb91e781e4f4d110a80e32d92bb8056e4253bade54f6317def94",
+          "026b506c412869d856d8f2621c346faead355a0fe56c61c23ab9283da76aa518",
+          "81728bd85f4f362f43fc5f050583e528f5397f4b3bb2c25ece3505c866c45e43",
+          "0d9abbe6b846d1ca84d94d540f883fb6331b45789e9cededdfc21f1f6245f573",
+          "af8b6028535485b4703bd9edc70969f49b3007cb32b0873522cb388ccbc06e59",
+          "14085f5586775afd4113e4aecabd8bb91fecc4d2a33d37f45eee989a8513d503",
+          "53e63d8f60e0293747f0bb5a19e76f3d8230f090626afabf9f06c8cf18404eb3",
+          "50f77909528c1047d61a59efc725818d30793e4d33da8e47f954bceb298f2076",
+          "81819ba514d1c82812903c9e136ee2ef34af40bcd28b5e84412b43134bfcad71",
+          "f4c423072164ee62358dc479219d52041626a62587d9d8ce5e50c63676864515"
+        ],
+        "selected_activities": [
+          "LAN_WATCH"
+        ],
+        "first": 1633539902.925146,
+        "independent_session_count": null,
+        "observed_capture_ids": [
+          "interaction-attack-189",
+          "interaction-attack-190",
+          "interaction-attack-191"
+        ],
+        "observed_capture_bytes": 112666,
+        "observed_seconds_sum": 85.55271816253662,
+        "observation_interval_start": 1633539900.741864,
+        "observed_activities": [
+          "LAN_WATCH"
+        ]
+      },
+      {
+        "device": "Netatmo Camera",
+        "partition": "DEVICE_HOLDOUT",
+        "reference_end": 1633541882.760752,
+        "candidate_endpoints": 8,
+        "canonical_components": 6,
+        "selected": 6,
+        "protocols": [
+          17
+        ],
+        "reference_uids": [
+          "2be6d0cc206efe26ce2f608ece7670b762ba8aa1183c5e6de4d691a04213182c",
+          "02c3c5738df452983e7ad37395bdd78f9dca7697f149476bb0bdff5c670e4ed5",
+          "b5d82159f142f6c7c4aecb30d1b6b9db54bd2be66925806bb8922da7cc16f410",
+          "0d3734e8ac3a267c88c30ce3aa00539f154432bc3d3151872d5e6fcd3e5c5358",
+          "a7f22338f1b74cd1c041c1d1375fbeb155ad77a2508a79dcd1e95f779681011f",
+          "41cf1fd636545b4dbb9c60cfd29f7f5cbe8e5a670fd2527805efa1cf6095a482"
+        ],
+        "selected_activities": [
+          "LAN_WATCH"
+        ],
+        "first": 1633541702.169477,
+        "independent_session_count": null,
+        "observed_capture_ids": [
+          "interaction-attack-201",
+          "interaction-attack-202",
+          "interaction-attack-203"
+        ],
+        "observed_capture_bytes": 33096,
+        "observed_seconds_sum": 78.05296802520752,
+        "observation_interval_start": 1633541688.704681,
+        "observed_activities": [
+          "LAN_WATCH"
+        ]
+      },
+      {
+        "device": "Philips Hue Bridge",
+        "partition": "LEARN",
+        "reference_end": 1633454960.164599,
+        "candidate_endpoints": 11,
+        "canonical_components": 9,
+        "selected": 9,
+        "protocols": [
+          6,
+          17
+        ],
+        "reference_uids": [
+          "b7911aace135eb8e328b83bb1e8658aa70cbde8c35b69149ffe89c3824e01d3f",
+          "813286eeafd01a3c78e87f31701a532489815e07e0b4feba8995ab625ec122ae",
+          "e247aff1f2cfb78ef9399b9b4085daaf64e1fed79473f77d550a69365974f51e",
+          "ee8ba20f001bd857f9cb43b9c4442871500a54f41ef1e7dc2a274ac183376f09",
+          "7e8dbdde18346631e2bbacd5e5653720218299e454dfed2064829c9816c3aa8b",
+          "d694421067f04daa05fb1b26c77dd964c8f1f7174667c0df7e379303cb5d81b3",
+          "e189d48498ec5deda72d86c32e9d51ec28d5f4455e74da52011c0a178595fc4b",
+          "8f2ca1753f6ea5df654af4ef04de39a2b37aded2771d7e101dddaf2865a9a595",
+          "5b77d9a64d8107a44de08a1124ed241637b21070aabf884e1c5eae00354a9786"
+        ],
+        "selected_activities": [
+          "WAN_OFF",
+          "WAN_ON"
+        ],
+        "first": 1633449933.768882,
+        "independent_session_count": null,
+        "observed_capture_ids": [
+          "interaction-attack-236",
+          "interaction-attack-237",
+          "interaction-attack-240"
+        ],
+        "observed_capture_bytes": 48483,
+        "observed_seconds_sum": 46.85579705238342,
+        "observation_interval_start": 1633449924.105047,
+        "observed_activities": [
+          "WAN_OFF",
+          "WAN_ON"
+        ]
+      },
+      {
+        "device": "Ring Basestation",
+        "partition": "DEVICE_HOLDOUT",
+        "reference_end": 1633545731.090003,
+        "candidate_endpoints": 3,
+        "canonical_components": 1,
+        "selected": 1,
+        "protocols": [
+          6
+        ],
+        "reference_uids": [
+          "75980f3a79fabe71b40d53048fbcf874af8630ad1b58f145febc146647d03fff"
+        ],
+        "selected_activities": [
+          "LAN_ARM"
+        ],
+        "first": 1633545655.194627,
+        "independent_session_count": null,
+        "observed_capture_ids": [
+          "interaction-attack-254",
+          "interaction-attack-256",
+          "interaction-attack-258"
+        ],
+        "observed_capture_bytes": 25853,
+        "observed_seconds_sum": 4.5092082023620605,
+        "observation_interval_start": 1633545654.643436,
+        "observed_activities": [
+          "LAN_ARM",
+          "LAN_DISARM"
+        ]
+      },
+      {
+        "device": "SimCam",
+        "partition": "LEARN",
+        "reference_end": 1633542608.728952,
+        "candidate_endpoints": 28,
+        "canonical_components": 15,
+        "selected": 15,
+        "protocols": [
+          6,
+          17
+        ],
+        "reference_uids": [
+          "f0c412409725a64abeabf13580b62041936b131d42c371f189b8ce94d750f086",
+          "81b9148a7c8cd14a2f89e244a788f428b21c7477f65373371604289cbe3809f7",
+          "98ed62f1877fa20184ca1571d354d3e19e612b0ecb4ccb9fb80768739fded02e",
+          "d184765448bb33f38ae8b4abb91eaa347465e71fbbfe4620c95aa7155877de71",
+          "894693b2d47dc5649b00f74aae2fb808a550b925ea46c7d1863009379c7241a8",
+          "eb9c4e4a6efc94c2dfb36b1913d60cc363b27170a0ca45648030f297501fdd6a",
+          "689c4cfb35d996ea17fc9bdfb4b749c74c7873b6f4f5a7e53494aaa2ddbb64b3",
+          "67782951183d65d8f66de07b696502b94e5137e5dea5d475ba540977e4d94abb",
+          "834a1e79e8e59ae65f79ccd8e8fa9913342cd3230ae3311c52f079c155988757",
+          "34f33f8a5d4e56e95234fea13bdff7c71206210081a5de8543d86ed5d95f360b",
+          "af8b56da55b6ade16886a6478fdef0b3c1de605324f974c45a43a07abc8fad54",
+          "a7a19ef8a7f720cdbc495dc123979d68ddef39ede5aa28fb30ff992c2a79ac94",
+          "34ce6c0aed4369019aca644ff722c9942f2c6fe8eab638c9821755fd1b1c1ba5",
+          "75e945f27c50ba2d8dc6a7aaa44d6d38a28c9cdec543cafb1118255f60a08cf4",
+          "9e9367e8b3c3a8794fe635a61e2df1d52a58bbc5c1e2f2d41d06adee4264ee75"
+        ],
+        "selected_activities": [
+          "LAN_WATCH"
+        ],
+        "first": 1633542403.28291,
+        "independent_session_count": null,
+        "observed_capture_ids": [
+          "interaction-attack-287",
+          "interaction-attack-288",
+          "interaction-attack-289"
+        ],
+        "observed_capture_bytes": 21800,
+        "observed_seconds_sum": 81.11968398094177,
+        "observation_interval_start": 1633542387.961517,
+        "observed_activities": [
+          "LAN_WATCH"
+        ]
+      }
+    ],
+    "per_canonical_capture_max": 32,
+    "reference_budget": 64,
+    "sample_semantics": "Systematic equal-rank sample of every eligible capture-local canonical session, before scores; no claim of full-packet rate or independent samples.",
+    "roles": "6 LEARN only optimizer rows, 2 DEV only fixed endpoint diagnostics/gate, 3 DEVICE_HOLDOUT only one conditional confirmation; registration references never optimizer targets.",
+    "calibration_rows": 0,
+    "calibration": "No new threshold calibration. DEV is a decision/gate set, not fitted threshold data.",
+    "reference_policy": "Earliest three normal captures, latest valid endpoint per owner/canonical dependency component, hash-order up to64. Observation ended before query; live transport termination is NOT asserted.",
+    "ongoing_connection_policy": "Same canonical reference/query component retained as causal continued-connection stratum; report separately from new components. No independence claim.",
+    "context": "Use ScopedPrefixes shared guard before every reference/query append; source-local owner/capture/key; permanent poison on regression; no future/backfilled rows; full-row deep copy at target.",
+    "partial_failure": "No silent feature-row deletion. Any in-scope forward, identity, numeric or source mismatch stops the chain. Metadata-stage exclusions remain explicit."
+  },
+  "legacy": {
+    "encoder_normalizer_R_immutable": true,
+    "model": {
+      "numeric_path": "E3 float32; standardize float64 with original mean/scale; append missing0; full row float32; P2 float32",
+      "state_array_allowlist": [
+        "normalizer_mean",
+        "normalizer_scale",
+        "p2__0.weight",
+        "p2__0.bias",
+        "p2__3.weight",
+        "p2__3.bias"
+      ],
+      "source_root": "D:/study/paper/anomaly_detection/paper04/supercompute_transfer/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound",
+      "checkpoint_dir": "D:/study/paper/anomaly_detection/paper04/supercompute_transfer/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound-base",
+      "checkpoint_sha256": "e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105",
+      "config_sha256": "e22262d4b840a0055915f6c48e9c64d04e790f80e907fa9dc06df855eff05401",
+      "e3_runtime": "Existing e3_embed_v1 build_e3_runtime + embed_flows semantics; model eval, local_files_only, config.pretraining=False, compile=False, tokenizer.pretraining=True, raw_labels=False; no changes to old fixed-size CLI contracts",
+      "pooling": "attention-mask mean pooling",
+      "source_commit": "b3ab5a3aa72640cc725ef207fb0145b039a57d35",
+      "release": "b812e625999165376ddb47a39d0d5579d4edce89",
+      "vendor_source_manifest": "runs/legacy_cic2022_p2_enhancement_design_v1_20260915/vendor_source_pins.json"
+    },
+    "probe_state_path": "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_probe_state.npz",
+    "probe_state_sha256": "50a9bcfc18287d51bf8afda7367b57decdf3179dd41fc3aa61399d4098360c38",
+    "threshold_probability": 0.065159872174263,
+    "decision": "float32 sigmoid then float64 comparison >= unchanged probability threshold",
+    "no_reference": "Exact original R path. Original ID and old unrelated OOD/attacks do not receive this device-specific adaptation.",
+    "ID_anchor": {
+      "rows": 2378,
+      "sessions": 248,
+      "previously_disclosed_false_positives": 0,
+      "source": "runs/mainline_docs/legacy_cic2022_p2_enhancement_real_result_v1_20260916.md",
+      "use": "Historical unchanged fallback row, explicitly reused; no new independent ID experiment or reopened arrays. Verify routing with synthetic no-reference equality."
+    }
+  },
+  "arms": {
+    "R": "original logit b_R",
+    "Q": {
+      "input": "[z768,h_R128,b_R1]",
+      "hidden": 16,
+      "activation": "ReLU",
+      "parameters": 14385
+    },
+    "M": {
+      "input": "[z768,mean(reference)768,std_population(reference)768,h_R128,b_R1]",
+      "hidden": 16,
+      "activation": "ReLU",
+      "parameters": 38961
+    },
+    "C": {
+      "pair": "ReLU(Linear1536to16([z-r,abs(z-r)]))",
+      "pool": "masked mean and max across actual refs; no padded entries in either reduction",
+      "residual": "Linear16to1(ReLU(Linear161to16([h_R128,b_R1,pooled32])))",
+      "parameters": 27201
+    },
+    "shared": "b_R plus residual; last linear weight/bias zero; hidden PyTorch Linear default initialization; no dropout in new heads; R eval, all R/E3 tensors frozen; z original float64 standardization then float32; metadata excluded"
+  },
+  "optimization": {
+    "seeds": [
+      27,
+      127,
+      227
+    ],
+    "arms": [
+      "Q",
+      "M",
+      "C"
+    ],
+    "epochs": 40,
+    "batch_size": 256,
+    "optimizer": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "amsgrad": false,
+    "gradient_clipping": null,
+    "scheduler": null,
+    "loss": "BCEWithLogits; device and class equal, then activity/mode, capture, canonical session and selected row equal; exact per-row rational denominators in manifests",
+    "minibatch_loss": "N/batch_actual_size * sum(weight_i * BCE_i); no within-batch weight renormalization",
+    "ordering": "Independent local CPU randperm generator seeded with run seed; same permutations across Q/M/C; each epoch each UID once, no oversampling",
+    "initialization": "torch.manual_seed(seed) before constructing each new head; deterministic CPU ops; R state never trained",
+    "rows": 766727,
+    "updates_per_model": 119840,
+    "total_models": 9,
+    "all_updates": 1078560,
+    "selection": "Fixed final epoch only; all three seeds reported; main score average of final-seed logits, not best seed"
+  },
+  "evaluation": {
+    "main": "Matched UID/label/reference cost/operating point R/Q/M/C; report integer errors and sampled denominators plus exact hierarchical rates",
+    "mandatory": [
+      "Original ID FPR clearly marked reused unchanged fallback",
+      "LEARN normal/attack fit diagnostics clearly in-sample",
+      "DEV normal OOD FPR and per-device/mode attack TPR",
+      "Conditional DEVICE_HOLDOUT normal FPR and attack TPR",
+      "Reference-covered vs novel annotated activity; Active is unknown activity, never asserted novel",
+      "Same-reference-component vs new-component queries",
+      "R-correct new misses and R-missed new detections by device/attack/capture",
+      "Every missing capability cell, excluded label mode and unsupported protocol",
+      "Philips local inbound TCP80 normal control only; no outbound remote80 substitution"
+    ],
+    "uncertainty": "Device/capture/attack-run clusters; only2DEV and3holdout devices. Descriptive paired group differences; no packet-binomial CI or independent1% risk certification.",
+    "low_fpr": "Descriptive only; no fitted threshold, selected operating point or holdout-driven tuning",
+    "interventions": [
+      {
+        "device": "Borun Camera",
+        "status": "UNAVAILABLE_NO_EQUAL_PROTOCOL_DONOR"
+      },
+      {
+        "device": "Eufy Home Base",
+        "donor": "HeimVision Camera",
+        "partition": "DEV",
+        "status": "DEFINED",
+        "equal_count": 11,
+        "protocol_multiset": {
+          "6": 1,
+          "17": 10
+        },
+        "correct_reference_uids": [
+          "94565d4d24a905ef229930f70b6167206b8b07a0df1ab4b8c5a86a019fae16a2",
+          "2356cbbdeae1ebb9cafc5fe07ebd1a016b514e5a98dcb85e3dcd457e86fcafac",
+          "3155c3c7a7ddc9be2109091be6fe50b938d2c1d774b441598a6f008eb478b19c",
+          "e731296cae85b0c752757c8ae6f121862cec358ef59ae362e8d9b80d5e4852bd",
+          "aa994cd6ba9b399b95a1d6634967aded756906bb2270334bab7ba7a72fb78d25",
+          "728a85950899f7c7d6238b9ba17cd3819748640807b384e615e93342b2f23b49",
+          "cd95a762a43bfb26f84622abad8c9f4c5c2786849ac0850ca9768844d69071f8",
+          "d9d5a6d3890cc79eab7d8874f834d032fd73cfe4bf4b8b33a89dba9217166802",
+          "9ebd03815a568a0a7709c45eb76b6075d6a5874d97739b08685591e5efada7c5",
+          "1b6a2e287ac26bcbcb24773ca545f143d3489e8f0ed7d69962dc0e2e1ab05173",
+          "7306b92083b6e14836377fe43aaa9fbbbfbe4533dceb08b3915926e6d7216bcd"
+        ],
+        "wrong_reference_uids": [
+          "026b506c412869d856d8f2621c346faead355a0fe56c61c23ab9283da76aa518",
+          "85a2afab42b19149513e949dabb385d3c0a9b95f4858b3d67417c0fe0deb78ee",
+          "05f16a02f6eccb91e781e4f4d110a80e32d92bb8056e4253bade54f6317def94",
+          "81728bd85f4f362f43fc5f050583e528f5397f4b3bb2c25ece3505c866c45e43",
+          "0d9abbe6b846d1ca84d94d540f883fb6331b45789e9cededdfc21f1f6245f573",
+          "af8b6028535485b4703bd9edc70969f49b3007cb32b0873522cb388ccbc06e59",
+          "14085f5586775afd4113e4aecabd8bb91fecc4d2a33d37f45eee989a8513d503",
+          "53e63d8f60e0293747f0bb5a19e76f3d8230f090626afabf9f06c8cf18404eb3",
+          "50f77909528c1047d61a59efc725818d30793e4d33da8e47f954bceb298f2076",
+          "81819ba514d1c82812903c9e136ee2ef34af40bcd28b5e84412b43134bfcad71",
+          "f4c423072164ee62358dc479219d52041626a62587d9d8ce5e50c63676864515"
+        ],
+        "applicable_after": 1634135656.079564,
+        "applicable_query_count": 113340,
+        "applicable_query_uid_hash": "174b27a8ed973327c40e630cd3290b8755d90579c96fd128b824da05226c6b3c",
+        "note": "Offline diagnostic only; wrong-owner routing is prohibited in deployment. Equal reference count AND protocol multiset; compare these explicit correct/wrong UID lists, never full correct versus fewer wrong references."
+      },
+      {
+        "device": "HeimVision Camera",
+        "donor": "Eufy Home Base",
+        "partition": "DEV",
+        "status": "DEFINED",
+        "equal_count": 11,
+        "protocol_multiset": {
+          "6": 1,
+          "17": 10
+        },
+        "correct_reference_uids": [
+          "026b506c412869d856d8f2621c346faead355a0fe56c61c23ab9283da76aa518",
+          "85a2afab42b19149513e949dabb385d3c0a9b95f4858b3d67417c0fe0deb78ee",
+          "05f16a02f6eccb91e781e4f4d110a80e32d92bb8056e4253bade54f6317def94",
+          "81728bd85f4f362f43fc5f050583e528f5397f4b3bb2c25ece3505c866c45e43",
+          "0d9abbe6b846d1ca84d94d540f883fb6331b45789e9cededdfc21f1f6245f573",
+          "af8b6028535485b4703bd9edc70969f49b3007cb32b0873522cb388ccbc06e59",
+          "14085f5586775afd4113e4aecabd8bb91fecc4d2a33d37f45eee989a8513d503",
+          "53e63d8f60e0293747f0bb5a19e76f3d8230f090626afabf9f06c8cf18404eb3",
+          "50f77909528c1047d61a59efc725818d30793e4d33da8e47f954bceb298f2076",
+          "81819ba514d1c82812903c9e136ee2ef34af40bcd28b5e84412b43134bfcad71",
+          "f4c423072164ee62358dc479219d52041626a62587d9d8ce5e50c63676864515"
+        ],
+        "wrong_reference_uids": [
+          "94565d4d24a905ef229930f70b6167206b8b07a0df1ab4b8c5a86a019fae16a2",
+          "2356cbbdeae1ebb9cafc5fe07ebd1a016b514e5a98dcb85e3dcd457e86fcafac",
+          "3155c3c7a7ddc9be2109091be6fe50b938d2c1d774b441598a6f008eb478b19c",
+          "e731296cae85b0c752757c8ae6f121862cec358ef59ae362e8d9b80d5e4852bd",
+          "aa994cd6ba9b399b95a1d6634967aded756906bb2270334bab7ba7a72fb78d25",
+          "728a85950899f7c7d6238b9ba17cd3819748640807b384e615e93342b2f23b49",
+          "cd95a762a43bfb26f84622abad8c9f4c5c2786849ac0850ca9768844d69071f8",
+          "d9d5a6d3890cc79eab7d8874f834d032fd73cfe4bf4b8b33a89dba9217166802",
+          "9ebd03815a568a0a7709c45eb76b6075d6a5874d97739b08685591e5efada7c5",
+          "1b6a2e287ac26bcbcb24773ca545f143d3489e8f0ed7d69962dc0e2e1ab05173",
+          "7306b92083b6e14836377fe43aaa9fbbbfbe4533dceb08b3915926e6d7216bcd"
+        ],
+        "applicable_after": 1634135656.079564,
+        "applicable_query_count": 66245,
+        "applicable_query_uid_hash": "7687963db41b7178397b9fe002f1ee8a8f8435f01e1367c90f07576d55041c48",
+        "note": "Offline diagnostic only; wrong-owner routing is prohibited in deployment. Equal reference count AND protocol multiset; compare these explicit correct/wrong UID lists, never full correct versus fewer wrong references."
+      },
+      {
+        "device": "Netatmo Camera",
+        "status": "UNAVAILABLE_NO_EQUAL_PROTOCOL_DONOR"
+      },
+      {
+        "device": "Ring Basestation",
+        "status": "UNAVAILABLE_NO_EQUAL_PROTOCOL_DONOR"
+      }
+    ],
+    "budget16": "Same query, hash-first min(16,actual) true references; no retraining; report actual budget; no best intervention promotion",
+    "heldout_gate": "After all9 endpoints sealed: open once if M or C reduces macro DEV normal FPR, neither DEV device normal FPR increases, and attack hierarchical TPR is >=R-0.01 in EACH DEV device and available attack mode. Missing essential cell or any engineering failure closes gate. Q alone passing does not establish reference utility.",
+    "mechanism_claim": "C needs joint benefit over R AND lower DEV normal macro FPR than M with no >1pp per-device/mode attack loss versus M; equal-count correct/wrong-reference intervention must provide directional evidence on >=1DEV device. Otherwise no C-specific innovation claim; M may be preferable.",
+    "gate_status": "Development decision only. Point estimates do not certify noninferiority. If opened, report ALL R/Q/M/C and ALL seeds/interventions on frozen holdout once; no subsequent tuning from holdout."
+  },
+  "runtime": {
+    "local_only": true,
+    "training_and_scoring_not_authorized": true,
+    "encoder_python": "D:/study/paper/anomaly_detection/paper04/supercompute_transfer/ckda_d1_local_runtime_20260814/.venv/Scripts/python.exe",
+    "training_python": "C:/Users/28371/AppData/Local/Programs/Python/Python39/python.exe",
+    "e3_batch": 16,
+    "torch_cpu_threads": 4,
+    "model_workers": 1,
+    "decoder_workers_max": 2,
+    "ram_process_tree_limit_GiB": 12,
+    "disk_new_output_limit_GiB": 16,
+    "wall_time_chain_limit_hours": 72,
+    "retries": 0,
+    "exact_new_feature_rows": 1288062,
+    "float32_embedding_payload_bytes": 3956926464,
+    "feature_reuse": "One identity-verified raw E3 feature cache shared across arms/seeds. Prepare LEARN/DEV first; heldout queries only after gate, within future explicit authorization.",
+    "throughput": "No separate resource trial. Persist progress/observed rate during authorized real preparation; no promised finish time from unmeasured throughput.",
+    "stop": "Identity/label/causality/shape/nonfinite/worker error, resource bound or stopped process: stop, retain receipts, no automatic retry, source changes or silent sample pruning."
+  },
+  "implementation_acceptance_required": [
+    "Exact shared guard on ALL feature appends and deep-copy at targets",
+    "Real tokenizer/collator with synthetic stand-in model, no checkpoint access in tests",
+    "R equality at zero residual; no-reference exact fallback",
+    "Padding masked in C and M, population std and variable reference budgets",
+    "Equal weighted UID exposure across arms/seeds",
+    "HOLDOUT inaccessible to optimizer/normalization/calibration and scoring before gate",
+    "End-to-end synthetic supervisor failure/no-retry/status/seal coverage"
+  ],
+  "claim_exclusions": [
+    "arbitrary unseen-attack generalization",
+    "normal/attack capture-view equivalence",
+    "all service shortcuts removed",
+    "universal protocol support",
+    "independent1% false-positive guarantee",
+    "simultaneous live-network interference proved by separately captured files"
+  ]
+}

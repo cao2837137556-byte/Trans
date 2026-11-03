@@ -1,0 +1,257 @@
+{
+  "status": "PREPARED",
+  "candidate": "C3_ADMITTED_SMALL_BANK_COMPLETE",
+  "captures": [
+    {
+      "capture_id": "interaction-attack-189",
+      "packets": 105,
+      "first": 1633539900.741864,
+      "last": 1633539927.760204,
+      "accepted": 104,
+      "rejected": [
+        {
+          "frame": 73,
+          "reason": "OUTSIDE_SCOPE"
+        }
+      ],
+      "frontend_reasons": {
+        "PROTOCOL_OR_OWNER_OUTSIDE": 1
+      }
+    },
+    {
+      "capture_id": "interaction-attack-191",
+      "packets": 88,
+      "first": 1633540046.39205,
+      "last": 1633540076.228605,
+      "accepted": 87,
+      "rejected": [
+        {
+          "frame": 63,
+          "reason": "OUTSIDE_SCOPE"
+        }
+      ],
+      "frontend_reasons": {
+        "PROTOCOL_OR_OWNER_OUTSIDE": 1
+      }
+    },
+    {
+      "capture_id": "interaction-attack-190",
+      "packets": 101,
+      "first": 1633540142.843962,
+      "last": 1633540171.541785,
+      "accepted": 98,
+      "rejected": [
+        {
+          "frame": 42,
+          "reason": "OUTSIDE_SCOPE"
+        },
+        {
+          "frame": 46,
+          "reason": "OUTSIDE_SCOPE"
+        },
+        {
+          "frame": 67,
+          "reason": "OUTSIDE_SCOPE"
+        }
+      ],
+      "frontend_reasons": {
+        "PROTOCOL_OR_OWNER_OUTSIDE": 3
+      }
+    }
+  ],
+  "groups": [
+    {
+      "device": "HeimVision Camera",
+      "protocol": 6,
+      "legal_candidates": 213,
+      "old": 1,
+      "new": 212,
+      "branch": "COMPLETE_SMALL_GROUP",
+      "cap": 4096
+    },
+    {
+      "device": "HeimVision Camera",
+      "protocol": 17,
+      "legal_candidates": 76,
+      "old": 10,
+      "new": 66,
+      "branch": "COMPLETE_SMALL_GROUP",
+      "cap": 4096
+    }
+  ],
+  "new_rows": 278,
+  "old_q14_replay_rows": 11,
+  "all_old_references_preserved": true,
+  "normality_basis": "CIC original member paths 3-Interactions/Cameras/HeimVision Camera/LAN_WATCH; publisher normal interaction category, verified device MAC and pre-existing REFERENCE time role. No independent per-packet maliciousness oracle; interaction-attack is only a project capture prefix.",
+  "B_census": {
+    "TP_LINK": [
+      {
+        "candidate_components": 428,
+        "candidate_rows": 38508,
+        "cap": 4096,
+        "component_rank": "MIN(SHA256(salt+\"|\"+uid),uid)",
+        "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+        "new_components": 428,
+        "no_old_anchor_components": 428,
+        "priority": "NO_OLD_ANCHOR_FIRST",
+        "protocol": 6,
+        "role": "HIST_REF",
+        "selected_components": 428,
+        "selected_rows": 4096,
+        "time_selection": "DENSE_BINDING_UNIFORM_TIME_EXACT",
+        "uncovered_components": 0,
+        "uncovered_no_old_anchor_components": 0
+      },
+      {
+        "candidate_components": 1692,
+        "candidate_rows": 3683,
+        "cap": 4096,
+        "component_rank": "MIN(SHA256(salt+\"|\"+uid),uid)",
+        "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+        "new_components": 1691,
+        "no_old_anchor_components": 1691,
+        "priority": "NO_OLD_ANCHOR_FIRST",
+        "protocol": 17,
+        "role": "HIST_REF",
+        "selected_components": 1692,
+        "selected_rows": 3683,
+        "time_selection": "DENSE_BINDING_UNIFORM_TIME_EXACT",
+        "uncovered_components": 0,
+        "uncovered_no_old_anchor_components": 0
+      }
+    ],
+    "SAMSUNG": [
+      {
+        "candidate_components": 29796,
+        "candidate_rows": 1049320,
+        "cap": 4096,
+        "component_rank": "MIN(SHA256(salt+\"|\"+uid),uid)",
+        "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+        "new_components": 4096,
+        "no_old_anchor_components": 29796,
+        "priority": "NO_OLD_ANCHOR_FIRST",
+        "protocol": 6,
+        "role": "HIST_REF",
+        "selected_components": 4096,
+        "selected_rows": 4096,
+        "time_selection": "DENSE_BINDING_UNIFORM_TIME_EXACT",
+        "uncovered_components": 25700,
+        "uncovered_no_old_anchor_components": 25700
+      },
+      {
+        "candidate_components": 20427,
+        "candidate_rows": 1691998,
+        "cap": 4096,
+        "component_rank": "MIN(SHA256(salt+\"|\"+uid),uid)",
+        "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+        "new_components": 4096,
+        "no_old_anchor_components": 20425,
+        "priority": "NO_OLD_ANCHOR_FIRST",
+        "protocol": 17,
+        "role": "HIST_REF",
+        "selected_components": 4096,
+        "selected_rows": 4096,
+        "time_selection": "DENSE_BINDING_UNIFORM_TIME_EXACT",
+        "uncovered_components": 16331,
+        "uncovered_no_old_anchor_components": 16329
+      }
+    ],
+    "WEMO_POWER": [
+      {
+        "candidate_components": 803,
+        "candidate_rows": 92630,
+        "cap": 4096,
+        "component_rank": "MIN(SHA256(salt+\"|\"+uid),uid)",
+        "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+        "new_components": 803,
+        "no_old_anchor_components": 803,
+        "priority": "NO_OLD_ANCHOR_FIRST",
+        "protocol": 6,
+        "role": "HIST_REF",
+        "selected_components": 803,
+        "selected_rows": 4096,
+        "time_selection": "DENSE_BINDING_UNIFORM_TIME_EXACT",
+        "uncovered_components": 0,
+        "uncovered_no_old_anchor_components": 0
+      },
+      {
+        "candidate_components": 797,
+        "candidate_rows": 20912,
+        "cap": 4096,
+        "component_rank": "MIN(SHA256(salt+\"|\"+uid),uid)",
+        "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+        "new_components": 796,
+        "no_old_anchor_components": 796,
+        "priority": "NO_OLD_ANCHOR_FIRST",
+        "protocol": 17,
+        "role": "HIST_REF",
+        "selected_components": 797,
+        "selected_rows": 4096,
+        "time_selection": "DENSE_BINDING_UNIFORM_TIME_EXACT",
+        "uncovered_components": 0,
+        "uncovered_no_old_anchor_components": 0
+      }
+    ]
+  },
+  "selection_uses_query_scores": false,
+  "selection_uses_query_labels": false,
+  "input_readout": "RECENT_CURRENT_INCLUSIVE",
+  "capture_boundary_preserved": true,
+  "overlap_audit_reused": {
+    "path": "runs/history_normal_reference_d2_review_v1_20261031/REVIEW_EVIDENCE.json",
+    "sha256": "5b100c61584cc343939178f7dd62c9631eac7d83d5a2ed02fce40bee82665ca4",
+    "findings": {
+      "LEARN": {
+        "rows": 766727,
+        "matches": {
+          "candidate_capture_id": 0,
+          "candidate_source_sha256": 0,
+          "candidate_packet_sha256": 0
+        },
+        "fingerprint_examples": [],
+        "forbidden_capture_rows": {},
+        "forbidden_labels": {},
+        "forbidden_rows_in_saved_full_A_decisions": {}
+      },
+      "CIC_DEV": {
+        "rows": 179886,
+        "matches": {
+          "candidate_capture_id": 0,
+          "candidate_source_sha256": 0,
+          "candidate_packet_sha256": 0
+        },
+        "fingerprint_examples": [],
+        "forbidden_capture_rows": {
+          "interaction-attack-192": 44,
+          "interaction-attack-193": 46,
+          "interaction-attack-183": 31,
+          "interaction-attack-185": 17,
+          "interaction-attack-184": 21,
+          "interaction-attack-187": 45,
+          "interaction-attack-186": 50,
+          "interaction-attack-188": 47
+        },
+        "forbidden_labels": {
+          "0": 301
+        },
+        "forbidden_rows_in_saved_full_A_decisions": {
+          "interaction-attack-192": 44,
+          "interaction-attack-193": 46,
+          "interaction-attack-183": 31,
+          "interaction-attack-185": 17,
+          "interaction-attack-184": 21,
+          "interaction-attack-187": 45,
+          "interaction-attack-186": 50,
+          "interaction-attack-188": 47
+        }
+      }
+    }
+  },
+  "files": {
+    "189.tshark.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "190.tshark.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "191.tshark.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "REFERENCES.jsonl.gz": "66e6d880de2df5728da69c41a7a9948df5e2377cef806bac04a4624d88f5f05a",
+    "SNAPSHOTS.jsonl.gz": "afbdb43b7032e632b832eacdbd76d06023d2885127083cd4917f70fb129212e6"
+  }
+}

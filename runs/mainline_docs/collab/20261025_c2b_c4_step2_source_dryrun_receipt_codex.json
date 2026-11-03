@@ -1,0 +1,114 @@
+{
+  "schema": "c2b-c4-step2-source-dryrun-delivery-v1",
+  "created_utc": "2026-10-25T07:30:48.317886+00:00",
+  "status": "REQUESTED_DRYRUN_SCOPE_COMPLETE",
+  "plan": {
+    "path": "runs/mainline_docs/collab/20261025_c1_c3_readout_and_step2_r1_claude.md",
+    "bytes": 8240,
+    "sha256": "ef4dd505bb914a6538cc835e9209d905bd80fdee70e4b57983bfa431e17dc9be"
+  },
+  "report": {
+    "path": "runs/mainline_docs/collab/20261025_c2b_c4_and_step2_source_dryrun_response_codex.md",
+    "bytes": 10735,
+    "sha256": "69ed7564feadc1bcafe3318ec9ac24f58b5396f86c444305b2c8eaec1bee2469"
+  },
+  "file_manifest": {
+    "path": "runs/diagnostics_c2b_c4_step2_v1_20261025/FINAL_FILE_MANIFEST.json",
+    "bytes": 18308,
+    "sha256": "02d45ff3d3bfbcc3534eb6f396a4b7f69474da2d3cb37bb397357b1ca963f5bb"
+  },
+  "authorization": {
+    "section2_user_confirmed": true,
+    "main_epsilon_pp": 0.1,
+    "primary_scope": "post observation window; full scope alongside",
+    "cloud_run_authorized": false,
+    "AB_new_evaluation_started": false
+  },
+  "completion": {
+    "C2b": "COMPLETE_BRANCH_CONDITION_NOT_MET",
+    "C4": "COMPLETE",
+    "budget_lambda_implementation": "PASS_17_UNIT_TESTS",
+    "dense_reference_implementation": "PASS_15_UNIT_TESTS",
+    "complete_source_CAL": "PASS_EPS0_BITWISE_PARITY",
+    "source_current_context_census": "COMPLETE_4728_POSITIONS",
+    "source_frozen_encoding_plan": "COMPLETE_4624_REQUESTS",
+    "true_dense_source_CAL": "PENDING_SOURCE_E3_ENCODING",
+    "full_matrix": "NOT_STARTED"
+  },
+  "tests": {
+    "budget": 17,
+    "dense_reference": 15,
+    "total": 32
+  },
+  "source_CAL_rows": 148819,
+  "source_CAL_epsilon_zero_bitwise_parity": true,
+  "source_all_epsilon_selected_lambda": 0.25,
+  "source_CAL_component_overlap": 0,
+  "budget": {
+    "source_new_positions_exact": 4624,
+    "source_new_e3_float32_bytes": 14204928,
+    "source_new_cache794_float32_bytes": 14685824,
+    "source_new_q14_float32_bytes": 258944,
+    "source_candidate_snapshot_bytes": 1321482,
+    "target_nonempty_device_protocol_groups": 13,
+    "target_existing_encoded_union_B2_positions": 4785,
+    "target_new_encoding_upper_bound": 48463,
+    "target_new_encoding_exact": null,
+    "target_empty_group_note": "13 nonempty of 14 possible device/protocol pairs; absent group has no full-census legal component",
+    "combined_source_exact_plus_target_upper_positions": 53087,
+    "combined_cache794_float32_upper_bytes": 168604312,
+    "uncertainty": "target per-group full legal position census not performed; upper bound, not mandatory spend",
+    "source_encoder_wall_seconds": null,
+    "source_encoder_time_rule": "model load plus source_new_positions_exact / measured throughput; no E3 run measured in this task",
+    "baseline_resource_contract": "reuse existing E3/commissioning resource contract; final runtime preflight required before cloud launch"
+  },
+  "invariants": {
+    "original_experiment_results_preserved": true,
+    "original_zero_miss_contract_preserved": true,
+    "no_remote_access": true,
+    "no_E3_or_classifier_forward": true,
+    "no_training": true,
+    "no_new_AB_evaluation": true,
+    "no_threshold_geometry_scale_change": true,
+    "no_automatic_retry": true,
+    "no_progress_service_change": true,
+    "no_continuous_AI_polling": true
+  },
+  "verification": {
+    "tested_implementation_SHA_rechecked": true,
+    "declared_input_pins_deduplicated": 85,
+    "original_input_before_after_SHA": "verified by each component receipt; no redundant final multi-GB rescan",
+    "report_local_links_checked": 15,
+    "navigation_checked": true,
+    "delivered_files": 84,
+    "delivered_bytes": 16797266,
+    "historical_first_source_dryrun": "source_reference retained with old module/script snapshots; source_reference_r2 is final implementation run"
+  },
+  "results": {
+    "c2b": {
+      "path": "runs/diagnostics_c2b_c4_step2_v1_20261025/c2b/RESULT.json",
+      "bytes": 44438,
+      "sha256": "493f96f2da99129710e06497df6ab99540737bc596595e0c6dfd527e49658079"
+    },
+    "c4": {
+      "path": "runs/diagnostics_c2b_c4_step2_v1_20261025/c4/RESULT.json",
+      "bytes": 68628,
+      "sha256": "14eef35cab25d2979a85ede59ea19e12f49d7b3e36bd3695b222e94fbc098cd6"
+    },
+    "source_cal": {
+      "path": "runs/diagnostics_c2b_c4_step2_v1_20261025/source_cal/RESULT.json",
+      "bytes": 15870,
+      "sha256": "158990590e49cf6fc8b37649e98514628d420ddebcbe9f41c9f63df009188255"
+    },
+    "source_reference_r2": {
+      "path": "runs/diagnostics_c2b_c4_step2_v1_20261025/source_reference_r2/RESULT.json",
+      "bytes": 3613,
+      "sha256": "d71c936b5f5d9db7640b00d65d6324778ef414f2b27f16b5541e9470e28f1e71"
+    },
+    "source_encoding_plan": {
+      "path": "runs/diagnostics_c2b_c4_step2_v1_20261025/source_encoding_plan/RESULT.json",
+      "bytes": 373711,
+      "sha256": "27cc9c854f165fbd45769c28ce3467be48ce98c56567ccbb0f9fcaae5b28755e"
+    }
+  }
+}

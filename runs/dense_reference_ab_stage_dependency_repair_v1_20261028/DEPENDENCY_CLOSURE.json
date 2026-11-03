@@ -1,0 +1,223 @@
+{
+  "accepted_result_manifest_sha256": "8ff70fedb1e4c0892acd066c937a7aeed9d3c0b38ccd22956862c50c3a67b72d",
+  "config_files": {
+    "ACCEPTED_RESULT_MANIFEST.json": {
+      "bytes": 16245,
+      "sha256": "8ff70fedb1e4c0892acd066c937a7aeed9d3c0b38ccd22956862c50c3a67b72d"
+    },
+    "MATRIX_CANDIDATE_HPC.json": {
+      "bytes": 604382,
+      "sha256": "3c7d04a6a32b2a033b62bdfefc93172809eb6a7e6375b7fd7be7828a27ad1199"
+    },
+    "MATRIX_CANDIDATE_LOCAL.json": {
+      "bytes": 604861,
+      "sha256": "a985d70e963c9d0763b262b6ef5296665100f4a09dc43e7f89ac2b0859b93c7d"
+    },
+    "SOURCE_INPUT_SEAL.json": {
+      "bytes": 4953,
+      "sha256": "b48a33970a41aa678b325d3b1a3e4f67febeb907f23168ef2fd8a7fdd14522ab"
+    }
+  },
+  "created_utc": "2026-10-28T02:51:48.013403+00:00",
+  "dependencies": {
+    "causal_reference_overlap_v1": {
+      "all_imports_including_function_local": [
+        {
+          "line": 2,
+          "module": "math"
+        }
+      ],
+      "bytes": 1314,
+      "local_imports": [],
+      "module": "causal_reference_overlap_v1",
+      "sha256": "b60f1c9b2cc0a2d5c3543d3b6f72709eca68ab01cb820e1aab5c2e38a93ed479"
+    },
+    "constrained_onboarding_core_v3": {
+      "all_imports_including_function_local": [
+        {
+          "line": 7,
+          "module": "hashlib"
+        },
+        {
+          "line": 8,
+          "module": "math"
+        },
+        {
+          "line": 9,
+          "module": "collections"
+        },
+        {
+          "line": 11,
+          "module": "numpy"
+        },
+        {
+          "line": 12,
+          "module": "indexed_features_v1"
+        },
+        {
+          "line": 14,
+          "module": "legacy_qref_data_v1"
+        },
+        {
+          "line": 196,
+          "module": "causal_reference_overlap_v1"
+        }
+      ],
+      "bytes": 28261,
+      "local_imports": [
+        {
+          "line": 12,
+          "module": "indexed_features_v1"
+        },
+        {
+          "line": 14,
+          "module": "legacy_qref_data_v1"
+        },
+        {
+          "line": 196,
+          "module": "causal_reference_overlap_v1"
+        }
+      ],
+      "module": "constrained_onboarding_core_v3",
+      "sha256": "42a32e0b829a373a96046d34d16bcb53455f99f1bc0786a8a49be38bc855f72c"
+    },
+    "indexed_features_v1": {
+      "all_imports_including_function_local": [
+        {
+          "line": 2,
+          "module": "numpy"
+        }
+      ],
+      "bytes": 2478,
+      "local_imports": [],
+      "module": "indexed_features_v1",
+      "sha256": "45075f5f5a8ca50715e5f746254e845ad44ee8d77ce8cc2d47bdcda9226816de"
+    },
+    "legacy_qref_common_v1": {
+      "all_imports_including_function_local": [
+        {
+          "line": 2,
+          "module": "pathlib"
+        },
+        {
+          "line": 3,
+          "module": "gzip"
+        },
+        {
+          "line": 4,
+          "module": "hashlib"
+        },
+        {
+          "line": 5,
+          "module": "json"
+        },
+        {
+          "line": 6,
+          "module": "os"
+        },
+        {
+          "line": 7,
+          "module": "time"
+        },
+        {
+          "line": 97,
+          "module": "ctypes"
+        },
+        {
+          "line": 98,
+          "module": "ctypes"
+        }
+      ],
+      "bytes": 6128,
+      "local_imports": [],
+      "module": "legacy_qref_common_v1",
+      "sha256": "909b01b43c7ec74a70e580a528e2fb70d6bdc18c4c5a3186c142757e8df88334"
+    },
+    "legacy_qref_data_v1": {
+      "all_imports_including_function_local": [
+        {
+          "line": 2,
+          "module": "collections"
+        },
+        {
+          "line": 3,
+          "module": "pathlib"
+        },
+        {
+          "line": 4,
+          "module": "hashlib"
+        },
+        {
+          "line": 5,
+          "module": "math"
+        },
+        {
+          "line": 6,
+          "module": "numpy"
+        },
+        {
+          "line": 7,
+          "module": "legacy_qref_common_v1"
+        }
+      ],
+      "bytes": 6829,
+      "local_imports": [
+        {
+          "line": 7,
+          "module": "legacy_qref_common_v1"
+        }
+      ],
+      "module": "legacy_qref_data_v1",
+      "sha256": "dc575ff12529e1b3dd9e7062d4f05b34dcf1f11c323573fea134d958622c59f5"
+    },
+    "onboarding_budget_v1": {
+      "all_imports_including_function_local": [
+        {
+          "line": 12,
+          "module": "hashlib"
+        },
+        {
+          "line": 13,
+          "module": "math"
+        },
+        {
+          "line": 15,
+          "module": "numpy"
+        },
+        {
+          "line": 17,
+          "module": "constrained_onboarding_core_v3"
+        }
+      ],
+      "bytes": 13944,
+      "local_imports": [
+        {
+          "line": 17,
+          "module": "constrained_onboarding_core_v3"
+        }
+      ],
+      "module": "onboarding_budget_v1",
+      "sha256": "82f75052524ddd19bd1af1deb162c7ca537e072f2415de0006d40ef7d785f099"
+    }
+  },
+  "entrypoints": [
+    "constrained_onboarding_core_v3",
+    "onboarding_budget_v1"
+  ],
+  "missing_in_parent": [
+    "causal_reference_overlap_v1"
+  ],
+  "original_parent_modified": false,
+  "parent_archive_sha256": "b37e9213bf7546134205cfcc52192c54d493fb99d4f393a78383d51dbf417937",
+  "parent_manifest_sha256": "3c7d04a6a32b2a033b62bdfefc93172809eb6a7e6375b7fd7be7828a27ad1199",
+  "parent_package_sha256": "6870ae7c60ecfb82e4e8c0bc8a18306cad6ee0cf62ed640a82ca254da1fa8f61",
+  "permits_model_forward": false,
+  "permits_new_CAL": false,
+  "permits_scheduler_submission": false,
+  "permits_support_computation": false,
+  "permits_target_score_evaluation": false,
+  "schema": "paper04-dense-ab-dependency-overlay-v1",
+  "scientific_parameters_changed": false,
+  "source_seal_bytes_changed": false,
+  "status": "PREPARED_NOT_EXECUTED"
+}

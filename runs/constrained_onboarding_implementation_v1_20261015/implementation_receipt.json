@@ -1,0 +1,55 @@
+{
+  "status": "IMPLEMENTED_SYNTHETIC_VERIFIED_REAL_NOT_STARTED",
+  "date": "2026-10-15",
+  "python": "3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]",
+  "executable": "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "test_command": [
+    "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+    "-m",
+    "unittest",
+    "-v",
+    "test_constrained_onboarding_core_v1",
+    "test_constrained_onboarding_reference_v1",
+    "test_constrained_onboarding_query_tail_adapter_v1",
+    "test_constrained_onboarding_integration_v1"
+  ],
+  "test_cwd": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\repo\\ood",
+  "tests": 89,
+  "exit_code": 0,
+  "wall_seconds": 16.101129399999998,
+  "test_log_sha256": "7b315f4127bbd8611ee48c3a9f73d66c7e89cefab47242705bd9c0ae67576ca2",
+  "frozen_inputs": {
+    "runs/onboarding_materials_and_protocol_20261015/protocol.json": {
+      "expected": "2fae0e1c8e1b5d6c04de8a972bfe0212ecfad27dbaf91066d267ccc746aaa4b5",
+      "actual": "2fae0e1c8e1b5d6c04de8a972bfe0212ecfad27dbaf91066d267ccc746aaa4b5"
+    },
+    "runs/legacy_query_tail_learning_design_v2_20261010/design_contract.json": {
+      "expected": "c6027a90f1f997b1bb1e8dd44409237531d7dc97cc13813e9bec364dc40b21af",
+      "actual": "c6027a90f1f997b1bb1e8dd44409237531d7dc97cc13813e9bec364dc40b21af"
+    },
+    "runs/legacy_query_tail_learning_delivery_v2r1_20261010/legacy_query_tail_learning_v2r1_20261010.tar.gz": {
+      "expected": "af61a1b187acaf8c379f1c8b01de0b18001aaa194333cfb7cf3bf95f6adddc4c",
+      "actual": "af61a1b187acaf8c379f1c8b01de0b18001aaa194333cfb7cf3bf95f6adddc4c"
+    }
+  },
+  "source_manifest_sha256": "ac3f89906e872f4788b0dee6bf796066282e072387ccbf1fae38914b4ab421e9",
+  "real_experiment": "NOT_STARTED",
+  "real_training": false,
+  "real_pcap_decode": false,
+  "real_E3_forward": false,
+  "real_target_scoring": false,
+  "remote_access": false,
+  "standalone_HPC_package": false,
+  "modern_heads_implemented": false,
+  "required_before_real_pairing": [
+    "Complete verified parent current-input caches and snapshots",
+    "Completed QUERY_TAIL v2r1 endpoints and score receipts",
+    "For B0/B1/B2, complete normal capture preparation and frozen E3 encoding"
+  ],
+  "remaining_complete_system_evidence": [
+    "Consumed three-device current-input regression",
+    "All real development results and frozen scientific gates",
+    "Independent confirmation after model/rule selection"
+  ]
+}

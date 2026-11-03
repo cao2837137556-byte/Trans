@@ -1,0 +1,388 @@
+{
+  "schema": "legacy-cic2022-p2-enhancement-small-v1",
+  "date": "2026-09-15",
+  "status": "DESIGN_LOCKED_IMPLEMENTATION_NEXT_REAL_EXECUTION_NOT_AUTHORIZED",
+  "workspace": {
+    "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline",
+    "branch": "codex/exp-mainline",
+    "head": "4b28747b09480471e2bac1beb3a9badf27280efb"
+  },
+  "authorization": {
+    "completed_scope": "Design and construction of target plans from existing audited metadata only",
+    "implementation_started": false,
+    "feature_generation_authorized": false,
+    "training_authorized": false,
+    "evaluation_authorized": false,
+    "hpc_authorized": false,
+    "download_authorized": false
+  },
+  "scientific_question": "Does same-device additional supervision help the fixed legacy representation, and does ranking add value over matched BCE?",
+  "supersedes_unfrozen_proposal": "20260914 same-environment interpretation only; no frozen legacy rule/result changed",
+  "claim_exclusions": [
+    "environment-controlled causal invariance",
+    "normal RTSP versus malicious RTSP discrimination",
+    "untouched final evidence",
+    "unseen-device commissioning",
+    "original few-shot budget",
+    "optimal or exhausted learning recipe"
+  ],
+  "new_data": {
+    "target_plan_status": "Design-locked proposed roles; real use not yet authorized",
+    "train_rows": 570,
+    "train_labels": {
+      "benign": 462,
+      "attack": 108
+    },
+    "check_rows": 281,
+    "check_labels": {
+      "benign": 227,
+      "attack": 54
+    },
+    "train_streams": 245,
+    "check_streams": 120,
+    "train_file_ids": [
+      1,
+      4,
+      5,
+      6,
+      7,
+      9,
+      11,
+      12,
+      13,
+      16,
+      19,
+      22
+    ],
+    "check_file_ids": [
+      2,
+      3,
+      8,
+      10,
+      17,
+      20
+    ],
+    "unassigned_nmap_ids": [
+      14,
+      15,
+      18,
+      21,
+      23
+    ],
+    "role_rule": "Repetition1/2 TRAIN,3 CHECK per device/activity; whole capture roles, chronological order verified by previous metadata review",
+    "target_rule": "Within (member_sha256,stream), frame-sort; unique indices {0,(n-1)//2,n-1}",
+    "labels": "Unmodified evidence predicates from pinned annotation_rule.json; only normal provenance and narrow Hydra authenticated DESCRIBE requests",
+    "input_context": "Full original prior/current eligible packet context under literal old session/burst rules, not only selected targets; frame_number_1based -> old position minus1",
+    "duplicates": "Keep frozen target identities and weights even if inputs/embeddings coincide; no random packet split",
+    "all_labeled_source_packet_coverage": {
+      "packets": 67492,
+      "legacy_scope": 67430,
+      "outside": 62
+    },
+    "check_unselected_candidates_not_scored": 3706,
+    "conditional_row_weight": "1/(captures_in_device_label_cell * candidate_streams_in_capture * retained_targets_in_stream)",
+    "bce_row_weight": "conditional_row_weight/4",
+    "evaluation_label_row_weight": "conditional_row_weight/2"
+  },
+  "old_replay": {
+    "rows": 11529,
+    "benign": 7347,
+    "attack": 4182,
+    "source": "runs/frontend_paired_learning_freeze_v1_20260909/lawful_target_metadata.csv.gz",
+    "source_sha256": "8484be428f43a5b9721f588daf28dcdbf5aa1e2b1958ed2b4faba0fcf3593c8c",
+    "predicate": "owner == A",
+    "sorted_uid_lines_sha256": "06df1e11dc7f02be39f7e3ec53fb5f23c2342c32fd6f40ff909d50d01e8440ad",
+    "original_fit": 18398,
+    "known_role_conflicts_excluded": 132,
+    "lawful_old_missing_excluded": 6737,
+    "weight": "1/(2*N_label), N0=7347,N1=4182",
+    "old_model_previous_exposure_not_reversed": true,
+    "new_GRU_check_roles_not_independent_of_old_P2": true
+  },
+  "model": {
+    "reference": "Immutable original E3/P2/normalizer",
+    "B_C_initial_state": "Independent original P2 copies; optimizer state fresh",
+    "encoder_frozen": true,
+    "normalizer_frozen": true,
+    "head": [
+      769,
+      128,
+      1
+    ],
+    "activation": "ReLU",
+    "dropout": 0.1,
+    "parameter_count": 98689,
+    "numeric_path": "E3 float32; standardize float64 with original mean/scale; append missing0; full row float32; P2 float32",
+    "state_array_allowlist": [
+      "normalizer_mean",
+      "normalizer_scale",
+      "p2__0.weight",
+      "p2__0.bias",
+      "p2__3.weight",
+      "p2__3.bias"
+    ],
+    "source_root": "D:/study/paper/anomaly_detection/paper04/supercompute_transfer/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound",
+    "checkpoint_dir": "D:/study/paper/anomaly_detection/paper04/supercompute_transfer/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound-base",
+    "checkpoint_sha256": "e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105",
+    "config_sha256": "e22262d4b840a0055915f6c48e9c64d04e790f80e907fa9dc06df855eff05401",
+    "e3_runtime": "Existing e3_embed_v1 build_e3_runtime + embed_flows semantics; model eval, local_files_only, config.pretraining=False, compile=False, tokenizer.pretraining=True, raw_labels=False; no changes to old fixed-size CLI contracts",
+    "pooling": "attention-mask mean pooling",
+    "new_e3_targets": 851,
+    "e3_batch_size": 16,
+    "source_commit": "b3ab5a3aa72640cc725ef207fb0145b039a57d35",
+    "release": "b812e625999165376ddb47a39d0d5579d4edce89",
+    "vendor_source_manifest": "runs/legacy_cic2022_p2_enhancement_design_v1_20260915/vendor_source_pins.json"
+  },
+  "optimization": {
+    "seed": 27,
+    "optimizer": "AdamW",
+    "lr": 0.0003,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "amsgrad": false,
+    "foreach": false,
+    "full_batch_updates_per_arm": 200,
+    "microbatch": 256,
+    "gradient_clip_global_norm": 1.0,
+    "gradient_clip_when": "Once after all weighted old/new/rank gradients, immediately before one optimizer step",
+    "old_weight": 0.8,
+    "new_weight": 0.2,
+    "rank_coefficient": {
+      "B": 0.0,
+      "C": 0.05
+    },
+    "rank_pairs": 29304,
+    "rank_objective": "0.5*sum_device sum_(a,b) q_a*q_b*softplus(-(logit_a-logit_b))",
+    "rank_reuses_new_logits": true,
+    "old_bce_class_balanced": true,
+    "new_bce_device_label_capture_stream_balanced": true,
+    "forward_order": "old sorted UID microbatches, then new sorted UID microbatches; same for each full-batch update and each arm",
+    "reset_identical_rng_before_each_arm": true,
+    "rank_extra_forward_calls": 0,
+    "training_row_exposures_per_arm": 2419800,
+    "scheduler": null,
+    "early_stopping": false,
+    "checkpoint_selection": "Update200 only",
+    "arm_order": [
+      "B",
+      "C"
+    ],
+    "validation_during_training": false,
+    "loss_trace_interval_updates": 10,
+    "gradient_nonfinite_policy": "STOP",
+    "retries": 0,
+    "search": false
+  },
+  "runtime": {
+    "device": "cpu",
+    "dtype": "float32",
+    "amp": false,
+    "deterministic_algorithms": true,
+    "intraop_threads": 4,
+    "interop_threads": 1,
+    "python": "3.9.13",
+    "numpy": "2.0.2",
+    "torch": "2.8.0+cpu",
+    "real_runtime_identity_verified_this_design": false,
+    "tshark": "4.6.6",
+    "environment": {
+      "OMP_NUM_THREADS": "4",
+      "MKL_NUM_THREADS": "4",
+      "PYTHONHASHSEED": "27"
+    },
+    "no_new_resource_pilot": true
+  },
+  "evaluation": {
+    "stage": "After both final checkpoints sealed; future explicit bounded run scope only",
+    "threshold_rule": "sigmoid float32 -> float64, >= fixed probability threshold",
+    "probability_threshold": 0.065159872174263,
+    "calibration": false,
+    "R_expanded": "Reuse existing pinned P2 report scores/hard labels, no original retraining",
+    "R_familiar_ID_new_check": "One frozen-reference forward on named check rows",
+    "expanded": {
+      "original_total": 262050,
+      "supported": 197268,
+      "legacy_missing": 64782,
+      "attack_supported": 180378,
+      "attack_total": 244050,
+      "future_supported": 94403,
+      "future_total": 131391,
+      "roles": [
+        "support_val",
+        "same_file_query",
+        "future_query",
+        "sealed_final_attack",
+        "ood_val",
+        "sealed_final_ood",
+        "aux_report",
+        "ood_stress"
+      ],
+      "ood": {
+        "hydraulic": [
+          2974,
+          3000
+        ],
+        "street": [
+          3000,
+          3000
+        ],
+        "predictive": [
+          7916,
+          9000
+        ],
+        "stream": [
+          3000,
+          3000
+        ]
+      }
+    },
+    "familiar_normal": {
+      "role_predicate": [
+        "aux_normal_select",
+        "aux_select"
+      ],
+      "labels": [
+        0
+      ],
+      "supported": 2188,
+      "total": 7000,
+      "supported_by_role": {
+        "aux_normal_select": 482,
+        "aux_select": 1706
+      },
+      "purpose": "Familiar-normal exposed development check only, never calibration"
+    },
+    "strict_ID": {
+      "role": "id_calib",
+      "supported": 760,
+      "total": 809,
+      "purpose": "Old fit preservation diagnostic, not independent ID test"
+    },
+    "new_check": {
+      "rows": 281,
+      "all_original_candidates": 3987,
+      "only_representatives_scored": true,
+      "statistics": [
+        "raw errors/denominators per device,label,capture",
+        "predeclared hierarchical rates"
+      ],
+      "no_iid_packet_significance": true
+    },
+    "report": [
+      "fixed-threshold per-pool and family/tier/source metrics",
+      "paired negative/positive flips vs R",
+      "full coverage ledger; default outside-scope alarms never count as learned detection",
+      "historical exact family exposure and behavioral overlap labels, not novel-mechanism claims"
+    ],
+    "low_FPR_diagnostic": {
+      "normal_pools": [
+        "familiar_normal",
+        "hydraulic",
+        "street",
+        "predictive",
+        "stream"
+      ],
+      "x": "max pool empirical FPR",
+      "y": [
+        "overall attack recall",
+        "future_query attack recall"
+      ],
+      "regions": [
+        0.01,
+        0.001
+      ],
+      "ties": "Observed score groups, >= boundary; include no-hard endpoint; no interpolation inventing attainable points",
+      "use": "Descriptive empirical curves only, never deploy thresholds or model/epoch selection"
+    },
+    "access_excluded": [
+      "unlisted viewed assets",
+      "cooler-motor",
+      "seed37",
+      "seed47",
+      "unlisted FINAL",
+      "old select scores",
+      "G0/P1 arrays or scores"
+    ],
+    "interpretation": "All old pools exposed development; same-campaign CIC CHECK; no deployment/independent final GO"
+  },
+  "access_by_stage": {
+    "IMPLEMENTATION": "Synthetic fixtures + code/metadata only; no real feature caches or checkpoints",
+    "PREPARE": "Verify pinned identities and metadata; selective original P2 six arrays, exact11529 old representation rows; new18 raw captures solely to materialize851 planned targets into separated TRAIN/CHECK caches; no evaluation logits",
+    "TRAIN": "Only copied P2 and prepared11529+570 training caches; training process receives no CHECK cache path",
+    "CHECK": "After both endpoint seals, authorized expanded197268 representation rows with all262050UID/missing ledger and existing P2-only scores;2188 familiar-normal select rows,760ID fit rows and281 newCHECK rows. No new thresholds or optimization"
+  },
+  "pipeline": [
+    "PREPARE",
+    "TRAIN_B",
+    "TRAIN_C",
+    "CHECK",
+    "COMPLETE"
+  ],
+  "monitoring": {
+    "artifacts": [
+      "status.json",
+      "status.md",
+      "stdout.log",
+      "stderr.log",
+      "final_verification.json"
+    ],
+    "progress": [
+      "stage",
+      "done",
+      "total",
+      "optimizer_update",
+      "arm",
+      "error",
+      "exit_code"
+    ],
+    "llm_polling": false,
+    "local_completion_notification": true
+  },
+  "stop_conditions": [
+    "asset/hash or UID/denominator mismatch",
+    "causal/role/input semantics mismatch",
+    "new in-scope target cannot materialize",
+    "nonfinite values/gradients",
+    "runtime failure",
+    "unauthorized data access attempt"
+  ],
+  "stop_is_not_scientific_NO_GO": true,
+  "legacy_asset_pins": {
+    "verification": "Recorded hashes from sealed source manifests; state and feature values not opened or rehashed this design",
+    "files": {
+      "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_probe_state.npz": "50a9bcfc18287d51bf8afda7367b57decdf3179dd41fc3aa61399d4098360c38",
+      "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_threshold_freeze_marker.json": "84576a5008259f4381c46eecbc3ee3bda9d06b9dc7068cd52d7c2232e884dd5b",
+      "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_fit_select_plan.csv": "eed3d431ab8d71117db7a02b5ee0022eefe7932888001e7d9bcccfd54199aeac",
+      "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_fit_select_embeddings.npz": "b1b4f2fde168a69e0cf7a53aaede2ddef9bd6d92b0ce58e56a9d6fcde37b6099",
+      "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_fit_select_target_metadata.csv": "d6fbba24a1997db24597a800cf952f80f739284e5ca13db5ce04497f1540c36d",
+      "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_fit_select_embeddings.npz.metadata.csv.gz": "120ed5ccc752c1210a655dbcb972e08b6263bdeb1e08093d76b3e2f9c1b3d8dd",
+      "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_report_plan.csv": "3b97498c505cea5c646e91ecf247972926eb8c8fe4a6c51ef61a17e940a93c70",
+      "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_report_target_metadata.csv": "628c542108b4b582e74cd6ed0e5474a5f69225bd6a7c054200998d7448bfe65e",
+      "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_report_embeddings.npz": "256e333dc18905ec7e2900260d9d8458ad56590c44f30475f098bf68ed58d048",
+      "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_report_embeddings.npz.metadata.csv.gz": "4d44d605bd00ac5065a2cacc9ff02ebf5384b2df6bb8f68ac6e8644a3090fb10",
+      "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_report_scores.csv.gz": "7ed1c0e9ebd0cbfc95669a064dcf1f57dd343fc4106611216575232432a0e6f9",
+      "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_target_coverage_by_role_source.csv": "40e8a56decf088fd0a823ac21323df2b5a022b991726a5ef291c4c46ae8ef37a"
+    }
+  },
+  "design_artifact_pins": {
+    "runs/legacy_cic2022_p2_enhancement_design_v1_20260915/build_design_metadata.py": "c30c49948e33ab5560a69dbb8680b781abd7bb55c116bb7f0fa6ee1fbc04d1cc",
+    "runs/legacy_cic2022_p2_enhancement_design_v1_20260915/capture_role_plan.json": "1965d034fb6082f9fa71e8ed1d78648448559c03546f94077ce9a1feea4c07e8",
+    "runs/legacy_cic2022_p2_enhancement_design_v1_20260915/metadata_source_pins.json": "45253835c2b46e65c9326101cff4aa47ce5ebd052ceec43d2663872f8b20a87b",
+    "runs/legacy_cic2022_p2_enhancement_design_v1_20260915/metadata_verification.json": "5cb3f803fe66533101b48c663860ee90e81aaca514bf83a57bd062d7368ae7d1",
+    "runs/legacy_cic2022_p2_enhancement_design_v1_20260915/new_check_target_plan.jsonl": "04cd80e3e1699b9c314a0e74c46e8c055fecdaf9c5e27ccb2def1318df0936d5",
+    "runs/legacy_cic2022_p2_enhancement_design_v1_20260915/new_train_target_plan.jsonl": "b20a274097928daec0714a55590c4252bec005e5e5e57a8f900aa1c3f64370f1",
+    "runs/legacy_cic2022_p2_enhancement_design_v1_20260915/old_replay_target_plan.jsonl": "8bb5b0305659a31659fcd3391ddc515fa019ba8e421682bd1a6d9b11e39ead10",
+    "runs/legacy_cic2022_p2_enhancement_design_v1_20260915/vendor_source_pins.json": "32e25682c0bc2d01892abd46dc5da581ad5ca24cfb8ab09fdfacadb605435fd1"
+  },
+  "code_source_pins": {
+    "repo/ood/issue27ckda_d1_representation_probe_v1.py": "f8f477ca78d8ed1fa490880d24a01f65111e3f910eaa8ab72af154d8a143de4e",
+    "repo/ood/issue27ckda_d1_e3_embed_v1.py": "360cbaa72f818e6fc423b16f3b4989333bfba002a1423085ff15b2cb1569de14",
+    "repo/ood/issue27ckbu_unified_tshark_causal_frontend_v1.py": "127efd212932d9330af790f17a069a84b3ee48205d68bed7e2e9f00778bb2820",
+    "repo/ood/issue27ckda_d0_resource_pilot_v1.py": "ec1cb7be1f47e2ef7862905f3e89c75c0295fb1565fa0820d174a6e11409856a",
+    "repo/ood/issue27frontend_f5_unified_student_v1.py": "78898ad6cf5d59bbe3505fe5fb7536f7e29b8aeed1cb4c00aaf9f38108bf8136"
+  }
+}

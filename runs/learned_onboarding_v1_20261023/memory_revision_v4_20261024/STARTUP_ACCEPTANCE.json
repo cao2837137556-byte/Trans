@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-24T08:04:25.928541+00:00",
+  "test_state/stages/tests/tests.json": {
+    "elapsed_seconds": 9.182280181004899,
+    "errors": 0,
+    "expected_failures": 0,
+    "failures": 0,
+    "schema": "learned-onboarding-deployment-tests-v1",
+    "skipped": 0,
+    "status": "PASS",
+    "tests_run": 63,
+    "unexpected_successes": 0
+  },
+  "test_state/stages/tests/adapter_validation.json": {
+    "adapter_sha256": "64485ca3a5c722158f6f9471889f6dbab185e402396bf4fbfc19ca44d368a897",
+    "elapsed_seconds": 0.10557716499897651,
+    "real_target_queries_read": 0,
+    "schema": "learned-onboarding-target-adapter-validation-v1",
+    "status": "PASS",
+    "tests": [
+      "source-seal-gate",
+      "tampered-cal-seal-rejected",
+      "pinned-query-interchange",
+      "historical-parent-slot-replay"
+    ],
+    "tests_run": 4,
+    "unittest_count_is_separate": true
+  },
+  "source_validation/status.json": {
+    "status": "RUNNING_SOURCE_DIAGNOSTIC",
+    "phase": "auxiliary_source_scores",
+    "elapsed_seconds": 57.47958795999875,
+    "peak_process_tree_rss": 4972666880,
+    "production_optimizer_updates": 0,
+    "target_queries_read": 0,
+    "head": "AUX_G0"
+  },
+  "source_validation/VALIDATION_EXCEPTION.json": null,
+  "source_validation/RESOURCE_EXCEPTION.json": null,
+  "unit": "MainPID=146254\nResult=success\nNRestarts=0\nMemoryCurrent=2427727872\nMemoryMax=17179869184\nActiveState=active\nSubState=running\n",
+  "stderr": ""
+}

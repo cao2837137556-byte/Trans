@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-29T05:24:42.469566+00:00",
+  "status": "REPAIR_PREPARED_NOT_EXECUTED",
+  "original_package": "runs/local_geometry_budgeted_v2_20261029",
+  "original_failed_attempt": "outputs/source_01",
+  "original_attempt_head_forward_rows": 26349,
+  "original_failure": "SOURCE_RAW_REPLAY_MISMATCH:G027CAL",
+  "spec_sha256": "797a08dc7cd540f6c1c2d498490e520cb40d6938da8c6ceec350f5b80b17fc51",
+  "code_sha256": {
+    "DEPENDENCIES.json": "30099bdaa2be2b9decb8a3954d4b2ae8c34197991f0950bbd3b6fc2f8d69b281",
+    "EXPERIMENT_PLAN.md": "797a08dc7cd540f6c1c2d498490e520cb40d6938da8c6ceec350f5b80b17fc51",
+    "lg/__init__.py": "5e2eac54bf600c0a5ba4de2ec07fa282ca28c86f31912ce2a337e0f753f47e6f",
+    "lg/common.py": "fb25d5307530727f5058ea667e73b761a3529cfa2b06af301b363c3742c4cc5b",
+    "lg/geometry.py": "9d24dc4f0cde958fc332fb89142120fe2d4c942646601e633bcd51d247c62256",
+    "lg/legacy.py": "a7343b523c6184a08f24252ad9cf1dc865e933d20176a877e8f62b91f39a77a1",
+    "lg/metrics.py": "38af9abc26445f266c1e1e5f4edaaff181fb0d8dbbc702e53e8aa36624e69422",
+    "lg/runtime.py": "f228b5d256c87f9e5268354992d97455dc9be3bf735ab078beb9987f8128a83b",
+    "lg/source.py": "f38a99404030ce04fa8dcab8bacc827bf6df3ddac8859c4fe72301bf096952ee",
+    "lg/target.py": "9c5b573263af7e6cadb51e6a56b977140c6aba5790f1f26d1508a0504ff108e2",
+    "run.py": "a04400d6cf116a44fccfc2988bd69a0b4449febab83f71c98574732b0466b839"
+  },
+  "files_sha256": {
+    "DEPENDENCIES.json": "30099bdaa2be2b9decb8a3954d4b2ae8c34197991f0950bbd3b6fc2f8d69b281",
+    "evidence/HISTORICAL_SOURCE_ENVIRONMENT.json": "3722079949b2d4cc7c99923a77704c9d9cd87d78612e1c2447f9172a86e56827",
+    "EXECUTION_CARD.md": "08a5301ce4f654f24c017be1e9daa2869ec1eb32f722071a2a81f6da5002cbcf",
+    "EXPERIMENT_PLAN.md": "797a08dc7cd540f6c1c2d498490e520cb40d6938da8c6ceec350f5b80b17fc51",
+    "EXPERIMENT_PLAN.md.sha256": "2005041a45254adc810268f98790a388baa10a75dadc18e98e4929501b399db1",
+    "historical_source.py": "00d89ed920f9b8fbe29dbdbb76f194c60e8a4ee8c5befd8b9f53ccf977eeffc5",
+    "hpc/source_once.slurm": "15151a812627eef0f563d78edf5ce490b52e6f5c75b1614b80a0f50b944acad4",
+    "lg/__init__.py": "5e2eac54bf600c0a5ba4de2ec07fa282ca28c86f31912ce2a337e0f753f47e6f",
+    "lg/common.py": "fb25d5307530727f5058ea667e73b761a3529cfa2b06af301b363c3742c4cc5b",
+    "lg/geometry.py": "9d24dc4f0cde958fc332fb89142120fe2d4c942646601e633bcd51d247c62256",
+    "lg/legacy.py": "a7343b523c6184a08f24252ad9cf1dc865e933d20176a877e8f62b91f39a77a1",
+    "lg/metrics.py": "38af9abc26445f266c1e1e5f4edaaff181fb0d8dbbc702e53e8aa36624e69422",
+    "lg/runtime.py": "f228b5d256c87f9e5268354992d97455dc9be3bf735ab078beb9987f8128a83b",
+    "lg/source.py": "f38a99404030ce04fa8dcab8bacc827bf6df3ddac8859c4fe72301bf096952ee",
+    "lg/target.py": "9c5b573263af7e6cadb51e6a56b977140c6aba5790f1f26d1508a0504ff108e2",
+    "README.md": "982b3b42536ddda923694dc35d46af536ab23d5f1da6e6041f9000a4fd99a9af",
+    "run.py": "a04400d6cf116a44fccfc2988bd69a0b4449febab83f71c98574732b0466b839",
+    "seal_dependencies.py": "f07aa898d99b36a5adb934fc786c4f4cb5b8afafc494029ad5db2ba6161d64dc",
+    "SOURCE_TRANSFER_MANIFEST.json": "00fca2519de147f041ea6ebd0ced7ad8f74ed8169f8c8eaf460118f7576f6ff8",
+    "tests/test_geometry.py": "69aa06a568d35f9074ff22646257325619ae3a51abcf07b2c48c7deb70a98aab",
+    "tests/test_metrics.py": "cf0375ec1745a14cc63bc1ea2aceead59beb6d942ccbab637b34ded6ad2e9b60",
+    "tests/test_replay_diagnostics.py": "b135e4677ad6de48c5f93f7cf50d9e27cddb8f5875f381e089f92a6b65121f98",
+    "tests/test_runtime.py": "8f6d951380a83d4994d638face1e8a4195f303c5b08a0cf0b716c85fe5286f90",
+    "tests/test_source.py": "8c62955bf80ed4ad85d28d79537f03d0e22db4e66d9da72d2cfdbd74d59502bd",
+    "tests/test_target_integration.py": "4973aa5c2c6a5f49f795bb8a46de5730dadfd5a296162e3e00b551106b7bf8aa",
+    "validation/ENVIRONMENT_GUARD_ACCEPTANCE.json": "9a9dd29a4fa3609b716cdc0bcccd62ca64221d53e2fc2ba035cc159aa3179f95",
+    "validation/environment_guard_local.log": "e897ec0c0fd9d781584b7f9c46b02183d267b8f04a4a00d2f3a6735982988e27",
+    "validation/SCIENTIFIC_EQUIVALENCE.json": "73102a9775711a00a0de55164c0f1385622cf03d9f11c7a44f986920d9528530",
+    "validation/SYNTHETIC_ACCEPTANCE.json": "d58ecf3f66f78a5dd88630d99c6806ee1d89a4135ae15af168d8369bfd62d489",
+    "validation/synthetic_tests_final.log": "08fe70b31094ac27a6270e8487842615d28adbd46937e61ba190cf1306c89468",
+    "verify_source_inputs.py": "d270ac8d47cc25c984cf6c58a047af8715762a76d0b4c7e5d156ca1103773e27"
+  },
+  "implementation_sha256sums_sha256": "49f92a259791a77b48849c1ffdd19cd4bb9d8c3dedce710aff985e1c0ada1959",
+  "validation": {
+    "synthetic_tests": 65,
+    "synthetic_status": "PASS",
+    "environment_guard": "PASS_EXPECTED_LOCAL_REJECTION",
+    "scientific_ast_equivalence": "PASS",
+    "independent_review": "PASS_READ_ONLY"
+  },
+  "real_repair_operations": {
+    "head_forward_rows": 0,
+    "distance_pairs": 0,
+    "new_support": 0,
+    "training": 0,
+    "new_encoding": 0,
+    "target_evaluations": 0,
+    "remote_jobs": 0
+  },
+  "expected_source_environment": {
+    "python": "3.11.11",
+    "numpy": "1.26.4",
+    "torch": "2.5.1",
+    "system": "Linux"
+  },
+  "limits": {
+    "check": {
+      "cpu": 4,
+      "rss_bytes": 8589934592,
+      "wall_seconds": 1800,
+      "output_bytes": 536870912,
+      "pairs": 0,
+      "forwards": 0
+    },
+    "source": {
+      "cpu": 4,
+      "rss_bytes": 8589934592,
+      "wall_seconds": 14400,
+      "output_bytes": 2147483648,
+      "pairs": 2000000000,
+      "forwards": 4600362
+    },
+    "target": {
+      "cpu": 4,
+      "rss_bytes": 8589934592,
+      "wall_seconds": 14400,
+      "output_bytes": 2147483648,
+      "pairs": 9000000000,
+      "forwards": 0
+    }
+  },
+  "source_manifest": "SOURCE_TRANSFER_MANIFEST.json",
+  "remote_availability": "NOT_YET_CHECKED",
+  "source_replay_parity": "NOT_YET_TESTED",
+  "authorization": {
+    "retry": "REQUIRES_EXPLICIT_SINGLE_RETRY_CONSENT",
+    "reason": "Frozen plan one execution with no automatic retry",
+    "automatic_retry": false
+  },
+  "cause": "ENVIRONMENT_DIFFERENCE_IS_A_HYPOTHESIS_NOT_CONFIRMED"
+}

@@ -1,0 +1,99 @@
+{
+  "recorded_utc": "2026-10-29T05:17:31.957047+00:00",
+  "status": "TECHNICAL_STOP_NOT_SCIENTIFIC_FAIL",
+  "process_exit_code": 1,
+  "scientific_status": "NOT_EVALUATED",
+  "exception": "SOURCE_RAW_REPLAY_MISMATCH:G027CAL",
+  "failed_replay": {
+    "fold": "G0",
+    "seed": 27,
+    "role": "CAL",
+    "completed_rows": 26349,
+    "difference_detail_saved": false
+  },
+  "observed": {
+    "step": "SOURCE_RAW_REPLAY",
+    "stage": "source",
+    "pid": 40484,
+    "technical_status": "EXCEPTION_STOPPED",
+    "updated_utc": "2026-10-29T05:11:45.192656+00:00",
+    "elapsed_seconds": 49.953000000008615,
+    "process_tree_rss_bytes": 3842134016,
+    "output_bytes": 12390,
+    "peak_process_tree_rss_bytes": 4726845440,
+    "pairs": 0,
+    "head_forward_rows": 26349,
+    "limits": {
+      "cpu": 4,
+      "rss_bytes": 8589934592,
+      "wall_seconds": 14400,
+      "output_bytes": 2147483648,
+      "pairs": 2000000000,
+      "forwards": 4600362
+    },
+    "automatic_retry": false,
+    "fold": "G0",
+    "completed": 26349,
+    "total": 26349,
+    "error": "SOURCE_RAW_REPLAY_MISMATCH:G027CAL"
+  },
+  "worker_alive": false,
+  "target_started": false,
+  "automatic_retry": false,
+  "real_operations": {
+    "head_forward_rows": 26349,
+    "distance_pairs": 0,
+    "own_FIT_forwards": 0,
+    "new_support": 0,
+    "new_D0": 0,
+    "new_lambda_selection": 0,
+    "new_training": 0,
+    "new_E3_encoding": 0,
+    "new_AB_evaluations": 0
+  },
+  "startup_inputs": {
+    "count": 62,
+    "matches_final_readonly_check": true,
+    "post_run_all_inputs_reverified": false
+  },
+  "environment": {
+    "current": {
+      "python": "3.10.0",
+      "numpy": "2.2.6",
+      "torch": "2.8.0",
+      "platform": "Windows-10-10.0.26200-SP0"
+    },
+    "historical_source": {
+      "python": "3.11.11",
+      "numpy": "1.26.4",
+      "torch": "2.5.1",
+      "platform": "Linux-5.14.0-687.33.1.el9_8.x86_64-x86_64-with-glibc2.34",
+      "executable": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+      "E3_forwards": 0,
+      "lineage": "NEW_SOURCE_PAIRED_ENVIRONMENT_NOT_OLD104_PARITY"
+    },
+    "historical_source_file": "runs/source_controls_base_ctx_repair_v2_20261026/result_retrieval_20261027/evidence179460/environment.json",
+    "historical_source_sha256": "b139cf99ede7ffd26f2221cbc76b3941ea28b7f5d7d557185b794163f34a0824",
+    "cause": "ENVIRONMENT_DIFFERENCE_IS_A_HYPOTHESIS_NOT_CONFIRMED"
+  },
+  "evidence_sha256": {
+    "outputs/source_01/EXCEPTION.json": "499b4ef894b151ea343bb2e76754b060f06cbca7126b713493e8389eb5339a9d",
+    "outputs/source_01/INPUT_SEAL.json": "c9f3f84063eb13ec84d9dbdea17ccf27bdf09918ed6bee1572130e771aa15a87",
+    "outputs/source_01/STATUS.json": "0b1e62924baaaed7d06bcc6d787c9b901cf4d4ccb8f46a39053fdc33dca540e1"
+  },
+  "code_sha256": {
+    "DEPENDENCIES.json": "30099bdaa2be2b9decb8a3954d4b2ae8c34197991f0950bbd3b6fc2f8d69b281",
+    "EXPERIMENT_PLAN.md": "797a08dc7cd540f6c1c2d498490e520cb40d6938da8c6ceec350f5b80b17fc51",
+    "lg/__init__.py": "5e2eac54bf600c0a5ba4de2ec07fa282ca28c86f31912ce2a337e0f753f47e6f",
+    "lg/common.py": "fb25d5307530727f5058ea667e73b761a3529cfa2b06af301b363c3742c4cc5b",
+    "lg/geometry.py": "9d24dc4f0cde958fc332fb89142120fe2d4c942646601e633bcd51d247c62256",
+    "lg/legacy.py": "a7343b523c6184a08f24252ad9cf1dc865e933d20176a877e8f62b91f39a77a1",
+    "lg/metrics.py": "38af9abc26445f266c1e1e5f4edaaff181fb0d8dbbc702e53e8aa36624e69422",
+    "lg/runtime.py": "f228b5d256c87f9e5268354992d97455dc9be3bf735ab078beb9987f8128a83b",
+    "lg/source.py": "a8779f4f93cc2d941dcb971e5d51d714174bd02183904d896610b8c6b219b4f7",
+    "lg/target.py": "9c5b573263af7e6cadb51e6a56b977140c6aba5790f1f26d1508a0504ff108e2",
+    "run.py": "a04400d6cf116a44fccfc2988bd69a0b4449febab83f71c98574732b0466b839"
+  },
+  "no_completed_stage_receipt": true,
+  "no_new_AB_result": true
+}

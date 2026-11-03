@@ -1,0 +1,47 @@
+{
+  "status": "PASS_ENGINEERING_ONLY",
+  "observed_at_utc": "2026-11-02T04:28:16.976568+00:00",
+  "command": "python -X utf8 -B -m unittest -v test_budget_amendment",
+  "cwd": "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/history_sample_coverage_c4_batch_resume_v1_20261102",
+  "exit_code": 0,
+  "tests_run": 13,
+  "failures": 0,
+  "errors": 0,
+  "test_runner_elapsed_seconds": 0.017,
+  "source_sha256": {
+    "run.py": "d013e2706db414fd86ecb7cf83fec64fee4eadb90e6eaaaf1af2b8d13ee1f7f7",
+    "verify_result.py": "398f8b577516a1c348d52a3b69e463fe62aa53d25677b3b4cd68d940fc610c91",
+    "hnr/runtime.py": "dc4089bcc4bce07cd269e8c09039f08478249632e2aeed615938e743750aee1a",
+    "test_budget_amendment.py": "9803e2e0f85b03f214ca158ce7e75be191a8374906ff292898ee81e3719b4fcb"
+  },
+  "budget": {
+    "cumulative_wall_seconds": 46861,
+    "prior_wall_seconds_charged": 28861,
+    "new_wall_seconds": 18000,
+    "cumulative_logical_attempt_ceiling": 37442,
+    "prior_logical_attempts_charged": 25154,
+    "reused_durable_rows": 20480,
+    "new_logical_rows": 12288,
+    "prior_discarded_charged_rows": 4674,
+    "explanation": "Charged ceiling includes the previous unmatched 16-row ATTEMPT. It is not an exact unique or durable vector count."
+  },
+  "coverage": [
+    "Finite positive residual time and reconciliation; exhausted/NaN/inf budgets rejected.",
+    "A completed real encoding receipt must have zero distance pairs, all required arrays, cumulative encoded charge and unchanged 4 CPU/8 GiB/20 GiB limits.",
+    "Synthetic, partial, wrong-charge and hidden prior AB/model runs rejected.",
+    "Independent verification receives only residual time with zero pairs/encoded allowance.",
+    "Verification errors or final cumulative wall overflow do not publish FINAL_ACCEPTANCE."
+  ],
+  "deployment_obligation": "The deployment must enforce the additional 18000-second monotonic deadline from new remote encoding start through retrieval, evaluation and independent verification. Stage receipt summation by itself omits transfer and setup overhead.",
+  "modified_files": [
+    "run.py",
+    "verify_result.py",
+    "hnr/runtime.py",
+    "test_budget_amendment.py"
+  ],
+  "scientific_arrays_read": false,
+  "model_forwards": 0,
+  "distance_pairs": 0,
+  "jobs_submitted": 0,
+  "old_sealed_assets_modified": false
+}

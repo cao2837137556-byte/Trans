@@ -1,0 +1,544 @@
+{
+  "schema": "paper04.task_aligned_transfer.design.v1",
+  "date": "2026-09-12",
+  "status": "DESIGN_COMPLETE_READY_FOR_IMPLEMENTATION",
+  "design_document": "runs/mainline_docs/frontend_task_aligned_transfer_design_v1_20260912.md",
+  "workspace": {
+    "branch": "codex/exp-mainline",
+    "head": "4b28747b09480471e2bac1beb3a9badf27280efb",
+    "preserve_unrelated_modifications": true,
+    "new_worktree_or_branch_switch": false
+  },
+  "authorization": {
+    "current": "design_review_and_documentation_only",
+    "implementation": false,
+    "real_P": false,
+    "real_T": false,
+    "real_E": false,
+    "future_execution_may_be_jointly_authorized": [
+      "P",
+      "T",
+      "E"
+    ],
+    "prior_run_authorizations_do_not_extend_to_this_recipe": true
+  },
+  "objective": "Recover old P2 attack capability while improving benign-OOD false alarms in one unified A+B student; commissioning is a later separate contribution.",
+  "base_contract": {
+    "path": "runs/mainline_docs/frontend_task_knowledge_transfer_recipe_v1_20260911.json",
+    "sha256": "7707807c49950fbffe47d2025ce6ceb6edf7106d588b04e688afe41baacd9513",
+    "numeric_access_stage": "metadata"
+  },
+  "base_contract_semantics": "Only explicitly copied unchanged data, student, schedule, optimizer, label, guard and evaluation rules apply. The old three-arm teacher preparation, C2 loss and past execution authorizations do not apply.",
+  "inputs": {
+    "plan": {
+      "path": "runs/frontend_paired_train_implementation_v3_20260910/plan.json",
+      "sha256": "2d17743edeab5d51751e9d95c308a414c3763934921e917fc2ab97c495e2e5ef"
+    },
+    "membership": {
+      "path": "runs/frontend_paired_metadata_v3_20260909/membership.csv",
+      "sha256": "3766778032f9317f471939434868ac28b39cf0c88728130e42679f4f0c990418"
+    },
+    "train_check_features": {
+      "path": "runs/frontend_paired_train_preparation_v3_20260910/features.f32le",
+      "sha256": "b9e2775445e889ebb313463eee53a7ec2f1de56d78c838b3de247394fc5520b5",
+      "shape": [
+        210634,
+        131
+      ],
+      "dtype": "<f4",
+      "bytes": 110372216,
+      "training_access": "plan train prefixes only"
+    },
+    "initial_A": {
+      "path": "runs/frontend_paired_train_v3_20260910/candidate_A.pt",
+      "sha256": "1dd82c0162ab9ae3db8acb7d11560bd52fc17e8d9beb05a2d74a939f79e77093",
+      "state_sha256": "8d11b770ab98c401e4d05359e34328d8c7fa4e56b4242c2e7211e53535e457a4"
+    },
+    "historical_train_manifest": {
+      "path": "runs/frontend_paired_train_v3_20260910/SHA256SUMS",
+      "sha256": "0f55d36928f813dcd034d44a19ce2ab3d57e5e7b8c9f6ecd7354b0cfc835869a"
+    },
+    "historical_check_scores": {
+      "path": "runs/frontend_paired_train_v3_20260910/check_predictions.json",
+      "sha256": "477d0530b0586cd11ce9bf355efa2f635074b09690aba15d0322d9c794166f68",
+      "access": "E reference only"
+    },
+    "historical_AB": {
+      "path": "runs/frontend_paired_train_v3_20260910/candidate_AB.pt",
+      "sha256": "a9e8e0c6aa50a25fe589d1733a9e9d788f380db64e90e8df71b3edde389ed325",
+      "access": "identity only; no load or new forward"
+    },
+    "expanded_scope": {
+      "path": "runs/frontend_expanded_eval_scope_v1_20260910/scope_readiness.json",
+      "sha256": "a7c0fe773c5c01085a6974d4d26a58d2a218944f0996e6ab37d00bce84bf3d56"
+    },
+    "expanded_preparation": {
+      "path": "runs/frontend_expanded_eval_v2_20260910/preparation_receipt.json",
+      "sha256": "bf6c11bc3740e9b50e91d4bccf67f8f47c52f28c877b77a3740ac38725b250f0",
+      "reuse": "members/*/features.f32le and contexts.jsonl.gz listed in pinned manifest",
+      "access": "E only; no decoding or rematerialization"
+    },
+    "expanded_manifest": {
+      "path": "runs/frontend_expanded_eval_v2_20260910/SHA256SUMS",
+      "sha256": "5e35e97dc681c718d4002b9777ecee855e1c66bc402f13ce411858691b44a7bb"
+    },
+    "expanded_AB_P2_predictions": {
+      "path": "runs/frontend_expanded_eval_v2_20260910/predictions.csv.gz",
+      "sha256": "9de2201b0f13f5c39dadcaae925ac9482377adba96cc88ca1cfda72b6491aef4",
+      "access": "E reference only"
+    },
+    "expanded_A_predictions": {
+      "path": "runs/frontend_a_expanded_eval_v1_20260911/predictions.csv.gz",
+      "sha256": "94dc12c5d1f0363ccb640e22b9aa4673a14f644479c7d50bcef8cbf30be9e627",
+      "access": "E reference only"
+    },
+    "design_support": {
+      "path": "runs/frontend_knowledge_transfer_design_v1_20260911/metadata_support.json",
+      "sha256": "854b3f857117cc688f26328a40ad31b6b48cccd31f6e7ca9a2e115e087003945"
+    }
+  },
+  "data": {
+    "train_targets": 15073,
+    "train_contexts": 10583,
+    "train_components": 6797,
+    "A": {
+      "targets": 9402,
+      "attack": 3357,
+      "benign": 6045,
+      "contexts": 6286
+    },
+    "B": {
+      "targets": 5671,
+      "attack": 71,
+      "benign": 5600,
+      "contexts": 4297
+    },
+    "check": {
+      "targets": 3193,
+      "contexts": 2306,
+      "components": 1679
+    },
+    "expanded": {
+      "targets": 262050,
+      "contexts": 57686,
+      "benign_OOD_targets": 18000,
+      "attack_families": 16,
+      "benign_OOD_pools": 4
+    },
+    "ID_check_targets": 151,
+    "train_source_groups": 22,
+    "train_members": 24,
+    "all_train_contexts_single_label": true,
+    "verified_same_device_attack_benign_matching": false,
+    "no_cross_train_check_UID_or_component": true,
+    "direct_supervision": "all fixed 15073 true-label targets once per epoch, no exclusions",
+    "exposure": "All pools are exposed development assets; historical P2 fit includes current-check labels. Q/R use extra historical teacher exposure. Equal direct student labels do not mean equal total knowledge exposure. This is not an independent confirmatory benchmark."
+  },
+  "arms": [
+    {
+      "id": "Q",
+      "loss": "L_label + L_Aguard + L_q",
+      "trainable_parameters": 91265,
+      "projection": false
+    },
+    {
+      "id": "R",
+      "loss": "L_label + L_Aguard + L_q + L_r",
+      "trainable_parameters": 107777,
+      "projection": true
+    }
+  ],
+  "student": {
+    "architecture": "Linear(131,64) -> GELU(exact) -> GRU(64,128,1 layer,unidirectional,bias,dropout0) -> Linear(128,64) -> GELU(exact) -> Linear(64,1)",
+    "parameters": 91265,
+    "train_all_student_parameters": true,
+    "initialization": "each arm independently copies identical sealed candidate_A student state; no sequential warm-start between arms",
+    "prefix_semantics": "reuse plan offsets, exact causal target event states, reset boundaries, packed padding and F4 fields",
+    "max_context_events": 256,
+    "deployment_threshold_logit": 0.0,
+    "deployment_comparison": ">=",
+    "R_projection": {
+      "type": "Linear(128,128,bias=True)",
+      "parameters": 16512,
+      "weight_init": 0.0,
+      "bias_init": 0.0,
+      "input": "causal GRU h at each eligible target event",
+      "train_only": true,
+      "detach_h": false,
+      "deployment_removed": true
+    },
+    "projection_output_replaces_deployed_head": false,
+    "deployment_output": "Always original qS=head(h); never sum a reconstructed contribution vector."
+  },
+  "schedule": {
+    "seed": 2705,
+    "epochs": 20,
+    "steps_per_epoch": 197,
+    "updates_per_arm": 3940,
+    "updates_all_arms": 7880,
+    "target_presentations_per_arm": 301460,
+    "target_presentations_all_arms": 602920,
+    "canonical_hash_encoding": "UTF8 json.dumps(value,ensure_ascii=False,separators=(',',':'),allow_nan=False)",
+    "owner_order": "sort context keys by (SHA256(canonical(['paired-order-v1',2705,epoch,owner,key])),key), epoch 1..20, independently for A and B",
+    "buckets": "q,r=divmod(N_owner,197); first r buckets contain q+1 ordered contexts, remaining buckets q",
+    "microbatch_context_limit": 32,
+    "per_update_order": "A then B; each microbatch forward once for all applicable losses; accumulate gradients, global clip once, optimizer step once",
+    "teacher_extra_student_forwards": 0,
+    "guard_extra_student_forwards": 0,
+    "candidate_selection": "Final epoch20 only; Q and R final checkpoints sealed before E; no intermediate candidate selection",
+    "execution_order": [
+      "Q",
+      "R"
+    ],
+    "new_task_gradient_diagnostics": 0
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "reset_each_arm": true,
+    "lr": 0.0001,
+    "weight_decay": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "amsgrad": false,
+    "foreach": false,
+    "fused": false,
+    "maximize": false,
+    "capturable": false,
+    "differentiable": false,
+    "scheduler": null,
+    "clip_global_L2": 1.0,
+    "clip_error_if_nonfinite": true,
+    "clip_parameters": {
+      "Q": "student",
+      "R": "student + D"
+    },
+    "log_before_clip": [
+      "student_gradient_L2",
+      "D_gradient_L2_if_R",
+      "actual_clip_factor"
+    ],
+    "early_stopping": false
+  },
+  "runtime": {
+    "Python": "3.9.13",
+    "numpy": "2.0.2",
+    "torch": "2.8.0+cpu",
+    "student_dtype": "float32",
+    "device": "cpu",
+    "threads": 4,
+    "interop_threads": 1,
+    "deterministic_algorithms": true,
+    "seed_reset_each_arm": true,
+    "local_workers": 1
+  },
+  "teacher_cache": {
+    "manifest": {
+      "path": "runs/frontend_task_knowledge_transfer_p_v1_20260911/SHA256SUMS",
+      "sha256": "80019634c8b158e901678f55b369476fc488104b4bf1177193750432b83d567d",
+      "numeric_access_stage": "metadata"
+    },
+    "index": {
+      "path": "runs/frontend_task_knowledge_transfer_p_v1_20260911/teacher_index.json",
+      "sha256": "61fde6174ff6ce4cbe7172b609f85f1d5daa7191ebcd406b4f007951dd3eeeb3",
+      "numeric_access_stage": "P/T/E-TRAIN only"
+    },
+    "values": {
+      "path": "runs/frontend_task_knowledge_transfer_p_v1_20260911/teacher.f32le",
+      "sha256": "dc921214510eb677f529f438ff183ee742a067a4cb2bed45a6a4a663356f7b54",
+      "numeric_access_stage": "P/T/E-TRAIN only"
+    },
+    "guard": {
+      "path": "runs/frontend_task_knowledge_transfer_p_v1_20260911/guard.json",
+      "sha256": "8f21bb09b78600f3d50f382a24f2dcf777a4849bf562165b2ac1b7f3f3c3a992",
+      "numeric_access_stage": "P/T/E-TRAIN only"
+    },
+    "shape": [
+      9379,
+      128
+    ],
+    "dtype": "<f4",
+    "s_T": 0.4098227709378718,
+    "expected_targets": 9379,
+    "attack_targets": 3357,
+    "benign_targets": 6022,
+    "expected_N_T0": 2957,
+    "expected_N_T1": 3329,
+    "eligibility": "Reuse exact original canonical-hard-correct current-TRAIN A whitelist; never refilter by a new transformed score.",
+    "excluded_from_teacher_only": {
+      "B": 5671,
+      "old_wrong_A_benign": 23
+    },
+    "new_teacher_forward": 0,
+    "new_A_forward_in_P": 0,
+    "original_teacher_weights_or_mixed_NPZ_access": false,
+    "new_E3_or_raw_decode": false,
+    "index_order": "Preserve existing row field (zero-based cache index) and UID/context_key/label association exactly; aggregate contexts by sorted key, eligible rows by UID for deterministic float64 preparation.",
+    "canonical_hard_definition": "The sealed index stores canonical_probability and canonical_logit, not a canonical_hard field. Define canonical_hard=(float64(saved canonical_probability)>=float64(0.065159872174263)); require agreement with original TRAIN plan old_hard and true label. Do not recompute sigmoid or teacher inference."
+  },
+  "losses": {
+    "label": {
+      "formula": "(197/6286)*sum_A_bucket(mean_target BCEWithLogits) + (197/4297)*sum_B_bucket(mean_target BCEWithLogits)",
+      "coefficient": 1.0,
+      "BCE_log_base": "natural"
+    },
+    "huber": {
+      "delta": 1.0,
+      "formula": "0.5*v^2 if abs(v)<=1 else abs(v)-0.5"
+    },
+    "A_guard": {
+      "coefficient": 1.0,
+      "eligible": "current-train A and saved A hard at logit>=0 equals true label",
+      "eligible_targets": 9400,
+      "eligible_attack": 3355,
+      "eligible_benign": 6045,
+      "eligible_contexts": 6286,
+      "s_A_formula": "max(1,median_nonempty_context(mean_eligible_target(abs(saved_A_logit))))",
+      "s_A": 29.98624610900879,
+      "representative": "E_c=UID-sorted eligible targets; start=int(sha256(context_key UTF8),16)%len(E_c); epoch e selects E_c[(start+e-1)%len(E_c)]",
+      "pairs": "all attack-representative/benign-representative pairs within original A bucket, distinct component, attack-first once",
+      "margin_formula": "min(1,(qA_attack-qA_benign)/(2*s_A))",
+      "student_gap_formula": "(qS_attack-qS_benign)/s_A",
+      "formula": "mean_pairs Huber(max(0,margin-student_gap))",
+      "empty_bucket_value": 0.0,
+      "pair_occurrences": 967530,
+      "unique_pairs": 940042,
+      "eligible_targets_covered": 9400,
+      "final_audit": "reuse final train logits to check union of actual training pairs; report violations, worst gap-minus-margin, family detail; no extra forward",
+      "guarantee_limit": "zero loss on one pair at fixed parameters only implies qS_attack-qS_benign >= min(s_A,(qA_attack-qA_benign)/2); not fixed-zero decisions or unseen-OOD guarantee",
+      "reuse": "Use pinned guard cache and original representative/pair arithmetic; s_A and whitelist fixed, no new A computation."
+    },
+    "teacher_balancing": {
+      "M_b": "(197/2)*sum_y[(sum_eligible_A_bucket_context mean_eligible_target f) / N_Ty]",
+      "M": "mean over all197 M_b at fixed parameters; equivalently 0.5*sum_y mean_eligible_context mean_eligible_target f",
+      "class_context_counts": {
+        "0": 2957,
+        "1": 3329
+      },
+      "empty_class_bucket_value": 0.0,
+      "denominators_are_global": true
+    },
+    "task_score": {
+      "coefficient": 1.0,
+      "p_T": 0.065159872174263,
+      "q_T_source": "sealed canonical_logit, not inverse sigmoid of saturated probability",
+      "tau_T": "math.log(p_T)-math.log1p(-p_T), float64",
+      "margin": "m_T64=float64(canonical_logit)-tau_T",
+      "scale": "s_q64=max(1,sqrt(M[m_T64**2])) with deterministic float64 reductions",
+      "s_q_value": null,
+      "value_materialization_stage": "future authorized P",
+      "training_cast": "m_T32 and s_q32 cast exactly once to float32; seal both float64 provenance and float32 bit patterns",
+      "formula": "L_q(b)=M_b[Huber((qS-m_T32)/s_q32)]",
+      "computation": "float32 subtract, then float32 divide, then Huber",
+      "margin_clip": null,
+      "per_class_centering": false,
+      "per_source_scaling": false,
+      "dynamic_scale_or_weight": false,
+      "boundary_check": "(m_T64>=0) and (m_T32>=0) must each equal saved canonical_hard for every original eligible row",
+      "on_boundary_mismatch": "STOP before T, report UIDs/counts; never change threshold, whitelist, label or denominator",
+      "finite_check": "All input/output margins and scales must be finite; s_q32>=1."
+    },
+    "residual_contribution": {
+      "coefficient": 1.0,
+      "teacher_target": "existing float32 t=c/s_T; s_T unchanged",
+      "computation": "e=D(h)-t in float32; r=e-e.mean(dim=-1,keepdim=True) in float32; apply coordinate Huber",
+      "formula": "L_r(b)=M_b[sum_{k=1}^{128} Huber(r_k)/127]",
+      "sum_coordinates": 128,
+      "normalization_divisor": 127,
+      "mean128_before_dividing127": false,
+      "renormalize_remaining_energy": false,
+      "rotation_invariant": false,
+      "parameter_gradient_orthogonality_guaranteed": false,
+      "teacher_gradient_to_encoder_first_step_with_zero_D": 0.0,
+      "direct_residual_gradient_to_head": 0.0
+    },
+    "do_not_add": [
+      "original full128 C2 teacher loss",
+      "one-sided F5 cap6 loss",
+      "PCGrad",
+      "tail mining",
+      "new auxiliary prediction",
+      "automatic weight balancing"
+    ]
+  },
+  "stages": {
+    "P": {
+      "purpose": "Verify existing TRAIN teacher/guard identity; derive centered margins, s_q and residual-energy metadata; seal new derived TRAIN cache",
+      "output_directory": "runs/frontend_task_aligned_transfer_p_v1_20260912",
+      "seconds_limit": 600,
+      "memory_bytes_limit": 8589934592,
+      "new_output_bytes_limit": 67108864,
+      "student_forwards": 0,
+      "teacher_forwards": 0,
+      "optimizer_constructions": 0,
+      "numeric_allowlist": [
+        "existing9379 TRAIN teacher rows and their index",
+        "existing TRAIN guard metadata",
+        "plan TRAIN labels/identity/old_hard"
+      ],
+      "forbidden": [
+        "check/expanded numerical values",
+        "original mixed teacher NPZ",
+        "old P2 weights",
+        "new teacher inference"
+      ],
+      "cache_status": "NOT_MATERIALIZED",
+      "energy_metadata": "Compute float64 M[mean128(t**2)] and M[sum128((t-mean128(t))**2)/127]; report even zero, no target rescaling or arm selection"
+    },
+    "T": {
+      "purpose": "Sequential Q then R; independent sealed-A initialization, original TRAIN prefixes only",
+      "output_directory": "runs/frontend_task_aligned_transfer_t_v1_20260912",
+      "seconds_limit_all_arms": 14400,
+      "memory_bytes_limit": 8589934592,
+      "new_output_bytes_limit": 536870912
+    },
+    "E": {
+      "purpose": "One final train/check/expanded evaluation per Q/R; historical scores reused without historical model forward",
+      "output_directory": "runs/frontend_task_aligned_transfer_e_v1_20260912",
+      "seconds_limit_all_arms": 1800,
+      "memory_bytes_limit": 8589934592,
+      "new_output_bytes_limit": 536870912
+    },
+    "execution_on_exception": "stop, seal reason, zero automatic retries; do not silently drop R, rows, terms or remaining checks",
+    "scientific_bad_result": "report and seal all completed endpoints; no extra epochs, seeds or coefficient changes",
+    "monitoring": "Persistent local Windows supervisor, append-only progress journal and human-readable status with terminal verification; no LLM polling",
+    "budget_scope": "each stage includes entry validation, actual work, result verification and sealing; none may be excluded from stage resource accounting",
+    "new_resource_trial": false,
+    "HPC": false,
+    "new_data_download": false,
+    "raw_packet_decode": false,
+    "authorization_chaining": "A later explicit P/T/E joint authorization may cover automatic transitions; this design authorizes none."
+  },
+  "training_observations": {
+    "source": "original training forwards/backwards only; no additional per-task autograd calls",
+    "per_epoch": [
+      "original accumulated label/guard/Q/R losses",
+      "normalized task-score error and raw-logit error summaries",
+      "student/D gradient norms",
+      "actual global clip factors"
+    ],
+    "new_student_forward_count_for_observations": 0,
+    "no_observation_driven_tuning": true,
+    "endpoint": "Reuse E TRAIN forward for teacher score-error/hard-agreement and R residual-fit diagnostics; D is used only on eligible TRAIN states, no extra student forward."
+  },
+  "evaluation": {
+    "targets_per_arm": 280316,
+    "targets_all_arms": 560632,
+    "model_candidates": [
+      "Q_epoch20",
+      "R_epoch20"
+    ],
+    "fixed_logit_threshold": 0.0,
+    "primary_ranking_descriptor": "empirical TPR@FPR<=0.01, pooled expanded attacks versus all18000 benign OOD, ties grouped at one global mathematical threshold",
+    "secondary_ranking": [
+      "TPR@FPR<=0.001",
+      "AUROC",
+      "family recalls at the same pooled mathematical threshold"
+    ],
+    "ranking_threshold_deployed_or_training_feedback": false,
+    "fixed_point_reports": [
+      "overall attack",
+      "future-query",
+      "16 attack families plus macro and worst regression",
+      "A/B ownership",
+      "each of4 benign OOD pools",
+      "pool-equal macro and worst FP",
+      "151 ID check denominator caveat",
+      "per-target positive and negative flips"
+    ],
+    "old_P2_ROC_if_only_hard_available": false,
+    "contrasts": {
+      "Q-C1": "direct finite task-score package",
+      "R-Q": "extra residual contribution plus auxiliary training package",
+      "R-C2": "whole new distillation recipe",
+      "each_vs_AB_C0_P2": "practical capability and low-FPR references, disclose A/B missing semantics"
+    },
+    "development_joint_gain": "same contrast no worse in primary ranking, fixed overall/future/family-macro recall and benign pool-macro/worst FP, at least one better; single-seed tiny differences are not a breakthrough",
+    "practical_milestone": "reach old fixed-point attack/future references and jointly improve benign OOD; disclose any key family/pool collapse; no invented allowed-loss tolerance",
+    "practical_verdict": "manual scientific interpretation of the complete metric table; no automatic SUCCESS from undefined serious-regression tolerances",
+    "old_attack_reference_percent": 97.3698,
+    "old_future_reference_percent": 96.6786,
+    "old_attack_reference_exact": {
+      "detected": 237631,
+      "targets": 244050
+    },
+    "old_future_reference_exact": {
+      "detected": 127027,
+      "targets": 131391
+    },
+    "reference_comparison": "use exact numerator and denominator; rounded percentages are display only",
+    "original_strict_inheritance_verdict": "report separately; historical FAIL remains",
+    "strict_reference_protocol": "runs/mainline_docs/frontend_paired_learning_recipe_and_metadata_qualification_20260909.md: original common-A-check zero regression rule",
+    "new_candidate_retention_diagnostics": {
+      "scope": "plan role=check,owner=A",
+      "targets": 2127,
+      "attacks": 825,
+      "benign": 1302,
+      "comparisons": [
+        "old_P2_correct_to_candidate_wrong",
+        "fixed_A_correct_to_candidate_wrong"
+      ],
+      "outputs": "count,UIDs,is_zero separately for Q and R; never replaces historical verdicts"
+    },
+    "claim_limits": [
+      "exposed development only; historical teacher saw current-check labels",
+      "single seed; no independent confirmation; tiny gains are not a breakthrough",
+      "source shortcuts possible; no verified same-device benign/attack pairing",
+      "Q may act as finite-confidence regularization, not sample-specific knowledge",
+      "R includes auxiliary regularization, extra parameters and shared clipping effects",
+      "contribution-space orthogonality is not gradient orthogonality or causal feature use",
+      "0.1% FPR supports at most18 false positives on18000 OOD, not precise stable population FPR",
+      "151 ID targets do not establish0.1% ID FPR; future-query is not automatically unseen attack families",
+      "P2 B default alarms are not content-recognition; old overall denominator is preserved",
+      "new-device commissioning not evaluated",
+      "one recipe failure does not falsify all knowledge transfer"
+    ],
+    "low_FPR_caveat": "Preserve original joint-gain rule, separately disclose0.1% ranking and every family/pool collapse; do not hide deterioration behind the macro rule."
+  },
+  "historical_reference_seals": {
+    "T_v2": {
+      "path": "runs/frontend_task_knowledge_transfer_t_v2_20260911/SHA256SUMS",
+      "sha256": "6d51dfa3967ac13352a4bd9f41c40299282fcaf2a20443c5a2b24f4ad4194dec",
+      "numeric_access_stage": "metadata; scores E only"
+    },
+    "E_v2": {
+      "path": "runs/frontend_task_knowledge_transfer_e_v2_20260911/SHA256SUMS",
+      "sha256": "20baf0790e7e01d12699820e1ad849259197883295cae1db5efe2a9cd9e95adb",
+      "numeric_access_stage": "metadata; scores E only"
+    },
+    "diagnostic": {
+      "path": "runs/frontend_transfer_diagnostic_v1_20260912/SHA256SUMS",
+      "sha256": "0831d2066e62d1c7dc9bf977afd5a8401c4d6c388735596b2061062c32a77fd3",
+      "numeric_access_stage": "published diagnostic report only in this design"
+    }
+  },
+  "continuation": {
+    "Q_joint_gain_R_no_gain": "Retain simpler Q as development candidate; assess practical milestone and confirm mechanism before claim.",
+    "R_over_Q_joint_gain": "Extra auxiliary structure warrants further targeted confirmation; not yet pure contribution-knowledge proof.",
+    "attack_up_OOD_or_low_FPR_worse": "TRADEOFF, not joint success; no automatic commissioning success claim.",
+    "fit_improves_joint_capability_does_not": "Stop automatic extensions of this recipe; reassess available information, behavior coverage and boundary learning. Transfer route not universally falsified.",
+    "fit_still_poor": "Use logged evidence to identify a specific optimization/representation obstacle before any new authorized revision; no automatic extra epochs or search.",
+    "required_before_paper_attribution": {
+      "Q_sample_specific_teacher_claim": "Later freeze Q_const with same whitelist/weights/s_q and class-context-weighted per-label mean margin",
+      "R_contribution_information_claim": "Later freeze R_perm preserving Q and shuffling residual targets within label and eligible-context-size strata",
+      "currently_authorized_or_added_arms": []
+    }
+  },
+  "implementation_acceptance": [
+    "generated-only tests; no implicit new real P/T/E authorization",
+    "exact original TRAIN whitelist/denominators and UID-row association; strict phase-specific numeric allowlists",
+    "float64 canonical-logit centering, fixed TRAIN scale, float32 cast and both boundary-sign checks; mismatch stops without refilter",
+    "nonuniform class/context toy fixtures prove full-epoch normalizations; overshoot gets opposite Huber gradient to BCE as expected",
+    "projection before Huber; sum128/127 exactly, no double mean; common additive contribution offset invariance within floating tolerance",
+    "Q gradient reaches original head/encoder; R zero-D first-step encoder residual gradient and later nonzero path; direct R-to-head residual gradient zero",
+    "original student forward and causal early-target states exactly preserved; no old classifier deployed",
+    "same sealed-A starts, reset optimizers, original deterministic order, presentations, updates and final-only candidates",
+    "label/guard and no-new-teacher numerical path match historical C1 shared-base semantics; otherwise stop comparability claim",
+    "R train-only D removed from deployment; Q head unchanged by reconstructed-contribution calculation",
+    "tie-aware pooled ranking, exact denominators, separate A/B/ID interpretation and original retention reports",
+    "Python3.9 Windows concurrent status readers, append-only progress, persistent Job supervision, budget and exception zero-retry",
+    "implementation and generated acceptance sealed before any separately authorized real execution"
+  ]
+}

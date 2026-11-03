@@ -1,0 +1,15 @@
+{
+  "status": "INSTALLED",
+  "submitted": false,
+  "candidate": "C4_HISTORY_SAMPLE_COVERAGE_TOPUP",
+  "repair": {
+    "kind": "SLURM_CRLF_TO_LF_ONLY",
+    "previous_submission_failed_without_job": true,
+    "patched": [
+      "hpc/run_encode.slurm",
+      "EXECUTION_CARD.json",
+      "EXECUTION_CARD.json.sha256",
+      "IMPLEMENTATION_CHECK.json"
+    ]
+  }
+}

@@ -1,0 +1,3940 @@
+{
+  "status": "PASS_NO_CREDENTIAL_OR_BULK_ASSET_FOUND",
+  "scope_manifest": "runs/working_feedback_receipt_codex_20261102/SELECTED_FILES.json",
+  "selected_file_count": 2438,
+  "actual_file_count": 2438,
+  "total_bytes": 38148824,
+  "secret_pattern_candidates": [
+    {
+      "path": "repo/ood/issue27frontend_a_expanded_eval_prepare_v1.py",
+      "type": "cookie_literal",
+      "line": 36,
+      "classification": "false_positive",
+      "semantic_kind": "user_execution_authorization_record"
+    },
+    {
+      "path": "repo/ood/issue27frontend_a_expanded_eval_v1.py",
+      "type": "cookie_literal",
+      "line": 232,
+      "classification": "false_positive",
+      "semantic_kind": "human_execution_authorization_record"
+    },
+    {
+      "path": "repo/ood/issue27frontend_expanded_eval_control_v1.py",
+      "type": "cookie_literal",
+      "line": 123,
+      "classification": "false_positive",
+      "semantic_kind": "configuration_reference_not_literal"
+    },
+    {
+      "path": "repo/ood/issue27frontend_expanded_eval_control_v2.py",
+      "type": "cookie_literal",
+      "line": 141,
+      "classification": "false_positive",
+      "semantic_kind": "configuration_reference_not_literal"
+    },
+    {
+      "path": "repo/ood/issue27frontend_expanded_eval_support_v1.py",
+      "type": "cookie_literal",
+      "line": 105,
+      "classification": "false_positive",
+      "semantic_kind": "user_execution_authorization_record"
+    },
+    {
+      "path": "repo/ood/issue27frontend_expanded_eval_support_v1.py",
+      "type": "cookie_literal",
+      "line": 166,
+      "classification": "false_positive",
+      "semantic_kind": "user_execution_authorization_record"
+    },
+    {
+      "path": "repo/ood/issue27frontend_expanded_eval_tests_v1.py",
+      "type": "cookie_literal",
+      "line": 177,
+      "classification": "false_positive",
+      "semantic_kind": "test_execution_authorization_fixture"
+    },
+    {
+      "path": "repo/ood/legacy_id_temporal_qualification_v1.py",
+      "type": "cookie_literal",
+      "line": 248,
+      "classification": "false_positive",
+      "semantic_kind": "test_or_user_execution_authorization_record"
+    },
+    {
+      "path": "repo/ood/legacy_reference_material_audit_v1.py",
+      "type": "cookie_literal",
+      "line": 334,
+      "classification": "false_positive",
+      "semantic_kind": "test_or_user_execution_authorization_record"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/deployment/test_deploy_bridge.py",
+      "type": "cookie_literal",
+      "line": 212,
+      "classification": "false_positive",
+      "semantic_kind": "auth_header_built_from_variable"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/hpc/status_sync.py",
+      "type": "cookie_literal",
+      "line": 121,
+      "classification": "false_positive",
+      "semantic_kind": "auth_header_built_from_variable"
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/EXECUTION_CARD.json",
+      "type": "cookie_literal",
+      "line": 4,
+      "classification": "false_positive",
+      "semantic_kind": "user_execution_authorization_record"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/EXECUTION_CARD.json",
+      "type": "cookie_literal",
+      "line": 3,
+      "classification": "false_positive",
+      "semantic_kind": "user_execution_authorization_record"
+    },
+    {
+      "path": "runs/history_normal_reference_c3_small_bank_v1_20261101/EXECUTION_CARD.json",
+      "type": "cookie_literal",
+      "line": 3,
+      "classification": "false_positive",
+      "semantic_kind": "user_execution_authorization_record"
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/EXECUTION_CARD.json",
+      "type": "cookie_literal",
+      "line": 5,
+      "classification": "false_positive",
+      "semantic_kind": "user_execution_authorization_record"
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/HANDOFF_STATE.before_submission.json",
+      "type": "cookie_literal",
+      "line": 4,
+      "classification": "false_positive",
+      "semantic_kind": "user_execution_authorization_record"
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/HANDOFF_STATE.json",
+      "type": "cookie_literal",
+      "line": 2,
+      "classification": "false_positive",
+      "semantic_kind": "user_execution_authorization_record"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/EXECUTION_RECEIPT.json",
+      "type": "cookie_literal",
+      "line": 17,
+      "classification": "false_positive",
+      "semantic_kind": "user_execution_authorization_record"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/deployment_20261024/EXECUTION_RECEIPT.json",
+      "type": "cookie_literal",
+      "line": 17,
+      "classification": "false_positive",
+      "semantic_kind": "human_execution_authorization_record"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/deployment_20261024/EXECUTION_RECEIPT.json",
+      "type": "cookie_literal",
+      "line": 17,
+      "classification": "false_positive",
+      "semantic_kind": "human_execution_authorization_record"
+    }
+  ],
+  "scope_flags": [],
+  "binary_text_scan_skipped": [],
+  "missing_files": [],
+  "extensions": {
+    "": 16,
+    ".md": 437,
+    ".py": 885,
+    ".json": 577,
+    ".txt": 10,
+    ".sha256": 422,
+    ".slurm": 24,
+    ".sh": 14,
+    ".ps1": 53
+  },
+  "largest_files": [
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/output/COHORTS.json",
+      "bytes": 1906943
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/source/G0/S/PRECHECK.json",
+      "bytes": 1032588
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/RESULT.json",
+      "bytes": 1020133
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/completion/RESULT.json",
+      "bytes": 982250
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/RESULT.json",
+      "bytes": 976614
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/ab/RESULT.json",
+      "bytes": 973380
+    },
+    {
+      "path": "runs/history_normal_reference_keyrepair_deployment_20261031/DELIVERY_INPUTS.json",
+      "bytes": 884228
+    },
+    {
+      "path": "runs/history_normal_reference_deployment_20261031/DELIVERY_INPUTS.json",
+      "bytes": 868401
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/source/G1/S/PRECHECK.json",
+      "bytes": 861996
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/source/G1/CAL/PRECHECK.json",
+      "bytes": 722096
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "bytes": 673955
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/ab/UNSW_DEV/RESULT.json",
+      "bytes": 655658
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/result_retrieval_179700_20261028/OFFLINE_AUDIT.json",
+      "bytes": 654294
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/ab/UNSW_DEV/RESULT.json",
+      "bytes": 653637
+    },
+    {
+      "path": "runs/mainline_docs/mainline_handoff.md",
+      "bytes": 586558
+    }
+  ],
+  "note": "Independent static scan of all 2,438 selected text files. No suspected values printed or stored. AUTH/TOKEN scope markers, human authorization prose, traffic session hashes and synthetic fixtures were distinguished from network credentials. No Git/candidate/source mutation; only this review report written.",
+  "generic_literal_candidates": [
+    {
+      "path": "repo/ood/issue27frontend_inheritance_n1_tests_v1.py",
+      "line": 109,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 16,
+      "semantic_kind": "synthetic_traffic_session_fixture"
+    },
+    {
+      "path": "repo/ood/issue27frontend_transfer_diagnostic_v1.py",
+      "line": 24,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 49,
+      "semantic_kind": "nonsecret_local_execution_approval_marker"
+    },
+    {
+      "path": "repo/ood/legacy_id_temporal_review_v2.py",
+      "line": 166,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 17,
+      "semantic_kind": "traffic_capture_session_identifier"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 181,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 234,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 287,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 340,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 393,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 446,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 499,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 552,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 605,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 658,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 711,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 764,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 817,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 870,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 923,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 976,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1029,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1082,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1135,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1188,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1241,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1294,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1347,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1400,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1453,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1506,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1559,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1612,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1665,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1718,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1771,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1824,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1877,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1930,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 1983,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2036,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2089,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2142,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2195,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2248,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2301,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2354,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2407,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2460,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2513,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2566,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2619,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2672,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2725,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2778,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2831,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2884,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2937,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 2990,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3043,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3096,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3149,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3202,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3255,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3308,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3361,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3414,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3467,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3520,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3573,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3626,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3679,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3732,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3785,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3838,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3891,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3944,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 3997,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4050,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4103,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4156,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4209,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4262,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4315,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4368,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4421,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4474,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4527,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4580,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4633,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4686,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4739,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4792,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4845,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4898,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 4951,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5004,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5057,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5110,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5163,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5216,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5269,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5322,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5375,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5428,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5481,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5534,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5587,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5640,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5693,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5746,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5799,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5852,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5905,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 5958,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6011,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6064,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6117,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6170,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6223,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6276,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6329,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6382,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6435,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6488,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6541,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6594,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6647,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6700,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6753,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6806,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6859,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6912,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 6965,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7018,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7071,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7124,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7177,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7230,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7283,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7336,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7389,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7442,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7495,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7548,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7601,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7654,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7707,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7760,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7813,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7866,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7919,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 7972,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8025,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8078,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8131,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8184,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8237,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8290,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8343,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8396,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8449,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8502,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8555,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8608,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8661,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8714,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8767,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8820,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8873,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8926,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 8979,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9032,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9085,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9138,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9191,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9244,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9297,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9350,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9403,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9456,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9509,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9562,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9615,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9668,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9721,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9774,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9827,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9880,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9933,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 9986,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10039,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10092,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10145,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10198,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10251,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10304,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10357,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10410,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10463,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10516,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10569,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10622,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10675,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10728,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10781,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10834,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10887,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10940,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 10993,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11046,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11099,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11152,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11205,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11258,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11311,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11364,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11417,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11470,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11523,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11576,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11629,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11682,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11735,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11788,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11841,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11894,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 11947,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12000,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12053,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12106,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12159,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12212,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12265,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12318,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12371,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12424,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12477,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12530,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12583,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12636,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12689,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12742,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12795,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12848,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12901,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 12954,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13007,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13060,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13113,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13166,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13219,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13272,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13325,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13378,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13431,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13484,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13537,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13590,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13643,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13696,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13749,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13802,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13855,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13908,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 13961,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14014,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14067,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14120,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14173,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14226,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14279,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14332,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14385,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14438,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14491,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14544,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14597,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14650,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14703,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14756,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14809,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14862,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14915,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 14968,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15021,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15074,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15127,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15180,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15233,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15286,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15339,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15392,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15445,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15498,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15551,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15604,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15657,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15710,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15763,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15816,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15869,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15922,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 15975,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16028,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16081,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16134,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16187,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16240,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16293,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16346,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16399,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16452,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16505,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16558,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16611,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16664,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16717,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16770,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16823,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16876,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16929,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 16982,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17035,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17088,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17141,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17194,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17247,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17300,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17353,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17406,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17459,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17512,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17565,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17618,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17671,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17724,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17777,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17830,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17883,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17936,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 17989,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 18042,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 18095,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 18148,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+      "line": 18201,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 532,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 565,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 598,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 631,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 664,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 697,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 730,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 763,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 796,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 829,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 862,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 895,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 928,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 961,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 994,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1027,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1060,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1093,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1126,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1159,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1192,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1225,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1258,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1291,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1324,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1357,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1390,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1423,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1456,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1489,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1522,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1555,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1588,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1621,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1654,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1687,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1720,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1753,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1786,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1819,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1852,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1885,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1918,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1951,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 1984,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2017,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2050,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2083,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2116,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2149,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2182,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2215,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2248,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2281,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2314,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2347,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2380,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2413,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2446,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2479,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2512,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2545,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2578,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2611,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2644,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2677,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2710,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2743,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2776,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2809,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2842,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2875,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2908,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2941,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 2974,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3007,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3040,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3073,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3106,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3139,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3172,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3205,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3238,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3271,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3304,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3337,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3370,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3403,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3436,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3469,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3502,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3535,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3568,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3601,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3634,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3667,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3700,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3733,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3766,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3799,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3832,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3865,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3898,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3931,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3964,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 3997,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 4030,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/A_P3_BREAKDOWN_INDEPENDENT.json",
+      "line": 4063,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/c5_kernel_independent_replay_codex_20261102/source_cal/CAP_REACHABLE_ATTACK_CASES.json",
+      "line": 17,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/tests/test_dependency_repair.py",
+      "line": 28,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 17,
+      "semantic_kind": "synthetic_traffic_session_fixture"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/manifest.json",
+      "line": 28,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/manifest.json",
+      "line": 58,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/manifest.json",
+      "line": 88,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/manifest.json",
+      "line": 118,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/manifest.json",
+      "line": 148,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/manifest.json",
+      "line": 178,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/manifest.json",
+      "line": 208,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/manifest.json",
+      "line": 238,
+      "type": "generic_token_cookie_secret_literal",
+      "classification": "false_positive",
+      "length": 64,
+      "semantic_kind": "traffic_session_identifier_in_scientific_metadata"
+    }
+  ],
+  "additional_provider_signature_hits": [],
+  "confirmed_credential_risks": [],
+  "scope_review_result": "No PCAP, archive payload, arrays, weights, databases, private transport directories or large files over 5MiB selected.",
+  "reviewed_false_positive_count": 482,
+  "false_positive_summary": {
+    "user_execution_authorization_record": 10,
+    "human_execution_authorization_record": 3,
+    "configuration_reference_not_literal": 2,
+    "test_execution_authorization_fixture": 1,
+    "test_or_user_execution_authorization_record": 2,
+    "auth_header_built_from_variable": 2,
+    "synthetic_traffic_session_fixture": 2,
+    "nonsecret_local_execution_approval_marker": 1,
+    "traffic_capture_session_identifier": 1,
+    "traffic_session_identifier_in_scientific_metadata": 458
+  }
+}

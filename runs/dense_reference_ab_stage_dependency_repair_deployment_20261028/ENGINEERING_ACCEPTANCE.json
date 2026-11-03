@@ -1,0 +1,65 @@
+{
+  "status": "PASS_ENGINEERING_READY_AWAITING_NEW_ONE_SHOT_AUTHORIZATION",
+  "replaces_failed_job": "179680",
+  "repair_manifest_sha256": "85637f3ae213ef08bf3cb70976a3188246eb03554d4b7fe7393f4cfe4414d9e8",
+  "archive_sha256": "034a576d8c04bb1f06f3330f79a7ca1333e27e2ac4f77d1ac27c68373541ff5f",
+  "archive_bytes": 618516,
+  "remote_deployed_files": 27,
+  "remote_preflight_sha256": "4634355076a0d612cdd076ac59f8b41ab0ca7ad9b6f0435fef8928c5d840bd68",
+  "remote_elapsed_seconds": 51.49771712999791,
+  "remote_stages": [
+    {
+      "exit_code": 0,
+      "log": "synthetic_tests.log",
+      "stage": "synthetic_tests"
+    },
+    {
+      "exit_code": 0,
+      "log": "metadata.log",
+      "stage": "metadata"
+    }
+  ],
+  "query_rows": 328202,
+  "source_seal_files": 19,
+  "pinned_files": 53,
+  "banks": [
+    {
+      "pool": "CIC_DEV",
+      "bank": "b2_bank",
+      "refs": 67,
+      "overlap": 64
+    },
+    {
+      "pool": "CIC_DEV",
+      "bank": "dense_bank",
+      "refs": 8574,
+      "overlap": 3334
+    },
+    {
+      "pool": "UNSW_DEV",
+      "bank": "b2_bank",
+      "refs": 148,
+      "overlap": 19
+    },
+    {
+      "pool": "UNSW_DEV",
+      "bank": "dense_bank",
+      "refs": 13247,
+      "overlap": 1319
+    }
+  ],
+  "new_scientific_submissions": 0,
+  "automatic_retry": false,
+  "real_target_evaluations": 0,
+  "real_distances": 0,
+  "real_support_calls": 0,
+  "new_encoding_rows": 0,
+  "new_CAL_runs": 0,
+  "model_forwards": 0,
+  "training_updates": 0,
+  "scientific_parameters_changed": false,
+  "checked_utc": "2026-10-28T03:20:10.826649+00:00",
+  "remote_unit_tests": 11,
+  "remote_test_log_verdict": "PASS",
+  "retrieved_result_sha256": "29ddc1233ae57d4a58310cc6b824b829ff5257ccb06d7fab5392f3f32a9d9504"
+}

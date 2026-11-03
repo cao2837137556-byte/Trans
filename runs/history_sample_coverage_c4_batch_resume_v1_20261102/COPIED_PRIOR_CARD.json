@@ -1,0 +1,197 @@
+{
+  "AB_pair_upper_bound": 879576985,
+  "acceptance": "HIST_DEV: no new alarm any head/device, strict Netatmo vs RAW and pooled plus Samsung/Power improvement. Terminal: all original protection gates, B no extra misses any head/view, A/Motion exact, strict B sample FPR improvement; 2% separately reported.",
+  "all_AB_consumed_development": true,
+  "attack_scope": {
+    "ACK_UDP_protection_tested": false,
+    "B_attack_rows": 72553,
+    "guarded_attack_rows": 72553
+  },
+  "baseline": "C3_ADMITTED_SMALL_BANK_COMPLETE",
+  "candidate": "C4_HISTORY_SAMPLE_COVERAGE_TOPUP",
+  "code_sha256": {
+    "bootstrap.py": "aa6ca632e890ca8c7f259b0bd991d17f0d8a1df74193b7f8792d543edf47bc1c",
+    "build_contract.py": "2e6425abb450dac91080279db5d42b782892438400ff05943675f74f67d6e58b",
+    "check_saved_baseline.py": "8ac5329610584a20b57957146b4b131617b92f006fcd7a8d45944b74c9991e4e",
+    "config/ASSETS.json": "34d7829d5c2f262bd60b30058b677cbf7b67ee2c419d6ce924ddc01162b96b75",
+    "config/ENCODER_RUNTIME_FILES.json": "2f611b4695e165649cb4fc2df4b0309f621f846fa5f6f660e3c0fa0202ecc5ee",
+    "coordinator.py": "534cb4f1ff465f651a7ff8ff3e9733ee609873bfcdfa7522ba8f33c8a4439c10",
+    "decoder_guard.py": "73c4391614c9d30d4e076b62ebebb9bbccbaeaa365eaad3f11d70e5ac960d0c6",
+    "gates.py": "414e540234aa764a367ab13e531d5a5b7939aae32453a0120a158c6fbf7b70b1",
+    "header_qualification.py": "b3b09d8bea7e82eb14c5b37fb2f0510b955a5ebfdaa402dc2fca0eeafd1276a8",
+    "hnr/__init__.py": "0a37da80550342fa545eb39f7cd3905f74290234288c7d904e2c0407b93f7282",
+    "hnr/assets.py": "d29444a91b957c99e41bc5ce23c5f6771e9aa8df437fe2b67660436eb365cc76",
+    "hnr/common.py": "51a26970685ab909bce9ccde9888c441f65fadec8e876865b0d0d0f481f3502f",
+    "hnr/component_selection.py": "b6a51c0604508f7a500ef08ecbdb3c9432b9c22fccc0d2ec7d443ad8857b5f07",
+    "hnr/contexts.py": "06cab8e90e9a6444e70e555ed264173de3c341b21057628cc5b44a075034c713",
+    "hnr/encoding.py": "b10cb05e02eb7e7b2303e53cf65a2c4fb04e40373fbee62fe67a2cf12d7bde36",
+    "hnr/evaluation.py": "dbde770116b5017430c6d26036e00a6de62a272596933c13bd1c17956cd43d50",
+    "hnr/history.py": "a0346c3cf922566f2ad6633f7baf7f337613fcf9c54e97a77f7f1eef1540c174",
+    "hnr/runtime.py": "861e874a29c3b7628408e68564748a31d3e2efcde9f5d618a73a0b446635a5bc",
+    "hnr/selection.py": "65126ba5f7cba3c6b4ee01539afc28b7f49b5cc892f317b200db95da4afc59ee",
+    "hpc/run_encode.slurm": "219b0bb9c0b80563157b4b420ffe58aa0a5257c4e7e28908d1edb23a4c347ea5",
+    "INPUT_MANIFEST.json": "ece450a231e45741027084256e51da67480af00604bffb832ac7648ead485351",
+    "inputs/SAMSUNG_references.jsonl.gz": "ffb92fe922c68530e392548c66bcb0134383c3ea76913c5274c7e050050c7808",
+    "inputs/TP_LINK_references.jsonl.gz": "f06b9fdcf06a5db8956813954cc0c76a42a3fb0c9dbbe13f0c3271bd2bef4d65",
+    "inputs/WEMO_POWER_references.jsonl.gz": "bc9b1cf16e4dfeee9688659a77c2aa909830d83d31aed5e7b6ab4de9f2665ad1",
+    "member_worker.py": "1af8e1cf3da9e51ac975627f153e2e5096284f2228857e109886da38f16a4612",
+    "qualification/HEADER_ROWS.json": "e3634f37df1dc455b1e14999c6a7ba153d2a679a7d14d447b5929c040329b2e7",
+    "recovery.py": "8f33cbc74e2e5e59075f9dbfca7b2ef900393835f37d3c53c722428f3e7a3632",
+    "resume_prepare.py": "780beb6ebe5720806369680efc807c8dfe11b12a392d29d6396cc8a35b67abf7",
+    "run.py": "0e397f40c409917b648d1e77c330d3a6b09d10a184c7e5ef26fb94a4c022f8a4",
+    "test_decoder_guard.py": "e0a10e77d46e89c55bca9a0b398f2b7f9c035ba295d628040a7361b7c51fc357",
+    "test_memory_worker.py": "0932fb25f8436ebbb18f0d4bae14c472894dd4629ee3a69b93ddc08e2547c7ce",
+    "test_recovery.py": "dbe171b9aff88e3e224f5082e5d86c41e5533ca8c62539d462d79a290f5ee953",
+    "test_resume_prepare.py": "f7af6b179bed4290535792c7d826cadf32f107dec36528356bc789cae433c35a",
+    "test_runner.py": "bd902a7a1625543b1c2347aa0cf0639373e28203663bd5275bfd0890127ab32d",
+    "test_topup.py": "2b159abcd69dab268632c311b8905dfa03fe75cf0dfe1cb1ee26c588aad2b75e",
+    "topup_selector.py": "12192e3924aa6c4aab3a8589070ba50687c0cc6ceb26047998a4fb15f170e741",
+    "verify_result.py": "db01b33c905602032721282e5ca6660638661a88cfbf7fa2e0f6f69467b1e02b",
+    "worker_runtime.py": "acc23803d181a5f09bad5cc5ef844490034295d6d3925998b540076b71a42b95"
+  },
+  "config_semantic_sha256": "b68c3b5c85ab7a54c4da909d945cc2c9e3f567c5c3195ad4ebb442118edbed08",
+  "dev_pair_upper_bound": 117440512,
+  "dev_sampling": "C1_ALL_COMPONENT_ROUND_ROBIN_THEN_UNIFORM_TIME",
+  "engineering_preflight_revision": {
+    "new_run_sha256": "ef70aca3c0df2ba19b007a10ae256278ce75de12fbcd33c442f10e1cee587035",
+    "old_run_sha256": "95c4fc5dc1a72caff3ec38e6747d04d05b759f6bfc728b2e92b9b4c3a2bd6dd0",
+    "previous_card_sha256": "8965b1f166a6a69c29827f671201bef84028b655171280ab14ed2d6614902c44",
+    "reason": "Load each existing DEV NPZ field once before UID join; numerical arrays and scientific contract unchanged.",
+    "scientific_execution_started": false
+  },
+  "freeze_after_one_evaluation": true,
+  "lambda_value": 0.25,
+  "limits": {
+    "cpu": 4,
+    "encoded": 36864,
+    "output_bytes": 21474836480,
+    "rss_bytes": 8589934592,
+    "total_wall_seconds": 28800
+  },
+  "no_salt_capacity_lambda_search": true,
+  "pair_groups": [
+    {
+      "dense_rows": 147,
+      "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+      "maximum_additional_rows": 4096,
+      "maximum_bank": 8339,
+      "old_history_rows": 4096,
+      "pair_upper_bound": 142146594,
+      "protocol": 6,
+      "query_rows": 17046
+    },
+    {
+      "dense_rows": 14,
+      "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+      "maximum_additional_rows": 0,
+      "maximum_bank": 3697,
+      "old_history_rows": 3683,
+      "pair_upper_bound": 879886,
+      "protocol": 17,
+      "query_rows": 238
+    },
+    {
+      "dense_rows": 88,
+      "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+      "maximum_additional_rows": 4096,
+      "maximum_bank": 8280,
+      "old_history_rows": 4096,
+      "pair_upper_bound": 223485480,
+      "protocol": 6,
+      "query_rows": 26991
+    },
+    {
+      "dense_rows": 52,
+      "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+      "maximum_additional_rows": 4096,
+      "maximum_bank": 8244,
+      "old_history_rows": 4096,
+      "pair_upper_bound": 4987620,
+      "protocol": 17,
+      "query_rows": 605
+    },
+    {
+      "dense_rows": 717,
+      "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+      "maximum_additional_rows": 4096,
+      "maximum_bank": 8909,
+      "old_history_rows": 4096,
+      "pair_upper_bound": 261666239,
+      "protocol": 6,
+      "query_rows": 29371
+    },
+    {
+      "dense_rows": 2669,
+      "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+      "maximum_additional_rows": 4096,
+      "maximum_bank": 10861,
+      "old_history_rows": 4096,
+      "pair_upper_bound": 55771235,
+      "protocol": 17,
+      "query_rows": 5135
+    },
+    {
+      "dense_rows": 1609,
+      "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+      "maximum_additional_rows": 4096,
+      "maximum_bank": 5705,
+      "old_history_rows": 0,
+      "pair_upper_bound": 124568675,
+      "protocol": 6,
+      "query_rows": 21835
+    },
+    {
+      "dense_rows": 1172,
+      "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+      "maximum_additional_rows": 4096,
+      "maximum_bank": 5268,
+      "old_history_rows": 0,
+      "pair_upper_bound": 66071256,
+      "protocol": 17,
+      "query_rows": 12542
+    }
+  ],
+  "pair_limit": 1000000000,
+  "recovery": {
+    "decoder_fields_and_options_unchanged": true,
+    "exact_diagnostic_exception_requires_raw_header_audit": true,
+    "previous_card_sha256": "5e7033951cb496adae38905b570e28c7f15f2564fe591b7112a0121d2f001814",
+    "previous_job": "180552",
+    "previous_pairs": 0,
+    "prior_attempts": [
+      {
+        "charged_seconds": 9064,
+        "job": "180526",
+        "observed_seconds": 9003.328841215
+      },
+      {
+        "charged_seconds": 14687,
+        "job": "180552",
+        "observed_seconds": 14626.291181526962
+      },
+      {
+        "job": "180591",
+        "observed_seconds": 722.2216791909887,
+        "charged_seconds": 783
+      }
+    ],
+    "prior_wall_seconds_charged": 24534,
+    "prior_wall_seconds_observed": 24351.84170193295,
+    "remaining_seconds": 4266,
+    "replay_netatmo_snapshot_pass_from_frame_one": true,
+    "reuse_completed_members": [
+      "TP_LINK",
+      "WEMO_POWER",
+      "SAMSUNG"
+    ],
+    "reuse_netatmo_complete_census": true,
+    "reused_encoded_rows": 20480,
+    "scientific_candidate_unchanged": true,
+    "latest_failed_job": "180591",
+    "latest_failed_card_sha256": "449e75e0fa446ba3a981a36e844c60ece1b080b1bf3203244003d8c90480cbc3",
+    "reuse_netatmo_indexed_census_and_selection": true,
+    "real_header_qualification_packets": 246
+  },
+  "ref_cap": 4096,
+  "total_pair_upper_bound": 997017497
+}

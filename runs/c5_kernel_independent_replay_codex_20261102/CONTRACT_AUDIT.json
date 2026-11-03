@@ -1,0 +1,102 @@
+{
+  "schema": "C5_READONLY_CONTRACT_STATIC_AUDIT_V1",
+  "status": "PASS_STATIC_REPLAY_CONTRACT_SELECTION_UNRESOLVED",
+  "scope": {
+    "reviewer": "c4_memory_diagnosis",
+    "source_cal_subreviewer": "checkpoint_review",
+    "existing_assets_modified": false,
+    "candidate_computations_executed_by_reviewer": 0,
+    "distance_pairs_computed_by_reviewer": 0,
+    "remote_operations": 0,
+    "anti_results_used_as_ground_truth": false
+  },
+  "reviewed_source_sha256": {
+    "runs/mainline_docs/collab/20261102_c5_kernel_decision_claude.md": "59e0d54b2878de3886209c39e4cbe67ccf7c428e9a40bef9d8455b7cd41f8f10",
+    "runs/mainline_docs/collab/20261102_unweighted_fpr_convergence_claude.md": "a1c88c899c484e00431a7045c32541d2e8aadd8dc8f820594c7348e40e4ff454",
+    "repo/ood/constrained_onboarding_core_v3.py": "42a32e0b829a373a96046d34d16bcb53455f99f1bc0786a8a49be38bc855f72c",
+    "repo/ood/onboarding_budget_v1.py": "82f75052524ddd19bd1af1deb162c7ca537e072f2415de0006d40ef7d785f099",
+    "runs/dense_reference_matrix_v1_20261027/src/source_cal.py": "16c65db79dba2dfe3d34f63e1b83c7f16eda8c07f62fe03d7b0f11468021e5e2",
+    "runs/dense_reference_ab_stage_candidate_v1_20261028/src/metrics.py": "8a82d2c10f209467c3da1f48ed6041e5ea68094a75193109a56b7b471144ac65",
+    "runs/history_normal_reference_keyrepair_v1_20261031/hnr/evaluation.py": "58563ce01f5f9d5d25915877b06d7eb184e087d8c05faded57cec468e3c335a0",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/gates.py": "414e540234aa764a367ab13e531d5a5b7939aae32453a0120a158c6fbf7b70b1",
+    "runs/c5_kernel_independent_replay_codex_20261102/ab/replay.py": "96417c74c37435a4286576e56730633d2ac36187d519c08ee8c1b1e14fecf84c",
+    "runs/c5_kernel_independent_replay_codex_20261102/source_cal/replay_source_cal.py": "c2200ffd23b011329bda76fa81cd4a4ff5500ede77f119d611a13884a68029fc"
+  },
+  "frozen_math": {
+    "kernel": "g_p(s)=1-(1-s)^p for s>0; g(0)=0; positive-support saturation maps only s>0 to 1",
+    "p1": "Use exact identity s, not a subtraction round-trip; compare logits bytes and all decisions against C4",
+    "support_provenance": "C4 A/B NPZ files contain support, not joint or second_joint; use disclosed support-derived joint fallback",
+    "joint_definition": "Per reference max(dz/rho_z,dq/rho_q), followed by second distinct component; do not independently minimize dz and dq",
+    "correction": "RAW float64 logits minus (float(lambda)*scale[j])*mapped_support; active support only; all frozen scales are positive",
+    "lambda": 0.25,
+    "seed_order": [
+      27,
+      127,
+      227
+    ],
+    "scales": [
+      118.95627975463867,
+      121.3746566772461,
+      122.36117172241211
+    ],
+    "cut_comparison": "strict > per seed and frozen ensemble_cut",
+    "ensemble": "np.stack([x[:,j] for j in range(3)]).mean(0,dtype=np.float64)",
+    "guard": "(q14[:,0]==1)&(q14[:,2]==1)&(q14[:,5]==0); restores RAW for every device",
+    "eligibility": "Same saved eligibility; support remains zero for ineligible rows and own-overlap exclusions"
+  },
+  "protection": {
+    "gate_count": 16,
+    "matrix": "2 pools x 2 views x 4 heads",
+    "reference_baseline": "RAW cumulative withdrawals; C4 incremental withdrawals reported separately",
+    "weighted_group_budgets_pp": {
+      "device": 1.0,
+      "activity": 5.0,
+      "annotation_id": 5.0
+    },
+    "low_raw_recall": "Any group RAW weighted recall <0.99 permits zero additional TP withdrawal",
+    "missing_data": "NOT_EVALUABLE is not PASS",
+    "views": "Full original weights; post_window_primary rebuilt original hierarchy; timestamp and capture frame strictly after original window",
+    "pool_goal": "Primary ensemble unweighted FPR <=0.02 and unweighted recall >=0.99; weighted group gates remain vetoes",
+    "devices": "Report device unweighted/weighted rates and device macro sample rates; device unweighted <=2% is not release gate",
+    "blind_spot": "All B attacks hit C2 guard; B cannot establish safety for unguarded ACK/UDP attacks"
+  },
+  "source_cal": {
+    "lineage": "179602 main source CAL, not old G0/G1 C2 precheck folds",
+    "rows": 148819,
+    "attack_rows": 115672,
+    "normal_rows": 33147,
+    "encoded_reference_rows": 4728,
+    "alignment": "CAL global indices into LEARN.npy and LEARN_q.npy; source trace UID order equals selected CAL rows",
+    "donor_semantics": "Compute each donor bank separately; OR withdrawal per query UID and head across donors. Never mix donors into cross-donor double-component support.",
+    "normal_gain": "Own donor bank only",
+    "parity_order": "Reproduce historical unguarded p1 before applying C2 guard to every donor",
+    "frozen_assets": "Existing normalizer, FIT geometry, source cuts and source scales; no refit",
+    "report_notes": [
+      "source_CAN_distinguish_p_safety includes saturation; separately state whether p1..4 differ",
+      "mapped_support_by_donor is before C2 guard; distinguish effective correction support"
+    ]
+  },
+  "script_review": {
+    "ab": "RAW arithmetic, seed-major ensemble, strict cuts, unchanged views/weights, all 16 RAW gates and q14 flag bit reconstruction statically match frozen contract",
+    "engineering_blocker_found": "Initial p1 report comparison indexed absent relative_C2, which exists in saved CIC_DEV reports",
+    "engineering_fix_reviewed": "Current script reconstructs relative_C2 directly from saved c2_corrected before comparing all historical report fields; blocking schema mismatch resolved",
+    "hist_dev": "Reports every p and all heads/devices; gives ensemble step differences and a p1-to-saturation denominator without silently selecting p",
+    "runtime_validation": "Parent independent replay must still pass its p1 bytes/decisions/reports and input unchanged assertions; this audit did not execute them"
+  },
+  "hist_dev_stopping_rule": {
+    "quoted_rule": "HIST_DEV single-step decrease <5% of saturatable space then stop",
+    "status": "INSUFFICIENT_TO_UNIQUELY_SELECT_P",
+    "missing_fields": [
+      "Which metric/head (pooled unweighted ensemble FP versus alternatives)",
+      "Denominator fixed p1-to-saturation gap or remaining previous-to-saturation gap",
+      "Choose current p or previous p when first small step appears",
+      "Fallback when no p<=4 triggers stopping",
+      "Zero saturatable gap handling",
+      "Handling candidate invalidated by source CAL or other gates; ties"
+    ],
+    "comparison_operator": "Wording specifies strict <5%, not <=5%",
+    "diagnostic_replay": "Not blocked; full registered grid plus saturation may be independently replayed and reported",
+    "selection": "Do not retrospectively select p3 from A/B or infer a unique rule from anti outputs",
+    "provenance": "Stopping rule introduced after A/B outcomes were known; disclose development use and report all p2,p3,p4 A/B results"
+  }
+}

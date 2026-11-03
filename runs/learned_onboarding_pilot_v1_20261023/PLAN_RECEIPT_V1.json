@@ -1,0 +1,129 @@
+{
+  "schema": "learned-onboarding-design-delivery-v1",
+  "created_at": "2026-10-23T08:06:43.626817+00:00",
+  "status": "DESIGN_REVIEWED_READY_FOR_IMPLEMENTATION_NOT_IMPLEMENTED",
+  "scope": "DESIGN_ONLY",
+  "requested_model_split": {
+    "planning": "astra",
+    "implementation": "sol in a later implementation task"
+  },
+  "design_author_model": "gpt-6-astra",
+  "independent_protocol_reviewer_model": "gpt-6-astra",
+  "artifacts": {
+    "EXECUTION_SPEC_V1.md": {
+      "bytes": 33471,
+      "sha256": "a07d736c7c9c756478a7d163873611132ff0b14abc855ab3a3709257433674b8"
+    },
+    "REVIEW_V1.md": {
+      "bytes": 8305,
+      "sha256": "4427b137a410499202d58ce0818845af166bdc4fdffee480d7b41d8dffe1cf17"
+    },
+    "IMPLEMENTATION_HANDOFF.md": {
+      "bytes": 4781,
+      "sha256": "8ff0027d5c5901d888f52244ae48d0cb2e5e962f9e61e05eeb2346832f0d1d14"
+    },
+    "DATA_USE_CLARIFICATION.md": {
+      "bytes": 3478,
+      "sha256": "999e43a4ebf4a0a87f33fde97658e6988efcd82276d0dabfef6445903cac904f"
+    }
+  },
+  "handoff_navigation": {
+    "NEW_CHAT_START_HERE.md": {
+      "sha256": "642d1dbb9425dffb8cf6ccd880cae6c743c6ef441fd13e671137d170022038af"
+    },
+    "mainline_handoff.md": {
+      "sha256": "ca2f36932aeacf8185cab9d2c55a344f4a2ba07ace5e31f5c53f00c0f966601c"
+    },
+    "mainline_experiment_map.md": {
+      "sha256": "ca0b1326ab1ebf9815b3a03a3ce36cde2b21563ea45296b0f973fa99b22c4a3e"
+    }
+  },
+  "design": {
+    "formal_head": "existing verified QUERY_TAIL seed27, identity resolution required",
+    "auxiliary_groups": {
+      "G0": [
+        "Amcrest Camera",
+        "ArloQ Camera",
+        "Atomi Coffee Maker"
+      ],
+      "G1": [
+        "Philips Hue Bridge",
+        "SimCam",
+        "Globe Lamp"
+      ]
+    },
+    "planned_max_new_endpoints": [
+      "AUX_G0",
+      "AUX_G1",
+      "L_STANDARD",
+      "L_HARD",
+      "L_QUERY_ONLY"
+    ],
+    "new_seed": 27,
+    "source_readiness_and_signal_gates_apply": true,
+    "auxiliary_epochs": 40,
+    "module_updates_each": 4000,
+    "module_input_dimensions": 50,
+    "module_parameters_each": 2177,
+    "lambda_grid": [
+      0,
+      0.05,
+      0.1,
+      0.25
+    ],
+    "training_view_mass": {
+      "formal": 0.5,
+      "auxiliary_out_of_device": 0.5
+    },
+    "normal_target": "1[m>0]*clip(m+0.01,0,0.25), FIT-only pseudo threshold",
+    "evaluation": "A/B x OLD_BANK/B0/B1/B2, primary B2, full denominators, single seed27",
+    "new_ensemble": false,
+    "runtime_guard_process_tree_rss_gib": 8,
+    "environment_memory_ceiling_gib": 16,
+    "output_budget_gib": 2,
+    "new_training_wall_time_ceiling_hours": 10,
+    "wall_time_is_estimate": false,
+    "wall_time_note": "Registered stop ceiling only; throughput and ETA not measured"
+  },
+  "actual_operations": {
+    "documentation_written": true,
+    "implementation_written": false,
+    "new_model_fits": 0,
+    "new_optimizer_updates": 0,
+    "new_hard_tasks_mined": false,
+    "new_source_data_audit_run": false,
+    "new_target_evaluation": false,
+    "remote_connected_or_status_read": false,
+    "remote_job_submitted": false,
+    "running_jobs_modified": false,
+    "automatic_polling_added": false
+  },
+  "validation": {
+    "protocol_review": "Final spec read and reviewed; exact SHA bound in REVIEW_V1.md",
+    "old_preparation_artifacts_unchanged": {
+      "PILOT_DESIGN.md": true,
+      "README.md": true,
+      "source_task_audit.py": true,
+      "test_source_task_audit.py": true,
+      "source_task_audit.json": true,
+      "source_task_audit_initial.json": true
+    },
+    "historical_boundary_tests": {
+      "count": 12,
+      "rerun_this_task": false
+    },
+    "method_dimensions_and_budget": "Cross-checked in documents; implementation not tested"
+  },
+  "not_yet_verified": [
+    "Exact head/q14/E3/UID and source reference bindings for the new pipeline",
+    "Frame-causal source eligibility and bank_end_frame handling",
+    "Capture and dependency overlap in the new G0/G1 split",
+    "True positive residual signal on at least two auxiliary-view devices",
+    "Source attack protection informativeness and nonzero safe correction",
+    "Actual resource peaks and throughput",
+    "Normal-error reduction, attack retention, hard-task gain and reference attribution"
+  ],
+  "scientific_results": null,
+  "implementation_ready": "Specification ready; actual data/engineering gates pending",
+  "original_preparation_receipt_sha256": "96617abd081711aa14f59cbdf68a0baa80ef1bb4b00be59f54f123df91379e89"
+}

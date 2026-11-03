@@ -1,0 +1,387 @@
+{
+  "schema": "C4_TARGETED_LOCAL_STORAGE_READONLY_V1",
+  "observed_at_utc": "2026-11-02T03:49:57.906056+00:00",
+  "scope": {
+    "targeted_c4_glob": "runs/history_sample_coverage_c4*",
+    "targeted_data_root": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025",
+    "whole_drive_recursive_scan": false,
+    "private_contents_read": false,
+    "large_raw_hash_recomputed": false,
+    "operations": "Read directory metadata, small-file hashes, tar members, and ZIP central directory; write only this audit JSON."
+  },
+  "drives": {
+    "C:/": {
+      "total_bytes": 214748360704,
+      "used_bytes": 192073871360,
+      "free_bytes": 22674489344,
+      "free_gib": 21.117
+    },
+    "D:/": {
+      "total_bytes": 294971764736,
+      "used_bytes": 285736349696,
+      "free_bytes": 9235415040,
+      "free_gib": 8.601
+    }
+  },
+  "c4_inventory": [
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102",
+      "files_excluding_private": 46,
+      "bytes_excluding_private": 4742627,
+      "private_directories_not_read": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101",
+      "files_excluding_private": 20,
+      "bytes_excluding_private": 4494963,
+      "private_directories_not_read": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101",
+      "files_excluding_private": 42,
+      "bytes_excluding_private": 4231372,
+      "private_directories_not_read": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101",
+      "files_excluding_private": 21,
+      "bytes_excluding_private": 4270612,
+      "private_directories_not_read": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_repair_v1_20261101",
+      "files_excluding_private": 15,
+      "bytes_excluding_private": 70277,
+      "private_directories_not_read": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101",
+      "files_excluding_private": 33,
+      "bytes_excluding_private": 4173161,
+      "private_directories_not_read": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101",
+      "files_excluding_private": 26,
+      "bytes_excluding_private": 5551187,
+      "private_directories_not_read": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_repair_v1_20261101",
+      "files_excluding_private": 44,
+      "bytes_excluding_private": 4707491,
+      "private_directories_not_read": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_deployment_20261101",
+      "files_excluding_private": 15,
+      "bytes_excluding_private": 4285744,
+      "private_directories_not_read": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101",
+      "files_excluding_private": 37,
+      "bytes_excluding_private": 4191207,
+      "private_directories_not_read": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101",
+      "files_excluding_private": 18,
+      "bytes_excluding_private": 4299896,
+      "private_directories_not_read": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102",
+      "files_excluding_private": 20,
+      "bytes_excluding_private": 281907,
+      "private_directories_not_read": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102",
+      "files_excluding_private": 6,
+      "bytes_excluding_private": 427265,
+      "private_directories_not_read": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_v1_20261101",
+      "files_excluding_private": 4,
+      "bytes_excluding_private": 17129,
+      "private_directories_not_read": true
+    }
+  ],
+  "c4_total_bytes_excluding_private": 45744838,
+  "c4_bundles": [
+    {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/bundle.tar",
+      "bytes": 4270080,
+      "sha256": "10c81a18a352d2826b0d816b021218d824fcce401b8d17806ef98c9f7e76d3f6",
+      "manifest_sha256": "a81332fbf9d65b8cdc461a452fc8b21c129a08421812d6880b51e9255abe13b8",
+      "bundle_matches_manifest": true,
+      "source_directory": "runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101",
+      "members": 41,
+      "all_members_match_manifest": true,
+      "all_members_reproducible_from_retained_sources": true,
+      "non_matching_members": []
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_deployment_20261101/bundle.tar",
+      "bytes": 4198400,
+      "sha256": "47242aa5249e7c6c4bff85fe0b297bf77ae2fcc68bf46363f7440cbaac46a398",
+      "manifest_sha256": "b888bcce2f6f69372c1ddfc42896a20eebf9dc606b394b0a59d3f6acef919247",
+      "bundle_matches_manifest": true,
+      "source_directory": "runs/history_sample_coverage_c4_execution_v1_20261101",
+      "members": 31,
+      "all_members_match_manifest": true,
+      "all_members_reproducible_from_retained_sources": false,
+      "non_matching_members": [
+        {
+          "name": "config/EXECUTION.json",
+          "archive_matches_manifest": true,
+          "retained_source_present": true,
+          "source_or_deterministic_relocation_matches_archive": false
+        }
+      ]
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_header_deployment_20261101/bundle.tar",
+      "bytes": 4741120,
+      "sha256": "2c26894e4b8fb18d73d0f79e5de3bdf0305369a40a3ae8ac4ee29a31784913de",
+      "manifest_sha256": "0a95d9a47c9301393dca6f292a9412e65261a00f9619c8748ba157e4ecaa8744",
+      "bundle_matches_manifest": true,
+      "source_directory": "runs/history_sample_coverage_c4_header_repair_v1_20261101",
+      "members": 43,
+      "all_members_match_manifest": true,
+      "all_members_reproducible_from_retained_sources": true,
+      "non_matching_members": []
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_deployment_20261101/bundle.tar",
+      "bytes": 4229120,
+      "sha256": "91c05ab2651b98cb06b940090baf8dcbc5dbf11d0158393e44ed34c1126573f4",
+      "manifest_sha256": "a6c4139c5126027ef52a8ae442d5fa66ae4e44705440b2680c19df9aa13053b7",
+      "bundle_matches_manifest": true,
+      "source_directory": "runs/history_sample_coverage_c4_memory_repair_v1_20261101",
+      "members": 37,
+      "all_members_match_manifest": true,
+      "all_members_reproducible_from_retained_sources": false,
+      "non_matching_members": [
+        {
+          "name": "EXECUTION_CARD.json",
+          "archive_matches_manifest": true,
+          "retained_source_present": true,
+          "source_or_deterministic_relocation_matches_archive": false
+        },
+        {
+          "name": "EXECUTION_CARD.json.sha256",
+          "archive_matches_manifest": true,
+          "retained_source_present": true,
+          "source_or_deterministic_relocation_matches_archive": false
+        },
+        {
+          "name": "IMPLEMENTATION_CHECK.json",
+          "archive_matches_manifest": true,
+          "retained_source_present": true,
+          "source_or_deterministic_relocation_matches_archive": false
+        },
+        {
+          "name": "hpc/run_encode.slurm",
+          "archive_matches_manifest": true,
+          "retained_source_present": true,
+          "source_or_deterministic_relocation_matches_archive": false
+        }
+      ]
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/bundle.tar",
+      "bytes": 4229120,
+      "sha256": "2b1e4cac2d2d3c3464adc6f06f651c2863c8eed50294e3a38fbc2418f24438fa",
+      "manifest_sha256": "654b3f147eb939599534403a87bb90bcce831eddd0d6fe66369da3970c1b181e",
+      "bundle_matches_manifest": true,
+      "source_directory": "runs/history_sample_coverage_c4_memory_repair_v1_20261101",
+      "members": 37,
+      "all_members_match_manifest": true,
+      "all_members_reproducible_from_retained_sources": true,
+      "non_matching_members": []
+    }
+  ],
+  "verified_transport_package_cleanup_suggestions": {
+    "authorization_to_delete": false,
+    "bytes": 13240320,
+    "paths": [
+      "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/bundle.tar",
+      "runs/history_sample_coverage_c4_header_deployment_20261101/bundle.tar",
+      "runs/history_sample_coverage_c4_memory_submission_repair_20261101/bundle.tar"
+    ],
+    "condition": "Only optional transport copies after explicit cleanup authorization. Retain all source directories, manifest files, receipts, configs and evidence. Bundle content is reproducible from retained sources, including deterministic path relocation."
+  },
+  "byte_duplicate_small_file_summary": {
+    "groups": 51,
+    "duplicated_bytes_beyond_first_copy": 17158660,
+    "not_a_cleanup_recommendation": true,
+    "reason": "Shared code/input copies may be referenced by sealed execution manifests; keep them."
+  },
+  "required_data_inventory": [
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/EXPECTED_SHA256SUMS.txt",
+      "bytes": 77
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/pcaps.zip",
+      "bytes": 13919387057
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/raw_selected/BelkinWemoSwitch_ec1a5979f489.pcap",
+      "bytes": 1102039280,
+      "recorded_raw_sha256": "445b24a2555bd4af7991e83752ad63aba1cd9f1c96e7cbbd76da6a81b6dcbc64",
+      "recorded_bytes_match": true,
+      "recorded_packet_count": 4273643,
+      "current_large_file_hash_recomputed": false
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/raw_selected/NetatmoWelcome_70ee50183443.pcap",
+      "bytes": 2206626972,
+      "recorded_raw_sha256": "e4eb79d34e3e45e3de71190ce65a2449be4989d663a6e13d7f26b4e928d13006",
+      "recorded_bytes_match": true,
+      "recorded_packet_count": 4967010,
+      "current_large_file_hash_recomputed": false
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/raw_selected/SamsungCamera_00166cab6b88.pcap",
+      "bytes": 2154137280,
+      "recorded_raw_sha256": "55fbfcbb4f5dce65ac51a41658550e087da1d1e2b30370386eb167c4d9dfedf9",
+      "recorded_bytes_match": true,
+      "recorded_packet_count": 5880402,
+      "current_large_file_hash_recomputed": false
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/raw_selected/TPLinkSmartPlug_50c7bf005639.pcap",
+      "bytes": 12682108,
+      "recorded_raw_sha256": "45d1bd14569950ab6c356bac70a7870b2a0d98a4efc8e3e6d2310ef422e212f5",
+      "recorded_bytes_match": true,
+      "recorded_packet_count": 79773,
+      "current_large_file_hash_recomputed": false
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/BelkinWemoSwitch_ec1a5979f489.chronological_order.npy",
+      "bytes": 34189272
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/BelkinWemoSwitch_ec1a5979f489.packet_index.npy",
+      "bytes": 136756832
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/BelkinWemoSwitch_ec1a5979f489.timeline.json",
+      "bytes": 1906
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/NetatmoWelcome_70ee50183443.chronological_order.npy",
+      "bytes": 39736208
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/NetatmoWelcome_70ee50183443.packet_index.npy",
+      "bytes": 158944576
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/NetatmoWelcome_70ee50183443.timeline.json",
+      "bytes": 1904
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/SamsungCamera_00166cab6b88.chronological_order.npy",
+      "bytes": 47043344
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/SamsungCamera_00166cab6b88.packet_index.npy",
+      "bytes": 188173120
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/SamsungCamera_00166cab6b88.timeline.json",
+      "bytes": 1892
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/TPLinkSmartPlug_50c7bf005639.chronological_order.npy",
+      "bytes": 638312
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/TPLinkSmartPlug_50c7bf005639.packet_index.npy",
+      "bytes": 2552992
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/TPLinkSmartPlug_50c7bf005639.timeline.json",
+      "bytes": 1889
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/下载说明.md",
+      "bytes": 2930
+    }
+  ],
+  "required_data_total_bytes": 20002917951,
+  "archive_selected_member_metadata": [
+    {
+      "raw": "BelkinWemoSwitch_ec1a5979f489.pcap",
+      "matching_zip_members": [
+        {
+          "name": "pcaps/BelkinWemoSwitch_ec1a5979f489.pcap",
+          "uncompressed_bytes": 1102039280,
+          "compressed_bytes": 117627508,
+          "crc32": "0082083a",
+          "uncompressed_size_matches_local": true
+        }
+      ],
+      "verification_scope": "Central-directory metadata only; not a fresh byte or CRC scan."
+    },
+    {
+      "raw": "NetatmoWelcome_70ee50183443.pcap",
+      "matching_zip_members": [
+        {
+          "name": "pcaps/NetatmoWelcome_70ee50183443.pcap",
+          "uncompressed_bytes": 2206626972,
+          "compressed_bytes": 1747927304,
+          "crc32": "566b7d39",
+          "uncompressed_size_matches_local": true
+        }
+      ],
+      "verification_scope": "Central-directory metadata only; not a fresh byte or CRC scan."
+    },
+    {
+      "raw": "SamsungCamera_00166cab6b88.pcap",
+      "matching_zip_members": [
+        {
+          "name": "pcaps/SamsungCamera_00166cab6b88.pcap",
+          "uncompressed_bytes": 2154137280,
+          "compressed_bytes": 208560850,
+          "crc32": "d908ca46",
+          "uncompressed_size_matches_local": true
+        }
+      ],
+      "verification_scope": "Central-directory metadata only; not a fresh byte or CRC scan."
+    },
+    {
+      "raw": "TPLinkSmartPlug_50c7bf005639.pcap",
+      "matching_zip_members": [
+        {
+          "name": "pcaps/TPLinkSmartPlug_50c7bf005639.pcap",
+          "uncompressed_bytes": 12682108,
+          "compressed_bytes": 4704480,
+          "crc32": "5e8a5707",
+          "uncompressed_size_matches_local": true
+        }
+      ],
+      "verification_scope": "Central-directory metadata only; not a fresh byte or CRC scan."
+    }
+  ],
+  "must_retain": [
+    "pcaps.zip: original downloaded archive; not declared redundant simply because four selected PCAPs exist.",
+    "raw_selected/*.pcap: admitted historical source inputs.",
+    "timeline_index/*: chronology and replay indexes.",
+    "All scientific encodings/results, manifest hashes, final receipts, and code snapshots."
+  ],
+  "interpretation": [
+    "Current C4 local directories and bundles occupy only tens of MiB; clearing them would not materially relieve a multi-GiB shortage.",
+    "D free-space figure is a volume snapshot, not a per-user HPC quota. Parent audit separately checks remote df/quota.",
+    "No raw or scientific asset is proposed for deletion."
+  ],
+  "deleted_files": 0,
+  "moved_files": 0,
+  "science_executed": false,
+  "jobs_submitted": 0
+}

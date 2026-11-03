@@ -1,0 +1,118 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-10-25T03:15:01.264699+00:00",
+  "http_status": 200,
+  "url": "http://127.0.0.1:18765/",
+  "remote_connected": true,
+  "current_experiment": {
+    "version": "V4-EVAL1",
+    "root": "/srv/paper04/learned_onboarding_eval_20261025_v1",
+    "unit": "paper04-learned-onboarding-eval-20261025-v1",
+    "status_path": "/srv/paper04/learned_onboarding_eval_20261025_v1/state/status.json",
+    "parent_root": "/srv/paper04/learned_onboarding_20261024_v4"
+  },
+  "current_summary": {
+    "code": "RUNNING",
+    "label": "仍在运行，状态正常",
+    "tone": "success",
+    "reason": "外层状态持续更新，且远端实验进程仍在运行。",
+    "experiment_reason": "外层状态持续更新，且远端实验进程仍在运行。",
+    "raw_status": "RUNNING",
+    "current_version": "V4-EVAL1",
+    "expected_identity": {
+      "version": "V4-EVAL1",
+      "root": "/srv/paper04/learned_onboarding_eval_20261025_v1",
+      "unit": "paper04-learned-onboarding-eval-20261025-v1",
+      "status_path": "/srv/paper04/learned_onboarding_eval_20261025_v1/state/status.json",
+      "parent_root": "/srv/paper04/learned_onboarding_20261024_v4"
+    },
+    "identity_verified": true,
+    "parent_root": "/srv/paper04/learned_onboarding_20261024_v4",
+    "execution_scope": "复用已封存 V4 训练/CAL，单独补评价",
+    "reused_stages": [
+      "tests",
+      "prepare",
+      "validate",
+      "preflight",
+      "fit",
+      "calibration",
+      "target"
+    ],
+    "evaluation_completed_stages": [],
+    "evaluation_incomplete_stages": [
+      "evaluation"
+    ],
+    "output_bytes": 11863,
+    "output_limit_bytes": 2147483648,
+    "output_gib": 0.0,
+    "output_limit_gib": 2.0,
+    "output_budget_scope": "2 GiB 仅计算本次新增评价输出，不含已封存的 V4 训练/CAL/目标分数",
+    "terminal_receipt": null,
+    "started_at": "2026-10-25T03:12:03.760029+00:00",
+    "invocation_id": "2fb248ddc3ce43b19900483b1ba7d4ae",
+    "launch_observed": true,
+    "last_known_label": "仍在运行，状态正常",
+    "terminal": false,
+    "stage": "evaluation",
+    "stage_label": "A/B 评价",
+    "completed_stages": [
+      "tests",
+      "prepare",
+      "validate",
+      "preflight",
+      "fit",
+      "calibration",
+      "target"
+    ],
+    "incomplete_stages": [
+      "evaluation"
+    ],
+    "phase_names": {
+      "tests": "代码测试",
+      "prepare": "数据准备",
+      "validate": "数据验证",
+      "preflight": "资源预检",
+      "fit": "模型训练",
+      "calibration": "源侧校准",
+      "target": "目标数据处理",
+      "evaluation": "A/B 评价"
+    },
+    "stopped_at": null,
+    "last_success_checked": 1792898100.5963113,
+    "checked": 1792898100.5963113,
+    "source_updated": 1792898095.868904,
+    "read_age_seconds": 0.6664013862609863,
+    "source_age_seconds": 5.393808603286743,
+    "stale_after_seconds": 180,
+    "poll_seconds": 60,
+    "worker_is_snapshot": false,
+    "worker_status": "RUNNING",
+    "worker_stage": "evaluation",
+    "process": {
+      "available": true,
+      "unit": "paper04-learned-onboarding-eval-20261025-v1",
+      "MainPID": "5174",
+      "Result": "success",
+      "ExecMainStatus": "0",
+      "ActiveState": "active",
+      "SubState": "running",
+      "InvocationID": "2fb248ddc3ce43b19900483b1ba7d4ae"
+    },
+    "snapshot_retained": false,
+    "connection_error": null,
+    "rss_gib": 3.926,
+    "rss_guard_gib": 8.0
+  },
+  "parent_status": "EXCEPTION_STOP",
+  "page_meta": {
+    "generated_at": 1792898101.2627127,
+    "last_remote_attempt": 1792898100.5963113,
+    "last_success_checked": 1792898100.5963113,
+    "connection_error": null,
+    "ordinary_polling": true,
+    "poll_seconds": 60,
+    "stale_after_seconds": 180
+  },
+  "ordinary_poll_seconds": 60,
+  "continuous_ai_polling": false
+}

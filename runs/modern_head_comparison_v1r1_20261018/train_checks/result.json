@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "tests_run": 15,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "native_observations": [
+    {
+      "fixture": "constant_features_endpoint",
+      "requested_rounds": 3,
+      "callback_iterations": 3,
+      "effective_tree_iterations": 1,
+      "native_stop": true,
+      "versions": {
+        "python": "3.9.13",
+        "numpy": "2.0.2",
+        "torch": "2.8.0+cpu",
+        "lightgbm": "4.6.0"
+      }
+    },
+    {
+      "fixture": "constant_features_500_requested",
+      "requested_rounds": 500,
+      "callback_iterations": 500,
+      "effective_tree_iterations": 1,
+      "native_stop": true,
+      "versions": {
+        "python": "3.9.13",
+        "numpy": "2.0.2",
+        "torch": "2.8.0+cpu",
+        "lightgbm": "4.6.0"
+      }
+    }
+  ],
+  "log_sha256": "15096fd4d2aed0645554765948af8f685b79417bde151fcdca8a0d1eafb93652",
+  "source_sha256": "2b7d31719ed7e0a2c76ba4279ca95b8522d37eff574d566ccd801ad88a59bf85",
+  "train_source_sha256": "3fc212b3cb67b71edfbca7c50c9cae0d401139fdb3dcb250980c26a46baaf5d6",
+  "production_training": false
+}

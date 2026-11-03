@@ -1,0 +1,11 @@
+{
+  "status": "STOPPED_NO_RETRY",
+  "failure": {
+    "stage": "raw-CIC_DEV",
+    "error": "RuntimeError('STAGE_FAILED:raw-CIC_DEV')",
+    "traceback": "Traceback (most recent call last):\n  File \"/srv/paper04/onboarding_new_lineage_20261022_v1/onboarding_service.py\", line 158, in run\n    supervise(config,target,name,plan,started)\n  File \"/srv/paper04/onboarding_new_lineage_20261022_v1/onboarding_service.py\", line 133, in supervise\n    b.require(child.returncode==0,'STAGE_FAILED:'+name)\n  File \"/srv/paper04/onboarding_new_lineage_20261022_v1/backup_chunks.py\", line 17, in require\n    raise RuntimeError(message)\nRuntimeError: STAGE_FAILED:raw-CIC_DEV\n"
+  },
+  "finished_epoch": 1792652064.8225694,
+  "automatic_stop_enabled": false,
+  "optimizer_updates": 0
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "learned-onboarding-source-adapter-validation-v1",
+  "status": "SOURCE_INPUT_BINDING_VALIDATED_NO_TRAINING_NO_TARGET_EVALUATION",
+  "date_local": "2026-10-23T19:35:47+08:00",
+  "spec_sha256": "a07d736c7c9c756478a7d163873611132ff0b14abc855ab3a3709257433674b8",
+  "adapter_sha256": "0811ceb727d563b43ec55fef8c330c4be2efdbc0e064819744200ec73ce445a3",
+  "test_sha256": "85aafdf9e99f27887a2170d42866e03e93e5d2c3913433d40746fc3dbadae1df",
+  "validation": {
+    "source_rows": 766727,
+    "source_reference_rows": 104,
+    "fit_rows": 617908,
+    "cal_rows": 148819,
+    "source_ordered_uid_set_sha256": "5ed3b2bb21970ecc29cdb288ac3a58522cef784207dcbf1164478440b515ef23",
+    "source_reference_uid_set_sha256": "a67b3f19119e1238fe84f8b69282b9d9a31850b852fad55921bb8aefe5c01c72",
+    "seed": 27,
+    "head_family": "QUERY_TAIL",
+    "cut": -23.066728591918945,
+    "cut_comparator": "strict >",
+    "archive_index_sha256": "2fd46ea9e8db0b88eb1d375f20f366f0f80ec33189c2dcfa35493033734581b8",
+    "query_lineage_complete_sha256": "fd9b46e510c0937d8c151aa80dd3940a636e8a68e618ec3ef9267a846705fd83",
+    "learn_q14_sha256": "388c92ce4a1cb8029ba81d52cd7b511c8e49a8e97f848ab5982050d470e63b9e",
+    "head_sha256": "35f4a892f6629e9995fcedc52b14a3f6abd64a4f01dedacb595a3073858415b7",
+    "thresholds_sha256": "2ea1943d5da77259604caa03847bd97dbb53a90b1f63145d28a44047f6dd3417",
+    "normalizer_sha256": "ba92b5439255435e854ee14b74738cae0e3606060456de37927b2b6a0e2ab8b2",
+    "archive_selected_members": 16,
+    "target_query_files_opened": 0,
+    "model_forward_rows_this_validation": 33151,
+    "optimizer_updates": 0,
+    "remote_operations": 0
+  },
+  "source_score_replay": {
+    "method": "query_tail_core_v2.scores; original 1024-row batch path; float32 output",
+    "learn_indices": [0, 1],
+    "ordered_uids": [
+      "09880042459416d79f159e866cae222b484aec60baf702313857fb98f5d08ad5",
+      "e0c204c024cee22e9995b181048d528cdf9c238ae628e0ca49ac1b4cb4d978bc"
+    ],
+    "scores_float32": [-29.61138916015625, -54.95639419555664],
+    "score_queries_same_bytes": true
+  },
+  "source_calibration_replay": {
+    "status": "EXACT_CUT_REPRODUCED",
+    "scope": "all LEARN CAL normal rows only",
+    "normal_rows": 33147,
+    "normal_uid_sha256": "73abd56b72c4e4af2a9d292d9983e01c4312199e0e023c636d9f2b7270f9c90e",
+    "score_dtype": "float32",
+    "score_bytes_sha256": "592ef7f0bda26514dedfe16bfcde39b340df1cb10b06bca124375a73908864cb",
+    "stored_cut": -23.066728591918945,
+    "replayed_cut": -23.066728591918945,
+    "strict_weighted_normal_fpr": 0.009755209847071762,
+    "budget": 0.01,
+    "algorithm": "continuous_model_v3.threshold with legacy_qref_data_v1.class_weights"
+  },
+  "tests": {
+    "command": "python -m unittest discover -s runs/learned_onboarding_v1_20261023/tests -p test_source_inputs.py -v",
+    "passed": 3,
+    "failed": 0,
+    "coverage": "concatenated chunk reads, chunk hash and size rejection, selected-member extraction, target omission, same-size extracted-member mutation rejection"
+  },
+  "not_done": [
+    "full source head scoring",
+    "frame-causal source task coverage receipt",
+    "auxiliary or correction model fitting",
+    "CAL attack protection or lambda selection",
+    "A/B target query loading or evaluation"
+  ],
+  "production_seal_membership": false
+}

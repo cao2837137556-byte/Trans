@@ -1,0 +1,2992 @@
+{
+  "read_only_git_inventory": true,
+  "existing_pruned_735_omits_key_evidence": true,
+  "scope_note": "Supplement only: small method source, configuration, final acceptance/freeze/failure evidence and existing SHA manifests for earlier method lineage plus latest Edge qualification. No binaries read or hashed. Excludes vendor/assets/runtime copies and distribution mirrors. Already tracked/prior-pruned paths omitted; parent stages explicitly. Further excludes progress/status and retrieval/runs mirror paths; final geometry snapshots retained as closure evidence. Existing SOURCE_ASSET_MANIFEST, code_manifest, SOURCE_TRANSFER_MANIFEST and BACKUP_INDEX record provenance/digests instead of assets/vendor/package copies.",
+  "candidates": [
+    {
+      "path": "runs/constrained_onboarding_implementation_v1_20261015/README.md",
+      "bytes": 5929,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/constrained_onboarding_implementation_v1_20261015/implementation_receipt.json",
+      "bytes": 2613,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/constrained_onboarding_implementation_v1_20261015/source_manifest.json",
+      "bytes": 1215,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/constrained_onboarding_implementation_v1_20261015/verify_implementation.py",
+      "bytes": 4152,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/EXECUTION_CARD.md",
+      "bytes": 5568,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/README.md",
+      "bytes": 3474,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/build_candidate_package.py",
+      "bytes": 2859,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/config/RUNTIME_ASSET_MANIFEST.json",
+      "bytes": 7575,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/finalize_candidate_inputs.py",
+      "bytes": 5357,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/hpc/fallback.py",
+      "bytes": 1298,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/hpc/run_ab_stage.slurm",
+      "bytes": 3443,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/preparation/SOURCE_SEAL_ALIASES.json",
+      "bytes": 9522,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/preparation_r2/SOURCE_SEAL_ALIASES.json",
+      "bytes": 9522,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/prepare_inputs.py",
+      "bytes": 12295,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/src/common.py",
+      "bytes": 5354,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/src/launch_stage.py",
+      "bytes": 8698,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/src/matrix.py",
+      "bytes": 31757,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/src/metrics.py",
+      "bytes": 11193,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/src/supervisor.py",
+      "bytes": 7193,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/tests/fixtures.py",
+      "bytes": 6366,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/tests/original_matrix_frozen.py",
+      "bytes": 28231,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/tests/test_ab_stage.py",
+      "bytes": 11538,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_candidate_v1_20261028/tests/test_launch_stage.py",
+      "bytes": 6772,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_deployment_20261028/ENGINEERING_ACCEPTANCE.json",
+      "bytes": 1790,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_deployment_20261028/README.md",
+      "bytes": 3278,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_deployment_20261028/RESULT.json",
+      "bytes": 44139,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_distribution_20261028/r1/FINAL_SEALED_VALIDATION.json",
+      "bytes": 355,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_distribution_20261028/r1/PACKAGE_RECEIPT.json",
+      "bytes": 604,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/AUTHORIZATION_RECEIPT.json",
+      "bytes": 593,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/EXECUTION.json",
+      "bytes": 3086,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/PAGE_ACCEPTANCE.json",
+      "bytes": 516,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/STARTUP_ACCEPTANCE.json",
+      "bytes": 1797,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/SUBMIT_UI_RECEIPT.json",
+      "bytes": 412,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/result_retrieval_179700_20261028/DOWNLOAD_AND_EXTRACTION_RECEIPT.json",
+      "bytes": 673,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/result_retrieval_179700_20261028/OFFLINE_AUDIT.json",
+      "bytes": 654294,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/result_retrieval_179700_20261028/job_179700_results.tar.gz.sha256",
+      "bytes": 92,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/result_retrieval_179700_20261028/unpacked/job_179700/science/ASSET_VIEW_RECEIPT.json",
+      "bytes": 9745,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/result_retrieval_179700_20261028/unpacked/job_179700/science/RESULT.json",
+      "bytes": 1187,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/DEPENDENCY_CLOSURE.json",
+      "bytes": 5948,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/EXECUTION_CARD.md",
+      "bytes": 2490,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/PACKAGE_SHA256SUMS",
+      "bytes": 2487,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/README.md",
+      "bytes": 2362,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/bootstrap/repair_runtime.py",
+      "bytes": 3084,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/bootstrap/sitecustomize.py",
+      "bytes": 484,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/build_overlay.py",
+      "bytes": 5887,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/config/ACCEPTED_RESULT_MANIFEST.json",
+      "bytes": 16245,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/config/SOURCE_INPUT_SEAL.json",
+      "bytes": 4953,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/hpc/run_ab_dependency_repair.slurm",
+      "bytes": 3112,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/seal_repair.py",
+      "bytes": 1614,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/src/metadata_preflight.py",
+      "bytes": 11828,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/src/run_repaired_stage.py",
+      "bytes": 4310,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/tests/test_dependency_repair.py",
+      "bytes": 10620,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_deployment_20261028/AUTHORIZATION_RECEIPT.json",
+      "bytes": 653,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_deployment_20261028/EXECUTION.json",
+      "bytes": 1321,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_deployment_20261028/PAGE_ERROR_DISPLAY_ACCEPTANCE.json",
+      "bytes": 340,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_deployment_20261028/REPAIR_DISPLAY_ACCEPTANCE.json",
+      "bytes": 530,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_deployment_20261028/STARTUP_ACCEPTANCE.json",
+      "bytes": 1133,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_ab_stage_distribution_20261028/r1/PACKAGE_RECEIPT.json",
+      "bytes": 726,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/EXECUTION.json",
+      "bytes": 2802,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/STARTUP_ACCEPTANCE.json",
+      "bytes": 1041,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_20261027/README.md",
+      "bytes": 1192,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/DOWNLOAD_RECEIPT.json",
+      "bytes": 1767,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/README.md",
+      "bytes": 1634,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/RESULT_ACCEPTANCE.json",
+      "bytes": 1533,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/analysis/INDEPENDENT_AUDIT.json",
+      "bytes": 24340,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/analysis/SOURCE_CAL_SAVED_METRICS.json",
+      "bytes": 5720,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/ASSET_VIEW_RECEIPT.json",
+      "bytes": 225992,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/RESULT.json",
+      "bytes": 316,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/BATCH_REPAIR_RECEIPT.json",
+      "bytes": 8311,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/RESULT.json",
+      "bytes": 92777,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/environment.json",
+      "bytes": 7773,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/source_cal/INPUT_SEAL.json",
+      "bytes": 4953,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/source_cal/RESULT.json",
+      "bytes": 15159,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/manifest.json",
+      "bytes": 16245,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/EXECUTION_CARD.md",
+      "bytes": 4754,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/OVERLAY_SHA256SUMS",
+      "bytes": 1321,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/README.md",
+      "bytes": 3765,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/REPAIR_MANIFEST.json",
+      "bytes": 1846,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/build_encoder_budget.py",
+      "bytes": 808,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/encoder_adapter.py",
+      "bytes": 16883,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/inert_test_support.py",
+      "bytes": 1078,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/repair_gate.py",
+      "bytes": 8327,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/run_repair.slurm",
+      "bytes": 4137,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/run_repaired_chain.py",
+      "bytes": 8469,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/test_encoder_adapter.py",
+      "bytes": 11597,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/test_encoder_adapter_integration.py",
+      "bytes": 10659,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/test_repaired_chain.py",
+      "bytes": 12291,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/validation/FINAL_INDEPENDENT_REVIEW.md",
+      "bytes": 6446,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/validation/final_r1/ACCEPTANCE.json",
+      "bytes": 3009,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_v1_20261027/validation/validate_release.py",
+      "bytes": 6107,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_launch_repair_deployment_20261027/EXECUTION.json",
+      "bytes": 1848,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_launch_repair_deployment_20261027/EXECUTION_ATTEMPT.json",
+      "bytes": 306,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_launch_repair_deployment_20261027/RUNTIME_ENVIRONMENT_ORIGINAL_179536.json",
+      "bytes": 6577,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_launch_repair_deployment_20261027/RUNTIME_ENVIRONMENT_ORIGINAL_179536.sha256",
+      "bytes": 65,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/dense_reference_launch_repair_deployment_20261027/STARTUP_ACCEPTANCE.json",
+      "bytes": 1631,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_launch_repair_deployment_20261027/analysis/ORIGINAL104_BATCH1_READONLY_AUDIT_179536.json",
+      "bytes": 15500,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_launch_repair_deployment_20261027/analysis/ORIGINAL104_BATCH1_READONLY_AUDIT_179536.md",
+      "bytes": 2744,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_launch_repair_deployment_20261027/analysis/ORIGINAL104_BATCH1_READONLY_AUDIT_179536.sha256",
+      "bytes": 222,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/dense_reference_launch_repair_v1_20261027/OVERLAY_SHA256SUMS",
+      "bytes": 421,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/dense_reference_launch_repair_v1_20261027/README.md",
+      "bytes": 5645,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_launch_repair_v1_20261027/run_repair.slurm",
+      "bytes": 4236,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_launch_repair_v1_20261027/test_launch_repair.py",
+      "bytes": 15956,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_launch_repair_v1_20261027/verify_original.py",
+      "bytes": 8898,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/EXECUTION_CARD.md",
+      "bytes": 6009,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/PROTOCOL.md",
+      "bytes": 9158,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/README.md",
+      "bytes": 5051,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/build_assets.py",
+      "bytes": 6269,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/build_package.py",
+      "bytes": 3800,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/config/ASSET_MANIFEST.json",
+      "bytes": 181730,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/config/SOURCE_ASSET_MANIFEST.json",
+      "bytes": 169677,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/deployment/REPAIR_READONLY_CHECK.command.sh",
+      "bytes": 3213,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/deployment/REPAIR_UPLOAD.command.sh",
+      "bytes": 32330,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/deployment/deploy_bridge.py",
+      "bytes": 18456,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/deployment/deploy_client.py",
+      "bytes": 5775,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/deployment/prepare_launch_repair_check.py",
+      "bytes": 3040,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/deployment/prepare_launch_repair_upload.py",
+      "bytes": 2782,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/deployment/test_deploy_bridge.py",
+      "bytes": 11401,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/distribution/r1/PACKAGE_RECEIPT.json",
+      "bytes": 746,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/distribution/r2/PACKAGE_RECEIPT.json",
+      "bytes": 746,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/hpc/fallback.py",
+      "bytes": 968,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/hpc/run_dense.slurm",
+      "bytes": 3085,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/ASSET_CLOSURE_RECEIPT.json",
+      "bytes": 202,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/ENCODER_PORTABILITY_AUDIT.json",
+      "bytes": 5997,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/ENCODER_PORTABILITY_AUDIT.md",
+      "bytes": 8546,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/FINAL_RUNTIME_REVIEW.json",
+      "bytes": 3830,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/FINAL_RUNTIME_REVIEW.md",
+      "bytes": 4328,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/BINDING_RECEIPT.json",
+      "bytes": 4953,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/SOURCE_ASSETS.json",
+      "bytes": 3319,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/src/binding.py",
+      "bytes": 23241,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/src/chain.py",
+      "bytes": 9849,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/src/common.py",
+      "bytes": 5354,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/src/materialize.py",
+      "bytes": 9521,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/src/matrix.py",
+      "bytes": 28231,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/src/metrics.py",
+      "bytes": 11193,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/src/prepare_runtime.py",
+      "bytes": 2353,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/src/runtime_probe.py",
+      "bytes": 3294,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/src/source_cal.py",
+      "bytes": 16816,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/src/supervisor.py",
+      "bytes": 7193,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/tests/test_binding.py",
+      "bytes": 8681,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/tests/test_chain.py",
+      "bytes": 10126,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/tests/test_materialize.py",
+      "bytes": 7595,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/tests/test_matrix.py",
+      "bytes": 16263,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/tests/test_metrics.py",
+      "bytes": 5355,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/tests/test_runtime_monitor.py",
+      "bytes": 16013,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_matrix_v1_20261027/validate_distribution.py",
+      "bytes": 8695,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/EXECUTION_CARD.md",
+      "bytes": 5233,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/PACKAGE_SHA256SUMS",
+      "bytes": 766,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/diagnostic.py",
+      "bytes": 19617,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/manifest.json",
+      "bytes": 17609,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/run_diagnostic.slurm",
+      "bytes": 3547,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/test_diagnostic.py",
+      "bytes": 12523,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_original104_batch_diagnostic_v1_20261027/validation/PREPARATION_RECEIPT.json",
+      "bytes": 2035,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_result_audit_v1_20261027/audit_readback.py",
+      "bytes": 23132,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_result_audit_v1_20261027/source_saved_metrics.py",
+      "bytes": 4981,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/dense_reference_source8_diagnostic_deployment_20261027/EXECUTION.json",
+      "bytes": 2352,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_source8_diagnostic_deployment_20261027/VALIDATION_RECEIPT.json",
+      "bytes": 1236,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_source8_diagnostic_deployment_20261027/results/job_179591/analysis/SOURCE8_RESULT_INDEPENDENT_AUDIT_179591.json",
+      "bytes": 6212,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_source8_diagnostic_deployment_20261027/results/job_179591/analysis/SOURCE8_RESULT_INDEPENDENT_AUDIT_179591.json.sha256",
+      "bytes": 112,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/dense_reference_source8_diagnostic_deployment_20261027/results/job_179591/analysis/SOURCE8_RESULT_INDEPENDENT_AUDIT_179591.md",
+      "bytes": 1350,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_source8_diagnostic_deployment_20261027/results/job_179591/analysis/SOURCE8_RESULT_INDEPENDENT_AUDIT_179591.md.sha256",
+      "bytes": 110,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/dense_reference_source8_diagnostic_deployment_20261027/results/job_179591/science/ENVIRONMENT.json",
+      "bytes": 6004,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/dense_reference_source8_diagnostic_deployment_20261027/results/job_179591/science/RESULT.json",
+      "bytes": 1234,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/APPROVED_CARD.json",
+      "bytes": 4648,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/APPROVED_CARD.json.sha256",
+      "bytes": 86,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/ATTACK_SCAN_PROCESS_RECEIPT.json",
+      "bytes": 1007,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/ATTACK_TO_NORMAL_GATE.json",
+      "bytes": 1705,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/CAPINFOS_CROSSCHECK.json",
+      "bytes": 480,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/CAPINFOS_CROSSCHECK.json.sha256",
+      "bytes": 92,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/CONTINUATION_FINAL.json",
+      "bytes": 164,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/HTTP_AUDIT.json",
+      "bytes": 59338,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/HTTP_CAPINFOS.txt",
+      "bytes": 462,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/NORMAL_AUDIT.json",
+      "bytes": 94491,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/NORMAL_CAPINFOS.txt",
+      "bytes": 465,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/OUTPUT_MANIFEST.json",
+      "bytes": 3831,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/OUTPUT_MANIFEST.json.sha256",
+      "bytes": 88,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/RESULT.json",
+      "bytes": 14487,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/RESULT.json.sha256",
+      "bytes": 79,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/SELF_TEST.json",
+      "bytes": 519,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/UDP_AUDIT.json",
+      "bytes": 65719,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/UDP_CAPINFOS.txt",
+      "bytes": 463,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/contract_review/FACTS.json",
+      "bytes": 4388,
+      "category": "final_freeze_configuration_or_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/contract_review/FACTS.json.sha256",
+      "bytes": 78,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/contract_review/README.md",
+      "bytes": 6600,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/contract_review/README.md.sha256",
+      "bytes": 77,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/dup_audit.py",
+      "bytes": 7275,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/edge_iiotset_raw_qualification_v1_20261102/scan_raw.py",
+      "bytes": 27407,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_pilot_v1_20261023/EXECUTION_SPEC_V1.md",
+      "bytes": 33471,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_pilot_v1_20261023/PLAN_RECEIPT_V1.json",
+      "bytes": 4584,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_pilot_v1_20261023/PREPARATION_RECEIPT.json",
+      "bytes": 2222,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_pilot_v1_20261023/README.md",
+      "bytes": 2885,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_pilot_v1_20261023/source_task_audit.json",
+      "bytes": 25436,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_pilot_v1_20261023/source_task_audit.py",
+      "bytes": 13619,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_pilot_v1_20261023/source_task_audit_initial.json",
+      "bytes": 18633,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_pilot_v1_20261023/test_source_task_audit.py",
+      "bytes": 4323,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/README.md",
+      "bytes": 9344,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/EXECUTION_RECEIPT.json",
+      "bytes": 1712,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/EXECUTION_REVIEW.md",
+      "bytes": 4958,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/REVISION_RECEIPT.json",
+      "bytes": 1020,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/execute_confirmed_revision.py",
+      "bytes": 5228,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/operations/REMOTE_DEPLOYMENT_VERIFIED.json",
+      "bytes": 419,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/operations/REMOTE_LAUNCH_RECEIPT.json",
+      "bytes": 2756,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/operations/REMOTE_SOURCE_ARCHIVE_RECEIPT.json",
+      "bytes": 298,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/operations/STARTUP_ACCEPTANCE_SNAPSHOT.json",
+      "bytes": 6615,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/operations/UPLOAD_RECEIPT.json",
+      "bytes": 142,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/operations/exact_remote_launch.py",
+      "bytes": 4289,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/operations/fit_stop_20261024/EVIDENCE_MANIFEST.json",
+      "bytes": 10592,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/prepare_revision.py",
+      "bytes": 8394,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/config/TARGET_MANIFEST_SCHEMA.md",
+      "bytes": 4927,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/EXECUTION_RECEIPT.json",
+      "bytes": 2511,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/EXECUTION_REVIEW.md",
+      "bytes": 5673,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/DEPLOYMENT_MANIFEST.json",
+      "bytes": 120108,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/PACKAGE_RECEIPT.json",
+      "bytes": 631,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/REMOTE_DEPLOYMENT_VERIFIED.json",
+      "bytes": 312,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/REMOTE_DEPLOYMENT_VERIFIED_AFTER_INSTALLER_FIX.json",
+      "bytes": 419,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/REMOTE_LAUNCH_RECEIPT.json",
+      "bytes": 2732,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/REMOTE_SOURCE_ARCHIVE_RECEIPT.json",
+      "bytes": 298,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/STARTUP_ACCEPTANCE_SNAPSHOT.json",
+      "bytes": 8541,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/UPLOAD_RECEIPT.json",
+      "bytes": 54,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/deploy.py",
+      "bytes": 7466,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/launch.py",
+      "bytes": 4472,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/stopped_attempt_v1/DEPLOYMENT_VERIFIED.json",
+      "bytes": 313,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/stopped_attempt_v1/EVIDENCE_RECEIPT.json",
+      "bytes": 2671,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/stopped_attempt_v1/EXECUTION_SLOT_RECEIPT.json",
+      "bytes": 318,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/stopped_attempt_v1/LAUNCH_RECEIPT.json",
+      "bytes": 2104,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/stopped_attempt_v1/SERVICE_HARD_LIMIT_RECEIPT.json",
+      "bytes": 584,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/stopped_attempt_v1/state/execution_contract.json",
+      "bytes": 1749,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/local_ops/stopped_attempt_v1/state/package_manifest.json",
+      "bytes": 86642,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/prepare_source_archive.py",
+      "bytes": 3144,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/run_chain.py",
+      "bytes": 17290,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/run_stage.py",
+      "bytes": 8080,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/deployment_20261024/target_manifest_adapter.py",
+      "bytes": 26661,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/DEPLOYMENT_MANIFEST.json",
+      "bytes": 861,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/EXECUTION_RECEIPT.json",
+      "bytes": 2527,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/EXECUTION_REVIEW.md",
+      "bytes": 4055,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/PAGE_ACCEPTANCE.json",
+      "bytes": 3968,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/PAGE_RESTART_RECEIPT.json",
+      "bytes": 553,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/PAGE_TASK_VERIFIED.json",
+      "bytes": 514,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/README.md",
+      "bytes": 3543,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/STARTUP_ACCEPTANCE.json",
+      "bytes": 1544,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/ANALYSIS_SUMMARY.json",
+      "bytes": 55635,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/DOWNLOAD_VERIFIED.json",
+      "bytes": 17710,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/PAGE_COMPLETION_ACCEPTANCE.json",
+      "bytes": 3852,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/REMOTE_COMPLETION_AUDIT.json",
+      "bytes": 1340,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/RESULT_REVIEW.md",
+      "bytes": 7269,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/evaluation/DEPLOYMENT_MANIFEST.json",
+      "bytes": 861,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/evaluation/DEPLOYMENT_VERIFIED.json",
+      "bytes": 2290,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/evaluation/LAUNCH_RECEIPT.json",
+      "bytes": 1728,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/evaluation/SERVICE_HARD_LIMIT_RECEIPT.json",
+      "bytes": 645,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/evaluation/contract.json",
+      "bytes": 1334,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/evaluation/state/ACCEPTANCE.json",
+      "bytes": 52120,
+      "category": "final_freeze_configuration_or_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/summarize.py",
+      "bytes": 5812,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/collect_completion.py",
+      "bytes": 6653,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/contract.json",
+      "bytes": 1334,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/operate.py",
+      "bytes": 17540,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/operations/UPLOAD_FINAL_PAYLOAD_20261025_110825_559797.json",
+      "bytes": 202,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/run_evaluation.py",
+      "bytes": 27923,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/test_run_evaluation.py",
+      "bytes": 16938,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/implementation_manifest.json",
+      "bytes": 15994,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/FINAL_STATIC_REVIEW.md",
+      "bytes": 5027,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/MEMORY_REVISION_MANIFEST_PRE_REVIEW.json",
+      "bytes": 121466,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/PACKAGE_RECEIPT.json",
+      "bytes": 668,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/PACKAGE_RECEIPT_PRE_REVIEW.json",
+      "bytes": 668,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/REPAIR_RECEIPT.json",
+      "bytes": 4942,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/STARTUP_ACCEPTANCE.json",
+      "bytes": 1488,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/accept_memory_validation.py",
+      "bytes": 14785,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/accept_startup.py",
+      "bytes": 5746,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/build_deployment.py",
+      "bytes": 7088,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/collect_validation_completion.py",
+      "bytes": 2430,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/deployment_20261024/EXECUTION_RECEIPT.json",
+      "bytes": 2146,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/deployment_20261024/EXECUTION_REVIEW.md",
+      "bytes": 3938,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/deployment_20261024/PACKAGE_RECEIPT.json",
+      "bytes": 1100,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/deployment_20261024/operations/REMOTE_DEPLOYMENT_VERIFIED.json",
+      "bytes": 647,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/deployment_20261024/operations/REMOTE_LAUNCH_RECEIPT.json",
+      "bytes": 2579,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/deployment_20261024/operations/STARTUP_ACCEPTANCE_SNAPSHOT.json",
+      "bytes": 20500,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/deployment_20261024/operations/UPLOAD_RECEIPT.json",
+      "bytes": 142,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/deployment_20261024/operations/collect_artifact_evidence_20261025.py",
+      "bytes": 6983,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/deployment_20261024/operations/exact_remote_launch.py",
+      "bytes": 4415,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/execute_authorized_v4.py",
+      "bytes": 12213,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/execute_source_validation.py",
+      "bytes": 5682,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/remote_validation/PREFLIGHT_ACCEPTANCE.json",
+      "bytes": 25352,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/memory_revision_v4_20261024/validate_memory_source.py",
+      "bytes": 25446,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/REPAIR_RECEIPT.json",
+      "bytes": 5030,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/accept_startup.py",
+      "bytes": 4468,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/build_deployment.py",
+      "bytes": 5806,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/deployment_20261024/EXECUTION_RECEIPT.json",
+      "bytes": 1958,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/deployment_20261024/EXECUTION_REVIEW.md",
+      "bytes": 3274,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/deployment_20261024/PACKAGE_RECEIPT.json",
+      "bytes": 964,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/deployment_20261024/operations/REMOTE_DEPLOYMENT_VERIFIED.json",
+      "bytes": 419,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/deployment_20261024/operations/REMOTE_LAUNCH_RECEIPT.json",
+      "bytes": 2761,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/deployment_20261024/operations/REMOTE_SOURCE_ARCHIVE_RECEIPT.json",
+      "bytes": 298,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/deployment_20261024/operations/STARTUP_ACCEPTANCE_SNAPSHOT.json",
+      "bytes": 9792,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/deployment_20261024/operations/UPLOAD_RECEIPT.json",
+      "bytes": 142,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/deployment_20261024/operations/exact_remote_launch.py",
+      "bytes": 4294,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/diagnose_aux_batch.py",
+      "bytes": 8963,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/execute_authorized_v3.py",
+      "bytes": 4674,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/export_evidence.py",
+      "bytes": 1164,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/finalize_receipt.py",
+      "bytes": 7358,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/prepare_revision.py",
+      "bytes": 5907,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/remote_validation/EVIDENCE_MANIFEST.json",
+      "bytes": 1241,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/remote_validation/VALIDATION_RECEIPT.json",
+      "bytes": 884,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/run_validation.py",
+      "bytes": 1696,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/stable_inference.py",
+      "bytes": 4806,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/test_numeric_revision.py",
+      "bytes": 4210,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/update_launch_handoff.py",
+      "bytes": 2867,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/validate_source.py",
+      "bytes": 7752,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/numeric_revision_v3_20261024/verify_source_identity.py",
+      "bytes": 4021,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/results/source_assets/query_code/SHA256SUMS",
+      "bytes": 5812,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/results/source_assets/query_code/design_contract.json",
+      "bytes": 12211,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/results/source_assets/run/prepared/SHA256SUMS",
+      "bytes": 1227,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/results/source_assets/run/prepared/receipt.json",
+      "bytes": 281,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/src/bundle_io.py",
+      "bytes": 17255,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/src/common.py",
+      "bytes": 6903,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/src/evaluation.py",
+      "bytes": 25928,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/src/learning.py",
+      "bytes": 20789,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/src/pipeline.py",
+      "bytes": 45409,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/src/reference_core.py",
+      "bytes": 19900,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/src/service.py",
+      "bytes": 10992,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/src/source_inputs.py",
+      "bytes": 24235,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/src/tasks.py",
+      "bytes": 12054,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/tests/test_bundle_io.py",
+      "bytes": 11594,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/tests/test_common.py",
+      "bytes": 1523,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/tests/test_contracts.py",
+      "bytes": 9444,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/tests/test_evaluation.py",
+      "bytes": 10073,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/tests/test_learning.py",
+      "bytes": 9876,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/tests/test_pipeline.py",
+      "bytes": 12167,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/tests/test_reference_core.py",
+      "bytes": 13251,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/tests/test_service.py",
+      "bytes": 4844,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/tests/test_source_inputs.py",
+      "bytes": 4018,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/tests/test_tasks.py",
+      "bytes": 3829,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/validation/source_adapter_receipt.json",
+      "bytes": 3303,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/validation/source_readiness_v1/SEAL.json",
+      "bytes": 560,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/validation/source_readiness_v1/source_task_receipt.json",
+      "bytes": 3736,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/learned_onboarding_v1_20261023/validation/verify_delivery.py",
+      "bytes": 4739,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/DEPENDENCIES.json",
+      "bytes": 2367,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/EXECUTION_CARD.md",
+      "bytes": 5616,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/EXPERIMENT_PLAN.md.sha256",
+      "bytes": 85,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/IMPLEMENTATION_RECEIPT.json",
+      "bytes": 5898,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/IMPLEMENTATION_RECEIPT.json.sha256",
+      "bytes": 94,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/IMPLEMENTATION_SHA256SUMS",
+      "bytes": 1970,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/README.md",
+      "bytes": 1453,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/execution/ATTEMPT_RESULT_SOURCE_01.json",
+      "bytes": 3928,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/lg/__init__.py",
+      "bytes": 85,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/lg/common.py",
+      "bytes": 1816,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/lg/geometry.py",
+      "bytes": 22850,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/lg/legacy.py",
+      "bytes": 2295,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/lg/metrics.py",
+      "bytes": 34409,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/lg/runtime.py",
+      "bytes": 9714,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/lg/source.py",
+      "bytes": 33480,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/lg/target.py",
+      "bytes": 14274,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/outputs/implementation_check_20261029/RESULT.json",
+      "bytes": 13219,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/outputs/implementation_check_20261029/STAGE_RECEIPT.json",
+      "bytes": 1774,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/outputs/implementation_check_final_20261029/RESULT.json",
+      "bytes": 13219,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/outputs/implementation_check_final_20261029/STAGE_RECEIPT.json",
+      "bytes": 1785,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/outputs/source_01/INPUT_SEAL.json",
+      "bytes": 11760,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/run.py",
+      "bytes": 1938,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/seal_dependencies.py",
+      "bytes": 1263,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/tests/test_geometry.py",
+      "bytes": 14019,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/tests/test_metrics.py",
+      "bytes": 19263,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/tests/test_runtime.py",
+      "bytes": 5904,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/tests/test_source.py",
+      "bytes": 9937,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/tests/test_target_integration.py",
+      "bytes": 19578,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/validation/ENVIRONMENT.json",
+      "bytes": 379,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_20261029/validation/SYNTHETIC_ACCEPTANCE.json",
+      "bytes": 1270,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_progress_20261029/runtime/READONLY_RECOVERY_ACCEPTANCE.json",
+      "bytes": 730,
+      "category": "final_geometry_evidence"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_progress_20261029/runtime/RECOVERED_FINAL_SNAPSHOT.json",
+      "bytes": 152416,
+      "category": "final_geometry_evidence"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_progress_20261029/runtime/SOURCE_SUBMISSION_RECEIPT.json",
+      "bytes": 226,
+      "category": "final_geometry_evidence"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_progress_20261029/runtime/TERMINAL_CONFIRMED_FINAL_SNAPSHOT.json",
+      "bytes": 62255,
+      "category": "final_geometry_evidence"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_progress_20261029/runtime/TERMINAL_PARSED_FINAL_ARTIFACTS.json",
+      "bytes": 7828,
+      "category": "final_geometry_evidence"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/DEPENDENCIES.json",
+      "bytes": 2367,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/EXECUTION_CARD.md",
+      "bytes": 3573,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/EXPERIMENT_PLAN.md.sha256",
+      "bytes": 85,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/IMPLEMENTATION_RECEIPT.json",
+      "bytes": 6220,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/IMPLEMENTATION_RECEIPT.json.sha256",
+      "bytes": 94,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/IMPLEMENTATION_SHA256SUMS",
+      "bytes": 2767,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/README.md",
+      "bytes": 1175,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/SOURCE_TRANSFER_MANIFEST.json",
+      "bytes": 17936,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/evidence/HISTORICAL_SOURCE_ENVIRONMENT.json",
+      "bytes": 569,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/historical_source.py",
+      "bytes": 1804,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/hpc/source_once.slurm",
+      "bytes": 1726,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/lg/__init__.py",
+      "bytes": 85,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/lg/common.py",
+      "bytes": 1816,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/lg/geometry.py",
+      "bytes": 22850,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/lg/legacy.py",
+      "bytes": 2295,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/lg/metrics.py",
+      "bytes": 34409,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/lg/runtime.py",
+      "bytes": 9714,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/lg/source.py",
+      "bytes": 40282,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/lg/target.py",
+      "bytes": 14274,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/run.py",
+      "bytes": 1938,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/seal_dependencies.py",
+      "bytes": 1263,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/tests/test_geometry.py",
+      "bytes": 14019,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/tests/test_metrics.py",
+      "bytes": 19263,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/tests/test_replay_diagnostics.py",
+      "bytes": 6688,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/tests/test_runtime.py",
+      "bytes": 5904,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/tests/test_source.py",
+      "bytes": 9937,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/tests/test_target_integration.py",
+      "bytes": 19578,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/validation/ENVIRONMENT_GUARD_ACCEPTANCE.json",
+      "bytes": 278,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/validation/SCIENTIFIC_EQUIVALENCE.json",
+      "bytes": 503,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/validation/SYNTHETIC_ACCEPTANCE.json",
+      "bytes": 1270,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/local_geometry_budgeted_v2_replay_repair_r1_20261029/verify_source_inputs.py",
+      "bytes": 702,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/README.md",
+      "bytes": 4116,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/build_delivery.py",
+      "bytes": 7071,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/build_receipt.json",
+      "bytes": 762,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/clean_install.install_receipt.json",
+      "bytes": 801,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/delivery_scripts/env.sh",
+      "bytes": 630,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/delivery_scripts/run.slurm",
+      "bytes": 2761,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/delivery_scripts/submit_logged.sh",
+      "bytes": 249,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/delivery_scripts/submit_once.sh",
+      "bytes": 1839,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/final_synthetic/result.json",
+      "bytes": 1172,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/linux_clean_install.install_receipt.json",
+      "bytes": 797,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/linux_validation/SHA256SUMS",
+      "bytes": 478,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/linux_validation/result.json",
+      "bytes": 1120,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/local_deps/lightgbm/__init__.py",
+      "bytes": 1625,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/local_deps/lightgbm/basic.py",
+      "bytes": 210239,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/local_deps/lightgbm/callback.py",
+      "bytes": 20852,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/local_deps/lightgbm/compat.py",
+      "bytes": 12329,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/local_deps/lightgbm/dask.py",
+      "bytes": 68675,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/local_deps/lightgbm/engine.py",
+      "bytes": 36351,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/local_deps/lightgbm/libpath.py",
+      "bytes": 1559,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/local_deps/lightgbm/plotting.py",
+      "bytes": 33401,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/local_deps/lightgbm/sklearn.py",
+      "bytes": 81808,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/local_deps/rtdl_num_embeddings.py",
+      "bytes": 29948,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/modern_head_comparison_v1_20261018.tar.gz.sha256",
+      "bytes": 108,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/modern_head_install_v1.py",
+      "bytes": 12154,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/modern_head_install_v1.py.sha256",
+      "bytes": 92,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/record_validation.py",
+      "bytes": 10099,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/setup_dependencies.py",
+      "bytes": 1896,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/source_manifest.json",
+      "bytes": 25363,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1_20261018/test_delivery_linux.py",
+      "bytes": 16742,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/README.md",
+      "bytes": 3679,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/build_receipt.json",
+      "bytes": 751,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/build_revision.py",
+      "bytes": 3954,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/clean_install.install_receipt.json",
+      "bytes": 807,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/delivery_scripts/env.sh",
+      "bytes": 630,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/delivery_scripts/run.slurm",
+      "bytes": 3512,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/delivery_scripts/submit_logged.sh",
+      "bytes": 415,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/delivery_scripts/submit_once.sh",
+      "bytes": 3244,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/final_synthetic/result.json",
+      "bytes": 2751,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/linux_clean_install.install_receipt.json",
+      "bytes": 803,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/linux_clean_install/frozen/anomaly_receipts.json",
+      "bytes": 82454,
+      "category": "final_freeze_configuration_or_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/linux_validation/result.json",
+      "bytes": 2406,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/modern_head_comparison_v1r1_20261018.tar.gz.sha256",
+      "bytes": 111,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/modern_head_install_v1.py",
+      "bytes": 12154,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/modern_head_install_v1.py.sha256",
+      "bytes": 93,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/record_validation.py",
+      "bytes": 10081,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/replay_checks/result.json",
+      "bytes": 171,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/run_linux_validation.py",
+      "bytes": 2902,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/setup_dependencies.py",
+      "bytes": 1896,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/source_manifest.json",
+      "bytes": 25874,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/test_delivery_linux.py",
+      "bytes": 23899,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/test_export_phases.py",
+      "bytes": 3776,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/train_checks/result.json",
+      "bytes": 1078,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_comparison_v1r1_20261018/windows_export_validation/result.json",
+      "bytes": 657,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/LAUNCH_RECEIPT.json",
+      "bytes": 1214,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/README.md",
+      "bytes": 3971,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/REPAIR_RECEIPT_v2.json",
+      "bytes": 1202,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/analysis/completion_review_20261024/DOWNLOAD_RECEIPT.json",
+      "bytes": 19080,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/analysis/completion_review_20261024/RESULT_REVIEW.md",
+      "bytes": 3566,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/analysis/completion_review_20261024/VERIFICATION_AND_METRICS.json",
+      "bytes": 3454,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/analysis/completion_review_20261024/evidence/heads/SHA256SUMS",
+      "bytes": 30260,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/analysis/completion_review_20261024/evidence/heads/comparison_summary.json",
+      "bytes": 12315,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/checks/benchmark_tabm.py",
+      "bytes": 5027,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package/code_manifest.json",
+      "bytes": 2467,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package/experiment_contract.json",
+      "bytes": 4027,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package/inheritance.json",
+      "bytes": 1783,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package/protocol.json",
+      "bytes": 13754,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package/supplementary_registration.json",
+      "bytes": 1065,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/code_manifest.json",
+      "bytes": 2570,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/config.json",
+      "bytes": 2513,
+      "category": "final_freeze_configuration_or_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/experiment_contract.json",
+      "bytes": 4027,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/frozen_modern/modern_head_evaluate_v1.py",
+      "bytes": 9048,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/frozen_modern/modern_head_models_v1.py",
+      "bytes": 7374,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/frozen_modern/modern_head_onboarding_v1.py",
+      "bytes": 12069,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/frozen_modern/modern_head_train_v1.py",
+      "bytes": 19656,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/inheritance.json",
+      "bytes": 1783,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/install_dependencies.py",
+      "bytes": 3517,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/modern_adapter.py",
+      "bytes": 24056,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/modern_service.py",
+      "bytes": 11389,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/package_io.py",
+      "bytes": 2352,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/protocol.json",
+      "bytes": 13754,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/supplementary_registration.json",
+      "bytes": 1065,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/package_v2/target_smoke.py",
+      "bytes": 3803,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/seal_package.py",
+      "bytes": 718,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/tests/test_bank_receipts.py",
+      "bytes": 3681,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/modern_head_new_lineage_v1_20261022/tests/test_new_lineage.py",
+      "bytes": 5043,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/README.md",
+      "bytes": 4443,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/build_delivery.py",
+      "bytes": 15269,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/build_receipt.json",
+      "bytes": 1284,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/clean_install.install_receipt.json",
+      "bytes": 796,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/delivery_scripts/env.sh",
+      "bytes": 735,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/delivery_scripts/run.slurm",
+      "bytes": 1894,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/delivery_scripts/submit_logged.sh",
+      "bytes": 249,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/delivery_scripts/submit_once.sh",
+      "bytes": 1720,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/draft_receipt.json",
+      "bytes": 861,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/final_synthetic/result.json",
+      "bytes": 2614,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/linux_clean_install.install_receipt.json",
+      "bytes": 792,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/linux_validation/receipt.json",
+      "bytes": 2905,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/linux_validation/result.json",
+      "bytes": 7025,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/onboarding_configured_v1_20261017.tar.gz.sha256",
+      "bytes": 107,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/onboarding_install_v1.py",
+      "bytes": 12151,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/onboarding_install_v1.py.sha256",
+      "bytes": 91,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/record_validation.py",
+      "bytes": 8785,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/source_manifest.json",
+      "bytes": 20050,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1_20261017/test_submit_linux.py",
+      "bytes": 13538,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_configured_v1r1_20261017/README.md",
+      "bytes": 4840,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1r1_20261017/build_patch.py",
+      "bytes": 4421,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_configured_v1r1_20261017/build_receipt.json",
+      "bytes": 759,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1r1_20261017/delivery_scripts/run.slurm",
+      "bytes": 2670,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_configured_v1r1_20261017/linux_clean_install.install_receipt.json",
+      "bytes": 798,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1r1_20261017/linux_clean_install/frozen/anomaly_receipts.json",
+      "bytes": 82454,
+      "category": "final_freeze_configuration_or_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1r1_20261017/linux_validation/result.json",
+      "bytes": 1196,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1r1_20261017/onboarding_configured_v1r1_20261017.tar.gz.sha256",
+      "bytes": 109,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/onboarding_configured_v1r1_20261017/onboarding_install_v1.py",
+      "bytes": 12151,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_configured_v1r1_20261017/onboarding_install_v1.py.sha256",
+      "bytes": 91,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/onboarding_configured_v1r1_20261017/record_validation.py",
+      "bytes": 4349,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_configured_v1r1_20261017/source_manifest.json",
+      "bytes": 17172,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_configured_v1r1_20261017/test_submit_linux.py",
+      "bytes": 15911,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_configured_v1r1_20261017/validate_linux.py",
+      "bytes": 3339,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_materials_and_protocol_20261015/README.md",
+      "bytes": 9002,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_materials_and_protocol_20261015/SHA256SUMS",
+      "bytes": 959,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/onboarding_materials_and_protocol_20261015/cic_inventory_analysis.py",
+      "bytes": 13185,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_materials_and_protocol_20261015/protocol.json",
+      "bytes": 13754,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_materials_and_protocol_20261015/source_inventory_analysis.py",
+      "bytes": 18974,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_materials_and_protocol_20261015/unsw_inventory_analysis.py",
+      "bytes": 16646,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_materials_and_protocol_20261015/verification_receipt.json",
+      "bytes": 2196,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/README.md",
+      "bytes": 5925,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/RESULT_BACKUP_VERIFIED.json",
+      "bytes": 596,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/RESULT_BACKUP_VERIFIED_v2.json",
+      "bytes": 595,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/RESULT_BACKUP_VERIFIED_v3.json",
+      "bytes": 597,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/analysis/RESULT_REVIEW.md",
+      "bytes": 5411,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/analysis/RESULT_SUMMARY_v3.json",
+      "bytes": 105274,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/analysis/evidence_v3/run/evaluation/prebank_history_audit.json",
+      "bytes": 71849,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/analysis/evidence_v3/run/evaluation/result.json",
+      "bytes": 25936,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/build_package.py",
+      "bytes": 3183,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/fix_v2/README.md",
+      "bytes": 2385,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/fix_v2/decoder_execution.json",
+      "bytes": 376,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/fix_v3/README.md",
+      "bytes": 3744,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/fix_v3/RESUME_INPUTS_VERIFIED.json",
+      "bytes": 252,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/fix_v3/prebank_history_audit.json",
+      "bytes": 71849,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/overlap_audit_v3.json",
+      "bytes": 72420,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package/code_manifest.json",
+      "bytes": 18593,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package/frozen_onboarding/SHA256SUMS",
+      "bytes": 14157,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package/frozen_onboarding/design_contract.json",
+      "bytes": 16990,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package/frozen_onboarding/frozen/anomaly_receipts.json",
+      "bytes": 82454,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package/frozen_onboarding/protocol.json",
+      "bytes": 13754,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package/frozen_onboarding/runtime_contract.json",
+      "bytes": 6300,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_receipt.json",
+      "bytes": 381,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_receipt_v2.json",
+      "bytes": 381,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_receipt_v3.json",
+      "bytes": 381,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v2/code_manifest.json",
+      "bytes": 18593,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v2/frozen_onboarding/SHA256SUMS",
+      "bytes": 14157,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v2/frozen_onboarding/design_contract.json",
+      "bytes": 16990,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v2/frozen_onboarding/frozen/anomaly_receipts.json",
+      "bytes": 82454,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v2/frozen_onboarding/protocol.json",
+      "bytes": 13754,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v2/frozen_onboarding/runtime_contract.json",
+      "bytes": 6300,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/backup_chunks.py",
+      "bytes": 8761,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/causal_reference_overlap_v1.py",
+      "bytes": 1314,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/code_manifest.json",
+      "bytes": 19122,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/config.json",
+      "bytes": 1541,
+      "category": "final_freeze_configuration_or_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/constrained_onboarding_core_v3.py",
+      "bytes": 28261,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/constrained_onboarding_runner_v3.py",
+      "bytes": 26628,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/frozen_onboarding/SHA256SUMS",
+      "bytes": 14157,
+      "category": "existing_digest_or_manifest"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/frozen_onboarding/design_contract.json",
+      "bytes": 16990,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/frozen_onboarding/frozen/anomaly_receipts.json",
+      "bytes": 82454,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/frozen_onboarding/protocol.json",
+      "bytes": 13754,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/frozen_onboarding/runtime_contract.json",
+      "bytes": 6300,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/new_onboarding_adapter.py",
+      "bytes": 12240,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/onboarding_service.py",
+      "bytes": 18226,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/resume_inputs_v3.json",
+      "bytes": 11065,
+      "category": "final_freeze_configuration_or_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/test_causal_history_v3.py",
+      "bytes": 5524,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/test_new_onboarding.py",
+      "bytes": 3985,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/pullback/BACKUP_INDEX.json",
+      "bytes": 1010,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/pullback_v2/BACKUP_INDEX.json",
+      "bytes": 1010,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/pullback_v3/BACKUP_INDEX.json",
+      "bytes": 1466,
+      "category": "small_scientific_receipt"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/src/causal_reference_overlap_v1.py",
+      "bytes": 1314,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/src/constrained_onboarding_core_v3.py",
+      "bytes": 28261,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/src/constrained_onboarding_runner_v3.py",
+      "bytes": 26628,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/src/new_onboarding_adapter.py",
+      "bytes": 12240,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/src/onboarding_service.py",
+      "bytes": 18226,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/src/test_causal_history_v3.py",
+      "bytes": 5524,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/src/test_new_onboarding.py",
+      "bytes": 3985,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/validate_decoder_v2.py",
+      "bytes": 3859,
+      "category": "small_source"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/validate_target.py",
+      "bytes": 2118,
+      "category": "small_source"
+    }
+  ],
+  "critical_evidence_paths": [
+    "runs/dense_reference_ab_stage_dependency_repair_v1_20261028/config/ACCEPTED_RESULT_MANIFEST.json",
+    "runs/dense_reference_matrix_v1_20261027/config/SOURCE_ASSET_MANIFEST.json",
+    "runs/dense_reference_matrix_v1_20261027/preparation/ASSET_CLOSURE_RECEIPT.json",
+    "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/BINDING_RECEIPT.json",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/APPROVED_CARD.json",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/APPROVED_CARD.json.sha256",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/ATTACK_SCAN_PROCESS_RECEIPT.json",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/ATTACK_TO_NORMAL_GATE.json",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/CAPINFOS_CROSSCHECK.json",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/CAPINFOS_CROSSCHECK.json.sha256",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/CONTINUATION_FINAL.json",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/HTTP_AUDIT.json",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/HTTP_CAPINFOS.txt",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/NORMAL_AUDIT.json",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/NORMAL_CAPINFOS.txt",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/OUTPUT_MANIFEST.json",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/OUTPUT_MANIFEST.json.sha256",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/RESULT.json",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/RESULT.json.sha256",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/SELF_TEST.json",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/UDP_AUDIT.json",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/UDP_CAPINFOS.txt",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/contract_review/FACTS.json",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/contract_review/FACTS.json.sha256",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/contract_review/README.md",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/contract_review/README.md.sha256",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/dup_audit.py",
+    "runs/edge_iiotset_raw_qualification_v1_20261102/scan_raw.py",
+    "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/RESULT_REVIEW.md",
+    "runs/learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/evaluation/state/ACCEPTANCE.json",
+    "runs/local_geometry_budgeted_v2_progress_20261029/runtime/READONLY_RECOVERY_ACCEPTANCE.json",
+    "runs/local_geometry_budgeted_v2_progress_20261029/runtime/RECOVERED_FINAL_SNAPSHOT.json",
+    "runs/local_geometry_budgeted_v2_progress_20261029/runtime/SOURCE_SUBMISSION_RECEIPT.json",
+    "runs/local_geometry_budgeted_v2_progress_20261029/runtime/TERMINAL_CONFIRMED_FINAL_SNAPSHOT.json",
+    "runs/local_geometry_budgeted_v2_progress_20261029/runtime/TERMINAL_PARSED_FINAL_ARTIFACTS.json",
+    "runs/modern_head_new_lineage_v1_20261022/analysis/completion_review_20261024/RESULT_REVIEW.md",
+    "runs/modern_head_new_lineage_v1_20261022/analysis/completion_review_20261024/VERIFICATION_AND_METRICS.json",
+    "runs/onboarding_new_lineage_v1_20261022/RESULT_BACKUP_VERIFIED_v3.json",
+    "runs/onboarding_new_lineage_v1_20261022/analysis/RESULT_REVIEW.md"
+  ],
+  "excluded_mirror_count": 1786,
+  "excluded_risk_paths": [],
+  "by_root": {
+    "constrained_onboarding_implementation_v1_20261015": 4,
+    "dense_reference_ab_stage_candidate_v1_20261028": 19,
+    "dense_reference_ab_stage_dependency_repair_deployment_20261028": 3,
+    "dense_reference_ab_stage_dependency_repair_distribution_20261028": 2,
+    "dense_reference_ab_stage_dependency_repair_execution_20261028": 10,
+    "dense_reference_ab_stage_dependency_repair_v1_20261028": 14,
+    "dense_reference_ab_stage_deployment_20261028": 5,
+    "dense_reference_ab_stage_distribution_20261028": 1,
+    "dense_reference_batch_repair_deployment_20261027": 16,
+    "dense_reference_batch_repair_v1_20261027": 16,
+    "dense_reference_launch_repair_deployment_20261027": 8,
+    "dense_reference_launch_repair_v1_20261027": 5,
+    "dense_reference_matrix_v1_20261027": 42,
+    "dense_reference_original104_batch_diagnostic_v1_20261027": 7,
+    "dense_reference_result_audit_v1_20261027": 2,
+    "dense_reference_source8_diagnostic_deployment_20261027": 8,
+    "edge_iiotset_raw_qualification_v1_20261102": 24,
+    "learned_onboarding_pilot_v1_20261023": 8,
+    "learned_onboarding_v1_20261023": 139,
+    "local_geometry_budgeted_v2_20261029": 30,
+    "local_geometry_budgeted_v2_progress_20261029": 5,
+    "local_geometry_budgeted_v2_replay_repair_r1_20261029": 31,
+    "modern_head_comparison_v1_20261018": 29,
+    "modern_head_comparison_v1r1_20261018": 24,
+    "modern_head_new_lineage_v1_20261022": 32,
+    "onboarding_configured_v1_20261017": 19,
+    "onboarding_configured_v1r1_20261017": 14,
+    "onboarding_materials_and_protocol_20261015": 7,
+    "onboarding_new_lineage_v1_20261022": 58
+  },
+  "additional_prune_count": 16
+}

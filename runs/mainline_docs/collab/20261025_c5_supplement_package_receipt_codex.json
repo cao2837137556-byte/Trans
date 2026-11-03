@@ -1,0 +1,53 @@
+{
+  "status": "PREPARED_AWAITING_EXPLICIT_CLOUD_USER_AUTHORIZATION",
+  "package": "runs/diagnostics_c5_step2_package_v1_20261025/encoding_package_v2",
+  "package_sha256": "50969f127dbb258b851f36ea03669456863a7d532b1c6f1b70a9c6a84088a910",
+  "package_members": 723,
+  "package_bytes": 44960768,
+  "archive": "runs/diagnostics_c5_step2_package_v1_20261025/encoding_package_v2.tar.gz",
+  "archive_sha256": "efe62e220d6c8781c9e9ac8afe1c8951002d3b1431552dc444910d20082c779b",
+  "archive_bytes": 31186330,
+  "original104_metadata_preserved": true,
+  "new_E3_positions": 21660,
+  "production_E3_forwards": 0,
+  "local_timing_real_E3_rows": 488,
+  "training_runs": 0,
+  "new_dense_source_CAL_runs": 0,
+  "new_target_matrix_runs": 0,
+  "cloud_access_this_turn": false,
+  "cloud_execution_authorized": false,
+  "source_CAL_ready_after_encoding_and_identity_gate": true,
+  "matrix_execution_ready": false,
+  "matrix_blocker": "Wrong reference pairing, third pool contract, implementation and resource estimate pending",
+  "authorized_scope_requested": [
+    "SUPPLEMENT_E3",
+    "DENSE_SOURCE_CAL"
+  ],
+  "tests": {
+    "encoder": 14,
+    "source_CAL_preparation": 4,
+    "chain_control": 4,
+    "supervisor": 14,
+    "distinct_current_tests": 36,
+    "real_experiments_started_by_tests": false
+  },
+  "input_sources_remain_frozen": true,
+  "auto_AI_polling_started": false,
+  "files_sha256": {
+    "runs/diagnostics_c5_step2_package_v1_20261025/ENCODING_RESOURCE_ESTIMATE.json": "4588749437276eb8fb634ff4e3ed8862345de2f0bb02cc9b418ad6a42cec4d25",
+    "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/RESULT.json": "428f8e6711d9dbe6616cf540ff15131894997c2ad610a2ba8b99fa21c9a2f43c",
+    "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/OUTPUT_SHA256.json": "82a7979e2190c4a5af51f8ce69bf6fa163740623756fcbd9a7c133c8afd8e050",
+    "runs/diagnostics_c5_step2_package_v1_20261025/c5/RESULT.json": "cc1c1abad23c85f3a2a88333f966e3a52db7e661db95c77b030cd5207f384cb3",
+    "runs/diagnostics_c5_step2_package_v1_20261025/local_benchmark_v1/RESULT.json": "421892de527a5ec58aa87c5c669ad19a71ed2c0c840433d184910e91a5e586bc",
+    "runs/diagnostics_c5_step2_package_v1_20261025/local_benchmark_extra_v1/RESULT.json": "1a6de6309a23766b0b85b309f8be697e8d690a165447c87f46ecd421b56e4d1b",
+    "runs/diagnostics_c5_step2_package_v1_20261025/encoding_tests_production_v2.log": "5f64c246a43122e09ccfc75c2acebf029cc4f7d5f88813d42622496d91269c84",
+    "runs/diagnostics_c5_step2_package_v1_20261025/chain_control_tests.log": "df8a5382a0977d820b7b8e2527dc948c716335301c552ee9061cdbbb8e2d4c41",
+    "runs/diagnostics_c5_step2_package_v1_20261025/encoding_review/REVIEW.md": "41a513aef472f796746b83974ac0dc3de66cc822fac9830514af430c33b242ff",
+    "runs/diagnostics_c5_step2_package_v1_20261025/chain/SHA256SUMS": "bbbbf95d590292c5de176b1fa9372010143707f7bf6798ce6d74af53e4c7bb6b",
+    "runs/diagnostics_c5_step2_package_v1_20261025/USER_APPROVAL_TEMPLATE.json": "35c0ebface886a6fc580ffc81014c3e91b1186b25672d8fdf16e8fc5fe331b91",
+    "runs/diagnostics_c5_step2_package_v1_20261025/CLOUD_LAUNCH_PLAN.json": "179aef7c9b2711eea10f18253fec4ef790f961dec10d22bff674a8e94cb5c5b8",
+    "runs/mainline_docs/collab/20261025_c5_readonly_audit_response_codex.md": "ab2fd9d4ac49cb6b47eb524d0bd54bfeb30545f6781b52fcba84cc7a175cc2b2",
+    "runs/mainline_docs/collab/20261025_c5_and_supplement_cloud_request_codex.md": "8c266418f11d11f27f0ec8499f9a9c960e5cbf2aa7067be031c47b00f2ad7435",
+    "runs/diagnostics_c5_step2_package_v1_20261025/support/SUPERVISOR_TEST_RECEIPT.json": "9ea965d098e92ebbd2ca35e79ca19f31ed34b994c5d045ada78c0936ce61c720"
+  }
+}

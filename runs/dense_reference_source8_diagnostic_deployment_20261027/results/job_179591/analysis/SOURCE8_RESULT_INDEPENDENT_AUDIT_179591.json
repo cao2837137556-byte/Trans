@@ -1,0 +1,148 @@
+{
+  "schema": "paper04-source8-independent-result-audit-v1",
+  "status": "PASS",
+  "audited_utc": "2026-10-27T11:03:18.148828+00:00",
+  "job_id": "179591",
+  "scheduler": {
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed": "00:00:36",
+    "node": "node185"
+  },
+  "diagnostic_package_sha256": "0d6d59c904b6a6e0a29725c99fc628c760e2489fdb2bbbbcf90027bb79c1f1d5",
+  "manifest_sha256": "ae3e5008e91abdb40ea132ef648d95533d546285518d825146366d176bbea746",
+  "sealed_members_verified": 9,
+  "pulled_receipts_verified": [
+    {
+      "file": "DRY_RUN.json",
+      "bytes": 317,
+      "sha256": "1c3eee752c5dbec31b3b371c42a03b023652c9d1da9fd3e93388ddd98ce9460b"
+    },
+    {
+      "file": "launch.json",
+      "bytes": 144,
+      "sha256": "649cb1e5ab27352cca4ea014f3c22ad299c3968112cc63f477f80c9eea00628b"
+    },
+    {
+      "file": "science/ENVIRONMENT.json",
+      "bytes": 6004,
+      "sha256": "501f690af0cd0e02906fd96ffae042e10850433997269d55cd5c8d7ea5926adc"
+    },
+    {
+      "file": "science/OBSERVATIONS.json",
+      "bytes": 25529,
+      "sha256": "0f260fb9825679f55900210191c005401526bf1389d2715dd15a54383212fb87"
+    },
+    {
+      "file": "science/RESULT.json",
+      "bytes": 1234,
+      "sha256": "6072757ce13de6a13b69719ca9938de29ed440fd4aa7c9e5c8593435cbbaf0f1"
+    },
+    {
+      "file": "science/status.json",
+      "bytes": 1264,
+      "sha256": "9387a5078fb6973f45b2a430b35f98b84992427d46eea5db3866fe0994a56b8b"
+    },
+    {
+      "file": "slurm-179591.log",
+      "bytes": 217,
+      "sha256": "ee6c360d95710149c3aff1052c7074f3776ec2e7beaa4c964414737699417bdd"
+    }
+  ],
+  "observation_records": 16,
+  "observation_order": "ALL_8_B1_THEN_ALL_8_B16_CLONES",
+  "unique_source_uids": 8,
+  "exact_forward_positions": 136,
+  "b1_failed_job_reproductions": 8,
+  "b16_old_feature_matches": 128,
+  "b16_whole_artifact_hashes_rederived_from_local_old_bytes": 8,
+  "raw_diagnostic_f32_files_pulled": false,
+  "remote_artifact_hash_receipts_verified": 16,
+  "source_cal_runs": 0,
+  "production_new_positions": 0,
+  "target_evaluations": 0,
+  "retries": 0,
+  "per_uid": [
+    {
+      "uid": "8efedb594ef1defd020a3efbb913179dbca863d57aa3c1230ff912b524289d4c",
+      "input_tensors_exact": 17,
+      "b1_reproduces_failed_job": true,
+      "b1_differs_from_old": true,
+      "b16_old_feature_matches": 16,
+      "old_feature_sha256": "15af36e97cebb30c9d7bc5d4e1cd262213f5aba6a9dd1f0a67161fae285c24c7",
+      "b16_whole_artifact_matches_local_old_bytes_repeated_16": true
+    },
+    {
+      "uid": "894693b2d47dc5649b00f74aae2fb808a550b925ea46c7d1863009379c7241a8",
+      "input_tensors_exact": 17,
+      "b1_reproduces_failed_job": true,
+      "b1_differs_from_old": true,
+      "b16_old_feature_matches": 16,
+      "old_feature_sha256": "7b17516ed81609c941e57b02e96d2f6c602aaab2fa73c713f1a808a0fbc52acd",
+      "b16_whole_artifact_matches_local_old_bytes_repeated_16": true
+    },
+    {
+      "uid": "75e945f27c50ba2d8dc6a7aaa44d6d38a28c9cdec543cafb1118255f60a08cf4",
+      "input_tensors_exact": 17,
+      "b1_reproduces_failed_job": true,
+      "b1_differs_from_old": true,
+      "b16_old_feature_matches": 16,
+      "old_feature_sha256": "37e4b007b1b6682bdbfcfd6d5e5746b9957df0095edd26b8a6d15d30ff9b3f94",
+      "b16_whole_artifact_matches_local_old_bytes_repeated_16": true
+    },
+    {
+      "uid": "34f33f8a5d4e56e95234fea13bdff7c71206210081a5de8543d86ed5d95f360b",
+      "input_tensors_exact": 17,
+      "b1_reproduces_failed_job": true,
+      "b1_differs_from_old": true,
+      "b16_old_feature_matches": 16,
+      "old_feature_sha256": "e58872d2d4fd6da8c445bad5529843b9a4ea3b7c48a45a28c208d23e8b5dcd9a",
+      "b16_whole_artifact_matches_local_old_bytes_repeated_16": true
+    },
+    {
+      "uid": "08435fcba19c73034542fac8b7cccec2142eaf1fbce8c126f498745070b9da03",
+      "input_tensors_exact": 17,
+      "b1_reproduces_failed_job": true,
+      "b1_differs_from_old": true,
+      "b16_old_feature_matches": 16,
+      "old_feature_sha256": "34acb5dbb0d7567b28a7e119e55e27323c270fd880b52e66c3de8c23ca5f88c3",
+      "b16_whole_artifact_matches_local_old_bytes_repeated_16": true
+    },
+    {
+      "uid": "dd358ae302232cfa918b5087d191834b9179a49652cd2de0dca66475d8f520eb",
+      "input_tensors_exact": 17,
+      "b1_reproduces_failed_job": true,
+      "b1_differs_from_old": true,
+      "b16_old_feature_matches": 16,
+      "old_feature_sha256": "067ffc148cb953d91ff454dde65573474c51d9681e1d356b7b9a6003bd464d0e",
+      "b16_whole_artifact_matches_local_old_bytes_repeated_16": true
+    },
+    {
+      "uid": "5b77d9a64d8107a44de08a1124ed241637b21070aabf884e1c5eae00354a9786",
+      "input_tensors_exact": 17,
+      "b1_reproduces_failed_job": true,
+      "b1_differs_from_old": true,
+      "b16_old_feature_matches": 16,
+      "old_feature_sha256": "195b65bbafa7eeda5cdde3b98e54803af21092eea84dcd72b99d02f48e82c3df",
+      "b16_whole_artifact_matches_local_old_bytes_repeated_16": true
+    },
+    {
+      "uid": "2d2dc8b2e3e0c9bb550cfa1ecf63ecc8abff9e84639c22b41be1b882ca5b8a00",
+      "input_tensors_exact": 17,
+      "b1_reproduces_failed_job": true,
+      "b1_differs_from_old": true,
+      "b16_old_feature_matches": 16,
+      "old_feature_sha256": "0e5c28161dcf093b0e9b9e709a81b6280713cab724619faa6a63cefee3e386bf",
+      "b16_whole_artifact_matches_local_old_bytes_repeated_16": true
+    }
+  ],
+  "audit_remote_operations": 0,
+  "audit_model_operations": 0,
+  "conclusion": "All eight anchors reproduce the failed B1 path and recover old bytes under B16 clones. This strongly supports a batch-size-dependent numerical path for these anchors.",
+  "limits": [
+    "Remote raw f32 files remain remote; their whole-file SHA receipts were cross-checked. B16 whole-file SHAs were independently rederived from local old expected bytes repeated 16 times.",
+    "Original historical batch cohorts were not restored.",
+    "This is not a new original104 gate, production-bank qualification, or target-performance result.",
+    "No single low-level kernel was identified; the runtime and model were held fixed while batch size changed."
+  ]
+}

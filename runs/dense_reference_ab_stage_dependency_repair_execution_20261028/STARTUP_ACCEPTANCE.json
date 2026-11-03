@@ -1,0 +1,47 @@
+{
+  "status": "PASS_RUNNING_STARTUP_ACCEPTANCE",
+  "job_id": "179700",
+  "scheduler": {
+    "job_id": "179700",
+    "state": "RUNNING",
+    "exit_code": "0:0",
+    "elapsed": "00:05:22",
+    "node": "node185"
+  },
+  "observed_utc": "2026-10-28T03:56:29.807535+00:00",
+  "stage": "matrix",
+  "stage_progress": {
+    "pool": "CIC_DEV",
+    "stage": "SUPPORT_R-DENSE-WRONG",
+    "status": "RUNNING"
+  },
+  "worker_alive": true,
+  "worker_pid": 1247744,
+  "peak_worker_rss_bytes": 1608282112,
+  "numpy_runtime": {
+    "version": "2.0.1",
+    "module_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/runtime/numpy201/numpy/__init__.py",
+    "expected_overlay": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/runtime/numpy201"
+  },
+  "repair_manifest_sha256": "85637f3ae213ef08bf3cb70976a3188246eb03554d4b7fe7393f4cfe4414d9e8",
+  "approval_sha256": "7798502dc25f9aa1a17adca460cbe19bb37bf1e94f95a8dd1dbdfe54fc557e23",
+  "startup_evidence_sha256": "b42077c7cb5c0c29300d2947df3e00a281ef91e5db0e882ba9049ca201e35982",
+  "replaces_failed_job": "179680",
+  "previous_failure_preserved": true,
+  "new_submissions": 1,
+  "retries": 0,
+  "automatic_retry": false,
+  "reference_encoding": "REUSED_179602",
+  "source_CAL": "REUSED_179602",
+  "new_encoding_rows": 0,
+  "new_CAL_runs": 0,
+  "training_updates": 0,
+  "model_forwards": 0,
+  "new_completed_pool_results": 0,
+  "scientific_status": "NOT_EVALUATED",
+  "original_registered_matrix_complete": false,
+  "url": "http://127.0.0.1:18771/",
+  "failed_predecessor_url": "http://127.0.0.1:18773/",
+  "ai_polling": false,
+  "checked_utc": "2026-10-28T03:56:36.365482+00:00"
+}

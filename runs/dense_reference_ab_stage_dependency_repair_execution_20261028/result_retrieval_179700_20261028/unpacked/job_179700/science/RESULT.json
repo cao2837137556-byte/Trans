@@ -1,0 +1,26 @@
+{
+  "status": "COMPLETE",
+  "evaluation_scope": "AB_DENSE_STAGE_PENDING_THIRD_POOL",
+  "matrix_result_status": "AB_STAGE_COMPLETE_THIRD_POOL_PENDING",
+  "scientific_status": "FAIL",
+  "stage_scientific_status": "FAIL",
+  "original_registered_matrix_complete": false,
+  "original_registered_matrix_scientific_status": "NOT_EVALUATED_MISSING_THIRD_POOL",
+  "third_pool_deferred": {
+    "original_registered_matrix_complete": false,
+    "pool_id": "CIC_THREE_DEVICE_REGRESSION_CONSUMED",
+    "reason": "No frozen historical third-pool BASE/B2/receipt; explicitly proposed stage only.",
+    "status": "DEFERRED_MISSING_FROZEN_BASE_B2"
+  },
+  "package_sha256": "6870ae7c60ecfb82e4e8c0bc8a18306cad6ee0cf62ed640a82ca254da1fa8f61",
+  "manifest_sha256": "3c7d04a6a32b2a033b62bdfefc93172809eb6a7e6375b7fd7be7828a27ad1199",
+  "source_cal_result_sha256": "810f28a769f60057ed14fde968b740d87173b130c2bfb0eb192548bcf325fbb8",
+  "model_forward_calls": 0,
+  "training_updates": 0,
+  "new_encoding_rows": 0,
+  "new_source_cal_runs": 0,
+  "retries": 0,
+  "automatic_retry": false,
+  "total_wall_seconds": 7200,
+  "matrix_result_sha256": "e0299eca5ea00a7d8acb033b8eb45682edbb0cd704396cdf93f54ac0e9142e5d"
+}

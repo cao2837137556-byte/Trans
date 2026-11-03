@@ -1,0 +1,48 @@
+{
+  "schema": "modern-new-lineage-service-v1",
+  "onboarding_package": "/srv/paper04/onboarding_new_lineage_20261022_v3",
+  "onboarding_code_manifest_sha256": "8f319e7c4ce0997cc721a66c163484094aa08e0a86e12ef0fd2494686a5a62e5",
+  "source_config": {
+    "schema": "new-lineage-onboarding-cloud-v1",
+    "arm": "QUERY_TAIL",
+    "optimizer_updates": 0,
+    "retries": 0,
+    "raw_worker_uid": 65534,
+    "raw_worker_gid": 65534,
+    "resume_manifest_sha256": "03f64b8cb82178f6921041899730b2852a36055646afe99c2c44c0c43605b437",
+    "lineage_root": "/srv/paper04/new_lineage_query_v1",
+    "query_root": "/srv/paper04/assets/query_tail_v2r3",
+    "cache": "/srv/paper04/cache/coupon_resume_20261020_v2",
+    "head_run": "/srv/paper04/runs/query_twelve_heads_20261022_v1",
+    "checkpoint": "/srv/paper04/assets/model.safetensors",
+    "tshark": "/opt/paper04-wireshark-4.6.6/bin/tshark",
+    "raw": {
+      "CIC_DEV": "/srv/paper04/assets/onboarding_raw/2021_11_02_Active.pcap",
+      "UNSW_DEV": "/srv/paper04/assets/onboarding_raw/unsw-benign-20180528.pcap"
+    },
+    "lineage_manifest_sha256": "522faf0a0d02f031255fed88e9144dee0dee0a568a72443e0489b6ab76bdd0f4",
+    "onboarding_seal_sha256": "c386838e206651810df357cefe6e748ecbbf36af2c6ca0caf163307c3dea9d2a",
+    "cache_marker_sha256": "0185757a4724569359e128a6d829e6a0e524df26e5011e7b2507a08d65d4a9b1",
+    "head_complete_sha256": "fd9b46e510c0937d8c151aa80dd3940a636e8a68e618ec3ef9267a846705fd83",
+    "head_cache_binding_sha256": "0f2f80101f17d461189150cdcc1089b59703ae539612080bf132a4514ce6a96c",
+    "run": "/srv/paper04/runs/onboarding_new_lineage_20261022_v3",
+    "state": "/srv/paper04/services/onboarding_new_lineage_20261022_v3",
+    "export": "/srv/paper04/exports/onboarding_new_lineage_20261022_v3",
+    "unit": "paper04-onboarding-20261022-v3"
+  },
+  "banks_manifest": "/srv/paper04/runs/onboarding_new_lineage_20261022_v3/banks_manifest.json",
+  "run": "/srv/paper04/runs/modern_head_new_lineage_20261022_v1",
+  "state": "/srv/paper04/services/modern_head_new_lineage_20261022_v1",
+  "python": "/opt/paper04-venv/bin/python",
+  "unit": "paper04-modern-head-20261022-v1",
+  "versions": {
+    "numpy": "2.0.1",
+    "torch": "2.5.1",
+    "lightgbm": "4.6.0",
+    "rtdl-num-embeddings": "0.0.12",
+    "scipy": "1.13.1",
+    "typing_extensions": "4.14.1"
+  },
+  "banks_manifest_sha256": "8149a87ec7814e988bb86c0bb11b918b40d9bde88524ceb7b4057e0ebed7adb0",
+  "package_revision": "v2_receipt_bound_banks"
+}

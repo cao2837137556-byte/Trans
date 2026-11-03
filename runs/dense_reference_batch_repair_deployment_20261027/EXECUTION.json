@@ -1,0 +1,78 @@
+{
+  "monitor": {
+    "automatic_retry": false,
+    "created_utc": "2026-10-27T11:47:52.908105+00:00",
+    "job_id": "179602",
+    "lifetime_seconds": 86400,
+    "pid": 3505139,
+    "port": 18784,
+    "returncode": null,
+    "root": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime",
+    "status": "STATUS_BRIDGE_STARTED",
+    "status_bridge_sha256": "0906a982970cdc240e65082faa185f8079fe2c01e56aa8bf5208f620d4d13bb7",
+    "token_exposed": false
+  },
+  "submission": {
+    "automatic_retry": false,
+    "budget_sha256": "8a9216bb0aa64c3e2be0f097796c245475d76aa0dc50e226bedcb681838e9944",
+    "created_utc": "2026-10-27T11:47:49.429601+00:00",
+    "job_id": "179602",
+    "limits": {
+      "min_free_gib": 12,
+      "retries": 0,
+      "slurm_cpus": 4,
+      "slurm_memory_gib": 16,
+      "total_wall_seconds": 43200,
+      "tree_rss_gib": 8
+    },
+    "logical_new_positions": 21660,
+    "logical_rows": 21764,
+    "optimizer_updates": 0,
+    "original_manifest_sha256": "ddb94bb9836c9ace0b2a704e875d969c1d3c40c94198212ac795a9d0731db120",
+    "overlay_manifest_sha256": "ff81556b59801426c10779908be2363f002f8945673c0eac9fa235bc9cc1d57a",
+    "physical_positions": 22514,
+    "preflight": {
+      "budget_sha256": "8a9216bb0aa64c3e2be0f097796c245475d76aa0dc50e226bedcb681838e9944",
+      "clone_positions": 750,
+      "limits": {
+        "min_free_gib": 12,
+        "retries": 0,
+        "slurm_cpus": 4,
+        "slurm_memory_gib": 16,
+        "total_wall_seconds": 43200,
+        "tree_rss_gib": 8
+      },
+      "logical_new_positions": 21660,
+      "logical_rows": 21764,
+      "optimizer_updates": 0,
+      "original_manifest_sha256": "ddb94bb9836c9ace0b2a704e875d969c1d3c40c94198212ac795a9d0731db120",
+      "overlay_manifest_sha256": "ff81556b59801426c10779908be2363f002f8945673c0eac9fa235bc9cc1d57a",
+      "physical_positions": 22514,
+      "real_forwards": 0,
+      "scope": "DENSE_REFERENCE_SINGLETON_BATCH_REPAIR_PREFIX_ONLY",
+      "source_cal": true,
+      "stages": [
+        "runtime",
+        "encode",
+        "source_cal"
+      ],
+      "status": "PASS",
+      "status_bridge_sha256": "0906a982970cdc240e65082faa185f8079fe2c01e56aa8bf5208f620d4d13bb7",
+      "target_evaluation": false
+    },
+    "repair_approval_sha256": "ab93d032c9301f891bec154957b13ded1218af0f58c6c0249dcafff5c23b7561",
+    "retries": 0,
+    "returncode": 0,
+    "scope": "DENSE_REFERENCE_SINGLETON_BATCH_REPAIR_PREFIX_ONLY",
+    "source_cal": true,
+    "stages": [
+      "runtime",
+      "encode",
+      "source_cal"
+    ],
+    "status": "SUBMITTED",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "dfe147505d905ae4bdab260c9366c18f3b3a08c36e2c63bdbbddf832c79a6ac1",
+    "target_evaluation": false
+  }
+}

@@ -1,0 +1,2672 @@
+{
+  "schema": "C4_FINAL_SAVED_RESIDUAL_COUNTS_V1",
+  "status": "READ_ONLY_SAVED_DECISION_COUNTS_VERIFIED",
+  "scientific_status": "ADOPT_C4",
+  "target_2pct_met": false,
+  "view_definition": {
+    "primary": "Original per-device 7200s receipt cutoff: timestamp > reference_end; when capture has frame_end also frame > frame_end. Same exact UID population as C3.",
+    "head": "ensemble is original three QUERY_TAIL heads; unweighted counts, with all four heads additionally recounted.",
+    "metadata_source": "Frozen C1 ASSETS pool query rows, SHA pinned; no resampling or relabeling."
+  },
+  "scope": {
+    "new_predictions": 0,
+    "new_models": 0,
+    "new_distances": 0,
+    "new_candidates": 0,
+    "remote_actions": 0,
+    "existing_scientific_files_modified": false
+  },
+  "pool_summaries": {
+    "CIC_DEV": {
+      "views": {
+        "post_window_primary": {
+          "27": {
+            "normal_rows": 96041,
+            "C3_fp": 12,
+            "C4_fp": 12,
+            "C3_fpr_percent": 0.012494663737362167,
+            "C4_fpr_percent": 0.012494663737362167,
+            "normal_repairs": 0,
+            "new_normal_alarms": 0,
+            "attack_rows": 79056,
+            "C3_fn": 13,
+            "C4_fn": 13,
+            "C4_recall_percent": 99.98355596033191,
+            "new_attack_withdrawals_vs_C3": 0
+          },
+          "127": {
+            "normal_rows": 96041,
+            "C3_fp": 7,
+            "C4_fp": 7,
+            "C3_fpr_percent": 0.007288553846794598,
+            "C4_fpr_percent": 0.007288553846794598,
+            "normal_repairs": 0,
+            "new_normal_alarms": 0,
+            "attack_rows": 79056,
+            "C3_fn": 60,
+            "C4_fn": 60,
+            "C4_recall_percent": 99.92410443230115,
+            "new_attack_withdrawals_vs_C3": 0
+          },
+          "227": {
+            "normal_rows": 96041,
+            "C3_fp": 20,
+            "C4_fp": 20,
+            "C3_fpr_percent": 0.02082443956227028,
+            "C4_fpr_percent": 0.02082443956227028,
+            "normal_repairs": 0,
+            "new_normal_alarms": 0,
+            "attack_rows": 79056,
+            "C3_fn": 50,
+            "C4_fn": 50,
+            "C4_recall_percent": 99.9367536935843,
+            "new_attack_withdrawals_vs_C3": 0
+          },
+          "ensemble": {
+            "normal_rows": 96041,
+            "C3_fp": 14,
+            "C4_fp": 14,
+            "C3_fpr_percent": 0.014577107693589195,
+            "C4_fpr_percent": 0.014577107693589195,
+            "normal_repairs": 0,
+            "new_normal_alarms": 0,
+            "attack_rows": 79056,
+            "C3_fn": 33,
+            "C4_fn": 33,
+            "C4_recall_percent": 99.95825743776562,
+            "new_attack_withdrawals_vs_C3": 0
+          }
+        },
+        "full": {
+          "27": {
+            "normal_rows": 100830,
+            "C3_fp": 378,
+            "C4_fp": 378,
+            "C3_fpr_percent": 0.37488842606367156,
+            "C4_fpr_percent": 0.37488842606367156,
+            "normal_repairs": 0,
+            "new_normal_alarms": 0,
+            "attack_rows": 79056,
+            "C3_fn": 13,
+            "C4_fn": 13,
+            "C4_recall_percent": 99.98355596033191,
+            "new_attack_withdrawals_vs_C3": 0
+          },
+          "127": {
+            "normal_rows": 100830,
+            "C3_fp": 180,
+            "C4_fp": 180,
+            "C3_fpr_percent": 0.17851829812555786,
+            "C4_fpr_percent": 0.17851829812555786,
+            "normal_repairs": 0,
+            "new_normal_alarms": 0,
+            "attack_rows": 79056,
+            "C3_fn": 60,
+            "C4_fn": 60,
+            "C4_recall_percent": 99.92410443230115,
+            "new_attack_withdrawals_vs_C3": 0
+          },
+          "227": {
+            "normal_rows": 100830,
+            "C3_fp": 234,
+            "C4_fp": 234,
+            "C3_fpr_percent": 0.23207378756322522,
+            "C4_fpr_percent": 0.23207378756322522,
+            "normal_repairs": 0,
+            "new_normal_alarms": 0,
+            "attack_rows": 79056,
+            "C3_fn": 50,
+            "C4_fn": 50,
+            "C4_recall_percent": 99.9367536935843,
+            "new_attack_withdrawals_vs_C3": 0
+          },
+          "ensemble": {
+            "normal_rows": 100830,
+            "C3_fp": 327,
+            "C4_fp": 327,
+            "C3_fpr_percent": 0.32430824159476346,
+            "C4_fpr_percent": 0.32430824159476346,
+            "normal_repairs": 0,
+            "new_normal_alarms": 0,
+            "attack_rows": 79056,
+            "C3_fn": 33,
+            "C4_fn": 33,
+            "C4_recall_percent": 99.95825743776562,
+            "new_attack_withdrawals_vs_C3": 0
+          }
+        }
+      },
+      "primary_devices": {
+        "Eufy Home Base": {
+          "display_name": "Eufy Home Base",
+          "normal_rows": 95369,
+          "C3_fp": 1,
+          "C4_fp": 1,
+          "C3_fpr_percent": 0.001048558755989892,
+          "C4_fpr_percent": 0.001048558755989892,
+          "normal_repairs": 0
+        },
+        "HeimVision Camera": {
+          "display_name": "HeimVision Camera",
+          "normal_rows": 672,
+          "C3_fp": 13,
+          "C4_fp": 13,
+          "C3_fpr_percent": 1.9345238095238095,
+          "C4_fpr_percent": 1.9345238095238095,
+          "normal_repairs": 0
+        }
+      },
+      "primary_residual_concentration": {
+        "remaining_fp": 14,
+        "components_with_fp": 5,
+        "components_covering_90pct": 4,
+        "cover90_fp": 13,
+        "top_component_counts": {
+          "1": 10,
+          "5": 14,
+          "10": 14,
+          "20": 14,
+          "36": 14
+        },
+        "zero_support_residual_fp": 1,
+        "ineligible_residual_fp": 1,
+        "guarded_residual_fp": 0,
+        "protocol_counts": [
+          {
+            "device": "Eufy Home Base",
+            "protocol": "6",
+            "fp": 1
+          },
+          {
+            "device": "HeimVision Camera",
+            "protocol": "17",
+            "fp": 10
+          },
+          {
+            "device": "HeimVision Camera",
+            "protocol": "6",
+            "fp": 3
+          }
+        ],
+        "components": [
+          {
+            "device": "HeimVision Camera",
+            "component_id": "2ac18d194daea6ffe735ce052a9d902b02edb779f016713a30cd51a97e41a47e",
+            "normal_rows": 18,
+            "fp": 10,
+            "display_name": "HeimVision Camera",
+            "protocol": 17
+          },
+          {
+            "device": "Eufy Home Base",
+            "component_id": "03cdb5eac242d6f898a1325f03072c169612d5c6fa1347a0e4970cd0026f8193",
+            "normal_rows": 32,
+            "fp": 1,
+            "display_name": "Eufy Home Base",
+            "protocol": 6
+          },
+          {
+            "device": "HeimVision Camera",
+            "component_id": "0415922258d11e661d47d5ff3b7a7826ed06963a10e662c81c9b4ec6bc818d62",
+            "normal_rows": 32,
+            "fp": 1,
+            "display_name": "HeimVision Camera",
+            "protocol": 6
+          },
+          {
+            "device": "HeimVision Camera",
+            "component_id": "963d93b9e15d4636985d434d0434ba16759512f66ffad8309bb785dc8bc38984",
+            "normal_rows": 32,
+            "fp": 1,
+            "display_name": "HeimVision Camera",
+            "protocol": 6
+          },
+          {
+            "device": "HeimVision Camera",
+            "component_id": "cdeeb1adbe35ccbf3fd22b96ac46327f4b1d743111b724b22238ce7cbe9c2a2c",
+            "normal_rows": 32,
+            "fp": 1,
+            "display_name": "HeimVision Camera",
+            "protocol": 6
+          }
+        ]
+      }
+    },
+    "UNSW_DEV": {
+      "views": {
+        "post_window_primary": {
+          "27": {
+            "normal_rows": 74444,
+            "C3_fp": 7675,
+            "C4_fp": 3813,
+            "C3_fpr_percent": 10.309763043361453,
+            "C4_fpr_percent": 5.121970877438074,
+            "normal_repairs": 3862,
+            "new_normal_alarms": 0,
+            "attack_rows": 72553,
+            "C3_fn": 0,
+            "C4_fn": 0,
+            "C4_recall_percent": 100.0,
+            "new_attack_withdrawals_vs_C3": 0
+          },
+          "127": {
+            "normal_rows": 74444,
+            "C3_fp": 5500,
+            "C4_fp": 2517,
+            "C3_fpr_percent": 7.388103809574982,
+            "C4_fpr_percent": 3.38106496158186,
+            "normal_repairs": 2983,
+            "new_normal_alarms": 0,
+            "attack_rows": 72553,
+            "C3_fn": 83,
+            "C4_fn": 83,
+            "C4_recall_percent": 99.88560087108735,
+            "new_attack_withdrawals_vs_C3": 0
+          },
+          "227": {
+            "normal_rows": 74444,
+            "C3_fp": 8971,
+            "C4_fp": 2867,
+            "C3_fpr_percent": 12.050668959217667,
+            "C4_fpr_percent": 3.851217022191177,
+            "normal_repairs": 6104,
+            "new_normal_alarms": 0,
+            "attack_rows": 72553,
+            "C3_fn": 5,
+            "C4_fn": 5,
+            "C4_recall_percent": 99.99310848621008,
+            "new_attack_withdrawals_vs_C3": 0
+          },
+          "ensemble": {
+            "normal_rows": 74444,
+            "C3_fp": 8494,
+            "C4_fp": 3606,
+            "C3_fpr_percent": 11.409918865187255,
+            "C4_fpr_percent": 4.843909515877707,
+            "normal_repairs": 4888,
+            "new_normal_alarms": 0,
+            "attack_rows": 72553,
+            "C3_fn": 5,
+            "C4_fn": 5,
+            "C4_recall_percent": 99.99310848621008,
+            "new_attack_withdrawals_vs_C3": 0
+          }
+        },
+        "full": {
+          "27": {
+            "normal_rows": 75763,
+            "C3_fp": 8244,
+            "C4_fp": 4382,
+            "C3_fpr_percent": 10.881300898855642,
+            "C4_fpr_percent": 5.78382587806713,
+            "normal_repairs": 3862,
+            "new_normal_alarms": 0,
+            "attack_rows": 72553,
+            "C3_fn": 0,
+            "C4_fn": 0,
+            "C4_recall_percent": 100.0,
+            "new_attack_withdrawals_vs_C3": 0
+          },
+          "127": {
+            "normal_rows": 75763,
+            "C3_fp": 5917,
+            "C4_fp": 2934,
+            "C3_fpr_percent": 7.809880812533823,
+            "C4_fpr_percent": 3.8726027216451304,
+            "normal_repairs": 2983,
+            "new_normal_alarms": 0,
+            "attack_rows": 72553,
+            "C3_fn": 83,
+            "C4_fn": 83,
+            "C4_recall_percent": 99.88560087108735,
+            "new_attack_withdrawals_vs_C3": 0
+          },
+          "227": {
+            "normal_rows": 75763,
+            "C3_fp": 9514,
+            "C4_fp": 3410,
+            "C3_fpr_percent": 12.557580877209192,
+            "C4_fpr_percent": 4.50087773715402,
+            "normal_repairs": 6104,
+            "new_normal_alarms": 0,
+            "attack_rows": 72553,
+            "C3_fn": 5,
+            "C4_fn": 5,
+            "C4_recall_percent": 99.99310848621008,
+            "new_attack_withdrawals_vs_C3": 0
+          },
+          "ensemble": {
+            "normal_rows": 75763,
+            "C3_fp": 9036,
+            "C4_fp": 4148,
+            "C3_fpr_percent": 11.926666050710768,
+            "C4_fpr_percent": 5.474967992291751,
+            "normal_repairs": 4888,
+            "new_normal_alarms": 0,
+            "attack_rows": 72553,
+            "C3_fn": 5,
+            "C4_fn": 5,
+            "C4_recall_percent": 99.99310848621008,
+            "new_attack_withdrawals_vs_C3": 0
+          }
+        }
+      },
+      "primary_devices": {
+        "unsw-attack-traces-2018:00:16:6c:ab:6b:88": {
+          "display_name": "Samsung Camera",
+          "normal_rows": 19711,
+          "C3_fp": 2174,
+          "C4_fp": 831,
+          "C3_fpr_percent": 11.029374460960884,
+          "C4_fpr_percent": 4.215920044645122,
+          "normal_repairs": 1343
+        },
+        "unsw-attack-traces-2018:70:ee:50:18:34:43": {
+          "display_name": "Netatmo Camera",
+          "normal_rows": 19879,
+          "C3_fp": 4309,
+          "C4_fp": 1157,
+          "C3_fpr_percent": 21.676140650938176,
+          "C4_fpr_percent": 5.820212284320137,
+          "normal_repairs": 3152
+        },
+        "unsw-attack-traces-2018:ec:1a:59:83:28:11": {
+          "display_name": "WEMO Motion Sensor",
+          "normal_rows": 19229,
+          "C3_fp": 93,
+          "C4_fp": 93,
+          "C3_fpr_percent": 0.483644495293567,
+          "C4_fpr_percent": 0.483644495293567,
+          "normal_repairs": 0
+        },
+        "unsw-attack-traces-2018:ec:1a:59:79:f4:89": {
+          "display_name": "WEMO Power Switch",
+          "normal_rows": 13028,
+          "C3_fp": 1865,
+          "C4_fp": 1478,
+          "C3_fpr_percent": 14.315320847405587,
+          "C4_fpr_percent": 11.344795824378263,
+          "normal_repairs": 387
+        },
+        "unsw-attack-traces-2018:50:c7:bf:00:56:39": {
+          "display_name": "TP Link Plug",
+          "normal_rows": 2597,
+          "C3_fp": 53,
+          "C4_fp": 47,
+          "C3_fpr_percent": 2.0408163265306123,
+          "C4_fpr_percent": 1.809780515979977,
+          "normal_repairs": 6
+        }
+      },
+      "primary_residual_concentration": {
+        "remaining_fp": 3606,
+        "components_with_fp": 274,
+        "components_covering_90pct": 41,
+        "cover90_fp": 3253,
+        "top_component_counts": {
+          "1": 916,
+          "5": 1908,
+          "10": 2274,
+          "20": 2710,
+          "36": 3171
+        },
+        "zero_support_residual_fp": 1,
+        "ineligible_residual_fp": 0,
+        "guarded_residual_fp": 0,
+        "protocol_counts": [
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "protocol": "17",
+            "fp": 30
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "protocol": "6",
+            "fp": 801
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "protocol": "6",
+            "fp": 47
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "protocol": "6",
+            "fp": 1157
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "protocol": "6",
+            "fp": 1478
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "protocol": "6",
+            "fp": 93
+          }
+        ],
+        "components": [
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "d85c1166da295fa3c64bd53d599b9e830a153637953a11dcf699fd267d55d5ed",
+            "normal_rows": 1134,
+            "fp": 916,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "cab3f8249ce740263ba4a5ea6714c225ba5553b4edc5c2aa8451e42363abff53",
+            "normal_rows": 1943,
+            "fp": 505,
+            "display_name": "Samsung Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "5dc7b36b04eb8cfd03a62e75f99c5c950025c06feb64406adb8a9690a923a3ba",
+            "normal_rows": 733,
+            "fp": 188,
+            "display_name": "Samsung Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "bd63a6fa59d68bc20b11bd734b1b3f76d0c1603d57f4fca64b72d4afb051a4b6",
+            "normal_rows": 521,
+            "fp": 157,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "6763c16ca9b400ad78c6db825103120a9568ffdcd75561812750a5d9e8017293",
+            "normal_rows": 190,
+            "fp": 142,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "5a252ab981f67066eac9b2073fd0f31a8ea919c0737c17cf7a0e2d295b3801d0",
+            "normal_rows": 319,
+            "fp": 111,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "ead09c204b3f252c2840177ba8f88d4eadfd3be5f9844c9c4ed36788ed73bfc0",
+            "normal_rows": 299,
+            "fp": 66,
+            "display_name": "Samsung Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "43aac9c17b47fa238f468faef0af2108eb0d5c6f7046a39b51661bfcc91889b6",
+            "normal_rows": 252,
+            "fp": 63,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "8101865a238f0040cbbc587c283d86953c4f9568ae781ba2fdec520c1bb0d0e8",
+            "normal_rows": 250,
+            "fp": 63,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "9308336926bc8728124b45cec0fd9b80152308d37a44d4e3df4d556365f64c2a",
+            "normal_rows": 252,
+            "fp": 63,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "52b80f11233bd2b84118cb84bff9d38a0c8be4f9bcb42f50a376a3ec29fb5071",
+            "normal_rows": 173,
+            "fp": 53,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "e20423035d1b0c7c1b7990ffdf06d42488fac456b1b3af0fb21015c0ee9fa431",
+            "normal_rows": 172,
+            "fp": 52,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "c004793a77cff779cefb172ce5de5d755fbf870babbfc2560c6557669945d99e",
+            "normal_rows": 170,
+            "fp": 50,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "ef1a09284c4ee750f4ae260ab3707b0062f4fa94abb4c0930fbd98e715d814fd",
+            "normal_rows": 171,
+            "fp": 48,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "ab04fc026f447001773d2dfc78d5316ba82ff0d35d5bea8edfb8bbeaaa44529b",
+            "normal_rows": 171,
+            "fp": 46,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "bbed8b6ae309559e9829e218093f66c1b75fde781153a4dadc7bee7821fc6452",
+            "normal_rows": 176,
+            "fp": 45,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "cf2698feeb59ca6fba6cf73cd80b9d014fd432bc3f20a070538f40e46a45c153",
+            "normal_rows": 179,
+            "fp": 38,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "fe11cf9fcf97c2ae3478008f06f8081695b5a137d20cdf5d671354a6f1e9a5a4",
+            "normal_rows": 173,
+            "fp": 36,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "304b5f80e473f5a88332c8db67c2a8770a536edb26a629df53138b0071523a7e",
+            "normal_rows": 176,
+            "fp": 34,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "3d5ef00959cd4bad31aacc372288ef0c293b025bd4a0032403d88e3f0577db32",
+            "normal_rows": 174,
+            "fp": 34,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "f642a6e00a465d4f47370ed861c66a3fe79f89aaf8a9fd07cdbc5a4a3e73c8e7",
+            "normal_rows": 174,
+            "fp": 34,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "e00df74cc59033b3a7308f8824dc12ba71bead1d21236fc144e69b960629d201",
+            "normal_rows": 174,
+            "fp": 32,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "e737f008cd9694051a4cc14bbae8af7092d6ab716cc7e4151c0e822c0e0af9ca",
+            "normal_rows": 176,
+            "fp": 32,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "6e017c296b0b165e0fb1b872b843d98b8f4e766bc43e0bde1cad2796ba36cf0d",
+            "normal_rows": 173,
+            "fp": 31,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "771ccb57b5fa40c26a6f46d5db9e5f6401e8092c3f8dce52119ee6b968e2876f",
+            "normal_rows": 176,
+            "fp": 31,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "a6118f7cfc41d3d0919a1363d9b04f101eab6f4089d92aa80286be3197991f52",
+            "normal_rows": 174,
+            "fp": 31,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "a6d90fa9c2ef0594197941b79f58ef2bb0e81696c04355872cb0995b3f64ce7a",
+            "normal_rows": 173,
+            "fp": 31,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "b5f5f60e7fa119f0c17755896a2bae9ea9a68f92e0b8a436281966da883f7880",
+            "normal_rows": 176,
+            "fp": 31,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "e6dd1719b6a1f92b5cc495e35bf44a225c63b1c29fd6944336c11f99512bc77c",
+            "normal_rows": 174,
+            "fp": 31,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "b7636be99f0936be747658062316cfcb63af5a84a85fd9016846c9aafbc44085",
+            "normal_rows": 175,
+            "fp": 29,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "f8f10eb37d607e6e3a8d1b129b45d24a0c71fea6cfd97a006e33e9c1d43121d6",
+            "normal_rows": 173,
+            "fp": 28,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "e34580b67c00c7d4f66a21debc83bcfe624b9bead4f9635b86c5b08b5e1cbb14",
+            "normal_rows": 175,
+            "fp": 27,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "e6cc62253c6b04728cececdc1a00676c3f7c43fca435fcd524a71c6aaded0348",
+            "normal_rows": 176,
+            "fp": 27,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "2d7b2c04da45f65b189249529a5a4d6e7569d9a5a59939c45303d5658965ce74",
+            "normal_rows": 701,
+            "fp": 22,
+            "display_name": "Samsung Camera",
+            "protocol": 17
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "ac9ac57babb2dcff9f36e91fc985e2742b2e3f3deec2f70fd68a43e6cc1676e0",
+            "normal_rows": 102,
+            "fp": 22,
+            "display_name": "Samsung Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "component_id": "ac9b392d1d878da8ecc4f4c156eb2787d6226c649d46f7d08f5b82a92111d60f",
+            "normal_rows": 977,
+            "fp": 22,
+            "display_name": "TP Link Plug",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "59b922bf76d5504e981dc164dca4cee668d02728a4342e76c5285c2568325682",
+            "normal_rows": 95,
+            "fp": 18,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "ba887f877730d52d7fc6a03c149f8ec419cd061417e76f1dcf143f8def6caa0f",
+            "normal_rows": 101,
+            "fp": 17,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "f7da663ea2d284dff4dd56d630d46ac94d9ce9b069a861901bdff3fa01ba59e0",
+            "normal_rows": 101,
+            "fp": 17,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "2d34579bccb369b6d2638b1a3b08c6c7e4a664bc690989f8b36206d8ba4ab076",
+            "normal_rows": 97,
+            "fp": 15,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "4658de6cbd9f057399dcb0f4f45c46779f63174eea2bd3d5db1ea86c1a1a6339",
+            "normal_rows": 101,
+            "fp": 15,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "7b94b4fe8dc7d9544fca034c8ace82c7b6b850a136ab93b269bc794c4e161e4a",
+            "normal_rows": 99,
+            "fp": 14,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "9124f54a24cecf0b79fc026cace43d3871e8b25affc35284cfa556413f073c97",
+            "normal_rows": 102,
+            "fp": 13,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "61e5873a09b9eb9d40173a6a110e211ded3f1262b9a25d1bd843bd71b503c831",
+            "normal_rows": 100,
+            "fp": 12,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "0a1fa2c7f66749445dada629835fd121d77d8d6c9ad5c44700a89404b809637c",
+            "normal_rows": 99,
+            "fp": 11,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "b940be8854cf7a72b026a9fa082ab060e63ed3c50a81b6b50665d141e1c94ddb",
+            "normal_rows": 708,
+            "fp": 9,
+            "display_name": "Samsung Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "99c564c98fa18874e3dee776f84feae4fb241d482327b06b9d3830acbde66bb7",
+            "normal_rows": 12,
+            "fp": 6,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "4a25f4aa3aec6735b5a928baed168ba5cd49b809ab5cb1ec87045fa8672c8522",
+            "normal_rows": 16,
+            "fp": 5,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "4c4c71ffc06f601862fd8ddaf5bde13d0796370e17b9e26b26914100da4f76c1",
+            "normal_rows": 16,
+            "fp": 5,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "a5944f45abc5eddbdf086720bdb0ba0780aede225ad8609c354baf15906a20d5",
+            "normal_rows": 278,
+            "fp": 4,
+            "display_name": "Samsung Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "ae045ac9fbc4efb9cf2896513724f174ce34ab987076cf83e52f92d7f38b7982",
+            "normal_rows": 152,
+            "fp": 4,
+            "display_name": "Samsung Camera",
+            "protocol": 17
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "component_id": "101a3993368f221970e8aa2734fbfb49f84bd4dab461c2bed5668fb620fb098e",
+            "normal_rows": 10,
+            "fp": 4,
+            "display_name": "TP Link Plug",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "component_id": "230aeb11153e7dae33bc62fda08944944c11890499126aa4ed9016c0f5ba1c38",
+            "normal_rows": 10,
+            "fp": 4,
+            "display_name": "TP Link Plug",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "5ef0b7254534a80642c5a435455a00acc5a6cce1c68ac28636a05cecab0da181",
+            "normal_rows": 12,
+            "fp": 4,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "6e2fccca9dde2918b7a618b352b78317e2e5c551baef8818d7d85222070665f1",
+            "normal_rows": 14,
+            "fp": 4,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "component_id": "a6f11135157b9a321b6319a4bc8ab6e6cbebc07841f98332718015aa3957dbd7",
+            "normal_rows": 10,
+            "fp": 3,
+            "display_name": "TP Link Plug",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "component_id": "bbca2991b8999e8ece81f968372dac8d951203f478dd6233acb819682c3bd4e2",
+            "normal_rows": 10,
+            "fp": 3,
+            "display_name": "TP Link Plug",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "7f53fa7f88bb4eed18a3934f5ced4f908149ff4f9d1ee5bb1c92db0a50ab309f",
+            "normal_rows": 5,
+            "fp": 3,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "bd500065a71e2101d55e919924f5013ab025aa735adee508a1fe7fd8b9f7484d",
+            "normal_rows": 5,
+            "fp": 3,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "2c02e4df4284c546a62fbe6637be84c0a60d0851812fb301045844baaf3f4b4e",
+            "normal_rows": 55,
+            "fp": 3,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "8c4f1e98e45bf042d7ecea92383095cd373f2fd76b790c91b15d8cb577396abc",
+            "normal_rows": 266,
+            "fp": 3,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "d02ac9756ebba9c3c319d58fa25489c86800d66ae809a2d04cb0b4cb705958ac",
+            "normal_rows": 113,
+            "fp": 2,
+            "display_name": "Samsung Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "component_id": "211a551c1835c1c72e5cbe21f6bd9917612801c63a7af796c8f009c6611f90c6",
+            "normal_rows": 10,
+            "fp": 2,
+            "display_name": "TP Link Plug",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "component_id": "a68893551f547ccf0a1d513d041894b26dd7ed93f510f6110b73a7caefc9c3fd",
+            "normal_rows": 11,
+            "fp": 2,
+            "display_name": "TP Link Plug",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "01ba251921e72d134486b508705626f61a4bdadb4ca8facc12978df00839d8b5",
+            "normal_rows": 2,
+            "fp": 2,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "19d1b378b9233074c86e793468c710f845bcc2800e6b974c591b5d70ba39b37b",
+            "normal_rows": 5,
+            "fp": 2,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "2825a6a5bb120acc55c029d40e25ac9bf9779a18db80c2b98eca5634ac68b990",
+            "normal_rows": 6,
+            "fp": 2,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "4708f7476d1d866e208ebc15d74a6d0520326d417dc3e63e235d1c00d3fbb00d",
+            "normal_rows": 6,
+            "fp": 2,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "50588a515a51e65382175f01c362c415de194069b35935bc06eaa8a5b4f6f0e5",
+            "normal_rows": 6,
+            "fp": 2,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "64f34397dd4f3f8bca808beb96e3c21d922f646e8d22bc4df23abd657c628287",
+            "normal_rows": 4,
+            "fp": 2,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "7823af644a5cb365cc0c39d62f0e2bbad20cfe65a0d7196d3a9cbd809a35ade9",
+            "normal_rows": 6,
+            "fp": 2,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "a26e48620f0a11cb509f07bc1852bb05e9fd3bbe24541031c399ee7dec8ab0da",
+            "normal_rows": 7,
+            "fp": 2,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "b15edea9d33d6d247aa049778ec2cfdd994c104d4392f5242fffa11d855e40a0",
+            "normal_rows": 5,
+            "fp": 2,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "be0e8392cbb17ce371b04923561eeb074c313b671f3b43ff17cf55d14b19525a",
+            "normal_rows": 2,
+            "fp": 2,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "fbf38d64d980d901d664e4c4b94de006fe8abf3b7a5de1b4dd2e3476e9229fd0",
+            "normal_rows": 4,
+            "fp": 2,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "fcadb07fa76359aa957cb0b1cc2ab6beb9e117e563bb87673b17e00d6a4db15d",
+            "normal_rows": 2,
+            "fp": 2,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "ff17feadb177baf397a640372c4c28b123f9336301bc1b110af46ec5572c9b4e",
+            "normal_rows": 4,
+            "fp": 2,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "5f42a325e5d602af61c3294dac55532b9a73ba086e668185325b3722111072bd",
+            "normal_rows": 13,
+            "fp": 2,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "645a4b22810dcc4dff61c7a04972a1b5e26df028a64a81cabaa8c310fca3141c",
+            "normal_rows": 55,
+            "fp": 2,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "ab464aa82f0ca02f2f666c510e9240603feb5943cf1a1d39b00dfc0d27315839",
+            "normal_rows": 54,
+            "fp": 2,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "d98713bbecd75f8482cd0a6c5d316396e33a265b4fc5948bcca1b6488b172f56",
+            "normal_rows": 12,
+            "fp": 2,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "f28a65b5a6ea3b18b3e26209ddbf802a1b5e8d80a6880b3b41ebef886c975afc",
+            "normal_rows": 16,
+            "fp": 2,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "fabfc3f75266df08b4f1c5184f618b99814d700cd049ff55bcb46b2497fc33a4",
+            "normal_rows": 16,
+            "fp": 2,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "0b045bfa82a85cdb1e1e549f008d943079ce64e565fec7b9c496288f3ac60384",
+            "normal_rows": 7,
+            "fp": 2,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "27e56e8fdf177de3bccc3990966c8068137c93f34f2518d878751ccea0e02c02",
+            "normal_rows": 3,
+            "fp": 1,
+            "display_name": "Samsung Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "2ee1a5544f5cc99da1d0f9b67804008171b71be499a46f303e798acdc59693aa",
+            "normal_rows": 36,
+            "fp": 1,
+            "display_name": "Samsung Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "2fd5f4ad50367a59398782e0d2f40a25c9d06a04a4d859557862bc1dcc92d338",
+            "normal_rows": 246,
+            "fp": 1,
+            "display_name": "Samsung Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "37c062679b974041b21b666a2d355544a7429dfc3c57134206fe7c22ace81331",
+            "normal_rows": 3,
+            "fp": 1,
+            "display_name": "Samsung Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "687ce9bdadecf177ec78ff539071c7b1be6d5860f5d6eb6a6c955bf03f72aea2",
+            "normal_rows": 2,
+            "fp": 1,
+            "display_name": "Samsung Camera",
+            "protocol": 17
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "caa34edec05a31bee75d693990558c3c2ccb8ef93c9569077d3ae14d3b3d549c",
+            "normal_rows": 118,
+            "fp": 1,
+            "display_name": "Samsung Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "ed2bec561d2ff88a5c69f87fb27c9aebf00d2c4028b5dd8e1279429f5425841e",
+            "normal_rows": 1296,
+            "fp": 1,
+            "display_name": "Samsung Camera",
+            "protocol": 17
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "f5cdb1b24dac3f9400191647199607cec0df1188302ea4daf4692c4bf118467c",
+            "normal_rows": 516,
+            "fp": 1,
+            "display_name": "Samsung Camera",
+            "protocol": 17
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "component_id": "f75267fac1b6d91db324e26f913626a70fa45c9590b9016e9b1a441f2dab1998",
+            "normal_rows": 36,
+            "fp": 1,
+            "display_name": "Samsung Camera",
+            "protocol": 17
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "component_id": "059d967253365d373b54fdbe2d00a4028757ae0cd53a4040e060cdae22582847",
+            "normal_rows": 10,
+            "fp": 1,
+            "display_name": "TP Link Plug",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "component_id": "4795e7163701afa9fb8624bddc693a70a6e5103ff3b30ad46b3a8c041734b07d",
+            "normal_rows": 10,
+            "fp": 1,
+            "display_name": "TP Link Plug",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "component_id": "57004ba1bb0b337362a1b6603330350259dc6699bfe7b0dfae5783df0519b9db",
+            "normal_rows": 10,
+            "fp": 1,
+            "display_name": "TP Link Plug",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "component_id": "5ada6bf1e057467db822122e8c9d2e79278f13b2b6da9b05eeea567df1353f31",
+            "normal_rows": 10,
+            "fp": 1,
+            "display_name": "TP Link Plug",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "component_id": "7b202377f964e1010210de2024b52c0ed0401ac3126091bf762dadb872fb0c96",
+            "normal_rows": 10,
+            "fp": 1,
+            "display_name": "TP Link Plug",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "component_id": "7fabd2812b9e3db0fa8433f48ec6accc485c98292c54fc099d9d6366386abd85",
+            "normal_rows": 10,
+            "fp": 1,
+            "display_name": "TP Link Plug",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "component_id": "dcc15bc4205100bcd90316d9370d0ab208ee4ef68b8bc2371e78ce6a233a2871",
+            "normal_rows": 10,
+            "fp": 1,
+            "display_name": "TP Link Plug",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "0532664eb59ec4fd0929bb7d5e4c56c25135ba4c7ff98f6961e1b3f4df758733",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "0e0ac68d19a5ccb988e682cabe4f90eb221ce680e1a7641e88c5891f325e0a52",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "0e140e0dbffcf44a7bbb3fc5eda2cbcccf958a77de565be9789f3051ceeb3e6c",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "0e423c8400ed32293be7ac82d421443b1a8fc408e9d2c2442fa1ab2d11bd6881",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "1711416b9f348ad08b612a46018ddde0f8672b50c903850e7a073122b92aafc1",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "189338f179d1b9b09d1842d545ebab855da9888786d0237782e3505458cbdcd7",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "19fa6945456567fcf5781586222006d0e569a25615104e26b6036ad58ee5eb25",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "1cfa05e6950387955a2fc8eb1d8dba569cbcbfa3c07015ee65179cb47c94f07c",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "20d9edfca5a4b0b97a7463150fecd7a815a603a911a4ba5e4f02a8c3fd62ddbb",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "24ec25f28fbce60ab8ab652419fbafa0f8ac4ca89ea6439131e46691e8dd2b03",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "29b50116eea3b8494f5d31d89bd50676f5cf6df27765aac429c3f4ee7291155a",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "37db2c29157db7f17aef5a979d25308e0a3bbc85f921b2f1cbb0cddf7c51b45c",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "3f47d1da1a3278079c92d5e2ded8e912b72fb642d5feca86f8f2dc8ae4db8ea7",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "42e6f4e0c857aa9c84c17b4599831ba619a7894fb75d7e9667f62639283d3405",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "47a12b84e76d537cfab0c1757a065d64aaea33d1129a086956edce07e767440d",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "480e1a6bdd6b95a77269e7e47c07e99ad8b302946e22216649d390a5e68d4d5b",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "4bd948e68353cce23c4edc62401152f1b5f0ced9e2cfe60fa486bbc39b26f569",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "4faf9779f8cb55f0f9973294384968d0697ac1e0dbe592d4b9e2a8f8ef3a99a5",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "50aa683e114ed5a0f76b62f37c14767e5b91a06816502554c610c2b8ec8f5cc5",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "50fc253928d29adba6d991149dca41edbd2f9a6df227f2c9ea7ff0c24275af2e",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "539f71063eb7cf5dc2ffc02d3038a8e2fbc1231960fa3b223a48eab477cf88f7",
+            "normal_rows": 2,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "542d82b2e10f1ff682039435de82319392fd0b202ad5e226b0c6519c83539e99",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "56891fb2fc9d9d0968964fadfe5ed9961c97966652323f0fb05e9580e5eeb7f9",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "5f9fb4e4b7fb2c8399f17f96507feef322909fdfb3f7c814553ac6df5a33484e",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "625f390f41a388501ddaa93cca214eac9c604992f8c370bd1e917289c4e6dbfe",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "632cfd77368b2f610258f41aa1146c194f610ca1f3d92b5b7d906bfbab8728c0",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "66567ab388f3ed89475fed5f50ba9859e032fd9b141d4a7f6dfd5b242ec3f001",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "6bb39efb13bcd908b04a0444e60f50e8ca3d3c107d9e180974e742d891c61778",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "6f7f2a62a0f35093301fd8296bddea596771e307d4fd082e0384e2aafde512f7",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "6fd5bd57aca52513d8e97c1ac29ee875193852d499f196ed7d0da26a8a4549a7",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "7043eb88202ee4197ef374ec9a075b26017f1e807664ea16469b8d2f0dfb9c9f",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "7372f543201fcc108a15be8632ac90ee1ad31edae9676c3984ec4ec7b9ea3e31",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "7b0738602c98436765d2cd185b773d4c7b3f10a28c72a3751660f3a53e77d8ed",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "7b18c846ade1249548bc40e9c1737ea58f05d37794e61f436931fa60bf2c1f4b",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "7dd6e94a9ad5ba0d5c72be664d2c135e3b8bf474f53099f079f4ed6158d598f4",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "8542e3c7960ed29cf017e1492834d8a966ce45278a82d4831402a9cf4882e893",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "871374daaf217d7b1f509b56ab9ffef14685f0398ba204a221a9f5dc13981346",
+            "normal_rows": 7,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "8f776a0201a33a2ab1ce31da8a22ea4ce8405cf3b3b60e58393ebb2cc7bb14db",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "922612e95f23ff3968874a05c3924fc11c031c955a0b974d900cb53c388b7b0f",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "97d522096dd228e4c3776f82bd8c588464ea8c2aa677cd1dd83b83dea7fd336c",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "a3c6d654e42ef5527993742a18ee571405b10167d487e2adde1a936aee30256a",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "ad98c4aa7b760aa66c1cd65ab88192c8302e6fdbcf55aaa9d5fc42294e56f64b",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "adf111286abbd6e30eb3cfebcf62732afc7c65749decf3183f65a140499892cc",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "b5bbedac13bdc98fc4c8305dec49b4c03d2565c2ad82c2aed2ce1f8783fb8315",
+            "normal_rows": 7,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "b74bca9546858a8fa67eaee1b8ebc0e8b7fe9421b9e41eaebcc159e8295a0e9b",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "ba485d7bcddbf8c4e5e8a8cc6219efc6762b36f56d683b1b56499e9583f99731",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "bc574a061e3ace4a3a2592a89346b55a7a9a000f1e19d6258dd534a7753a063d",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "bdcde972674dcba0632c14b3f3fc7074f8fa0c2ba14c0bbcacfafa707be0bc0f",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "beb2333bd776fa5c4adda8677be6002e896eaf0cac9f830a45943173d61377b6",
+            "normal_rows": 7,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "c19b744c60843bbdcac42e0baf875f9438be8aa2d8c28ca5c9661b612fd3526b",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "c69005750943ccfb6a09b2957b70537ceb8241cfdacc45f28311dfefe27e7655",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "ca68e5548d5aac9e0fd73af22e64bc7d48bfb2a93eb3d3dac895bd56f04f218d",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "cfd47b82be0941fd5e2496890ff17e6a1d9ae729b39024e566f099634f570e37",
+            "normal_rows": 7,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "d350103ad7f11cc8df800e82496df393932d5f6f860e69960f032d59ffd8e27e",
+            "normal_rows": 7,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "d5af89d5c3488ff7f5ee223ef35c61379c3a644d0eb7dd3493fd8d0fa92c73fd",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "d8daac1438c1c574092fff113fc02614f263b88996dee262d3bc7f2ea31b8299",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "db72fab117f1fede24d6539b3d3de0a5de705f8c4a6575d274abb6a34ee3dbdc",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "db7b945fa1d91bee87b7e0110c887883fa10e656da6ac115a099dd916111b71b",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "ea456e940f2ebc7f24845be5a510c2c667042f976c491fe6aee93b96ff075717",
+            "normal_rows": 2,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "eb14191700801a66b98977c1a668f74ef7e7a5ed0b5e787ff40d157063be0064",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "efca8da591b7e212ecf9b87770dde4a2c7d725ded90454b2b7bda9074af24e14",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "f071ff7266198e1ec19a9bf19199000de33d5eba23e9f1bc2b50d4e30b77df27",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "f25b0993c6b3f2850a3f74e3e0fa60b2b00805c09488ec97dc2b13aceb2f99ee",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "f3971e5369a7e1123f6739036682452196820bc898eb79b4c49cdfb157c7c967",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "f6a68a33887bc7c45d72d480350519d339e5888f3517a1a9c4cfaa987758bc7a",
+            "normal_rows": 7,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "fb53609a510f8535d0a7d4ff913c4c9bb09645df5c8e28f6c5e5415d4e9eedbf",
+            "normal_rows": 4,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "component_id": "fc6b69e819dd2c762a3cdd6ba8870142c0217c318c95ffcf016e17378ebd6dc1",
+            "normal_rows": 6,
+            "fp": 1,
+            "display_name": "Netatmo Camera",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "05fc6542196a7c20d1fdcf9144941f2c357069593b31a4247ee468c08f1081c4",
+            "normal_rows": 14,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "0b006e5360d5ba0b61240723fad2cf81059546a7aedeaca95d3a8d776e0f398a",
+            "normal_rows": 14,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "2bf271e8d92dd93f21433c941c5151dafa3cc58c0f724dfa7bc698a10581a0c5",
+            "normal_rows": 12,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "424c12ee3eca68f54e638a4c8a8e27b24b5920a33d4dc95a5aab24197828991f",
+            "normal_rows": 53,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "51d2ed2f6d863064586dfeb5169e8712af5cdef7516b5e6b48e6f1075af28754",
+            "normal_rows": 14,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "5ee9be1db3dd4687afd5848db7ace877e03a8f212770fd46bc49a7893d152510",
+            "normal_rows": 14,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "66feba94c90285b288f48483dbe4b205fe8b61ec0f366ad5d5cfcf0e871a39be",
+            "normal_rows": 53,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "9800bc2c6cdd1dbcd4b7aefeb9520a0806290655177fbf0ec7868fc9b8375eae",
+            "normal_rows": 14,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "b15947ef38877c3f02536b58415d9a74032b77c55fbf549058cd2e49567404a1",
+            "normal_rows": 14,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "b90f884a8d9d35e28189576c2f7fc057b907a2e395cfa1076ff948a6bb0b74cd",
+            "normal_rows": 14,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "ba1207b350a52cf3f618c4c19486836824eb4cc7275e1886ed91b22a3c003522",
+            "normal_rows": 55,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "ce71435b5a205dc5c4e2494776f818281ca88a43d62b67f317d7a2ee990fb561",
+            "normal_rows": 14,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "db8bbc1ca402b563764ebeb7349934dd877e3343aa4797a757ed0f581e7580fc",
+            "normal_rows": 14,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "eae0d044ef591c1002de99a14c0c32fe75a848f48047c83c6abb42273c96519e",
+            "normal_rows": 14,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "f36f683bf25417214940c668d049345b966ecda354d614d8891973619f0981bb",
+            "normal_rows": 13,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "component_id": "f7d0c45fe1a04187e0ac281d1104ce00172e1c79ea34254cc002074c3905915e",
+            "normal_rows": 13,
+            "fp": 1,
+            "display_name": "WEMO Power Switch",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "00d82bedc5e0ae35f859b2bcd5e01b61a5f87db1deef4b95c8abe5e349fe68cf",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "099f92fd6e62b5a85330980bcea83cc7895dc302c5150659d0024da1ac163408",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "09cee3bde10ffe43970e114f078514e6dda3d4a8f1759e8675ae3f86797e4e85",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "0b09495f3b719b891ed067d159cfd55566b68884ab2c67903d655b7a8d8ad209",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "0cb700ff756a780c24c0f06b18e8d1e11529e4152a2742c36145c943513a0ef1",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "0e75aba4736b7edf1f47b9a037e1f9aff3648b00d3a9bffcd9684fcc84fcdaf5",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "0f81a3a56306e3230a543124352d611cf91ec060b40a66b265b57f1683145ae6",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "12aa9e90a6166a3354d7e5b2215029879ff8cb00bd85b6fb37ea7b5d9edad3c9",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "13c91901e1097bb7df80bf9dc7a1717d9a2de20fdd066b665bce8774701f6982",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "160fe7fd1bcac677ce5be07233bb6821358f8a32fa1d625c4773e6dfdda2ccf3",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "19869fecb8ecef9305270d6abba08f299b8d355ab5bdb47b4761c204747d969c",
+            "normal_rows": 2,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "2118daa48f2ed17636d7d3a20a6bc96bc87c27151d1de8c9658062b666d6df5a",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "255bc707858cafd6aeba13c42796e831f0f24b22ee39eeb3be0c5118f039e33c",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "2b62408f33815e1c5e5e75d5d899d6b8c9514cc5817699524a922732a9b87615",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "2d01c5e07f0d1d7c6ffb1daf96825ff3cee1cf722c6607c6bb2c18433170bf40",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "34238403160a624ca945317b2744ab48e71c311d86e32f5bd9ee97aca5c9f13d",
+            "normal_rows": 2,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "34d4d1fc1a4fbd1f30572d50f5858acc3d0c59a6cafeaf8d98a5a9de27f1b8cf",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "3db1e88db6ce12353c3068ed1e4a5a9d24293cb5699fab493d31efc7af6b70c1",
+            "normal_rows": 2,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "3e7418a68aeabd5a434fca1456b1008846633fb1ed339cd73442bdb1ec418dd7",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "4097624b18766226a5df4490958d2d128ad9315664b46186f218d6cc2ad113c1",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "4351a6fb372f47d552344b6cdf75bda4c177c9a35d35c3f06880c731432e0668",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "43bb2f595a43f91a2fe36a310ee98aeae4d3853c98cb23403f97e21aee81235f",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "45c07db170262a9bad25def04561a379ce629add6039d0d20fd70e77529a9350",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "46b1ed5f4a7c22eccd5207c21c18e70df4f11518c1657be3a6ee94eb27622c35",
+            "normal_rows": 2,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "48d5ef01655443fa18d78b3cc0e0d98355e25a26b715081e9f2c09603e96629a",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "4a358369baf67804da12145d20362552a3bdd73ccf84d5e209a2b8ec61a36c19",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "4c5042d8bfdd72b857c7ba2e528b4b467ed90fb295776712032d54e3394b5f4d",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "4cb12fd0486370f50fe7644f895821c79df3c2e1f222db7eba8077c932d997cf",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "4fd64daaba6840203e97f15262963ea7119e3b156909bda6bee50d821584ae82",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "5206787dfb6b8283a30d0a77533f9eb870092971df6b3d3f232107af2eb6437e",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "52d29db8421bf1f22590a4edd2bd1413bbdbeae2af3a5d96a755293538789359",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "5360cbb7d884dcd34fa39f81638df896dce8bfba3c117c0a13cdb00a06931219",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "59cf82ee38c164bae98ec42b96d2d46ad678358e6d8355541d8d917ec5e1cc6b",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "5d216dcad0454d9823c2bb0373245354710cdb4633d917b42df4a4d4f8aaaf7e",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "5ee631010488d0881b562167769ac71275a0cbc4596815a81f0e934eb55070bd",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "5fcc700883e9394f9254fdc777cf265db05a28760053748e231cadaa35531201",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "647889f8d75174440adca09366606dc35e581a7f0d864b4bc04b2dfe20528784",
+            "normal_rows": 2,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "66a7347f83e6fd73ee9b1cb21aeeef36c76ef63aec3533ea9eda2713b316d6e5",
+            "normal_rows": 2,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "6cda1f9b43699aa002fe943fc44842cdf032d54a86bc415deb86b5712304b770",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "6d7b280728731ada0250b1e4683af1bc2e51109cac7e528deee5e04564c07cb9",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "6dbda05c6bd0b340a7d9489da3c3fdd81f24f77b12a399a198ffa60ee83655b6",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "6e203d887bb9493d85b64600187126c4de0b957133dae43192f69ae174ef47a5",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "7187e6ad824643d0562b2bade28abdc275e644b9e4c90ecb6740158b61ba544c",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "73bd17fcde6e940316cff7c43537f11443343fb9388d2b4cc196e3e849f1de53",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "7744e7f23f3cdefa459ad197ca57096106233a9b34221ec3b0e60c8ac4e0a00d",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "791bced5b0b09e057c6703f2d32f12676d27adae9f41a75fe36cf1e46078efdb",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "7f413e8b935cdbd6229748d684bd15132bddacf42737e45e5ae4f697dac611f6",
+            "normal_rows": 2,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "87256233cb3a48038a77750639f32203f44c0add7b0338afe4412213cde6a594",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "87407d896af7e114045e78983e84f1582c06dcd494ae79f75c52fe82cb9cf824",
+            "normal_rows": 7,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "88dfa0f73d4944b32c104ec3c7c983b6e99b31f6cdc1a24bf2242991cda5b3e9",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "8908035c305e7d5046ecd0a8db0445384969fdb35f7ccceed17e23d3731c5bed",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "8d139d43bc9bd42bc2bba0cf320a831df46acad2ee3c4cf617c0230ed072fa14",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "935b1cad50149a713396c5d97c77c21594ed5c7210e046571f0216ceab5f2cd0",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "a4a1736a9b0b15291e7e9e59531b1f94aee54c16cc542621d313b119ad36cd82",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "a54fbc50c571b71a57738e71f5ba55782af3f2cdc4894327637ec79e62f40269",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "aab7061d87e32754f8310d47b21a0ce36d051d7724be6d5c307a8f1641c06d99",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "aad69d04be6bf2a39348b67172a191588ede65fb237257d8e9b556fc32c901b1",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "abb7d2960401379534272600568b8c09f3425b78d18e7ec1e94cf1317b87f270",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "ae5bffcc0c74eff858053c8329931d5815887811369a7254a21e68cbe518d74d",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "b0654a3bbcc07e3b5e087e3b70390ea440d0e5e0d73ae3092931512d16d508e6",
+            "normal_rows": 8,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "b14b678865249b7335581372e661e365f951aff33f58a6616138699f2b5ec3f4",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "b2121b9aa5fdb0a30849c50b60340c8861cabeaca3dba56f2885e10e5dab82c2",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "b23e82040bcf1216881f54d8619c3a119a0112067086c58a7ccbb9d72e92e796",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "b44baf55bec71162141ea44e0636f1768c112c77ce92d79598c45caf2f237b58",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "b48a2c522dcc2dcdd596ed30616acd45ae5fd03f4dd9d0acb55dcf92cfdc9ee5",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "b75c6e2dbd32b21b0e542d02ecc017dee34519b0376b883450db63949d72e4cb",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "b9b646a3f689ce6e5424757ce0e7a6c8c6a01d3588673db21b979c2e1f3ee44f",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "c172759fe95853eab3f19df0ccda3a27fb1c7080b3f41294b923c01222869e61",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "c4f656e2a0209814a3675e937155dcc5e8be147646138ad729976fd49d64930d",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "c72c18d7820adbc2d44e8f335fe58e72358b7a10e9e7dab628e1bc75d905742c",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "c858250c28c181d7dfe36e452b8d5247ae13dcd72e80b05762f8155bcf71c8a3",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "d04194b323f59f93be17cefc73e4046f7b5a7fc5cccda30ea4a99fdc9500b0f6",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "d08a534f1ccda3eb6fe20f36749ae717872892b11194df27c1bc98fb88428cfb",
+            "normal_rows": 5,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "d37e4232f71cb2f9d74cd843b7824ff541ea9153b93dcb74a929890473a6e796",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "d6fd4b85534206e9b6d4dce5f7988f940c7bede90962802a33e1fdfc10c02050",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "d7560046098a170dd931049b5c5ea83bfa7ecc2a2571d6fec1ef95dca33a79b2",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "d85a571a42e0029e6221dc1bd5b68b07a99f69a003b81ce3f9f508639bb01b90",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "db95ea83c186fbc7548cdcaaf306c91f2909d91115819b9794d624f603a92d75",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "dc4479001b620e08875f65773dcb25852b39a363b32de894d57442606815bd3c",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "e30ab0ed886cbe28d47a32484f67b492fc5e12e45e6e73c57593a71f3c88c17f",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "e42c63e5cb73bdd30c0718e108dadccf1803e744ad5768e6e170769fe7444fbf",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "e60705dd627b504f0110ffd730c903e885081c2905d1018043d5ef663be5e233",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "e630766ee108bf5451db336b00687355d7a9fdeb38268d7a751a397e9d28fe71",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "e6cf2838e9af1f251e68d98e72b3da1bab213f7b2facb791a5f66a6459f2dce4",
+            "normal_rows": 7,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "e76f1f01de67571f51d04ef176a136fef5affaeed727070468e79cd90e09a0e0",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "eef960923e70e3378152eabb55506205622dc05716b91955cccba42003ccb551",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "f1817499325c603d4668a9e2a3b419e2a293817eddb6dd1ade48d93a958714c5",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "f2ca94db8da841816a34da7e76a2499ba845555eb08e02ba09a30a0339d11700",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "f3385ef7cb9dbda349157a224ffbb6e46efa77436bafd4ff9f2c273c0e9be604",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "f5af07962deec2dedd900eec1720a00eb6e6566e234c09827af5ff8e22ea8e54",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "component_id": "f762333900c885693f93bf36325dced5f9f69c0642f9f2afc2bd7977cfece25d",
+            "normal_rows": 1,
+            "fp": 1,
+            "display_name": "WEMO Motion Sensor",
+            "protocol": 6
+          }
+        ],
+        "top_three_devices": [
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "fp": 1478
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "fp": 1157
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "fp": 831
+          }
+        ],
+        "top_three_device_fp": 3466,
+        "top_three_device_share_percent": 96.11758180809761
+      }
+    }
+  },
+  "input_sha256": {
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/evaluation/RESULT.json": "bb34321aeb54b05151ecf3d57f5a35a4f596381f6c9036e80c09cbd3796e1a75",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/FINAL_ACCEPTANCE.json": "ca4d036de457c4d1493b28122c4a24b7b550c353403d6ec86639597edfb54949",
+    "runs/history_normal_reference_keyrepair_v1_20261031/config/ASSETS.json": "34d7829d5c2f262bd60b30058b677cbf7b67ee2c419d6ce924ddc01162b96b75",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/evaluation/ab/CIC_DEV/DECISIONS.npz": "4fbef10a34495227250a71d596bc677817f24a3a71af1e929d3e44291ddebaeb",
+    "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/ab/CIC_DEV/DECISIONS.npz": "4fbef10a34495227250a71d596bc677817f24a3a71af1e929d3e44291ddebaeb",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV.jsonl.gz": "666c2e2dc648ab539b8e2bb5e1b1fb8fee8cd3bf92223a72d6631fc4c851f64f",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/evaluation/ab/UNSW_DEV/DECISIONS.npz": "574ef7628bdf88848f733c5054b22d50d6eb48e5695a74584cad30d69eaa80d2",
+    "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/ab/UNSW_DEV/DECISIONS.npz": "612e0761deb01b3b6ae1080e820c90b08956d3eb5be29fae37d87cc407e104a1",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV.jsonl.gz": "d334f18c3a2857fe8b63f491fd78ba3dc984bbd0fa7a55a4f030d9e797098503"
+  }
+}

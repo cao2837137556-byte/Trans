@@ -1,0 +1,65 @@
+{
+  "schema": "paper04-dense-final-runtime-review-v1",
+  "date_beijing": "2026-10-27",
+  "status": "LOCAL_REVIEW_AND_RELATED_TESTS_PASS_HPC_VALIDATION_PENDING",
+  "remote_accesses": 0,
+  "services_started": 0,
+  "real_dependency_or_model_loads": 0,
+  "model_forwards": 0,
+  "production_E3_rows": 0,
+  "optimizer_updates": 0,
+  "target_evaluations": 0,
+  "tests": [
+    {"command": "python -B -m unittest discover -s runs/dense_reference_matrix_v1_20261027/tests -p test_runtime_monitor.py -v", "passed": 22, "failed": 0, "elapsed_seconds": 0.215},
+    {"command": "python -B -m unittest discover -s runs/dense_reference_matrix_v1_20261027/tests -p test_progress.py -v", "passed": 5, "failed": 0, "elapsed_seconds": 0.074},
+    {"command": "python -B -m unittest discover -s runs/dense_reference_matrix_v1_20261027/tests -p test_chain.py -v", "passed": 12, "failed": 0, "elapsed_seconds": 1.149}
+  ],
+  "total_related_tests_passed": 39,
+  "reviewed_code_sha256": {
+    "hpc/status_sync.py": "a50f6b4342723ee331d6fcd396bcf41eaef7075102f383b729fc2cec3a9d8b70",
+    "hpc/status_bridge.py": "4fd9e208d730d56ef0ee214477ffed2b334f56db917623bd18a7694a1ee4e203",
+    "hpc/progress_server.py": "d13dfddbab7fd34a935dc05f4474419e475a71d7dc11dae37b79104d90ffd98e",
+    "hpc/run_dense.slurm": "8b1db4d33924736a901627237d6d272249537aee36b4b134aa4134bce183968d",
+    "src/runtime_probe.py": "1995fd8a5909f210056a22a0251dabc7bac37e65bd77607a975fa232d3b12ae2",
+    "src/prepare_runtime.py": "5376414975f20e06178b96e4e4200c0b01132962d894c98d3dffc6e034539729",
+    "src/supervisor.py": "153e8cbcf6294d830e5d004d0d2667cdaff40797f6a8cc9fa4e01045c5731ea1",
+    "tests/test_runtime_monitor.py": "3842e4baaf703d80b1386e79b542aaed43418fb795c73e75e9795019e536ef96"
+  },
+  "modified_runtime_monitor_files": [
+    "hpc/status_sync.py", "hpc/status_bridge.py", "hpc/progress_server.py",
+    "src/prepare_runtime.py", "src/runtime_probe.py", "src/supervisor.py",
+    "tests/test_runtime_monitor.py"
+  ],
+  "reviewed_unmodified_slurm": "hpc/run_dense.slurm",
+  "outside_owned_implementation_files_not_modified": ["src/chain.py", "src/common.py", "build_assets.py"],
+  "fixed_findings": [
+    "Outer launch/Slurm failures override science child COMPLETE",
+    "Slurm COMPLETED without chain completion is explicit exception",
+    "FINALIZING prevents sync exit before scheduler terminal receipt",
+    "Missing first snapshot with sync failure displays unknown rather than not submitted",
+    "PENDING/CONFIGURING without child receipt displays QUEUED; RUNNING without child receipt displays STARTING; lost transport remains UNKNOWN",
+    "Actual encoder child stage and row counts are exposed",
+    "Dynamic evaluation_scope with stages fallback prevents prefix completion implying complete target matrix",
+    "Fixed-job bundle validates retry policy and timezone timestamp",
+    "Existing SSH listener recovery requires unique matching PID and listener",
+    "Private offline wheel install closes log and records actual numerical builds",
+    "Pre-existing stop or insufficient disk reject before child launch",
+    "Cleanup failure persists EXCEPTION_STOP with unconfirmed cleanup"
+  ],
+  "overall_wall_cap_issue": "FIXED_BY_ROOT_STAGE_LIMITS_SHARED_TOTAL_MAX_43200_SECONDS",
+  "original104_strict_gate_unchanged": true,
+  "production_versions_unchanged": true,
+  "slurm_static_contract": {
+    "partition": "amd", "CPUs": 4, "memory_GiB": 16,
+    "wall_hours": 12, "automatic_requeue": false,
+    "stages": ["runtime", "encode", "source_cal"],
+    "bash_or_slurm_executed_by_review": false
+  },
+  "not_accepted_as_complete": [
+    "Actual Linux private overlay dependency and ABI validation",
+    "Original104 exact-byte replay",
+    "Production supplementary encoding",
+    "Dense source CAL",
+    "Third-pool frozen assets and complete target matrix"
+  ]
+}

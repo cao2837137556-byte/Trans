@@ -1,0 +1,110 @@
+{
+  "schema": "EDGE_RAW_TARGET_LABEL_CONTRACT_REVIEW_V1",
+  "date": "2026-11-02",
+  "status": "CONTRACT_REVIEW_ONLY_RAW_EVIDENCE_PENDING",
+  "user_has_authorized_fixed_three_raw_qualification": true,
+  "scope": "read existing local texts only; no new traffic, network or models",
+  "normal_candidate": {
+    "topic": "Temperature_and_Humidity",
+    "edge_IP": "192.168.0.128",
+    "sensor_IP": "192.168.0.101",
+    "AP_IP": "192.168.0.1",
+    "MAC_mapping_available_from_paper": false
+  },
+  "documented_HTTP": {
+    "sources": [
+      "192.168.0.170",
+      "216.58.198.74"
+    ],
+    "tool": "slowhttptest",
+    "behavior": "200000 connections with GET requests",
+    "explicit_spoofing_claim": false,
+    "event_victim_time_filter_complete": false
+  },
+  "documented_UDP": {
+    "sources": [
+      "190.123.219.128",
+      "16.226.184.201",
+      "153.125.214.15",
+      "91.184.12.91"
+    ],
+    "tool": "hping3-based python script",
+    "explicit_spoofing_claim": true,
+    "event_victim_time_filter_complete": false
+  },
+  "cross_scenario_IP_role_conflict_warning": {
+    "IP": "192.168.0.101",
+    "normal_role": "sensor in Table VI",
+    "other_attack_scenarios": "DNS/ARP source in section IV-B; not the two current attack files",
+    "meaning": "capture-scoped role mapping required, not evidence of falsification"
+  },
+  "download_normal_gate": {
+    "stop_if_actual_target_mismatch": true,
+    "stop_if_target_or_direct_direction_unresolved": true,
+    "same_subnet_not_sufficient": true,
+    "continue_only_as_fixed_normal_identity_clock_check": true,
+    "full_same_physical_identity_requires_raw_crosscheck": true,
+    "no_substitute_normal_file_or_target": true
+  },
+  "label_layers": [
+    "ALL_CAPTURE_CONTEXT",
+    "DOCUMENTED_SOURCE_DIRECTION_CANDIDATE",
+    "DIRECT_ATTACK_BEHAVIOR_CANDIDATE",
+    "CONFIRMED_DIRECT_ATTACK_TRUTH"
+  ],
+  "current_paper_alone_establishes_confirmed_direct_attack_truth": false,
+  "reverse_ACK_is_direct_attack_evidence": false,
+  "whole_attack_file_is_all_attack_truth": false,
+  "nonmatching_attack_file_packets_can_be_trusted_normal": false,
+  "explicit_remaining_unknowns": [
+    "raw primary victim addresses/MACs and physical/VM roles",
+    "actual temporal order and full continuous7200s plus later normal",
+    "complete direct ACK/UDP event labels and packet filters",
+    "normal same-protocol component coverage and active-reference applicability",
+    "multi-interface duplication and physical identity/pretraining lineage"
+  ],
+  "inputs": {
+    "runs/external_dataset_rescreen_v1_20261102/RAW_QUALIFICATION_CARD_DRAFT.json": {
+      "bytes": 4404,
+      "sha256": "83c3e27ab7e71aa6f7393676a98783f79856c9e426316602648a53351c58c783"
+    },
+    "runs/external_dataset_rescreen_v1_20261102/edge_paper_check/PAPER_FACTS.json": {
+      "bytes": 2860,
+      "sha256": "956adeea7954b647e2f9484c97140cc5fcf38271e61915a9f1d024de996d881b"
+    },
+    "runs/external_dataset_rescreen_v1_20261102/edge_paper_check/page_09.txt": {
+      "bytes": 6072,
+      "sha256": "98686b761f9d35e133bf8e75eff7bc2aaedf46ba5bd7ea2b24dda89b68fa14ec"
+    },
+    "runs/external_dataset_rescreen_v1_20261102/edge_paper_check/page_10.txt": {
+      "bytes": 3637,
+      "sha256": "847314ae92c2ef192baeae4ce56cc8645b0ccdbdd6d59dd247ed2815f3cd155e"
+    },
+    "runs/external_dataset_rescreen_v1_20261102/edge_paper_check/page_11.txt": {
+      "bytes": 5215,
+      "sha256": "4ce9e0d852dea101fcdb31277efd6cee83eb5cc3ef5317fec5bc1470e3d4cce4"
+    },
+    "runs/external_dataset_rescreen_v1_20261102/edge_paper_check/page_12.txt": {
+      "bytes": 6498,
+      "sha256": "a628cb552616d2994aecc595c07eb0f78a1eedf0d21c54369fe23cdf1596afed"
+    },
+    "runs/external_dataset_rescreen_v1_20261102/edge_paper_check/page_13.txt": {
+      "bytes": 4800,
+      "sha256": "1dce39df0af03b4290c34ad894fc631fb4284effe23a70643f172c12be56484d"
+    },
+    "runs/external_dataset_rescreen_v1_20261102/edge_paper_check/page_14.txt": {
+      "bytes": 6329,
+      "sha256": "cd68335bab3f7a08e437dc1c041393bd60659186d0b3c70f8bfde6755104a631"
+    }
+  },
+  "execution": {
+    "network_requests": 0,
+    "PCAP_downloads": 0,
+    "encodings": 0,
+    "distance_pairs": 0,
+    "model_evaluations": 0,
+    "training": 0,
+    "cloud_jobs": 0,
+    "existing_asset_mutations": 0
+  }
+}

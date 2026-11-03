@@ -1,0 +1,42 @@
+{
+  "status": "STARTED_AND_TRAINING_VERIFIED",
+  "server": "8.145.62.163",
+  "ssh_alias": "paper04-coupon-20261020",
+  "unit": "paper04-modern-head-20261022-v1",
+  "remote_package": "/srv/paper04/modern_head_new_lineage_20261022_v2",
+  "remote_run": "/srv/paper04/runs/modern_head_new_lineage_20261022_v1",
+  "package_manifest_sha256": "1cd3f3189d53b18fb362eb292796871ecdd08b758e05e2f0e51fd397cb6046d0",
+  "startup_observation": {
+    "stage": "T_MLP_QUERY_BCE_27",
+    "worker_stage": "T_MLP_QUERY_BCE_27_epoch14",
+    "updates": 31442,
+    "expected_updates": 96560,
+    "failure": null,
+    "updated_epoch": 1792679451.7535176,
+    "sampled_peak_tree_rss_bytes": 2894483456
+  },
+  "resources": {
+    "cpu_quota": 8,
+    "memory_max_gib": 16,
+    "rss_guard_gib": 14,
+    "numeric_threads": 4,
+    "heavy_workers": 1
+  },
+  "automatic_stop_enabled": false,
+  "progress_url": "http://127.0.0.1:18765/",
+  "ai_continuous_polling": false,
+  "total_new_heads": 9,
+  "paired_families": [
+    "MLP_QUERY_BCE",
+    "TabM",
+    "LightGBM"
+  ],
+  "policies": [
+    "OLD_BANK",
+    "B0",
+    "B1",
+    "B2"
+  ],
+  "full_frontend_rebuild": false,
+  "scientific_results": "PENDING"
+}

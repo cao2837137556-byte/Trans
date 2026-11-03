@@ -1,0 +1,256 @@
+{
+  "status": "N3_DESIGN_INPUT_PINS_NOT_EXECUTION_AUTHORIZATION",
+  "base_branch": "codex/exp-mainline",
+  "base_head": "4b28747b09480471e2bac1beb3a9badf27280efb",
+  "inherited_bundle": {
+    "path": "runs/mainline_docs/frontend_inheritance_n2_input_and_evidence_pins_20260908.json",
+    "sha256": "bb7491f87d5228b31357714eca84d6cfd1a7f46fa469cfd410726c8bab34e3de",
+    "sidecar": "runs/mainline_docs/frontend_inheritance_n2_input_and_evidence_pins_20260908.sha256",
+    "effective_repository_pin_count": 35,
+    "runtime_pin_count": 7,
+    "use": "Recursively verify all N1 inherited repository/runtime identities and N2 additions and historical code attestation. Identity inheritance grants no historical execution authority."
+  },
+  "additional_repository_inputs": {
+    "runs/frontend_inheritance_n1_fixed_terminal_head_v1_20260908/candidate_predictions.json": "6413aa164743f6b5c584e96e16ae1ee75f5091dcb2e2f507103a8526dbc66f96",
+    "runs/frontend_inheritance_n1_fixed_terminal_head_v1_20260908/target64.f32le": "657a77b7e68e9b9cabbd0b944e4454e67437188331f8cd47101edbc171aef35d",
+    "runs/frontend_inheritance_n1_fixed_terminal_head_v1_20260908/target64_index.json": "f2efe333416f9af60afc1b1bb8d394c306efb228dceb1367a6fd31bec6022bec",
+    "runs/frontend_inheritance_n1_fixed_terminal_head_v1_20260908/train_uid_range_attachment.json": "807cf826a18a899b1d8f14b117246f74962509732fbcbc776bcca1c28a2cd0ff",
+    "runs/frontend_inheritance_n2_fixed_witness_development_v1_20260908/access_receipt.json": "86b2c0a56385545ad0ab186fbfe9b61fed2aee77fcfb2fbc83b9784cbf5b98f2",
+    "runs/frontend_inheritance_n2_fixed_witness_development_v1_20260908/all_target_predictions.json": "b60d90206d0daf79c6a1d0b6b7c91fd8e031208dd5ba08c2fa9fe93b0706de79",
+    "runs/frontend_inheritance_n2_fixed_witness_development_v1_20260908/assembled_state_after_forward.json": "59cae02e33f917ff456a48f7fe4f18db8e3df366041bfe8dffd5a090badb969f",
+    "runs/frontend_inheritance_n2_fixed_witness_development_v1_20260908/assembled_state_before_decode.json": "4dacf3c62cf0131c81e76cab74d06672011306a4c37fe36fe9fbd9bee2e29939",
+    "runs/frontend_inheritance_n2_fixed_witness_development_v1_20260908/development_measurements.json": "1cfe7836c667c76f49596b9b2268a39bc260ccb011ddc9bbfcf2ed89c817837a",
+    "runs/frontend_inheritance_n2_fixed_witness_development_v1_20260908/historical_witness_identity.json": "148d9f4c777a0fbfe166dcd08e080131b3d9f65771e5327edb3c617d0a8609d5",
+    "runs/frontend_inheritance_n2_fixed_witness_development_v1_20260908/runtime_receipt.json": "524b235097fa8f3933b01e7b918573240512497d945be5357b701b3b9f69f21e",
+    "runs/frontend_inheritance_n2_fixed_witness_development_v1_20260908/selected_uid_range_attachment.json": "2fe485f05574b7c04d9ae08028070d5cc6a8adb38f033b3d6e73e8fc6ced6f77",
+    "runs/frontend_inheritance_n2_fixed_witness_development_v1_20260908/supervisor_terminal.json": "65bdd92cbffd0b8444eb688158837443cc2bcd8d09d2b0cf55c378d94e904a50",
+    "runs/frontend_inheritance_n2_fixed_witness_development_v1_20260908/verified_input_receipt.json": "58d772f16d85a68d265825f546fdf3d0bff34108d8bc82aeb6023ca3ddbc6db3",
+    "runs/frontend_inheritance_n2_fixed_witness_development_v1_20260908/worker_terminal.json": "6051c0a2701a1400a6ad6085e9d5ea38c6f3b19b64514a7c126b1b2a945fd6fb",
+    "runs/mainline_docs/frontend_inheritance_n2_fixed_witness_development_check_frozen_20260908.md": "06b530f43a5bde8f10fbdbcfc438ab3d577a039a1792b764efe46658f0309388",
+    "runs/mainline_docs/frontend_inheritance_n2_real_result_20260908.md": "487cc8f96938101785858cc06d4b4f73e434894dbf3fb748c85685045ee4e71d",
+    "runs/mainline_docs/frontend_inheritance_post_n2_breakthrough_strategy_review_20260908.md": "b2cc5401e71bae2279072acde0f99191255301d31425a4ff86239d05c041859d",
+    "runs/frontend_inheritance_n2_fixed_witness_development_v1_20260908/SHA256SUMS": "88c829c8edcf2c679955752cdaa7030a492b37e96482929ca34fb00ebd70a6ab",
+    "runs/frontend_inheritance_n2_implementation_v1_20260908/synthetic_acceptance.json": "6254aebb1edecc0459ec487a75fdf3caaa8b6e2033e10afd7578d37f3d6c666d",
+    "runs/frontend_inheritance_n2_implementation_v1_20260908/SHA256SUMS": "62d93f0907b1e92eef9a6fdc47bac90ae67ef3c1de39acb8c8aabc7c7a23414c",
+    "runs/mainline_docs/frontend_inheritance_n2_implementation_and_synthetic_verification_20260908.md": "c996761481177ddab58de1e69ac025e31c1b0e0445447c52f4c1ef8c982b6dd0"
+  },
+  "additional_pin_count": 22,
+  "effective_repository_pin_count": 57,
+  "evidence_contract": {
+    "path": "runs/mainline_docs/frontend_inheritance_n3_same_behavior_evidence_contract_20260908.md",
+    "sidecar": "runs/mainline_docs/frontend_inheritance_n3_same_behavior_evidence_contract_20260908.sha256",
+    "sha256": "3b8f5d40d24df3c8434f4324811dbb4d5a09a220a5f7b02ea7e16b2d4793d3e2"
+  },
+  "historical_implementation_attestations": [
+    {
+      "source": "runs/frontend_inheritance_n1_implementation_v2_20260908/synthetic_acceptance.json",
+      "sha256": "fde93c1c9dfcd4cff12c14827f3b7d9c319c67bec0d0a3025cd5f3b66f2d4bdd",
+      "status": "N1_IMPLEMENTATION_SYNTHETIC_ACCEPTANCE_PASS",
+      "tests_run": 36,
+      "powershell_parser_checks": 2,
+      "code_pin_count": 9,
+      "runtime_pin_count": 7
+    },
+    {
+      "source": "runs/frontend_inheritance_n2_implementation_v1_20260908/synthetic_acceptance.json",
+      "sha256": "6254aebb1edecc0459ec487a75fdf3caaa8b6e2033e10afd7578d37f3d6c666d",
+      "status": "N2_IMPLEMENTATION_SYNTHETIC_ACCEPTANCE_PASS",
+      "tests_run": 43,
+      "powershell_parser_checks": 2,
+      "code_pin_count": 9,
+      "runtime_pin_count": 7
+    }
+  ],
+  "model_identity": {
+    "terminal_state_tensor_sha256": "131d15e7a586a6fb105995ecb25d56f8217351c03b60495c56d6e1b723db1bcc",
+    "non_head_state_tensor_sha256": "29328fc616ef5b0197d1dcc8c564d89865201eb08b540d826847e233932dbe67",
+    "n1_head_float32_le_sha256": "e6ac6c418253595b46308f654d339f8dfa16be971572fa282c9588c5c43f497e",
+    "n1_assembled_state_tensor_sha256": "386ab128a57dbcb9eb284468f39fd47697b7c82bd41c84c9cd3bc0e61f28bfd8",
+    "train_target64_sha256": "657a77b7e68e9b9cabbd0b944e4454e67437188331f8cd47101edbc171aef35d",
+    "train_target64_shape": [
+      8660,
+      64
+    ],
+    "train_target64_bytes": 2216960,
+    "dev_target64_shape": [
+      5206,
+      64
+    ],
+    "dev_target64_bytes": 1332736,
+    "restricted_checkpoint_bytes": 1712912,
+    "checkpoint_projection": [
+      "model",
+      "identities",
+      "progress.epoch",
+      "progress.cursor",
+      "progress.order",
+      "progress.steps",
+      "progress.stop_reached",
+      "progress.selection.best_epoch",
+      "progress.selection.last_epoch"
+    ],
+    "checkpoint_incidental_values_excluded": [
+      "all epoch_ledger values",
+      "optimizer",
+      "RNG"
+    ],
+    "safe_globals": [
+      "numpy._core.multiarray._reconstruct",
+      "numpy.ndarray",
+      "numpy.dtype",
+      "numpy.dtypes.UInt32DType"
+    ]
+  },
+  "membership": {
+    "original_train_targets": 8660,
+    "original_train_contexts": 4984,
+    "original_dev_targets": 5206,
+    "original_dev_contexts": 4323,
+    "original_train_categories": {
+      "A1C": 2179,
+      "A0C": 4667,
+      "B1N": 68,
+      "A0W": 24,
+      "B0N": 1722
+    },
+    "original_dev_categories": {
+      "A1C": 3,
+      "A0C": 1478,
+      "B1N": 3,
+      "A0W": 2,
+      "B0N": 3720
+    },
+    "constraint_roles": {
+      "original_train_retention": 8660,
+      "development_protection_fit": 1484,
+      "development_B_release_retention_fit": 2567
+    },
+    "constraints": 12711,
+    "positive_constraints": 2253,
+    "negative_constraints": 10458,
+    "new_dev_fit_targets": 4051,
+    "exposed_report_only": {
+      "targets": 1155,
+      "B0N": 1153,
+      "A0W": 2
+    },
+    "retained_B_source": "runs/frontend_inheritance_n2_fixed_witness_development_v1_20260908/all_target_predictions.json",
+    "retained_B_source_sha256": "b60d90206d0daf79c6a1d0b6b7c91fd8e031208dd5ba08c2fa9fe93b0706de79",
+    "retained_B_predicate": "Original internal_val AND category=B0N AND label=0 AND historical N2 hard=false (verify finite actual float32 logit<0). Membership comes only from this sealed reference, never a new baseline.",
+    "constraint_order": "Strict lexical UID across the disjoint three role sets; no role blocks, subsampling or duplicate rows.",
+    "materialization": "Seal exact UIDs/roles/context/ranges before new feature decoding, and cache-row/LP-matrix identities before the sole solve.",
+    "retained_B_contexts": 2238,
+    "B_keys": {
+      "iotsim-combined-cycle": {
+        "targets": 333,
+        "contexts": 282,
+        "target_floor": 34,
+        "context_floor": 29,
+        "retained_targets": 333,
+        "retained_contexts": 282
+      },
+      "iotsim-domotic-monitor": {
+        "targets": 230,
+        "contexts": 50,
+        "target_floor": 23,
+        "context_floor": 5,
+        "retained_targets": 230,
+        "retained_contexts": 50
+      },
+      "ton-iot-external": {
+        "targets": 3157,
+        "contexts": 2995,
+        "target_floor": 316,
+        "context_floor": 300,
+        "retained_targets": 2004,
+        "retained_contexts": 1906
+      }
+    }
+  },
+  "solver": {
+    "method": "highs-ds",
+    "variables": 66,
+    "constraints": 12711,
+    "theta_bounds": [
+      -1,
+      1
+    ],
+    "gamma_bounds": [
+      null,
+      null
+    ],
+    "objective": "maximize_gamma",
+    "options": {
+      "presolve": true,
+      "time_limit": 600,
+      "maxiter": 100000,
+      "primal_feasibility_tolerance": 1e-9,
+      "dual_feasibility_tolerance": 1e-9,
+      "simplex_dual_edge_weight_strategy": "dantzig"
+    },
+    "normalization": false,
+    "warm_start": false,
+    "secondary_objective": false,
+    "post_cast_repair": false
+  },
+  "caps": {
+    "wall_seconds": 1800,
+    "memory_bytes": 8589934592,
+    "output_bytes": 104857600,
+    "reserve_bytes": 1048576,
+    "workers": 1,
+    "checkpoint_loads": 1,
+    "n1_head_decodes": 1,
+    "train_cache_decodes": 1,
+    "train_cache_f32_values": 554240,
+    "baseline_assemblies": 1,
+    "candidate_installations": 1,
+    "total_assemblies": 2,
+    "lp_calls": 1,
+    "candidate_casts": 1,
+    "exact_positive_stages": 1,
+    "exact_negative_stages": 1,
+    "each_exact_stage_seconds": 120,
+    "rational_stored_bits": 16384,
+    "rational_temporary_bits": 32769,
+    "certificate_support_rows": 66,
+    "split_passes": 3,
+    "batches": 428,
+    "context_evaluations": 13630,
+    "target_evaluations": 19072,
+    "decoded_train_events": 33305,
+    "decoded_dev_events": 172165,
+    "decoded_events": 205470,
+    "model_event_occurrences": 377635,
+    "padded_slots": 3489280,
+    "baseline_train_passes": 0,
+    "old_terminal_passes": 0,
+    "teacher_forwards": 0,
+    "optimizer_steps": 0,
+    "backward_steps": 0,
+    "threshold_fits": 0,
+    "alternative_candidates": 0,
+    "retries": 0,
+    "resource_pilots": 0,
+    "hpc_jobs": 0
+  },
+  "candidate_full_report_targets": 13866,
+  "candidate_split_passes": [
+    {
+      "split": "train",
+      "batches": 156,
+      "contexts": 4984,
+      "targets": 8660
+    },
+    {
+      "split": "internal_val",
+      "batches": 136,
+      "contexts": 4323,
+      "targets": 5206
+    }
+  ],
+  "numerical_real_input_access_during_design": false,
+  "implementation_authorized": false,
+  "real_fitting_authorized": false,
+  "design_provenance": "Pins for new numeric inputs were copied from named hash-verified historical manifests without opening numeric payloads. Source text, saved identity/result summaries and historical acceptance metadata inform the design. No model construction/forward, tensor decode, solver, synthetic experiment or historical rerun occurs in this stage."
+}

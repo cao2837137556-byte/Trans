@@ -1,0 +1,137 @@
+{
+  "schema": "modern-head-comparison-v1",
+  "version": "modern_head_comparison_v1r1_20261018",
+  "synthetic_only": false,
+  "families": [
+    "MLP_QUERY_BCE",
+    "TabM",
+    "LightGBM"
+  ],
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "onboarding_families": [
+    "TabM",
+    "LightGBM"
+  ],
+  "training": {
+    "epochs": 40,
+    "batch_size": 256,
+    "numerical_threads": 4,
+    "prediction_batch_size": 256,
+    "optimizer_mlp": {
+      "lr": 0.0003,
+      "weight_decay": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "foreach": false,
+      "amsgrad": false
+    },
+    "optimizer_tabm": {
+      "lr": 0.002,
+      "weight_decay": 0.0003,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "foreach": false,
+      "amsgrad": false
+    },
+    "tabm": {
+      "k": 32,
+      "n_blocks": 3,
+      "d_block": 512,
+      "dropout": 0.1,
+      "activation": "ReLU",
+      "arch_type": "tabm",
+      "start_scaling_init": "random-signs",
+      "num_embeddings": null
+    },
+    "lightgbm": {
+      "num_boost_round": 500,
+      "boosting_type": "gbdt",
+      "objective": "binary",
+      "metric": "binary_logloss",
+      "num_leaves": 31,
+      "max_depth": -1,
+      "learning_rate": 0.05,
+      "min_data_in_leaf": 20,
+      "max_bin": 255,
+      "lambda_l1": 0.0,
+      "lambda_l2": 0.0,
+      "min_sum_hessian_in_leaf": 0.001,
+      "feature_fraction": 0.9,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "feature_pre_filter": true,
+      "deterministic": true,
+      "force_col_wise": true,
+      "num_threads": 4,
+      "verbosity": -1,
+      "boost_from_average": true,
+      "is_unbalance": false,
+      "scale_pos_weight": 1.0,
+      "sigmoid": 1.0
+    }
+  },
+  "gates": {
+    "common_inherited": {
+      "attack_recall_ensemble_each_pool_min": 0.99,
+      "attack_recall_ensemble_each_device_min": 0.97,
+      "attack_recall_each_seed_each_pool_min": 0.97,
+      "CIC_DEV_historical_Q_recall": 0.9998608581258854,
+      "CIC_DEV_max_drop_from_historical_Q_percentage_points": 0.1,
+      "normal_weighted_FPR_each_pool_max": 0.01,
+      "normal_weighted_FPR_each_device_max": 0.02,
+      "attack_gate_metric": "weighted_rate",
+      "historical_Q_comparison_metric": "rate"
+    },
+    "additional_regression": {
+      "max_drop_rate": 0.001,
+      "baseline": "RECENT own original source-CAL operating point",
+      "source_CAL_positive_groups": [
+        "TCP",
+        "UDP",
+        "Hydra"
+      ],
+      "CIC_DEV_positive_groups": "All nonempty protocol groups",
+      "group_metric": "Conditional weighted recall, plus integer TP/denominator",
+      "applies_to": "Each seed and ensemble of every family: MLP_QUERY_BCE, TabM, LightGBM",
+      "action": "Report FAIL; no model/epoch/threshold selection or retry"
+    },
+    "reference_veto_zero_added_misses": "NOT_TESTED",
+    "reference_adaptation_gain": "NOT_TESTED",
+    "independent_ID": "NOT_RUN",
+    "all_common_and_new_primary_gates_must_pass": true
+  },
+  "evaluation_scope": "Each family, seed and ensemble receives all inherited attack protections.",
+  "input": {
+    "features": 782,
+    "fit_rows": 617908,
+    "cal_rows": 148819,
+    "CIC_DEV": 179886,
+    "UNSW_DEV": 148316
+  },
+  "mlp_reuse": "Sealed runtime plus actual per-pool replay digests and shared endpoint preconditions; ineligible reuse retrains, corrupt source fails.",
+  "maximum_training_endpoints": 9,
+  "selection": "No automatic winner; TabM and LightGBM paired candidates fixed before target results",
+  "score": {
+    "TabM": "logmeanexp(logsigmoid(z))-logmeanexp(logsigmoid(-z))",
+    "LightGBM": "binary raw margin",
+    "external_ensemble": "float64 mean of three seed logits",
+    "cut": "source CAL normal weighted1%, strict >"
+  },
+  "protocol_sha256": "2fae0e1c8e1b5d6c04de8a972bfe0212ecfad27dbaf91066d267ccc746aaa4b5",
+  "query_tail_design_sha256": "c6027a90f1f997b1bb1e8dd44409237531d7dc97cc13813e9bec364dc40b21af",
+  "execution_modes": [
+    "full",
+    "heads",
+    "modules"
+  ]
+}

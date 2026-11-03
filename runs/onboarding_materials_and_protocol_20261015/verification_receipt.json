@@ -1,0 +1,69 @@
+{
+  "status": "PASS_DOCUMENT_AND_METADATA_CONSISTENCY_ONLY",
+  "created_utc": "2026-10-15T02:04:58.796499+00:00",
+  "json_duplicate_keys": "none",
+  "local_document_links": "resolved",
+  "fixed_CIC_queries": 179886,
+  "fixed_UNSW_queries": 148316,
+  "source_reference_rows": 104,
+  "CIC_late_2h": {
+    "normal": 96041,
+    "attack": 79056
+  },
+  "UNSW_late_2h": {
+    "normal": 74444,
+    "attack": 72553
+  },
+  "source_radius_eligible_rows": {
+    "TCP": 54042,
+    "UDP": 65984
+  },
+  "source_CAL_bank_pairs": 359875,
+  "no_model_effectiveness_test": true,
+  "files": {
+    "cic_inventory.json": {
+      "bytes": 37747,
+      "sha256": "45f6e0c371ff7009b82acc0e877211a8301580896d1c728f2762041cbd41ecd6"
+    },
+    "cic_inventory.md": {
+      "bytes": 7422,
+      "sha256": "ca8e946c6f0b803c86b11b24fcd045abdfc3895580a97b2db26c8bb9798abb64"
+    },
+    "cic_inventory_analysis.py": {
+      "bytes": 13185,
+      "sha256": "28bbad411a0b544733885aebfca65869ef6dc8c4d9b826348905150f55347f59"
+    },
+    "protocol.json": {
+      "bytes": 13754,
+      "sha256": "2fae0e1c8e1b5d6c04de8a972bfe0212ecfad27dbaf91066d267ccc746aaa4b5"
+    },
+    "README.md": {
+      "bytes": 9002,
+      "sha256": "4439944ec45a410701360ab3b1c16086e619702222c5874d31d1f1491aacbac6"
+    },
+    "source_inventory.json": {
+      "bytes": 56893,
+      "sha256": "6ee665e9ba4e6b3ea57275d33f269e46762952071e93ebb584e25ff878d39323"
+    },
+    "source_inventory.md": {
+      "bytes": 4552,
+      "sha256": "7fdfd814854435c9f5b9ec31d6c853f72791cdf0d0fe290879e28c4487f4d419"
+    },
+    "source_inventory_analysis.py": {
+      "bytes": 18974,
+      "sha256": "d60b428f9a9d551281736091ae604aa68c45e005b66e148c3605f02358057e9d"
+    },
+    "unsw_inventory.json": {
+      "bytes": 30338,
+      "sha256": "7b9b9ede63eca914f68022fd169860172e87cf4abf6c1768b86e59287647f8e3"
+    },
+    "unsw_inventory.md": {
+      "bytes": 7693,
+      "sha256": "04115ea2f3232da4e048f70bd7d190cf05f31b5dfa299f35bb57e5f8dda1f58d"
+    },
+    "unsw_inventory_analysis.py": {
+      "bytes": 16646,
+      "sha256": "3285f492dbd5c985d5771e76d0e5e3c35e5b9271bf52b55bb9ad8be5a559c19c"
+    }
+  }
+}

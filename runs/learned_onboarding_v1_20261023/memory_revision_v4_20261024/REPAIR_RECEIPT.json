@@ -1,0 +1,104 @@
+{
+  "schema": "paper04-learned-onboarding-memory-repair-receipt-v4",
+  "recorded_at": "2026-10-24T16:22:36.083007+08:00",
+  "status": "REPAIR_VALIDATED_SOURCE_ONLY_FORMAL_EXPERIMENT_STOPPED",
+  "original_v3_status": "EXCEPTION_STOP",
+  "original_v3_stopped_at": "2026-10-24T13:58:40.032084+08:00",
+  "original_error": "OUTER_RESOURCE_RSS_LIMIT",
+  "original_peak_rss_bytes": 8610660352,
+  "rss_guard_bytes": 8589934592,
+  "candidate_only": true,
+  "formal_v4_deployment_package_prepared": false,
+  "formal_experiment_restarted": false,
+  "original_experiment_resumed": false,
+  "automatic_retry": false,
+  "original_assets_unchanged": true,
+  "protected_files": 26,
+  "tests": {
+    "local_unit_tests": 63,
+    "remote_unit_tests": 63,
+    "remote_adapter_tests": 4,
+    "page_state_tests": 22,
+    "synthetic_acceptance_tests": 7,
+    "all_pass": true
+  },
+  "full_source_validation": {
+    "status": "PASS_FULL_SOURCE_MEMORY_NO_TRAINING",
+    "elapsed_seconds": 936.6577981959854,
+    "source_rows": 766727,
+    "fit_rows": 617908,
+    "task_count": 1206882,
+    "hard_count": 165916,
+    "source_signal_status": "READY",
+    "peak_process_tree_rss": 6269091840,
+    "peak_rss_gib": 5.8385467529296875,
+    "legacy_task_json_sha256": "9fc2b03cbaba65b6852e0fbd7c779dd1946ff4e443652d86cf057a2710abf9d6",
+    "compact_task_json_sha256": "9fc2b03cbaba65b6852e0fbd7c779dd1946ff4e443652d86cf057a2710abf9d6",
+    "h_exact": true,
+    "probabilities_schedules_exact": true,
+    "second_training_distribution_peak_exercised": true,
+    "batch_probes": 12,
+    "final_unit": {
+      "MainPID": "0",
+      "Result": "success",
+      "ExecMainStatus": "0",
+      "LoadState": "not-found",
+      "ActiveState": "inactive",
+      "SubState": "dead"
+    }
+  },
+  "actual_preflight": {
+    "status": "PASS_ACTUAL_PREFLIGHT",
+    "resource_status": "READY",
+    "full_scale_memory_validation": {
+      "status": "VERIFIED",
+      "receipt_sha256": "e91a49c04ecee2685face9bbf85d1d0ce93e234a216da6d51a87748c043bf6ec",
+      "measured_peak_rss": 6269091840
+    },
+    "estimated_peak_rss": 7697199744,
+    "estimated_peak_gib": 7.168575882911682
+  },
+  "production_optimizer_updates": 0,
+  "cal_queries_scored": 0,
+  "target_queries_read": 0,
+  "page": {
+    "url": "http://127.0.0.1:18765/",
+    "status": "LIVE_ACCEPTED",
+    "formal_terminal_state_priority": true,
+    "worker_running_marked_snapshot": true,
+    "repair_validation_separate": true,
+    "ordinary_poll_seconds": 60,
+    "no_window_ssh": true
+  },
+  "source_code_sha256": {
+    "bundle_io.py": "29c60379b362403e02c1d8b12cb05c2cb5af163f52bacfec473ebff1e8cf4e9c",
+    "common.py": "5238cadaec729653efa818bb6a58a45feffc7881fcce0ff5461cf8ea9eeea50e",
+    "evaluation.py": "c17d9d2996896f2df5c95cff822d525457284e9523682f399f8e2a642098743f",
+    "learning.py": "d9be6c83d30b2e38a3f34861a070d92c5c3f65a050f9091f527a26008553a5e9",
+    "metadata_storage.py": "98a15850a6cd11c2e05f8a0a5a2123af740d98f5de513ba7be5982373fe6f369",
+    "pipeline.py": "82f79981e4ce40b5614550ac7ca2f577c3d08a106ace47e30d0ae9e2e014efdf",
+    "reference_core.py": "1811dbf3edf2d936fc98612f8cf41b76c9d3e7b67f6dd6b5792dbd40b50ed349",
+    "service.py": "f4a0644937d2eaef430193309bf2385ae90be74adbbb8bbbee53dc9ce8bc37bb",
+    "source_inputs.py": "c8a4fcb7b5709cb2b8b688fe8b1d3b03c2ec2f6836afb44d9e135da7cc8c51db",
+    "stable_inference.py": "4986733806740f83a8287986093a21604d775c7e3dd590edbbf81bfeed434d6e",
+    "task_storage.py": "4e49f1f73f25fdad8cbbff1208fc4f3446e97b4620afa2c8765e664bd0d38c2b",
+    "tasks.py": "4c4abfb4d6ad82855c97559c56d166e4fc045521de59772c95b97dc4080a9466"
+  },
+  "artifacts": {
+    "PACKAGE_RECEIPT.json": "1ec216268874a27519de1e1dfe0d6b8c85eef5563212f472bc3c190a966d1cc4",
+    "STARTUP_ACCEPTANCE.json": "4ca7535dacac51797508790b5650405e8c862e4c08d0a48cfb80833d5b7fa95d",
+    "local_tests.log": "99190c70ffe80eb926336dda260873de8864d4d23f48224e893ffb3dce8fc604",
+    "remote_validation/COMPLETION_SNAPSHOT.json": "83cad400d8cd2413f692263d31a032616e92d06cc7bf776fa78c702ab82dab37",
+    "remote_validation/SOURCE_VALIDATION.json": "8151ad8f5f7fa3edf80e54f89fd7aa5162462019de673635234c98119e31a4b2",
+    "remote_validation/PREFLIGHT_ACCEPTANCE.json": "92b652cc77bf6847856cb80b0c24290b42fd1ff09e014d7f27863ae632757bb3",
+    "staging/MEMORY_RESOURCE_VALIDATION.json": "e91a49c04ecee2685face9bbf85d1d0ce93e234a216da6d51a87748c043bf6ec",
+    "accept_memory_validation.py": "d59668c0171293f60ee0145feb980baf40fab1143d863553d0d92d247c40df42",
+    "FINAL_STATIC_REVIEW.md": "6cd3c2ca543cbdd6c199a74669f079e6840f5baac7837fa442234c84f11c5a61"
+  },
+  "remaining": [
+    "Prepare an independent formal V4 deployment package and identity manifest before any authorized formal launch",
+    "Three correction modules production optimizer training",
+    "CAL lambda selection",
+    "A/B scientific evaluation"
+  ]
+}

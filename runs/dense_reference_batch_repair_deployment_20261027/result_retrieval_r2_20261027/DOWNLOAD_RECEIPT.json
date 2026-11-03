@@ -1,0 +1,45 @@
+{
+  "schema": "paper04-verified-result-download-receipt-v1",
+  "status": "COMPLETE",
+  "job_id": "179602",
+  "completed_utc": "2026-10-27T14:27:36.100962+00:00",
+  "manifest_sha256": "8ff70fedb1e4c0892acd066c937a7aeed9d3c0b38ccd22956862c50c3a67b72d",
+  "archive_sha256": "afc497eb7e9b881040a41f6cf97328b7dfd5b7be029d0a8a0fde5dd1085ef982",
+  "archive_bytes": 139278927,
+  "total_original_bytes": 241078124,
+  "file_count": 80,
+  "evidence_directory": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\dense_reference_batch_repair_deployment_20261027\\result_retrieval_r2_20261027\\evidence179602",
+  "file_sha_verified": true,
+  "exact_tar_manifest_verified": true,
+  "terminal_status": "COMPLETE",
+  "target_evaluation": false,
+  "excluded_paths": [
+    "science/readonly_view",
+    "science/runtime/numpy201",
+    "science/encode/runtime/vendor/netFound-base/model.safetensors"
+  ],
+  "checkpoint_symlink_binding": {
+    "path": "science/encode/runtime/vendor/netFound-base/model.safetensors",
+    "target": "/public/home/jiangxinwei.zr/work/paper04/incoming_20261020/model.safetensors",
+    "sha256": "e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105",
+    "dereferenced": false
+  },
+  "excluded_symbolic_inputs": [
+    {
+      "path": "science/encode/runtime/vendor/netFound-base/model.safetensors",
+      "target": "/public/home/jiangxinwei.zr/work/paper04/incoming_20261020/model.safetensors",
+      "sha256": "e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105",
+      "dereferenced": false
+    }
+  ],
+  "stages": [
+    "runtime",
+    "encode",
+    "source_cal"
+  ],
+  "remote_read_only": true,
+  "model_forwards": 0,
+  "training_updates": 0,
+  "job_submissions": 0,
+  "automatic_retry": false
+}

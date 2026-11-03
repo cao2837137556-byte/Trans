@@ -1,0 +1,685 @@
+{
+  "schema": "C5_METHOD_FREEZE_V1",
+  "status": "FROZEN_C5_P3_DEVELOPMENT_COMPLETE",
+  "date": "2026-11-02",
+  "method": "C5_SUPPORT_CONCAVE_KERNEL_P3",
+  "method_frozen": true,
+  "AB_development_line_closed": true,
+  "further_AB_method_search": false,
+  "evidence_role": "CONSUMED_DEVELOPMENT_ONLY",
+  "authority": {
+    "user_instruction": "C5 已冻结为 p=3；据 Claude 第4节更新入口和冻结回执；A/B开发线冻结",
+    "document": "runs/mainline_docs/collab/20261102_c5_kernel_decision_claude.md",
+    "sha256": "36fcd5c56df743c0633cfa5551bf9a955687067554481ceaf0efaca56d5e3587",
+    "section": 4,
+    "snapshot": "runs/c5_method_freeze_v1_20261102/DECISION_AUTHORITY_SNAPSHOT.md"
+  },
+  "p": 3,
+  "lambda": 0.25,
+  "support": "s=clip(1-second_joint,0,1), from two distinct eligible components of the same legal bank; unavailable support=0",
+  "kernel": "g(0)=0; g(s)=1-(1-s)^3 for s>0",
+  "correction": "raw[j] - (0.25*scale[j])*g(s)",
+  "guard": "(q14[0]==1) & (q14[2]==1) & (q14[5]==0); all devices; guarded query keeps RAW",
+  "head_order": [
+    27,
+    127,
+    227
+  ],
+  "ensemble": "seed-major float64 mean in order 27,127,227; strict score > ensemble_cut",
+  "individual_decision": "strict score > source cut[j]",
+  "calibration": {
+    "cuts": {
+      "seeds": [
+        27,
+        127,
+        227
+      ],
+      "cuts": [
+        -23.066728591918945,
+        -19.736963272094727,
+        -20.966501235961914
+      ],
+      "ensemble_cut": -22.66365687052409,
+      "moved": false
+    },
+    "scales": {
+      "version": "constrained-onboarding-scales-v1",
+      "seed_order": [
+        27,
+        127,
+        227
+      ],
+      "scales": [
+        118.95627975463867,
+        121.3746566772461,
+        122.36117172241211
+      ],
+      "q10": [
+        -65.81095123291016,
+        -67.0396957397461,
+        -59.59227752685547
+      ],
+      "q90": [
+        53.145328521728516,
+        54.3349609375,
+        62.76889419555664
+      ],
+      "fit_uid_sha256": "a51486647a0649e86583f5623bb8d7510e470d9790cfd48ecf4533d6901e0f74",
+      "rows": 617908,
+      "normal_weight": 0.5,
+      "attack_weight": 0.5
+    },
+    "geometry": {
+      "version": "constrained-onboarding-geometry-v1",
+      "protocols": {
+        "6": {
+          "status": "READY",
+          "rows": 54042,
+          "devices": [
+            "ArloQ Camera",
+            "Philips Hue Bridge",
+            "SimCam"
+          ],
+          "eligible_uid_sha256": "2bbb6c714c990f2551d8d6a901633a85c221c9854284955a475eea1572072420",
+          "rho_z": 0.6350346595136246,
+          "rho_q": 0.3784318683067434,
+          "weight_sum": 1.0
+        },
+        "17": {
+          "status": "READY",
+          "rows": 65984,
+          "devices": [
+            "Amcrest Camera",
+            "ArloQ Camera",
+            "Philips Hue Bridge",
+            "SimCam"
+          ],
+          "eligible_uid_sha256": "5f1c4f1a2604e9e3b7bfaa2fc4bd8a9261070f48eb53d229085e89a4631d11a5",
+          "rho_z": 0.538951893262028,
+          "rho_q": 0.27275012216397504,
+          "weight_sum": 1.0
+        }
+      },
+      "fit_normal_uid_sha256": "d8d014a3d313c1b497e4e4e590462fb470263c14c25d66462b9fe132b5eae01e",
+      "source_roster": [
+        {
+          "partition": "LEARN",
+          "device": "Amcrest Camera",
+          "protocol": 6,
+          "reference_end": 1633532109.461121,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "8efedb594ef1defd020a3efbb913179dbca863d57aa3c1230ff912b524289d4c"
+          ],
+          "distinct_components": 1
+        },
+        {
+          "partition": "LEARN",
+          "device": "Amcrest Camera",
+          "protocol": 17,
+          "reference_end": 1633532109.461121,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "0483c9030db65932b21a02e06ae90ffa431143adea9065230c8b3874964efba4",
+            "0527f4520f79f0ccb30c5cff395d0e204236bc59ec882646aad02a4529723d08",
+            "064572da06b1c171541a86d6ff67567290fd12c3c9853f8f85abcb59e9f17dba",
+            "0847625d50877b2e8d9b5a7a36e43aebcbad857a49f19d1b921314d6690071f0",
+            "0dad5924045558a763e9ce4b3faaafeeb24d28cfc7bfcd383bd2902653863a16",
+            "0ddc248b851b9f6c693b374c977200ac0a8e2aea16bec6cc69a37d1e16f287fe",
+            "0f8b7b4f7a371fbc579f99077aeec29e0cd956fef39fe6c108966eebf66462af",
+            "15cf0806754b3d978cf62d069d7e2cca3636596c0fde0799bb8c8ce21ce7f3ca",
+            "18d607ba45cff0a97b9688943f31aef22fae6bb6716e43a7abfbf764ab46c232",
+            "1992c029e98d13c01fa149c1d37dfdef0a22f158aa2bdea9601786ce13ba849d",
+            "1e457286f53280697081f6532d9ce6c5a2e8005fa8d299b054d38d3a14d0c4c3",
+            "1eea9db12a550d418fd77c268f6fc4070b59782947884c383717d5b200e58c2e",
+            "1f3f0fd996a68778175b768e34dcdd929edcab83a331b563d663a9e541d46318",
+            "1fcff362e2a31f75ddf0779b1567f2248383e4cb2b2d90840716583b28c433e1",
+            "21dcf4631f857e8c79168fd8a2cd232d33422a686fae07aba5300ceb94a50307",
+            "25b271583151fc6e07b75d87d3c5e4a035602d1f1b1c1af887a2b546cf9f55c7",
+            "2b8e8b4f81f2f117be46b2bbe98c21af372c9f9696c7cd618bb81dc8fbeaa940",
+            "3fa327c27696aa075602c30b19949872c74d7cc490cd2381d01bfc41a84fc982",
+            "3fa8c8cd1818c1aeeebbca3b94992c8e3b58ee2f4033fae4e1d1113553f093f8",
+            "507e76421b4f56b2a133009ad622e4aa7cd07bc6e121ce9506e57e16be9e23f6",
+            "5946a527bf7e8b26a8a31842ccc53fdf1a76e4ee5f7a439c84c952be2e858d33",
+            "5a0bfeac72755d8039f12a9845b7c10c3e73eded564f45f318c6b50c4779a223",
+            "5a2b568f57b5715978126af24cb6e7346ac608e1db8ef39e12eac0bcea82b57f",
+            "5ac1808d9064d5cac83054c30641fd668d8c065491571a13961f02bbbdf57592",
+            "5c3b45aa7355481637fc7f24ad02714401e4a0a78ce977e08bb9d5b0f0d6f819",
+            "5f96be51bf87df70e975a57b6237e77175ad5dc7f470c33f02c1eac7206b16cf",
+            "647a5db56e92e79165113ff77b1860dce2aa9d5dad9c8374b45bf31f3e1c41ea",
+            "6de32ddaeb86df14faa5e7775a69667960b6219332e535a6b8300b5cbec9766c",
+            "7304b7259e130517058116936400344494239dc1dbdb79c16894d2f2afb6b0b5",
+            "77ae8dbfc1e12dc3be0ab9f71cc78cc722a54912d11a54edf50bb61dae132c93",
+            "7b091734e59f6c845cfd955e09552e71446bfec0515d9ae01bfca0bd03bc7399",
+            "7b2df249429bcc43dac51e6002eed6c15a16db5aa962e80a3c911a70d96514ba",
+            "7e859c9d9ee19f2c68e09115f92e01ba66ff156399ce54a6d828763b5f42b5e0",
+            "80cdb3a894674103446329b6a6b99c5f14b05dd61c8d21e2cdce68203a65b194",
+            "8235d5412ba7490a28b701113ff93fcadeea0eab6fc33af43393403ff8702e38",
+            "82e66b24295f85e382b155a0eedf49aa1baa35bbd45920affa853672f45b1336",
+            "8801558a85b63685c5d9fd967e0401e720cb61826a4a515f3b0b229bc28871a0",
+            "88efa007517caa320408b48457752dde1e9e58ce931b40c41206872885a924af",
+            "8e8f5750a340cd978b16d18c794434d9599575c4f01ad90e7e6cf0f33af2496e",
+            "901041b5a17a4d148950fdb0e363415b4f2135368c923bb3912c16b057464f34",
+            "96ea0576d9ccbd4343bbb6be15731b4d85048b27c2ae0379402ded16d95deaeb",
+            "989fa7ba32888ade229f0cfd9375755a9072e1b9dd6f522ea63c05c9a64d767b",
+            "9e60d1f50b3171814f15d1cacc96e0272cb02dc008f0ad3a2e55459137d76032",
+            "a24fe9252f55e3ce7c758735057fe60c95ec65c8998e5668e77f9154d6fa1353",
+            "a25e21c4b34f508d69989c30bb5bac82c7c01a9d2cbbfacce2e529a765ac6fae",
+            "a465c2f36f8263865758ee89c8fdd2663e067b1e18f3749dc3f35009ac8ff381",
+            "a53516b2612e961d8ec63dc58cf44968e99a9df84cba4f3c94a06a7602af439b",
+            "a547d3c3ba0622c983a87e40469e02a95f3d998e8982cb842fd3177c7c2d8a32",
+            "b7776e3b8743c18b135e09e23c4ae059a1dac1fccf513d1565a20f7f3194bf50",
+            "bfda4259fc711de6cdf17acaa97a409807c386eef5476d29164b6e175c7a4931",
+            "c81b250c49ea3dcddf69ccbd78b9d9214dab7e17174e5d30138812a6693ed861",
+            "ccce5cbaf239c0fe756d79be2f6561dec2c71821b4360e20e3ad364172f80510",
+            "d443b690672c314fe148976fced327a0158250a7ffe0adee9796974c3eeb9b57",
+            "d7a4741bcc74ee001b359273f4515923f1d54e0f2b301fc2d609c63cbb76c179",
+            "deae23e0e5c9af8eded2fda82ddddeabc6d963c0f0208c6b854c995c00e28720",
+            "e31632374aa7a23bc3d3e864dca488c93b736508f80c3be0bc6b2f7404db18ec",
+            "e360e9ced2d971955b30c705b6135f66fdd47b0aed824aaa389dec94228c6a69",
+            "e91c27bf4011224d88d34a550ebbfe1ac2921f1aafb169250c073ed87e173fd8",
+            "ebdb2a0fcbd09aec95e2b08736e0e963c3d11c7e7d9e9632462deeb503c8a0a8",
+            "ee4950b0be58bcd1195ce2356bfa529b2f34bb316dcab53e2e8ab425a297e5ec",
+            "f659e9ba4ff91586ab814d0acc6e66ea6e6159a05a2fcc4b51d6a048fbd679dc",
+            "f9cfda8d12d671038475a0005f2807bfa5780a6e76880267b4de8e69a257f5ff",
+            "fef5b87bcad99a6646d2bc016957b636c6b705e3f78923a45a080cf2220a71ea"
+          ],
+          "distinct_components": 63
+        },
+        {
+          "partition": "LEARN",
+          "device": "ArloQ Camera",
+          "protocol": 6,
+          "reference_end": 1633531542.09702,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "08435fcba19c73034542fac8b7cccec2142eaf1fbce8c126f498745070b9da03",
+            "4057993785c8c0b274bf01205e95b96e1625feee66f9583e0da627955d48f6e3",
+            "474a4a3986f640192b04e1219381e2db7ea2df985b9279ea9c3554a8a2275e75",
+            "59245b8f27ef558b56b7b0940a096df5f844a02fd46c8af8231925cc096aeb36",
+            "8981c967d1e7af1aeb810912a51b0d54f57c7a587e965f5304199dd4d647b59e",
+            "a36fbcf327f76c31a8f89b6a3749f78551b239e5ed54fb40a865a5a93ed8d385",
+            "c654caedf6b53fb054805b3ef737e3f415826d652600bfe6bcd25cda40659539",
+            "d7d81077638d86101dfeacc012082a45c6b1cf98a4f3e472a098163a7dff9846"
+          ],
+          "distinct_components": 8
+        },
+        {
+          "partition": "LEARN",
+          "device": "ArloQ Camera",
+          "protocol": 17,
+          "reference_end": 1633531542.09702,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "4cb3656d7074f656b96e04f84219c88e0e37475bbc58b41e9a802a29decd6775",
+            "7b02f10f0ce84033a2fc510a3681cf34b9515a6aa19c78ac7b2586993094eece",
+            "b39058a7c1604f6baefbcc0100a945d8848673f599d49fd5eed7f125ab919854",
+            "de201676a4d9fab421bdfff55caefca4f6b654617744912adfa330e7402b7762"
+          ],
+          "distinct_components": 4
+        },
+        {
+          "partition": "LEARN",
+          "device": "Atomi Coffee Maker",
+          "protocol": 6,
+          "reference_end": 1634131492.850729,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "dd358ae302232cfa918b5087d191834b9179a49652cd2de0dca66475d8f520eb"
+          ],
+          "distinct_components": 1
+        },
+        {
+          "partition": "LEARN",
+          "device": "Atomi Coffee Maker",
+          "protocol": 17,
+          "reference_end": 1634131492.850729,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "2d2dc8b2e3e0c9bb550cfa1ecf63ecc8abff9e84639c22b41be1b882ca5b8a00"
+          ],
+          "distinct_components": 1
+        },
+        {
+          "partition": "LEARN",
+          "device": "Globe Lamp",
+          "protocol": 6,
+          "reference_end": 1633630653.218999,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "46523781556fb1a8696c59177bbb48b5457ea2bff609a23f8214c93ac807d072"
+          ],
+          "distinct_components": 1
+        },
+        {
+          "partition": "LEARN",
+          "device": "Globe Lamp",
+          "protocol": 17,
+          "reference_end": 1633630653.218999,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "ea91cecb5f034a3270650554a3a5dc33b8c256751c9df380d913de4fff67e7a6"
+          ],
+          "distinct_components": 1
+        },
+        {
+          "partition": "LEARN",
+          "device": "Philips Hue Bridge",
+          "protocol": 6,
+          "reference_end": 1633454960.164599,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "7e8dbdde18346631e2bbacd5e5653720218299e454dfed2064829c9816c3aa8b",
+            "8f2ca1753f6ea5df654af4ef04de39a2b37aded2771d7e101dddaf2865a9a595",
+            "d694421067f04daa05fb1b26c77dd964c8f1f7174667c0df7e379303cb5d81b3",
+            "e189d48498ec5deda72d86c32e9d51ec28d5f4455e74da52011c0a178595fc4b"
+          ],
+          "distinct_components": 4
+        },
+        {
+          "partition": "LEARN",
+          "device": "Philips Hue Bridge",
+          "protocol": 17,
+          "reference_end": 1633454960.164599,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "5b77d9a64d8107a44de08a1124ed241637b21070aabf884e1c5eae00354a9786",
+            "813286eeafd01a3c78e87f31701a532489815e07e0b4feba8995ab625ec122ae",
+            "b7911aace135eb8e328b83bb1e8658aa70cbde8c35b69149ffe89c3824e01d3f",
+            "e247aff1f2cfb78ef9399b9b4085daaf64e1fed79473f77d550a69365974f51e",
+            "ee8ba20f001bd857f9cb43b9c4442871500a54f41ef1e7dc2a274ac183376f09"
+          ],
+          "distinct_components": 5
+        },
+        {
+          "partition": "LEARN",
+          "device": "SimCam",
+          "protocol": 6,
+          "reference_end": 1633542608.728952,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "34ce6c0aed4369019aca644ff722c9942f2c6fe8eab638c9821755fd1b1c1ba5",
+            "34f33f8a5d4e56e95234fea13bdff7c71206210081a5de8543d86ed5d95f360b",
+            "75e945f27c50ba2d8dc6a7aaa44d6d38a28c9cdec543cafb1118255f60a08cf4",
+            "81b9148a7c8cd14a2f89e244a788f428b21c7477f65373371604289cbe3809f7",
+            "894693b2d47dc5649b00f74aae2fb808a550b925ea46c7d1863009379c7241a8",
+            "98ed62f1877fa20184ca1571d354d3e19e612b0ecb4ccb9fb80768739fded02e",
+            "9e9367e8b3c3a8794fe635a61e2df1d52a58bbc5c1e2f2d41d06adee4264ee75",
+            "af8b56da55b6ade16886a6478fdef0b3c1de605324f974c45a43a07abc8fad54"
+          ],
+          "distinct_components": 8
+        },
+        {
+          "partition": "LEARN",
+          "device": "SimCam",
+          "protocol": 17,
+          "reference_end": 1633542608.728952,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "67782951183d65d8f66de07b696502b94e5137e5dea5d475ba540977e4d94abb",
+            "689c4cfb35d996ea17fc9bdfb4b749c74c7873b6f4f5a7e53494aaa2ddbb64b3",
+            "834a1e79e8e59ae65f79ccd8e8fa9913342cd3230ae3311c52f079c155988757",
+            "a7a19ef8a7f720cdbc495dc123979d68ddef39ede5aa28fb30ff992c2a79ac94",
+            "d184765448bb33f38ae8b4abb91eaa347465e71fbbfe4620c95aa7155877de71",
+            "eb9c4e4a6efc94c2dfb36b1913d60cc363b27170a0ca45648030f297501fdd6a",
+            "f0c412409725a64abeabf13580b62041936b131d42c371f189b8ce94d750f086"
+          ],
+          "distinct_components": 7
+        }
+      ],
+      "quantile": 0.9,
+      "weight_rule": "class_weights within eligible protocol subset"
+    }
+  },
+  "observation_seconds": 7200,
+  "reference_policy": {
+    "preserve": "frozen same-device/partition/protocol eligibility, two distinct components, causal availability and RAW fallback",
+    "commissioning": "frozen dense RECENT input/selection contracts",
+    "history": "only admitted trusted same-device normal history; preserve original C1 allocation/C3 small-bank completion/C4 top-up contracts",
+    "C4_additional_cap_per_device_protocol": 4096,
+    "C4_hash_salt": "C4_HISTORY_SAMPLE_COVERAGE_V1_20261101",
+    "C4_is_flat_total_bank_cap": false,
+    "source_donor_banks_are_external_device_banks": false,
+    "external_dataset_adapter_ready": false
+  },
+  "selection_provenance": {
+    "posthoc_after_AB_results_known": true,
+    "safe_registered_grid": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "objective": "HIST_DEV ensemble unweighted false-positive count",
+    "denominator": "p1 FP minus positive-support-saturation FP",
+    "denominator_rows": 347,
+    "fp_counts": {
+      "1": 2219,
+      "2": 1953,
+      "3": 1893,
+      "4": 1885,
+      "positive_saturation": 1872
+    },
+    "first_transition_below_fraction": {
+      "from": 3,
+      "to": 4,
+      "removed_fp": 8,
+      "fraction": 0.023054755043227664,
+      "threshold": 0.05
+    },
+    "stop_semantics": "keep the smaller p of the first qualifying transition",
+    "selected_p": 3,
+    "full_registered_grid_reported": true,
+    "reapply_selection_on_external_data": false
+  },
+  "development_primary_ensemble": {
+    "CIC_DEV": {
+      "normal": {
+        "rows": 96041,
+        "positive": 4,
+        "negative": 96037,
+        "rate": 4.164887912454056e-05,
+        "weight_mass": 1.0,
+        "weighted_rate": 0.0017372706658420943
+      },
+      "attack": {
+        "rows": 79056,
+        "positive": 78915,
+        "negative": 141,
+        "rate": 0.9982164541590771,
+        "weight_mass": 1.0,
+        "weighted_rate": 0.999557162796787
+      },
+      "macro_sample": {
+        "device_macro_sample_fpr": 0.0022373856509228063,
+        "device_macro_sample_recall": 0.9989244687180583
+      },
+      "new_misses_vs_C4": 108
+    },
+    "UNSW_DEV": {
+      "normal": {
+        "rows": 74444,
+        "positive": 1152,
+        "negative": 73292,
+        "rate": 0.015474719252055236,
+        "weight_mass": 1.0,
+        "weighted_rate": 0.005452216380693379
+      },
+      "attack": {
+        "rows": 72553,
+        "positive": 72548,
+        "negative": 5,
+        "rate": 0.9999310848621008,
+        "weight_mass": 1.0,
+        "weighted_rate": 0.9999463207238121
+      },
+      "macro_sample": {
+        "device_macro_sample_fpr": 0.015021530904576813,
+        "device_macro_sample_recall": 0.9999310630084104
+      },
+      "new_misses_vs_C4": 0
+    }
+  },
+  "target_protection": {
+    "passed": 16,
+    "total": 16,
+    "baseline": "cumulative relative to RAW"
+  },
+  "source_CAL_p3_strict_zero_withdrawal": true,
+  "source_saturation_strict_zero_withdrawal": false,
+  "limitations": [
+    "p2 B primary sample FPR=2.133147%; not all finite-grid candidates meet 2%",
+    "p3 A adds 108 HeimVision ACK-only labeled-query misses vs C4; total FN=141 and sample recall=99.821645%",
+    "p3 WEMO Power sample FPR=3.085662%, Netatmo=2.278787%",
+    "p3 full B sample FPR=2.235920%",
+    "All B attacks are SYN guarded; no direct B ACK/UDP risk evidence",
+    "A ACK-labeled misses do not provide independent UDP attack protection evidence",
+    "External data and adapter are not yet qualified or evaluated"
+  ],
+  "external_evaluation_started": false,
+  "new_training_or_evaluation_in_this_freeze": false,
+  "immutable_asset_pins": {
+    "runs/c5_kernel_independent_replay_codex_20261102/ab/replay.py": {
+      "sha256": "96417c74c37435a4286576e56730633d2ac36187d519c08ee8c1b1e14fecf84c",
+      "bytes": 15215,
+      "verified_now": true
+    },
+    "runs/c5_kernel_independent_replay_codex_20261102/ab/RESULT.json": {
+      "sha256": "054a1342f5e56ff41922768d92141d1e696b07f01dfd43203a66c6c41fe96d89",
+      "bytes": 6895923,
+      "verified_now": true
+    },
+    "runs/c5_kernel_independent_replay_codex_20261102/ab/SUMMARY.json": {
+      "sha256": "036d111d416ca5d4f592bb4fb087cb78ca916e59b3838ffcebc8e9adabbe7b57",
+      "bytes": 75684,
+      "verified_now": true
+    },
+    "runs/c5_kernel_independent_replay_codex_20261102/ab/CIC_DEV_REPLAY.npz": {
+      "sha256": "7d24757be44bd20f1b0ea8c7f908c5d2c7e5f29efa4abf0e4b5767b2705e71ae",
+      "bytes": 10153595,
+      "verified_now": true
+    },
+    "runs/c5_kernel_independent_replay_codex_20261102/ab/UNSW_DEV_REPLAY.npz": {
+      "sha256": "f0648656e812b2b1696ab47b9c116b2aa57b18565a090cded7fbe2b094991c80",
+      "bytes": 10090287,
+      "verified_now": true
+    },
+    "runs/c5_kernel_independent_replay_codex_20261102/AB_SAVED_ARRAY_VERIFICATION.json": {
+      "sha256": "86c46aa14a1051e138df0b14f98cd8206e0f8b7011dd00574ffb3c4b8c05ffee",
+      "bytes": 102175,
+      "verified_now": true
+    },
+    "runs/c5_kernel_independent_replay_codex_20261102/METRIC_TABLES.md": {
+      "sha256": "138e099f46b239e0435dfd0e1b05ffa9ed496ad76861f8faef2e09d37f03247d",
+      "bytes": 55536,
+      "verified_now": true
+    },
+    "runs/c5_kernel_independent_replay_codex_20261102/source_cal/RESULT.json": {
+      "sha256": "760b137a987b23442c47bc7c27d8f679867e1a4fd66dcc88048bcf3275d9ebcd",
+      "bytes": 109900,
+      "verified_now": true
+    },
+    "runs/c5_kernel_independent_replay_codex_20261102/source_cal/p3_DECISIONS.npz": {
+      "sha256": "c5d09fc725c7037510ac438edf6b7b36ddc869b81db41e86abe1d813f8d622f4",
+      "bytes": 1557,
+      "verified_now": true
+    },
+    "runs/c5_kernel_independent_replay_codex_20261102/source_cal/P1_179602_IDENTITY.json": {
+      "sha256": "86108de9cdd0380ad1c25900c795a3ae269c03e1e68b9b542dd9bd7125c990ee",
+      "bytes": 640,
+      "verified_now": true
+    },
+    "runs/c5_kernel_independent_replay_codex_20261102/source_cal/SAVED_ARRAY_VERIFICATION.json": {
+      "sha256": "eec9adfccfce6460b9e1236cd10b680ed77d4cc94315646fbceb6fca064c2153",
+      "bytes": 1425,
+      "verified_now": true
+    },
+    "runs/c5_kernel_independent_replay_codex_20261102/source_cal/CAP_REACHABLE_ATTACK_CASES.json": {
+      "sha256": "fa593eb2da8b44f731735b5c9328e4cd670f7cba503726439210128d128df9fa",
+      "bytes": 4343,
+      "verified_now": true
+    },
+    "runs/c5_kernel_independent_replay_codex_20261102/VERIFICATION.json": {
+      "sha256": "8846fe944f20e8273e985ce7a05d4be155e9ae8eb9157436b93232ac15041c0c",
+      "bytes": 19178,
+      "verified_now": true
+    },
+    "runs/mainline_docs/collab/20261102_c5_kernel_independent_replay_reply_codex.md": {
+      "sha256": "b879de35bcdd4ad3208c1210210f2df8420731c5108f0c78777dd0a2c17ebdc9",
+      "bytes": 11898,
+      "verified_now": true
+    },
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/config/ASSETS.json": {
+      "sha256": "34d7829d5c2f262bd60b30058b677cbf7b67ee2c419d6ce924ddc01162b96b75",
+      "bytes": 16091,
+      "verified_now": true
+    },
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/INPUT_MANIFEST.json": {
+      "sha256": "ece450a231e45741027084256e51da67480af00604bffb832ac7648ead485351",
+      "bytes": 93584,
+      "verified_now": true
+    },
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/EXECUTION_CARD.json": {
+      "sha256": "a37cc58027e554980a3962db99fb3fbc79cc904f91229623f1efc2b501b68614",
+      "bytes": 10624,
+      "verified_now": true
+    },
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/config/ENCODER_RUNTIME_FILES.json": {
+      "sha256": "2f611b4695e165649cb4fc2df4b0309f621f846fa5f6f660e3c0fa0202ecc5ee",
+      "bytes": 2291,
+      "verified_now": true
+    },
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/FINAL_ACCEPTANCE.json": {
+      "sha256": "ca4d036de457c4d1493b28122c4a24b7b550c353403d6ec86639597edfb54949",
+      "bytes": 625,
+      "verified_now": true
+    },
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/evaluation/RESULT.json": {
+      "sha256": "bb34321aeb54b05151ecf3d57f5a35a4f596381f6c9036e80c09cbd3796e1a75",
+      "bytes": 1016880,
+      "verified_now": true
+    },
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/topup_selector.py": {
+      "sha256": "12192e3924aa6c4aab3a8589070ba50687c0cc6ceb26047998a4fb15f170e741",
+      "bytes": 5485,
+      "verified_now": true
+    },
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/selection.py": {
+      "sha256": "65126ba5f7cba3c6b4ee01539afc28b7f49b5cc892f317b200db95da4afc59ee",
+      "bytes": 4214,
+      "verified_now": true
+    },
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/component_selection.py": {
+      "sha256": "b6a51c0604508f7a500ef08ecbdb3c9432b9c22fccc0d2ec7d443ad8857b5f07",
+      "bytes": 15629,
+      "verified_now": true
+    },
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/encoding.py": {
+      "sha256": "5ef20cdfe5e598e77a548becdb6a5532f8d8b08615ed03f3cf790bb16605ef1c",
+      "bytes": 26254,
+      "verified_now": true
+    },
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/evaluation.py": {
+      "sha256": "dbde770116b5017430c6d26036e00a6de62a272596933c13bd1c17956cd43d50",
+      "bytes": 21798,
+      "verified_now": true
+    },
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/hnr/common.py": {
+      "sha256": "51a26970685ab909bce9ccde9888c441f65fadec8e876865b0d0d0f481f3502f",
+      "bytes": 3413,
+      "verified_now": true
+    },
+    "repo/ood/constrained_onboarding_core_v3.py": {
+      "sha256": "42a32e0b829a373a96046d34d16bcb53455f99f1bc0786a8a49be38bc855f72c",
+      "bytes": 28261,
+      "verified_now": true
+    },
+    "repo/ood/constrained_onboarding_reference_v2.py": {
+      "sha256": "208d89521c95bebb6d82745b2642aea8e01d97cf82dc80647f5ebf224a34a64c",
+      "bytes": 44638,
+      "verified_now": true
+    },
+    "repo/ood/constrained_onboarding_query_tail_adapter_v2.py": {
+      "sha256": "3f23e6b60963dcaf914d5b30ef075d87889e391cf78925e3c8a7eac4167862fc",
+      "bytes": 23131,
+      "verified_now": true
+    },
+    "repo/ood/onboarding_dense_reference_v1.py": {
+      "sha256": "ee44b26450703c06b397e60faa9e7cc538f55167cc50c4d9ec5d21ac65d358a6",
+      "bytes": 10349,
+      "verified_now": true
+    },
+    "repo/ood/continuous_input_v3.py": {
+      "sha256": "a503c7b21c35234462a735d3890fa4cda918573ceeda072604e4bec6872b405d",
+      "bytes": 15746,
+      "verified_now": true
+    },
+    "runs/dense_reference_ab_stage_candidate_v1_20261028/src/metrics.py": {
+      "sha256": "8a82d2c10f209467c3da1f48ed6041e5ea68094a75193109a56b7b471144ac65",
+      "bytes": 11193,
+      "verified_now": true
+    },
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/cuts.json": {
+      "sha256": "d4c391302d2d32c5d8813a45612b6f4203468e4b52bbd58233cbd6f274c84bbd",
+      "bytes": 193,
+      "verified_now": true
+    },
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/geometry.json": {
+      "sha256": "080c069fa41f6eb7fbcea2e890873be462f8471b8ff2a039a8a30935674ca124",
+      "bytes": 11696,
+      "verified_now": true
+    },
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz": {
+      "sha256": "ba92b5439255435e854ee14b74738cae0e3606060456de37927b2b6a0e2ab8b2",
+      "bytes": 12792,
+      "verified_now": true
+    },
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/protection.json": {
+      "sha256": "306afefda32b398fdb9dfabcd9562e44b79555dcb551add8dad9c9a51cab37e2",
+      "bytes": 16796,
+      "verified_now": true
+    },
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/scales.json": {
+      "sha256": "06870509e49b642e1a03444e425542cc4559b5375d522cbb27295dc70d208fa2",
+      "bytes": 510,
+      "verified_now": true
+    },
+    "runs/legacy_query_tail_learning_delivery_v2r1_20261010/bundle/design_contract.json": {
+      "sha256": "c6027a90f1f997b1bb1e8dd44409237531d7dc97cc13813e9bec364dc40b21af",
+      "bytes": 12211,
+      "verified_now": true
+    },
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_127/endpoint.json": {
+      "sha256": "2d59878ba5857dfd6e0c204b6c9ad4a6f0a72f3ecc5d62682066fcced23c850b",
+      "bytes": 3795,
+      "verified_now": true
+    },
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_127/head.npz": {
+      "sha256": "e356f4bd633e80657bef9d823786bccda7e87533a9c165a5889e4efaae344a29",
+      "bytes": 402418,
+      "verified_now": true
+    },
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_227/endpoint.json": {
+      "sha256": "28c0887d7cc860f966b4b2513f49f7a05a08daa083fbbff794dd3581f0305415",
+      "bytes": 3795,
+      "verified_now": true
+    },
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_227/head.npz": {
+      "sha256": "38915803019303377afc5c3b5531a591f388de87bfdee0371521b0e44b933083",
+      "bytes": 402418,
+      "verified_now": true
+    },
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_27/endpoint.json": {
+      "sha256": "197ffc5727f3c4a49e1c5f22dc0cadb936b05f951b33e5277c8bcaded1fa5f99",
+      "bytes": 3794,
+      "verified_now": true
+    },
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_27/head.npz": {
+      "sha256": "35f4a892f6629e9995fcedc52b14a3f6abd64a4f01dedacb595a3073858415b7",
+      "bytes": 402418,
+      "verified_now": true
+    },
+    "runs/mainline_docs/collab/20261102_c5_kernel_decision_claude.md": {
+      "sha256": "36fcd5c56df743c0633cfa5551bf9a955687067554481ceaf0efaca56d5e3587",
+      "bytes": 4902,
+      "verified_now": true
+    },
+    "runs/c5_method_freeze_v1_20261102/freeze.py": {
+      "sha256": "016b1c2d258f8febef0618c71fd852d628a77396ad5fb2df825834b7befff8a6",
+      "bytes": 9384,
+      "verified_now": true
+    }
+  },
+  "encoder_weights_identity": {
+    "binding_manifest": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/config/ENCODER_RUNTIME_FILES.json",
+    "weights_sha256": "e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105",
+    "weights_rehashed_in_this_document_update": false,
+    "require_full_runtime_identity_check_before_external_inference": true
+  },
+  "intentional_document_amendment": {
+    "path": "runs/mainline_docs/collab/20261102_c5_kernel_decision_claude.md",
+    "pre_decision_hash_in_original_audit": "59e0d54b2878de3886209c39e4cbe67ccf7c428e9a40bef9d8455b7cd41f8f10",
+    "current_section4_authority_sha256": "36fcd5c56df743c0633cfa5551bf9a955687067554481ceaf0efaca56d5e3587",
+    "original_audit_receipt_rewritten": false
+  }
+}

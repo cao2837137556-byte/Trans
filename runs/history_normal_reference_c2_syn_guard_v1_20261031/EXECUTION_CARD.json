@@ -1,0 +1,39 @@
+{
+  "candidate": "C2_QUERY_SYN_NO_ACK_KEEP_RAW",
+  "status": "FIXED_AUTHORIZED_FOR_ONE_EXECUTION",
+  "authorization": "User: 应该可以动手了; implement and run the fixed C2 using seven saved arrays.",
+  "scope": "ALL_DEVICES_ALL_QUERY_ROLES",
+  "guard": "q14[0]==1 & q14[2]==1 & q14[5]==0",
+  "parameter_search": false,
+  "new_E3": 0,
+  "new_distances": 0,
+  "training": 0,
+  "raw_decode": 0,
+  "frozen_lambda": 0.25,
+  "stages": [
+    "SOURCE_SAVED_PRECHECK",
+    "HIST_DEV_GATE",
+    "CONDITIONAL_AB_ONCE"
+  ],
+  "source_role": "180228 Q/N/C and historical D0 diagnostic only, no source branch revival",
+  "dev_gate": "each device corrected_FP < RAW_FP; pooled relative reduction >= 50%",
+  "ab_primary": "7200s post_window_primary; full also reported",
+  "attack_protection": "four heads: cumulative device<=1pp; activity/annotation<=5pp; low RAW recall zero withdrawal",
+  "evidence": "CONSUMED_DEVELOPMENT_ONLY",
+  "no_c3": true,
+  "no_auto_retry": true,
+  "limits": {
+    "cpus": 4,
+    "rss_bytes": 4294967296,
+    "wall_seconds": 900,
+    "output_bytes": 536870912
+  },
+  "input_manifest_sha256": "c574a55a97835daf7d628fe031eaef3277b63ebae8cdac3d4b146e13f908d834",
+  "code_sha256": {
+    "common.py": "899d0b358a806d048195bce8b9e91fc3a3c32d677caba0c35afc72eefa325790",
+    "run.py": "45c34aacce4245838d50b16081e7cd9046cdd035d8f1686d8e0af377c15eac1b",
+    "guarded_run.py": "b566fe4e4202ceaae7558b115c4587fd3302e526f89c40fcaa7816528ebfdc0c",
+    "test_c2.py": "4a7ae768a86e2d9a44c765e5c68387bffbf1150c3c346cb5613850c964d3090c",
+    "build_contract.py": "8778c5ad7de598f910baf0db387fafc75bda68d47f1313f38bf08cdb17e73bd6"
+  }
+}

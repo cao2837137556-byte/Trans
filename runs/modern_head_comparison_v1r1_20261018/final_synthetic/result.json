@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "tests": {
+    "test_modern_head_revision_train_v1": {
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "success": true,
+      "seconds": 17.90600000001723,
+      "selected_tests": null,
+      "log": "test_modern_head_revision_train_v1.log",
+      "sha256": "4d573373853c2b0602d09ab647fef276ed8f94e70d3996276e0b8f06b8083a1d"
+    },
+    "test_modern_head_revision_replay_v1": {
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "success": true,
+      "seconds": 0.6099999999860302,
+      "selected_tests": null,
+      "log": "test_modern_head_revision_replay_v1.log",
+      "sha256": "78d53496cea8213affd8e7c740768c8ed8c2634d1bc0f9da517b2838d2ae208c"
+    },
+    "test_modern_head_revision_runner_v1": {
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "success": true,
+      "seconds": 4.969000000011874,
+      "selected_tests": null,
+      "log": "test_modern_head_revision_runner_v1.log",
+      "sha256": "571baaec61656351c8af65dd2897233e2eb60db6d9ba3dd47cb2f484f597ccb9"
+    },
+    "test_modern_head_runner_v1": {
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "success": true,
+      "seconds": 5.484000000025844,
+      "selected_tests": null,
+      "log": "test_modern_head_runner_v1.log",
+      "sha256": "e876c727245504d4232f1ca32e2cface1999997481a98b173839c5164793d5f1"
+    },
+    "test_modern_head_models_v1": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "success": true,
+      "seconds": 3.625,
+      "selected_tests": [
+        "EndpointTests.test_all_families_train_save_reload_same_scores",
+        "EndpointTests.test_adoption_requires_replay_proof_and_preserves_head_bytes"
+      ],
+      "log": "test_modern_head_models_v1.log",
+      "sha256": "58e1fe8b9faa9c9700025651e349bf56664941f7247a5e03902ab30f3768eb9a"
+    },
+    "test_modern_head_evaluate_v1": {
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "success": true,
+      "seconds": 3.5,
+      "selected_tests": [
+        "ReplayAndOnboardingTests",
+        "OfficialMetricTests",
+        "CalibrationTests.test_scope_and_gates_cannot_be_silently_reduced",
+        "EndToEndEvaluationTests"
+      ],
+      "log": "test_modern_head_evaluate_v1.log",
+      "sha256": "a87cc13ed4af42d00de9697ae9fcb383d1775dc743c064756a35a51b0691c230"
+    }
+  },
+  "total_tests": 57,
+  "package_seal_sha256": "c9f526e6e0ac6a991b0070a374bd56b6cc03e8ebb7897ec9674ed94df88fbe13",
+  "validation_scope": "v1r1 changed paths and selected regressions; not all inherited v1 tests",
+  "real_training": false,
+  "real_pcap_decode": false,
+  "target_scoring": false
+}

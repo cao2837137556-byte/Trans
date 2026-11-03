@@ -1,0 +1,93 @@
+{
+  "status": "SUBMITTED",
+  "submitted": true,
+  "candidate": "C4_HISTORY_SAMPLE_COVERAGE_TOPUP",
+  "preflight": {
+    "returncode": 0,
+    "tail": "(test_topup.SelectionChecks.test_duplicate_physical_origin_rejected) ... ok\ntest_fixed_capacity_and_no_input_mutation (test_topup.SelectionChecks.test_fixed_capacity_and_no_input_mutation) ... ok\ntest_prior_physical_endpoint_excluded_even_if_uid_alias_changes (test_topup.SelectionChecks.test_prior_physical_endpoint_excluded_even_if_uid_alias_changes) ... ok\ntest_protocol_budgets_are_separate (test_topup.SelectionChecks.test_protocol_budgets_are_separate) ... ok\ntest_traversal_order_invariance (test_topup.SelectionChecks.test_traversal_order_invariance) ... ok\ntest_charge_boundary_before_forward_and_not_completed (test_memory_worker.WorkerRuntimeTests.test_charge_boundary_before_forward_and_not_completed) ... ok\ntest_display_sharing_failure_nonfatal_but_budget_still_enforced (test_memory_worker.WorkerRuntimeTests.test_display_sharing_failure_nonfatal_but_budget_still_enforced) ... ok\ntest_invalid_constructor_limits (test_memory_worker.WorkerRuntimeTests.test_invalid_constructor_limits) ... ok\ntest_nonpermission_status_errors_are_not_swallowed (test_memory_worker.WorkerRuntimeTests.test_nonpermission_status_errors_are_not_swallowed) ... ok\ntest_only_status_parent_created_and_children_supported (test_memory_worker.WorkerRuntimeTests.test_only_status_parent_created_and_children_supported) ... ok\ntest_reject_invalid_charge_counts_without_corrupting_budget (test_memory_worker.WorkerRuntimeTests.test_reject_invalid_charge_counts_without_corrupting_budget) ... ok\ntest_reserved_fields_cannot_forge_budget_or_heartbeat (test_memory_worker.WorkerRuntimeTests.test_reserved_fields_cannot_forge_budget_or_heartbeat) ... ok\ntest_update_and_tick_report_real_progress_and_stage_reset (test_memory_worker.WorkerRuntimeTests.test_update_and_tick_report_real_progress_and_stage_reset) ... ok\ntest_wall_boundary_and_guard_does_not_fake_heartbeat (test_memory_worker.WorkerRuntimeTests.test_wall_boundary_and_guard_does_not_fake_heartbeat) ... ok\ntest_changed_completed_file_rejected (test_recovery.RecoveryChecks.test_changed_completed_file_rejected) ... ok\ntest_changed_source_receipt_rejected (test_recovery.RecoveryChecks.test_changed_source_receipt_rejected) ... ok\ntest_exact_retained_outputs_can_be_reused (test_recovery.RecoveryChecks.test_exact_retained_outputs_can_be_reused) ... ok\ntest_partial_member_cannot_be_adopted (test_recovery.RecoveryChecks.test_partial_member_cannot_be_adopted) ... ok\ntest_invalid_text_and_frame_bounds_rejected (test_decoder_guard.DiagnosticParserTests.test_invalid_text_and_frame_bounds_rejected) ... ok\ntest_only_exact_records_count_repeated_frames (test_decoder_guard.DiagnosticParserTests.test_only_exact_records_count_repeated_frames) ... ok\ntest_other_protocol_path_assertion_or_extra_text_rejected (test_decoder_guard.DiagnosticParserTests.test_other_protocol_path_assertion_or_extra_text_rejected) ... ok\ntest_pes_is_limited_to_observed_frame_and_protocol_signature_preserved (test_decoder_guard.DiagnosticParserTests.test_pes_is_limited_to_observed_frame_and_protocol_signature_preserved) ... ok\ntest_all_header_mismatches_are_fatal (test_decoder_guard.RawHeaderAuditTests.test_all_header_mismatches_are_fatal) ... ok\ntest_fragment_extension_and_truncated_transport_fail_closed (test_decoder_guard.RawHeaderAuditTests.test_fragment_extension_and_truncated_transport_fail_closed) ... ok\ntest_index_lengths_timestamp_and_trailer_are_checked (test_decoder_guard.RawHeaderAuditTests.test_index_lengths_timestamp_and_trailer_are_checked) ... ok\ntest_ipv4_udp_exact_fields_and_source_identity (test_decoder_guard.RawHeaderAuditTests.test_ipv4_udp_exact_fields_and_source_identity) ... ok\ntest_ipv6_direct_udp_and_big_endian_pcapng (test_decoder_guard.RawHeaderAuditTests.test_ipv6_direct_udp_and_big_endian_pcapng) ... ok\ntest_missing_required_tcp_header_is_fatal (test_decoder_guard.RawHeaderAuditTests.test_missing_required_tcp_header_is_fatal) ... ok\ntest_nested_transport_cannot_change_legacy_endpoint_ports (test_decoder_guard.RawHeaderAuditTests.test_nested_transport_cannot_change_legacy_endpoint_ports) ... ok\ntest_tcp_all_nine_flags_and_token_headers (test_decoder_guard.RawHeaderAuditTests.test_tcp_all_nine_flags_and_token_headers) ... ok\ntest_changed_row_rejected (test_resume_prepare.ResumeChecks.test_changed_row_rejected) ... ok\ntest_complete_endpoint_identity_replay (test_resume_prepare.ResumeChecks.test_complete_endpoint_identity_replay) ... ok\ntest_copy_reuses_bytes_and_preserves_source (test_resume_prepare.ResumeChecks.test_copy_reuses_bytes_and_preserves_source) ... ok\ntest_existing_copy_is_not_overwritten (test_resume_prepare.ResumeChecks.test_existing_copy_is_not_overwritten) ... ok\ntest_missing_census_endpoint_rejected (test_resume_prepare.ResumeChecks.test_missing_census_endpoint_rejected) ... ok\ntest_unreplayed_census_endpoint_rejected (test_resume_prepare.ResumeChecks.test_unreplayed_census_endpoint_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 54 tests in 1.896s\n\nOK\n"
+  },
+  "submission": {
+    "returncode": 0,
+    "stdout": "180591\n",
+    "stderr": ""
+  },
+  "job_id": "180591",
+  "transfers": {
+    "code": {
+      "complete": true,
+      "offset": 4270080,
+      "total": 4270080
+    },
+    "0": {
+      "complete": true,
+      "offset": 2206626972,
+      "total": 2206626972
+    },
+    "1": {
+      "complete": true,
+      "offset": 158944576,
+      "total": 158944576
+    },
+    "2": {
+      "complete": true,
+      "offset": 39736208,
+      "total": 39736208
+    }
+  },
+  "free_bytes": 553215864078336,
+  "STATUS.json": {
+    "automatic_retry": false,
+    "checkpoint_file": "candidates.sqlite",
+    "completed_census_reused": true,
+    "completed_devices_reused": 3,
+    "decoder_pass": 2,
+    "deleted_sqlite_scratch_bytes": 0,
+    "device": "Netatmo Camera",
+    "elapsed_seconds": 722.2216791909887,
+    "encoded_rows": 20480,
+    "ended_utc": "2026-11-01T15:20:11.798732+00:00",
+    "error": "ISOLATED_NETATMO_prepare_FAILED: see /public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/outputs/encoding/workers/NETATMO_prepare.log",
+    "legal_endpoints": {
+      "HIST_REF": 653999
+    },
+    "limits": {
+      "cpu": 4,
+      "encoded": 36864,
+      "output_bytes": 21474836480,
+      "pairs": 1000000000,
+      "rss_bytes": 8589934592,
+      "wall_seconds": 5049
+    },
+    "mode": "execute",
+    "output_bytes": 11737624010,
+    "pairs": 0,
+    "peak_output_bytes": 12559331961,
+    "peak_process_tree_rss_bytes": 1187483648,
+    "phase": "SELECTED_SNAPSHOTS",
+    "prior_wall_seconds_charged": 23751,
+    "process_memory": [
+      {
+        "name": "python",
+        "pid": 1291458,
+        "ppid": 1291452,
+        "rss_bytes": 65847296
+      }
+    ],
+    "process_tree_rss_bytes": 65847296,
+    "raw_packets": 1105920,
+    "reused_encoded_rows": 20480,
+    "selected_dev": 4096,
+    "selected_ref": 8192,
+    "selected_snapshots": 2328,
+    "service_heartbeat_utc": "2026-11-01T15:20:11.798754+00:00",
+    "started_utc": "2026-11-01T15:08:15.646426+00:00",
+    "synthetic": false,
+    "technical_status": "EXCEPTION_STOPPED",
+    "total": 4967010,
+    "work_heartbeat_utc": "2026-11-01T15:20:10.147591+00:00",
+    "worker_encoded_charged": 0
+  },
+  "squeue": "",
+  "sacct": "180591|FAILED|1:0",
+  "log_tail": "Traceback (most recent call last):\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/run.py\", line 195, in <module>\n    if args.stage=='encode':encode()\n                            ^^^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/run.py\", line 82, in encode\n    return isolated_encode()\n           ^^^^^^^^^^^^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/coordinator.py\", line 51, in encode\n    launch('prepare',key,runtime,0)\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/coordinator.py\", line 29, in launch\n    require(p.returncode==0,'ISOLATED_'+key+'_'+stage+'_FAILED: see '+str(log.name))\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/hnr/common.py\", line 40, in require\n    raise ValueError(message)\nValueError: ISOLATED_NETATMO_prepare_FAILED: see /public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_checkpoint_repair_v1_20261101/outputs/encoding/workers/NETATMO_prepare.log\n"
+}

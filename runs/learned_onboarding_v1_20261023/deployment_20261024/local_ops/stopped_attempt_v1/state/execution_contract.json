@@ -1,0 +1,38 @@
+{
+  "administrative_limit_is_not_training_eta": true,
+  "automatic_retry": false,
+  "auxiliary_limit_seconds_each": 14400,
+  "chain_administrative_limit_seconds": 86400,
+  "counted_outputs": [
+    "/srv/paper04/learned_onboarding_20261024/runs/learned_onboarding_v1_20261023/results"
+  ],
+  "cpu_threads": 4,
+  "environment_memory_ceiling_bytes": 17179869184,
+  "execution_slot": "exclusive-existing-remote",
+  "fit_limit_seconds": 36000,
+  "hard_limit_provider": "External service manager; this runner does not assert or install the hard limit",
+  "heavy_workers": 1,
+  "initial_disk_report": {
+    "combined_new_artifacts_bytes": 43550026,
+    "disk_free_bytes": 158847610880,
+    "input_staging_limit_bytes": 2147483648,
+    "minimum_disk_free_bytes": 8589934592,
+    "output_bytes": 0,
+    "output_limit_bytes": 2147483648,
+    "remaining_write_upper_bound_bytes": 4294967296,
+    "source_archive_staging_bytes": 43463384,
+    "state_and_log_bytes": 86642,
+    "target_input_staging_bytes": 0
+  },
+  "input_staging_limit_bytes": 2147483648,
+  "module_limit_seconds_combined": 7200,
+  "output_limit_bytes": 2147483648,
+  "rss_guard_bytes": 8589934592,
+  "schema": "learned-onboarding-deployment-contract-v1",
+  "separate_input_staging_budget_does_not_change_results_limit": true,
+  "source_archive_staging": "/srv/paper04/learned_onboarding_20261024/inputs/source_head_archive",
+  "source_assets": "/srv/paper04/learned_onboarding_20261024/runs/learned_onboarding_v1_20261023/results/source_assets",
+  "staging_scope": "Transport/format conversion of frozen inputs; no frontend extraction or fitting",
+  "started_at": "2026-10-24T03:20:08.978927+00:00",
+  "target_input_staging": "/srv/paper04/learned_onboarding_20261024/inputs/target_bundle"
+}

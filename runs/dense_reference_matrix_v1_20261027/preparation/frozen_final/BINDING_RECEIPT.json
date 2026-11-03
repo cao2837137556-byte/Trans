@@ -1,0 +1,86 @@
+{
+  "schema": "dense-reference-metadata-binding-receipt-v1",
+  "status": "PREPARATION_COMPLETE_PRODUCTION_BLOCKED",
+  "binding_tests_passed": 21,
+  "source_assets_match_old_source_dryrun_seal": {
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN.jsonl.gz": true,
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN_q.npy": true,
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CAL.npz": true,
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/FIT.npz": true,
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz": true,
+    "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/features/LEARN.npy": true,
+    "runs/diagnostics_d1_d2_v1_20261022/output/d1/r2/source_actual_trace.npz": true,
+    "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/SOURCE_REFS.jsonl.gz": true,
+    "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/SOURCE_REFS.npz": true,
+    "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/RESULT.json": true,
+    "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/INPUT_SEAL.json": true
+  },
+  "wrong_plan_sha256": {
+    "CIC_DEV": "6aa4256005e08b3ec065797c8a85491abb6eb7f23095dc8342e5eb96dabadbe4",
+    "UNSW_DEV": "27672a8281ab073cc863d89b719c54bcf1ee928ce6b3459a1f71f05773d7dafb"
+  },
+  "files": {
+    "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/bindings.json": {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/bindings.json",
+      "sha256": "396f375c1dfa54609625713e0ce9ff3aba5bcc31b550ad381b1081d732b6321d",
+      "bytes": 610622
+    },
+    "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/CIC_DEV_query_uids.json": {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/CIC_DEV_query_uids.json",
+      "sha256": "e3d4f13c7578fc3e939f9ebff65dab4db51ef746a252d7677051e83577b8f70d",
+      "bytes": 12771911
+    },
+    "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/CIC_DEV_WRONG_PLAN.json": {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/CIC_DEV_WRONG_PLAN.json",
+      "sha256": "2f66dfb6cdbbe5ae5a29d269dc14b070bc64c58ca4d3cd582e6bff770235d372",
+      "bytes": 361926
+    },
+    "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/INPUT_OUTPUT_PINS.json": {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/INPUT_OUTPUT_PINS.json",
+      "sha256": "fb8cf24d08d32d81ba1bba7a47d7e0a0dd21c4938676acde1e68a07d0df35793",
+      "bytes": 15827
+    },
+    "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/PAIR_BUDGET.json": {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/PAIR_BUDGET.json",
+      "sha256": "55d39c922663f1d89d971215bd65b68ec37982c590afb5a69e355c56602918ef",
+      "bytes": 15613
+    },
+    "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/SOURCE_ASSETS.json": {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/SOURCE_ASSETS.json",
+      "sha256": "a52195eb7bd449e137cf3fca06fef49276a95ac6a904a8e8b945203c48435716",
+      "bytes": 3319
+    },
+    "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/UNSW_DEV_query_uids.json": {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/UNSW_DEV_query_uids.json",
+      "sha256": "ce463fe077cdbfe54e30d3cf52b7063b8150fd21b9e8cf18a97327e5282fad27",
+      "bytes": 10530441
+    },
+    "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/UNSW_DEV_WRONG_PLAN.json": {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/UNSW_DEV_WRONG_PLAN.json",
+      "sha256": "481e6f9cc0f7d30255519f3f08026587bb2f799e88f9e8c152e8cc00d6855ae9",
+      "bytes": 202012
+    },
+    "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/READOUT.md": {
+      "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/READOUT.md",
+      "sha256": "9c7617b893e8698de27fff539acf960083bbbd886858cbfd844fc786f403345f",
+      "bytes": 5287
+    },
+    "runs/dense_reference_matrix_v1_20261027/src/binding.py": {
+      "path": "runs/dense_reference_matrix_v1_20261027/src/binding.py",
+      "sha256": "96ba803712f7dd847b63ad08c8626f9e5f9b0b5f4c4c952c7706b7d1ad43cdcb",
+      "bytes": 23241
+    },
+    "runs/dense_reference_matrix_v1_20261027/tests/test_binding.py": {
+      "path": "runs/dense_reference_matrix_v1_20261027/tests/test_binding.py",
+      "sha256": "a416a2e383065798aae163c86b7f4015e0df38be90d84cfb8791acd3c06b4837",
+      "bytes": 8622
+    }
+  },
+  "target_logits_array_loads": 0,
+  "feature_array_loads": 0,
+  "new_E3": 0,
+  "training": 0,
+  "target_evaluation": 0,
+  "full_matrix_ready": false,
+  "third_pool_mode": "BLOCKED_MISSING_FROZEN_BASE_B2"
+}

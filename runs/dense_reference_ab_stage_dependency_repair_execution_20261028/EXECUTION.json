@@ -1,0 +1,84 @@
+{
+  "status": "COMPLETE",
+  "job_id": "179700",
+  "scheduler": {
+    "job_id": "179700",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed": "00:19:01",
+    "node": "node185"
+  },
+  "observed_utc": "2026-10-28T04:10:03.597078+00:00",
+  "stage": "matrix",
+  "stage_progress": {
+    "stage": "matrix",
+    "status": "COMPLETE",
+    "completed_pools": [
+      "CIC_DEV",
+      "UNSW_DEV"
+    ],
+    "evaluated_arm_epsilon_cells": 24
+  },
+  "worker_alive": false,
+  "worker_pid": null,
+  "peak_worker_rss_bytes": 2761551872,
+  "numpy_runtime": {
+    "version": "2.0.1",
+    "module_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/runtime/numpy201/numpy/__init__.py",
+    "expected_overlay": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/runtime/numpy201"
+  },
+  "repair_manifest_sha256": "85637f3ae213ef08bf3cb70976a3188246eb03554d4b7fe7393f4cfe4414d9e8",
+  "approval_sha256": "7798502dc25f9aa1a17adca460cbe19bb37bf1e94f95a8dd1dbdfe54fc557e23",
+  "startup_evidence_sha256": "b42077c7cb5c0c29300d2947df3e00a281ef91e5db0e882ba9049ca201e35982",
+  "replaces_failed_job": "179680",
+  "previous_failure_preserved": true,
+  "new_submissions": 1,
+  "retries": 0,
+  "automatic_retry": false,
+  "reference_encoding": "REUSED_179602",
+  "source_CAL": "REUSED_179602",
+  "new_encoding_rows": 0,
+  "new_CAL_runs": 0,
+  "training_updates": 0,
+  "model_forwards": 0,
+  "new_completed_pool_results": 2,
+  "scientific_status": "FAIL",
+  "original_registered_matrix_complete": false,
+  "url": "http://127.0.0.1:18771/",
+  "failed_predecessor_url": "http://127.0.0.1:18773/",
+  "ai_polling": false,
+  "checked_utc": "2026-10-28T05:08:46.485983+00:00",
+  "full_results_downloaded": true,
+  "completion_evidence": "FINAL_PROGRESS_ACCEPTANCE.json",
+  "offline_result_audit": "PASS",
+  "offline_result_audit_path": "result_retrieval_179700_20261028/OFFLINE_AUDIT.json",
+  "offline_result_audit_sha256": "5f17dd5a7415a505bb903abeae17935b0ef044f7221df765aa7e8fede1a83a62",
+  "result_readout": "../mainline_docs/collab/20261028_dense_reference_ab_final_result_readout_codex.md",
+  "historical_startup_runtime_snapshot": {
+    "observed_utc": "2026-10-28T03:56:29.807535+00:00",
+    "stage_progress": {
+      "pool": "CIC_DEV",
+      "stage": "SUPPORT_R-DENSE-WRONG",
+      "status": "RUNNING"
+    },
+    "worker_alive": true,
+    "worker_pid": 1247744,
+    "peak_worker_rss_bytes": 1608282112,
+    "new_completed_pool_results": 0,
+    "checked_utc": "2026-10-28T03:56:36.365482+00:00"
+  },
+  "cleanup_confirmed": true,
+  "primary_ensemble_epsilon_pp": 0.1,
+  "primary_ensemble": {
+    "CIC_DEV": {
+      "dense_fpr_percent": 3.9934815308699236,
+      "dense_recall_percent": 100.0,
+      "added_attack_misses": 0
+    },
+    "UNSW_DEV": {
+      "dense_fpr_percent": 9.519653948711488,
+      "dense_recall_percent": 99.96659432321516,
+      "added_attack_misses": 6
+    }
+  }
+}

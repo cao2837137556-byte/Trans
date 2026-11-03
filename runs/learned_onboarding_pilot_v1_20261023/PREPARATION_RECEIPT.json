@@ -1,0 +1,56 @@
+{
+  "schema": "learned-onboarding-preparation-receipt-v1",
+  "created_at": "2026-10-23T05:37:42.649617+00:00",
+  "status": "INITIAL_SOURCE_PREPARATION_COMPLETE_TRAINING_NOT_STARTED",
+  "artifacts": {
+    "PILOT_DESIGN.md": {
+      "bytes": 10927,
+      "sha256": "ac3c852e7ff0fb9e22c887a6325a5f43055d9b9d92afe046948e14efb2ed078d"
+    },
+    "README.md": {
+      "bytes": 2885,
+      "sha256": "259d52ddadc110d4ce05f0ae3f9148b3dd17eb54a6c246420fec97593072f931"
+    },
+    "source_task_audit.py": {
+      "bytes": 13619,
+      "sha256": "fb853cf357100c636c08167266b259f6129fdd0e7a6b9e17c8daaa1a9bfd5978"
+    },
+    "test_source_task_audit.py": {
+      "bytes": 4323,
+      "sha256": "a889ec7d69d79ae6b989fe3fc96d75277edbdb494c2d228462a8b1be6e51e4c8"
+    },
+    "source_task_audit.json": {
+      "bytes": 25436,
+      "sha256": "6d6457fe01a401d72286dd3f0e2aa15c51cdbec12479dc17458936b37b54cf83"
+    },
+    "source_task_audit_initial.json": {
+      "bytes": 18633,
+      "sha256": "17be8bbce1b0bfdda34f81964c2bbf66dcc9bb86b90ae1902f8921f9eee48990"
+    }
+  },
+  "source_metadata_audit": {
+    "rows": 766727,
+    "source_reference_rows": 104,
+    "target_query_files_opened": 0,
+    "model_forward_calls": 0,
+    "optimizer_updates": 0,
+    "support_count_scope": "TIMESTAMP_ONLY_STRUCTURAL_UPPER_BOUND_NOT_EXACT_V3_ELIGIBILITY",
+    "frame_causality_checked": false
+  },
+  "validation": {
+    "boundary_tests_passed": 12,
+    "command": "python -m unittest discover -s runs/learned_onboarding_pilot_v1_20261023 -p test_source_task_audit.py -v",
+    "additional_parent_checks": "Audit counts, isolation limitations and three handoff links verified; no repeat model or source-data evaluation"
+  },
+  "scientific_results": null,
+  "real_training_started": false,
+  "remote_job_submitted": false,
+  "remote_status_read": false,
+  "automatic_polling_added": false,
+  "required_before_training": [
+    "Frame-causal task assembly and q14/UID binding",
+    "Freeze exact model/loss/mining/calibration recipe and signal criteria",
+    "Auxiliary heads with device exclusion, fold-specific preprocessing",
+    "Resource estimate and available single-worker execution slot"
+  ]
+}

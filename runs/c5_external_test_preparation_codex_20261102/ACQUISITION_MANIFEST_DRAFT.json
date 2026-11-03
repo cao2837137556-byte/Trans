@@ -1,0 +1,98 @@
+{
+  "schema": "CICIoMT2024_ACQUISITION_MANIFEST_DRAFT_V1",
+  "status": "LEAF_MANIFEST_AND_RAW_QUALIFICATION_PENDING",
+  "date": "2026-11-02",
+  "registration_entry": "https://cicresearch.ca/IOTDataset/CICIoMT2024/",
+  "official_description": "https://www.unb.ca/cic/datasets/iomt-dataset-2024.html",
+  "author_preprint": "https://www.preprints.org/manuscript/202402.0898",
+  "existing_user_registration_session_state": "NOT_INSPECTED",
+  "raw_found_in_scanned_project_directories": false,
+  "personal_downloads_checked": false,
+  "registered_directory_snapshot": null,
+  "device_table_with_verified_MAC_IP": null,
+  "attack_schedule_and_direction_specification": null,
+  "candidate_real_wifi_targets_from_author_preprint": [
+    "Sense-U Baby Monitor",
+    "SOS Multifunctional Pager",
+    "SINGCALL SOS Button",
+    "Ecobee Camera",
+    "Blink Mini",
+    "M1T Laxihub",
+    "Owltron"
+  ],
+  "minimum_roles": [
+    {
+      "role": "NORMAL_HISTORY_OBSERVATION_HELDOUT",
+      "candidate_directory": "WiFi_and_MQTT/profiling",
+      "candidate_categories": [
+        "idle",
+        "active",
+        "trusted benign"
+      ],
+      "leaf_path": null,
+      "bytes": null,
+      "official_download_url": null,
+      "sha256": null,
+      "selected": false,
+      "qualification_pass": false
+    },
+    {
+      "role": "NORMAL_INTERACTION_SYN_INITIATION",
+      "candidate_directory": "WiFi_and_MQTT/profiling",
+      "candidate_categories": [
+        "active",
+        "interaction"
+      ],
+      "leaf_path": null,
+      "bytes": null,
+      "official_download_url": null,
+      "sha256": null,
+      "selected": false,
+      "qualification_pass": false
+    },
+    {
+      "role": "DIRECT_NON_GUARDED_ACK_ATTACK",
+      "candidate_directory": "WiFi_and_MQTT/attacks",
+      "candidate_categories": [
+        "TCP Flood candidate subject to flag/direction qualification"
+      ],
+      "leaf_path": null,
+      "bytes": null,
+      "official_download_url": null,
+      "sha256": null,
+      "selected": false,
+      "qualification_pass": false
+    },
+    {
+      "role": "DIRECT_UDP_ATTACK",
+      "candidate_directory": "WiFi_and_MQTT/attacks",
+      "candidate_categories": [
+        "DoS UDP Flood",
+        "DDoS UDP Flood"
+      ],
+      "leaf_path": null,
+      "bytes": null,
+      "official_download_url": null,
+      "sha256": null,
+      "selected": false,
+      "qualification_pass": false
+    }
+  ],
+  "file_count_not_equal_to_role_count": true,
+  "qualification_subset_not_final_evaluation_population": true,
+  "selection_rule": "Cover all required qualification roles with minimum verified total bytes; metadata only; deterministic normalized relative-path tie break; retain exclusion ledger.",
+  "model_score_based_selection": false,
+  "final_population_rule": "All metadata-qualified physical Wi-Fi devices by default; resource-limited subset and count/coverage criteria must be locked before model scores.",
+  "required_ACK": "Direct labeled attack TCP ACK=1,SYN=0 against admitted physical targets; reverse responses/SYN+ACK/simulated-only traffic do not substitute.",
+  "required_UDP": "Direct labeled UDP attack traffic with official event/direction mapping.",
+  "observation_seconds": 7200,
+  "total_download_bytes": null,
+  "destination": {
+    "path": null,
+    "verified_free_bytes": null,
+    "verified_quota_bytes": null,
+    "prefer_personal_HPC_storage_for_large_data": true
+  },
+  "large_download_started": false,
+  "external_evaluation_started": false
+}

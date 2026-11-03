@@ -1,0 +1,104 @@
+{
+  "status": "PASS",
+  "timestamp_utc": "2026-10-17T05:55:48.997285+00:00",
+  "platform": "linux",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "archive_sha256": "0e91afd2ca4e1a3d5ec85e6aa3dd323d80c243568ae4ea74f7d60fe39e925bd4",
+  "actual_remote_access": false,
+  "real_preflight": false,
+  "real_decode": false,
+  "real_e3": false,
+  "real_scoring": false,
+  "real_training": false,
+  "mock_python": true,
+  "mock_scheduler": true,
+  "install": {
+    "returncode": 0,
+    "command": [
+      "/usr/bin/python3",
+      "/mnt/d/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/onboarding_configured_v1_20261017/onboarding_install_v1.py",
+      "install",
+      "--archive",
+      "/mnt/d/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/onboarding_configured_v1_20261017/onboarding_configured_v1_20261017.tar.gz",
+      "--destination",
+      "/mnt/d/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/onboarding_configured_v1_20261017/linux_clean_install"
+    ]
+  },
+  "installed_seal": {
+    "returncode": 0,
+    "command": [
+      "sha256sum",
+      "-c",
+      "SHA256SUMS"
+    ],
+    "verified_files": 135
+  },
+  "bundle_manifest_matches_installed_archive": true,
+  "bundle_seal": {
+    "returncode": 0,
+    "command": [
+      "sha256sum",
+      "-c",
+      "SHA256SUMS"
+    ],
+    "verified_files": 135
+  },
+  "mock_tests": {
+    "tests": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "successful": true,
+    "failure_details": []
+  },
+  "bash_syntax_env.sh": {
+    "returncode": 0,
+    "command": [
+      "bash",
+      "-n",
+      "/mnt/d/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/onboarding_configured_v1_20261017/linux_clean_install/scripts/env.sh"
+    ]
+  },
+  "bash_syntax_run.slurm": {
+    "returncode": 0,
+    "command": [
+      "bash",
+      "-n",
+      "/mnt/d/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/onboarding_configured_v1_20261017/linux_clean_install/scripts/run.slurm"
+    ]
+  },
+  "bash_syntax_submit_logged.sh": {
+    "returncode": 0,
+    "command": [
+      "bash",
+      "-n",
+      "/mnt/d/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/onboarding_configured_v1_20261017/linux_clean_install/scripts/submit_logged.sh"
+    ]
+  },
+  "bash_syntax_submit_once.sh": {
+    "returncode": 0,
+    "command": [
+      "bash",
+      "-n",
+      "/mnt/d/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/onboarding_configured_v1_20261017/linux_clean_install/scripts/submit_once.sh"
+    ]
+  },
+  "bash_syntax": [
+    {
+      "path": "env.sh",
+      "returncode": 0
+    },
+    {
+      "path": "run.slurm",
+      "returncode": 0
+    },
+    {
+      "path": "submit_logged.sh",
+      "returncode": 0
+    },
+    {
+      "path": "submit_once.sh",
+      "returncode": 0
+    }
+  ]
+}

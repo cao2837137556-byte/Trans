@@ -1,0 +1,657 @@
+{
+  "schema": "C4_FINAL_SAVED_RESULT_READOUT_V1",
+  "status": "VERIFIED_COMPLETED_ADOPT_C4_TARGET_2PCT_NOT_MET",
+  "job_id": 180772,
+  "scope": "Existing saved results and receipts only; no new science execution.",
+  "view": "post_window_primary",
+  "head": "ensemble",
+  "evidence": "CONSUMED_DEVELOPMENT_ONLY",
+  "B": {
+    "fp_C3": 8494,
+    "fp_C4": 3606,
+    "repaired": 4888,
+    "relative_fp_reduction_vs_C3_percent": 57.54650341417471,
+    "relative_fp_reduction_vs_RAW_percent": 87.85940340717796,
+    "fp_allowed_for_2pct": 1488,
+    "additional_repairs_needed_for_2pct_without_new_fp": 2118
+  },
+  "views": {
+    "CIC_DEV": {
+      "post_window_primary": {
+        "C3": {
+          "normal_rows": 96041,
+          "fp": 14,
+          "sample_fpr_percent": 0.014577107693589195,
+          "weighted_fpr_percent": 0.7466437332508761,
+          "attack_rows": 79056,
+          "fn": 33,
+          "sample_attack_recall_percent": 99.95825743776562,
+          "weighted_attack_recall_percent": 99.9897806803685
+        },
+        "C4": {
+          "normal_rows": 96041,
+          "fp": 14,
+          "sample_fpr_percent": 0.014577107693589195,
+          "weighted_fpr_percent": 0.7466437332508761,
+          "attack_rows": 79056,
+          "fn": 33,
+          "sample_attack_recall_percent": 99.95825743776562,
+          "weighted_attack_recall_percent": 99.9897806803685
+        },
+        "RAW": {
+          "normal_rows": 96041,
+          "fp": 71,
+          "sample_fpr_percent": 0.07392676044605949,
+          "weighted_fpr_percent": 4.809545610822892,
+          "attack_rows": 79056,
+          "fn": 0,
+          "sample_attack_recall_percent": 100.0,
+          "weighted_attack_recall_percent": 100.0
+        },
+        "devices": [
+          {
+            "device": "Eufy Home Base",
+            "name": "Eufy Home Base",
+            "C3": {
+              "normal_rows": 95369,
+              "fp": 1,
+              "sample_fpr_percent": 0.0010485587559898918,
+              "weighted_fpr_percent": 0.00023191094619666046,
+              "attack_rows": 13507,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            },
+            "C4": {
+              "normal_rows": 95369,
+              "fp": 1,
+              "sample_fpr_percent": 0.0010485587559898918,
+              "weighted_fpr_percent": 0.00023191094619666046,
+              "attack_rows": 13507,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            }
+          },
+          {
+            "device": "HeimVision Camera",
+            "name": "HeimVision Camera",
+            "C3": {
+              "normal_rows": 672,
+              "fp": 13,
+              "sample_fpr_percent": 1.9345238095238095,
+              "weighted_fpr_percent": 1.4930555555555554,
+              "attack_rows": 65549,
+              "fn": 33,
+              "sample_attack_recall_percent": 99.9496559825474,
+              "weighted_attack_recall_percent": 99.97956136073701
+            },
+            "C4": {
+              "normal_rows": 672,
+              "fp": 13,
+              "sample_fpr_percent": 1.9345238095238095,
+              "weighted_fpr_percent": 1.4930555555555554,
+              "attack_rows": 65549,
+              "fn": 33,
+              "sample_attack_recall_percent": 99.9496559825474,
+              "weighted_attack_recall_percent": 99.97956136073701
+            }
+          }
+        ]
+      },
+      "full": {
+        "C3": {
+          "normal_rows": 100830,
+          "fp": 327,
+          "sample_fpr_percent": 0.32430824159476346,
+          "weighted_fpr_percent": 5.171387320792083,
+          "attack_rows": 79056,
+          "fn": 33,
+          "sample_attack_recall_percent": 99.95825743776562,
+          "weighted_attack_recall_percent": 99.9897806803685
+        },
+        "C4": {
+          "normal_rows": 100830,
+          "fp": 327,
+          "sample_fpr_percent": 0.32430824159476346,
+          "weighted_fpr_percent": 5.171387320792083,
+          "attack_rows": 79056,
+          "fn": 33,
+          "sample_attack_recall_percent": 99.95825743776562,
+          "weighted_attack_recall_percent": 99.9897806803685
+        },
+        "RAW": {
+          "normal_rows": 100830,
+          "fp": 384,
+          "sample_fpr_percent": 0.3808390360011901,
+          "weighted_fpr_percent": 6.158177604999902,
+          "attack_rows": 79056,
+          "fn": 0,
+          "sample_attack_recall_percent": 100.0,
+          "weighted_attack_recall_percent": 100.0
+        },
+        "devices": [
+          {
+            "device": "Eufy Home Base",
+            "name": "Eufy Home Base",
+            "C3": {
+              "normal_rows": 99833,
+              "fp": 235,
+              "sample_fpr_percent": 0.23539310648783468,
+              "weighted_fpr_percent": 3.7725585922014493,
+              "attack_rows": 13507,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            },
+            "C4": {
+              "normal_rows": 99833,
+              "fp": 235,
+              "sample_fpr_percent": 0.23539310648783468,
+              "weighted_fpr_percent": 3.7725585922014493,
+              "attack_rows": 13507,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            }
+          },
+          {
+            "device": "HeimVision Camera",
+            "name": "HeimVision Camera",
+            "C3": {
+              "normal_rows": 997,
+              "fp": 92,
+              "sample_fpr_percent": 9.227683049147442,
+              "weighted_fpr_percent": 6.570216049382715,
+              "attack_rows": 65549,
+              "fn": 33,
+              "sample_attack_recall_percent": 99.9496559825474,
+              "weighted_attack_recall_percent": 99.97956136073701
+            },
+            "C4": {
+              "normal_rows": 997,
+              "fp": 92,
+              "sample_fpr_percent": 9.227683049147442,
+              "weighted_fpr_percent": 6.570216049382715,
+              "attack_rows": 65549,
+              "fn": 33,
+              "sample_attack_recall_percent": 99.9496559825474,
+              "weighted_attack_recall_percent": 99.97956136073701
+            }
+          }
+        ]
+      }
+    },
+    "UNSW_DEV": {
+      "post_window_primary": {
+        "C3": {
+          "normal_rows": 74444,
+          "fp": 8494,
+          "sample_fpr_percent": 11.409918865187255,
+          "weighted_fpr_percent": 1.7505261294095176,
+          "attack_rows": 72553,
+          "fn": 5,
+          "sample_attack_recall_percent": 99.99310848621008,
+          "weighted_attack_recall_percent": 99.99463207238121
+        },
+        "C4": {
+          "normal_rows": 74444,
+          "fp": 3606,
+          "sample_fpr_percent": 4.843909515877707,
+          "weighted_fpr_percent": 1.3960939911572945,
+          "attack_rows": 72553,
+          "fn": 5,
+          "sample_attack_recall_percent": 99.99310848621008,
+          "weighted_attack_recall_percent": 99.99463207238121
+        },
+        "RAW": {
+          "normal_rows": 74444,
+          "fp": 29702,
+          "sample_fpr_percent": 39.89844715490839,
+          "weighted_fpr_percent": 23.695673789127643,
+          "attack_rows": 72553,
+          "fn": 5,
+          "sample_attack_recall_percent": 99.99310848621008,
+          "weighted_attack_recall_percent": 99.99463207238121
+        },
+        "devices": [
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "name": "Samsung",
+            "C3": {
+              "normal_rows": 19711,
+              "fp": 2174,
+              "sample_fpr_percent": 11.029374460960884,
+              "weighted_fpr_percent": 1.7802225660426108,
+              "attack_rows": 14506,
+              "fn": 5,
+              "sample_attack_recall_percent": 99.96553150420515,
+              "weighted_attack_recall_percent": 99.97316036190603
+            },
+            "C4": {
+              "normal_rows": 19711,
+              "fp": 831,
+              "sample_fpr_percent": 4.215920044645122,
+              "weighted_fpr_percent": 1.037457041957631,
+              "attack_rows": 14506,
+              "fn": 5,
+              "sample_attack_recall_percent": 99.96553150420515,
+              "weighted_attack_recall_percent": 99.97316036190603
+            }
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "name": "TP Link",
+            "C3": {
+              "normal_rows": 2597,
+              "fp": 53,
+              "sample_fpr_percent": 2.0408163265306123,
+              "weighted_fpr_percent": 1.2940604858320568,
+              "attack_rows": 14604,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            },
+            "C4": {
+              "normal_rows": 2597,
+              "fp": 47,
+              "sample_fpr_percent": 1.809780515979977,
+              "weighted_fpr_percent": 1.2908948937080498,
+              "attack_rows": 14604,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            }
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "name": "Netatmo",
+            "C3": {
+              "normal_rows": 19879,
+              "fp": 4309,
+              "sample_fpr_percent": 21.676140650938176,
+              "weighted_fpr_percent": 1.0125572772809495,
+              "attack_rows": 14377,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            },
+            "C4": {
+              "normal_rows": 19879,
+              "fp": 1157,
+              "sample_fpr_percent": 5.820212284320137,
+              "weighted_fpr_percent": 0.6145090215293123,
+              "attack_rows": 14377,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            }
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "name": "WEMO Power",
+            "C3": {
+              "normal_rows": 13028,
+              "fp": 1865,
+              "sample_fpr_percent": 14.315320847405587,
+              "weighted_fpr_percent": 3.4781118972414142,
+              "attack_rows": 14513,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            },
+            "C4": {
+              "normal_rows": 13028,
+              "fp": 1478,
+              "sample_fpr_percent": 11.344795824378263,
+              "weighted_fpr_percent": 2.849930577940922,
+              "attack_rows": 14513,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            }
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "name": "WEMO Motion",
+            "C3": {
+              "normal_rows": 19229,
+              "fp": 93,
+              "sample_fpr_percent": 0.483644495293567,
+              "weighted_fpr_percent": 1.1876784206505568,
+              "attack_rows": 14553,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            },
+            "C4": {
+              "normal_rows": 19229,
+              "fp": 93,
+              "sample_fpr_percent": 0.483644495293567,
+              "weighted_fpr_percent": 1.1876784206505568,
+              "attack_rows": 14553,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            }
+          }
+        ]
+      },
+      "full": {
+        "C3": {
+          "normal_rows": 75763,
+          "fp": 9036,
+          "sample_fpr_percent": 11.926666050710768,
+          "weighted_fpr_percent": 2.1002766747546415,
+          "attack_rows": 72553,
+          "fn": 5,
+          "sample_attack_recall_percent": 99.99310848621008,
+          "weighted_attack_recall_percent": 99.99463207238121
+        },
+        "C4": {
+          "normal_rows": 75763,
+          "fp": 4148,
+          "sample_fpr_percent": 5.474967992291751,
+          "weighted_fpr_percent": 1.7482977656728709,
+          "attack_rows": 72553,
+          "fn": 5,
+          "sample_attack_recall_percent": 99.99310848621008,
+          "weighted_attack_recall_percent": 99.99463207238121
+        },
+        "RAW": {
+          "normal_rows": 75763,
+          "fp": 30244,
+          "sample_fpr_percent": 39.91922178372029,
+          "weighted_fpr_percent": 23.656661183336862,
+          "attack_rows": 72553,
+          "fn": 5,
+          "sample_attack_recall_percent": 99.99310848621008,
+          "weighted_attack_recall_percent": 99.99463207238121
+        },
+        "devices": [
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "name": "Samsung",
+            "C3": {
+              "normal_rows": 20000,
+              "fp": 2249,
+              "sample_fpr_percent": 11.245,
+              "weighted_fpr_percent": 1.8176468426184713,
+              "attack_rows": 14506,
+              "fn": 5,
+              "sample_attack_recall_percent": 99.96553150420515,
+              "weighted_attack_recall_percent": 99.97316036190603
+            },
+            "C4": {
+              "normal_rows": 20000,
+              "fp": 906,
+              "sample_fpr_percent": 4.53,
+              "weighted_fpr_percent": 1.0815428927405317,
+              "attack_rows": 14506,
+              "fn": 5,
+              "sample_attack_recall_percent": 99.96553150420515,
+              "weighted_attack_recall_percent": 99.97316036190603
+            }
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "name": "TP Link",
+            "C3": {
+              "normal_rows": 2680,
+              "fp": 75,
+              "sample_fpr_percent": 2.798507462686567,
+              "weighted_fpr_percent": 1.5237292166771195,
+              "attack_rows": 14604,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            },
+            "C4": {
+              "normal_rows": 2680,
+              "fp": 69,
+              "sample_fpr_percent": 2.574626865671642,
+              "weighted_fpr_percent": 1.520627575909153,
+              "attack_rows": 14604,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            }
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "name": "Netatmo",
+            "C3": {
+              "normal_rows": 20000,
+              "fp": 4381,
+              "sample_fpr_percent": 21.905,
+              "weighted_fpr_percent": 1.5170065569079938,
+              "attack_rows": 14377,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            },
+            "C4": {
+              "normal_rows": 20000,
+              "fp": 1229,
+              "sample_fpr_percent": 6.145,
+              "weighted_fpr_percent": 1.1243685137816395,
+              "attack_rows": 14377,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            }
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "name": "WEMO Power",
+            "C3": {
+              "normal_rows": 13083,
+              "fp": 1865,
+              "sample_fpr_percent": 14.255140258350533,
+              "weighted_fpr_percent": 3.4775902665858163,
+              "attack_rows": 14513,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            },
+            "C4": {
+              "normal_rows": 13083,
+              "fp": 1478,
+              "sample_fpr_percent": 11.297103110907285,
+              "weighted_fpr_percent": 2.849539354949224,
+              "attack_rows": 14513,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            }
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "name": "WEMO Motion",
+            "C3": {
+              "normal_rows": 20000,
+              "fp": 466,
+              "sample_fpr_percent": 2.33,
+              "weighted_fpr_percent": 2.1654104909838057,
+              "attack_rows": 14553,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            },
+            "C4": {
+              "normal_rows": 20000,
+              "fp": 466,
+              "sample_fpr_percent": 2.33,
+              "weighted_fpr_percent": 2.1654104909838057,
+              "attack_rows": 14553,
+              "fn": 0,
+              "sample_attack_recall_percent": 100.0,
+              "weighted_attack_recall_percent": 100.0
+            }
+          }
+        ]
+      }
+    }
+  },
+  "safety": {
+    "gates": [
+      {
+        "pool": "CIC_DEV",
+        "view": "full",
+        "head": "127",
+        "status": "PASS"
+      },
+      {
+        "pool": "CIC_DEV",
+        "view": "full",
+        "head": "227",
+        "status": "PASS"
+      },
+      {
+        "pool": "CIC_DEV",
+        "view": "full",
+        "head": "27",
+        "status": "PASS"
+      },
+      {
+        "pool": "CIC_DEV",
+        "view": "full",
+        "head": "ensemble",
+        "status": "PASS"
+      },
+      {
+        "pool": "CIC_DEV",
+        "view": "post_window_primary",
+        "head": "127",
+        "status": "PASS"
+      },
+      {
+        "pool": "CIC_DEV",
+        "view": "post_window_primary",
+        "head": "227",
+        "status": "PASS"
+      },
+      {
+        "pool": "CIC_DEV",
+        "view": "post_window_primary",
+        "head": "27",
+        "status": "PASS"
+      },
+      {
+        "pool": "CIC_DEV",
+        "view": "post_window_primary",
+        "head": "ensemble",
+        "status": "PASS"
+      },
+      {
+        "pool": "UNSW_DEV",
+        "view": "full",
+        "head": "127",
+        "status": "PASS"
+      },
+      {
+        "pool": "UNSW_DEV",
+        "view": "full",
+        "head": "227",
+        "status": "PASS"
+      },
+      {
+        "pool": "UNSW_DEV",
+        "view": "full",
+        "head": "27",
+        "status": "PASS"
+      },
+      {
+        "pool": "UNSW_DEV",
+        "view": "full",
+        "head": "ensemble",
+        "status": "PASS"
+      },
+      {
+        "pool": "UNSW_DEV",
+        "view": "post_window_primary",
+        "head": "127",
+        "status": "PASS"
+      },
+      {
+        "pool": "UNSW_DEV",
+        "view": "post_window_primary",
+        "head": "227",
+        "status": "PASS"
+      },
+      {
+        "pool": "UNSW_DEV",
+        "view": "post_window_primary",
+        "head": "27",
+        "status": "PASS"
+      },
+      {
+        "pool": "UNSW_DEV",
+        "view": "post_window_primary",
+        "head": "ensemble",
+        "status": "PASS"
+      }
+    ],
+    "new_B_attack_withdrawals_vs_C3": 0,
+    "new_normal_regressions_all_heads": 0,
+    "A_byte_identical_to_C3": true,
+    "untouched_exact": true
+  },
+  "dev": {
+    "after_fp": 2219,
+    "before_fp": 5921,
+    "failures": [],
+    "groups": [
+      {
+        "after_fp": 185,
+        "before_fp": 196,
+        "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+        "rows": 4096
+      },
+      {
+        "after_fp": 3,
+        "before_fp": 10,
+        "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+        "rows": 4096
+      },
+      {
+        "after_fp": 29,
+        "before_fp": 3712,
+        "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+        "rows": 4096
+      },
+      {
+        "after_fp": 2002,
+        "before_fp": 2003,
+        "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+        "rows": 4096
+      }
+    ],
+    "no_AB_loaded": true,
+    "rows": 16384,
+    "status": "PASS_DEV"
+  },
+  "resources": {
+    "distance_pairs": 988569299,
+    "pair_limit": 1000000000,
+    "cumulative_wall_seconds": 40235.79058704007,
+    "amended_wall_limit_seconds": 46861,
+    "charged_encoded_rows": 37442,
+    "unique_durable_encoded_population": 32768,
+    "charged_rows_are_not_unique_population": true
+  },
+  "contract": {
+    "method_frozen": true,
+    "no_further_AB_search": true,
+    "target_2pct_met": false,
+    "new_training": 0
+  },
+  "input_sha256": {
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/evaluation/RESULT.json": "bb34321aeb54b05151ecf3d57f5a35a4f596381f6c9036e80c09cbd3796e1a75",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/FINAL_ACCEPTANCE.json": "ca4d036de457c4d1493b28122c4a24b7b550c353403d6ec86639597edfb54949",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/verification/RESULT.json": "bc8da0a5317f24610a14669c2be9acaa86cf9d25ab10c02532a3b08cdf0c28be",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/evaluation/dev/GATE.json": "3b0ddf248e60e8dec23c434df2ec8148d173558ad09016532b4c02812ffe2e20",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/EXECUTION_CARD.json": "a37cc58027e554980a3962db99fb3fbc79cc904f91229623f1efc2b501b68614",
+    "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/RESULT.json": "cbedc30311604b0f168a967619982054249568299321e1985cf6fd054f276f8c"
+  }
+}

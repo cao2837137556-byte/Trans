@@ -1,0 +1,55 @@
+{
+  "status": "SELECTOR_IMPLEMENTED_RAW_READY_FULL_RUNNER_PENDING",
+  "candidate": "C4_HISTORY_SAMPLE_COVERAGE_TOPUP",
+  "source_inputs_for_integration": {
+    "unsw-attack-traces-2018:50:c7:bf:00:56:39": {
+      "raw_sha256": "45d1bd14569950ab6c356bac70a7870b2a0d98a4efc8e3e6d2310ef422e212f5",
+      "raw_path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\raw_selected\\TPLinkSmartPlug_50c7bf005639.pcap",
+      "owner": "50:c7:bf:00:56:39",
+      "reference_end_us": 1480856333261023,
+      "bank_end_frame": 66004
+    },
+    "unsw-attack-traces-2018:ec:1a:59:79:f4:89": {
+      "raw_sha256": "445b24a2555bd4af7991e83752ad63aba1cd9f1c96e7cbbd76da6a81b6dcbc64",
+      "raw_path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\raw_selected\\BelkinWemoSwitch_ec1a5979f489.pcap",
+      "owner": "ec:1a:59:79:f4:89",
+      "reference_end_us": 1484092799863312,
+      "bank_end_frame": 3430150
+    },
+    "unsw-attack-traces-2018:00:16:6c:ab:6b:88": {
+      "raw_sha256": "55fbfcbb4f5dce65ac51a41658550e087da1d1e2b30370386eb167c4d9dfedf9",
+      "raw_path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\raw_selected\\SamsungCamera_00166cab6b88.pcap",
+      "owner": "00:16:6c:ab:6b:88",
+      "reference_end_us": 1490054396682107,
+      "bank_end_frame": 4419000
+    },
+    "unsw-attack-traces-2018:70:ee:50:18:34:43": {
+      "raw_sha256": "e4eb79d34e3e45e3de71190ce65a2449be4989d663a6e13d7f26b4e928d13006",
+      "raw_path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\raw_selected\\NetatmoWelcome_70ee50183443.pcap",
+      "owner": "70:ee:50:18:34:43",
+      "reference_end_us": 1485907186758350,
+      "bank_end_frame": 3766102
+    }
+  },
+  "cap_per_device_protocol": 4096,
+  "maximum_new_references": 32768,
+  "tests": {
+    "passed": 8,
+    "command": "python -X utf8 -B -m unittest -v test_selection",
+    "data": "synthetic only"
+  },
+  "code_sha256": {
+    "selection.py": "12192e3924aa6c4aab3a8589070ba50687c0cc6ceb26047998a4fb15f170e741",
+    "test_selection.py": "9a9de8a57969bce437b5a4c13939fa226218891ca1bc642863e830bb0cf8aee5"
+  },
+  "complete_runner": false,
+  "new_model_forwards": 0,
+  "new_AB_evaluations": 0,
+  "remote_submissions": 0,
+  "remaining": [
+    "Integrate complete legal endpoint census with disk-backed global UID/origin uniqueness.",
+    "Create selected snapshots and encode new references plus Netatmo historical DEV with frozen HPC runtime.",
+    "Integrate historical DEV comparison, immutable C3 union, full A/B and stricter B attack gate.",
+    "Calculate exact resource budget and validate full runner before submission."
+  ]
+}

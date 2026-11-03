@@ -1,0 +1,144 @@
+{
+  "status": "PASS",
+  "created_utc": "2026-10-27T14:31:35.530223+00:00",
+  "script_sha256": "fc6e69e41de92603f565d54dae5a0fb65bae18d32c9b0acf0a70f4b8601da1b9",
+  "source_cal_rows": 148819,
+  "normal_rows": 33147,
+  "attack_rows": 115672,
+  "baseline": {
+    "27": {
+      "weighted_fpr_percent": 0.9755209847071766,
+      "raw_fp": 239,
+      "normal_rows": 33147
+    },
+    "127": {
+      "weighted_fpr_percent": 0.9112727279654118,
+      "raw_fp": 101,
+      "normal_rows": 33147
+    },
+    "227": {
+      "weighted_fpr_percent": 0.9581074128220254,
+      "raw_fp": 176,
+      "normal_rows": 33147
+    },
+    "ensemble": {
+      "weighted_fpr_percent": 0.974305262004952,
+      "raw_fp": 240,
+      "normal_rows": 33147
+    }
+  },
+  "arms": {
+    "R-B2": {
+      "main_epsilon_pp": 0.1,
+      "selected_lambda": 0.25,
+      "budget_acceptance": {
+        "passes": true,
+        "failures": []
+      },
+      "suffixes": {
+        "27": {
+          "normal_fp_reduction_pp_saved_summary": 0.8312728756572314,
+          "corrected_fpr_percent_derived_from_summaries": 0.14424810904994523,
+          "baseline_attack_recall_percent": 100.0,
+          "protected_attack_recall_percent": 100.0,
+          "attack_recall_loss_pp": 0.0,
+          "added_fn_count": 0,
+          "max_device_attack_recall_loss_pp": 0.0,
+          "max_annotation_attack_recall_loss_pp": 0.0
+        },
+        "127": {
+          "normal_fp_reduction_pp_saved_summary": 0.8256637074258314,
+          "corrected_fpr_percent_derived_from_summaries": 0.08560902053958042,
+          "baseline_attack_recall_percent": 100.0,
+          "protected_attack_recall_percent": 100.0,
+          "attack_recall_loss_pp": 0.0,
+          "added_fn_count": 0,
+          "max_device_attack_recall_loss_pp": 0.0,
+          "max_annotation_attack_recall_loss_pp": 0.0
+        },
+        "227": {
+          "normal_fp_reduction_pp_saved_summary": 0.8287114002473953,
+          "corrected_fpr_percent_derived_from_summaries": 0.12939601257463007,
+          "baseline_attack_recall_percent": 100.0,
+          "protected_attack_recall_percent": 100.0,
+          "attack_recall_loss_pp": 0.0,
+          "added_fn_count": 0,
+          "max_device_attack_recall_loss_pp": 0.0,
+          "max_annotation_attack_recall_loss_pp": 0.0
+        },
+        "ensemble": {
+          "normal_fp_reduction_pp_saved_summary": 0.8314083883849237,
+          "corrected_fpr_percent_derived_from_summaries": 0.14289687362002834,
+          "baseline_attack_recall_percent": 100.0,
+          "protected_attack_recall_percent": 100.0,
+          "attack_recall_loss_pp": 0.0,
+          "added_fn_count": 0,
+          "max_device_attack_recall_loss_pp": 0.0,
+          "max_annotation_attack_recall_loss_pp": 0.0
+        }
+      }
+    },
+    "R-DENSE": {
+      "main_epsilon_pp": 0.1,
+      "selected_lambda": 0.25,
+      "budget_acceptance": {
+        "passes": true,
+        "failures": []
+      },
+      "suffixes": {
+        "27": {
+          "normal_fp_reduction_pp_saved_summary": 0.8377163081358047,
+          "corrected_fpr_percent_derived_from_summaries": 0.13780467657137196,
+          "baseline_attack_recall_percent": 100.0,
+          "protected_attack_recall_percent": 100.0,
+          "attack_recall_loss_pp": 0.0,
+          "added_fn_count": 0,
+          "max_device_attack_recall_loss_pp": 0.0,
+          "max_annotation_attack_recall_loss_pp": 0.0
+        },
+        "127": {
+          "normal_fp_reduction_pp_saved_summary": 0.8286830598978624,
+          "corrected_fpr_percent_derived_from_summaries": 0.08258966806754942,
+          "baseline_attack_recall_percent": 100.0,
+          "protected_attack_recall_percent": 100.0,
+          "attack_recall_loss_pp": 0.0,
+          "added_fn_count": 0,
+          "max_device_attack_recall_loss_pp": 0.0,
+          "max_annotation_attack_recall_loss_pp": 0.0
+        },
+        "227": {
+          "normal_fp_reduction_pp_saved_summary": 0.8340246539510517,
+          "corrected_fpr_percent_derived_from_summaries": 0.12408275887097364,
+          "baseline_attack_recall_percent": 100.0,
+          "protected_attack_recall_percent": 100.0,
+          "attack_recall_loss_pp": 0.0,
+          "added_fn_count": 0,
+          "max_device_attack_recall_loss_pp": 0.0,
+          "max_annotation_attack_recall_loss_pp": 0.0
+        },
+        "ensemble": {
+          "normal_fp_reduction_pp_saved_summary": 0.8386976117846364,
+          "corrected_fpr_percent_derived_from_summaries": 0.13560765022031562,
+          "baseline_attack_recall_percent": 100.0,
+          "protected_attack_recall_percent": 100.0,
+          "attack_recall_loss_pp": 0.0,
+          "added_fn_count": 0,
+          "max_device_attack_recall_loss_pp": 0.0,
+          "max_annotation_attack_recall_loss_pp": 0.0
+        }
+      }
+    }
+  },
+  "dense_additional_normal_fpr_reduction_pp": {
+    "27": 0.006443432478573263,
+    "127": 0.0030193524720310005,
+    "227": 0.005313253703656429,
+    "ensemble": 0.007289223399712719
+  },
+  "qualifications": [
+    "Baseline FPR reconstructed directly from saved original decisions and frozen hierarchical normal weights.",
+    "Corrected normal FPR derived by subtracting the saved weighted FP-reduction summary; corrected query support, UIDs, scores and raw corrected FP counts were not persisted or independently reconstructed.",
+    "Attack protection is the conservative union of withdrawals across legal source donors; source CAL safety does not guarantee target safety.",
+    "No model forward, distance/CAL recomputation, training, or target evaluation occurred."
+  ]
+}

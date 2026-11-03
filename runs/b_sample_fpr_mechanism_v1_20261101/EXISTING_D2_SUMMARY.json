@@ -1,0 +1,51 @@
+{
+  "status": "SAVED_TRACE_SUMMARY",
+  "new_distances": 0,
+  "groups": {
+    "P4_WEMO_POWER_RESIDUAL": {
+      "rows": 1024,
+      "z_limiter": 810,
+      "q_limiter": 214,
+      "any_direction_mismatch": 235,
+      "any_flags_mismatch": 92
+    },
+    "P4_WEMO_POWER_RESCUED": {
+      "rows": 1024,
+      "z_limiter": 928,
+      "q_limiter": 96,
+      "any_direction_mismatch": 102,
+      "any_flags_mismatch": 31
+    },
+    "P4_SAMSUNG_RESIDUAL": {
+      "rows": 1024,
+      "z_limiter": 444,
+      "q_limiter": 580,
+      "any_direction_mismatch": 574,
+      "any_flags_mismatch": 155
+    },
+    "P4_SAMSUNG_RESCUED": {
+      "rows": 1024,
+      "z_limiter": 814,
+      "q_limiter": 210,
+      "any_direction_mismatch": 347,
+      "any_flags_mismatch": 141
+    },
+    "P4_TP_LINK_RESIDUAL": {
+      "rows": 53,
+      "z_limiter": 48,
+      "q_limiter": 5,
+      "any_direction_mismatch": 2,
+      "any_flags_mismatch": 3
+    },
+    "P4_TP_LINK_RESCUED": {
+      "rows": 172,
+      "z_limiter": 172,
+      "q_limiter": 0,
+      "any_direction_mismatch": 0,
+      "any_flags_mismatch": 0
+    }
+  },
+  "input_path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\history_normal_reference_d2_trace_v1_20261031\\output\\NEIGHBORS.jsonl.gz",
+  "input_sha256": "1b8b2e5fff259b5baa2b99b292a7b2942e864419c0d813311c6b74ccf6237ded",
+  "warning": "Descriptive matched-pair samples; direction/flags mismatch is not a demonstrated cause and does not authorize metric removal."
+}

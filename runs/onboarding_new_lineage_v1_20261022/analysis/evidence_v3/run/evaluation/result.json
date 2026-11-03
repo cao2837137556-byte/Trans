@@ -1,0 +1,967 @@
+{
+  "status": "COMPLETE",
+  "scientific_decisions": {
+    "OLD_BANK": {
+      "status": "FAIL",
+      "pools": {
+        "CIC_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:Eufy Home Base",
+            "DEVICE_FPR_2:HeimVision Camera"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        },
+        "UNSW_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:83:28:11"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      },
+      "missing_evidence": [
+        "CIC_THREE_DEVICE_REGRESSION_CONSUMED"
+      ],
+      "attack_group_protection": [
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "27",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "127",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "227",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "ensemble",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "27",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "127",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "227",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "ensemble",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "27",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "127",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "227",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "ensemble",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "27",
+          "rows": 56971,
+          "baseline_recall": 0.9996487404560046,
+          "candidate_recall": 1.0,
+          "drop": -0.00035125954399539694,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "127",
+          "rows": 56971,
+          "baseline_recall": 0.9999609039017905,
+          "candidate_recall": 0.9996682885051091,
+          "drop": 0.0002926153966813505,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "227",
+          "rows": 56971,
+          "baseline_recall": 0.999975564938619,
+          "candidate_recall": 0.9999902259754476,
+          "drop": -1.466103682856712e-05,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "ensemble",
+          "rows": 56971,
+          "baseline_recall": 0.9999706779263429,
+          "candidate_recall": 1.0,
+          "drop": -2.932207365713424e-05,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "27",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "127",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "227",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "ensemble",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        }
+      ],
+      "independent_confirmation": "NOT_RUN",
+      "automatic_promotion": false,
+      "status_scope": "Fixed development/regression gates only; not independent confirmation or proof of module benefit"
+    },
+    "B0": {
+      "status": "FAIL",
+      "pools": {
+        "CIC_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:Eufy Home Base",
+            "DEVICE_FPR_2:HeimVision Camera"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        },
+        "UNSW_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:83:28:11"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      },
+      "missing_evidence": [
+        "CIC_THREE_DEVICE_REGRESSION_CONSUMED"
+      ],
+      "attack_group_protection": [
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "27",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "127",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "227",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "ensemble",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "27",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "127",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "227",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "ensemble",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "27",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "127",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "227",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "ensemble",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "27",
+          "rows": 56971,
+          "baseline_recall": 0.9996487404560046,
+          "candidate_recall": 1.0,
+          "drop": -0.00035125954399539694,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "127",
+          "rows": 56971,
+          "baseline_recall": 0.9999609039017905,
+          "candidate_recall": 0.9996682885051091,
+          "drop": 0.0002926153966813505,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "227",
+          "rows": 56971,
+          "baseline_recall": 0.999975564938619,
+          "candidate_recall": 0.9999902259754476,
+          "drop": -1.466103682856712e-05,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "ensemble",
+          "rows": 56971,
+          "baseline_recall": 0.9999706779263429,
+          "candidate_recall": 1.0,
+          "drop": -2.932207365713424e-05,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "27",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "127",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "227",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "ensemble",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        }
+      ],
+      "independent_confirmation": "NOT_RUN",
+      "automatic_promotion": false,
+      "status_scope": "Fixed development/regression gates only; not independent confirmation or proof of module benefit"
+    },
+    "B1": {
+      "status": "FAIL",
+      "pools": {
+        "CIC_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:Eufy Home Base",
+            "DEVICE_FPR_2:HeimVision Camera"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        },
+        "UNSW_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:83:28:11"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      },
+      "missing_evidence": [
+        "CIC_THREE_DEVICE_REGRESSION_CONSUMED"
+      ],
+      "attack_group_protection": [
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "27",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "127",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "227",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "ensemble",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "27",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "127",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "227",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "ensemble",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "27",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "127",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "227",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "ensemble",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "27",
+          "rows": 56971,
+          "baseline_recall": 0.9996487404560046,
+          "candidate_recall": 1.0,
+          "drop": -0.00035125954399539694,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "127",
+          "rows": 56971,
+          "baseline_recall": 0.9999609039017905,
+          "candidate_recall": 0.9996682885051091,
+          "drop": 0.0002926153966813505,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "227",
+          "rows": 56971,
+          "baseline_recall": 0.999975564938619,
+          "candidate_recall": 0.9999902259754476,
+          "drop": -1.466103682856712e-05,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "ensemble",
+          "rows": 56971,
+          "baseline_recall": 0.9999706779263429,
+          "candidate_recall": 1.0,
+          "drop": -2.932207365713424e-05,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "27",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "127",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "227",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "ensemble",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        }
+      ],
+      "independent_confirmation": "NOT_RUN",
+      "automatic_promotion": false,
+      "status_scope": "Fixed development/regression gates only; not independent confirmation or proof of module benefit"
+    },
+    "B2": {
+      "status": "FAIL",
+      "pools": {
+        "CIC_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:Eufy Home Base",
+            "DEVICE_FPR_2:HeimVision Camera"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        },
+        "UNSW_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:83:28:11"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      },
+      "missing_evidence": [
+        "CIC_THREE_DEVICE_REGRESSION_CONSUMED"
+      ],
+      "attack_group_protection": [
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "27",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "127",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "227",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "TCP",
+          "suffix": "ensemble",
+          "rows": 102600,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "27",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "127",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "227",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "UDP",
+          "suffix": "ensemble",
+          "rows": 12859,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "27",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "127",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "227",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CAL",
+          "group": "Hydra",
+          "suffix": "ensemble",
+          "rows": 213,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "27",
+          "rows": 56971,
+          "baseline_recall": 0.9996487404560046,
+          "candidate_recall": 1.0,
+          "drop": -0.00035125954399539694,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "127",
+          "rows": 56971,
+          "baseline_recall": 0.9999609039017905,
+          "candidate_recall": 0.9996682885051091,
+          "drop": 0.0002926153966813505,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "227",
+          "rows": 56971,
+          "baseline_recall": 0.999975564938619,
+          "candidate_recall": 0.9999902259754476,
+          "drop": -1.466103682856712e-05,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "6",
+          "suffix": "ensemble",
+          "rows": 56971,
+          "baseline_recall": 0.9999706779263429,
+          "candidate_recall": 1.0,
+          "drop": -2.932207365713424e-05,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "27",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "127",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "227",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        },
+        {
+          "pool": "CIC_DEV",
+          "group": "17",
+          "suffix": "ensemble",
+          "rows": 22085,
+          "baseline_recall": 1.0,
+          "candidate_recall": 1.0,
+          "drop": 0.0,
+          "status": "PASS"
+        }
+      ],
+      "independent_confirmation": "NOT_RUN",
+      "automatic_promotion": false,
+      "status_scope": "Fixed development/regression gates only; not independent confirmation or proof of module benefit"
+    }
+  },
+  "selected_lambda": 0.25,
+  "synthetic_only": false,
+  "optimizer_updates": 0,
+  "retries": 0,
+  "missing_bank_policies": {
+    "CIC_DEV": [],
+    "UNSW_DEV": []
+  },
+  "independent_confirmation": "NOT_RUN",
+  "automatic_model_selection": false
+}

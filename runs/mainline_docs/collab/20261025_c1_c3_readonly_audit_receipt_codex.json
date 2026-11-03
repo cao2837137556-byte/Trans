@@ -1,0 +1,456 @@
+{
+  "schema": "claude-c1-c3-readonly-completion-v1",
+  "created_utc": "2026-10-25T06:45:32.020825+00:00",
+  "technical_acceptance": "PASS",
+  "status": "COMPLETE",
+  "system": "QUERY_TAIL seeds 27/127/227 and ensemble + V3 + B2",
+  "main_plan": {
+    "path": "runs/mainline_docs/collab/20261025_main_plan_claude.md",
+    "bytes": 8682,
+    "sha256": "e44b56574558c9526b46bf8f3035b745e031034648c7c4a42d295f5a0823bfaf"
+  },
+  "scope": {
+    "model_forwards": 0,
+    "optimizer_updates": 0,
+    "new_e3_rows": 0,
+    "remote_access": false,
+    "original_experiment_changes": false,
+    "original_cuts_or_lambda_changed": false,
+    "stage2_started": false
+  },
+  "C1": {
+    "status": "COMPLETE",
+    "result": {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c1/C1_RESULT.json",
+      "bytes": 56595,
+      "sha256": "dfee955f14322dcdf51045728f7beadd5dfd7f33aaef94621d804e893636ffc7"
+    },
+    "A_full_FPR": 0.06143710012407311,
+    "A_after_FPR": 0.04751675240452523,
+    "B_full_FPR": 0.16593484759395416,
+    "B_after_FPR": 0.16482114921761126,
+    "finding": "A 313 reference-not-ready FP all predate t0; actual two-hour window FP=0"
+  },
+  "C2": {
+    "status": "COMPLETE",
+    "result": {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/RESULT.json",
+      "bytes": 957800,
+      "sha256": "832d4b5d9272937e872f8f1c0977cffeded5ff3256a568e810993904c1c4c2b9"
+    },
+    "branch_condition": "NOT_SUPPORTED",
+    "finding": "B other-ineligible TCP FP 10070; 47 repeat window component; FP weight share .158465 percent"
+  },
+  "C3": {
+    "status": "COMPLETE",
+    "result": {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c3/RESULT.json",
+      "bytes": 88094,
+      "sha256": "e913eb404ff5f61655190deefcd3a5cd0c93169219910e70443c0391f2bb1117"
+    },
+    "aggregate": {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c3/AGGREGATE.json",
+      "bytes": 36354,
+      "sha256": "28229df16d480161f879c80506f0d045b157959cc2f3560794e211e67f33c3ac"
+    },
+    "unique_queries": 55991,
+    "additional_ensemble_fixed_fp": 7208,
+    "fixed_original_normal_weight": 0.05619990876608716,
+    "newly_supported_attack_tp": 824,
+    "new_fn_by_suffix": {
+      "27": 3,
+      "127": 1,
+      "227": 3,
+      "ensemble": 3
+    },
+    "branch_condition": "FAIL_ATTACK_SUPPORT_AND_ZERO_ADDED_FN",
+    "result_scope": "three-device saved-output diagnostic; not a calibrated or accepted new system"
+  },
+  "all_declared_inputs_rehashed_unchanged": true,
+  "unique_input_files": 45,
+  "inputs": [
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/cuts.json",
+      "bytes": 193,
+      "sha256": "d4c391302d2d32c5d8813a45612b6f4203468e4b52bbd58233cbd6f274c84bbd"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/input_identity.json",
+      "bytes": 3383,
+      "sha256": "f47c6ade25faf78db818d7bd11d10129ee7a95b0e540c392f5c4680965cd135c"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/SHA256SUMS",
+      "bytes": 6678,
+      "sha256": "b93fe266c91a3f23cadfea351479b8e059fa39c44cdfa6231331fdbf88904d58"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/SHA256SUMS",
+      "bytes": 1227,
+      "sha256": "db6a360fb34929e02ed4a6aafc401c5a4c0d679ebcc1c2e4580c8c7f3ea7d93b"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/frozen_onboarding/repo/ood/legacy_qref_data_v1.py",
+      "bytes": 6829,
+      "sha256": "dc575ff12529e1b3dd9e7062d4f05b34dcf1f11c323573fea134d958622c59f5"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/frozen_onboarding/repo/ood/legacy_unsw_archival_data_v1.py",
+      "bytes": 13599,
+      "sha256": "8e853545f9dcdfa364f863a0a9e1e65e82c9729060ed7fe18765e870fb775ea7"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/frozen_onboarding/repo/ood/continuous_data_v3.py",
+      "bytes": 11528,
+      "sha256": "b5d1b0f0bd4e0adfbc4287eee457285ea4b8b24d7bf1c2e9cbd694f87c9ce491"
+    },
+    {
+      "path": "runs/onboarding_new_lineage_v1_20261022/package_v3/constrained_onboarding_core_v3.py",
+      "bytes": 28261,
+      "sha256": "42a32e0b829a373a96046d34d16bcb53455f99f1bc0786a8a49be38bc855f72c"
+    },
+    {
+      "path": "runs/mainline_docs/collab/20261025_main_plan_claude.md",
+      "bytes": 8682,
+      "sha256": "e44b56574558c9526b46bf8f3035b745e031034648c7c4a42d295f5a0823bfaf"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV.jsonl.gz",
+      "bytes": 20489530,
+      "sha256": "666c2e2dc648ab539b8e2bb5e1b1fb8fee8cd3bf92223a72d6631fc4c851f64f"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/CIC_DEV/B2/decisions.npz",
+      "bytes": 47490644,
+      "sha256": "f571301815baccac854e6ff2a7107c61cfa20de9dd79f892bb7c9538c34c0ea2"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/CIC_DEV/B2/trace.jsonl.gz",
+      "bytes": 23236660,
+      "sha256": "90fa99a045a1ce0e9846b8200e424fd2a695042cefa37f26cbe31bdc12edf312"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/CIC_DEV/B2/bank.json",
+      "bytes": 10914,
+      "sha256": "7ae5fd94a8d5511f466bcb2144d5d5f0cba75d0c2faaa64d5abd937d5c85dbb1"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/encoded/CIC_DEV/B2/receipt.json",
+      "bytes": 4652,
+      "sha256": "628ac3953d1be38233b957164bfcaecda3b1d6a1dc947770d5b79b98afe0f145"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV.jsonl.gz",
+      "bytes": 16428540,
+      "sha256": "d334f18c3a2857fe8b63f491fd78ba3dc984bbd0fa7a55a4f030d9e797098503"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/UNSW_DEV/B2/decisions.npz",
+      "bytes": 39156164,
+      "sha256": "c00873561bd671a0e1705e02ca63b9b3f902b0146b0589e47b27321a4850c0c4"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/UNSW_DEV/B2/trace.jsonl.gz",
+      "bytes": 21593737,
+      "sha256": "ea748602083ad5a2785627820867ee6b41ea7ef8affb80227b69a0cefc1fbf15"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/UNSW_DEV/B2/bank.json",
+      "bytes": 19550,
+      "sha256": "e1c0c1181606f9fb6a694ff2e5796f63538922f477d9850f5309393b3de1297d"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/encoded/UNSW_DEV/B2/receipt.json",
+      "bytes": 4654,
+      "sha256": "c8d7f6c4f7f604cd44b418b56496e472ba21ce3c08a1f0a45ecf4c27c3be7b3a"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/encoded/CIC_DEV/B2/references.jsonl.gz",
+      "bytes": 10147,
+      "sha256": "24f56d0e131a635aeea3de69a4f991a3ac9ffc45b78666c5cc12307da9ac4448"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/CIC_DEV/prepared/B2/candidates.jsonl.gz",
+      "bytes": 50286,
+      "sha256": "99f8ed429ff1b70947641b38086992713863ca8c823d3184a6b1293b223a6180"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/CIC_DEV/prepared/B2/census_receipt.json",
+      "bytes": 4287,
+      "sha256": "d7c46b9d4d54f8f70b377867f2528899d7bff8beae937b2cee84bad0b261dafc"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/CIC_DEV/prepared/B2/banks.json",
+      "bytes": 5776,
+      "sha256": "29914d62fbf45defc5fda946530f104aac76425b484e1ba762131a048e7793e4"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/CIC_DEV/prepared/B2/receipt.json",
+      "bytes": 1322,
+      "sha256": "71d3d705803554450e99d5e521e561e91bc7ed9d9f43c7955d28472a49ed4d34"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/encoded/UNSW_DEV/B2/references.jsonl.gz",
+      "bytes": 22062,
+      "sha256": "ab6b587784d9915db75269db02a38bdc886e528367d870bfc851a04f75ae6cb0"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/UNSW_DEV/prepared/B2/candidates.jsonl.gz",
+      "bytes": 167935,
+      "sha256": "41579d038295acf36d485934ec118b8e8c094c5ff7c56a8792a443e667746bd2"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/UNSW_DEV/prepared/B2/census_receipt.json",
+      "bytes": 4883,
+      "sha256": "a3136eba7a9a7dcede427c2ae83a2950a076585bf34f0d2eeb7bfafe7bbdf110"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/UNSW_DEV/prepared/B2/banks.json",
+      "bytes": 13190,
+      "sha256": "1c06100e8da2c22a6b2e6cd1415b88ea84e164b0f26b6dbacd95324eeff01b24"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/UNSW_DEV/prepared/B2/receipt.json",
+      "bytes": 1323,
+      "sha256": "770692210ee45350aa7f733df509b14eaa041474fb5f214fad6171efa1b88ca4"
+    },
+    {
+      "path": "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/inputs/UNSW_DEV.jsonl.gz",
+      "bytes": 16428540,
+      "sha256": "d334f18c3a2857fe8b63f491fd78ba3dc984bbd0fa7a55a4f030d9e797098503"
+    },
+    {
+      "path": "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/inputs/SHA256SUMS",
+      "bytes": 978,
+      "sha256": "d8ea248436cb95686ea747a5dbe0cb71323f1dfed31579be9cfb1a3e6e6b2009"
+    },
+    {
+      "path": "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/inputs/receipt.json",
+      "bytes": 773,
+      "sha256": "80919ee02bcac06c6aef73f3926f1fe653e0a90fe7706149dfc736e689fa0151"
+    },
+    {
+      "path": "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/features/SHA256SUMS",
+      "bytes": 474,
+      "sha256": "259ef4eadac38a4be0a30d79bd55b4513cf01a96a90ee9577a3a51c28100b040"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV_q.npy",
+      "bytes": 8305824,
+      "sha256": "19278ac100c0ef8e85245439db3d436777d1f1e9121cb2b6015104469911856f"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV_window.npy",
+      "bytes": 2076680,
+      "sha256": "4cff38bbdfdcbc43770daab01d37c0e0a20fe648a5761ad98dc6d90533c1f0f4"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz",
+      "bytes": 12792,
+      "sha256": "ba92b5439255435e854ee14b74738cae0e3606060456de37927b2b6a0e2ab8b2"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/cache_binding.json",
+      "bytes": 2986,
+      "sha256": "0f2f80101f17d461189150cdcc1089b59703ae539612080bf132a4514ce6a96c"
+    },
+    {
+      "path": "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/features/UNSW_DEV.npy",
+      "bytes": 471051744,
+      "sha256": "a9f922e7e13eff477cb4c3fdd8d11fe9920b8e717aab225734dcd859dd59eb97"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/UNSW_DEV/B2/SHA256SUMS",
+      "bytes": 565,
+      "sha256": "60525323748cb82d322b5c978a5684a4e2298e2a9f152208cc5598cd6c777bfd"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/UNSW_DEV/B2/scores.npz",
+      "bytes": 43309022,
+      "sha256": "03cd8a70621d2953add44c57205c59d00fcfe59502876fd0426a424f985a3e7d"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/encoded/UNSW_DEV/B2/bank.npz",
+      "bytes": 501566,
+      "sha256": "66e2ff7d8a1bb67a3dec9a7ba1f964d2044df93e7932adac429368002a97cdb3"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/SHA256SUMS",
+      "bytes": 316,
+      "sha256": "2bb5483650af081ed7e841d2c572e8c519d78355062d0e63062ebc82695217ad"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/geometry.json",
+      "bytes": 11696,
+      "sha256": "080c069fa41f6eb7fbcea2e890873be462f8471b8ff2a039a8a30935674ca124"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/scales.json",
+      "bytes": 510,
+      "sha256": "06870509e49b642e1a03444e425542cc4559b5375d522cbb27295dc70d208fa2"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/protection.json",
+      "bytes": 16796,
+      "sha256": "306afefda32b398fdb9dfabcd9562e44b79555dcb551add8dad9c9a51cab37e2"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c1/audit_observation.py",
+      "bytes": 13293,
+      "sha256": "532b6df4f73a29a8d9bb0bcdd2d3464d4bbfbc7a7fc53e3ff9db54cb9af376e9"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c1/C1_READOUT.md",
+      "bytes": 5738,
+      "sha256": "bc17c7a78b816950f3e47919e0379d6b43664de75ec6872a931a406c6bad82c5"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c1/C1_READOUT.sha256",
+      "bytes": 81,
+      "sha256": "50057ecc201fd607c7618b23da2b5bdbb87179047949a8a98a11ef3ae0ed609e"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c1/C1_RESULT.json",
+      "bytes": 56595,
+      "sha256": "dfee955f14322dcdf51045728f7beadd5dfd7f33aaef94621d804e893636ffc7"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c1/CIC_DEV_C1_rows.csv.gz",
+      "bytes": 8671686,
+      "sha256": "12852af5b195eb3ee87b43271da9fc946fd24b15336e1ca0f4d9e5392963c8d7"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c1/SHA256SUMS",
+      "bytes": 351,
+      "sha256": "e6b2b545c493e8237019cba6a455858966779f13f8e345fea3ebd0d8e42f5308"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c1/UNSW_DEV_C1_rows.csv.gz",
+      "bytes": 8755421,
+      "sha256": "50115099c18b9169d938aa6b6f8effb5d119e50e301dbe8e1acea4614904736c"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/EXTRACTION.json",
+      "bytes": 35806,
+      "sha256": "bc7be50bd3272178c0045f24a8e32f1dbb6c8893af9783dd8cc88352177a8737"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/CIC_DEV/prepared/B2/banks.json",
+      "bytes": 5776,
+      "sha256": "29914d62fbf45defc5fda946530f104aac76425b484e1ba762131a048e7793e4"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/CIC_DEV/prepared/B2/candidates.jsonl.gz",
+      "bytes": 50286,
+      "sha256": "99f8ed429ff1b70947641b38086992713863ca8c823d3184a6b1293b223a6180"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/CIC_DEV/prepared/B2/census_receipt.json",
+      "bytes": 4287,
+      "sha256": "d7c46b9d4d54f8f70b377867f2528899d7bff8beae937b2cee84bad0b261dafc"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/CIC_DEV/prepared/B2/receipt.json",
+      "bytes": 1322,
+      "sha256": "71d3d705803554450e99d5e521e561e91bc7ed9d9f43c7955d28472a49ed4d34"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/UNSW_DEV/prepared/B2/banks.json",
+      "bytes": 13190,
+      "sha256": "1c06100e8da2c22a6b2e6cd1415b88ea84e164b0f26b6dbacd95324eeff01b24"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/UNSW_DEV/prepared/B2/candidates.jsonl.gz",
+      "bytes": 167935,
+      "sha256": "41579d038295acf36d485934ec118b8e8c094c5ff7c56a8792a443e667746bd2"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/UNSW_DEV/prepared/B2/census_receipt.json",
+      "bytes": 4883,
+      "sha256": "a3136eba7a9a7dcede427c2ae83a2950a076585bf34f0d2eeb7bfafe7bbdf110"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/assets/run/raw/UNSW_DEV/prepared/B2/receipt.json",
+      "bytes": 1323,
+      "sha256": "770692210ee45350aa7f733df509b14eaa041474fb5f214fad6171efa1b88ca4"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/audit_c2.py",
+      "bytes": 15133,
+      "sha256": "39db9e1b87f519d3fbb0affc716119266d2782a4b09342a1d01d54086d529ed3"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/audit_stdout.json",
+      "bytes": 103322,
+      "sha256": "fe3adcd4b670915c13ff4b2e1ec42448b75492d420c84d24dfcc33e538743b06"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/CIC_DEV_joined_c2_rows.jsonl.gz",
+      "bytes": 8434,
+      "sha256": "e24a159b66f5c6ad4f3a9a8b3bc1b92f9ea5cdeb46fc80ec22aa27c3e221cfcd"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/OUTPUT_SHA256.json",
+      "bytes": 909,
+      "sha256": "942e63031ef83062bd338c95650d965aa326c381e8b0c26f845f0ad2de865460"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/READOUT.md",
+      "bytes": 7134,
+      "sha256": "07b16f32d1e9d8a7562b83a0fcccbae737410e5ac5f91856ca35e412da2e6f61"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/RESULT.json",
+      "bytes": 957800,
+      "sha256": "832d4b5d9272937e872f8f1c0977cffeded5ff3256a568e810993904c1c4c2b9"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c2/UNSW_DEV_joined_c2_rows.jsonl.gz",
+      "bytes": 1087809,
+      "sha256": "03caca1c0154639013461f016724cd6311bd9b68e4b068ad1de88e8082a6e985"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c3/AGGREGATE.json",
+      "bytes": 36354,
+      "sha256": "28229df16d480161f879c80506f0d045b157959cc2f3560794e211e67f33c3ac"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c3/audit_dense_reference.py",
+      "bytes": 18273,
+      "sha256": "ab08646848d5ba23ad50252acf8301ba7d9b7024c90ee6372e37dadc0e7d91c8"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c3/PER_QUERY.jsonl.gz",
+      "bytes": 12447522,
+      "sha256": "33ca7dc3281b2e7408e9fc8ae52a61c5d4dcf0cbf05cf9eb5ec07d3f4d11314f"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c3/RESULT.json",
+      "bytes": 88094,
+      "sha256": "e913eb404ff5f61655190deefcd3a5cd0c93169219910e70443c0391f2bb1117"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/c3/summarize_dense_reference.py",
+      "bytes": 5212,
+      "sha256": "411dfe707d7d253011b1460b890cb256d686ea19b4e6dcc744b2629959e6e8d0"
+    },
+    {
+      "path": "runs/diagnostics_c1_c3_v1_20261025/finalize_receipt.py",
+      "bytes": 5627,
+      "sha256": "91b72700086918016f1ca40c7026086008f6dedc6933042a7bd2005081b37f9b"
+    },
+    {
+      "path": "runs/mainline_docs/collab/20261025_c1_c3_readonly_audit_response_codex.md",
+      "bytes": 16392,
+      "sha256": "c5f880a28a9ff168db48dcd15a6163df0d31ac66fbd219b39d0171c5d238d212"
+    },
+    {
+      "path": "runs/mainline_docs/collab/20261025_c1_c3_readonly_method_notes_codex.md",
+      "bytes": 2156,
+      "sha256": "131896443227e604868c50c57558d924ed348db35c0be1d709271cd95e4bf0af"
+    }
+  ],
+  "next_step": "Return evidence to Claude for interpretation; no automatic stage2 or head-side execution"
+}

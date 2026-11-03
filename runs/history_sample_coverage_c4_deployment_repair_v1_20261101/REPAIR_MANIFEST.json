@@ -1,0 +1,21 @@
+{
+  "status": "READY_NOT_SUBMITTED",
+  "before_sha256": "0bdec451c49369717e374c695211f685b2ed00412a368398eda111feb438dd64",
+  "after_sha256": "e4ba88e5681b6dfe30cad680f83129a18c5376779c68efbbdd3899961b53fb9e",
+  "execution_card_sha256": "1bbff8d65cc16a572004f9c04c57a26b5a0f5bd3ba655ff23a12558b7a4f8b28",
+  "checks": {
+    "original_failure_reproduced": true,
+    "repaired_order_hash_matches": true,
+    "json_values_identical": true,
+    "syntax": true
+  },
+  "files": {
+    "receiver.py": "96a14f23a021d8bc07d06d3a4b5babb4a953bedada9ed33b5d3fb20f039150ae",
+    "client.py": "776884163b7e6a084eb339efb9b938c702c880664beda9f9265a7284423d8096",
+    "pipeline.py": "99e54569829ca299bc7f8b89eb8f5a67e00299aa91bec404156f6859d9e22cad",
+    "REMOTE_EXECUTION.json": "e4ba88e5681b6dfe30cad680f83129a18c5376779c68efbbdd3899961b53fb9e",
+    "RUN_IN_HPC_TERMINAL.txt": "632e946425693bd8ec92c55d8c9000dfcb13f8b109352d68888103b4e7a4e75d"
+  },
+  "reused_asset_bytes": 2405307756,
+  "scientific_code_changed": false
+}

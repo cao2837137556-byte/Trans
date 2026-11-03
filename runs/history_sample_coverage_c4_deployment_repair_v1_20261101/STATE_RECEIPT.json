@@ -1,0 +1,108 @@
+{
+  "status": "SUBMITTED",
+  "submitted": true,
+  "candidate": "C4_HISTORY_SAMPLE_COVERAGE_TOPUP",
+  "repair": {
+    "status": "CONFIG_ORDER_REPAIRED",
+    "before_sha256": "0bdec451c49369717e374c695211f685b2ed00412a368398eda111feb438dd64",
+    "after_sha256": "e4ba88e5681b6dfe30cad680f83129a18c5376779c68efbbdd3899961b53fb9e",
+    "identical_json_values": true,
+    "model_forwards": 0,
+    "new_distances": 0,
+    "previous_submissions": 0
+  },
+  "preflight": {
+    "returncode": 0,
+    "tail": "{\"python\": \"3.11.11\", \"numpy\": \"2.0.1\", \"torch\": \"2.5.1\"}\ntest_attack_withdrawal_blocks_even_very_good_fpr (test_runner.RunnerChecks.test_attack_withdrawal_blocks_even_very_good_fpr) ... ok\ntest_display_sharing_violation_is_nonfatal (test_runner.RunnerChecks.test_display_sharing_violation_is_nonfatal) ... ok\ntest_empty_protocol_array_is_legal (test_runner.RunnerChecks.test_empty_protocol_array_is_legal) ... ok\ntest_global_origin_uniqueness_outlives_selector_heap (test_runner.RunnerChecks.test_global_origin_uniqueness_outlives_selector_heap) ... ok\ntest_improvement_not_target_is_adopted (test_runner.RunnerChecks.test_improvement_not_target_is_adopted) ... ok\ntest_missing_device_and_attack_rejected (test_runner.RunnerChecks.test_missing_device_and_attack_rejected) ... ok\ntest_netatmo_improvement_mandatory (test_runner.RunnerChecks.test_netatmo_improvement_mandatory) ... ok\ntest_no_silent_distance_budget_overrun (test_runner.RunnerChecks.test_no_silent_distance_budget_overrun) ... ok\ntest_population_change_is_error (test_runner.RunnerChecks.test_population_change_is_error) ... ok\ntest_real_census_selector_netatmo_roles_and_replay (test_runner.RunnerChecks.test_real_census_selector_netatmo_roles_and_replay) ... ok\ntest_samsung_power_improvement_mandatory (test_runner.RunnerChecks.test_samsung_power_improvement_mandatory) ... ok\ntest_single_head_regression_rejected (test_runner.RunnerChecks.test_single_head_regression_rejected) ... ok\ntest_singleton_clone_uses_same_tensor (test_runner.RunnerChecks.test_singleton_clone_uses_same_tensor) ... ok\ntest_target_exact_integer_boundary (test_runner.RunnerChecks.test_target_exact_integer_boundary) ... ok\ntest_tp_plateau_allowed (test_runner.RunnerChecks.test_tp_plateau_allowed) ... ok\ntest_all_small_pool_rows_preserved (test_topup.SelectionChecks.test_all_small_pool_rows_preserved) ... ok\ntest_dev_attack_future_or_unadmitted_inputs_rejected (test_topup.SelectionChecks.test_dev_attack_future_or_unadmitted_inputs_rejected) ... ok\ntest_does_not_balance_large_and_small_components (test_topup.SelectionChecks.test_does_not_balance_large_and_small_components) ... ok\ntest_duplicate_physical_origin_rejected (test_topup.SelectionChecks.test_duplicate_physical_origin_rejected) ... ok\ntest_fixed_capacity_and_no_input_mutation (test_topup.SelectionChecks.test_fixed_capacity_and_no_input_mutation) ... ok\ntest_prior_physical_endpoint_excluded_even_if_uid_alias_changes (test_topup.SelectionChecks.test_prior_physical_endpoint_excluded_even_if_uid_alias_changes) ... ok\ntest_protocol_budgets_are_separate (test_topup.SelectionChecks.test_protocol_budgets_are_separate) ... ok\ntest_traversal_order_invariance (test_topup.SelectionChecks.test_traversal_order_invariance) ... ok\n\n----------------------------------------------------------------------\nRan 23 tests in 0.812s\n\nOK\n"
+  },
+  "submission": {
+    "returncode": 0,
+    "stdout": "180526\n",
+    "stderr": ""
+  },
+  "job_id": "180526",
+  "transfers": {
+    "code": {
+      "complete": true,
+      "offset": 4198400,
+      "total": 4198400
+    },
+    "0": {
+      "complete": true,
+      "offset": 2206626972,
+      "total": 2206626972
+    },
+    "1": {
+      "complete": true,
+      "offset": 158944576,
+      "total": 158944576
+    },
+    "2": {
+      "complete": true,
+      "offset": 39736208,
+      "total": 39736208
+    }
+  },
+  "free_bytes": 553299278299136,
+  "STATUS.json": {
+    "automatic_retry": false,
+    "component_coverage": [
+      {
+        "candidate_rows": 92630,
+        "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+        "new_components": 423,
+        "new_rows": 4096,
+        "old_reference_rows_excluded": 4096,
+        "protocol": 6
+      },
+      {
+        "candidate_rows": 20912,
+        "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+        "new_components": 240,
+        "new_rows": 4096,
+        "old_reference_rows_excluded": 4096,
+        "protocol": 17
+      }
+    ],
+    "decoder_pass": 1,
+    "device": "Samsung",
+    "elapsed_seconds": 9003.328841215,
+    "encoded_rows": 12288,
+    "ended_utc": "2026-11-01T08:51:25.574086+00:00",
+    "error": "RSS_BYTES_LIMIT",
+    "legal_endpoints": {
+      "HIST_REF": 2552139
+    },
+    "limits": {
+      "cpu": 4,
+      "encoded": 36864,
+      "output_bytes": 21474836480,
+      "pairs": 1000000000,
+      "rss_bytes": 8589934592,
+      "wall_seconds": 28800
+    },
+    "mode": "execute",
+    "output_bytes": 8814259055,
+    "pairs": 0,
+    "peak_output_bytes": 8873518919,
+    "peak_process_tree_rss_bytes": 8587804672,
+    "phase": "ENDPOINT_CENSUS",
+    "physical_positions": 8342,
+    "process_tree_rss_bytes": 8587804672,
+    "raw_packets": 4071424,
+    "selected_dev": 0,
+    "selected_ref": 8192,
+    "selected_snapshots": 0,
+    "service_heartbeat_utc": "2026-11-01T08:51:25.574110+00:00",
+    "singleton_policy": "B1_TO_16_IDENTICAL_CLONES_KEEP_ONE",
+    "started_utc": "2026-11-01T06:21:28.187555+00:00",
+    "synthetic": false,
+    "technical_status": "EXCEPTION_STOPPED",
+    "total": 5880402,
+    "traversal": "raw block copy",
+    "work_heartbeat_utc": "2026-11-01T08:51:25.266341+00:00"
+  },
+  "squeue": "",
+  "sacct": "180526|FAILED|70:0",
+  "log_tail": "/public/home/jiangxinwei.zr/work/paper04/environment/vendor_py311_v1/transformers/modeling_utils.py:1621: FutureWarning: The `device` argument is deprecated and will be removed in v5 of Transformers.\n  warnings.warn(\n"
+}

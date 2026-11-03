@@ -1,0 +1,32 @@
+{
+  "status": "FAIL_TECHNICAL_STOP",
+  "job_id": "179680",
+  "scheduler": {
+    "job_id": "179680",
+    "state": "FAILED",
+    "exit_code": "70:0",
+    "elapsed": "00:00:48",
+    "node": "node185"
+  },
+  "stage": "matrix",
+  "error": "No module named 'causal_reference_overlap_v1'",
+  "error_type": "ModuleNotFoundError",
+  "worker_cleanup_confirmed": true,
+  "surviving_worker_pids": [],
+  "peak_worker_rss_bytes": 1024995328,
+  "completed_pool_results": 0,
+  "scientific_status": "NOT_EVALUATED",
+  "target_input_loading_started": true,
+  "target_support_initialization_attempted": true,
+  "completed_target_evaluations": 0,
+  "completed_support_computations": 0,
+  "new_submissions": 1,
+  "automatic_retry": false,
+  "retries": 0,
+  "original_registered_matrix_complete": false,
+  "progress_url": "http://127.0.0.1:18771/",
+  "checked_utc": "2026-10-28T02:50:44.928871+00:00",
+  "evidence_bundle_sha256": "de87edd802a09b5c53f64c83773abfec4a95d51608f60da3d3940e03a8bb3172",
+  "failure_class": "MISSING_LAZY_RUNTIME_DEPENDENCY",
+  "repair_scope": "PACKAGING_ONLY_KEEP_FROZEN_SCIENTIFIC_PARAMETERS"
+}

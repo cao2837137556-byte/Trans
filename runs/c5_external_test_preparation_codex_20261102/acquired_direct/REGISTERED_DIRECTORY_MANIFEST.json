@@ -1,0 +1,893 @@
+{
+  "schema": "CICIOMT2024_REGISTERED_DIRECTORY_V1",
+  "status": "DIRECTORY_AND_THREE_READMES_ACQUIRED_RAW_QUALIFICATION_PENDING",
+  "created_utc": "2026-11-03T03:16:55.920651+00:00",
+  "user_facing_date": "2026-11-02",
+  "source": "Registered official IAB directory, observed live and transcribed into normalized entries",
+  "registration_information_saved": false,
+  "credentials_or_session_tokens_exported": false,
+  "directory_page_count": 19,
+  "pcap_count_in_observed_scope": 113,
+  "scope_exclusions": [
+    "Bluetooth",
+    "CSV",
+    "profiling/PCAP/Broker"
+  ],
+  "sizes_exposed_by_directory": false,
+  "independent_HEAD_status": 403,
+  "readmes": [
+    {
+      "file": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\c5_external_test_preparation_codex_20261102\\acquired_direct\\readmes\\README.pdf",
+      "bytes": 6992913,
+      "sha256": "0ad5283fdc7086d03588c1cdc87f3d430e2ef32969985da51ba538eabc3b68af"
+    },
+    {
+      "file": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\c5_external_test_preparation_codex_20261102\\acquired_direct\\readmes\\README_Wifi_and_MQTT_attacks.pdf",
+      "bytes": 138278,
+      "sha256": "fa88de1fcdc39c845e638f91c9b43a12f4341b24aa61e453897d76336c3a34a8"
+    },
+    {
+      "file": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\c5_external_test_preparation_codex_20261102\\acquired_direct\\readmes\\README_profiling.pdf",
+      "bytes": 72511,
+      "sha256": "a6646e3a2e0f8a274a7537972f46441a6fa9b3a0b075b73dd90af9d61ad7b42d"
+    }
+  ],
+  "directories": [
+    {
+      "directory": "",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=",
+      "subdirectories": [
+        "Bluetooth",
+        "WiFI_and_MQTT"
+      ],
+      "files": [
+        {
+          "relative_path": "README.pdf",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=README.pdf",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    },
+    {
+      "directory": "WiFI_and_MQTT",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT",
+      "subdirectories": [
+        "attacks",
+        "profiling"
+      ],
+      "files": [
+        {
+          "relative_path": "WiFI_and_MQTT/README_Wifi_and_MQTT_attacks.pdf",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2FREADME_Wifi_and_MQTT_attacks.pdf",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    },
+    {
+      "directory": "WiFI_and_MQTT/profiling",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fprofiling",
+      "subdirectories": [
+        "CSV",
+        "PCAP"
+      ],
+      "files": [
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/README_profiling.pdf",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FREADME_profiling.pdf",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    },
+    {
+      "directory": "WiFI_and_MQTT/profiling/PCAP",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fprofiling%2FPCAP",
+      "subdirectories": [
+        "Active",
+        "Broker",
+        "Idle",
+        "Interactions",
+        "Power"
+      ],
+      "files": []
+    },
+    {
+      "directory": "WiFI_and_MQTT/profiling/PCAP/Idle",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FIdle",
+      "subdirectories": [],
+      "files": [
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Idle/Idle.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FIdle%2FIdle.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    },
+    {
+      "directory": "WiFI_and_MQTT/profiling/PCAP/Active",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FActive",
+      "subdirectories": [],
+      "files": [
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Active/Active.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FActive%2FActive.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    },
+    {
+      "directory": "WiFI_and_MQTT/profiling/PCAP/Interactions",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions",
+      "subdirectories": [
+        "Blink_Camera",
+        "Ecobee_Camera",
+        "M1T_Camera",
+        "Multifunctional_Pager",
+        "Owltron_Camera",
+        "SenseU",
+        "Singcall"
+      ],
+      "files": []
+    },
+    {
+      "directory": "WiFI_and_MQTT/profiling/PCAP/Power",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FPower",
+      "subdirectories": [],
+      "files": [
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Power/Blink_Mini_Camera_Power.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FPower%2FBlink_Mini_Camera_Power.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Power/Ecobee_Camera_Power.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FPower%2FEcobee_Camera_Power.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Power/M1T_Camera_Power.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FPower%2FM1T_Camera_Power.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Power/Multifunctional_Pager_Power.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FPower%2FMultifunctional_Pager_Power.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Power/Owltron_Camera_Power.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FPower%2FOwltron_Camera_Power.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Power/SenseUBaby_Power.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FPower%2FSenseUBaby_Power.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Power/Singcall_Power.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FPower%2FSingcall_Power.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    },
+    {
+      "directory": "WiFI_and_MQTT/profiling/PCAP/Interactions/Blink_Camera",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FBlink_Camera",
+      "subdirectories": [],
+      "files": [
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Blink_Camera/Blink_Camera_LAN_MIC.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FBlink_Camera%2FBlink_Camera_LAN_MIC.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Blink_Camera/Blink_Camera_LAN_WATCH.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FBlink_Camera%2FBlink_Camera_LAN_WATCH.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Blink_Camera/Blink_Camera_WAN_MIC.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FBlink_Camera%2FBlink_Camera_WAN_MIC.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Blink_Camera/Blink_Camera_WAN_WATCH.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FBlink_Camera%2FBlink_Camera_WAN_WATCH.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    },
+    {
+      "directory": "WiFI_and_MQTT/profiling/PCAP/Interactions/Ecobee_Camera",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FEcobee_Camera",
+      "subdirectories": [],
+      "files": [
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Ecobee_Camera/Ecobee_Camera_LAN_MIC.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FEcobee_Camera%2FEcobee_Camera_LAN_MIC.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Ecobee_Camera/Ecobee_Camera_LAN_WATCH.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FEcobee_Camera%2FEcobee_Camera_LAN_WATCH.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Ecobee_Camera/Ecobee_Camera_WAN_MIC.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FEcobee_Camera%2FEcobee_Camera_WAN_MIC.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Ecobee_Camera/Ecobee_Camera_WAN_WATCH.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FEcobee_Camera%2FEcobee_Camera_WAN_WATCH.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    },
+    {
+      "directory": "WiFI_and_MQTT/profiling/PCAP/Interactions/M1T_Camera",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FM1T_Camera",
+      "subdirectories": [],
+      "files": [
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/M1T_Camera/M1T_Camera_LAN_MIC.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FM1T_Camera%2FM1T_Camera_LAN_MIC.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/M1T_Camera/M1T_Camera_LAN_PHOTO.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FM1T_Camera%2FM1T_Camera_LAN_PHOTO.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/M1T_Camera/M1T_Camera_LAN_PRECORDING.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FM1T_Camera%2FM1T_Camera_LAN_PRECORDING.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/M1T_Camera/M1T_Camera_LAN_WATCH.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FM1T_Camera%2FM1T_Camera_LAN_WATCH.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/M1T_Camera/M1T_Camera_WAN_MIC.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FM1T_Camera%2FM1T_Camera_WAN_MIC.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/M1T_Camera/M1T_Camera_WAN_PHOTO.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FM1T_Camera%2FM1T_Camera_WAN_PHOTO.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/M1T_Camera/M1T_Camera_WAN_RECORDING.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FM1T_Camera%2FM1T_Camera_WAN_RECORDING.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/M1T_Camera/M1T_Camera_WAN_WATCH.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FM1T_Camera%2FM1T_Camera_WAN_WATCH.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    },
+    {
+      "directory": "WiFI_and_MQTT/profiling/PCAP/Interactions/Multifunctional_Pager",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FMultifunctional_Pager",
+      "subdirectories": [],
+      "files": [
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Multifunctional_Pager/Multifunctional_Pager_LAN_APP.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FMultifunctional_Pager%2FMultifunctional_Pager_LAN_APP.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Multifunctional_Pager/Multifunctional_Pager_LAN_PHYSICAL.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FMultifunctional_Pager%2FMultifunctional_Pager_LAN_PHYSICAL.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Multifunctional_Pager/Multifunctional_Pager_WAN_APP.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FMultifunctional_Pager%2FMultifunctional_Pager_WAN_APP.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Multifunctional_Pager/Multifunctional_Pager_WAN_PHYSICAL.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FMultifunctional_Pager%2FMultifunctional_Pager_WAN_PHYSICAL.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    },
+    {
+      "directory": "WiFI_and_MQTT/profiling/PCAP/Interactions/Owltron_Camera",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FOwltron_Camera",
+      "subdirectories": [],
+      "files": [
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Owltron_Camera/Owltron_Camera_LAN_MIC.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FOwltron_Camera%2FOwltron_Camera_LAN_MIC.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Owltron_Camera/Owltron_Camera_LAN_PHOTO.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FOwltron_Camera%2FOwltron_Camera_LAN_PHOTO.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Owltron_Camera/Owltron_Camera_LAN_RECORDING.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FOwltron_Camera%2FOwltron_Camera_LAN_RECORDING.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Owltron_Camera/Owltron_Camera_LAN_WATCH.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FOwltron_Camera%2FOwltron_Camera_LAN_WATCH.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Owltron_Camera/Owltron_Camera_WAN_MIC.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FOwltron_Camera%2FOwltron_Camera_WAN_MIC.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Owltron_Camera/Owltron_Camera_WAN_PHOTO.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FOwltron_Camera%2FOwltron_Camera_WAN_PHOTO.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Owltron_Camera/Owltron_Camera_WAN_RECORDING.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FOwltron_Camera%2FOwltron_Camera_WAN_RECORDING.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Owltron_Camera/Owltron_Camera_WAN_WATCH.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FOwltron_Camera%2FOwltron_Camera_WAN_WATCH.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    },
+    {
+      "directory": "WiFI_and_MQTT/profiling/PCAP/Interactions/SenseU",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FSenseU",
+      "subdirectories": [],
+      "files": [
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/SenseU/SenseU_LAN_EMERGENCY.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FSenseU%2FSenseU_LAN_EMERGENCY.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/SenseU/SenseU_WAN_EMERGENCY.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FSenseU%2FSenseU_WAN_EMERGENCY.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    },
+    {
+      "directory": "WiFI_and_MQTT/profiling/PCAP/Interactions/Singcall",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FSingcall",
+      "subdirectories": [],
+      "files": [
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Singcall/Singcall_LAN_PHYSICAL.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FSingcall%2FSingcall_LAN_PHYSICAL.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/profiling/PCAP/Interactions/Singcall/Singcall_WAN_PHYSICAL.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FInteractions%2FSingcall%2FSingcall_WAN_PHYSICAL.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    },
+    {
+      "directory": "WiFI_and_MQTT/attacks",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fattacks",
+      "subdirectories": [
+        "CSV",
+        "PCAP"
+      ],
+      "files": []
+    },
+    {
+      "directory": "WiFI_and_MQTT/attacks/PCAP",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fattacks%2FPCAP",
+      "subdirectories": [
+        "test",
+        "train"
+      ],
+      "files": []
+    },
+    {
+      "directory": "WiFI_and_MQTT/attacks/PCAP/test",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest",
+      "subdirectories": [],
+      "files": [
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/ARP_Spoofing_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FARP_Spoofing_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/Benign_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FBenign_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/MQTT-DDoS-Connect_Flood_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FMQTT-DDoS-Connect_Flood_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/MQTT-DDoS-Publish_Flood_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FMQTT-DDoS-Publish_Flood_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/MQTT-DoS-Connect_Flood_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FMQTT-DoS-Connect_Flood_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/MQTT-DoS-Publish_Flood_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FMQTT-DoS-Publish_Flood_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/MQTT-Malformed_Data_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FMQTT-Malformed_Data_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/Recon-OS_Scan_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FRecon-OS_Scan_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/Recon-Ping_Sweep_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FRecon-Ping_Sweep_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/Recon-Port_Scan_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FRecon-Port_Scan_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/Recon-VulScan_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FRecon-VulScan_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DDoS-ICMP1_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DDoS-ICMP1_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DDoS-ICMP2_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DDoS-ICMP2_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DDoS-SYN_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DDoS-SYN_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DDoS-TCP_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DDoS-TCP_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DDoS-UDP1_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DDoS-UDP1_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DDoS-UDP2_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DDoS-UDP2_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DoS-ICMP_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DoS-ICMP_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DoS-SYN_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DoS-SYN_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DoS-TCP_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DoS-TCP_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DoS-UDP_test.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DoS-UDP_test.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    },
+    {
+      "directory": "WiFI_and_MQTT/attacks/PCAP/train",
+      "browse_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/browse.php?p=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain",
+      "subdirectories": [],
+      "files": [
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/ARP_Spoofing_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FARP_Spoofing_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/Benign_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FBenign_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/MQTT-DDoS-Connect_Flood_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FMQTT-DDoS-Connect_Flood_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/MQTT-DDoS-Publish_Flood_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FMQTT-DDoS-Publish_Flood_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/MQTT-DoS-Connect_Flood_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FMQTT-DoS-Connect_Flood_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/MQTT-DoS-Publish_Flood_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FMQTT-DoS-Publish_Flood_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/MQTT-Malformed_Data_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FMQTT-Malformed_Data_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/Recon-OS_Scan_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FRecon-OS_Scan_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/Recon-Ping_Sweep_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FRecon-Ping_Sweep_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/Recon-Port_Scan_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FRecon-Port_Scan_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/Recon-VulScan_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FRecon-VulScan_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-ICMP1_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-ICMP1_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-ICMP2_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-ICMP2_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-ICMP3_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-ICMP3_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-ICMP4_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-ICMP4_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-ICMP5_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-ICMP5_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-ICMP6_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-ICMP6_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-ICMP7_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-ICMP7_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-ICMP8_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-ICMP8_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-SYN1_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-SYN1_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-SYN2_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-SYN2_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-SYN3_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-SYN3_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-SYN4_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-SYN4_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-TCP1_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-TCP1_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-TCP2_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-TCP2_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-TCP3_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-TCP3_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-TCP4_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-TCP4_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-UDP1_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-UDP1_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-UDP2_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-UDP2_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-UDP3_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-UDP3_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-UDP4_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-UDP4_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-UDP5_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-UDP5_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-UDP6_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-UDP6_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-UDP7_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-UDP7_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DDoS-UDP8_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DDoS-UDP8_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-ICMP1_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-ICMP1_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-ICMP2_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-ICMP2_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-ICMP3_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-ICMP3_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-ICMP4_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-ICMP4_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-SYN1_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-SYN1_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-SYN2_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-SYN2_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-SYN3_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-SYN3_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-SYN4_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-SYN4_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-TCP1_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-TCP1_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-TCP2_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-TCP2_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-TCP3_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-TCP3_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-TCP4_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-TCP4_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-UDP1_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-UDP1_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-UDP2_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-UDP2_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-UDP3_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-UDP3_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        },
+        {
+          "relative_path": "WiFI_and_MQTT/attacks/PCAP/train/TCP_IP-DoS-UDP4_train.pcap",
+          "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftrain%2FTCP_IP-DoS-UDP4_train.pcap",
+          "bytes": null,
+          "raw_acquired": false
+        }
+      ]
+    }
+  ],
+  "raw_download_bytes": 0,
+  "external_model_evaluation_started": false
+}

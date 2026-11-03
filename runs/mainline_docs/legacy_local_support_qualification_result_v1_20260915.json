@@ -1,0 +1,346 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-15",
+  "status": "LOCAL_SUPPORT_QUALIFICATION_COMPLETE_JOINT_TRAINING_NOT_READY",
+  "user_authorization": "动手下一步吧",
+  "scope": "local metadata, annotation provenance and raw input identity qualification",
+  "head": "4b28747b09480471e2bac1beb3a9badf27280efb",
+  "branch": "codex/exp-mainline",
+  "decision": {
+    "joint_training_ready": false,
+    "repeat_same_local_qualification": false,
+    "normal1_census": "optional_same_source_coverage_diagnostic_not_default_gate",
+    "next": "prepare minimum newly qualified raw normal/attack support package",
+    "old_system_enhancement_first": true,
+    "commissioning_started": false,
+    "new_download_authorized": false
+  },
+  "raw_inventory": {
+    "inspected_root": "D:/study/paper/anomaly_detection/paper04/datasets/external/ton_iot_raw_network",
+    "inspection": "filename inventory plus ZIP central directories, no data-member extraction",
+    "pcap_directory": "D:/study/paper/anomaly_detection/paper04/datasets/external/ton_iot_raw_network/raw_pcap_pilot_v1",
+    "pcap_names": [
+      "normal_1.pcap",
+      "normal_2.pcap",
+      "normal_scanning1.pcap",
+      "password_normal1.pcap",
+      "injection_normal1.pcap",
+      "MITM_normal1.pcap"
+    ],
+    "zip_directories": [
+      {
+        "path": "D:/study/paper/anomaly_detection/paper04/datasets/external/ton_iot_raw_network/raw/Network_dataset_Bro.zip",
+        "central_directory_entries": 928,
+        "pcap_members": 0,
+        "nested_archives": 0
+      },
+      {
+        "path": "D:/study/paper/anomaly_detection/paper04/datasets/external/ton_iot_raw_network/raw/SecurityEvents_Network_datasets (1).zip",
+        "central_directory_entries": 18,
+        "pcap_members": 0,
+        "nested_archives": 0
+      },
+      {
+        "path": "D:/study/paper/anomaly_detection/paper04/datasets/external/ton_iot_raw_network/raw/OneDrive_1_2026-7-9.zip",
+        "central_directory_entries": 31,
+        "pcap_members": 0,
+        "nested_archives": 0
+      }
+    ],
+    "reserve_pcap_matches_in_inspected_root": 0,
+    "global_all_disks_claim": false
+  },
+  "reserve_time_candidates": [
+    {
+      "source": "normal_scanning3",
+      "gt_interval_candidates": [
+        4
+      ],
+      "exact_record_join_done": false,
+      "raw_pcap_available": false
+    },
+    {
+      "source": "normal_scanning4",
+      "gt_interval_candidates": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "exact_record_join_done": false,
+      "raw_pcap_available": false
+    },
+    {
+      "source": "normal_scanning5",
+      "gt_interval_candidates": [
+        7,
+        8
+      ],
+      "exact_record_join_done": false,
+      "raw_pcap_available": false
+    },
+    {
+      "source": "normal_scanning6",
+      "gt_interval_candidates": [
+        7,
+        8
+      ],
+      "exact_record_join_done": false,
+      "raw_pcap_available": false
+    },
+    {
+      "source": "password_normal2",
+      "gt_interval_candidates": [],
+      "exact_record_join_done": false,
+      "raw_pcap_available": false
+    },
+    {
+      "source": "password_normal3",
+      "gt_interval_candidates": [],
+      "exact_record_join_done": false,
+      "raw_pcap_available": false
+    },
+    {
+      "source": "password_normal5",
+      "gt_interval_candidates": [
+        15,
+        16
+      ],
+      "exact_record_join_done": false,
+      "raw_pcap_available": false
+    }
+  ],
+  "gt_duplicate": {
+    "files": [
+      15,
+      16
+    ],
+    "sha256_from_existing_inventory": "d1d4cb491cb6edda3523f7424d24ea1afd4496a933e60b3ec357286f7f0f542f",
+    "independent_files_after_dedup": 1,
+    "raw_gt_rehashed": false
+  },
+  "gt_gap": {
+    "sources": [
+      "password_normal2",
+      "password_normal3"
+    ],
+    "gt14_end_epoch": 1556295451,
+    "gt15_start_epoch": 1556323577,
+    "absence_implies_normal": false
+  },
+  "reserved_role_review": "No later activation found in searched role metadata and documents; not proof of absolute never-use; no roles reassigned.",
+  "local_label_table": {
+    "path": "D:/study/paper/anomaly_detection/paper04/worktrees/data/Train_Test_Network_dataset/train_test_network.csv",
+    "access": "header_only",
+    "header_sha256": "049ba74ecfe7e52812e4967dab061128f6c297614a6765fdc6884b985f76dabd",
+    "columns": [
+      "src_ip",
+      "src_port",
+      "dst_ip",
+      "dst_port",
+      "proto",
+      "service",
+      "duration",
+      "src_bytes",
+      "dst_bytes",
+      "conn_state",
+      "missed_bytes",
+      "src_pkts",
+      "src_ip_bytes",
+      "dst_pkts",
+      "dst_ip_bytes",
+      "dns_query",
+      "dns_qclass",
+      "dns_qtype",
+      "dns_rcode",
+      "dns_AA",
+      "dns_RD",
+      "dns_RA",
+      "dns_rejected",
+      "ssl_version",
+      "ssl_cipher",
+      "ssl_resumed",
+      "ssl_established",
+      "ssl_subject",
+      "ssl_issuer",
+      "http_trans_depth",
+      "http_method",
+      "http_uri",
+      "http_version",
+      "http_request_body_len",
+      "http_response_body_len",
+      "http_status_code",
+      "http_user_agent",
+      "http_orig_mime_types",
+      "http_resp_mime_types",
+      "weird_name",
+      "weird_addl",
+      "weird_notice",
+      "label",
+      "type"
+    ],
+    "row_content_read": false,
+    "unique_raw_bridge_available": false,
+    "historical_exposure": "old second-environment smoke/precheck/evaluation",
+    "used_as_current_enhancement_train": false
+  },
+  "official_label_provenance": {
+    "full_official_schema_has_ts_label_type": true,
+    "official_train_test_normal_count": 300000,
+    "historical_local_table_normal_count": 50000,
+    "local_file_is_unverified_variant_of_full_official_table": true,
+    "label_basis": "publisher description uses attacking host addresses and time; not a complete per-capture normal-label complement rule"
+  },
+  "csv_inventory_identity": {
+    "total": 298,
+    "Bro_exports": 280,
+    "GT_tables": 18,
+    "another_full_processed_network_label_table_identified": false,
+    "data_rows_scanned": 0
+  },
+  "gotham_candidates": {
+    "rows_from_metadata": 69492,
+    "chunks": 16,
+    "labels": 10,
+    "device_groups": 3,
+    "preferred_captures": 6,
+    "normal_rows": 0,
+    "role_activated": false,
+    "provenance_conflict": {
+      "chunk_id": 13,
+      "rows": 250,
+      "label": "Mirai C&C Communication",
+      "device": "ip-camera-museum",
+      "region_sidecar_derived": "raw/malicious/mirai-dos/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap",
+      "chunk_preferred_plan": "raw/malicious/mirai-infection/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap",
+      "resolution": "UNRESOLVED; neither field declared correct without materialization provenance"
+    }
+  },
+  "normal1_context": {
+    "existing_fit_role_preserved": true,
+    "old_targets": 4000,
+    "old_A": 843,
+    "old_B": 3157,
+    "terminal_29_of_3186_not_whole_source": true,
+    "new_independent_environment_proved": false
+  },
+  "access_counters": {
+    "conn_data_records": 0,
+    "gt_data_records": 0,
+    "pcap_body_records": 0,
+    "old_evaluation_data_records": 0,
+    "model_loads": 0,
+    "inference": 0,
+    "training": 0,
+    "new_downloads": 0,
+    "hpc_actions": 0
+  },
+  "source_pins": [
+    {
+      "path": "runs/mainline_docs/legacy_joint_enhancement_design_and_support_v1_20260914.md",
+      "sha256": "16e44b2cb6d32fb2910873e4ede5df7c6735806b5eef93ef7892f26f969de5f6",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/mainline_docs/legacy_joint_enhancement_support_scope_v1_20260914.json",
+      "sha256": "a24050967d528cc1223d53c597ab716b49b89aade0152586c1e7b7094ecdf2af",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/mainline_docs/frontend_inheritance_n0_result_20260907.md",
+      "sha256": "9b91ab893b64c89c21a0ce8ac57b973289394dfa05047cb476ad91009f603ee5",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/issue27ckam_toniot_bro_groundtruth_schema_audit_v1_2026-07-09/conn_log_schema_time_audit.csv",
+      "sha256": "12c4e1db422ad7f8d73da9a95c0b2b5442d827be2fbfc35e897bf341c7bd4a2a",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/issue27ckam_toniot_bro_groundtruth_schema_audit_v1_2026-07-09/groundtruth_schema_time_label_audit.csv",
+      "sha256": "e77126d40203a6ec89ac83a471419e5d7da4c844785af189e019e0f3af091886",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/issue27ckan_toniot_route_a_loader_policy_repair_v1_2026-07-09/scenario_label_alignment_candidates.csv",
+      "sha256": "7b0697c16dc0ad4d00296ab9b1f1925320d7560ef6057dd8f1f7de7dd0b4ddd3",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/issue27ckak_toniot_route_a_raw_intake_v1_2026-07-09_after_extract/file_inventory.csv",
+      "sha256": "015d1c28cd7f594df668f4e6bd1fced62399faa49154e527a220c0b956fc614d",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/issue27ckak_toniot_route_a_raw_intake_v1_2026-07-09_after_extract/dataset_card.md",
+      "sha256": "4926c452a4646f2c2fddca18feb9f013b1e062be788704b9c7f1fcf1d223a059",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22/reserved_toniot_conn_sources.csv",
+      "sha256": "4d9a4ca2e0f810d8a4bb588a425f8eff7fedd02eb9b1c02ed0fd4b52d8e8d2a1",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/issue27ckbu_unified_tshark_causal_frontend_v1_2026-07-23_local_plan/ckbu_ton_raw_pcap_pilot_manifest.csv",
+      "sha256": "279dfa1f0fe80346aec40e80e3b60d110912e1204327971c62ac54f08f28b141",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/second_environment_toniot_intake_2026-04-20_b/intake_report.json",
+      "sha256": "1b3baea7d9f863f8e1c4e5163793edfa5b2f372da8b2dc2c555cbfb714d854fa",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/second_environment_toniot_intake_2026-04-20_b/toniot_candidate_files.csv",
+      "sha256": "b82f72f1e48d303e026887f4146f7007b4cec85331cf1b58e6f50cbf809071b5",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/issue27cf_initial_support_bank_instantiation_from_complete_exact_label_pool_2026-06-16/source_chunk_manifest.csv",
+      "sha256": "8637178e5a264f9c0fb7e59000014f6ee57c94c1f8498911b93880ae5937a77b",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/issue27cf_initial_support_bank_instantiation_from_complete_exact_label_pool_2026-06-16/candidate_taxonomy_summary.csv",
+      "sha256": "65d76c0f24993c967f4b63a7b2175f5dc81abf051b1672a2c06286ee513f4de8",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/issue27cf_initial_support_bank_instantiation_from_complete_exact_label_pool_2026-06-16/region_manifest.csv",
+      "sha256": "1ced550f51db3a9d0851e3c63b7436b5d5ec67399472bbe813e409207057e485",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "runs/issue27ce_support_bank_protocol_and_system_interface_spec_2026-06-16/unused_candidate_policy.md",
+      "sha256": "d552f44727de0c2a94ce8fbd0e05fd44f454609b88c30ed0a69da739db1815e8",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "repo/ood/issue27cf_initial_support_bank_instantiation.py",
+      "sha256": "3a1f1c9be6cab8a5b2fc3515313c2cb64f36efd9a11e4085352828842ebcccdd",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "repo/ood/issue27ckbu_unified_tshark_causal_frontend_v1.py",
+      "sha256": "127efd212932d9330af790f17a069a84b3ee48205d68bed7e2e9f00778bb2820",
+      "access": "existing_metadata_or_code"
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/datasets/external/ton_iot_raw_network/extracted/ReadMe.pdf",
+      "sha256": "c7a00bef793cb34aaad012233face252f20bd364af623fd0c3dc06440218d5c7",
+      "access": "local_official_document"
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/datasets/external/ton_iot_raw_network/extracted/Description_stats_datasets/Description_stats_Network_dataset/Network Features-Description.pdf",
+      "sha256": "b1f63453029855e084290a2f79554eaa7e3b85f8d53fb0ea4605966ef25ebe3b",
+      "access": "local_official_document"
+    },
+    {
+      "path": "D:/study/paper/anomaly_detection/paper04/datasets/external/ton_iot_raw_network/extracted/Description_stats_datasets/Description_stats_Network_dataset/Statistics of Network Records.pdf",
+      "sha256": "4a98908fa5b2c9b22380522e30dc9fe89ec8245676622426d7160fcefab06b3e",
+      "access": "local_official_document"
+    }
+  ],
+  "review": "Independent annotation and raw-identity reviews; main agent reconciled Gotham provenance and chose to end mandatory local audit loop. Both reviewers accepted normal1 census as optional, not the next gate. Final document review clarified that no training use refers to the current enhancement; it does not negate historical training exposure."
+}

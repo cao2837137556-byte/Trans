@@ -1,0 +1,312 @@
+{
+  "schema": "learned-onboarding-implementation-manifest-v1",
+  "version": 1,
+  "spec_sha256": "a07d736c7c9c756478a7d163873611132ff0b14abc855ab3a3709257433674b8",
+  "lineage": "NEW_RECONSTRUCTION_LINEAGE",
+  "parent_parity": "PARENT_PARITY_UNAVAILABLE",
+  "status": "IMPLEMENTED_LOCAL_VALIDATION_PASS_PRODUCTION_NOT_RUN",
+  "created_at": "2026-10-23T12:04:09.249973+00:00",
+  "scientific_spec": {
+    "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\learned_onboarding_pilot_v1_20261023\\EXECUTION_SPEC_V1.md",
+    "sha256": "a07d736c7c9c756478a7d163873611132ff0b14abc855ab3a3709257433674b8",
+    "modified": false
+  },
+  "requested_model_split": {
+    "planning": "gpt-6-astra frozen V1",
+    "implementation": "gpt-6-sol collaborating implementers; root integration"
+  },
+  "artifacts": {
+    "config/local.json": {
+      "sha256": "e2aba83c7a70b1b05e20639455a4f910696603785694105c44b576a0a36cf7a4",
+      "bytes": 238
+    },
+    "config/TARGET_MANIFEST_SCHEMA.md": {
+      "sha256": "d5dc81de16c96774f5538f5a2072986cecb06dde55c647424d3bac7c5260fd4e",
+      "bytes": 4927
+    },
+    "README.md": {
+      "sha256": "7fc99703a7311a9b182df3d7076dd1b7d25c825c6ef58fcc2591173286240fa1",
+      "bytes": 9344
+    },
+    "src/bundle_io.py": {
+      "sha256": "a879b49d926b7baf47f63f792d05b8803df6bfb7bcbc1accd63071e52ebc937d",
+      "bytes": 17255
+    },
+    "src/common.py": {
+      "sha256": "3999f8b26cc84f62bff7fb57b3dcdd71e15b1e935f6828756703812478ff3c17",
+      "bytes": 6903
+    },
+    "src/evaluation.py": {
+      "sha256": "c17d9d2996896f2df5c95cff822d525457284e9523682f399f8e2a642098743f",
+      "bytes": 25928
+    },
+    "src/learning.py": {
+      "sha256": "4a943da8cefd9e400ba0a50b6689386580c29f4002b01557d5f764e7314cc372",
+      "bytes": 20789
+    },
+    "src/pipeline.py": {
+      "sha256": "dfae1b2d277ad2327dbebc3ee2f23c4b725177910d5750f5c9c7deef4cd713df",
+      "bytes": 45409
+    },
+    "src/reference_core.py": {
+      "sha256": "1811dbf3edf2d936fc98612f8cf41b76c9d3e7b67f6dd6b5792dbd40b50ed349",
+      "bytes": 19900
+    },
+    "src/service.py": {
+      "sha256": "4c0c0c068c87ca897883e0e1f8f232a6c2b51c20800e3a1915e9bb111bec4841",
+      "bytes": 10992
+    },
+    "src/source_inputs.py": {
+      "sha256": "0811ceb727d563b43ec55fef8c330c4be2efdbc0e064819744200ec73ce445a3",
+      "bytes": 24235
+    },
+    "src/tasks.py": {
+      "sha256": "4c4abfb4d6ad82855c97559c56d166e4fc045521de59772c95b97dc4080a9466",
+      "bytes": 12054
+    },
+    "tests/test_bundle_io.py": {
+      "sha256": "061c2a7a5432a080f737a7461fed62cb720f803f2f0b5fc580c780b2dbea7f1b",
+      "bytes": 11594
+    },
+    "tests/test_common.py": {
+      "sha256": "1c131a776129410ec5f717f0a31994acf3b095d15069668734403181907c7c0c",
+      "bytes": 1523
+    },
+    "tests/test_contracts.py": {
+      "sha256": "a05a0be39fef51cbb54b3541158cf2db088563a88962924440fda6861e483288",
+      "bytes": 9444
+    },
+    "tests/test_evaluation.py": {
+      "sha256": "b25cd5ad64f2d9c987f750c7b7edc072d99bdc52ecece586f4f2e91498ad0701",
+      "bytes": 10073
+    },
+    "tests/test_learning.py": {
+      "sha256": "509fb4f71c58e2b8d4aa96b0efa48821ff91f76270e77a531a36eb9d4d40f09a",
+      "bytes": 9876
+    },
+    "tests/test_pipeline.py": {
+      "sha256": "31944c0decdf7eece58247655f34115140f58d285821522452d97c96cf677494",
+      "bytes": 12167
+    },
+    "tests/test_reference_core.py": {
+      "sha256": "ab41f915cd976f7947bd272848acda0c92bc00515e59689154c56cc58d5b7d3d",
+      "bytes": 13251
+    },
+    "tests/test_service.py": {
+      "sha256": "72ac1bee426e5431b43a2a0abb59b87e7d6d46234a4d96c3a81c975abb7c7fef",
+      "bytes": 4844
+    },
+    "tests/test_source_inputs.py": {
+      "sha256": "85aafdf9e99f27887a2170d42866e03e93e5d2c3913433d40746fc3dbadae1df",
+      "bytes": 4018
+    },
+    "tests/test_tasks.py": {
+      "sha256": "06fc174454d75e09d6744371f58213b928a8e396415994042a6bc89697b2a90a",
+      "bytes": 3829
+    },
+    "validation/engineering_validation.json": {
+      "sha256": "348a526677122125202652960493e5eddfc0a07567437292f3473ec259c65fa5",
+      "bytes": 8391
+    },
+    "validation/source_adapter_receipt.json": {
+      "sha256": "23c4a5580129186433852558918cb6e7551bbff7b77b898905af15429ce68650",
+      "bytes": 3303
+    },
+    "validation/source_readiness_v1/isolation.json": {
+      "sha256": "1c81879528590cd64a62383d8cbadabfcd483de2c71e085eb7fd2fe765f75c7b",
+      "bytes": 1136
+    },
+    "validation/source_readiness_v1/resource_plan.json": {
+      "sha256": "09d6d0119a4066f522b38975f981f7caa15064f174ab9be792eb495e84f9c035",
+      "bytes": 4754
+    },
+    "validation/source_readiness_v1/SEAL.json": {
+      "sha256": "28b3654c3d67727ba52922400ea483c496d5e4d2387949dab5a87c48cca8b295",
+      "bytes": 560
+    },
+    "validation/source_readiness_v1/source_task_receipt.json": {
+      "sha256": "d834dd8ff3cd5261e51ee601bf9c0dca01e34195fbc26c2a3234b5db6d3016b7",
+      "bytes": 3736
+    },
+    "validation/test_output.txt": {
+      "sha256": "076173c6c1adf8692681df86b1b9ad9cf97bedb2fe9b6966db10c14cefc8a0e4",
+      "bytes": 4818
+    },
+    "validation/verify_delivery.py": {
+      "sha256": "feb370a5a20b49650ab6b036311dec50c5a9af22da6f990416c2c717e19fd8f3",
+      "bytes": 4739
+    }
+  },
+  "runtime_code_sha256": {
+    "repo/ood/causal_reference_overlap_v1.py": "b60f1c9b2cc0a2d5c3543d3b6f72709eca68ab01cb820e1aab5c2e38a93ed479",
+    "repo/ood/constrained_onboarding_core_v3.py": "42a32e0b829a373a96046d34d16bcb53455f99f1bc0786a8a49be38bc855f72c",
+    "repo/ood/constrained_onboarding_reference_v2.py": "208d89521c95bebb6d82745b2642aea8e01d97cf82dc80647f5ebf224a34a64c",
+    "repo/ood/continuous_common_v3.py": "e0c4c339ab1c5ff44183cf2e10a70e7471546d0e05f6880424f326b7f2edd235",
+    "repo/ood/continuous_model_v3.py": "5f9f07e2a2827e412871880e5fecf3994c13ea6ba8e701dd70f6b798aa851f84",
+    "repo/ood/indexed_features_v1.py": "45075f5f5a8ca50715e5f746254e845ad44ee8d77ce8cc2d47bdcda9226816de",
+    "repo/ood/legacy_qref_data_v1.py": "dc575ff12529e1b3dd9e7062d4f05b34dcf1f11c323573fea134d958622c59f5",
+    "repo/ood/query_tail_core_v2.py": "9d9f716d2fcef8096b2d3eb77fe380e5d44f9d950bdb7844b362a9387d27de49",
+    "runs/learned_onboarding_v1_20261023/src/bundle_io.py": "a879b49d926b7baf47f63f792d05b8803df6bfb7bcbc1accd63071e52ebc937d",
+    "runs/learned_onboarding_v1_20261023/src/common.py": "3999f8b26cc84f62bff7fb57b3dcdd71e15b1e935f6828756703812478ff3c17",
+    "runs/learned_onboarding_v1_20261023/src/evaluation.py": "c17d9d2996896f2df5c95cff822d525457284e9523682f399f8e2a642098743f",
+    "runs/learned_onboarding_v1_20261023/src/learning.py": "4a943da8cefd9e400ba0a50b6689386580c29f4002b01557d5f764e7314cc372",
+    "runs/learned_onboarding_v1_20261023/src/pipeline.py": "dfae1b2d277ad2327dbebc3ee2f23c4b725177910d5750f5c9c7deef4cd713df",
+    "runs/learned_onboarding_v1_20261023/src/reference_core.py": "1811dbf3edf2d936fc98612f8cf41b76c9d3e7b67f6dd6b5792dbd40b50ed349",
+    "runs/learned_onboarding_v1_20261023/src/service.py": "4c0c0c068c87ca897883e0e1f8f232a6c2b51c20800e3a1915e9bb111bec4841",
+    "runs/learned_onboarding_v1_20261023/src/source_inputs.py": "0811ceb727d563b43ec55fef8c330c4be2efdbc0e064819744200ec73ce445a3",
+    "runs/learned_onboarding_v1_20261023/src/tasks.py": "4c4abfb4d6ad82855c97559c56d166e4fc045521de59772c95b97dc4080a9466"
+  },
+  "runtime": {
+    "python": "3.10.0",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.2.6",
+    "torch": "2.8.0+cpu",
+    "torch_threads": 4,
+    "deterministic": true,
+    "device": "cpu",
+    "numpy_blas_config": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"msvc\",\n      \"linker\": \"link\",\n      \"version\": \"19.29.30159\",\n      \"commands\": \"cl\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.1.0\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"msvc\",\n      \"linker\": \"link\",\n      \"version\": \"19.29.30159\",\n      \"commands\": \"cl\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"windows\"\n    },\n    \"build\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"windows\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.29\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"C:/Users/runneradmin/AppData/Local/Temp/cibw-run-7xf_vzet/cp310-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"C:/Users/runneradmin/AppData/Local/Temp/cibw-run-7xf_vzet/cp310-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.29  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24\",\n      \"pc file directory\": \"C:/a/numpy/numpy/.openblas\"\n    },\n    \"lapack\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.29\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"C:/Users/runneradmin/AppData/Local/Temp/cibw-run-7xf_vzet/cp310-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"C:/Users/runneradmin/AppData/Local/Temp/cibw-run-7xf_vzet/cp310-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.29  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24\",\n      \"pc file directory\": \"C:/a/numpy/numpy/.openblas\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"C:\\\\Users\\\\runneradmin\\\\AppData\\\\Local\\\\Temp\\\\build-env-r6iiznem\\\\Scripts\\\\python.exe\",\n    \"version\": \"3.10\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"SSE\",\n      \"SSE2\",\n      \"SSE3\"\n    ],\n    \"found\": [\n      \"SSSE3\",\n      \"SSE41\",\n      \"POPCNT\",\n      \"SSE42\",\n      \"AVX\",\n      \"F16C\",\n      \"FMA3\",\n      \"AVX2\"\n    ],\n    \"not found\": [\n      \"AVX512F\",\n      \"AVX512CD\",\n      \"AVX512_SKX\",\n      \"AVX512_CLX\",\n      \"AVX512_CNL\",\n      \"AVX512_ICL\"\n    ]\n  }\n}\n",
+    "thread_environment": {
+      "OMP_NUM_THREADS": "4",
+      "MKL_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "4",
+      "NUMEXPR_NUM_THREADS": "4"
+    }
+  },
+  "tests": {
+    "tests_run": 49,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "successful": true,
+    "failure_ids": [],
+    "error_ids": [],
+    "elapsed_seconds": 26.08933440002147,
+    "log_sha256": "076173c6c1adf8692681df86b1b9ad9cf97bedb2fe9b6966db10c14cefc8a0e4",
+    "command": "python -m unittest discover -s D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\learned_onboarding_v1_20261023\\tests -v"
+  },
+  "python39_syntax": {
+    "status": "PASS",
+    "files": 19,
+    "runtime_execution": "Python 3.10 only; this grammar check is not Python 3.9 runtime acceptance"
+  },
+  "validation_receipt_sha256": "348a526677122125202652960493e5eddfc0a07567437292f3473ec259c65fa5",
+  "preserved_preparation": {
+    "PILOT_DESIGN.md": {
+      "sha256": "ac3c852e7ff0fb9e22c887a6325a5f43055d9b9d92afe046948e14efb2ed078d",
+      "unchanged": true
+    },
+    "README.md": {
+      "sha256": "259d52ddadc110d4ce05f0ae3f9148b3dd17eb54a6c246420fec97593072f931",
+      "unchanged": true
+    },
+    "source_task_audit.py": {
+      "sha256": "fb853cf357100c636c08167266b259f6129fdd0e7a6b9e17c8daaa1a9bfd5978",
+      "unchanged": true
+    },
+    "test_source_task_audit.py": {
+      "sha256": "a889ec7d69d79ae6b989fe3fc96d75277edbdb494c2d228462a8b1be6e51e4c8",
+      "unchanged": true
+    },
+    "source_task_audit.json": {
+      "sha256": "6d6457fe01a401d72286dd3f0e2aa15c51cdbec12479dc17458936b37b54cf83",
+      "unchanged": true
+    },
+    "source_task_audit_initial.json": {
+      "sha256": "17be8bbce1b0bfdda34f81964c2bbf66dcc9bb86b90ae1902f8921f9eee48990",
+      "unchanged": true
+    }
+  },
+  "handoff_navigation": {
+    "runs/mainline_docs/NEW_CHAT_START_HERE.md": "328be6482e8fb31e38d457129ab46745021dca1a2483922db7840535731eb81b",
+    "runs/mainline_docs/mainline_handoff.md": "5678562882da0083ed6af09f99445a8f2b0420a2666bdf17ef4b3cb1826039bc",
+    "runs/mainline_docs/mainline_experiment_map.md": "9056e385ce3b460d2e467064a983525da036bf9a5e7c4b2e80695a44045a5010"
+  },
+  "real_source_validation": {
+    "status": "PASS",
+    "source_rows": 766727,
+    "fit_rows": 617908,
+    "cal_rows": 148819,
+    "reference_rows": 104,
+    "adapter_receipt_sha256": "23c4a5580129186433852558918cb6e7551bbff7b77b898905af15429ce68650",
+    "source_readiness_seal_sha256": "28b3654c3d67727ba52922400ea483c496d5e4d2387949dab5a87c48cca8b295",
+    "coverage": {
+      "fit_rows": 617908,
+      "normal_devices": [
+        "Amcrest Camera",
+        "ArloQ Camera",
+        "Philips Hue Bridge",
+        "SimCam"
+      ],
+      "attack_own_bank_devices": [
+        "ArloQ Camera",
+        "Philips Hue Bridge",
+        "SimCam"
+      ],
+      "eligible_normal_rows": 120026,
+      "eligible_attack_rows": 447149,
+      "fallback_normal_rows": 14467,
+      "fallback_attack_rows": 36266,
+      "independent_new_group_capture_overlap": 7,
+      "numerical_and_frame_checks": true
+    },
+    "cut_replay": {
+      "status": "EXACT_CUT_REPRODUCED",
+      "scope": "all LEARN CAL normal rows only",
+      "normal_rows": 33147,
+      "normal_uid_sha256": "73abd56b72c4e4af2a9d292d9983e01c4312199e0e023c636d9f2b7270f9c90e",
+      "score_dtype": "float32",
+      "score_bytes_sha256": "592ef7f0bda26514dedfe16bfcde39b340df1cb10b06bca124375a73908864cb",
+      "stored_cut": -23.066728591918945,
+      "replayed_cut": -23.066728591918945,
+      "strict_weighted_normal_fpr": 0.009755209847071762,
+      "budget": 0.01,
+      "algorithm": "continuous_model_v3.threshold with legacy_qref_data_v1.class_weights"
+    },
+    "selected_source_archive_members": 16,
+    "no_target_queries_loaded": true
+  },
+  "resource_state": {
+    "status": "ESTIMATE_READY_SYNTHETIC_TIMING_PENDING",
+    "estimates_only": true,
+    "estimated_peak_rss_bytes": 7683046936,
+    "estimated_output_bytes": 1207507488,
+    "synthetic_timing_run": false,
+    "actual_training_peak_rss": null,
+    "actual_training_seconds": null,
+    "remote_execution_slot_verified": false,
+    "environment_16gib_limit_verified": false
+  },
+  "production_state": {
+    "auxiliary_training": "NOT_RUN",
+    "module_training": "NOT_RUN",
+    "true_auxiliary_residual_signal": "UNKNOWN",
+    "cal_attack_lambda": "NOT_RUN",
+    "target_manifest": "NOT_ASSEMBLED",
+    "target_evaluation": "NOT_RUN",
+    "scientific_results": null,
+    "automatic_promotion": false
+  },
+  "operations": {
+    "real_optimizer_updates": 0,
+    "synthetic_fixtures_only": true,
+    "remote_connections": 0,
+    "jobs_submitted": 0,
+    "existing_jobs_modified": false,
+    "ai_polling_added": false,
+    "raw_cache_weights_archives_modified": false,
+    "worktree_reset_or_cleanup": false
+  },
+  "remaining": [
+    "Available exclusive execution slot and existing environment hard cap",
+    "Synthetic-only resource timing and production runtime acceptance",
+    "Two fixed auxiliary endpoints followed by actual residual-signal gate",
+    "Three fixed correction endpoints only if the registered signal gate passes",
+    "Source CAL attack protection, pinned target manifest and complete paired evaluation"
+  ],
+  "verification_notes": {
+    "new_text_whitespace": "PASS",
+    "git_diff_check": "Only two pre-existing trailing spaces in mainline_experiment_map history at current lines 1067/1068; retained",
+    "full_chain_fixture": "Mocks only residual_signal READY to exercise all five synthetic endpoints; not evidence of real source difficulty",
+    "source_qualification": "All FIT numeric and frame checks; own-bank counts do not include donor-only attacks"
+  }
+}

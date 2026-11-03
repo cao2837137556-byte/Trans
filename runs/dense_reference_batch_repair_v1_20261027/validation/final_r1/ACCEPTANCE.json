@@ -1,0 +1,82 @@
+{
+  "all_source_files_lf": true,
+  "approval_template_false": true,
+  "archive": "distribution\\r1\\dense_reference_batch_repair_v1_20261027.tar.gz",
+  "archive_bytes": 30454,
+  "archive_sha256": "279d5006cc7f155f22186e6d5d2b09c0926fb26e2085a99798649f037ee087a7",
+  "checkpoint_loads": 0,
+  "checks": {
+    "bash_syntax": {
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "dry_run": {
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3ed3480ba40e75a0209f186fc76bac411dd67c999b5e97bcc879904aec85d035"
+    },
+    "extracted_dry_run": {
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3ed3480ba40e75a0209f186fc76bac411dd67c999b5e97bcc879904aec85d035"
+    },
+    "extracted_tests": {
+      "returncode": 0,
+      "stderr_sha256": "832250ba523f1216518c2a0f4d294e487977e7395ba649fb16b890f0ead462ae",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "tests": {
+      "returncode": 0,
+      "stderr_sha256": "8ab3b3df95de07989e7208ef00fc83f1804af9d3101b5dd4d779ded906e9a5c0",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "clone_positions": 750,
+  "created_utc": "2026-10-27T11:31:59.927570+00:00",
+  "extracted_tests": 26,
+  "full_matrix_ready": false,
+  "logical_new_positions": 21660,
+  "logical_rows": 21764,
+  "old_diagnostic_unchanged": {
+    "files": 9,
+    "manifest_sha256": "0d6d59c904b6a6e0a29725c99fc628c760e2489fdb2bbbbcf90027bb79c1f1d5"
+  },
+  "old_launch_unchanged": {
+    "files": 5,
+    "manifest_sha256": "12bac486285b6cbaa0a58df7c8ded17dc6c1a74d79632f2ff7763e33f4c34300"
+  },
+  "optimizer_updates": 0,
+  "original104_real_replay": "PENDING_NEW_AUTHORIZED_JOB",
+  "original_package_unchanged": {
+    "files": 1492,
+    "manifest_sha256": "ddb94bb9836c9ace0b2a704e875d969c1d3c40c94198212ac795a9d0731db120"
+  },
+  "physical_positions": 22514,
+  "proof": {
+    "budget_sha256": "8a9216bb0aa64c3e2be0f097796c245475d76aa0dc50e226bedcb681838e9944",
+    "checkpoint_loads": 0,
+    "original": {
+      "files": 1492,
+      "manifest_sha256": "ddb94bb9836c9ace0b2a704e875d969c1d3c40c94198212ac795a9d0731db120"
+    },
+    "overlay": {
+      "files": 15,
+      "manifest_sha256": "ff81556b59801426c10779908be2363f002f8945673c0eac9fa235bc9cc1d57a"
+    },
+    "real_forwards": 0,
+    "remote_submissions": 0,
+    "source_cal": true,
+    "status": "DRY_RUN_PASS",
+    "target_evaluation": false
+  },
+  "real_forwards": 0,
+  "remaining_blockers": [
+    "FROZEN_THIRD_POOL_BASE_B2_ASSETS_ABSENT"
+  ],
+  "remote_submissions": 0,
+  "schema": "paper04-singleton-repair-release-validation-v1",
+  "source_tests": 26,
+  "status": "PASS",
+  "target_evaluations": 0
+}

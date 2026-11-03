@@ -1,0 +1,57 @@
+{
+  "status": "N2_DESIGN_INPUT_PINS_NOT_EXECUTION_AUTHORIZATION",
+  "base_branch": "codex/exp-mainline",
+  "base_head": "4b28747b09480471e2bac1beb3a9badf27280efb",
+  "provenance": "The inherited bundle and sealed manifest entries supply artifact identities. Design inspection used source, protocols, existing aggregate coverage and saved identity metadata only; no new numeric model/data execution occurred. Future N2 must verify all required hashes before corresponding access and must not follow unrelated manifest members.",
+  "inherited_bundle": {
+    "path": "runs/mainline_docs/frontend_inheritance_n1_input_and_runtime_pins_20260908.json",
+    "sha256": "a78014b1977f27d85ca34180d8254b9a16b61e0d04d88aa11d517ccc7eb25a97",
+    "sidecar": "runs/mainline_docs/frontend_inheritance_n1_input_and_runtime_pins_20260908.sha256",
+    "use": "All 17 repository_inputs and all 7 runtime_file_sha256 entries; preserve runtime_root and runtime_versions. This inheritance imports identities, not N1 execution authority or its train-only reader behavior.",
+    "repository_pin_count": 17,
+    "runtime_pin_count": 7
+  },
+  "additional_repository_inputs": {
+    "runs/mainline_docs/frontend_f5_unified_student_one_shot_training_frozen_20260906.md": "b8069e6556d6719eef3e689b1ab9a8676c24a00a82e8b5f810a401c9c42786b6",
+    "runs/mainline_docs/frontend_inheritance_n1_fixed_terminal_head_feasibility_frozen_20260908.md": "9826ceee1befd63258b563f5741da2ae69e70f810e009ae728777054529819c5",
+    "runs/mainline_docs/frontend_inheritance_n1_real_result_20260908.md": "0d72cd2cd3cf272460cf5c07df80288afbc33dd34c010539ac64691f0c4a4b73",
+    "runs/frontend_inheritance_n1_fixed_terminal_head_v1_20260908/SHA256SUMS": "04909f2d2e8c376ee35d709323ff9831d8dcdd263e7213e20aa98660de72552d",
+    "runs/frontend_inheritance_n1_fixed_terminal_head_v1_20260908/candidate_head.f32le": "e6ac6c418253595b46308f654d339f8dfa16be971572fa282c9588c5c43f497e",
+    "runs/frontend_inheritance_n1_fixed_terminal_head_v1_20260908/candidate_head.json": "97b6dd66c569184d145b14373de0fa6a27eb4e90ac434af8ce29d04776c660d2",
+    "runs/frontend_inheritance_n1_fixed_terminal_head_v1_20260908/baseline_model_and_context_hashes.json": "13866727a02b873b76f384c115e1570b3453cb92bc31cf36908af0bc61c8f21a",
+    "runs/frontend_inheritance_n1_fixed_terminal_head_v1_20260908/candidate_context_hashes.json": "76e0e11203b236f0b63ff11aa3160bd2fd7de74aec74cb3879a1e64b2bb3f0fa",
+    "runs/frontend_inheritance_n1_fixed_terminal_head_v1_20260908/exact_candidate_check.json": "687ad6c7d2daf9ceed61b4f4eaba698a0ff3e5e0e119820c91914478588633a6",
+    "runs/frontend_inheritance_n1_fixed_terminal_head_v1_20260908/all_category_outcomes.json": "724f0d37339751edbf4b83f1219cd7b23055d038d8624d38ffc63c4fb99d9329",
+    "runs/frontend_inheritance_n1_fixed_terminal_head_v1_20260908/supervisor_terminal.json": "3be248b31b024c425c3c8d62b1b7ef0924f40f7656415b4962261c0be307e856",
+    "runs/frontend_inheritance_n1_fixed_terminal_head_v1_20260908/worker_terminal.json": "38eb9b26d30283e1b5329f4b4a3070aac663f005c3bc9767b65f084d13a5c76f",
+    "runs/frontend_inheritance_n1_fixed_terminal_head_v1_20260908/runtime_receipt.json": "823b2f624329fcae1dedfc3c38536bf9921f6a509f7349b2eb60b7da2abe1dd9",
+    "runs/frontend_inheritance_n1_implementation_v2_20260908/synthetic_acceptance.json": "fde93c1c9dfcd4cff12c14827f3b7d9c319c67bec0d0a3025cd5f3b66f2d4bdd",
+    "runs/frontend_inheritance_n1_implementation_v2_20260908/SHA256SUMS": "ab363017e0a0333501b5e23118d445601d1bee1e86813f088362d8b28a81a2df",
+    "runs/frontend_inheritance_n0_inventory_v1_20260907/SHA256SUMS": "6ae906c31e5fa48a15405237c54ce6a3947767c8ace01eb0af8ee38f03911740",
+    "runs/frontend_inheritance_n0_inventory_v1_20260907/coverage_table.csv": "e33acfdd0f2edd45179b1c6693d785485da1b5f4b68050d9d88a55a6e741fd13",
+    "runs/frontend_inheritance_n0_inventory_v1_20260907/family_coverage_table.csv": "8c031d068acfd814d67316dee2361d34b5d4688db52239354acdd47aa6cd9bfd"
+  },
+  "historical_code_attestation": {
+    "source": "runs/frontend_inheritance_n1_implementation_v2_20260908/synthetic_acceptance.json",
+    "expected_status": "N1_IMPLEMENTATION_SYNTHETIC_ACCEPTANCE_PASS",
+    "tests_run": 36,
+    "powershell_parser_checks": 2,
+    "code_pin_count": 9,
+    "runtime_pin_count": 7,
+    "verify": "All nine code_pins and all seven runtime_file_sha256 entries in this hash-pinned receipt, agreeing with inherited identities on every overlap. This does not authorize importing historical launchers. N2 code identities belong in a separately sealed implementation receipt."
+  },
+  "model_assembly": {
+    "terminal_state_tensor_sha256": "131d15e7a586a6fb105995ecb25d56f8217351c03b60495c56d6e1b723db1bcc",
+    "non_head_state_tensor_sha256": "29328fc616ef5b0197d1dcc8c564d89865201eb08b540d826847e233932dbe67",
+    "head_float32_le_sha256": "e6ac6c418253595b46308f654d339f8dfa16be971572fa282c9588c5c43f497e",
+    "head_values": 65,
+    "head_bytes": 260,
+    "threshold": "actual float32 q >= 0 is attack; q < 0 is normal",
+    "candidate_count": 1,
+    "parameter_fitting": false
+  },
+  "numeric_access_during_design": false,
+  "design_access_definition": "No feature/head bytes interpreted as numbers, checkpoint tensor loading, model construction or execution. Existing source, aggregate coverage, saved scalar results and identity metadata were read as declared in the protocol.",
+  "n2_implementation_authorized": false,
+  "n2_real_evaluation_authorized": false
+}

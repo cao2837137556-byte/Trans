@@ -1,0 +1,48 @@
+{
+  "status": "FINAL_PROGRESS_COMPLETE",
+  "job_id": "179602",
+  "scheduler": {
+    "job_id": "179602",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed": "02:05:00",
+    "node": "node185"
+  },
+  "stage": "source_cal",
+  "phase_cards": [
+    {
+      "name": "runtime",
+      "label": "\u73af\u5883\u4e0e\u4f9d\u8d56\u6838\u9a8c",
+      "state": "COMPLETE"
+    },
+    {
+      "name": "original104",
+      "label": "\u539f104\u72ec\u7acb\u4e25\u683c\u5b57\u8282\u95e8\u7981",
+      "state": "COMPLETE"
+    },
+    {
+      "name": "new_reference_encoding",
+      "label": "21,660\u6761\u5408\u6cd5\u53c2\u8003\u8865\u7f16\u7801",
+      "state": "COMPLETE"
+    },
+    {
+      "name": "source_cal",
+      "label": "\u5bc6\u6e90CAL\u4e0e\u9884\u7b97\u03bb\u9009\u62e9",
+      "state": "COMPLETE"
+    }
+  ],
+  "totals": {
+    "batches": 1501,
+    "clone_positions": 750,
+    "logical_rows": 21764,
+    "physical_positions": 22514,
+    "singleton_batches": 50
+  },
+  "matrix_included": false,
+  "source_cal_complete": true,
+  "ai_polling": false,
+  "experiment_restarted": false,
+  "cache_sha256": "db7a6c235b4ec1ac29cea2e31c1da9a51d84cfa2beefe0239c5bfbb8c8820736",
+  "observed_utc": "2026-10-27T14:01:04.142728+00:00",
+  "refreshed_utc": "2026-10-27T14:01:30.197548+00:00"
+}

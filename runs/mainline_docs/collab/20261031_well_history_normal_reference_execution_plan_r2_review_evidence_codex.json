@@ -1,0 +1,287 @@
+{
+  "status": "READ_ONLY_R2_REVIEW_NO_REFERENCE_BUILD_OR_SCIENTIFIC_EXECUTION",
+  "date": "2026-10-31",
+  "scope": "Existing packet-index timestamps and existing result summaries only; proposed role binding is not activated",
+  "historical_cutoff_recommendations": [
+    {
+      "device": "TP Link Plug",
+      "raw_member_sha256": "45d1bd14569950ab6c356bac70a7870b2a0d98a4efc8e3e6d2310ef422e212f5",
+      "packet_index": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/TPLinkSmartPlug_50c7bf005639.packet_index.npy",
+      "chronological_order": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/TPLinkSmartPlug_50c7bf005639.chronological_order.npy",
+      "observed_nonempty_utc_days": 32,
+      "ref_days": 25,
+      "dev_days": 7,
+      "last_ref_date_utc": "2016-12-04",
+      "first_dev_date_utc": "2017-02-06",
+      "reference_end_us": 1480856333261023,
+      "reference_end_seconds": 1480856333.261023,
+      "reference_end_utc": "2016-12-04T12:58:53.261023+00:00",
+      "bank_end_frame": 66004,
+      "full_packet_rows": 79773,
+      "first_dev_frame": 66005,
+      "first_dev_time_us": 1486357446065969,
+      "first_dev_utc": "2017-02-06T05:04:06.065969+00:00",
+      "last_ref_original_packet_ordinal": 66004,
+      "first_dev_original_packet_ordinal": 66005,
+      "gap_seconds": 5501112.804946,
+      "selected_reference_last_time_used": false,
+      "raw_decoding_performed": false
+    },
+    {
+      "device": "WEMO Power Switch",
+      "raw_member_sha256": "445b24a2555bd4af7991e83752ad63aba1cd9f1c96e7cbbd76da6a81b6dcbc64",
+      "packet_index": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/BelkinWemoSwitch_ec1a5979f489.packet_index.npy",
+      "chronological_order": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/BelkinWemoSwitch_ec1a5979f489.chronological_order.npy",
+      "observed_nonempty_utc_days": 105,
+      "ref_days": 84,
+      "dev_days": 21,
+      "last_ref_date_utc": "2017-01-10",
+      "first_dev_date_utc": "2017-01-11",
+      "reference_end_us": 1484092799863312,
+      "reference_end_seconds": 1484092799.863312,
+      "reference_end_utc": "2017-01-10T23:59:59.863312+00:00",
+      "bank_end_frame": 3430150,
+      "full_packet_rows": 4273643,
+      "first_dev_frame": 3430151,
+      "first_dev_time_us": 1484092851673414,
+      "first_dev_utc": "2017-01-11T00:00:51.673414+00:00",
+      "last_ref_original_packet_ordinal": 3430150,
+      "first_dev_original_packet_ordinal": 3430151,
+      "gap_seconds": 51.810102,
+      "selected_reference_last_time_used": false,
+      "raw_decoding_performed": false
+    },
+    {
+      "device": "Samsung Camera",
+      "raw_member_sha256": "55fbfcbb4f5dce65ac51a41658550e087da1d1e2b30370386eb167c4d9dfedf9",
+      "packet_index": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/SamsungCamera_00166cab6b88.packet_index.npy",
+      "chronological_order": "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/SamsungCamera_00166cab6b88.chronological_order.npy",
+      "observed_nonempty_utc_days": 119,
+      "ref_days": 95,
+      "dev_days": 24,
+      "last_ref_date_utc": "2017-03-20",
+      "first_dev_date_utc": "2017-03-21",
+      "reference_end_us": 1490054396682107,
+      "reference_end_seconds": 1490054396.682107,
+      "reference_end_utc": "2017-03-20T23:59:56.682107+00:00",
+      "bank_end_frame": 4419000,
+      "full_packet_rows": 5880402,
+      "first_dev_frame": 4419001,
+      "first_dev_time_us": 1490054401482691,
+      "first_dev_utc": "2017-03-21T00:00:01.482691+00:00",
+      "last_ref_original_packet_ordinal": 4419000,
+      "first_dev_original_packet_ordinal": 4419001,
+      "gap_seconds": 4.800584,
+      "selected_reference_last_time_used": false,
+      "raw_decoding_performed": false
+    }
+  ],
+  "existing_179700_device_metrics": {
+    "CIC_DEV": {
+      "arm": "R-DENSE",
+      "epsilon_label": "0.1",
+      "lambda": 0.25,
+      "primary_view": "post_window_primary",
+      "suffix": "ensemble",
+      "views": {
+        "full": {
+          "pool_fpr_percent": 5.95416158501166,
+          "devices": [
+            {
+              "device": "Eufy Home Base",
+              "device_id": "Eufy Home Base",
+              "weighted_fpr_percent": 3.7725585922014493,
+              "raw_fp_rows": 235,
+              "normal_rows": 99833,
+              "normal_weight_mass": 0.5,
+              "meets_2pct": false
+            },
+            {
+              "device": "HeimVision Camera",
+              "device_id": "HeimVision Camera",
+              "weighted_fpr_percent": 8.135764577821869,
+              "raw_fp_rows": 142,
+              "normal_rows": 997,
+              "normal_weight_mass": 0.5,
+              "meets_2pct": false
+            }
+          ]
+        },
+        "post_window_primary": {
+          "pool_fpr_percent": 3.9934815308699236,
+          "devices": [
+            {
+              "device": "Eufy Home Base",
+              "device_id": "Eufy Home Base",
+              "weighted_fpr_percent": 0.00023191094619666046,
+              "raw_fp_rows": 1,
+              "normal_rows": 95369,
+              "normal_weight_mass": 0.5,
+              "meets_2pct": true
+            },
+            {
+              "device": "HeimVision Camera",
+              "device_id": "HeimVision Camera",
+              "weighted_fpr_percent": 7.986731150793651,
+              "raw_fp_rows": 63,
+              "normal_rows": 672,
+              "normal_weight_mass": 0.5,
+              "meets_2pct": false
+            }
+          ]
+        }
+      }
+    },
+    "UNSW_DEV": {
+      "arm": "R-DENSE",
+      "epsilon_label": "0.1",
+      "lambda": 0.25,
+      "primary_view": "post_window_primary",
+      "suffix": "ensemble",
+      "views": {
+        "full": {
+          "pool_fpr_percent": 9.820850231505256,
+          "devices": [
+            {
+              "device": "Samsung Camera",
+              "device_id": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+              "weighted_fpr_percent": 9.503118436773397,
+              "raw_fp_rows": 5076,
+              "normal_rows": 20000,
+              "normal_weight_mass": 0.2,
+              "meets_2pct": false
+            },
+            {
+              "device": "TP Link Plug",
+              "device_id": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+              "weighted_fpr_percent": 9.356915901171146,
+              "raw_fp_rows": 247,
+              "normal_rows": 2680,
+              "normal_weight_mass": 0.2,
+              "meets_2pct": false
+            },
+            {
+              "device": "Netatmo Camera",
+              "device_id": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+              "weighted_fpr_percent": 1.5170065569079938,
+              "raw_fp_rows": 4381,
+              "normal_rows": 20000,
+              "normal_weight_mass": 0.2,
+              "meets_2pct": true
+            },
+            {
+              "device": "WEMO Power Switch",
+              "device_id": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+              "weighted_fpr_percent": 26.56179977168993,
+              "raw_fp_rows": 5113,
+              "normal_rows": 13083,
+              "normal_weight_mass": 0.2,
+              "meets_2pct": false
+            },
+            {
+              "device": "WEMO Motion Sensor",
+              "device_id": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+              "weighted_fpr_percent": 2.1654104909838057,
+              "raw_fp_rows": 466,
+              "normal_rows": 20000,
+              "normal_weight_mass": 0.2,
+              "meets_2pct": false
+            }
+          ]
+        },
+        "post_window_primary": {
+          "pool_fpr_percent": 9.519653948711488,
+          "devices": [
+            {
+              "device": "Samsung Camera",
+              "device_id": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+              "weighted_fpr_percent": 9.544739538864027,
+              "raw_fp_rows": 5001,
+              "normal_rows": 19711,
+              "normal_weight_mass": 0.2,
+              "meets_2pct": false
+            },
+            {
+              "device": "TP Link Plug",
+              "device_id": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+              "weighted_fpr_percent": 9.288756174130084,
+              "raw_fp_rows": 225,
+              "normal_rows": 2597,
+              "normal_weight_mass": 0.2,
+              "meets_2pct": false
+            },
+            {
+              "device": "Netatmo Camera",
+              "device_id": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+              "weighted_fpr_percent": 1.0125572772809495,
+              "raw_fp_rows": 4309,
+              "normal_rows": 19879,
+              "normal_weight_mass": 0.2,
+              "meets_2pct": true
+            },
+            {
+              "device": "WEMO Power Switch",
+              "device_id": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+              "weighted_fpr_percent": 26.56453833263182,
+              "raw_fp_rows": 5113,
+              "normal_rows": 13028,
+              "normal_weight_mass": 0.2,
+              "meets_2pct": false
+            },
+            {
+              "device": "WEMO Motion Sensor",
+              "device_id": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+              "weighted_fpr_percent": 1.1876784206505568,
+              "raw_fp_rows": 93,
+              "normal_rows": 19229,
+              "normal_weight_mass": 0.19999999999999998,
+              "meets_2pct": true
+            }
+          ]
+        }
+      }
+    }
+  },
+  "implementation_binding_recommendations": {
+    "reference_new_per_device_protocol_cap": 4096,
+    "dev_query_per_device_total_cap": 4096,
+    "dev_all_three_total_cap": 12288,
+    "hist_dev_max_pairs_under_this_binding": 50331648,
+    "pass_view": "post_window_primary",
+    "secondary_view": "full",
+    "attack_path": "P-DEVONLY"
+  },
+  "inputs_sha256_unchanged": {
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/mainline_docs/collab/20261031_well_history_normal_reference_execution_plan_r2_for_codex.md": "dc566523f91256de7616391634bcfc348d1434e3a4227b0f8414122984a9dbf0",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/targeted_normal_raw_qualification_v1_20261031/TIMELINE_INDEX_RECEIPT.json": "ffb44e379840754b0719008ec58f2d8f65140fe30de533584ecaedbbcb01d5dc",
+    "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/TPLinkSmartPlug_50c7bf005639.packet_index.npy": "a96028abcbe562fc0704b68b3695c7f99ffd629ad152b9a565e1b3c96d847299",
+    "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/TPLinkSmartPlug_50c7bf005639.chronological_order.npy": "9da30d4ebcf5cfe8c34d1f4e008dc90fea30746c0787ce437b46312901f84d23",
+    "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/BelkinWemoSwitch_ec1a5979f489.packet_index.npy": "00273d29f728b26b8b3e3219a5bb12ac17a4e8f34763e7ecc0687e3e0cdea733",
+    "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/BelkinWemoSwitch_ec1a5979f489.chronological_order.npy": "d0b8b7e190bc49f33212c9210781c2ac51207c474704d684762901ca4af44923",
+    "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/SamsungCamera_00166cab6b88.packet_index.npy": "2a639b7cba9961cb8608d5f5b2c9f2b5ab8bb3b7e7469899aaf77973ac56f8a2",
+    "D:/study/paper/anomaly_detection/paper04/data_external/unsw_iotraffic_2025/timeline_index/SamsungCamera_00166cab6b88.chronological_order.npy": "03686f44f22bba2add9de04baefc579877b68b80037f923e853353ba2c25cb50",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/dense_reference_ab_stage_dependency_repair_execution_20261028/result_retrieval_179700_20261028/unpacked/job_179700/science/matrix/CIC_DEV/RESULT.json": "a6f2e1666a4bb3d0eec69e738e0298599c3f9ebd932ea3d46e329c3e15096783",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/dense_reference_ab_stage_dependency_repair_execution_20261028/result_retrieval_179700_20261028/unpacked/job_179700/science/matrix/UNSW_DEV/RESULT.json": "022ffec2d9c44fb938a3e6493f3c98c1e7ee5cad440525bddfba867c4be13f61",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/constrained_onboarding_reference_v2.py": "208d89521c95bebb6d82745b2642aea8e01d97cf82dc80647f5ebf224a34a64c",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/constrained_onboarding_core_v3.py": "42a32e0b829a373a96046d34d16bcb53455f99f1bc0786a8a49be38bc855f72c",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/continuous_input_v3.py": "a503c7b21c35234462a735d3890fa4cda918573ceeda072604e4bec6872b405d",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/continuous_input_engineering_v1.py": "c70b0be31fd5ec40432bc9f851e6ee8611c3b0ed18262122ddc964fba347b415",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/continuous_features_v3.py": "275429d998bcd10f7b83162d2f4bd7fadcef04560af93dc03778347a96326cf4",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/legacy_reference_context_scope_v1.py": "f2676910a89b24b0d9d6387cab5e425d698e26b9c5c17f1edd912b863c1e9da5",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/legacy_unsw_archival_data_v1.py": "8e853545f9dcdfa364f863a0a9e1e65e82c9729060ed7fe18765e870fb775ea7",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/legacy_cic2022_two_camera_semantic_probe_v1.py": "6008aa023ac78510f01e74104dde931fffeb7b90df2be868ae4a55fca4a1df29",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/dense_reference_ab_stage_candidate_v1_20261028/src/metrics.py": "8a82d2c10f209467c3da1f48ed6041e5ea68094a75193109a56b7b471144ac65",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/mainline_docs/collab/20261031_well_history_normal_reference_execution_plan_r1_review_response_codex.md": "302ee8fa53cb9216639e0932646be1e44988106916e30a1439730c267afced2c",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/mainline_docs/collab/20261031_well_history_normal_reference_execution_plan_r1_review_evidence_codex.json": "0829769da934a6708d45e243b993d67f4361983db6e216089711b2832bd8f6b7",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/dense_reference_ab_stage_candidate_v1_20261028/config/MATRIX_CANDIDATE_HPC.json": "3c7d04a6a32b2a033b62bdfefc93172809eb6a7e6375b7fd7be7828a27ad1199",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/dense_reference_matrix_v1_20261027/src/binding.py": "96ba803712f7dd847b63ad08c8626f9e5f9b0b5f4c4c952c7706b7d1ad43cdcb",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/dense_reference_ab_stage_candidate_v1_20261028/src/matrix.py": "27cbf20d3c8c39c2f05860e09792977970ebf424c07e76066b48cfa914a74ccb"
+  },
+  "review_validation": {
+    "input_files_verified_unchanged": 24,
+    "report_links_resolve": 9,
+    "all_three_primary_non_target_fpr_le_2pct": true,
+    "all_history_cutoffs_strictly_before_dev": true,
+    "original_r2_sha_matches_sidecar": true
+  }
+}

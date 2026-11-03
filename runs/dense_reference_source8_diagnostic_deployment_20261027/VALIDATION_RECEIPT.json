@@ -1,0 +1,27 @@
+{
+  "automatic_retry": false,
+  "bootstrap_prepared": true,
+  "bootstrap_remote_executed": false,
+  "command": "python -B -m unittest discover -s runs/dense_reference_source8_diagnostic_deployment_20261027 -p test_submit_once.py -v",
+  "created_utc": "2026-10-27T10:57:32.082042+00:00",
+  "files": {
+    "prepare_bootstrap.py": "d032afc9eb77e21393aa5b4ae2796a0721e939c9d8004e7ae6aca0339ea3153a",
+    "submit_once.py": "c9574fd7b638c26e8e37db3bedde11eb56fb23a3b9290e374b5e6aa7a871f711",
+    "test_submit_once.py": "39a69cf0a83f2558897e37a9bd52086996d4d1eb53d98938a53a731500c68ff0"
+  },
+  "independent_static_review": "dense_encoder_audit: PASS, no blockers",
+  "maximum_forward_positions": 136,
+  "offline_tests": 18,
+  "offline_tests_passed": 18,
+  "prepared_receipt_sha256": "13b00e441b6b5e563b1c43524ff1e4f635dfe72dbf8a172bdc2c09c9eb4f28ac",
+  "production_encode": false,
+  "public_approval_sha256": "e3c839c45c0b211e0598a3d4e8a4d7913117c657d8b7b680cb63770105621bb8",
+  "python_sources_ast": "PASS",
+  "real_forwards": 0,
+  "remote_submissions_by_this_agent": 0,
+  "source_cal": false,
+  "source_only": true,
+  "status": "PASS_PREPARED_NOT_EXECUTED",
+  "target_evaluation": false,
+  "token_output": false
+}

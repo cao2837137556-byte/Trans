@@ -1,0 +1,111 @@
+{
+  "AB_evaluated": true,
+  "calibration_refit": 0,
+  "exit_code": "0:0",
+  "job_id": "180435",
+  "metric": "existing hierarchical weighted rates",
+  "old_baseline_job": "179700",
+  "pools": {
+    "CIC_DEV": {
+      "devices": [
+        {
+          "device": "Eufy Home Base",
+          "fpr": 2.3191094619666046e-06,
+          "recall": 1.0,
+          "recall_loss_pp_vs_RAW": 0.0,
+          "withdrawn_rows_vs_RAW": 0
+        },
+        {
+          "device": "HeimVision Camera",
+          "fpr": 0.06631944444444444,
+          "recall": 1.0,
+          "recall_loss_pp_vs_RAW": 0.0,
+          "withdrawn_rows_vs_RAW": 0
+        }
+      ],
+      "new_fpr": 0.033160881776953206,
+      "new_missed_rows_vs_RAW": 0,
+      "old_fpr": 0.03993481530869924,
+      "recall": 1.0,
+      "relative_fpr_reduction": 0.16962476173692043
+    },
+    "UNSW_DEV": {
+      "devices": [
+        {
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+          "fpr": 0.017802225660426108,
+          "recall": 0.9884189633954815,
+          "recall_loss_pp_vs_RAW": 1.1312640223578787,
+          "withdrawn_rows_vs_RAW": 22
+        },
+        {
+          "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+          "fpr": 0.012940604858320567,
+          "recall": 0.998131455586766,
+          "recall_loss_pp_vs_RAW": 0.18685444132340923,
+          "withdrawn_rows_vs_RAW": 5
+        },
+        {
+          "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+          "fpr": 0.010125572772809495,
+          "recall": 1.0,
+          "recall_loss_pp_vs_RAW": 0.0,
+          "withdrawn_rows_vs_RAW": 0
+        },
+        {
+          "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+          "fpr": 0.03478111897241414,
+          "recall": 0.9992972063151571,
+          "recall_loss_pp_vs_RAW": 0.07027936848428036,
+          "withdrawn_rows_vs_RAW": 3
+        },
+        {
+          "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+          "fpr": 0.01187678420650557,
+          "recall": 0.9992991146315229,
+          "recall_loss_pp_vs_RAW": 0.07008853684770729,
+          "withdrawn_rows_vs_RAW": 3
+        }
+      ],
+      "new_fpr": 0.017505261294095176,
+      "new_missed_rows_vs_RAW": 33,
+      "old_fpr": 0.09519653948711487,
+      "recall": 0.9970293479857855,
+      "relative_fpr_reduction": 0.8161145206705275
+    }
+  },
+  "primary_view": "post_window_primary",
+  "protection_failures": [
+    {
+      "failures": [
+        "device_WITHDRAWAL_BUDGET:unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+        "annotation_WITHDRAWAL_BUDGET:annotations/00166cab6b88.csv:4"
+      ],
+      "head": "127",
+      "pool": "UNSW_DEV"
+    },
+    {
+      "failures": [
+        "device_WITHDRAWAL_BUDGET:unsw-attack-traces-2018:00:16:6c:ab:6b:88"
+      ],
+      "head": "227",
+      "pool": "UNSW_DEV"
+    },
+    {
+      "failures": [
+        "device_WITHDRAWAL_BUDGET:unsw-attack-traces-2018:00:16:6c:ab:6b:88"
+      ],
+      "head": "ensemble",
+      "pool": "UNSW_DEV"
+    }
+  ],
+  "scientific_reruns": 0,
+  "scientific_status": "FAIL_PROTECTION",
+  "target_failures": [
+    "CIC_DEV:POOL_FPR_ABOVE_2_OR_MISSING",
+    "CIC_DEV:DEVICE_FPR_ABOVE_2_OR_MISSING:HeimVision Camera",
+    "UNSW_DEV:DEVICE_FPR_ABOVE_2_OR_MISSING:unsw-attack-traces-2018:ec:1a:59:79:f4:89"
+  ],
+  "technical_status": "COMPLETED",
+  "training_updates": 0
+}

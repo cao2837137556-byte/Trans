@@ -1,0 +1,44 @@
+{
+  "schema": "paper04-chunked-backup-v1",
+  "scope": "ONBOARDING_RESULT_AND_PROVENANCE",
+  "identity": {
+    "config_sha256": "c4836b6126895ec4e0c6fb87e017eff26f4c9f01fe1c71bd44bae2d5858b9a72",
+    "head_complete_sha256": "fd9b46e510c0937d8c151aa80dd3940a636e8a68e618ec3ef9267a846705fd83",
+    "cache_marker_sha256": "0185757a4724569359e128a6d829e6a0e524df26e5011e7b2507a08d65d4a9b1",
+    "unit": "paper04-onboarding-20261022-v3"
+  },
+  "compression": "none",
+  "format": "tar-stream-concatenate-parts-in-order",
+  "chunk_bytes": 268435456,
+  "chunks": [
+    {
+      "name": "part-000000.tar",
+      "bytes": 268435456,
+      "sha256": "e8dddb9cc9061b9c3e79a6e60b9fde13574e98c7bc493d633cdbd6fa965bdba9"
+    },
+    {
+      "name": "part-000001.tar",
+      "bytes": 268435456,
+      "sha256": "52e2ebe96874ab4d2d6ed78194bfd78f24177139ec9c018efe11f5ab2f59b0bd"
+    },
+    {
+      "name": "part-000002.tar",
+      "bytes": 268435456,
+      "sha256": "d31aa3326a216272856563f5c8cfa51291c8f664d9d378618da99c0414d30093"
+    },
+    {
+      "name": "part-000003.tar",
+      "bytes": 105981952,
+      "sha256": "0567bb2b7200aee7a9674daa6b46c2198764f20608c52d05d0ca5f58ed3c93e3"
+    }
+  ],
+  "bytes": 911288320,
+  "source_bytes": 910697925,
+  "files": 325,
+  "symlinks_not_followed": [],
+  "excluded_files": [
+    "run/encoder_runtime"
+  ],
+  "complete": true,
+  "receipts_after_export": "Service final_status and exit-code sidecars are separate; download state separately"
+}

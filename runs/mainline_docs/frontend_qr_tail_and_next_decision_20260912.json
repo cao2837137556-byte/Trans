@@ -1,0 +1,137 @@
+{
+  "scope": "User-authorized analysis of already exposed saved results only; no model load/forward/optimizer/raw decode/new data or threshold selection.",
+  "inputs_sha256": {
+    "runs/frontend_a_expanded_eval_v1_20260911/predictions.csv.gz": "94dc12c5d1f0363ccb640e22b9aa4673a14f644479c7d50bcef8cbf30be9e627",
+    "runs/frontend_task_knowledge_transfer_e_v2_20260911/C0_expanded.csv.gz": "5c70cb56db30691f545e889caa87974b0b4553fa5c77dd081b58c9a7b794ec82",
+    "runs/frontend_task_knowledge_transfer_e_v2_20260911/C2_expanded.csv.gz": "d8374f6e6d5bb34d62b82735dfd83b7004784132236c2ffd93749763ac3c6236",
+    "runs/frontend_task_aligned_transfer_e_v1_20260912/Q_expanded.csv.gz": "12db8226998b4b6ee0df19ccc1fc3dcb29a8772d5bac11564fc7c2e7e0b86a04",
+    "runs/frontend_task_aligned_transfer_e_v1_20260912/R_expanded.csv.gz": "9a83121f046033b96123d871734a98d8c32e92dc0568586d0e4c7f8ae6663e95",
+    "runs/frontend_task_aligned_transfer_e_v1_20260912/comparison.json": "5c0c4da2a57843d4941245dc76b5b1ec2615600e9c608ff890964686b53340c1"
+  },
+  "method": "Join saved uid/logit/hard by exact unique UID to saved A evaluation metadata. For each model/level use the existing sealed comparison ranking threshold, retaining every logit >= threshold. Verify TP/FP against original comparison; aggregate benign rows by pool/source/event_index and intersect UID sets. No ROC recomputation or threshold selection.",
+  "verification": {
+    "targets": 262050,
+    "attacks": 244050,
+    "benign": 18000,
+    "uid_sets_equal": true,
+    "fixed_and_ranking_TP_FP_counts_match": true
+  },
+  "pool_counts": {
+    "A": {
+      "0.01": {
+        "predictive_maintenance": 180
+      },
+      "0.001": {
+        "predictive_maintenance": 18
+      }
+    },
+    "C0": {
+      "0.01": {
+        "predictive_maintenance": 180
+      },
+      "0.001": {
+        "predictive_maintenance": 18
+      }
+    },
+    "C2": {
+      "0.01": {
+        "predictive_maintenance": 180
+      },
+      "0.001": {
+        "predictive_maintenance": 18
+      }
+    },
+    "Q": {
+      "0.01": {
+        "predictive_maintenance": 180
+      },
+      "0.001": {
+        "predictive_maintenance": 18
+      }
+    },
+    "R": {
+      "0.01": {
+        "predictive_maintenance": 180
+      },
+      "0.001": {
+        "predictive_maintenance": 18
+      }
+    },
+    "AB": {
+      "0.01": {
+        "hydraulic": 172,
+        "camera_street": 7,
+        "stream": 1
+      },
+      "0.001": {
+        "hydraulic": 15,
+        "camera_street": 3
+      }
+    }
+  },
+  "R_source_order": [
+    "iotsim-predictive-maintenance-11_0-0_to_OpenvSwitch-21_1-0",
+    "iotsim-predictive-maintenance-12_0-0_to_OpenvSwitch-21_2-0",
+    "iotsim-predictive-maintenance-13_0-0_to_OpenvSwitch-21_3-0",
+    "iotsim-predictive-maintenance-14_0-0_to_OpenvSwitch-21_4-0",
+    "iotsim-predictive-maintenance-15_0-0_to_OpenvSwitch-21_5-0"
+  ],
+  "R_source_counts": {
+    "0.01": [
+      35,
+      36,
+      37,
+      36,
+      36
+    ],
+    "0.001": [
+      3,
+      2,
+      5,
+      5,
+      3
+    ]
+  },
+  "R_tail_UID_overlap": {
+    "0.01": {
+      "A": 168,
+      "AB": 0,
+      "C0": 174,
+      "C2": 177,
+      "Q": 178
+    },
+    "0.001": {
+      "A": 11,
+      "AB": 0,
+      "C0": 0,
+      "C2": 16,
+      "Q": 17
+    }
+  },
+  "R_event_index_counts": {
+    "0.01": {
+      "20": 20,
+      "21": 63,
+      "22": 91,
+      "23": 2,
+      "24": 2,
+      "25": 2
+    },
+    "0.001": {
+      "22": 18
+    }
+  },
+  "R_1pct_tail": {
+    "contexts": 94,
+    "distinct_prefix_hashes": 180,
+    "owner": "A",
+    "tier": "H1",
+    "all_members_contexts_prefix_hashes_absent_from_TRAIN": true
+  },
+  "interpretation_limits": [
+    "Saved thresholds describe exposed development; not deployable.",
+    "Different predictive UID subsets across models; same pool does not imply identical scores or cause.",
+    "Position concentration does not prove hidden-state instability or first-event cold start.",
+    "AB-start contrast tests saved state and prior learning history, not pure random initialization or equal lifetime B exposure."
+  ]
+}

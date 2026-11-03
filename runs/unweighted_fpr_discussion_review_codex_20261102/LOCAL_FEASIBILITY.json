@@ -1,0 +1,2167 @@
+{
+  "schema": "LOCAL_DA_DB_FEASIBILITY_READONLY_V1",
+  "observed_at_utc": "2026-11-02T07:03:18.637683+00:00",
+  "scope": {
+    "operation": "Local file/header/schema and existing metadata inspection only",
+    "new_lambda_candidates_evaluated": 0,
+    "new_distances": 0,
+    "model_forwards": 0,
+    "remote_calls": 0,
+    "job_180772_status_read": false
+  },
+  "inventory": [
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/ab/CIC_DEV/DECISIONS.npz",
+      "exists": true,
+      "bytes": 13613107,
+      "fields": {
+        "uid": {
+          "shape": [
+            179886
+          ],
+          "dtype": "<U64"
+        },
+        "raw_logits": {
+          "shape": [
+            179886,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "corrected_logits": {
+          "shape": [
+            179886,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "corrected": {
+          "shape": [
+            179886,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "c2_corrected": {
+          "shape": [
+            179886,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "guard": {
+          "shape": [
+            179886
+          ],
+          "dtype": "bool"
+        },
+        "base": {
+          "shape": [
+            179886,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "support": {
+          "shape": [
+            179886
+          ],
+          "dtype": "float64"
+        },
+        "eligible": {
+          "shape": [
+            179886
+          ],
+          "dtype": "bool"
+        },
+        "selected_lambda": {
+          "shape": [],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/ab/CIC_DEV/DECISIONS.npz",
+      "exists": true,
+      "bytes": 13999657,
+      "fields": {
+        "uid": {
+          "shape": [
+            179886
+          ],
+          "dtype": "<U64"
+        },
+        "guard": {
+          "shape": [
+            179886
+          ],
+          "dtype": "bool"
+        },
+        "raw_logits": {
+          "shape": [
+            179886,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "corrected_logits": {
+          "shape": [
+            179886,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "base": {
+          "shape": [
+            179886,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "c1_corrected": {
+          "shape": [
+            179886,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "corrected": {
+          "shape": [
+            179886,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "original_support": {
+          "shape": [
+            179886
+          ],
+          "dtype": "float64"
+        },
+        "support": {
+          "shape": [
+            179886
+          ],
+          "dtype": "float64"
+        },
+        "eligible": {
+          "shape": [
+            179886
+          ],
+          "dtype": "bool"
+        },
+        "selected_lambda": {
+          "shape": [],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/ab/CIC_DEV/DECISIONS.npz",
+      "exists": true,
+      "bytes": 13520717,
+      "fields": {
+        "uid": {
+          "shape": [
+            179886
+          ],
+          "dtype": "<U64"
+        },
+        "raw_logits": {
+          "shape": [
+            179886,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "corrected_logits": {
+          "shape": [
+            179886,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "base": {
+          "shape": [
+            179886,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "corrected": {
+          "shape": [
+            179886,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "support": {
+          "shape": [
+            179886
+          ],
+          "dtype": "float64"
+        },
+        "eligible": {
+          "shape": [
+            179886
+          ],
+          "dtype": "bool"
+        },
+        "selected_lambda": {
+          "shape": [],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV.jsonl.gz",
+      "exists": true,
+      "bytes": 20489530
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV_q.npy",
+      "exists": true,
+      "bytes": 10073744,
+      "shape": [
+        179886,
+        14
+      ],
+      "dtype": "float32"
+    },
+    {
+      "path": "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/CIC_DEV/SELECTED_REFERENCES.jsonl.gz",
+      "exists": true,
+      "bytes": 755851
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/CIC_DEV/bank.npz",
+      "exists": true,
+      "bytes": 23556186,
+      "fields": {
+        "uid": {
+          "shape": [
+            8574
+          ],
+          "dtype": "<U64"
+        },
+        "e3": {
+          "shape": [
+            8574,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "q14": {
+          "shape": [
+            8574,
+            14
+          ],
+          "dtype": "float32"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/ab/UNSW_DEV/DECISIONS.npz",
+      "exists": true,
+      "bytes": 11954889,
+      "fields": {
+        "uid": {
+          "shape": [
+            148316
+          ],
+          "dtype": "<U64"
+        },
+        "raw_logits": {
+          "shape": [
+            148316,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "corrected_logits": {
+          "shape": [
+            148316,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "corrected": {
+          "shape": [
+            148316,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "c2_corrected": {
+          "shape": [
+            148316,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "guard": {
+          "shape": [
+            148316
+          ],
+          "dtype": "bool"
+        },
+        "base": {
+          "shape": [
+            148316,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "support": {
+          "shape": [
+            148316
+          ],
+          "dtype": "float64"
+        },
+        "eligible": {
+          "shape": [
+            148316
+          ],
+          "dtype": "bool"
+        },
+        "selected_lambda": {
+          "shape": [],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/ab/UNSW_DEV/DECISIONS.npz",
+      "exists": true,
+      "bytes": 12445486,
+      "fields": {
+        "uid": {
+          "shape": [
+            148316
+          ],
+          "dtype": "<U64"
+        },
+        "guard": {
+          "shape": [
+            148316
+          ],
+          "dtype": "bool"
+        },
+        "raw_logits": {
+          "shape": [
+            148316,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "corrected_logits": {
+          "shape": [
+            148316,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "base": {
+          "shape": [
+            148316,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "c1_corrected": {
+          "shape": [
+            148316,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "corrected": {
+          "shape": [
+            148316,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "original_support": {
+          "shape": [
+            148316
+          ],
+          "dtype": "float64"
+        },
+        "support": {
+          "shape": [
+            148316
+          ],
+          "dtype": "float64"
+        },
+        "eligible": {
+          "shape": [
+            148316
+          ],
+          "dtype": "bool"
+        },
+        "selected_lambda": {
+          "shape": [],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/ab/UNSW_DEV/DECISIONS.npz",
+      "exists": true,
+      "bytes": 11998254,
+      "fields": {
+        "uid": {
+          "shape": [
+            148316
+          ],
+          "dtype": "<U64"
+        },
+        "raw_logits": {
+          "shape": [
+            148316,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "corrected_logits": {
+          "shape": [
+            148316,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "base": {
+          "shape": [
+            148316,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "corrected": {
+          "shape": [
+            148316,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "support": {
+          "shape": [
+            148316
+          ],
+          "dtype": "float64"
+        },
+        "eligible": {
+          "shape": [
+            148316
+          ],
+          "dtype": "bool"
+        },
+        "selected_lambda": {
+          "shape": [],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV.jsonl.gz",
+      "exists": true,
+      "bytes": 16428540
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV_q.npy",
+      "exists": true,
+      "bytes": 8305824,
+      "shape": [
+        148316,
+        14
+      ],
+      "dtype": "float32"
+    },
+    {
+      "path": "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/UNSW_DEV/SELECTED_REFERENCES.jsonl.gz",
+      "exists": true,
+      "bytes": 1207067
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/UNSW_DEV/bank.npz",
+      "exists": true,
+      "bytes": 33576112,
+      "fields": {
+        "uid": {
+          "shape": [
+            13247
+          ],
+          "dtype": "<U64"
+        },
+        "e3": {
+          "shape": [
+            13247,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "q14": {
+          "shape": [
+            13247,
+            14
+          ],
+          "dtype": "float32"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/TP_LINK/encoded/references.jsonl.gz",
+      "exists": true,
+      "bytes": 1242828
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/TP_LINK/encoded/references.npz",
+      "exists": true,
+      "bytes": 26324870,
+      "fields": {
+        "uid": {
+          "shape": [
+            7779
+          ],
+          "dtype": "<U64"
+        },
+        "e3": {
+          "shape": [
+            7779,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "q14": {
+          "shape": [
+            7779,
+            14
+          ],
+          "dtype": "float32"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/retrieved/history/TP_LINK/queries.npz",
+      "exists": true,
+      "bytes": 13861598,
+      "fields": {
+        "uid": {
+          "shape": [
+            4096
+          ],
+          "dtype": "<U64"
+        },
+        "e3": {
+          "shape": [
+            4096,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "q14": {
+          "shape": [
+            4096,
+            14
+          ],
+          "dtype": "float32"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/SAMSUNG/encoded/references.jsonl.gz",
+      "exists": true,
+      "bytes": 1331587
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/SAMSUNG/encoded/references.npz",
+      "exists": true,
+      "bytes": 27722462,
+      "fields": {
+        "uid": {
+          "shape": [
+            8192
+          ],
+          "dtype": "<U64"
+        },
+        "e3": {
+          "shape": [
+            8192,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "q14": {
+          "shape": [
+            8192,
+            14
+          ],
+          "dtype": "float32"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/retrieved/history/SAMSUNG/queries.npz",
+      "exists": true,
+      "bytes": 13861598,
+      "fields": {
+        "uid": {
+          "shape": [
+            4096
+          ],
+          "dtype": "<U64"
+        },
+        "e3": {
+          "shape": [
+            4096,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "q14": {
+          "shape": [
+            4096,
+            14
+          ],
+          "dtype": "float32"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/WEMO_POWER/encoded/references.jsonl.gz",
+      "exists": true,
+      "bytes": 1309590
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/WEMO_POWER/encoded/references.npz",
+      "exists": true,
+      "bytes": 27722462,
+      "fields": {
+        "uid": {
+          "shape": [
+            8192
+          ],
+          "dtype": "<U64"
+        },
+        "e3": {
+          "shape": [
+            8192,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "q14": {
+          "shape": [
+            8192,
+            14
+          ],
+          "dtype": "float32"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/retrieved/history/WEMO_POWER/queries.npz",
+      "exists": true,
+      "bytes": 13861598,
+      "fields": {
+        "uid": {
+          "shape": [
+            4096
+          ],
+          "dtype": "<U64"
+        },
+        "e3": {
+          "shape": [
+            4096,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "q14": {
+          "shape": [
+            4096,
+            14
+          ],
+          "dtype": "float32"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/output/dev/DECISIONS.npz",
+      "exists": true,
+      "bytes": 1081205,
+      "fields": {
+        "uid": {
+          "shape": [
+            12288
+          ],
+          "dtype": "<U64"
+        },
+        "q14": {
+          "shape": [
+            12288,
+            14
+          ],
+          "dtype": "float32"
+        },
+        "guard": {
+          "shape": [
+            12288
+          ],
+          "dtype": "bool"
+        },
+        "raw_logits": {
+          "shape": [
+            12288,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "corrected_logits": {
+          "shape": [
+            12288,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "base": {
+          "shape": [
+            12288,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "c1_corrected": {
+          "shape": [
+            12288,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "corrected": {
+          "shape": [
+            12288,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "original_support": {
+          "shape": [
+            12288
+          ],
+          "dtype": "float64"
+        },
+        "support": {
+          "shape": [
+            12288
+          ],
+          "dtype": "float64"
+        },
+        "eligible": {
+          "shape": [
+            12288
+          ],
+          "dtype": "bool"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/dev/QUERIES.jsonl.gz",
+      "exists": true,
+      "bytes": 1846101
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/retrieved/encoded/references.jsonl.gz",
+      "exists": true,
+      "bytes": 20431
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/retrieved/encoded/references.npz",
+      "exists": true,
+      "bytes": 941486,
+      "fields": {
+        "uid": {
+          "shape": [
+            278
+          ],
+          "dtype": "<U64"
+        },
+        "e3": {
+          "shape": [
+            278,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "q14": {
+          "shape": [
+            278,
+            14
+          ],
+          "dtype": "float32"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/FINAL_REPORT_AUDIT.json",
+      "exists": true,
+      "bytes": 19569
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/output/d1/r2/source_actual_trace.npz",
+      "exists": true,
+      "bytes": 10674250,
+      "fields": {
+        "eligible": {
+          "shape": [
+            148819
+          ],
+          "dtype": "bool"
+        },
+        "material_eligible": {
+          "shape": [
+            148819
+          ],
+          "dtype": "bool"
+        },
+        "causal": {
+          "shape": [
+            148819
+          ],
+          "dtype": "bool"
+        },
+        "same_component": {
+          "shape": [
+            148819
+          ],
+          "dtype": "bool"
+        },
+        "reason": {
+          "shape": [
+            148819
+          ],
+          "dtype": "<U64"
+        },
+        "legal_component_count": {
+          "shape": [
+            148819
+          ],
+          "dtype": "int32"
+        },
+        "delta": {
+          "shape": [
+            148819,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "raw_shift": {
+          "shape": [
+            148819,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "bank_end": {
+          "shape": [
+            148819
+          ],
+          "dtype": "float64"
+        },
+        "bank_end_frame": {
+          "shape": [
+            148819
+          ],
+          "dtype": "int64"
+        },
+        "corrected": {
+          "shape": [
+            148819
+          ],
+          "dtype": "bool"
+        },
+        "uid": {
+          "shape": [
+            148819
+          ],
+          "dtype": "<U64"
+        },
+        "original_logits": {
+          "shape": [
+            148819,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "corrected_logits": {
+          "shape": [
+            148819,
+            3
+          ],
+          "dtype": "float64"
+        },
+        "original_decisions": {
+          "shape": [
+            148819,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "corrected_decisions": {
+          "shape": [
+            148819,
+            4
+          ],
+          "dtype": "bool"
+        }
+      }
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CAL.npz",
+      "exists": true,
+      "bytes": 1190820,
+      "fields": {
+        "indices": {
+          "shape": [
+            148819
+          ],
+          "dtype": "int64"
+        }
+      }
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN_q.npy",
+      "exists": true,
+      "bytes": 42936840,
+      "shape": [
+        766727,
+        14
+      ],
+      "dtype": "float32"
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN.jsonl.gz",
+      "exists": true,
+      "bytes": 93547174
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/SOURCE_REFS.npz",
+      "exists": true,
+      "bytes": 354162,
+      "fields": {
+        "uid": {
+          "shape": [
+            104
+          ],
+          "dtype": "<U64"
+        },
+        "logits": {
+          "shape": [
+            104,
+            3
+          ],
+          "dtype": "float32"
+        },
+        "e3": {
+          "shape": [
+            104,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "q14": {
+          "shape": [
+            104,
+            14
+          ],
+          "dtype": "float32"
+        }
+      }
+    },
+    {
+      "path": "runs/source_controls_base_ctx_v1_20261026/config/FROZEN_INDICES.npz",
+      "exists": true,
+      "bytes": 2332205,
+      "fields": {
+        "G0_FIT": {
+          "shape": [
+            108675
+          ],
+          "dtype": "int64"
+        },
+        "G0_CAL": {
+          "shape": [
+            26349
+          ],
+          "dtype": "int64"
+        },
+        "G0_HELD": {
+          "shape": [
+            631703
+          ],
+          "dtype": "int64"
+        },
+        "G1_FIT": {
+          "shape": [
+            509233
+          ],
+          "dtype": "int64"
+        },
+        "G1_CAL": {
+          "shape": [
+            122470
+          ],
+          "dtype": "int64"
+        },
+        "G1_HELD": {
+          "shape": [
+            135024
+          ],
+          "dtype": "int64"
+        }
+      }
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/SOURCE_REFS/bank.npz",
+      "exists": true,
+      "bytes": 13232992,
+      "fields": {
+        "uid": {
+          "shape": [
+            4728
+          ],
+          "dtype": "<U64"
+        },
+        "e3": {
+          "shape": [
+            4728,
+            768
+          ],
+          "dtype": "float32"
+        },
+        "q14": {
+          "shape": [
+            4728,
+            14
+          ],
+          "dtype": "float32"
+        }
+      }
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/SOURCE_REFS/references.jsonl.gz",
+      "exists": true,
+      "bytes": 322617
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/source_cal/RESULT.json",
+      "exists": true,
+      "bytes": 15159
+    },
+    {
+      "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/source_cal/R-DENSE/PREPARATION.json",
+      "exists": true,
+      "bytes": 442801
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/retrieved/source/G0/CAL/SCORES.npz",
+      "exists": true,
+      "bytes": 5357216,
+      "fields": {
+        "uid": {
+          "shape": [
+            26349
+          ],
+          "dtype": "<U64"
+        },
+        "source_index": {
+          "shape": [
+            26349
+          ],
+          "dtype": "int64"
+        },
+        "denominators": {
+          "shape": [
+            26349
+          ],
+          "dtype": "int64"
+        },
+        "phases": {
+          "shape": [
+            26349
+          ],
+          "dtype": "<U14"
+        },
+        "labels": {
+          "shape": [
+            26349
+          ],
+          "dtype": "int64"
+        },
+        "raw": {
+          "shape": [
+            26349,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "branches": {
+          "shape": [
+            26349
+          ],
+          "dtype": "<U8"
+        },
+        "eligible": {
+          "shape": [
+            26349,
+            6
+          ],
+          "dtype": "bool"
+        },
+        "Q_own": {
+          "shape": [
+            26349,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "Q_safety": {
+          "shape": [
+            26349,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "Q_support": {
+          "shape": [
+            26349,
+            6
+          ],
+          "dtype": "float64"
+        },
+        "N_own": {
+          "shape": [
+            26349,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "N_safety": {
+          "shape": [
+            26349,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "N_support": {
+          "shape": [
+            26349,
+            6
+          ],
+          "dtype": "float64"
+        },
+        "C_own": {
+          "shape": [
+            26349,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "C_safety": {
+          "shape": [
+            26349,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "C_support": {
+          "shape": [
+            26349,
+            6
+          ],
+          "dtype": "float64"
+        },
+        "exposure": {
+          "shape": [
+            26349,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "normal_cap": {
+          "shape": [
+            26349,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "legal_raw_tp": {
+          "shape": [
+            26349,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "historical_D0": {
+          "shape": [
+            26349,
+            4
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/retrieved/source/G0/S/SCORES.npz",
+      "exists": true,
+      "bytes": 146072677,
+      "fields": {
+        "uid": {
+          "shape": [
+            509233
+          ],
+          "dtype": "<U64"
+        },
+        "source_index": {
+          "shape": [
+            509233
+          ],
+          "dtype": "int64"
+        },
+        "denominators": {
+          "shape": [
+            509233
+          ],
+          "dtype": "int64"
+        },
+        "phases": {
+          "shape": [
+            509233
+          ],
+          "dtype": "<U14"
+        },
+        "labels": {
+          "shape": [
+            509233
+          ],
+          "dtype": "int64"
+        },
+        "raw": {
+          "shape": [
+            509233,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "branches": {
+          "shape": [
+            509233
+          ],
+          "dtype": "<U8"
+        },
+        "eligible": {
+          "shape": [
+            509233,
+            6
+          ],
+          "dtype": "bool"
+        },
+        "Q_own": {
+          "shape": [
+            509233,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "Q_safety": {
+          "shape": [
+            509233,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "Q_support": {
+          "shape": [
+            509233,
+            6
+          ],
+          "dtype": "float64"
+        },
+        "N_own": {
+          "shape": [
+            509233,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "N_safety": {
+          "shape": [
+            509233,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "N_support": {
+          "shape": [
+            509233,
+            6
+          ],
+          "dtype": "float64"
+        },
+        "C_own": {
+          "shape": [
+            509233,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "C_safety": {
+          "shape": [
+            509233,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "C_support": {
+          "shape": [
+            509233,
+            6
+          ],
+          "dtype": "float64"
+        },
+        "exposure": {
+          "shape": [
+            509233,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "normal_cap": {
+          "shape": [
+            509233,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "legal_raw_tp": {
+          "shape": [
+            509233,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "historical_D0": {
+          "shape": [
+            509233,
+            4
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/retrieved/source/G1/CAL/SCORES.npz",
+      "exists": true,
+      "bytes": 33247428,
+      "fields": {
+        "uid": {
+          "shape": [
+            122470
+          ],
+          "dtype": "<U64"
+        },
+        "source_index": {
+          "shape": [
+            122470
+          ],
+          "dtype": "int64"
+        },
+        "denominators": {
+          "shape": [
+            122470
+          ],
+          "dtype": "int64"
+        },
+        "phases": {
+          "shape": [
+            122470
+          ],
+          "dtype": "<U14"
+        },
+        "labels": {
+          "shape": [
+            122470
+          ],
+          "dtype": "int64"
+        },
+        "raw": {
+          "shape": [
+            122470,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "branches": {
+          "shape": [
+            122470
+          ],
+          "dtype": "<U8"
+        },
+        "eligible": {
+          "shape": [
+            122470,
+            6
+          ],
+          "dtype": "bool"
+        },
+        "Q_own": {
+          "shape": [
+            122470,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "Q_safety": {
+          "shape": [
+            122470,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "Q_support": {
+          "shape": [
+            122470,
+            6
+          ],
+          "dtype": "float64"
+        },
+        "N_own": {
+          "shape": [
+            122470,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "N_safety": {
+          "shape": [
+            122470,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "N_support": {
+          "shape": [
+            122470,
+            6
+          ],
+          "dtype": "float64"
+        },
+        "C_own": {
+          "shape": [
+            122470,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "C_safety": {
+          "shape": [
+            122470,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "C_support": {
+          "shape": [
+            122470,
+            6
+          ],
+          "dtype": "float64"
+        },
+        "exposure": {
+          "shape": [
+            122470,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "normal_cap": {
+          "shape": [
+            122470,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "legal_raw_tp": {
+          "shape": [
+            122470,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "historical_D0": {
+          "shape": [
+            122470,
+            4
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "runs/history_normal_reference_c2_syn_guard_v1_20261031/retrieved/source/G1/S/SCORES.npz",
+      "exists": true,
+      "bytes": 24587568,
+      "fields": {
+        "uid": {
+          "shape": [
+            108675
+          ],
+          "dtype": "<U64"
+        },
+        "source_index": {
+          "shape": [
+            108675
+          ],
+          "dtype": "int64"
+        },
+        "denominators": {
+          "shape": [
+            108675
+          ],
+          "dtype": "int64"
+        },
+        "phases": {
+          "shape": [
+            108675
+          ],
+          "dtype": "<U14"
+        },
+        "labels": {
+          "shape": [
+            108675
+          ],
+          "dtype": "int64"
+        },
+        "raw": {
+          "shape": [
+            108675,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "branches": {
+          "shape": [
+            108675
+          ],
+          "dtype": "<U8"
+        },
+        "eligible": {
+          "shape": [
+            108675,
+            6
+          ],
+          "dtype": "bool"
+        },
+        "Q_own": {
+          "shape": [
+            108675,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "Q_safety": {
+          "shape": [
+            108675,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "Q_support": {
+          "shape": [
+            108675,
+            6
+          ],
+          "dtype": "float64"
+        },
+        "N_own": {
+          "shape": [
+            108675,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "N_safety": {
+          "shape": [
+            108675,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "N_support": {
+          "shape": [
+            108675,
+            6
+          ],
+          "dtype": "float64"
+        },
+        "C_own": {
+          "shape": [
+            108675,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "C_safety": {
+          "shape": [
+            108675,
+            4
+          ],
+          "dtype": "float64"
+        },
+        "C_support": {
+          "shape": [
+            108675,
+            6
+          ],
+          "dtype": "float64"
+        },
+        "exposure": {
+          "shape": [
+            108675,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "normal_cap": {
+          "shape": [
+            108675,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "legal_raw_tp": {
+          "shape": [
+            108675,
+            4
+          ],
+          "dtype": "bool"
+        },
+        "historical_D0": {
+          "shape": [
+            108675,
+            4
+          ],
+          "dtype": "float64"
+        }
+      }
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/cuts.json",
+      "exists": true,
+      "bytes": 193
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/scales.json",
+      "exists": true,
+      "bytes": 510
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/geometry.json",
+      "exists": true,
+      "bytes": 11696
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/protection.json",
+      "exists": true,
+      "bytes": 16796
+    },
+    {
+      "path": "runs/diagnostics_c2b_c4_step2_v1_20261025/c2b/CIC_DEV_joined_selected_rows.jsonl.gz",
+      "exists": true,
+      "bytes": 5900006
+    },
+    {
+      "path": "runs/diagnostics_c2b_c4_step2_v1_20261025/c2b/CIC_DEV_service_inventory.jsonl.gz",
+      "exists": true,
+      "bytes": 18278
+    },
+    {
+      "path": "runs/diagnostics_c2b_c4_step2_v1_20261025/c2b/UNSW_DEV_joined_selected_rows.jsonl.gz",
+      "exists": true,
+      "bytes": 5372221
+    },
+    {
+      "path": "runs/diagnostics_c2b_c4_step2_v1_20261025/c2b/UNSW_DEV_service_inventory.jsonl.gz",
+      "exists": true,
+      "bytes": 92760
+    }
+  ],
+  "total_inventory_file_bytes": 708798718,
+  "metadata_schema_counts": [
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV.jsonl.gz",
+      "rows": 179886,
+      "field_present_rows": {
+        "uid": 179886,
+        "owner": 179886,
+        "component_id": 179886,
+        "protocol": 179886,
+        "canonical_key": 179886,
+        "direction": 0,
+        "owner_ip": 0,
+        "owner_port": 0,
+        "remote_ip": 0,
+        "remote_port": 0
+      },
+      "first_row_keys": [
+        "activity",
+        "balanced_bce_weight_denominator",
+        "candidate_count",
+        "candidate_rank",
+        "canonical_key",
+        "capture_id",
+        "component_id",
+        "device",
+        "frame",
+        "label",
+        "label_metric_weight_denominator",
+        "normal_activity_stratum",
+        "owner",
+        "packet_sha256",
+        "partition",
+        "protocol",
+        "reference_dependency_stratum",
+        "reference_end",
+        "sample_count",
+        "session_id",
+        "source_sha256",
+        "timestamp",
+        "uid",
+        "use"
+      ]
+    },
+    {
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV.jsonl.gz",
+      "rows": 148316,
+      "field_present_rows": {
+        "uid": 148316,
+        "owner": 148316,
+        "component_id": 148316,
+        "protocol": 148316,
+        "canonical_key": 0,
+        "direction": 148316,
+        "owner_ip": 0,
+        "owner_port": 0,
+        "remote_ip": 0,
+        "remote_port": 0
+      },
+      "first_row_keys": [
+        "activity",
+        "annotation_id",
+        "attack_rate",
+        "capture_id",
+        "component_id",
+        "device",
+        "direction",
+        "display_name",
+        "frame",
+        "hour_block",
+        "label",
+        "label_evidence",
+        "label_metric_weight_denominator",
+        "owner",
+        "partition",
+        "population_group_count",
+        "protocol",
+        "reference_available",
+        "reference_end",
+        "reference_shared_component",
+        "selected_group_count",
+        "session_id",
+        "source_sha256",
+        "stream_id",
+        "timestamp",
+        "uid",
+        "use"
+      ]
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/TP_LINK/encoded/references.jsonl.gz",
+      "rows": 7779,
+      "field_present_rows": {
+        "uid": 7779,
+        "owner": 7779,
+        "component_id": 7779,
+        "protocol": 7779,
+        "canonical_key": 7779,
+        "direction": 0,
+        "owner_ip": 0,
+        "owner_port": 0,
+        "remote_ip": 0,
+        "remote_port": 0
+      },
+      "first_row_keys": [
+        "activity",
+        "activity_verified",
+        "bank_end_frame",
+        "canonical_key",
+        "capture_id",
+        "component_id",
+        "device",
+        "display_name",
+        "frame",
+        "history_role",
+        "label",
+        "normality_evidence",
+        "origin",
+        "origin_packet_ordinal",
+        "origin_raw_sha256",
+        "owner",
+        "partition",
+        "protocol",
+        "reference_end",
+        "reference_end_us",
+        "session_id",
+        "source_sha256",
+        "timestamp",
+        "timestamp_us",
+        "uid",
+        "use"
+      ]
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/SAMSUNG/encoded/references.jsonl.gz",
+      "rows": 8192,
+      "field_present_rows": {
+        "uid": 8192,
+        "owner": 8192,
+        "component_id": 8192,
+        "protocol": 8192,
+        "canonical_key": 8192,
+        "direction": 0,
+        "owner_ip": 0,
+        "owner_port": 0,
+        "remote_ip": 0,
+        "remote_port": 0
+      },
+      "first_row_keys": [
+        "activity",
+        "activity_verified",
+        "bank_end_frame",
+        "canonical_key",
+        "capture_id",
+        "component_id",
+        "device",
+        "display_name",
+        "frame",
+        "history_role",
+        "label",
+        "normality_evidence",
+        "origin",
+        "origin_packet_ordinal",
+        "origin_raw_sha256",
+        "owner",
+        "partition",
+        "protocol",
+        "reference_end",
+        "reference_end_us",
+        "session_id",
+        "source_sha256",
+        "timestamp",
+        "timestamp_us",
+        "uid",
+        "use"
+      ]
+    },
+    {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/WEMO_POWER/encoded/references.jsonl.gz",
+      "rows": 8192,
+      "field_present_rows": {
+        "uid": 8192,
+        "owner": 8192,
+        "component_id": 8192,
+        "protocol": 8192,
+        "canonical_key": 8192,
+        "direction": 0,
+        "owner_ip": 0,
+        "owner_port": 0,
+        "remote_ip": 0,
+        "remote_port": 0
+      },
+      "first_row_keys": [
+        "activity",
+        "activity_verified",
+        "bank_end_frame",
+        "canonical_key",
+        "capture_id",
+        "component_id",
+        "device",
+        "display_name",
+        "frame",
+        "history_role",
+        "label",
+        "normality_evidence",
+        "origin",
+        "origin_packet_ordinal",
+        "origin_raw_sha256",
+        "owner",
+        "partition",
+        "protocol",
+        "reference_end",
+        "reference_end_us",
+        "session_id",
+        "source_sha256",
+        "timestamp",
+        "timestamp_us",
+        "uid",
+        "use"
+      ]
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/retrieved/encoded/references.jsonl.gz",
+      "rows": 278,
+      "field_present_rows": {
+        "uid": 278,
+        "owner": 278,
+        "component_id": 278,
+        "protocol": 278,
+        "canonical_key": 278,
+        "direction": 0,
+        "owner_ip": 0,
+        "owner_port": 0,
+        "remote_ip": 0,
+        "remote_port": 0
+      },
+      "first_row_keys": [
+        "activity",
+        "activity_evidence",
+        "activity_verified",
+        "bank_end_frame",
+        "canonical_key",
+        "capture_id",
+        "component_id",
+        "device",
+        "frame",
+        "history_role",
+        "label",
+        "normality_evidence",
+        "origin",
+        "owner",
+        "partition",
+        "protocol",
+        "reference_end",
+        "session_id",
+        "source_sha256",
+        "timestamp",
+        "uid",
+        "use"
+      ]
+    },
+    {
+      "path": "runs/diagnostics_c2b_c4_step2_v1_20261025/c2b/CIC_DEV_joined_selected_rows.jsonl.gz",
+      "rows": 79098,
+      "field_present_rows": {
+        "uid": 79098,
+        "owner": 79098,
+        "component_id": 79098,
+        "protocol": 79098,
+        "canonical_key": 79098,
+        "direction": 79098,
+        "owner_ip": 79098,
+        "owner_port": 79098,
+        "remote_ip": 79098,
+        "remote_port": 79098
+      },
+      "first_row_keys": [
+        "annotation_id",
+        "attack_rate",
+        "broad_service_seen",
+        "canonical_key",
+        "capture_id",
+        "component_id",
+        "device",
+        "direction",
+        "display_name",
+        "frame",
+        "label",
+        "label_metric_weight_denominator",
+        "original_weight",
+        "owner",
+        "owner_ip",
+        "owner_port",
+        "protocol",
+        "reason",
+        "remote_ip",
+        "remote_port",
+        "saved_head_alarm",
+        "source_sha256",
+        "strict_service_seen",
+        "strictly_after_cutoff",
+        "target_other_ineligible_TCP_FP",
+        "timestamp",
+        "uid"
+      ]
+    },
+    {
+      "path": "runs/diagnostics_c2b_c4_step2_v1_20261025/c2b/UNSW_DEV_joined_selected_rows.jsonl.gz",
+      "rows": 82623,
+      "field_present_rows": {
+        "uid": 82623,
+        "owner": 82623,
+        "component_id": 82623,
+        "protocol": 82623,
+        "canonical_key": 82623,
+        "direction": 82623,
+        "owner_ip": 82623,
+        "owner_port": 82623,
+        "remote_ip": 82623,
+        "remote_port": 82623
+      },
+      "first_row_keys": [
+        "annotation_id",
+        "attack_rate",
+        "broad_service_seen",
+        "canonical_key",
+        "capture_id",
+        "component_id",
+        "device",
+        "direction",
+        "display_name",
+        "frame",
+        "label",
+        "label_metric_weight_denominator",
+        "original_weight",
+        "owner",
+        "owner_ip",
+        "owner_port",
+        "protocol",
+        "reason",
+        "remote_ip",
+        "remote_port",
+        "saved_head_alarm",
+        "source_sha256",
+        "strict_service_seen",
+        "strictly_after_cutoff",
+        "target_other_ineligible_TCP_FP",
+        "timestamp",
+        "uid"
+      ]
+    }
+  ],
+  "DA": {
+    "component_join": {
+      "feasible": true,
+      "key": [
+        "partition",
+        "device",
+        "owner",
+        "protocol",
+        "component_id"
+      ],
+      "identity": "component_id = digest([owner, canonical_key]), independent of capture/date. Join identical stored IDs; do not substitute session_id.",
+      "caveat": "Canonical key includes both IPs and both ports, so cross-year address/ephemeral-port drift causes genuine key mismatch; absence does not imply anomaly."
+    },
+    "service_join": {
+      "partial_only": true,
+      "strict_key": [
+        "owner",
+        "remote_ip",
+        "remote_port",
+        "protocol"
+      ],
+      "owner_direction_definition": "Owner-relative side from recorded Ethernet src/dst MAC; do not infer from port size/private IP/q14[13].",
+      "available": "C2b joined-selected rows already contain validated owner_ip/port, remote_ip/port, canonical_key and owner-relative direction; all saved attacks were covered in the prior audit.",
+      "gaps": "Prepared UNSW query rows omit canonical_key and endpoint fields. Historical C1 REF metadata has unordered canonical_key but no owner_ip, remote_ip or owner-relative direction. Exact service intersection needs a UID/component map with validated owner-side identity for all residual queries AND reference services; C2b is a selected old-B2 subset, not automatically the complete C1/C3 history union.",
+      "broad_caveat": "Prior 43487/60% attack intersection was broad, owner+remote_port+protocol, and with the old B2 observation services. It is a risk precedent, not a recomputation for historical C1/C3/C4."
+    },
+    "versions": {
+      "C1": "D2 retrieved/history/*/encoded: three historical device banks plus frozen dense observation banks; D2 A/B decisions are C1.",
+      "C2": "Same C1 support with SYN-no-ACK effective support forced to zero; use output/ab DECISIONS and output/dev DECISIONS.",
+      "C3": "C2 B decisions unchanged; A adds 278 Heim admitted reference rows. A C3 support differs from C2.",
+      "C4": "Future output is a new bank/support version; not inspected here. Reuse C3 arrays only for pre-C4 description, not as a C4 residual estimate."
+    },
+    "conservative_effort": "5–15 minutes for complete hash/UID joins, component counts and existing service-map coverage audit; if raw owner-endpoint recovery is needed, it is a separate bounded local header audit, not promised by this estimate."
+  },
+  "DB": {
+    "target_fixed_support_replay": {
+      "feasible": true,
+      "basis": "C3 A/B DECISIONS include uid/raw_logits(N,3)/support/guard/base/corrected. Load cuts/scales and q14 separately; preserve strict > cut and original ordered ensemble arithmetic.",
+      "required_conditions": [
+        "Freeze reference bank/support version, heads, geometry, normalizer, scales, cuts and SYN guard.",
+        "Do not replace three-head raw_logits with saved corrected logits; do not apply a correction twice.",
+        "For guarded rows use RAW/effective support zero; use exact primary population and both weighted/unweighted metrics.",
+        "Support=1 is an optimistic arithmetic bound, not the actual saved-support replay.",
+        "Increasing lambda cannot repair zero-support or guarded normal queries; a fixed-support replay cannot predict a new reference bank or changed geometry/support rule.",
+        "All A/B-derived comparisons remain consumed development diagnostics; no lambda is selected in this review."
+      ],
+      "conservative_effort": "3–10 minutes for existing-array joins, input hashing, descriptive fixed-support arithmetic and all-group report generation; not a measured runtime benchmark."
+    },
+    "source_CAL": {
+      "true_dense_already_completed": true,
+      "completion_path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/source_cal/RESULT.json",
+      "completion_status": "SOURCE_CAL_COMPLETE",
+      "true_dense_reference_rows": 4728,
+      "old_recorded_two_arm_runtime_seconds": 207.47071727807634,
+      "correction": "The 20261025 NEEDS_SOURCE_ENCODING/104-point status was superseded by 179602 SOURCE_CAL_COMPLETE with 4728 references.",
+      "per_row_fixed_V3_dense_support_located": false,
+      "why": "179602 src/source_cal.py constructs normal own support and attack donor matrix in memory, then stores only PREPARATION/EPSILON/parity JSON summaries. No per-row support NPZ is present in the saved source_cal directory.",
+      "full_CAL_original_arrays": "source_actual_trace.npz has 148819 original_logits(N,3), original_decisions(N,4), uid and D1 delta/raw_shift; it does not have V3 support. CAL.npz indexes full LEARN_q and metadata.",
+      "source_180228_limitation": "G0/G1 CAL SCORES.npz have raw(N,4) plus Q/N/C_support(N,6) from learned competition branches and different source BASE fold endpoints. They are not fixed geometric V3 own support and cannot be substituted for it.",
+      "historical_additions_scope": "C1/C3 historical additions affect target A/B device+partition+protocol banks. They do not add matching LEARN source devices, so adding them does not make source CAL simulate target historical coverage risk.",
+      "next_requirement": "A same-bank V3 source-CAL lambda replay requires the absent saved per-row own/donor support, or a separately authorized bounded new distance replay over existing full CAL features and the saved 4728 bank. No new model encoding is inherently needed; the 20261025 encoding plan alone must not be treated as current blocker."
+    }
+  },
+  "ACK33": {
+    "source": "runs/history_normal_reference_c3_progress_repair_v1_20261101/FINAL_REPORT_AUDIT.json",
+    "machine_location": "newly_missed_rows (33 existing records)",
+    "record_fields": [
+      "activity",
+      "annotation_id",
+      "capture_id",
+      "device",
+      "guard",
+      "protocol",
+      "tcp_flags",
+      "uid"
+    ],
+    "count": 33,
+    "groups": {
+      "device": {
+        "HeimVision Camera": 33
+      },
+      "activity": {
+        "TCP": 33
+      },
+      "annotation_id": {
+        "None": 33
+      },
+      "capture_id": {
+        "interaction-attack-195": 23,
+        "interaction-attack-196": 6,
+        "interaction-attack-197": 4
+      },
+      "protocol": {
+        "6": 33
+      },
+      "tcp_flags": {
+        "16": 33
+      }
+    },
+    "interpretation": "C3 versus C2 ensemble newly withdrawn Heim TCP queries; saved flags16/ACK-only. Do not relabel them normal or claim pure ACK proves malicious semantics. Use uid to join the saved full A metadata/C2b endpoint map and C3 DECISIONS."
+  },
+  "evidence_sha256": {
+    "runs/mainline_docs/collab/20261102_unweighted_fpr_discussion_brief_claude.md": "6a59766b055be2bd9b447a8bb476dacb5e9d453da6eb1e04eb7f08d326abe059",
+    "runs/diagnostics_c2b_c4_step2_v1_20261025/c2b/READOUT.md": "fc374743687a2a916c95ad8e02df10f723728d299ce123aba69a8ae4bb3f7fbc",
+    "runs/diagnostics_c2b_c4_step2_v1_20261025/source_cal/READOUT.md": "d5773ea6eee24ba4477df9c1d836127a0b24fa49ddbca14fee84f2fbd723d530",
+    "runs/diagnostics_c2b_c4_step2_v1_20261025/source_encoding_plan/RESULT.json": "27cc9c854f165fbd45769c28ce3467be48ce98c56567ccbb0f9fcaae5b28755e",
+    "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/source_cal/RESULT.json": "810f28a769f60057ed14fde968b740d87173b130c2bfb0eb192548bcf325fbb8",
+    "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/source_cal/R-DENSE/PREPARATION.json": "6ae4f623b64ea7471d1d6ae48d649e9adbf1d98e5e851dc8b316449b3e0d2ae9",
+    "runs/dense_reference_matrix_v1_20261027/src/source_cal.py": "16c65db79dba2dfe3d34f63e1b83c7f16eda8c07f62fe03d7b0f11468021e5e2",
+    "runs/history_normal_reference_c3_progress_repair_v1_20261101/FINAL_REPORT_AUDIT.json": "30d10101f53f9f4354a71bb47261c988e9dcdd2583044666d9938535ca0fd085",
+    "runs/history_normal_reference_c2_syn_guard_v1_20261031/run.py": "45c34aacce4245838d50b16081e7cd9046cdd035d8f1686d8e0af377c15eac1b",
+    "repo/ood/constrained_onboarding_reference_v2.py": "208d89521c95bebb6d82745b2642aea8e01d97cf82dc80647f5ebf224a34a64c"
+  },
+  "workload_note": "Only this inventory/schema review elapsed time is observed; proposed follow-up timing bands above are conservative estimates, not benchmarks.",
+  "observed_inventory_review_seconds": 6.8439999999827705
+}

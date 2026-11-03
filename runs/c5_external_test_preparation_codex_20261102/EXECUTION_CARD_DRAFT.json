@@ -1,0 +1,122 @@
+{
+  "schema": "C5_EXTERNAL_CONFIRMATION_DRAFT_V1",
+  "status": "DRAFT_NOT_EXECUTION_READY",
+  "date": "2026-11-02",
+  "method_freeze": {
+    "path": "runs/c5_method_freeze_v1_20261102/METHOD_FREEZE.json",
+    "sha256": "ee11f25079cd03ee8b9d6dbbafd67e7fc96dd4402373808fc1c0b9f53b5c05e7",
+    "p": 3
+  },
+  "dataset_candidate": "CICIoMT2024 physical Wi-Fi/IP subset",
+  "execution_authorized": false,
+  "raw_acquisition_complete": false,
+  "raw_qualification_pass": false,
+  "external_evaluations": 0,
+  "comparison_methods": [
+    "RAW",
+    "SAME_BANK_C2_P1",
+    "C5_P3"
+  ],
+  "strong_baseline_status": "Not selected/implemented/calibrated; do not claim readiness; freeze any included baseline before first external scores.",
+  "head_order": [
+    27,
+    127,
+    227,
+    "ensemble"
+  ],
+  "views": [
+    "full",
+    "post_window_primary"
+  ],
+  "observation_seconds": 7200,
+  "p_selection_reapplied_on_external": false,
+  "AB_development_line_closed": true,
+  "reference_material_modes": [
+    "FULL_LEGAL_HISTORY_PLUS_COMMISSIONING",
+    "COMMISSIONING_ONLY_NO_HISTORY"
+  ],
+  "reference_roles_and_boundaries": null,
+  "device_roster_and_MAC_IP": null,
+  "qualified_raw_manifest_sha256": null,
+  "query_population_and_UID_manifest_sha256": null,
+  "labels_events_directions_schema_sha256": null,
+  "ACK_UDP_qualification_receipt": null,
+  "sample_adequacy_preregistration": {
+    "min_post_window_normal_queries_per_device": null,
+    "min_direct_ACK_attack_queries": null,
+    "min_direct_UDP_attack_queries": null,
+    "independent_capture_day_event_requirements": null,
+    "uncertainty_estimation_and_precision_targets": null,
+    "must_be_fixed_before_scores": true
+  },
+  "primary_endpoint": "post_window_primary ensemble unweighted FPR and recall, FP/FN/counts",
+  "targets_under_test": {
+    "pool_unweighted_FPR_max": 0.02,
+    "pool_unweighted_recall_min": 0.99,
+    "all_devices_under_2pct_not_assumed": true
+  },
+  "weighted_schema": {
+    "status": "PROPOSED_REQUIRES_METADATA_VALIDATION_AND_PRE_SCORE_SEAL",
+    "normal": [
+      "device",
+      "logical_capture",
+      "component"
+    ],
+    "attack": [
+      "device",
+      "official_event",
+      "component"
+    ],
+    "allocation": "equal mass per child at each level; normalize normal and attack separately",
+    "missing_event_policy": "NOT_EVALUABLE; never fabricate UNKNOWN to pass a safety gate",
+    "final_schema_sha256": null
+  },
+  "safety": {
+    "baseline": "RAW cumulative withdrawals",
+    "device_weighted_loss_max_pp": 1.0,
+    "activity_or_available_event_weighted_loss_max_pp": 5.0,
+    "low_RAW_recall_group_requires_zero_TP_withdrawal": true,
+    "direct_ACK_and_UDP_separate_counts_and_recall_required": true,
+    "empty_or_unknown_truth_gate": "NOT_EVALUABLE",
+    "one_pool_top_level_report_count": 8
+  },
+  "external_adapter": {
+    "status": "NOT_IMPLEMENTED",
+    "changes_limited_to": [
+      "dataset identity/time/label wiring",
+      "registered external metric schema"
+    ],
+    "numeric_core_changes_allowed": false,
+    "source_and_synthetic_parity_checks_required": true
+  },
+  "budget": {
+    "CPU": null,
+    "RAM_bytes": null,
+    "wall_seconds": null,
+    "distance_pairs": null,
+    "unique_encoding_rows": null,
+    "raw_and_intermediate_bytes": null,
+    "location": null,
+    "automatic_budget_extension": false
+  },
+  "runtime": {
+    "required_identity_check": true,
+    "HPC_python_if_used": "3.11, exact environment to verify",
+    "checkpointed_encoding_batches": true,
+    "reuse_verified_completed_arrays": true,
+    "automatic_resubmit": false
+  },
+  "progress": {
+    "Codex_right_panel": true,
+    "continuous_AI_monitoring": false
+  },
+  "activation_conditions": [
+    "raw files obtained and SHA/bytes verified",
+    "all raw qualification requirements satisfied",
+    "population/roles/labels/metrics/adequacy/baselines fixed before scores",
+    "external adapter engineering checks passed",
+    "budget/runtime paths verified",
+    "actual evaluation authorized"
+  ],
+  "failure_policy": "Preserve and report failed external confirmation; no p/lambda/cut/geometry/bank retuning on external outcomes."
+}

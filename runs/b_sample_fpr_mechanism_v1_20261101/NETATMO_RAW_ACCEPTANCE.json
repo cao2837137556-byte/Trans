@@ -1,0 +1,30 @@
+{
+  "status": "STRUCTURAL_METADATA_PASS_REFERENCE_ADMISSION_PENDING",
+  "member": {
+    "device": "Netatmo Welcome Camera",
+    "owner_MAC": "70:ee:50:18:34:43",
+    "member": "pcaps/NetatmoWelcome_70ee50183443.pcap",
+    "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\raw_selected\\NetatmoWelcome_70ee50183443.pcap",
+    "bytes": 2206626972,
+    "sha256": "e4eb79d34e3e45e3de71190ce65a2449be4989d663a6e13d7f26b4e928d13006",
+    "crc32": "566b7d39",
+    "zip_crc_verified": true
+  },
+  "independent_checks": {
+    "packet_count_matches_capinfos": true,
+    "minimum_matches_capinfos": true,
+    "maximum_matches_capinfos": true,
+    "mac_direction_partition": true,
+    "day_partition": true
+  },
+  "all_packets_owner_present": true,
+  "all_packets_before_2018": true,
+  "normality": "Publisher normal-source assumption, no packet-level benign certification",
+  "statistics_sha256": "6edd37ea82af75f528395be16dbabb9bed9831d203684e0d17392c9d2dc61a23",
+  "qualification_code_sha256": "24a8335f82f79793502990e70cb90b47a7f391d0089c994ba5c5b8c662518f8a",
+  "new_features": 0,
+  "new_references": 0,
+  "new_experiments": 0,
+  "engineering_recovery": "All-info capinfos exceeded 120s; resumed metadata-only capinfos on same verified member, no re-extraction.",
+  "script_sha256": "310520d3b8274faeb90ae1bf5cb4f5070f077ae628ffc2e0491ab6a247e72fc7"
+}

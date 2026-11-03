@@ -1,0 +1,100 @@
+{
+  "all_suffixes": {
+    "127": {
+      "corrected_fp": 2174,
+      "raw_fp": 4804
+    },
+    "227": {
+      "corrected_fp": 1897,
+      "raw_fp": 5119
+    },
+    "27": {
+      "corrected_fp": 2054,
+      "raw_fp": 5277
+    },
+    "ensemble": {
+      "corrected_fp": 2126,
+      "raw_fp": 5207
+    }
+  },
+  "audit": {
+    "decisions": {
+      "path": "DEV_DECISIONS.npz",
+      "sha256": "0638837174dd1e6e21512b74ecde6194e31c9a66bc06772a8b917e4220be3b2e"
+    },
+    "frozen": {
+      "cuts_digest": "a1c7bced8b38da5af274c0acb262180359d501af190ed50c2f0239642ad05360",
+      "geometry_digest": "b61de33442c90d06e428b6b112803c868d3124ae01b3d9cde2733e33a76e6752",
+      "normalizer_arrays": [
+        {
+          "dtype": "float64",
+          "sha256": "a54d8c7599fad4cf85248f3e4c0f271b4cc122b1de285a63c99a9932b9e35ca3",
+          "shape": [
+            768
+          ]
+        },
+        {
+          "dtype": "float64",
+          "sha256": "8b1cf9558bc87b3a80130ee1c4121d7f81c7fea0e92ce8a86c90e56c9a532354",
+          "shape": [
+            768
+          ]
+        }
+      ],
+      "scales_digest": "799e5a18532a85c759cfc9d3523623f5aa218133062ef90bc29fef32807fa4f8"
+    },
+    "queries": {
+      "path": "QUERIES.jsonl.gz",
+      "sha256": "1922e67de9f78060399dea373c63a929602b43109314e9bf0848d29e71affd06"
+    }
+  },
+  "devices": [
+    {
+      "corrected_fp": 196,
+      "corrected_fpr": 0.0478515625,
+      "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+      "raw_fp": 674,
+      "raw_fpr": 0.16455078125,
+      "rows": 4096,
+      "status": "PASS"
+    },
+    {
+      "corrected_fp": 10,
+      "corrected_fpr": 0.00244140625,
+      "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+      "raw_fp": 1010,
+      "raw_fpr": 0.24658203125,
+      "rows": 4096,
+      "status": "PASS"
+    },
+    {
+      "corrected_fp": 1920,
+      "corrected_fpr": 0.46875,
+      "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+      "raw_fp": 3523,
+      "raw_fpr": 0.860107421875,
+      "rows": 4096,
+      "status": "PASS"
+    }
+  ],
+  "distance_pairs": 49997944,
+  "eligible_rows": 12288,
+  "encoding_physical_positions": 37021,
+  "failures": [],
+  "no_AB_loaded": true,
+  "pooled": {
+    "corrected_fp": 2126,
+    "corrected_fpr": 0.17301432291666666,
+    "raw_fp": 5207,
+    "raw_fpr": 0.4237467447916667,
+    "relative_fpr_reduction": 0.591703476089879,
+    "rows": 12288,
+    "weighting": "selected DEV row count"
+  },
+  "positive_support_rows": 12255,
+  "query_uid_sha256": "018a1cd6e3fd88848c6025e292bc42e2724f336c5f00d913b408e151ab99ce62",
+  "reference_uid_sha256": "4dd1d82cc9f62f3c0213ba6a83e7f21b6f63413f1eb406466994d19d20b2f243",
+  "schema": "history-normal-reference-dev-gate-v1",
+  "selected_lambda": 0.25,
+  "status": "PASS_DEV"
+}

@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-02",
+  "status": "METADATA_READY_LEAF_MANIFEST_PENDING_RAW_QUALIFICATION",
+  "dataset": "CICIoMT2024",
+  "official_url": "https://www.unb.ca/cic/datasets/iomt-dataset-2024.html",
+  "registration_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/",
+  "author_preprint_url": "https://www.preprints.org/manuscript/202402.0898",
+  "journal_url": "https://www.sciencedirect.com/science/article/pii/S2542660524002920",
+  "public_http_results": {
+    "official": {"http_status": 200, "bytes_saved": 89591},
+    "registration": {"http_status": 200, "bytes_saved": 10535, "form_visible": true, "leaf_manifest_visible": false},
+    "author_preprint": {"web_reader": "SUCCESS", "direct_curl_http_status": 403, "local_fulltext_saved": false},
+    "journal": {"web_reader_http_status": 403}
+  },
+  "registration_submitted": false,
+  "user_browser_registration_state": "NOT_INSPECTED",
+  "leaf_files": [],
+  "raw_file_names_verified": false,
+  "raw_file_sizes_verified": false,
+  "primary_author_preprint_facts": {
+    "section": "4.2-4.4, 5",
+    "physical_wifi_target_count": 7,
+    "target_names": ["Sense-U Baby Monitor", "SOS Multifunctional Pager", "SINGCALL SOS Button", "Ecobee Camera", "Blink Mini", "M1T Laxihub", "Owltron"],
+    "target_mac_addresses_transcribed": false,
+    "idle_captures_reported": 2,
+    "idle_hours_each_reported": 13,
+    "active_hours_reported_total": 26,
+    "singcall_idle_traffic_reported": false,
+    "power_capture_minutes_approximate": 5,
+    "official_train_test_split_is_proof_of_chronology": false,
+    "actual_raw_chronology_verified": false,
+    "final_journal_table_crosscheck": "PENDING"
+  },
+  "attack_class_evidence": {
+    "TCP_Flood_officially_listed": true,
+    "UDP_Flood_officially_listed": true,
+    "SYN_Flood_officially_listed": true,
+    "ACK_attack_packets_verified": false,
+    "ACK_flood_leaf_name_verified": false,
+    "UDP_IP_fragment_class_verified": false,
+    "ACK_requirement": "TCP ACK=1 and SYN=0 direct labeled attacker-to-victim traffic; split ACK-only and PSH+ACK. SYN+ACK and reverse responses do not qualify for this hard requirement.",
+    "TCP_flood_generation_command_or_flags_verified": false,
+    "UDP_requirement": "Direct labeled attacker UDP traffic against admitted physical targets; audit reverse responses separately."
+  },
+  "minimum_acquisition_roles": [
+    {"role": "NORMAL_HISTORY_OBSERVATION_HELDOUT", "candidate_directory": "WiFi_and_MQTT/profiling", "candidate_categories": ["idle", "active", "trusted benign"], "leaf_path": null, "bytes": null},
+    {"role": "NORMAL_INTERACTION_SYN_INITIATION", "candidate_directory": "WiFi_and_MQTT/profiling", "candidate_categories": ["active", "interaction"], "leaf_path": null, "bytes": null},
+    {"role": "DIRECT_NON_GUARDED_ACK_ATTACK", "candidate_directory": "WiFi_and_MQTT/attacks", "candidate_categories": ["TCP Flood candidate subject to flag/direction qualification"], "leaf_path": null, "bytes": null},
+    {"role": "DIRECT_UDP_ATTACK", "candidate_directory": "WiFi_and_MQTT/attacks", "candidate_categories": ["DoS UDP Flood", "DDoS UDP Flood"], "leaf_path": null, "bytes": null}
+  ],
+  "role_count_is_file_count": false,
+  "qualification_minimum_equals_final_evaluation_population": false,
+  "model_results_may_inform_acquisition": false,
+  "observation_seconds": 7200,
+  "known_project_data_external_subdirectories": ["hcrl_iot_network_intrusion_2019", "unsw_iotraffic_2025"],
+  "CICIoMT_raw_found_in_scanned_project_directories": false,
+  "personal_download_directories_scanned": false,
+  "raw_downloads": 0,
+  "model_evaluations": 0,
+  "cloud_runs": 0
+}

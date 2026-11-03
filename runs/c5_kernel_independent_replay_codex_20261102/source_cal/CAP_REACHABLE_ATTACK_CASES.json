@@ -1,0 +1,219 @@
+{
+  "8def88ff015ef9e4771c16d567799e101e45bcdee0ca7cda4e77df3285595eec": {
+    "query": {
+      "uid": "8def88ff015ef9e4771c16d567799e101e45bcdee0ca7cda4e77df3285595eec",
+      "partition": "LEARN",
+      "device": "SimCam",
+      "owner": "10:2c:6b:1b:43:be",
+      "protocol": 6,
+      "component_id": "66e18b56d796b65aba12180df7283401ab91d06326e120f5d50720fed932c20c",
+      "capture_id": "interaction-attack-290",
+      "timestamp": 1638287377.21955,
+      "frame": 280885,
+      "use": "LATER_ATTACK_QUERY",
+      "label": 1,
+      "fit_role": "CAL",
+      "activity": "TCP",
+      "session_id": "e636449405b032d44ba2cc5e9350f93a18abe3262fd583b99d1778ebb0908851",
+      "canonical_key": [
+        6,
+        [
+          "192.168.137.202",
+          80
+        ],
+        [
+          "192.168.137.5",
+          54268
+        ]
+      ],
+      "reference_end": 1633542608.728952
+    },
+    "q14": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.6594817638397217,
+      0.6879830360412598,
+      0.0,
+      0.0
+    ],
+    "guard": false,
+    "raw_logits": [
+      7.716709136962891,
+      8.100770950317383,
+      8.14449691772461
+    ],
+    "raw_decisions": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "margin_over_cap": [
+      1.0351177018103221,
+      0.9174150513623921,
+      0.9516416929948195
+    ],
+    "support_by_donor": [
+      0.0,
+      0.0,
+      0.30426637194512285,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.051073877255648825,
+      0.0
+    ],
+    "eligible_by_donor": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      false
+    ],
+    "second_joint_by_donor": [
+      null,
+      null,
+      0.6957336280548772,
+      null,
+      null,
+      null,
+      null,
+      null,
+      1.0514611664448201,
+      null,
+      0.9489261227443512,
+      null
+    ],
+    "candidates": {
+      "p1": {
+        "withdrawn_by_head": {
+          "27": false,
+          "127": false,
+          "227": false,
+          "ensemble": false
+        },
+        "mapped_support_by_donor": [
+          0.0,
+          0.0,
+          0.30426637194512285,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.051073877255648825,
+          0.0
+        ]
+      },
+      "p2": {
+        "withdrawn_by_head": {
+          "27": false,
+          "127": false,
+          "227": false,
+          "ensemble": false
+        },
+        "mapped_support_by_donor": [
+          0.0,
+          0.0,
+          0.5159547187935978,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.09953921357337259,
+          0.0
+        ]
+      },
+      "p3": {
+        "withdrawn_by_head": {
+          "27": false,
+          "127": false,
+          "227": false,
+          "ensemble": false
+        },
+        "mapped_support_by_donor": [
+          0.0,
+          0.0,
+          0.6632334203634266,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.14552923725285116,
+          0.0
+        ]
+      },
+      "p4": {
+        "withdrawn_by_head": {
+          "27": false,
+          "127": false,
+          "227": false,
+          "ensemble": false
+        },
+        "mapped_support_by_donor": [
+          0.0,
+          0.0,
+          0.7657001657418151,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.18917037210793963,
+          0.0
+        ]
+      },
+      "positive_saturation": {
+        "withdrawn_by_head": {
+          "27": false,
+          "127": true,
+          "227": true,
+          "ensemble": false
+        },
+        "mapped_support_by_donor": [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

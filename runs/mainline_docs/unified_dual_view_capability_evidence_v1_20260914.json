@@ -1,0 +1,221 @@
+{
+  "schema": "unified-dual-view-design-evidence-v1",
+  "date": "2026-09-14",
+  "workspace": {
+    "path": "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline",
+    "branch": "codex/exp-mainline",
+    "head": "4b28747b09480471e2bac1beb3a9badf27280efb"
+  },
+  "support_metadata": {
+    "train": {
+      "targets": 15073,
+      "owner_label": {
+        "A_0": 6045,
+        "B_0": 5600,
+        "A_1": 3357,
+        "B_1": 71
+      },
+      "normal_family": {
+        "ton-iot-external": 3369,
+        "iotsim-building-monitor": 2678,
+        "iotsim-combined-cycle": 2909,
+        "iotsim-combined-cycle-tls": 1123,
+        "iotsim-domotic-monitor": 1566
+      }
+    },
+    "check": {
+      "targets": 3193,
+      "owner_label": {
+        "B_0": 1066,
+        "A_0": 1302,
+        "A_1": 825
+      },
+      "normal_family": {
+        "ton-iot-external": 631,
+        "iotsim-building-monitor": 526,
+        "iotsim-combined-cycle": 691,
+        "iotsim-combined-cycle-tls": 286,
+        "iotsim-domotic-monitor": 234
+      }
+    }
+  },
+  "expanded_normal_families_absent_from_TRAIN": [
+    "hydraulic",
+    "street camera",
+    "predictive maintenance",
+    "stream consumer"
+  ],
+  "support_limits": [
+    "CHECK same source/files, different dependency components; not new-device test",
+    "B CHECK attacks=0",
+    "old18398 fit minus132 excluded minus3193 CHECK equals15073 TRAIN",
+    "oldP2 normalizer/head have currentCHECK exposure; do not reuse",
+    "93.41% TRAIN attacks from two ToN families; source shortcuts unproved"
+  ],
+  "cache_inventory": {
+    "fit_select": {
+      "path": "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_fit_select_embeddings.npz",
+      "sha256": "b1b4f2fde168a69e0cf7a53aaede2ddef9bd6d92b0ce58e56a9d6fcde37b6099",
+      "bytes": 34314736,
+      "shape": [
+        25467,
+        768
+      ],
+      "missing": 11640,
+      "numeric_access": {
+        "P": "9402 input-valid TRAIN rows only",
+        "T": "none; prepared cache only",
+        "E": "2127 input-valid CHECK rows only"
+      },
+      "metadata_sidecar": {
+        "path": "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_fit_select_embeddings.npz.metadata.csv.gz",
+        "sha256": "120ed5ccc752c1210a655dbcb972e08b6263bdeb1e08093d76b3e2f9c1b3d8dd"
+      },
+      "metadata_pin_source": "runs/frontend_paired_learning_freeze_v1_20260909/frozen_dependency_pins.json",
+      "identity_status_this_design": "historical_SHA_manifest_and_current_stat_only; no NPZ open, numeric decode or rehash",
+      "hash_manifest_source": "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/SHA256SUMS"
+    },
+    "expanded": {
+      "path": "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_report_embeddings.npz",
+      "sha256": "256e333dc18905ec7e2900260d9d8458ad56590c44f30475f098bf68ed58d048",
+      "bytes": 221979675,
+      "shape": [
+        262050,
+        768
+      ],
+      "missing": 64782,
+      "numeric_access": {
+        "P": "forbidden",
+        "T": "forbidden",
+        "E": "197268 input-valid rows; all262050 UIDs retain denominator and missing mask"
+      },
+      "metadata_sidecar": {
+        "path": "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_report_embeddings.npz.metadata.csv.gz",
+        "sha256": "4d44d605bd00ac5065a2cacc9ff02ebf5384b2df6bb8f68ac6e8644a3090fb10"
+      },
+      "metadata_pin_source": "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/SHA256SUMS",
+      "identity_status_this_design": "historical_SHA_manifest_and_current_stat_only; no NPZ open, numeric decode or rehash",
+      "hash_manifest_source": "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/SHA256SUMS"
+    }
+  },
+  "selected_pretrained_checkpoint": {
+    "name": "netFound-base / E3",
+    "repository": "https://github.com/SNL-UCSB/netFound",
+    "repository_commit": "b3ab5a3aa72640cc725ef207fb0145b039a57d35",
+    "release": "snlucsb/netFound-base@b812e625999165376ddb47a39d0d5579d4edce89",
+    "model_safetensors_sha256": "e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105",
+    "bytes": 698780900,
+    "license": "MIT",
+    "identity_source": "runs/mainline_docs/ckda_d0_official_candidate_evidence_20260811.json",
+    "this_turn": "historicalidentity and source/config review only; no checkpointload/rehash/download"
+  },
+  "source_text_sha256": {
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/issue27ckda_d0_resource_pilot_v1.py": "ec1cb7be1f47e2ef7862905f3e89c75c0295fb1565fa0820d174a6e11409856a",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/issue27ckda_d1_e3_embed_v1.py": "360cbaa72f818e6fc423b16f3b4989333bfba002a1423085ff15b2cb1569de14",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/issue27ckda_d1_e3_embed_local_twopass_v1.py": "9f11d03b31e640de28f11fd7570b1495c7b9452b124b8b99b248689031b24ca2",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/issue27ckda_d1_representation_probe_v1.py": "f8f477ca78d8ed1fa490880d24a01f65111e3f910eaa8ab72af154d8a143de4e",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/issue27frontend_transfer_prepare_v1.py": "46d7a57da14f5352255143030e09b43cb0e506f43bc35fe12e03405e65b5c340",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/issue27frontend_paired_metadata_v1.py": "e99298d91669717cf99cb2cf3d23f3ed6e134bfb862e773d598d470886becb37",
+    "D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/repo/ood/issue27frontend_paired_train_model_v1.py": "970028cdef7ff9f0098930e6d378a3e517c7d47b95105223b9120361e58d8d71",
+    "D:/study/paper/anomaly_detection/paper04/supercompute_transfer/ckda_d0_official_sources_20260811/netFound/pre_process_src/Tokenize.py": "f6562dd3c67bf7b19fdba94ada392a10688eb2cadb23ea4e6a1f7c5cbfd8c689",
+    "D:/study/paper/anomaly_detection/paper04/supercompute_transfer/ckda_d0_official_sources_20260811/netFound/pre_process_src/packets_processing_src/3_field_extraction/3_field_extraction.cpp": "0a2be304d53f6627e8873c91ac8daaad1ff2aed7cb2b82939b6ff561b9537a1b",
+    "D:/study/paper/anomaly_detection/paper04/supercompute_transfer/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound/src/modules/netFoundTokenizer.py": "182e55abfbe8643d3896087d7748f9ae23195da79059d5429789abe4f0502411",
+    "D:/study/paper/anomaly_detection/paper04/supercompute_transfer/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound/src/modules/netFoundEmbeddings.py": "51bce2ad2fd38dd322d470998e17677a787e5bfb4c1a5ee5eaa379d4fb969368",
+    "D:/study/paper/anomaly_detection/paper04/supercompute_transfer/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound-base/config.json": "e22262d4b840a0055915f6c48e9c64d04e790f80e907fa9dc06df855eff05401"
+  },
+  "public_research": {
+    "url": "https://arxiv.org/html/2310.17025v5",
+    "sha256": "34054ccbeb041269c5906115365c0ac8b7c65babbd76b57f54f1c0d5bfbcdd82",
+    "scope": "public text only",
+    "local_copy": "tmp/unified_pretrained_design_research_20260914/netfound_v5.html",
+    "interpretation": "protocol/representation/shortcut motivation only; not checkpoint equivalence or project performance proof"
+  },
+  "compatibility_findings": [
+    "official tokenizer supports1/6/17; actual historical adapter/session6/17",
+    "protocol embedding18 entries is not GRE47/ICMPv658/nonIP support",
+    "official source ns->us->integer_ms; project ns->integer_us; preserve historical cache, no silent fix",
+    "burst IAT reference and progressive ACK handling differ; do not claim full official equivalence",
+    "E3 target-prefix bidirectional pooling differs from causal F4 context; whole view package is treatment"
+  ],
+  "independent_review_corrections": [
+    "use all9402 available TRAIN including23 teacher-wrong normals, not9379 teacher selector",
+    "same input-only availability flag in both arms",
+    "no ICMP expansion in first comparison",
+    "zero-slot control does not match effective capacity",
+    "CKDC decision suppression is not this learned feature combination",
+    "reuse selective row reader, not progress IO module",
+    "known CHECK already near ceiling; report entire expanded risk"
+  ],
+  "protection_verified": {
+    "reference_code_pins": {
+      "count": 40,
+      "mismatches": [],
+      "pins": {
+        "repo/ood/issue27frontend_aligned_build_v1.py": "17f6eb54e465edb53e32e5c3b29c680f2b5cd17039e46ba7b9be195c7587b22c",
+        "repo/ood/issue27frontend_aligned_control_v1.py": "4153e04280856c62d7278b1202fdfc80a99a24e8099fd0b802ec6221ec63893f",
+        "repo/ood/issue27frontend_aligned_evaluate_v1.py": "f48cbabe6fb3c4c38660cef26fb0bb0643d44a4f03daec91c2bbe1acb004d146",
+        "repo/ood/issue27frontend_aligned_fixture_v1.py": "631176ccc72764d25136b252c6e6d4717b116884e005939b6b389acb3f6f65ef",
+        "repo/ood/issue27frontend_aligned_model_v1.py": "91589060743e59da204c6728777c7ad7a87590fa8446b7ad039738a80274afa3",
+        "repo/ood/issue27frontend_aligned_prepare_v1.py": "22afaa9434a886e5c69c80a3419386a08bce1f5e31da6c5885f76d89715f702a",
+        "repo/ood/issue27frontend_aligned_support_v1.py": "dc5e435a03e2953a828d8cd233727770e38d44593ecc22ca9a764399d06c1e96",
+        "repo/ood/issue27frontend_aligned_tests_v1.py": "681ba577c3d4b53b25df3854df291e848ede3845dda39052d7c1b5f9ca634efd",
+        "repo/ood/issue27frontend_aligned_train_v1.py": "e80100007ef328bba0db303ae821b27482f72cedbea7ede810cf730bcc298409",
+        "repo/ood/issue27frontend_aligned_verify_v1.py": "1e05bef1405537318271374cc917b940220ff366f4ae4c54d51d1a018ce3dedd",
+        "repo/ood/issue27frontend_f0_zero_training_semantics_real_v1.py": "ca34ff39bfe7289fee1048d74e04de53dd4d4f096228fa837104cb65388b6f60",
+        "repo/ood/issue27frontend_f0_zero_training_semantics_v1.py": "00366fdef9d644c2ac60fab68047938e6bcc4425aab68e1f6c1ae552db40affa",
+        "repo/ood/issue27frontend_f1_d1_train_v1.py": "6e2df7059b9bb0aba9be80adb11e7e918c3f1ddfef3ecc690b571b0f0af18634",
+        "repo/ood/issue27frontend_f3_conflict_field_sufficiency_v1.py": "80b4de6c931b77f528bafaf64a4a0e449295c8a78fb1d9776a8fed1d35eb9791",
+        "repo/ood/issue27frontend_f3_full_fit_l1_identifiability_v1.py": "69fc92fb417fe8dbca646c30aaaf7f7ea40edf81ecae3c4fe36d831434e35a67",
+        "repo/ood/issue27frontend_f4_fieldwise_input_v1.py": "9c729a3165d19042549723f029235734595131d5e7ba344a3f605cca89677200",
+        "repo/ood/issue27frontend_f5_unified_student_v1.py": "78898ad6cf5d59bbe3505fe5fb7536f7e29b8aeed1cb4c00aaf9f38108bf8136",
+        "repo/ood/issue27frontend_inheritance_n0_inventory_v1.py": "e53d9f7d3111555fdf2e1e5ca54b4ad77b2a1a52eb0648987f9e53323e0ba682",
+        "repo/ood/issue27frontend_inheritance_n1_math_v1.py": "1c750f7a7932bcf4336428eae0a3d33a43cc29aa2ff13e324ef8d5c45e9b6032",
+        "repo/ood/issue27frontend_inheritance_n1_support_v1.py": "1509cb63bc8581bc0d507a506113d7ddd5e3435b1c7ebc68a9f6f7c615be3091",
+        "repo/ood/issue27frontend_inheritance_n2_support_v1.py": "e46ae2563064287e47f2f2471188eeef565ad37085bfa2520ee01f269afc5e33",
+        "repo/ood/issue27frontend_inheritance_n3_runner_v1.py": "a9dd43a916f93bf9fa54a5b5a730890c969e8cb4b69542a58df93b0627ed39c9",
+        "repo/ood/issue27frontend_inheritance_n3_support_v1.py": "8f2a4dfa36dfecc56ca5e15041ce410536a206e450cd40da722c9459561e804a",
+        "repo/ood/issue27frontend_inheritance_outer_control_v1.py": "59cbe51334e9c1319828af831efaa9e599a4c8c76abf2bc17b1507b9e70cf4e6",
+        "repo/ood/issue27frontend_inheritance_outer_metadata_v1.py": "c4f6a4f7c29db5b0a029782863a8bfa47160763630002f12145ce37ab9039647",
+        "repo/ood/issue27frontend_inheritance_outer_runner_v1.py": "e40dab584f2c564b1ec39aae3befc947b0bf89d19037e4ed195b96930ba20c56",
+        "repo/ood/issue27frontend_inheritance_outer_support_v1.py": "f01807fdc0057378f3e5894516fa4f5fb34cb323b40263b14535fb9d3de479fc",
+        "repo/ood/issue27frontend_paired_metadata_io_fix_v3.py": "91880b0f2ff1b86d593e7ebb94fc6ca8a6bbbd72b309e77416515a2f0c9faff8",
+        "repo/ood/issue27frontend_paired_metadata_monitor_fix_v2.py": "4fb9ceacf171f7904f40630a7221eac2c32903a982f69012cf71ba290155584f",
+        "repo/ood/issue27frontend_paired_metadata_v1.py": "e99298d91669717cf99cb2cf3d23f3ed6e134bfb862e773d598d470886becb37",
+        "repo/ood/issue27frontend_paired_train_control_v3.py": "357d8af65f71c838b434ed412c4794368d9cba4ce846d102d6049fe0da844d83",
+        "repo/ood/issue27frontend_paired_train_metrics_v2.py": "97ba8421723bef5398fcde109dce986559e4ba59e1ef51a1ddcf0aa9e75a2ae2",
+        "repo/ood/issue27frontend_paired_train_model_v1.py": "970028cdef7ff9f0098930e6d378a3e517c7d47b95105223b9120361e58d8d71",
+        "repo/ood/issue27frontend_paired_train_prefix_fix_v2.py": "b0bbea1c8acffad61f84f6c7a88dff7ea7b95af0d6853b31ec9d296f37d05c16",
+        "repo/ood/issue27frontend_paired_train_runner_v3.py": "9be22974e759d3f6ad3eb2dddba0c6e8954f8df96857809d6e33d5c83aaeedde",
+        "repo/ood/issue27frontend_paired_train_support_v1.py": "455f063a6ac044ad153cd4265595ce9743b9bd1ebcc9d9cc85b50c9e4b57729a",
+        "repo/ood/issue27frontend_paired_train_support_v3.py": "84d8aa5650f3a782477c0739af8d68e6d2afa16bfdd4298dbac78a45ba7183ab",
+        "repo/ood/issue27frontend_transfer_io_v2.py": "039589773be83d5ef93f48940fe946a0f7cbe45cb2eefd551a085ff8da37f435",
+        "repo/ood/issue27frontend_transfer_model_v1.py": "9e00d1286fd46e6be728354c34d47e60f75d41201e5463c888add5d7e33b263e",
+        "repo/ood/issue27frontend_transfer_support_v1.py": "eb39ba28ed1e3d6025335533a8e093cf01fe6eaac879f0f91ce7109e98cd5b2d"
+      }
+    },
+    "unrelated_tracked_sha256": {
+      "count": 8,
+      "mismatches": [],
+      "pins": {
+        "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/config.json": "0df82dda20424088839fdd87d5b08c552f546a748554adb9f8bf70c9e8beeec1",
+        "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/issue27by_decision.md": "995d3014eb177bd968bc88db035b889e25dca6ffb8d5ce35ab2ed34fb584c89a",
+        "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/local_smoke_report.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/manifest.csv": "957356c3c7b700cd6ed2e677753d7a4e89b5a26be9211ca878e2bb8ef35d1b67",
+        "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/per_file_cache_manifest.csv": "298047ccb5fd5b3fbe1982d849fa7c8448aaec0a0a066f6f3781ee4756e931ea",
+        "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/role_cache_readiness.csv": "3bdd9dc88ba425ecbdfaeada9753754821938652b0c6961f5850ff9634d35024",
+        "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/slurm_array_config.csv": "9135c49b11ec3d03079e616b952e5e5dfbea236b89749ed66d8887a2a4f89360",
+        "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/summary.md": "f44318fc343f913184ffc2c68d32bf7adf25a6005504d8b15ec5481a1719a411"
+      }
+    }
+  },
+  "activity": {
+    "model_loads": 0,
+    "real_forwards": 0,
+    "optimizer_steps": 0,
+    "real_numeric_feature_rows_decoded": 0,
+    "raw_packet_decodes": 0,
+    "model_or_dataset_downloads": 0,
+    "HPC_actions": 0,
+    "public_text_downloads_only": true
+  }
+}

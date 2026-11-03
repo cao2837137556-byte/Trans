@@ -1,0 +1,120 @@
+{
+  "schema": "paper04-dense-encoder-portability-audit-v1",
+  "date_beijing": "2026-10-27",
+  "status": "READONLY_REQUIREMENTS_REVIEW_COMPLETE_RUNTIME_VALIDATION_PENDING",
+  "old_package_modified": false,
+  "remote_accesses": 0,
+  "model_forwards": 0,
+  "new_E3_rows": 0,
+  "optimizer_updates": 0,
+  "new_reference_support_computations": 0,
+  "production_runtime_versions_unchanged": {
+    "torch": "2.5.1",
+    "numpy": "2.0.1",
+    "transformers": "4.57.3",
+    "tokenizers": "0.22.2",
+    "safetensors": "0.6.2",
+    "huggingface_hub": "0.36.2"
+  },
+  "hpc_evidence": {
+    "path": "runs/hpc_readiness_preparation_v1_20261026/repair_v2/environment.json",
+    "python": "3.11.11",
+    "numpy_shared": "1.26.4",
+    "python_executable": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+    "vendor": "/public/home/jiangxinwei.zr/work/paper04/environment/vendor_py311_v1",
+    "old104_parity": "NOT_ASSESSED_NO_MODEL_FORWARD",
+    "oct21_replay_completed": false
+  },
+  "recommended_migration": {
+    "policy": "PRIVATE_NUMPY_2_0_1_OVERLAY_NO_SHARED_ENVIRONMENT_MUTATION",
+    "wheel": "numpy-2.0.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "installation": "offline --no-index --no-deps --target new private directory",
+    "set_overlay_before_new_child_import": true,
+    "source_old_environment_before_final_PYTHONPATH": true,
+    "record_actual_import_and_distribution_paths": true,
+    "full_e3_dependency_import_gate_required": true,
+    "ABI_compatibility_pending": true,
+    "original104_gate": "PER_UID_FLOAT32_EXACT_BYTES_MISMATCH_STOPS_BEFORE_SUPPLEMENT",
+    "original104_tolerance_widening": false,
+    "automatic_retry": false
+  },
+  "code_locations": {
+    "numpy_import_before_main": "repo/ood/onboarding_supplement_encoder_r2.py:20",
+    "production_version_gate": "repo/ood/onboarding_supplement_encoder_r2.py:269",
+    "original104_byte_gate": "repo/ood/onboarding_supplement_encoder_r2.py:340",
+    "legacy_environment_overwrites_PYTHONPATH": "runs/hpc_frontend_compat_v1_20261020/environment.sh:7",
+    "source_CAL_fixed_assets": "chain/run_dense_source_cal.py:128",
+    "same_environment_epsilon_zero_bytes": "chain/run_dense_source_cal.py:223"
+  },
+  "remote_project_root": "/public/home/jiangxinwei.zr/work/paper04",
+  "reusable_assets_flat_directory": "runs/hpc_readiness_v1_20261026/assets",
+  "reusable_assets_bytes": {
+    "LEARN.npy": 2435125080,
+    "LEARN.jsonl.gz": 93547174,
+    "LEARN_q.npy": 42936840,
+    "CAL.npz": 1190820
+  },
+  "checkpoint": {
+    "relative_path": "assets/model.safetensors",
+    "bytes": 698780900,
+    "sha256": "e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105"
+  },
+  "source_CAL_required_canonical_inputs": [
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN.jsonl.gz",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN_q.npy",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CAL.npz",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/SHA256SUMS",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/cache_binding.json",
+    "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/features/LEARN.npy",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/cuts.json",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/geometry.json",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/scales.json",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/protection.json",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/SHA256SUMS",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/SOURCE_REFS.npz",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/SOURCE_REFS.jsonl.gz",
+    "runs/diagnostics_d1_d2_v1_20261022/output/d1/r2/source_actual_trace.npz",
+    "runs/diagnostics_c2b_c4_step2_v1_20261025/source_cal/INPUT_SEAL.json",
+    "runs/diagnostics_c2b_c4_step2_v1_20261025/source_cal/RESULT.json",
+    "runs/onboarding_new_lineage_v1_20261022/package_v3/constrained_onboarding_core_v3.py",
+    "repo/ood/constrained_onboarding_core_v3.py",
+    "repo/ood/onboarding_budget_v1.py",
+    "repo/ood/indexed_features_v1.py",
+    "repo/ood/legacy_qref_data_v1.py and its import closure"
+  ],
+  "source_CAL_rows": {
+    "total": 148819,
+    "attack": 115672,
+    "normal": 33147,
+    "dense_references": 4728,
+    "old_references": 104
+  },
+  "production_new_positions": 21660,
+  "scientific_rules_preserved": [
+    "Frozen UID selections and q14",
+    "Original104 exact bytes before supplementary production forwards",
+    "No geometry scale or cut refit",
+    "Epsilon-zero same-environment legacy byte parity",
+    "R-B2 original withdrawal candidates lambda and saved decision parity",
+    "Scientific FAIL continues registered comparison; identity numeric resource exception stops"
+  ],
+  "new_code_static_review": {
+    "files": ["src/common.py", "src/prepare_runtime.py", "src/runtime_probe.py", "src/chain.py", "src/source_cal.py"],
+    "actual_dependency_or_forward_execution": false,
+    "resolved_findings": [
+      "runtime_probe now imports the actual netFound classes through original translator.import_netfound",
+      "source_cal new copy resolves initial keys before prior-seal comparison in the symlink asset view",
+      "chain stage_limits now shares total wall cap <=43200 seconds through min(stage_cap,remaining); local test_chain passed"
+    ],
+    "pending_at_review_snapshot": [],
+    "old_source_cal_scientific_gate_diff": "No scientific formula, original104, epsilon-zero or original-decision gate change observed"
+  },
+  "runtime_gates_not_executed": [
+    "Private overlay actual import and ABI",
+    "Original104 replay",
+    "Supplement production",
+    "Dense source CAL",
+    "Target matrix"
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "assets_manifest": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\history_normal_reference_v1_20261031\\config\\ASSETS.json",
+  "candidate": "C1",
+  "devices": [
+    {
+      "bank_end_frame": 66004,
+      "capture_id": "well-history-r2-tp_link-45d1bd14569950ab",
+      "chronological_order": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\timeline_index\\TPLinkSmartPlug_50c7bf005639.chronological_order.npy",
+        "sha256": "9da30d4ebcf5cfe8c34d1f4e008dc90fea30746c0787ce437b46312901f84d23"
+      },
+      "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+      "display_name": "TP Link",
+      "first_dev_time_us": 1486357446065969,
+      "key": "TP_LINK",
+      "known_macs": [
+        "00:16:6c:ab:6b:88",
+        "50:c7:bf:00:56:39",
+        "70:ee:50:18:34:43",
+        "ec:1a:59:79:f4:89",
+        "ec:1a:59:83:28:11"
+      ],
+      "normality_evidence": "Dryad official UNSW IoTraffic 2025 publisher lab setup/idle/interactions normal-source assumption; no event-level benign truth",
+      "owner": "50:c7:bf:00:56:39",
+      "packet_index": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\timeline_index\\TPLinkSmartPlug_50c7bf005639.packet_index.npy",
+        "sha256": "a96028abcbe562fc0704b68b3695c7f99ffd629ad152b9a565e1b3c96d847299"
+      },
+      "packets": 79773,
+      "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+      "raw": {
+        "bytes": 12682108,
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\raw_selected\\TPLinkSmartPlug_50c7bf005639.pcap",
+        "sha256": "45d1bd14569950ab6c356bac70a7870b2a0d98a4efc8e3e6d2310ef422e212f5"
+      },
+      "reference_end_us": 1480856333261023,
+      "timestamp_offset_seconds": 0
+    },
+    {
+      "bank_end_frame": 3430150,
+      "capture_id": "well-history-r2-wemo_power-445b24a2555bd4af",
+      "chronological_order": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\timeline_index\\BelkinWemoSwitch_ec1a5979f489.chronological_order.npy",
+        "sha256": "d0b8b7e190bc49f33212c9210781c2ac51207c474704d684762901ca4af44923"
+      },
+      "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+      "display_name": "WEMO Power",
+      "first_dev_time_us": 1484092851673414,
+      "key": "WEMO_POWER",
+      "known_macs": [
+        "00:16:6c:ab:6b:88",
+        "50:c7:bf:00:56:39",
+        "70:ee:50:18:34:43",
+        "ec:1a:59:79:f4:89",
+        "ec:1a:59:83:28:11"
+      ],
+      "normality_evidence": "Dryad official UNSW IoTraffic 2025 publisher lab setup/idle/interactions normal-source assumption; no event-level benign truth",
+      "owner": "ec:1a:59:79:f4:89",
+      "packet_index": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\timeline_index\\BelkinWemoSwitch_ec1a5979f489.packet_index.npy",
+        "sha256": "00273d29f728b26b8b3e3219a5bb12ac17a4e8f34763e7ecc0687e3e0cdea733"
+      },
+      "packets": 4273643,
+      "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+      "raw": {
+        "bytes": 1102039280,
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\raw_selected\\BelkinWemoSwitch_ec1a5979f489.pcap",
+        "sha256": "445b24a2555bd4af7991e83752ad63aba1cd9f1c96e7cbbd76da6a81b6dcbc64"
+      },
+      "reference_end_us": 1484092799863312,
+      "timestamp_offset_seconds": 0
+    },
+    {
+      "bank_end_frame": 4419000,
+      "capture_id": "well-history-r2-samsung-55fbfcbb4f5dce65",
+      "chronological_order": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\timeline_index\\SamsungCamera_00166cab6b88.chronological_order.npy",
+        "sha256": "03686f44f22bba2add9de04baefc579877b68b80037f923e853353ba2c25cb50"
+      },
+      "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+      "display_name": "Samsung",
+      "first_dev_time_us": 1490054401482691,
+      "key": "SAMSUNG",
+      "known_macs": [
+        "00:16:6c:ab:6b:88",
+        "50:c7:bf:00:56:39",
+        "70:ee:50:18:34:43",
+        "ec:1a:59:79:f4:89",
+        "ec:1a:59:83:28:11"
+      ],
+      "normality_evidence": "Dryad official UNSW IoTraffic 2025 publisher lab setup/idle/interactions normal-source assumption; no event-level benign truth",
+      "owner": "00:16:6c:ab:6b:88",
+      "packet_index": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\timeline_index\\SamsungCamera_00166cab6b88.packet_index.npy",
+        "sha256": "2a639b7cba9961cb8608d5f5b2c9f2b5ab8bb3b7e7469899aaf77973ac56f8a2"
+      },
+      "packets": 5880402,
+      "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+      "raw": {
+        "bytes": 2154137280,
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\raw_selected\\SamsungCamera_00166cab6b88.pcap",
+        "sha256": "55fbfcbb4f5dce65ac51a41658550e087da1d1e2b30370386eb167c4d9dfedf9"
+      },
+      "reference_end_us": 1490054396682107,
+      "timestamp_offset_seconds": 0
+    }
+  ],
+  "encoder": {
+    "normalizer": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\diagnostics_d1_d2_v1_20261022\\assets\\heads\\run\\prepared\\normalizer.npz",
+    "normalizer_sha256": "ba92b5439255435e854ee14b74738cae0e3606060456de37927b2b6a0e2ab8b2",
+    "runtime_files_manifest": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\history_normal_reference_v1_20261031\\config\\ENCODER_RUNTIME_FILES.json",
+      "sha256": "2f611b4695e165649cb4fc2df4b0309f621f846fa5f6f660e3c0fa0202ecc5ee"
+    },
+    "runtime_root": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\diagnostics_c5_step2_package_v1_20261025\\local_benchmark_v1\\runtime"
+  },
+  "known_macs_source": {
+    "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\legacy_commissioning_unsw_evaluation_preparation_v1_20260926\\device_roster.json",
+    "sha256": "f20bc6e12f4e1241db1c3fc7c8ba594606a83ef2221aaf6b3a5bc2dc011b5dee"
+  },
+  "path": "P-DEVONLY",
+  "root": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline",
+  "tshark": "C:/Program Files/Wireshark/tshark.exe",
+  "version": "history-normal-reference-r2-c1-20261031"
+}

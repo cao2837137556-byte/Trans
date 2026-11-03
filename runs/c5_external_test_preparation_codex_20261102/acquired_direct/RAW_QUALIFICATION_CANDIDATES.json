@@ -1,0 +1,69 @@
+{
+  "schema": "CICIOMT2024_RAW_QUALIFICATION_CANDIDATES_V1",
+  "status": "CANDIDATES_IDENTIFIED_SIZES_AND_ROLE_QUALIFICATION_PENDING",
+  "not_a_final_minimum_byte_selection": true,
+  "candidates": [
+    {
+      "role": "NORMAL_CHRONOLOGY",
+      "relative_path": "WiFI_and_MQTT/profiling/PCAP/Idle/Idle.pcap",
+      "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FIdle%2FIdle.pcap",
+      "bytes": null,
+      "raw_acquired": false
+    },
+    {
+      "role": "NORMAL_ACTIVE_AND_CHRONOLOGY",
+      "relative_path": "WiFI_and_MQTT/profiling/PCAP/Active/Active.pcap",
+      "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fprofiling%2FPCAP%2FActive%2FActive.pcap",
+      "bytes": null,
+      "raw_acquired": false
+    },
+    {
+      "role": "TCP_FLAGS_AND_DIRECTION_CANDIDATE",
+      "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DoS-TCP_test.pcap",
+      "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DoS-TCP_test.pcap",
+      "bytes": null,
+      "raw_acquired": false
+    },
+    {
+      "role": "TCP_FLAGS_AND_DIRECTION_CANDIDATE",
+      "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DDoS-TCP_test.pcap",
+      "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DDoS-TCP_test.pcap",
+      "bytes": null,
+      "raw_acquired": false
+    },
+    {
+      "role": "UDP_DIRECTION_CANDIDATE",
+      "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DoS-UDP_test.pcap",
+      "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DoS-UDP_test.pcap",
+      "bytes": null,
+      "raw_acquired": false
+    },
+    {
+      "role": "UDP_DIRECTION_CANDIDATE",
+      "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DDoS-UDP1_test.pcap",
+      "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DDoS-UDP1_test.pcap",
+      "bytes": null,
+      "raw_acquired": false
+    },
+    {
+      "role": "UDP_DIRECTION_CANDIDATE",
+      "relative_path": "WiFI_and_MQTT/attacks/PCAP/test/TCP_IP-DDoS-UDP2_test.pcap",
+      "download_url": "https://cicresearch.ca/IOTDataset/CICIoMT2024/download.php?file=WiFI_and_MQTT%2Fattacks%2FPCAP%2Ftest%2FTCP_IP-DDoS-UDP2_test.pcap",
+      "bytes": null,
+      "raw_acquired": false
+    }
+  ],
+  "selection_uses_model_scores": false,
+  "additional_normal_interaction_policy": "All seven observed real-device directories are inventoried; supplement only where Active does not establish the required normal behavior, before scoring.",
+  "train_test_directory_not_assumed_chronological": true,
+  "direct_ACK_verified": false,
+  "direct_UDP_direction_verified": false,
+  "same_device_7200s_and_later_normal_verified": false,
+  "unknowns": [
+    "Actual PCAP bytes and range/resume support",
+    "Device MAC/IP/attacker/target mapping",
+    "Physical capture chronology and duplicates between train/test",
+    "Direct ACK=1,SYN=0 attack evidence rather than reverse responses",
+    "Per-device normal coverage and independent event counts"
+  ]
+}

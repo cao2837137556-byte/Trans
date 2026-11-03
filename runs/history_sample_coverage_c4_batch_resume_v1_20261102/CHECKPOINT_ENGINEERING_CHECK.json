@@ -1,0 +1,48 @@
+{
+  "schema": "C4_CHECKPOINT_ENGINEERING_CHECK_V1",
+  "status": "PASS_ENGINEERING_ONLY_NOT_EXECUTION_READY",
+  "command": "& 'C:/Users/28371/AppData/Local/Programs/Python/Python310/python.exe' -X utf8 -B -m unittest test_encoding_resume test_runner -q",
+  "working_directory": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\history_sample_coverage_c4_batch_resume_v1_20261102",
+  "recorded_result": {
+    "exit_code": 0,
+    "tests_run": 31,
+    "duration_seconds": 6.85,
+    "result": "OK",
+    "encoding_resume_tests": 16,
+    "original_runner_tests": 15
+  },
+  "verification_source": "Previously completed command; no tests rerun to create this receipt.",
+  "files_sha256": {
+    "hnr/encoding.py": "5ef20cdfe5e598e77a548becdb6a5532f8d8b08615ed03f3cf790bb16605ef1c",
+    "test_encoding_resume.py": "d74f6979cdb431563ca9f2ad6637c927346db3da20dd9d7268e1279b4d20c5c0",
+    "test_runner.py": "bd902a7a1625543b1c2347aa0cf0639373e28203663bd5275bfd0890127ab32d"
+  },
+  "execution_scope": {
+    "synthetic_mock_only": true,
+    "real_model_forwards": 0,
+    "distance_pairs": 0,
+    "training": false,
+    "downloads": false,
+    "scheduler_submission": false,
+    "scientific_results_changed": false
+  },
+  "api": "encode_member(..., resume=True); default resume=False preserves no-overwrite behavior",
+  "integration_at_check_time": "Encoding API implemented; worker has not been connected to this API as part of this encoding subtask. Parent owns worker integration.",
+  "authorization_and_seal": {
+    "additional_execution_budget_authorized": false,
+    "new_package_execution_sealed": false,
+    "old_execution_card_remains_unchanged": true,
+    "automatic_resubmission_authorized": false
+  },
+  "limitations": [
+    "Legacy ledger-only 4658 completed logical rows are not recoverable E3 vectors.",
+    "Orphan NPZ without receipt and torn ledger are preserved and fail closed.",
+    "Future real-model interrupted/resumed behavior has not been empirically verified."
+  ],
+  "review": {
+    "independent_read_only_review": "No blocking finding",
+    "reviewer_task": "/root/c4_memory_diagnosis/checkpoint_review",
+    "reviewer_ran_real_science": false
+  },
+  "not_authorization": "This engineering receipt grants no execution, budget extension, sealing, or resubmission authorization."
+}

@@ -1,0 +1,42 @@
+{
+  "candidate": "C3_ADMITTED_SMALL_BANK_COMPLETE",
+  "authorization": "User transmitted Antigravity acceptance and instruction to implement and run once, 2026-11-01 Asia/Shanghai.",
+  "design_sha256": "81dc2150811bb6a40ae7821b456492820c15bf01a6e2f40dc6f0f0f75c686581",
+  "limits": {
+    "cpu": 4,
+    "rss_bytes": 8589934592,
+    "wall_seconds": 7200,
+    "output_bytes": 2147483648,
+    "encoded_new_rows": 278,
+    "distance_pairs": 400000000
+  },
+  "code_sha256": {
+    "build_contract.py": "d1c24a41a37356c5b109b6c5a5537f765385adce0a72eb328abcbd08435a5f94",
+    "common.py": "a6d961786bfa92667be385a157e67f72d2ecb6baeab922125a0a7854745cee68",
+    "encode.py": "3682bb0d39ab57fbd1321ff6d11c039390021dfa1be27493f3645f0e4e847bcf",
+    "evaluate.py": "bc76c3345e3fb06c3c258d456346b0c559669f1a82ba2a593d59f60540baa802",
+    "guarded_run.py": "a230ea0ea19cee1496f7c15532724298a3dbdd0619a6bb42199a1b219c7f52b3",
+    "prepare.py": "9181c47e163a5c7b2227f7eb850d25c2073e23421e8001712155dc69a53d7c1f",
+    "test_c3.py": "6b315a700c4c1ef02f93cfb6ba58c9c2c30f16fdb773ae3fe0a48938ae2e396e",
+    "verify_result.py": "6319996d52e925d6d90650d1bb7ca6896260068d259c7374257d83a165c4522a",
+    "run_encode.slurm": "3ce23044045d2ac7b42cb86118d67c5cbfa99ba328493825b3ecc5ab6a3fb74b"
+  },
+  "input_manifest_sha256": "edc4c2a42099f7f60aec68fc40ae0124b947b0b293a847a1b176363fd2da1346",
+  "selection": "Complete admitted device/protocol domains <=4096, otherwise retain frozen C1 selection; no query feedback.",
+  "lambda_value": 0.25,
+  "guard": "ALL_DEVICE_TCP_SYN1_ACK0_KEEP_RAW",
+  "max_new_tcp": 212,
+  "max_new_udp": 66,
+  "evaluate_once": true,
+  "automatic_retry": false,
+  "no_new_training": true,
+  "adoption": "All full/primary four-head protection gates pass; no pool/device normal FPR or FP-count increase; Heim primary ensemble FPR strictly decreases.",
+  "failure": "Freeze C2, never pick another frame set after seeing AB results.",
+  "evidence": "CONSUMED_DEVELOPMENT_ONLY",
+  "stages": [
+    "prepare_local",
+    "encode_HPC_Python311",
+    "saved_input_AB_local_once",
+    "verify_and_freeze"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "modern-new-lineage-engineering-repair-v2",
+  "trigger": "Target preflight tried encoded/CIC_DEV/B0/SHA256SUMS, which the bank encoder never produces.",
+  "cause": "Adapter imposed a directory seal absent from encode_selected contract.",
+  "fix": "Use immutable banks_manifest receipt hash and all four encoded payload SHA fields; validate normalizer, producer flags, row count, UID order, dtype, dimensions and finite arrays. No policy/score/recipe change.",
+  "prior_manifest_sha256": "0e47a568050b608639dfaa7bee0d834ea6aa06b1fa0c96121776c3b89e599433",
+  "bank_regressions_pass": 4,
+  "prior_boundary_tests_pass": 9,
+  "original_package_preserved": true,
+  "other_seal_calls_reviewed": {
+    "prepared": "Emitted by lineage_core.prepare c.seal(out); prepared_seal_sha256 pinned in LINEAGE_P_COMPLETE.json.",
+    "training_metadata": "compact.build emits SHA256SUMS, compact_metadata_receipt.json pins seal_sha256.",
+    "modern_endpoints": "Frozen train.train emits c.seal; same trainer/load contract.",
+    "modern_heads_and_pool_outputs": "This adapter creates c.seal only after complete outputs; verified subsequently."
+  },
+  "production_training": "NOT_STARTED"
+}

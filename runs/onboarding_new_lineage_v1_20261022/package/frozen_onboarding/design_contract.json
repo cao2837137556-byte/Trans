@@ -1,0 +1,375 @@
+{
+  "version": "continuous-input-core-repair-design-v3-20260929",
+  "status": "VERSIONED_IMPLEMENTATION",
+  "authorization": {
+    "this_stage": "v3_scope_isolation_implementation_and_validation_only; real chain resubmission requires separate authority",
+    "real_execution": false,
+    "remote_actions": false,
+    "paper_writing": "PAUSED"
+  },
+  "design_document": "runs/mainline_docs/legacy_continuous_input_core_repair_design_v3_20260929.md",
+  "input": {
+    "supported_ip_protocols": [
+      6,
+      17
+    ],
+    "namespace": [
+      "owner",
+      "source_capture_identity",
+      "canonical_bidirectional_5tuple"
+    ],
+    "events": "Every eligible causal packet, not only selected queries; current-inclusive snapshot",
+    "idle_reset_seconds_strictly_greater_than": 60,
+    "tcp_flag_reset": false,
+    "same_direction_burst_gap_seconds_strictly_greater_than": 0.01,
+    "burst_history_per_direction": 12,
+    "packets_per_burst_keep_latest": 6,
+    "global_bursts_keep_most_recent_last_frame": 12,
+    "maximum_output_packets": 72,
+    "packet_max_age_seconds": 60,
+    "burst_construction": "Full accepted event stream; no regroup after thinning",
+    "field_encoding": "Old no-payload header grammar, window-local old first-two-row seq/ack anchors",
+    "directions_for_e3": "First retained source within the current window",
+    "stats_directions": [
+      "owner_outgoing",
+      "owner_incoming"
+    ],
+    "stats_half_life_seconds": [
+      1,
+      10
+    ],
+    "stats_accumulators": [
+      "packets",
+      "IP_bytes",
+      "SYN_without_ACK",
+      "ACK",
+      "RST",
+      "FIN"
+    ],
+    "stats_emission_per_direction_scale": [
+      "log1p(N*ln2/h)",
+      "log1p(B*ln2/h)",
+      "SYN_without_ACK/max(N,1e-12)",
+      "ACK/max(N,1e-12)",
+      "RST/max(N,1e-12)",
+      "FIN/max(N,1e-12)"
+    ],
+    "stats_extra": [
+      "log1p(previous_key_IAT_seconds)",
+      "has_previous"
+    ],
+    "stats_dimension": 26,
+    "stats_state_dtype": "float64",
+    "output_dtype": "float32",
+    "identity_fields_enter_model": false,
+    "label_controls_state": false,
+    "cross_connection_state": false,
+    "batch_bucket": [
+      "protocol",
+      "max_header_tokens_per_burst_plus_CLS",
+      "burst_count"
+    ],
+    "batch_size": 16,
+    "bucket_order": "UID lexicographic",
+    "tail_batch": "real rows only",
+    "feature_deduplication": false,
+    "forward": "Pinned old E3 float32/eval and masked mean, no encoder training",
+    "checkpoint_sha256": "e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105",
+    "runtime_numeric_probe": {
+      "generated_only": true,
+      "atol": 1e-05,
+      "rtol": 1e-05,
+      "tensor_identity_exact": true,
+      "failure": "STOP_NO_AUTORETRY"
+    },
+    "invalid_data": "STOP; do not drop query or silently substitute features",
+    "anomalies": {
+      "order": "Contiguous capture frame order; no timestamp sorting",
+      "regression": "Namespace-local integer ns monotonicity; poison to capture end, no idle unpoison; target intersection STOP",
+      "cross_key": "Record capture-time regressions without global failure",
+      "payload_truncation": "Complete required headers update tokens/state; query ineligible",
+      "missing_headers": "No default values, no token/state update; namespace taint until a proven >60s gap between adjacent eligible events resets ALL history; affected fixed targets STOP",
+      "missing_key": "Unique required owner with supported protocol and missing namespace headers STOP; proven outside-required owner is recorded before key/header checks, no fabricated namespace",
+      "reconciliation": "Full legacy all-owner replay and static receipts retained; per-frame namespace/regression/incomplete identity for required owners; all receipt INCOMPLETE_TARGET events must be outside-required-owner; early/main digests agree",
+      "maximum_namespace_ledger_entries": 1000000
+    },
+    "owner_scope_isolation": {
+      "required_owners": "Capture-local union of every frozen query and reference owner, across all roles, no label/score/time filtering",
+      "registry": "Retain full known-owner registry for uniqueness and multi-owner rejection",
+      "order": "Capture continuity/time -> full registry owner match -> outside-required unique owner recorded/return -> unchanged v2 protocol/header/state logic",
+      "target_safety": "All required-owner eligible context retained; missing required headers still fail/taint; no fixed UID removed",
+      "capacity": "Outside-required frames do not enter states, ledger, poison, taint or eviction; shared caps unchanged",
+      "audit": "Full legacy receipts; scoped identities; assert receipt incomplete events are all outside-required owners",
+      "fixture": "Pinned real 1135180/1135181 header fixture, outside owner invariant and required owner STOP"
+    }
+  },
+  "data": {
+    "source_recipe_sha256": "bf00e65895baf99b3bd48be5933cf3a6afa0e8b84ee567f60777333bf2d04a1b",
+    "source_manifests": {
+      "LEARN": {
+        "path": "runs\\legacy_reference_sample_preparation_v1_20260917\\finalized\\learn.jsonl.gz",
+        "sha256": "693a1281e94d54f426e39c293652642ab8ed96eadd88bc71c00725b5b29679db",
+        "rows": 766727,
+        "sorted_uid_lines_sha256": "5ed3b2bb21970ecc29cdb288ac3a58522cef784207dcbf1164478440b515ef23"
+      },
+      "DEV": {
+        "path": "runs\\legacy_reference_sample_preparation_v1_20260917\\finalized\\dev.jsonl.gz",
+        "sha256": "5f36429749aea58ce0ab758f38034050f5ff81b1203c516535b0a65c6025659f",
+        "rows": 179886,
+        "sorted_uid_lines_sha256": "445369f8aeab600985fbd63df1cea9c2f9cac73b0c40d39654f530ad56821d7e"
+      },
+      "REFERENCE": {
+        "path": "runs\\legacy_reference_sample_preparation_v1_20260917\\finalized\\references.jsonl.gz",
+        "sha256": "23ff015e31f055f7cb1957c0ced167fd353af792d4a204fd18a7fb079d13244c",
+        "rows": 227,
+        "sorted_uid_lines_sha256": "32b495f1e7a3aa37c8776a0a5c06679698fb518cde7c46edddf0ec93b567e899"
+      }
+    },
+    "source_old_cache_pins": {
+      "LEARN": {
+        "rows": 766727,
+        "uid_sha256": "5ed3b2bb21970ecc29cdb288ac3a58522cef784207dcbf1164478440b515ef23",
+        "metadata": "LEARN.rows.jsonl.gz",
+        "metadata_sha256": "ce7fc209bea1b697f42a3d56bea00827e8b71343251b38b20e8dd1bf78729c39",
+        "features": "LEARN.npy",
+        "features_sha256": "164eaa95d2921a4bff701cf2f97d016a63344b926abcb9dc58876ebf80357f4f"
+      },
+      "DEV": {
+        "rows": 179886,
+        "uid_sha256": "445369f8aeab600985fbd63df1cea9c2f9cac73b0c40d39654f530ad56821d7e",
+        "metadata": "DEV.rows.jsonl.gz",
+        "metadata_sha256": "cbd599029cc97fef2a394623267b688d1f3857824613421c85ed8eebe9354fa4",
+        "features": "DEV.npy",
+        "features_sha256": "76525edab2832645b5adf9fda484c0aaf7570cc7cff3efc0e198cc775bd3095c"
+      },
+      "REFERENCE": {
+        "rows": 179,
+        "uid_sha256": "64801f9f5d5b5baf3379ee3e153b5e205ea5c80ee94767370811220db192c98c",
+        "metadata": "REFERENCE.rows.jsonl.gz",
+        "metadata_sha256": "9414891d380e631938611f54306349bf1244d46c2abfb24e96cda23784e84620",
+        "features": "REFERENCE.npy",
+        "features_sha256": "178fb69ac2277fae1b3fe75d67cfa08c11d0c1634b080035958e1ffda1eff3ae"
+      }
+    },
+    "fit_cal_identity": {
+      "FIT": {
+        "rows": 617908,
+        "uid_sha256": "d87b1582b7c349b80b59c9478fcbb69d334e233f4fa5448b162e8bafd8dbd5b4",
+        "eligible_rows": 567175,
+        "eligible_uid_sha256": "f866cb49a51eb660037df471415eeff9cbdec9b25fc69e7defe0635a0eae5b76"
+      },
+      "CAL": {
+        "rows": 148819,
+        "uid_sha256": "5c3e3155c3ed96937bd79590e3bc1f11fd31d9b6ff4dafeab32dc5c2592bf8d0",
+        "eligible_rows": 136962,
+        "eligible_uid_sha256": "e1856bc38a35b5c6348af111e7103417cd6d34ee726dc2fd56ec301025da94b3"
+      }
+    },
+    "split_salt": "q-normal-verifier-component-cal-v1-20260922",
+    "split_rule": "All reference-sharing components FIT; other whole components: SHA256(salt|device|component) mod5 ==0 CAL, otherwise FIT",
+    "FIT": {
+      "normal": 134493,
+      "attack": 483415,
+      "rows": 617908
+    },
+    "CAL": {
+      "normal": 33147,
+      "attack": 115672,
+      "rows": 148819,
+      "attack_donor_pairs": 359875
+    },
+    "CIC_DEV": {
+      "normal": 100830,
+      "attack": 79056,
+      "rows": 179886,
+      "devices": 2,
+      "status": "previously inspected; development only"
+    },
+    "UNSW_DEV": {
+      "normal": 75763,
+      "attack": 72553,
+      "rows": 148316,
+      "devices": 5,
+      "independent_confirmation": false,
+      "optimizer_or_calibration": false
+    },
+    "reference_counts": {
+      "source": 104,
+      "CIC_DEV": 75,
+      "UNSW_DEV": 92
+    },
+    "reference_allowlist": "Exact previously used role UIDs; no extension or protocol filling",
+    "new_feature_rows": 1095200,
+    "prior_three_device_confirmation_in_first_run": false,
+    "independent_ID": "NOT_RUN",
+    "source_raw_support_gate": "Final FIT must include legal TCP SYN&&!ACK and normal TCP; count devices/components and rates, nonzero is not sufficient generalization evidence",
+    "new_raw_or_model_download": false
+  },
+  "arms": {
+    "OLD_MATCHED": {
+      "input_dim": 768,
+      "cache": "old sealed E3",
+      "new_head": true
+    },
+    "RECENT": {
+      "input_dim": 768,
+      "cache": "new recent E3",
+      "new_head": true
+    },
+    "RECENT_STATE": {
+      "input_dim": 794,
+      "cache": "new recent E3 plus state26",
+      "new_head": true,
+      "primary_base": true
+    },
+    "RECENT_STATE_RAW": {
+      "base": "RECENT_STATE",
+      "reference_metric": "no learned projection"
+    },
+    "RECENT_STATE_LEARNED": {
+      "base": "RECENT_STATE",
+      "reference_metric": "shared W64x794",
+      "primary_joint": true
+    }
+  },
+  "model": {
+    "classifier": "Linear(input_dim,128)->ReLU->Linear(128,1)",
+    "classifier_parameters": {
+      "old_matched": 98561,
+      "recent": 98561,
+      "recent_state": 101889
+    },
+    "metric_parameters": 50816,
+    "old_P2_Q_weights_in_new_model": false,
+    "distillation": false,
+    "normalizer": "Unweighted population mean/std over source FIT only; scale=max(std,1e-6); no clipping",
+    "metric_input": "Safely L2 normalize standardized E3/state blocks, each /sqrt(2), concatenate and safely L2 normalize",
+    "safe_L2": "v/max(norm(v),1e-12); finite zero maps to zero and is counted",
+    "metric": "safe_L2(W*x); shared query/reference W; top min(2,n) mean per bank",
+    "reference_inference_minimum_distinct_components": 2,
+    "reference_training_minimum": 1,
+    "reference_constraints": "same protocol, whole bank end strictly before query, trusted normal, owner matched for normal query",
+    "final_rule": "base_logit>tau AND NOT(valid_reference AND similarity>cut)",
+    "no_reference_or_unregistered": "new base classifier; never old R"
+  },
+  "training": {
+    "seeds": [
+      27,
+      127,
+      227
+    ],
+    "new_small_heads": 12,
+    "epochs": 40,
+    "batch_size": 256,
+    "optimizer": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "amsgrad": false,
+    "foreach": false,
+    "scheduler": null,
+    "clipping": null,
+    "endpoint": "epoch40 only",
+    "early_stopping": false,
+    "search": false,
+    "numeric": "CPU deterministic float32, 4threads/worker, float64 weights and loss accumulation",
+    "initialization": "Per seed initialize standalone 768->128->1 with PyTorch Linear defaults; copy to OLD/RECENT and the E3 columns,bias/output of STATE; extra26 columns zero. W separate seed reset and orthogonal gain1.",
+    "ordering": "Original manifest/cache UID order; fresh independent CPU Generator(seed) for randperm once/epoch; each eligible UID once",
+    "classifier_weights": "1/2 each class, legacy_qref_data_v1.class_weights over device/activity/capture_id/session_id/row",
+    "classifier_loss": "N/b * sum(w_i*BCEWithLogits_i)",
+    "verifier_weights": "1/2 each class over original eligibility subset, same hierarchy; no H helpers",
+    "verifier_loss": "N_eligible/b * sum(w_i*softplus(sign*10*similarity)); normal sign-1 own bank; attack sign+1 worst legal source bank",
+    "reference_budgets": [
+      2,
+      8,
+      "ALL"
+    ],
+    "reference_subset_contract": "SHA256(salt|seed|epoch0|device|protocol|reference_uid), then uid; UTF-8 and decimal integers",
+    "reference_subset_salt": "q-normal-verifier-reference-subset-v1-20260922",
+    "new_helpers": 0
+  },
+  "calibration": {
+    "only_after": "All endpoints and preprocessing sealed; no later optimization",
+    "base_target_source_normal_weighted_FPR": 0.01,
+    "base_threshold": "Smallest candidate normal logit threshold with <=1% source CAL normal hierarchy-weighted FPR; strict >, no interpolation",
+    "base_arms": [
+      "OLD_MATCHED",
+      "RECENT",
+      "RECENT_STATE"
+    ],
+    "aggregate": "mean seed logits for base; mean same-bank seed similarities before metric max",
+    "reference_cut": "max(0,max over all source CAL attacks and eligible source banks similarity)+1e-5",
+    "reference_attack_filter": "NONE; includes base misses",
+    "reference_cut_ge_1": "Legal no-veto/no-gain outcome, not automatic relaxation",
+    "external_data_use": false
+  },
+  "evaluation": {
+    "metric_weights": "Original metadata 1/label_metric_weight_denominator, checked against original census",
+    "all_outputs": true,
+    "historical_Q_FULL": "saved descriptive comparison, not matched intervention",
+    "matched_wrong_reference": "Reuse frozen original matched_control_plan rules on same UIDs/time/protocol/count, report unavailable cells; no new donor selected by scores",
+    "attack_recall_ensemble_each_pool_min": 0.99,
+    "attack_recall_ensemble_each_device_min": 0.97,
+    "attack_recall_each_seed_each_pool_min": 0.97,
+    "CIC_DEV_historical_Q_recall": 0.9998608581258854,
+    "CIC_DEV_max_drop_from_historical_Q_percentage_points": 0.1,
+    "normal_weighted_FPR_each_pool_max": 0.01,
+    "normal_weighted_FPR_each_device_max": 0.02,
+    "primary_learned_added_misses_each_seed_and_ensemble_each_pool": 0,
+    "raw_acceptance_independent_of_primary": true,
+    "learned_adaptation_gain_fraction_each_pool_min": 0.3,
+    "base_FPR_zero": "NO_ROOM_FOR_GAIN",
+    "independent_claim": false,
+    "automatic_best_arm_promotion": false,
+    "attack_gate_metric": "weighted_rate",
+    "historical_Q_comparison_metric": "rate",
+    "small_support": "Per device/rate TP and denominator alongside weighted and unweighted recall; absent attack_rate NOT_AVAILABLE",
+    "early_attack_diagnostic": {
+      "pool": "UNSW_DEV",
+      "devices": [
+        "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+        "unsw-attack-traces-2018:00:16:6c:ab:6b:88"
+      ],
+      "rows_each": 6,
+      "order": [
+        "timestamp",
+        "frame",
+        "uid"
+      ],
+      "purpose": "descriptive only; no dedicated thresholds or optimization"
+    },
+    "zero_counts": "Stage delta and lifetime call-row counts; NOT unique examples"
+  },
+  "execution_delivery_requirements": {
+    "stage_chain": [
+      "P_input_cache",
+      "T_fit_endpoints",
+      "K_calibrate_then_development_score",
+      "export"
+    ],
+    "authority": "Not granted for real execution by this design; later explicit authority can cover whole delivered chain without per-stage questions",
+    "operator": "User uploads/submits/pulls; assistant packages and reviews",
+    "retries": 0,
+    "time_memory_disk_runtime_contract": "Must be sealed in implementation delivery before submission",
+    "source_cache_audit": "Fold missing old LEARN/DEV hashes/tails into P; reject incomplete local preallocated arrays",
+    "new_raw_decode": "Required eventually; unavailable current content cannot be recovered from old truncated flows",
+    "resource_guard": "One integrated target probe; stop before bulk E3 if projected fixed budget exceeded; never thin denominators",
+    "anomaly_preflight": {
+      "captures": [
+        "active-00",
+        "active-01",
+        "unsw-benign-20180528",
+        "unsw-mixed-20180601"
+      ],
+      "order": "Static receipt/UID/bank/control validation -> four capture decode, no E3 -> ordinary sorted reconstruction with full audit -> E3",
+      "cost": "Four extra capture decodes only; elapsed time charged to same 70h budget; no minutes guarantee",
+      "agreement": "Early/main anomaly and fixed-target identity stream digests must match exactly",
+      "reserve": "12h T+K reserve is a budget, not measured runtime guarantee"
+    }
+  },
+  "parent_design_sha256": "8396629e6e2495d98bfc1d4a5288f0570bc1a95d653596419005eb96470f55bd"
+}

@@ -1,0 +1,140 @@
+{
+  "ATTACK_WITHDRAWN|annotations/00166cab6b88.csv:4": {
+    "uid": "01a599b96dfbd357e770ec3ea15fde17e39427708e01a1b934b51fdde166fa46",
+    "query_flags": 2,
+    "support": 0.4211182591148609,
+    "second_joint": 0.5788817408851391,
+    "neighbors": [
+      {
+        "uid": "da61215afa0e0befbb4dda800b0db0326a4a0ca5ef7dfb750ccca15e4224ca73",
+        "canonical_key": [
+          6,
+          [
+            "192.168.1.239",
+            53648
+          ],
+          [
+            "192.168.1.249",
+            49152
+          ]
+        ],
+        "source": "B_HIST_REF",
+        "timestamp": 1475252773.114448,
+        "flags": 2,
+        "dz_over_rho": 0.5548483522022072,
+        "dq_over_rho": 0.13480640616034706
+      },
+      {
+        "uid": "3ca4eecddda2b198fe1200def9663087409390a243e444734e73b2fdce8a3efb",
+        "canonical_key": [
+          6,
+          [
+            "192.168.1.177",
+            37356
+          ],
+          [
+            "192.168.1.248",
+            49152
+          ]
+        ],
+        "source": "B_HIST_REF",
+        "timestamp": 1480339810.423473,
+        "flags": 2,
+        "dz_over_rho": 0.5788817408851391,
+        "dq_over_rho": 0.044653808537328886
+      }
+    ]
+  },
+  "HEIM_TCP_RESIDUAL": {
+    "uid": "02ec85e0b91fe6f3dd1a654faa306fa016b9edc8a3e4e3469bc6f71103f0bcb9",
+    "query_flags": 24,
+    "support": 0.0,
+    "second_joint": 1.0802214526183578,
+    "neighbors": [
+      {
+        "uid": "6b7a465bf4fa911b4674aa24cbffc9365169f3e99e9d97b8cf28825fbcc59fb1",
+        "canonical_key": [
+          6,
+          [
+            "192.168.137.141",
+            38454
+          ],
+          [
+            "47.254.27.95",
+            50920
+          ]
+        ],
+        "source": "B2_DENSE",
+        "timestamp": 1635852247.54715,
+        "flags": 24,
+        "dz_over_rho": 0.14043746567998663,
+        "dq_over_rho": 0.015502239522779007
+      },
+      {
+        "uid": "026b506c412869d856d8f2621c346faead355a0fe56c61c23ab9283da76aa518",
+        "canonical_key": [
+          6,
+          [
+            "192.168.137.217",
+            42393
+          ],
+          [
+            "47.254.27.95",
+            50920
+          ]
+        ],
+        "source": "A_OLD_11",
+        "timestamp": 1633540164.552751,
+        "flags": 16,
+        "dz_over_rho": 1.0802214526183578,
+        "dq_over_rho": 0.7127608635720706
+      }
+    ]
+  },
+  "P4_WEMO_POWER_RESIDUAL|WEMO Power Switch": {
+    "uid": "0006674933f7a9fee3af6624a8cb01be07e4cf15b1ae4329f58ea50ae6d8cbfd",
+    "query_flags": 16,
+    "support": 0.2999861455200852,
+    "second_joint": 0.7000138544799148,
+    "neighbors": [
+      {
+        "uid": "3211df5e2ea995c1d7a3f52864934e31ba867e23957190a9346ea90665ba95d4",
+        "canonical_key": [
+          6,
+          [
+            "184.73.174.14",
+            8443
+          ],
+          [
+            "192.168.1.223",
+            3819
+          ]
+        ],
+        "source": "B_HIST_REF",
+        "timestamp": 1480734170.343785,
+        "flags": 16,
+        "dz_over_rho": 0.6897787483237969,
+        "dq_over_rho": 0.032698225390118726
+      },
+      {
+        "uid": "6fa6bc8a223315a3d07107a837994eb5675be81aca4f76e15920fd52d06c4d06",
+        "canonical_key": [
+          6,
+          [
+            "184.73.174.14",
+            8443
+          ],
+          [
+            "192.168.1.223",
+            3275
+          ]
+        ],
+        "source": "B_HIST_REF",
+        "timestamp": 1476105124.742057,
+        "flags": 16,
+        "dz_over_rho": 0.7000138544799148,
+        "dq_over_rho": 0.032698225390118726
+      }
+    ]
+  }
+}

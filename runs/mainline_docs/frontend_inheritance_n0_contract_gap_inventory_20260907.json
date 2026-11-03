@@ -1,0 +1,103 @@
+{
+  "review_scope": "N0 static source-text contract inventory, 2026-09-07. No runner, model, teacher, capture, feature tensor, real metadata table, semantic corpus or evaluation payload was opened by this review. This inventory supplies source-defined prerequisites and gaps; it does not certify inheritance or authorize a numeric diagnostic.",
+  "provenance_caveat": "source_sha256 records current bytes inspected as source text. These hashes identify this review input; they do not assert that every source has been independently matched to a historical frozen source manifest. Artifact member recovery is supported by the explicitly delimited semantic context key, despite the absence of a standalone member column. Artifact members, source groups and context counts do not establish physical-device identity, old-session identity or statistical independence. IDENTIFIED means the named contract fact or prerequisite is identified, not scientific PASS.",
+  "items": [
+    {
+      "item": "f4_selected_field_contract",
+      "status": "IDENTIFIED",
+      "evidence": "repo/ood/issue27frontend_f4_fieldwise_input_v1.py:77 defines the 19 record fields; :83 defines their 131D offsets; :341 encodes the presence mask and :350 encodes lengths and optional fields.",
+      "implication": "F4 preservation covers the declared 19 fields. It does not establish preservation of every old teacher input. Re-auditing numeric F4 inputs is unnecessary in N0."
+    },
+    {
+      "item": "old_ip_tcp_header_field_differences",
+      "status": "IDENTIFIED",
+      "evidence": "repo/ood/issue27ckda_d0_resource_pilot_v1.py:347 constructs IP header length, traffic class, IP length, IP flags and TTL/hop limit; :361 constructs TCP flags, window, relative sequence/ACK and urgent pointer. repo/ood/issue27frontend_f4_fieldwise_input_v1.py:77 names the current fields and omits those old header fields except TCP flags.",
+      "implication": "A source-defined information difference exists. Frame length is not IP length. Field construction alone does not establish decision necessity or lawful cache availability."
+    },
+    {
+      "item": "omitted_field_causal_necessity_and_cache_availability",
+      "status": "UNKNOWN",
+      "evidence": "repo/ood/issue27ckda_d0_resource_pilot_v1.py:328 defines raw-prefix preprocessing. repo/ood/issue27frontend_f1_d0_census_v1.py:422 and repo/ood/issue27frontend_f4_fieldwise_input_v1.py:773 define metadata outputs without the omitted numeric headers or old token prefixes.",
+      "implication": "N0 metadata does not show whether omitted fields caused F5 failure or whether an already lawful cache supports a fixed-teacher field contrast. No raw decoding, cache opening or numeric contrast follows from this inventory."
+    },
+    {
+      "item": "udp_length_already_represented",
+      "status": "IDENTIFIED",
+      "evidence": "repo/ood/issue27ckda_d0_resource_pilot_v1.py:380 consumes udp.length. repo/ood/issue27frontend_f3_conflict_field_sufficiency_v1.py:338 maps protocol 6 to tcp.len and protocol 17 to udp.length. repo/ood/issue27frontend_f3_full_fit_l1_identifiability_v1.py:181 applies that helper; repo/ood/issue27frontend_f4_fieldwise_input_v1.py:81 preserves transport_len.",
+      "implication": "UDP length is already represented by transport_len. Do not duplicate it or treat TCP tcp.len and UDP udp.length as the same physical quantity."
+    },
+    {
+      "item": "old_burst_history_and_consumed_metadata",
+      "status": "IDENTIFIED",
+      "evidence": "repo/ood/issue27ckda_d0_resource_pilot_v1.py:394 groups same-direction bursts with a greater-than-10-ms gap; :403 keeps the first 12 global bursts and :404 keeps six packets per burst; :414 constructs nanosecond IAT and :418 sums retained IP lengths. ../../supercompute_transfer/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound/src/modules/netFoundTokenizer.py:175 converts IAT by 1e-3 to integer microseconds. The same vendor directory's netFoundEmbeddings.py:31 consumes direction, bytes divided by 1000, packet count and IAT; :45 adds protocol embedding.",
+      "implication": "Old burst metadata and unit conversions are source-defined. Current context events do not thereby establish identical retained prefixes, burst inputs or old pretrained knowledge."
+    },
+    {
+      "item": "flow_duration_not_actual_e3_model_argument",
+      "status": "IDENTIFIED",
+      "evidence": "repo/ood/issue27ckda_d0_resource_pilot_v1.py:422 constructs flow_duration. ../../supercompute_transfer/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound/src/modules/netFoundTokenizer.py:212 returns it and netFoundDataCollator.py:190 collates it. repo/ood/issue27ckda_d1_representation_probe_v1.py:859 lists the actual base_transformer arguments and omits flow_duration.",
+      "implication": "flow_duration is not a demonstrated missing model input. Its preprocessing presence is not a reason to add it or attribute F5 failure to its absence."
+    },
+    {
+      "item": "current_and_old_history_boundaries",
+      "status": "IDENTIFIED",
+      "evidence": "repo/ood/issue27ckda_d1_e3_embed_v1.py:54 retains early per-session directional bursts. repo/ood/issue27frontend_f0_zero_training_semantics_v1.py:26 defines 256 events, 300 seconds span and 60 seconds idle limits; :455 applies causal timestamp clamping and context splitting.",
+      "implication": "Old session prefixes and current bounded contexts have different construction rules. Context counts and saved local event indices cannot certify old-prefix reconstruction or lawful state carry across contexts."
+    },
+    {
+      "item": "direction_and_relative_ack_streaming_contract",
+      "status": "INSUFFICIENT",
+      "evidence": "repo/ood/issue27ckda_d0_resource_pilot_v1.py:335 uses the first source IP as direction base; :340 may replace a zero first-ACK base with the second packet's sequence. repo/ood/issue27frontend_f0_zero_training_semantics_v1.py:307 uses endpoint orientation within the current context.",
+      "implication": "Direction equivalence needs a declared comparison. Old ACK fallback is target-prefix causal but may revise normalized tokens from earlier packets in later target prefixes. No immutable streaming-token equivalence has been established."
+    },
+    {
+      "item": "shared_ab_event_applicability",
+      "status": "IDENTIFIED",
+      "evidence": "repo/ood/issue27frontend_f0_zero_training_semantics_v1.py:249 routes H1, :262 routes H2, :275 routes H3 and :289 routes H4. repo/ood/issue27ckda_d1_e3_embed_v1.py:285 accepts old E3 targets only for TCP/UDP and usable finite sessions.",
+      "implication": "The shared A+B interface retains H1-H4, including non-IP and keyless events. Old E3 acceptance cannot be adopted as a B event filter. Future optional fields need valid-zero, not-applicable, missing/invalid and unknown-relative-base semantics."
+    },
+    {
+      "item": "artifact_member_identity_from_structured_context_key",
+      "status": "IDENTIFIED",
+      "evidence": "repo/ood/issue27frontend_f1_d0_census_v1.py:90 constructs semantic_context_key as member_id, U+001F, causal_context_id, U+001F, context_epoch and :422 emits it. repo/ood/issue27frontend_f3_full_fit_l1_identifiability_v1.py:223 constructs the same member/context-hash/epoch key. repo/ood/issue27frontend_f0_zero_training_semantics_v1.py:317 hashes source, member, tier, orientation, protocol class and epoch into causal_context_id.",
+      "implication": "For retained lawful fit rows only, validate the declared three-part key and expose artifact_member_id. Reject malformed or ambiguous keys; do not guess from source names. Recovered artifact member identifies the producer's capture/member unit, not a physical device, old session or independent unit."
+    },
+    {
+      "item": "physical_device_identity_and_independence",
+      "status": "UNKNOWN",
+      "evidence": "repo/ood/issue27frontend_f1_d0_census_v1.py:422 exports source_group and device_family, with a recoverable artifact member in semantic_context_key, but no validated physical-device identity or independence relation. repo/ood/issue27frontend_f4_fieldwise_input_v1.py:773 exports context and source membership without an independent-device certificate.",
+      "implication": "Keep physical-device identity and statistical independence unknown. Neither device_family, artifact member, source group nor distinct context count is a substitute for an established dependency relation."
+    },
+    {
+      "item": "old_session_and_pre_context_history_bridge",
+      "status": "UNKNOWN",
+      "evidence": "repo/ood/issue27ckda_d1_e3_embed_v1.py:303 hashes source, member and old canonical session for old-session IDs. Its :337 output includes session/timestamp/event-position metadata, but these artifacts are outside this source review. repo/ood/issue27frontend_f1_d0_census_v1.py:422 and repo/ood/issue27frontend_f4_fieldwise_input_v1.py:773 omit old-session IDs and earlier-prefix cutoffs.",
+      "implication": "Artifact member recovery does not recover the old-session join, target-position bridge or earlier-history membership. Do not concatenate contexts or assert dependency-separated inheritance without a lawful, validated bridge."
+    },
+    {
+      "item": "global_deployment_state_lifecycle",
+      "status": "INSUFFICIENT",
+      "evidence": "repo/ood/issue27ckda_d1_e3_embed_v1.py:39 states a 144-retained-packet per-session bound, with per-direction retention at :69. repo/ood/issue27frontend_f0_zero_training_semantics_v1.py:494 and :520 use knowledge of the last selected target for offline state release.",
+      "implication": "A per-session bound is not a global active-state bound. Active-entity cap, deterministic eviction and incomplete-history semantics remain prerequisites for any later deployment contract; offline last-target release is not an online rule."
+    },
+    {
+      "item": "n0_coverage_inventory_prerequisite",
+      "status": "IDENTIFIED",
+      "evidence": "repo/ood/issue27frontend_f1_d0_census_v1.py:422 provides phase/legal_fit/cross_phase_context selectors and legal-row source/member-key/context/category metadata. repo/ood/issue27frontend_f4_fieldwise_input_v1.py:773 provides existing nested split and target/context counts. These source schemas support the restricted metadata inventory, subject to actual identity and schema checks by N0.",
+      "implication": "N0 can report lawful source/artifact-member/context/category coverage and exposure accounting without repartitioning. It can support a scoped follow-on design. It cannot award inheritance PASS or by itself authorize a field/history, learning or evaluation contrast."
+    }
+  ],
+  "source_sha256": {
+    "repo/ood/issue27ckda_d0_resource_pilot_v1.py": "ec1cb7be1f47e2ef7862905f3e89c75c0295fb1565fa0820d174a6e11409856a",
+    "repo/ood/issue27ckda_d1_e3_embed_v1.py": "360cbaa72f818e6fc423b16f3b4989333bfba002a1423085ff15b2cb1569de14",
+    "repo/ood/issue27ckda_d1_representation_probe_v1.py": "f8f477ca78d8ed1fa490880d24a01f65111e3f910eaa8ab72af154d8a143de4e",
+    "repo/ood/issue27frontend_f0_zero_training_semantics_v1.py": "00366fdef9d644c2ac60fab68047938e6bcc4425aab68e1f6c1ae552db40affa",
+    "repo/ood/issue27frontend_f1_d0_census_v1.py": "93b0262ec0cb26bcdc936cde8f476a5fc2eeb0463fd16caa2c5420ca50682869",
+    "repo/ood/issue27frontend_f3_conflict_field_sufficiency_v1.py": "80b4de6c931b77f528bafaf64a4a0e449295c8a78fb1d9776a8fed1d35eb9791",
+    "repo/ood/issue27frontend_f3_full_fit_l1_identifiability_v1.py": "69fc92fb417fe8dbca646c30aaaf7f7ea40edf81ecae3c4fe36d831434e35a67",
+    "repo/ood/issue27frontend_f4_fieldwise_input_v1.py": "9c729a3165d19042549723f029235734595131d5e7ba344a3f605cca89677200",
+    "../../supercompute_transfer/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound/src/modules/netFoundTokenizer.py": "182e55abfbe8643d3896087d7748f9ae23195da79059d5429789abe4f0502411",
+    "../../supercompute_transfer/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound/src/modules/netFoundEmbeddings.py": "51bce2ad2fd38dd322d470998e17677a787e5bfb4c1a5ee5eaa379d4fb969368",
+    "../../supercompute_transfer/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound/src/modules/netFoundDataCollator.py": "fb83b3f1310775f6c69fb9bcfe657333f28af5fbaafd94dcbff9ad08a18e8cff"
+  }
+}

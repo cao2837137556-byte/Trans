@@ -1,0 +1,78 @@
+{
+  "schema": "EDGE_IIOTSET_BOUNDED_RAW_QUALIFICATION_APPROVED_V1",
+  "date": "2026-11-02 America/Los_Angeles",
+  "status": "APPROVED_ACQUISITION_AND_RAW_QUALIFICATION_ONLY",
+  "raw_acquisition_authorized_in_this_stage": true,
+  "training_authorized": false,
+  "model_evaluation_authorized": false,
+  "cloud_jobs_authorized": false,
+  "files": [
+    {
+      "order": 1,
+      "official_relative_path": "Edge-IIoTset dataset/Attack traffic/DDoS HTTP Flood Attacks.pcap",
+      "listed_uncompressed_bytes": 28307602,
+      "api_url": "https://www.kaggle.com/api/v1/datasets/download/mohamedamineferrag/edgeiiotset-cyber-security-dataset-of-iot-iiot/Edge-IIoTset%20dataset/Attack%20traffic/DDoS%20HTTP%20Flood%20Attacks.pcap",
+      "role": "ATTACK_QUALIFICATION"
+    },
+    {
+      "order": 2,
+      "official_relative_path": "Edge-IIoTset dataset/Attack traffic/DDoS UDP Flood Attacks.pcap",
+      "listed_uncompressed_bytes": 247560012,
+      "api_url": "https://www.kaggle.com/api/v1/datasets/download/mohamedamineferrag/edgeiiotset-cyber-security-dataset-of-iot-iiot/Edge-IIoTset%20dataset/Attack%20traffic/DDoS%20UDP%20Flood%20Attacks.pcap",
+      "role": "ATTACK_QUALIFICATION"
+    },
+    {
+      "order": 3,
+      "official_relative_path": "Edge-IIoTset dataset/Normal traffic/Temperature_and_Humidity/Temperature_and_Humidity.pcap",
+      "listed_uncompressed_bytes": 345868816,
+      "api_url": "https://www.kaggle.com/api/v1/datasets/download/mohamedamineferrag/edgeiiotset-cyber-security-dataset-of-iot-iiot/Edge-IIoTset%20dataset/Normal%20traffic/Temperature_and_Humidity/Temperature_and_Humidity.pcap",
+      "role": "NORMAL_QUALIFICATION"
+    }
+  ],
+  "listed_uncompressed_total_bytes": 621736430,
+  "selection_basis": "Official Table VI first physical-sensor normal scenario plus fixed HTTP/UDP attack categories; no model scores or selection by smallest size",
+  "download_order": "Two fixed attacks first; if actual roles clearly do not match the fixed normal scenario or a legitimate physical target cannot be established, stop before normal and do not substitute another scenario. Otherwise acquire the single fixed normal and verify physical identity and chronology.",
+  "normal_candidate_role_map": {
+    "edge_server_IP": "192.168.0.128",
+    "sensor_node_IP": "192.168.0.101",
+    "AP_IP": "192.168.0.1",
+    "IP_is_not_proof_of_same_physical_identity": true
+  },
+  "prospective_destination": "D:/study/paper/anomaly_detection/paper04/data_external/edge_iiotset/qualification_v1",
+  "bounds": {
+    "max_number_raw_files": 3,
+    "max_cumulative_network_bytes_including_failed_attempts": 700000000,
+    "max_local_peak_new_raw_and_temporary_bytes": 1300000000,
+    "max_CPU_threads": 4,
+    "max_RAM_bytes": 2147483648,
+    "max_active_raw_audit_seconds": 1800,
+    "automatic_expansion": false,
+    "no_C_Downloads_staging": true,
+    "no_HPC_or_background_AI_monitor": true
+  },
+  "audit": [
+    "single-member public file ZIP if applicable; exact listing bytes/CRC/local SHA; never substitute a whole dataset ZIP",
+    "raw container/linktype/count/timestamp/gaps/backtracks/truncation and original record identities",
+    "stable physical target identity and device/server/VM roles across the three files",
+    "full unfiltered actual 7200s normal then later normal and causal attacks; no timestamp shifting, merging disjoint windows or using later normal",
+    "official attack direction/event semantics and actual directly attacking ACK=1 SYN=0 / UDP; reverse responses separate, no whole-file attack assumption",
+    "normal SYN/ACK/UDP distributions and same-protocol legal component population as header metadata only; no E3/q14 model input encoding",
+    "duplicate/interface-capture audit and individual target/capture/event counts, not frame count as independence",
+    "report failure or unresolved truth; no model score/support/distance or method change"
+  ],
+  "not_claimed": [
+    "Dataset qualified",
+    "All physical sensors attacked",
+    "2% external FPR",
+    "99% external recall",
+    "Strong baseline ready",
+    "External adapter ready"
+  ],
+  "method_freeze_sha256": "ee11f25079cd03ee8b9d6dbbafd67e7fc96dd4402373808fc1c0b9f53b5c05e7",
+  "stop_policy": "Preserve and report qualification failure/unresolved identity or labels; no automatic new files/targets, no model execution, no deletions.",
+  "authorization": {
+    "user_reply": "允许，按三包卡做资格核验",
+    "recorded_utc": "2026-11-03T06:49:35.653105+00:00",
+    "draft_sha256": "83c3e27ab7e71aa6f7393676a98783f79856c9e426316602648a53351c58c783"
+  }
+}

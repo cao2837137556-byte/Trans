@@ -1,0 +1,191 @@
+{
+  "status": "STOPPED_BUDGET_EXHAUSTED_AWAITING_USER_AMENDMENT",
+  "job_id": "180670",
+  "source_preserved": true,
+  "resubmitted": false,
+  "new_model_forwards": 0,
+  "new_distance_pairs": 0,
+  "inputs": [
+    {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/STATE_RECEIPT.json",
+      "bytes": 43662,
+      "sha256": "4d41ceda56f7cbc15e4ba1c848cf5d1001de039daaf5216232f2ee2bc42df2d5"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/REMOTE_REPORT.json",
+      "bytes": 407190,
+      "sha256": "497b2ed9a8adf7d8b68e6e8121c35c450cc7afcdd8d66cd1ec5f79be50c0e975"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/TIMING_CROSSCHECK.json",
+      "bytes": 8189,
+      "sha256": "dd5d25fb1b79f282b4df80f68bb781f4c21a37e68cbad478a723b4b8914d6a37"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/LOCAL_STORAGE_AUDIT.json",
+      "bytes": 16212,
+      "sha256": "0318e6183939d973fe1313722dd26d8b5418ce4d8aedfaba46e7c234dd8f4d6d"
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/CHECKPOINT_ENGINEERING_CHECK.json",
+      "bytes": 2328,
+      "sha256": "f1e7af8c39b4bf2c0407df372d07fe146e76f7067d49fbd65032ba1828592215"
+    }
+  ],
+  "engineering_preparation": {
+    "receipt": {
+      "schema": "C4_CHECKPOINT_ENGINEERING_CHECK_V1",
+      "status": "PASS_ENGINEERING_ONLY_NOT_EXECUTION_READY",
+      "command": "& 'C:/Users/28371/AppData/Local/Programs/Python/Python310/python.exe' -X utf8 -B -m unittest test_encoding_resume test_runner -q",
+      "working_directory": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\history_sample_coverage_c4_batch_resume_v1_20261102",
+      "recorded_result": {
+        "exit_code": 0,
+        "tests_run": 31,
+        "duration_seconds": 6.85,
+        "result": "OK",
+        "encoding_resume_tests": 16,
+        "original_runner_tests": 15
+      },
+      "verification_source": "Previously completed command; no tests rerun to create this receipt.",
+      "files_sha256": {
+        "hnr/encoding.py": "5ef20cdfe5e598e77a548becdb6a5532f8d8b08615ed03f3cf790bb16605ef1c",
+        "test_encoding_resume.py": "d74f6979cdb431563ca9f2ad6637c927346db3da20dd9d7268e1279b4d20c5c0",
+        "test_runner.py": "bd902a7a1625543b1c2347aa0cf0639373e28203663bd5275bfd0890127ab32d"
+      },
+      "execution_scope": {
+        "synthetic_mock_only": true,
+        "real_model_forwards": 0,
+        "distance_pairs": 0,
+        "training": false,
+        "downloads": false,
+        "scheduler_submission": false,
+        "scientific_results_changed": false
+      },
+      "api": "encode_member(..., resume=True); default resume=False preserves no-overwrite behavior",
+      "integration_at_check_time": "Encoding API implemented; worker has not been connected to this API as part of this encoding subtask. Parent owns worker integration.",
+      "authorization_and_seal": {
+        "additional_execution_budget_authorized": false,
+        "new_package_execution_sealed": false,
+        "old_execution_card_remains_unchanged": true,
+        "automatic_resubmission_authorized": false
+      },
+      "limitations": [
+        "Legacy ledger-only 4658 completed logical rows are not recoverable E3 vectors.",
+        "Orphan NPZ without receipt and torn ledger are preserved and fail closed.",
+        "Future real-model interrupted/resumed behavior has not been empirically verified."
+      ],
+      "review": {
+        "independent_read_only_review": "No blocking finding",
+        "reviewer_task": "/root/c4_memory_diagnosis/checkpoint_review",
+        "reviewer_ran_real_science": false
+      },
+      "not_authorization": "This engineering receipt grants no execution, budget extension, sealing, or resubmission authorization."
+    },
+    "execution_ready": false,
+    "sealed_for_execution": false,
+    "uploaded": false
+  },
+  "completed": {
+    "complete_reusable_E3_rows": 20480,
+    "netatmo_prepared_snapshots": 12288,
+    "netatmo_selected_ref": 8192,
+    "netatmo_selected_dev": 4096,
+    "netatmo_raw_frames": 4967010,
+    "netatmo_legal_endpoints": 3592947,
+    "netatmo_unpersisted_completed_E3_rows": 4658,
+    "netatmo_reserved_inflight_rows": 16,
+    "netatmo_recoverable_E3_rows": 0
+  },
+  "accounting": {
+    "original_wall_limit_seconds": 28800,
+    "prior_wall_seconds_charged": 24534,
+    "job180670_elapsed_seconds": 4266.397972752922,
+    "job180670_conservative_charge_seconds": 4327,
+    "cumulative_conservative_charge_seconds": 28861,
+    "remaining_original_seconds": 0,
+    "peak_process_tree_rss_bytes": 5408239616,
+    "peak_output_bytes": 12187195028,
+    "parent_encoded_rows_32768_is_reservation_not_completed": true
+  },
+  "offline": {
+    "complete_registered_C4_possible_now": false,
+    "missing": [
+      "Netatmo references E3",
+      "Netatmo HIST_DEV E3",
+      "Netatmo DEV_LOGITS"
+    ],
+    "partial_three_device_evaluation_changes_contract": true,
+    "after_complete_encoding": "Reuse all saved A/B features and scores; run HIST_DEV first, A/B once only if gate passes. Local or HPC CPU execution is feasible; hosting and same-environment pins must be finalized before execution."
+  },
+  "timing": {
+    "encoding_plus_offline_reference_range_seconds": [
+      8483.664237540173,
+      11774.21981983823
+    ],
+    "retrieval_and_independent_verification_not_measured_here": true,
+    "expected_communication_range_hours": [
+      2.5,
+      3.5
+    ],
+    "recommended_additional_hard_limit_seconds": 18000,
+    "recommended_additional_hard_limit_hours": 5,
+    "rationale": "About 50 percent headroom above the slower historical scaling scenario, including transfer and final checks, for larger later batch shapes and shared HPC throughput. The hard ceiling is a budget proposal, not a promise to finish.",
+    "same_resources": {
+      "cpu": 4,
+      "rss_bytes": 8589934592,
+      "output_bytes": 21474836480
+    },
+    "automatic_resubmit_authorized": false,
+    "automatic_retry": false
+  },
+  "proposed_budget": {
+    "authorized": false,
+    "additional_wall_seconds": 18000,
+    "proposed_cumulative_wall_ceiling_seconds": 46861,
+    "cumulative_charged_E3_row_ceiling": 37442,
+    "unique_candidate_encoded_rows": 32768,
+    "pair_limit": 1000000000,
+    "static_pair_upper_bound": 997017497,
+    "cpu": 4,
+    "rss_bytes": 8589934592,
+    "output_bytes": 21474836480,
+    "automatic_retry": false,
+    "automatic_resubmit": false,
+    "source_of_approval_requirement": "User explicitly requires a budget request after exhaustion and prohibits automatic resubmission."
+  },
+  "storage": {
+    "remote_personal_project": "/public/home/jiangxinwei.zr/work/paper04",
+    "local_drives": {
+      "C:/": {
+        "total_bytes": 214748360704,
+        "used_bytes": 192073871360,
+        "free_bytes": 22674489344,
+        "free_gib": 21.117
+      },
+      "D:/": {
+        "total_bytes": 294971764736,
+        "used_bytes": 285736349696,
+        "free_bytes": 9235415040,
+        "free_gib": 8.601
+      }
+    },
+    "shared_filesystem_df_observed": {
+      "size": "511T",
+      "used": "7.2T",
+      "available": "503T",
+      "percent": "2%"
+    },
+    "personal_lfs_quota_observed": {
+      "kbytes_used": 91542517,
+      "files": 99505,
+      "quota": 0,
+      "limit": 0,
+      "using_default_quota": true
+    },
+    "personal_quota_note": "Observed default quota mode with zero displayed quota/limit; shared free space is not a personal allocation guarantee.",
+    "recommended_large_artifact_home": "HPC personal project directory",
+    "local_policy": "Keep small source/docs/receipts/final scientific arrays. Do not retrieve raw PCAP, census SQLite or chronological copies. Retain existing copies until per-file replica verification and cleanup authorization are resolved.",
+    "local_files_deleted": 0,
+    "source_files_moved": 0
+  }
+}

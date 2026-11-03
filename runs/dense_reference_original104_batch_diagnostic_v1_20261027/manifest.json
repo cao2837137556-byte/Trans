@@ -1,0 +1,379 @@
+{
+  "anchor_count": 8,
+  "anchors": [
+    {
+      "expected_old_feature_sha256": "15af36e97cebb30c9d7bc5d4e1cd262213f5aba6a9dd1f0a67161fae285c24c7",
+      "flow_sha256": "4cb8e4a16bd6699bce359aae78ee305d65778319e2d86b837ed2a03ae2993aea",
+      "observed_hpc_b1_feature_sha256": "2d1657a7a91928fc6a97299036db38e1774f26bed615ec19007ff2b1bc850fca",
+      "observed_hpc_b1_tensor_sha256": "70cce5d6ab8cf23074aa3ef2e6f5983e7c3285cbc40e8d6b7217f4e2d33a8cf7",
+      "original_batch_id": 1501,
+      "original_batch_size": 16,
+      "original_body_json_sha256": "6a2e79d66ab4bc9fa21827c5f90fb41cd03d7e8c6f0c4ca088ed8ed399dc4cf4",
+      "original_per_row_tensor_receipt_available": false,
+      "provenance_sha256": "e56dd718b09c36949ff0cd457505c3b2c378cc1d3c4a3148c58794ea859983af",
+      "role": "SOURCE_REFS",
+      "shape": [
+        6,
+        13,
+        1
+      ],
+      "source_identity": {
+        "capture_id": "interaction-attack-009",
+        "component_id": "93b8e1d41cf1ec50135aea126e5eb2e00b29c5fc61fc9b836e033235634f2802",
+        "frame": 1,
+        "owner": "9c:8e:cd:1d:ab:9f",
+        "parent_slot": 15,
+        "partition": "LEARN",
+        "protocol": 6,
+        "session_id": "5c078ed5833d51c9b1dac343330487959d9a6409f73f0ca90d0bfe54f522c0d1",
+        "source_sha256": "1d8de5fc6e19b3b0729f4b157c307941e87efbff6871cd3b4b7dc9c35924028a",
+        "use": "REFERENCE"
+      },
+      "uid": "8efedb594ef1defd020a3efbb913179dbca863d57aa3c1230ff912b524289d4c"
+    },
+    {
+      "expected_old_feature_sha256": "7b17516ed81609c941e57b02e96d2f6c602aaab2fa73c713f1a808a0fbc52acd",
+      "flow_sha256": "a4d9b48ae42a3044426f06c622e80b72ca217cd27354f0ff2b1f6968c8334f48",
+      "observed_hpc_b1_feature_sha256": "1b2a22d2d92244c29fd775edb74756230a1e487bf9f41f0408e3d3a7f4818ff4",
+      "observed_hpc_b1_tensor_sha256": "c25aa17f997bd71321f916a5855c679807230923eb0a692548b7e3277d223376",
+      "original_batch_id": 6078,
+      "original_batch_size": 16,
+      "original_body_json_sha256": "4267e68a50af41739971d80275a0559b51d009b8ec025245533f804ad435737b",
+      "original_per_row_tensor_receipt_available": false,
+      "provenance_sha256": "c5990a337e5920ee3ec957f158e71822cc5fcfa310274d2db632121fa37b7503",
+      "role": "SOURCE_REFS",
+      "shape": [
+        6,
+        13,
+        7
+      ],
+      "source_identity": {
+        "capture_id": "interaction-attack-288",
+        "component_id": "82ffe50865479ee188a6c8a24a25926daec1219e09e8aa34c35589236832379d",
+        "frame": 44,
+        "owner": "10:2c:6b:1b:43:be",
+        "parent_slot": 168,
+        "partition": "LEARN",
+        "protocol": 6,
+        "session_id": "3194d427939b0cde27ffe78a0ff4e3537033568d6b269c695fcd44859f05c7e1",
+        "source_sha256": "fa683b98937f265d24d31fa7fdb44f59200f0c57612fe68e7f0f66ab00f0fcbe",
+        "use": "REFERENCE"
+      },
+      "uid": "894693b2d47dc5649b00f74aae2fb808a550b925ea46c7d1863009379c7241a8"
+    },
+    {
+      "expected_old_feature_sha256": "37e4b007b1b6682bdbfcfd6d5e5746b9957df0095edd26b8a6d15d30ff9b3f94",
+      "flow_sha256": "2a496089c19085523c48ca2cfd9291e69800bf9be3dac52a75eb5314d97c6039",
+      "observed_hpc_b1_feature_sha256": "eb73d939e7cea6023be03e373fcd74f5ed52ddd75ef185c6746cd8a1ef08a407",
+      "observed_hpc_b1_tensor_sha256": "6e8dac6f01ad5242ed32ca2a93f8c9b5b08474ee238386a0e58e00657a8d8c8d",
+      "original_batch_id": 7470,
+      "original_batch_size": 16,
+      "original_body_json_sha256": "9a0c2d3435a1f099a38c9648b579594f2fb16bd49ec34739930a8e425da60666",
+      "original_per_row_tensor_receipt_available": false,
+      "provenance_sha256": "b6dae1dc50eae8fa3dbc11fc4d60cf73c1c7bce53404318256455393f19ceb86",
+      "role": "SOURCE_REFS",
+      "shape": [
+        6,
+        25,
+        3
+      ],
+      "source_identity": {
+        "capture_id": "interaction-attack-289",
+        "component_id": "2442575660b73092111755f3195e70a4dc54824a7e3c62820f554cb8902c9b7f",
+        "frame": 31,
+        "owner": "10:2c:6b:1b:43:be",
+        "parent_slot": 177,
+        "partition": "LEARN",
+        "protocol": 6,
+        "session_id": "4778c08f0c02fd998584238814dba043ba66898762412ada7f13ec6fb116a2f7",
+        "source_sha256": "65e8d63406fcba095896e72eedba725ec0dfb51a03157207762800aa66537aaf",
+        "use": "REFERENCE"
+      },
+      "uid": "75e945f27c50ba2d8dc6a7aaa44d6d38a28c9cdec543cafb1118255f60a08cf4"
+    },
+    {
+      "expected_old_feature_sha256": "e58872d2d4fd6da8c445bad5529843b9a4ea3b7c48a45a28c208d23e8b5dcd9a",
+      "flow_sha256": "16ffc9ecb955e78a880d65b07fdbbb326f3a600b90f1641f4f1e6dbc6181dbcc",
+      "observed_hpc_b1_feature_sha256": "d39e2aaac1a63104610d734502e496a7fea2a02ee8b97a8979ee23b6daf4de88",
+      "observed_hpc_b1_tensor_sha256": "505bee0d8fa615eac5f69f5457b3450a95e6a1f9dd5ef67d403cd187b3e1e322",
+      "original_batch_id": 9449,
+      "original_batch_size": 16,
+      "original_body_json_sha256": "0aeed885a99560c99faa5eafb0993b7ba624458b4b0e83bf0ff88c7d4ab7752f",
+      "original_per_row_tensor_receipt_available": false,
+      "provenance_sha256": "c4668ccb1816c9296cf896e94e21141bde8a5ac2b1bebc63613153b184f3ee71",
+      "role": "SOURCE_REFS",
+      "shape": [
+        6,
+        25,
+        8
+      ],
+      "source_identity": {
+        "capture_id": "interaction-attack-289",
+        "component_id": "9ebfcd73f973429cdedba3b54468a95ff574999b57ab058ef60b290c58033eba",
+        "frame": 49,
+        "owner": "10:2c:6b:1b:43:be",
+        "parent_slot": 173,
+        "partition": "LEARN",
+        "protocol": 6,
+        "session_id": "78bc2f41805aa8855bc09b1578efc61ee06df96f9ed9cf0bfc6ba578cf21f7c3",
+        "source_sha256": "65e8d63406fcba095896e72eedba725ec0dfb51a03157207762800aa66537aaf",
+        "use": "REFERENCE"
+      },
+      "uid": "34f33f8a5d4e56e95234fea13bdff7c71206210081a5de8543d86ed5d95f360b"
+    },
+    {
+      "expected_old_feature_sha256": "34acb5dbb0d7567b28a7e119e55e27323c270fd880b52e66c3de8c23ca5f88c3",
+      "flow_sha256": "0bc924a805455bf3a452a32693089452d9abbdaca09e4721f7013fc665b7f3bc",
+      "observed_hpc_b1_feature_sha256": "8a5de55cda8c8c1554dd33d8af3a96aeedf3c21879e53f7b2a14437574e71baf",
+      "observed_hpc_b1_tensor_sha256": "03e2c385cad2c73e14205617bbf59209a09fdd14c07868a3c7a3ef3d724d0b51",
+      "original_batch_id": 9716,
+      "original_batch_size": 16,
+      "original_body_json_sha256": "d67b484862d66102643d8aaa6f2c02c63dee828c149ea3f2e7f3a714ec2d9c6e",
+      "original_per_row_tensor_receipt_available": false,
+      "provenance_sha256": "952a5c376ff96f862e11b57432aa29c159788d3acb5a3ca862d048fa12b90412",
+      "role": "SOURCE_REFS",
+      "shape": [
+        6,
+        25,
+        10
+      ],
+      "source_identity": {
+        "capture_id": "interaction-attack-029",
+        "component_id": "68e9ddd6622387dfb62a27ff6e5ce1b1ba4d73587c53a98ea8e08f6c845b48fa",
+        "frame": 1260,
+        "owner": "40:5d:82:35:14:c8",
+        "parent_slot": 65,
+        "partition": "LEARN",
+        "protocol": 6,
+        "session_id": "8991c0fdacb747caf54f35d592cc53834de90f18cb0cd4e94ce6823ee2b93d33",
+        "source_sha256": "e1d0dbe7ab725b7dbc0b66964086e1a0ca09ef3703ce75c5a096bb88d0da7487",
+        "use": "REFERENCE"
+      },
+      "uid": "08435fcba19c73034542fac8b7cccec2142eaf1fbce8c126f498745070b9da03"
+    },
+    {
+      "expected_old_feature_sha256": "067ffc148cb953d91ff454dde65573474c51d9681e1d356b7b9a6003bd464d0e",
+      "flow_sha256": "76bca352524c696a0fe2287bf70c5e46fb13a6ae54870f35e2d7742f5a6beec4",
+      "observed_hpc_b1_feature_sha256": "f3b92970d14f795ec460bbe5124c3f52bd44bf919a13671cbd2454bdfac6c7da",
+      "observed_hpc_b1_tensor_sha256": "932fc9bda7507682db35a8a7af0d6143e06fc1b823294d78b9c9f43a9423e494",
+      "original_batch_id": 21218,
+      "original_batch_size": 16,
+      "original_body_json_sha256": "99f24ea02ae203c79bbc62791b5e581f46ca0be7e4d403eaaa8032762c55fff1",
+      "original_per_row_tensor_receipt_available": false,
+      "provenance_sha256": "b5142d4275dfc8111fb9165425c8937fc15b916dd02d644e41c4a65e1b8a1f29",
+      "role": "SOURCE_REFS",
+      "shape": [
+        6,
+        49,
+        7
+      ],
+      "source_identity": {
+        "capture_id": "interaction-attack-057",
+        "component_id": "f5ceca81f120421f98d8c9c552d80cdbc9adfd2b7d427840a5cb80d44d0e6050",
+        "frame": 15,
+        "owner": "68:57:2d:56:ac:47",
+        "parent_slot": 76,
+        "partition": "LEARN",
+        "protocol": 6,
+        "session_id": "fd047f28f59b3a6425003ad70d92c95e022d1f414d9b9f82b1c083b4abe0f106",
+        "source_sha256": "557953ff72f68012826584affffef3d0ec8b78c03784763e088b09b76a8c2b01",
+        "use": "REFERENCE"
+      },
+      "uid": "dd358ae302232cfa918b5087d191834b9179a49652cd2de0dca66475d8f520eb"
+    },
+    {
+      "expected_old_feature_sha256": "195b65bbafa7eeda5cdde3b98e54803af21092eea84dcd72b99d02f48e82c3df",
+      "flow_sha256": "600b905a850021f2c535d15ee1cf56a441206d0be35503a6f05213756648cbb2",
+      "observed_hpc_b1_feature_sha256": "d95ae8cbf4e82c3be861985e483e9c5da3739286cf282c9c6fad4ad58c20d185",
+      "observed_hpc_b1_tensor_sha256": "5606bfe21a96e1351670871d4b3227ef66a5d0e52ee2b67578126bc368df231d",
+      "original_batch_id": 50805,
+      "original_batch_size": 16,
+      "original_body_json_sha256": "a4c93d6b09ab96377b7350750b4650f3edecc9e80ed7aad3c7e57e36e45cff0f",
+      "original_per_row_tensor_receipt_available": false,
+      "provenance_sha256": "8a00ad870853a78b8c6b28fa32d0e646b19ca71f5a7e7e4cb5bbdb620e69f7b8",
+      "role": "SOURCE_REFS",
+      "shape": [
+        17,
+        7,
+        1
+      ],
+      "source_identity": {
+        "capture_id": "interaction-attack-240",
+        "component_id": "b9adf634675bfedebc5d16fcc4915b7d4dd3aaff5272b0e1cb3717ffaacbcf7c",
+        "frame": 56,
+        "owner": "00:17:88:60:d6:4f",
+        "parent_slot": 163,
+        "partition": "LEARN",
+        "protocol": 17,
+        "session_id": "b408cd4ccef0f28d05e6db2c170d79dad3d724d9a29cbd622423f19ea2156f89",
+        "source_sha256": "aa4a606a22a5fc42fa33557b9b80201fa695e9b457a7f493a096c9bd4a9e3cb5",
+        "use": "REFERENCE"
+      },
+      "uid": "5b77d9a64d8107a44de08a1124ed241637b21070aabf884e1c5eae00354a9786"
+    },
+    {
+      "expected_old_feature_sha256": "0e5c28161dcf093b0e9b9e709a81b6280713cab724619faa6a63cefee3e386bf",
+      "flow_sha256": "8415aa8a67cd06be1e9f874d746b2cbc75ee650e66d44ceee7f8c0130c8fc47f",
+      "observed_hpc_b1_feature_sha256": "4f4c59eadcff07ab5da600e90538ae04b68f48f966668ba1dcc4c7d891f19918",
+      "observed_hpc_b1_tensor_sha256": "daf375f38d77e9bc79c041b6d91c7e1c4a30d4af33798a3592fb8e72cb1af1bb",
+      "original_batch_id": 53442,
+      "original_batch_size": 16,
+      "original_body_json_sha256": "a9ece75b17d14292e260aabef0da9959a2ecae24ec16750dc49f5e9fb9ab7edd",
+      "original_per_row_tensor_receipt_available": false,
+      "provenance_sha256": "6d3de6947c1b8da8f08ff35a48208a00cc1491ba473423f8082ba64a85b99c1d",
+      "role": "SOURCE_REFS",
+      "shape": [
+        17,
+        7,
+        4
+      ],
+      "source_identity": {
+        "capture_id": "interaction-attack-057",
+        "component_id": "5bbf5997e9025e1dd0761df0a1146282e3fbd03b41229145bf0accb163957699",
+        "frame": 16,
+        "owner": "68:57:2d:56:ac:47",
+        "parent_slot": 77,
+        "partition": "LEARN",
+        "protocol": 17,
+        "session_id": "6f9081f929a60cdc4b51175df7f3469f9d6644998495dc910e12c8ad646960ee",
+        "source_sha256": "557953ff72f68012826584affffef3d0ec8b78c03784763e088b09b76a8c2b01",
+        "use": "REFERENCE"
+      },
+      "uid": "2d2dc8b2e3e0c9bb550cfa1ecf63ecc8abff9e84639c22b41be1b882ca5b8a00"
+    }
+  ],
+  "clone_count": 16,
+  "data_files": {
+    "data/ANCHOR8.jsonl": "cc4256e697576b5c49e0b18d3cffe9041990556f9ccd2ebf8a780b84ec9af470",
+    "data/EXPECTED8.f32": "53bb9b78fefdce907c2f2eb0d21d1527adee320e6482273fa48ce0c9b6606683",
+    "data/RUNTIME_179536.json": "b404d8c8db68495846dabfbc540a3ff325157b145876240396e0ecd7c939173d"
+  },
+  "excluded_original_cohort": {
+    "CIC_DEV": 25,
+    "LEARN": 80,
+    "SOURCE_REFS": 8,
+    "UNSW_DEV": 15,
+    "original_cohort_restored": false,
+    "target_query_inputs_exported": 0
+  },
+  "limits": {
+    "min_free_gib": 1,
+    "output_mib": 256,
+    "rss_gib": 8,
+    "slurm_cpus": 4,
+    "slurm_memory_gib": 16,
+    "wall_seconds": 600
+  },
+  "maximum_forward_positions": 136,
+  "mismatch_evidence_sha256": "9c68927720e186de74f5a7611d90c44c8a716796bcea9a050ca7c289428aac1d",
+  "no_automatic_variant": true,
+  "no_production_bank": true,
+  "no_source_cal": true,
+  "no_target_evaluation": true,
+  "no_training": true,
+  "observations_order": [
+    "ALL_8_B1_REPRODUCTION_CONTROLS",
+    "ALL_8_B16_CLONES"
+  ],
+  "original_manifest_sha256": "ddb94bb9836c9ace0b2a704e875d969c1d3c40c94198212ac795a9d0731db120",
+  "previous_job_id": "179536",
+  "real_execution_authorized": false,
+  "runtime": {
+    "checkpoint": "/public/home/jiangxinwei.zr/work/paper04/assets/model.safetensors",
+    "checkpoint_sha256": "e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105",
+    "cpu_capability": "AVX2",
+    "import_identities": {
+      "constrained_onboarding_reference_v2": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_matrix_v1_20261027/vendor/encoding_v2/repo/ood/constrained_onboarding_reference_v2.py"
+      },
+      "continuous_features_v3": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_matrix_v1_20261027/vendor/encoding_v2/repo/ood/continuous_features_v3.py"
+      },
+      "huggingface_hub": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/environment/vendor_py311_v1/huggingface_hub/__init__.py",
+        "version": "0.36.2"
+      },
+      "issue27ckda_d0_resource_pilot_v1": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_matrix_v1_20261027/vendor/encoding_v2/repo/ood/issue27ckda_d0_resource_pilot_v1.py"
+      },
+      "issue27ckda_d1_e3_embed_v1": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_matrix_v1_20261027/vendor/encoding_v2/repo/ood/issue27ckda_d1_e3_embed_v1.py"
+      },
+      "legacy_unsw_archival_runtime_v1": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_matrix_v1_20261027/vendor/encoding_v2/repo/ood/legacy_unsw_archival_runtime_v1.py"
+      },
+      "netFound_classes": [
+        {
+          "module": "modules.netFoundConfigBase",
+          "name": "netFoundConfig"
+        },
+        {
+          "module": "modules.netFoundDataCollator",
+          "name": "SimpleDataCollator"
+        },
+        {
+          "module": "modules.netFoundModels",
+          "name": "netFoundLanguageModelling"
+        },
+        {
+          "module": "modules.netFoundTokenizer",
+          "name": "netFoundTokenizer"
+        }
+      ],
+      "numpy": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_launch_repair_v1_20261027/runtime/job_179536/science/runtime/numpy201/numpy/__init__.py",
+        "version": "2.0.1"
+      },
+      "pandas": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/environment/vendor_py311_v1/pandas/__init__.py"
+      },
+      "psutil": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/environment/vendor_py311_v1/psutil/__init__.py"
+      },
+      "safetensors": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/environment/vendor_py311_v1/safetensors/__init__.py",
+        "version": "0.6.2"
+      },
+      "tokenizers": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/environment/vendor_py311_v1/tokenizers/__init__.py",
+        "version": "0.22.2"
+      },
+      "torch": {
+        "path": "/share/software/miniconda3.2025/envs/torch_demo_2025/lib/python3.11/site-packages/torch/__init__.py",
+        "version": "2.5.1"
+      },
+      "transformers": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/environment/vendor_py311_v1/transformers/__init__.py",
+        "version": "4.57.3"
+      }
+    },
+    "numpy_overlay": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_launch_repair_v1_20261027/runtime/job_179536/science/runtime/numpy201",
+    "original_root": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_matrix_v1_20261027",
+    "python": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+    "python_full": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+    "python_version": "3.11.11",
+    "reference_environment_file": "data/RUNTIME_179536.json",
+    "reference_environment_remote_file": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_launch_repair_v1_20261027/runtime/job_179536/science/runtime/environment.json",
+    "reference_environment_sha256": "b404d8c8db68495846dabfbc540a3ff325157b145876240396e0ecd7c939173d",
+    "torch_config_sha256": "cd50548e77abb900f46eb68fc69139124e58024034a7915fef6cd194d4f59ce3",
+    "torch_full_version": "2.5.1",
+    "torch_threads": 4,
+    "versions": {
+      "huggingface_hub": "0.36.2",
+      "numpy": "2.0.1",
+      "safetensors": "0.6.2",
+      "tokenizers": "0.22.2",
+      "torch": "2.5.1",
+      "transformers": "4.57.3"
+    }
+  },
+  "schema": "paper04-source8-batch-size-diagnostic-v1",
+  "scope": "SOURCE_REFERENCE8_B1_B16_CLONE_ONLY",
+  "source_bank_sha256": "b4859a65df61cf14ccef9ee5f23fa420a7c31afb162ffb929734345f697e53d6",
+  "source_sqlite": {
+    "bytes": 4477841408,
+    "path": "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/spool/snapshots.sqlite",
+    "pin_source": "Previously verified IMPORT_COMPLETE.json and frozen cache binding; no duplicate 4.4GB rehash or export",
+    "sha256": "f0afb582a0d3c513e29d13dd637ad550c2e967de1dc734e70b43031d24aa6a9c"
+  }
+}

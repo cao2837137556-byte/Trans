@@ -1,0 +1,87 @@
+{
+  "status": "POST_N3_DESIGN_EVIDENCE_NOT_EXECUTION_AUTHORIZATION",
+  "date": "2026-09-08",
+  "base_branch": "codex/exp-mainline",
+  "base_head": "4b28747b09480471e2bac1beb3a9badf27280efb",
+  "repository_evidence": {
+    "runs/mainline_docs/frontend_inheritance_n3_real_result_20260908.md": "27b003b51cebc8fd3e3b775240ceab784de5f4ac08bcfb059b705fe1e283d896",
+    "runs/mainline_docs/frontend_inheritance_n3_same_behavior_evidence_contract_20260908.md": "3b8f5d40d24df3c8434f4324811dbb4d5a09a220a5f7b02ea7e16b2d4793d3e2",
+    "runs/mainline_docs/frontend_inheritance_n3_input_and_evidence_pins_20260908.json": "202d15b3e5aaee736da401a083cd10b48f379cf66fb43ab48647649c1ae569ed",
+    "runs/mainline_docs/frontend_inheritance_n3_conservative_joint_repair_frozen_20260908.md": "dcc54d50e130f21d1f49a48082a28744673a28cfa44a64f564c279f03e676843",
+    "runs/mainline_docs/frontend_inheritance_n3_implementation_and_synthetic_verification_20260908.md": "c78eff2631374ad08425dcea92df78e21fcff08e3a187f70311f2eefd962b7d9",
+    "runs/mainline_docs/frontend_inheritance_n0_result_20260907.md": "9b91ab893b64c89c21a0ce8ac57b973289394dfa05047cb476ad91009f603ee5",
+    "runs/mainline_docs/frontend_inheritance_n0_execution_scope_20260907.md": "bd13e12047b9685fc8ce459f05135faa84c1c58bebd4a518fe9382ab869235d6",
+    "runs/mainline_docs/frontend_f1_d1_fit_corpus_materialization_result_20260902.md": "c599cfe34b11b2036372bfe58f3206a77b26890cfc2059cca3eac2c393bb8dbd",
+    "runs/mainline_docs/frontend_f1_d1_one_shot_training_result_20260902.md": "9857091a679f06a7b697e0240bf9e17215fbeccb2e6243fc198f487d2ee94941",
+    "runs/mainline_docs/ckda_d1_local_l2_result_codex_review_20260817.md": "adf782701d9a58d54e01223f23120b3a6b33c342ae31230fcbefc30cf2377313",
+    "runs/frontend_inheritance_n0_inventory_v1_20260907/coverage_table.csv": "e33acfdd0f2edd45179b1c6693d785485da1b5f4b68050d9d88a55a6e741fd13",
+    "runs/frontend_inheritance_n0_inventory_v1_20260907/family_coverage_table.csv": "8c031d068acfd814d67316dee2361d34b5d4688db52239354acdd47aa6cd9bfd",
+    "runs/frontend_inheritance_n0_inventory_v1_20260907/inventory_summary.json": "86c5c9236ddaa86f87cc7da744116b2a526e7e691643a6a58b8a08336a6becb3",
+    "runs/frontend_inheritance_n0_inventory_v1_20260907/SHA256SUMS": "6ae906c31e5fa48a15405237c54ce6a3947767c8ace01eb0af8ee38f03911740",
+    "runs/frontend_inheritance_n3_conservative_joint_repair_v1_20260908/SHA256SUMS": "5ef2be5e6f7f93626d12fd87e38efbdac33967a0e4a14bb11a59cd55c9795e43",
+    "runs/frontend_inheritance_n3_implementation_v1_20260908/synthetic_acceptance.json": "647b8f02e22b5197a7f301f093b560ef84f4e176e45366fe2a52ea5c7515639f",
+    "repo/ood/issue27frontend_f1_d1_train_v1.py": "6e2df7059b9bb0aba9be80adb11e7e918c3f1ddfef3ecc690b571b0f0af18634",
+    "repo/ood/issue27frontend_f3_full_fit_l1_identifiability_v1.py": "69fc92fb417fe8dbca646c30aaaf7f7ea40edf81ecae3c4fe36d831434e35a67",
+    "repo/ood/issue27frontend_f4_fieldwise_input_v1.py": "9c729a3165d19042549723f029235734595131d5e7ba344a3f605cca89677200",
+    "repo/ood/issue27frontend_inheritance_n3_runner_v1.py": "a9dd43a916f93bf9fa54a5b5a730890c969e8cb4b69542a58df93b0627ed39c9"
+  },
+  "candidate_recorded_not_loaded": {
+    "head_path": "runs/frontend_inheritance_n3_conservative_joint_repair_v1_20260908/candidate_head.f32le",
+    "head_sha256": "e26bf80e8a45f605b806ed559afef0f3029f949a4c3cff00cf4aa6b7ef8d8d5a",
+    "assembled_state_tensor_sha256": "ff41638339604d4270ff5eef616885ef4b25bb075e8d1cd89dcb565ed10df3f9",
+    "non_head_state_tensor_sha256": "29328fc616ef5b0197d1dcc8c564d89865201eb08b540d826847e233932dbe67"
+  },
+  "future_input_reference_not_decoded": {
+    "path": "runs/frontend_f1_d1_fit_corpus_v1_20260902_local/f1_d1_fit_contexts.jsonl.gz",
+    "recorded_sha256": "623d4e0bbec6ddfad4e98c08a9fc90df137e51e7692ff3453ac7f38c5e84097e",
+    "scope": "original F1 internal_val; metadata qualification and real materialization not performed"
+  },
+  "aggregate_expectations": {
+    "targets": 4400,
+    "contexts": 3582,
+    "sources": 5,
+    "members": 5,
+    "A_attack_targets": 2000,
+    "A_attack_contexts": 2000,
+    "A_benign_targets": 1176,
+    "A_benign_contexts": 688,
+    "A_old_correct_benign_targets": 1174,
+    "A_old_wrong_benign_targets": 2,
+    "B_benign_targets": 1224,
+    "B_benign_contexts": 894,
+    "B_attack_targets": 0,
+    "B_groups": {
+      "iotsim-combined-cycle": {
+        "targets": 998,
+        "contexts": 844
+      },
+      "iotsim-domotic-monitor": {
+        "targets": 226,
+        "contexts": 50
+      }
+    },
+    "exact_membership_join_completed": false
+  },
+  "open_executable_requirements": [
+    "Exact target/context/member/exposure joins",
+    "Per-UID incumbent categorical provenance projection",
+    "Raw member identities and inclusive decode cutoffs",
+    "Decoder and executable pure-mapping dependency pins",
+    "Exact event/batch/padding counts and resource ceilings",
+    "Input output digests and implementation acceptance",
+    "Explicit real execution authorization"
+  ],
+  "execution_this_design": {
+    "raw_replays": 0,
+    "real_feature_decodes": 0,
+    "checkpoint_tensor_loads": 0,
+    "model_forwards": 0,
+    "optimizer_steps": 0,
+    "LP_calls": 0,
+    "resource_pilots": 0,
+    "historical_experiment_replays": 0,
+    "dataset_or_checkpoint_downloads": 0,
+    "HPC_jobs": 0,
+    "locked_evaluation_access": 0
+  }
+}

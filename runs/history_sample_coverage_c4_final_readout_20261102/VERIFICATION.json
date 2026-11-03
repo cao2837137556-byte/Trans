@@ -1,0 +1,48 @@
+{
+  "schema": "C4_FINAL_READOUT_VERIFICATION_V1",
+  "status": "PASS",
+  "source_checks": [
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/evaluation/RESULT.json",
+      "sha256": "bb34321aeb54b05151ecf3d57f5a35a4f596381f6c9036e80c09cbd3796e1a75",
+      "passed": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/FINAL_ACCEPTANCE.json",
+      "sha256": "ca4d036de457c4d1493b28122c4a24b7b550c353403d6ec86639597edfb54949",
+      "passed": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/verification/RESULT.json",
+      "sha256": "bc8da0a5317f24610a14669c2be9acaa86cf9d25ab10c02532a3b08cdf0c28be",
+      "passed": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/evaluation/dev/GATE.json",
+      "sha256": "3b0ddf248e60e8dec23c434df2ec8148d173558ad09016532b4c02812ffe2e20",
+      "passed": true
+    },
+    {
+      "path": "runs/history_sample_coverage_c4_batch_resume_v1_20261102/EXECUTION_CARD.json",
+      "sha256": "a37cc58027e554980a3962db99fb3fbc79cc904f91229623f1efc2b501b68614",
+      "passed": true
+    },
+    {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/RESULT.json",
+      "sha256": "cbedc30311604b0f168a967619982054249568299321e1985cf6fd054f276f8c",
+      "passed": true
+    }
+  ],
+  "independent_residual_counts_sha256": "4276d0f13f2dcf46b6f677dfe2d6923e1b4600d57dc10b2df591819c7c9670f2",
+  "new_science_runs": 0,
+  "new_remote_actions": 0,
+  "artifacts": {
+    "runs/mainline_docs/collab/20261102_b_sample_fpr_c4_result_and_readout_codex.md": "5d4d093e5451dad47c2d56d6439dd1316a67d3a01857a997b3d378e7b3b4bcd1",
+    "runs/history_sample_coverage_c4_final_readout_20261102/READOUT.json": "b53ea544ff907be11be9e22ff17b9640ff1ae047924ae833f8c4f4a4dd96067e",
+    "runs/history_sample_coverage_c4_final_readout_20261102/RESIDUAL_COUNTS.json": "4276d0f13f2dcf46b6f677dfe2d6923e1b4600d57dc10b2df591819c7c9670f2"
+  },
+  "latest_pointers_updated": [
+    "runs/mainline_docs/NEW_CHAT_START_HERE.md",
+    "runs/mainline_docs/CURRENT_PROBLEM_BRIEF_20261025.md"
+  ]
+}

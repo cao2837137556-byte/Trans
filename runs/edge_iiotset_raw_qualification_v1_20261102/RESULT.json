@@ -1,0 +1,595 @@
+{
+  "schema": "EDGE_IIOTSET_FIXED_THREE_RAW_QUALIFICATION_RESULT_V1",
+  "status": "BASIC_RAW_GATES_PASS_LABEL_AND_CONTEXT_REVIEW_PENDING",
+  "completed_utc": "2026-11-03T07:09:38.354002+00:00",
+  "all_three_files_acquired": true,
+  "dataset_qualified_for_model_evaluation": false,
+  "basic_gates": {
+    "three_containers_complete": true,
+    "three_inputs_unchanged": true,
+    "three_count_conservation": true,
+    "three_no_truncation": true,
+    "normal_capture_reaches_7200s": true,
+    "normal_has_post_window_records": true,
+    "fixed_edge_has_post_window_records": true,
+    "onboarding_cutoff_before_both_attacks": true,
+    "fixed_edge_single_same_L2_MAC": true
+  },
+  "hard_failures": [],
+  "normal_UTC_range": [
+    "2021-11-21T10:44:10.081753000Z",
+    "2021-12-20T00:40:55.043322000Z"
+  ],
+  "normal_span_seconds": 2469404.961569,
+  "normal_t0_ns": 1637491450081753000,
+  "normal_cutoff_ns": 1637498650081753000,
+  "earliest_attack_ns": 1637792830139612000,
+  "cutoff_to_earliest_attack_seconds": 294180.057859,
+  "normal_large_gap_continuity_unresolved": true,
+  "normal_edge_target": {
+    "counts": {
+      "records": 1335645,
+      "outbound": 667594,
+      "inbound": 668051,
+      "records_after_capture_first_frame_plus_7200s": 1221151
+    },
+    "macs": {
+      "dc:a6:32:fb:69:b5": 1335645
+    },
+    "protocols": {
+      "6": 1332428,
+      "17": 2430,
+      "2": 694,
+      "1": 93
+    },
+    "strata": {
+      "outbound|TCP_OTHER": 249661,
+      "inbound|TCP_PSH_ACK": 166204,
+      "outbound|TCP_ACK_ONLY": 249390,
+      "outbound|TCP_PSH_ACK": 83086,
+      "inbound|TCP_OTHER_ACK_NO_SYN": 83205,
+      "outbound|TCP_OTHER_ACK_NO_SYN": 83203,
+      "inbound|TCP_SYN_NO_ACK": 84400,
+      "inbound|TCP_ACK_ONLY": 333277,
+      "outbound|UDP": 1467,
+      "inbound|UDP": 963,
+      "outbound|OTHER_OR_UNPARSED": 786,
+      "inbound|OTHER_OR_UNPARSED": 1,
+      "outbound|TCP_SYN_NO_ACK": 1,
+      "inbound|TCP_OTHER": 1
+    },
+    "first_utc": "2021-11-21T10:44:10.081753000Z",
+    "last_utc": "2021-12-20T00:40:54.403357000Z",
+    "onboarding_components": {
+      "6": {
+        "top": [
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                55934
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 24
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                50985
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 23
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                49755
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 22
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                54957
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 22
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                49515
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 21
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                49805
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 21
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                49979
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 21
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                50065
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 21
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                50492
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 21
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                51579
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 21
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                51849
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 21
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                52574
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 21
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                53933
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 21
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                54337
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 21
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                54794
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 21
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                54826
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 21
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                55225
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 21
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                55986
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 21
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                50336
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 20
+          },
+          {
+            "key": [
+              6,
+              [
+                "192.168.0.101",
+                50462
+              ],
+              [
+                "192.168.0.128",
+                1883
+              ]
+            ],
+            "count": 20
+          }
+        ],
+        "retained_distinct_keys": 7109,
+        "key_limit": 100000,
+        "overflow_observations": 0,
+        "complete": true,
+        "total_observations": 114408
+      },
+      "17": {
+        "top": [
+          {
+            "key": [
+              17,
+              [
+                "192.168.0.128",
+                5353
+              ],
+              [
+                "224.0.0.251",
+                5353
+              ]
+            ],
+            "count": 4
+          },
+          {
+            "key": [
+              17,
+              [
+                "192.168.0.128",
+                59813
+              ],
+              [
+                "196.200.160.123",
+                123
+              ]
+            ],
+            "count": 3
+          },
+          {
+            "key": [
+              17,
+              [
+                "192.168.0.128",
+                50825
+              ],
+              [
+                "196.200.160.123",
+                123
+              ]
+            ],
+            "count": 3
+          },
+          {
+            "key": [
+              17,
+              [
+                "192.168.0.128",
+                39020
+              ],
+              [
+                "196.200.160.123",
+                123
+              ]
+            ],
+            "count": 2
+          },
+          {
+            "key": [
+              17,
+              [
+                "192.168.0.128",
+                42405
+              ],
+              [
+                "196.200.160.123",
+                123
+              ]
+            ],
+            "count": 2
+          },
+          {
+            "key": [
+              17,
+              [
+                "192.168.0.128",
+                45681
+              ],
+              [
+                "196.200.160.123",
+                123
+              ]
+            ],
+            "count": 2
+          },
+          {
+            "key": [
+              17,
+              [
+                "192.168.0.128",
+                37786
+              ],
+              [
+                "196.200.160.123",
+                123
+              ]
+            ],
+            "count": 2
+          },
+          {
+            "key": [
+              17,
+              [
+                "192.168.0.128",
+                58922
+              ],
+              [
+                "196.200.160.123",
+                123
+              ]
+            ],
+            "count": 2
+          },
+          {
+            "key": [
+              17,
+              [
+                "192.168.0.128",
+                43239
+              ],
+              [
+                "196.200.160.123",
+                123
+              ]
+            ],
+            "count": 2
+          },
+          {
+            "key": [
+              17,
+              [
+                "192.168.0.128",
+                44067
+              ],
+              [
+                "196.200.160.123",
+                123
+              ]
+            ],
+            "count": 2
+          },
+          {
+            "key": [
+              17,
+              [
+                "192.168.0.128",
+                57907
+              ],
+              [
+                "196.200.160.123",
+                123
+              ]
+            ],
+            "count": 2
+          },
+          {
+            "key": [
+              17,
+              [
+                "192.168.0.128",
+                51576
+              ],
+              [
+                "196.200.160.123",
+                123
+              ]
+            ],
+            "count": 2
+          }
+        ],
+        "retained_distinct_keys": 12,
+        "key_limit": 100000,
+        "overflow_observations": 0,
+        "complete": true,
+        "total_observations": 28
+      }
+    }
+  },
+  "HTTP_documented_source_ACK_no_SYN_candidate_packets": 88280,
+  "HTTP_documented_source_GET_candidate_packets": 19076,
+  "UDP_inbound_to_fixed_edge_candidate_packets": 2898830,
+  "label_scope": "Candidate behavioral/direction evidence; not certified packet truth. Reverse responses separate.",
+  "remaining_unknowns": [
+    "precise event/packet truth and official direction filters",
+    "full multi-interface and cross-file duplicate/context audit",
+    "persistent physical identity beyond observed L2 MAC",
+    "full project and encoder-pretraining lineage",
+    "legal active same-protocol reference coverage",
+    "effective independent devices/events and final adequacy"
+  ],
+  "new_raw_bytes": 621736430,
+  "network_entity_bytes_charged": 321645924,
+  "new_raw_and_archive_footprint_bytes": 943382354,
+  "audit_time_budget": {
+    "prior_active_audit_upper_bound_seconds": 250.0,
+    "this_worker_active_seconds": 199.60999999999876,
+    "limit_seconds": 1800
+  },
+  "method_freeze_unchanged": true,
+  "model_evaluations": 0,
+  "encodings": 0,
+  "distance_pairs": 0,
+  "training_runs": 0,
+  "cloud_jobs": 0,
+  "original_files_deleted": 0,
+  "automatic_expansion": false,
+  "inputs": {
+    "HTTP": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS HTTP Flood Attacks.pcap",
+      "bytes": 28307602,
+      "sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+      "records": 229142,
+      "UTC_range": [
+        "2021-11-25T10:35:29.350784000Z",
+        "2021-11-25T10:40:01.284354000Z"
+      ],
+      "span_seconds": 271.93357
+    },
+    "UDP": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS UDP Flood Attacks.pcap",
+      "bytes": 247560012,
+      "sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+      "records": 3215732,
+      "UTC_range": [
+        "2021-11-24T22:27:10.139612000Z",
+        "2021-11-24T22:33:51.047885000Z"
+      ],
+      "span_seconds": 400.908273
+    },
+    "NORMAL": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\Temperature_and_Humidity.pcap",
+      "bytes": 345868816,
+      "sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+      "records": 1629749,
+      "UTC_range": [
+        "2021-11-21T10:44:10.081753000Z",
+        "2021-12-20T00:40:55.043322000Z"
+      ],
+      "span_seconds": 2469404.961569
+    }
+  }
+}

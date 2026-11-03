@@ -1,0 +1,992 @@
+{
+  "status": "IMPROVED_NOT_PASS",
+  "adoption": {
+    "status": "PASS_C3_IMPROVEMENT",
+    "frozen_method": "C3_ADMITTED_SMALL_BANK_COMPLETE",
+    "failures": [],
+    "heim_before": 0.06631944444444444,
+    "heim_after": 0.014930555555555555,
+    "heim_target_met": true,
+    "method_frozen": true,
+    "further_AB_method_search": false
+  },
+  "evidence": "CONSUMED_DEVELOPMENT_ONLY",
+  "target_failures": [
+    "UNSW_DEV:DEVICE_FPR_ABOVE_2_OR_MISSING:unsw-attack-traces-2018:ec:1a:59:79:f4:89"
+  ],
+  "distance_pairs": 161101561,
+  "pools": {
+    "CIC_DEV": {
+      "full": {
+        "27": {
+          "C2": {
+            "fpr_percent": 7.003289317742442,
+            "normal_rows": 100830,
+            "fp": 422,
+            "unweighted_fpr_percent": 0.41852623227214125,
+            "recall_percent": 100.0,
+            "attack_rows": 79056,
+            "fn": 0
+          },
+          "C3": {
+            "fpr_percent": 6.324397535335036,
+            "normal_rows": 100830,
+            "fp": 378,
+            "unweighted_fpr_percent": 0.37488842606367156,
+            "recall_percent": 99.99516981773675,
+            "attack_rows": 79056,
+            "fn": 13
+          },
+          "relative_C2": {
+            "normal_fixed": 44,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 13,
+            "newly_missed_uids": [
+              "2f84460937addc365d61991214a7c5c7a29064125a5f915f8ae0add17c874148",
+              "7ab4a8043dbddf0eba7dd03f4951fe3f1f73997fcff18cdacc6611bcfe4c230a",
+              "17213db21b9f5334d977f0865a21397a2882c8d5ea1fcf67d2dc23f5d9cd733a",
+              "16921a29d36bd879c662606fe8bc0b78efc6fff7a5ed5e084de2aacf95306401",
+              "f06493c9836fc2bd8e9abb1f6b10923dd1851f42703f3e5feb1edbcf7c7204f2",
+              "a6e6bb624c883d7c3968b8c3e8f85efbda9f51ead799c651909e36a6b4864e47",
+              "9540c16052a55d636c15c889fad2988f0969224c505df5e93655c9b7eedb553a",
+              "2364e1691ef333874762a6bee097eb3aa6181df9d24e615aa5a15375b07f34d2",
+              "973b0f098717a58090d2a991c09e3b492a5820edb9732218bb77abcf567d39ee",
+              "81ae27da0a77e0cadbb7b50a4771387e184ff0c2ea76662b4df1044f73ae0298",
+              "31dbfa5905f6af4e69232582b83f78a356d81d7a1e61e2510a90d1f239cd17cd",
+              "dc49ec1f68c830bda85b07757ad76bed97fc8ba304798147bdbb75422fa36e68",
+              "e23f9bb1e3d80648fa8876e2b158e3d09b6edaab3aa07d889ab1f612d3aad5ac"
+            ]
+          },
+          "added_attack_misses_vs_RAW": 13,
+          "protection": "PASS"
+        },
+        "127": {
+          "C2": {
+            "fpr_percent": 3.6873520841619802,
+            "normal_rows": 100830,
+            "fp": 201,
+            "unweighted_fpr_percent": 0.19934543290687298,
+            "recall_percent": 99.9795098599336,
+            "attack_rows": 79056,
+            "fn": 16
+          },
+          "C3": {
+            "fpr_percent": 3.3602036466619802,
+            "normal_rows": 100830,
+            "fp": 180,
+            "unweighted_fpr_percent": 0.17851829812555786,
+            "recall_percent": 99.95037167442158,
+            "attack_rows": 79056,
+            "fn": 60
+          },
+          "relative_C2": {
+            "normal_fixed": 21,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 44,
+            "newly_missed_uids": [
+              "8882b216f2bef4bb7edcabb2bae0da23f1800c7cc1f8bafb585c60d87b22e13f",
+              "a0a4e82a3f4f0d88a8192ea235f2937a09bc6879a58491abaa3d393234dddaf6",
+              "7cb954cddbc89ba54f5efd2e8a0eb61e81b4c142a716334d254b2127f430c17e",
+              "0883a23e537fdaab13e890bac79fea9571c9cf82f9a5db78e40e7710e1a0a885",
+              "72c3ed00ab84bcdb036a5ad92d8e1be38c45a188392ec9cca89f594057763e9e",
+              "02ff0bc81122f0abfd87b5bec2a7cd1a5b8e008345e90f351aadd4a83eb9f9ad",
+              "175b32b9c00e96e8dc530900a47743fabd4d1438d00d9eff546a5b8a234add41",
+              "2f84460937addc365d61991214a7c5c7a29064125a5f915f8ae0add17c874148",
+              "fddca7d10027c0aaebf0b820a3a2b0d293cc1324d14e6b64b6b01a7484bf6f43",
+              "7ab4a8043dbddf0eba7dd03f4951fe3f1f73997fcff18cdacc6611bcfe4c230a",
+              "25119e9265271acb0155a1659c6d848d3ec49e0cea1b9a53596e603183ff9927",
+              "550ea514418967e8b4d690986975529e49bc2151083b66e400acac0b64c6ebbf",
+              "27819741442af81ae810fd7f7f53e353fbe34212ecf4e8c8794a82f1752a0937",
+              "6580dc64c117230e6c7a71891b2ba5e211333ebe6eea0a43236fe7f4091608bf",
+              "0f1a13c9e9f73dabbb0681984b3a54b49f2e198755021d21415924e7e3c70612",
+              "c3184554d27f9dfe2a79eb6e8c51223a4657e57ac21ecb9833062d379ba34513",
+              "16921a29d36bd879c662606fe8bc0b78efc6fff7a5ed5e084de2aacf95306401",
+              "0b69df8b03a3e97cdab4e0756bd19ff3ba2c22ca3564231bb8fa5b23e359137b",
+              "bd75d7df8ef238950a0b693706100a81bf21c0ae2f2b72e6e09a9699bc9d1985",
+              "7bba33c6fb03ecdf6ae657e7140359bc26eb2b01cd0e2892e20fde74b155f211",
+              "775cf2bde5f1fa23f6f608ad4ef2e37e3c7370f8f2095e2007b70517e6169d0b",
+              "96ae643d1e41d707c5cbf4d2531f7b27ad49ea48c791ec59c43886e90d519333",
+              "0e52fc4afe89fcabe842869e574558143bc504b0e8ebdbecaa4344183533d369",
+              "10fc0a1e78a040435a9128ce314620cea6336156ef0dea33d08399c87a5ec549",
+              "f06493c9836fc2bd8e9abb1f6b10923dd1851f42703f3e5feb1edbcf7c7204f2",
+              "d4e27fa1c325c3c142f5e8c947d0357999d03706f9d22599954981890e198329",
+              "a6e6bb624c883d7c3968b8c3e8f85efbda9f51ead799c651909e36a6b4864e47",
+              "9540c16052a55d636c15c889fad2988f0969224c505df5e93655c9b7eedb553a",
+              "326da42f29460f39de06b53bda0487c92366b88f8a6398cb6ced331df10f637a",
+              "2364e1691ef333874762a6bee097eb3aa6181df9d24e615aa5a15375b07f34d2",
+              "973b0f098717a58090d2a991c09e3b492a5820edb9732218bb77abcf567d39ee",
+              "4cee2b525995f2560856376346aec0e0eb7608a245cab9c7f64d5de75463c0a6",
+              "81ae27da0a77e0cadbb7b50a4771387e184ff0c2ea76662b4df1044f73ae0298",
+              "b1b70d4b518a14b5b6add5855bda2fa61e534f2b0e44e1ebe4f1451ef1a05c06",
+              "31dbfa5905f6af4e69232582b83f78a356d81d7a1e61e2510a90d1f239cd17cd",
+              "3d0d204922f28cd4b8543190eaa523171e574bc2c09f36e53b560904cc91ffdb",
+              "b175ce1d7e07445076dbfdb0edee30f57e925bbd3662be33b4a568a9a0952671",
+              "dc49ec1f68c830bda85b07757ad76bed97fc8ba304798147bdbb75422fa36e68",
+              "9494b7bfa82f7d07478147f5ade0f2efadb985e61a9c64cd1754acbecad1b870",
+              "feaf915fcd542c7adc2858742c26a702c8d6b14f0f3f3e4a0a40eaedee802543",
+              "bbcd0dee95ae1e1203c2e32f6390119480cb4d50916c98b146688613de9b1b71",
+              "b9d0d304884c48cfd49854cff13bcf69473cd85e700ee5ea70a533eef547a28b",
+              "e23f9bb1e3d80648fa8876e2b158e3d09b6edaab3aa07d889ab1f612d3aad5ac",
+              "a382f9ccce1d44759c38e544e2b4c88358fd4def2528ee82a5ff84a1f7ebcf5f"
+            ]
+          },
+          "added_attack_misses_vs_RAW": 48,
+          "protection": "PASS"
+        },
+        "227": {
+          "C2": {
+            "fpr_percent": 4.833239838383068,
+            "normal_rows": 100830,
+            "fp": 282,
+            "unweighted_fpr_percent": 0.27967866706337396,
+            "recall_percent": 99.99914477285166,
+            "attack_rows": 79056,
+            "fn": 3
+          },
+          "C3": {
+            "fpr_percent": 4.056330116160845,
+            "normal_rows": 100830,
+            "fp": 234,
+            "unweighted_fpr_percent": 0.23207378756322522,
+            "recall_percent": 99.98508028879995,
+            "attack_rows": 79056,
+            "fn": 50
+          },
+          "relative_C2": {
+            "normal_fixed": 48,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 47,
+            "newly_missed_uids": [
+              "8882b216f2bef4bb7edcabb2bae0da23f1800c7cc1f8bafb585c60d87b22e13f",
+              "7cb954cddbc89ba54f5efd2e8a0eb61e81b4c142a716334d254b2127f430c17e",
+              "0883a23e537fdaab13e890bac79fea9571c9cf82f9a5db78e40e7710e1a0a885",
+              "72c3ed00ab84bcdb036a5ad92d8e1be38c45a188392ec9cca89f594057763e9e",
+              "02ff0bc81122f0abfd87b5bec2a7cd1a5b8e008345e90f351aadd4a83eb9f9ad",
+              "175b32b9c00e96e8dc530900a47743fabd4d1438d00d9eff546a5b8a234add41",
+              "2f84460937addc365d61991214a7c5c7a29064125a5f915f8ae0add17c874148",
+              "fddca7d10027c0aaebf0b820a3a2b0d293cc1324d14e6b64b6b01a7484bf6f43",
+              "7ab4a8043dbddf0eba7dd03f4951fe3f1f73997fcff18cdacc6611bcfe4c230a",
+              "25119e9265271acb0155a1659c6d848d3ec49e0cea1b9a53596e603183ff9927",
+              "550ea514418967e8b4d690986975529e49bc2151083b66e400acac0b64c6ebbf",
+              "27819741442af81ae810fd7f7f53e353fbe34212ecf4e8c8794a82f1752a0937",
+              "88a76531e7493901a2635d488c5ed82e3bf50c0fd8e51d7b38984b9cfd59a4ac",
+              "0f1a13c9e9f73dabbb0681984b3a54b49f2e198755021d21415924e7e3c70612",
+              "17213db21b9f5334d977f0865a21397a2882c8d5ea1fcf67d2dc23f5d9cd733a",
+              "ba6df12264258e0d61e43f220752bbb5a9b8e77eee650f12782edc1d44438d3e",
+              "4db1081912a9a554e8dbb599f03e9d8cfc30940706e327051c3c09deb4f6860f",
+              "16921a29d36bd879c662606fe8bc0b78efc6fff7a5ed5e084de2aacf95306401",
+              "0b69df8b03a3e97cdab4e0756bd19ff3ba2c22ca3564231bb8fa5b23e359137b",
+              "bd75d7df8ef238950a0b693706100a81bf21c0ae2f2b72e6e09a9699bc9d1985",
+              "7bba33c6fb03ecdf6ae657e7140359bc26eb2b01cd0e2892e20fde74b155f211",
+              "8eb57a129b12cd260eda7987bcf999e3f10eaf096eef15fe205664c740359e6f",
+              "96ae643d1e41d707c5cbf4d2531f7b27ad49ea48c791ec59c43886e90d519333",
+              "0e52fc4afe89fcabe842869e574558143bc504b0e8ebdbecaa4344183533d369",
+              "39e1a42cdeabb18309adec5d06db2a4a079d34125cc6c47d8995f65c06ab3112",
+              "2d5ba89f89bcf87e0b99d4ad0c7826ef17e7c0d8af100e7da1f598c0089cc518",
+              "52af104ab7cd023938754de0322ccccccfa20eda13302a5e6869b7a7a2ed2b30",
+              "2f7a0cddaa4caa56568b3b72107ec0fb2d18abbb122d60a3fb69d7a7cebb0f42",
+              "080c52f6dc6048f00a6014634d3a0e52ad7d0845cc65d5c3357e200cdb7902db",
+              "d809e70c0b12f8db96b97e44bdaa37a4dff0dec782062bf6670dcc4b8013d317",
+              "f06493c9836fc2bd8e9abb1f6b10923dd1851f42703f3e5feb1edbcf7c7204f2",
+              "a6e6bb624c883d7c3968b8c3e8f85efbda9f51ead799c651909e36a6b4864e47",
+              "9540c16052a55d636c15c889fad2988f0969224c505df5e93655c9b7eedb553a",
+              "326da42f29460f39de06b53bda0487c92366b88f8a6398cb6ced331df10f637a",
+              "2364e1691ef333874762a6bee097eb3aa6181df9d24e615aa5a15375b07f34d2",
+              "973b0f098717a58090d2a991c09e3b492a5820edb9732218bb77abcf567d39ee",
+              "81ae27da0a77e0cadbb7b50a4771387e184ff0c2ea76662b4df1044f73ae0298",
+              "b1b70d4b518a14b5b6add5855bda2fa61e534f2b0e44e1ebe4f1451ef1a05c06",
+              "31dbfa5905f6af4e69232582b83f78a356d81d7a1e61e2510a90d1f239cd17cd",
+              "b175ce1d7e07445076dbfdb0edee30f57e925bbd3662be33b4a568a9a0952671",
+              "dc49ec1f68c830bda85b07757ad76bed97fc8ba304798147bdbb75422fa36e68",
+              "feaf915fcd542c7adc2858742c26a702c8d6b14f0f3f3e4a0a40eaedee802543",
+              "646c0cd2fe38f25949b90a30cb3a9e03148899b7066359fc09318a8c4bae1459",
+              "ff61f7d2d8a2d901288ea271ac16e322aedf8d79b02ac293a1140c8689dd5bd0",
+              "b9d0d304884c48cfd49854cff13bcf69473cd85e700ee5ea70a533eef547a28b",
+              "e23f9bb1e3d80648fa8876e2b158e3d09b6edaab3aa07d889ab1f612d3aad5ac",
+              "a382f9ccce1d44759c38e544e2b4c88358fd4def2528ee82a5ff84a1f7ebcf5f"
+            ]
+          },
+          "added_attack_misses_vs_RAW": 48,
+          "protection": "PASS"
+        },
+        "ensemble": {
+          "C2": {
+            "fpr_percent": 5.7848132467180085,
+            "normal_rows": 100830,
+            "fp": 366,
+            "unweighted_fpr_percent": 0.36298720618863434,
+            "recall_percent": 100.0,
+            "attack_rows": 79056,
+            "fn": 0
+          },
+          "C3": {
+            "fpr_percent": 5.171387320792083,
+            "normal_rows": 100830,
+            "fp": 327,
+            "unweighted_fpr_percent": 0.32430824159476346,
+            "recall_percent": 99.9897806803685,
+            "attack_rows": 79056,
+            "fn": 33
+          },
+          "relative_C2": {
+            "normal_fixed": 39,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 33,
+            "newly_missed_uids": [
+              "7cb954cddbc89ba54f5efd2e8a0eb61e81b4c142a716334d254b2127f430c17e",
+              "0883a23e537fdaab13e890bac79fea9571c9cf82f9a5db78e40e7710e1a0a885",
+              "2f84460937addc365d61991214a7c5c7a29064125a5f915f8ae0add17c874148",
+              "fddca7d10027c0aaebf0b820a3a2b0d293cc1324d14e6b64b6b01a7484bf6f43",
+              "7ab4a8043dbddf0eba7dd03f4951fe3f1f73997fcff18cdacc6611bcfe4c230a",
+              "550ea514418967e8b4d690986975529e49bc2151083b66e400acac0b64c6ebbf",
+              "27819741442af81ae810fd7f7f53e353fbe34212ecf4e8c8794a82f1752a0937",
+              "0f1a13c9e9f73dabbb0681984b3a54b49f2e198755021d21415924e7e3c70612",
+              "17213db21b9f5334d977f0865a21397a2882c8d5ea1fcf67d2dc23f5d9cd733a",
+              "16921a29d36bd879c662606fe8bc0b78efc6fff7a5ed5e084de2aacf95306401",
+              "bd75d7df8ef238950a0b693706100a81bf21c0ae2f2b72e6e09a9699bc9d1985",
+              "7bba33c6fb03ecdf6ae657e7140359bc26eb2b01cd0e2892e20fde74b155f211",
+              "8eb57a129b12cd260eda7987bcf999e3f10eaf096eef15fe205664c740359e6f",
+              "96ae643d1e41d707c5cbf4d2531f7b27ad49ea48c791ec59c43886e90d519333",
+              "0e52fc4afe89fcabe842869e574558143bc504b0e8ebdbecaa4344183533d369",
+              "39e1a42cdeabb18309adec5d06db2a4a079d34125cc6c47d8995f65c06ab3112",
+              "2d5ba89f89bcf87e0b99d4ad0c7826ef17e7c0d8af100e7da1f598c0089cc518",
+              "2f7a0cddaa4caa56568b3b72107ec0fb2d18abbb122d60a3fb69d7a7cebb0f42",
+              "d3c47c2aa7e0d84dac57a441655732e125edabef7055540604f3e902368d5ee1",
+              "080c52f6dc6048f00a6014634d3a0e52ad7d0845cc65d5c3357e200cdb7902db",
+              "d809e70c0b12f8db96b97e44bdaa37a4dff0dec782062bf6670dcc4b8013d317",
+              "0c9a692e72487a0250b14c3d47aafe828c28231d936b08d71ee3f13ec07abfe8",
+              "f06493c9836fc2bd8e9abb1f6b10923dd1851f42703f3e5feb1edbcf7c7204f2",
+              "a6e6bb624c883d7c3968b8c3e8f85efbda9f51ead799c651909e36a6b4864e47",
+              "9540c16052a55d636c15c889fad2988f0969224c505df5e93655c9b7eedb553a",
+              "2364e1691ef333874762a6bee097eb3aa6181df9d24e615aa5a15375b07f34d2",
+              "973b0f098717a58090d2a991c09e3b492a5820edb9732218bb77abcf567d39ee",
+              "81ae27da0a77e0cadbb7b50a4771387e184ff0c2ea76662b4df1044f73ae0298",
+              "31dbfa5905f6af4e69232582b83f78a356d81d7a1e61e2510a90d1f239cd17cd",
+              "b175ce1d7e07445076dbfdb0edee30f57e925bbd3662be33b4a568a9a0952671",
+              "dc49ec1f68c830bda85b07757ad76bed97fc8ba304798147bdbb75422fa36e68",
+              "feaf915fcd542c7adc2858742c26a702c8d6b14f0f3f3e4a0a40eaedee802543",
+              "e23f9bb1e3d80648fa8876e2b158e3d09b6edaab3aa07d889ab1f612d3aad5ac"
+            ]
+          },
+          "added_attack_misses_vs_RAW": 33,
+          "protection": "PASS"
+        }
+      },
+      "post_window_primary": {
+        "27": {
+          "C2": {
+            "fpr_percent": 3.5489004629629632,
+            "normal_rows": 96041,
+            "fp": 56,
+            "unweighted_fpr_percent": 0.05830843077435678,
+            "recall_percent": 100.0,
+            "attack_rows": 79056,
+            "fn": 0
+          },
+          "C3": {
+            "fpr_percent": 0.7175925925925926,
+            "normal_rows": 96041,
+            "fp": 12,
+            "unweighted_fpr_percent": 0.012494663737362167,
+            "recall_percent": 99.99516981773675,
+            "attack_rows": 79056,
+            "fn": 13
+          },
+          "relative_C2": {
+            "normal_fixed": 44,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 13,
+            "newly_missed_uids": [
+              "2f84460937addc365d61991214a7c5c7a29064125a5f915f8ae0add17c874148",
+              "7ab4a8043dbddf0eba7dd03f4951fe3f1f73997fcff18cdacc6611bcfe4c230a",
+              "17213db21b9f5334d977f0865a21397a2882c8d5ea1fcf67d2dc23f5d9cd733a",
+              "16921a29d36bd879c662606fe8bc0b78efc6fff7a5ed5e084de2aacf95306401",
+              "f06493c9836fc2bd8e9abb1f6b10923dd1851f42703f3e5feb1edbcf7c7204f2",
+              "a6e6bb624c883d7c3968b8c3e8f85efbda9f51ead799c651909e36a6b4864e47",
+              "9540c16052a55d636c15c889fad2988f0969224c505df5e93655c9b7eedb553a",
+              "2364e1691ef333874762a6bee097eb3aa6181df9d24e615aa5a15375b07f34d2",
+              "973b0f098717a58090d2a991c09e3b492a5820edb9732218bb77abcf567d39ee",
+              "81ae27da0a77e0cadbb7b50a4771387e184ff0c2ea76662b4df1044f73ae0298",
+              "31dbfa5905f6af4e69232582b83f78a356d81d7a1e61e2510a90d1f239cd17cd",
+              "dc49ec1f68c830bda85b07757ad76bed97fc8ba304798147bdbb75422fa36e68",
+              "e23f9bb1e3d80648fa8876e2b158e3d09b6edaab3aa07d889ab1f612d3aad5ac"
+            ]
+          },
+          "added_attack_misses_vs_RAW": 13,
+          "protection": "PASS"
+        },
+        "127": {
+          "C2": {
+            "fpr_percent": 1.8236400462962963,
+            "normal_rows": 96041,
+            "fp": 28,
+            "unweighted_fpr_percent": 0.02915421538717839,
+            "recall_percent": 99.9795098599336,
+            "attack_rows": 79056,
+            "fn": 16
+          },
+          "C3": {
+            "fpr_percent": 0.3993055555555555,
+            "normal_rows": 96041,
+            "fp": 7,
+            "unweighted_fpr_percent": 0.007288553846794598,
+            "recall_percent": 99.95037167442158,
+            "attack_rows": 79056,
+            "fn": 60
+          },
+          "relative_C2": {
+            "normal_fixed": 21,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 44,
+            "newly_missed_uids": [
+              "8882b216f2bef4bb7edcabb2bae0da23f1800c7cc1f8bafb585c60d87b22e13f",
+              "a0a4e82a3f4f0d88a8192ea235f2937a09bc6879a58491abaa3d393234dddaf6",
+              "7cb954cddbc89ba54f5efd2e8a0eb61e81b4c142a716334d254b2127f430c17e",
+              "0883a23e537fdaab13e890bac79fea9571c9cf82f9a5db78e40e7710e1a0a885",
+              "72c3ed00ab84bcdb036a5ad92d8e1be38c45a188392ec9cca89f594057763e9e",
+              "02ff0bc81122f0abfd87b5bec2a7cd1a5b8e008345e90f351aadd4a83eb9f9ad",
+              "175b32b9c00e96e8dc530900a47743fabd4d1438d00d9eff546a5b8a234add41",
+              "2f84460937addc365d61991214a7c5c7a29064125a5f915f8ae0add17c874148",
+              "fddca7d10027c0aaebf0b820a3a2b0d293cc1324d14e6b64b6b01a7484bf6f43",
+              "7ab4a8043dbddf0eba7dd03f4951fe3f1f73997fcff18cdacc6611bcfe4c230a",
+              "25119e9265271acb0155a1659c6d848d3ec49e0cea1b9a53596e603183ff9927",
+              "550ea514418967e8b4d690986975529e49bc2151083b66e400acac0b64c6ebbf",
+              "27819741442af81ae810fd7f7f53e353fbe34212ecf4e8c8794a82f1752a0937",
+              "6580dc64c117230e6c7a71891b2ba5e211333ebe6eea0a43236fe7f4091608bf",
+              "0f1a13c9e9f73dabbb0681984b3a54b49f2e198755021d21415924e7e3c70612",
+              "c3184554d27f9dfe2a79eb6e8c51223a4657e57ac21ecb9833062d379ba34513",
+              "16921a29d36bd879c662606fe8bc0b78efc6fff7a5ed5e084de2aacf95306401",
+              "0b69df8b03a3e97cdab4e0756bd19ff3ba2c22ca3564231bb8fa5b23e359137b",
+              "bd75d7df8ef238950a0b693706100a81bf21c0ae2f2b72e6e09a9699bc9d1985",
+              "7bba33c6fb03ecdf6ae657e7140359bc26eb2b01cd0e2892e20fde74b155f211",
+              "775cf2bde5f1fa23f6f608ad4ef2e37e3c7370f8f2095e2007b70517e6169d0b",
+              "96ae643d1e41d707c5cbf4d2531f7b27ad49ea48c791ec59c43886e90d519333",
+              "0e52fc4afe89fcabe842869e574558143bc504b0e8ebdbecaa4344183533d369",
+              "10fc0a1e78a040435a9128ce314620cea6336156ef0dea33d08399c87a5ec549",
+              "f06493c9836fc2bd8e9abb1f6b10923dd1851f42703f3e5feb1edbcf7c7204f2",
+              "d4e27fa1c325c3c142f5e8c947d0357999d03706f9d22599954981890e198329",
+              "a6e6bb624c883d7c3968b8c3e8f85efbda9f51ead799c651909e36a6b4864e47",
+              "9540c16052a55d636c15c889fad2988f0969224c505df5e93655c9b7eedb553a",
+              "326da42f29460f39de06b53bda0487c92366b88f8a6398cb6ced331df10f637a",
+              "2364e1691ef333874762a6bee097eb3aa6181df9d24e615aa5a15375b07f34d2",
+              "973b0f098717a58090d2a991c09e3b492a5820edb9732218bb77abcf567d39ee",
+              "4cee2b525995f2560856376346aec0e0eb7608a245cab9c7f64d5de75463c0a6",
+              "81ae27da0a77e0cadbb7b50a4771387e184ff0c2ea76662b4df1044f73ae0298",
+              "b1b70d4b518a14b5b6add5855bda2fa61e534f2b0e44e1ebe4f1451ef1a05c06",
+              "31dbfa5905f6af4e69232582b83f78a356d81d7a1e61e2510a90d1f239cd17cd",
+              "3d0d204922f28cd4b8543190eaa523171e574bc2c09f36e53b560904cc91ffdb",
+              "b175ce1d7e07445076dbfdb0edee30f57e925bbd3662be33b4a568a9a0952671",
+              "dc49ec1f68c830bda85b07757ad76bed97fc8ba304798147bdbb75422fa36e68",
+              "9494b7bfa82f7d07478147f5ade0f2efadb985e61a9c64cd1754acbecad1b870",
+              "feaf915fcd542c7adc2858742c26a702c8d6b14f0f3f3e4a0a40eaedee802543",
+              "bbcd0dee95ae1e1203c2e32f6390119480cb4d50916c98b146688613de9b1b71",
+              "b9d0d304884c48cfd49854cff13bcf69473cd85e700ee5ea70a533eef547a28b",
+              "e23f9bb1e3d80648fa8876e2b158e3d09b6edaab3aa07d889ab1f612d3aad5ac",
+              "a382f9ccce1d44759c38e544e2b4c88358fd4def2528ee82a5ff84a1f7ebcf5f"
+            ]
+          },
+          "added_attack_misses_vs_RAW": 48,
+          "protection": "PASS"
+        },
+        "227": {
+          "C2": {
+            "fpr_percent": 4.003271179052429,
+            "normal_rows": 96041,
+            "fp": 68,
+            "unweighted_fpr_percent": 0.07080309451171896,
+            "recall_percent": 99.99914477285166,
+            "attack_rows": 79056,
+            "fn": 3
+          },
+          "C3": {
+            "fpr_percent": 0.722021179052429,
+            "normal_rows": 96041,
+            "fp": 20,
+            "unweighted_fpr_percent": 0.02082443956227028,
+            "recall_percent": 99.98508028879995,
+            "attack_rows": 79056,
+            "fn": 50
+          },
+          "relative_C2": {
+            "normal_fixed": 48,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 47,
+            "newly_missed_uids": [
+              "8882b216f2bef4bb7edcabb2bae0da23f1800c7cc1f8bafb585c60d87b22e13f",
+              "7cb954cddbc89ba54f5efd2e8a0eb61e81b4c142a716334d254b2127f430c17e",
+              "0883a23e537fdaab13e890bac79fea9571c9cf82f9a5db78e40e7710e1a0a885",
+              "72c3ed00ab84bcdb036a5ad92d8e1be38c45a188392ec9cca89f594057763e9e",
+              "02ff0bc81122f0abfd87b5bec2a7cd1a5b8e008345e90f351aadd4a83eb9f9ad",
+              "175b32b9c00e96e8dc530900a47743fabd4d1438d00d9eff546a5b8a234add41",
+              "2f84460937addc365d61991214a7c5c7a29064125a5f915f8ae0add17c874148",
+              "fddca7d10027c0aaebf0b820a3a2b0d293cc1324d14e6b64b6b01a7484bf6f43",
+              "7ab4a8043dbddf0eba7dd03f4951fe3f1f73997fcff18cdacc6611bcfe4c230a",
+              "25119e9265271acb0155a1659c6d848d3ec49e0cea1b9a53596e603183ff9927",
+              "550ea514418967e8b4d690986975529e49bc2151083b66e400acac0b64c6ebbf",
+              "27819741442af81ae810fd7f7f53e353fbe34212ecf4e8c8794a82f1752a0937",
+              "88a76531e7493901a2635d488c5ed82e3bf50c0fd8e51d7b38984b9cfd59a4ac",
+              "0f1a13c9e9f73dabbb0681984b3a54b49f2e198755021d21415924e7e3c70612",
+              "17213db21b9f5334d977f0865a21397a2882c8d5ea1fcf67d2dc23f5d9cd733a",
+              "ba6df12264258e0d61e43f220752bbb5a9b8e77eee650f12782edc1d44438d3e",
+              "4db1081912a9a554e8dbb599f03e9d8cfc30940706e327051c3c09deb4f6860f",
+              "16921a29d36bd879c662606fe8bc0b78efc6fff7a5ed5e084de2aacf95306401",
+              "0b69df8b03a3e97cdab4e0756bd19ff3ba2c22ca3564231bb8fa5b23e359137b",
+              "bd75d7df8ef238950a0b693706100a81bf21c0ae2f2b72e6e09a9699bc9d1985",
+              "7bba33c6fb03ecdf6ae657e7140359bc26eb2b01cd0e2892e20fde74b155f211",
+              "8eb57a129b12cd260eda7987bcf999e3f10eaf096eef15fe205664c740359e6f",
+              "96ae643d1e41d707c5cbf4d2531f7b27ad49ea48c791ec59c43886e90d519333",
+              "0e52fc4afe89fcabe842869e574558143bc504b0e8ebdbecaa4344183533d369",
+              "39e1a42cdeabb18309adec5d06db2a4a079d34125cc6c47d8995f65c06ab3112",
+              "2d5ba89f89bcf87e0b99d4ad0c7826ef17e7c0d8af100e7da1f598c0089cc518",
+              "52af104ab7cd023938754de0322ccccccfa20eda13302a5e6869b7a7a2ed2b30",
+              "2f7a0cddaa4caa56568b3b72107ec0fb2d18abbb122d60a3fb69d7a7cebb0f42",
+              "080c52f6dc6048f00a6014634d3a0e52ad7d0845cc65d5c3357e200cdb7902db",
+              "d809e70c0b12f8db96b97e44bdaa37a4dff0dec782062bf6670dcc4b8013d317",
+              "f06493c9836fc2bd8e9abb1f6b10923dd1851f42703f3e5feb1edbcf7c7204f2",
+              "a6e6bb624c883d7c3968b8c3e8f85efbda9f51ead799c651909e36a6b4864e47",
+              "9540c16052a55d636c15c889fad2988f0969224c505df5e93655c9b7eedb553a",
+              "326da42f29460f39de06b53bda0487c92366b88f8a6398cb6ced331df10f637a",
+              "2364e1691ef333874762a6bee097eb3aa6181df9d24e615aa5a15375b07f34d2",
+              "973b0f098717a58090d2a991c09e3b492a5820edb9732218bb77abcf567d39ee",
+              "81ae27da0a77e0cadbb7b50a4771387e184ff0c2ea76662b4df1044f73ae0298",
+              "b1b70d4b518a14b5b6add5855bda2fa61e534f2b0e44e1ebe4f1451ef1a05c06",
+              "31dbfa5905f6af4e69232582b83f78a356d81d7a1e61e2510a90d1f239cd17cd",
+              "b175ce1d7e07445076dbfdb0edee30f57e925bbd3662be33b4a568a9a0952671",
+              "dc49ec1f68c830bda85b07757ad76bed97fc8ba304798147bdbb75422fa36e68",
+              "feaf915fcd542c7adc2858742c26a702c8d6b14f0f3f3e4a0a40eaedee802543",
+              "646c0cd2fe38f25949b90a30cb3a9e03148899b7066359fc09318a8c4bae1459",
+              "ff61f7d2d8a2d901288ea271ac16e322aedf8d79b02ac293a1140c8689dd5bd0",
+              "b9d0d304884c48cfd49854cff13bcf69473cd85e700ee5ea70a533eef547a28b",
+              "e23f9bb1e3d80648fa8876e2b158e3d09b6edaab3aa07d889ab1f612d3aad5ac",
+              "a382f9ccce1d44759c38e544e2b4c88358fd4def2528ee82a5ff84a1f7ebcf5f"
+            ]
+          },
+          "added_attack_misses_vs_RAW": 48,
+          "protection": "PASS"
+        },
+        "ensemble": {
+          "C2": {
+            "fpr_percent": 3.316088177695321,
+            "normal_rows": 96041,
+            "fp": 53,
+            "unweighted_fpr_percent": 0.05518476484001624,
+            "recall_percent": 100.0,
+            "attack_rows": 79056,
+            "fn": 0
+          },
+          "C3": {
+            "fpr_percent": 0.7466437332508761,
+            "normal_rows": 96041,
+            "fp": 14,
+            "unweighted_fpr_percent": 0.014577107693589195,
+            "recall_percent": 99.9897806803685,
+            "attack_rows": 79056,
+            "fn": 33
+          },
+          "relative_C2": {
+            "normal_fixed": 39,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 33,
+            "newly_missed_uids": [
+              "7cb954cddbc89ba54f5efd2e8a0eb61e81b4c142a716334d254b2127f430c17e",
+              "0883a23e537fdaab13e890bac79fea9571c9cf82f9a5db78e40e7710e1a0a885",
+              "2f84460937addc365d61991214a7c5c7a29064125a5f915f8ae0add17c874148",
+              "fddca7d10027c0aaebf0b820a3a2b0d293cc1324d14e6b64b6b01a7484bf6f43",
+              "7ab4a8043dbddf0eba7dd03f4951fe3f1f73997fcff18cdacc6611bcfe4c230a",
+              "550ea514418967e8b4d690986975529e49bc2151083b66e400acac0b64c6ebbf",
+              "27819741442af81ae810fd7f7f53e353fbe34212ecf4e8c8794a82f1752a0937",
+              "0f1a13c9e9f73dabbb0681984b3a54b49f2e198755021d21415924e7e3c70612",
+              "17213db21b9f5334d977f0865a21397a2882c8d5ea1fcf67d2dc23f5d9cd733a",
+              "16921a29d36bd879c662606fe8bc0b78efc6fff7a5ed5e084de2aacf95306401",
+              "bd75d7df8ef238950a0b693706100a81bf21c0ae2f2b72e6e09a9699bc9d1985",
+              "7bba33c6fb03ecdf6ae657e7140359bc26eb2b01cd0e2892e20fde74b155f211",
+              "8eb57a129b12cd260eda7987bcf999e3f10eaf096eef15fe205664c740359e6f",
+              "96ae643d1e41d707c5cbf4d2531f7b27ad49ea48c791ec59c43886e90d519333",
+              "0e52fc4afe89fcabe842869e574558143bc504b0e8ebdbecaa4344183533d369",
+              "39e1a42cdeabb18309adec5d06db2a4a079d34125cc6c47d8995f65c06ab3112",
+              "2d5ba89f89bcf87e0b99d4ad0c7826ef17e7c0d8af100e7da1f598c0089cc518",
+              "2f7a0cddaa4caa56568b3b72107ec0fb2d18abbb122d60a3fb69d7a7cebb0f42",
+              "d3c47c2aa7e0d84dac57a441655732e125edabef7055540604f3e902368d5ee1",
+              "080c52f6dc6048f00a6014634d3a0e52ad7d0845cc65d5c3357e200cdb7902db",
+              "d809e70c0b12f8db96b97e44bdaa37a4dff0dec782062bf6670dcc4b8013d317",
+              "0c9a692e72487a0250b14c3d47aafe828c28231d936b08d71ee3f13ec07abfe8",
+              "f06493c9836fc2bd8e9abb1f6b10923dd1851f42703f3e5feb1edbcf7c7204f2",
+              "a6e6bb624c883d7c3968b8c3e8f85efbda9f51ead799c651909e36a6b4864e47",
+              "9540c16052a55d636c15c889fad2988f0969224c505df5e93655c9b7eedb553a",
+              "2364e1691ef333874762a6bee097eb3aa6181df9d24e615aa5a15375b07f34d2",
+              "973b0f098717a58090d2a991c09e3b492a5820edb9732218bb77abcf567d39ee",
+              "81ae27da0a77e0cadbb7b50a4771387e184ff0c2ea76662b4df1044f73ae0298",
+              "31dbfa5905f6af4e69232582b83f78a356d81d7a1e61e2510a90d1f239cd17cd",
+              "b175ce1d7e07445076dbfdb0edee30f57e925bbd3662be33b4a568a9a0952671",
+              "dc49ec1f68c830bda85b07757ad76bed97fc8ba304798147bdbb75422fa36e68",
+              "feaf915fcd542c7adc2858742c26a702c8d6b14f0f3f3e4a0a40eaedee802543",
+              "e23f9bb1e3d80648fa8876e2b158e3d09b6edaab3aa07d889ab1f612d3aad5ac"
+            ]
+          },
+          "added_attack_misses_vs_RAW": 33,
+          "protection": "PASS"
+        }
+      }
+    },
+    "UNSW_DEV": {
+      "full": {
+        "27": {
+          "C2": {
+            "fpr_percent": 2.17829137525519,
+            "normal_rows": 75763,
+            "fp": 8244,
+            "unweighted_fpr_percent": 10.881300898855642,
+            "recall_percent": 100.0,
+            "attack_rows": 72553,
+            "fn": 0
+          },
+          "C3": {
+            "fpr_percent": 2.17829137525519,
+            "normal_rows": 75763,
+            "fp": 8244,
+            "unweighted_fpr_percent": 10.881300898855642,
+            "recall_percent": 100.0,
+            "attack_rows": 72553,
+            "fn": 0
+          },
+          "relative_C2": {
+            "normal_fixed": 0,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 0,
+            "newly_missed_uids": []
+          },
+          "added_attack_misses_vs_RAW": 0,
+          "protection": "PASS"
+        },
+        "127": {
+          "C2": {
+            "fpr_percent": 1.6995640956345388,
+            "normal_rows": 75763,
+            "fp": 5917,
+            "unweighted_fpr_percent": 7.809880812533823,
+            "recall_percent": 99.8309625412044,
+            "attack_rows": 72553,
+            "fn": 83
+          },
+          "C3": {
+            "fpr_percent": 1.6995640956345388,
+            "normal_rows": 75763,
+            "fp": 5917,
+            "unweighted_fpr_percent": 7.809880812533823,
+            "recall_percent": 99.8309625412044,
+            "attack_rows": 72553,
+            "fn": 83
+          },
+          "relative_C2": {
+            "normal_fixed": 0,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 0,
+            "newly_missed_uids": []
+          },
+          "added_attack_misses_vs_RAW": 0,
+          "protection": "PASS"
+        },
+        "227": {
+          "C2": {
+            "fpr_percent": 2.364109186597592,
+            "normal_rows": 75763,
+            "fp": 9514,
+            "unweighted_fpr_percent": 12.557580877209192,
+            "recall_percent": 99.99463207238121,
+            "attack_rows": 72553,
+            "fn": 5
+          },
+          "C3": {
+            "fpr_percent": 2.364109186597592,
+            "normal_rows": 75763,
+            "fp": 9514,
+            "unweighted_fpr_percent": 12.557580877209192,
+            "recall_percent": 99.99463207238121,
+            "attack_rows": 72553,
+            "fn": 5
+          },
+          "relative_C2": {
+            "normal_fixed": 0,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 0,
+            "newly_missed_uids": []
+          },
+          "added_attack_misses_vs_RAW": 0,
+          "protection": "PASS"
+        },
+        "ensemble": {
+          "C2": {
+            "fpr_percent": 2.1002766747546415,
+            "normal_rows": 75763,
+            "fp": 9036,
+            "unweighted_fpr_percent": 11.926666050710768,
+            "recall_percent": 99.99463207238121,
+            "attack_rows": 72553,
+            "fn": 5
+          },
+          "C3": {
+            "fpr_percent": 2.1002766747546415,
+            "normal_rows": 75763,
+            "fp": 9036,
+            "unweighted_fpr_percent": 11.926666050710768,
+            "recall_percent": 99.99463207238121,
+            "attack_rows": 72553,
+            "fn": 5
+          },
+          "relative_C2": {
+            "normal_fixed": 0,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 0,
+            "newly_missed_uids": []
+          },
+          "added_attack_misses_vs_RAW": 0,
+          "protection": "PASS"
+        }
+      },
+      "post_window_primary": {
+        "27": {
+          "C2": {
+            "fpr_percent": 1.8250391007636666,
+            "normal_rows": 74444,
+            "fp": 7675,
+            "unweighted_fpr_percent": 10.309763043361453,
+            "recall_percent": 100.0,
+            "attack_rows": 72553,
+            "fn": 0
+          },
+          "C3": {
+            "fpr_percent": 1.8250391007636666,
+            "normal_rows": 74444,
+            "fp": 7675,
+            "unweighted_fpr_percent": 10.309763043361453,
+            "recall_percent": 100.0,
+            "attack_rows": 72553,
+            "fn": 0
+          },
+          "relative_C2": {
+            "normal_fixed": 0,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 0,
+            "newly_missed_uids": []
+          },
+          "added_attack_misses_vs_RAW": 0,
+          "protection": "PASS"
+        },
+        "127": {
+          "C2": {
+            "fpr_percent": 1.405116471431287,
+            "normal_rows": 74444,
+            "fp": 5500,
+            "unweighted_fpr_percent": 7.388103809574982,
+            "recall_percent": 99.8309625412044,
+            "attack_rows": 72553,
+            "fn": 83
+          },
+          "C3": {
+            "fpr_percent": 1.405116471431287,
+            "normal_rows": 74444,
+            "fp": 5500,
+            "unweighted_fpr_percent": 7.388103809574982,
+            "recall_percent": 99.8309625412044,
+            "attack_rows": 72553,
+            "fn": 83
+          },
+          "relative_C2": {
+            "normal_fixed": 0,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 0,
+            "newly_missed_uids": []
+          },
+          "added_attack_misses_vs_RAW": 0,
+          "protection": "PASS"
+        },
+        "227": {
+          "C2": {
+            "fpr_percent": 2.02107209966823,
+            "normal_rows": 74444,
+            "fp": 8971,
+            "unweighted_fpr_percent": 12.050668959217667,
+            "recall_percent": 99.99463207238121,
+            "attack_rows": 72553,
+            "fn": 5
+          },
+          "C3": {
+            "fpr_percent": 2.02107209966823,
+            "normal_rows": 74444,
+            "fp": 8971,
+            "unweighted_fpr_percent": 12.050668959217667,
+            "recall_percent": 99.99463207238121,
+            "attack_rows": 72553,
+            "fn": 5
+          },
+          "relative_C2": {
+            "normal_fixed": 0,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 0,
+            "newly_missed_uids": []
+          },
+          "added_attack_misses_vs_RAW": 0,
+          "protection": "PASS"
+        },
+        "ensemble": {
+          "C2": {
+            "fpr_percent": 1.7505261294095176,
+            "normal_rows": 74444,
+            "fp": 8494,
+            "unweighted_fpr_percent": 11.409918865187255,
+            "recall_percent": 99.99463207238121,
+            "attack_rows": 72553,
+            "fn": 5
+          },
+          "C3": {
+            "fpr_percent": 1.7505261294095176,
+            "normal_rows": 74444,
+            "fp": 8494,
+            "unweighted_fpr_percent": 11.409918865187255,
+            "recall_percent": 99.99463207238121,
+            "attack_rows": 72553,
+            "fn": 5
+          },
+          "relative_C2": {
+            "normal_fixed": 0,
+            "added_normal_alarms": 0,
+            "new_attack_misses": 0,
+            "newly_missed_uids": []
+          },
+          "added_attack_misses_vs_RAW": 0,
+          "protection": "PASS"
+        }
+      }
+    }
+  },
+  "devices": {
+    "CIC_DEV": {
+      "Eufy Home Base": {
+        "C2": {
+          "fpr_percent": 0.00023191094619666046,
+          "normal_rows": 95369,
+          "fp": 1,
+          "unweighted_fpr_percent": 0.0010485587559898918,
+          "recall_percent": 100.0,
+          "attack_rows": 13507,
+          "fn": 0
+        },
+        "C3": {
+          "fpr_percent": 0.00023191094619666046,
+          "normal_rows": 95369,
+          "fp": 1,
+          "unweighted_fpr_percent": 0.0010485587559898918,
+          "recall_percent": 100.0,
+          "attack_rows": 13507,
+          "fn": 0
+        }
+      },
+      "HeimVision Camera": {
+        "C2": {
+          "fpr_percent": 6.631944444444445,
+          "normal_rows": 672,
+          "fp": 52,
+          "unweighted_fpr_percent": 7.738095238095238,
+          "recall_percent": 100.0,
+          "attack_rows": 65549,
+          "fn": 0
+        },
+        "C3": {
+          "fpr_percent": 1.4930555555555554,
+          "normal_rows": 672,
+          "fp": 13,
+          "unweighted_fpr_percent": 1.9345238095238095,
+          "recall_percent": 99.97956136073701,
+          "attack_rows": 65549,
+          "fn": 33
+        }
+      }
+    },
+    "UNSW_DEV": {
+      "unsw-attack-traces-2018:00:16:6c:ab:6b:88": {
+        "C2": {
+          "fpr_percent": 1.7802225660426108,
+          "normal_rows": 19711,
+          "fp": 2174,
+          "unweighted_fpr_percent": 11.029374460960884,
+          "recall_percent": 99.97316036190603,
+          "attack_rows": 14506,
+          "fn": 5
+        },
+        "C3": {
+          "fpr_percent": 1.7802225660426108,
+          "normal_rows": 19711,
+          "fp": 2174,
+          "unweighted_fpr_percent": 11.029374460960884,
+          "recall_percent": 99.97316036190603,
+          "attack_rows": 14506,
+          "fn": 5
+        }
+      },
+      "unsw-attack-traces-2018:50:c7:bf:00:56:39": {
+        "C2": {
+          "fpr_percent": 1.2940604858320568,
+          "normal_rows": 2597,
+          "fp": 53,
+          "unweighted_fpr_percent": 2.0408163265306123,
+          "recall_percent": 100.0,
+          "attack_rows": 14604,
+          "fn": 0
+        },
+        "C3": {
+          "fpr_percent": 1.2940604858320568,
+          "normal_rows": 2597,
+          "fp": 53,
+          "unweighted_fpr_percent": 2.0408163265306123,
+          "recall_percent": 100.0,
+          "attack_rows": 14604,
+          "fn": 0
+        }
+      },
+      "unsw-attack-traces-2018:70:ee:50:18:34:43": {
+        "C2": {
+          "fpr_percent": 1.0125572772809495,
+          "normal_rows": 19879,
+          "fp": 4309,
+          "unweighted_fpr_percent": 21.676140650938176,
+          "recall_percent": 100.0,
+          "attack_rows": 14377,
+          "fn": 0
+        },
+        "C3": {
+          "fpr_percent": 1.0125572772809495,
+          "normal_rows": 19879,
+          "fp": 4309,
+          "unweighted_fpr_percent": 21.676140650938176,
+          "recall_percent": 100.0,
+          "attack_rows": 14377,
+          "fn": 0
+        }
+      },
+      "unsw-attack-traces-2018:ec:1a:59:79:f4:89": {
+        "C2": {
+          "fpr_percent": 3.4781118972414142,
+          "normal_rows": 13028,
+          "fp": 1865,
+          "unweighted_fpr_percent": 14.315320847405587,
+          "recall_percent": 100.0,
+          "attack_rows": 14513,
+          "fn": 0
+        },
+        "C3": {
+          "fpr_percent": 3.4781118972414142,
+          "normal_rows": 13028,
+          "fp": 1865,
+          "unweighted_fpr_percent": 14.315320847405587,
+          "recall_percent": 100.0,
+          "attack_rows": 14513,
+          "fn": 0
+        }
+      },
+      "unsw-attack-traces-2018:ec:1a:59:83:28:11": {
+        "C2": {
+          "fpr_percent": 1.1876784206505568,
+          "normal_rows": 19229,
+          "fp": 93,
+          "unweighted_fpr_percent": 0.483644495293567,
+          "recall_percent": 100.0,
+          "attack_rows": 14553,
+          "fn": 0
+        },
+        "C3": {
+          "fpr_percent": 1.1876784206505568,
+          "normal_rows": 19229,
+          "fp": 93,
+          "unweighted_fpr_percent": 0.483644495293567,
+          "recall_percent": 100.0,
+          "attack_rows": 14553,
+          "fn": 0
+        }
+      }
+    }
+  },
+  "heim_protocols": {
+    "6": {
+      "rows": 184,
+      "c2_fp": 42,
+      "c3_fp": 3,
+      "fixed": 39,
+      "added": 0,
+      "c2_device_fpr_contribution_pp": 5.474537037037037,
+      "c3_device_fpr_contribution_pp": 0.33564814814814814
+    },
+    "17": {
+      "rows": 488,
+      "c2_fp": 10,
+      "c3_fp": 10,
+      "fixed": 0,
+      "added": 0,
+      "c2_device_fpr_contribution_pp": 1.1574074074074074,
+      "c3_device_fpr_contribution_pp": 1.1574074074074074
+    }
+  },
+  "heim_captures": {
+    "active-00": {
+      "rows": 72,
+      "c2_fp": 4,
+      "c3_fp": 0,
+      "fixed": 4,
+      "added": 0,
+      "c2_device_fpr_contribution_pp": 0.9259259259259258,
+      "c3_device_fpr_contribution_pp": 0.0
+    },
+    "active-01": {
+      "rows": 96,
+      "c2_fp": 5,
+      "c3_fp": 0,
+      "fixed": 5,
+      "added": 0,
+      "c2_device_fpr_contribution_pp": 0.8680555555555556,
+      "c3_device_fpr_contribution_pp": 0.0
+    },
+    "active-02": {
+      "rows": 108,
+      "c2_fp": 7,
+      "c3_fp": 1,
+      "fixed": 6,
+      "added": 0,
+      "c2_device_fpr_contribution_pp": 0.7291666666666666,
+      "c3_device_fpr_contribution_pp": 0.10416666666666667
+    },
+    "active-03": {
+      "rows": 175,
+      "c2_fp": 18,
+      "c3_fp": 10,
+      "fixed": 8,
+      "added": 0,
+      "c2_device_fpr_contribution_pp": 1.6782407407407405,
+      "c3_device_fpr_contribution_pp": 1.1574074074074074
+    },
+    "active-05": {
+      "rows": 96,
+      "c2_fp": 12,
+      "c3_fp": 1,
+      "fixed": 11,
+      "added": 0,
+      "c2_device_fpr_contribution_pp": 2.0833333333333335,
+      "c3_device_fpr_contribution_pp": 0.1736111111111111
+    },
+    "active-06": {
+      "rows": 125,
+      "c2_fp": 6,
+      "c3_fp": 1,
+      "fixed": 5,
+      "added": 0,
+      "c2_device_fpr_contribution_pp": 0.3472222222222222,
+      "c3_device_fpr_contribution_pp": 0.057870370370370364
+    }
+  },
+  "input_sha256": {
+    "C3_RESULT": "cbedc30311604b0f168a967619982054249568299321e1985cf6fd054f276f8c",
+    "C2_RESULT": "092ff373b6231b52969d59aa54f84b976ab8ef3facb1c0a3bd67c891cfc722e8",
+    "FINAL_ACCEPTANCE": "e9ea9370815be5de82fba293924386388c55f22b83bb17706443ae9dbfd5f337",
+    "C3_A_DECISIONS": "4fbef10a34495227250a71d596bc677817f24a3a71af1e929d3e44291ddebaeb",
+    "A_QUERY_ROWS": "666c2e2dc648ab539b8e2bb5e1b1fb8fee8cd3bf92223a72d6631fc4c851f64f",
+    "reporting_script": "2d1152dfb3235b16d672327e942d21cb657b0edd3d7f010862baaa29808be910"
+  }
+}

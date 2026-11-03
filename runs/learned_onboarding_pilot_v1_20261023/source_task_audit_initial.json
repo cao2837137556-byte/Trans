@@ -1,0 +1,695 @@
+{
+  "schema": "learned-onboarding-source-task-audit-v1",
+  "query_rows": 766727,
+  "role_rows": {
+    "FIT": 617908,
+    "CAL": 148819
+  },
+  "reference_rows": 104,
+  "devices": [
+    "Amcrest Camera",
+    "ArloQ Camera",
+    "Atomi Coffee Maker",
+    "Globe Lamp",
+    "Philips Hue Bridge",
+    "SimCam"
+  ],
+  "banks": [
+    {
+      "device": "Amcrest Camera",
+      "protocol": 6,
+      "rows": 1,
+      "components": 1,
+      "dependency_groups": 1,
+      "captures": 1,
+      "reference_ends": [
+        1633532109.461121
+      ]
+    },
+    {
+      "device": "Amcrest Camera",
+      "protocol": 17,
+      "rows": 63,
+      "components": 63,
+      "dependency_groups": 63,
+      "captures": 3,
+      "reference_ends": [
+        1633532109.461121
+      ]
+    },
+    {
+      "device": "ArloQ Camera",
+      "protocol": 6,
+      "rows": 8,
+      "components": 8,
+      "dependency_groups": 8,
+      "captures": 3,
+      "reference_ends": [
+        1633531542.09702
+      ]
+    },
+    {
+      "device": "ArloQ Camera",
+      "protocol": 17,
+      "rows": 4,
+      "components": 4,
+      "dependency_groups": 4,
+      "captures": 3,
+      "reference_ends": [
+        1633531542.09702
+      ]
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "protocol": 6,
+      "rows": 1,
+      "components": 1,
+      "dependency_groups": 1,
+      "captures": 1,
+      "reference_ends": [
+        1634131492.850729
+      ]
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "protocol": 17,
+      "rows": 1,
+      "components": 1,
+      "dependency_groups": 1,
+      "captures": 1,
+      "reference_ends": [
+        1634131492.850729
+      ]
+    },
+    {
+      "device": "Globe Lamp",
+      "protocol": 6,
+      "rows": 1,
+      "components": 1,
+      "dependency_groups": 1,
+      "captures": 1,
+      "reference_ends": [
+        1633630653.218999
+      ]
+    },
+    {
+      "device": "Globe Lamp",
+      "protocol": 17,
+      "rows": 1,
+      "components": 1,
+      "dependency_groups": 1,
+      "captures": 1,
+      "reference_ends": [
+        1633630653.218999
+      ]
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "protocol": 6,
+      "rows": 4,
+      "components": 4,
+      "dependency_groups": 4,
+      "captures": 2,
+      "reference_ends": [
+        1633454960.164599
+      ]
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "protocol": 17,
+      "rows": 5,
+      "components": 5,
+      "dependency_groups": 5,
+      "captures": 1,
+      "reference_ends": [
+        1633454960.164599
+      ]
+    },
+    {
+      "device": "SimCam",
+      "protocol": 6,
+      "rows": 8,
+      "components": 8,
+      "dependency_groups": 8,
+      "captures": 3,
+      "reference_ends": [
+        1633542608.728952
+      ]
+    },
+    {
+      "device": "SimCam",
+      "protocol": 17,
+      "rows": 7,
+      "components": 7,
+      "dependency_groups": 7,
+      "captures": 3,
+      "reference_ends": [
+        1633542608.728952
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "device": "Amcrest Camera",
+      "role": "CAL",
+      "label": 0,
+      "rows": 8237,
+      "captures": 9,
+      "dependencies": 2188,
+      "components": 2187,
+      "activities": 3,
+      "protocol_rows": {
+        "17": 5536,
+        "6": 2701
+      },
+      "support_rows": {
+        "with_any_causal_component": 8237,
+        "with_independent_component": 8237,
+        "with_at_least_two_independent_components": 5536,
+        "with_different_capture_component": 8237
+      }
+    },
+    {
+      "device": "Amcrest Camera",
+      "role": "CAL",
+      "label": 1,
+      "rows": 21,
+      "captures": 3,
+      "dependencies": 21,
+      "components": 21,
+      "activities": 1,
+      "protocol_rows": {
+        "6": 21
+      },
+      "support_rows": {
+        "with_any_causal_component": 21,
+        "with_independent_component": 21,
+        "with_different_capture_component": 21
+      }
+    },
+    {
+      "device": "Amcrest Camera",
+      "role": "FIT",
+      "label": 0,
+      "rows": 32940,
+      "captures": 13,
+      "dependencies": 8524,
+      "components": 8513,
+      "activities": 3,
+      "protocol_rows": {
+        "17": 22689,
+        "6": 10251
+      },
+      "support_rows": {
+        "with_any_causal_component": 32940,
+        "with_independent_component": 32940,
+        "with_at_least_two_independent_components": 22689,
+        "with_different_capture_component": 32940
+      }
+    },
+    {
+      "device": "Amcrest Camera",
+      "role": "FIT",
+      "label": 1,
+      "rows": 87,
+      "captures": 3,
+      "dependencies": 87,
+      "components": 87,
+      "activities": 1,
+      "protocol_rows": {
+        "6": 87
+      },
+      "support_rows": {
+        "with_any_causal_component": 87,
+        "with_independent_component": 87,
+        "with_different_capture_component": 87
+      }
+    },
+    {
+      "device": "ArloQ Camera",
+      "role": "CAL",
+      "label": 0,
+      "rows": 8946,
+      "captures": 14,
+      "dependencies": 699,
+      "components": 695,
+      "activities": 5,
+      "protocol_rows": {
+        "6": 8174,
+        "17": 772
+      },
+      "support_rows": {
+        "with_any_causal_component": 8946,
+        "with_independent_component": 8946,
+        "with_at_least_two_independent_components": 8946,
+        "with_different_capture_component": 8946
+      }
+    },
+    {
+      "device": "ArloQ Camera",
+      "role": "CAL",
+      "label": 1,
+      "rows": 4302,
+      "captures": 6,
+      "dependencies": 774,
+      "components": 771,
+      "activities": 2,
+      "protocol_rows": {
+        "6": 661,
+        "17": 3641
+      },
+      "support_rows": {
+        "with_any_causal_component": 4302,
+        "with_independent_component": 4302,
+        "with_at_least_two_independent_components": 4302,
+        "with_different_capture_component": 4302
+      }
+    },
+    {
+      "device": "ArloQ Camera",
+      "role": "FIT",
+      "label": 0,
+      "rows": 37810,
+      "captures": 22,
+      "dependencies": 2887,
+      "components": 2849,
+      "activities": 6,
+      "protocol_rows": {
+        "6": 34772,
+        "17": 3038
+      },
+      "support_rows": {
+        "with_any_causal_component": 37810,
+        "with_independent_component": 37810,
+        "with_at_least_two_independent_components": 37810,
+        "with_different_capture_component": 37810
+      }
+    },
+    {
+      "device": "ArloQ Camera",
+      "role": "FIT",
+      "label": 1,
+      "rows": 16028,
+      "captures": 6,
+      "dependencies": 2772,
+      "components": 2763,
+      "activities": 2,
+      "protocol_rows": {
+        "6": 2345,
+        "17": 13683
+      },
+      "support_rows": {
+        "with_any_causal_component": 16028,
+        "with_independent_component": 16028,
+        "with_at_least_two_independent_components": 16028,
+        "with_different_capture_component": 16028
+      }
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "role": "CAL",
+      "label": 0,
+      "rows": 641,
+      "captures": 7,
+      "dependencies": 60,
+      "components": 58,
+      "activities": 1,
+      "protocol_rows": {
+        "6": 572,
+        "17": 69
+      },
+      "support_rows": {
+        "with_any_causal_component": 641,
+        "with_independent_component": 641,
+        "with_different_capture_component": 641
+      }
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "role": "CAL",
+      "label": 1,
+      "rows": 4202,
+      "captures": 6,
+      "dependencies": 718,
+      "components": 717,
+      "activities": 2,
+      "protocol_rows": {
+        "6": 1256,
+        "17": 2946
+      },
+      "support_rows": {
+        "with_any_causal_component": 4202,
+        "with_independent_component": 4202,
+        "with_different_capture_component": 4202
+      }
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "role": "FIT",
+      "label": 0,
+      "rows": 3289,
+      "captures": 34,
+      "dependencies": 312,
+      "components": 254,
+      "activities": 11,
+      "protocol_rows": {
+        "6": 2708,
+        "17": 581
+      },
+      "support_rows": {
+        "with_any_causal_component": 3289,
+        "causal_support_only_same_component_or_dependency": 372,
+        "with_independent_component": 2917,
+        "with_different_capture_component": 2917
+      }
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "role": "FIT",
+      "label": 1,
+      "rows": 18521,
+      "captures": 6,
+      "dependencies": 2817,
+      "components": 2811,
+      "activities": 2,
+      "protocol_rows": {
+        "6": 4793,
+        "17": 13728
+      },
+      "support_rows": {
+        "with_any_causal_component": 18521,
+        "with_independent_component": 18521,
+        "with_different_capture_component": 18521
+      }
+    },
+    {
+      "device": "Globe Lamp",
+      "role": "CAL",
+      "label": 0,
+      "rows": 180,
+      "captures": 20,
+      "dependencies": 22,
+      "components": 5,
+      "activities": 7,
+      "protocol_rows": {
+        "6": 178,
+        "17": 2
+      },
+      "support_rows": {
+        "with_any_causal_component": 180,
+        "with_independent_component": 180,
+        "with_different_capture_component": 180
+      }
+    },
+    {
+      "device": "Globe Lamp",
+      "role": "CAL",
+      "label": 1,
+      "rows": 4112,
+      "captures": 6,
+      "dependencies": 668,
+      "components": 667,
+      "activities": 2,
+      "protocol_rows": {
+        "6": 1168,
+        "17": 2944
+      },
+      "support_rows": {
+        "with_any_causal_component": 4112,
+        "with_independent_component": 4112,
+        "with_different_capture_component": 4112
+      }
+    },
+    {
+      "device": "Globe Lamp",
+      "role": "FIT",
+      "label": 0,
+      "rows": 927,
+      "captures": 58,
+      "dependencies": 100,
+      "components": 21,
+      "activities": 19,
+      "protocol_rows": {
+        "6": 562,
+        "17": 365
+      },
+      "support_rows": {
+        "with_any_causal_component": 927,
+        "causal_support_only_same_component_or_dependency": 289,
+        "with_independent_component": 638,
+        "with_different_capture_component": 638
+      }
+    },
+    {
+      "device": "Globe Lamp",
+      "role": "FIT",
+      "label": 1,
+      "rows": 17658,
+      "captures": 6,
+      "dependencies": 2864,
+      "components": 2859,
+      "activities": 2,
+      "protocol_rows": {
+        "6": 5011,
+        "17": 12647
+      },
+      "support_rows": {
+        "with_any_causal_component": 17658,
+        "with_independent_component": 17658,
+        "with_different_capture_component": 17658
+      }
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "role": "CAL",
+      "label": 0,
+      "rows": 12376,
+      "captures": 16,
+      "dependencies": 773,
+      "components": 756,
+      "activities": 6,
+      "protocol_rows": {
+        "6": 2629,
+        "17": 9747
+      },
+      "support_rows": {
+        "with_any_causal_component": 12376,
+        "with_independent_component": 12376,
+        "with_at_least_two_independent_components": 12376,
+        "with_different_capture_component": 12376
+      }
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "role": "CAL",
+      "label": 1,
+      "rows": 38947,
+      "captures": 6,
+      "dependencies": 2098,
+      "components": 2098,
+      "activities": 2,
+      "protocol_rows": {
+        "6": 35619,
+        "17": 3328
+      },
+      "support_rows": {
+        "with_any_causal_component": 38947,
+        "with_independent_component": 38947,
+        "with_at_least_two_independent_components": 38947,
+        "with_different_capture_component": 38947
+      }
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "role": "FIT",
+      "label": 0,
+      "rows": 48892,
+      "captures": 31,
+      "dependencies": 3025,
+      "components": 2915,
+      "activities": 10,
+      "protocol_rows": {
+        "6": 10711,
+        "17": 38181
+      },
+      "support_rows": {
+        "with_any_causal_component": 48892,
+        "with_independent_component": 48892,
+        "with_at_least_two_independent_components": 48892,
+        "with_different_capture_component": 48892
+      }
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "role": "FIT",
+      "label": 1,
+      "rows": 163148,
+      "captures": 6,
+      "dependencies": 8668,
+      "components": 8663,
+      "activities": 2,
+      "protocol_rows": {
+        "6": 149612,
+        "17": 13536
+      },
+      "support_rows": {
+        "with_any_causal_component": 163148,
+        "with_independent_component": 163148,
+        "with_at_least_two_independent_components": 163148,
+        "with_different_capture_component": 163148
+      }
+    },
+    {
+      "device": "SimCam",
+      "role": "CAL",
+      "label": 0,
+      "rows": 2767,
+      "captures": 13,
+      "dependencies": 314,
+      "components": 301,
+      "activities": 3,
+      "protocol_rows": {
+        "17": 591,
+        "6": 2176
+      },
+      "support_rows": {
+        "with_any_causal_component": 2767,
+        "with_independent_component": 2767,
+        "with_at_least_two_independent_components": 2767,
+        "with_different_capture_component": 2767
+      }
+    },
+    {
+      "device": "SimCam",
+      "role": "CAL",
+      "label": 1,
+      "rows": 64088,
+      "captures": 6,
+      "dependencies": 2007,
+      "components": 2007,
+      "activities": 2,
+      "protocol_rows": {
+        "6": 64088
+      },
+      "support_rows": {
+        "with_any_causal_component": 64088,
+        "with_independent_component": 64088,
+        "with_at_least_two_independent_components": 64088,
+        "with_different_capture_component": 64088
+      }
+    },
+    {
+      "device": "SimCam",
+      "role": "FIT",
+      "label": 0,
+      "rows": 10635,
+      "captures": 13,
+      "dependencies": 1255,
+      "components": 1226,
+      "activities": 3,
+      "protocol_rows": {
+        "17": 2076,
+        "6": 8559
+      },
+      "support_rows": {
+        "with_any_causal_component": 10635,
+        "with_independent_component": 10635,
+        "with_at_least_two_independent_components": 10635,
+        "with_different_capture_component": 10635
+      }
+    },
+    {
+      "device": "SimCam",
+      "role": "FIT",
+      "label": 1,
+      "rows": 267973,
+      "captures": 6,
+      "dependencies": 8383,
+      "components": 8383,
+      "activities": 2,
+      "protocol_rows": {
+        "6": 267973
+      },
+      "support_rows": {
+        "with_any_causal_component": 267973,
+        "with_independent_component": 267973,
+        "with_at_least_two_independent_components": 267973,
+        "with_different_capture_component": 267973
+      }
+    }
+  ],
+  "missing_optional_fields": {},
+  "fit_cal_dependency_overlap": 0,
+  "fit_cal_component_overlap": 0,
+  "proposed_split": {
+    "outer_holdout_devices": [
+      "Amcrest Camera",
+      "Philips Hue Bridge"
+    ],
+    "inner_query_folds": [
+      [
+        "SimCam",
+        "Atomi Coffee Maker"
+      ],
+      [
+        "ArloQ Camera",
+        "Globe Lamp"
+      ]
+    ],
+    "roster_exactly_covered": true,
+    "outer_train_capture_overlap": 7,
+    "outer_train_component_overlap": 0,
+    "outer_train_device_overlap": 0,
+    "rationale": "Specified before target-query selection; structural pilot only.",
+    "capture_isolation_established": false
+  },
+  "status": "COMPLETE_STRUCTURAL_AUDIT_ONLY",
+  "generated_at": "2026-10-23T05:27:59.526406+00:00",
+  "lineage": "NEW_RECONSTRUCTION_LINEAGE",
+  "parent_parity": "PARENT_PARITY_UNAVAILABLE",
+  "source_inputs": {
+    "LEARN.jsonl.gz": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\ecs_cache_resume_v1_20261020\\verified_cache_20261022\\inputs\\LEARN.jsonl.gz",
+    "SOURCE_REFS.jsonl.gz": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\ecs_cache_resume_v1_20261020\\verified_cache_20261022\\inputs\\SOURCE_REFS.jsonl.gz",
+    "FIT.npz": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\ecs_cache_resume_v1_20261020\\verified_cache_20261022\\inputs\\FIT.npz",
+    "CAL.npz": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\ecs_cache_resume_v1_20261020\\verified_cache_20261022\\inputs\\CAL.npz"
+  },
+  "excluded_reference_partitions": {
+    "DEV": 75
+  },
+  "feature_headers": {
+    "LEARN": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\ecs_cache_resume_v1_20261020\\verified_cache_20261022\\features\\LEARN.npy",
+      "shape": [
+        766727,
+        794
+      ],
+      "dtype": "float32",
+      "feature_interpretation": "first 768 columns E3; total 794 includes old state"
+    },
+    "SOURCE_REFS": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\ecs_cache_resume_v1_20261020\\verified_cache_20261022\\features\\SOURCE_REFS.npy",
+      "shape": [
+        179,
+        794
+      ],
+      "dtype": "float32",
+      "feature_interpretation": "first 768 columns E3; total 794 includes old state"
+    }
+  },
+  "frozen_fit_cal_indices_exact": true,
+  "target_query_files_opened": 0,
+  "model_forward_calls": 0,
+  "optimizer_updates": 0,
+  "large_feature_rehash": false,
+  "evidence_limits": [
+    "Metadata support counts are availability only, not geometric support or efficacy.",
+    "Causal same-component history can be legitimate; it is not independent coverage.",
+    "No query rows are deleted; pre-reference queries must retain base-head decisions.",
+    "CAL remains calibration-only and cannot enter fitting or hard-example mining.",
+    "Full-FIT heads have seen source devices; auxiliary held-device heads are still required.",
+    "Device exclusion at the head/module stage does not establish unseen-device pretraining.",
+    "All six source devices are from the existing source domain; B-like domain coverage is unproven.",
+    "No training recipe, hard-example set, model, threshold or target evaluation was produced.",
+    "Existing input seals are referenced; this metadata audit does not reverify multi-GB payload hashes."
+  ]
+}

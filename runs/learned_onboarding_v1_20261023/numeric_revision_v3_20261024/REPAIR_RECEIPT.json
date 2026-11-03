@@ -1,0 +1,123 @@
+{
+  "schema": "paper04-numeric-repair-receipt-v3",
+  "status": "NUMERIC_FIX_VERIFIED_SOURCE_ONLY_EXPERIMENT_STILL_STOPPED",
+  "recorded_at": "2026-10-24T05:18:33.337692+00:00",
+  "original_diagnosis_sha256": "49042c0e79bbe68d5f2e594af51080856bc7813913557ae82c0b1755c57dac78",
+  "evidence_manifest_sha256": "69d6ffaea7c71fc3ea10dd91ff753b7a56214326b699d275cdd9436dcf180d2b",
+  "source_validation_sha256": "7a467b865dc1420e6450ce81d98b5a26687e31ef759b506a29841e0ba8cdb529",
+  "input_identity_supplement_sha256": "75d3f9e5559fedf77bb47ee49788d39bd7e0b71de10aa20b6d63a719eb8c0971",
+  "candidate_manifest_sha256": "7642e1114165e487e8d207366e08f68eabe5d8a96d83bbe1c3f8300a306396e1",
+  "candidate_archive_sha256": "7d1789fe779a7cc0ae4547dc22729b9b5ae1f96bd7ba93bf4180f5675155cc3d",
+  "test_runtime": {
+    "python": "3.9.24",
+    "torch": "2.5.1+cpu"
+  },
+  "remote_original_tests": 49,
+  "remote_numeric_tests": 5,
+  "real_auxiliary_heads": 2,
+  "real_held_rows": 617908,
+  "revised_native_batches_bitwise_equal": true,
+  "reloaded_checkpoint_scores_bitwise_equal": true,
+  "groups": [
+    {
+      "schema": "paper04-numeric-revision-source-group-v3",
+      "status": "PASS",
+      "head": "AUX_G0",
+      "source_only": true,
+      "target_queries_read": 0,
+      "production_optimizer_updates": 0,
+      "held_rows": 509233,
+      "train_rows": 108675,
+      "checkpoint_sha256": "53486982b1ceda98d0f48d7e1ffacd3c3e06a542ca633cb87eb6620881f11341",
+      "checkpoint_updates": 17000,
+      "checkpoint_final_hash": "9ceceeadd397bbbdc983772be664211a7de2232981c8c4af11f4a7931bcdf62a",
+      "same_checkpoint_weights": true,
+      "score_bitwise_native_256_127": true,
+      "score_bitwise_reloaded": true,
+      "replay": {
+        "rows": 509233,
+        "score_bitwise_reloaded": true,
+        "max_abs_batch_difference": 0.0,
+        "decisions_equal": true,
+        "added_fn_indices": []
+      },
+      "original_fit_statistics": {
+        "t": -16.007766723632812,
+        "s": 53.773006439208984,
+        "degenerate_scale": false,
+        "normal_count": 74039,
+        "attack_count": 34636
+      },
+      "revised_fit_statistics": {
+        "t": -16.007766723632812,
+        "s": 53.77300834655762,
+        "degenerate_scale": false,
+        "normal_count": 74039,
+        "attack_count": 34636
+      },
+      "old256_bitwise_preservation_claimed": false,
+      "cross_version_changed_logits": 357448,
+      "cross_version_max_abs_logit_difference": 9.5367431640625e-06,
+      "cross_version_outside_old_tolerance": 1052,
+      "cross_version_changed_source_decisions": 0,
+      "cross_version_source_new_fn": 0,
+      "hard_set_and_reference_geometry": "NOT_EXECUTED_FULL_CHAIN_STILL_REQUIRED",
+      "elapsed_seconds": 239.13247805298306
+    },
+    {
+      "schema": "paper04-numeric-revision-source-group-v3",
+      "status": "PASS",
+      "head": "AUX_G1",
+      "source_only": true,
+      "target_queries_read": 0,
+      "production_optimizer_updates": 0,
+      "held_rows": 108675,
+      "train_rows": 509233,
+      "checkpoint_sha256": "4339c04fd4a900698dde6543621a32f7b77932510fa373f4ec2c75fa6a2c8ff5",
+      "checkpoint_updates": 79600,
+      "checkpoint_final_hash": "e4bb4d24932f559a8b7051d81d7499289c2de99f9d0d021946f38f7584652225",
+      "same_checkpoint_weights": true,
+      "score_bitwise_native_256_127": true,
+      "score_bitwise_reloaded": true,
+      "replay": {
+        "rows": 108675,
+        "score_bitwise_reloaded": true,
+        "max_abs_batch_difference": 0.0,
+        "decisions_equal": true,
+        "added_fn_indices": []
+      },
+      "original_fit_statistics": {
+        "t": -23.301986694335938,
+        "s": 110.6305160522461,
+        "degenerate_scale": false,
+        "normal_count": 60454,
+        "attack_count": 448779
+      },
+      "revised_fit_statistics": {
+        "t": -23.301986694335938,
+        "s": 110.6305160522461,
+        "degenerate_scale": false,
+        "normal_count": 60454,
+        "attack_count": 448779
+      },
+      "old256_bitwise_preservation_claimed": false,
+      "cross_version_changed_logits": 72310,
+      "cross_version_max_abs_logit_difference": 1.52587890625e-05,
+      "cross_version_outside_old_tolerance": 548,
+      "cross_version_changed_source_decisions": 0,
+      "cross_version_source_new_fn": 0,
+      "hard_set_and_reference_geometry": "NOT_EXECUTED_FULL_CHAIN_STILL_REQUIRED",
+      "elapsed_seconds": 128.52536832998157
+    }
+  ],
+  "source_forward_seconds": 379.2768818679906,
+  "peak_source_process_tree_rss": 3533807616,
+  "production_optimizer_updates": 0,
+  "target_queries_read": 0,
+  "old_checkpoint_weights_preserved": true,
+  "original_experiment_resumed": false,
+  "scientific_results": "NOT_AVAILABLE",
+  "full_H_geometry_and_pipeline": "NOT_RUN",
+  "automatic_relaunch": false,
+  "next_step": "Separate explicitly authorized execution with revised numeric identity; never resume or overwrite V2 silently"
+}

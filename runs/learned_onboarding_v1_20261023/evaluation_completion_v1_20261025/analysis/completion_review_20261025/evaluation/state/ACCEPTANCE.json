@@ -1,0 +1,1659 @@
+{
+  "control_cells": 12,
+  "engineering_completion_does_not_assert_scientific_pass": true,
+  "evaluation_seal_sha256": "681d10118a327c539b5df0f3743ec0353c7bcb6d1e4f2b6d625eff5356bd1659",
+  "gzip_crc_and_row_count_verified": true,
+  "main_cells": 40,
+  "prediction_rows": 8533252,
+  "prior_summaries_equal": 49,
+  "scientific_decision": {
+    "attack_protection": {
+      "L_HARD": {
+        "failing_cells": [],
+        "observed_new_fn_count": 0,
+        "status": "PASS"
+      },
+      "L_QUERY_ONLY": {
+        "failing_cells": [],
+        "observed_new_fn_count": 0,
+        "status": "PASS"
+      },
+      "L_STANDARD": {
+        "failing_cells": [],
+        "observed_new_fn_count": 0,
+        "status": "PASS"
+      }
+    },
+    "automatic_promotion": false,
+    "development_evidence_only": true,
+    "eligible_base_fp_present": true,
+    "hard_task_value": {
+      "comparison": {
+        "no_worse_all": true,
+        "pools": [
+          {
+            "device_deltas": {
+              "Eufy Home Base": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              },
+              "HeimVision Camera": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              }
+            },
+            "left": "L_HARD",
+            "left_fp": 440,
+            "no_worse": true,
+            "pool": "CIC_DEV",
+            "raw_fp_gain": 0,
+            "right": "L_STANDARD",
+            "right_fp": 440,
+            "strict": false,
+            "weighted_fpr_gain": 0.0
+          },
+          {
+            "device_deltas": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              },
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": {
+                "raw_fp_gain": 39,
+                "weighted_fpr_gain": 0.006855497838186328
+              },
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": {
+                "raw_fp_gain": 534,
+                "weighted_fpr_gain": 0.032357813647978795
+              },
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              },
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": {
+                "raw_fp_gain": 856,
+                "weighted_fpr_gain": 0.021421626400778604
+              }
+            },
+            "left": "L_HARD",
+            "left_fp": 27363,
+            "no_worse": true,
+            "pool": "UNSW_DEV",
+            "raw_fp_gain": 1429,
+            "right": "L_STANDARD",
+            "right_fp": 28792,
+            "strict": true,
+            "weighted_fpr_gain": 0.012126987577388726
+          }
+        ],
+        "strict_any": true
+      },
+      "status": "PASS"
+    },
+    "learned_benefit": {
+      "L_HARD": {
+        "comparison": {
+          "no_worse_all": true,
+          "pools": [
+            {
+              "device_deltas": {
+                "Eufy Home Base": {
+                  "raw_fp_gain": 0,
+                  "weighted_fpr_gain": 0.0
+                },
+                "HeimVision Camera": {
+                  "raw_fp_gain": 0,
+                  "weighted_fpr_gain": 0.0
+                }
+              },
+              "left": "L_HARD",
+              "left_fp": 440,
+              "no_worse": true,
+              "pool": "CIC_DEV",
+              "raw_fp_gain": 0,
+              "right": "BASE",
+              "right_fp": 440,
+              "strict": false,
+              "weighted_fpr_gain": 0.0
+            },
+            {
+              "device_deltas": {
+                "unsw-attack-traces-2018:00:16:6c:ab:6b:88": {
+                  "raw_fp_gain": 0,
+                  "weighted_fpr_gain": 0.0
+                },
+                "unsw-attack-traces-2018:50:c7:bf:00:56:39": {
+                  "raw_fp_gain": 51,
+                  "weighted_fpr_gain": 0.00824856531552104
+                },
+                "unsw-attack-traces-2018:70:ee:50:18:34:43": {
+                  "raw_fp_gain": 652,
+                  "weighted_fpr_gain": 0.06214867410669905
+                },
+                "unsw-attack-traces-2018:ec:1a:59:79:f4:89": {
+                  "raw_fp_gain": 0,
+                  "weighted_fpr_gain": 0.0
+                },
+                "unsw-attack-traces-2018:ec:1a:59:83:28:11": {
+                  "raw_fp_gain": 2116,
+                  "weighted_fpr_gain": 0.06094252053251359
+                }
+              },
+              "left": "L_HARD",
+              "left_fp": 27363,
+              "no_worse": true,
+              "pool": "UNSW_DEV",
+              "raw_fp_gain": 2819,
+              "right": "BASE",
+              "right_fp": 30182,
+              "strict": true,
+              "weighted_fpr_gain": 0.026267951990946725
+            }
+          ],
+          "strict_any": true
+        },
+        "status": "PASS"
+      },
+      "L_QUERY_ONLY": {
+        "comparison": {
+          "no_worse_all": true,
+          "pools": [
+            {
+              "device_deltas": {
+                "Eufy Home Base": {
+                  "raw_fp_gain": 0,
+                  "weighted_fpr_gain": 0.0
+                },
+                "HeimVision Camera": {
+                  "raw_fp_gain": 0,
+                  "weighted_fpr_gain": 0.0
+                }
+              },
+              "left": "L_QUERY_ONLY",
+              "left_fp": 440,
+              "no_worse": true,
+              "pool": "CIC_DEV",
+              "raw_fp_gain": 0,
+              "right": "BASE",
+              "right_fp": 440,
+              "strict": false,
+              "weighted_fpr_gain": 0.0
+            },
+            {
+              "device_deltas": {
+                "unsw-attack-traces-2018:00:16:6c:ab:6b:88": {
+                  "raw_fp_gain": 0,
+                  "weighted_fpr_gain": 0.0
+                },
+                "unsw-attack-traces-2018:50:c7:bf:00:56:39": {
+                  "raw_fp_gain": 7,
+                  "weighted_fpr_gain": 0.0029895587493056625
+                },
+                "unsw-attack-traces-2018:70:ee:50:18:34:43": {
+                  "raw_fp_gain": 112,
+                  "weighted_fpr_gain": 0.026321022620639123
+                },
+                "unsw-attack-traces-2018:ec:1a:59:79:f4:89": {
+                  "raw_fp_gain": 0,
+                  "weighted_fpr_gain": 0.0
+                },
+                "unsw-attack-traces-2018:ec:1a:59:83:28:11": {
+                  "raw_fp_gain": 209,
+                  "weighted_fpr_gain": 0.0064091977052366245
+                }
+              },
+              "left": "L_QUERY_ONLY",
+              "left_fp": 29854,
+              "no_worse": true,
+              "pool": "UNSW_DEV",
+              "raw_fp_gain": 328,
+              "right": "BASE",
+              "right_fp": 30182,
+              "strict": true,
+              "weighted_fpr_gain": 0.007143955815036296
+            }
+          ],
+          "strict_any": true
+        },
+        "status": "PASS"
+      },
+      "L_STANDARD": {
+        "comparison": {
+          "no_worse_all": true,
+          "pools": [
+            {
+              "device_deltas": {
+                "Eufy Home Base": {
+                  "raw_fp_gain": 0,
+                  "weighted_fpr_gain": 0.0
+                },
+                "HeimVision Camera": {
+                  "raw_fp_gain": 0,
+                  "weighted_fpr_gain": 0.0
+                }
+              },
+              "left": "L_STANDARD",
+              "left_fp": 440,
+              "no_worse": true,
+              "pool": "CIC_DEV",
+              "raw_fp_gain": 0,
+              "right": "BASE",
+              "right_fp": 440,
+              "strict": false,
+              "weighted_fpr_gain": 0.0
+            },
+            {
+              "device_deltas": {
+                "unsw-attack-traces-2018:00:16:6c:ab:6b:88": {
+                  "raw_fp_gain": 0,
+                  "weighted_fpr_gain": 0.0
+                },
+                "unsw-attack-traces-2018:50:c7:bf:00:56:39": {
+                  "raw_fp_gain": 12,
+                  "weighted_fpr_gain": 0.0013930674773347113
+                },
+                "unsw-attack-traces-2018:70:ee:50:18:34:43": {
+                  "raw_fp_gain": 118,
+                  "weighted_fpr_gain": 0.02979086045872026
+                },
+                "unsw-attack-traces-2018:ec:1a:59:79:f4:89": {
+                  "raw_fp_gain": 0,
+                  "weighted_fpr_gain": 0.0
+                },
+                "unsw-attack-traces-2018:ec:1a:59:83:28:11": {
+                  "raw_fp_gain": 1260,
+                  "weighted_fpr_gain": 0.039520894131734985
+                }
+              },
+              "left": "L_STANDARD",
+              "left_fp": 28792,
+              "no_worse": true,
+              "pool": "UNSW_DEV",
+              "raw_fp_gain": 1390,
+              "right": "BASE",
+              "right_fp": 30182,
+              "strict": true,
+              "weighted_fpr_gain": 0.014140964413558
+            }
+          ],
+          "strict_any": true
+        },
+        "status": "PASS"
+      }
+    },
+    "lineage": "NEW_RECONSTRUCTION_LINEAGE",
+    "original_attack_contract": {
+      "BASE": {
+        "cells": [
+          {
+            "bank": "OLD_BANK",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B0",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B1",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B2",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "OLD_BANK",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B0",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B1",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B2",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          }
+        ],
+        "status": "PASS"
+      },
+      "L_HARD": {
+        "cells": [
+          {
+            "bank": "OLD_BANK",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B0",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B1",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B2",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "OLD_BANK",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B0",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B1",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B2",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          }
+        ],
+        "status": "PASS"
+      },
+      "L_QUERY_ONLY": {
+        "cells": [
+          {
+            "bank": "OLD_BANK",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B0",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B1",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B2",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "OLD_BANK",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B0",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B1",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B2",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          }
+        ],
+        "status": "PASS"
+      },
+      "L_STANDARD": {
+        "cells": [
+          {
+            "bank": "OLD_BANK",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B0",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B1",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B2",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "OLD_BANK",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B0",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B1",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B2",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          }
+        ],
+        "status": "PASS"
+      },
+      "V3": {
+        "cells": [
+          {
+            "bank": "OLD_BANK",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B0",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B1",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B2",
+            "device_attack_97": {
+              "Eufy Home Base": true,
+              "HeimVision Camera": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "CIC_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "OLD_BANK",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B0",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B1",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          },
+          {
+            "bank": "B2",
+            "device_attack_97": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": true,
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": true,
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": true,
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": true,
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": true
+            },
+            "failing_devices": [],
+            "missing_devices": [],
+            "pool": "UNSW_DEV",
+            "pool_attack_99": true,
+            "seed_attack_97": true,
+            "status": "PASS"
+          }
+        ],
+        "status": "PASS"
+      }
+    },
+    "parent_parity": "PARENT_PARITY_UNAVAILABLE",
+    "reference_attribution": {
+      "status": "REFERENCE_ATTRIBUTION_FAIL",
+      "versus_query_only": {
+        "no_worse_all": true,
+        "pools": [
+          {
+            "device_deltas": {
+              "Eufy Home Base": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              },
+              "HeimVision Camera": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              }
+            },
+            "left": "L_HARD",
+            "left_fp": 440,
+            "no_worse": true,
+            "pool": "CIC_DEV",
+            "raw_fp_gain": 0,
+            "right": "L_QUERY_ONLY",
+            "right_fp": 440,
+            "strict": false,
+            "weighted_fpr_gain": 0.0
+          },
+          {
+            "device_deltas": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              },
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": {
+                "raw_fp_gain": 44,
+                "weighted_fpr_gain": 0.005259006566215377
+              },
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": {
+                "raw_fp_gain": 540,
+                "weighted_fpr_gain": 0.03582765148605993
+              },
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              },
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": {
+                "raw_fp_gain": 1907,
+                "weighted_fpr_gain": 0.054533322827276964
+              }
+            },
+            "left": "L_HARD",
+            "left_fp": 27363,
+            "no_worse": true,
+            "pool": "UNSW_DEV",
+            "raw_fp_gain": 2491,
+            "right": "L_QUERY_ONLY",
+            "right_fp": 29854,
+            "strict": true,
+            "weighted_fpr_gain": 0.01912399617591043
+          }
+        ],
+        "strict_any": true
+      },
+      "wrong_control": {
+        "cells": [
+          {
+            "arm": "L_STANDARD",
+            "matched_normal_base_fp": 28,
+            "matched_normal_weight": 0.0916087962962963,
+            "matched_rows": 18355,
+            "own_fixed": 0,
+            "own_fixed_weight": 0.0,
+            "own_subset_weighted_fpr": 0.05654918579350038,
+            "pool": "CIC_DEV",
+            "wrong_fixed": 0,
+            "wrong_fixed_weight": 0.0,
+            "wrong_new_fn": 0,
+            "wrong_subset_weighted_fpr": 0.05654918579350038
+          },
+          {
+            "arm": "L_HARD",
+            "matched_normal_base_fp": 28,
+            "matched_normal_weight": 0.0916087962962963,
+            "matched_rows": 18355,
+            "own_fixed": 0,
+            "own_fixed_weight": 0.0,
+            "own_subset_weighted_fpr": 0.05654918579350038,
+            "pool": "CIC_DEV",
+            "wrong_fixed": 0,
+            "wrong_fixed_weight": 0.0,
+            "wrong_new_fn": 0,
+            "wrong_subset_weighted_fpr": 0.05654918579350038
+          },
+          {
+            "arm": "L_QUERY_ONLY",
+            "matched_normal_base_fp": 28,
+            "matched_normal_weight": 0.0916087962962963,
+            "matched_rows": 18355,
+            "own_fixed": 0,
+            "own_fixed_weight": 0.0,
+            "own_subset_weighted_fpr": 0.05654918579350038,
+            "pool": "CIC_DEV",
+            "wrong_fixed": 0,
+            "wrong_fixed_weight": 0.0,
+            "wrong_new_fn": 0,
+            "wrong_subset_weighted_fpr": 0.05654918579350038
+          },
+          {
+            "arm": "L_STANDARD",
+            "matched_normal_base_fp": 12330,
+            "matched_normal_weight": 0.5307562342101899,
+            "matched_rows": 65441,
+            "own_fixed": 1272,
+            "own_fixed_weight": 0.00818279232181394,
+            "own_subset_weighted_fpr": 0.1448233119569668,
+            "pool": "UNSW_DEV",
+            "wrong_fixed": 318,
+            "wrong_fixed_weight": 0.002813479040018542,
+            "wrong_new_fn": 0,
+            "wrong_subset_weighted_fpr": 0.154939657155974
+          },
+          {
+            "arm": "L_HARD",
+            "matched_normal_base_fp": 12330,
+            "matched_normal_weight": 0.5307562342101899,
+            "matched_rows": 65441,
+            "own_fixed": 2167,
+            "own_fixed_weight": 0.013838217169606926,
+            "own_subset_weighted_fpr": 0.13416790278177598,
+            "pool": "UNSW_DEV",
+            "wrong_fixed": 2723,
+            "wrong_fixed_weight": 0.014846858436625646,
+            "wrong_new_fn": 0,
+            "wrong_subset_weighted_fpr": 0.13226751762941
+          },
+          {
+            "arm": "L_QUERY_ONLY",
+            "matched_normal_base_fp": 12330,
+            "matched_normal_weight": 0.5307562342101899,
+            "matched_rows": 65441,
+            "own_fixed": 219,
+            "own_fixed_weight": 0.0018798553268245068,
+            "own_subset_weighted_fpr": 0.15669870142717948,
+            "pool": "UNSW_DEV",
+            "wrong_fixed": 219,
+            "wrong_fixed_weight": 0.0018798553268245068,
+            "wrong_new_fn": 0,
+            "wrong_subset_weighted_fpr": 0.15669870142717948
+          }
+        ],
+        "equally_effective": true,
+        "status": "EVALUATED"
+      }
+    },
+    "schema": "learned-onboarding-scientific-decision-v1",
+    "source_coverage": {
+      "attack_own_bank_devices": [
+        "ArloQ Camera",
+        "Philips Hue Bridge",
+        "SimCam"
+      ],
+      "fit_rows": 617908,
+      "frame_causality_checked": true,
+      "groups": [
+        {
+          "device": "Amcrest Camera",
+          "label": 0,
+          "protocol": 6,
+          "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+          "rows": 10251
+        },
+        {
+          "device": "Amcrest Camera",
+          "label": 1,
+          "protocol": 6,
+          "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+          "rows": 87
+        },
+        {
+          "device": "Amcrest Camera",
+          "label": 0,
+          "protocol": 17,
+          "reason": "ELIGIBLE",
+          "rows": 22689
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": 0,
+          "protocol": 6,
+          "reason": "ELIGIBLE",
+          "rows": 34772
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": 1,
+          "protocol": 6,
+          "reason": "ELIGIBLE",
+          "rows": 2345
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": 0,
+          "protocol": 17,
+          "reason": "ELIGIBLE",
+          "rows": 3038
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": 1,
+          "protocol": 17,
+          "reason": "ELIGIBLE",
+          "rows": 13683
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 0,
+          "protocol": 6,
+          "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+          "rows": 2708
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 1,
+          "protocol": 6,
+          "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+          "rows": 4793
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 0,
+          "protocol": 17,
+          "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+          "rows": 581
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 1,
+          "protocol": 17,
+          "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+          "rows": 13728
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "protocol": 6,
+          "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+          "rows": 562
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 1,
+          "protocol": 6,
+          "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+          "rows": 5011
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "protocol": 17,
+          "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+          "rows": 365
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 1,
+          "protocol": 17,
+          "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+          "rows": 12647
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 0,
+          "protocol": 6,
+          "reason": "ELIGIBLE",
+          "rows": 10711
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 1,
+          "protocol": 6,
+          "reason": "ELIGIBLE",
+          "rows": 149612
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 0,
+          "protocol": 17,
+          "reason": "ELIGIBLE",
+          "rows": 38181
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 1,
+          "protocol": 17,
+          "reason": "ELIGIBLE",
+          "rows": 13536
+        },
+        {
+          "device": "SimCam",
+          "label": 0,
+          "protocol": 6,
+          "reason": "ELIGIBLE",
+          "rows": 8559
+        },
+        {
+          "device": "SimCam",
+          "label": 1,
+          "protocol": 6,
+          "reason": "ELIGIBLE",
+          "rows": 267973
+        },
+        {
+          "device": "SimCam",
+          "label": 0,
+          "protocol": 17,
+          "reason": "ELIGIBLE",
+          "rows": 2076
+        }
+      ],
+      "lineage": "NEW_RECONSTRUCTION_LINEAGE",
+      "normal_devices": [
+        "Amcrest Camera",
+        "ArloQ Camera",
+        "Philips Hue Bridge",
+        "SimCam"
+      ],
+      "parent_parity": "PARENT_PARITY_UNAVAILABLE",
+      "schema": "learned-onboarding-frame-coverage-v1",
+      "source_reference_rows": 104,
+      "spec_sha256": "a07d736c7c9c756478a7d163873611132ff0b14abc855ab3a3709257433674b8",
+      "status": "READY",
+      "version": 1
+    },
+    "source_signal": {
+      "status": "READY",
+      "views": {
+        "auxiliary": {
+          "components": 4282,
+          "count": 30829,
+          "devices": [
+            "Amcrest Camera",
+            "ArloQ Camera",
+            "Philips Hue Bridge",
+            "SimCam"
+          ],
+          "hard": {
+            "components": 3181,
+            "devices": [
+              "Amcrest Camera",
+              "ArloQ Camera",
+              "Philips Hue Bridge",
+              "SimCam"
+            ],
+            "positive_count": 16450,
+            "positive_weight_mass_in_full_class": 0.12413199613648451,
+            "positive_weight_mass_within_hard": 0.6599798931762204,
+            "protocols": [
+              6,
+              17
+            ],
+            "task_count": 21751
+          },
+          "hard_count": 16450,
+          "protocols": [
+            6,
+            17
+          ],
+          "weight_mass": 0.2229957816058107
+        },
+        "formal": {
+          "components": 586,
+          "count": 1571,
+          "devices": [
+            "Amcrest Camera",
+            "ArloQ Camera",
+            "Philips Hue Bridge",
+            "SimCam"
+          ],
+          "hard": {
+            "components": 586,
+            "devices": [
+              "Amcrest Camera",
+              "ArloQ Camera",
+              "Philips Hue Bridge",
+              "SimCam"
+            ],
+            "positive_count": 1571,
+            "positive_weight_mass_in_full_class": 0.010369113244569845,
+            "positive_weight_mass_within_hard": 0.043489899664731664,
+            "protocols": [
+              6,
+              17
+            ],
+            "task_count": 48063
+          },
+          "hard_count": 1571,
+          "protocols": [
+            6,
+            17
+          ],
+          "weight_mass": 0.010369113244569845
+        }
+      }
+    },
+    "spec_sha256": "a07d736c7c9c756478a7d163873611132ff0b14abc855ab3a3709257433674b8",
+    "status": "EVALUATED",
+    "version": 1,
+    "versus_v3": {
+      "L_HARD": {
+        "no_worse_all": false,
+        "pools": [
+          {
+            "device_deltas": {
+              "Eufy Home Base": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              },
+              "HeimVision Camera": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              }
+            },
+            "left": "L_HARD",
+            "left_fp": 440,
+            "no_worse": true,
+            "pool": "CIC_DEV",
+            "raw_fp_gain": 0,
+            "right": "V3",
+            "right_fp": 440,
+            "strict": false,
+            "weighted_fpr_gain": 0.0
+          },
+          {
+            "device_deltas": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": {
+                "raw_fp_gain": -1188,
+                "weighted_fpr_gain": -0.022092846838870056
+              },
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": {
+                "raw_fp_gain": -17,
+                "weighted_fpr_gain": 0.005898851935392871
+              },
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": {
+                "raw_fp_gain": -1667,
+                "weighted_fpr_gain": -0.11169164539375226
+              },
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              },
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": {
+                "raw_fp_gain": -1381,
+                "weighted_fpr_gain": -0.069283110141345
+              }
+            },
+            "left": "L_HARD",
+            "left_fp": 27363,
+            "no_worse": false,
+            "pool": "UNSW_DEV",
+            "raw_fp_gain": -4253,
+            "right": "V3",
+            "right_fp": 23110,
+            "strict": false,
+            "weighted_fpr_gain": -0.03943375008771491
+          }
+        ],
+        "strict_any": false
+      },
+      "L_QUERY_ONLY": {
+        "no_worse_all": false,
+        "pools": [
+          {
+            "device_deltas": {
+              "Eufy Home Base": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              },
+              "HeimVision Camera": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              }
+            },
+            "left": "L_QUERY_ONLY",
+            "left_fp": 440,
+            "no_worse": true,
+            "pool": "CIC_DEV",
+            "raw_fp_gain": 0,
+            "right": "V3",
+            "right_fp": 440,
+            "strict": false,
+            "weighted_fpr_gain": 0.0
+          },
+          {
+            "device_deltas": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": {
+                "raw_fp_gain": -1188,
+                "weighted_fpr_gain": -0.022092846838870056
+              },
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": {
+                "raw_fp_gain": -61,
+                "weighted_fpr_gain": 0.0006398453691774941
+              },
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": {
+                "raw_fp_gain": -2207,
+                "weighted_fpr_gain": -0.1475192968798122
+              },
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              },
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": {
+                "raw_fp_gain": -3288,
+                "weighted_fpr_gain": -0.12381643296862196
+              }
+            },
+            "left": "L_QUERY_ONLY",
+            "left_fp": 29854,
+            "no_worse": false,
+            "pool": "UNSW_DEV",
+            "raw_fp_gain": -6744,
+            "right": "V3",
+            "right_fp": 23110,
+            "strict": false,
+            "weighted_fpr_gain": -0.05855774626362534
+          }
+        ],
+        "strict_any": false
+      },
+      "L_STANDARD": {
+        "no_worse_all": false,
+        "pools": [
+          {
+            "device_deltas": {
+              "Eufy Home Base": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              },
+              "HeimVision Camera": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              }
+            },
+            "left": "L_STANDARD",
+            "left_fp": 440,
+            "no_worse": true,
+            "pool": "CIC_DEV",
+            "raw_fp_gain": 0,
+            "right": "V3",
+            "right_fp": 440,
+            "strict": false,
+            "weighted_fpr_gain": 0.0
+          },
+          {
+            "device_deltas": {
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88": {
+                "raw_fp_gain": -1188,
+                "weighted_fpr_gain": -0.022092846838870056
+              },
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39": {
+                "raw_fp_gain": -56,
+                "weighted_fpr_gain": -0.0009566459027934571
+              },
+              "unsw-attack-traces-2018:70:ee:50:18:34:43": {
+                "raw_fp_gain": -2201,
+                "weighted_fpr_gain": -0.14404945904173105
+              },
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89": {
+                "raw_fp_gain": 0,
+                "weighted_fpr_gain": 0.0
+              },
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11": {
+                "raw_fp_gain": -2237,
+                "weighted_fpr_gain": -0.0907047365421236
+              }
+            },
+            "left": "L_STANDARD",
+            "left_fp": 28792,
+            "no_worse": false,
+            "pool": "UNSW_DEV",
+            "raw_fp_gain": -5682,
+            "right": "V3",
+            "right_fp": 23110,
+            "strict": false,
+            "weighted_fpr_gain": -0.051560737665103634
+          }
+        ],
+        "strict_any": false
+      }
+    },
+    "versus_v3_all_cells": {
+      "L_HARD": [
+        {
+          "bank": "OLD_BANK",
+          "new_fn_difference": 0,
+          "pool": "CIC_DEV",
+          "raw_fp_gain": -32,
+          "weighted_fpr_gain": -0.009132122418797767
+        },
+        {
+          "bank": "B0",
+          "new_fn_difference": 0,
+          "pool": "CIC_DEV",
+          "raw_fp_gain": 0,
+          "weighted_fpr_gain": 0.0
+        },
+        {
+          "bank": "B1",
+          "new_fn_difference": 0,
+          "pool": "CIC_DEV",
+          "raw_fp_gain": 0,
+          "weighted_fpr_gain": 0.0
+        },
+        {
+          "bank": "B2",
+          "new_fn_difference": 0,
+          "pool": "CIC_DEV",
+          "raw_fp_gain": 0,
+          "weighted_fpr_gain": 0.0
+        },
+        {
+          "bank": "OLD_BANK",
+          "new_fn_difference": 0,
+          "pool": "UNSW_DEV",
+          "raw_fp_gain": -2660,
+          "weighted_fpr_gain": -0.01755664663502074
+        },
+        {
+          "bank": "B0",
+          "new_fn_difference": 0,
+          "pool": "UNSW_DEV",
+          "raw_fp_gain": -2660,
+          "weighted_fpr_gain": -0.01755664663502074
+        },
+        {
+          "bank": "B1",
+          "new_fn_difference": 0,
+          "pool": "UNSW_DEV",
+          "raw_fp_gain": -2675,
+          "weighted_fpr_gain": -0.017621517521990288
+        },
+        {
+          "bank": "B2",
+          "new_fn_difference": 0,
+          "pool": "UNSW_DEV",
+          "raw_fp_gain": -4253,
+          "weighted_fpr_gain": -0.03943375008771491
+        }
+      ],
+      "L_QUERY_ONLY": [
+        {
+          "bank": "OLD_BANK",
+          "new_fn_difference": 0,
+          "pool": "CIC_DEV",
+          "raw_fp_gain": -32,
+          "weighted_fpr_gain": -0.009132122418797767
+        },
+        {
+          "bank": "B0",
+          "new_fn_difference": 0,
+          "pool": "CIC_DEV",
+          "raw_fp_gain": 0,
+          "weighted_fpr_gain": 0.0
+        },
+        {
+          "bank": "B1",
+          "new_fn_difference": 0,
+          "pool": "CIC_DEV",
+          "raw_fp_gain": 0,
+          "weighted_fpr_gain": 0.0
+        },
+        {
+          "bank": "B2",
+          "new_fn_difference": 0,
+          "pool": "CIC_DEV",
+          "raw_fp_gain": 0,
+          "weighted_fpr_gain": 0.0
+        },
+        {
+          "bank": "OLD_BANK",
+          "new_fn_difference": 0,
+          "pool": "UNSW_DEV",
+          "raw_fp_gain": -4875,
+          "weighted_fpr_gain": -0.03368808892291883
+        },
+        {
+          "bank": "B0",
+          "new_fn_difference": 0,
+          "pool": "UNSW_DEV",
+          "raw_fp_gain": -4875,
+          "weighted_fpr_gain": -0.03368808892291883
+        },
+        {
+          "bank": "B1",
+          "new_fn_difference": 0,
+          "pool": "UNSW_DEV",
+          "raw_fp_gain": -4874,
+          "weighted_fpr_gain": -0.03368500035832922
+        },
+        {
+          "bank": "B2",
+          "new_fn_difference": 0,
+          "pool": "UNSW_DEV",
+          "raw_fp_gain": -6744,
+          "weighted_fpr_gain": -0.05855774626362534
+        }
+      ],
+      "L_STANDARD": [
+        {
+          "bank": "OLD_BANK",
+          "new_fn_difference": 0,
+          "pool": "CIC_DEV",
+          "raw_fp_gain": -32,
+          "weighted_fpr_gain": -0.009132122418797767
+        },
+        {
+          "bank": "B0",
+          "new_fn_difference": 0,
+          "pool": "CIC_DEV",
+          "raw_fp_gain": 0,
+          "weighted_fpr_gain": 0.0
+        },
+        {
+          "bank": "B1",
+          "new_fn_difference": 0,
+          "pool": "CIC_DEV",
+          "raw_fp_gain": 0,
+          "weighted_fpr_gain": 0.0
+        },
+        {
+          "bank": "B2",
+          "new_fn_difference": 0,
+          "pool": "CIC_DEV",
+          "raw_fp_gain": 0,
+          "weighted_fpr_gain": 0.0
+        },
+        {
+          "bank": "OLD_BANK",
+          "new_fn_difference": 0,
+          "pool": "UNSW_DEV",
+          "raw_fp_gain": -3901,
+          "weighted_fpr_gain": -0.026524022551295823
+        },
+        {
+          "bank": "B0",
+          "new_fn_difference": 0,
+          "pool": "UNSW_DEV",
+          "raw_fp_gain": -3901,
+          "weighted_fpr_gain": -0.026524022551295823
+        },
+        {
+          "bank": "B1",
+          "new_fn_difference": 0,
+          "pool": "UNSW_DEV",
+          "raw_fp_gain": -3896,
+          "weighted_fpr_gain": -0.02650760903661964
+        },
+        {
+          "bank": "B2",
+          "new_fn_difference": 0,
+          "pool": "UNSW_DEV",
+          "raw_fp_gain": -5682,
+          "weighted_fpr_gain": -0.051560737665103634
+        }
+      ]
+    }
+  },
+  "status": "PASS"
+}

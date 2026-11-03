@@ -1,9 +1,374 @@
-﻿# Mainline Experiment Map
+# Mainline Experiment Map
+
+## 2026-10-28 最新：P1失败小诊断完成
+
+见[诊断与下一步判断](collab/20261028_p1_failure_diagnosis_and_direction_codex.md)及[当前接手入口](NEW_CHAT_START_HERE.md)。原48报告精确复现、69文件SHA保持；原QP停止，P2/P3未启动。G0新增漏报说明CAL缺跨设备近边界保护；G1共享校准收益只在单折。原QG可调/回退家族对当前B分数同样无2%/99%联合解，不列为原样A/B主攻候选，下一版先设计受保护的条件修正。本轮0新选阈值/训练/前向/距离/A/B加载/远端任务，无新A/B指标。下方10月25日“最新”为历史快照。
+
+## 2026-10-25 12:33 最新完成复核：V4-EVAL1 已完成，存在局部收益但未达科研目标
+
+独立评价 `V4-EVAL1` 已正常完成：北京时间11:12:03启动、12:28:32结束，耗时76分28秒；`CHAIN_COMPLETE=COMPLETE`、`ACCEPTANCE=PASS`。40个主项＋12个控制全部完成，共8,533,252条预测记录；原V4已有49份摘要均与本次对应摘要全相等。原V4仍为 `EXCEPTION_STOP`，本次独立评价完成不改写原失败历史，也没有重训或从旧49格续跑。
+
+完成依据包括journal正常成功退出、无遗留worker及完成回执；V4-EVAL1的unit现已卸载，不能只靠缺失unit的默认success判成功。本次独立复验评价seal内113件文件SHA；956件原输入的stat／目录成员保持，runner终验已做原输入全量SHA。本轮RSS峰值5.178 GiB低于8 GiB守卫，新增输出853,872,316 bytes（约0.795 GiB）低于独立2 GiB预算。93件小证据、共7,060,904 bytes已下载并逐件验SHA；完整预测尚未下载。
+
+B2加权FPR如下；A所有臂均为7.3703%，学习三臂的λ均为0.25。全40个主格攻击检出率100%，新增FN为0。
+
+| 方法 | B2池B加权FPR |
+| --- | --- |
+| BASE | 23.3533% |
+| V3几何 | 16.7832% |
+| L_STANDARD | 21.9392% |
+| L_HARD | 20.7265% |
+| L_QUERY_ONLY | 22.6389% |
+
+`learned_benefit` 与 `hard_task_value` PASS，但仍未达到池FPR≤1%目标；`reference_attribution` FAIL：B的HARD错参考匹配子集修正2,723条，自身参考为2,167条，错库不逊于自身。因此局部收益存在，学习臂未超过几何方法，参考特异性仍未证实；这是科学结论，并非技术失败。A的440条原始FP中412条资格外，28条可用中另有4条超cap；B在当前约束下的原始FP比例条件下界为12,198／75,763＝16.10%，不能称为加权FPR下界。
+
+见 [完整结果复核](../learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/RESULT_REVIEW.md)／[远端完成审计](../learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/REMOTE_COMPLETION_AUDIT.json)／[小证据下载验收](../learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/analysis/completion_review_20261025/DOWNLOAD_VERIFIED.json)。保持现有普通进度页，不持续调用AI轮询；未启动新实验。以下启动、停止与准备记录均保留为各自当时的历史快照。
+
+## 2026-10-25 11:15 历史启动验收：V4-EVAL1 当时正常运行，进入真实评价
+
+用户已明确授权本次在现有云服务器完成。独立执行 `V4-EVAL1` 于北京时间 `2026-10-25T11:12:03.760+08:00` 启动，root `/srv/paper04/learned_onboarding_eval_20261025_v1`，unit `paper04-learned-onboarding-eval-20261025-v1`，InvocationID `2fb248ddc3ce43b19900483b1ba7d4ae`，PID `5174`。`SOURCE_REUSE_VERIFIED` 于11:13:25.838 PASS，runtime／source binding／target manifest／原科研代码一致；worker 于11:13:25.840进入真实 `evaluation`。11:14:40最终远端验收为 active/running、NRestarts=0，无 `EXCEPTION_STOP`／`child_exception`、stderr为空，资源 READY；新增输出11,863 bytes，RSS峰值4,215,074,816 bytes（约3.926 GiB，低于8 GiB守卫）。尚无 `CHAIN_COMPLETE`，科学结果及完整52格最终验收仍待完成。
+
+本次复用已封存 V4 的 tests／prepare／validate／preflight／fit／calibration／target 共七阶段资产，完整重做 40 个主项＋12 个控制；不重训，也不从旧 49 格续跑。原 V4 仍为 `EXCEPTION_STOP`，原失败现场和未完成事实保留。新 results 独立采用 2 GiB 输出预算，经验上界为 `2,018,840,552 bytes`；原输入 `2,149,196,167 bytes` 单独只读记账，不并入新增输出额度。关键模型／CAL 约 50.81 MiB 已本地备份并逐成员验 SHA，这不是全量结果或全部预测备份。实际云端 Python 3.9 下 16 项工程测试通过；这不等同于科学效果通过。
+
+现有页面任务已重启；11:13验收HTTP 200，11:15:01 `PAGE_ACCEPTANCE.json` 已写 PASS、`connected=true`，版本、启动时间、PID及InvocationID均匹配V4-EVAL1，`worker_stage=evaluation`，原V4历史异常保留。页面每 60 秒由普通程序更新；不持续调用 AI 轮询。科学 FAIL 继续完成登记矩阵，技术异常停止并保留现场、零自动重试。见 [独立评价执行复核](../learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/EXECUTION_REVIEW.md)／[独立评价执行回执](../learned_onboarding_v1_20261023/evaluation_completion_v1_20261025/EXECUTION_RECEIPT.json)。以下均按各自日期阅读历史状态，不能替代本次启动验收。
+
+**10月25日10:41历史核查（独立评价启动前）：原实验9学习型入网 V4 已异常停止，整链未完成；训练与 CAL 已完成并封存有效。** 10月24日21:20:30在A/B评价触发 `OUTER_RESOURCE_OUTPUT_LIMIT`：results 2,149,196,167 bytes超过2 GiB守卫约1.63 MiB；RSS峰值5.973 GiB低于8 GiB，物理盘有余量。当前无实验worker，原unit已卸载，缺CHAIN_COMPLETE；缺失unit的默认Result=success及旧worker RUNNING均不代表当前成功/在跑。两个辅助头、三个修正器及CAL共7套seal逐文件SHA通过；49/52份摘要已落盘，缺UNSW的B2/EMPTY/WRONG三份L_QUERY_ONLY，最终汇总/decision/评价seal均无。现有摘要尚未显示学习臂达到目标，不能当完整矩阵结论。79件约3.30 MiB小证据已回传验SHA；权重/完整预测尚未独立备份。云端SSH已恢复，10:40:58页面connected=true；充值不自动恢复链。本轮只读远端，未重启/续跑/提交HPC/改变守卫。下一步保全模型、精算输出后独立补评价；未来回超算先验真实计算节点共享路径及跨环境数值身份，不重提已备份百万行E3缓存。见 [当前状态复核](../learned_onboarding_v1_20261023/memory_revision_v4_20261024/deployment_20261024/STATUS_REVIEW_20261025.md)。下方全部按各自日期的历史启动/修复快照阅读，不持续AI轮询。
+
+**10月24日19:11历史启动快照：V4 已启动且当时运行正常。** 用户已授权“可以动手运行。”，19:08:45启动独立root `/srv/paper04/learned_onboarding_20261024_v4`、unit `paper04-learned-onboarding-20261024-v4`，InvocationID `226cc64bb84747518f72afe05abe1969`。19:11:12验active/running、零重启、无异常；真实63项＋adapter另4项通过，tests／prepare／validate／preflight完成，已进入fit，未观察optimizer更新数。正式preflight READY／规模证明VERIFIED，估计峰值7.172 GiB，启动RSS峰值4.617 GiB；原资源／科学约束和技术异常停链／零自动重试保持。701件新包身份核验，12源与已验修复一致，V1-3保留，进度页同步V4。见 [执行复核](../learned_onboarding_v1_20261023/memory_revision_v4_20261024/deployment_20261024/EXECUTION_REVIEW.md)／[执行回执](../learned_onboarding_v1_20261023/memory_revision_v4_20261024/deployment_20261024/EXECUTION_RECEIPT.json)。不持续AI轮询；下方待部署／未启动为历史快照，三模块训练／CAL／A/B结果仍待。
+
+**10月24日最新修复验收：进度页已修复上线，V4 源侧完整规模验证及实际 preflight 均通过；正式 V3 仍异常停止，未重启。** 页面权威总状态优先，旧worker RUNNING标为快照，源侧修复验证独立展示。V4共享记录／元数据；617,908条FIT、1,206,882条任务实测峰值5.839 GiB，完整任务JSON／H／采样／批次旧语义对照通过；实际预检READY、规模证明VERIFIED，估计峰值7.169 GiB，原8 GiB守卫未放宽。真实Python3.9下63项及adapter另4项通过；生产更新／CAL评分／目标读取均0，26件V3资产未变。源困难信号READY仅代表训练资格。正式V4部署配置／manifest尚未准备，不可复用复制来的V3部署身份直接启动；三模块真实训练、CAL及A/B仍待。见 [修复说明](../learned_onboarding_v1_20261023/memory_revision_v4_20261024/MEMORY_REPAIR_REVIEW.md)／[修复回执](../learned_onboarding_v1_20261023/memory_revision_v4_20261024/REPAIR_RECEIPT.json)／[页面验收](../diagnostics_d1_d2_v1_20261022/PAGE_REPAIR_CARD_ACCEPTANCE_20261024.json)。下方按历史快照阅读，不持续AI轮询。
+
+**10月24日15:37最新只读核查：学习型入网 V3 已异常停止，未完成。** 北京时间13:58:40在fit触发 `OUTER_RESOURCE_RSS_LIMIT`：进程树RSS 8,610,660,352 bytes超过8 GiB守卫（8,589,934,592 bytes）。远端总状态与异常回执一致，systemd为failed／exit-code=1、MainPID=0、NRestarts=0，无对应V3/现代头训练进程；无 `CHAIN_COMPLETE.json`。tests／prepare／validate／preflight已完成，fit未完成，CAL／target／A/B评价尚未开始。fit子状态停留在13:58:27的 `source_task_records`（view=1，450560/617908），其RUNNING及页面local整体RUNNING均不可当实时运行证据；子进程returncode=0也不替代外层失败终态。属于资源异常，不是科学FAIL；现场保留，本轮未重启／续跑／修改远端。见 [只读状态回执](../learned_onboarding_v1_20261023/numeric_revision_v3_20261024/deployment_20261024/operations/STATUS_CHECK_20261024_153755.json)。下方13:28启动运行是历史快照，不代表当前仍运行。
+
+## 2026-10-24 13:28最新：独立V3已启动并通过启动验收
+
+**10月24日13:28最新启动验收：** 用户已授权“修复好了，就可以启动实验了。”。独立V3全链于北京时间13:26:46启动，新root `/srv/paper04/learned_onboarding_20261024_v3`、unit `paper04-learned-onboarding-20261024-v3`，原V1/V2现场和权重保留。13:28:17验收为active/running、无异常；真实Python3.9/Torch2.5.1下原49＋新增5＝54项全部通过，adapter另4项通过（真实目标读取0）。tests/prepare完成，当前validate；资源preflight、真实辅助头/模块训练、CAL和A/B仍待，科学结果暂无。已验16GiB硬限／8GiB RSS守卫／4线程／单重worker／零自动重试。普通程序按完整冻结链串行继续，科学FAIL继续配对，技术异常停链。既有18765页面已切到V3并验connected=true，不持续AI轮询。见 [执行复核](../learned_onboarding_v1_20261023/numeric_revision_v3_20261024/deployment_20261024/EXECUTION_REVIEW.md)／[执行回执](../learned_onboarding_v1_20261023/numeric_revision_v3_20261024/deployment_20261024/EXECUTION_RECEIPT.json)。下方“实验仍停止／未启动”等属于本次授权启动前的历史快照。
+
+## 2026-10-24 13:18历史：数值修订已验收，实验未重启
+
+**10月24日13:18历史数值修复验收（当时尚未重启）：** V2 的 G1 异常已独立复现：108,675 条源侧留出样本中 1 条超原容差；输入、前一 Linear/ReLU 均逐位相同，差异出在末 Linear，原 FIT 伪阈值下零判决翻转、零新增攻击漏检。V3 使用独立逐条 float32 推理，保留真正 256/127 两路径、各自尾批与原门，未改训练公式/权重或正式头路径。云端实际 Python 3.9/Torch 2.5.1 原49＋新增5项通过；两个既有辅助头共617,908条留出样本，新版256/127及独立重载分数全部逐位相等，输入SHA/原FIT索引/元数据/检查点训练UID补充核验通过。跨版本分数不宣称逐位保留，具体差分与资源以 [修复回执](../learned_onboarding_v1_20261023/numeric_revision_v3_20261024/REPAIR_RECEIPT.json)／[审查说明](../learned_onboarding_v1_20261023/numeric_revision_v3_20261024/NUMERIC_REPAIR_REVIEW.md) 为准。**本轮仅诊断、修订和前向验证，实验仍停止，未重训或自动续跑；完整源几何/H、源困难信号、三模块、CAL和A/B仍待正式执行，科学收益未知。**
+
+## 2026-10-24 历史：V2数值回放异常停止，本地页面已恢复
+
+**10月24日历史异常与页面恢复快照（后续修复见顶部）：** 用户报告页面拒绝连接后核查：本地PID62256已退出、18765无监听，现已改由当前用户的Windows任务计划服务独立托管（仅按需启动、无定时触发器、无AI任务），PID14752，HTTP200、云端连接正常，见 [页面修复回执](../learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/LOCAL_PAGE_REPAIR_20261024.json)。同时发现云端V2已于北京时间12:10:36在fit异常停止：AUX_G0完成40轮/17000步并封存；AUX_G1完成40轮/79600步，但训练后的256/127分批分数回放不满足原rtol=atol=1e-6，报QUERY_BATCH_SCORE_DRIFT，未封存。原批次重新加载bitwise门已通过，G1偏差大小／判决／新增FN集合尚未知，不能豁免或放宽容差。三个修正器、CAL及目标评价均未开始，科学结果暂无。14件小证据已只读回传验SHA，见 [停止诊断](../learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/operations/fit_stop_20261024/DIAGNOSIS.json)。现场、模型与两个失败版本保留，未重跑／续跑／修改远端。12:04运行中是此前真实快照，不能作为当前状态。
+
+## 2026-10-24 12:04历史状态：当时预检完成、fit运行
+
+**10月24日12:04用户要求的一次状态核查：** V2服务active/running，无EXCEPTION_STOP；tests、prepare、validate、preflight均完成，已进入fit阶段。进程在运行，当前cgroup内存约3.8GiB，进程树RSS峰值约6.25GiB，低于8GiB守卫。此次未观测optimizer更新数，不能凭stage名称报具体训练步数；CAL／目标评价和科学结果仍待。见 [状态回执](../learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/operations/STATUS_CHECK_20261024_120437.json)。不持续AI轮询，进度页由普通程序更新。
+
+## 2026-10-24 12:01启动验收：远端49＋4通过，源准备中
+
+**10月24日12:01最新执行快照：** 用户已明确确认重新启动。独立兼容 V2 于北京时间12:00:51启动，实际 Python 3.9 环境中原49项全部PASS、adapter另4项PASS（真实目标读取0）；首次临时目录API错误已通过实际验收。12:01:35服务active/running、完成tests、正在源prepare；不能称真实训练已开始，资源preflight、辅助头／模块训练、CAL及A/B收益仍待。见 [V2执行复核](../learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/EXECUTION_REVIEW.md)／[执行回执](../learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/EXECUTION_RECEIPT.json)。原失败现场完整保留；新root为 `/srv/paper04/learned_onboarding_20261024_v2`、新unit为 `paper04-learned-onboarding-20261024-v2`，不要重用v1输出。已验16GiB硬限／4线程／8GiB RSS guard和空闲窗口，源预检通过后由程序按冻结完整链串行继续；科学FAIL继续配对、技术异常停止留现场，零自动重试。现有18765进度页显示新V2，不持续AI轮询。下方停止／待确认记录均是此次重新执行前的历史。
+
+## 2026-10-24 11:20历史首次执行：兼容验收停止，未真实训练
+
+**10月24日最新学习式执行回执：** 已按用户同意部署并首次启动，但远端 Python 3.9 启动验收中 49 项有 1 项因测试临时目录参数不兼容而 ERROR，链已停止；未进入源准备、资源 preflight 或真实训练，CAL／A/B 新结果均无。独占窗口与 16 GiB 硬限已验，停止现场已回传验 SHA。已备本地独立兼容修订，49 项通过、科研源码及断言未改，实际远端修订仍未验，未上传或重提。见 [执行复核](../learned_onboarding_v1_20261023/deployment_20261024/EXECUTION_REVIEW.md) 和 [修订回执](../learned_onboarding_v1_20261023/compatibility_revision_v2_20261024/REVISION_RECEIPT.json)。进度页已显示 EXCEPTION_STOP；遵守异常停链、不自动重跑，下一步由用户决定是否独立新执行。以下“窗口待落实／仍未部署”等为历史快照。
+
+## 2026-10-24 稍早完成回执：现代三家头与 v3 四库配对全部完成
+
+[完成复核及原始小报告](../modern_head_new_lineage_v1_20261022/analysis/completion_review_20261024/RESULT_REVIEW.md)：14/14 正常结束；三家头及四库完整系统科学 FAIL，96 配对报告零新增攻击漏检。B2 ensemble 加权 FPR（A/B）：MLP 5.74266%/15.21880%、TabM 6.14519%/19.96197%（λ=0）、LightGBM 8.32616%/20.31610%。113 个约 12 MiB 小结果已回传核对 SHA／完成链；完整模型、逐条预测备份待完成。学习式入网 V1 真实训练仍未运行，不按现代头 A/B 成绩改选其冻结主头。下方启动及待完成记录为历史快照。
+
+## 2026-10-23 历史实现回执：学习式入网 V1 代码与验证交付，未真实训练
+
+[新实现与运行说明](../learned_onboarding_v1_20261023/README.md)／[实现验证回执](../learned_onboarding_v1_20261023/implementation_manifest.json)。冻结规格未改；源适配、两辅助头、三学习臂、独立 CAL 保护、40 主项及控制已实现并进行合成集成验证。真实源身份及原 33,147 条 CAL 正常阈值回放已通过；全量源资格、最终测试数及未运行项以新回执为准。没有新真实训练、λ 或 A/B 学习结果，无远端操作或轮询。下方 NOT_IMPLEMENTED 等保留为历史方案状态。
+
+## 2026-10-23 历史方案交付：方案完成，尚未实现或训练
+
+[执行规格](../learned_onboarding_pilot_v1_20261023/EXECUTION_SPEC_V1.md)／[Astra 协议审查](../learned_onboarding_pilot_v1_20261023/REVIEW_V1.md)／[Sol 实现交接](../learned_onboarding_pilot_v1_20261023/IMPLEMENTATION_HANDOFF.md)／[方案回执](../learned_onboarding_pilot_v1_20261023/PLAN_RECEIPT_V1.json)。复用 QUERY_TAIL seed27 正式头，固定两组三设备互换的辅助头＋普通参考／困难参考／query-only 三模块，共最多五训练终点。源 FIT 训练、CAL 最终保护、A/B 四库完整评价；没有新正式头或集成。配方与对照已定，q14 绑定、精确资格、真实折外困难信号和资源仍待验收。此五终点与下方旧外层先导草稿不同；旧共享7捕获的数字不代表新分组。原准备封存文件保持不变，本轮无实现、训练、远端提交或实时检查。
+
+## 2026-10-23 学习式入网源侧准备（历史准备快照，尚未训练）
+
+**同日后续解释：** [数据用途与额外先导澄清](../learned_onboarding_pilot_v1_20261023/DATA_USE_CLARIFICATION.md)。主方案继续以源 FIT 训练检测头/修正器、CAL 校准、A/B 查询评价；可以复用适配的已训练头。五终点内部留设备先导仅为任务构造/额外验证候选，不是主线必须先重训基础头的前置。原结构审计及其限制保留，不外推为原评价隔离失效。
+
+“针对性困难任务＋可学习参考修正”已开始独立本地准备：[源审计与先导设计](../learned_onboarding_pilot_v1_20261023/README.md)。766,727源查询、104源参考完成流式结构审计，12项边界测试通过；时间条件统计是结构上界，帧因果装配/精确配方未完成。源任务多样性有限且拟定外层/开发共享7捕获，不称独立跨环境验证。无新拟合、远端提交或目标评价；既有现代头及v3链未改，本次不查实时状态。
+
+## 2026-10-22 最新入口
+
+先读 [新对话接手说明](NEW_CHAT_START_HERE.md) 与 [主交接顶部](mainline_handoff.md)：前端、QUERY_TAIL＋入网已完成备份；D1 FAIL／D2 NOT_EVALUABLE 已结束；现代三家头×3 seed＋v3 四库配对正式链已启动，最终结果待完成。证据见 [启动回执](../modern_head_new_lineage_v1_20261022/LAUNCH_RECEIPT.json)。本次仅整理本地交接，未读远端实时状态。AI 不持续轮询，进度 [18765](http://127.0.0.1:18765/)。以下保留历史，旧“当前／未运行”不代表本轮进展。
+
+## 2026-10-21 HPC recheck blocked before Python/model execution
+
+Login node168 remains reachable, but Slurm job178526 on compute node185 timed out without a first batch receipt. Independent startup diagnostic178527 on node186 passed shell/hostname/date, then hung on stat of shared project/Python paths; FAILED137:0, batch MaxRSS3M. Both nodes were drained with Kill task failed. The affected /public versus /share mount remains to be isolated by administrators. No further nodes were tried; user queue is empty. Cloud work was unchanged. No cross-environment E3 reuse gate passed; P-only adapter remains an unverified draft. See [diagnosis and administrator request](../hpc_e3_recheck_v1_20261021/FAILURE_178526_178527.md).
+
+## 2026-10-20 当前：代金券机真实回放通过，v3已接续E3
+
+23:14三worker固定36批次float32逐字节回放PASS；本地回执按gate验SHA通过。正式进入run，三worker均 `E3_REMAINING_BATCHES`，观测458,256行（约41.84%）已超过导入458,112行。后续仅续算缺失部分，新增块增量备份继续；无完整缓存或训练结果。见[回放门槛证据](../ecs_cache_resume_v1_20261020/deployment/target_replay_v3/RESUME_GATE_PASS.json)。
+
+v1遗漏缓存父目录已修复；v2完成导入后因服务PATH找不到已安装TShark而在target创建前退出。P的1,095,200行、447块/458,112行导入校验均通过。补齐服务PATH后环境比较通过，11项本机/目标测试通过。v3绑定导入SHA并从validate接续，不重复导入，不清理声明，旧日志保留。服务 `paper04-coupon-resume-20261020-v3.service`，InvocationID `4420fc5662234af9b5b30c827a4b6351`；run沿用v2，新增state/exports/本地备份为v3。18764已同步；固定5Mbps、20GiB/16CPU、手动停机及科学合同不变。见[修复回执](../ecs_cache_resume_v1_20261020/deployment/README.md)。
+
+## 2026-10-20 历史：代金券机上传验SHA完成，修复目录初始化后v2导入中
+
+916文件7,204,966,417字节远端SHA齐全；首次v1因部署未创建缓存父目录，restore在写输出前退出。已修复部署初始化，8项本机/目标测试通过，旧失败记录保留，科学包未改。23:08新 `paper04-coupon-resume-20261020-v2.service` active/running并进入restore，InvocationID `d198605e921b4b618f3897ad418999df`。新页面/下载监听指向v2，本地新增备份目录 `local_resume_backup_v2`；原P/E3备份和服务器上传无需重做。真实回放通过后才能接续E3，尚无完整新缓存；固定5Mbps、20GiB和手动节省停机不变。见[修复记录](../ecs_cache_resume_v1_20261020/deployment/README.md)。
+
+## 2026-10-20 历史：代金券机已提交上传后自动接续，本轮手动停机
+
+代金券实例 `i-0jlequa076yrk9p5wjet` / `8.130.103.183` 已由用户开机。固定5Mbps保留，环境复用；原恢复26项及新服务5项测试在目标通过。约6.71GiB完整P/447旧E3块/encoder后台上传中，主服务 `paper04-coupon-resume-20261020-v1.service` active/running，阶段 `wait_upload`；上传全量SHA通过后自动导入、固定抽样逐位回放，再续剩637,088行。回放失败停止，不混合、不重算原P；尚无生产回放通过或完整缓存。
+
+新[页面18764](http://127.0.0.1:18764/)与增量导出/本地下载监听已接入。20GiB、swap0、16CPU quota已实际验证，52h包括最多4h上传等待和48h计算上限，非ETA。用户在云权限安全验证失败后允许暂不处理自动停机，本轮明确 `MANUAL_USER_ACCEPTED`：**结束后仍需手动节省停机，不能宣称自动停止计费。** 完整本地备份验证后才训练同缓存R0及候选。见[部署详情](../ecs_cache_resume_v1_20261020/deployment/README.md)与[提交回执](../ecs_cache_resume_v1_20261020/deployment/submission_receipt.json)。
+
+## 2026-10-20 历史：代金券机完整P导入与E3续跑入口本地验收通过
+
+用户授权准备方案及入口，优先接续昨日云端缓存，不启动服务器。新独立包 [ecs_cache_resume_v1_20261020](../ecs_cache_resume_v1_20261020/README.md) 完成restore→目标小样validate→续跑run。真实本地完整P（1,095,200行/68,518批次）全量身份/分组核验通过；447封存块的458,112行（41.8291%）在UID、slot、role、状态字节及批次边界上均可接续，剩637,088行。26项Python3.9合成测试通过，续算与完整执行逐字节一致；详见[验收](../ecs_cache_resume_v1_20261020/validation.json)。
+
+这仅证明导入结构和续跑逻辑，实际目标最多36批次的float32字节回放仍PENDING，未过不可混合缓存。保留原P环境/血缘，旧块缺失的历史tensor日志不补造，新前向另存。原科学门槛、输入、前端和同缓存R0要求不变。目标20GiB上限/16GiB树guard，3worker×4线程；48h是停止上限非预计时长。目标上传/回放、进度导出、新实例自动停机接入未执行；保持5Mbps及原始备份。本轮新建约6.05GiB临时展开副本因工具策略拦截清理而保留，原始备份也保留。当前无完整缓存或新模型结果。
+
+## 2026-10-20 历史：178456因学校电力维护取消，无完整缓存
+
+恢复优先项：阿里云完整P已在本地，19分片约4.57GiB，本轮SHA重验及固定输入/设计/引擎一致性核对通过。应补独立完整P导入→E3入口，避免默认重做P；生产适配和目标读取验证尚未完成。见[P复用评估](../hpc_frontend_compat_v1_20261020/ECS_P_REUSE_20261020.md)。
+
+资产全部上传并校验后，前端完整作业178456运行01:20:30，于16:21:16被UID0取消。node185明确登记`Power_maintenance_2026-10-20`，状态`DOWN+NOT_RESPONDING`；没有OOM或超时终态。停在P_DECODE_active-05，E3尚未开始。已上传资产与失败中间文件均保留，无P完整封存回执，现有入口不支持直接中途续跑。本轮仅诊断和修正页面说明，未重提作业；待学校确认可用节点/维护恢复后安排。见[诊断与恢复边界](../hpc_frontend_compat_v1_20261020/FAILURE_178456_20261020.md)。
+
+## 2026-10-20 历史：学校新环境前端小样通过，原始数据上传中
+
+按用户后续授权，不再等待旧环境恢复；空白远端新建 `/public/home/jiangxinwei.zr/work/paper04`。复用学校Python3.11.11/Torch2.5.1/NumPy1.26.4和TShark4.6.6，独立vendor_py311来自本地组装；不远端pip/Conda安装。旧封存包不改，新增Slurm适配与明确的新环境合同。
+
+依赖、编码器与新代码上传SHA通过；178437在amd/node185完成环境/冻结编码器小样，PASS回执已回本地：21项Linux恢复测试、33行3次真实模型前向及完整固定元数据/生成归一化工作区通过。采样峰E3约1.50GiB、metadata/merge约5.02GiB。两份原始归档仍在上传，无完整生产缓存或新模型效果。
+
+单次自动接续已启用：上传回执齐全→真实CIC/UNSW各16384包小样→成功终态/PASS与资源覆盖通过→完整缓存（12CPU/20GiB/3worker）。失败停止、无重试、无检测头训练。280h只是保守停止上限；完整新缓存须本地备份后才进行后续训练，同源R0必须重跑。详见[环境与运行说明](../hpc_frontend_compat_v1_20261020/README.md)、[目标回执](../hpc_frontend_compat_v1_20261020/remote_probe_result.json)、[学校进度页](http://127.0.0.1:18763/)；旧ECS页面不代表学校进度。
+
+## 2026-10-20 历史：学校 Python/解码器验证通过，固定项目依赖待恢复
+
+后续module及新增6个教学环境补查仍未找到匹配基础环境，未重复原22个环境检查、未安装或新增作业。已备[管理员请求](../hpc_restoration_check_v1_20261020/environment_checks/ADMIN_ENV_REQUEST.md)，当前推进项是取得学校受控基础环境替代/恢复入口；前端vendor和权重可用本地备份恢复，暂不修改模型，消息未代发。
+
+共享Python3.9.5和TShark4.6.6已在amd/node185验证，解码器复用CST目录libpcap后成功解码生成单包。诊断178419/178420/178421均COMPLETED/0:0，无遗留诊断；第一条退出0仅表示检查完成，缺包仍有报告，不是项目环境PASS。22个公共Conda环境未找到完整项目匹配，公共Torch环境为Python3.11/NumPy1.26.4。用户提醒后核回历史禁止用户自管安装记录，撤回直接新建venv补包安排；先确认学校现行受控环境/离线源及旧项目环境替代入口，按学校允许方式恢复，不自行安装，不改pins。见[核查及修正报告](../hpc_restoration_check_v1_20261020/environment_checks/README.md)。本轮未安装/上传科研数据/正式重建或训练，云端未动。完整依赖及encoder、学校Slurm资源绑定、输入SHA和真实小样验收后正式重建，完整缓存本地备份后跑同源12头。已备份P/部分E3不宣称能直接续跑。
+
+## 2026-10-20 历史初查：集群调度可见，旧资产未在已检查路径找回
+
+用户随后确认旧硬盘已更换、旧资源已无；后续按新血缘重建或迁移完整缓存，不再等待旧路径。按用户提供的七页手册修正：先核查并复用学校现成module/软件及项目依赖入口，再恢复代码/输入，不从零部署超算环境；手册资源只是模板。已备份P与部分E3保留，现入口不支持直接续跑，跨平台部分复用另需适配/验证。见[手册阅读记录](../hpc_restoration_check_v1_20261020/HPC_MANUAL_READ_20261020.md)。本轮未变更远端环境或启动作业。
+
+VS Code 已登录 node168；`/public` 挂载 `/hpc2610`，旧用户 `work` 不存在，原缓存/SQLite/encoder/环境/raw 路径不可读，未做资产 SHA 验收。迁移前目录与 `/share` 常见本用户路径未发现旧主目录；是否另有备份/迁移位置待学校确认，不能判定永久丢失。`sinfo` 显示 amd/gpu/intel up/idle，但未提交作业验证账户资格。本轮只读远端，不调整云作业或新旧血缘。见[恢复报告](../hpc_restoration_check_v1_20261020/README.md)。
+
+## 2026-10-19 新机增量：基础环境验收完成，已节省停机备用
+
+新实例 `i-0jlequa076yrk9p5wjet` / `paper04-coupon-20261019`，私网172.21.90.26，原公网8.130.103.183因节省停机已释放；启动后公网可能变化，按实例ID识别。乌兰察布B、16vCPU/32GiB/200GiB、Ubuntu22.04；实际固定带宽**5Mbps须保持**。已通过Workbench免密root，不新设密码、密钥或角色。
+
+环境v1 apt/uv完成后卡在GitHub Python慢下载，由主任务显式停止；不是OOM或科学失败，日志保留、无成功回执。复用旧机Python3.9.24/Wireshark4.6.6软件（不含数据/venv）只读stream归档到本地，67,940,751字节，SHA见[归档回执](../ecs_migration_v1_20261019/coupon_environment_v1/software_runtime_from_verified_ecs_v1.tar.gz.receipt.json)。Workbench上传因扩展fileURLs未开放未成功，未改浏览器权限；改用172.21.90.23→172.21.90.26单次内网软件stream，仅绑定旧privateIP:18764并限制新源IP/固定路径，完成exit0。旧机未写文件或修改作业，新机同SHA和原 `/opt` 路径安全解压通过。
+
+续接unit `paper04-coupon-environment-20261019-v2` final_exit=0，07:15:39 UTC结束；31锁定包、Python3.9.24、CPU torch、TShark4.6.6及07:16:57 UTC的实际AutoModel/AutoTokenizer导入验收通过。旧waiter退出后由 `verify_and_export_resume_v1.py` 续验留证；8份真实回执和bundle已回传本地、逐成员SHA通过，见[本地回执](../ecs_migration_v1_20261019/coupon_environment_v1/evidence/local_verification_receipt.json)。未传大数据或encoder、未运行科研实验，旧机证据保持。
+
+15:20:08（北京时间）控制台已确认“已停止+节省停机模式”，正常停止并保留磁盘/软件环境备用；[停机回执](../ecs_migration_v1_20261019/coupon_environment_v1/evidence/savings_stop_receipt.json)、[截图](../ecs_migration_v1_20261019/coupon_environment_v1/evidence/stopped_savings_mode.png)、[控制台快照](../ecs_migration_v1_20261019/coupon_environment_v1/evidence/stopped_console_snapshot.txt)保留。CPU/内存/固定公网带宽暂停计费，系统盘续费。现代头隔离环境DEFERRED，数据/encoder及完整资产迁移、路径/资源binding、新作业停机覆盖待做，旧角色不能用于新实例。新机无科研实验，代金券实际账单抵扣尚未核实。
+
+## 2026-10-19 当前增量：进度页、阶段导出与缓存终态自动停机已启用
+
+[进度页](http://127.0.0.1:18761/)每60秒自动读取SSH状态，不调用AI。现有本地13:44:18快照为 `P_DECODE_active-04`，204,800/578,499仅为该捕获进度；完整P/E3未完成，检测头未提交。重启页面用迁移目录 `progress_dashboard_v1/open_progress.ps1`，无需AI持续轮询。
+
+最小角色经用户批准创建、绑定；原InvocationID及角色名已核验。[自动停机回执](../ecs_migration_v1_20261019/auto_stop_target_submission_v1.json)为ARMED，监控unit active/running。仅当前缓存作业在成功或失败真实终态后最多等待30分钟备份，再请求StopCharging；保留ESSD及数据，磁盘等继续收费。API_ACK不表示云端已经Stopped，断连也不能作停机证明。
+
+13:45:18页面已核实“自动停机已启用”、`WATCH_STARTED.armed=true`，见[核实回执](../ecs_migration_v1_20261019/auto_stop_armed_verification_v1.json)。停机不依赖本机在线；离开后作业终态仍自动停机，回来可开机导出。后续12头须在每次提交时将监控覆盖到对应最终作业。
+
+独立阶段导出及本地取回已运行，13:44快照0包。远端最多约8小时/24GiB，本地最多约9小时/8GiB且需本机在线，均非无限监护。阶段包不是完整缓存备份；终态完整缓存只报容量，仍待按实际空间导出并验SHA。有完整本地校验ACK才提前停机；否则30分钟后保留磁盘停机，以后可开机取回。完整备份后才启动新同源12头，原血缘和门槛不变。
+
+## 2026-10-19 13:15 历史增量：完整缓存作业已启动，按现有付费实例→代金券实例安排迁移
+
+用户要求不等券问题、先用当前20元充值的实例推进。13:15:57一次提交 `paper04-cache-rebuild-20261019-v1` 成功，systemd active/running；13:17仍在前置检查，cache目录未出现，尚无P/E3完成或新模型结果。[提交回执](../ecs_migration_v1_20261019/cache_rebuild_target_submission_v1.json)、[状态证据](../ecs_migration_v1_20261019/validation/cache_rebuild_running_v1/)。
+
+只运行完整五角色缓存重建，沿用3worker×4线程及18GiB估计计划。完整cache先本地验SHA备份，后运行新同源R0三seed及九候选；入网/现代头随后适配。保留新血缘/父数值一致性不可核实的标记和原门槛。独立迁移导出保留封存P/E3材料，但现runner无断点恢复入口；跨主机继续完整缓存训练须新binding/计划。D空闲约27.8GiB不能保证整cache容纳，按实际容量和出站0.800元/GB安排不重复回传；不创建新实例或更改计费，不视20元为已确认全程预算。
+
+## 2026-10-19 提交前历史：数据已就位，真实资源小样及正式preflight通过
+
+全部资产上传SHA通过，原始219捕获解包及SHA通过。CIC/UNSW各16,384包真实prefix均成功，采样进程树峰约5.65GiB，解码阶段约1.235/1.542秒；UNSW实际触发spill/reload。复用已有metadata/E3/merge及并发观察，独立计划为3worker×4线程、18GiB allocation、16GiB tree RSS guard、110GiB输出disk guard/120GiB启动free；完整phase仍ESTIMATED。
+
+paper04用户正式preflight `PREFLIGHT_PASS`，1,095,200条、219捕获，正式输出未预留。仅补建缺失的cache父目录后修复初次预检，失败回执保留。完整缓存重建、真实流量E3、头训练尚未启动；280小时是保留旧最坏shape时间guard的停止上限，非ETA。代金券实际抵扣仍待客服。后续完整缓存先回传本地，再运行新同源R0/候选。
+
+[资源确认](../ecs_migration_v1_20261019/RESOURCE_CONFIRMATION_20261019.md)、[计划](../ecs_migration_v1_20261019/validation/frontend_resource_plan_v1/resource_plan.json)、[预检](../ecs_migration_v1_20261019/validation/frontend_resource_plan_v1/observations/frontend_resource_preflight_v2.json)。以下当日早间记录为历史。
+
+## 2026-10-19 早间历史：ECS依赖与三个资源探针通过，待两捕获前缀和生产预算
+
+用户补缴后原实例及专用SSH已恢复。Python3.9.24/NumPy2.0.1/Torch2.5.1+cpu与冻结前端依赖已装齐；TShark4.6.6核官方HTTPS清单SHA并独立编译成功，pandas2.3.3及导入依赖已补齐。环境v1旧signature URL 404与v3续接记录保留，没有重装Python。encoder远端SHA通过，两份大原始归档仍断点续传；用户确认的100Mbps按流量峰值已在实例表显示生效，不保证本地实际吞吐。
+
+metadata_v1参考schema误校验失败已由独立recovery_payload_v1r1纠正，不补造输入字段，旧payload/metadata及失败证据保持。新版已安装，目标完整依赖生成测试21/21通过。完整metadata1,095,200条、219捕获及FIT617908/CAL148819成功，内核进程HWM约5.33GiB；33行生成输入三次冻结E3前向成功，HWM约1.49GiB、真实流量前向0；8192行生成merge-block加完整metadata成功，768/794维块约0.0312/0.0315秒，HWM约5.41GiB。成功探针marker/request/result链与目标测试log SHA已回传本地核验。
+
+**两捕获前缀、经审生产资源计划与正式重建仍待完成。** 当前实测只覆盖上述有界探针；完整phase峰值/耗时仍ESTIMATED，生产入口拒绝pending计划。尚无完整生产缓存、真实流量E3、头训练或新模型效果。目标服务36项生成检查、真实20GiB/16CPU cgroup smoke和生成三分片跨网备份演练通过，演练不代表生产缓存已备份。
+
+[迁移说明](../ecs_migration_v1_20261019/README.md)、[服务器实测](../ecs_migration_v1_20261019/server_inventory.json)、[恢复复核](../ecs_migration_v1_20261019/restore_design_review.md)。此前欠费停机/首次连接准备失败及未提交带宽草稿属历史，相关证据保留；当前已恢复SSH与目标依赖，可继续迁移准备。
+
+父大特征和spool未回传，本地原始PCAP、冻结encoder、输入包与历史结果保留。新恢复血缘保留固定五角色及完整FIT/CAL，标为`NEW_RECONSTRUCTION_LINEAGE`/`PARENT_PARITY_UNAVAILABLE`，不改旧pins。新RECENT缓存和normalizer上重训R0三seed及九候选，共12头1158720更新；旧基线只列历史。入网及现代头后续显式绑定新血缘，原包留存。完整新缓存、权重及结果须回传本地。
+
+## 2026-10-18 历史：现代头 v1r1 修复 P1–P7，拆分纯头与模块作业
+
+[逐项回执](D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/mainline_docs/collab/20261018_modern_head_v1_code_review_response_codex.md)、[新版交付](D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/modern_head_comparison_v1r1_20261018/README.md)、[验证](D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/modern_head_comparison_v1r1_20261018/validation.json)、[命令](D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/modern_head_comparison_v1r1_20261018/OPERATE_HPC.md)。待上传版本改为 v1r1，旧 v1 留存；归档 SHA256 `ad2454fa3766d3862d98e90370fb9dc1fa8b5d67afd20123863182123f71d4d3`。
+
+P1 分报 LightGBM 请求/回调/实际树轮数并允许合法自然停止；P2 的 `--heads-only` 不要求入网完成，`--modules-only` 验证同包封存头与入网六库，不重训。P3 实际回放证据与复用前置检查；P4 CAL_used 保护；P5 所有 family 的范围文字；P6 模块零更新断言；P7 模型导入前离线依赖检查，均已实现。科学配方、seed、数字门槛不变。
+
+57 项受影响 Python + 37 项模拟调度 + 3 项导出不同用例通过；导出跨平台重复后共 100 次执行。旧完整套件与未选取 21 项原 Python 检查未重跑，已标 `rerun:false`。8CPU/16GiB/4线程、RSS14GiB沿用；72/70h 为每作业上限。当前仅本地工程验证，目标环境/真实峰值待核实，真实实验 NOT_STARTED。
+
+执行依赖改为：QUERY_TAIL 完整产物 → 现代头 P/T/K；入网 v1r1 完整产物 + 头作业最终成功退出 → M_TabM/M_LightGBM。两个作业分别回传，模块失败保留封存头且不自动重启。下方旧 v1 的串行依赖说明不再作为当前要求；三设备回归、前端重建封包和选型后补证据仍待做。
+
+## 2026-10-18 历史：现代头 v1 与两候选入网初次独立交付
+
+[说明](../modern_head_comparison_v1_20261018/README.md)、[正式合同](../modern_head_comparison_v1_20261018/bundle/experiment_contract.json)、[验证](../modern_head_comparison_v1_20261018/validation.json)、[资源](../modern_head_comparison_v1_20261018/RESOURCE_BUDGET.md)、[操作](../modern_head_comparison_v1_20261018/OPERATE_HPC.md)。固定MLP_QUERY_BCE/TabM/LightGBM，同782维/划分/权重，三seed27/127/227；神经40轮，树500轮。TabM/LightGBM事前固定接同一模块、同OLD_BANK/B0/B1/B2；按原门槛报告全部候选，不自动选型。
+
+8CPU/16GiB，顺序独立阶段，RSS14GiB；新增T估计，旧P/K/入网预算继承。磁盘8/导出6/空闲16GiB。TabM生成输入时间纯算术三seed约41h不含真实I/O/检查/评价，72h仅上限。旧MLP缺完整runtime指纹时重训，共最多九终点；无证据不复用。科学旧包不改，当前真实实验NOT_STARTED、无远端操作。离线依赖包含LGB4.6.0/rtdl0.0.12等，目标glibc≥2.28和缓存仍需核验。
+
+最终归档安装后41项合成测试+24项Linux模拟调度共65项通过，另7项生成文件导出检查通过；Windows/WSL安装、159个封存文件及Bash/PowerShell语法通过。归档SHA256 `635d617637d8dbf2de7ce46cdbceda88e24286f36b371db1d71ed5d534c0dfc4`，身份及日志见最终验证回执；旧179项未重跑，原89个项目Python模块与17个vendor模块保持。
+
+此条更新“现代头未实现”状态；前端独立重建封包、三设备回归、选型后补证据及独立确认仍待完成。本地NumPy/Torch与目标版本不同，目标环境和真实资源/性能验证仍待恢复；构建时pending回执作为历史保留。
+
+## 2026-10-17 最新交付：入网 v1r1 退出状态修订
+
+[v1r1交付](../onboarding_configured_v1r1_20261017/README.md)、[本轮验证](../onboarding_configured_v1r1_20261017/validation.json)：修复“实验成功但导出失败仍返回0”。实验/导出/作业退出码分别保存；最终状态单独回传；导出失败不重跑实验。仅修改交付脚本与文档，89个Python模块、科学协议和8CPU/16GiB资源计划继承不变；按交付层增量验证，不宣称下方179项在本轮重跑。当前待上传版本改为v1r1，原v1保留。
+
+本轮最终归档安装/哈希通过；22项模拟提交/失败检查+5项模拟回传共27项通过，另复现原包问题。新归档SHA256 `d984be0105dda3d7a37e22d85d87c3ec2a209d91e9b2535760c0bda79999a883`。[资源预算维护约定](resource_budget_maintenance.md)已记录：任务不变复用，按受影响阶段更新，用真实峰值校正估计，避免每轮全面重读重算。无真实实验/远端操作；其他待办沿用下方。
+
+## 2026-10-17 最新：入网模块独立封包及修复头接入完成
+
+[交付说明](../onboarding_configured_v1_20261017/README.md)、[资源预算](../onboarding_configured_v1_20261017/RESOURCE_BUDGET.md)、[验证回执](../onboarding_configured_v1_20261017/validation.json)、[操作命令](../onboarding_configured_v1_20261017/OPERATE_HPC.md)：已接完整 QUERY_TAIL v2r3/R3 产物，串行执行两份正常捕获准备、六库E3及OLD_BANK/B0/B1/B2同头配对。共用一次源参数封存；目标模块修正在封存后，固定头目标分数的复现检查发生在此前。没有重训或按数据集择优开关。
+
+实际8CPU/16GiB、单重阶段进程/4线程；各阶段估计6/4/11.5GiB，最大值加25%余量取整，总RSS保护14GiB。磁盘保护8GiB、启动空闲16GiB、导出4GiB；24/22h为上限。**最终包162项合成+17项Linux模拟提交共179项通过**，Windows/WSL安装及SHA、Bash语法/PowerShell AST通过；真实tokenizer因本地缺依赖未跑，目标环境补查。归档SHA `0e91afd2ca4e1a3d5ec85e6aa3dd323d80c243568ae4ea74f7d60fe39e925bd4`；原科学代码、protocol和修复包不变。
+
+**入网本地交付完成，真实实验NOT_STARTED，无远端动作或新性能结果。** 必须依赖完整父资产、PCAP、checkpoint和修复头真实完成产物；精简回传包不足以启动。零新增漏检为验收要求；三设备回归尚未接入，完整系统不得PASS。此条取代下方入网封包pending状态；前端重建独立资源/封包仍待做，现代替换头未实现，选型后补证据清单继续有效。
+
+## 2026-10-17 最新：QUERY_TAIL v2r3 已完成资源核算、配置与封包
+
+[交付说明](../query_tail_configured_v2r3_20261017/README.md)、[资源预算](../query_tail_configured_v2r3_20261017/RESOURCE_BUDGET.md)、[验证回执](../query_tail_configured_v2r3_20261017/validation.json)、[将来操作命令](../query_tail_configured_v2r3_20261017/OPERATE_HPC.md)：amd单节点16CPU/20GiB、3worker×4线程；P/T/K估计10.5/15.5/10.5GiB，最大阶段加一次25%余量。全角色元数据和完整FIT权重局部测量已完成，非整链实测；Linux堆保留及重复映射RSS已计入。总/worker保护18/4GiB，输出预计0.732GiB、保护4GiB，启动空闲8GiB；72/70h是上限而非预计耗时。
+
+最终包安装后的57项合成检查+Windows安装7项+Linux安装/模拟提交20项共84项通过；PowerShell仅解析通过。原38个Python文件、科学合同和预测规则不变，新增配置检查。归档SHA256 `1678d1b2b7162d788f3058b47dd06231c7db7a21287046675fe3ecf985415317`。**QUERY_TAIL本地配置交付完成，环境/父缓存待核验、真实实验NOT_STARTED。** 此条取代下方QUERY_TAIL资源pending作为当前状态；入网/前端资源封包仍待完成，现代头未实现。未连接或提交超算，无新模型结果。
+
+## 2026-10-17 复审补丁：主快照库 journal 扫描竞态关闭
+
+[补丁说明](../engineering_snapshot_journal_fix_20261017/README.md)、[最新回执](../engineering_snapshot_journal_fix_20261017/validation.json)：确认此前漏登记正式snapshots.sqlite的临时journal，正常提交可能误停；现仅豁免该库精确sidecar消失，主库/目录丢失仍报错。真实SQLite交错及实际spool回归新增5项，连同原55项工程检查共60项通过。旧242项结果保留为前版证据，新源文件manifest记录两处工程修订。生产资源、封装与目标环境检查仍待完成，无真实实验。
+
+## 2026-10-17 最新：入网/前端存储工程修订完成本地验证
+
+[工程说明](../engineering_memory_followup_20261017/README.md)、[验证回执](../engineering_memory_followup_20261017/validation.json)：独立新版对连接状态/候选快照做完整写入恢复，对特征子集按批索引读取，对 SQL 分组流式处理；新增仅 P/E3/normalizer 的前端重建入口、资源计划绑定与失败释放。242项选定检查通过，额外 tokenizer 检查因缺 transformers 未运行并单列。原包、科学合同、旧入网及前端关键代码哈希保持。
+
+生成数据基准显示局部内存降低，状态落盘有I/O与时间代价；不得外推整链RAM。**当前为验证后的独立源码，生产资源定值/新封装仍待完成，真实实验 NOT_STARTED。** 下一步按阶段组成和合理并发补预算、封装；不设小内存目标、不默认旧大资源，不扩展方法矩阵。旧基线依赖仍须恢复，前端入口不是全部资产丢失时的一键恢复。详情及持续待办以主线顶部为准。
+
+## 2026-10-16 最新：先修工程，QUERY_TAIL v2r2 本地修订完成
+
+[工程代码包与范围](../query_tail_engineering_v2r2_20261016/README.md)、[验证回执](../query_tail_engineering_v2r2_20261016/validation.json)：训练元数据改为共享只读紧凑映射，保留原科学数值路径；增加退出释放、分阶段内存观测和资源计划校验，提交/运行使用同一份计划。固定 10 万条元数据测量峰值 0.495→0.056 GiB，字段/权重相同，访问速度有代价；不可外推成整链实测或整体降幅。
+
+新工程包为本地验证版本，**最终 P/T/K 申请资源待定、不可直接提交、真实实验未开始**；不自动沿用旧 64G，不设 16/32 GiB 目标。先补资源依据及剩余必要工程修正，再继续入网包封装和现代头实现。旧 v2r1 科学包与入网 v1 源码保持不变；旧前端重建和入网状态/候选缓存的开销不在本次已解决范围。下方路线和补证据待办仍有效。
+
+## 2026-10-16 实验包与资源配置合理性
+
+[只读审查及用户澄清](../memory_efficiency_review_20261016/README.md)：目标是按任务量、正常高效实现、合理并发和实测峰值制定资源配置；撤回助手提出的32GiB目标，不追求最低或最高资源。历史192G偏保守，当前QUERY_TAIL的64G也未实测；重复元数据、状态回收和候选快照等需优化与验证，不能只改申请数字。未改封存包或运行实验。开发状态及补证据待办沿用下方10月15日入口。
+
+## 2026-10-15 当前索引：现有数据先验证，选型后写作与补实验并行
+
+用户确认暂不下载新数据；先实现并评价已定入网方案，与修复头及有限现代头比较完整系统，再固定模型和规则，补充实验与论文并行。权威状态与**持续待办清单**见 [mainline_handoff.md](mainline_handoff.md) 顶部 2026-10-15 条目；当前证据缺口不作为现有开发实验的新增先行关卡。
+
+| 项目 | 状态 | 入口/下一步 |
+|---|---|---|
+| 入网材料、配置与实现 | 参考准备/共用模块/QUERY_TAIL 接入及评价已实现；合成验证见回执，真实实验未开始 | [实现与验证](../constrained_onboarding_implementation_v1_20261015/README.md)、[材料与配置](../onboarding_materials_and_protocol_20261015/README.md)；完整缓存与真实 R3 就绪后配对评价 |
+| 头与入网联合比较 | 方案完成；QUERY_TAIL v2r1 已封存但未真实运行，现代头尚未实现 | [联合方案](../modern_head_comparison_design_20261015/proposal.md)、[入网方法](../modern_head_comparison_design_20261015/onboarding_refinement.md)；按完整系统固定口径选型 |
+| 数据充分性与补证据 | 审查完成；薄弱正常设备、功能时间覆盖、外部攻击多样性和独立确认待补 | [详细审查](../evidence_adequacy_20261015/README.md)；选型后推进，投稿前核对；当前 A/B 仍为开发材料 |
+
+详细产物继续按主题、日期/版本保存于各 run；本索引只记录状态与入口。下方旧条目保留历史，不覆盖本条的新优先级。
+
+2026-10-12 latest: Parent replay numerical rules recorded before real replay. Exact input/state identity in both branches; confirmed full numeric-runtime match -> BITWISE, different/UNKNOWN -> each-row relativeL2<=1e-5 + RECENT3seed/ensemble paired decisions. No post-failure branch switch; actual future heads pending separate checks. Parent node188 already in local archivedsacct; CPU/backend evidence incomplete. Read `collab/20261012_three_device_numeric_parity_response_codex.md` and `runs/system_vs_module_planning_v3_20261012/`. Environment capture/replay remain future specifications; no new experiment, old diagnosis rerun or sealedv2r1 change.
+
+2026-10-11 follow-up latest: Claude planning review PASS/no blockers; attack-TP eligibility added in separate v2 addendum (CIC66.667807%,UNSW60.007370%; exposure, not miss rate). Future complete-system zero-added-miss mandatory in all12 pool/suffix pairs; old-level comparison report-only. Decoder/prefs/batch identity and real-parent bit-pattern replay drafted; missing original features/spool cannot PASS via synthetic replacement. Prefer<=150G subject to credible<130GiB peak; P time PENDING comparable decode measurements. Read `collab/20261011_system_vs_module_planning_followup_codex.md` and `runs/system_vs_module_planning_v2_20261011/`.6new boundary checks PASS,900 prior normal values unchanged; sealed v2r1 and real-run NOT_STARTED unchanged.
+
+2026-10-11 latest: QUERY_TAIL v2r1 remains engineering/Claude-review PASS, real run NOT_STARTED, HPC/cache recovery pending. Accepted reference-eligibility planning: F=H(1-s*g_eligible), s is weighted head-FP eligibility share, not query coverage. Saved RECENT CIC/UNSW floors under fixed eligibility are3.354251%/6.519688%; all-arm future addendum implemented outside sealed package. Future A draft changes strict old-FULL preservation to report-only OLD_LEVEL_PRESERVED; existing research floors and frozen gates unchanged. Three-device new-input cache341222queries+48refs (~0.976GiB E3) planned for separate future preparation/module chain, not current v2r1. Read `collab/20261011_system_vs_module_framing_response_codex.md` and `runs/system_vs_module_planning_20261011/`. No training/forward/remote action; old diagnostics not repeated. Paper stable writing continues; no new performance results.
+
+2026-10-02 latest: QUERY_TAIL algorithm can run CPU locally; current16GiB laptop/fixed package blocked by missing7.41GiB parentcaches, memory/disk and platform adaptation. Source217PCAP+2UNSW present, fullSHA/rebuild unverified; feasibility only, no run. See `query_tail_local_feasibility_20261002.md`.
+
+
+2026-10-02 latest: HPC disk damage USER_REPORTED; local archives/returned results and177891 twelve endpoint weights verified intact. Full parentfeatures/4.17GiB SQLite remote-only in known export; recovery UNCONFIRMED, QUERY_TAIL execution waits cache verification. See `local_result_preservation_after_hpc_disk_damage_20261002.md`; no automatic rebuild/retrain.
+
+
+2026-09-30 latest: QUERY_TAIL v1 IMPLEMENTED / LOCAL DELIVERY PASS; real P/T/K NOT_STARTED. Nine fixed heads, R0 reused; synthetic23 + Windows installer6 + Linux installer/mock12 PASS. Source support and target numeric compatibility pending same-job checks. See `legacy_query_tail_learning_implementation_v1_20260930.md` and `runs/legacy_query_tail_learning_delivery_v1_20260930/OPERATE_HPC.md`; user-operated final-package whole-chain execution next, no Claude waiting gate. Reference NOT_TESTED, ID_NOT_RUN, holdoutclosed/paperPAUSED. Earlier design-only entry superseded as current status.
+
+
+2026-09-30 latest: QUERY_TAIL learning-repair v1 DESIGN READY FOR IMPLEMENTATION; no real P/T/K. Keep verified RECENT/E3 and source FIT weights; append14 current-packet descriptors to one782->128->1 head, combine BCE with source-FIT top1%weighted-normal-tail pair ranking refreshed each epoch. Primary QUERY_TAIL; QUERY_BCE/RECENT_TAIL ablations,3seeds each,9newheads40epochs; reuse177891 RECENT baseline and features, no raw/E3 rerun. All original core attack/FPR gates retained; add protocol/activity regression check; reference gains NOT_TESTED, ID_NOT_RUN, holdoutclosed/paperPAUSED. Source metadata weights verified: Hydra471rows=25%attackmass; TCP429350=41.6667%; ACTIVE_UNANNOTATED131823=17.9479%normalmass, counts are not training emphasis. Exact SYN phase/weight census PENDING_REMOTE_SNAPSHOT, folded into implementation P; no fabricated completeness. Read legacy_query_tail_learning_design_v1_20260930.md and runs/legacy_query_tail_learning_design_v1_20260930/ (research,contract,self-review,acceptance). Target DEV remains consumed; no automatic winning-arm promotion or retries. NEXT implement/synthetic/package; user handles later authorized whole-chain upload/submit/pull. HEAD4b28747/codex-exp-mainline and8 unrelated edits preserved.
+
+2026-09-30 latest: Job177891 G1/G3/G4 COMPLETE, G2 fixed-query normal headers/ports completed locally. Saved-score per-device1%FPR retrospective: UNSW96.6038%attack,0.9730%FPR;Samsung63.08%ofweightedloss; rate1/10/100 loss42.34/38.28/19.38%;only5longattackcomponents,83.57%loss>=60safterannotationstart. RemainingnormalFP90.38%ACK/data;1603normalSYNqueries0FP atsourceandoracle. All3seeds share1169misses/2.2040ppweightedloss;Samsungworstforall. G2missingportsfilled fromexistingnormalPCAP5413239packets/75763fixedqueries;fullSHAverified,31.1s,nofeatures/forwards. CICoracleattack99.9437%;all95missesHeimVisionTCP. NEXT targetedlearningrepairdesign/current-query-context attack evidence andhardnormalconstraints; H1/H3cluesonly,H2notfullyexcluded,fullsnapshotdescriptorsstillremote;noautomaticfrontendchange ornewtraining. Read legacy_continuous_input_job177891_overlap_diagnosis_20260930.md andmatchingrun. No deployedcut/data/model/gate change,HPC/download/holdout;HEAD/8unrelatededits preserved;ID_NOT_RUN/paperPAUSED.
+
+2026-09-30 latest: overlap G1-G4 INPUT AUDIT COMPLETE (not score diagnosis). Verified schema of1095200 existing role rows. UNSW72553 attacks have15annotation IDs,rate1/10/100,direction and victim targetTCPport; allinboundSYN&&!ACK,notARP/reflection. UNSW75763normal rows lackports/canonicalkey. SourceFIT/CAL unoriented endpoint-port inventory saved separately; NOTservice coverage. G1/G3/G4 existing-field diagnostics feasible; fullG2service needs targetnormal header enrichment; remotev3snapshot contains window descriptors but no rawports. ProposedH3 attack-stage supervision mismatch: sourceFIT TCPattack payload lowerbound80.54%unweighted vs targetSYNquery scope; hypothesisNOTPROVEN. Both source/target attack label rules inbound; directIP/MAC/port absent fromRECENT tokens. Smallcomponent/lowrate orseedvariation do not proveH2/H1; require actualcausalwindow evidence. Read collab/20260930_job177891_overlap_diagnosis_reply_codex.md and runs/legacy_continuous_input_job177891_overlap_metadata_audit_20260930/. NoG1-G4scoreexecution,forward,training,CAL,rawdecode,HPC orprotectedpool;99%target andD3NOT_RUN unchanged. Next agree correctedreadonlydiagnosis,notauto frontend replacement. HEAD/8unrelated edits preserved;ID_NOT_RUN/holdoutclosed/paperPAUSED.
+
+2026-09-30 latest: Claude four-question response + saved-score D1 COMPLETE. UNSW RECENT ensemble retrospective attack bound at each-device weighted FPR<=1% is96.6038%; even relaxing to each-device<=2% and ignoring pool<=1% gives only97.5301% (Samsung92.1361%). Thus fixed RECENT + one scalar threshold/device cannot pass frozen99%pool/97%device gates; KEEP gates, no D3 recommended. CIC each-device1% bound99.9437%. Target reference calibration requires a future version; v3 remains source-CAL-only. DEV row logits local; reference classifier logits not computed; small new reference features retained remote (not rechecked), all7device banks3-64rows insufficient for example alpha.005. Reference/queryUIDs disjoint and time strict; UNSW same-component overlap means no iid/conformal guarantee. D2metadata complete, reference-score comparison NOT_RUN. Pause currentSTATE/LEARNED deployment candidacy, retain ablations; RECENT development baseline only. Next joint discussion on low-FPR score separation, not threshold sweep or automatic frontend replacement. Read collab/20260930_job177891_joint_discrimination_reply_codex.md and runs/legacy_continuous_input_job177891_d1_reference_audit_20260930/. No model forward/training/calibration/remote execution or changed frozen result. ID_NOT_RUN/holdoutclosed/paperPAUSED;HEAD/8unrelated edits preserved.
+
+2026-09-30 latest: v3 Job177891 COMPLETE / pullback verified / SCIENTIFIC FAIL BOTH POOLS. User sacct COMPLETED0:0,18:34:26,MaxRSS42923988K(~40.9355GiB batch accounting). Archive321375653bytes SHA35f371d04763e24d6a1ee4af0f3a9eff5e463c981da538ec84006e11051bb450;916 included files/917 members verified. P1095200 rows/current token checks,12 heads40epochs,1134960updates,fullCIC179886/UNSW148316 UID decisions independently reproduced. UNSW ensemble weighted attack/normalFPR: OLD_MATCHED99.9416/23.0415%,RECENT99.9849/21.2832%,RECENT_STATE90.7491/19.3087%,LEARNED35.0251/7.4092%;RAW90.7491/17.7011%. Learned adds43028 attack misses, three devices wholly missed; CIC adds105 with weighted attack97.5694%,FPR2.7524%. RECENT has useful development signal but high FPR; OLD_MATCHED is old features with new matched head, NOT historicalQ. Retrospective DEV-label single-threshold score-order bound at1%weightedFPR: UNSW OLD59.8948%,RECENT96.1919%,STATE37.8711%; diagnostic only, no new deployed threshold or gate change. NEXT focused mechanism design/literature for joint discrimination and attack-safe reference use; no new training/evaluation authorized. Read legacy_continuous_input_job177891_result_20260930.md and runs/legacy_continuous_input_job177891_result_20260930/. No auto-promotion/retry, ID_NOT_RUN, holdoutclosed, paperPAUSED, old edits/package preserved.
+
+2026-09-29 latest: v3 Job177891 observed RUNNING on node188 at21:48:04CST (user screenshot, not live remote inspection). Elapsed08:00:29; stage P_FEATURE_WORKERS;524725/1095200 rows47.9113%; current treeRSS sample34.2634GiB; retries0,optimizer_updates0,historical_holdout_opened=false. Passed earlier input preflight/spool gates to reach feature workers; no model capability result yet. Feature-stage ETA17585.7s (~4h53m), not whole-chain ETA or guarantee. Submission now observed; do not submit again. User whole-chain authority remains valid, zero automatic retry. Evidence: runs/legacy_continuous_input_repair_execution_v3_20260929/job177891_observed_progress_20260929_214804.json.
+
+2026-09-29 latest: v3 REAL FIXED CHAIN AUTHORIZED; user explicitly waives Claude code review for this package. Package SHA485a95d8bb93d14c281670d80c502b1c80045e3f1665382ddb49e4c4d3bb84c1 and delivery/bundle/clean-install hashes verified unchanged. Authority covers one P/E3/T(12 endpoints)/K(source CAL,CIC DEV,consumed UNSW)/export chain; no repeated stage approval, failure STOP and zero automatic retries. User operates upload/install/submit/pull through authenticated terminal; actual submission not yet observed and job ID unknown. 64CPU/192G/72h retained. See runs/legacy_continuous_input_repair_execution_v3_20260929/authorization.json. This explicit user waiver supersedes previous review/authorization-pending notes; sealed implementation records remain historical.
+
+2026-09-29 latest: Job177491 FINAL SACCT RECORDED (user terminal output); memory follow-up complete. FAILED/1:0,587s,192G requested,64 CPUs; batch MaxRSS=AveRSS7291960K on node188/task0 (~6.9542GiB assuming KiB). Job-row memory fields blank. P preflight only; task/step accounting is not guaranteed whole-tree peak or temporal average. Failure remains MISSING_NAMESPACE_HEADERS, no OUT_OF_MEMORY state reported. KEEP192G for unmeasured E3/T/K. v3 implementation/65 tests/package unchanged; Claude code review and separate real-chain submission authority remain pending. See collab/20260929_job177491_final_memory_record_codex.md and runs/legacy_continuous_input_job177491_memory_followup_20260929/.
+
+2026-09-29 latest: continuous-input v3 IMPLEMENTED / 65 tests PASS / Claude focused code review pending. User authorized owner scope isolation implementation and Job177491 sacct read, NOT real-chain resubmission. Full known registry retained; capture frozen query/reference owner union drives isolation. Full legacy audit retains1/346,2/7424,14/2 receipts; required-owner per-frame identities and fixed UID checks remain; assert every receipt incomplete event is outside-required-owner. Pinned real first/last fragment fixture demonstrates outside-owner target snapshot byte identity and required-owner STOP. Only input/audit production behavior changed; v2/model/loss/data/CAL/gates/resources unchanged. 65 tests (52 inherited+13 scope), Windows/Linux6each delivery, Bash and mock submit, PowerShell Mode PASS. Archive349678bytes SHA485a95d8bb93d14c281670d80c502b1c80045e3f1665382ddb49e4c4d3bb84c1;44modules. Design SHAa10a38edd2a871ebfb70cc37c1be3b1ac9715a2e0b0024019146f834b55674d9. No real P/E3/T/K retry or successful remote command. Job177491 final sacct pending operator output after SSH authentication failed; pre-exit archived sacct blank MaxRSS is not peak evidence; KEEP192G. Read legacy_continuous_input_repair_v3_implementation_20260929.md, collab/20260929_continuous_repair_v3_response_codex.md, delivery_v3 acceptance.json and OPERATE_HPC.md. HEAD/branch/8 unrelated edits preserved; paper PAUSED, ID NOT_RUN.
+
+2026-09-29 latest: Job177491 pullback VERIFIED / preflight root cause identified / v3 scope-isolation PROPOSED, not implemented. Archive8ae5a2b6...f67abd,43 included files verified. Exact failure frame1135180 is intact IPv4 UDP FIRST fragment; default tshark reassembly hides its ports. Header census SHA verified for both consumed UNSW captures:28/4 fragment frames (14/2 first fragments), all from non-target registered owner70:5a:0f:e4:9b:c0; zero frozen query/reference hits and zero target-owner overlap. active00/01 preflight complete; entire P incomplete, realE3/T/K not started. Propose retain full known-owner registry and global legacy audit, isolate demonstrably outside-required-owner failures; target-owner strict checks remain. See collab/20260929_job177491_preflight_diagnosis_codex.md and runs/legacy_continuous_input_job177491_diagnosis_20260929/. No production changes, retry, remote command or scientific result. sacct export captured pre-exit RUNNING/blankMaxRSS; no measured peak, KEEP192G.
+
+2026-09-29 latest: Job177491 FAILED during P anomaly preflight (user terminal screenshot; pullback not yet local). Slurm FAILED/1:0 elapsed00:09:47; status STOPPED_NO_RETRY, P_ANOMALY_PREFLIGHT_unsw-benign-20180528, MISSING_NAMESPACE_HEADERS; optimizer_updates0, retries0, historical_holdout_opened=false. Displayed completed1105920/5413239 is the last progress sample, NOT the exact failure frame. Displayed rss_gib7.03498 is a sample, NOT total-job peak or evidence to reduce E3/T/K resources. Source check: continuous_input_v2.Contexts.append rejects absent IP/transport-port fields for an otherwise selected protocol/owner; CaptureAudit writes failure frame/time and empty_fields into capture anomalies jsonl.gz. Fragmentation, capture truncation and decoder semantics remain hypotheses pending artifacts. Exporter includes anomaly_preflight; screenshot says Pullback archive ready. NEXT user runs existing transfer_v2.ps1 -Mode Pull, then verify archive and inspect anomaly_preflight/first_failure/logs before joint semantic repair review. No automatic retry, no frozen-rule changes, no model-capability conclusion; sealed v2 package unchanged.
+
+2026-09-29 latest: Job177491 queued (user report); static memory review KEEP192G, insufficient confidence below130GiB; no150G package or remote job change. See legacy_continuous_input_v2_memory_review_20260929.md.
+
+
+2026-09-28 latest: continuous-input v2 Claude review PASS/no blockers; exact package unchanged. See delivery_v2/review_acceptance.json and collab/20260928_continuous_repair_v2_review_claude.md. Real P/T/K NOT_STARTED; input stop => pull anomaly_preflight/ and first failure, no automatic retry.
+
+
+2026-09-28 latest: continuous-input repair v2 implemented,52synthetic+6Windows/6Linux delivery PASS; D1 historical Q weighted99.938458%. Claude focused review pending; real P/T/K NOT_RUN. Parent v1 upload-blocked, paper PAUSED. See legacy_continuous_input_repair_v2_implementation_20260928.md and collab/20260928_continuous_repair_v2_response_codex.md.
+
+
+2026-09-28 current: continuous-input v1 UPLOAD BLOCKED after independently verified Claude B1/B2 review; old package unchanged. B2 query rejection differs from context exclusion; D1 weighted-vs-unweighted attack gate needs prospective agreement. See collab/20260928_continuous_repair_v1_response_codex.md and Claude review. No v2 implementation or real execution yet; prior PACKAGE_READY superseded for upload.
+
+2026-09-28 historical: continuous-input core repair IMPLEMENTED/synthetic36+installer6 PASS; final318692byte HPCpackage ready, REAL_CHAIN_NOT_STARTED;64CPU/192GB/72h fixed P/T/K with12heads; explicit whole-chain authority next. See legacy_continuous_input_repair_implementation_20260928.md and runs/legacy_continuous_input_repair_delivery_v1_20260928/acceptance.json + OPERATE_HPC.md. PaperPAUSED/ID_NOT_RUN.
+
 
 ## Current Experiment Map Control Panel
 
 Status: active index. This top section is the current navigation map.
+
+2026-09-28 latest: paper PAUSED; core continuous-input repair DESIGN READY, not implemented/executed. Recent current-inclusive E3 +26 causal state; matched old/recent/content+state heads and RAW/learned reference comparison;source-only FIT/CAL,fullCICDEV+consumedUNSW,1095200feature rows. Read `legacy_continuous_input_core_repair_design_v1_20260928.md` and `../legacy_continuous_input_core_repair_design_v1_20260928/implementation_and_review.md`. NEXT implementation/synthetic/package. Actualpaper remainsv0; interruptedv1 rewrite was not performed.
+
+2026-09-28 scope update: recent-only Job174251/174666 review and currenttrainingcache;no ancientexperiment audit. Job174666341270features locallyverified,99.20516%attack preservedbut62013attackqueries liein exactfeaturetails;rawprovenance unresolved. Job174251fullLEARN/DEVcache pendingremote;localpartialsrejected. Jointtransfer+lowOODFPR first,necessaryconfirmation/ID/baselineslater. Newpaperworkingdraft started;method/results pending. See `recent_evidence_scope_and_repair_priority_20260928.md` and `../../paper_draft_commissioning_transfer_20260928.md`.
+
+2026-09-28 latest: Job177299 cache audit COMPLETE/verified. All5devices source+feature+score constant from selectedattackquery7 (~6.3s),lasting~63.5min;72523/72553queries in tails. Normalstates vary;not solecause of misses,FULL14605falseveto persists. NEXT minimalcausal continuous-input/state design + attack/reference responsibility review,no repeatedaudit or blindtraining. See `legacy_unsw_saved_cache_audit_job177299_result_20260928.md` and delivery/result_review_job177299.
+
+2026-09-28 latest: saved-cache read-only audit IMPLEMENTED/26local synthetic PASS;Linux delivery/mocked lifecycle PASS;16KB package READY. User authorized and operates upload/submit/pull;HPC_NOT_STARTED. Check 18pins/148408UIDs/source-field-vs-feature-vs-score repeats;no forward/training/rawdecode/thresholdchanges. Target26synthetic checks mandatory. Original~99% high attack recall +lowFPR remains goal,not currentexternalQ preservation alone. See `legacy_unsw_saved_cache_audit_implementation_v1_20260928.md` and `../legacy_unsw_saved_cache_audit_delivery_v1_20260928/OPERATE_HPC.md`.
+
+2026-09-28 latest: bounded attack-transfer diagnosis complete. Five devices each show seven saved score states; early-prefix saturation plus unused duration confirmed synthetically, actual input/feature identity pending. Q and FULL fail separately; coherent roles, no forced module deletion. Next implement/review read-only saved-cache input audit, no training/raw decode/recompute. See `legacy_unsw_attack_transfer_diagnosis_and_repair_direction_20260928.md` and `../legacy_unsw_attack_transfer_diagnosis_v1_20260928/next_cached_input_audit_spec.md`.
+
+2026-09-28 latest: UNSW recovery Job176975 COMPLETE/verified,scientificFAIL. Q59.9369%attack,FULL39.8068% with14605addedmisses;weightednormalFPR2.6129->0.7532%. RAW preservesQattack with1.6612%weightedFPR,limited control signal. Two Q device blindspots plus FULL TPLink suppression;no new experiment. See `legacy_commissioning_unsw_recovery_job176975_result_20260928.md`.
+
+2026-09-27 latest authorization: UNSW recovery v2 full one-attempt evaluation AUTHORIZED;user upload/submit/pull,next job ID not yet observed. Exact package unchanged. See `../legacy_commissioning_unsw_recovery_delivery_v2_20260927/execution_authorization_20260927.json`;no repeated stage approval,zero automatic retries.
+
+2026-09-27 latest: UNSW recovery v2 implementation READY;47synthetic+6installer PASS,92file package. Sealed input reuse,all features recomputed with durable blocks;oldpartialfeatures excluded. No real execution. See `legacy_commissioning_unsw_recovery_implementation_v2_20260927.md`;user upload/explicit one-attempt submission next. Prior repair-next notes historical.
+
+2026-09-27 scheduler supplement: Job176411 FAILED1:0,8h18m/3days,MaxRSS~8.78GiB/96G,no recorded TIMEOUT/OOM. First worker/watchdog cause still unresolved. Next monitor/checkpoint repair and validated recovery preparation;no real retry. See `legacy_commissioning_unsw_job176411_scheduler_addendum_20260927.md`.
+
+2026-09-27 latest: UNSW Job176411 failed at E3_FEATURES;31returned files verified;last progress137280/148408,not sealed feature completion. Two monitor defects reproduced synthetically;actual first cause lost/unresolved. See `legacy_commissioning_unsw_job176411_failure_review_20260927.md`. No scores/retry;prior READY and checksum-only status are historical.
+
+2026-09-27 delivery correction: UNSW checksum sidecar CRLF fixed; install/submission had not started in user screenshot. Payloads unchanged, no reupload needed. See `../legacy_commissioning_unsw_evaluation_delivery_v1_20260927/checksum_lf_fix_v1/correction.md` and corrected OPERATE_HPC.md.
 Older sections below are historical archive unless explicitly revalidated under this control panel.
+
+### 2026-09-09 current navigation override
+
+The latest top panel of `mainline_handoff.md` governs. The September 6 state below
+is historical: real P/T and N1/N2/N3 have occurred, and the one outer comparison
+is complete and CLOSED. This index correction adds no execution authorization.
+
+| Issue | Current evidence | Next boundary |
+|---|---|---|
+| UNSW archival evaluation implementation 2026-09-27 | READY:26synthetic+6installer;43generated packets/56fields parity;87file clean package;small1.91MB upload;no real scoring | `legacy_commissioning_unsw_evaluation_implementation_v1_20260927.md`; delivery/OPERATE_HPC.md:user upload/explicit once-only submission/pull. Target preflight pending;16CPU/96GiB/72h bounds,4workers;reuse raw/E3. Frozen5device148316queries+92refs;oldFAIL/ID_NOT_RUN unchanged |
+| UNSW external archival evaluation inputs 2026-09-26 | FROZEN:5devices,15derived SYN rules,766727training metadata rows audited;plan75763normal+72553attack+92refs;Q/RAW/FULL/NO_CF samecache;8matched controls | `legacy_commissioning_unsw_evaluation_preparation_v1_20260926.md`; NEXT versioned archival implementation/synthetic/package. ActualUIDs pending;foundation exposure unresolved, passive-only, ID NOT_RUN;no model/raw execution this stage |
+| UNSW HPC raw qualification Job176183 2026-09-26 | COMPLETE/verified: 10,140,230 packets,770.907s;5 paired-device candidates;983,788 later normal positions/72,553 narrow SYN candidates;3 both-protocol minimums,2 TCP singleton fallback;sealed preflight12+result169 PASS | `legacy_commissioning_unsw_hpc_real_result_v1_20260926.md`: next labels+lineage and fixed passive evaluation preparation; no model result, ACTIVE/independence unproved, oldFAIL/ID NOT_RUN unchanged; no re-decode |
+| UNSW HPC qualification delivery 2026-09-26 | READY; two-PCAP7.02GB package verified; exact synthetic field/Census parity, local clean installation/preflight PASS; original pins and unrelated edits retained | `legacy_commissioning_unsw_hpc_delivery_v1_20260926.md`; user upload/explicit one-job submit/pull, target compute-node preflight pending. 4CPU/64GiB allocation,48GiB guard,6h raw limit. No real decode/model action; full qualification and scientific boundaries unchanged |
+| Attack-generalization claim clarified 2026-09-26 | Main target: new device/collection environment,similar attack patterns allowed. Fully novel mechanisms not a required mainline task. Recent99.20516% is positive within-CIC cross-device evidence;historical91.9089% uses unseen-family-name split and another pool | Latest handoff user-objective note. Preserve both metrics/frozen experiments;external collection transfer and joint false-alarm benefit still need confirmation. No new execution authority |
+| UNSW raw qualification 2026-09-26 | Download COMPLETE7.02GB;diagnosis COMPLETE:5GiB guard triggered at5.075GiB,TShark97.11%RSS;thenhalfrow error.4,077,118frames accepted,57samples,5/5sealsPASS. Fullqualification unfinished | `legacy_commissioning_unsw_decoder_diagnostic_real_result_v1_20260926.md` / SHA. NEXT higher-memory same-semantics qualification preparation;noautoHPC/newdecode. Oldfailure/seeds/denominators/FAIL/ID NOT_RUN retained |
+| Commissioning external paired-data research 2026-09-25 | COMPLETE/sealed;UNSW Attack Traces primary,CIC2023 backup.10MACs/234intervals;9TCP/UDP candidates,not9independent environments.30,776metadata bytes,4HEAD,0raw/modelactions. PriorUNSW metadata overlaps9/10;E3 exposure unresolved | `legacy_commissioning_external_source_research_v1_20260925.md` / SHA. NEXT recommend fixed2PCAP/7.02GB qualification for5devices;not yet downloaded/authorized. Passive transfer potentially testable;fullactive six-phase logs absent. Frozenpolicy/oldFAIL/ID NOT_RUN retained |
+| Commissioning unused local raw qualification 2026-09-25 | COMPLETE/verified/sealed;51candidate+7Active,zero retries/modelactions. Gosund pair TCP2015/UDP2827826/HTTP0;Active52840legal but fixedhour1TCP+1UDPgroup belowmin2. Luohe identityconfirmed,Nmap labelsundefined | `legacy_commissioning_unused_raw_v1_20260925.md` / SHA.0full-policy newconfirmation devices;UNKNOWN_PASSIVE,oldFAIL/ID NOT_RUN retained. NEXT targeted independent paireddata with actual commissioning evidence;no more samecorpus rediscovery or automatic modelrun |
+| Commissioning existing-data readiness 2026-09-25 | Metadata audit COMPLETE;0qualified fresh joint pairs.11used devices;2unresolved attack-directory leads:Gosund identity,Luohe Nmap labels.51members/297.2MB already local.26normal-only dirs/606PCAPs;Active other-owner counts unknown | `legacy_commissioning_data_readiness_v1_20260925.md` / SHA. Historical readiness stage; subsequent authorized raw qualification completed in row above. Not main-effect ready;no new scoring/training. OldFAIL/roles/policy/ID NOT_RUN retained |
+| Unified commissioning real input preflight 2026-09-25 | COMPLETE,207.797s,zero retries;11sources/64targets.295plannedrefs across8devices,540components;5both/2UDP/1neither.11misses retain target fields,0mixing/0saturation;short-context hypothesis only.0modelactions | `legacy_commissioning_real_preflight_v1_20260925.md` / SHA. NEXT genuine operation evidence and untouched paired-device readiness. Active UNKNOWN_PASSIVE,tokenizer source methods only;no independent migration or accuracy result;historicalFAIL/ID NOT_RUN preserved |
+| Unified commissioning implementation 2026-09-25 | Implementation + independent agent review PASS;92/92 Python3.9 synthetic tests,5 demos. Fixed policy planner/routing, original-prefix bounded attack trace bridge;0real actions. Prefix retention and translator/tokenizer retention explicitly distinct | `legacy_commissioning_implementation_v1_20260925.md` / SHA. Historical implementation boundary; bounded real LEARN/DEV input preflight subsequently authorized and completed (row above). New independent paired roster and active logs absent; historical FAIL/denominators preserved; ID NOT_RUN |
+| Unified commissioning policy 2026-09-24 | DESIGN COMPLETE/sealed; fixed 1h, six functional phases, cap64 distinct components, same-protocol minimum2, causal cutoff and frozen R/Q/verifier routing. LEARN/DEV metadata: 5/8 both protocols, 2/8 UDP only, 1/8 neither; UNKNOWN_PASSIVE. Twelve design checks PASS, no real execution | `legacy_commissioning_policy_frozen_v1_20260924.md` / SHA. NEXT implementation + synthetic acceptance. New untouched paired confirmation roster not established; original hard pool, FAIL and consumed HOLDOUT preserved; ID NOT_RUN. No real-run authority |
+| Qref post-confirmation diagnosis 2026-09-24 | COMPLETE/sealed;307 source pins,0forwards/updates/decode. Missing protocol refs explain fallback;811/1080 misses shared by3seeds. HTTP canonical groups contain2–3streams;current-token retention cause NOT_PROVEN. Later-only8h shortcut would remove357hardDEV FP | legacy_qref_post_confirmation_diagnosis_and_direction_20260924.md / SHA. NEXT bounded coverage+attack-input semantic preflight implementation;no automatic real run. OriginalFAIL/consumedHOLDOUT preserved;ID NOT_RUN |
+| Paper priority: Qref device confirmation 2026-09-23 | Job174666 COMPLETE/verified;attack99.20516% preserved,FP51->30;weightedgain0.165755%,frozenFAIL;99.7734%weightederrors in fallback | legacy_qref_device_confirmation_real_result_v1_20260923.md / SHA. HOLDOUT consumed;onlyBorun gain. NEXT commissioning coverage and separate Q attack-miss design review;no automatic retrain/retune. IndependentID NOT_RUN |
+| Unified dual-view capability baseline 2026-09-14 | Real P/T/E COMPLETE/verified/sealed,134.329s,zero retries; both contrasts TRADEOFF. U1 attack94.1983%,future92.8823%,OODpoolmean68.0306%; TPR@1%57.0957%,@0.1%18.4474%. VsU0 +8685 fixedattack, but street/stream FP99.7%/99.3% | `unified_dual_view_capability_real_result_v1_20260914.md`: E3 content adds attack information but no joint success or promotion. Next substantive qualifiedcoverage/representation design with research; no adjacent sameTRAIN tuning or automatic new experiment. B lacks E3; jointNOT_REACHED,strictFAIL,commissioningNOT_EVALUATED |
+| Unified capability / representation starting point 2026-09-14 | Recover/exceed old best valid capability on four axes; broad input coverage alone is insufficient. Seen-attack aim about99% or better; retain old unseenOOD strengths and ID behavior. Leakage prevention explicit | `mainline_handoff.md` latest user priority: matched historical comparisons, joint attack/OOD improvement, then safe commissioning and independent validation. Old97.37% is not pure seen-attack recall; CHECK99.76% is insufficient broad proof. Causal prefixes/component separation/TRAIN-only preprocessing required. No frozen gate change or new experiment |
+| Q/R / AB-start / representation-preserving readout 2026-09-13 | H_AB T/E COMPLETE/verified/sealed,318.469s; bothcontrastsTRADEOFF. Attack89.3989%,OODpoolmean22.4111%,TPR@1%35.3542%,@0.1%33.3096%; vsAB+707attack/+284normalFP | `frontend_ab_readout_preservation_real_result_v1_20260913.md`: END adjacent same15073TRAIN head/lr/epochs/freeze/KD tuning. Next justifiedinput/qualifiedcoverage design with targetedresearch; no automatic newexperiment. JointNOT_REACHED,strictFAIL,commissioningNOT_EVALUATED |
+| Fixed-C2 mechanism diagnostic 2026-09-12 | COMPLETE/verified/sealed80.844s;15073 TRAIN/9379 teacher, zero updates. Teacher reaches encoder but134/197 bucket gradients oppose label; aux/deploy rank correspondence differs within attacks | `frontend_transfer_diagnostic_real_result_v1_20260912.md`: diagnosis preserved; next design now Q/R above. Local TRAIN geometry does not explain all prior low-FPR degradation or prove generalization |
+| Joint capability / task-knowledge transfer 2026-09-11 | V2 T/E COMPLETE/verified/sealed; C2 attack94.6425%, OOD pool-mean22.60%; all contrasts TRADEOFF. Loss/log review does not prove transfer route exhausted; late clipping absent, guard rarely active | `frontend_transfer_fair_trial_and_target_clarification_20260911.md`: attack priority,99.99%/97% aspirations; fully unseen families optional extension. Bounded mechanism diagnosis is now authorized under September12 scope; no automatic retraining/tuning/download; retain AB/C0 and prior results |
+| Fixed A expanded comparison 2026-09-11 | COMPLETE/PASS,262050 targets,85.469s. A84.05% vs AB89.11% attack; B improves aggregate but worsens scan/Telnet/hydraulic. Attack negative flips13994, positive26333 | `frontend_a_expanded_eval_real_result_20260911.md`: base transfer deficit and local compatibility costs coexist; choose targeted training intervention next. No new real execution authorized |
+| Fixed AB expanded evaluation V2 2026-09-11 | COMPLETE:262050 targets,76min,execution/seal PASS. Attack97.3698% ->89.1092%; predictive FP42.8333% ->1.0778%, street/stream regress; broad retention unachieved | `frontend_expanded_result_next_decision_20260911.md`: next recommend one fixed-A evaluation on prepared same inputs to separate base transfer loss and B-supervision cost; reuse AB scores, no train/decode. Proposed A evaluation not authorized/executed; V1/V2 preserved |
+| Paper objective / method direction 2026-09-10 | Late P2 has attack and stream-OOD joint progress; V3 has separate coverage/learning progress; broad unified capability and safe commissioning unresolved | Read `project_state_and_research_priority_20260910.md`: representation/learning capability is primary, paired data follow existing CIC IoT 2022 PENDING research. Conditional-branch priority withdrawn; no new mechanism or execution selected |
+| Frontend-F4 / F5 | F4 remains PASS; F5 T ended NO_ELIGIBLE_CHECKPOINT | No F4 repeat, F5 retry or K access |
+| Inheritance N1/N2/N3 | Attempts CLOSED; N3 satisfies all 12,711 fitted constraints, a finite-set repair witness | Preserve witness; broader inheritance NOT_PROVED |
+| Fixed-N3 outer comparison | `frontend_inheritance_outer_real_result_20260909.md`: 1,995/2,000 attacks retained, all 2,400 benign correct including 1,224 B; A retention REGRESSION_ON_THIS_POOL | Reassess the route from project goals; compare diagnosis and fuller lawful A+B training before intervention; no new execution authorized |
+| Workflow / HPC continuity | `mainline_workflow_and_hpc_continuity_20260909.md`: maintenance, independent research judgment, collaboration preferences, selected HPC lessons and history gap | Literature-first technical recommendation; neither inherited route nor user's proposal accepted automatically; no remote action authorized |
+| Objective-aligned paired learning | V3 CLOSED; real execution/seal verified, A/AB each40 epochs. A attack misses both2/825; A normal FP both0/1302; B normal FP538/1066 -> 0/1066. See `frontend_paired_train_v3_real_result_20260910.md` | Retention FAIL, B normal gain PASS, B attack check=0. Next: bounded diagnosis + larger ID/hard-OOD/attack evaluation-scope proposal; see `frontend_post_paired_next_step_and_head_review_20260910.md`. No new execution; heartbeat deleted |
 
 ### 2026-09-06 frontend navigation override
 
@@ -767,7 +1132,8 @@ Archive rule:
 
 - `prism_handoffs/2026-04-08/prism_paper_revision_pack_2026-04-08`: Prism paper revision pack based on current draft PDF and final experimental evidence; includes Prism prompt, copied draft PDF, main tables, figures, evidence summaries, and zip bundle. Path: `runs/prism_handoffs/2026-04-08/prism_paper_revision_pack_2026-04-08/`.
 
-- rontend100_deep_svdd_baseline_2026-04-09: Multi-seed Deep SVDD baseline on original-frontend 100D stronger OOD; ID-benign-only training with AE pretrain and center-distance scoring. Path: 
+- 
+rontend100_deep_svdd_baseline_2026-04-09: Multi-seed Deep SVDD baseline on original-frontend 100D stronger OOD; ID-benign-only training with AE pretrain and center-distance scoring. Path: 
 uns/frontend100_deep_svdd_baseline_2026-04-09/.
 - `frontend100_additional_ood_setting_smoketest_2026-04-09_b`: Additional benign OOD setting evaluation (same-capture temporal split) for current Transformer ensemble candidate vs dA and family references; no retraining. Path: `runs/frontend100_additional_ood_setting_smoketest_2026-04-09_b/`.
 - `frontend100_additional_ood_setting_smoketest_2026-04-09_c`: Additional benign OOD setting evaluation (same-capture temporal split) for current Transformer ensemble candidate vs dA and family references; no retraining. Path: `runs/frontend100_additional_ood_setting_smoketest_2026-04-09_c/`.

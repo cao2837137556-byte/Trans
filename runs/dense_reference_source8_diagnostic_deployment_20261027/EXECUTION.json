@@ -1,0 +1,62 @@
+{
+  "monitor": {
+    "automatic_retry": false,
+    "created_utc": "2026-10-27T10:58:09.847156+00:00",
+    "job_id": "179591",
+    "lifetime_seconds": 86400,
+    "pid": 3501217,
+    "port": 18782,
+    "returncode": null,
+    "root": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_original104_batch_diagnostic_v1_20261027_runtime",
+    "status": "STATUS_BRIDGE_STARTED",
+    "token_exposed": false
+  },
+  "submission": {
+    "automatic_retry": false,
+    "created_utc": "2026-10-27T10:58:06.782153+00:00",
+    "diagnostic_approval_sha256": "e3c839c45c0b211e0598a3d4e8a4d7913117c657d8b7b680cb63770105621bb8",
+    "diagnostic_manifest_sha256": "0d6d59c904b6a6e0a29725c99fc628c760e2489fdb2bbbbcf90027bb79c1f1d5",
+    "job_id": "179591",
+    "limits": {
+      "min_free_gib": 1,
+      "output_mib": 256,
+      "rss_gib": 8,
+      "slurm_cpus": 4,
+      "slurm_memory_gib": 16,
+      "wall_seconds": 600
+    },
+    "maximum_forward_positions": 136,
+    "original_manifest_sha256": "ddb94bb9836c9ace0b2a704e875d969c1d3c40c94198212ac795a9d0731db120",
+    "preflight": {
+      "diagnostic_files": 9,
+      "diagnostic_manifest_sha256": "0d6d59c904b6a6e0a29725c99fc628c760e2489fdb2bbbbcf90027bb79c1f1d5",
+      "limits": {
+        "min_free_gib": 1,
+        "output_mib": 256,
+        "rss_gib": 8,
+        "slurm_cpus": 4,
+        "slurm_memory_gib": 16,
+        "wall_seconds": 600
+      },
+      "manifest_sha256": "ae3e5008e91abdb40ea132ef648d95533d546285518d825146366d176bbea746",
+      "maximum_forward_positions": 136,
+      "original_approval_sha256": "0576a803faf1fd77ffb57fecb606e5a31aa98957b895f657c23fb152ff2c4b26",
+      "original_manifest_sha256": "ddb94bb9836c9ace0b2a704e875d969c1d3c40c94198212ac795a9d0731db120",
+      "production_encode": false,
+      "real_forwards": 0,
+      "scope": "SOURCE_REFERENCE8_B1_B16_CLONE_DIAGNOSTIC_ONLY",
+      "source_cal": false,
+      "status": "PASS",
+      "target_evaluation": false
+    },
+    "production_encode": false,
+    "retries": 0,
+    "returncode": 0,
+    "scope": "SOURCE_REFERENCE8_B1_B16_CLONE_DIAGNOSTIC_ONLY",
+    "source_cal": false,
+    "status": "SUBMITTED",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "c60b62e93cc6e85f62085db5d3e938e6d96dce88490e107fa2e2d1a1309fa4ad",
+    "target_evaluation": false
+  }
+}

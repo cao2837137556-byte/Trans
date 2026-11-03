@@ -1,0 +1,871 @@
+{
+  "elapsed_seconds": 51.49771712999791,
+  "logs": {
+    "metadata.log": "{\"status\": \"PASS_METADATA_ONLY\", \"query_rows\": 328202, \"source_seal_files_verified\": 19, \"banks\": [{\"pool\": \"CIC_DEV\", \"bank\": \"b2_bank\", \"refs\": 67, \"overlap\": 64}, {\"pool\": \"CIC_DEV\", \"bank\": \"dense_bank\", \"refs\": 8574, \"overlap\": 3334}, {\"pool\": \"UNSW_DEV\", \"bank\": \"b2_bank\", \"refs\": 148, \"overlap\": 19}, {\"pool\": \"UNSW_DEV\", \"bank\": \"dense_bank\", \"refs\": 13247, \"overlap\": 1319}], \"output\": \"/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_ab_stage_dependency_repair_deployment_20261028/METADATA_PREFLIGHT.json\"}\n",
+    "synthetic_tests.log": "test_child_sitecustomize_loads_overlap_dependency_and_fails_closed (test_dependency_repair.RepairTest.test_child_sitecustomize_loads_overlap_dependency_and_fails_closed) ... ok\ntest_exact_frozen_six_module_closure (test_dependency_repair.RepairTest.test_exact_frozen_six_module_closure) ... ok\ntest_full_six_modules_legal_overlap_passes_in_isolation (test_dependency_repair.RepairTest.test_full_six_modules_legal_overlap_passes_in_isolation) ... ok\ntest_history_identity_changes_fail (test_dependency_repair.RepairTest.test_history_identity_changes_fail) ... ok\ntest_old_approval_and_template_cannot_run_repair (test_dependency_repair.RepairTest.test_old_approval_and_template_cannot_run_repair) ... ok\ntest_parent_five_modules_reproduce_exact_missing_lazy_dependency (test_dependency_repair.RepairTest.test_parent_five_modules_reproduce_exact_missing_lazy_dependency) ... ok\ntest_pinned_finder_beats_root_repo_fallback (test_dependency_repair.RepairTest.test_pinned_finder_beats_root_repo_fallback) ... ok\ntest_q14_range_and_uid_join_fail (test_dependency_repair.RepairTest.test_q14_range_and_uid_join_fail) ... ok\ntest_query_role_label_and_complete_bank_time_frame_fail (test_dependency_repair.RepairTest.test_query_role_label_and_complete_bank_time_frame_fail) ... ok\ntest_recursive_ast_closure_in_isolated_directory (test_dependency_repair.RepairTest.test_recursive_ast_closure_in_isolated_directory) ... ok\ntest_support_distance_guard_is_active (test_dependency_repair.RepairTest.test_support_distance_guard_is_active) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 12.568s\n\nOK\n"
+  },
+  "metadata": {
+    "banks": [
+      {
+        "all_history_identities_pass": true,
+        "bank": "b2_bank",
+        "overlapping_uids": 64,
+        "pool_id": "CIC_DEV",
+        "query": {
+          "ordered_uid_sha256": "1b13ef4d89e5652d6c24931ab895842b58cce655249cf978ff3d1cdded04f35d",
+          "q14_dtype": "float32",
+          "q14_finite_range_pass": true,
+          "q14_shape": [
+            179886,
+            14
+          ],
+          "rows": 179886
+        },
+        "reference": {
+          "ordered_uid_sha256": "f5ce019b1b58e9afc513d760341b3ba0f6f924971a9dc2f0478fabe9beabfaa1",
+          "q14_dtype": "float32",
+          "q14_finite_range_pass": true,
+          "q14_shape": [
+            67,
+            14
+          ],
+          "rows": 67
+        },
+        "reference_roster": [
+          {
+            "device": "Eufy Home Base",
+            "distinct_components": 64,
+            "partition": "DEV",
+            "protocol": 17,
+            "rows": 64
+          },
+          {
+            "device": "HeimVision Camera",
+            "distinct_components": 1,
+            "partition": "DEV",
+            "protocol": 6,
+            "rows": 1
+          },
+          {
+            "device": "HeimVision Camera",
+            "distinct_components": 2,
+            "partition": "DEV",
+            "protocol": 17,
+            "rows": 2
+          }
+        ]
+      },
+      {
+        "all_history_identities_pass": true,
+        "bank": "dense_bank",
+        "overlapping_uids": 3334,
+        "pool_id": "CIC_DEV",
+        "query": {
+          "ordered_uid_sha256": "1b13ef4d89e5652d6c24931ab895842b58cce655249cf978ff3d1cdded04f35d",
+          "q14_dtype": "float32",
+          "q14_finite_range_pass": true,
+          "q14_shape": [
+            179886,
+            14
+          ],
+          "rows": 179886
+        },
+        "reference": {
+          "ordered_uid_sha256": "53bd684394a36ea0fc25809f218e253fdb1fd6fb6666cfd5545c8f456e11e620",
+          "q14_dtype": "float32",
+          "q14_finite_range_pass": true,
+          "q14_shape": [
+            8574,
+            14
+          ],
+          "rows": 8574
+        },
+        "reference_roster": [
+          {
+            "device": "Eufy Home Base",
+            "distinct_components": 347,
+            "partition": "DEV",
+            "protocol": 17,
+            "rows": 3724
+          },
+          {
+            "device": "HeimVision Camera",
+            "distinct_components": 1,
+            "partition": "DEV",
+            "protocol": 6,
+            "rows": 2521
+          },
+          {
+            "device": "HeimVision Camera",
+            "distinct_components": 2,
+            "partition": "DEV",
+            "protocol": 17,
+            "rows": 2329
+          }
+        ]
+      },
+      {
+        "all_history_identities_pass": true,
+        "bank": "b2_bank",
+        "overlapping_uids": 19,
+        "pool_id": "UNSW_DEV",
+        "query": {
+          "ordered_uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+          "q14_dtype": "float32",
+          "q14_finite_range_pass": true,
+          "q14_shape": [
+            148316,
+            14
+          ],
+          "rows": 148316
+        },
+        "reference": {
+          "ordered_uid_sha256": "051957499592637ff4eb0c2c9fb769c9870174131f40db197392133605511fe6",
+          "q14_dtype": "float32",
+          "q14_finite_range_pass": true,
+          "q14_shape": [
+            148,
+            14
+          ],
+          "rows": 148
+        },
+        "reference_roster": [
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "distinct_components": 1,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 6,
+            "rows": 1
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "distinct_components": 5,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 17,
+            "rows": 5
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "distinct_components": 3,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 6,
+            "rows": 3
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "distinct_components": 7,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 17,
+            "rows": 7
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "distinct_components": 48,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 6,
+            "rows": 48
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "distinct_components": 16,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 17,
+            "rows": 16
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "distinct_components": 1,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 6,
+            "rows": 1
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "distinct_components": 3,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 17,
+            "rows": 3
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "distinct_components": 32,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 6,
+            "rows": 32
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "distinct_components": 32,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 17,
+            "rows": 32
+          }
+        ]
+      },
+      {
+        "all_history_identities_pass": true,
+        "bank": "dense_bank",
+        "overlapping_uids": 1319,
+        "pool_id": "UNSW_DEV",
+        "query": {
+          "ordered_uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+          "q14_dtype": "float32",
+          "q14_finite_range_pass": true,
+          "q14_shape": [
+            148316,
+            14
+          ],
+          "rows": 148316
+        },
+        "reference": {
+          "ordered_uid_sha256": "b638abbc105bc512dd07fde561caca65ae87484cb3c6c3390c9d9d45cd771d4e",
+          "q14_dtype": "float32",
+          "q14_finite_range_pass": true,
+          "q14_shape": [
+            13247,
+            14
+          ],
+          "rows": 13247
+        },
+        "reference_roster": [
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "distinct_components": 1,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 6,
+            "rows": 717
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "distinct_components": 5,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 17,
+            "rows": 2669
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "distinct_components": 3,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 6,
+            "rows": 147
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "distinct_components": 7,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 17,
+            "rows": 14
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "distinct_components": 50,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 6,
+            "rows": 1609
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "distinct_components": 16,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 17,
+            "rows": 1172
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "distinct_components": 1,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 6,
+            "rows": 88
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "distinct_components": 3,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 17,
+            "rows": 52
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "distinct_components": 1064,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 6,
+            "rows": 4096
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            "distinct_components": 34,
+            "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+            "protocol": 17,
+            "rows": 2683
+          }
+        ]
+      }
+    ],
+    "created_utc": "2026-10-28T03:17:42.065694+00:00",
+    "distances_computed": 0,
+    "distinct_pinned_files": 53,
+    "e3_arithmetic_calls": 0,
+    "e3_arrays_opened": 0,
+    "input_files": [
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/RESULT.json",
+        "sha256": "9a2a067d536cd140e81250aa1666c82e083561459a8268a50f293b8228573c66"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/banks/CIC_DEV/bank.npz",
+        "sha256": "42f7e1649f7e4615738f76347d14eadc5207582f900e0ffe3de9ec070ce21353"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/banks/CIC_DEV/receipt.json",
+        "sha256": "abe9e417e3be6e9bd2b0d1b06017617ee55f9cab2dc66aebcb0eea782bbf050e"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/banks/SOURCE_REFS/bank.npz",
+        "sha256": "8f5afbb9132c07d32c3ea8c96826110a01a17f2725148d3c4b3902ac7981fc36"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/banks/SOURCE_REFS/receipt.json",
+        "sha256": "ea3776fdf9ed358ff5f9af2d63d987a6863f28501f83552f4b39304b13fe38ec"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/banks/SOURCE_REFS/references.jsonl.gz",
+        "sha256": "574d70d4b26ae46309b23f52b87aa0ff1ed1089a22b05127d2a2fe3fba95bac6"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/banks/UNSW_DEV/bank.npz",
+        "sha256": "15fc1dd490eb546e63ac163a5829ee46397d2bd0fe4d07f2612d0a7710d2ea74"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/banks/UNSW_DEV/receipt.json",
+        "sha256": "b04f8dca9748539e269aba0f00cb57bb7dfcd41bd9fa32e1dcdbce9269da73c7"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/repo/ood/constrained_onboarding_core_v3.py",
+        "sha256": "42a32e0b829a373a96046d34d16bcb53455f99f1bc0786a8a49be38bc855f72c"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/repo/ood/onboarding_budget_v1.py",
+        "sha256": "82f75052524ddd19bd1af1deb162c7ca537e072f2415de0006d40ef7d785f099"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CAL.npz",
+        "sha256": "6737b05a0b2a38e9e9f61060a07f1cb5ddb0d1faa5c25bec35dcae818a4e05b6"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN.jsonl.gz",
+        "sha256": "295a714ab573baf50086464d0c5e97ddfa9ca9e065a06cf282037df75541ae91"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN_q.npy",
+        "sha256": "388c92ce4a1cb8029ba81d52cd7b511c8e49a8e97f848ab5982050d470e63b9e"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz",
+        "sha256": "ba92b5439255435e854ee14b74738cae0e3606060456de37927b2b6a0e2ab8b2"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/cuts.json",
+        "sha256": "d4c391302d2d32c5d8813a45612b6f4203468e4b52bbd58233cbd6f274c84bbd"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/geometry.json",
+        "sha256": "080c069fa41f6eb7fbcea2e890873be462f8471b8ff2a039a8a30935674ca124"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/protection.json",
+        "sha256": "306afefda32b398fdb9dfabcd9562e44b79555dcb551add8dad9c9a51cab37e2"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/scales.json",
+        "sha256": "06870509e49b642e1a03444e425542cc4559b5375d522cbb27295dc70d208fa2"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/SOURCE_REFS.jsonl.gz",
+        "sha256": "e23e66d1e8a28e41cca5d961bb057c9b041e5b9a9d5f411740702e783b65747a"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/SOURCE_REFS.npz",
+        "sha256": "b4859a65df61cf14ccef9ee5f23fa420a7c31afb162ffb929734345f697e53d6"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/output/d1/r2/source_actual_trace.npz",
+        "sha256": "1dedf849ce024a07aa91254d55b3f898e919cd6ee1fa59203ff632a98ca4234f"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/features/LEARN.npy",
+        "sha256": "6d06cbe5d20f08b6ebbbe57c807e3f52d0c94251ba513f815c080e5f404d1356"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/source_cal/R-B2/PREPARATION.json",
+        "sha256": "5df47e831642dd4241a87eafaa7ecb51f1bb1a7bbcc461fc5908fd6d2b1570c6"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/source_cal/R-DENSE/PREPARATION.json",
+        "sha256": "6ae4f623b64ea7471d1d6ae48d649e9adbf1d98e5e851dc8b316449b3e0d2ae9"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/source_cal/RESULT.json",
+        "sha256": "810f28a769f60057ed14fde968b740d87173b130c2bfb0eb192548bcf325fbb8"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/CIC_DEV_WRONG_PLAN.json",
+        "sha256": "2f66dfb6cdbbe5ae5a29d269dc14b070bc64c58ca4d3cd582e6bff770235d372"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/CIC_DEV_query_uids.json",
+        "sha256": "e3d4f13c7578fc3e939f9ebff65dab4db51ef746a252d7677051e83577b8f70d"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/UNSW_DEV_WRONG_PLAN.json",
+        "sha256": "481e6f9cc0f7d30255519f3f08026587bb2f799e88f9e8c152e8cc00d6855ae9"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/UNSW_DEV_query_uids.json",
+        "sha256": "ce463fe077cdbfe54e30d3cf52b7063b8150fd21b9e8cf18a97327e5282fad27"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_matrix_v1_20261027/vendor/encoding_v2/data/SOURCE_REFS/DENSE_PLAN.json",
+        "sha256": "5ab90b2835f623901562ed60bc8c5b01174e4af9a3896db91fa8cf98a4bcb7e1"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/CIC_DEV/SELECTED_REFERENCES.jsonl.gz",
+        "sha256": "376b8d83da5f15acc1dd2c3eaa3c9b6919fae5cf2278e73c54a0409ef9af4f64"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/UNSW_DEV/SELECTED_REFERENCES.jsonl.gz",
+        "sha256": "850b68302ccf94138138e55455136dbe5bb1d5e2e122c41420763c597d89c456"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV.jsonl.gz",
+        "sha256": "666c2e2dc648ab539b8e2bb5e1b1fb8fee8cd3bf92223a72d6631fc4c851f64f"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV_q.npy",
+        "sha256": "13ddfc2326bb7e97d11191fa818b637fe89d1668fae2f6d29798a4f9c384d14f"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV.jsonl.gz",
+        "sha256": "d334f18c3a2857fe8b63f491fd78ba3dc984bbd0fa7a55a4f030d9e797098503"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV_q.npy",
+        "sha256": "19278ac100c0ef8e85245439db3d436777d1f1e9121cb2b6015104469911856f"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz",
+        "sha256": "ba92b5439255435e854ee14b74738cae0e3606060456de37927b2b6a0e2ab8b2"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/encoded/CIC_DEV/B2/bank.npz",
+        "sha256": "6f27be84856053064783491a3f6c302d861b6de00231360c7298238d8e32d9f0"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/encoded/CIC_DEV/B2/receipt.json",
+        "sha256": "628ac3953d1be38233b957164bfcaecda3b1d6a1dc947770d5b79b98afe0f145"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/encoded/CIC_DEV/B2/references.jsonl.gz",
+        "sha256": "24f56d0e131a635aeea3de69a4f991a3ac9ffc45b78666c5cc12307da9ac4448"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/encoded/UNSW_DEV/B2/bank.npz",
+        "sha256": "66e2ff7d8a1bb67a3dec9a7ba1f964d2044df93e7932adac429368002a97cdb3"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/encoded/UNSW_DEV/B2/receipt.json",
+        "sha256": "c8d7f6c4f7f604cd44b418b56496e472ba21ce3c08a1f0a45ecf4c27c3be7b3a"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/encoded/UNSW_DEV/B2/references.jsonl.gz",
+        "sha256": "ab6b587784d9915db75269db02a38bdc886e528367d870bfc851a04f75ae6cb0"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/CIC_DEV/B2/scores.npz",
+        "sha256": "be31c6ebe27cae2f8a8d7c80fc0d405b6c7e384b4e3a70d1fb75e97629ecba48"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/CIC_DEV/B2/trace.jsonl.gz",
+        "sha256": "90fa99a045a1ce0e9846b8200e424fd2a695042cefa37f26cbe31bdc12edf312"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/UNSW_DEV/B2/scores.npz",
+        "sha256": "03cd8a70621d2953add44c57205c59d00fcfe59502876fd0426a424f985a3e7d"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/UNSW_DEV/B2/trace.jsonl.gz",
+        "sha256": "ea748602083ad5a2785627820867ee6b41ea7ef8affb80227b69a0cefc1fbf15"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/cuts.json",
+        "sha256": "d4c391302d2d32c5d8813a45612b6f4203468e4b52bbd58233cbd6f274c84bbd"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/geometry.json",
+        "sha256": "080c069fa41f6eb7fbcea2e890873be462f8471b8ff2a039a8a30935674ca124"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/protection.json",
+        "sha256": "306afefda32b398fdb9dfabcd9562e44b79555dcb551add8dad9c9a51cab37e2"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/scales.json",
+        "sha256": "06870509e49b642e1a03444e425542cc4559b5375d522cbb27295dc70d208fa2"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/features/CIC_DEV.npy",
+        "sha256": "8a511aed14f5f7b5be59b94452e0ebc7e57ba0ba704f24ab00bbc3ff78fcf422"
+      },
+      {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/features/UNSW_DEV.npy",
+        "sha256": "a9f922e7e13eff477cb4c3fdd8d11fe9920b8e717aab225734dcd859dd59eb97"
+      }
+    ],
+    "matrix_manifest_sha256": "3c7d04a6a32b2a033b62bdfefc93172809eb6a7e6375b7fd7be7828a27ad1199",
+    "metadata_guards_active": true,
+    "model_forwards": 0,
+    "modules": {
+      "causal_reference_overlap_v1": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_ab_stage_dependency_repair_v1_20261028/vendor/ood/causal_reference_overlap_v1.py",
+        "sha256": "b60f1c9b2cc0a2d5c3543d3b6f72709eca68ab01cb820e1aab5c2e38a93ed479"
+      },
+      "constrained_onboarding_core_v3": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_ab_stage_dependency_repair_v1_20261028/vendor/ood/constrained_onboarding_core_v3.py",
+        "sha256": "42a32e0b829a373a96046d34d16bcb53455f99f1bc0786a8a49be38bc855f72c"
+      },
+      "indexed_features_v1": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_ab_stage_dependency_repair_v1_20261028/vendor/ood/indexed_features_v1.py",
+        "sha256": "45075f5f5a8ca50715e5f746254e845ad44ee8d77ce8cc2d47bdcda9226816de"
+      },
+      "legacy_qref_common_v1": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_ab_stage_dependency_repair_v1_20261028/vendor/ood/legacy_qref_common_v1.py",
+        "sha256": "909b01b43c7ec74a70e580a528e2fb70d6bdc18c4c5a3186c142757e8df88334"
+      },
+      "legacy_qref_data_v1": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_ab_stage_dependency_repair_v1_20261028/vendor/ood/legacy_qref_data_v1.py",
+        "sha256": "dc575ff12529e1b3dd9e7062d4f05b34dcf1f11c323573fea134d958622c59f5"
+      },
+      "onboarding_budget_v1": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_ab_stage_dependency_repair_v1_20261028/vendor/ood/onboarding_budget_v1.py",
+        "sha256": "82f75052524ddd19bd1af1deb162c7ca537e072f2415de0006d40ef7d785f099"
+      }
+    },
+    "new_CAL_runs": 0,
+    "new_encoding_rows": 0,
+    "query_rows": 328202,
+    "reference_bank_constructions": 0,
+    "scheduler_submissions": 0,
+    "schema": "paper04-ab-dependency-metadata-preflight-v1",
+    "scientific_result": false,
+    "scientific_retries": 0,
+    "score_evaluations": 0,
+    "source_banks": [
+      {
+        "name": "SOURCE_B2",
+        "roster": [
+          {
+            "device": "Amcrest Camera",
+            "distinct_components": 1,
+            "partition": "LEARN",
+            "protocol": 6,
+            "rows": 1
+          },
+          {
+            "device": "Amcrest Camera",
+            "distinct_components": 63,
+            "partition": "LEARN",
+            "protocol": 17,
+            "rows": 63
+          },
+          {
+            "device": "ArloQ Camera",
+            "distinct_components": 8,
+            "partition": "LEARN",
+            "protocol": 6,
+            "rows": 8
+          },
+          {
+            "device": "ArloQ Camera",
+            "distinct_components": 4,
+            "partition": "LEARN",
+            "protocol": 17,
+            "rows": 4
+          },
+          {
+            "device": "Atomi Coffee Maker",
+            "distinct_components": 1,
+            "partition": "LEARN",
+            "protocol": 6,
+            "rows": 1
+          },
+          {
+            "device": "Atomi Coffee Maker",
+            "distinct_components": 1,
+            "partition": "LEARN",
+            "protocol": 17,
+            "rows": 1
+          },
+          {
+            "device": "Globe Lamp",
+            "distinct_components": 1,
+            "partition": "LEARN",
+            "protocol": 6,
+            "rows": 1
+          },
+          {
+            "device": "Globe Lamp",
+            "distinct_components": 1,
+            "partition": "LEARN",
+            "protocol": 17,
+            "rows": 1
+          },
+          {
+            "device": "Philips Hue Bridge",
+            "distinct_components": 4,
+            "partition": "LEARN",
+            "protocol": 6,
+            "rows": 4
+          },
+          {
+            "device": "Philips Hue Bridge",
+            "distinct_components": 5,
+            "partition": "LEARN",
+            "protocol": 17,
+            "rows": 5
+          },
+          {
+            "device": "SimCam",
+            "distinct_components": 8,
+            "partition": "LEARN",
+            "protocol": 6,
+            "rows": 8
+          },
+          {
+            "device": "SimCam",
+            "distinct_components": 7,
+            "partition": "LEARN",
+            "protocol": 17,
+            "rows": 7
+          }
+        ],
+        "rows": 104
+      },
+      {
+        "name": "SOURCE_DENSE",
+        "roster": [
+          {
+            "device": "Amcrest Camera",
+            "distinct_components": 1,
+            "partition": "LEARN",
+            "protocol": 6,
+            "rows": 1
+          },
+          {
+            "device": "Amcrest Camera",
+            "distinct_components": 163,
+            "partition": "LEARN",
+            "protocol": 17,
+            "rows": 534
+          },
+          {
+            "device": "ArloQ Camera",
+            "distinct_components": 8,
+            "partition": "LEARN",
+            "protocol": 6,
+            "rows": 3895
+          },
+          {
+            "device": "ArloQ Camera",
+            "distinct_components": 4,
+            "partition": "LEARN",
+            "protocol": 17,
+            "rows": 8
+          },
+          {
+            "device": "Atomi Coffee Maker",
+            "distinct_components": 1,
+            "partition": "LEARN",
+            "protocol": 6,
+            "rows": 12
+          },
+          {
+            "device": "Atomi Coffee Maker",
+            "distinct_components": 1,
+            "partition": "LEARN",
+            "protocol": 17,
+            "rows": 4
+          },
+          {
+            "device": "Globe Lamp",
+            "distinct_components": 1,
+            "partition": "LEARN",
+            "protocol": 6,
+            "rows": 3
+          },
+          {
+            "device": "Globe Lamp",
+            "distinct_components": 1,
+            "partition": "LEARN",
+            "protocol": 17,
+            "rows": 3
+          },
+          {
+            "device": "Philips Hue Bridge",
+            "distinct_components": 4,
+            "partition": "LEARN",
+            "protocol": 6,
+            "rows": 97
+          },
+          {
+            "device": "Philips Hue Bridge",
+            "distinct_components": 5,
+            "partition": "LEARN",
+            "protocol": 17,
+            "rows": 9
+          },
+          {
+            "device": "SimCam",
+            "distinct_components": 8,
+            "partition": "LEARN",
+            "protocol": 6,
+            "rows": 85
+          },
+          {
+            "device": "SimCam",
+            "distinct_components": 7,
+            "partition": "LEARN",
+            "protocol": 17,
+            "rows": 77
+          }
+        ],
+        "rows": 4728
+      }
+    ],
+    "source_seal_aliases": [
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN.jsonl.gz",
+        "sha256": "295a714ab573baf50086464d0c5e97ddfa9ca9e065a06cf282037df75541ae91",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN.jsonl.gz"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN_q.npy",
+        "sha256": "388c92ce4a1cb8029ba81d52cd7b511c8e49a8e97f848ab5982050d470e63b9e",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN_q.npy"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CAL.npz",
+        "sha256": "6737b05a0b2a38e9e9f61060a07f1cb5ddb0d1faa5c25bec35dcae818a4e05b6",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CAL.npz"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz",
+        "sha256": "ba92b5439255435e854ee14b74738cae0e3606060456de37927b2b6a0e2ab8b2",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/cuts.json",
+        "sha256": "d4c391302d2d32c5d8813a45612b6f4203468e4b52bbd58233cbd6f274c84bbd",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/cuts.json"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/geometry.json",
+        "sha256": "080c069fa41f6eb7fbcea2e890873be462f8471b8ff2a039a8a30935674ca124",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/geometry.json"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/scales.json",
+        "sha256": "06870509e49b642e1a03444e425542cc4559b5375d522cbb27295dc70d208fa2",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/scales.json"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/protection.json",
+        "sha256": "306afefda32b398fdb9dfabcd9562e44b79555dcb551add8dad9c9a51cab37e2",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/protection.json"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/SOURCE_REFS.jsonl.gz",
+        "sha256": "e23e66d1e8a28e41cca5d961bb057c9b041e5b9a9d5f411740702e783b65747a",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/SOURCE_REFS.jsonl.gz"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/SOURCE_REFS.npz",
+        "sha256": "b4859a65df61cf14ccef9ee5f23fa420a7c31afb162ffb929734345f697e53d6",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/SOURCE_REFS.npz"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/features/LEARN.npy",
+        "sha256": "6d06cbe5d20f08b6ebbbe57c807e3f52d0c94251ba513f815c080e5f404d1356",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/features/LEARN.npy"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/output/d1/r2/source_actual_trace.npz",
+        "sha256": "1dedf849ce024a07aa91254d55b3f898e919cd6ee1fa59203ff632a98ca4234f",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/runs/diagnostics_d1_d2_v1_20261022/output/d1/r2/source_actual_trace.npz"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/banks/SOURCE_REFS/bank.npz",
+        "sha256": "8f5afbb9132c07d32c3ea8c96826110a01a17f2725148d3c4b3902ac7981fc36",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/banks/SOURCE_REFS/bank.npz"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/banks/SOURCE_REFS/references.jsonl.gz",
+        "sha256": "574d70d4b26ae46309b23f52b87aa0ff1ed1089a22b05127d2a2fe3fba95bac6",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/banks/SOURCE_REFS/references.jsonl.gz"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/banks/SOURCE_REFS/receipt.json",
+        "sha256": "ea3776fdf9ed358ff5f9af2d63d987a6863f28501f83552f4b39304b13fe38ec",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/banks/SOURCE_REFS/receipt.json"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_matrix_v1_20261027/vendor/encoding_v2/data/SOURCE_REFS/DENSE_PLAN.json",
+        "sha256": "5ab90b2835f623901562ed60bc8c5b01174e4af9a3896db91fa8cf98a4bcb7e1",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_matrix_v1_20261027/vendor/encoding_v2/data/SOURCE_REFS/DENSE_PLAN.json"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/RESULT.json",
+        "sha256": "9a2a067d536cd140e81250aa1666c82e083561459a8268a50f293b8228573c66",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/encode/RESULT.json"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/repo/ood/constrained_onboarding_core_v3.py",
+        "sha256": "42a32e0b829a373a96046d34d16bcb53455f99f1bc0786a8a49be38bc855f72c",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/repo/ood/constrained_onboarding_core_v3.py"
+      },
+      {
+        "original_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/repo/ood/onboarding_budget_v1.py",
+        "sha256": "82f75052524ddd19bd1af1deb162c7ca537e072f2415de0006d40ef7d785f099",
+        "verified_path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_v1_20261027_runtime/job_179602/science/readonly_view/repo/ood/onboarding_budget_v1.py"
+      }
+    ],
+    "source_seal_files_verified": 19,
+    "source_seal_sha256": "b48a33970a41aa678b325d3b1a3e4f67febeb907f23168ef2fd8a7fdd14522ab",
+    "status": "PASS_METADATA_ONLY",
+    "support_calls": 0,
+    "target_score_arrays_opened": 0,
+    "training_updates": 0
+  },
+  "model_forwards": 0,
+  "new_CAL_runs": 0,
+  "new_encoding_rows": 0,
+  "package_sha256": "85637f3ae213ef08bf3cb70976a3188246eb03554d4b7fe7393f4cfe4414d9e8",
+  "real_target_distances_computed": 0,
+  "real_target_score_evaluations": 0,
+  "real_target_support_calls": 0,
+  "scheduler_submissions": 0,
+  "scientific_retry": false,
+  "stages": [
+    {
+      "exit_code": 0,
+      "log": "synthetic_tests.log",
+      "stage": "synthetic_tests"
+    },
+    {
+      "exit_code": 0,
+      "log": "metadata.log",
+      "stage": "metadata"
+    }
+  ],
+  "status": "PASS_ENGINEERING_ONLY",
+  "synthetic_scientific_functions_exercised": true,
+  "training_updates": 0
+}

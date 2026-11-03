@@ -1,0 +1,984 @@
+{
+  "schema_version": 1,
+  "mode": "live",
+  "fetched_at": "2026-10-29T06:51:10.765117+00:00",
+  "stale_after_seconds": 90,
+  "connection": {
+    "state": "unknown",
+    "error": "Terminal-confirmed final state; automatic read-only synchronization is being repaired."
+  },
+  "job": {
+    "job_id": "180007",
+    "node_list": "node185",
+    "partition": "amd",
+    "scheduler_state": "COMPLETED",
+    "exit_code": "0:0"
+  },
+  "current_stage": "source",
+  "stages": {
+    "source": {
+      "STATUS": {
+        "step": "SOURCE_FINAL_INPUT_IDENTITY",
+        "stage": "source",
+        "pid": 1263436,
+        "technical_status": "COMPLETED",
+        "updated_utc": "2026-10-29T06:30:05.514469+00:00",
+        "elapsed_seconds": 1102.8798664560309,
+        "process_tree_rss_bytes": 1344987136,
+        "output_bytes": 262965434,
+        "peak_process_tree_rss_bytes": 7783469056,
+        "pairs": 355060239,
+        "head_forward_rows": 4600362,
+        "limits": {
+          "cpu": 4,
+          "rss_bytes": 8589934592,
+          "wall_seconds": 14400,
+          "output_bytes": 2147483648,
+          "pairs": 2000000000,
+          "forwards": 4600362
+        },
+        "automatic_retry": false,
+        "fold": "G1",
+        "completed": 509233,
+        "total": 509233,
+        "seed": 227,
+        "role": "HELD",
+        "file": "runs/source_controls_base_ctx_repair_v2_20261026/result_retrieval_20261027/evidence179460/endpoints/G1_BASE_227/losses.npy",
+        "rows": 34636,
+        "donor": 5,
+        "donors": 6,
+        "scientific_status": "SOURCE_SIGNAL_FAIL"
+      },
+      "SOURCE_GATE": {
+        "pass": false,
+        "status": "BASELINE_TRANSFER_GUARD_FAIL",
+        "reasons": [
+          "G0: own/27/device/SimCam: cumulative withdrawal 11.5506746166pp > 1.0pp",
+          "G0: own/27/activity/Hydra: cumulative withdrawal 25.5208333333pp > 5.0pp",
+          "G0: own/27/phase_device/('TCP_OTHER', 'SimCam'): cumulative withdrawal 11.8604449303pp > 1.0pp",
+          "G0: own/27/phase_activity/('TCP_OTHER', 'Hydra'): cumulative withdrawal 25.5208333333pp > 5.0pp",
+          "G0: own/27: RAW recall below 99%; further TP withdrawal forbidden",
+          "G0: own/127/device/SimCam: cumulative withdrawal 12.7338230916pp > 1.0pp",
+          "G0: own/127/activity/Hydra: cumulative withdrawal 28.125pp > 5.0pp",
+          "G0: own/127/phase_device/('TCP_OTHER', 'SimCam'): cumulative withdrawal 13.0753235238pp > 1.0pp",
+          "G0: own/127/phase_activity/('TCP_OTHER', 'Hydra'): cumulative withdrawal 28.125pp > 5.0pp",
+          "G0: own/127: RAW recall below 99%; further TP withdrawal forbidden",
+          "G0: own/227/device/SimCam: cumulative withdrawal 10.9628940225pp > 1.0pp",
+          "G0: own/227/activity/Hydra: cumulative withdrawal 24.21875pp > 5.0pp",
+          "G0: own/227/phase_device/('TCP_OTHER', 'SimCam'): cumulative withdrawal 11.2569010163pp > 1.0pp",
+          "G0: own/227/phase_activity/('TCP_OTHER', 'Hydra'): cumulative withdrawal 24.21875pp > 5.0pp",
+          "G0: own/227: RAW recall below 99%; further TP withdrawal forbidden",
+          "G0: own/ensemble/device/SimCam: cumulative withdrawal 12.0220592823pp > 1.0pp",
+          "G0: own/ensemble/activity/Hydra: cumulative withdrawal 26.5625pp > 5.0pp",
+          "G0: own/ensemble/phase_device/('TCP_OTHER', 'SimCam'): cumulative withdrawal 12.3444713664pp > 1.0pp",
+          "G0: own/ensemble/phase_activity/('TCP_OTHER', 'Hydra'): cumulative withdrawal 26.5625pp > 5.0pp",
+          "G0: own/ensemble: RAW recall below 99%; further TP withdrawal forbidden",
+          "G0: safety/27/device/SimCam: cumulative withdrawal 11.5523846653pp > 1.0pp",
+          "G0: safety/27/activity/Hydra: cumulative withdrawal 25.5208333333pp > 5.0pp",
+          "G0: safety/27/phase_device/('TCP_OTHER', 'SimCam'): cumulative withdrawal 11.8622008397pp > 1.0pp",
+          "G0: safety/27/phase_activity/('TCP_OTHER', 'Hydra'): cumulative withdrawal 25.5208333333pp > 5.0pp",
+          "G0: safety/27: RAW recall below 99%; further TP withdrawal forbidden",
+          "G0: safety/127/device/SimCam: cumulative withdrawal 12.9735726571pp > 1.0pp",
+          "G0: safety/127/activity/Hydra: cumulative withdrawal 28.6458333333pp > 5.0pp",
+          "G0: safety/127/phase_device/('TCP_OTHER', 'SimCam'): cumulative withdrawal 13.3215027829pp > 1.0pp",
+          "G0: safety/127/phase_activity/('TCP_OTHER', 'Hydra'): cumulative withdrawal 28.6458333333pp > 5.0pp",
+          "G0: safety/127: RAW recall below 99%; further TP withdrawal forbidden",
+          "G0: safety/227/device/SimCam: cumulative withdrawal 10.9644884075pp > 1.0pp",
+          "G0: safety/227/activity/Hydra: cumulative withdrawal 24.21875pp > 5.0pp",
+          "G0: safety/227/phase_device/('TCP_OTHER', 'SimCam'): cumulative withdrawal 11.2585381602pp > 1.0pp",
+          "G0: safety/227/phase_activity/('TCP_OTHER', 'Hydra'): cumulative withdrawal 24.21875pp > 5.0pp",
+          "G0: safety/227: RAW recall below 99%; further TP withdrawal forbidden",
+          "G0: safety/ensemble/device/SimCam: cumulative withdrawal 12.1418646571pp > 1.0pp",
+          "G0: safety/ensemble/activity/Hydra: cumulative withdrawal 26.8229166667pp > 5.0pp",
+          "G0: safety/ensemble/phase_device/('TCP_OTHER', 'SimCam'): cumulative withdrawal 12.4674897265pp > 1.0pp",
+          "G0: safety/ensemble/phase_activity/('TCP_OTHER', 'Hydra'): cumulative withdrawal 26.8229166667pp > 5.0pp",
+          "G0: safety/ensemble: RAW recall below 99%; further TP withdrawal forbidden"
+        ]
+      },
+      "CAL_CHECK": {
+        "G0": {
+          "passes": true,
+          "lambda": 0.25,
+          "d0_withdrawals": {
+            "27": 0,
+            "127": 0,
+            "227": 0,
+            "ensemble": 0
+          },
+          "local_withdrawals": {
+            "27": 0,
+            "127": 0,
+            "227": 0,
+            "ensemble": 0
+          }
+        },
+        "G1": {
+          "passes": true,
+          "lambda": 0.25,
+          "d0_withdrawals": {
+            "27": 0,
+            "127": 0,
+            "227": 0,
+            "ensemble": 0
+          },
+          "local_withdrawals": {
+            "27": 0,
+            "127": 0,
+            "227": 0,
+            "ensemble": 0
+          }
+        }
+      },
+      "RAW_REPLAY": {
+        "G0/27/CAL": {
+          "fold": "G0",
+          "seed": 27,
+          "role": "CAL",
+          "expected": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              26349
+            ],
+            "nbytes": 105396,
+            "bytes_sha256": "2562d0200bcdf67eaef6db220e10bb306e914490009d9a6b6442ff77c931c541"
+          },
+          "reproduced": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              26349
+            ],
+            "nbytes": 105396,
+            "bytes_sha256": "2562d0200bcdf67eaef6db220e10bb306e914490009d9a6b6442ff77c931c541"
+          },
+          "dtype_equal": true,
+          "shape_equal": true,
+          "bytes_equal": true,
+          "values_equal": true,
+          "strict_gate_pass": true,
+          "byte_mismatch_count": 0,
+          "value_mismatch_count": 0,
+          "element_bytes_mismatch_count": 0,
+          "max_absolute_difference": 0.0,
+          "threshold_comparison": "score > frozen seed cut",
+          "threshold": -14.557621955871582,
+          "decision_mismatch_count": 0,
+          "expected_positive_to_reproduced_negative": 0,
+          "expected_negative_to_reproduced_positive": 0,
+          "first_mismatches": [],
+          "first_mismatch_limit": 16,
+          "source_index_sha256": "6f202085fdd61e560eb5e942dba8d7ee0f5173a518fe3bd4c51149d7f90554ad",
+          "environment": {
+            "python": "3.11.11",
+            "python_full": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+            "executable": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+            "numpy": "1.26.4",
+            "platform": "Linux-5.14.0-687.33.1.el9_8.x86_64-x86_64-with-glibc2.34",
+            "machine": "x86_64",
+            "processor": "x86_64",
+            "logical_cpu_count": 128,
+            "thread_environment": {
+              "OMP_NUM_THREADS": "4",
+              "OPENBLAS_NUM_THREADS": "4",
+              "MKL_NUM_THREADS": "4",
+              "NUMEXPR_NUM_THREADS": "4"
+            },
+            "torch": "2.5.1",
+            "torch_build": "PyTorch built with:\n  - GCC 9.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.8, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.5.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n",
+            "torch_num_threads": 4,
+            "torch_num_interop_threads": 1
+          },
+          "failure_scores": null
+        },
+        "G0/27/HELD": {
+          "fold": "G0",
+          "seed": 27,
+          "role": "HELD",
+          "expected": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              631703
+            ],
+            "nbytes": 2526812,
+            "bytes_sha256": "3c1bfd3a4c15b242c90bc20e670b9e68d7ade33afa7f0630c5c09fb42603bc5c"
+          },
+          "reproduced": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              631703
+            ],
+            "nbytes": 2526812,
+            "bytes_sha256": "3c1bfd3a4c15b242c90bc20e670b9e68d7ade33afa7f0630c5c09fb42603bc5c"
+          },
+          "dtype_equal": true,
+          "shape_equal": true,
+          "bytes_equal": true,
+          "values_equal": true,
+          "strict_gate_pass": true,
+          "byte_mismatch_count": 0,
+          "value_mismatch_count": 0,
+          "element_bytes_mismatch_count": 0,
+          "max_absolute_difference": 0.0,
+          "threshold_comparison": "score > frozen seed cut",
+          "threshold": -14.557621955871582,
+          "decision_mismatch_count": 0,
+          "expected_positive_to_reproduced_negative": 0,
+          "expected_negative_to_reproduced_positive": 0,
+          "first_mismatches": [],
+          "first_mismatch_limit": 16,
+          "source_index_sha256": "ce5dc3c3b7075ed8078c7dd83941a32f98d6dc22f037173d6de6170267e2e943",
+          "environment": {
+            "python": "3.11.11",
+            "python_full": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+            "executable": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+            "numpy": "1.26.4",
+            "platform": "Linux-5.14.0-687.33.1.el9_8.x86_64-x86_64-with-glibc2.34",
+            "machine": "x86_64",
+            "processor": "x86_64",
+            "logical_cpu_count": 128,
+            "thread_environment": {
+              "OMP_NUM_THREADS": "4",
+              "OPENBLAS_NUM_THREADS": "4",
+              "MKL_NUM_THREADS": "4",
+              "NUMEXPR_NUM_THREADS": "4"
+            },
+            "torch": "2.5.1",
+            "torch_build": "PyTorch built with:\n  - GCC 9.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.8, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.5.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n",
+            "torch_num_threads": 4,
+            "torch_num_interop_threads": 1
+          },
+          "failure_scores": null
+        },
+        "G0/127/CAL": {
+          "fold": "G0",
+          "seed": 127,
+          "role": "CAL",
+          "expected": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              26349
+            ],
+            "nbytes": 105396,
+            "bytes_sha256": "fd521793d3c83c9ea4f3dd4bd25300021f10685761c5e25d55564ef39c08310a"
+          },
+          "reproduced": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              26349
+            ],
+            "nbytes": 105396,
+            "bytes_sha256": "fd521793d3c83c9ea4f3dd4bd25300021f10685761c5e25d55564ef39c08310a"
+          },
+          "dtype_equal": true,
+          "shape_equal": true,
+          "bytes_equal": true,
+          "values_equal": true,
+          "strict_gate_pass": true,
+          "byte_mismatch_count": 0,
+          "value_mismatch_count": 0,
+          "element_bytes_mismatch_count": 0,
+          "max_absolute_difference": 0.0,
+          "threshold_comparison": "score > frozen seed cut",
+          "threshold": -14.261584281921387,
+          "decision_mismatch_count": 0,
+          "expected_positive_to_reproduced_negative": 0,
+          "expected_negative_to_reproduced_positive": 0,
+          "first_mismatches": [],
+          "first_mismatch_limit": 16,
+          "source_index_sha256": "6f202085fdd61e560eb5e942dba8d7ee0f5173a518fe3bd4c51149d7f90554ad",
+          "environment": {
+            "python": "3.11.11",
+            "python_full": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+            "executable": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+            "numpy": "1.26.4",
+            "platform": "Linux-5.14.0-687.33.1.el9_8.x86_64-x86_64-with-glibc2.34",
+            "machine": "x86_64",
+            "processor": "x86_64",
+            "logical_cpu_count": 128,
+            "thread_environment": {
+              "OMP_NUM_THREADS": "4",
+              "OPENBLAS_NUM_THREADS": "4",
+              "MKL_NUM_THREADS": "4",
+              "NUMEXPR_NUM_THREADS": "4"
+            },
+            "torch": "2.5.1",
+            "torch_build": "PyTorch built with:\n  - GCC 9.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.8, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.5.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n",
+            "torch_num_threads": 4,
+            "torch_num_interop_threads": 1
+          },
+          "failure_scores": null
+        },
+        "G0/127/HELD": {
+          "fold": "G0",
+          "seed": 127,
+          "role": "HELD",
+          "expected": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              631703
+            ],
+            "nbytes": 2526812,
+            "bytes_sha256": "670012c09218e59baceed4c857fe95ab8114077533ac1a12f3ad8adc5188c96d"
+          },
+          "reproduced": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              631703
+            ],
+            "nbytes": 2526812,
+            "bytes_sha256": "670012c09218e59baceed4c857fe95ab8114077533ac1a12f3ad8adc5188c96d"
+          },
+          "dtype_equal": true,
+          "shape_equal": true,
+          "bytes_equal": true,
+          "values_equal": true,
+          "strict_gate_pass": true,
+          "byte_mismatch_count": 0,
+          "value_mismatch_count": 0,
+          "element_bytes_mismatch_count": 0,
+          "max_absolute_difference": 0.0,
+          "threshold_comparison": "score > frozen seed cut",
+          "threshold": -14.261584281921387,
+          "decision_mismatch_count": 0,
+          "expected_positive_to_reproduced_negative": 0,
+          "expected_negative_to_reproduced_positive": 0,
+          "first_mismatches": [],
+          "first_mismatch_limit": 16,
+          "source_index_sha256": "ce5dc3c3b7075ed8078c7dd83941a32f98d6dc22f037173d6de6170267e2e943",
+          "environment": {
+            "python": "3.11.11",
+            "python_full": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+            "executable": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+            "numpy": "1.26.4",
+            "platform": "Linux-5.14.0-687.33.1.el9_8.x86_64-x86_64-with-glibc2.34",
+            "machine": "x86_64",
+            "processor": "x86_64",
+            "logical_cpu_count": 128,
+            "thread_environment": {
+              "OMP_NUM_THREADS": "4",
+              "OPENBLAS_NUM_THREADS": "4",
+              "MKL_NUM_THREADS": "4",
+              "NUMEXPR_NUM_THREADS": "4"
+            },
+            "torch": "2.5.1",
+            "torch_build": "PyTorch built with:\n  - GCC 9.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.8, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.5.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n",
+            "torch_num_threads": 4,
+            "torch_num_interop_threads": 1
+          },
+          "failure_scores": null
+        },
+        "G0/227/CAL": {
+          "fold": "G0",
+          "seed": 227,
+          "role": "CAL",
+          "expected": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              26349
+            ],
+            "nbytes": 105396,
+            "bytes_sha256": "38e86834d1a0bdc527c381b50fc3913a245b8bf2e3aec16bf1b4adb3e2858c2e"
+          },
+          "reproduced": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              26349
+            ],
+            "nbytes": 105396,
+            "bytes_sha256": "38e86834d1a0bdc527c381b50fc3913a245b8bf2e3aec16bf1b4adb3e2858c2e"
+          },
+          "dtype_equal": true,
+          "shape_equal": true,
+          "bytes_equal": true,
+          "values_equal": true,
+          "strict_gate_pass": true,
+          "byte_mismatch_count": 0,
+          "value_mismatch_count": 0,
+          "element_bytes_mismatch_count": 0,
+          "max_absolute_difference": 0.0,
+          "threshold_comparison": "score > frozen seed cut",
+          "threshold": -14.507363319396973,
+          "decision_mismatch_count": 0,
+          "expected_positive_to_reproduced_negative": 0,
+          "expected_negative_to_reproduced_positive": 0,
+          "first_mismatches": [],
+          "first_mismatch_limit": 16,
+          "source_index_sha256": "6f202085fdd61e560eb5e942dba8d7ee0f5173a518fe3bd4c51149d7f90554ad",
+          "environment": {
+            "python": "3.11.11",
+            "python_full": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+            "executable": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+            "numpy": "1.26.4",
+            "platform": "Linux-5.14.0-687.33.1.el9_8.x86_64-x86_64-with-glibc2.34",
+            "machine": "x86_64",
+            "processor": "x86_64",
+            "logical_cpu_count": 128,
+            "thread_environment": {
+              "OMP_NUM_THREADS": "4",
+              "OPENBLAS_NUM_THREADS": "4",
+              "MKL_NUM_THREADS": "4",
+              "NUMEXPR_NUM_THREADS": "4"
+            },
+            "torch": "2.5.1",
+            "torch_build": "PyTorch built with:\n  - GCC 9.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.8, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.5.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n",
+            "torch_num_threads": 4,
+            "torch_num_interop_threads": 1
+          },
+          "failure_scores": null
+        },
+        "G0/227/HELD": {
+          "fold": "G0",
+          "seed": 227,
+          "role": "HELD",
+          "expected": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              631703
+            ],
+            "nbytes": 2526812,
+            "bytes_sha256": "9dee9b1b31a8faa3a76eb19ff45737170e957caf952f401b10117357e751259f"
+          },
+          "reproduced": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              631703
+            ],
+            "nbytes": 2526812,
+            "bytes_sha256": "9dee9b1b31a8faa3a76eb19ff45737170e957caf952f401b10117357e751259f"
+          },
+          "dtype_equal": true,
+          "shape_equal": true,
+          "bytes_equal": true,
+          "values_equal": true,
+          "strict_gate_pass": true,
+          "byte_mismatch_count": 0,
+          "value_mismatch_count": 0,
+          "element_bytes_mismatch_count": 0,
+          "max_absolute_difference": 0.0,
+          "threshold_comparison": "score > frozen seed cut",
+          "threshold": -14.507363319396973,
+          "decision_mismatch_count": 0,
+          "expected_positive_to_reproduced_negative": 0,
+          "expected_negative_to_reproduced_positive": 0,
+          "first_mismatches": [],
+          "first_mismatch_limit": 16,
+          "source_index_sha256": "ce5dc3c3b7075ed8078c7dd83941a32f98d6dc22f037173d6de6170267e2e943",
+          "environment": {
+            "python": "3.11.11",
+            "python_full": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+            "executable": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+            "numpy": "1.26.4",
+            "platform": "Linux-5.14.0-687.33.1.el9_8.x86_64-x86_64-with-glibc2.34",
+            "machine": "x86_64",
+            "processor": "x86_64",
+            "logical_cpu_count": 128,
+            "thread_environment": {
+              "OMP_NUM_THREADS": "4",
+              "OPENBLAS_NUM_THREADS": "4",
+              "MKL_NUM_THREADS": "4",
+              "NUMEXPR_NUM_THREADS": "4"
+            },
+            "torch": "2.5.1",
+            "torch_build": "PyTorch built with:\n  - GCC 9.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.8, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.5.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n",
+            "torch_num_threads": 4,
+            "torch_num_interop_threads": 1
+          },
+          "failure_scores": null
+        },
+        "G1/27/CAL": {
+          "fold": "G1",
+          "seed": 27,
+          "role": "CAL",
+          "expected": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              122470
+            ],
+            "nbytes": 489880,
+            "bytes_sha256": "ab7e2ee6dc39706d713013487c8519a9e113d3b95e6a92a1c947a5fae690bf40"
+          },
+          "reproduced": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              122470
+            ],
+            "nbytes": 489880,
+            "bytes_sha256": "ab7e2ee6dc39706d713013487c8519a9e113d3b95e6a92a1c947a5fae690bf40"
+          },
+          "dtype_equal": true,
+          "shape_equal": true,
+          "bytes_equal": true,
+          "values_equal": true,
+          "strict_gate_pass": true,
+          "byte_mismatch_count": 0,
+          "value_mismatch_count": 0,
+          "element_bytes_mismatch_count": 0,
+          "max_absolute_difference": 0.0,
+          "threshold_comparison": "score > frozen seed cut",
+          "threshold": -19.674814224243164,
+          "decision_mismatch_count": 0,
+          "expected_positive_to_reproduced_negative": 0,
+          "expected_negative_to_reproduced_positive": 0,
+          "first_mismatches": [],
+          "first_mismatch_limit": 16,
+          "source_index_sha256": "e6cd6235c1ddfb942d21b37f5ef0d12eb9b5c7b59d9cf3c75f5695d981b1bc9f",
+          "environment": {
+            "python": "3.11.11",
+            "python_full": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+            "executable": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+            "numpy": "1.26.4",
+            "platform": "Linux-5.14.0-687.33.1.el9_8.x86_64-x86_64-with-glibc2.34",
+            "machine": "x86_64",
+            "processor": "x86_64",
+            "logical_cpu_count": 128,
+            "thread_environment": {
+              "OMP_NUM_THREADS": "4",
+              "OPENBLAS_NUM_THREADS": "4",
+              "MKL_NUM_THREADS": "4",
+              "NUMEXPR_NUM_THREADS": "4"
+            },
+            "torch": "2.5.1",
+            "torch_build": "PyTorch built with:\n  - GCC 9.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.8, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.5.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n",
+            "torch_num_threads": 4,
+            "torch_num_interop_threads": 1
+          },
+          "failure_scores": null
+        },
+        "G1/27/HELD": {
+          "fold": "G1",
+          "seed": 27,
+          "role": "HELD",
+          "expected": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              135024
+            ],
+            "nbytes": 540096,
+            "bytes_sha256": "4527b77d9adc8fb27e6444a01999276fd0dd0e241aac91345796908e9f4675a5"
+          },
+          "reproduced": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              135024
+            ],
+            "nbytes": 540096,
+            "bytes_sha256": "4527b77d9adc8fb27e6444a01999276fd0dd0e241aac91345796908e9f4675a5"
+          },
+          "dtype_equal": true,
+          "shape_equal": true,
+          "bytes_equal": true,
+          "values_equal": true,
+          "strict_gate_pass": true,
+          "byte_mismatch_count": 0,
+          "value_mismatch_count": 0,
+          "element_bytes_mismatch_count": 0,
+          "max_absolute_difference": 0.0,
+          "threshold_comparison": "score > frozen seed cut",
+          "threshold": -19.674814224243164,
+          "decision_mismatch_count": 0,
+          "expected_positive_to_reproduced_negative": 0,
+          "expected_negative_to_reproduced_positive": 0,
+          "first_mismatches": [],
+          "first_mismatch_limit": 16,
+          "source_index_sha256": "6ee7ffab443ec7bc96d12c64f848ec78f4639c4aafd9f213a4e9ea75378a8a51",
+          "environment": {
+            "python": "3.11.11",
+            "python_full": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+            "executable": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+            "numpy": "1.26.4",
+            "platform": "Linux-5.14.0-687.33.1.el9_8.x86_64-x86_64-with-glibc2.34",
+            "machine": "x86_64",
+            "processor": "x86_64",
+            "logical_cpu_count": 128,
+            "thread_environment": {
+              "OMP_NUM_THREADS": "4",
+              "OPENBLAS_NUM_THREADS": "4",
+              "MKL_NUM_THREADS": "4",
+              "NUMEXPR_NUM_THREADS": "4"
+            },
+            "torch": "2.5.1",
+            "torch_build": "PyTorch built with:\n  - GCC 9.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.8, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.5.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n",
+            "torch_num_threads": 4,
+            "torch_num_interop_threads": 1
+          },
+          "failure_scores": null
+        },
+        "G1/127/CAL": {
+          "fold": "G1",
+          "seed": 127,
+          "role": "CAL",
+          "expected": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              122470
+            ],
+            "nbytes": 489880,
+            "bytes_sha256": "10ce5a6416aaa3bab6943bfc7100e09b77f9b5485ebb2fa499471eaa3dab1cd2"
+          },
+          "reproduced": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              122470
+            ],
+            "nbytes": 489880,
+            "bytes_sha256": "10ce5a6416aaa3bab6943bfc7100e09b77f9b5485ebb2fa499471eaa3dab1cd2"
+          },
+          "dtype_equal": true,
+          "shape_equal": true,
+          "bytes_equal": true,
+          "values_equal": true,
+          "strict_gate_pass": true,
+          "byte_mismatch_count": 0,
+          "value_mismatch_count": 0,
+          "element_bytes_mismatch_count": 0,
+          "max_absolute_difference": 0.0,
+          "threshold_comparison": "score > frozen seed cut",
+          "threshold": -18.284555435180664,
+          "decision_mismatch_count": 0,
+          "expected_positive_to_reproduced_negative": 0,
+          "expected_negative_to_reproduced_positive": 0,
+          "first_mismatches": [],
+          "first_mismatch_limit": 16,
+          "source_index_sha256": "e6cd6235c1ddfb942d21b37f5ef0d12eb9b5c7b59d9cf3c75f5695d981b1bc9f",
+          "environment": {
+            "python": "3.11.11",
+            "python_full": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+            "executable": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+            "numpy": "1.26.4",
+            "platform": "Linux-5.14.0-687.33.1.el9_8.x86_64-x86_64-with-glibc2.34",
+            "machine": "x86_64",
+            "processor": "x86_64",
+            "logical_cpu_count": 128,
+            "thread_environment": {
+              "OMP_NUM_THREADS": "4",
+              "OPENBLAS_NUM_THREADS": "4",
+              "MKL_NUM_THREADS": "4",
+              "NUMEXPR_NUM_THREADS": "4"
+            },
+            "torch": "2.5.1",
+            "torch_build": "PyTorch built with:\n  - GCC 9.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.8, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.5.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n",
+            "torch_num_threads": 4,
+            "torch_num_interop_threads": 1
+          },
+          "failure_scores": null
+        },
+        "G1/127/HELD": {
+          "fold": "G1",
+          "seed": 127,
+          "role": "HELD",
+          "expected": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              135024
+            ],
+            "nbytes": 540096,
+            "bytes_sha256": "3251df1bd74c9ec4ce313ca45f06f5fd2af9873d787d543cdac7838ec03347ed"
+          },
+          "reproduced": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              135024
+            ],
+            "nbytes": 540096,
+            "bytes_sha256": "3251df1bd74c9ec4ce313ca45f06f5fd2af9873d787d543cdac7838ec03347ed"
+          },
+          "dtype_equal": true,
+          "shape_equal": true,
+          "bytes_equal": true,
+          "values_equal": true,
+          "strict_gate_pass": true,
+          "byte_mismatch_count": 0,
+          "value_mismatch_count": 0,
+          "element_bytes_mismatch_count": 0,
+          "max_absolute_difference": 0.0,
+          "threshold_comparison": "score > frozen seed cut",
+          "threshold": -18.284555435180664,
+          "decision_mismatch_count": 0,
+          "expected_positive_to_reproduced_negative": 0,
+          "expected_negative_to_reproduced_positive": 0,
+          "first_mismatches": [],
+          "first_mismatch_limit": 16,
+          "source_index_sha256": "6ee7ffab443ec7bc96d12c64f848ec78f4639c4aafd9f213a4e9ea75378a8a51",
+          "environment": {
+            "python": "3.11.11",
+            "python_full": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+            "executable": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+            "numpy": "1.26.4",
+            "platform": "Linux-5.14.0-687.33.1.el9_8.x86_64-x86_64-with-glibc2.34",
+            "machine": "x86_64",
+            "processor": "x86_64",
+            "logical_cpu_count": 128,
+            "thread_environment": {
+              "OMP_NUM_THREADS": "4",
+              "OPENBLAS_NUM_THREADS": "4",
+              "MKL_NUM_THREADS": "4",
+              "NUMEXPR_NUM_THREADS": "4"
+            },
+            "torch": "2.5.1",
+            "torch_build": "PyTorch built with:\n  - GCC 9.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.8, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.5.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n",
+            "torch_num_threads": 4,
+            "torch_num_interop_threads": 1
+          },
+          "failure_scores": null
+        },
+        "G1/227/CAL": {
+          "fold": "G1",
+          "seed": 227,
+          "role": "CAL",
+          "expected": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              122470
+            ],
+            "nbytes": 489880,
+            "bytes_sha256": "69abcb8ba3a5003e4438d1a9de0b1faec3ee97a7d5d23568338bd3cbc89fdb19"
+          },
+          "reproduced": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              122470
+            ],
+            "nbytes": 489880,
+            "bytes_sha256": "69abcb8ba3a5003e4438d1a9de0b1faec3ee97a7d5d23568338bd3cbc89fdb19"
+          },
+          "dtype_equal": true,
+          "shape_equal": true,
+          "bytes_equal": true,
+          "values_equal": true,
+          "strict_gate_pass": true,
+          "byte_mismatch_count": 0,
+          "value_mismatch_count": 0,
+          "element_bytes_mismatch_count": 0,
+          "max_absolute_difference": 0.0,
+          "threshold_comparison": "score > frozen seed cut",
+          "threshold": -22.57204246520996,
+          "decision_mismatch_count": 0,
+          "expected_positive_to_reproduced_negative": 0,
+          "expected_negative_to_reproduced_positive": 0,
+          "first_mismatches": [],
+          "first_mismatch_limit": 16,
+          "source_index_sha256": "e6cd6235c1ddfb942d21b37f5ef0d12eb9b5c7b59d9cf3c75f5695d981b1bc9f",
+          "environment": {
+            "python": "3.11.11",
+            "python_full": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+            "executable": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+            "numpy": "1.26.4",
+            "platform": "Linux-5.14.0-687.33.1.el9_8.x86_64-x86_64-with-glibc2.34",
+            "machine": "x86_64",
+            "processor": "x86_64",
+            "logical_cpu_count": 128,
+            "thread_environment": {
+              "OMP_NUM_THREADS": "4",
+              "OPENBLAS_NUM_THREADS": "4",
+              "MKL_NUM_THREADS": "4",
+              "NUMEXPR_NUM_THREADS": "4"
+            },
+            "torch": "2.5.1",
+            "torch_build": "PyTorch built with:\n  - GCC 9.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.8, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.5.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n",
+            "torch_num_threads": 4,
+            "torch_num_interop_threads": 1
+          },
+          "failure_scores": null
+        },
+        "G1/227/HELD": {
+          "fold": "G1",
+          "seed": 227,
+          "role": "HELD",
+          "expected": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              135024
+            ],
+            "nbytes": 540096,
+            "bytes_sha256": "13b610fbccbb4939b48d9e7553a153039d3f0cd1b1c3950a40c3c9cb37b7dd65"
+          },
+          "reproduced": {
+            "dtype": "float32",
+            "dtype_str": "<f4",
+            "shape": [
+              135024
+            ],
+            "nbytes": 540096,
+            "bytes_sha256": "13b610fbccbb4939b48d9e7553a153039d3f0cd1b1c3950a40c3c9cb37b7dd65"
+          },
+          "dtype_equal": true,
+          "shape_equal": true,
+          "bytes_equal": true,
+          "values_equal": true,
+          "strict_gate_pass": true,
+          "byte_mismatch_count": 0,
+          "value_mismatch_count": 0,
+          "element_bytes_mismatch_count": 0,
+          "max_absolute_difference": 0.0,
+          "threshold_comparison": "score > frozen seed cut",
+          "threshold": -22.57204246520996,
+          "decision_mismatch_count": 0,
+          "expected_positive_to_reproduced_negative": 0,
+          "expected_negative_to_reproduced_positive": 0,
+          "first_mismatches": [],
+          "first_mismatch_limit": 16,
+          "source_index_sha256": "6ee7ffab443ec7bc96d12c64f848ec78f4639c4aafd9f213a4e9ea75378a8a51",
+          "environment": {
+            "python": "3.11.11",
+            "python_full": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+            "executable": "/share/software/miniconda3.2025/envs/torch_demo_2025/bin/python",
+            "numpy": "1.26.4",
+            "platform": "Linux-5.14.0-687.33.1.el9_8.x86_64-x86_64-with-glibc2.34",
+            "machine": "x86_64",
+            "processor": "x86_64",
+            "logical_cpu_count": 128,
+            "thread_environment": {
+              "OMP_NUM_THREADS": "4",
+              "OPENBLAS_NUM_THREADS": "4",
+              "MKL_NUM_THREADS": "4",
+              "NUMEXPR_NUM_THREADS": "4"
+            },
+            "torch": "2.5.1",
+            "torch_build": "PyTorch built with:\n  - GCC 9.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.5.3 (Git Hash 66f0cb9eb66affd2da3bf5f8d897376f04aae6af)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.8, CUDNN_VERSION=9.1.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.5.1, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n",
+            "torch_num_threads": 4,
+            "torch_num_interop_threads": 1
+          },
+          "failure_scores": null
+        }
+      },
+      "STAGE_RECEIPT": {
+        "stage": "source",
+        "technical_status": "COMPLETED",
+        "spec_sha256": "797a08dc7cd540f6c1c2d498490e520cb40d6938da8c6ceec350f5b80b17fc51",
+        "scientific_status": "SOURCE_SIGNAL_FAIL",
+        "code_sha256": {
+          "DEPENDENCIES.json": "30099bdaa2be2b9decb8a3954d4b2ae8c34197991f0950bbd3b6fc2f8d69b281",
+          "EXPERIMENT_PLAN.md": "797a08dc7cd540f6c1c2d498490e520cb40d6938da8c6ceec350f5b80b17fc51",
+          "lg/__init__.py": "5e2eac54bf600c0a5ba4de2ec07fa282ca28c86f31912ce2a337e0f753f47e6f",
+          "lg/common.py": "fb25d5307530727f5058ea667e73b761a3529cfa2b06af301b363c3742c4cc5b",
+          "lg/geometry.py": "9d24dc4f0cde958fc332fb89142120fe2d4c942646601e633bcd51d247c62256",
+          "lg/legacy.py": "a7343b523c6184a08f24252ad9cf1dc865e933d20176a877e8f62b91f39a77a1",
+          "lg/metrics.py": "38af9abc26445f266c1e1e5f4edaaff181fb0d8dbbc702e53e8aa36624e69422",
+          "lg/runtime.py": "f228b5d256c87f9e5268354992d97455dc9be3bf735ab078beb9987f8128a83b",
+          "lg/source.py": "f38a99404030ce04fa8dcab8bacc827bf6df3ddac8859c4fe72301bf096952ee",
+          "lg/target.py": "9c5b573263af7e6cadb51e6a56b977140c6aba5790f1f26d1508a0504ff108e2",
+          "run.py": "a04400d6cf116a44fccfc2988bd69a0b4449febab83f71c98574732b0466b839"
+        },
+        "result_sha256": "f5ddc8882b6945535913de64daf2250347bc0b6340d123e5eadb953f9e9c97fe",
+        "outputs": {
+          "G0/BASELINE_IDENTITY.json": "396b48eaa07098ac8a7162d3cbbb676c8184c4d408d2f559b773c9c5cfdc03ea",
+          "G0/CAL/ATTACK_DONORS.npz": "f4aa731d63db13e2f6ba665b051c9356228d580bced168a36e5048a8d7e1a079",
+          "G0/CAL/DONOR_ROSTER.json": "0689bba0a9a761ef29e203a2e22d72a0028ad998acc42d22d737a4c3508665ac",
+          "G0/CAL/SCORES.npz": "2ecaf65158ac6e9d49959886edabbed59c57279a070f7fedb244085d2a4340e5",
+          "G0/CAL_CHECK.json": "c95a1daed6eb1c0c7a9cc6b88c7f5e41d4bc054c71d871ffcdcafecac818ad9b",
+          "G0/CAL_LOCAL_SCALES.json": "1379dd576bbc222b1f56c62e12f59dc62de5834615a42cd05347875b3c662bc2",
+          "G0/CAL_LOCAL_SCALES.npz": "758c620a99a84d3c463d9301f21b4fdfa63be03a8af7acdd74c17b3728d1dde2",
+          "G0/FIT_LOGITS.npz": "d31d49abd07e99c8a44eeb9547e7f3705c44b3ce383220ed5f57b1850e6e5bfe",
+          "G0/GEOMETRY.json": "cd308f0927ad996da988fa1e7fc375c871a1f82f8d120890f915bdd57caf3141",
+          "G0/LAMBDA.json": "7b83be8d6dacd7dccf9eee1801aeb14dbefd1e7d5b0d4e36fd31582e48fcd692",
+          "G0/S/ATTACK_DONORS.npz": "d37fd70fe724df74eb700fed2dc5fa1671a2b1f8fb937f5dba6191c2ef26021c",
+          "G0/S/DONOR_ROSTER.json": "042b37243d033a2511c557dafe1253d05efa18e2ff2542a3abedbb053fc7711b",
+          "G0/S/SCORES.npz": "fa273b4846b213bcef67210e71c9f777c1e313b682280f286183eb665317742c",
+          "G0/SCALES.json": "eefaa9847c59e1838106f58fefc098c429acd747937918ebb616a10d3c222a5d",
+          "G0/S_LOCAL_SCALES.json": "1565feb7874ea1d5ad04b8b551cc4c8b3fbdf1a441758f7e7227202bdb6c7759",
+          "G0/S_LOCAL_SCALES.npz": "c56f3b92d9bd2fed359ae05959a7171f2444e546b5b45145166a7841a0d3c254",
+          "G0/S_REPORT.json": "929d98bf1a8d10fd3483e66a0c0ebf1f538d67233666baa66b9828a7d6dd398e",
+          "G1/BASELINE_IDENTITY.json": "37a4d7d49e870f2082aeae4910f0946bfa1b7fdf458441a6d5364a781e98c91a",
+          "G1/CAL/ATTACK_DONORS.npz": "853159c9e9beea188fbc47754667dc9a5b7d7c5f8b64ee461968c48fac4e5926",
+          "G1/CAL/DONOR_ROSTER.json": "042b37243d033a2511c557dafe1253d05efa18e2ff2542a3abedbb053fc7711b",
+          "G1/CAL/SCORES.npz": "19f073d974841fe110e16582fae9f8ec0428f7e53f558dd8f48b031d6b8733f3",
+          "G1/CAL_CHECK.json": "c95a1daed6eb1c0c7a9cc6b88c7f5e41d4bc054c71d871ffcdcafecac818ad9b",
+          "G1/CAL_LOCAL_SCALES.json": "1524e72feb16d7222c8648162de16192886139a2380f8a9b0ae5cee45f23c8d6",
+          "G1/CAL_LOCAL_SCALES.npz": "5511e793fcf5a0067c65b18bd80c6b9d6a1de1eaf111c60ee8ca8dbbf7df0860",
+          "G1/FIT_LOGITS.npz": "3a0297e2da282faebe7236bcbed217dd7429dbbe5741add2f5afff4e0122f6d1",
+          "G1/GEOMETRY.json": "59c74dc08c1710729f259b347566feceb75ac221de0a1abc9e3359efe66ff728",
+          "G1/LAMBDA.json": "7b83be8d6dacd7dccf9eee1801aeb14dbefd1e7d5b0d4e36fd31582e48fcd692",
+          "G1/S/ATTACK_DONORS.npz": "dcf6ac09532b65740517a5c977497e16e93273ed67808696a8ca6180b6621b60",
+          "G1/S/DONOR_ROSTER.json": "0689bba0a9a761ef29e203a2e22d72a0028ad998acc42d22d737a4c3508665ac",
+          "G1/S/SCORES.npz": "ac33d04bff881016f96f26aecdd3ce0bdffa31484c3c26a4a46de591d00b4acf",
+          "G1/SCALES.json": "cad3aa1c285fb3c9bb64fceb0437cee9d7d0a202abee17179fb7672ef02432c1",
+          "G1/S_LOCAL_SCALES.json": "1379dd576bbc222b1f56c62e12f59dc62de5834615a42cd05347875b3c662bc2",
+          "G1/S_LOCAL_SCALES.npz": "860d0a720c5e2949e4e6d5f64c734139bc6acbcb81b3ba6f2d88e3a0cf2010ac",
+          "G1/S_REPORT.json": "96af94f6c730100361e12638f924f9216c9afe533092667c432906464321b20b",
+          "INPUT_SEAL.json": "fc37b7efc1f24274821b2da51ecd1c9b4e22ca2df5de2a85ab2cf17c5efc3a4b",
+          "RAW_REPLAY/G0/127/CAL/SUMMARY.json": "980820304ad511a6c7ae8cc3e0744dd552be785435ecab38668867ca57ee1889",
+          "RAW_REPLAY/G0/127/HELD/SUMMARY.json": "1528473cfb74014bb6a7123bdf79a93c68b5f96fb0f5ac106b96bb778a352767",
+          "RAW_REPLAY/G0/227/CAL/SUMMARY.json": "2f226a269230abadc8ef672caae30cc5497c7757b43aca014a2bbddd2cd146bb",
+          "RAW_REPLAY/G0/227/HELD/SUMMARY.json": "44235cd4d3d588911a0a6b54c6631de7b4a7efa12c56c6ecbc936d766eb245c0",
+          "RAW_REPLAY/G0/27/CAL/SUMMARY.json": "832345bc6ffbf52105e7961005d31baf564b079f1a770738400992392daf8b21",
+          "RAW_REPLAY/G0/27/HELD/SUMMARY.json": "ae227d07c6c12c562343a60b0e461bf80318ab94663274e2c101e471345a5b6a",
+          "RAW_REPLAY/G1/127/CAL/SUMMARY.json": "439be8e832ab1d327c6ccedf2e53bdb1e3d47d4800aafb6a596914787dc6563d",
+          "RAW_REPLAY/G1/127/HELD/SUMMARY.json": "d891fe86c63ea3b5f989059691a8dc7c35c8daaedcc504fbcd8d9edc2b4ccc7b",
+          "RAW_REPLAY/G1/227/CAL/SUMMARY.json": "49222c9d500dea304db8a99d31dbb510a0c2a1ddffd1f9aac4ffbfaf9c07b826",
+          "RAW_REPLAY/G1/227/HELD/SUMMARY.json": "ae3f2bf5ff1856b5d0616c88775ae6f9ac468434e0b96d9e53915e5ff95cd83f",
+          "RAW_REPLAY/G1/27/CAL/SUMMARY.json": "660a55ed2f2b600d08992da8d9b29ed66301a1b1c8ca9f04a049aaf936a11a2f",
+          "RAW_REPLAY/G1/27/HELD/SUMMARY.json": "9d2763f79a6a65c3dbe9792186edc45c5bc5bb3ab53b12b71793f3ec706508b1",
+          "RESULT.json": "f5ddc8882b6945535913de64daf2250347bc0b6340d123e5eadb953f9e9c97fe",
+          "SOURCE_GATE.json": "32dde2ff7689e30f141053b97c20d0522c829e7507e7486c5ddac6ebfb4ce5fe"
+        },
+        "limits": {
+          "cpu": 4,
+          "rss_bytes": 8589934592,
+          "wall_seconds": 14400,
+          "output_bytes": 2147483648,
+          "pairs": 2000000000,
+          "forwards": 4600362
+        },
+        "pairs": 355060239,
+        "head_forward_rows": 4600362,
+        "peak_process_tree_rss_bytes": 7783469056,
+        "elapsed_seconds": 1103.2059677459765,
+        "process_tree_rss_bytes": 1344974848,
+        "output_bytes": 262972027,
+        "automatic_retry": false
+      }
+    },
+    "target": {}
+  },
+  "deployment": {
+    "source_submit_locked": true,
+    "verification": {
+      "status": "PASS",
+      "at": "2026-10-29T06:11:10.975819+00:00",
+      "bundle_sha256": "abea951e099f531d385f081c60d3291f147f987cd5e921298c7a3a9a98460fb5"
+    }
+  },
+  "submission": {
+    "status": "SUBMITTED",
+    "submitted_at": "2026-10-29T06:11:33.035141+00:00",
+    "automatic_retry": false,
+    "scheduler_response": {
+      "returncode": 0,
+      "stdout": "180007\n",
+      "stderr": ""
+    },
+    "job_id": "180007"
+  },
+  "transport": {
+    "state": "connected",
+    "error": null
+  },
+  "last_connection_attempt": "2026-10-29T06:49:30.417953+00:00",
+  "provenance": {
+    "kind": "verified_remote_linux_terminal",
+    "capture": "runtime/FINAL_STATUS_TERMINAL_CAPTURE.txt",
+    "job_id": "180007"
+  }
+}

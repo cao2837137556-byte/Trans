@@ -1,0 +1,100 @@
+{
+  "schema": "history-normal-reference-dev-gate-v1",
+  "status": "PASS_DEV",
+  "devices": [
+    {
+      "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+      "rows": 4096,
+      "raw_fp": 674,
+      "corrected_fp": 196,
+      "raw_fpr": 0.16455078125,
+      "corrected_fpr": 0.0478515625,
+      "status": "PASS"
+    },
+    {
+      "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+      "rows": 4096,
+      "raw_fp": 1010,
+      "corrected_fp": 10,
+      "raw_fpr": 0.24658203125,
+      "corrected_fpr": 0.00244140625,
+      "status": "PASS"
+    },
+    {
+      "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+      "rows": 4096,
+      "raw_fp": 3523,
+      "corrected_fp": 2003,
+      "raw_fpr": 0.860107421875,
+      "corrected_fpr": 0.489013671875,
+      "status": "PASS"
+    }
+  ],
+  "pooled": {
+    "rows": 12288,
+    "raw_fp": 5207,
+    "corrected_fp": 2209,
+    "raw_fpr": 0.4237467447916667,
+    "corrected_fpr": 0.17976888020833334,
+    "relative_fpr_reduction": 0.5757633954292298,
+    "weighting": "selected DEV row count"
+  },
+  "failures": [],
+  "no_AB_loaded": true,
+  "query_uid_sha256": "018a1cd6e3fd88848c6025e292bc42e2724f336c5f00d913b408e151ab99ce62",
+  "candidate": "C2_QUERY_SYN_NO_ACK_KEEP_RAW",
+  "original_gate": {
+    "schema": "history-normal-reference-dev-gate-v1",
+    "status": "PASS_DEV",
+    "devices": [
+      {
+        "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+        "rows": 4096,
+        "raw_fp": 674,
+        "corrected_fp": 196,
+        "raw_fpr": 0.16455078125,
+        "corrected_fpr": 0.0478515625,
+        "status": "PASS"
+      },
+      {
+        "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+        "rows": 4096,
+        "raw_fp": 1010,
+        "corrected_fp": 10,
+        "raw_fpr": 0.24658203125,
+        "corrected_fpr": 0.00244140625,
+        "status": "PASS"
+      },
+      {
+        "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+        "rows": 4096,
+        "raw_fp": 3523,
+        "corrected_fp": 1920,
+        "raw_fpr": 0.860107421875,
+        "corrected_fpr": 0.46875,
+        "status": "PASS"
+      }
+    ],
+    "pooled": {
+      "rows": 12288,
+      "raw_fp": 5207,
+      "corrected_fp": 2126,
+      "raw_fpr": 0.4237467447916667,
+      "corrected_fpr": 0.17301432291666666,
+      "relative_fpr_reduction": 0.591703476089879,
+      "weighting": "selected DEV row count"
+    },
+    "failures": [],
+    "no_AB_loaded": true,
+    "query_uid_sha256": "018a1cd6e3fd88848c6025e292bc42e2724f336c5f00d913b408e151ab99ce62"
+  },
+  "guard_rows": 529,
+  "returned_normal_alarms": {
+    "27": 89,
+    "127": 74,
+    "227": 118,
+    "ensemble": 83
+  },
+  "new_distances": 0,
+  "new_E3": 0
+}

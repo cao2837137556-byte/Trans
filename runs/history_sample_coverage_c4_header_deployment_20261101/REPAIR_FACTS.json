@@ -1,0 +1,27 @@
+{
+  "failed_job": "180591",
+  "failure": "AUDIT_INVALID_INTEGER:tcp.flags.syn",
+  "cause": "Pinned TShark 4.6.6 outputs booleans True/False; added header audit expected integer strings",
+  "probe_packets": 246,
+  "probe_elapsed_seconds": 9.770732454955578,
+  "probe_sha256": "1163dfa0666a25dd48aebb669d301d769d4c5e7d1cd375d6c7f005808a67aaf4",
+  "retained_encoded_rows": 20480,
+  "retained_devices": [
+    "TP_LINK",
+    "WEMO_POWER",
+    "SAMSUNG"
+  ],
+  "Netatmo_census_rows": 3592947,
+  "retained_Netatmo_selection": {
+    "HIST_REF": 8192,
+    "HIST_DEV": 4096
+  },
+  "budget": {
+    "total": 28800,
+    "prior_charged": 24534,
+    "remaining": 4266
+  },
+  "new_model_forwards_before_repair": 0,
+  "new_distance_pairs_before_repair": 0,
+  "scope": "Engineering repair of same C4 candidate; no scientific parameter change"
+}

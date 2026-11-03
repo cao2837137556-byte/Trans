@@ -1,0 +1,38 @@
+{
+  "status": "PASS_V3_PAGE_LIVE",
+  "checked_at": "2026-10-24T13:27:58.4307952+08:00",
+  "url": "http://127.0.0.1:18765/",
+  "scheduled_task": "Paper04-Progress-18765",
+  "old_page_pid": 14752,
+  "new_page_pid": 56024,
+  "parent_pid": 2648,
+  "connected": true,
+  "remote_root": "/srv/paper04/learned_onboarding_20261024_v3",
+  "learned_status": {
+    "automatic_retry": false,
+    "chain_administrative_limit_seconds": 86400,
+    "combined_new_artifacts_bytes": 87005335,
+    "completed_stages": [
+      "tests",
+      "prepare"
+    ],
+    "disk_free_bytes": 158323052544,
+    "elapsed_seconds": 64.86101713901735,
+    "input_staging_limit_bytes": 2147483648,
+    "minimum_disk_free_bytes": 8503072386,
+    "output_bytes": 43431103,
+    "output_limit_bytes": 2147483648,
+    "peak_process_tree_rss": 4071788544,
+    "remaining_write_upper_bound_bytes": 4251536193,
+    "rss_guard_bytes": 8589934592,
+    "schema": "learned-onboarding-deployment-progress-v1",
+    "source_archive_staging_bytes": 43463384,
+    "stage": "validate",
+    "stage_elapsed_seconds": 15.127158316987334,
+    "state_and_log_bytes": 110848,
+    "status": "RUNNING",
+    "target_input_staging_bytes": 0,
+    "updated_at": "2026-10-24T13:27:51.364817+08:00"
+  },
+  "ai_polling": false
+}

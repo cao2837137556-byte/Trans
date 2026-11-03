@@ -1,0 +1,585 @@
+{
+  "schema": "paper04.ab_readout_preservation.design.v1",
+  "date": "2026-09-13",
+  "status": "DESIGN_FROZEN_READY_FOR_IMPLEMENTATION",
+  "design_document": "runs/mainline_docs/frontend_ab_readout_preservation_design_v1_20260913.md",
+  "base_contract": {
+    "path": "runs/mainline_docs/frontend_ab_start_control_recipe_v1_20260912.json",
+    "sha256": "5ce8f2e39c62c20eb8c23ee4d7462d77f038665c77da46d1be793eae9c7699ee"
+  },
+  "base_contract_semantics": "Only explicit copied fields below are adopted. No old R/teacher/guard/projection/preparedP stages, counters, authorization, output paths or arm-selection rules are inherited.",
+  "workspace": {
+    "branch": "codex/exp-mainline",
+    "head": "4b28747b09480471e2bac1beb3a9badf27280efb",
+    "preserve_unrelated_modifications": true,
+    "new_worktree_or_branch_switch": false
+  },
+  "authorization": {
+    "current": "DESIGN_AND_REVIEW_ONLY",
+    "implementation": false,
+    "real_T": false,
+    "real_E": false,
+    "future_joint_TE_authorization_supported": true,
+    "normal_transition_repeat_permission": false
+  },
+  "objective": "Recover old P2 attack capability while improving benign-OOD false alarms in one unified A+B student; commissioning is a later separate contribution.",
+  "hypothesis": "Does fixing the AB event projection and GRU permit full-MLP adaptation to gain attack capability while preserving its benign-OOD separation? Failure does not test general information sufficiency.",
+  "inputs": {
+    "plan": {
+      "path": "runs/frontend_paired_train_implementation_v3_20260910/plan.json",
+      "sha256": "2d17743edeab5d51751e9d95c308a414c3763934921e917fc2ab97c495e2e5ef"
+    },
+    "membership": {
+      "path": "runs/frontend_paired_metadata_v3_20260909/membership.csv",
+      "sha256": "3766778032f9317f471939434868ac28b39cf0c88728130e42679f4f0c990418"
+    },
+    "train_check_features": {
+      "path": "runs/frontend_paired_train_preparation_v3_20260910/features.f32le",
+      "sha256": "b9e2775445e889ebb313463eee53a7ec2f1de56d78c838b3de247394fc5520b5",
+      "shape": [
+        210634,
+        131
+      ],
+      "dtype": "<f4",
+      "bytes": 110372216,
+      "training_access": "plan train prefixes only"
+    },
+    "historical_train_manifest": {
+      "path": "runs/frontend_paired_train_v3_20260910/SHA256SUMS",
+      "sha256": "0f55d36928f813dcd034d44a19ce2ab3d57e5e7b8c9f6ecd7354b0cfc835869a"
+    },
+    "historical_check_scores": {
+      "path": "runs/frontend_paired_train_v3_20260910/check_predictions.json",
+      "sha256": "477d0530b0586cd11ce9bf355efa2f635074b09690aba15d0322d9c794166f68",
+      "access": "E reference only"
+    },
+    "expanded_scope": {
+      "path": "runs/frontend_expanded_eval_scope_v1_20260910/scope_readiness.json",
+      "sha256": "a7c0fe773c5c01085a6974d4d26a58d2a218944f0996e6ab37d00bce84bf3d56"
+    },
+    "expanded_preparation": {
+      "path": "runs/frontend_expanded_eval_v2_20260910/preparation_receipt.json",
+      "sha256": "bf6c11bc3740e9b50e91d4bccf67f8f47c52f28c877b77a3740ac38725b250f0",
+      "reuse": "members/*/features.f32le and contexts.jsonl.gz listed in pinned manifest",
+      "access": "E only; decode existing cached float32 features as budgeted; no raw-packet decoding or rematerialization."
+    },
+    "expanded_manifest": {
+      "path": "runs/frontend_expanded_eval_v2_20260910/SHA256SUMS",
+      "sha256": "5e35e97dc681c718d4002b9777ecee855e1c66bc402f13ce411858691b44a7bb"
+    },
+    "expanded_AB_P2_predictions": {
+      "path": "runs/frontend_expanded_eval_v2_20260910/predictions.csv.gz",
+      "sha256": "9de2201b0f13f5c39dadcaae925ac9482377adba96cc88ca1cfda72b6491aef4",
+      "access": "E reference only"
+    },
+    "expanded_A_predictions": {
+      "path": "runs/frontend_a_expanded_eval_v1_20260911/predictions.csv.gz",
+      "sha256": "94dc12c5d1f0363ccb640e22b9aa4673a14f644479c7d50bcef8cbf30be9e627",
+      "access": "E reference only"
+    },
+    "initial_AB": {
+      "path": "runs/frontend_paired_train_v3_20260910/candidate_AB.pt",
+      "sha256": "a9e8e0c6aa50a25fe589d1733a9e9d788f380db64e90e8df71b3edde389ed325",
+      "bytes": 368709,
+      "state_sha256": "b800d9f1a3e11e557838cb9bdc22e7acc8559d198a57fa21a3da6c80bb7b9fda",
+      "access": "Opaque hash in design/implementation; one full student load only after realT authorization, fullhead retained; no extra initialforward; E may load newH_AB only."
+    },
+    "initial_AB_receipt": {
+      "path": "runs/frontend_paired_train_v3_20260910/candidate_AB.receipt.json",
+      "sha256": "c9653d81b3dd986ba39de09474ef369777b9549ca77e8b3fbee65d71f284a958",
+      "epoch": 40,
+      "updates": 7880,
+      "initial_state_sha256": "627f1fc016f44094b0510130d6e28a46b86c72f5df4e4bb6ee4947a95a4b593b"
+    },
+    "initial_AB_terminal": {
+      "path": "runs/frontend_paired_train_v3_20260910/supervisor_terminal.json",
+      "sha256": "705aed1f49b049f9849583d1ea4beae0e2c9be0457708e709c01c898bf5e477d",
+      "required_field": "verdict.status",
+      "required_value": "PAIRED_COMPARISON_COMPLETE"
+    }
+  },
+  "data": {
+    "train_targets": 15073,
+    "train_contexts": 10583,
+    "train_components": 6797,
+    "A": {
+      "targets": 9402,
+      "attack": 3357,
+      "benign": 6045,
+      "contexts": 6286
+    },
+    "B": {
+      "targets": 5671,
+      "attack": 71,
+      "benign": 5600,
+      "contexts": 4297
+    },
+    "check": {
+      "targets": 3193,
+      "contexts": 2306,
+      "components": 1679
+    },
+    "expanded": {
+      "targets": 262050,
+      "contexts": 57686,
+      "benign_OOD_targets": 18000,
+      "attack_families": 16,
+      "benign_OOD_pools": 4
+    },
+    "ID_check_targets": 151,
+    "train_source_groups": 22,
+    "train_members": 24,
+    "all_train_contexts_single_label": true,
+    "verified_same_device_attack_benign_matching": false,
+    "no_cross_train_check_UID_or_component": true,
+    "direct_supervision": "all fixed 15073 true-label targets once per epoch, no exclusions",
+    "exposure": "H_AB and C0_AB have identical904380 direct-label lifetime and no teacher-derived training. HistoricalP2/R score references include previous check exposure. All outcomes are exposed development, not independent confirmation."
+  },
+  "arm": {
+    "id": "H_AB",
+    "initial_model": "initial_AB",
+    "total_parameters": 91265,
+    "trainable_prefixes": [
+      "head_hidden.",
+      "head_output."
+    ],
+    "trainable_parameters": 8321,
+    "frozen_prefixes": [
+      "event_projection.",
+      "encoder."
+    ],
+    "frozen_parameters": 82944,
+    "activation": "unchanged original GELU approximate=none",
+    "requires_grad_frozen": false,
+    "frozen_grad": "must remain None",
+    "optimizer_contains_frozen_parameters": false,
+    "frozen_identity_check": [
+      "entry",
+      "each epoch end",
+      "terminal"
+    ],
+    "head_reinitialization": false,
+    "new_representation_cache": false,
+    "deployment": "original complete Student; logit>=0",
+    "teacher_or_guard_or_projection": false
+  },
+  "schedule": {
+    "seed": 2705,
+    "epochs": 20,
+    "steps_per_epoch": 197,
+    "updates_per_arm": 3940,
+    "updates_all_arms": 3940,
+    "target_presentations_per_arm": 301460,
+    "target_presentations_all_arms": 301460,
+    "canonical_hash_encoding": "UTF8 json.dumps(value,ensure_ascii=False,separators=(',',':'),allow_nan=False)",
+    "owner_order": "sort context keys by (SHA256(canonical(['paired-order-v1',2705,epoch,owner,key])),key), epoch 1..20, independently for A and B",
+    "buckets": "q,r=divmod(N_owner,197); first r buckets contain q+1 ordered contexts, remaining buckets q",
+    "microbatch_context_limit": 32,
+    "per_update_order": "A then B; each microbatch forward once for all applicable losses; accumulate gradients, global clip once, optimizer step once",
+    "teacher_extra_student_forwards": 0,
+    "guard_extra_student_forwards": 0,
+    "candidate_selection": "Only terminal H_AB at epoch20; no best checkpoint",
+    "execution_order": [
+      "H_AB"
+    ],
+    "new_task_gradient_diagnostics": 0,
+    "expected_counts_per_arm": {
+      "targets": 301460,
+      "contexts": 211660,
+      "events": 3733160,
+      "padded_slots": 31864326,
+      "forwards": 7880,
+      "updates": 3940
+    },
+    "epoch_numbering": "New continuation local epochs1..20 use exact original order hashes, not global epochs41..60",
+    "compare_order_to_sealed_C0_AB": true
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "reset_each_arm": true,
+    "lr": 0.0001,
+    "weight_decay": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "amsgrad": false,
+    "foreach": false,
+    "fused": false,
+    "maximize": false,
+    "capturable": false,
+    "differentiable": false,
+    "scheduler": null,
+    "clip_global_L2": 1.0,
+    "clip_error_if_nonfinite": true,
+    "clip_parameters": "exact trainable head_hidden/head_output parameters only; frozen params gradNone; changed clip-space is part of intervention",
+    "log_before_clip": [
+      "head_gradient_L2",
+      "actual_clip_factor"
+    ],
+    "early_stopping": false
+  },
+  "runtime": {
+    "Python": "3.9.13",
+    "numpy": "2.0.2",
+    "torch": "2.8.0+cpu",
+    "student_dtype": "float32",
+    "device": "cpu",
+    "threads": 4,
+    "interop_threads": 1,
+    "deterministic_algorithms": true,
+    "seed_reset_each_arm": true,
+    "local_workers": 1
+  },
+  "loss": {
+    "name": "original_C0_label_only",
+    "formula": "(197/6286)*sum_A_bucket(mean_target BCEWithLogits) + (197/4297)*sum_B_bucket(mean_target BCEWithLogits)",
+    "coefficient": 1.0,
+    "BCE_log_base": "natural",
+    "additional_losses": [],
+    "teacher_access": false,
+    "teacher_fit_or_Aguard_endpoint_observation": false
+  },
+  "historical_score_references": {
+    "C0_C1_C2": {
+      "directory": "runs/frontend_task_knowledge_transfer_e_v2_20260911",
+      "manifest": {
+        "path": "runs/frontend_task_knowledge_transfer_e_v2_20260911/SHA256SUMS",
+        "sha256": "20baf0790e7e01d12699820e1ad849259197883295cae1db5efe2a9cd9e95adb"
+      },
+      "filename_pattern": "{arm}_expanded.csv.gz",
+      "comparison": {
+        "path": "runs/frontend_task_knowledge_transfer_e_v2_20260911/comparison.json",
+        "sha256": "0c408372f0ef3c759bc0fdd1edb9fa8f2628a3da3c88e9dba0dddc998c390055"
+      },
+      "access": "E reference only"
+    },
+    "Q_R": {
+      "directory": "runs/frontend_task_aligned_transfer_e_v1_20260912",
+      "manifest": {
+        "path": "runs/frontend_task_aligned_transfer_e_v1_20260912/SHA256SUMS",
+        "sha256": "dedf82ef1bf6ee984236714026e5f73e918e81ae22653a1525377ae1f993f752"
+      },
+      "filename_pattern": "{arm}_expanded.csv.gz",
+      "comparison": {
+        "path": "runs/frontend_task_aligned_transfer_e_v1_20260912/comparison.json",
+        "sha256": "5c0c4da2a57843d4941245dc76b5b1ec2615600e9c608ff890964686b53340c1"
+      },
+      "access": "E reference only"
+    },
+    "A_AB_P2": "Use pinned expanded_A_predictions and expanded_AB_P2_predictions; old P2 hard only has no new ROC",
+    "new_ID_rule": "H_AB distinct from every historical arm; no old model loads or forwards",
+    "C0_AB_R_AB": {
+      "directory": "runs/frontend_ab_start_control_e_v1_20260912",
+      "manifest": {
+        "path": "runs/frontend_ab_start_control_e_v1_20260912/SHA256SUMS",
+        "sha256": "b69427edf8920c96bbb7fcbd134c11b5148f14082161b3da6acea5af978f7fd1"
+      },
+      "comparison": {
+        "path": "runs/frontend_ab_start_control_e_v1_20260912/comparison.json",
+        "sha256": "7ae743def9b3a85ef33f8cfbce1490852180a798b84239c1f07faa1fd9089068"
+      },
+      "filename_pattern": "{arm}_expanded.csv.gz",
+      "access": "E reference only"
+    }
+  },
+  "comparison_training_receipt": {
+    "manifest": {
+      "path": "runs/frontend_ab_start_control_t_v1_20260912/SHA256SUMS",
+      "sha256": "11e1f9629521d2ae0743504811fe498874ddcee04cc0be258e2387636957fcc3"
+    },
+    "terminal": {
+      "path": "runs/frontend_ab_start_control_t_v1_20260912/worker_terminal.json",
+      "sha256": "4baaf6d6dfb7167d459fe6a6eda489a1a3e5ba175385a8c819cf5571d6c81190"
+    },
+    "purpose": "C0_AB initial state/counts/order identity only; no model tensors or numerical training log inspection"
+  },
+  "stages": {
+    "T": {
+      "directory": "runs/frontend_ab_readout_preservation_t_v1_20260913",
+      "seconds_limit": 14400,
+      "memory_bytes_limit": 8589934592,
+      "new_output_bytes_limit": 536870912,
+      "historical_student_loads": 1,
+      "optimizer_steps": 3940,
+      "student_forwards": 7880,
+      "initial_or_diagnostic_forwards": 0,
+      "expected_feature_bytes_decoded": 97808792,
+      "teacher_passes": 0,
+      "teacher_rows_read": 0,
+      "guard_pairs_read": 0,
+      "evaluated_targets": 0
+    },
+    "E": {
+      "directory": "runs/frontend_ab_readout_preservation_e_v1_20260913",
+      "seconds_limit": 1800,
+      "memory_bytes_limit": 8589934592,
+      "new_output_bytes_limit": 536870912,
+      "new_candidate_loads": 1,
+      "historical_model_loads": 0,
+      "student_forwards": 2207,
+      "evaluated_targets": 280316,
+      "optimizer_steps": 0,
+      "teacher_passes": 0,
+      "projection_loads": 0,
+      "teacher_rows_read": 0,
+      "guard_pairs_read": 0
+    },
+    "new_P_stage": false,
+    "raw_packet_decode": false,
+    "new_data_download": false,
+    "HPC": false,
+    "new_resource_trial": false,
+    "exceptions": "STOP, preserve evidence, zero retries; no E after failedT",
+    "scientific_bad_result": "complete fixed authorized endpoint and seal, no adaptive continuation",
+    "budget_scope": "entry, work, verification and sealing",
+    "monitoring": "hidden persistent local supervisor plus standalone status and auto-refresh page; no LLM polling"
+  },
+  "evaluation": {
+    "fixed_logit_threshold": 0.0,
+    "primary_ranking_descriptor": "Original empirical TPR at pooled expanded benign-OOD FPR<=0.01, not an absolute new success threshold; ID151 excluded from this18000 benign denominator",
+    "secondary_ranking": [
+      "TPR@FPR<=0.001",
+      "AUROC",
+      "family recalls at the same pooled mathematical threshold"
+    ],
+    "ranking_threshold_deployed_or_training_feedback": false,
+    "fixed_point_reports": [
+      "overall attack",
+      "future-query",
+      "16 attack families plus macro and worst regression",
+      "A/B ownership",
+      "each of4 benign OOD pools",
+      "pool-equal macro and worst FP",
+      "151 ID check denominator caveat",
+      "per-target positive and negative flips"
+    ],
+    "old_P2_ROC_if_only_hard_available": false,
+    "development_joint_gain": "same contrast no worse in primary ranking, fixed overall/future/family-macro recall and benign pool-macro/worst FP, at least one better; single-seed tiny differences are not a breakthrough",
+    "practical_milestone": "reach old fixed-point attack/future references and jointly improve benign OOD; disclose any key family/pool collapse; no invented allowed-loss tolerance",
+    "practical_verdict": "manual scientific interpretation of the complete metric table; no automatic SUCCESS from undefined serious-regression tolerances",
+    "old_attack_reference_percent": 97.3698,
+    "old_future_reference_percent": 96.6786,
+    "old_attack_reference_exact": {
+      "detected": 237631,
+      "targets": 244050
+    },
+    "old_future_reference_exact": {
+      "detected": 127027,
+      "targets": 131391
+    },
+    "original_strict_inheritance_verdict": "report separately; historical FAIL remains",
+    "strict_reference_protocol": "runs/mainline_docs/frontend_paired_learning_recipe_and_metadata_qualification_20260909.md: original common-A-check zero regression rule",
+    "claim_limits": [
+      "H_AB/C0_AB use no teacher supervision; historicalP2/R references had check exposure; all results exposed development",
+      "single seed, correlated contexts; no independent confirmation or deployment qualification",
+      "source shortcuts possible; no verified same-device benign/attack pairing",
+      "0.1% FPR has at most18 false positives on18000OOD; not a stable population guarantee",
+      "151ID targets do not establish0.1%ID FPR; future-query is not necessarily unseen attackfamilies",
+      "P2B allalarm is not content recognition; overallold denominator unchanged",
+      "H_ABvsC0_AB label history matches; vsA-start history differs by226840priorB presentations",
+      "freezing changes gradients, optimizer membership and clipping space; not unique encoder causality",
+      "oneMLP/C0failure does not prove insufficient input, universal head failure or GRU capacity ceiling",
+      "winningC0_AB alone does not validate a candidate that fails againstAB or thepracticalmilestone",
+      "1%/0.1% remain existing descriptivepoints; nonew absoluteTPR gate",
+      "new-devicecommissioning NOT_EVALUATED; known historicalstrictFAIL retained"
+    ],
+    "low_FPR_caveat": "Preserve original joint-gain rule, separately disclose0.1% ranking and every family/pool collapse; do not hide deterioration behind the macro rule.",
+    "tail_composition": "At each existing pooled ranking point aggregate new candidate FP by pool/source_group/event_index from same saved scores; no extra forward or training feedback",
+    "AB_tail_comparison": {
+      "diagnostic_only": true,
+      "0.01": {
+        "reference_detected": 89201,
+        "attacks": 244050
+      },
+      "0.001": {
+        "reference_detected": 82192,
+        "attacks": 244050
+      },
+      "output": "LESS/EQUAL/GREATER from exact TPR fractions, separately per cap; never SCIENTIFIC_SUCCESS",
+      "actual_false_positives": "May be lower than180/18 due to ties; never force cap exhaustion"
+    },
+    "development_joint_gain_exact_quantities": [
+      "ranking_TPR_at_0.01_non_decreasing",
+      "fixed_attack_recall_non_decreasing",
+      "fixed_future_recall_non_decreasing",
+      "fixed_family_macro_recall_non_decreasing",
+      "fixed_pool_macro_FPR_non_increasing",
+      "fixed_worst_pool_FPR_non_increasing"
+    ],
+    "targets_per_arm": 280316,
+    "targets_all_arms": 280316,
+    "model_candidates": [
+      "H_AB"
+    ],
+    "contrasts": [
+      "H_AB-AB",
+      "H_AB-C0_AB"
+    ],
+    "historical_context_only": [
+      "A",
+      "C0",
+      "C1",
+      "C2",
+      "Q",
+      "R",
+      "R_AB",
+      "old_P2"
+    ],
+    "teacher_fit_or_guard_observation": false,
+    "ID_check_is_subset_no_extra_forward": true,
+    "counts_comparison": "Use integer detected/total for each metric and exact fractions.Fraction arithmetic for ratios and family/pool macro means; no epsilon or rounded display comparisons; ties handled as complete groups.",
+    "new_candidate_retention_diagnostics": {
+      "scope": "common A-check2127=825 attacks+1302benign",
+      "reference_scores": "stored fixedA andP2 only; no models or teacher vectors loaded",
+      "report": "negative/positive flips and UIDs, zero-regression diagnostic; historicalFAIL unchanged"
+    }
+  },
+  "continuation": {
+    "six_metric_joint_gain_vs_AB": "Potential development candidate only, inspect0.1%, everyfamily/pool and practicalattack gap; no automatic promotion or extra trial.",
+    "tradeoff_unchanged_or_regression_vs_AB": "End adjacent head/loss/lr/epochs/freeze-depth/distillation trials on this15073TRAIN; next must have justified newinput or qualifiedtraining support.",
+    "meaning_of_failure": "Not proof of information insufficiency, universal head failure or GRU capacity ceiling.",
+    "meaning_of_success": "Update-location package evidence; not pure encoder causality, innovation proof, independent generalization or commissioning.",
+    "no_automatic_LP_FT_or_extra_arms": true
+  },
+  "lifetime_direct_label_exposure": {
+    "A": 564120,
+    "B": 340260,
+    "total": 904380,
+    "optimizer_step_calls": 11820,
+    "new_frozen_parameter_updates": 0,
+    "matched_reference": "C0_AB",
+    "not_equal_per_parameter_update_exposure": true
+  },
+  "implementation": {
+    "directory": "runs/frontend_ab_readout_preservation_implementation_v1_20260913",
+    "source_prefix": "repo/ood/issue27frontend_readout_",
+    "start_script": "scripts/start_frontend_ab_readout_preservation_v1.ps1",
+    "status_script": "scripts/show_frontend_ab_readout_preservation_v1.ps1",
+    "old_files_mutated": false,
+    "reference_code_pins": {
+      "repo/ood/issue27frontend_aligned_build_v1.py": "17f6eb54e465edb53e32e5c3b29c680f2b5cd17039e46ba7b9be195c7587b22c",
+      "repo/ood/issue27frontend_aligned_control_v1.py": "4153e04280856c62d7278b1202fdfc80a99a24e8099fd0b802ec6221ec63893f",
+      "repo/ood/issue27frontend_aligned_evaluate_v1.py": "f48cbabe6fb3c4c38660cef26fb0bb0643d44a4f03daec91c2bbe1acb004d146",
+      "repo/ood/issue27frontend_aligned_fixture_v1.py": "631176ccc72764d25136b252c6e6d4717b116884e005939b6b389acb3f6f65ef",
+      "repo/ood/issue27frontend_aligned_model_v1.py": "91589060743e59da204c6728777c7ad7a87590fa8446b7ad039738a80274afa3",
+      "repo/ood/issue27frontend_aligned_prepare_v1.py": "22afaa9434a886e5c69c80a3419386a08bce1f5e31da6c5885f76d89715f702a",
+      "repo/ood/issue27frontend_aligned_support_v1.py": "dc5e435a03e2953a828d8cd233727770e38d44593ecc22ca9a764399d06c1e96",
+      "repo/ood/issue27frontend_aligned_tests_v1.py": "681ba577c3d4b53b25df3854df291e848ede3845dda39052d7c1b5f9ca634efd",
+      "repo/ood/issue27frontend_aligned_train_v1.py": "e80100007ef328bba0db303ae821b27482f72cedbea7ede810cf730bcc298409",
+      "repo/ood/issue27frontend_aligned_verify_v1.py": "1e05bef1405537318271374cc917b940220ff366f4ae4c54d51d1a018ce3dedd",
+      "repo/ood/issue27frontend_f0_zero_training_semantics_real_v1.py": "ca34ff39bfe7289fee1048d74e04de53dd4d4f096228fa837104cb65388b6f60",
+      "repo/ood/issue27frontend_f0_zero_training_semantics_v1.py": "00366fdef9d644c2ac60fab68047938e6bcc4425aab68e1f6c1ae552db40affa",
+      "repo/ood/issue27frontend_f1_d1_train_v1.py": "6e2df7059b9bb0aba9be80adb11e7e918c3f1ddfef3ecc690b571b0f0af18634",
+      "repo/ood/issue27frontend_f3_conflict_field_sufficiency_v1.py": "80b4de6c931b77f528bafaf64a4a0e449295c8a78fb1d9776a8fed1d35eb9791",
+      "repo/ood/issue27frontend_f3_full_fit_l1_identifiability_v1.py": "69fc92fb417fe8dbca646c30aaaf7f7ea40edf81ecae3c4fe36d831434e35a67",
+      "repo/ood/issue27frontend_f4_fieldwise_input_v1.py": "9c729a3165d19042549723f029235734595131d5e7ba344a3f605cca89677200",
+      "repo/ood/issue27frontend_f5_unified_student_v1.py": "78898ad6cf5d59bbe3505fe5fb7536f7e29b8aeed1cb4c00aaf9f38108bf8136",
+      "repo/ood/issue27frontend_inheritance_n0_inventory_v1.py": "e53d9f7d3111555fdf2e1e5ca54b4ad77b2a1a52eb0648987f9e53323e0ba682",
+      "repo/ood/issue27frontend_inheritance_n1_math_v1.py": "1c750f7a7932bcf4336428eae0a3d33a43cc29aa2ff13e324ef8d5c45e9b6032",
+      "repo/ood/issue27frontend_inheritance_n1_support_v1.py": "1509cb63bc8581bc0d507a506113d7ddd5e3435b1c7ebc68a9f6f7c615be3091",
+      "repo/ood/issue27frontend_inheritance_n2_support_v1.py": "e46ae2563064287e47f2f2471188eeef565ad37085bfa2520ee01f269afc5e33",
+      "repo/ood/issue27frontend_inheritance_n3_runner_v1.py": "a9dd43a916f93bf9fa54a5b5a730890c969e8cb4b69542a58df93b0627ed39c9",
+      "repo/ood/issue27frontend_inheritance_n3_support_v1.py": "8f2a4dfa36dfecc56ca5e15041ce410536a206e450cd40da722c9459561e804a",
+      "repo/ood/issue27frontend_inheritance_outer_control_v1.py": "59cbe51334e9c1319828af831efaa9e599a4c8c76abf2bc17b1507b9e70cf4e6",
+      "repo/ood/issue27frontend_inheritance_outer_metadata_v1.py": "c4f6a4f7c29db5b0a029782863a8bfa47160763630002f12145ce37ab9039647",
+      "repo/ood/issue27frontend_inheritance_outer_runner_v1.py": "e40dab584f2c564b1ec39aae3befc947b0bf89d19037e4ed195b96930ba20c56",
+      "repo/ood/issue27frontend_inheritance_outer_support_v1.py": "f01807fdc0057378f3e5894516fa4f5fb34cb323b40263b14535fb9d3de479fc",
+      "repo/ood/issue27frontend_paired_metadata_io_fix_v3.py": "91880b0f2ff1b86d593e7ebb94fc6ca8a6bbbd72b309e77416515a2f0c9faff8",
+      "repo/ood/issue27frontend_paired_metadata_monitor_fix_v2.py": "4fb9ceacf171f7904f40630a7221eac2c32903a982f69012cf71ba290155584f",
+      "repo/ood/issue27frontend_paired_metadata_v1.py": "e99298d91669717cf99cb2cf3d23f3ed6e134bfb862e773d598d470886becb37",
+      "repo/ood/issue27frontend_paired_train_control_v3.py": "357d8af65f71c838b434ed412c4794368d9cba4ce846d102d6049fe0da844d83",
+      "repo/ood/issue27frontend_paired_train_metrics_v2.py": "97ba8421723bef5398fcde109dce986559e4ba59e1ef51a1ddcf0aa9e75a2ae2",
+      "repo/ood/issue27frontend_paired_train_model_v1.py": "970028cdef7ff9f0098930e6d378a3e517c7d47b95105223b9120361e58d8d71",
+      "repo/ood/issue27frontend_paired_train_prefix_fix_v2.py": "b0bbea1c8acffad61f84f6c7a88dff7ea7b95af0d6853b31ec9d296f37d05c16",
+      "repo/ood/issue27frontend_paired_train_runner_v3.py": "9be22974e759d3f6ad3eb2dddba0c6e8954f8df96857809d6e33d5c83aaeedde",
+      "repo/ood/issue27frontend_paired_train_support_v1.py": "455f063a6ac044ad153cd4265595ce9743b9bd1ebcc9d9cc85b50c9e4b57729a",
+      "repo/ood/issue27frontend_paired_train_support_v3.py": "84d8aa5650f3a782477c0739af8d68e6d2afa16bfdd4298dbac78a45ba7183ab",
+      "repo/ood/issue27frontend_transfer_io_v2.py": "039589773be83d5ef93f48940fe946a0f7cbe45cb2eefd551a085ff8da37f435",
+      "repo/ood/issue27frontend_transfer_model_v1.py": "9e00d1286fd46e6be728354c34d47e60f75d41201e5463c888add5d7e33b263e",
+      "repo/ood/issue27frontend_transfer_support_v1.py": "eb39ba28ed1e3d6025335533a8e093cf01fe6eaac879f0f91ce7109e98cd5b2d"
+    },
+    "runtime_pins_from_accepted_implementation": {
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\python.exe": "07c96337729e3c4c986e8f5660a97cb475c4c04842606be2654b37892af57de9",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\python39.dll": "324963a39b8fd045ff634bb3271508dab5098b4d99e85e7648d0b47c32dc85c3",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\DLLs\\_ctypes.pyd": "a8703f949c9520b76cb1875d1176a23a2b3ef1d652d6dfac6e1de46dc08b2aa3",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\ast.py": "38acab29dee8e05202ff033a08f6fe7ebb1e2877a6bdb321dac83772c9ea0d43",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\csv.py": "6f0bf83454623407e8292cbaab7be555314af47ab6e40b0dfc48be9e65261c14",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\gzip.py": "2c7b35d4a33580fd6f3b65b2be0b4b1417c9237f05ead5a4e529eaca07bf4d45",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\zipfile.py": "bd7270eccd6b18b527cda804dcd5a9a1c7f32b03ad952db6e929819600e380ad",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\dataclasses.py": "68d5cedc8b4ce21d99a686f67009f04a65a1ec49a3ff475f06f7e8b1433fdb0a",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\json\\decoder.py": "166898917cc796859421929b821aad3040e6e19c973f197bce4741f75381f6d8",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\json\\encoder.py": "b3697ba518e29ec2b307463858cef8b20d6703cdc8496783b0380b9bab749c8d",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\subprocess.py": "cb198f0c4ea2cc2ddd7dbe341979fa696d861881762ffb15a403d4564f2d9333",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\threading.py": "41457626d1dd7b637d4cc75b2e141490448511fffb80512acbe9e6f4e21d110f",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\__init__.py": "6d6c92d0b1091fc8f437cfe8228e9c9ad088dc0faf8446b1df8738f61c0834f2",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\__init__.py": "c8c1007668326afd3cf3b1d183e8bc1581430514af161672b4225c57487dd976",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\site-packages\\torch-2.8.0.dist-info\\METADATA": "21d59cbe983b22e72dab5ba788617a631a4ec30357544ce90ca7d75aa51b3c04",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\site-packages\\numpy-2.0.2.dist-info\\METADATA": "0b1e601244cc69655bad407b02e8a160976ee7a1e3a2035836d3b3a6bbd0d5ce",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\nn\\modules\\linear.py": "58b8ce1f2a2889ffac1f7817522daef466505ecd5123d179a5d86c1b75afff70",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\nn\\modules\\rnn.py": "4ca97c3133494a7b21bb07fdf90ec04b27d764a4803f02f9f139fb61614b5ecb",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\nn\\modules\\activation.py": "888849404f330cf8a28e53aa1766ed48ea7deaf2f694a2aba593183de54cf1ab",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\nn\\utils\\rnn.py": "fea8ff7101ffeab6392bc838e39a474df4f9ed9c9a6e4a091ae4da13b890662d",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\nn\\utils\\clip_grad.py": "6b03f538003d9efbb37135c270b75ddda383557b6825814fafeef183051e93cc",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\optim\\adamw.py": "cdb96600aa1933dbdabc1880813e90a2aeeeed591adb07068b723c4c3d566dd5",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\optim\\adam.py": "8ae36d1ddd1ca711bc708694a3c85e54fd0feca99910b93d2006436adf0ee193",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\nn\\functional.py": "fc13e05f04b956964dcdf7ddb89d4cd5560c9e791492f8b52fc4e80a9052cf7f",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\serialization.py": "cfd697af47330bf8e2ad05338134ce97dc97c5ff6a7abe7ca45a7f7f407f32e7",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\asmjit.dll": "6019433264046fb55b275b0f803d706cf705af3ac06ea97f087b0aa49aacdddd",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\c10.dll": "ccedb7a7011369fde5fea7b2453284d79d1c986f47c94eae3a47b41ce1358fd1",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\fbgemm.dll": "dc74454fddf405ed343fd8e95e2d288d374397c2d6b065b2e7620378d2733ec5",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\libiomp5md.dll": "d9d66ed25f1a0ea725fa3a41b22cfd5d182c19dbe4771d9c90ca02ad7466f6a1",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\libiompstubs5md.dll": "daeb39e4ced3bfce4a622b63b8b0281613eb8180266f8dd1dc678346df1c7697",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\shm.dll": "c09176254fca576061088c4452c8be295db45c954f25f3c5f15e02cee0d42ef4",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\torch.dll": "f82e042622f74d5b126124088a575f71ca74e1be492b1650d9ff9c9a07205ab1",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\torch_cpu.dll": "671457d3a62d7acff7c28c7ca1cd9dd1f46bb6c6a881923659e8e6140d67ba1a",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\torch_global_deps.dll": "a87addd41d972c71ef406de274586812ccd7fc253fa6a9504854bd75a0643a5c",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\torch_python.dll": "2cd2897d163f1029341f3ae67fcccd5f4f4fe7b4d62ecae8ca767128e3140f73",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\uv.dll": "fa569e682fc5fb7a8eb94c6829af9f30a569748dbbc6bce39735d48bc960bcf8",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\_core\\_multiarray_tests.cp39-win_amd64.pyd": "556c837b395b3f6663b36889e6f19c17392ca809de6ae8c8c4e1b595cab4dbcb",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp39-win_amd64.pyd": "ba5feeec2aa7bffd9f88c597091942598b3d4f3f3a5f9d2f6b16d7b49996434d",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\_core\\_operand_flag_tests.cp39-win_amd64.pyd": "4c68ac26fdf7045b66eca953edf84e164e034e4522795e658e9b0401201c0f2a",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\_core\\_rational_tests.cp39-win_amd64.pyd": "4b0b0cebe2b64e69ec78445eda9c7be636df445d4645177b01887317f6c81029",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\_core\\_simd.cp39-win_amd64.pyd": "cade7e0ccfb92a09158fef11cf77583e3e843bf6dc8596430880594a293eeced",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\_core\\_struct_ufunc_tests.cp39-win_amd64.pyd": "b6616141c1a5edde270dda36471f11c2e99d8dfdd03fabfdd8c8f84bf860e4d1",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\_core\\_umath_tests.cp39-win_amd64.pyd": "5d10baa0ff222acc1d2813b6f4b1ce2a00c227f1b030631bbb2af55be85205e9",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\site-packages\\torch\\optim\\optimizer.py": "377109e568b4502a5810d7e285735e0ff33d1f5310ceca286851e3dd81bd01f9"
+    },
+    "unrelated_tracked_sha256": {
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/config.json": "0df82dda20424088839fdd87d5b08c552f546a748554adb9f8bf70c9e8beeec1",
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/issue27by_decision.md": "995d3014eb177bd968bc88db035b889e25dca6ffb8d5ce35ab2ed34fb584c89a",
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/local_smoke_report.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/manifest.csv": "957356c3c7b700cd6ed2e677753d7a4e89b5a26be9211ca878e2bb8ef35d1b67",
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/per_file_cache_manifest.csv": "298047ccb5fd5b3fbe1982d849fa7c8448aaec0a0a066f6f3781ee4756e931ea",
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/role_cache_readiness.csv": "3bdd9dc88ba425ecbdfaeada9753754821938652b0c6961f5850ff9634d35024",
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/slurm_array_config.csv": "9135c49b11ec3d03079e616b952e5e5dfbea236b89749ed66d8887a2a4f89360",
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/summary.md": "f44318fc343f913184ffc2c68d32bf7adf25a6005504d8b15ec5481a1719a411"
+    }
+  },
+  "design_review": {
+    "status": "STATIC_DESIGN_REVIEW_PASS",
+    "real_model_loads": 0,
+    "real_forwards": 0,
+    "real_optimizer_steps": 0,
+    "document": "runs/mainline_docs/frontend_ab_readout_preservation_review_v1_20260913.md",
+    "generated_acceptance_executed": false
+  },
+  "training_observations": {
+    "source": "training forwards/backwards only",
+    "per_epoch": [
+      "original_label_loss",
+      "head_gradient_L2",
+      "actual_clip_factor",
+      "frozen_parameter_identity"
+    ],
+    "extra_forward_or_gradient_calls": 0,
+    "teacher_and_guard_calls": 0,
+    "no_observation_driven_tuning": true
+  },
+  "design_document_sha256": "dc801799efe4c73b22b6cc57694d47a4f7860650316bb3651967ad5f7cf718e7",
+  "research_decision": {
+    "path": "runs/mainline_docs/frontend_ab_readout_preservation_research_decision_v1_20260913.md",
+    "sha256": "28b4c9d981c3dab5d9ca4246b0646432085a392a9d25bd48447ab984e8552f57"
+  }
+}

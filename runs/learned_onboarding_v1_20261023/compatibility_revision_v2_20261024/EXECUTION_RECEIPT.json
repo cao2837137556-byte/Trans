@@ -1,0 +1,49 @@
+{
+  "adapter_validation": {
+    "adapter_sha256": "64485ca3a5c722158f6f9471889f6dbab185e402396bf4fbfc19ca44d368a897",
+    "elapsed_seconds": 0.10875099699478596,
+    "real_target_queries_read": 0,
+    "schema": "learned-onboarding-target-adapter-validation-v1",
+    "status": "PASS",
+    "tests": [
+      "source-seal-gate",
+      "tampered-cal-seal-rejected",
+      "pinned-query-interchange",
+      "historical-parent-slot-replay"
+    ],
+    "tests_run": 4,
+    "unittest_count_is_separate": true
+  },
+  "authorization": "Current user: \u786e\u8ba4\u91cd\u65b0\u542f\u52a8",
+  "automatic_retry": false,
+  "checked_at": "2026-10-24T04:01:35.247199+00:00",
+  "completed_stages": [
+    "tests"
+  ],
+  "evidence": "operations/STARTUP_ACCEPTANCE_SNAPSHOT.json",
+  "future_phase_results": "UNKNOWN_NOT_POLLED",
+  "invocation_id": "8dfc9669c40a493e93d862ec768b2ca1",
+  "preflight_completed_at_snapshot": false,
+  "prior_failed_attempt_preserved": true,
+  "progress_url": "http://127.0.0.1:18765/",
+  "real_training_started_at_snapshot": false,
+  "recorded_at": "2026-10-24T04:03:02.324760+00:00",
+  "remote_root": "/srv/paper04/learned_onboarding_20261024_v2",
+  "remote_unittests": {
+    "elapsed_seconds": 6.261977888992988,
+    "errors": 0,
+    "expected_failures": 0,
+    "failures": 0,
+    "schema": "learned-onboarding-deployment-tests-v1",
+    "skipped": 0,
+    "status": "PASS",
+    "tests_run": 49,
+    "unexpected_successes": 0
+  },
+  "schema": "learned-onboarding-independent-v2-execution-receipt-v1",
+  "scientific_recipe_changed": false,
+  "stage": "prepare",
+  "status": "STARTUP_ACCEPTED_SOURCE_PREPARE_RUNNING",
+  "target_queries_read": 0,
+  "unit": "paper04-learned-onboarding-20261024-v2.service"
+}

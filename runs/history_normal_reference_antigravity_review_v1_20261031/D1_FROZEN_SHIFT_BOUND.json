@@ -1,0 +1,1560 @@
+{
+  "schema": "hnr-review-frozen-shift-normal-bound-v1",
+  "lambda_value": 0.25,
+  "evidence": "CONSUMED_DEVELOPMENT_ONLY",
+  "interpretation": "Optimistic lower bound: support=1 for all normal rows; ignores eligibility and attack protection. Not an achievable operating point.",
+  "model_forwards": 0,
+  "raw_decodes": 0,
+  "distance_pairs": 0,
+  "calibration_refits": 0,
+  "remote_operations": 0,
+  "pools": {
+    "CIC_DEV": {
+      "views": {
+        "full": {
+          "pool": {
+            "27": {
+              "rows": 100830,
+              "raw_fp": 440,
+              "unavoidable_fp_at_max_shift": 32,
+              "raw_weighted_fpr": 0.07370324104265076,
+              "optimistic_fpr_floor": 0.003830573361823362
+            },
+            "127": {
+              "rows": 100830,
+              "raw_fp": 215,
+              "unavoidable_fp_at_max_shift": 7,
+              "raw_weighted_fpr": 0.03891836004466213,
+              "optimistic_fpr_floor": 0.0007745726495726496
+            },
+            "227": {
+              "rows": 100830,
+              "raw_fp": 299,
+              "unavoidable_fp_at_max_shift": 21,
+              "raw_weighted_fpr": 0.05095464954123808,
+              "optimistic_fpr_floor": 0.0023237179487179487
+            },
+            "ensemble": {
+              "rows": 100830,
+              "raw_fp": 384,
+              "unavoidable_fp_at_max_shift": 27,
+              "raw_weighted_fpr": 0.06158177604999902,
+              "optimistic_fpr_floor": 0.0030916132478632477
+            }
+          },
+          "devices": {
+            "Eufy Home Base": {
+              "27": {
+                "rows": 99833,
+                "raw_fp": 263,
+                "unavoidable_fp_at_max_shift": 27,
+                "raw_weighted_fpr": 0.04121069902319902,
+                "optimistic_fpr_floor": 0.005982905982905983
+              },
+              "127": {
+                "rows": 99833,
+                "raw_fp": 120,
+                "unavoidable_fp_at_max_shift": 7,
+                "raw_weighted_fpr": 0.023903006715506717,
+                "optimistic_fpr_floor": 0.0015491452991452993
+              },
+              "227": {
+                "rows": 99833,
+                "raw_fp": 161,
+                "unavoidable_fp_at_max_shift": 21,
+                "raw_weighted_fpr": 0.027872599622599623,
+                "optimistic_fpr_floor": 0.004647435897435897
+              },
+              "ensemble": {
+                "rows": 99833,
+                "raw_fp": 235,
+                "unavoidable_fp_at_max_shift": 24,
+                "raw_weighted_fpr": 0.03772558592201449,
+                "optimistic_fpr_floor": 0.00531517094017094
+              }
+            },
+            "HeimVision Camera": {
+              "27": {
+                "rows": 997,
+                "raw_fp": 177,
+                "unavoidable_fp_at_max_shift": 5,
+                "raw_weighted_fpr": 0.1061957830621025,
+                "optimistic_fpr_floor": 0.0016782407407407406
+              },
+              "127": {
+                "rows": 997,
+                "raw_fp": 95,
+                "unavoidable_fp_at_max_shift": 0,
+                "raw_weighted_fpr": 0.05393371337381754,
+                "optimistic_fpr_floor": 0.0
+              },
+              "227": {
+                "rows": 997,
+                "raw_fp": 138,
+                "unavoidable_fp_at_max_shift": 0,
+                "raw_weighted_fpr": 0.07403669945987654,
+                "optimistic_fpr_floor": 0.0
+              },
+              "ensemble": {
+                "rows": 997,
+                "raw_fp": 149,
+                "unavoidable_fp_at_max_shift": 3,
+                "raw_weighted_fpr": 0.08543796617798353,
+                "optimistic_fpr_floor": 0.0008680555555555555
+              }
+            }
+          },
+          "device_protocol": [
+            {
+              "device": "Eufy Home Base",
+              "protocol": 6,
+              "rates": {
+                "27": {
+                  "rows": 1466,
+                  "raw_fp": 0,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "127": {
+                  "rows": 1466,
+                  "raw_fp": 0,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 1466,
+                  "raw_fp": 7,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 5.141431404582535e-05,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 1466,
+                  "raw_fp": 1,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 7.344902006546478e-06,
+                  "optimistic_fpr_floor": 0.0
+                }
+              }
+            },
+            {
+              "device": "Eufy Home Base",
+              "protocol": 17,
+              "rates": {
+                "27": {
+                  "rows": 98367,
+                  "raw_fp": 263,
+                  "unavoidable_fp_at_max_shift": 27,
+                  "raw_weighted_fpr": 0.04398852228505536,
+                  "optimistic_fpr_floor": 0.006386186097214649
+                },
+                "127": {
+                  "rows": 98367,
+                  "raw_fp": 120,
+                  "unavoidable_fp_at_max_shift": 7,
+                  "raw_weighted_fpr": 0.02551419821811299,
+                  "optimistic_fpr_floor": 0.0016535660430287932
+                },
+                "227": {
+                  "rows": 98367,
+                  "raw_fp": 154,
+                  "unavoidable_fp_at_max_shift": 21,
+                  "raw_weighted_fpr": 0.029747897483453953,
+                  "optimistic_fpr_floor": 0.004960698129086379
+                },
+                "ensemble": {
+                  "rows": 98367,
+                  "raw_fp": 234,
+                  "unavoidable_fp_at_max_shift": 24,
+                  "raw_weighted_fpr": 0.04026799868824059,
+                  "optimistic_fpr_floor": 0.005673442113150514
+                }
+              }
+            },
+            {
+              "device": "HeimVision Camera",
+              "protocol": 6,
+              "rates": {
+                "27": {
+                  "rows": 332,
+                  "raw_fp": 132,
+                  "unavoidable_fp_at_max_shift": 1,
+                  "raw_weighted_fpr": 0.4037251003607907,
+                  "optimistic_fpr_floor": 0.002515371716042482
+                },
+                "127": {
+                  "rows": 332,
+                  "raw_fp": 74,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.22856481951996208,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 332,
+                  "raw_fp": 106,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.2989041829700019,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 332,
+                  "raw_fp": 114,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.3386901434693497,
+                  "optimistic_fpr_floor": 0.0
+                }
+              }
+            },
+            {
+              "device": "HeimVision Camera",
+              "protocol": 17,
+              "rates": {
+                "27": {
+                  "rows": 665,
+                  "raw_fp": 45,
+                  "unavoidable_fp_at_max_shift": 4,
+                  "raw_weighted_fpr": 0.028502023224508996,
+                  "optimistic_fpr_floor": 0.0014596409283316304
+                },
+                "127": {
+                  "rows": 665,
+                  "raw_fp": 21,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.008332334174364533,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 665,
+                  "raw_fp": 32,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.015317106991680046,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 665,
+                  "raw_fp": 35,
+                  "unavoidable_fp_at_max_shift": 3,
+                  "raw_weighted_fpr": 0.01930628537601972,
+                  "optimistic_fpr_floor": 0.0010947306962487229
+                }
+              }
+            }
+          ]
+        },
+        "post_window_primary": {
+          "pool": {
+            "27": {
+              "rows": 96041,
+              "raw_fp": 74,
+              "unavoidable_fp_at_max_shift": 4,
+              "raw_weighted_fpr": 0.050170396090534974,
+              "optimistic_fpr_floor": 0.0023148148148148147
+            },
+            "127": {
+              "rows": 96041,
+              "raw_fp": 42,
+              "unavoidable_fp_at_max_shift": 0,
+              "raw_weighted_fpr": 0.026415757275132273,
+              "optimistic_fpr_floor": 0.0
+            },
+            "227": {
+              "rows": 96041,
+              "raw_fp": 85,
+              "unavoidable_fp_at_max_shift": 0,
+              "raw_weighted_fpr": 0.05052171642015392,
+              "optimistic_fpr_floor": 0.0
+            },
+            "ensemble": {
+              "rows": 96041,
+              "raw_fp": 71,
+              "unavoidable_fp_at_max_shift": 3,
+              "raw_weighted_fpr": 0.04809545610822892,
+              "optimistic_fpr_floor": 0.001736111111111111
+            }
+          },
+          "devices": {
+            "Eufy Home Base": {
+              "27": {
+                "rows": 95369,
+                "raw_fp": 0,
+                "unavoidable_fp_at_max_shift": 0,
+                "raw_weighted_fpr": 0.0,
+                "optimistic_fpr_floor": 0.0
+              },
+              "127": {
+                "rows": 95369,
+                "raw_fp": 0,
+                "unavoidable_fp_at_max_shift": 0,
+                "raw_weighted_fpr": 0.0,
+                "optimistic_fpr_floor": 0.0
+              },
+              "227": {
+                "rows": 95369,
+                "raw_fp": 7,
+                "unavoidable_fp_at_max_shift": 0,
+                "raw_weighted_fpr": 1.6233766233766234e-05,
+                "optimistic_fpr_floor": 0.0
+              },
+              "ensemble": {
+                "rows": 95369,
+                "raw_fp": 1,
+                "unavoidable_fp_at_max_shift": 0,
+                "raw_weighted_fpr": 2.3191094619666046e-06,
+                "optimistic_fpr_floor": 0.0
+              }
+            },
+            "HeimVision Camera": {
+              "27": {
+                "rows": 672,
+                "raw_fp": 74,
+                "unavoidable_fp_at_max_shift": 4,
+                "raw_weighted_fpr": 0.10034079218106995,
+                "optimistic_fpr_floor": 0.004629629629629629
+              },
+              "127": {
+                "rows": 672,
+                "raw_fp": 42,
+                "unavoidable_fp_at_max_shift": 0,
+                "raw_weighted_fpr": 0.052831514550264545,
+                "optimistic_fpr_floor": 0.0
+              },
+              "227": {
+                "rows": 672,
+                "raw_fp": 78,
+                "unavoidable_fp_at_max_shift": 0,
+                "raw_weighted_fpr": 0.10102719907407406,
+                "optimistic_fpr_floor": 0.0
+              },
+              "ensemble": {
+                "rows": 672,
+                "raw_fp": 70,
+                "unavoidable_fp_at_max_shift": 3,
+                "raw_weighted_fpr": 0.09618859310699589,
+                "optimistic_fpr_floor": 0.003472222222222222
+              }
+            }
+          },
+          "device_protocol": [
+            {
+              "device": "Eufy Home Base",
+              "protocol": 6,
+              "rates": {
+                "27": {
+                  "rows": 1236,
+                  "raw_fp": 0,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "127": {
+                  "rows": 1236,
+                  "raw_fp": 0,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 1236,
+                  "raw_fp": 7,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.004220640535283562,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 1236,
+                  "raw_fp": 1,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0006029486478976516,
+                  "optimistic_fpr_floor": 0.0
+                }
+              }
+            },
+            {
+              "device": "Eufy Home Base",
+              "protocol": 17,
+              "rates": {
+                "27": {
+                  "rows": 94133,
+                  "raw_fp": 0,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "127": {
+                  "rows": 94133,
+                  "raw_fp": 0,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 94133,
+                  "raw_fp": 0,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 94133,
+                  "raw_fp": 0,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0,
+                  "optimistic_fpr_floor": 0.0
+                }
+              }
+            },
+            {
+              "device": "HeimVision Camera",
+              "protocol": 6,
+              "rates": {
+                "27": {
+                  "rows": 184,
+                  "raw_fp": 46,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.24607108317214701,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "127": {
+                  "rows": 184,
+                  "raw_fp": 22,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.12336798839458413,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 184,
+                  "raw_fp": 52,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.29092117988394584,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 184,
+                  "raw_fp": 42,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.22872340425531915,
+                  "optimistic_fpr_floor": 0.0
+                }
+              }
+            },
+            {
+              "device": "HeimVision Camera",
+              "protocol": 17,
+              "rates": {
+                "27": {
+                  "rows": 488,
+                  "raw_fp": 28,
+                  "unavoidable_fp_at_max_shift": 4,
+                  "raw_weighted_fpr": 0.054484090755393254,
+                  "optimistic_fpr_floor": 0.006086427267194158
+                },
+                "127": {
+                  "rows": 488,
+                  "raw_fp": 20,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.03063592296322059,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 488,
+                  "raw_fp": 26,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.041273584905660375,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 488,
+                  "raw_fp": 28,
+                  "unavoidable_fp_at_max_shift": 3,
+                  "raw_weighted_fpr": 0.054484090755393254,
+                  "optimistic_fpr_floor": 0.004564820450395618
+                }
+              }
+            }
+          ]
+        }
+      },
+      "window_seconds": [
+        7200.0
+      ]
+    },
+    "UNSW_DEV": {
+      "views": {
+        "full": {
+          "pool": {
+            "27": {
+              "rows": 75763,
+              "raw_fp": 30182,
+              "unavoidable_fp_at_max_shift": 898,
+              "raw_weighted_fpr": 0.23353329458103095,
+              "optimistic_fpr_floor": 0.0037036294637895996
+            },
+            "127": {
+              "rows": 75763,
+              "raw_fp": 23063,
+              "unavoidable_fp_at_max_shift": 380,
+              "raw_weighted_fpr": 0.19896981014116474,
+              "optimistic_fpr_floor": 0.0047483780578050005
+            },
+            "227": {
+              "rows": 75763,
+              "raw_fp": 30726,
+              "unavoidable_fp_at_max_shift": 525,
+              "raw_weighted_fpr": 0.24537334036613326,
+              "optimistic_fpr_floor": 0.0015473668744823213
+            },
+            "ensemble": {
+              "rows": 75763,
+              "raw_fp": 30244,
+              "unavoidable_fp_at_max_shift": 848,
+              "raw_weighted_fpr": 0.2365666118333686,
+              "optimistic_fpr_floor": 0.004186886227256983
+            }
+          },
+          "devices": {
+            "unsw-attack-traces-2018:00:16:6c:ab:6b:88": {
+              "27": {
+                "rows": 20000,
+                "raw_fp": 7193,
+                "unavoidable_fp_at_max_shift": 264,
+                "raw_weighted_fpr": 0.138790644391118,
+                "optimistic_fpr_floor": 0.0031516805847154293
+              },
+              "127": {
+                "rows": 20000,
+                "raw_fp": 4512,
+                "unavoidable_fp_at_max_shift": 107,
+                "raw_weighted_fpr": 0.09485164168488625,
+                "optimistic_fpr_floor": 0.004368334964131457
+              },
+              "227": {
+                "rows": 20000,
+                "raw_fp": 6311,
+                "unavoidable_fp_at_max_shift": 182,
+                "raw_weighted_fpr": 0.15449204070736627,
+                "optimistic_fpr_floor": 0.0009933897505248798
+              },
+              "ensemble": {
+                "rows": 20000,
+                "raw_fp": 6509,
+                "unavoidable_fp_at_max_shift": 222,
+                "raw_weighted_fpr": 0.12881506181079305,
+                "optimistic_fpr_floor": 0.0026528979559550265
+              }
+            },
+            "unsw-attack-traces-2018:50:c7:bf:00:56:39": {
+              "27": {
+                "rows": 2680,
+                "raw_fp": 771,
+                "unavoidable_fp_at_max_shift": 7,
+                "raw_weighted_fpr": 0.12113146297972646,
+                "optimistic_fpr_floor": 0.003535353535353535
+              },
+              "127": {
+                "rows": 2680,
+                "raw_fp": 685,
+                "unavoidable_fp_at_max_shift": 27,
+                "raw_weighted_fpr": 0.13742469049546568,
+                "optimistic_fpr_floor": 0.013498622589531679
+              },
+              "227": {
+                "rows": 2680,
+                "raw_fp": 736,
+                "unavoidable_fp_at_max_shift": 1,
+                "raw_weighted_fpr": 0.1400456076832249,
+                "optimistic_fpr_floor": 0.000505050505050505
+              },
+              "ensemble": {
+                "rows": 2680,
+                "raw_fp": 766,
+                "unavoidable_fp_at_max_shift": 17,
+                "raw_weighted_fpr": 0.1335446108696632,
+                "optimistic_fpr_floor": 0.008494031221303948
+              }
+            },
+            "unsw-attack-traces-2018:70:ee:50:18:34:43": {
+              "27": {
+                "rows": 20000,
+                "raw_fp": 7576,
+                "unavoidable_fp_at_max_shift": 394,
+                "raw_weighted_fpr": 0.3229987435656057,
+                "optimistic_fpr_floor": 0.0019550517295394685
+              },
+              "127": {
+                "rows": 20000,
+                "raw_fp": 6554,
+                "unavoidable_fp_at_max_shift": 118,
+                "raw_weighted_fpr": 0.28806134458053895,
+                "optimistic_fpr_floor": 0.00025386179972801084
+              },
+              "227": {
+                "rows": 20000,
+                "raw_fp": 9721,
+                "unavoidable_fp_at_max_shift": 232,
+                "raw_weighted_fpr": 0.3307455573571215,
+                "optimistic_fpr_floor": 0.0030774648759590508
+              },
+              "ensemble": {
+                "rows": 20000,
+                "raw_fp": 8660,
+                "unavoidable_fp_at_max_shift": 420,
+                "raw_weighted_fpr": 0.3235452345580129,
+                "optimistic_fpr_floor": 0.003091814199761812
+              }
+            },
+            "unsw-attack-traces-2018:ec:1a:59:79:f4:89": {
+              "27": {
+                "rows": 13083,
+                "raw_fp": 5564,
+                "unavoidable_fp_at_max_shift": 206,
+                "raw_weighted_fpr": 0.282840622867736,
+                "optimistic_fpr_floor": 0.006609904415830183
+              },
+              "127": {
+                "rows": 13083,
+                "raw_fp": 4337,
+                "unavoidable_fp_at_max_shift": 107,
+                "raw_weighted_fpr": 0.23789976919573247,
+                "optimistic_fpr_floor": 0.003049840914786043
+              },
+              "227": {
+                "rows": 13083,
+                "raw_fp": 4793,
+                "unavoidable_fp_at_max_shift": 108,
+                "raw_weighted_fpr": 0.26903273011662115,
+                "optimistic_fpr_floor": 0.0028829584278125425
+              },
+              "ensemble": {
+                "rows": 13083,
+                "raw_fp": 5113,
+                "unavoidable_fp_at_max_shift": 169,
+                "raw_weighted_fpr": 0.2656179977168993,
+                "optimistic_fpr_floor": 0.00426344314494863
+              }
+            },
+            "unsw-attack-traces-2018:ec:1a:59:83:28:11": {
+              "27": {
+                "rows": 20000,
+                "raw_fp": 9078,
+                "unavoidable_fp_at_max_shift": 27,
+                "raw_weighted_fpr": 0.3019049991009685,
+                "optimistic_fpr_floor": 0.003266157053509382
+              },
+              "127": {
+                "rows": 20000,
+                "raw_fp": 6975,
+                "unavoidable_fp_at_max_shift": 21,
+                "raw_weighted_fpr": 0.2366116047492003,
+                "optimistic_fpr_floor": 0.002571230020847811
+              },
+              "227": {
+                "rows": 20000,
+                "raw_fp": 9165,
+                "unavoidable_fp_at_max_shift": 2,
+                "raw_weighted_fpr": 0.3325507659663324,
+                "optimistic_fpr_floor": 0.0002779708130646282
+              },
+              "ensemble": {
+                "rows": 20000,
+                "raw_fp": 9196,
+                "unavoidable_fp_at_max_shift": 20,
+                "raw_weighted_fpr": 0.33131015421147453,
+                "optimistic_fpr_floor": 0.0024322446143154965
+              }
+            }
+          },
+          "device_protocol": [
+            {
+              "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+              "protocol": 6,
+              "rates": {
+                "27": {
+                  "rows": 14865,
+                  "raw_fp": 5627,
+                  "unavoidable_fp_at_max_shift": 223,
+                  "raw_weighted_fpr": 0.34345517876690146,
+                  "optimistic_fpr_floor": 0.009131596546582686
+                },
+                "127": {
+                  "rows": 14865,
+                  "raw_fp": 3424,
+                  "unavoidable_fp_at_max_shift": 86,
+                  "raw_weighted_fpr": 0.24966605538815972,
+                  "optimistic_fpr_floor": 0.015380088763208481
+                },
+                "227": {
+                  "rows": 14865,
+                  "raw_fp": 4745,
+                  "unavoidable_fp_at_max_shift": 154,
+                  "raw_weighted_fpr": 0.3578101432203605,
+                  "optimistic_fpr_floor": 0.002375065532258032
+                },
+                "ensemble": {
+                  "rows": 14865,
+                  "raw_fp": 4961,
+                  "unavoidable_fp_at_max_shift": 191,
+                  "raw_weighted_fpr": 0.3205877187991134,
+                  "optimistic_fpr_floor": 0.00848757935251949
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+              "protocol": 17,
+              "rates": {
+                "27": {
+                  "rows": 5135,
+                  "raw_fp": 1566,
+                  "unavoidable_fp_at_max_shift": 41,
+                  "raw_weighted_fpr": 0.06516133019495199,
+                  "optimistic_fpr_floor": 0.0010003693545314772
+                },
+                "127": {
+                  "rows": 5135,
+                  "raw_fp": 1088,
+                  "unavoidable_fp_at_max_shift": 21,
+                  "raw_weighted_fpr": 0.03915621236480616,
+                  "optimistic_fpr_floor": 0.0004067893900732588
+                },
+                "227": {
+                  "rows": 5135,
+                  "raw_fp": 1566,
+                  "unavoidable_fp_at_max_shift": 28,
+                  "raw_weighted_fpr": 0.08134711358378909,
+                  "optimistic_fpr_floor": 0.0004963234631940507
+                },
+                "ensemble": {
+                  "rows": 5135,
+                  "raw_fp": 1548,
+                  "unavoidable_fp_at_max_shift": 31,
+                  "raw_weighted_fpr": 0.05982367911377534,
+                  "optimistic_fpr_floor": 0.0005538357462153719
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+              "protocol": 6,
+              "rates": {
+                "27": {
+                  "rows": 2442,
+                  "raw_fp": 771,
+                  "unavoidable_fp_at_max_shift": 7,
+                  "raw_weighted_fpr": 0.6149751197432267,
+                  "optimistic_fpr_floor": 0.01794871794871795
+                },
+                "127": {
+                  "rows": 2442,
+                  "raw_fp": 677,
+                  "unavoidable_fp_at_max_shift": 27,
+                  "raw_weighted_fpr": 0.5951304799513387,
+                  "optimistic_fpr_floor": 0.06853146853146853
+                },
+                "227": {
+                  "rows": 2442,
+                  "raw_fp": 732,
+                  "unavoidable_fp_at_max_shift": 1,
+                  "raw_weighted_fpr": 0.6597187261866292,
+                  "optimistic_fpr_floor": 0.002564102564102564
+                },
+                "ensemble": {
+                  "rows": 2442,
+                  "raw_fp": 761,
+                  "unavoidable_fp_at_max_shift": 17,
+                  "raw_weighted_fpr": 0.6138931526203415,
+                  "optimistic_fpr_floor": 0.04312354312354313
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+              "protocol": 17,
+              "rates": {
+                "27": {
+                  "rows": 238,
+                  "raw_fp": 0,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "127": {
+                  "rows": 238,
+                  "raw_fp": 8,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.025157232704402514,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 238,
+                  "raw_fp": 4,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.012578616352201257,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 238,
+                  "raw_fp": 5,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.01572327044025157,
+                  "optimistic_fpr_floor": 0.0
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+              "protocol": 6,
+              "rates": {
+                "27": {
+                  "rows": 7458,
+                  "raw_fp": 5823,
+                  "unavoidable_fp_at_max_shift": 394,
+                  "raw_weighted_fpr": 0.5051714837274565,
+                  "optimistic_fpr_floor": 0.0030590531294124217
+                },
+                "127": {
+                  "rows": 7458,
+                  "raw_fp": 5645,
+                  "unavoidable_fp_at_max_shift": 118,
+                  "raw_weighted_fpr": 0.45062166702528184,
+                  "optimistic_fpr_floor": 0.0003972154399613616
+                },
+                "227": {
+                  "rows": 7458,
+                  "raw_fp": 5870,
+                  "unavoidable_fp_at_max_shift": 232,
+                  "raw_weighted_fpr": 0.5168739563540047,
+                  "optimistic_fpr_floor": 0.0048152836148621665
+                },
+                "ensemble": {
+                  "rows": 7458,
+                  "raw_fp": 5847,
+                  "unavoidable_fp_at_max_shift": 420,
+                  "raw_weighted_fpr": 0.5059113927503159,
+                  "optimistic_fpr_floor": 0.004837735882094057
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+              "protocol": 17,
+              "rates": {
+                "27": {
+                  "rows": 12542,
+                  "raw_fp": 1753,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0003930559556471904,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "127": {
+                  "rows": 12542,
+                  "raw_fp": 909,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.00018685494070515158,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 12542,
+                  "raw_fp": 3851,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.001134880760927934,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 12542,
+                  "raw_fp": 2813,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0005970272238915613,
+                  "optimistic_fpr_floor": 0.0
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+              "protocol": 6,
+              "rates": {
+                "27": {
+                  "rows": 12478,
+                  "raw_fp": 5560,
+                  "unavoidable_fp_at_max_shift": 206,
+                  "raw_weighted_fpr": 0.2940884547535999,
+                  "optimistic_fpr_floor": 0.006896512737383795
+                },
+                "127": {
+                  "rows": 12478,
+                  "raw_fp": 4336,
+                  "unavoidable_fp_at_max_shift": 107,
+                  "raw_weighted_fpr": 0.24787645295489702,
+                  "optimistic_fpr_floor": 0.0031820833392754108
+                },
+                "227": {
+                  "rows": 12478,
+                  "raw_fp": 4789,
+                  "unavoidable_fp_at_max_shift": 108,
+                  "raw_weighted_fpr": 0.2796818457856346,
+                  "optimistic_fpr_floor": 0.0030079647553057694
+                },
+                "ensemble": {
+                  "rows": 12478,
+                  "raw_fp": 5109,
+                  "unavoidable_fp_at_max_shift": 169,
+                  "raw_weighted_fpr": 0.276119049108418,
+                  "optimistic_fpr_floor": 0.004448307888361037
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+              "protocol": 17,
+              "rates": {
+                "27": {
+                  "rows": 605,
+                  "raw_fp": 4,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0234375,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "127": {
+                  "rows": 605,
+                  "raw_fp": 1,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0078125,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 605,
+                  "raw_fp": 4,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0234375,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 605,
+                  "raw_fp": 4,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0234375,
+                  "optimistic_fpr_floor": 0.0
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+              "protocol": 6,
+              "rates": {
+                "27": {
+                  "rows": 16382,
+                  "raw_fp": 8697,
+                  "unavoidable_fp_at_max_shift": 27,
+                  "raw_weighted_fpr": 0.4649219478367027,
+                  "optimistic_fpr_floor": 0.0056749577396764065
+                },
+                "127": {
+                  "rows": 16382,
+                  "raw_fp": 6925,
+                  "unavoidable_fp_at_max_shift": 21,
+                  "raw_weighted_fpr": 0.39937104471637197,
+                  "optimistic_fpr_floor": 0.00446751992272398
+                },
+                "227": {
+                  "rows": 16382,
+                  "raw_fp": 8693,
+                  "unavoidable_fp_at_max_shift": 2,
+                  "raw_weighted_fpr": 0.469680974396019,
+                  "optimistic_fpr_floor": 0.0004829751267809708
+                },
+                "ensemble": {
+                  "rows": 16382,
+                  "raw_fp": 8730,
+                  "unavoidable_fp_at_max_shift": 20,
+                  "raw_weighted_fpr": 0.46968672141939466,
+                  "optimistic_fpr_floor": 0.004226032359333494
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+              "protocol": 17,
+              "rates": {
+                "27": {
+                  "rows": 3618,
+                  "raw_fp": 381,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.08086597332668059,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "127": {
+                  "rows": 3618,
+                  "raw_fp": 50,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.01592174197773412,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 3618,
+                  "raw_fp": 472,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.14661226134703542,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 3618,
+                  "raw_fp": 466,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.14368167850486122,
+                  "optimistic_fpr_floor": 0.0
+                }
+              }
+            }
+          ]
+        },
+        "post_window_primary": {
+          "pool": {
+            "27": {
+              "rows": 74444,
+              "raw_fp": 29613,
+              "unavoidable_fp_at_max_shift": 895,
+              "raw_weighted_fpr": 0.23384855460725454,
+              "optimistic_fpr_floor": 0.003725065188781286
+            },
+            "127": {
+              "rows": 74444,
+              "raw_fp": 22646,
+              "unavoidable_fp_at_max_shift": 380,
+              "raw_weighted_fpr": 0.1992140210125078,
+              "optimistic_fpr_floor": 0.004819424374780417
+            },
+            "227": {
+              "rows": 74444,
+              "raw_fp": 30183,
+              "unavoidable_fp_at_max_shift": 522,
+              "raw_weighted_fpr": 0.2458907425880533,
+              "optimistic_fpr_floor": 0.0015471452904677555
+            },
+            "ensemble": {
+              "rows": 74444,
+              "raw_fp": 29702,
+              "unavoidable_fp_at_max_shift": 844,
+              "raw_weighted_fpr": 0.23695673789127641,
+              "optimistic_fpr_floor": 0.004217607856257765
+            }
+          },
+          "devices": {
+            "unsw-attack-traces-2018:00:16:6c:ab:6b:88": {
+              "27": {
+                "rows": 19711,
+                "raw_fp": 7118,
+                "unavoidable_fp_at_max_shift": 262,
+                "raw_weighted_fpr": 0.14008446791688378,
+                "optimistic_fpr_floor": 0.00317174044246767
+              },
+              "127": {
+                "rows": 19711,
+                "raw_fp": 4462,
+                "unavoidable_fp_at_max_shift": 107,
+                "raw_weighted_fpr": 0.09573846043207254,
+                "optimistic_fpr_floor": 0.004409728343620755
+              },
+              "227": {
+                "rows": 19711,
+                "raw_fp": 6235,
+                "unavoidable_fp_at_max_shift": 180,
+                "raw_weighted_fpr": 0.15582674372507982,
+                "optimistic_fpr_floor": 0.000990424190911387
+              },
+              "ensemble": {
+                "rows": 19711,
+                "raw_fp": 6434,
+                "unavoidable_fp_at_max_shift": 220,
+                "raw_weighted_fpr": 0.12999597506637187,
+                "optimistic_fpr_floor": 0.0026649505701463313
+              }
+            },
+            "unsw-attack-traces-2018:50:c7:bf:00:56:39": {
+              "27": {
+                "rows": 2597,
+                "raw_fp": 750,
+                "unavoidable_fp_at_max_shift": 7,
+                "raw_weighted_fpr": 0.12205728015239507,
+                "optimistic_fpr_floor": 0.003608247422680412
+              },
+              "127": {
+                "rows": 2597,
+                "raw_fp": 663,
+                "unavoidable_fp_at_max_shift": 27,
+                "raw_weighted_fpr": 0.13843466031325616,
+                "optimistic_fpr_floor": 0.013776944704779756
+              },
+              "227": {
+                "rows": 2597,
+                "raw_fp": 717,
+                "unavoidable_fp_at_max_shift": 1,
+                "raw_weighted_fpr": 0.1415275607475727,
+                "optimistic_fpr_floor": 0.0005154639175257732
+              },
+              "ensemble": {
+                "rows": 2597,
+                "raw_fp": 744,
+                "unavoidable_fp_at_max_shift": 17,
+                "raw_weighted_fpr": 0.1345870546636345,
+                "optimistic_fpr_floor": 0.008669165885660732
+              }
+            },
+            "unsw-attack-traces-2018:70:ee:50:18:34:43": {
+              "27": {
+                "rows": 19879,
+                "raw_fp": 7505,
+                "unavoidable_fp_at_max_shift": 393,
+                "raw_weighted_fpr": 0.322100650588983,
+                "optimistic_fpr_floor": 0.0019283692103528752
+              },
+              "127": {
+                "rows": 19879,
+                "raw_fp": 6484,
+                "unavoidable_fp_at_max_shift": 118,
+                "raw_weighted_fpr": 0.28696719530147496,
+                "optimistic_fpr_floor": 0.000257174192730725
+              },
+              "227": {
+                "rows": 19879,
+                "raw_fp": 9648,
+                "unavoidable_fp_at_max_shift": 231,
+                "raw_weighted_fpr": 0.32968874900192235,
+                "optimistic_fpr_floor": 0.0030654276222528793
+              },
+              "ensemble": {
+                "rows": 19879,
+                "raw_fp": 8588,
+                "unavoidable_fp_at_max_shift": 418,
+                "raw_weighted_fpr": 0.322524426117026,
+                "optimistic_fpr_floor": 0.003027772109466429
+              }
+            },
+            "unsw-attack-traces-2018:ec:1a:59:79:f4:89": {
+              "27": {
+                "rows": 13028,
+                "raw_fp": 5540,
+                "unavoidable_fp_at_max_shift": 206,
+                "raw_weighted_fpr": 0.28274841510733495,
+                "optimistic_fpr_floor": 0.006609904415830183
+              },
+              "127": {
+                "rows": 13028,
+                "raw_fp": 4337,
+                "unavoidable_fp_at_max_shift": 107,
+                "raw_weighted_fpr": 0.2379180262686784,
+                "optimistic_fpr_floor": 0.003049840914786043
+              },
+              "227": {
+                "rows": 13028,
+                "raw_fp": 4793,
+                "unavoidable_fp_at_max_shift": 108,
+                "raw_weighted_fpr": 0.26906011572604,
+                "optimistic_fpr_floor": 0.0028829584278125425
+              },
+              "ensemble": {
+                "rows": 13028,
+                "raw_fp": 5113,
+                "unavoidable_fp_at_max_shift": 169,
+                "raw_weighted_fpr": 0.2656453833263182,
+                "optimistic_fpr_floor": 0.00426344314494863
+              }
+            },
+            "unsw-attack-traces-2018:ec:1a:59:83:28:11": {
+              "27": {
+                "rows": 19229,
+                "raw_fp": 8700,
+                "unavoidable_fp_at_max_shift": 27,
+                "raw_weighted_fpr": 0.3022519592706759,
+                "optimistic_fpr_floor": 0.0033070644525752886
+              },
+              "127": {
+                "rows": 19229,
+                "raw_fp": 6700,
+                "unavoidable_fp_at_max_shift": 21,
+                "raw_weighted_fpr": 0.23701176274705688,
+                "optimistic_fpr_floor": 0.0026034337179848014
+              },
+              "227": {
+                "rows": 19229,
+                "raw_fp": 8790,
+                "unavoidable_fp_at_max_shift": 2,
+                "raw_weighted_fpr": 0.33335054373965156,
+                "optimistic_fpr_floor": 0.00028145229383619476
+              },
+              "ensemble": {
+                "rows": 19229,
+                "raw_fp": 8823,
+                "unavoidable_fp_at_max_shift": 20,
+                "raw_weighted_fpr": 0.33203085028303153,
+                "optimistic_fpr_floor": 0.0024627075710667045
+              }
+            }
+          },
+          "device_protocol": [
+            {
+              "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+              "protocol": 6,
+              "rates": {
+                "27": {
+                  "rows": 14801,
+                  "raw_fp": 5627,
+                  "unavoidable_fp_at_max_shift": 223,
+                  "raw_weighted_fpr": 0.3438819080205254,
+                  "optimistic_fpr_floor": 0.009131596546582686
+                },
+                "127": {
+                  "rows": 14801,
+                  "raw_fp": 3424,
+                  "unavoidable_fp_at_max_shift": 86,
+                  "raw_weighted_fpr": 0.24992209294033405,
+                  "optimistic_fpr_floor": 0.015380088763208483
+                },
+                "227": {
+                  "rows": 14801,
+                  "raw_fp": 4745,
+                  "unavoidable_fp_at_max_shift": 154,
+                  "raw_weighted_fpr": 0.3579381619964477,
+                  "optimistic_fpr_floor": 0.002375065532258032
+                },
+                "ensemble": {
+                  "rows": 14801,
+                  "raw_fp": 4961,
+                  "unavoidable_fp_at_max_shift": 191,
+                  "raw_weighted_fpr": 0.3209575508189208,
+                  "optimistic_fpr_floor": 0.008487579352519491
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+              "protocol": 17,
+              "rates": {
+                "27": {
+                  "rows": 4910,
+                  "raw_fp": 1491,
+                  "unavoidable_fp_at_max_shift": 39,
+                  "raw_weighted_fpr": 0.06586194343469333,
+                  "optimistic_fpr_floor": 0.0010011755650430653
+                },
+                "127": {
+                  "rows": 4910,
+                  "raw_fp": 1038,
+                  "unavoidable_fp_at_max_shift": 21,
+                  "raw_weighted_fpr": 0.03958516217289087,
+                  "optimistic_fpr_floor": 0.0004143501661165837
+                },
+                "227": {
+                  "rows": 4910,
+                  "raw_fp": 1490,
+                  "unavoidable_fp_at_max_shift": 26,
+                  "raw_weighted_fpr": 0.08221826423118661,
+                  "optimistic_fpr_floor": 0.00048614123326044833
+                },
+                "ensemble": {
+                  "rows": 4910,
+                  "raw_fp": 1473,
+                  "unavoidable_fp_at_max_shift": 29,
+                  "raw_weighted_fpr": 0.060448240687357165,
+                  "optimistic_fpr_floor": 0.0005443635444672178
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+              "protocol": 6,
+              "rates": {
+                "27": {
+                  "rows": 2367,
+                  "raw_fp": 750,
+                  "unavoidable_fp_at_max_shift": 7,
+                  "raw_weighted_fpr": 0.6231345355148591,
+                  "optimistic_fpr_floor": 0.01842105263157895
+                },
+                "127": {
+                  "rows": 2367,
+                  "raw_fp": 655,
+                  "unavoidable_fp_at_max_shift": 27,
+                  "raw_weighted_fpr": 0.6014822131782026,
+                  "optimistic_fpr_floor": 0.07033492822966507
+                },
+                "227": {
+                  "rows": 2367,
+                  "raw_fp": 713,
+                  "unavoidable_fp_at_max_shift": 1,
+                  "raw_weighted_fpr": 0.6699038627639238,
+                  "optimistic_fpr_floor": 0.002631578947368421
+                },
+                "ensemble": {
+                  "rows": 2367,
+                  "raw_fp": 739,
+                  "unavoidable_fp_at_max_shift": 17,
+                  "raw_weighted_fpr": 0.6213128580196078,
+                  "optimistic_fpr_floor": 0.04425837320574163
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+              "protocol": 17,
+              "rates": {
+                "27": {
+                  "rows": 230,
+                  "raw_fp": 0,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "127": {
+                  "rows": 230,
+                  "raw_fp": 8,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.02564102564102564,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 230,
+                  "raw_fp": 4,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.01282051282051282,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 230,
+                  "raw_fp": 5,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.016025641025641024,
+                  "optimistic_fpr_floor": 0.0
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+              "protocol": 6,
+              "rates": {
+                "27": {
+                  "rows": 7358,
+                  "raw_fp": 5752,
+                  "unavoidable_fp_at_max_shift": 393,
+                  "raw_weighted_fpr": 0.506042022611903,
+                  "optimistic_fpr_floor": 0.0030309724421953314
+                },
+                "127": {
+                  "rows": 7358,
+                  "raw_fp": 5575,
+                  "unavoidable_fp_at_max_shift": 118,
+                  "raw_weighted_fpr": 0.45094026082433314,
+                  "optimistic_fpr_floor": 0.0004042212906251592
+                },
+                "227": {
+                  "rows": 7358,
+                  "raw_fp": 5797,
+                  "unavoidable_fp_at_max_shift": 231,
+                  "raw_weighted_fpr": 0.5175407242470409,
+                  "optimistic_fpr_floor": 0.0048181782807518595
+                },
+                "ensemble": {
+                  "rows": 7358,
+                  "raw_fp": 5775,
+                  "unavoidable_fp_at_max_shift": 418,
+                  "raw_weighted_fpr": 0.5065898955756907,
+                  "optimistic_fpr_floor": 0.004758992093304083
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+              "protocol": 17,
+              "rates": {
+                "27": {
+                  "rows": 12521,
+                  "raw_fp": 1753,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0004011778544930758,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "127": {
+                  "rows": 12521,
+                  "raw_fp": 909,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.00019077224212889392,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 12521,
+                  "raw_fp": 3851,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0011499285947493268,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 12521,
+                  "raw_fp": 2813,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0006079164038089967,
+                  "optimistic_fpr_floor": 0.0
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+              "protocol": 6,
+              "rates": {
+                "27": {
+                  "rows": 12437,
+                  "raw_fp": 5536,
+                  "unavoidable_fp_at_max_shift": 206,
+                  "raw_weighted_fpr": 0.2939922488247262,
+                  "optimistic_fpr_floor": 0.006896512737383795
+                },
+                "127": {
+                  "rows": 12437,
+                  "raw_fp": 4336,
+                  "unavoidable_fp_at_max_shift": 107,
+                  "raw_weighted_fpr": 0.24789550166244223,
+                  "optimistic_fpr_floor": 0.0031820833392754108
+                },
+                "227": {
+                  "rows": 12437,
+                  "raw_fp": 4789,
+                  "unavoidable_fp_at_max_shift": 108,
+                  "raw_weighted_fpr": 0.27971041884695236,
+                  "optimistic_fpr_floor": 0.0030079647553057694
+                },
+                "ensemble": {
+                  "rows": 12437,
+                  "raw_fp": 5109,
+                  "unavoidable_fp_at_max_shift": 169,
+                  "raw_weighted_fpr": 0.2761476221697358,
+                  "optimistic_fpr_floor": 0.004448307888361037
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+              "protocol": 17,
+              "rates": {
+                "27": {
+                  "rows": 591,
+                  "raw_fp": 4,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0234375,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "127": {
+                  "rows": 591,
+                  "raw_fp": 1,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0078125,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 591,
+                  "raw_fp": 4,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0234375,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 591,
+                  "raw_fp": 4,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.0234375,
+                  "optimistic_fpr_floor": 0.0
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+              "protocol": 6,
+              "rates": {
+                "27": {
+                  "rows": 15665,
+                  "raw_fp": 8332,
+                  "unavoidable_fp_at_max_shift": 27,
+                  "raw_weighted_fpr": 0.4684142123733659,
+                  "optimistic_fpr_floor": 0.00578248031496063
+                },
+                "127": {
+                  "rows": 15665,
+                  "raw_fp": 6650,
+                  "unavoidable_fp_at_max_shift": 21,
+                  "raw_weighted_fpr": 0.40245585287415997,
+                  "optimistic_fpr_floor": 0.004552165354330708
+                },
+                "227": {
+                  "rows": 15665,
+                  "raw_fp": 8326,
+                  "unavoidable_fp_at_max_shift": 2,
+                  "raw_weighted_fpr": 0.4731631687155802,
+                  "optimistic_fpr_floor": 0.0004921259842519685
+                },
+                "ensemble": {
+                  "rows": 15665,
+                  "raw_fp": 8365,
+                  "unavoidable_fp_at_max_shift": 20,
+                  "raw_weighted_fpr": 0.47325476770604724,
+                  "optimistic_fpr_floor": 0.004306102362204725
+                }
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+              "protocol": 17,
+              "rates": {
+                "27": {
+                  "rows": 3564,
+                  "raw_fp": 368,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.08026530686787096,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "127": {
+                  "rows": 3564,
+                  "raw_fp": 50,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.015984549638395792,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "227": {
+                  "rows": 3564,
+                  "raw_fp": 464,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.14656602437667526,
+                  "optimistic_fpr_floor": 0.0
+                },
+                "ensemble": {
+                  "rows": 3564,
+                  "raw_fp": 458,
+                  "unavoidable_fp_at_max_shift": 0,
+                  "raw_weighted_fpr": 0.14336089617154704,
+                  "optimistic_fpr_floor": 0.0
+                }
+              }
+            }
+          ]
+        }
+      },
+      "window_seconds": [
+        7200.0
+      ]
+    }
+  },
+  "pins": {
+    "runs\\diagnostics_d1_d2_v1_20261022\\assets\\onboarding\\run\\evaluation\\calibration\\cuts.json": "d4c391302d2d32c5d8813a45612b6f4203468e4b52bbd58233cbd6f274c84bbd",
+    "runs\\diagnostics_d1_d2_v1_20261022\\assets\\onboarding\\run\\evaluation\\calibration\\scales.json": "06870509e49b642e1a03444e425542cc4559b5375d522cbb27295dc70d208fa2",
+    "runs\\diagnostics_d1_d2_v1_20261022\\assets\\heads\\run\\prepared\\CIC_DEV.jsonl.gz": "666c2e2dc648ab539b8e2bb5e1b1fb8fee8cd3bf92223a72d6631fc4c851f64f",
+    "runs\\diagnostics_d1_d2_v1_20261022\\assets\\onboarding\\run\\evaluation\\CIC_DEV\\B2\\scores.npz": "be31c6ebe27cae2f8a8d7c80fc0d405b6c7e384b4e3a70d1fb75e97629ecba48",
+    "runs\\dense_reference_ab_stage_dependency_repair_execution_20261028\\result_retrieval_179700_20261028\\unpacked\\job_179700\\science\\matrix\\CIC_DEV\\R-DENSE_epsilon_0p1_decisions.npz": "fb9ee480880d4508a45702f13d3cc892724ffb851fe2f0da02066190acc3b608",
+    "runs\\diagnostics_d1_d2_v1_20261022\\assets\\heads\\run\\prepared\\UNSW_DEV.jsonl.gz": "d334f18c3a2857fe8b63f491fd78ba3dc984bbd0fa7a55a4f030d9e797098503",
+    "runs\\diagnostics_d1_d2_v1_20261022\\assets\\onboarding\\run\\evaluation\\UNSW_DEV\\B2\\scores.npz": "03cd8a70621d2953add44c57205c59d00fcfe59502876fd0426a424f985a3e7d",
+    "runs\\dense_reference_ab_stage_dependency_repair_execution_20261028\\result_retrieval_179700_20261028\\unpacked\\job_179700\\science\\matrix\\UNSW_DEV\\R-DENSE_epsilon_0p1_decisions.npz": "a5861f11f835a04ae2f8d7c885c6bdca3d5522501d112b877e7a59f4dcd57d72"
+  },
+  "code_sha256": {
+    "runs\\history_normal_reference_antigravity_review_v1_20261031\\check_frozen_shift_bound.py": "fd79b6f142ab7869f841e76d3c3b26977bbe4e2fcb04a54d20ef5b964b9086bf",
+    "runs\\dense_reference_ab_stage_candidate_v1_20261028\\src\\metrics.py": "8a82d2c10f209467c3da1f48ed6041e5ea68094a75193109a56b7b471144ac65",
+    "repo\\ood\\constrained_onboarding_core_v3.py": "42a32e0b829a373a96046d34d16bcb53455f99f1bc0786a8a49be38bc855f72c",
+    "runs\\history_normal_reference_keyrepair_v1_20261031\\config\\ASSETS.json": "34d7829d5c2f262bd60b30058b677cbf7b67ee2c419d6ce924ddc01162b96b75"
+  },
+  "status": "ARITHMETIC_BOUND_VERIFIED_NO_CANDIDATE_EVALUATION"
+}

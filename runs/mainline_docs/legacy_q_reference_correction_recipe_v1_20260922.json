@@ -1,0 +1,600 @@
+{
+  "schema": "legacy-q-normal-reference-verifier-v1",
+  "status": "DESIGN_FROZEN_IMPLEMENTATION_PENDING",
+  "authority": {
+    "design": true,
+    "implementation": false,
+    "real_execution": false,
+    "model_forward": false,
+    "optimizer": false,
+    "calibration": false,
+    "HPC": false,
+    "download": false,
+    "HOLDOUT_queries": false
+  },
+  "purpose": "Reduce Q normal-reference DEV false alarms with zero additional DEV attack misses; development evidence only.",
+  "predecessors": {
+    "recipe": {
+      "path": "runs/mainline_docs/legacy_reference_development_recipe_v1_20260917.json",
+      "sha256": "85dc7138cd43cdef16ab15394b7712eb97b124311c06b4ea63aba853f781560a"
+    },
+    "diagnosis": {
+      "path": "runs/mainline_docs/legacy_reference_qmc_mechanism_diagnosis_and_next_decision_20260922.md",
+      "sha256": "c31038972a97277449877d930b33a9561547cfb51be89bdee67bf64f40b5e7c1"
+    }
+  },
+  "immutable": {
+    "legacy": {
+      "encoder_normalizer_R_immutable": true,
+      "model": {
+        "numeric_path": "E3 float32; standardize float64 with original mean/scale; append missing0; full row float32; P2 float32",
+        "state_array_allowlist": [
+          "normalizer_mean",
+          "normalizer_scale",
+          "p2__0.weight",
+          "p2__0.bias",
+          "p2__3.weight",
+          "p2__3.bias"
+        ],
+        "source_root": "D:/study/paper/anomaly_detection/paper04/supercompute_transfer/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound",
+        "checkpoint_dir": "D:/study/paper/anomaly_detection/paper04/supercompute_transfer/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound-base",
+        "checkpoint_sha256": "e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105",
+        "config_sha256": "e22262d4b840a0055915f6c48e9c64d04e790f80e907fa9dc06df855eff05401",
+        "e3_runtime": "Existing e3_embed_v1 build_e3_runtime + embed_flows semantics; model eval, local_files_only, config.pretraining=False, compile=False, tokenizer.pretraining=True, raw_labels=False; no changes to old fixed-size CLI contracts",
+        "pooling": "attention-mask mean pooling",
+        "source_commit": "b3ab5a3aa72640cc725ef207fb0145b039a57d35",
+        "release": "b812e625999165376ddb47a39d0d5579d4edce89",
+        "vendor_source_manifest": "runs/legacy_cic2022_p2_enhancement_design_v1_20260915/vendor_source_pins.json"
+      },
+      "probe_state_path": "runs/.issue27ckda_d1_representation_probe_v1_2026-08-14_localwin_cpu.stage/ckda_d1_probe_state.npz",
+      "probe_state_sha256": "50a9bcfc18287d51bf8afda7367b57decdf3179dd41fc3aa61399d4098360c38",
+      "threshold_probability": 0.065159872174263,
+      "decision": "float32 sigmoid then float64 comparison >= unchanged probability threshold",
+      "no_reference": "Exact original R path. Original ID and old unrelated OOD/attacks do not receive this device-specific adaptation.",
+      "ID_anchor": {
+        "rows": 2378,
+        "sessions": 248,
+        "previously_disclosed_false_positives": 0,
+        "source": "runs/mainline_docs/legacy_cic2022_p2_enhancement_real_result_v1_20260916.md",
+        "use": "Historical unchanged fallback row, explicitly reused; no new independent ID experiment or reopened arrays. Verify routing with synthetic no-reference equality."
+      }
+    },
+    "Q_heads": {
+      "27": {
+        "path": "runs/legacy_reference_hpc_preparation_v1_20260918/pullback/extracted/runs/real_dev/train_Q_27/head.npz",
+        "sha256": "a7562cc99a394c6f8ffb48e1eaae3e256271249e5924640b0de629d89d496592"
+      },
+      "127": {
+        "path": "runs/legacy_reference_hpc_preparation_v1_20260918/pullback/extracted/runs/real_dev/train_Q_127/head.npz",
+        "sha256": "66eb02926404ae7255048ef20178443189a6e3fc57064c280ff87f1d0cfdd05a"
+      },
+      "227": {
+        "path": "runs/legacy_reference_hpc_preparation_v1_20260918/pullback/extracted/runs/real_dev/train_Q_227/head.npz",
+        "sha256": "5f709be754e5503d46789baaec5f9d6678071ce01597aa1a10cc88443ab07f7c"
+      }
+    },
+    "Q_ensemble": "Existing three final logits averaged with old numeric path; no new Q training or threshold.",
+    "original_M_C_gate": "FAIL",
+    "job_172780": "FAILED_STOPPED_NO_RETRY",
+    "HOLDOUT": "CLOSED"
+  },
+  "data": {
+    "manifests": {
+      "LEARN": {
+        "path": "runs\\legacy_reference_sample_preparation_v1_20260917\\finalized\\learn.jsonl.gz",
+        "sha256": "693a1281e94d54f426e39c293652642ab8ed96eadd88bc71c00725b5b29679db",
+        "rows": 766727,
+        "sorted_uid_lines_sha256": "5ed3b2bb21970ecc29cdb288ac3a58522cef784207dcbf1164478440b515ef23"
+      },
+      "DEV": {
+        "path": "runs\\legacy_reference_sample_preparation_v1_20260917\\finalized\\dev.jsonl.gz",
+        "sha256": "5f36429749aea58ce0ab758f38034050f5ff81b1203c516535b0a65c6025659f",
+        "rows": 179886,
+        "sorted_uid_lines_sha256": "445369f8aeab600985fbd63df1cea9c2f9cac73b0c40d39654f530ad56821d7e"
+      },
+      "REFERENCE": {
+        "path": "runs\\legacy_reference_sample_preparation_v1_20260917\\finalized\\references.jsonl.gz",
+        "sha256": "23ff015e31f055f7cb1957c0ced167fd353af792d4a204fd18a7fb079d13244c",
+        "rows": 227,
+        "sorted_uid_lines_sha256": "32b495f1e7a3aa37c8776a0a5c06679698fb518cde7c46edddf0ec93b567e899"
+      }
+    },
+    "census": {
+      "path": "runs/legacy_q_reference_correction_design_v1_20260922/census/data_plan.json",
+      "sha256": "ad5ca64a22a5d8f8c5272e10f656bbf22f65a60e7ceef5a4f2d57057ae58da77"
+    },
+    "metadata_review": {
+      "path": "runs/legacy_q_reference_correction_design_v1_20260922/metadata_review.json",
+      "sha256": "c880c7757df11c31bb8b8b82ff7579df43a7485a398bf58ba44f2f8fb90e7385"
+    },
+    "split_salt": "q-normal-verifier-component-cal-v1-20260922",
+    "split_rule": "All reference-sharing components FIT; other whole components: SHA256(salt|device|component) mod5 ==0 CAL, otherwise FIT",
+    "role_identity": {
+      "FIT": {
+        "rows": 617908,
+        "uid_sha256": "d87b1582b7c349b80b59c9478fcbb69d334e233f4fa5448b162e8bafd8dbd5b4",
+        "eligible_rows": 567175,
+        "eligible_uid_sha256": "f866cb49a51eb660037df471415eeff9cbdec9b25fc69e7defe0635a0eae5b76"
+      },
+      "CAL": {
+        "rows": 148819,
+        "uid_sha256": "5c3e3155c3ed96937bd79590e3bc1f11fd31d9b6ff4dafeab32dc5c2592bf8d0",
+        "eligible_rows": 136962,
+        "eligible_uid_sha256": "e1856bc38a35b5c6348af111e7103417cd6d34ee726dc2fd56ec301025da94b3"
+      }
+    },
+    "FIT": {
+      "normal": 134493,
+      "attack": 483415,
+      "rows": 617908
+    },
+    "CAL": {
+      "normal": 33147,
+      "attack": 115672,
+      "rows": 148819,
+      "attack_donor_pairs": 359875
+    },
+    "DEV": {
+      "normal": 100830,
+      "attack": 79056,
+      "rows": 179886,
+      "devices": 2,
+      "status": "previously inspected; development only"
+    },
+    "learn_references": 104,
+    "dev_references": 75,
+    "all_used_reference_rows": 179,
+    "reference_allowlist": "Only original LEARN/DEV reference UIDs; REFERENCE manifest may contain other partitions, rejected at feature join; no HOLDOUT queries or references used.",
+    "cache": {
+      "LEARN": {
+        "rows": 766727,
+        "uid_sha256": "5ed3b2bb21970ecc29cdb288ac3a58522cef784207dcbf1164478440b515ef23",
+        "metadata": "LEARN.rows.jsonl.gz",
+        "metadata_sha256": "ce7fc209bea1b697f42a3d56bea00827e8b71343251b38b20e8dd1bf78729c39",
+        "features": "LEARN.npy",
+        "features_sha256": "164eaa95d2921a4bff701cf2f97d016a63344b926abcb9dc58876ebf80357f4f"
+      },
+      "DEV": {
+        "rows": 179886,
+        "uid_sha256": "445369f8aeab600985fbd63df1cea9c2f9cac73b0c40d39654f530ad56821d7e",
+        "metadata": "DEV.rows.jsonl.gz",
+        "metadata_sha256": "cbd599029cc97fef2a394623267b688d1f3857824613421c85ed8eebe9354fa4",
+        "features": "DEV.npy",
+        "features_sha256": "76525edab2832645b5adf9fda484c0aaf7570cc7cff3efc0e198cc775bd3095c"
+      },
+      "REFERENCE": {
+        "rows": 179,
+        "uid_sha256": "64801f9f5d5b5baf3379ee3e153b5e205ea5c80ee94767370811220db192c98c",
+        "metadata": "REFERENCE.rows.jsonl.gz",
+        "metadata_sha256": "9414891d380e631938611f54306349bf1244d46c2abfb24e96cda23784e84620",
+        "features": "REFERENCE.npy",
+        "features_sha256": "178fb69ac2277fae1b3fe75d67cfa08c11d0c1634b080035958e1ffda1eff3ae"
+      }
+    },
+    "feature_payload_bytes": 2908545024,
+    "CAL_limits": "Held out from new helpers/verifiers only; existing Q and old foundation are not newly held out. No independence certification.",
+    "neural_exclusions": [
+      "device_ID",
+      "owner",
+      "IP",
+      "MAC",
+      "port",
+      "capture_ID",
+      "absolute_time",
+      "label",
+      "activity",
+      "Q_score_in_verifier"
+    ],
+    "metadata_uses": "Routing, causal masks, supervised targets/weights, split and auditing only; no DEV optimizer or CAL optimizer."
+  },
+  "routing": {
+    "outer": "Retain existing registration validation: unregistered/no validated device reference -> original R; registered valid reference -> exact frozen Q.",
+    "inner": "Verifier usable only with >=2 distinct same-protocol original normal reference components and entire bank reference_end < query timestamp.",
+    "equation": "alarm_new = alarm_Q AND NOT(inner_valid AND verifier_score > cut)",
+    "fallback": "Invalid/insufficient/empty inner references -> exact Q. Empty-inner control keeps outer registration fixed.",
+    "no_online_update": true,
+    "reference_contamination": "Clean normal commissioning is assumed, not demonstrated under pollution.",
+    "output": [
+      "original_Q_logit",
+      "original_Q_probability",
+      "original_Q_alarm",
+      "verifier_score_or_null",
+      "cut",
+      "inner_valid",
+      "final_alarm",
+      "reason",
+      "reference_UID_hash"
+    ],
+    "probability_claim": "No composite calibrated probability is defined."
+  },
+  "verifier": {
+    "architecture": "shared W64x768, no bias: u=unit(z); e=unit(W u); same W for queries and references",
+    "parameters": 49152,
+    "z": "original frozen standardization float64 then float32, missing-indicator excluded",
+    "score": "mean top min(2,n) cosine similarities to distinct same-protocol reference components; deploy n>=2; train n>=1",
+    "raw_baseline": "unit(z768), same score/gate/calibration, no W and no training",
+    "normalization": "float32 L2 vector_norm; require finite norm >1e-12; division by actual norm, no dataset refit",
+    "numeric": "float32 forward; finite cosine within [-1-1e-5,1+1e-5], clamp to [-1,1]; float64 average of seed scores in seed order",
+    "ties": "reference UID lexicographic tie break; bank name lexicographic tie break",
+    "gradient": "Gradients flow through query and reference projections; no detached reference branch during training",
+    "failure": "Nonfinite/norm/identity/shape/causality violation stops the run; never silently remove rows."
+  },
+  "hard_normal_helpers": {
+    "folds": [
+      {
+        "fold": 0,
+        "held_devices": [
+          "Amcrest Camera",
+          "Philips Hue Bridge"
+        ],
+        "training_devices": [
+          "ArloQ Camera",
+          "Atomi Coffee Maker",
+          "Globe Lamp",
+          "SimCam"
+        ],
+        "train_rows": 372841,
+        "train_uid_sha256": "c5212b343cac01a38616da08cb13131bdcfd9e336961904483682e40ecfefad7",
+        "oof_fit_rows": 245067,
+        "oof_uid_sha256": "96a831b57572f0866076c4be2c214f8e0a6c13f57acd4ffe6712dddefe7ea81d",
+        "updates_per_seed": 58280
+      },
+      {
+        "fold": 1,
+        "held_devices": [
+          "SimCam",
+          "Atomi Coffee Maker"
+        ],
+        "training_devices": [
+          "Amcrest Camera",
+          "ArloQ Camera",
+          "Globe Lamp",
+          "Philips Hue Bridge"
+        ],
+        "train_rows": 317490,
+        "train_uid_sha256": "f973131f994c2eef204feecb33517312b6e0e76d34ba9e0a216d2bc24d7be139",
+        "oof_fit_rows": 300418,
+        "oof_uid_sha256": "80749e6e77f982d51e02e45425ca60955f974803ff1380177afd999004cbefa8",
+        "updates_per_seed": 49640
+      },
+      {
+        "fold": 2,
+        "held_devices": [
+          "ArloQ Camera",
+          "Globe Lamp"
+        ],
+        "training_devices": [
+          "Amcrest Camera",
+          "Atomi Coffee Maker",
+          "Philips Hue Bridge",
+          "SimCam"
+        ],
+        "train_rows": 545485,
+        "train_uid_sha256": "4d2501ecf55b8af4264001306b1b548687b77db9c53bf4cc7f2032a1a07b46ae",
+        "oof_fit_rows": 72423,
+        "oof_uid_sha256": "2a04dee2178db473fe0f7dc5d3dc5cd485f1b09b1e339de1549d0495ce59ae6a",
+        "updates_per_seed": 85240
+      }
+    ],
+    "seeds": [
+      27,
+      127,
+      227
+    ],
+    "heads": 9,
+    "architecture": "Old Q residual 14385 parameters initialized from frozen R, not from trained Q. Original empty-reference gate is active using legitimate device registration.",
+    "train": "FIT from four other devices only; all CAL and the two held devices excluded; recompute exact hierarchical class-balanced weights on that subset.",
+    "OOF": "Score only held-device FIT normals using mean final helper logits and unchanged original threshold/numeric sigmoid.",
+    "H": "Union of normal FIT UIDs flagged by the helper ensemble for their fixed held-device fold; seal UIDs/weights once, shared across both verifier arms.",
+    "feasibility_gate": {
+      "min_H_components": 10,
+      "min_H_devices": 2,
+      "on_failure": "STOP_NO_HARD_TRANSFER_SIGNAL before verifier training; no fold/threshold retune",
+      "interpretation": "Prospective practical requirement for this hard-normal supervision premise, not statistical power and not proof all reference learning is impossible."
+    },
+    "limits": "Only Q residual supervision is device-held-out. Frozen R/E3 may retain prior knowledge. H is training data, not an independent result.",
+    "H_only_ablation": false,
+    "claim": "No separately established causal benefit for H without a future dedicated ablation."
+  },
+  "training": {
+    "arms": [
+      "FULL",
+      "NO_CF"
+    ],
+    "seeds": [
+      27,
+      127,
+      227
+    ],
+    "new_verifier_heads": 6,
+    "FIT_rows": 617908,
+    "normal_score": "own earlier original reference bank",
+    "FULL_attack_score": "max score over ALL earlier same-protocol LEARN device banks including own; n>=1 at training; no pooled synthetic devices",
+    "NO_CF_attack_score": "own earlier original reference bank only",
+    "normal_loss": "softplus(-10 * r_own)",
+    "attack_loss": "softplus(10 * r_attack)",
+    "weighting": "For a single-class subset, equal device -> activity/mode -> capture -> session -> row, each branch normalized to sum1. w_normal=.25*w_all_normal+.25*w_H; w_attack=.5*w_all_attack. Total sum1.",
+    "minibatch_loss": "N / actual_batch_size * sum(w_i * loss_i); no batch renormalization",
+    "reference_budgets": [
+      2,
+      8,
+      "ALL"
+    ],
+    "budget_rule": "epoch is 0-based; budgets[epoch % 3]; per bank/protocol take hash-first min(budget,n), no replacement; allqueries in epoch share bank subset",
+    "reference_subset_salt": "q-normal-verifier-reference-subset-v1-20260922",
+    "reference_subset_hash": "SHA256(salt|seed|epoch0|device|protocol|reference_uid), then uid; UTF-8 and decimal integers",
+    "bank_time": "entire bank reference_end must be strictly less than query timestamp, including under subset sampling and donor use",
+    "hyperparameters": {
+      "epochs": 40,
+      "batch_size": 256,
+      "optimizer": "AdamW",
+      "lr": 0.0003,
+      "weight_decay": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "amsgrad": false,
+      "gradient_clipping": null,
+      "scheduler": null
+    },
+    "initialization": "torch.manual_seed(seed); allocate bare W64x768; torch.nn.init.orthogonal_(W,gain=1); no RNG-consuming module init before W",
+    "helper_initialization": "Old Residual(Q) constructor after torch.manual_seed(seed); fold and arm not added to seed.",
+    "ordering": "Preserve original manifest/cache UID order after subset selection; independent CPU torch.Generator(seed), randperm once per epoch; each FIT UID exactly once. FULL/NO_CF share exact orders and subset hashes.",
+    "numeric": "CPU deterministic PyTorch ops; 4 threads/worker; AdamW foreach=False; no mixed precision; weights/loss accumulation float64, forward/backward parameters float32",
+    "endpoint": "40th epoch only; no early stopping/checkpoint selection or automatic retries",
+    "updates_per_verifier": 96560,
+    "helper_updates": 579480,
+    "verifier_updates": 579360,
+    "total_new_heads": 15,
+    "total_updates": 1158840
+  },
+  "calibration": {
+    "time": "Only after all six verifier endpoints and H sealed; no optimization afterwards.",
+    "arm_scope": [
+      "FULL_ensemble",
+      "FULL_27",
+      "FULL_127",
+      "FULL_227",
+      "NO_CF_ensemble",
+      "NO_CF_27",
+      "NO_CF_127",
+      "NO_CF_227",
+      "RAW"
+    ],
+    "population": "All 115672 CAL attacks; 359875 eligible earlier LEARN bank contexts; same protocol and >=2 components; no Q-positive filter. No CAL normal used to choose cut.",
+    "bank_use": "All available references per qualifying bank; top2 on full bank upper-bounds every legal subset for the same query and bank.",
+    "formula": "cut = max(0, max over CAL_attack, eligible_LEARN_bank of score) + 1e-5",
+    "ensemble": "score=mean of the three scores for the SAME bank; then maximum over banks/attacks, not mean of three maxima",
+    "comparison": "Strict score > cut only; no equality cancellation",
+    "no_useful_cut": "cut >=1 gives no cancellations; record NO_USEFUL_CORRECTION; do not loosen",
+    "check": "Reapply sealed cut to all calibration contexts and require exactly zero observed attack cancellations.",
+    "not_guaranteed": [
+      "unseen-device attack retention",
+      "population risk",
+      "conformal risk control",
+      "independent packet sampling"
+    ],
+    "search": false,
+    "threshold_computed_this_design": false
+  },
+  "evaluation": {
+    "order": "Cache/base parity -> helpers/H gate -> six endpoints -> CAL seals -> one DEV evaluation including all prespecified controls -> seal/report",
+    "primary": "Frozen Q ensemble plus mean verifier scores; all 179886 original DEV rows remain in denominator.",
+    "comparisons": [
+      "Q",
+      "RAW",
+      "FULL",
+      "NO_CF",
+      "FULL_cut_zero_diagnostic_only",
+      "FULL_empty_inner",
+      "FULL_budget16",
+      "FULL_matched_correct",
+      "FULL_matched_wrong"
+    ],
+    "individuals": "All FULL/NO_CF individual seeds with corresponding Q seed and separately prespecified CAL cut; never select best seed.",
+    "budget16": "Per protocol hash-first min(16,n) own refs using metadata control salt; no retune; gate still needs2.",
+    "controls": [
+      {
+        "device": "Eufy Home Base",
+        "protocol": 6,
+        "status": "MATCHED",
+        "donor": "ArloQ Camera",
+        "count": 8,
+        "rows": 10755,
+        "normal_rows": 1466,
+        "attack_rows": 9289,
+        "query_uid_sha256": "eb00b664deaa02d50a0268466b5ae41fce9a70bc7a67b5f17826182c529760c9",
+        "query_min_timestamp": 1634136010.038736,
+        "correct_reference_end": 1634135656.079564,
+        "donor_reference_end": 1633531542.09702,
+        "correct_reference_uids": [
+          "bfaf6efdf07a07a7325bd41f9dd49a94ba1b1f09861c6eda43f2a02381d5b6a8",
+          "743c2c87168cbd02d4a37b402250526d351528cb7590f5e480b4dfb0ce3e75b7",
+          "33cf8bcfe7fa282cdc53d30856f2208c101ef6f915aa8e3d75427c7249a76835",
+          "94565d4d24a905ef229930f70b6167206b8b07a0df1ab4b8c5a86a019fae16a2",
+          "e9b3ccef7f3721919fe99e71097629abc19886f26bf6cead564009fbe0bbee09",
+          "956d7a38fd6c0951100891b09f11d5f50f21b9321dcfd1cd03fab0b4d3bb59a0",
+          "0e1048f09d495e58a253187555b8ec326873af33fdf7a367efe203eea6d984d1",
+          "16b6969cb9b62fef378b1905347d9fd6861fd8f74a451e0d117559f97458acd0"
+        ],
+        "wrong_reference_uids": [
+          "59245b8f27ef558b56b7b0940a096df5f844a02fd46c8af8231925cc096aeb36",
+          "08435fcba19c73034542fac8b7cccec2142eaf1fbce8c126f498745070b9da03",
+          "a36fbcf327f76c31a8f89b6a3749f78551b239e5ed54fb40a865a5a93ed8d385",
+          "c654caedf6b53fb054805b3ef737e3f415826d652600bfe6bcd25cda40659539",
+          "474a4a3986f640192b04e1219381e2db7ea2df985b9279ea9c3554a8a2275e75",
+          "4057993785c8c0b274bf01205e95b96e1625feee66f9583e0da627955d48f6e3",
+          "d7d81077638d86101dfeacc012082a45c6b1cf98a4f3e472a098163a7dff9846",
+          "8981c967d1e7af1aeb810912a51b0d54f57c7a587e965f5304199dd4d647b59e"
+        ]
+      },
+      {
+        "device": "Eufy Home Base",
+        "protocol": 17,
+        "status": "MATCHED",
+        "donor": "Amcrest Camera",
+        "count": 16,
+        "rows": 102585,
+        "normal_rows": 98367,
+        "attack_rows": 4218,
+        "query_uid_sha256": "7ebb32716f09aa8ea7e3e3adcd1696d1e31c240da413f1a92ab91ce0b61f1304",
+        "query_min_timestamp": 1634135742.834257,
+        "correct_reference_end": 1634135656.079564,
+        "donor_reference_end": 1633532109.461121,
+        "correct_reference_uids": [
+          "827ed51a944ac4475c6e9cad210b5826dea72747d038de795c364415d1458b7e",
+          "cd95a762a43bfb26f84622abad8c9f4c5c2786849ac0850ca9768844d69071f8",
+          "416fc48f519a822360b1f603e926f58912a6b7a6ca2fe20ef1da1c48e1d2a375",
+          "9e047cc1d854eadba2ba759faaee3d211895db8a0ddd9772f64cab7e31296327",
+          "aa994cd6ba9b399b95a1d6634967aded756906bb2270334bab7ba7a72fb78d25",
+          "09d9ceeb2b7803d531a365fb736301ae2e38865968c295f83a3070050f327850",
+          "164264443f801a49f9603c6541e3fa0b15391ce953eb303dd30ea5260c3627f8",
+          "d9d5a6d3890cc79eab7d8874f834d032fd73cfe4bf4b8b33a89dba9217166802",
+          "1dfd6570911db3f34e7b170afe4a3abb33c086ead40384a6ba605cbcc42622d6",
+          "e731296cae85b0c752757c8ae6f121862cec358ef59ae362e8d9b80d5e4852bd",
+          "1305d0a11f897c723475568a8a9381584d028be0463f5f974534a810d58decee",
+          "3f6da142691fa8ffab8c36c86ea8bce165b994b95ef54e6f31f6b54472e869ed",
+          "8e3add56a20e8dd6d8892bc2e3ef372e4931230cb3c8fea328227a5eb750617c",
+          "7306b92083b6e14836377fe43aaa9fbbbfbe4533dceb08b3915926e6d7216bcd",
+          "fde882a4b725c6cae36ba86082e61935c803b72b8dd96d0c818ea5038475b73d",
+          "ddc6bf2bce9047190e0aa3d232f5fb1cf8d16d16f66504562529202e6739294a"
+        ],
+        "wrong_reference_uids": [
+          "7b091734e59f6c845cfd955e09552e71446bfec0515d9ae01bfca0bd03bc7399",
+          "5946a527bf7e8b26a8a31842ccc53fdf1a76e4ee5f7a439c84c952be2e858d33",
+          "88efa007517caa320408b48457752dde1e9e58ce931b40c41206872885a924af",
+          "8801558a85b63685c5d9fd967e0401e720cb61826a4a515f3b0b229bc28871a0",
+          "901041b5a17a4d148950fdb0e363415b4f2135368c923bb3912c16b057464f34",
+          "77ae8dbfc1e12dc3be0ab9f71cc78cc722a54912d11a54edf50bb61dae132c93",
+          "8235d5412ba7490a28b701113ff93fcadeea0eab6fc33af43393403ff8702e38",
+          "96ea0576d9ccbd4343bbb6be15731b4d85048b27c2ae0379402ded16d95deaeb",
+          "f659e9ba4ff91586ab814d0acc6e66ea6e6159a05a2fcc4b51d6a048fbd679dc",
+          "1eea9db12a550d418fd77c268f6fc4070b59782947884c383717d5b200e58c2e",
+          "ccce5cbaf239c0fe756d79be2f6561dec2c71821b4360e20e3ad364172f80510",
+          "80cdb3a894674103446329b6a6b99c5f14b05dd61c8d21e2cdce68203a65b194",
+          "3fa327c27696aa075602c30b19949872c74d7cc490cd2381d01bfc41a84fc982",
+          "ee4950b0be58bcd1195ce2356bfa529b2f34bb316dcab53e2e8ab425a297e5ec",
+          "a24fe9252f55e3ce7c758735057fe60c95ec65c8998e5668e77f9154d6fa1353",
+          "7e859c9d9ee19f2c68e09115f92e01ba66ff156399ce54a6d828763b5f42b5e0"
+        ]
+      },
+      {
+        "device": "HeimVision Camera",
+        "protocol": 6,
+        "status": "INNER_Q_FALLBACK",
+        "rows": 48014
+      },
+      {
+        "device": "HeimVision Camera",
+        "protocol": 17,
+        "status": "MATCHED",
+        "donor": "Amcrest Camera",
+        "count": 10,
+        "rows": 18532,
+        "normal_rows": 665,
+        "attack_rows": 17867,
+        "query_uid_sha256": "26a16c8d2d80065c628a64e232433bb6e812c3f6154548c3cd46e4b14dffe310",
+        "query_min_timestamp": 1634046748.850539,
+        "correct_reference_end": 1633540171.541785,
+        "donor_reference_end": 1633532109.461121,
+        "correct_reference_uids": [
+          "af8b6028535485b4703bd9edc70969f49b3007cb32b0873522cb388ccbc06e59",
+          "53e63d8f60e0293747f0bb5a19e76f3d8230f090626afabf9f06c8cf18404eb3",
+          "85a2afab42b19149513e949dabb385d3c0a9b95f4858b3d67417c0fe0deb78ee",
+          "05f16a02f6eccb91e781e4f4d110a80e32d92bb8056e4253bade54f6317def94",
+          "f4c423072164ee62358dc479219d52041626a62587d9d8ce5e50c63676864515",
+          "0d9abbe6b846d1ca84d94d540f883fb6331b45789e9cededdfc21f1f6245f573",
+          "81728bd85f4f362f43fc5f050583e528f5397f4b3bb2c25ece3505c866c45e43",
+          "81819ba514d1c82812903c9e136ee2ef34af40bcd28b5e84412b43134bfcad71",
+          "50f77909528c1047d61a59efc725818d30793e4d33da8e47f954bceb298f2076",
+          "14085f5586775afd4113e4aecabd8bb91fecc4d2a33d37f45eee989a8513d503"
+        ],
+        "wrong_reference_uids": [
+          "7b091734e59f6c845cfd955e09552e71446bfec0515d9ae01bfca0bd03bc7399",
+          "5946a527bf7e8b26a8a31842ccc53fdf1a76e4ee5f7a439c84c952be2e858d33",
+          "88efa007517caa320408b48457752dde1e9e58ce931b40c41206872885a924af",
+          "8801558a85b63685c5d9fd967e0401e720cb61826a4a515f3b0b229bc28871a0",
+          "901041b5a17a4d148950fdb0e363415b4f2135368c923bb3912c16b057464f34",
+          "77ae8dbfc1e12dc3be0ab9f71cc78cc722a54912d11a54edf50bb61dae132c93",
+          "8235d5412ba7490a28b701113ff93fcadeea0eab6fc33af43393403ff8702e38",
+          "96ea0576d9ccbd4343bbb6be15731b4d85048b27c2ae0379402ded16d95deaeb",
+          "f659e9ba4ff91586ab814d0acc6e66ea6e6159a05a2fcc4b51d6a048fbd679dc",
+          "1eea9db12a550d418fd77c268f6fc4070b59782947884c383717d5b200e58c2e"
+        ]
+      }
+    ],
+    "control_salt": "q-normal-verifier-matched-control-v1-20260922",
+    "controlled_query_rows": 131872,
+    "inner_fallback_Heim_TCP_rows": 48014,
+    "system_gate": {
+      "DEV_new_attack_misses_vs_Q": 0,
+      "weighted_normal_FPR_relative_reduction_min": 0.3,
+      "focal_Eufy_WAN_WATCH_FP_max": 178,
+      "focal_normal_denominator": 738,
+      "focal_baseline_FP": 357,
+      "no_device_or_activity_normal_FPR_increase": true,
+      "min_individual_FULL_seeds_with_zero_new_attack_misses_and_positive_weighted_normal_gain": 2,
+      "meaning": "Useful development milestone; halving a 48.37% focal false alarm rate is not yet a deployable low-FPR or paper success."
+    },
+    "learned_mechanism": "FULL passes system gate, lower weighted normal FPR than RAW at zero new DEV misses, and Pareto joint advantage over NO_CF (no higher added attack misses/no higher weighted FPR, at least one strict). Otherwise separate unsupported component from useful system gain.",
+    "personalization": "For matched correct vs wrong, >=1 DEV device must have strictly lower hierarchically weighted normal FPR and no more added attack misses, with >=2/3 individual seeds showing same direction. Report both devices and all protocols; no dropping TCP fallback.",
+    "required_reports": [
+      "raw integer errors/denominators",
+      "exact old hierarchical DEV weights",
+      "all device/activity/mode/capture/session/component counts",
+      "new misses relative Q and affected/wholly missed sessions",
+      "eligible and fallback strata",
+      "reference-covered vs novel/unknown activity",
+      "CUT value and CAL attack tail",
+      "unprotected-versus-protected cancellation confusion",
+      "OOF H distribution including hard novel annotated activities",
+      "old ID/history reused only, missing independent ID explicitly",
+      "learned/raw/noCF outcomes without best-arm promotion"
+    ],
+    "uncertainty": "Descriptive grouped differences only; no packet-binomial confidence or risk certificate with 2 DEV devices.",
+    "HOLDOUT": "No automatic opening even if DEV gate passes; separate prospective authorization required.",
+    "claim_limit": "No new proof of historical same-name-family 91.91% improvement, all-protocol coverage, real simultaneous shared-network traffic or attack-contaminated commissioning."
+  },
+  "runtime_plan": {
+    "reuse_only": true,
+    "new_E3_forwards": 0,
+    "new_decode": 0,
+    "new_download": 0,
+    "cache_local_availability": "Large feature arrays omitted from pulled results; future matching cache export/availability audit needed, no full pipeline rerun.",
+    "frozen_R_inputs": "May derive/cache z,h_R,b_R once during separately authorized execution; preserve old normalizer and state pins.",
+    "proposed_HPC": {
+      "CPU": 16,
+      "RAM_GiB": 64,
+      "max_workers": 4,
+      "threads_each": 4,
+      "wall_limit_hours": 24,
+      "new_output_disk_limit_GiB": 16
+    },
+    "performance": "Resource ceiling only, not ETA; no separate resource trial. User handles upload/submission/pullback.",
+    "retries": 0,
+    "failure": "STOPPED_NO_RETRY, preserve completed endpoints and exact failing stage; no automatic restart.",
+    "status": "Persistent stage+completed/total_updates+epoch+elapsed+error+final seal; user-readable one-command view; no polling automation created.",
+    "package_acceptance": "Python3.9 real runtime APIs, LF shell files, clean Linux dependency closure including report metadata, mock failure/export/status; unchanged Q replay on cached features before new training."
+  },
+  "implementation_acceptance": [
+    "No HOLDOUT loader/optimizer route; CAL excluded from all helper/verifier gradients; reference roles allowlisted",
+    "Whole component split and exact UID/weight/exposure hashes, helper-held-device exclusion",
+    "Frozen Q/R tensors/numerical replay; inner-empty exact Q; outer-unregistered exact R",
+    "Causal full-bank masks, distinct components, same protocol, no future/query context appended",
+    "Singleton legal for training, >=2 for inference; padding never counted; query/ref gradient flow",
+    "Worst-bank and top2 numeric/tie/monotonic subset checks; deterministic three-seed averaging",
+    "Max CAL cut and strict ties; veto never creates new positive; finite/norm fail-closed run behavior",
+    "Matched correct/wrong exact UID/count/protocol/time; all denominators unchanged",
+    "Synthetic clean end-to-end report dependencies, status, failure/no-retry, seal readback"
+  ],
+  "decision_if_failed": {
+    "H_gate": "This error-supervision premise is unavailable; do not train verifiers blindly.",
+    "raw_pass_full_no_gain": "Prefer simpler useful evidence; learned innovation unsupported, no automatic promotion.",
+    "cut0_gains_but_safe_cut_no_gain": "Attack/normal evidence not separated sufficiently; threshold relaxation is not a solution.",
+    "CAL_protected_DEV_attack_loss": "Protection did not transfer; examine new attack misses and reference dependence, no risk guarantee.",
+    "correct_equals_wrong": "General normal recognition may help, but device-reference personalization unsupported.",
+    "all_fail": "Record bounded negative mechanism evidence; do not claim entire route impossible or run adjacent hyperparameters automatically."
+  }
+}

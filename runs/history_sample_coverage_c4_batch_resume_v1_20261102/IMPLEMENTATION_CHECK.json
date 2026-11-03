@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "tests_run": 103,
+  "elapsed_seconds": 20.504,
+  "command": "python -X utf8 -B -m unittest discover -s . -p test_*.py -q",
+  "new_model_forwards": 0,
+  "new_distance_pairs": 0,
+  "scope": "Integrated synthetic engineering suite",
+  "files_sha256": {
+    "test_budget_amendment.py": "9803e2e0f85b03f214ca158ce7e75be191a8374906ff292898ee81e3719b4fcb",
+    "test_decoder_guard.py": "e0a10e77d46e89c55bca9a0b398f2b7f9c035ba295d628040a7361b7c51fc357",
+    "test_encoding_resume.py": "d74f6979cdb431563ca9f2ad6637c927346db3da20dd9d7268e1279b4d20c5c0",
+    "test_memory_worker.py": "0932fb25f8436ebbb18f0d4bae14c472894dd4629ee3a69b93ddc08e2547c7ce",
+    "test_prepared_reuse.py": "667e6c269783dfe6291456fff96f9cc2283493475213249227d4a775420eff87",
+    "test_recovery.py": "dbe171b9aff88e3e224f5082e5d86c41e5533ca8c62539d462d79a290f5ee953",
+    "test_resume_prepare.py": "f7af6b179bed4290535792c7d826cadf32f107dec36528356bc789cae433c35a",
+    "test_runner.py": "bd902a7a1625543b1c2347aa0cf0639373e28203663bd5275bfd0890127ab32d",
+    "test_topup.py": "2b159abcd69dab268632c311b8905dfa03fe75cf0dfe1cb1ee26c588aad2b75e"
+  }
+}

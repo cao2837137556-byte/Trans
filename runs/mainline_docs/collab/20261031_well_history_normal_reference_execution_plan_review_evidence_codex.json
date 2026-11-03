@@ -1,0 +1,975 @@
+{
+  "status": "READ_ONLY_REVIEW_NO_NEW_SCIENTIFIC_COMPUTATION",
+  "review_date": "2026-10-31",
+  "new_encoding": 0,
+  "new_scores": 0,
+  "new_support": 0,
+  "new_experiments": 0,
+  "query_times": {
+    "CIC_DEV": {
+      "full_saved_query_population": {
+        "HeimVision Camera": {
+          "rows": 66546,
+          "first_timestamp": 1634046748.850539,
+          "last_timestamp": 1638209372.135692,
+          "first_uid": "6b05a4a53a17ce5118ea608e1ce9d29083fbc1475d4b568b99f522f9e45b5b0c",
+          "first_capture": "interaction-attack-192",
+          "first_frame": 1,
+          "first_utc": "2021-10-12T13:52:28.850539+00:00",
+          "last_utc": "2021-11-29T18:09:32.135692+00:00"
+        },
+        "Eufy Home Base": {
+          "rows": 113340,
+          "first_timestamp": 1634135742.834257,
+          "last_timestamp": 1638476597.13193,
+          "first_uid": "7cd2d3c275d2c45448ade568d57a36edef1d10517a87fecbaec7d07ab404a8f5",
+          "first_capture": "interaction-attack-112",
+          "first_frame": 1,
+          "first_utc": "2021-10-13T14:35:42.834257+00:00",
+          "last_utc": "2021-12-02T20:23:17.131930+00:00"
+        }
+      },
+      "post_window_primary": {
+        "Eufy Home Base": {
+          "rows": 108876,
+          "first_timestamp": 1635858904.252776,
+          "last_timestamp": 1638476597.13193,
+          "first_uid": "4e93a49ea41c63ae7d09c2b41880c530cba24aeab6de07bae33773bee0963c27",
+          "first_capture": "active-00",
+          "first_frame": 152947,
+          "first_utc": "2021-11-02T13:15:04.252776+00:00",
+          "last_utc": "2021-12-02T20:23:17.131930+00:00"
+        },
+        "HeimVision Camera": {
+          "rows": 66221,
+          "first_timestamp": 1635859087.594432,
+          "last_timestamp": 1638209372.135692,
+          "first_uid": "2afe388b178895d99c6c2e2b2b6dc6bd8a7e72d6e62340466803ad141ed6fca5",
+          "first_capture": "active-00",
+          "first_frame": 156658,
+          "first_utc": "2021-11-02T13:18:07.594432+00:00",
+          "last_utc": "2021-11-29T18:09:32.135692+00:00"
+        }
+      },
+      "frozen_windows": [
+        {
+          "capture_id": "active-00",
+          "device": "Eufy Home Base",
+          "end": 1635858900.06933,
+          "frame_end": 152883,
+          "partition": "DEV",
+          "reference_end": 1635858900.06933,
+          "source_sha256": "b19d63d7e3ac18d3b1d05add73ab86e7c6cdce5bbdee3485aa1d0bc90404bd3e",
+          "start": 1635851700.06933
+        },
+        {
+          "capture_id": "active-00",
+          "device": "HeimVision Camera",
+          "end": 1635858900.06933,
+          "frame_end": 152883,
+          "partition": "DEV",
+          "reference_end": 1635858900.06933,
+          "source_sha256": "b19d63d7e3ac18d3b1d05add73ab86e7c6cdce5bbdee3485aa1d0bc90404bd3e",
+          "start": 1635851700.06933
+        }
+      ]
+    },
+    "UNSW_DEV": {
+      "full_saved_query_population": {
+        "Samsung Camera": {
+          "rows": 34506,
+          "first_timestamp": 1527469220.833267,
+          "last_timestamp": 1527864814.959122,
+          "first_uid": "10d61bad6f81d98e82f4b47222c83c88d4e08776f621d19b4bcb9befce4f8269",
+          "first_capture": "unsw-benign-20180528",
+          "first_frame": 176302,
+          "first_utc": "2018-05-28T01:00:20.833267+00:00",
+          "last_utc": "2018-06-01T14:53:34.959122+00:00"
+        },
+        "WEMO Motion Sensor": {
+          "rows": 34553,
+          "first_timestamp": 1527469217.042467,
+          "last_timestamp": 1527855140.969698,
+          "first_uid": "38c5d52ca02e8177fec75bf20e0ee09cbe90948fe91b848f498ee97fd37514eb",
+          "first_capture": "unsw-benign-20180528",
+          "first_frame": 176102,
+          "first_utc": "2018-05-28T01:00:17.042467+00:00",
+          "last_utc": "2018-06-01T12:12:20.969698+00:00"
+        },
+        "Netatmo Camera": {
+          "rows": 34377,
+          "first_timestamp": 1527469235.353417,
+          "last_timestamp": 1527874489.97491,
+          "first_uid": "6e07132638362c4d34b5753af3875d0e0fb97479dda3aab8b8fb110bcc498cf6",
+          "first_capture": "unsw-benign-20180528",
+          "first_frame": 177041,
+          "first_utc": "2018-05-28T01:00:35.353417+00:00",
+          "last_utc": "2018-06-01T17:34:49.974910+00:00"
+        },
+        "WEMO Power Switch": {
+          "rows": 27596,
+          "first_timestamp": 1527469362.214069,
+          "last_timestamp": 1527859976.968021,
+          "first_uid": "61e5886932b0a9d841b9388f9dd5795e051bc4508f0210ac029d3a444dd3e7af",
+          "first_capture": "unsw-benign-20180528",
+          "first_frame": 183324,
+          "first_utc": "2018-05-28T01:02:42.214069+00:00",
+          "last_utc": "2018-06-01T13:32:56.968021+00:00"
+        },
+        "TP Link Plug": {
+          "rows": 17284,
+          "first_timestamp": 1527469232.778922,
+          "last_timestamp": 1527869656.970335,
+          "first_uid": "598898206ff8c9a5e73d63f0f1ec0d87285d6ceacc217b723a58784c9a45a3d5",
+          "first_capture": "unsw-benign-20180528",
+          "first_frame": 176964,
+          "first_utc": "2018-05-28T01:00:32.778922+00:00",
+          "last_utc": "2018-06-01T16:14:16.970335+00:00"
+        }
+      },
+      "post_window_primary": {
+        "Samsung Camera": {
+          "rows": 34217,
+          "first_timestamp": 1527472805.498145,
+          "last_timestamp": 1527864814.959122,
+          "first_uid": "236f02275364a94dd3dce7b58c8b53a79342e974eb0d468cbdddbba3262c9ac6",
+          "first_capture": "unsw-benign-20180528",
+          "first_frame": 369531,
+          "first_utc": "2018-05-28T02:00:05.498145+00:00",
+          "last_utc": "2018-06-01T14:53:34.959122+00:00"
+        },
+        "WEMO Motion Sensor": {
+          "rows": 33782,
+          "first_timestamp": 1527472801.390648,
+          "last_timestamp": 1527855140.969698,
+          "first_uid": "c87ca57233df43dc0b5685df1e234ffad0b75ae334adeb5fd877e9c7c1f77344",
+          "first_capture": "unsw-benign-20180528",
+          "first_frame": 369223,
+          "first_utc": "2018-05-28T02:00:01.390648+00:00",
+          "last_utc": "2018-06-01T12:12:20.969698+00:00"
+        },
+        "Netatmo Camera": {
+          "rows": 34256,
+          "first_timestamp": 1527472807.019274,
+          "last_timestamp": 1527874489.97491,
+          "first_uid": "c11df57268e68298cab731a6f201a1f52666ebabc8122250fbbe3d1b2eb9d3aa",
+          "first_capture": "unsw-benign-20180528",
+          "first_frame": 369612,
+          "first_utc": "2018-05-28T02:00:07.019274+00:00",
+          "last_utc": "2018-06-01T17:34:49.974910+00:00"
+        },
+        "WEMO Power Switch": {
+          "rows": 27541,
+          "first_timestamp": 1527472876.755817,
+          "last_timestamp": 1527859976.968021,
+          "first_uid": "919356a396c8fe993d6d9cfb701c0732894f18a41c6b365c4616e6d96fb800a5",
+          "first_capture": "unsw-benign-20180528",
+          "first_frame": 373483,
+          "first_utc": "2018-05-28T02:01:16.755817+00:00",
+          "last_utc": "2018-06-01T13:32:56.968021+00:00"
+        },
+        "TP Link Plug": {
+          "rows": 17201,
+          "first_timestamp": 1527473026.769048,
+          "last_timestamp": 1527869656.970335,
+          "first_uid": "46ce52af55c52e2df5727981b3550d2577b470493e894da90120490053fd0b68",
+          "first_capture": "unsw-benign-20180528",
+          "first_frame": 381125,
+          "first_utc": "2018-05-28T02:03:46.769048+00:00",
+          "last_utc": "2018-06-01T16:14:16.970335+00:00"
+        }
+      },
+      "frozen_windows": [
+        {
+          "capture_id": "unsw-benign-20180528",
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+          "end": 1527472801.09039,
+          "frame_end": 369214,
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+          "reference_end": 1527472801.09039,
+          "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+          "start": 1527465601.09039
+        },
+        {
+          "capture_id": "unsw-benign-20180528",
+          "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+          "end": 1527472801.09039,
+          "frame_end": 369214,
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+          "reference_end": 1527472801.09039,
+          "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+          "start": 1527465601.09039
+        },
+        {
+          "capture_id": "unsw-benign-20180528",
+          "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+          "end": 1527472801.09039,
+          "frame_end": 369214,
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+          "reference_end": 1527472801.09039,
+          "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+          "start": 1527465601.09039
+        },
+        {
+          "capture_id": "unsw-benign-20180528",
+          "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+          "end": 1527472801.09039,
+          "frame_end": 369214,
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+          "reference_end": 1527472801.09039,
+          "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+          "start": 1527465601.09039
+        },
+        {
+          "capture_id": "unsw-benign-20180528",
+          "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+          "end": 1527472801.09039,
+          "frame_end": 369214,
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+          "reference_end": 1527472801.09039,
+          "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+          "start": 1527465601.09039
+        }
+      ]
+    }
+  },
+  "source_roles": {
+    "Philips Hue Bridge / FIT": {
+      "rows": 212040,
+      "first_timestamp": 1633455034.547789,
+      "last_timestamp": 1638456551.041265,
+      "first_uid": "09880042459416d79f159e866cae222b484aec60baf702313857fb98f5d08ad5",
+      "first_capture": "interaction-attack-238",
+      "first_frame": 1,
+      "first_utc": "2021-10-05T17:30:34.547789+00:00",
+      "last_utc": "2021-12-02T14:49:11.041265+00:00"
+    },
+    "Philips Hue Bridge / CAL": {
+      "rows": 51323,
+      "first_timestamp": 1633456463.325618,
+      "last_timestamp": 1638456551.040341,
+      "first_uid": "105a3a5c4590ecd2d4c3c6d35a328f8409c27c814b7e4d969f8717f5f89c4f72",
+      "first_capture": "interaction-attack-228",
+      "first_frame": 2,
+      "first_utc": "2021-10-05T17:54:23.325618+00:00",
+      "last_utc": "2021-12-02T14:49:11.040341+00:00"
+    },
+    "ArloQ Camera / FIT": {
+      "rows": 53838,
+      "first_timestamp": 1633531651.728651,
+      "last_timestamp": 1638213662.632978,
+      "first_uid": "0748768d0a4b0d06835f5a95ee1d63ed576ff391f0e00597529a3d13e98bb140",
+      "first_capture": "interaction-attack-020",
+      "first_frame": 1,
+      "first_utc": "2021-10-06T14:47:31.728651+00:00",
+      "last_utc": "2021-11-29T19:21:02.632978+00:00"
+    },
+    "ArloQ Camera / CAL": {
+      "rows": 13248,
+      "first_timestamp": 1633531668.552705,
+      "last_timestamp": 1638213662.627367,
+      "first_uid": "26127359d72c106ae452fb14fcac95a7d955049a1207b1ce3b16fe6c38cb58ac",
+      "first_capture": "interaction-attack-020",
+      "first_frame": 1260,
+      "first_utc": "2021-10-06T14:47:48.552705+00:00",
+      "last_utc": "2021-11-29T19:21:02.627367+00:00"
+    },
+    "Globe Lamp / FIT": {
+      "rows": 18585,
+      "first_timestamp": 1633630676.469403,
+      "last_timestamp": 1638454367.674315,
+      "first_uid": "7c592b168229fb5cc3c55c5915b8ef9cdc105ddf3ed9c03b3552ad23a1b7bfc0",
+      "first_capture": "interaction-attack-161",
+      "first_frame": 1,
+      "first_utc": "2021-10-07T18:17:56.469403+00:00",
+      "last_utc": "2021-12-02T14:12:47.674315+00:00"
+    },
+    "Globe Lamp / CAL": {
+      "rows": 4292,
+      "first_timestamp": 1633692265.150989,
+      "last_timestamp": 1638454367.672083,
+      "first_uid": "3316ae02e0c5ee0e0d760ed9ca803b4b20ba7bcb20c69365e837bed3589bfdd8",
+      "first_capture": "interaction-attack-125",
+      "first_frame": 3,
+      "first_utc": "2021-10-08T11:24:25.150989+00:00",
+      "last_utc": "2021-12-02T14:12:47.672083+00:00"
+    },
+    "Amcrest Camera / FIT": {
+      "rows": 33027,
+      "first_timestamp": 1634044477.780338,
+      "last_timestamp": 1638449452.315606,
+      "first_uid": "59d903211acef13888bf81e5bfa659227a7aeaa73faa4b18d296716b47b665c9",
+      "first_capture": "interaction-attack-002",
+      "first_frame": 1,
+      "first_utc": "2021-10-12T13:14:37.780338+00:00",
+      "last_utc": "2021-12-02T12:50:52.315606+00:00"
+    },
+    "Amcrest Camera / CAL": {
+      "rows": 8258,
+      "first_timestamp": 1634044480.129579,
+      "last_timestamp": 1638449418.715233,
+      "first_uid": "a573ab1e5348b4a4cd5abf7c92f3eb6ddc6e59926a405404dfae2674226fd634",
+      "first_capture": "interaction-attack-002",
+      "first_frame": 8,
+      "first_utc": "2021-10-12T13:14:40.129579+00:00",
+      "last_utc": "2021-12-02T12:50:18.715233+00:00"
+    },
+    "SimCam / FIT": {
+      "rows": 278608,
+      "first_timestamp": 1634045714.288587,
+      "last_timestamp": 1639594417.235557,
+      "first_uid": "e0e5f7135c2d94e85df0fd03cda47962c94d6968330b2184f18558a81efcb501",
+      "first_capture": "interaction-attack-281",
+      "first_frame": 1,
+      "first_utc": "2021-10-12T13:35:14.288587+00:00",
+      "last_utc": "2021-12-15T18:53:37.235557+00:00"
+    },
+    "SimCam / CAL": {
+      "rows": 66855,
+      "first_timestamp": 1634045714.288587,
+      "last_timestamp": 1639594417.277748,
+      "first_uid": "210cc1395930654a86d35de5aeefcd01bf7cdc0496a53252bb87f60c5451a3cc",
+      "first_capture": "interaction-attack-281",
+      "first_frame": 2,
+      "first_utc": "2021-10-12T13:35:14.288587+00:00",
+      "last_utc": "2021-12-15T18:53:37.277748+00:00"
+    },
+    "Atomi Coffee Maker / FIT": {
+      "rows": 21810,
+      "first_timestamp": 1634131507.684371,
+      "last_timestamp": 1638466420.625016,
+      "first_uid": "afae4b71906b0d99e53cf2a6afe463dd1d9add29f748527af911c3f085610dc8",
+      "first_capture": "interaction-attack-052",
+      "first_frame": 1,
+      "first_utc": "2021-10-13T13:25:07.684371+00:00",
+      "last_utc": "2021-12-02T17:33:40.625016+00:00"
+    },
+    "Atomi Coffee Maker / CAL": {
+      "rows": 4843,
+      "first_timestamp": 1635854454.849559,
+      "last_timestamp": 1638466420.617673,
+      "first_uid": "07b983eda8baf8e43b8b04ff77fcaf484ce2e20d5421f8e263d6db439a0ceda1",
+      "first_capture": "active-00",
+      "first_frame": 69976,
+      "first_utc": "2021-11-02T12:00:54.849559+00:00",
+      "last_utc": "2021-12-02T17:33:40.617673+00:00"
+    }
+  },
+  "source_role_binding": {
+    "source_rows": 766727,
+    "reference_rows": 4728,
+    "source_only": true,
+    "A_B_inputs": 0,
+    "folds": {
+      "G0": {
+        "FIT": {
+          "rows": 108675,
+          "indices_sha256": "26694a4c10284747415aeba59f8e28779d050a69a2c36423e6c8004f4e672981",
+          "uid_sha256": "2d985964259af13ec22d22047420acd47b8144744c56ede822ab0417c5a2115b",
+          "devices": [
+            "Amcrest Camera",
+            "ArloQ Camera",
+            "Atomi Coffee Maker"
+          ],
+          "original_roles": [
+            "FIT"
+          ],
+          "normal": 74039,
+          "attack": 34636,
+          "scoring_heads": [
+            "G0_BASE_27",
+            "G0_BASE_127",
+            "G0_BASE_227"
+          ],
+          "parent_weights": "FIT class hierarchy is evaluated only in source training"
+        },
+        "CAL": {
+          "rows": 26349,
+          "indices_sha256": "6f202085fdd61e560eb5e942dba8d7ee0f5173a518fe3bd4c51149d7f90554ad",
+          "uid_sha256": "74e4e0be6d578733154c257cfb538ce14086ba52f45acd8ddf6c448fa6b9499c",
+          "devices": [
+            "Amcrest Camera",
+            "ArloQ Camera",
+            "Atomi Coffee Maker"
+          ],
+          "original_roles": [
+            "CAL"
+          ],
+          "normal": 17824,
+          "attack": 8525,
+          "scoring_heads": [
+            "G0_BASE_27",
+            "G0_BASE_127",
+            "G0_BASE_227"
+          ],
+          "parent_weights": "CAL original denominator"
+        },
+        "S": {
+          "rows": 509233,
+          "indices_sha256": "ae11086dab6f4b8b68a23e6a99740129cb8e9048492a560658e151c0d334cc85",
+          "uid_sha256": "fe67b837e5342bcabd3f5a666a11c05a90613b4b37c5394703a89beb7705b7c8",
+          "devices": [
+            "Globe Lamp",
+            "Philips Hue Bridge",
+            "SimCam"
+          ],
+          "original_roles": [
+            "FIT"
+          ],
+          "normal": 60454,
+          "attack": 448779,
+          "scoring_heads": [
+            "G0_BASE_27",
+            "G0_BASE_127",
+            "G0_BASE_227"
+          ],
+          "parent_weights": "opposite full HELD original denominator, subset without rebuilding"
+        }
+      },
+      "G1": {
+        "FIT": {
+          "rows": 509233,
+          "indices_sha256": "ae11086dab6f4b8b68a23e6a99740129cb8e9048492a560658e151c0d334cc85",
+          "uid_sha256": "fe67b837e5342bcabd3f5a666a11c05a90613b4b37c5394703a89beb7705b7c8",
+          "devices": [
+            "Globe Lamp",
+            "Philips Hue Bridge",
+            "SimCam"
+          ],
+          "original_roles": [
+            "FIT"
+          ],
+          "normal": 60454,
+          "attack": 448779,
+          "scoring_heads": [
+            "G1_BASE_27",
+            "G1_BASE_127",
+            "G1_BASE_227"
+          ],
+          "parent_weights": "FIT class hierarchy is evaluated only in source training"
+        },
+        "CAL": {
+          "rows": 122470,
+          "indices_sha256": "e6cd6235c1ddfb942d21b37f5ef0d12eb9b5c7b59d9cf3c75f5695d981b1bc9f",
+          "uid_sha256": "cf5085778c1f75119859092cf410fbb5f8e7023b72e1462d41fe6a0fc8bcf346",
+          "devices": [
+            "Globe Lamp",
+            "Philips Hue Bridge",
+            "SimCam"
+          ],
+          "original_roles": [
+            "CAL"
+          ],
+          "normal": 15323,
+          "attack": 107147,
+          "scoring_heads": [
+            "G1_BASE_27",
+            "G1_BASE_127",
+            "G1_BASE_227"
+          ],
+          "parent_weights": "CAL original denominator"
+        },
+        "S": {
+          "rows": 108675,
+          "indices_sha256": "26694a4c10284747415aeba59f8e28779d050a69a2c36423e6c8004f4e672981",
+          "uid_sha256": "2d985964259af13ec22d22047420acd47b8144744c56ede822ab0417c5a2115b",
+          "devices": [
+            "Amcrest Camera",
+            "ArloQ Camera",
+            "Atomi Coffee Maker"
+          ],
+          "original_roles": [
+            "FIT"
+          ],
+          "normal": 74039,
+          "attack": 34636,
+          "scoring_heads": [
+            "G1_BASE_27",
+            "G1_BASE_127",
+            "G1_BASE_227"
+          ],
+          "parent_weights": "opposite full HELD original denominator, subset without rebuilding"
+        }
+      }
+    }
+  },
+  "target_devices_in_source_roles": [],
+  "residuals": {
+    "CIC_DEV": {
+      "total_rows": 64,
+      "total_fpr_percent": 3.9934815308699214,
+      "devices": {
+        "Eufy Home Base": {
+          "rows": 1,
+          "contribution_pp": 0.00011595547309833023,
+          "reasons": [
+            {
+              "device": "Eufy Home Base",
+              "reason": "NO_REFERENCE_BANK",
+              "rows": 1,
+              "contribution_pp": 0.00011595547309833023
+            }
+          ],
+          "weighted_residual_share_percent": 0.0029036186145343468
+        },
+        "HeimVision Camera": {
+          "rows": 63,
+          "contribution_pp": 3.9933655753968225,
+          "reasons": [
+            {
+              "device": "HeimVision Camera",
+              "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+              "rows": 42,
+              "contribution_pp": 2.737268518518516
+            },
+            {
+              "device": "HeimVision Camera",
+              "reason": "POSITIVE_SUPPORT_INSUFFICIENT_REDUCTION",
+              "rows": 21,
+              "contribution_pp": 1.2560970568783068
+            }
+          ],
+          "weighted_residual_share_percent": 99.99709638138545
+        }
+      },
+      "target_rows": 63,
+      "target_weighted_residual_share_percent": 99.99709638138545,
+      "non_target_contribution_pp": 0.00011595547309833023
+    },
+    "UNSW_DEV": {
+      "total_rows": 14741,
+      "total_fpr_percent": 9.519653948711472,
+      "devices": {
+        "Netatmo Camera": {
+          "rows": 4309,
+          "contribution_pp": 0.20251145545619384,
+          "reasons": [
+            {
+              "device": "Netatmo Camera",
+              "reason": "ELIGIBLE_ZERO_SUPPORT:ELIGIBLE_ZERO_SUPPORT",
+              "rows": 2811,
+              "contribution_pp": 0.004421908264112356
+            },
+            {
+              "device": "Netatmo Camera",
+              "reason": "POSITIVE_SUPPORT_INSUFFICIENT_REDUCTION",
+              "rows": 1498,
+              "contribution_pp": 0.1980895471920815
+            }
+          ],
+          "weighted_residual_share_percent": 2.127298497899755
+        },
+        "Samsung Camera": {
+          "rows": 5001,
+          "contribution_pp": 1.9089479077727745,
+          "reasons": [
+            {
+              "device": "Samsung Camera",
+              "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+              "rows": 4961,
+              "contribution_pp": 1.7137099998476006
+            },
+            {
+              "device": "Samsung Camera",
+              "reason": "POSITIVE_SUPPORT_INSUFFICIENT_REDUCTION",
+              "rows": 40,
+              "contribution_pp": 0.19523790792517373
+            }
+          ],
+          "weighted_residual_share_percent": 20.052702735388394
+        },
+        "TP Link Plug": {
+          "rows": 225,
+          "contribution_pp": 1.8577512348260155,
+          "reasons": [
+            {
+              "device": "TP Link Plug",
+              "reason": "ELIGIBLE_ZERO_SUPPORT:ELIGIBLE_ZERO_SUPPORT",
+              "rows": 136,
+              "contribution_pp": 1.3739456419868774
+            },
+            {
+              "device": "TP Link Plug",
+              "reason": "POSITIVE_SUPPORT_INSUFFICIENT_REDUCTION",
+              "rows": 89,
+              "contribution_pp": 0.48380559283913804
+            }
+          ],
+          "weighted_residual_share_percent": 19.514903008396335
+        },
+        "WEMO Motion Sensor": {
+          "rows": 93,
+          "contribution_pp": 0.2375356841301117,
+          "reasons": [
+            {
+              "device": "WEMO Motion Sensor",
+              "reason": "POSITIVE_SUPPORT_INSUFFICIENT_REDUCTION",
+              "rows": 93,
+              "contribution_pp": 0.2375356841301117
+            }
+          ],
+          "weighted_residual_share_percent": 2.495213433280978
+        },
+        "WEMO Power Switch": {
+          "rows": 5113,
+          "contribution_pp": 5.312907666526376,
+          "reasons": [
+            {
+              "device": "WEMO Power Switch",
+              "reason": "ELIGIBLE_ZERO_SUPPORT:ELIGIBLE_ZERO_SUPPORT",
+              "rows": 3,
+              "contribution_pp": 0.016233766233766232
+            },
+            {
+              "device": "WEMO Power Switch",
+              "reason": "FEWER_THAN_TWO_LEGAL_COMPONENTS",
+              "rows": 5109,
+              "contribution_pp": 5.293427147045858
+            },
+            {
+              "device": "WEMO Power Switch",
+              "reason": "POSITIVE_SUPPORT_INSUFFICIENT_REDUCTION",
+              "rows": 1,
+              "contribution_pp": 0.003246753246753247
+            }
+          ],
+          "weighted_residual_share_percent": 55.80988232503454
+        }
+      },
+      "target_rows": 10339,
+      "target_weighted_residual_share_percent": 95.37748806881928,
+      "non_target_contribution_pp": 0.44004713958630554
+    }
+  },
+  "geometry": {
+    "version": "constrained-onboarding-geometry-v1",
+    "protocols": {
+      "6": {
+        "status": "READY",
+        "rows": 54042,
+        "devices": [
+          "ArloQ Camera",
+          "Philips Hue Bridge",
+          "SimCam"
+        ],
+        "eligible_uid_sha256": "2bbb6c714c990f2551d8d6a901633a85c221c9854284955a475eea1572072420",
+        "rho_z": 0.6350346595136246,
+        "rho_q": 0.3784318683067434,
+        "weight_sum": 1.0
+      },
+      "17": {
+        "status": "READY",
+        "rows": 65984,
+        "devices": [
+          "Amcrest Camera",
+          "ArloQ Camera",
+          "Philips Hue Bridge",
+          "SimCam"
+        ],
+        "eligible_uid_sha256": "5f1c4f1a2604e9e3b7bfaa2fc4bd8a9261070f48eb53d229085e89a4631d11a5",
+        "rho_z": 0.538951893262028,
+        "rho_q": 0.27275012216397504,
+        "weight_sum": 1.0
+      }
+    },
+    "fit_normal_uid_sha256": "d8d014a3d313c1b497e4e4e590462fb470263c14c25d66462b9fe132b5eae01e",
+    "quantile": 0.9,
+    "weight_rule": "class_weights within eligible protocol subset"
+  },
+  "cuts": {
+    "seeds": [
+      27,
+      127,
+      227
+    ],
+    "cuts": [
+      -23.066728591918945,
+      -19.736963272094727,
+      -20.966501235961914
+    ],
+    "ensemble_cut": -22.66365687052409,
+    "moved": false
+  },
+  "heimvision_metadata": {
+    "old": {
+      "total_file_rows": 75,
+      "by_protocol": {
+        "17": {
+          "rows": 10,
+          "components": [
+            "128c5bd1a822d83445c502f559c94da51a6780b32962457452c402cafdd2d392",
+            "168a9340cab3a86e5fe9f5cab4fbc6dd187d4dce2a0a4fae7a719d079f3d6adc",
+            "1f96c00c1c2b6f8e6ee30906541d23f7b1768f6e7ad556ecee3c2af2ceb980b5",
+            "2f53d949d4aa57c04b635e74e6984d984e00936685e0617db170324b7a150a5c",
+            "3762ad99ba23ed46f88f7ae8827b5de8ee845faa68b8fdd2b21a24ccc9067506",
+            "4aff5f6a39365fc7a3599ad0ea86e4e98a2da32612e61d6d4ba93edbfb039a63",
+            "69fa456bad71eeedd8b7523e71e7047322028d9f9fe86279f4d99a92160a69b5",
+            "84031f818e0ff05e670ab973256957dec604c6022a60b6493121e99a0265462c",
+            "b6d4162984d922b4e27e4223ad5a20f51a9629c27245575cb3bfa980502c8305",
+            "ebc939ebbde1c9161599b3b6ecf007ab06073f70be35ce969b88a17fc94c1e5b"
+          ],
+          "captures": [
+            "interaction-attack-189",
+            "interaction-attack-190",
+            "interaction-attack-191"
+          ],
+          "end": [
+            1633540171.541785
+          ]
+        },
+        "6": {
+          "rows": 1,
+          "components": [
+            "129349ece96046be25d24bbe75fe78b507eb6e7273fe7bc6c61d8e1ed08c7233"
+          ],
+          "captures": [
+            "interaction-attack-190"
+          ],
+          "end": [
+            1633540171.541785
+          ]
+        }
+      }
+    },
+    "dense": {
+      "total_file_rows": 8574,
+      "by_protocol": {
+        "6": {
+          "rows": 2521,
+          "components": [
+            "c0c4491249d731ecdc537bb0dbb8e9af11223d9ea6308080be3719f7ba6902a3"
+          ],
+          "captures": [
+            "active-00"
+          ],
+          "end": [
+            1635858900.06933
+          ]
+        },
+        "17": {
+          "rows": 2329,
+          "components": [
+            "b934008ff7f1ef15586489e00198f095058f673ae16501e5d8c332f5394c8600",
+            "bf5dfa057cfff0106316e9513a3e338e0baf03cdfc650b371d2b8721eb6d03df"
+          ],
+          "captures": [
+            "active-00"
+          ],
+          "end": [
+            1635858900.06933
+          ]
+        }
+      }
+    }
+  },
+  "heimvision_raw_files": [
+    {
+      "file_id": 183,
+      "capture_id": "interaction-attack-183",
+      "local_raw_candidates": [
+        {
+          "path": "runs/legacy_reference_material_audit_v1_20260916/raw_selected/183.pcap",
+          "bytes": 16478,
+          "sha256": "08902430d83372ec9ceb6a3d0914d668ee702c65982ec232cb0033fa5acd619d",
+          "matches_old_member_SHA": true
+        }
+      ],
+      "activity": "LAN_PHOTO",
+      "utc_first": "2021-10-12T13:53:56.170522+00:00",
+      "utc_last": "2021-10-12T13:54:10.530997+00:00",
+      "is_old_REFERENCE_capture": false,
+      "other_historical_role": "Not reassigned; requires role audit before new reference use"
+    },
+    {
+      "file_id": 184,
+      "capture_id": "interaction-attack-184",
+      "local_raw_candidates": [
+        {
+          "path": "runs/legacy_reference_material_audit_v1_20260916/raw_selected/184.pcap",
+          "bytes": 15254,
+          "sha256": "9df64154c1f3c835cfcc013d12d4dbaf18fc7bf8805f312bec2795817bb4714f",
+          "matches_old_member_SHA": true
+        }
+      ],
+      "activity": "LAN_PHOTO",
+      "utc_first": "2021-10-12T13:55:13.484400+00:00",
+      "utc_last": "2021-10-12T13:55:28.678662+00:00",
+      "is_old_REFERENCE_capture": false,
+      "other_historical_role": "Not reassigned; requires role audit before new reference use"
+    },
+    {
+      "file_id": 185,
+      "capture_id": "interaction-attack-185",
+      "local_raw_candidates": [
+        {
+          "path": "runs/legacy_reference_material_audit_v1_20260916/raw_selected/185.pcap",
+          "bytes": 2784,
+          "sha256": "9fc4ffec49e9dd49cd744bc86e06dff64557cd04ffb384fd2379e31cfe38db6b",
+          "matches_old_member_SHA": true
+        }
+      ],
+      "activity": "LAN_PHOTO",
+      "utc_first": "2021-10-12T13:54:37.890522+00:00",
+      "utc_last": "2021-10-12T13:54:52.244531+00:00",
+      "is_old_REFERENCE_capture": false,
+      "other_historical_role": "Not reassigned; requires role audit before new reference use"
+    },
+    {
+      "file_id": 186,
+      "capture_id": "interaction-attack-186",
+      "local_raw_candidates": [
+        {
+          "path": "runs/legacy_reference_material_audit_v1_20260916/raw_selected/186.pcap",
+          "bytes": 34410,
+          "sha256": "88434306a4bc2bbb8708724f78b03cec9c8d17ce1569e89f386d2afcbaa3180b",
+          "matches_old_member_SHA": true
+        }
+      ],
+      "activity": "LAN_RECORDING",
+      "utc_first": "2021-10-12T14:03:19.453700+00:00",
+      "utc_last": "2021-10-12T14:04:01.310525+00:00",
+      "is_old_REFERENCE_capture": false,
+      "other_historical_role": "Not reassigned; requires role audit before new reference use"
+    },
+    {
+      "file_id": 187,
+      "capture_id": "interaction-attack-187",
+      "local_raw_candidates": [
+        {
+          "path": "runs/legacy_reference_material_audit_v1_20260916/raw_selected/187.pcap",
+          "bytes": 19073,
+          "sha256": "2a3a26b7036f4ccb7cecadd25b3233c28b91ae019958cc89cc0b4515641e63b2",
+          "matches_old_member_SHA": true
+        }
+      ],
+      "activity": "LAN_RECORDING",
+      "utc_first": "2021-10-12T14:01:37.789550+00:00",
+      "utc_last": "2021-10-12T14:02:19.535959+00:00",
+      "is_old_REFERENCE_capture": false,
+      "other_historical_role": "Not reassigned; requires role audit before new reference use"
+    },
+    {
+      "file_id": 188,
+      "capture_id": "interaction-attack-188",
+      "local_raw_candidates": [
+        {
+          "path": "runs/legacy_reference_material_audit_v1_20260916/raw_selected/188.pcap",
+          "bytes": 33300,
+          "sha256": "b3fe9bb3fd1fc64b8fb5272fbb9f79a5d729d72b3f359d88c5b8b840f676baf2",
+          "matches_old_member_SHA": true
+        }
+      ],
+      "activity": "LAN_RECORDING",
+      "utc_first": "2021-10-12T14:06:55.374523+00:00",
+      "utc_last": "2021-10-12T14:07:37.934081+00:00",
+      "is_old_REFERENCE_capture": false,
+      "other_historical_role": "Not reassigned; requires role audit before new reference use"
+    },
+    {
+      "file_id": 189,
+      "capture_id": "interaction-attack-189",
+      "local_raw_candidates": [
+        {
+          "path": "runs/legacy_reference_material_audit_v1_20260916/raw_selected/189.pcap",
+          "bytes": 43027,
+          "sha256": "ae762e6333698ae94adfb652b37d21eea12d04ebdd1d5a92ac18ab68a6f0f23d",
+          "matches_old_member_SHA": true
+        }
+      ],
+      "activity": "LAN_WATCH",
+      "utc_first": "2021-10-06T17:05:00.741864+00:00",
+      "utc_last": "2021-10-06T17:05:27.760204+00:00",
+      "is_old_REFERENCE_capture": true,
+      "other_historical_role": null
+    },
+    {
+      "file_id": 190,
+      "capture_id": "interaction-attack-190",
+      "local_raw_candidates": [
+        {
+          "path": "runs/legacy_reference_material_audit_v1_20260916/raw_selected/190.pcap",
+          "bytes": 41596,
+          "sha256": "ba5b3c67ebeb2d38737046d3a64a70113ad52252afe25248ed30f0e52da7adf6",
+          "matches_old_member_SHA": true
+        }
+      ],
+      "activity": "LAN_WATCH",
+      "utc_first": "2021-10-06T17:09:02.843962+00:00",
+      "utc_last": "2021-10-06T17:09:31.541785+00:00",
+      "is_old_REFERENCE_capture": true,
+      "other_historical_role": null
+    },
+    {
+      "file_id": 191,
+      "capture_id": "interaction-attack-191",
+      "local_raw_candidates": [
+        {
+          "path": "runs/legacy_reference_material_audit_v1_20260916/raw_selected/191.pcap",
+          "bytes": 28043,
+          "sha256": "0a0332a5f5f6a5b0381faa33abfa95e0af19aed77f08858d464bdcacd63787f2",
+          "matches_old_member_SHA": true
+        }
+      ],
+      "activity": "LAN_WATCH",
+      "utc_first": "2021-10-06T17:07:26.392050+00:00",
+      "utc_last": "2021-10-06T17:07:56.228605+00:00",
+      "is_old_REFERENCE_capture": true,
+      "other_historical_role": null
+    },
+    {
+      "file_id": 192,
+      "capture_id": "interaction-attack-192",
+      "local_raw_candidates": [
+        {
+          "path": "runs/legacy_reference_material_audit_v1_20260916/raw_selected/192.pcap",
+          "bytes": 45460,
+          "sha256": "e5475e017de873e8c5093a83bd016e7e4b1065cee6ea3bf00281e30b089636a7",
+          "matches_old_member_SHA": true
+        }
+      ],
+      "activity": "WAN_PHOTO",
+      "utc_first": "2021-10-12T13:52:28.850539+00:00",
+      "utc_last": "2021-10-12T13:52:44.562532+00:00",
+      "is_old_REFERENCE_capture": false,
+      "other_historical_role": "Not reassigned; requires role audit before new reference use"
+    },
+    {
+      "file_id": 193,
+      "capture_id": "interaction-attack-193",
+      "local_raw_candidates": [
+        {
+          "path": "runs/legacy_reference_material_audit_v1_20260916/raw_selected/193.pcap",
+          "bytes": 81660,
+          "sha256": "54032608218c56dd72fd91b43d5cbe76c21e2a7c595fc60988cb2dd625582ba7",
+          "matches_old_member_SHA": true
+        }
+      ],
+      "activity": "WAN_PHOTO",
+      "utc_first": "2021-10-12T13:53:07.209795+00:00",
+      "utc_last": "2021-10-12T13:53:23.322048+00:00",
+      "is_old_REFERENCE_capture": false,
+      "other_historical_role": "Not reassigned; requires role audit before new reference use"
+    }
+  ],
+  "input_sha256_before_after_unchanged": {
+    "runs/mainline_docs/collab/20261031_well_history_normal_reference_execution_plan_for_codex.md": "ad1f9043f0a5e0181af19b0881e6866a8d4deb3c9773beae90bb34171189e899",
+    "runs/dense_reference_ab_stage_candidate_v1_20261028/config/MATRIX_CANDIDATE_HPC.json": "3c7d04a6a32b2a033b62bdfefc93172809eb6a7e6375b7fd7be7828a27ad1199",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV.jsonl.gz": "666c2e2dc648ab539b8e2bb5e1b1fb8fee8cd3bf92223a72d6631fc4c851f64f",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV.jsonl.gz": "d334f18c3a2857fe8b63f491fd78ba3dc984bbd0fa7a55a4f030d9e797098503",
+    "runs/reference_attack_competition_v1_20261029/validation/READONLY_ASSET_ACCEPTANCE.json": "31dce52d70916fae860b840171184a0544720897bc04a25a9bbdd111c7bf256b",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN.jsonl.gz": "295a714ab573baf50086464d0c5e97ddfa9ca9e065a06cf282037df75541ae91",
+    "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/result_retrieval_179700_20261028/RESIDUAL_FP_DECOMPOSITION.json": "247e3aa578f2ed0f6fe05eed37387f4f93094f3f4a63c3bb247e474b31887ea2",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/geometry.json": "080c069fa41f6eb7fbcea2e890873be462f8471b8ff2a039a8a30935674ca124",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/cuts.json": "d4c391302d2d32c5d8813a45612b6f4203468e4b52bbd58233cbd6f274c84bbd",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.jsonl.gz": "997e1c4ab68781fba3787969a37938ef0a36d899559543e243aabeeda1953fb3",
+    "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/CIC_DEV/SELECTED_REFERENCES.jsonl.gz": "376b8d83da5f15acc1dd2c3eaa3c9b6919fae5cf2278e73c54a0409ef9af4f64",
+    "runs/targeted_normal_data_research_v1_20261030/A_LOCAL_REFERENCE_RESEARCH.json": "4a0d2a37787702d10de9b62abdcc6cb8a32bf26144645659c1af3950cb6618b5",
+    "repo/ood/constrained_onboarding_core_v3.py": "42a32e0b829a373a96046d34d16bcb53455f99f1bc0786a8a49be38bc855f72c",
+    "repo/ood/constrained_onboarding_reference_v2.py": "208d89521c95bebb6d82745b2642aea8e01d97cf82dc80647f5ebf224a34a64c",
+    "repo/ood/issue27ckda_d1_e3_embed_v1.py": "360cbaa72f818e6fc423b16f3b4989333bfba002a1423085ff15b2cb1569de14",
+    "repo/ood/legacy_reference_sample_prepare_v1.py": "b2487b3179a3f0905eedafca3821b2b8c9b56f39076c38a0932b8de08add917d",
+    "runs/reference_attack_competition_v1_20261029/rac/assets.py": "3efc10f75730ef3152fec1c14d3b547615826ba75aa515d626a8513d3cb09b62",
+    "runs/dense_reference_ab_stage_candidate_v1_20261028/src/metrics.py": "8a82d2c10f209467c3da1f48ed6041e5ea68094a75193109a56b7b471144ac65",
+    "runs/ab_reachable_bounds_readonly_v1_20261028/RESULT_REVIEW.md": "bdb99f2947f11821ff82013b2d0d5b67da1fe92aa70bfdbfbc6941ac5c3bafec"
+  }
+}

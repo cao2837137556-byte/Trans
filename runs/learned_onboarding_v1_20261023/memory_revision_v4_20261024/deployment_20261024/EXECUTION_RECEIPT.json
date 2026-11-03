@@ -1,0 +1,63 @@
+{
+  "adapter_validation": {
+    "adapter_sha256": "64485ca3a5c722158f6f9471889f6dbab185e402396bf4fbfc19ca44d368a897",
+    "elapsed_seconds": 0.10362285500741564,
+    "real_target_queries_read": 0,
+    "schema": "learned-onboarding-target-adapter-validation-v1",
+    "status": "PASS",
+    "tests": [
+      "source-seal-gate",
+      "tampered-cal-seal-rejected",
+      "pinned-query-interchange",
+      "historical-parent-slot-replay"
+    ],
+    "tests_run": 4,
+    "unittest_count_is_separate": true
+  },
+  "authorization": "\u53ef\u4ee5\u52a8\u624b\u8fd0\u884c\u3002",
+  "automatic_retry": false,
+  "calibration_completed": false,
+  "checked_at": "2026-10-24T11:11:12.222748+00:00",
+  "completed_stages": [
+    "tests",
+    "prepare",
+    "validate",
+    "preflight"
+  ],
+  "current_memory_bytes": 464953344,
+  "estimated_peak_rss": 7700771456,
+  "evidence": "operations/STARTUP_ACCEPTANCE_SNAPSHOT.json",
+  "fit_completed": false,
+  "full_chain_authorized": true,
+  "full_scale_memory_validation": {
+    "measured_peak_rss": 6269091840,
+    "receipt_sha256": "e91a49c04ecee2685face9bbf85d1d0ce93e234a216da6d51a87748c043bf6ec",
+    "status": "VERIFIED"
+  },
+  "future_phase_results": "UNKNOWN_NOT_POLLED",
+  "invocation_id": "226cc64bb84747518f72afe05abe1969",
+  "peak_process_tree_rss": 4957700096,
+  "preflight_status": "READY",
+  "prior_attempts_preserved": true,
+  "progress_url": "http://127.0.0.1:18765/",
+  "recorded_at": "2026-10-24T11:11:13.888812+00:00",
+  "remote_root": "/srv/paper04/learned_onboarding_20261024_v4",
+  "remote_unittests": {
+    "elapsed_seconds": 8.364282687020022,
+    "errors": 0,
+    "expected_failures": 0,
+    "failures": 0,
+    "schema": "learned-onboarding-deployment-tests-v1",
+    "skipped": 0,
+    "status": "PASS",
+    "tests_run": 63,
+    "unexpected_successes": 0
+  },
+  "schema": "learned-onboarding-independent-v4-execution-receipt-v1",
+  "scientific_results": "PENDING",
+  "stage": "fit",
+  "started_at": "2026-10-24T11:08:45.292679+00:00",
+  "status": "STARTUP_ACCEPTED_PREFLIGHT_READY_FULL_CHAIN_RUNNING",
+  "target_evaluation_completed": false,
+  "unit": "paper04-learned-onboarding-20261024-v4"
+}

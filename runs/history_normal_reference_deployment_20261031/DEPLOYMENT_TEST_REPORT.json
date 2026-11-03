@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "conflicting destination prevents every installation",
+    "identical remote destination reused without incoming duplicate",
+    "verify-only creates no output; first installation and equal-file reuse pass",
+    "dict-valued normalizer SHA remains in scientific semantics",
+    "successful fake sbatch returns job identity and second submission blocked",
+    "timeout keeps durable lock and UNKNOWN receipt; second submission blocked",
+    "changed preflight seals block before lock or sbatch",
+    "existing scientific latch blocks sbatch",
+    "existing submit lock blocks sbatch without receipt",
+    "expanded resource authorization rejected"
+  ],
+  "original_package_seal_unchanged": true,
+  "remote_operations": 0,
+  "scientific_data_decodes": 0,
+  "status": "PASS",
+  "submission_guard_tests_passed": 6,
+  "tests": 10,
+  "tests_failed": 0,
+  "tests_passed": 10
+}

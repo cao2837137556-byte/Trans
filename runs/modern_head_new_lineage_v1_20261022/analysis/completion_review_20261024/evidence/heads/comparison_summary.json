@@ -1,0 +1,481 @@
+{
+  "pools": {
+    "CAL": {
+      "MLP_QUERY_BCE": {
+        "ensemble": {
+          "normal": {
+            "rows": 33147,
+            "positive": 189,
+            "rate": 0.005701873472712463,
+            "weighted_rate": 0.016333499570169253
+          },
+          "attack": {
+            "rows": 115672,
+            "positive": 115672,
+            "rate": 1.0,
+            "weighted_rate": 1.0
+          }
+        },
+        "seed_ranges": {
+          "normal": {
+            "min": 0.015901106718412134,
+            "max": 0.016460458996189215,
+            "range": 0.0005593522777770817
+          },
+          "attack": {
+            "min": 1.0,
+            "max": 1.0,
+            "range": 0.0
+          }
+        },
+        "worst_device_fpr": {
+          "value": 0.044369761293799444,
+          "device": "SimCam"
+        },
+        "worst_device_recall": {
+          "value": 1.0,
+          "device": "Amcrest Camera"
+        }
+      },
+      "TabM": {
+        "ensemble": {
+          "normal": {
+            "rows": 33147,
+            "positive": 140,
+            "rate": 0.004223609979787009,
+            "weighted_rate": 0.01647859451509131
+          },
+          "attack": {
+            "rows": 115672,
+            "positive": 115672,
+            "rate": 1.0,
+            "weighted_rate": 1.0
+          }
+        },
+        "seed_ranges": {
+          "normal": {
+            "min": 0.015066454988938726,
+            "max": 0.016482227614455825,
+            "range": 0.001415772625517099
+          },
+          "attack": {
+            "min": 1.0,
+            "max": 1.0,
+            "range": 0.0
+          }
+        },
+        "worst_device_fpr": {
+          "value": 0.04452166937131249,
+          "device": "SimCam"
+        },
+        "worst_device_recall": {
+          "value": 1.0,
+          "device": "Amcrest Camera"
+        }
+      },
+      "LightGBM": {
+        "ensemble": {
+          "normal": {
+            "rows": 33147,
+            "positive": 42,
+            "rate": 0.0012670829939361028,
+            "weighted_rate": 0.015260260343157679
+          },
+          "attack": {
+            "rows": 115672,
+            "positive": 115672,
+            "rate": 1.0,
+            "weighted_rate": 1.0
+          }
+        },
+        "seed_ranges": {
+          "normal": {
+            "min": 0.015257395507468866,
+            "max": 0.016881698819637147,
+            "range": 0.0016243033121682814
+          },
+          "attack": {
+            "min": 1.0,
+            "max": 1.0,
+            "range": 0.0
+          }
+        },
+        "worst_device_fpr": {
+          "value": 0.04409371027287368,
+          "device": "SimCam"
+        },
+        "worst_device_recall": {
+          "value": 1.0,
+          "device": "Amcrest Camera"
+        }
+      }
+    },
+    "CIC_DEV": {
+      "MLP_QUERY_BCE": {
+        "ensemble": {
+          "normal": {
+            "rows": 100830,
+            "positive": 361,
+            "rate": 0.003580283645740355,
+            "weighted_rate": 0.057426562835634014
+          },
+          "attack": {
+            "rows": 79056,
+            "positive": 79056,
+            "rate": 1.0,
+            "weighted_rate": 1.0
+          }
+        },
+        "seed_ranges": {
+          "normal": {
+            "min": 0.04697182599743364,
+            "max": 0.06838334042959539,
+            "range": 0.02141151443216175
+          },
+          "attack": {
+            "min": 0.9998321584424303,
+            "max": 0.9999971492428389,
+            "range": 0.00016499080040854874
+          }
+        },
+        "worst_device_fpr": {
+          "value": 0.07845011895576132,
+          "device": "HeimVision Camera"
+        },
+        "worst_device_recall": {
+          "value": 1.0,
+          "device": "Eufy Home Base"
+        }
+      },
+      "TabM": {
+        "ensemble": {
+          "normal": {
+            "rows": 100830,
+            "positive": 402,
+            "rate": 0.003986908658137459,
+            "weighted_rate": 0.061451911923917135
+          },
+          "attack": {
+            "rows": 79056,
+            "positive": 79024,
+            "rate": 0.9995952236389395,
+            "weighted_rate": 0.9999360572899576
+          }
+        },
+        "seed_ranges": {
+          "normal": {
+            "min": 0.05418627295254899,
+            "max": 0.0614732288489729,
+            "range": 0.007286955896423905
+          },
+          "attack": {
+            "min": 0.9998974682346277,
+            "max": 0.999932893694088,
+            "range": 3.5425459460336484e-05
+          }
+        },
+        "worst_device_fpr": {
+          "value": 0.08325562482463524,
+          "device": "HeimVision Camera"
+        },
+        "worst_device_recall": {
+          "value": 0.9998721145799152,
+          "device": "HeimVision Camera"
+        }
+      },
+      "LightGBM": {
+        "ensemble": {
+          "normal": {
+            "rows": 100830,
+            "positive": 580,
+            "rate": 0.005752256272934643,
+            "weighted_rate": 0.08326160570580214
+          },
+          "attack": {
+            "rows": 79056,
+            "positive": 79034,
+            "rate": 0.9997217162517709,
+            "weighted_rate": 0.9996059009059751
+          }
+        },
+        "seed_ranges": {
+          "normal": {
+            "min": 0.08178554029744506,
+            "max": 0.101165554039903,
+            "range": 0.019380013742457944
+          },
+          "attack": {
+            "min": 0.9994140449432785,
+            "max": 0.9996225489832936,
+            "range": 0.0002085040400151561
+          }
+        },
+        "worst_device_fpr": {
+          "value": 0.1014520202020202,
+          "device": "HeimVision Camera"
+        },
+        "worst_device_recall": {
+          "value": 0.9992118018119502,
+          "device": "HeimVision Camera"
+        }
+      }
+    },
+    "UNSW_DEV": {
+      "MLP_QUERY_BCE": {
+        "ensemble": {
+          "normal": {
+            "rows": 75763,
+            "positive": 35767,
+            "rate": 0.4720905983131608,
+            "weighted_rate": 0.23751410638835024
+          },
+          "attack": {
+            "rows": 72553,
+            "positive": 72540,
+            "rate": 0.999820820641462,
+            "weighted_rate": 0.9998625156460849
+          }
+        },
+        "seed_ranges": {
+          "normal": {
+            "min": 0.2192043091524071,
+            "max": 0.25015806478779784,
+            "range": 0.03095375563539074
+          },
+          "attack": {
+            "min": 0.9989030062540981,
+            "max": 0.9998593744094165,
+            "range": 0.00095636815531841
+          }
+        },
+        "worst_device_fpr": {
+          "value": 0.3481181311931833,
+          "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11"
+        },
+        "worst_device_recall": {
+          "value": 0.9994966408723566,
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88"
+        }
+      },
+      "TabM": {
+        "ensemble": {
+          "normal": {
+            "rows": 75763,
+            "positive": 32284,
+            "rate": 0.426118289930441,
+            "weighted_rate": 0.19961972908258238
+          },
+          "attack": {
+            "rows": 72553,
+            "positive": 72553,
+            "rate": 1.0,
+            "weighted_rate": 1.0
+          }
+        },
+        "seed_ranges": {
+          "normal": {
+            "min": 0.19137229616819276,
+            "max": 0.20184551114843463,
+            "range": 0.010473214980241868
+          },
+          "attack": {
+            "min": 1.0,
+            "max": 1.0,
+            "range": 0.0
+          }
+        },
+        "worst_device_fpr": {
+          "value": 0.35067470400311834,
+          "device": "unsw-attack-traces-2018:70:ee:50:18:34:43"
+        },
+        "worst_device_recall": {
+          "value": 1.0,
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88"
+        }
+      },
+      "LightGBM": {
+        "ensemble": {
+          "normal": {
+            "rows": 75763,
+            "positive": 43188,
+            "rate": 0.5700407850797883,
+            "weighted_rate": 0.24767877730493587
+          },
+          "attack": {
+            "rows": 72553,
+            "positive": 72506,
+            "rate": 0.9993521977037476,
+            "weighted_rate": 0.9994254627221939
+          }
+        },
+        "seed_ranges": {
+          "normal": {
+            "min": 0.22702353025920677,
+            "max": 0.2731249409026057,
+            "range": 0.04610141064339893
+          },
+          "attack": {
+            "min": 0.9987008478112114,
+            "max": 0.9995955615720395,
+            "range": 0.0008947137608281697
+          }
+        },
+        "worst_device_fpr": {
+          "value": 0.5209058180004734,
+          "device": "unsw-attack-traces-2018:70:ee:50:18:34:43"
+        },
+        "worst_device_recall": {
+          "value": 0.9983769074029425,
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88"
+        }
+      }
+    }
+  },
+  "prediction_cost": {
+    "CAL_MLP_QUERY_BCE_27": {
+      "rows": 148819,
+      "seconds": 0.4389460020029219
+    },
+    "CAL_MLP_QUERY_BCE_127": {
+      "rows": 148819,
+      "seconds": 0.42495535500347614
+    },
+    "CAL_MLP_QUERY_BCE_227": {
+      "rows": 148819,
+      "seconds": 0.42550720198778436
+    },
+    "CAL_TabM_27": {
+      "rows": 148819,
+      "seconds": 41.15074116700271
+    },
+    "CAL_TabM_127": {
+      "rows": 148819,
+      "seconds": 41.290296795996255
+    },
+    "CAL_TabM_227": {
+      "rows": 148819,
+      "seconds": 41.26059285500378
+    },
+    "CAL_LightGBM_27": {
+      "rows": 148819,
+      "seconds": 2.6135059249936603
+    },
+    "CAL_LightGBM_127": {
+      "rows": 148819,
+      "seconds": 1.414210914997966
+    },
+    "CAL_LightGBM_227": {
+      "rows": 148819,
+      "seconds": 1.3870270259940298
+    },
+    "CIC_DEV_MLP_QUERY_BCE_27": {
+      "rows": 179886,
+      "seconds": 0.5173042960086605
+    },
+    "CIC_DEV_MLP_QUERY_BCE_127": {
+      "rows": 179886,
+      "seconds": 0.5092643370007863
+    },
+    "CIC_DEV_MLP_QUERY_BCE_227": {
+      "rows": 179886,
+      "seconds": 0.5180425669968827
+    },
+    "CIC_DEV_TabM_27": {
+      "rows": 179886,
+      "seconds": 49.61302321900439
+    },
+    "CIC_DEV_TabM_127": {
+      "rows": 179886,
+      "seconds": 49.46049998399394
+    },
+    "CIC_DEV_TabM_227": {
+      "rows": 179886,
+      "seconds": 49.730897685993114
+    },
+    "CIC_DEV_LightGBM_27": {
+      "rows": 179886,
+      "seconds": 1.5081993170024361
+    },
+    "CIC_DEV_LightGBM_127": {
+      "rows": 179886,
+      "seconds": 1.47715724799491
+    },
+    "CIC_DEV_LightGBM_227": {
+      "rows": 179886,
+      "seconds": 1.51052759301092
+    },
+    "UNSW_DEV_MLP_QUERY_BCE_27": {
+      "rows": 148316,
+      "seconds": 0.4377137340052286
+    },
+    "UNSW_DEV_MLP_QUERY_BCE_127": {
+      "rows": 148316,
+      "seconds": 0.42762078100349754
+    },
+    "UNSW_DEV_MLP_QUERY_BCE_227": {
+      "rows": 148316,
+      "seconds": 0.4313001199916471
+    },
+    "UNSW_DEV_TabM_27": {
+      "rows": 148316,
+      "seconds": 40.757170299999416
+    },
+    "UNSW_DEV_TabM_127": {
+      "rows": 148316,
+      "seconds": 40.77718719599943
+    },
+    "UNSW_DEV_TabM_227": {
+      "rows": 148316,
+      "seconds": 40.870230394997634
+    },
+    "UNSW_DEV_LightGBM_27": {
+      "rows": 148316,
+      "seconds": 1.5753135639970424
+    },
+    "UNSW_DEV_LightGBM_127": {
+      "rows": 148316,
+      "seconds": 1.6174370209919289
+    },
+    "UNSW_DEV_LightGBM_227": {
+      "rows": 148316,
+      "seconds": 1.5830821489944356
+    },
+    "FIT_MLP_QUERY_BCE_27": {
+      "rows": 617908,
+      "seconds": 1.7322218070039526
+    },
+    "FIT_MLP_QUERY_BCE_127": {
+      "rows": 617908,
+      "seconds": 1.7241147700115107
+    },
+    "FIT_MLP_QUERY_BCE_227": {
+      "rows": 617908,
+      "seconds": 1.6716781220020493
+    },
+    "FIT_TabM_27": {
+      "rows": 617908,
+      "seconds": 168.839186925994
+    },
+    "FIT_TabM_127": {
+      "rows": 617908,
+      "seconds": 169.4119623669976
+    },
+    "FIT_TabM_227": {
+      "rows": 617908,
+      "seconds": 169.579871007998
+    },
+    "FIT_LightGBM_27": {
+      "rows": 617908,
+      "seconds": 5.6934219599934295
+    },
+    "FIT_LightGBM_127": {
+      "rows": 617908,
+      "seconds": 5.637597178996657
+    },
+    "FIT_LightGBM_227": {
+      "rows": 617908,
+      "seconds": 5.635381828993559
+    }
+  },
+  "no_automatic_winner": true
+}

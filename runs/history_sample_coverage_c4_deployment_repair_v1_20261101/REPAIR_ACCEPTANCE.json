@@ -1,0 +1,31 @@
+{
+  "status": "PASS_REPAIR_AND_SUBMISSION",
+  "job_id": "180526",
+  "scheduler_observed": "RUNNING|node185|1:00",
+  "worker_phase_observed": "ENDPOINT_CENSUS",
+  "repair": {
+    "status": "CONFIG_ORDER_REPAIRED",
+    "before_sha256": "0bdec451c49369717e374c695211f685b2ed00412a368398eda111feb438dd64",
+    "after_sha256": "e4ba88e5681b6dfe30cad680f83129a18c5376779c68efbbdd3899961b53fb9e",
+    "identical_json_values": true,
+    "model_forwards": 0,
+    "new_distances": 0,
+    "previous_submissions": 0
+  },
+  "tests_passed": 23,
+  "scientific_code_changed": false,
+  "new_data_uploaded_bytes": 0,
+  "original_failure_preserved": true,
+  "automatic_progress_url": "http://127.0.0.1:18789/",
+  "scientific_result_available": false,
+  "continuous_agent_monitoring": false,
+  "files": {
+    "REPAIR_MANIFEST.json": "fa68cf850757c004a6ce8719467094a8ba4ddddb774abc58aa05107d5c0cde50",
+    "PREFLIGHT_RECEIPT.json": "12ca8e02ab2d73467e61654291e69758489591d0f437b9e6ba4284f312799552",
+    "SUBMIT_RECEIPT.json": "b26647884b2e0b1c5115f9fa81fc35411be4c4fc5095d64d301f0d0fff2813de",
+    "build_repair.py": "0b9a95a6ffaa170db7f00b48bb0f5d4e7a702c5ba4ba48da33d8b3729f14b9bc",
+    "receiver.py": "96a14f23a021d8bc07d06d3a4b5babb4a953bedada9ed33b5d3fb20f039150ae",
+    "client.py": "776884163b7e6a084eb339efb9b938c702c880664beda9f9265a7284423d8096",
+    "pipeline.py": "99e54569829ca299bc7f8b89eb8f5a67e00299aa91bec404156f6859d9e22cad"
+  }
+}

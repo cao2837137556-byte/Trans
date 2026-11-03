@@ -1,0 +1,672 @@
+{
+  "saved_decision_read_only": true,
+  "new_distances": 0,
+  "new_model_forwards": 0,
+  "new_attack_misses_vs_C2": 33,
+  "missed_groups": {
+    "device": {
+      "HeimVision Camera": 33
+    },
+    "activity": {
+      "TCP": 33
+    },
+    "annotation_id": {
+      "None": 33
+    },
+    "capture_id": {
+      "interaction-attack-195": 23,
+      "interaction-attack-196": 6,
+      "interaction-attack-197": 4
+    },
+    "protocol": {
+      "6": 33
+    },
+    "tcp_flags": {
+      "16": 33
+    }
+  },
+  "head_view_audit": [
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "27",
+      "protection": "PASS",
+      "FPR_percent": 6.324397535335036,
+      "recall_percent": 99.99516981773675,
+      "FP": 378,
+      "FN": 13,
+      "new_misses_vs_C2": 13,
+      "new_misses_vs_RAW": 13,
+      "normal_repaired": 44,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.009660364526492935,
+        "attack_type": 0.011592437431791522,
+        "annotation": 0.004830182263246468
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "127",
+      "protection": "PASS",
+      "FPR_percent": 3.3602036466619802,
+      "recall_percent": 99.95037167442158,
+      "FP": 180,
+      "FN": 60,
+      "new_misses_vs_C2": 44,
+      "new_misses_vs_RAW": 48,
+      "normal_repaired": 21,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.060556976752920745,
+        "attack_type": 0.0726683721035049,
+        "annotation": 0.030278488376460373
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "227",
+      "protection": "PASS",
+      "FPR_percent": 4.056330116160845,
+      "recall_percent": 99.98508028879995,
+      "FP": 234,
+      "FN": 50,
+      "new_misses_vs_C2": 47,
+      "new_misses_vs_RAW": 48,
+      "normal_repaired": 48,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.028699119535651088,
+        "attack_type": 0.034438943442781304,
+        "annotation": 0.014349559767825544
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "ensemble",
+      "protection": "PASS",
+      "FPR_percent": 5.171387320792083,
+      "recall_percent": 99.9897806803685,
+      "FP": 327,
+      "FN": 33,
+      "new_misses_vs_C2": 33,
+      "new_misses_vs_RAW": 33,
+      "normal_repaired": 39,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.020438639262989007,
+        "attack_type": 0.024526367115586804,
+        "annotation": 0.010219319631494504
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "post_window_primary",
+      "head": "27",
+      "protection": "PASS",
+      "FPR_percent": 0.7175925925925926,
+      "recall_percent": 99.99516981773675,
+      "FP": 12,
+      "FN": 13,
+      "new_misses_vs_C2": 13,
+      "new_misses_vs_RAW": 13,
+      "normal_repaired": 44,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.009660364526492935,
+        "attack_type": 0.011592437431791522,
+        "annotation": 0.004830182263246468
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "post_window_primary",
+      "head": "127",
+      "protection": "PASS",
+      "FPR_percent": 0.3993055555555555,
+      "recall_percent": 99.95037167442158,
+      "FP": 7,
+      "FN": 60,
+      "new_misses_vs_C2": 44,
+      "new_misses_vs_RAW": 48,
+      "normal_repaired": 21,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.060556976752920745,
+        "attack_type": 0.0726683721035049,
+        "annotation": 0.030278488376460373
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "post_window_primary",
+      "head": "227",
+      "protection": "PASS",
+      "FPR_percent": 0.722021179052429,
+      "recall_percent": 99.98508028879995,
+      "FP": 20,
+      "FN": 50,
+      "new_misses_vs_C2": 47,
+      "new_misses_vs_RAW": 48,
+      "normal_repaired": 48,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.028699119535651088,
+        "attack_type": 0.034438943442781304,
+        "annotation": 0.014349559767825544
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "post_window_primary",
+      "head": "ensemble",
+      "protection": "PASS",
+      "FPR_percent": 0.7466437332508761,
+      "recall_percent": 99.9897806803685,
+      "FP": 14,
+      "FN": 33,
+      "new_misses_vs_C2": 33,
+      "new_misses_vs_RAW": 33,
+      "normal_repaired": 39,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.020438639262989007,
+        "attack_type": 0.024526367115586804,
+        "annotation": 0.010219319631494504
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "27",
+      "protection": "PASS",
+      "FPR_percent": 2.17829137525519,
+      "recall_percent": 100.0,
+      "FP": 8244,
+      "FN": 0,
+      "new_misses_vs_C2": 0,
+      "new_misses_vs_RAW": 0,
+      "normal_repaired": 0,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.0,
+        "attack_type": 0.0,
+        "annotation": 0.0
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "127",
+      "protection": "PASS",
+      "FPR_percent": 1.6995640956345388,
+      "recall_percent": 99.8309625412044,
+      "FP": 5917,
+      "FN": 83,
+      "new_misses_vs_C2": 0,
+      "new_misses_vs_RAW": 0,
+      "normal_repaired": 0,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.0,
+        "attack_type": 0.0,
+        "annotation": 0.0
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "227",
+      "protection": "PASS",
+      "FPR_percent": 2.364109186597592,
+      "recall_percent": 99.99463207238121,
+      "FP": 9514,
+      "FN": 5,
+      "new_misses_vs_C2": 0,
+      "new_misses_vs_RAW": 0,
+      "normal_repaired": 0,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.0,
+        "attack_type": 0.0,
+        "annotation": 0.0
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "ensemble",
+      "protection": "PASS",
+      "FPR_percent": 2.1002766747546415,
+      "recall_percent": 99.99463207238121,
+      "FP": 9036,
+      "FN": 5,
+      "new_misses_vs_C2": 0,
+      "new_misses_vs_RAW": 0,
+      "normal_repaired": 0,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.0,
+        "attack_type": 0.0,
+        "annotation": 0.0
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "head": "27",
+      "protection": "PASS",
+      "FPR_percent": 1.8250391007636666,
+      "recall_percent": 100.0,
+      "FP": 7675,
+      "FN": 0,
+      "new_misses_vs_C2": 0,
+      "new_misses_vs_RAW": 0,
+      "normal_repaired": 0,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.0,
+        "attack_type": 0.0,
+        "annotation": 0.0
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "head": "127",
+      "protection": "PASS",
+      "FPR_percent": 1.405116471431287,
+      "recall_percent": 99.8309625412044,
+      "FP": 5500,
+      "FN": 83,
+      "new_misses_vs_C2": 0,
+      "new_misses_vs_RAW": 0,
+      "normal_repaired": 0,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.0,
+        "attack_type": 0.0,
+        "annotation": 0.0
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "head": "227",
+      "protection": "PASS",
+      "FPR_percent": 2.02107209966823,
+      "recall_percent": 99.99463207238121,
+      "FP": 8971,
+      "FN": 5,
+      "new_misses_vs_C2": 0,
+      "new_misses_vs_RAW": 0,
+      "normal_repaired": 0,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.0,
+        "attack_type": 0.0,
+        "annotation": 0.0
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "head": "ensemble",
+      "protection": "PASS",
+      "FPR_percent": 1.7505261294095176,
+      "recall_percent": 99.99463207238121,
+      "FP": 8494,
+      "FN": 5,
+      "new_misses_vs_C2": 0,
+      "new_misses_vs_RAW": 0,
+      "normal_repaired": 0,
+      "new_normal_alarms": 0,
+      "max_cumulative_loss_pp": {
+        "device": 0.0,
+        "attack_type": 0.0,
+        "annotation": 0.0
+      }
+    }
+  ],
+  "newly_missed_rows": [
+    {
+      "uid": "7cb954cddbc89ba54f5efd2e8a0eb61e81b4c142a716334d254b2127f430c17e",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "0883a23e537fdaab13e890bac79fea9571c9cf82f9a5db78e40e7710e1a0a885",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "2f84460937addc365d61991214a7c5c7a29064125a5f915f8ae0add17c874148",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "fddca7d10027c0aaebf0b820a3a2b0d293cc1324d14e6b64b6b01a7484bf6f43",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "7ab4a8043dbddf0eba7dd03f4951fe3f1f73997fcff18cdacc6611bcfe4c230a",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "550ea514418967e8b4d690986975529e49bc2151083b66e400acac0b64c6ebbf",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "27819741442af81ae810fd7f7f53e353fbe34212ecf4e8c8794a82f1752a0937",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "0f1a13c9e9f73dabbb0681984b3a54b49f2e198755021d21415924e7e3c70612",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "17213db21b9f5334d977f0865a21397a2882c8d5ea1fcf67d2dc23f5d9cd733a",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "16921a29d36bd879c662606fe8bc0b78efc6fff7a5ed5e084de2aacf95306401",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "bd75d7df8ef238950a0b693706100a81bf21c0ae2f2b72e6e09a9699bc9d1985",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "7bba33c6fb03ecdf6ae657e7140359bc26eb2b01cd0e2892e20fde74b155f211",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "8eb57a129b12cd260eda7987bcf999e3f10eaf096eef15fe205664c740359e6f",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "96ae643d1e41d707c5cbf4d2531f7b27ad49ea48c791ec59c43886e90d519333",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "0e52fc4afe89fcabe842869e574558143bc504b0e8ebdbecaa4344183533d369",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "39e1a42cdeabb18309adec5d06db2a4a079d34125cc6c47d8995f65c06ab3112",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "2d5ba89f89bcf87e0b99d4ad0c7826ef17e7c0d8af100e7da1f598c0089cc518",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "2f7a0cddaa4caa56568b3b72107ec0fb2d18abbb122d60a3fb69d7a7cebb0f42",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "d3c47c2aa7e0d84dac57a441655732e125edabef7055540604f3e902368d5ee1",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "080c52f6dc6048f00a6014634d3a0e52ad7d0845cc65d5c3357e200cdb7902db",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "d809e70c0b12f8db96b97e44bdaa37a4dff0dec782062bf6670dcc4b8013d317",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "0c9a692e72487a0250b14c3d47aafe828c28231d936b08d71ee3f13ec07abfe8",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "f06493c9836fc2bd8e9abb1f6b10923dd1851f42703f3e5feb1edbcf7c7204f2",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-195",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "a6e6bb624c883d7c3968b8c3e8f85efbda9f51ead799c651909e36a6b4864e47",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-196",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "9540c16052a55d636c15c889fad2988f0969224c505df5e93655c9b7eedb553a",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-196",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "2364e1691ef333874762a6bee097eb3aa6181df9d24e615aa5a15375b07f34d2",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-196",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "973b0f098717a58090d2a991c09e3b492a5820edb9732218bb77abcf567d39ee",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-196",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "81ae27da0a77e0cadbb7b50a4771387e184ff0c2ea76662b4df1044f73ae0298",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-196",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "31dbfa5905f6af4e69232582b83f78a356d81d7a1e61e2510a90d1f239cd17cd",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-196",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "b175ce1d7e07445076dbfdb0edee30f57e925bbd3662be33b4a568a9a0952671",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-197",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "dc49ec1f68c830bda85b07757ad76bed97fc8ba304798147bdbb75422fa36e68",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-197",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "feaf915fcd542c7adc2858742c26a702c8d6b14f0f3f3e4a0a40eaedee802543",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-197",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    },
+    {
+      "uid": "e23f9bb1e3d80648fa8876e2b158e3d09b6edaab3aa07d889ab1f612d3aad5ac",
+      "device": "HeimVision Camera",
+      "activity": "TCP",
+      "annotation_id": null,
+      "capture_id": "interaction-attack-197",
+      "protocol": 6,
+      "tcp_flags": 16,
+      "guard": false
+    }
+  ],
+  "inputs_sha256": {
+    "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/RESULT.json": "cbedc30311604b0f168a967619982054249568299321e1985cf6fd054f276f8c",
+    "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/ab/CIC_DEV/DECISIONS.npz": "4fbef10a34495227250a71d596bc677817f24a3a71af1e929d3e44291ddebaeb",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV.jsonl.gz": "666c2e2dc648ab539b8e2bb5e1b1fb8fee8cd3bf92223a72d6631fc4c851f64f",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV_q.npy": "13ddfc2326bb7e97d11191fa818b637fe89d1668fae2f6d29798a4f9c384d14f"
+  }
+}

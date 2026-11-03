@@ -1,0 +1,165 @@
+{
+  "version": "onboarding_configured_v1_20261017",
+  "real_execution_authorized": false,
+  "retries": 0,
+  "optimizer_updates": 0,
+  "arm": "QUERY_TAIL",
+  "protocol_sha256": "2fae0e1c8e1b5d6c04de8a972bfe0212ecfad27dbaf91066d267ccc746aaa4b5",
+  "query_tail_design_sha256": "c6027a90f1f997b1bb1e8dd44409237531d7dc97cc13813e9bec364dc40b21af",
+  "head_package_seal_sha256": "730d51fd3c909b4251a077e65658d9c6d0a68f312726eb4791139fa0dbb645e4",
+  "resource_plan_sha256": "f351a528b6d138ac25504d352913e7c5d107c1cb7d06bed43f1813ef32e9c8e1",
+  "normalizer_sha256": "ba92b5439255435e854ee14b74738cae0e3606060456de37927b2b6a0e2ab8b2",
+  "checkpoint_sha256": "e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105",
+  "paths": {
+    "parent": "/public/home/jiangxinwei.zr/work/legacy_continuous_input_repair_v3_20260929/runs/real_repair",
+    "head_root": "/public/home/jiangxinwei.zr/work/query_tail_configured_v2r3_20261017",
+    "head_run": "/public/home/jiangxinwei.zr/work/query_tail_configured_v2r3_20261017/runs/query_tail",
+    "checkpoint": "/public/home/jiangxinwei.zr/work/issue27ckda_d0_representation_compatibility_20260811_r2/payload/vendor/netFound-base/model.safetensors"
+  },
+  "captures": {
+    "CIC_DEV": {
+      "capture": {
+        "capture_id": "active-00",
+        "path": "/public/home/jiangxinwei.zr/work/legacy_reference_hpc_dev_v1_20260918/inputs/reference_learn_dev_inputs_v1_20260918/data/runs/legacy_normal_supplement_acquisition_v1_20260917/raw/2021_11_02_Active.pcap",
+        "sha256": "b19d63d7e3ac18d3b1d05add73ab86e7c6cdce5bbdee3485aa1d0bc90404bd3e",
+        "bytes": 163546991,
+        "expected_packets": 645951,
+        "t0": 1635851700.06933,
+        "provenance": "normal",
+        "normality_evidence": "Pinned publisher-normal archive and fixed protocol inventory",
+        "known_macs": [
+          "00:17:88:60:d6:4f",
+          "10:2c:6b:1b:43:be",
+          "40:5d:82:35:14:c8",
+          "44:01:bb:ec:10:4a",
+          "50:02:91:b1:68:0c",
+          "68:57:2d:56:ac:47",
+          "70:ee:50:68:0e:32",
+          "8c:85:80:6c:b6:47",
+          "9c:8e:cd:1d:ab:9f",
+          "b0:09:da:3e:82:6c",
+          "c0:e7:bf:0a:79:d1"
+        ],
+        "activity": "ACTIVE_UNANNOTATED",
+        "activity_verified": false
+      },
+      "device_registry": [
+        {
+          "device": "Eufy Home Base",
+          "owner": "8c:85:80:6c:b6:47",
+          "partition": "DEV"
+        },
+        {
+          "device": "HeimVision Camera",
+          "owner": "44:01:bb:ec:10:4a",
+          "partition": "DEV"
+        }
+      ]
+    },
+    "UNSW_DEV": {
+      "capture": {
+        "capture_id": "unsw-benign-20180528",
+        "path": "/public/home/jiangxinwei.zr/work/legacy_commissioning_unsw_hpc_v1_20260926/runs/legacy_commissioning_unsw_raw_v1_20260926/acquisition/raw/unsw-benign-20180528.pcap",
+        "sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+        "bytes": 4145381196,
+        "expected_packets": 5413239,
+        "t0": 1527465601.09039,
+        "provenance": "normal",
+        "normality_evidence": "Pinned publisher-normal archive and fixed protocol inventory",
+        "known_macs": [
+          "00:16:6c:ab:6b:88",
+          "00:17:88:2b:9a:25",
+          "00:24:e4:11:18:a8",
+          "00:24:e4:1b:6f:96",
+          "00:24:e4:20:28:c6",
+          "18:b4:30:25:be:e4",
+          "18:b7:9e:02:20:44",
+          "28:c2:dd:ff:a5:2d",
+          "30:8c:fb:2f:e4:b2",
+          "44:65:0d:56:cc:d3",
+          "50:c7:bf:00:56:39",
+          "70:5a:0f:e4:9b:c0",
+          "70:88:6b:10:0f:c6",
+          "70:ee:50:03:b8:ac",
+          "70:ee:50:18:34:43",
+          "74:6a:89:00:2e:25",
+          "74:c6:3b:29:d7:1d",
+          "7c:70:bc:5d:5e:dc",
+          "88:4a:ea:31:66:9d",
+          "b4:75:0e:ec:e5:a9",
+          "d0:52:a8:00:67:5e",
+          "d0:73:d5:01:83:08",
+          "e0:76:d0:33:bb:85",
+          "e0:76:d0:3f:00:ae",
+          "ec:1a:59:79:f4:89",
+          "ec:1a:59:83:28:11",
+          "f4:f2:6d:93:51:f1",
+          "f4:f5:d8:8f:0a:3c"
+        ],
+        "activity": "UNKNOWN",
+        "activity_verified": false
+      },
+      "device_registry": [
+        {
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+          "owner": "00:16:6c:ab:6b:88",
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION"
+        },
+        {
+          "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+          "owner": "50:c7:bf:00:56:39",
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION"
+        },
+        {
+          "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+          "owner": "70:ee:50:18:34:43",
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION"
+        },
+        {
+          "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+          "owner": "ec:1a:59:79:f4:89",
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION"
+        },
+        {
+          "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+          "owner": "ec:1a:59:83:28:11",
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION"
+        }
+      ]
+    }
+  },
+  "tshark": "tshark",
+  "tshark_version": "4.6.6",
+  "versions": {
+    "numpy": "2.0.1",
+    "torch": "2.5.1",
+    "transformers": "4.57.3",
+    "tokenizers": "0.22.2",
+    "safetensors": "0.6.2",
+    "dpkt": "1.9.8",
+    "huggingface-hub": "0.36.2"
+  },
+  "additional_required_packages": [
+    "pandas"
+  ],
+  "scientific_code_sha256": {
+    "constrained_onboarding_core_v2.py": "65888d46fcd6c80debaa02eb2517af92a50d89fab43cf9aa448b922319b08d39",
+    "constrained_onboarding_runner_v2.py": "4d29a5dbd02f7229373c32e79f35524363ec3ebf0be6278c0baf7963f9d4903a",
+    "constrained_onboarding_reference_v2.py": "208d89521c95bebb6d82745b2642aea8e01d97cf82dc80647f5ebf224a34a64c",
+    "constrained_onboarding_query_tail_adapter_v2.py": "a28d443a0d43f1e0fa4f1e552c199e8684c1bc50c776166b11b446211de95b7d",
+    "constrained_onboarding_evaluate_v1.py": "daf407cb2f4bd8a8341eb3095603eac3a99dd25d0a12de2731237ea6b74792a8"
+  },
+  "cpus": 8,
+  "memory_gib": 16,
+  "guard_gib": 14,
+  "disk_gib": 8,
+  "minimum_free_gib": 16,
+  "wall_seconds": 79200,
+  "export_included_limit_gib": 4,
+  "state_storage": {
+    "resident_contexts": 1024,
+    "resident_legacy_prefixes": 128,
+    "resident_candidate_snapshots": 128
+  },
+  "slurm_time": "1-00:00:00"
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "paper04-chunked-backup-v1",
+  "scope": "ONBOARDING_RESULT_AND_PROVENANCE",
+  "identity": {
+    "config_sha256": "5840291e52486475ed626db2e9e369840c6348cd1f7d0a6acdd34e30af7d7d6c",
+    "head_complete_sha256": "fd9b46e510c0937d8c151aa80dd3940a636e8a68e618ec3ef9267a846705fd83",
+    "cache_marker_sha256": "0185757a4724569359e128a6d829e6a0e524df26e5011e7b2507a08d65d4a9b1",
+    "unit": "paper04-onboarding-20261022-v2"
+  },
+  "compression": "none",
+  "format": "tar-stream-concatenate-parts-in-order",
+  "chunk_bytes": 268435456,
+  "chunks": [
+    {
+      "name": "part-000000.tar",
+      "bytes": 4700160,
+      "sha256": "7b23a283336ca83c1601b9d9cdb7817c7ce70fa79ec942a00de9d430b34141c5"
+    }
+  ],
+  "bytes": 4700160,
+  "source_bytes": 4287284,
+  "files": 225,
+  "symlinks_not_followed": [],
+  "excluded_files": [
+    "run/encoder_runtime",
+    "run/raw"
+  ],
+  "complete": true,
+  "receipts_after_export": "Service final_status and exit-code sidecars are separate; download state separately"
+}

@@ -1,0 +1,15 @@
+{
+  "status": "READOUT_COMPLETE",
+  "finite_grid": [
+    "p1",
+    "p2",
+    "p3",
+    "p4"
+  ],
+  "finite_grid_source_attack_safety_distinguishable": false,
+  "positive_saturation_is_separate_oracle": true,
+  "saturated_oracle_strict_source_zero_withdrawal_pass": false,
+  "clarification": "RESULT.source_CAN_distinguish_p_safety includes the positive-saturation oracle; it does not mean finite p=1,2,3,4 are distinguishable.",
+  "source_finite_attack_safety_does_not_select_p3": true,
+  "result_sha256": "760b137a987b23442c47bc7c27d8f679867e1a4fd66dcc88048bcf3275d9ebcd"
+}

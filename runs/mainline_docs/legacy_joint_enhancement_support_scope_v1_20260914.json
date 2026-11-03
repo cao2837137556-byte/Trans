@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-14",
+  "status": "DESIGN_AND_SUPPORT_REVIEW_COMPLETE_TRAINING_NOT_READY",
+  "workspace": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline",
+  "branch": "codex/exp-mainline",
+  "head": "4b28747b09480471e2bac1beb3a9badf27280efb",
+  "authority": {
+    "user_message": "可以。动手",
+    "completed_scope": "legacy enhancement design, disclosed evidence and metadata review, named-file stat",
+    "real_training_authorized_by_this_record": false
+  },
+  "claim_boundary": "No new model capability result; candidate mechanism conditional on lawful effective supervision.",
+  "legacy_fit": {
+    "total": 18398,
+    "benign": 14013,
+    "attack": 4385,
+    "ton_benign": 4000,
+    "ton_attack": 4000
+  },
+  "candidate_mechanism": {
+    "encoder": "fixed historical E3",
+    "normalizer": "fixed historical original",
+    "initial_head": "separate copy of original P2",
+    "structure": [
+      769,
+      128,
+      1
+    ],
+    "reference": "unchanged E3/P2/theta",
+    "control": "same-data supervised BCE",
+    "candidate": "same as control plus within-environment attack/benign score ranking",
+    "lambda": null,
+    "training_budget": null,
+    "recipe_frozen": false,
+    "offset_invariance_limitation": "within-environment score differences do not constrain shared environment offsets",
+    "baseline_matching": "same environment grouping, BCE row weights, row multiplicities, replay and training budget; ranking term is the intervention"
+  },
+  "existing_fit_pcap_identities": [
+    {
+      "source_file": "normal_1.pcap",
+      "historical_role": "aux_normal_fit"
+    },
+    {
+      "source_file": "normal_scanning1.pcap",
+      "historical_role": "aux_process_fit"
+    },
+    {
+      "source_file": "password_normal1.pcap",
+      "historical_role": "aux_process_fit"
+    }
+  ],
+  "reserved_conn_root": "D:/study/paper/anomaly_detection/paper04/datasets/external/ton_iot_raw_network/extracted",
+  "reserved_conn_metadata": [
+    {
+      "relative_path": "Network_dataset_Bro/normal_attack_Bro/normal_scanning/normal_scanning3/conn.log",
+      "future_claim": "internal_holdout_only_not_untouched_final",
+      "historical_used_rows": 0,
+      "historical_role": "reserved_not_used",
+      "current_file_exists_by_stat": true,
+      "current_file_bytes_by_stat": 74133985,
+      "body_opened_this_task": false,
+      "current_never_used_status": "UNPROVED",
+      "raw_pcap_identity": null,
+      "normal_annotation_qualified": false,
+      "training_role_activated": false
+    },
+    {
+      "relative_path": "Network_dataset_Bro/normal_attack_Bro/normal_scanning/normal_scanning4/conn.log",
+      "future_claim": "internal_holdout_only_not_untouched_final",
+      "historical_used_rows": 0,
+      "historical_role": "reserved_not_used",
+      "current_file_exists_by_stat": true,
+      "current_file_bytes_by_stat": 443592404,
+      "body_opened_this_task": false,
+      "current_never_used_status": "UNPROVED",
+      "raw_pcap_identity": null,
+      "normal_annotation_qualified": false,
+      "training_role_activated": false
+    },
+    {
+      "relative_path": "Network_dataset_Bro/normal_attack_Bro/normal_scanning/normal_scanning5/conn.log",
+      "future_claim": "internal_holdout_only_not_untouched_final",
+      "historical_used_rows": 0,
+      "historical_role": "reserved_not_used",
+      "current_file_exists_by_stat": true,
+      "current_file_bytes_by_stat": 34298214,
+      "body_opened_this_task": false,
+      "current_never_used_status": "UNPROVED",
+      "raw_pcap_identity": null,
+      "normal_annotation_qualified": false,
+      "training_role_activated": false
+    },
+    {
+      "relative_path": "Network_dataset_Bro/normal_attack_Bro/normal_scanning/normal_scanning6/conn.log",
+      "future_claim": "internal_holdout_only_not_untouched_final",
+      "historical_used_rows": 0,
+      "historical_role": "reserved_not_used",
+      "current_file_exists_by_stat": true,
+      "current_file_bytes_by_stat": 22928180,
+      "body_opened_this_task": false,
+      "current_never_used_status": "UNPROVED",
+      "raw_pcap_identity": null,
+      "normal_annotation_qualified": false,
+      "training_role_activated": false
+    },
+    {
+      "relative_path": "Network_dataset_Bro/normal_attack_Bro/normal_password/password_normal2/conn.log",
+      "future_claim": "internal_holdout_only_not_untouched_final",
+      "historical_used_rows": 0,
+      "historical_role": "reserved_not_used",
+      "current_file_exists_by_stat": true,
+      "current_file_bytes_by_stat": 50505172,
+      "body_opened_this_task": false,
+      "current_never_used_status": "UNPROVED",
+      "raw_pcap_identity": null,
+      "normal_annotation_qualified": false,
+      "training_role_activated": false
+    },
+    {
+      "relative_path": "Network_dataset_Bro/normal_attack_Bro/normal_password/password_normal3/conn.log",
+      "future_claim": "internal_holdout_only_not_untouched_final",
+      "historical_used_rows": 0,
+      "historical_role": "reserved_not_used",
+      "current_file_exists_by_stat": true,
+      "current_file_bytes_by_stat": 50379296,
+      "body_opened_this_task": false,
+      "current_never_used_status": "UNPROVED",
+      "raw_pcap_identity": null,
+      "normal_annotation_qualified": false,
+      "training_role_activated": false
+    },
+    {
+      "relative_path": "Network_dataset_Bro/normal_attack_Bro/normal_password/password_normal5/conn.log",
+      "future_claim": "internal_holdout_only_not_untouched_final",
+      "historical_used_rows": 0,
+      "historical_role": "reserved_not_used",
+      "current_file_exists_by_stat": true,
+      "current_file_bytes_by_stat": 36617959,
+      "body_opened_this_task": false,
+      "current_never_used_status": "UNPROVED",
+      "raw_pcap_identity": null,
+      "normal_annotation_qualified": false,
+      "training_role_activated": false
+    }
+  ],
+  "groundtruth_audit_conclusion": {
+    "files": 18,
+    "schema": [
+      "ts",
+      "src_ip",
+      "src_port",
+      "dst_ip",
+      "dst_port",
+      "proto",
+      "type"
+    ],
+    "explicit_normal_label_in_audited_schema": false,
+    "unmatched_is_benign": false,
+    "claim_all_packets_are_attack": false
+  },
+  "other_label_provenance_lead": {
+    "path": "D:/study/paper/anomaly_detection/paper04/worktrees/data/Train_Test_Network_dataset/train_test_network.csv",
+    "exists_by_stat": true,
+    "historical_benign_rows": 50000,
+    "historical_attack_rows": 161043,
+    "historical_role": "previous second-environment smoke/precheck/evaluation; exposed",
+    "read_data_rows_this_task": false,
+    "admitted_as_train": false,
+    "raw_identity_bridge": "UNKNOWN"
+  },
+  "remaining_metadata_questions": [
+    "Independent explicit normal annotation or documented benign-capture provenance for compatible raw targets; do not recount known attack-only GT type tables.",
+    "Role/history and exact PCAP/GT mapping for the seven named reserve logs; file numbering alone is not a join.",
+    "Whether documented same-device/business/capture conditions support environment comparisons, with normality justified independently of GT nonmatch.",
+    "Whether original Gotham support-candidate source/chunk provenance can support a separately named future role allocation; do not activate unused rows."
+  ],
+  "deferred_until_concrete_scope": [
+    "conn and GT record scans",
+    "raw PCAP body access/decoding",
+    "candidate target materialization",
+    "E3 forward or numerical cache access",
+    "head training",
+    "calibration/evaluation"
+  ],
+  "excluded": [
+    "normal_2 select",
+    "normal_scanning2 select",
+    "password_normal4 select",
+    "Injection/MITM reserved internal report",
+    "CKDD select-conflict rows as new TRAIN",
+    "quarantined Gotham extra160",
+    "viewed/report/FINAL records",
+    "automatic external download/registration/HPC",
+    "unified frontend restart"
+  ],
+  "stop_rules": [
+    "No normal annotation by attack-label complement.",
+    "More attack records alone do not establish OOD coverage improvement.",
+    "No loss/seed search when the required supervision is absent."
+  ],
+  "source_pins": [
+    {
+      "path": "runs/mainline_docs/ckdb_d0_structural_audit_20260817.json",
+      "sha256": "4b6ec3c7de76dcc628dc6516746fd69125757d5f9641395a5feea3b141c3047d"
+    },
+    {
+      "path": "runs/mainline_docs/ckdb_d0_feasibility_audit_codex_20260817.md",
+      "sha256": "adc9eeaa19afea187c6db22dfc1413b3d3d91d2a2b69c7ea237e29394ab72fd3"
+    },
+    {
+      "path": "runs/mainline_docs/ckdd_ckde_d0_result_report_20260825.md",
+      "sha256": "ab8115ee415cd41ee027dc08225b232b99c4b3793a00aa431779d74303946f8a"
+    },
+    {
+      "path": "runs/mainline_docs/ckbw_seed27_result_analysis_20260807.md",
+      "sha256": "2a73685c14805e2abcdaaed2d5433b171dbdf99880cd748da24984001a6400e1"
+    },
+    {
+      "path": "runs/mainline_docs/ckbt_toniot_aux_process_support_gate_20260722.md",
+      "sha256": "9b711c8b00faa6fcf1b416f2a6ccde3c8e8775b1b9b50cf76b61edbdfe370f93"
+    },
+    {
+      "path": "runs/mainline_docs/ckbu_ton_raw_pcap_pilot_manifest_20260723.csv",
+      "sha256": "e33cbab2c67bb1cb6a0b4ac3665cfaedfd56ae7095f50e17c7a4ba55ebca80fa"
+    },
+    {
+      "path": "runs/mainline_docs/ckbr_ckbs_support_v2_and_process_frontend_gate_20260722.md",
+      "sha256": "541fc7da1fa09c593d5804f95c00544e081bf022adfb83a88bde8642fa23278d"
+    },
+    {
+      "path": "runs/mainline_docs/ckda_d1_local_l2_result_codex_review_20260817.md",
+      "sha256": "adf782701d9a58d54e01223f23120b3a6b33c342ae31230fcbefc30cf2377313"
+    },
+    {
+      "path": "runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22/reserved_toniot_conn_sources.csv",
+      "sha256": "4d9a4ca2e0f810d8a4bb588a425f8eff7fedd02eb9b1c02ed0fd4b52d8e8d2a1"
+    },
+    {
+      "path": "runs/issue27ckbt_toniot_aux_process_support_gate_v1_2026-07-22/pair_exact_join_audit.csv",
+      "sha256": "ac6d6ff696a6ab597927b8f26501e8025876dd7a1e4de23b1e06cc01ba01be69"
+    },
+    {
+      "path": "runs/issue27ckam_toniot_bro_groundtruth_schema_audit_v1_2026-07-09/groundtruth_schema_time_label_audit.csv",
+      "sha256": "e77126d40203a6ec89ac83a471419e5d7da4c844785af189e019e0f3af091886"
+    },
+    {
+      "path": "runs/issue27ckan_toniot_route_a_loader_policy_repair_v1_2026-07-09/groundtruth_loader_policy.csv",
+      "sha256": "bf4b7c50053fdf3ef414e1657988847ba4bfd7ce836337b3e680267832635a22"
+    },
+    {
+      "path": "runs/issue27cf_initial_support_bank_instantiation_from_complete_exact_label_pool_2026-06-16/source_chunk_manifest.csv",
+      "sha256": "8637178e5a264f9c0fb7e59000014f6ee57c94c1f8498911b93880ae5937a77b"
+    },
+    {
+      "path": "runs/issue27cf_initial_support_bank_instantiation_from_complete_exact_label_pool_2026-06-16/candidate_taxonomy_summary.csv",
+      "sha256": "65d76c0f24993c967f4b63a7b2175f5dc81abf051b1672a2c06286ee513f4de8"
+    },
+    {
+      "path": "runs/issue27ce_support_bank_protocol_and_system_interface_spec_2026-06-16/unused_candidate_policy.md",
+      "sha256": "d552f44727de0c2a94ce8fbd0e05fd44f454609b88c30ed0a69da739db1815e8"
+    },
+    {
+      "path": "repo/ood/issue27ckda_d1_representation_probe_v1.py",
+      "sha256": "f8f477ca78d8ed1fa490880d24a01f65111e3f910eaa8ab72af154d8a143de4e"
+    },
+    {
+      "path": "repo/ood/issue27ckbt_toniot_aux_process_support_gate_v1.py",
+      "sha256": "038f5dc299b5b0cda204974584b944e8490f85ef53af2d6a2d6c64a2daac47eb"
+    },
+    {
+      "path": "repo/ood/issue27ckbu_unified_tshark_causal_frontend_v1.py",
+      "sha256": "127efd212932d9330af790f17a069a84b3ee48205d68bed7e2e9f00778bb2820"
+    }
+  ]
+}

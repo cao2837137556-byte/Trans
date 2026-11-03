@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "archive": "modern_head_comparison_v1r1_20261018.tar.gz",
+  "archive_sha256": "ad2454fa3766d3862d98e90370fb9dc1fa8b5d67afd20123863182123f71d4d3",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "linux",
+  "checks": {
+    "install": {
+      "exit_code": 0,
+      "log": "linux_validation/install.log",
+      "log_sha256": "2f96b7ed1142d6ef76dc1c7e66fa488ce7451e26bd1201737b6ed121cc5a4a26"
+    },
+    "scheduler": {
+      "exit_code": 0,
+      "log": "linux_validation/scheduler.log",
+      "log_sha256": "d4b263c5a2e14c9ba33c85513f4985daac26dc5d81d4874baabd3f7340d0a875",
+      "tests_run": 37,
+      "skipped": false
+    },
+    "export_phases": {
+      "exit_code": 0,
+      "log": "linux_validation/export_phases.log",
+      "log_sha256": "ce937ef0633fd096665ebf361b4ebeb5d0f3074fc248d1b2d61f5d6b4b84c1b9",
+      "tests_run": 3,
+      "skipped": false
+    }
+  },
+  "commands": {
+    "install": [
+      "/usr/bin/python3",
+      "-B",
+      "/mnt/d/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/modern_head_comparison_v1r1_20261018/modern_head_install_v1.py",
+      "install",
+      "--archive",
+      "/mnt/d/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/modern_head_comparison_v1r1_20261018/modern_head_comparison_v1r1_20261018.tar.gz",
+      "--destination",
+      "/mnt/d/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/modern_head_comparison_v1r1_20261018/linux_clean_install"
+    ],
+    "scheduler": [
+      "/usr/bin/python3",
+      "-B",
+      "/mnt/d/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/modern_head_comparison_v1r1_20261018/test_delivery_linux.py",
+      "-v"
+    ],
+    "export_phases": [
+      "/usr/bin/python3",
+      "-B",
+      "/mnt/d/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/modern_head_comparison_v1r1_20261018/test_export_phases.py",
+      "-v"
+    ]
+  },
+  "real_experiment": false,
+  "remote_access": false,
+  "dependency_installation": false,
+  "models_imported": false,
+  "scheduler": "fake sbatch and Python only",
+  "phase_export": "real stdlib exporter on generated tiny fixtures",
+  "package_seal_sha256": "c9f526e6e0ac6a991b0070a374bd56b6cc03e8ebb7897ec9674ed94df88fbe13",
+  "installation_receipt_sha256": "1f423ae83a71e1106f9b20d8d20c0b88e01d58e7c3c9dfbf3877997fd04f21e7"
+}

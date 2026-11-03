@@ -1,0 +1,250 @@
+{
+  "schema": "UNWEIGHTED_FPR_SAVED_FACTS_REVIEW_V1",
+  "status": "READ_ONLY_FACTS_VERIFIED_WITH_SCOPE_CORRECTIONS",
+  "brief": "runs/mainline_docs/collab/20261102_unweighted_fpr_discussion_brief_claude.md",
+  "scope": {
+    "saved_C3_baseline_only": true,
+    "new_lambda_evaluations": 0,
+    "new_model_forwards": 0,
+    "new_distances": 0,
+    "remote_actions": 0,
+    "current_job_180772_inspected": false,
+    "scientific_files_modified": false
+  },
+  "primary_ensemble": {
+    "A": {
+      "pool": "CIC_DEV",
+      "view": "post_window_primary",
+      "stage": "C3",
+      "fp": 14,
+      "normal_rows": 96041,
+      "unweighted_fpr_percent": 0.014577107693589195,
+      "attack_rows": 79056,
+      "fn": 33,
+      "unweighted_recall_percent": 99.95825743776564,
+      "weighted_recall_percent": 99.9897806803685,
+      "source": "runs/history_normal_reference_c3_progress_repair_v1_20261101/RESULT_READOUT.json",
+      "json_pointer": "/pools/CIC_DEV/post_window_primary/ensemble/C3"
+    },
+    "B": {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "stage": "C3",
+      "fp": 8494,
+      "normal_rows": 74444,
+      "unweighted_fpr_percent": 11.409918865187255,
+      "attack_rows": 72553,
+      "fn": 5,
+      "unweighted_recall_percent": 99.99310848621008,
+      "weighted_recall_percent": 99.99463207238121,
+      "source": "runs/history_normal_reference_c3_progress_repair_v1_20261101/RESULT_READOUT.json",
+      "json_pointer": "/pools/UNSW_DEV/post_window_primary/ensemble/C3"
+    },
+    "maximum_fp_for_2pct": 1488,
+    "required_repairs_without_new_fp": 7006
+  },
+  "B_concentration": {
+    "source": "runs/b_sample_fpr_readonly_audit_v1_20261101/RESULT.json",
+    "json_pointers": [
+      "/components_covering_90_percent_fp",
+      "/components/0:36"
+    ],
+    "components": 36,
+    "fp": 7645,
+    "fp_share_percent": 90.0047092064987,
+    "top_three_device_fp": 8348,
+    "top_three_share_percent": 98.28113962797269
+  },
+  "support_one_bound": {
+    "source": "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json",
+    "json_pointer": "/optimistic_support_one_remaining_fp",
+    "fixed_lambda": 0.25,
+    "ideal_remaining_fp": 844,
+    "ideal_unweighted_fpr_percent": 1.1337381118693246,
+    "devices": {
+      "unsw-attack-traces-2018:00:16:6c:ab:6b:88": {
+        "normal_rows": 19711,
+        "fp": 2174,
+        "optimistic_support_one_remaining_fp": 220
+      },
+      "unsw-attack-traces-2018:50:c7:bf:00:56:39": {
+        "normal_rows": 2597,
+        "fp": 53,
+        "optimistic_support_one_remaining_fp": 17
+      },
+      "unsw-attack-traces-2018:70:ee:50:18:34:43": {
+        "normal_rows": 19879,
+        "fp": 4309,
+        "optimistic_support_one_remaining_fp": 418
+      },
+      "unsw-attack-traces-2018:ec:1a:59:79:f4:89": {
+        "normal_rows": 13028,
+        "fp": 1865,
+        "optimistic_support_one_remaining_fp": 169
+      },
+      "unsw-attack-traces-2018:ec:1a:59:83:28:11": {
+        "normal_rows": 19229,
+        "fp": 93,
+        "optimistic_support_one_remaining_fp": 20
+      }
+    },
+    "qualification": "Ideal arithmetic lower bound at fixed lambda and guard; not achievable support, protected candidate result, prediction, or a cap on how high remaining FPR could be."
+  },
+  "B_guard_saved_array_recount": {
+    "source": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/ab/UNSW_DEV/DECISIONS.npz",
+    "query_rows_source": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV.jsonl.gz",
+    "fields": [
+      "uid",
+      "guard",
+      "corrected",
+      "eligible",
+      "support"
+    ],
+    "counts": {
+      "primary_normal_rows": 74444,
+      "primary_ensemble_fp": 8494,
+      "guarded_primary_fp": 0,
+      "ineligible_primary_fp": 0,
+      "all_attack_rows": 72553,
+      "guarded_attack_rows": 72553
+    },
+    "Netatmo_fp_protocol_counts": {
+      "6": {
+        "fp": 1496,
+        "zero_support_fp": 0
+      },
+      "17": {
+        "fp": 2813,
+        "zero_support_fp": 2811
+      }
+    }
+  },
+  "Netatmo_neighbor_evidence": {
+    "source": "runs/b_sample_fpr_mechanism_v1_20261101/TRACE_SUMMARY_RECOVERED.json",
+    "trace_rows": 320,
+    "old_replay_distance_pairs": 437734,
+    "old_replay_elapsed_seconds": 6.702999999979511,
+    "cohorts": [
+      {
+        "cohort": "FP_COMPONENT_1",
+        "component_id": "bee054b63db21113234304e8c5a75d4a43f8decf51344ef9d2a40f826bc56cf6",
+        "protocol": 17,
+        "counts": {
+          "rows": 64,
+          "z_limiter": 64,
+          "q_limiter": 0,
+          "z_radius_blocked": 64,
+          "q_radius_blocked": 19,
+          "query_component_in_bank": 0,
+          "zero_support": 64
+        }
+      },
+      {
+        "cohort": "FP_COMPONENT_2",
+        "component_id": "d85c1166da295fa3c64bd53d599b9e830a153637953a11dcf699fd267d55d5ed",
+        "protocol": 6,
+        "counts": {
+          "rows": 64,
+          "z_limiter": 62,
+          "q_limiter": 2,
+          "z_radius_blocked": 0,
+          "q_radius_blocked": 0,
+          "query_component_in_bank": 0,
+          "zero_support": 0
+        }
+      },
+      {
+        "cohort": "FP_COMPONENT_3",
+        "component_id": "f4595bd9157519881a40c90bdc3461ec4cf6f10862047661bd6ad9cb4a662982",
+        "protocol": 17,
+        "counts": {
+          "rows": 64,
+          "z_limiter": 64,
+          "q_limiter": 0,
+          "z_radius_blocked": 64,
+          "q_radius_blocked": 12,
+          "query_component_in_bank": 64,
+          "zero_support": 64
+        }
+      }
+    ],
+    "qualification": "FP_COMPONENT_1 and FP_COMPONENT_3 are the two UDP cohorts, 64 sampled points each. Both 64/64 E3-radius-blocked; query component in bank 0/64 vs 64/64. Do not extend to every residual point or C4."
+  },
+  "Samsung_Power_limiter_samples": {
+    "source": "runs/b_sample_fpr_mechanism_v1_20261101/EXISTING_D2_SUMMARY.json",
+    "json_pointer": "/groups",
+    "Samsung": {
+      "rows": 1024,
+      "z_limiter": 444,
+      "q_limiter": 580,
+      "any_direction_mismatch": 574,
+      "any_flags_mismatch": 155
+    },
+    "Power": {
+      "rows": 1024,
+      "z_limiter": 810,
+      "q_limiter": 214,
+      "any_direction_mismatch": 235,
+      "any_flags_mismatch": 92
+    },
+    "qualification": "Descriptive matched-pair samples; direction/flags mismatch is not a demonstrated cause and does not authorize metric removal. These are saved D2 matched-pair samples, not exhaustive device populations or C4 results."
+  },
+  "A_ACK_attack_withdrawals": {
+    "source": "runs/history_normal_reference_c3_progress_repair_v1_20261101/FINAL_REPORT_AUDIT.json",
+    "json_pointers": [
+      "/new_attack_misses_vs_C2",
+      "/missed_groups",
+      "/newly_missed_rows"
+    ],
+    "stage": "C2_to_C3",
+    "pool": "CIC_DEV",
+    "head": "ensemble",
+    "new_misses_vs_C2": 33,
+    "new_misses_vs_RAW": 33,
+    "C2_fn": 0,
+    "C3_fn": 33,
+    "missed_groups": {
+      "device": {
+        "HeimVision Camera": 33
+      },
+      "activity": {
+        "TCP": 33
+      },
+      "annotation_id": {
+        "None": 33
+      },
+      "capture_id": {
+        "interaction-attack-195": 23,
+        "interaction-attack-196": 6,
+        "interaction-attack-197": 4
+      },
+      "protocol": {
+        "6": 33
+      },
+      "tcp_flags": {
+        "16": 33
+      }
+    },
+    "unweighted_recall_percent": 99.95825743776564,
+    "qualification": "All 33 are frozen-label attack queries with current flags=16 (ACK-only), HeimVision, activity TCP. Not B; not C2 guard-caused; not C4. This does not independently establish the malicious meaning of each ACK packet."
+  },
+  "corrections_for_Q1": [
+    "All headline FP counts are C3 primary-view ensemble baseline, not C4 results or full-view figures.",
+    "Replace fixed-lambda ceiling phrasing with ideal remaining-FP lower bound.",
+    "Netatmo E3 blocking is a 64+64 sample result; full Net UDP FP=2813 includes 2 rows with positive support.",
+    "Samsung/Power q-versus-E3 counts are 1024-row saved D2 samples, not all residuals and not guaranteed causal attribution.",
+    "A 33 ACK-only FN statement has correct pool and C2-to-C3 stage but must retain frozen-label and ensemble qualifiers."
+  ],
+  "input_sha256": {
+    "runs/history_normal_reference_c3_progress_repair_v1_20261101/RESULT_READOUT.json": "29098287dd04ef2658963253b716dbf9fa0fb50b8e68b2ceffc7c5dee0a2729b",
+    "runs/b_sample_fpr_mechanism_v1_20261101/EVIDENCE.json": "5c5f87f08d4475c430c684a19fc2bbee436bfec855608fc77fde40f361a4636f",
+    "runs/b_sample_fpr_mechanism_v1_20261101/TRACE_SUMMARY_RECOVERED.json": "f19365b78a99aabaf11a65b01d8ca3c5354a2fa99e2b82c394d38492bf38a6c7",
+    "runs/b_sample_fpr_mechanism_v1_20261101/EXISTING_D2_SUMMARY.json": "c0474f05d4eaca3362f3bbe75d8a2613e31ac3c05d99ba9908d8554b9327bdf7",
+    "runs/b_sample_fpr_readonly_audit_v1_20261101/RESULT.json": "a0f8636cfbeaa663724b68ec7f61bd166af2c6e6a16533820ac85f03895952f0",
+    "runs/history_normal_reference_c3_progress_repair_v1_20261101/FINAL_REPORT_AUDIT.json": "30d10101f53f9f4354a71bb47261c988e9dcdd2583044666d9938535ca0fd085",
+    "runs/history_normal_reference_keyrepair_v1_20261031/config/ASSETS.json": "34d7829d5c2f262bd60b30058b677cbf7b67ee2c419d6ce924ddc01162b96b75",
+    "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/ab/UNSW_DEV/DECISIONS.npz": "612e0761deb01b3b6ae1080e820c90b08956d3eb5be29fae37d87cc407e104a1",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV.jsonl.gz": "d334f18c3a2857fe8b63f491fd78ba3dc984bbd0fa7a55a4f030d9e797098503",
+    "runs/b_sample_fpr_mechanism_v1_20261101/NETATMO_NEIGHBORS.jsonl.gz": "adab8d677becf0c99a3ed92f8dda82bea615850cc4608839f00a164d49b8f2a0"
+  }
+}

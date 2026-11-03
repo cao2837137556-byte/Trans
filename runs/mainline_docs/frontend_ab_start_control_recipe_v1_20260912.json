@@ -1,0 +1,832 @@
+{
+  "schema": "paper04.ab_start_control.design.v1",
+  "date": "2026-09-12",
+  "status": "DESIGN_COMPLETE_READY_FOR_IMPLEMENTATION",
+  "design_document": "runs/mainline_docs/frontend_ab_start_control_design_v1_20260912.md",
+  "workspace": {
+    "branch": "codex/exp-mainline",
+    "head": "4b28747b09480471e2bac1beb3a9badf27280efb",
+    "preserve_unrelated_modifications": true,
+    "new_worktree_or_branch_switch": false
+  },
+  "authorization": {
+    "current": "design_review_and_documentation_only",
+    "user_scope": "Explicit prior assistant: next step is design finalization/review; user: 明白了，那就动手下一步。",
+    "implementation": false,
+    "real_T": false,
+    "real_E": false,
+    "new_P_stage": false,
+    "future_execution_may_be_jointly_authorized": [
+      "T",
+      "E"
+    ],
+    "normal_transitions_need_no_repeat_permission_after_joint_authorization": true
+  },
+  "objective": "Recover old P2 attack capability while improving benign-OOD false alarms in one unified A+B student; commissioning is a later separate contribution.",
+  "base_contract": {
+    "path": "runs/mainline_docs/frontend_task_aligned_transfer_recipe_v1_20260912.json",
+    "sha256": "540c2e4d71ce9621965f981d47b4e5f68eb5f148cfd13b4c5d59fa4b2b725702",
+    "access": "metadata only in design"
+  },
+  "base_contract_semantics": "Standalone copied rules below are authoritative for the new two arms. Old Q/R and C0 source recipes supply exact numerical references, not old authorization, initial_A, arm IDs, P derivation or output directories.",
+  "inputs": {
+    "plan": {
+      "path": "runs/frontend_paired_train_implementation_v3_20260910/plan.json",
+      "sha256": "2d17743edeab5d51751e9d95c308a414c3763934921e917fc2ab97c495e2e5ef"
+    },
+    "membership": {
+      "path": "runs/frontend_paired_metadata_v3_20260909/membership.csv",
+      "sha256": "3766778032f9317f471939434868ac28b39cf0c88728130e42679f4f0c990418"
+    },
+    "train_check_features": {
+      "path": "runs/frontend_paired_train_preparation_v3_20260910/features.f32le",
+      "sha256": "b9e2775445e889ebb313463eee53a7ec2f1de56d78c838b3de247394fc5520b5",
+      "shape": [
+        210634,
+        131
+      ],
+      "dtype": "<f4",
+      "bytes": 110372216,
+      "training_access": "plan train prefixes only"
+    },
+    "historical_train_manifest": {
+      "path": "runs/frontend_paired_train_v3_20260910/SHA256SUMS",
+      "sha256": "0f55d36928f813dcd034d44a19ce2ab3d57e5e7b8c9f6ecd7354b0cfc835869a"
+    },
+    "historical_check_scores": {
+      "path": "runs/frontend_paired_train_v3_20260910/check_predictions.json",
+      "sha256": "477d0530b0586cd11ce9bf355efa2f635074b09690aba15d0322d9c794166f68",
+      "access": "E reference only"
+    },
+    "expanded_scope": {
+      "path": "runs/frontend_expanded_eval_scope_v1_20260910/scope_readiness.json",
+      "sha256": "a7c0fe773c5c01085a6974d4d26a58d2a218944f0996e6ab37d00bce84bf3d56"
+    },
+    "expanded_preparation": {
+      "path": "runs/frontend_expanded_eval_v2_20260910/preparation_receipt.json",
+      "sha256": "bf6c11bc3740e9b50e91d4bccf67f8f47c52f28c877b77a3740ac38725b250f0",
+      "reuse": "members/*/features.f32le and contexts.jsonl.gz listed in pinned manifest",
+      "access": "E only; decode existing cached float32 features as budgeted; no raw-packet decoding or rematerialization."
+    },
+    "expanded_manifest": {
+      "path": "runs/frontend_expanded_eval_v2_20260910/SHA256SUMS",
+      "sha256": "5e35e97dc681c718d4002b9777ecee855e1c66bc402f13ce411858691b44a7bb"
+    },
+    "expanded_AB_P2_predictions": {
+      "path": "runs/frontend_expanded_eval_v2_20260910/predictions.csv.gz",
+      "sha256": "9de2201b0f13f5c39dadcaae925ac9482377adba96cc88ca1cfda72b6491aef4",
+      "access": "E reference only"
+    },
+    "expanded_A_predictions": {
+      "path": "runs/frontend_a_expanded_eval_v1_20260911/predictions.csv.gz",
+      "sha256": "94dc12c5d1f0363ccb640e22b9aa4673a14f644479c7d50bcef8cbf30be9e627",
+      "access": "E reference only"
+    },
+    "design_support": {
+      "path": "runs/frontend_knowledge_transfer_design_v1_20260911/metadata_support.json",
+      "sha256": "854b3f857117cc688f26328a40ad31b6b48cccd31f6e7ca9a2e115e087003945"
+    },
+    "initial_AB": {
+      "path": "runs/frontend_paired_train_v3_20260910/candidate_AB.pt",
+      "sha256": "a9e8e0c6aa50a25fe589d1733a9e9d788f380db64e90e8df71b3edde389ed325",
+      "bytes": 368709,
+      "state_sha256": "b800d9f1a3e11e557838cb9bdc22e7acc8559d198a57fa21a3da6c80bb7b9fda",
+      "access": "opaque identity in design/implementation; T loads once after real authorization, then deep copies independently; no separate initial forward; E forbidden to load"
+    },
+    "initial_AB_receipt": {
+      "path": "runs/frontend_paired_train_v3_20260910/candidate_AB.receipt.json",
+      "sha256": "c9653d81b3dd986ba39de09474ef369777b9549ca77e8b3fbee65d71f284a958",
+      "epoch": 40,
+      "updates": 7880,
+      "initial_state_sha256": "627f1fc016f44094b0510130d6e28a46b86c72f5df4e4bb6ee4947a95a4b593b"
+    },
+    "initial_AB_terminal": {
+      "path": "runs/frontend_paired_train_v3_20260910/supervisor_terminal.json",
+      "sha256": "705aed1f49b049f9849583d1ea4beae0e2c9be0457708e709c01c898bf5e477d",
+      "required_field": "verdict.status",
+      "required_value": "PAIRED_COMPARISON_COMPLETE"
+    },
+    "tail_analysis": {
+      "path": "runs/mainline_docs/frontend_qr_tail_and_next_decision_20260912.json",
+      "sha256": "4bde572007c2e524d48b913e3363f9f7eb1b2c67a21a13e16a117e9e042d1799",
+      "access": "published evidence only; no training hard-negative mining"
+    }
+  },
+  "data": {
+    "train_targets": 15073,
+    "train_contexts": 10583,
+    "train_components": 6797,
+    "A": {
+      "targets": 9402,
+      "attack": 3357,
+      "benign": 6045,
+      "contexts": 6286
+    },
+    "B": {
+      "targets": 5671,
+      "attack": 71,
+      "benign": 5600,
+      "contexts": 4297
+    },
+    "check": {
+      "targets": 3193,
+      "contexts": 2306,
+      "components": 1679
+    },
+    "expanded": {
+      "targets": 262050,
+      "contexts": 57686,
+      "benign_OOD_targets": 18000,
+      "attack_families": 16,
+      "benign_OOD_pools": 4
+    },
+    "ID_check_targets": 151,
+    "train_source_groups": 22,
+    "train_members": 24,
+    "all_train_contexts_single_label": true,
+    "verified_same_device_attack_benign_matching": false,
+    "no_cross_train_check_UID_or_component": true,
+    "direct_supervision": "all fixed 15073 true-label targets once per epoch, no exclusions",
+    "exposure": "All exposed development, with historical teacher check exposure; new AB starting lineage has 40 epochs of prior B labels absent from A lineage. Equal added epochs is not equal lifetime supervision or total knowledge."
+  },
+  "arms": [
+    {
+      "id": "C0_AB",
+      "historical_objective_reference": "C0",
+      "loss": "L_label",
+      "trainable_parameters": 91265,
+      "projection": false,
+      "training_teacher_targets_per_epoch": 0,
+      "training_guard_pair_occurrences": 0
+    },
+    {
+      "id": "R_AB",
+      "historical_objective_reference": "R",
+      "loss": "L_label + L_Aguard + L_q + L_r",
+      "trainable_parameters": 107777,
+      "projection": true,
+      "training_teacher_targets_per_epoch": 9379,
+      "training_guard_pair_occurrences": 967530
+    }
+  ],
+  "student": {
+    "architecture": "Linear(131,64) -> GELU(exact) -> GRU(64,128,1 layer,unidirectional,bias,dropout0) -> Linear(128,64) -> GELU(exact) -> Linear(64,1)",
+    "parameters": 91265,
+    "train_all_student_parameters": true,
+    "initialization": "T loads sealed candidate_AB student state once; configure/reset seed and independently deep-copy complete state each arm. No head reinitialization, optimizer carry-over, sequential cross-arm continuation or layer freezing.",
+    "prefix_semantics": "reuse plan offsets, exact causal target event states, reset boundaries, packed padding and F4 fields",
+    "max_context_events": 256,
+    "deployment_threshold_logit": 0.0,
+    "deployment_comparison": ">=",
+    "projection_output_replaces_deployed_head": false,
+    "deployment_output": "Always original qS=head(h); never sum a reconstructed contribution vector.",
+    "R_AB_projection": {
+      "type": "Linear(128,128,bias=True)",
+      "parameters": 16512,
+      "weight_init": 0.0,
+      "bias_init": 0.0,
+      "input": "causal GRU h at each eligible target event",
+      "train_only": true,
+      "detach_h": false,
+      "deployment_removed": true
+    }
+  },
+  "schedule": {
+    "seed": 2705,
+    "epochs": 20,
+    "steps_per_epoch": 197,
+    "updates_per_arm": 3940,
+    "updates_all_arms": 7880,
+    "target_presentations_per_arm": 301460,
+    "target_presentations_all_arms": 602920,
+    "canonical_hash_encoding": "UTF8 json.dumps(value,ensure_ascii=False,separators=(',',':'),allow_nan=False)",
+    "owner_order": "sort context keys by (SHA256(canonical(['paired-order-v1',2705,epoch,owner,key])),key), epoch 1..20, independently for A and B",
+    "buckets": "q,r=divmod(N_owner,197); first r buckets contain q+1 ordered contexts, remaining buckets q",
+    "microbatch_context_limit": 32,
+    "per_update_order": "A then B; each microbatch forward once for all applicable losses; accumulate gradients, global clip once, optimizer step once",
+    "teacher_extra_student_forwards": 0,
+    "guard_extra_student_forwards": 0,
+    "candidate_selection": "Both final epoch20 candidates sealed before one E; no intermediate selection",
+    "execution_order": [
+      "C0_AB",
+      "R_AB"
+    ],
+    "new_task_gradient_diagnostics": 0,
+    "expected_counts_per_arm": {
+      "targets": 301460,
+      "contexts": 211660,
+      "events": 3733160,
+      "padded_slots": 31864326,
+      "forwards": 7880,
+      "updates": 3940
+    },
+    "epoch_numbering": "New continuation local epochs1..20 use exact original order hashes, not global epochs41..60"
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "reset_each_arm": true,
+    "lr": 0.0001,
+    "weight_decay": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "amsgrad": false,
+    "foreach": false,
+    "fused": false,
+    "maximize": false,
+    "capturable": false,
+    "differentiable": false,
+    "scheduler": null,
+    "clip_global_L2": 1.0,
+    "clip_error_if_nonfinite": true,
+    "clip_parameters": {
+      "C0_AB": "student",
+      "R_AB": "student + D"
+    },
+    "log_before_clip": [
+      "student_gradient_L2",
+      "D_gradient_L2_if_R_AB",
+      "actual_clip_factor"
+    ],
+    "early_stopping": false
+  },
+  "runtime": {
+    "Python": "3.9.13",
+    "numpy": "2.0.2",
+    "torch": "2.8.0+cpu",
+    "student_dtype": "float32",
+    "device": "cpu",
+    "threads": 4,
+    "interop_threads": 1,
+    "deterministic_algorithms": true,
+    "seed_reset_each_arm": true,
+    "local_workers": 1
+  },
+  "teacher_cache": {
+    "manifest": {
+      "path": "runs/frontend_task_knowledge_transfer_p_v1_20260911/SHA256SUMS",
+      "sha256": "80019634c8b158e901678f55b369476fc488104b4bf1177193750432b83d567d",
+      "numeric_access_stage": "metadata"
+    },
+    "index": {
+      "path": "runs/frontend_task_knowledge_transfer_p_v1_20260911/teacher_index.json",
+      "sha256": "61fde6174ff6ce4cbe7172b609f85f1d5daa7191ebcd406b4f007951dd3eeeb3",
+      "numeric_access_stage": "T reuse verification/R_AB training; E TRAIN diagnostics only"
+    },
+    "values": {
+      "path": "runs/frontend_task_knowledge_transfer_p_v1_20260911/teacher.f32le",
+      "sha256": "dc921214510eb677f529f438ff183ee742a067a4cb2bed45a6a4a663356f7b54",
+      "numeric_access_stage": "T reuse verification/R_AB training; E TRAIN diagnostics only"
+    },
+    "guard": {
+      "path": "runs/frontend_task_knowledge_transfer_p_v1_20260911/guard.json",
+      "sha256": "8f21bb09b78600f3d50f382a24f2dcf777a4849bf562165b2ac1b7f3f3c3a992",
+      "numeric_access_stage": "T reuse verification/R_AB training; E TRAIN diagnostics only"
+    },
+    "shape": [
+      9379,
+      128
+    ],
+    "dtype": "<f4",
+    "s_T": 0.4098227709378718,
+    "expected_targets": 9379,
+    "attack_targets": 3357,
+    "benign_targets": 6022,
+    "expected_N_T0": 2957,
+    "expected_N_T1": 3329,
+    "eligibility": "Reuse exact original canonical-hard-correct current-TRAIN A whitelist; never refilter by a new transformed score.",
+    "excluded_from_teacher_only": {
+      "B": 5671,
+      "old_wrong_A_benign": 23
+    },
+    "new_teacher_forward": 0,
+    "original_teacher_weights_or_mixed_NPZ_access": false,
+    "new_E3_or_raw_decode": false,
+    "index_order": "Preserve original zero-based row and UID/context_key/label mapping; validate saved row order against TRAIN whitelist without new aggregation or derivation.",
+    "canonical_hard_definition": "The sealed index stores canonical_probability and canonical_logit, not a canonical_hard field. Define canonical_hard=(float64(saved canonical_probability)>=float64(0.065159872174263)); require agreement with original TRAIN plan old_hard and true label. Do not recompute sigmoid or teacher inference.",
+    "new_A_forward": 0,
+    "new_AB_initial_forward": 0,
+    "new_derived_rows": 0,
+    "reused_teacher_rows": 9379,
+    "C0_AB_training_numeric_use": false
+  },
+  "losses": {
+    "label": {
+      "formula": "(197/6286)*sum_A_bucket(mean_target BCEWithLogits) + (197/4297)*sum_B_bucket(mean_target BCEWithLogits)",
+      "coefficient": 1.0,
+      "BCE_log_base": "natural"
+    },
+    "huber": {
+      "delta": 1.0,
+      "formula": "0.5*v^2 if abs(v)<=1 else abs(v)-0.5"
+    },
+    "A_guard": {
+      "coefficient": 1.0,
+      "eligible": "current-train A and saved A hard at logit>=0 equals true label",
+      "eligible_targets": 9400,
+      "eligible_attack": 3355,
+      "eligible_benign": 6045,
+      "eligible_contexts": 6286,
+      "s_A_formula": "max(1,median_nonempty_context(mean_eligible_target(abs(saved_A_logit))))",
+      "s_A": 29.98624610900879,
+      "representative": "E_c=UID-sorted eligible targets; start=int(sha256(context_key UTF8),16)%len(E_c); epoch e selects E_c[(start+e-1)%len(E_c)]",
+      "pairs": "all attack-representative/benign-representative pairs within original A bucket, distinct component, attack-first once",
+      "margin_formula": "min(1,(qA_attack-qA_benign)/(2*s_A))",
+      "student_gap_formula": "(qS_attack-qS_benign)/s_A",
+      "formula": "mean_pairs Huber(max(0,margin-student_gap))",
+      "empty_bucket_value": 0.0,
+      "pair_occurrences": 967530,
+      "unique_pairs": 940042,
+      "eligible_targets_covered": 9400,
+      "final_audit": "reuse final train logits to check union of actual training pairs; report violations, worst gap-minus-margin, family detail; no extra forward",
+      "guarantee_limit": "zero loss on one pair at fixed parameters only implies qS_attack-qS_benign >= min(s_A,(qA_attack-qA_benign)/2); not fixed-zero decisions or unseen-OOD guarantee",
+      "reuse": "Consume pinned original guard and s_A; validate fixed identity/semantics without re-estimating scale.",
+      "initial_loss_requirement": "May be nonzero at AB initialization; no zero-loss acceptance or scientific gate. Original formula, whitelist and s_A unchanged. C0_AB training does not call guard."
+    },
+    "teacher_balancing": {
+      "M_b": "(197/2)*sum_y[(sum_eligible_A_bucket_context mean_eligible_target f) / N_Ty]",
+      "M": "mean over all197 M_b at fixed parameters; equivalently 0.5*sum_y mean_eligible_context mean_eligible_target f",
+      "class_context_counts": {
+        "0": 2957,
+        "1": 3329
+      },
+      "empty_class_bucket_value": 0.0,
+      "denominators_are_global": true
+    },
+    "task_score": {
+      "coefficient": 1.0,
+      "p_T": 0.065159872174263,
+      "q_T_source": "sealed canonical_logit, not inverse sigmoid of saturated probability",
+      "tau_T": "Use sealed tau_T provenance; actual supervision consumes pinned margins.f32le",
+      "margin": "m_T64=float64(canonical_logit)-tau_T",
+      "scale": "Use sealed s_q64 provenance and s_q32 bits; do not recompute the original RMS formula.",
+      "s_q_value": 24.467973709106445,
+      "value_materialization_stage": "Already sealed old aligned-P; reuse exact float32 values and bit pattern",
+      "training_cast": "Consume saved float32 margin bytes and scale from sealed receipt; no repeated derivation or refiltering.",
+      "formula": "L_q(b)=M_b[Huber((qS-m_T32)/s_q32)]",
+      "computation": "float32 subtract, then float32 divide, then Huber",
+      "margin_clip": null,
+      "per_class_centering": false,
+      "per_source_scaling": false,
+      "dynamic_scale_or_weight": false,
+      "boundary_check": "(m_T64>=0) and (m_T32>=0) must each equal saved canonical_hard for every original eligible row",
+      "on_boundary_mismatch": "STOP in T entry before any optimizer update; report mismatched UID/counts; never change threshold, whitelist, labels or denominator.",
+      "finite_check": "All input/output margins and scales must be finite; s_q32>=1."
+    },
+    "residual_contribution": {
+      "coefficient": 1.0,
+      "teacher_target": "existing float32 t=c/s_T; s_T unchanged",
+      "computation": "e=D(h)-t in float32; r=e-e.mean(dim=-1,keepdim=True) in float32; apply coordinate Huber",
+      "formula": "L_r(b)=M_b[sum_{k=1}^{128} Huber(r_k)/127]",
+      "sum_coordinates": 128,
+      "normalization_divisor": 127,
+      "mean128_before_dividing127": false,
+      "renormalize_remaining_energy": false,
+      "rotation_invariant": false,
+      "parameter_gradient_orthogonality_guaranteed": false,
+      "teacher_gradient_to_encoder_first_step_with_zero_D": 0.0,
+      "direct_residual_gradient_to_head": 0.0
+    },
+    "do_not_add": [
+      "original full128 C2 teacher loss",
+      "one-sided F5 cap6 loss",
+      "PCGrad",
+      "tail mining",
+      "new auxiliary prediction",
+      "automatic weight balancing"
+    ]
+  },
+  "stages": {
+    "T": {
+      "purpose": "ENTRY_REUSE_PREFLIGHT plus sequential C0_AB/R_AB, independent sealed-AB states; no new P",
+      "output_directory": "runs/frontend_ab_start_control_t_v1_20260912",
+      "seconds_limit_all_arms": 14400,
+      "memory_bytes_limit": 8589934592,
+      "new_output_bytes_limit": 536870912,
+      "historical_student_loads": 1,
+      "optimizer_steps": 7880,
+      "student_forwards": 15760,
+      "teacher_passes": 0,
+      "initial_student_forwards": 0,
+      "evaluated_targets": 0,
+      "derived_teacher_rows": 0,
+      "reused_teacher_rows": 9379,
+      "training_teacher_presentations": {
+        "C0_AB": 0,
+        "R_AB": 187580
+      },
+      "training_guard_pairs": {
+        "C0_AB": 0,
+        "R_AB": 967530
+      },
+      "expected_feature_bytes_decoded": 97808792
+    },
+    "E": {
+      "purpose": "One final TRAIN/CHECK/expanded per new candidate; historical scores only",
+      "output_directory": "runs/frontend_ab_start_control_e_v1_20260912",
+      "seconds_limit_all_arms": 1800,
+      "memory_bytes_limit": 8589934592,
+      "new_output_bytes_limit": 536870912,
+      "new_candidate_loads": 2,
+      "new_projection_loads": 1,
+      "historical_student_loads": 0,
+      "student_forwards": 4414,
+      "evaluated_targets": 560632,
+      "optimizer_steps": 0,
+      "teacher_passes": 0
+    },
+    "new_P_stage": false,
+    "execution_on_exception": "Stop, preserve reason and partial artifacts; zero automatic retries; do not skip a failed arm to reach E.",
+    "scientific_bad_result": "Complete and seal both fixed endpoints and authorized E despite poor scientific performance; no adaptive tuning or early stop.",
+    "monitoring": "Persistent local Windows supervisor, hidden workers, append-only progress, independently usable status html/md and terminal verification; no LLM polling/heartbeat.",
+    "budget_scope": "All entry preflight, work, verification, sealing included in stage budget.",
+    "new_resource_trial": false,
+    "HPC": false,
+    "new_data_download": false,
+    "raw_packet_decode": false,
+    "authorization_chaining": "After a later explicit joint T/E grant, normal verified T to E transition proceeds without repeat permission. This design grants no real execution."
+  },
+  "training_observations": {
+    "source": "Original training forwards/backwards only; zero extra gradient/forward calls",
+    "per_epoch": [
+      "label/guard/task_score/residual means",
+      "student/D gradient norms",
+      "actual clip factors",
+      "R_AB raw and normalized teacher score errors"
+    ],
+    "C0_AB_teacher_guard_metrics": "training counts/losses=0; MAE and agreement=null not division by zero; no teacher/guard callbacks",
+    "new_student_forward_count_for_observations": 0,
+    "no_observation_driven_tuning": true,
+    "endpoint": "Both candidates use E TRAIN forwards already budgeted to describe teacher score fit and original A guard pair union; for C0 these are post-training observations, not training terms. R_AB D applies only eligible TRAIN hidden states; never CHECK/expanded."
+  },
+  "evaluation": {
+    "targets_per_arm": 280316,
+    "targets_all_arms": 560632,
+    "model_candidates": [
+      "C0_AB_epoch20",
+      "R_AB_epoch20"
+    ],
+    "fixed_logit_threshold": 0.0,
+    "primary_ranking_descriptor": "Original empirical TPR at pooled expanded benign-OOD FPR<=0.01, not an absolute new success threshold; ID151 excluded from this18000 benign denominator",
+    "secondary_ranking": [
+      "TPR@FPR<=0.001",
+      "AUROC",
+      "family recalls at the same pooled mathematical threshold"
+    ],
+    "ranking_threshold_deployed_or_training_feedback": false,
+    "fixed_point_reports": [
+      "overall attack",
+      "future-query",
+      "16 attack families plus macro and worst regression",
+      "A/B ownership",
+      "each of4 benign OOD pools",
+      "pool-equal macro and worst FP",
+      "151 ID check denominator caveat",
+      "per-target positive and negative flips"
+    ],
+    "old_P2_ROC_if_only_hard_available": false,
+    "contrasts": {
+      "C0_AB-C0": "Same C0 objective; saved starting state and previous learning history change",
+      "R_AB-R": "Same R objective; saved starting state and previous learning history change",
+      "R_AB-C0_AB": "Whole R package on the same AB lineage",
+      "C0_AB-AB": "Ordinary continuation vs fixed AB",
+      "R_AB-AB": "R continuation vs fixed AB"
+    },
+    "development_joint_gain": "same contrast no worse in primary ranking, fixed overall/future/family-macro recall and benign pool-macro/worst FP, at least one better; single-seed tiny differences are not a breakthrough",
+    "practical_milestone": "reach old fixed-point attack/future references and jointly improve benign OOD; disclose any key family/pool collapse; no invented allowed-loss tolerance",
+    "practical_verdict": "manual scientific interpretation of the complete metric table; no automatic SUCCESS from undefined serious-regression tolerances",
+    "old_attack_reference_percent": 97.3698,
+    "old_future_reference_percent": 96.6786,
+    "old_attack_reference_exact": {
+      "detected": 237631,
+      "targets": 244050
+    },
+    "old_future_reference_exact": {
+      "detected": 127027,
+      "targets": 131391
+    },
+    "reference_comparison": "use exact numerator and denominator; rounded percentages are display only",
+    "original_strict_inheritance_verdict": "report separately; historical FAIL remains",
+    "strict_reference_protocol": "runs/mainline_docs/frontend_paired_learning_recipe_and_metadata_qualification_20260909.md: original common-A-check zero regression rule",
+    "new_candidate_retention_diagnostics": {
+      "scope": "plan role=check,owner=A",
+      "targets": 2127,
+      "attacks": 825,
+      "benign": 1302,
+      "comparisons": [
+        "old_P2_correct_to_candidate_wrong",
+        "fixed_A_correct_to_candidate_wrong"
+      ],
+      "outputs": "count,UIDs,is_zero separately for C0_AB/R_AB; never replaces historical verdicts"
+    },
+    "claim_limits": [
+      "exposed development only; historical teacher saw current-check labels",
+      "single seed; no independent confirmation; tiny gains are not a breakthrough",
+      "source shortcuts possible; no verified same-device benign/attack pairing",
+      "Q may act as finite-confidence regularization, not sample-specific knowledge",
+      "R includes auxiliary regularization, extra parameters and shared clipping effects",
+      "contribution-space orthogonality is not gradient orthogonality or causal feature use",
+      "0.1% FPR supports at most18 false positives on18000 OOD, not precise stable population FPR",
+      "151 ID targets do not establish0.1% ID FPR; future-query is not automatically unseen attack families",
+      "P2 B default alarms are not content-recognition; old overall denominator is preserved",
+      "new-device commissioning not evaluated",
+      "one recipe failure does not falsify all knowledge transfer",
+      "AB has40 extra prior B-supervised epochs vs A; same new20epochs is not equal lifetime exposure.",
+      "Full AB encoder and head are inherited; result cannot isolate encoder alone.",
+      "R_AB beats C0_AB alone does not make a candidate valid if both regress relative to fixedAB or miss practical milestone.",
+      "No newly imposed absolute TPR target at1% or0.1% OOD FPR."
+    ],
+    "low_FPR_caveat": "Preserve original joint-gain rule, separately disclose0.1% ranking and every family/pool collapse; do not hide deterioration behind the macro rule.",
+    "additional_context": "Keep fixed A/C0/C1/C2/Q/R/AB/P2 full metric table and target flips; no historical model inference, no overwritten arm keys",
+    "counts_comparison": "Use original TP/FP numerator and common denominator; Fraction sums for family/pool macros and rational worst; no epsilon or rounding in comparisons. Original historical verdicts remain unchanged.",
+    "tail_composition": "At each existing pooled ranking point aggregate new candidate FP by pool/source_group/event_index from same saved scores; no extra forward or training feedback",
+    "AB_tail_comparison": {
+      "diagnostic_only": true,
+      "0.01": {
+        "reference_detected": 89201,
+        "attacks": 244050
+      },
+      "0.001": {
+        "reference_detected": 82192,
+        "attacks": 244050
+      },
+      "output": "LESS/EQUAL/GREATER from exact TPR fractions, separately per cap; never SCIENTIFIC_SUCCESS",
+      "actual_false_positives": "May be lower than180/18 due to ties; never force cap exhaustion"
+    },
+    "development_joint_gain_exact_quantities": [
+      "ranking_TPR_at_0.01_non_decreasing",
+      "fixed_attack_recall_non_decreasing",
+      "fixed_future_recall_non_decreasing",
+      "fixed_family_macro_recall_non_decreasing",
+      "fixed_pool_macro_FPR_non_increasing",
+      "fixed_worst_pool_FPR_non_increasing"
+    ]
+  },
+  "historical_reference_seals": {
+    "paired_T": {
+      "path": "runs/frontend_paired_train_v3_20260910/SHA256SUMS",
+      "sha256": "0f55d36928f813dcd034d44a19ce2ab3d57e5e7b8c9f6ecd7354b0cfc835869a"
+    },
+    "transfer_T": {
+      "path": "runs/frontend_task_knowledge_transfer_t_v2_20260911/SHA256SUMS",
+      "sha256": "6d51dfa3967ac13352a4bd9f41c40299282fcaf2a20443c5a2b24f4ad4194dec"
+    },
+    "transfer_E": {
+      "path": "runs/frontend_task_knowledge_transfer_e_v2_20260911/SHA256SUMS",
+      "sha256": "20baf0790e7e01d12699820e1ad849259197883295cae1db5efe2a9cd9e95adb"
+    },
+    "aligned_T": {
+      "path": "runs/frontend_task_aligned_transfer_t_v1_20260912/SHA256SUMS",
+      "sha256": "b7f999edb8f9cbb45dc26d7f71c9a58cb02a54786ae775eda16aadea86952457"
+    },
+    "aligned_E": {
+      "path": "runs/frontend_task_aligned_transfer_e_v1_20260912/SHA256SUMS",
+      "sha256": "dedf82ef1bf6ee984236714026e5f73e918e81ae22653a1525377ae1f993f752"
+    }
+  },
+  "continuation": {
+    "C0_AB_joint_gain_vs_AB": "Prefer simpler useful candidate; not distillation innovation; still review all reference risks and practical targets.",
+    "R_AB_joint_gain_vs_C0_AB": "Evaluate own AB-tail and practical comparison too; only then consider later attribution/independent confirmation.",
+    "C0_keeps_tail_R_loses": "Evidence of R-package compatibility issue in this starting state; stop chasing its fit as success.",
+    "both_lose_tail": "Starting AB is insufficient under this budget; pursue substantive learning/coverage/input evidence; no automatic checkpoint search.",
+    "tail_kept_attack_insufficient_or_tradeoff": "Partial evidence only; substantive next decision, not full inheritance or automatic more epochs.",
+    "no_additional_arms": [
+      "AB_Q",
+      "Q_const",
+      "R_perm",
+      "other_initial_checkpoints",
+      "other_seeds",
+      "learning_rate_or_loss_weight_search"
+    ],
+    "no_new_commissioning_claim": true,
+    "decision_precedence": "Every candidate retains own fixedAB and oldP2 practical/full-risk review. A within-new gain never overrides both-candidate AB regressions or unresolved tradeoff; no automatic winner/scientific pass.",
+    "tail_preservation_definition": "Report LESS/EQUAL/GREATER separately at1% and0.1% vs AB exact TP counts89201/82192 with common244050 denominator. A mixed outcome stays mixed; no hidden tolerance or new seventh joint-gain gate."
+  },
+  "implementation_acceptance": [
+    "Generated data only; no real checkpoint torch.load, forward, training, rawdecode or numerical evaluation in implementation acceptance.",
+    "Arbitrary generated initial student: C0_AB update/short trajectory exactly matches pinned original C0; R_AB matches original R with identical batches/runtime/optimizer/clip, not a weakened surrogate.",
+    "Same complete AB state, independent copies, seeded20epoch order, empty AdamW per arm, no headreset or RNG use by zero projection.",
+    "AB-initial nonzero Aguard is valid; original formula/whitelist/scale unchanged; C0 guard/teacher calls0 and no division0 in logs.",
+    "Consume old prepared margins/index/scale with correct producer SHA; pin mutation rejection; derive calls0 and no separate P stage.",
+    "Per-arm/full counters as stages require, R-only teacher andguard counts; no extra initial forward.",
+    "Complete generated T->E including native AB/oldP receipt schemas, terminal barriers, single-start, exception/budget STOP and zero retries.",
+    "Distinct C0_AB/R_AB names avoid old references overwrite and hyphen parser ambiguity; all old score UID/metadata joins exact.",
+    "Ranking groups ties at one pooled global threshold, allows unused FP budget, exact Fraction comparisons, ID151 outsideOOD18000,0.1%risk independent of inherited6-metricflag.",
+    "Runtime/source/filesystem isolation and unrelated8hash protection; Windows hidden worker/Job cleanup/statusread safe; no new resource trial.",
+    "Freeze new independent implementation and generated acceptance before separately authorized T/E. Routine formula-preserving fixes within grant need no repeat user permission."
+  ],
+  "C0_base_contract": {
+    "path": "runs/mainline_docs/frontend_task_knowledge_transfer_recipe_v1_20260911.json",
+    "sha256": "7707807c49950fbffe47d2025ce6ceb6edf7106d588b04e688afe41baacd9513",
+    "access": "metadata only in design"
+  },
+  "experiment_question": "Whether the sealed A+B-trained student can improve attack detection through ordinary continuation or the original R package while preserving useful OOD separation. Each same-objective historical contrast changes only complete saved starting student state A to AB.",
+  "prepared_teacher_reuse": {
+    "manifest": {
+      "path": "runs/frontend_task_aligned_transfer_p_v1_20260912/SHA256SUMS",
+      "sha256": "6d93ae8d74b3c2d754df63fc9224146a14424f43e4787d6b5dd1fdc92d26e76f"
+    },
+    "receipt": {
+      "path": "runs/frontend_task_aligned_transfer_p_v1_20260912/preparation_receipt.json",
+      "sha256": "f249a5db5d6aaf078505fea0a314e988168a43931896d27669150c254370e345"
+    },
+    "terminal": {
+      "path": "runs/frontend_task_aligned_transfer_p_v1_20260912/supervisor_terminal.json",
+      "sha256": "cf146e177bd5a40a7898a9d41832beb2cf72364c491229195be1b1efcd015eba",
+      "required_field": "status",
+      "required_value": "COMPLETE"
+    },
+    "index": {
+      "path": "runs/frontend_task_aligned_transfer_p_v1_20260912/teacher_index.json",
+      "sha256": "b291e3d2344f1e02aaea7648e488df7a13ee1f42389810388a0361198b6f4649"
+    },
+    "margins": {
+      "path": "runs/frontend_task_aligned_transfer_p_v1_20260912/margins.f32le",
+      "sha256": "431d03e80ab0baf7404496b6633307a0026fe9d53547844854a0b52d4880b42f",
+      "dtype": "<f4",
+      "shape": [
+        9379
+      ]
+    },
+    "producer_recipe_sha256": "540c2e4d71ce9621965f981d47b4e5f68eb5f148cfd13b4c5d59fa4b2b725702",
+    "tau_T": -2.66353170637526,
+    "s_q64": 24.467974454982155,
+    "s_q32": 24.467973709106445,
+    "s_q32_hex": "69bec341",
+    "s_T": 0.4098227709378718,
+    "targets": 9379,
+    "class_context_counts": {
+      "0": 2957,
+      "1": 3329
+    },
+    "consumer_receipt": "New T entry reuse receipt pins both new recipe SHA and old producer recipe SHA, old manifests and files. Never mutate original receipt or require its producer SHA equals new SHA.",
+    "validation": "Verify sealed native completion/manifest/file bytes, expected UID-row-context-label mapping to original TRAIN whitelist, teacher value shape finite, saved margin bytes hex/sign, counts and fixed scales. Do not call derive or re-estimate RMS/guard scale/energy; no new cache or model forward.",
+    "new_stage": false,
+    "preflight_in_T": true,
+    "derive_calls": 0,
+    "original_mixed_NPZ_access": false
+  },
+  "lifetime_direct_student_label_exposure": {
+    "historical_A_start_per_endpoint": {
+      "A_presentations": 564120,
+      "B_presentations": 113420,
+      "total": 677540,
+      "optimizer_updates": 11820
+    },
+    "new_AB_start_per_endpoint": {
+      "A_presentations": 564120,
+      "B_presentations": 340260,
+      "total": 904380,
+      "optimizer_updates": 11820
+    },
+    "extra_prior_B_presentations_per_new_lineage": 226840,
+    "exclude_from_this_ledger": "Earlier teacher training and pretraining knowledge; this is direct student label exposure only."
+  },
+  "historical_score_references": {
+    "C0_C1_C2": {
+      "directory": "runs/frontend_task_knowledge_transfer_e_v2_20260911",
+      "manifest": {
+        "path": "runs/frontend_task_knowledge_transfer_e_v2_20260911/SHA256SUMS",
+        "sha256": "20baf0790e7e01d12699820e1ad849259197883295cae1db5efe2a9cd9e95adb"
+      },
+      "filename_pattern": "{arm}_expanded.csv.gz",
+      "comparison": {
+        "path": "runs/frontend_task_knowledge_transfer_e_v2_20260911/comparison.json",
+        "sha256": "0c408372f0ef3c759bc0fdd1edb9fa8f2628a3da3c88e9dba0dddc998c390055"
+      },
+      "access": "E reference only"
+    },
+    "Q_R": {
+      "directory": "runs/frontend_task_aligned_transfer_e_v1_20260912",
+      "manifest": {
+        "path": "runs/frontend_task_aligned_transfer_e_v1_20260912/SHA256SUMS",
+        "sha256": "dedf82ef1bf6ee984236714026e5f73e918e81ae22653a1525377ae1f993f752"
+      },
+      "filename_pattern": "{arm}_expanded.csv.gz",
+      "comparison": {
+        "path": "runs/frontend_task_aligned_transfer_e_v1_20260912/comparison.json",
+        "sha256": "5c0c4da2a57843d4941245dc76b5b1ec2615600e9c608ff890964686b53340c1"
+      },
+      "access": "E reference only"
+    },
+    "A_AB_P2": "Use pinned expanded_A_predictions and expanded_AB_P2_predictions; old P2 hard only has no new ROC",
+    "new_ID_rule": "C0_AB/R_AB distinct from old C0/R; never overwrite all_q references"
+  },
+  "implementation": {
+    "directory": "runs/frontend_ab_start_control_implementation_v1_20260912",
+    "new_source_prefix": "repo/ood/issue27frontend_abstart_",
+    "start_script": "scripts/start_frontend_ab_start_control_v1.ps1",
+    "status_script": "scripts/show_frontend_ab_start_control_v1.ps1",
+    "old_files_mutated": false,
+    "reference_code_pins": {
+      "repo/ood/issue27frontend_aligned_build_v1.py": "17f6eb54e465edb53e32e5c3b29c680f2b5cd17039e46ba7b9be195c7587b22c",
+      "repo/ood/issue27frontend_aligned_control_v1.py": "4153e04280856c62d7278b1202fdfc80a99a24e8099fd0b802ec6221ec63893f",
+      "repo/ood/issue27frontend_aligned_evaluate_v1.py": "f48cbabe6fb3c4c38660cef26fb0bb0643d44a4f03daec91c2bbe1acb004d146",
+      "repo/ood/issue27frontend_aligned_fixture_v1.py": "631176ccc72764d25136b252c6e6d4717b116884e005939b6b389acb3f6f65ef",
+      "repo/ood/issue27frontend_aligned_model_v1.py": "91589060743e59da204c6728777c7ad7a87590fa8446b7ad039738a80274afa3",
+      "repo/ood/issue27frontend_aligned_prepare_v1.py": "22afaa9434a886e5c69c80a3419386a08bce1f5e31da6c5885f76d89715f702a",
+      "repo/ood/issue27frontend_aligned_support_v1.py": "dc5e435a03e2953a828d8cd233727770e38d44593ecc22ca9a764399d06c1e96",
+      "repo/ood/issue27frontend_aligned_tests_v1.py": "681ba577c3d4b53b25df3854df291e848ede3845dda39052d7c1b5f9ca634efd",
+      "repo/ood/issue27frontend_aligned_train_v1.py": "e80100007ef328bba0db303ae821b27482f72cedbea7ede810cf730bcc298409",
+      "repo/ood/issue27frontend_aligned_verify_v1.py": "1e05bef1405537318271374cc917b940220ff366f4ae4c54d51d1a018ce3dedd",
+      "repo/ood/issue27frontend_f0_zero_training_semantics_real_v1.py": "ca34ff39bfe7289fee1048d74e04de53dd4d4f096228fa837104cb65388b6f60",
+      "repo/ood/issue27frontend_f0_zero_training_semantics_v1.py": "00366fdef9d644c2ac60fab68047938e6bcc4425aab68e1f6c1ae552db40affa",
+      "repo/ood/issue27frontend_f1_d1_train_v1.py": "6e2df7059b9bb0aba9be80adb11e7e918c3f1ddfef3ecc690b571b0f0af18634",
+      "repo/ood/issue27frontend_f3_conflict_field_sufficiency_v1.py": "80b4de6c931b77f528bafaf64a4a0e449295c8a78fb1d9776a8fed1d35eb9791",
+      "repo/ood/issue27frontend_f3_full_fit_l1_identifiability_v1.py": "69fc92fb417fe8dbca646c30aaaf7f7ea40edf81ecae3c4fe36d831434e35a67",
+      "repo/ood/issue27frontend_f4_fieldwise_input_v1.py": "9c729a3165d19042549723f029235734595131d5e7ba344a3f605cca89677200",
+      "repo/ood/issue27frontend_f5_unified_student_v1.py": "78898ad6cf5d59bbe3505fe5fb7536f7e29b8aeed1cb4c00aaf9f38108bf8136",
+      "repo/ood/issue27frontend_inheritance_n0_inventory_v1.py": "e53d9f7d3111555fdf2e1e5ca54b4ad77b2a1a52eb0648987f9e53323e0ba682",
+      "repo/ood/issue27frontend_inheritance_n1_math_v1.py": "1c750f7a7932bcf4336428eae0a3d33a43cc29aa2ff13e324ef8d5c45e9b6032",
+      "repo/ood/issue27frontend_inheritance_n1_support_v1.py": "1509cb63bc8581bc0d507a506113d7ddd5e3435b1c7ebc68a9f6f7c615be3091",
+      "repo/ood/issue27frontend_inheritance_n2_support_v1.py": "e46ae2563064287e47f2f2471188eeef565ad37085bfa2520ee01f269afc5e33",
+      "repo/ood/issue27frontend_inheritance_n3_runner_v1.py": "a9dd43a916f93bf9fa54a5b5a730890c969e8cb4b69542a58df93b0627ed39c9",
+      "repo/ood/issue27frontend_inheritance_n3_support_v1.py": "8f2a4dfa36dfecc56ca5e15041ce410536a206e450cd40da722c9459561e804a",
+      "repo/ood/issue27frontend_inheritance_outer_control_v1.py": "59cbe51334e9c1319828af831efaa9e599a4c8c76abf2bc17b1507b9e70cf4e6",
+      "repo/ood/issue27frontend_inheritance_outer_metadata_v1.py": "c4f6a4f7c29db5b0a029782863a8bfa47160763630002f12145ce37ab9039647",
+      "repo/ood/issue27frontend_inheritance_outer_runner_v1.py": "e40dab584f2c564b1ec39aae3befc947b0bf89d19037e4ed195b96930ba20c56",
+      "repo/ood/issue27frontend_inheritance_outer_support_v1.py": "f01807fdc0057378f3e5894516fa4f5fb34cb323b40263b14535fb9d3de479fc",
+      "repo/ood/issue27frontend_paired_metadata_io_fix_v3.py": "91880b0f2ff1b86d593e7ebb94fc6ca8a6bbbd72b309e77416515a2f0c9faff8",
+      "repo/ood/issue27frontend_paired_metadata_monitor_fix_v2.py": "4fb9ceacf171f7904f40630a7221eac2c32903a982f69012cf71ba290155584f",
+      "repo/ood/issue27frontend_paired_metadata_v1.py": "e99298d91669717cf99cb2cf3d23f3ed6e134bfb862e773d598d470886becb37",
+      "repo/ood/issue27frontend_paired_train_control_v3.py": "357d8af65f71c838b434ed412c4794368d9cba4ce846d102d6049fe0da844d83",
+      "repo/ood/issue27frontend_paired_train_metrics_v2.py": "97ba8421723bef5398fcde109dce986559e4ba59e1ef51a1ddcf0aa9e75a2ae2",
+      "repo/ood/issue27frontend_paired_train_model_v1.py": "970028cdef7ff9f0098930e6d378a3e517c7d47b95105223b9120361e58d8d71",
+      "repo/ood/issue27frontend_paired_train_prefix_fix_v2.py": "b0bbea1c8acffad61f84f6c7a88dff7ea7b95af0d6853b31ec9d296f37d05c16",
+      "repo/ood/issue27frontend_paired_train_runner_v3.py": "9be22974e759d3f6ad3eb2dddba0c6e8954f8df96857809d6e33d5c83aaeedde",
+      "repo/ood/issue27frontend_paired_train_support_v1.py": "455f063a6ac044ad153cd4265595ce9743b9bd1ebcc9d9cc85b50c9e4b57729a",
+      "repo/ood/issue27frontend_paired_train_support_v3.py": "84d8aa5650f3a782477c0739af8d68e6d2afa16bfdd4298dbac78a45ba7183ab",
+      "repo/ood/issue27frontend_transfer_io_v2.py": "039589773be83d5ef93f48940fe946a0f7cbe45cb2eefd551a085ff8da37f435",
+      "repo/ood/issue27frontend_transfer_model_v1.py": "9e00d1286fd46e6be728354c34d47e60f75d41201e5463c888add5d7e33b263e",
+      "repo/ood/issue27frontend_transfer_support_v1.py": "eb39ba28ed1e3d6025335533a8e093cf01fe6eaac879f0f91ce7109e98cd5b2d"
+    },
+    "runtime_pins_from_accepted_implementation": {
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\python.exe": "07c96337729e3c4c986e8f5660a97cb475c4c04842606be2654b37892af57de9",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\python39.dll": "324963a39b8fd045ff634bb3271508dab5098b4d99e85e7648d0b47c32dc85c3",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\DLLs\\_ctypes.pyd": "a8703f949c9520b76cb1875d1176a23a2b3ef1d652d6dfac6e1de46dc08b2aa3",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\ast.py": "38acab29dee8e05202ff033a08f6fe7ebb1e2877a6bdb321dac83772c9ea0d43",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\csv.py": "6f0bf83454623407e8292cbaab7be555314af47ab6e40b0dfc48be9e65261c14",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\gzip.py": "2c7b35d4a33580fd6f3b65b2be0b4b1417c9237f05ead5a4e529eaca07bf4d45",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\zipfile.py": "bd7270eccd6b18b527cda804dcd5a9a1c7f32b03ad952db6e929819600e380ad",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\dataclasses.py": "68d5cedc8b4ce21d99a686f67009f04a65a1ec49a3ff475f06f7e8b1433fdb0a",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\json\\decoder.py": "166898917cc796859421929b821aad3040e6e19c973f197bce4741f75381f6d8",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\json\\encoder.py": "b3697ba518e29ec2b307463858cef8b20d6703cdc8496783b0380b9bab749c8d",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\subprocess.py": "cb198f0c4ea2cc2ddd7dbe341979fa696d861881762ffb15a403d4564f2d9333",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\threading.py": "41457626d1dd7b637d4cc75b2e141490448511fffb80512acbe9e6f4e21d110f",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\__init__.py": "6d6c92d0b1091fc8f437cfe8228e9c9ad088dc0faf8446b1df8738f61c0834f2",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\__init__.py": "c8c1007668326afd3cf3b1d183e8bc1581430514af161672b4225c57487dd976",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\site-packages\\torch-2.8.0.dist-info\\METADATA": "21d59cbe983b22e72dab5ba788617a631a4ec30357544ce90ca7d75aa51b3c04",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\site-packages\\numpy-2.0.2.dist-info\\METADATA": "0b1e601244cc69655bad407b02e8a160976ee7a1e3a2035836d3b3a6bbd0d5ce",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\nn\\modules\\linear.py": "58b8ce1f2a2889ffac1f7817522daef466505ecd5123d179a5d86c1b75afff70",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\nn\\modules\\rnn.py": "4ca97c3133494a7b21bb07fdf90ec04b27d764a4803f02f9f139fb61614b5ecb",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\nn\\modules\\activation.py": "888849404f330cf8a28e53aa1766ed48ea7deaf2f694a2aba593183de54cf1ab",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\nn\\utils\\rnn.py": "fea8ff7101ffeab6392bc838e39a474df4f9ed9c9a6e4a091ae4da13b890662d",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\nn\\utils\\clip_grad.py": "6b03f538003d9efbb37135c270b75ddda383557b6825814fafeef183051e93cc",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\optim\\adamw.py": "cdb96600aa1933dbdabc1880813e90a2aeeeed591adb07068b723c4c3d566dd5",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\optim\\adam.py": "8ae36d1ddd1ca711bc708694a3c85e54fd0feca99910b93d2006436adf0ee193",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\nn\\functional.py": "fc13e05f04b956964dcdf7ddb89d4cd5560c9e791492f8b52fc4e80a9052cf7f",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\serialization.py": "cfd697af47330bf8e2ad05338134ce97dc97c5ff6a7abe7ca45a7f7f407f32e7",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\asmjit.dll": "6019433264046fb55b275b0f803d706cf705af3ac06ea97f087b0aa49aacdddd",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\c10.dll": "ccedb7a7011369fde5fea7b2453284d79d1c986f47c94eae3a47b41ce1358fd1",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\fbgemm.dll": "dc74454fddf405ed343fd8e95e2d288d374397c2d6b065b2e7620378d2733ec5",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\libiomp5md.dll": "d9d66ed25f1a0ea725fa3a41b22cfd5d182c19dbe4771d9c90ca02ad7466f6a1",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\libiompstubs5md.dll": "daeb39e4ced3bfce4a622b63b8b0281613eb8180266f8dd1dc678346df1c7697",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\shm.dll": "c09176254fca576061088c4452c8be295db45c954f25f3c5f15e02cee0d42ef4",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\torch.dll": "f82e042622f74d5b126124088a575f71ca74e1be492b1650d9ff9c9a07205ab1",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\torch_cpu.dll": "671457d3a62d7acff7c28c7ca1cd9dd1f46bb6c6a881923659e8e6140d67ba1a",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\torch_global_deps.dll": "a87addd41d972c71ef406de274586812ccd7fc253fa6a9504854bd75a0643a5c",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\torch_python.dll": "2cd2897d163f1029341f3ae67fcccd5f4f4fe7b4d62ecae8ca767128e3140f73",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\torch\\lib\\uv.dll": "fa569e682fc5fb7a8eb94c6829af9f30a569748dbbc6bce39735d48bc960bcf8",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\_core\\_multiarray_tests.cp39-win_amd64.pyd": "556c837b395b3f6663b36889e6f19c17392ca809de6ae8c8c4e1b595cab4dbcb",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\_core\\_multiarray_umath.cp39-win_amd64.pyd": "ba5feeec2aa7bffd9f88c597091942598b3d4f3f3a5f9d2f6b16d7b49996434d",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\_core\\_operand_flag_tests.cp39-win_amd64.pyd": "4c68ac26fdf7045b66eca953edf84e164e034e4522795e658e9b0401201c0f2a",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\_core\\_rational_tests.cp39-win_amd64.pyd": "4b0b0cebe2b64e69ec78445eda9c7be636df445d4645177b01887317f6c81029",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\_core\\_simd.cp39-win_amd64.pyd": "cade7e0ccfb92a09158fef11cf77583e3e843bf6dc8596430880594a293eeced",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\_core\\_struct_ufunc_tests.cp39-win_amd64.pyd": "b6616141c1a5edde270dda36471f11c2e99d8dfdd03fabfdd8c8f84bf860e4d1",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\_core\\_umath_tests.cp39-win_amd64.pyd": "5d10baa0ff222acc1d2813b6f4b1ce2a00c227f1b030631bbb2af55be85205e9",
+      "C:\\Users\\28371\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\site-packages\\torch\\optim\\optimizer.py": "377109e568b4502a5810d7e285735e0ff33d1f5310ceca286851e3dd81bd01f9"
+    },
+    "unrelated_tracked_sha256": {
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/config.json": "0df82dda20424088839fdd87d5b08c552f546a748554adb9f8bf70c9e8beeec1",
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/issue27by_decision.md": "995d3014eb177bd968bc88db035b889e25dca6ffb8d5ce35ab2ed34fb584c89a",
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/local_smoke_report.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/manifest.csv": "957356c3c7b700cd6ed2e677753d7a4e89b5a26be9211ca878e2bb8ef35d1b67",
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/per_file_cache_manifest.csv": "298047ccb5fd5b3fbe1982d849fa7c8448aaec0a0a066f6f3781ee4756e931ea",
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/role_cache_readiness.csv": "3bdd9dc88ba425ecbdfaeada9753754821938652b0c6961f5850ff9634d35024",
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/slurm_array_config.csv": "9135c49b11ec3d03079e616b952e5e5dfbea236b89749ed66d8887a2a4f89360",
+      "runs/issue27by_runtime_optimized_1m_or_slurm_materialization_2026-06-12/summary.md": "f44318fc343f913184ffc2c68d32bf7adf25a6005504d8b15ec5481a1719a411"
+    }
+  },
+  "design_review": {
+    "status": "PASS_STATIC_DESIGN_REVIEW",
+    "scientific_review": "Independent comparison/denominator/decision review passed",
+    "execution_review": "Independent static code/interface/schema/reuse review passed",
+    "review_document": "runs/mainline_docs/frontend_ab_start_control_design_review_v1_20260912.md",
+    "generated_acceptance_executed": false,
+    "new_real_model_loads": 0,
+    "new_real_forwards": 0,
+    "new_optimizer_steps": 0
+  }
+}

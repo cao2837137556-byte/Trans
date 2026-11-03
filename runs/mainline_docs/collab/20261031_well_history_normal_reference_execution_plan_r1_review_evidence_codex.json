@@ -1,0 +1,985 @@
+{
+  "status": "READ_ONLY_R1_REVIEW_NOT_EXECUTED",
+  "date": "2026-10-31",
+  "scope": "Code inspection, saved metadata and static counts only; no raw extraction/decoding, models, scores or support",
+  "current_ab_attacks": {
+    "CIC_DEV": {
+      "by_capture": [
+        {
+          "device": "HeimVision Camera",
+          "capture_id": "interaction-attack-194",
+          "source_sha256": "c1cca7c167ed39fdd5c12e63f042372044f0727089157f2c824eae64661a12ee",
+          "attack_rows": 11307
+        },
+        {
+          "device": "HeimVision Camera",
+          "capture_id": "interaction-attack-195",
+          "source_sha256": "d80f27fbac51e942ca4de1fce599f9a3cb25c34b2d1487213b6e0d697359f1ce",
+          "attack_rows": 17086
+        },
+        {
+          "device": "HeimVision Camera",
+          "capture_id": "interaction-attack-196",
+          "source_sha256": "876aed07709e29afba3498477848551e9bcf1cb535343190566a14577d3c1afb",
+          "attack_rows": 7408
+        },
+        {
+          "device": "HeimVision Camera",
+          "capture_id": "interaction-attack-197",
+          "source_sha256": "2a5c95843d6dab98baf69bad34230ef5bcc6df0826414d69e3dcc90032235875",
+          "attack_rows": 11881
+        },
+        {
+          "device": "HeimVision Camera",
+          "capture_id": "interaction-attack-198",
+          "source_sha256": "bbce4a6735e2c4ccf1142b43b3bc516e9a50dc4b338d0a4bac790dffa37a791f",
+          "attack_rows": 6112
+        },
+        {
+          "device": "HeimVision Camera",
+          "capture_id": "interaction-attack-199",
+          "source_sha256": "97ad1870b94632e418c6e1a7d529e52eefec99233783ac77d1233d7c0910bd35",
+          "attack_rows": 5899
+        },
+        {
+          "device": "HeimVision Camera",
+          "capture_id": "interaction-attack-200",
+          "source_sha256": "151de44da2ba4c06e3a991be96a86bccd24695efb7abcbfd38b3ac7f0dffd0cf",
+          "attack_rows": 5856
+        }
+      ],
+      "annotation_ids": {}
+    },
+    "UNSW_DEV": {
+      "by_capture": [
+        {
+          "device": "Samsung Camera",
+          "capture_id": "unsw-mixed-20180601",
+          "source_sha256": "befc3f6882a2b3137652a81af1deba4f71d3cbd4b80db6344c2d64a9fc112bed",
+          "attack_rows": 14506
+        },
+        {
+          "device": "TP Link Plug",
+          "capture_id": "unsw-mixed-20180601",
+          "source_sha256": "befc3f6882a2b3137652a81af1deba4f71d3cbd4b80db6344c2d64a9fc112bed",
+          "attack_rows": 14604
+        },
+        {
+          "device": "WEMO Power Switch",
+          "capture_id": "unsw-mixed-20180601",
+          "source_sha256": "befc3f6882a2b3137652a81af1deba4f71d3cbd4b80db6344c2d64a9fc112bed",
+          "attack_rows": 14513
+        }
+      ],
+      "annotation_ids": {
+        "Samsung Camera": [
+          "annotations/00166cab6b88.csv:4",
+          "annotations/00166cab6b88.csv:5",
+          "annotations/00166cab6b88.csv:6"
+        ],
+        "WEMO Power Switch": [
+          "annotations/ec1a5979f489.csv:4",
+          "annotations/ec1a5979f489.csv:5",
+          "annotations/ec1a5979f489.csv:6"
+        ],
+        "TP Link Plug": [
+          "annotations/50c7bf005639.csv:4",
+          "annotations/50c7bf005639.csv:5",
+          "annotations/50c7bf005639.csv:6"
+        ]
+      }
+    }
+  },
+  "candidate_attack_metadata": {
+    "HeimVision Camera": {
+      "status": "ARCHIVE_MEMBERS_ONLY_NOT_LABEL_QUALIFIED",
+      "archive_present": true,
+      "members": [
+        {
+          "index": 101,
+          "name": "6-Attacks/2-RTSP Brute Force/Nmap/HeimVision Camera/HeimVisionCamRTSP_1.pcap",
+          "kind": "regular_file",
+          "size_bytes": 2304619,
+          "mtime": 1639063526,
+          "unsafe_path_reason": null,
+          "link_target": null,
+          "link_target_unsafe_reason": null,
+          "readme_action": "not_allowlisted_readme"
+        },
+        {
+          "index": 117,
+          "name": "6-Attacks/2-RTSP Brute Force/Nmap/HeimVision Camera/HeimVisionCamRTSP_2.pcap",
+          "kind": "regular_file",
+          "size_bytes": 2118260,
+          "mtime": 1639063832,
+          "unsafe_path_reason": null,
+          "link_target": null,
+          "link_target_unsafe_reason": null,
+          "readme_action": "not_allowlisted_readme"
+        },
+        {
+          "index": 130,
+          "name": "6-Attacks/2-RTSP Brute Force/Nmap/HeimVision Camera/HeimVisionCamRTSP_3.pcap",
+          "kind": "regular_file",
+          "size_bytes": 2163709,
+          "mtime": 1639064088,
+          "unsafe_path_reason": null,
+          "link_target": null,
+          "link_target_unsafe_reason": null,
+          "readme_action": "not_allowlisted_readme"
+        }
+      ]
+    },
+    "WEMO Power Switch": {
+      "status": "OFFICIAL_ANNOTATIONS_OUTSIDE_CURRENT_B_CAPTURE_NOT_RAW_QUALIFIED",
+      "owner": "ec:1a:59:79:f4:89",
+      "all_interval_count": 24,
+      "outside_current_b_interval_count": 12,
+      "direct_tcp_udp_candidates": [
+        {
+          "mac": "ec:1a:59:79:f4:89",
+          "member": "annotations/ec1a5979f489.csv",
+          "row": 16,
+          "start": 1527913194,
+          "end": 1527913795,
+          "start_utc": "2018-06-02T04:19:54+00:00",
+          "end_utc": "2018-06-02T04:29:55+00:00",
+          "affected_metadata_fields": [
+            ""
+          ],
+          "raw_fields": [
+            "1527913194",
+            "1527913795",
+            "",
+            "TcpSynDevice1W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice1W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "1",
+          "direction": "W2D"
+        },
+        {
+          "mac": "ec:1a:59:79:f4:89",
+          "member": "annotations/ec1a5979f489.csv",
+          "row": 17,
+          "start": 1527914795,
+          "end": 1527915395,
+          "start_utc": "2018-06-02T04:46:35+00:00",
+          "end_utc": "2018-06-02T04:56:35+00:00",
+          "affected_metadata_fields": [
+            ""
+          ],
+          "raw_fields": [
+            "1527914795",
+            "1527915395",
+            "",
+            "TcpSynDevice10W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice10W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "10",
+          "direction": "W2D"
+        },
+        {
+          "mac": "ec:1a:59:79:f4:89",
+          "member": "annotations/ec1a5979f489.csv",
+          "row": 18,
+          "start": 1527916395,
+          "end": 1527916995,
+          "start_utc": "2018-06-02T05:13:15+00:00",
+          "end_utc": "2018-06-02T05:23:15+00:00",
+          "affected_metadata_fields": [
+            ""
+          ],
+          "raw_fields": [
+            "1527916395",
+            "1527916995",
+            "",
+            "TcpSynDevice100W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice100W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "100",
+          "direction": "W2D"
+        },
+        {
+          "mac": "ec:1a:59:79:f4:89",
+          "member": "annotations/ec1a5979f489.csv",
+          "row": 19,
+          "start": 1528219424,
+          "end": 1528220024,
+          "start_utc": "2018-06-05T17:23:44+00:00",
+          "end_utc": "2018-06-05T17:33:44+00:00",
+          "affected_metadata_fields": [
+            "internetTcpPort8899|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort8899|49154IP149.171.37.10"
+          ],
+          "raw_fields": [
+            "1528219424",
+            "1528220024",
+            "internetTcpPort8899|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort8899|49154IP149.171.37.10",
+            "TcpSynDevice1W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice1W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "1",
+          "direction": "W2D"
+        },
+        {
+          "mac": "ec:1a:59:79:f4:89",
+          "member": "annotations/ec1a5979f489.csv",
+          "row": 20,
+          "start": 1528221024,
+          "end": 1528221624,
+          "start_utc": "2018-06-05T17:50:24+00:00",
+          "end_utc": "2018-06-05T18:00:24+00:00",
+          "affected_metadata_fields": [
+            "internetTcpPort8899|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort8899|49154IP149.171.37.10"
+          ],
+          "raw_fields": [
+            "1528221024",
+            "1528221624",
+            "internetTcpPort8899|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort8899|49154IP149.171.37.10",
+            "TcpSynDevice10W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice10W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "10",
+          "direction": "W2D"
+        },
+        {
+          "mac": "ec:1a:59:79:f4:89",
+          "member": "annotations/ec1a5979f489.csv",
+          "row": 21,
+          "start": 1528222625,
+          "end": 1528223225,
+          "start_utc": "2018-06-05T18:17:05+00:00",
+          "end_utc": "2018-06-05T18:27:05+00:00",
+          "affected_metadata_fields": [
+            "internetTcpPort8899|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort8899|49154IP149.171.37.10"
+          ],
+          "raw_fields": [
+            "1528222625",
+            "1528223225",
+            "internetTcpPort8899|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort8899|49154IP149.171.37.10",
+            "TcpSynDevice100W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice100W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "100",
+          "direction": "W2D"
+        }
+      ],
+      "outside_by_date_kind": [
+        {
+          "utc_date": "2018-06-02",
+          "kind": "PingOfDeath",
+          "intervals": 3
+        },
+        {
+          "utc_date": "2018-06-02",
+          "kind": "TcpSynDevice",
+          "intervals": 3
+        },
+        {
+          "utc_date": "2018-06-05",
+          "kind": "TcpSynDevice",
+          "intervals": 3
+        },
+        {
+          "utc_date": "2018-06-06",
+          "kind": "TcpSynReflection",
+          "intervals": 3
+        }
+      ]
+    },
+    "Samsung Camera": {
+      "status": "OFFICIAL_ANNOTATIONS_OUTSIDE_CURRENT_B_CAPTURE_NOT_RAW_QUALIFIED",
+      "owner": "00:16:6c:ab:6b:88",
+      "all_interval_count": 42,
+      "outside_current_b_interval_count": 30,
+      "direct_tcp_udp_candidates": [
+        {
+          "mac": "00:16:6c:ab:6b:88",
+          "member": "annotations/00166cab6b88.csv",
+          "row": 10,
+          "start": 1527949904,
+          "end": 1527950504,
+          "start_utc": "2018-06-02T14:31:44+00:00",
+          "end_utc": "2018-06-02T14:41:44+00:00",
+          "affected_metadata_fields": [
+            "localUdpPort1900|Udpfeatures|Localfeatures|Allfeatures|LocalUDPPort1900"
+          ],
+          "raw_fields": [
+            "1527949904",
+            "1527950504",
+            "localUdpPort1900|Udpfeatures|Localfeatures|Allfeatures|LocalUDPPort1900",
+            "UdpDevice1L2D"
+          ],
+          "schema_width": 4,
+          "label": "UdpDevice1L2D",
+          "attack_kind": "UdpDevice",
+          "rate": "1",
+          "direction": "L2D"
+        },
+        {
+          "mac": "00:16:6c:ab:6b:88",
+          "member": "annotations/00166cab6b88.csv",
+          "row": 11,
+          "start": 1527951510,
+          "end": 1527952110,
+          "start_utc": "2018-06-02T14:58:30+00:00",
+          "end_utc": "2018-06-02T15:08:30+00:00",
+          "affected_metadata_fields": [
+            "localUdpPort1900|Udpfeatures|Localfeatures|Allfeatures|LocalUDPPort1900"
+          ],
+          "raw_fields": [
+            "1527951510",
+            "1527952110",
+            "localUdpPort1900|Udpfeatures|Localfeatures|Allfeatures|LocalUDPPort1900",
+            "UdpDevice10L2D"
+          ],
+          "schema_width": 4,
+          "label": "UdpDevice10L2D",
+          "attack_kind": "UdpDevice",
+          "rate": "10",
+          "direction": "L2D"
+        },
+        {
+          "mac": "00:16:6c:ab:6b:88",
+          "member": "annotations/00166cab6b88.csv",
+          "row": 12,
+          "start": 1527953123,
+          "end": 1527953723,
+          "start_utc": "2018-06-02T15:25:23+00:00",
+          "end_utc": "2018-06-02T15:35:23+00:00",
+          "affected_metadata_fields": [
+            "localUdpPort1900|Udpfeatures|Localfeatures|Allfeatures|LocalUDPPort1900"
+          ],
+          "raw_fields": [
+            "1527953123",
+            "1527953723",
+            "localUdpPort1900|Udpfeatures|Localfeatures|Allfeatures|LocalUDPPort1900",
+            "UdpDevice100L2D"
+          ],
+          "schema_width": 4,
+          "label": "UdpDevice100L2D",
+          "attack_kind": "UdpDevice",
+          "rate": "100",
+          "direction": "L2D"
+        },
+        {
+          "mac": "00:16:6c:ab:6b:88",
+          "member": "annotations/00166cab6b88.csv",
+          "row": 31,
+          "start": 1527917995,
+          "end": 1527918596,
+          "start_utc": "2018-06-02T05:39:55+00:00",
+          "end_utc": "2018-06-02T05:49:56+00:00",
+          "affected_metadata_fields": [
+            ""
+          ],
+          "raw_fields": [
+            "1527917995",
+            "1527918596",
+            "",
+            "TcpSynDevice1W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice1W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "1",
+          "direction": "W2D"
+        },
+        {
+          "mac": "00:16:6c:ab:6b:88",
+          "member": "annotations/00166cab6b88.csv",
+          "row": 32,
+          "start": 1527919596,
+          "end": 1527920197,
+          "start_utc": "2018-06-02T06:06:36+00:00",
+          "end_utc": "2018-06-02T06:16:37+00:00",
+          "affected_metadata_fields": [
+            ""
+          ],
+          "raw_fields": [
+            "1527919596",
+            "1527920197",
+            "",
+            "TcpSynDevice10W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice10W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "10",
+          "direction": "W2D"
+        },
+        {
+          "mac": "00:16:6c:ab:6b:88",
+          "member": "annotations/00166cab6b88.csv",
+          "row": 33,
+          "start": 1527921197,
+          "end": 1527921797,
+          "start_utc": "2018-06-02T06:33:17+00:00",
+          "end_utc": "2018-06-02T06:43:17+00:00",
+          "affected_metadata_fields": [
+            ""
+          ],
+          "raw_fields": [
+            "1527921197",
+            "1527921797",
+            "",
+            "TcpSynDevice100W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice100W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "100",
+          "direction": "W2D"
+        },
+        {
+          "mac": "00:16:6c:ab:6b:88",
+          "member": "annotations/00166cab6b88.csv",
+          "row": 34,
+          "start": 1527943358,
+          "end": 1527943958,
+          "start_utc": "2018-06-02T12:42:38+00:00",
+          "end_utc": "2018-06-02T12:52:38+00:00",
+          "affected_metadata_fields": [
+            "internetUdpPortAll|Udpfeatures|Internetfeatures|Allfeatures|InternetUDPPort1903"
+          ],
+          "raw_fields": [
+            "1527943358",
+            "1527943958",
+            "internetUdpPortAll|Udpfeatures|Internetfeatures|Allfeatures|InternetUDPPort1903",
+            "UdpDevice1W2D"
+          ],
+          "schema_width": 4,
+          "label": "UdpDevice1W2D",
+          "attack_kind": "UdpDevice",
+          "rate": "1",
+          "direction": "W2D"
+        },
+        {
+          "mac": "00:16:6c:ab:6b:88",
+          "member": "annotations/00166cab6b88.csv",
+          "row": 35,
+          "start": 1527944959,
+          "end": 1527945559,
+          "start_utc": "2018-06-02T13:09:19+00:00",
+          "end_utc": "2018-06-02T13:19:19+00:00",
+          "affected_metadata_fields": [
+            "internetUdpPortAll|Udpfeatures|Internetfeatures|Allfeatures|InternetUDPPort1903"
+          ],
+          "raw_fields": [
+            "1527944959",
+            "1527945559",
+            "internetUdpPortAll|Udpfeatures|Internetfeatures|Allfeatures|InternetUDPPort1903",
+            "UdpDevice10W2D"
+          ],
+          "schema_width": 4,
+          "label": "UdpDevice10W2D",
+          "attack_kind": "UdpDevice",
+          "rate": "10",
+          "direction": "W2D"
+        },
+        {
+          "mac": "00:16:6c:ab:6b:88",
+          "member": "annotations/00166cab6b88.csv",
+          "row": 36,
+          "start": 1527946559,
+          "end": 1527947159,
+          "start_utc": "2018-06-02T13:35:59+00:00",
+          "end_utc": "2018-06-02T13:45:59+00:00",
+          "affected_metadata_fields": [
+            "internetUdpPortAll|Udpfeatures|Internetfeatures|Allfeatures|InternetUDPPort1903"
+          ],
+          "raw_fields": [
+            "1527946559",
+            "1527947159",
+            "internetUdpPortAll|Udpfeatures|Internetfeatures|Allfeatures|InternetUDPPort1903",
+            "UdpDevice100W2D"
+          ],
+          "schema_width": 4,
+          "label": "UdpDevice100W2D",
+          "attack_kind": "UdpDevice",
+          "rate": "100",
+          "direction": "W2D"
+        },
+        {
+          "mac": "00:16:6c:ab:6b:88",
+          "member": "annotations/00166cab6b88.csv",
+          "row": 37,
+          "start": 1528224632,
+          "end": 1528225233,
+          "start_utc": "2018-06-05T18:50:32+00:00",
+          "end_utc": "2018-06-05T19:00:33+00:00",
+          "affected_metadata_fields": [
+            "internetTcpPort5222|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort5222|49152IP149.171.37.10"
+          ],
+          "raw_fields": [
+            "1528224632",
+            "1528225233",
+            "internetTcpPort5222|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort5222|49152IP149.171.37.10",
+            "TcpSynDevice1W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice1W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "1",
+          "direction": "W2D"
+        },
+        {
+          "mac": "00:16:6c:ab:6b:88",
+          "member": "annotations/00166cab6b88.csv",
+          "row": 38,
+          "start": 1528226233,
+          "end": 1528226833,
+          "start_utc": "2018-06-05T19:17:13+00:00",
+          "end_utc": "2018-06-05T19:27:13+00:00",
+          "affected_metadata_fields": [
+            "internetTcpPort5222|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort5222|49152IP149.171.37.10"
+          ],
+          "raw_fields": [
+            "1528226233",
+            "1528226833",
+            "internetTcpPort5222|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort5222|49152IP149.171.37.10",
+            "TcpSynDevice10W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice10W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "10",
+          "direction": "W2D"
+        },
+        {
+          "mac": "00:16:6c:ab:6b:88",
+          "member": "annotations/00166cab6b88.csv",
+          "row": 39,
+          "start": 1528227833,
+          "end": 1528228433,
+          "start_utc": "2018-06-05T19:43:53+00:00",
+          "end_utc": "2018-06-05T19:53:53+00:00",
+          "affected_metadata_fields": [
+            "internetTcpPort5222|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort5222|49152IP149.171.37.10"
+          ],
+          "raw_fields": [
+            "1528227833",
+            "1528228433",
+            "internetTcpPort5222|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort5222|49152IP149.171.37.10",
+            "TcpSynDevice100W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice100W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "100",
+          "direction": "W2D"
+        }
+      ],
+      "outside_by_date_kind": [
+        {
+          "utc_date": "2018-06-02",
+          "kind": "PingOfDeath",
+          "intervals": 3
+        },
+        {
+          "utc_date": "2018-06-02",
+          "kind": "Smurf",
+          "intervals": 3
+        },
+        {
+          "utc_date": "2018-06-02",
+          "kind": "Snmp",
+          "intervals": 6
+        },
+        {
+          "utc_date": "2018-06-02",
+          "kind": "TcpSynDevice",
+          "intervals": 3
+        },
+        {
+          "utc_date": "2018-06-02",
+          "kind": "UdpDevice",
+          "intervals": 6
+        },
+        {
+          "utc_date": "2018-06-03",
+          "kind": "Snmp",
+          "intervals": 3
+        },
+        {
+          "utc_date": "2018-06-05",
+          "kind": "TcpSynDevice",
+          "intervals": 3
+        },
+        {
+          "utc_date": "2018-06-06",
+          "kind": "TcpSynReflection",
+          "intervals": 3
+        }
+      ]
+    },
+    "TP Link Plug": {
+      "status": "OFFICIAL_ANNOTATIONS_OUTSIDE_CURRENT_B_CAPTURE_NOT_RAW_QUALIFIED",
+      "owner": "50:c7:bf:00:56:39",
+      "all_interval_count": 27,
+      "outside_current_b_interval_count": 16,
+      "direct_tcp_udp_candidates": [
+        {
+          "mac": "50:c7:bf:00:56:39",
+          "member": "annotations/50c7bf005639.csv",
+          "row": 19,
+          "start": 1527922797,
+          "end": 1527923398,
+          "start_utc": "2018-06-02T06:59:57+00:00",
+          "end_utc": "2018-06-02T07:09:58+00:00",
+          "affected_metadata_fields": [
+            ""
+          ],
+          "raw_fields": [
+            "1527922797",
+            "1527923398",
+            "",
+            "TcpSynDevice1W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice1W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "1",
+          "direction": "W2D"
+        },
+        {
+          "mac": "50:c7:bf:00:56:39",
+          "member": "annotations/50c7bf005639.csv",
+          "row": 20,
+          "start": 1527924398,
+          "end": 1527924998,
+          "start_utc": "2018-06-02T07:26:38+00:00",
+          "end_utc": "2018-06-02T07:36:38+00:00",
+          "affected_metadata_fields": [
+            ""
+          ],
+          "raw_fields": [
+            "1527924398",
+            "1527924998",
+            "",
+            "TcpSynDevice10W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice10W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "10",
+          "direction": "W2D"
+        },
+        {
+          "mac": "50:c7:bf:00:56:39",
+          "member": "annotations/50c7bf005639.csv",
+          "row": 21,
+          "start": 1527925998,
+          "end": 1527926598,
+          "start_utc": "2018-06-02T07:53:18+00:00",
+          "end_utc": "2018-06-02T08:03:18+00:00",
+          "affected_metadata_fields": [
+            ""
+          ],
+          "raw_fields": [
+            "1527925998",
+            "1527926598",
+            "",
+            "TcpSynDevice100W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice100W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "100",
+          "direction": "W2D"
+        },
+        {
+          "mac": "50:c7:bf:00:56:39",
+          "member": "annotations/50c7bf005639.csv",
+          "row": 22,
+          "start": 1528229672,
+          "end": 1528230273,
+          "start_utc": "2018-06-05T20:14:32+00:00",
+          "end_utc": "2018-06-05T20:24:33+00:00",
+          "affected_metadata_fields": [
+            "internetTcpPort50443|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort50443|9999IP149.171.37.10"
+          ],
+          "raw_fields": [
+            "1528229672",
+            "1528230273",
+            "internetTcpPort50443|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort50443|9999IP149.171.37.10",
+            "TcpSynDevice1W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice1W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "1",
+          "direction": "W2D"
+        },
+        {
+          "mac": "50:c7:bf:00:56:39",
+          "member": "annotations/50c7bf005639.csv",
+          "row": 23,
+          "start": 1528231273,
+          "end": 1528231873,
+          "start_utc": "2018-06-05T20:41:13+00:00",
+          "end_utc": "2018-06-05T20:51:13+00:00",
+          "affected_metadata_fields": [
+            "internetTcpPort50443|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort50443|9999IP149.171.37.10"
+          ],
+          "raw_fields": [
+            "1528231273",
+            "1528231873",
+            "internetTcpPort50443|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort50443|9999IP149.171.37.10",
+            "TcpSynDevice10W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice10W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "10",
+          "direction": "W2D"
+        },
+        {
+          "mac": "50:c7:bf:00:56:39",
+          "member": "annotations/50c7bf005639.csv",
+          "row": 24,
+          "start": 1528232873,
+          "end": 1528233473,
+          "start_utc": "2018-06-05T21:07:53+00:00",
+          "end_utc": "2018-06-05T21:17:53+00:00",
+          "affected_metadata_fields": [
+            "internetTcpPort50443|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort50443|9999IP149.171.37.10"
+          ],
+          "raw_fields": [
+            "1528232873",
+            "1528233473",
+            "internetTcpPort50443|Tcpfeatures|Internetfeatures|Allfeatures|InternetTCPPort50443|9999IP149.171.37.10",
+            "TcpSynDevice100W2D"
+          ],
+          "schema_width": 4,
+          "label": "TcpSynDevice100W2D",
+          "attack_kind": "TcpSynDevice",
+          "rate": "100",
+          "direction": "W2D"
+        }
+      ],
+      "outside_by_date_kind": [
+        {
+          "utc_date": "2018-06-02",
+          "kind": "PingOfDeath",
+          "intervals": 3
+        },
+        {
+          "utc_date": "2018-06-02",
+          "kind": "Smurf",
+          "intervals": 3
+        },
+        {
+          "utc_date": "2018-06-02",
+          "kind": "TcpSynDevice",
+          "intervals": 3
+        },
+        {
+          "utc_date": "2018-06-02",
+          "kind": "TcpSynReflection",
+          "intervals": 1
+        },
+        {
+          "utc_date": "2018-06-05",
+          "kind": "TcpSynDevice",
+          "intervals": 3
+        },
+        {
+          "utc_date": "2018-06-06",
+          "kind": "TcpSynReflection",
+          "intervals": 3
+        }
+      ]
+    }
+  },
+  "static_pair_upper_bound": {
+    "CIC_DEV": {
+      "by_group": [
+        {
+          "device": "HeimVision Camera",
+          "protocol": 6,
+          "full_query_rows": 48014,
+          "post_query_rows": 47866,
+          "existing_bank_rows": 2521,
+          "history_new_upper": 1,
+          "full_pairs_upper": 121091308
+        },
+        {
+          "device": "HeimVision Camera",
+          "protocol": 17,
+          "full_query_rows": 18532,
+          "post_query_rows": 18355,
+          "existing_bank_rows": 2329,
+          "history_new_upper": 10,
+          "full_pairs_upper": 43346348
+        }
+      ],
+      "full_view_pairs_upper": 164437656,
+      "kind": "Conservative row-products; not new distances or elapsed-time estimate"
+    },
+    "UNSW_DEV": {
+      "by_group": [
+        {
+          "device": "Samsung Camera",
+          "protocol": 6,
+          "full_query_rows": 29371,
+          "post_query_rows": 29307,
+          "existing_bank_rows": 717,
+          "history_new_upper": 4096,
+          "full_pairs_upper": 141362623
+        },
+        {
+          "device": "Samsung Camera",
+          "protocol": 17,
+          "full_query_rows": 5135,
+          "post_query_rows": 4910,
+          "existing_bank_rows": 2669,
+          "history_new_upper": 4096,
+          "full_pairs_upper": 34738275
+        },
+        {
+          "device": "TP Link Plug",
+          "protocol": 6,
+          "full_query_rows": 17046,
+          "post_query_rows": 16971,
+          "existing_bank_rows": 147,
+          "history_new_upper": 4096,
+          "full_pairs_upper": 72326178
+        },
+        {
+          "device": "TP Link Plug",
+          "protocol": 17,
+          "full_query_rows": 238,
+          "post_query_rows": 230,
+          "existing_bank_rows": 14,
+          "history_new_upper": 4096,
+          "full_pairs_upper": 978180
+        },
+        {
+          "device": "WEMO Power Switch",
+          "protocol": 6,
+          "full_query_rows": 26991,
+          "post_query_rows": 26950,
+          "existing_bank_rows": 88,
+          "history_new_upper": 4096,
+          "full_pairs_upper": 112930344
+        },
+        {
+          "device": "WEMO Power Switch",
+          "protocol": 17,
+          "full_query_rows": 605,
+          "post_query_rows": 591,
+          "existing_bank_rows": 52,
+          "history_new_upper": 4096,
+          "full_pairs_upper": 2509540
+        }
+      ],
+      "full_view_pairs_upper": 364845140,
+      "kind": "Conservative row-products; not new distances or elapsed-time estimate"
+    }
+  },
+  "production_frontend": {
+    "saved_receipt": {
+      "input_version": "continuous-input-core-repair-design-v3-20260929",
+      "input_readout": "RECENT_CURRENT_INCLUSIVE",
+      "real_recent_features": true
+    },
+    "constrained_onboarding_reference_v2.py_matches_frozen_vendor": true,
+    "continuous_input_engineering_v1.py_matches_frozen_vendor": true,
+    "continuous_input_v3.py_matches_frozen_vendor": true
+  },
+  "heimvision_registered_attack_captures": [
+    {
+      "capture_id": "interaction-attack-194",
+      "member_path": "6-Attacks/1-Flood/HeimVision Camera/HTTP/HeimVisionCamHTTPFlood_1.pcap",
+      "sha256": "c1cca7c167ed39fdd5c12e63f042372044f0727089157f2c824eae64661a12ee",
+      "use": "LATER_ATTACK_QUERY",
+      "partition": "DEV",
+      "mode": "HTTP"
+    },
+    {
+      "capture_id": "interaction-attack-195",
+      "member_path": "6-Attacks/1-Flood/HeimVision Camera/TCP/HeimVisionCamTCPFlood_1.pcap",
+      "sha256": "d80f27fbac51e942ca4de1fce599f9a3cb25c34b2d1487213b6e0d697359f1ce",
+      "use": "LATER_ATTACK_QUERY",
+      "partition": "DEV",
+      "mode": "TCP"
+    },
+    {
+      "capture_id": "interaction-attack-196",
+      "member_path": "6-Attacks/1-Flood/HeimVision Camera/TCP/HeimVisionCamTCPFlood_2.pcap",
+      "sha256": "876aed07709e29afba3498477848551e9bcf1cb535343190566a14577d3c1afb",
+      "use": "LATER_ATTACK_QUERY",
+      "partition": "DEV",
+      "mode": "TCP"
+    },
+    {
+      "capture_id": "interaction-attack-197",
+      "member_path": "6-Attacks/1-Flood/HeimVision Camera/TCP/HeimVisionCamTCPFlood_3.pcap",
+      "sha256": "2a5c95843d6dab98baf69bad34230ef5bcc6df0826414d69e3dcc90032235875",
+      "use": "LATER_ATTACK_QUERY",
+      "partition": "DEV",
+      "mode": "TCP"
+    },
+    {
+      "capture_id": "interaction-attack-198",
+      "member_path": "6-Attacks/1-Flood/HeimVision Camera/UDP/HeimVisionCamUDPFlood_1.pcap",
+      "sha256": "bbce4a6735e2c4ccf1142b43b3bc516e9a50dc4b338d0a4bac790dffa37a791f",
+      "use": "LATER_ATTACK_QUERY",
+      "partition": "DEV",
+      "mode": "UDP"
+    },
+    {
+      "capture_id": "interaction-attack-199",
+      "member_path": "6-Attacks/1-Flood/HeimVision Camera/UDP/HeimVisionCamUDPFlood_2.pcap",
+      "sha256": "97ad1870b94632e418c6e1a7d529e52eefec99233783ac77d1233d7c0910bd35",
+      "use": "LATER_ATTACK_QUERY",
+      "partition": "DEV",
+      "mode": "UDP"
+    },
+    {
+      "capture_id": "interaction-attack-200",
+      "member_path": "6-Attacks/1-Flood/HeimVision Camera/UDP/HeimVisionCamUDPFlood_3.pcap",
+      "sha256": "151de44da2ba4c06e3a991be96a86bccd24695efb7abcbfd38b3ac7f0dffd0cf",
+      "use": "LATER_ATTACK_QUERY",
+      "partition": "DEV",
+      "mode": "UDP"
+    }
+  ],
+  "inputs_sha256_unchanged": {
+    "runs/mainline_docs/collab/20261031_well_history_normal_reference_execution_plan_r1_for_codex.md": "d2bd3063f11b8e087f402ecf2db9a140a1d2b52b7e857ffc3cac0dc330c44fde",
+    "runs/legacy_reference_sample_preparation_v1_20260917/capture_catalog.json": "1d2347bf0cc3dee0b95f23dbec3868bc289b8d5d7099a8eadfd689afbce224d4",
+    "runs/legacy_cic2022_attack_acquisition_v1_20260915/inspection/members.jsonl": "4607554998b9d7964cbb92ce77d0100ac6ffe2576907889f7a84afdaea2c9de3",
+    "runs/legacy_commissioning_external_source_research_v1_20260925/annotation_metadata_rows.json": "5e855814513e1abe0518705eefa04ea887de11403dc102bc6edb2220dacbb698",
+    "runs/dense_reference_ab_stage_candidate_v1_20261028/config/MATRIX_CANDIDATE_HPC.json": "3c7d04a6a32b2a033b62bdfefc93172809eb6a7e6375b7fd7be7828a27ad1199",
+    "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/CIC_DEV/SELECTED_REFERENCES.jsonl.gz": "376b8d83da5f15acc1dd2c3eaa3c9b6919fae5cf2278e73c54a0409ef9af4f64",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV.jsonl.gz": "666c2e2dc648ab539b8e2bb5e1b1fb8fee8cd3bf92223a72d6631fc4c851f64f",
+    "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/UNSW_DEV/SELECTED_REFERENCES.jsonl.gz": "850b68302ccf94138138e55455136dbe5bb1d5e2e122c41420763c597d89c456",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV.jsonl.gz": "d334f18c3a2857fe8b63f491fd78ba3dc984bbd0fa7a55a4f030d9e797098503",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/encoded/CIC_DEV/B2/receipt.json": "628ac3953d1be38233b957164bfcaecda3b1d6a1dc947770d5b79b98afe0f145",
+    "repo/ood/constrained_onboarding_reference_v2.py": "208d89521c95bebb6d82745b2642aea8e01d97cf82dc80647f5ebf224a34a64c",
+    "repo/ood/continuous_input_engineering_v1.py": "c70b0be31fd5ec40432bc9f851e6ee8611c3b0ed18262122ddc964fba347b415",
+    "repo/ood/continuous_input_v3.py": "a503c7b21c35234462a735d3890fa4cda918573ceeda072604e4bec6872b405d",
+    "repo/ood/constrained_onboarding_core_v3.py": "42a32e0b829a373a96046d34d16bcb53455f99f1bc0786a8a49be38bc855f72c",
+    "runs/legacy_cic2022_attack_acquisition_v1_20260915/metadata_assessment.json": "7d195cb8ca46e7e741309051e3bb97d9d6036bbb7883fc2fbac22d098bb622af",
+    "runs/legacy_commissioning_unsw_evaluation_preparation_v1_20260926/label_contract.json": "1dda74231f14c402f19b4ed1ddb80554d9fe1e4f9b6350fbb701728b2d80c5df",
+    "runs/legacy_commissioning_external_source_research_v1_20260925/official_source_notes.md": "dd4ce42ed366c5c55b2ffc23bc98410dbd90601ab9a167b440527fb41971525a",
+    "runs/targeted_normal_raw_qualification_v1_20261031/DATA_HANDOFF.json": "fd3e86f61e07bc0c692edc0e3faa29447bdbc5c879ad567cbf79ed8974c924ea",
+    "runs/targeted_normal_raw_qualification_v1_20261031/TIMELINE_INDEX_RECEIPT.json": "ffb44e379840754b0719008ec58f2d8f65140fe30de533584ecaedbbcb01d5dc",
+    "runs/mainline_docs/collab/20261031_well_history_normal_reference_execution_plan_review_response_codex.md": "646769dbdd3d09457b2f3a14f707507f2edbea78600a2c7690c59aafb599e41b",
+    "runs/dense_reference_matrix_v1_20261027/vendor/encoding_v2/repo/ood/constrained_onboarding_reference_v2.py": "208d89521c95bebb6d82745b2642aea8e01d97cf82dc80647f5ebf224a34a64c",
+    "runs/dense_reference_matrix_v1_20261027/vendor/encoding_v2/repo/ood/continuous_input_engineering_v1.py": "c70b0be31fd5ec40432bc9f851e6ee8611c3b0ed18262122ddc964fba347b415",
+    "runs/dense_reference_matrix_v1_20261027/vendor/encoding_v2/repo/ood/continuous_input_v3.py": "a503c7b21c35234462a735d3890fa4cda918573ceeda072604e4bec6872b405d"
+  }
+}

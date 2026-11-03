@@ -1,0 +1,61 @@
+{
+  "calibration": "NOT_RUN",
+  "completed_stages": [],
+  "exception": "Python3.9 tempfile.TemporaryDirectory lacks ignore_cleanup_errors keyword (test_learning.py:158)",
+  "independent_local_compatibility_revision": {
+    "all_scientific_src_unchanged": true,
+    "archive_bytes": 3763580,
+    "archive_sha256": "6e3e13f04e7b6bcac69e2fbf278c287f000a93e773f57ef7e27348cf452c0e61",
+    "automatic_relaunch": false,
+    "changed_files": [
+      "runs/learned_onboarding_v1_20261023/deployment_20261024/remote_config.json",
+      "runs/learned_onboarding_v1_20261023/implementation_manifest.json",
+      "runs/learned_onboarding_v1_20261023/tests/test_learning.py"
+    ],
+    "deployment_manifest_sha256": "c2f40b052a2839f53f2d732096a2c2e2a8b1832fec8e2fbae5e781bfff93debc",
+    "engineering_manifest_sha256": "98f2e32dde1a16021adf533389b2b001decea5030cdf7c4615cb97599491fc7b",
+    "files": 695,
+    "local_validation": "PASS",
+    "original_30_artifacts_unchanged": true,
+    "prior_attempt_preserved": true,
+    "proposed_root": "/srv/paper04/learned_onboarding_20261024_v2",
+    "proposed_unit": "paper04-learned-onboarding-20261024-v2",
+    "remote_python39_validation": "NOT_RUN",
+    "status": "REVIEWABLE_LOCAL_REVISION_NO_RELAUNCH",
+    "test_assertions_unchanged": true
+  },
+  "next_requires_user_decision": "Independent revision execution after explicit exception stop; frozen specification section9 / no automatic rerun",
+  "original_attempt_preserved": true,
+  "progress_page": {
+    "ai_polling": false,
+    "ordinary_poll_seconds": 60,
+    "pid": 36092,
+    "shows": "EXCEPTION_STOP",
+    "url": "http://127.0.0.1:18765/"
+  },
+  "real_optimizer_updates": 0,
+  "real_source_prepare": "NOT_RUN",
+  "recorded_at": "2026-10-24T03:26:30.009503+00:00",
+  "remote_root": "/srv/paper04/learned_onboarding_20261024",
+  "resource_preflight": "NOT_RUN",
+  "retry_submitted": false,
+  "schema": "learned-onboarding-first-execution-receipt-v1",
+  "scientific_failure": false,
+  "stage": "tests",
+  "status": "EXCEPTION_STOP_BEFORE_REAL_TRAINING",
+  "stop_evidence": "local_ops/stopped_attempt_v1/EVIDENCE_RECEIPT.json",
+  "target_evaluation": "NOT_RUN",
+  "target_queries_read": 0,
+  "tests": {
+    "elapsed_seconds": 6.129103206010768,
+    "errors": 1,
+    "expected_failures": 0,
+    "failures": 0,
+    "schema": "learned-onboarding-deployment-tests-v1",
+    "skipped": 0,
+    "status": "FAIL",
+    "tests_run": 49,
+    "unexpected_successes": 0
+  },
+  "unit": "paper04-learned-onboarding-20261024-v1.service"
+}

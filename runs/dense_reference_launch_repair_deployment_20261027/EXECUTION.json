@@ -1,0 +1,49 @@
+{
+  "monitor": {
+    "automatic_retry": false,
+    "created_utc": "2026-10-27T10:01:11.601440+00:00",
+    "job_id": "179536",
+    "lifetime_seconds": 86400,
+    "pid": 3496542,
+    "port": 18780,
+    "returncode": null,
+    "root": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_launch_repair_v1_20261027/runtime",
+    "status": "STATUS_BRIDGE_STARTED",
+    "token_exposed": false
+  },
+  "submission": {
+    "automatic_retry": false,
+    "created_utc": "2026-10-27T10:01:08.052255+00:00",
+    "job_id": "179536",
+    "original_approval_sha256": "0576a803faf1fd77ffb57fecb606e5a31aa98957b895f657c23fb152ff2c4b26",
+    "original_manifest_sha256": "ddb94bb9836c9ace0b2a704e875d969c1d3c40c94198212ac795a9d0731db120",
+    "preflight": {
+      "original_approval_sha256": "0576a803faf1fd77ffb57fecb606e5a31aa98957b895f657c23fb152ff2c4b26",
+      "original_files": 1492,
+      "original_manifest_sha256": "ddb94bb9836c9ace0b2a704e875d969c1d3c40c94198212ac795a9d0731db120",
+      "real_forwards": 0,
+      "repair_files": 5,
+      "repair_manifest_sha256": "12bac486285b6cbaa0a58df7c8ded17dc6c1a74d79632f2ff7763e33f4c34300",
+      "stages": [
+        "runtime",
+        "encode",
+        "source_cal"
+      ],
+      "status": "PASS",
+      "target_matrix_authorized": false
+    },
+    "repair_approval_sha256": "1e7eeab8c2ec9f1850b68e88311703eed7394490ac216ed2822beb540cebd7fb",
+    "repair_manifest_sha256": "12bac486285b6cbaa0a58df7c8ded17dc6c1a74d79632f2ff7763e33f4c34300",
+    "retries": 0,
+    "returncode": 0,
+    "stages": [
+      "runtime",
+      "encode",
+      "source_cal"
+    ],
+    "status": "SUBMITTED",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "473ef7cce422f5245f6722f2f803df0b0b3a9d0bf63f7af543de26e9a43bc715",
+    "target_matrix_authorized": false
+  }
+}

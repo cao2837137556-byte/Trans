@@ -1,0 +1,2890 @@
+{
+  "source": "local verified v3 backup; official paired reports, not an independent score recomputation",
+  "evaluation_result_sha256": "9dfe0fa8bffd23103734cccde7f58a716b3d8b41b3accb5333d24567e0bf978a",
+  "backup": {
+    "status": "VERIFIED",
+    "index_sha256": "8148bb68dca998f207036525c9a30686b10d74dfb5941859b0f869877fd35c85",
+    "bytes": 911288320,
+    "experiment_success": true,
+    "final_state_sha256": {
+      "export_status.json": "401a0aa48a67290243873f868be2bf3205faca46579adc4673496100cb733940",
+      "final_status.json": "87a606b08119102b1ecfe43d468189aea95d25524b946d0f9899e7700ff7a56c",
+      "launch.json": "ef33e559c9f0c8af4223c34b4e57a134f1163cdc5982b9d1768e5a57e4a5a43a",
+      "request.json": "e23caf725fa66fd574487f1cd9f1c8c66a4a90696a168773d6cf9a0748042ca1"
+    },
+    "finished_epoch": 1792666854.1282036
+  },
+  "final_status": {
+    "status": "COMPLETE",
+    "failure": null,
+    "finished_epoch": 1792665844.5165591,
+    "automatic_stop_enabled": false,
+    "optimizer_updates": 0
+  },
+  "selected_lambda": 0.25,
+  "independent_confirmation": "NOT_RUN",
+  "automatic_model_selection": false,
+  "pools": {
+    "CIC_DEV": {
+      "OLD_BANK": {
+        "query_rows": 179886,
+        "reports_sha256": "c27049ae5dbe9d4e8a9cf0b8c1d79bd76010dd2dab77c2012e98a89dab58689d",
+        "reports": {
+          "27": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 440,
+                "rate": 0.0043637806208469705,
+                "weighted_rate": 0.07370324104265076
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 408,
+                "rate": 0.004046414757512645,
+                "weighted_rate": 0.064571118623853
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 32,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 100498,
+                "raw_eligible_fraction": 0.9967073291679064,
+                "weighted_eligible_fraction": 0.8964699074074074,
+                "weighted_positive_support_fraction": 0.8499810712611211
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 31374,
+                "raw_eligible_fraction": 0.3968579234972678,
+                "weighted_eligible_fraction": 0.6666666666666666,
+                "weighted_positive_support_fraction": 0.009881455590079045
+              },
+              "head_false_positives": {
+                "rows": 440,
+                "eligible_rows": 308,
+                "raw_eligible_fraction": 0.7,
+                "weighted_eligible_fraction": 0.43289200812595463,
+                "weighted_positive_support_fraction": 0.16746638150516152
+              },
+              "head_true_positives": {
+                "rows": 79056,
+                "eligible_rows": 31374,
+                "raw_eligible_fraction": 0.3968579234972678,
+                "weighted_eligible_fraction": 0.6666666666666666,
+                "weighted_positive_support_fraction": 0.009881455590079045
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.009132122418797767,
+              "relative_reduction": 0.12390394627982737,
+              "positive_gain": true
+            }
+          },
+          "127": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 215,
+                "rate": 0.0021323018942774967,
+                "weighted_rate": 0.03891836004466213
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79044,
+                "rate": 0.9998482088646024,
+                "weighted_rate": 0.9998065016279805
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 200,
+                "rate": 0.0019835366458395317,
+                "weighted_rate": 0.0364828958416198
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79044,
+                "rate": 0.9998482088646024,
+                "weighted_rate": 0.9998065016279805
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 15,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 100498,
+                "raw_eligible_fraction": 0.9967073291679064,
+                "weighted_eligible_fraction": 0.8964699074074074,
+                "weighted_positive_support_fraction": 0.8499810712611211
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 31374,
+                "raw_eligible_fraction": 0.3968579234972678,
+                "weighted_eligible_fraction": 0.6666666666666666,
+                "weighted_positive_support_fraction": 0.009881455590079045
+              },
+              "head_false_positives": {
+                "rows": 215,
+                "eligible_rows": 141,
+                "raw_eligible_fraction": 0.6558139534883721,
+                "weighted_eligible_fraction": 0.39197497270812043,
+                "weighted_positive_support_fraction": 0.10858494602358669
+              },
+              "head_true_positives": {
+                "rows": 79044,
+                "eligible_rows": 31374,
+                "raw_eligible_fraction": 0.3969181721572795,
+                "weighted_eligible_fraction": 0.6667956905472572,
+                "weighted_positive_support_fraction": 0.009883368005698218
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.0024354642030423243,
+              "relative_reduction": 0.06257879829076618,
+              "positive_gain": true
+            }
+          },
+          "227": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 299,
+                "rate": 0.0029653872855301003,
+                "weighted_rate": 0.05095464954123808
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79054,
+                "rate": 0.9999747014774337,
+                "weighted_rate": 0.9999942984856778
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 271,
+                "rate": 0.002687692155112566,
+                "weighted_rate": 0.046758974411969204
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79054,
+                "rate": 0.9999747014774337,
+                "weighted_rate": 0.9999942984856778
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 28,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 100498,
+                "raw_eligible_fraction": 0.9967073291679064,
+                "weighted_eligible_fraction": 0.8964699074074074,
+                "weighted_positive_support_fraction": 0.8499810712611211
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 31374,
+                "raw_eligible_fraction": 0.3968579234972678,
+                "weighted_eligible_fraction": 0.6666666666666666,
+                "weighted_positive_support_fraction": 0.009881455590079045
+              },
+              "head_false_positives": {
+                "rows": 299,
+                "eligible_rows": 193,
+                "raw_eligible_fraction": 0.6454849498327759,
+                "weighted_eligible_fraction": 0.3926839254550661,
+                "weighted_positive_support_fraction": 0.13495591448008593
+              },
+              "head_true_positives": {
+                "rows": 79054,
+                "eligible_rows": 31374,
+                "raw_eligible_fraction": 0.3968679636704025,
+                "weighted_eligible_fraction": 0.6666704676978864,
+                "weighted_positive_support_fraction": 0.009881511929660837
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.004195675129268876,
+              "relative_reduction": 0.08234135975900059,
+              "positive_gain": true
+            }
+          },
+          "ensemble": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 384,
+                "rate": 0.0038083903600119014,
+                "weighted_rate": 0.06158177604999902
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 360,
+                "rate": 0.0035703659625111574,
+                "weighted_rate": 0.055950579127662464
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 24,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 100498,
+                "raw_eligible_fraction": 0.9967073291679064,
+                "weighted_eligible_fraction": 0.8964699074074074,
+                "weighted_positive_support_fraction": 0.8499810712611211
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 31374,
+                "raw_eligible_fraction": 0.3968579234972678,
+                "weighted_eligible_fraction": 0.6666666666666666,
+                "weighted_positive_support_fraction": 0.009881455590079045
+              },
+              "head_false_positives": {
+                "rows": 384,
+                "eligible_rows": 270,
+                "raw_eligible_fraction": 0.703125,
+                "weighted_eligible_fraction": 0.4306006717781111,
+                "weighted_positive_support_fraction": 0.1412303154940987
+              },
+              "head_true_positives": {
+                "rows": 79056,
+                "eligible_rows": 31374,
+                "raw_eligible_fraction": 0.3968579234972678,
+                "weighted_eligible_fraction": 0.6666666666666666,
+                "weighted_positive_support_fraction": 0.009881455590079045
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.005631196922336552,
+              "relative_reduction": 0.09144258713429299,
+              "positive_gain": true
+            }
+          }
+        },
+        "gate": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:Eufy Home Base",
+            "DEVICE_FPR_2:HeimVision Camera"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      },
+      "B0": {
+        "query_rows": 179886,
+        "reports_sha256": "b266fdb2d7d5ccf1feb00a3ff03be83407cb7a56cebbd0ec558a695b804aa6d9",
+        "reports": {
+          "27": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 440,
+                "rate": 0.0043637806208469705,
+                "weighted_rate": 0.07370324104265076
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 440,
+                "rate": 0.0043637806208469705,
+                "weighted_rate": 0.07370324104265076
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 0,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 96272,
+                "raw_eligible_fraction": 0.9547951998413171,
+                "weighted_eligible_fraction": 0.1911710982814847,
+                "weighted_positive_support_fraction": 0.15856910990309261
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              },
+              "head_false_positives": {
+                "rows": 440,
+                "eligible_rows": 28,
+                "raw_eligible_fraction": 0.06363636363636363,
+                "weighted_eligible_fraction": 0.07028731394702685,
+                "weighted_positive_support_fraction": 0.003925904041104638
+              },
+              "head_true_positives": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.0,
+              "relative_reduction": 0.0,
+              "positive_gain": false
+            }
+          },
+          "127": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 215,
+                "rate": 0.0021323018942774967,
+                "weighted_rate": 0.03891836004466213
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79044,
+                "rate": 0.9998482088646024,
+                "weighted_rate": 0.9998065016279805
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 213,
+                "rate": 0.0021124665278191013,
+                "weighted_rate": 0.038629008192810274
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79044,
+                "rate": 0.9998482088646024,
+                "weighted_rate": 0.9998065016279805
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 2,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 96272,
+                "raw_eligible_fraction": 0.9547951998413171,
+                "weighted_eligible_fraction": 0.1911710982814847,
+                "weighted_positive_support_fraction": 0.15856910990309261
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              },
+              "head_false_positives": {
+                "rows": 215,
+                "eligible_rows": 20,
+                "raw_eligible_fraction": 0.09302325581395349,
+                "weighted_eligible_fraction": 0.07484628733726419,
+                "weighted_positive_support_fraction": 0.007434841846362385
+              },
+              "head_true_positives": {
+                "rows": 79044,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2794013460857244,
+                "weighted_eligible_fraction": 0.4167473065920358,
+                "weighted_positive_support_fraction": 0.003019244508660783
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.00028935185185185314,
+              "relative_reduction": 0.00743484184636245,
+              "positive_gain": true
+            }
+          },
+          "227": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 299,
+                "rate": 0.0029653872855301003,
+                "weighted_rate": 0.05095464954123808
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79054,
+                "rate": 0.9999747014774337,
+                "weighted_rate": 0.9999942984856778
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 298,
+                "rate": 0.0029554696023009024,
+                "weighted_rate": 0.05087326933290475
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79054,
+                "rate": 0.9999747014774337,
+                "weighted_rate": 0.9999942984856778
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 1,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 96272,
+                "raw_eligible_fraction": 0.9547951998413171,
+                "weighted_eligible_fraction": 0.1911710982814847,
+                "weighted_positive_support_fraction": 0.15856910990309261
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              },
+              "head_false_positives": {
+                "rows": 299,
+                "eligible_rows": 26,
+                "raw_eligible_fraction": 0.08695652173913043,
+                "weighted_eligible_fraction": 0.07701621983612583,
+                "weighted_positive_support_fraction": 0.007275725837053363
+              },
+              "head_true_positives": {
+                "rows": 79054,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793660029853012,
+                "weighted_eligible_fraction": 0.41666904231117907,
+                "weighted_positive_support_fraction": 0.0030186775007966333
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 8.138020833332871e-05,
+              "relative_reduction": 0.0015971105495969917,
+              "positive_gain": true
+            }
+          },
+          "ensemble": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 384,
+                "rate": 0.0038083903600119014,
+                "weighted_rate": 0.06158177604999902
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 383,
+                "rate": 0.0037984726767827034,
+                "weighted_rate": 0.061437100124073094
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 1,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 96272,
+                "raw_eligible_fraction": 0.9547951998413171,
+                "weighted_eligible_fraction": 0.1911710982814847,
+                "weighted_positive_support_fraction": 0.15856910990309261
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              },
+              "head_false_positives": {
+                "rows": 384,
+                "eligible_rows": 28,
+                "raw_eligible_fraction": 0.07291666666666667,
+                "weighted_eligible_fraction": 0.08412233576816873,
+                "weighted_positive_support_fraction": 0.004698660389673131
+              },
+              "head_true_positives": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.0001446759259259231,
+              "relative_reduction": 0.0023493301948365186,
+              "positive_gain": true
+            }
+          }
+        },
+        "gate": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:Eufy Home Base",
+            "DEVICE_FPR_2:HeimVision Camera"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      },
+      "B1": {
+        "query_rows": 179886,
+        "reports_sha256": "790b608d0d7e3eae9922a180845a4d543ee99cc31087697dd914590f3979940e",
+        "reports": {
+          "27": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 440,
+                "rate": 0.0043637806208469705,
+                "weighted_rate": 0.07370324104265076
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 440,
+                "rate": 0.0043637806208469705,
+                "weighted_rate": 0.07370324104265076
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 0,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 96272,
+                "raw_eligible_fraction": 0.9547951998413171,
+                "weighted_eligible_fraction": 0.1911710982814847,
+                "weighted_positive_support_fraction": 0.15856910990309261
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              },
+              "head_false_positives": {
+                "rows": 440,
+                "eligible_rows": 28,
+                "raw_eligible_fraction": 0.06363636363636363,
+                "weighted_eligible_fraction": 0.07028731394702685,
+                "weighted_positive_support_fraction": 0.003925904041104638
+              },
+              "head_true_positives": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.0,
+              "relative_reduction": 0.0,
+              "positive_gain": false
+            }
+          },
+          "127": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 215,
+                "rate": 0.0021323018942774967,
+                "weighted_rate": 0.03891836004466213
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79044,
+                "rate": 0.9998482088646024,
+                "weighted_rate": 0.9998065016279805
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 213,
+                "rate": 0.0021124665278191013,
+                "weighted_rate": 0.038629008192810274
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79044,
+                "rate": 0.9998482088646024,
+                "weighted_rate": 0.9998065016279805
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 2,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 96272,
+                "raw_eligible_fraction": 0.9547951998413171,
+                "weighted_eligible_fraction": 0.1911710982814847,
+                "weighted_positive_support_fraction": 0.15856910990309261
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              },
+              "head_false_positives": {
+                "rows": 215,
+                "eligible_rows": 20,
+                "raw_eligible_fraction": 0.09302325581395349,
+                "weighted_eligible_fraction": 0.07484628733726419,
+                "weighted_positive_support_fraction": 0.007434841846362385
+              },
+              "head_true_positives": {
+                "rows": 79044,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2794013460857244,
+                "weighted_eligible_fraction": 0.4167473065920358,
+                "weighted_positive_support_fraction": 0.003019244508660783
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.00028935185185185314,
+              "relative_reduction": 0.00743484184636245,
+              "positive_gain": true
+            }
+          },
+          "227": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 299,
+                "rate": 0.0029653872855301003,
+                "weighted_rate": 0.05095464954123808
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79054,
+                "rate": 0.9999747014774337,
+                "weighted_rate": 0.9999942984856778
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 298,
+                "rate": 0.0029554696023009024,
+                "weighted_rate": 0.05087326933290475
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79054,
+                "rate": 0.9999747014774337,
+                "weighted_rate": 0.9999942984856778
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 1,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 96272,
+                "raw_eligible_fraction": 0.9547951998413171,
+                "weighted_eligible_fraction": 0.1911710982814847,
+                "weighted_positive_support_fraction": 0.15856910990309261
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              },
+              "head_false_positives": {
+                "rows": 299,
+                "eligible_rows": 26,
+                "raw_eligible_fraction": 0.08695652173913043,
+                "weighted_eligible_fraction": 0.07701621983612583,
+                "weighted_positive_support_fraction": 0.007275725837053363
+              },
+              "head_true_positives": {
+                "rows": 79054,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793660029853012,
+                "weighted_eligible_fraction": 0.41666904231117907,
+                "weighted_positive_support_fraction": 0.0030186775007966333
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 8.138020833332871e-05,
+              "relative_reduction": 0.0015971105495969917,
+              "positive_gain": true
+            }
+          },
+          "ensemble": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 384,
+                "rate": 0.0038083903600119014,
+                "weighted_rate": 0.06158177604999902
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 383,
+                "rate": 0.0037984726767827034,
+                "weighted_rate": 0.061437100124073094
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 1,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 96272,
+                "raw_eligible_fraction": 0.9547951998413171,
+                "weighted_eligible_fraction": 0.1911710982814847,
+                "weighted_positive_support_fraction": 0.15856910990309261
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              },
+              "head_false_positives": {
+                "rows": 384,
+                "eligible_rows": 28,
+                "raw_eligible_fraction": 0.07291666666666667,
+                "weighted_eligible_fraction": 0.08412233576816873,
+                "weighted_positive_support_fraction": 0.004698660389673131
+              },
+              "head_true_positives": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.0001446759259259231,
+              "relative_reduction": 0.0023493301948365186,
+              "positive_gain": true
+            }
+          }
+        },
+        "gate": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:Eufy Home Base",
+            "DEVICE_FPR_2:HeimVision Camera"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      },
+      "B2": {
+        "query_rows": 179886,
+        "reports_sha256": "805da8e7a1afc210ae4dc8352b6992951254e6efa6aede34fd1edada9977cb5f",
+        "reports": {
+          "27": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 440,
+                "rate": 0.0043637806208469705,
+                "weighted_rate": 0.07370324104265076
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 440,
+                "rate": 0.0043637806208469705,
+                "weighted_rate": 0.07370324104265076
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 0,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 94621,
+                "raw_eligible_fraction": 0.9384211048299117,
+                "weighted_eligible_fraction": 0.18767075272061282,
+                "weighted_positive_support_fraction": 0.15494230110585683
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              },
+              "head_false_positives": {
+                "rows": 440,
+                "eligible_rows": 28,
+                "raw_eligible_fraction": 0.06363636363636363,
+                "weighted_eligible_fraction": 0.07028731394702685,
+                "weighted_positive_support_fraction": 0.003925904041104638
+              },
+              "head_true_positives": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.0,
+              "relative_reduction": 0.0,
+              "positive_gain": false
+            }
+          },
+          "127": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 215,
+                "rate": 0.0021323018942774967,
+                "weighted_rate": 0.03891836004466213
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79044,
+                "rate": 0.9998482088646024,
+                "weighted_rate": 0.9998065016279805
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 213,
+                "rate": 0.0021124665278191013,
+                "weighted_rate": 0.038629008192810274
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79044,
+                "rate": 0.9998482088646024,
+                "weighted_rate": 0.9998065016279805
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 2,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 94621,
+                "raw_eligible_fraction": 0.9384211048299117,
+                "weighted_eligible_fraction": 0.18767075272061282,
+                "weighted_positive_support_fraction": 0.15494230110585683
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              },
+              "head_false_positives": {
+                "rows": 215,
+                "eligible_rows": 20,
+                "raw_eligible_fraction": 0.09302325581395349,
+                "weighted_eligible_fraction": 0.07484628733726419,
+                "weighted_positive_support_fraction": 0.007434841846362385
+              },
+              "head_true_positives": {
+                "rows": 79044,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2794013460857244,
+                "weighted_eligible_fraction": 0.4167473065920358,
+                "weighted_positive_support_fraction": 0.003019244508660783
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.00028935185185185314,
+              "relative_reduction": 0.00743484184636245,
+              "positive_gain": true
+            }
+          },
+          "227": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 299,
+                "rate": 0.0029653872855301003,
+                "weighted_rate": 0.05095464954123808
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79054,
+                "rate": 0.9999747014774337,
+                "weighted_rate": 0.9999942984856778
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 298,
+                "rate": 0.0029554696023009024,
+                "weighted_rate": 0.05087326933290475
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79054,
+                "rate": 0.9999747014774337,
+                "weighted_rate": 0.9999942984856778
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 1,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 94621,
+                "raw_eligible_fraction": 0.9384211048299117,
+                "weighted_eligible_fraction": 0.18767075272061282,
+                "weighted_positive_support_fraction": 0.15494230110585683
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              },
+              "head_false_positives": {
+                "rows": 299,
+                "eligible_rows": 26,
+                "raw_eligible_fraction": 0.08695652173913043,
+                "weighted_eligible_fraction": 0.07701621983612583,
+                "weighted_positive_support_fraction": 0.007275725837053363
+              },
+              "head_true_positives": {
+                "rows": 79054,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793660029853012,
+                "weighted_eligible_fraction": 0.41666904231117907,
+                "weighted_positive_support_fraction": 0.0030186775007966333
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 8.138020833332871e-05,
+              "relative_reduction": 0.0015971105495969917,
+              "positive_gain": true
+            }
+          },
+          "ensemble": {
+            "head": {
+              "normal": {
+                "rows": 100830,
+                "positive": 384,
+                "rate": 0.0038083903600119014,
+                "weighted_rate": 0.06158177604999902
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 100830,
+                "positive": 383,
+                "rate": 0.0037984726767827034,
+                "weighted_rate": 0.061437100124073094
+              },
+              "attack": {
+                "rows": 79056,
+                "positive": 79056,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 1,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 100830,
+                "eligible_rows": 94621,
+                "raw_eligible_fraction": 0.9384211048299117,
+                "weighted_eligible_fraction": 0.18767075272061282,
+                "weighted_positive_support_fraction": 0.15494230110585683
+              },
+              "attack": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              },
+              "head_false_positives": {
+                "rows": 384,
+                "eligible_rows": 28,
+                "raw_eligible_fraction": 0.07291666666666667,
+                "weighted_eligible_fraction": 0.08412233576816873,
+                "weighted_positive_support_fraction": 0.004698660389673131
+              },
+              "head_true_positives": {
+                "rows": 79056,
+                "eligible_rows": 22085,
+                "raw_eligible_fraction": 0.2793589354381704,
+                "weighted_eligible_fraction": 0.4166666666666667,
+                "weighted_positive_support_fraction": 0.0030186602897636283
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.0001446759259259231,
+              "relative_reduction": 0.0023493301948365186,
+              "positive_gain": true
+            }
+          }
+        },
+        "gate": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:Eufy Home Base",
+            "DEVICE_FPR_2:HeimVision Camera"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      }
+    },
+    "UNSW_DEV": {
+      "OLD_BANK": {
+        "query_rows": 148316,
+        "reports_sha256": "e04b2fb891b97c26a378b0fa8f49ebef335c29a8cc8485245810219f229bbf29",
+        "reports": {
+          "27": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 30182,
+                "rate": 0.3983738764304476,
+                "weighted_rate": 0.23353329458103095
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72553,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 24964,
+                "rate": 0.3295012077135277,
+                "weighted_rate": 0.1926060027522593
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72553,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 5218,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 48420,
+                "raw_eligible_fraction": 0.6390982405659755,
+                "weighted_eligible_fraction": 0.7553968901054103,
+                "weighted_positive_support_fraction": 0.4435235110403863
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 30182,
+                "eligible_rows": 18995,
+                "raw_eligible_fraction": 0.629348618381817,
+                "weighted_eligible_fraction": 0.6807856413372034,
+                "weighted_positive_support_fraction": 0.40065817258206415
+              },
+              "head_true_positives": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.04092729182877164,
+              "relative_reduction": 0.17525249195065318,
+              "positive_gain": true
+            }
+          },
+          "127": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 23063,
+                "rate": 0.3044098042580151,
+                "weighted_rate": 0.19896981014116474
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72470,
+                "rate": 0.9988560087108734,
+                "weighted_rate": 0.998309625412044
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 17991,
+                "rate": 0.23746419756345447,
+                "weighted_rate": 0.16240993930560282
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72470,
+                "rate": 0.9988560087108734,
+                "weighted_rate": 0.998309625412044
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 5072,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 48420,
+                "raw_eligible_fraction": 0.6390982405659755,
+                "weighted_eligible_fraction": 0.7553968901054103,
+                "weighted_positive_support_fraction": 0.4435235110403863
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 23063,
+                "eligible_rows": 15303,
+                "raw_eligible_fraction": 0.663530329965746,
+                "weighted_eligible_fraction": 0.69479767975378,
+                "weighted_positive_support_fraction": 0.3973641563376653
+              },
+              "head_true_positives": {
+                "rows": 72470,
+                "eligible_rows": 43512,
+                "raw_eligible_fraction": 0.6004139643990617,
+                "weighted_eligible_fraction": 0.6003669455977577,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.03655987083556192,
+              "relative_reduction": 0.18374581957747005,
+              "positive_gain": true
+            }
+          },
+          "227": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 30726,
+                "rate": 0.4055541623219778,
+                "weighted_rate": 0.24537334036613326
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 25259,
+                "rate": 0.3333949289230891,
+                "weighted_rate": 0.19348743640926264
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 5467,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 48420,
+                "raw_eligible_fraction": 0.6390982405659755,
+                "weighted_eligible_fraction": 0.7553968901054103,
+                "weighted_positive_support_fraction": 0.4435235110403863
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 30726,
+                "eligible_rows": 21192,
+                "raw_eligible_fraction": 0.68970904120289,
+                "weighted_eligible_fraction": 0.7043477003453769,
+                "weighted_positive_support_fraction": 0.41533393566781873
+              },
+              "head_true_positives": {
+                "rows": 72548,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000716766830236,
+                "weighted_eligible_fraction": 0.6000322092946844,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.05188590395687062,
+              "relative_reduction": 0.21145697360377125,
+              "positive_gain": true
+            }
+          },
+          "ensemble": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 30244,
+                "rate": 0.3991922178372029,
+                "weighted_rate": 0.2365666118333686
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 25024,
+                "rate": 0.33029315101038764,
+                "weighted_rate": 0.18947695806376505
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 5220,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 48420,
+                "raw_eligible_fraction": 0.6390982405659755,
+                "weighted_eligible_fraction": 0.7553968901054103,
+                "weighted_positive_support_fraction": 0.4435235110403863
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 30244,
+                "eligible_rows": 20174,
+                "raw_eligible_fraction": 0.667041396640656,
+                "weighted_eligible_fraction": 0.7045541285197452,
+                "weighted_positive_support_fraction": 0.4257825661106709
+              },
+              "head_true_positives": {
+                "rows": 72548,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000716766830236,
+                "weighted_eligible_fraction": 0.6000322092946844,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.04708965376960356,
+              "relative_reduction": 0.1990545217039008,
+              "positive_gain": true
+            }
+          }
+        },
+        "gate": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:83:28:11"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      },
+      "B0": {
+        "query_rows": 148316,
+        "reports_sha256": "e04b2fb891b97c26a378b0fa8f49ebef335c29a8cc8485245810219f229bbf29",
+        "reports": {
+          "27": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 30182,
+                "rate": 0.3983738764304476,
+                "weighted_rate": 0.23353329458103095
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72553,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 24964,
+                "rate": 0.3295012077135277,
+                "weighted_rate": 0.1926060027522593
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72553,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 5218,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 48420,
+                "raw_eligible_fraction": 0.6390982405659755,
+                "weighted_eligible_fraction": 0.7553968901054103,
+                "weighted_positive_support_fraction": 0.4435235110403863
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 30182,
+                "eligible_rows": 18995,
+                "raw_eligible_fraction": 0.629348618381817,
+                "weighted_eligible_fraction": 0.6807856413372034,
+                "weighted_positive_support_fraction": 0.40065817258206415
+              },
+              "head_true_positives": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.04092729182877164,
+              "relative_reduction": 0.17525249195065318,
+              "positive_gain": true
+            }
+          },
+          "127": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 23063,
+                "rate": 0.3044098042580151,
+                "weighted_rate": 0.19896981014116474
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72470,
+                "rate": 0.9988560087108734,
+                "weighted_rate": 0.998309625412044
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 17991,
+                "rate": 0.23746419756345447,
+                "weighted_rate": 0.16240993930560282
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72470,
+                "rate": 0.9988560087108734,
+                "weighted_rate": 0.998309625412044
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 5072,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 48420,
+                "raw_eligible_fraction": 0.6390982405659755,
+                "weighted_eligible_fraction": 0.7553968901054103,
+                "weighted_positive_support_fraction": 0.4435235110403863
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 23063,
+                "eligible_rows": 15303,
+                "raw_eligible_fraction": 0.663530329965746,
+                "weighted_eligible_fraction": 0.69479767975378,
+                "weighted_positive_support_fraction": 0.3973641563376653
+              },
+              "head_true_positives": {
+                "rows": 72470,
+                "eligible_rows": 43512,
+                "raw_eligible_fraction": 0.6004139643990617,
+                "weighted_eligible_fraction": 0.6003669455977577,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.03655987083556192,
+              "relative_reduction": 0.18374581957747005,
+              "positive_gain": true
+            }
+          },
+          "227": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 30726,
+                "rate": 0.4055541623219778,
+                "weighted_rate": 0.24537334036613326
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 25259,
+                "rate": 0.3333949289230891,
+                "weighted_rate": 0.19348743640926264
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 5467,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 48420,
+                "raw_eligible_fraction": 0.6390982405659755,
+                "weighted_eligible_fraction": 0.7553968901054103,
+                "weighted_positive_support_fraction": 0.4435235110403863
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 30726,
+                "eligible_rows": 21192,
+                "raw_eligible_fraction": 0.68970904120289,
+                "weighted_eligible_fraction": 0.7043477003453769,
+                "weighted_positive_support_fraction": 0.41533393566781873
+              },
+              "head_true_positives": {
+                "rows": 72548,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000716766830236,
+                "weighted_eligible_fraction": 0.6000322092946844,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.05188590395687062,
+              "relative_reduction": 0.21145697360377125,
+              "positive_gain": true
+            }
+          },
+          "ensemble": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 30244,
+                "rate": 0.3991922178372029,
+                "weighted_rate": 0.2365666118333686
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 25024,
+                "rate": 0.33029315101038764,
+                "weighted_rate": 0.18947695806376505
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 5220,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 48420,
+                "raw_eligible_fraction": 0.6390982405659755,
+                "weighted_eligible_fraction": 0.7553968901054103,
+                "weighted_positive_support_fraction": 0.4435235110403863
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 30244,
+                "eligible_rows": 20174,
+                "raw_eligible_fraction": 0.667041396640656,
+                "weighted_eligible_fraction": 0.7045541285197452,
+                "weighted_positive_support_fraction": 0.4257825661106709
+              },
+              "head_true_positives": {
+                "rows": 72548,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000716766830236,
+                "weighted_eligible_fraction": 0.6000322092946844,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.04708965376960356,
+              "relative_reduction": 0.1990545217039008,
+              "positive_gain": true
+            }
+          }
+        },
+        "gate": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:83:28:11"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      },
+      "B1": {
+        "query_rows": 148316,
+        "reports_sha256": "dbad96e81abcb1d237aad2acb0a2c1a41ab389d46b438f39c25f57dcfd586dbc",
+        "reports": {
+          "27": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 30182,
+                "rate": 0.3983738764304476,
+                "weighted_rate": 0.23353329458103095
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72553,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 24965,
+                "rate": 0.3295144067684754,
+                "weighted_rate": 0.19260909131684892
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72553,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 5217,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 48420,
+                "raw_eligible_fraction": 0.6390982405659755,
+                "weighted_eligible_fraction": 0.7553968901054103,
+                "weighted_positive_support_fraction": 0.4434973795778407
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 30182,
+                "eligible_rows": 18995,
+                "raw_eligible_fraction": 0.629348618381817,
+                "weighted_eligible_fraction": 0.6807856413372034,
+                "weighted_positive_support_fraction": 0.40054627649207614
+              },
+              "head_true_positives": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.04092420326418203,
+              "relative_reduction": 0.17523926657910538,
+              "positive_gain": true
+            }
+          },
+          "127": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 23063,
+                "rate": 0.3044098042580151,
+                "weighted_rate": 0.19896981014116474
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72470,
+                "rate": 0.9988560087108734,
+                "weighted_rate": 0.998309625412044
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 17994,
+                "rate": 0.23750379472829744,
+                "weighted_rate": 0.16242507327209188
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72470,
+                "rate": 0.9988560087108734,
+                "weighted_rate": 0.998309625412044
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 5069,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 48420,
+                "raw_eligible_fraction": 0.6390982405659755,
+                "weighted_eligible_fraction": 0.7553968901054103,
+                "weighted_positive_support_fraction": 0.4434973795778407
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 23063,
+                "eligible_rows": 15303,
+                "raw_eligible_fraction": 0.663530329965746,
+                "weighted_eligible_fraction": 0.69479767975378,
+                "weighted_positive_support_fraction": 0.3973641563376653
+              },
+              "head_true_positives": {
+                "rows": 72470,
+                "eligible_rows": 43512,
+                "raw_eligible_fraction": 0.6004139643990617,
+                "weighted_eligible_fraction": 0.6003669455977577,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.036544736869072864,
+              "relative_reduction": 0.18366975795546658,
+              "positive_gain": true
+            }
+          },
+          "227": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 30726,
+                "rate": 0.4055541623219778,
+                "weighted_rate": 0.24537334036613326
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 25261,
+                "rate": 0.33342132703298444,
+                "weighted_rate": 0.19349670210303146
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 5465,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 48420,
+                "raw_eligible_fraction": 0.6390982405659755,
+                "weighted_eligible_fraction": 0.7553968901054103,
+                "weighted_positive_support_fraction": 0.4434973795778407
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 30726,
+                "eligible_rows": 21192,
+                "raw_eligible_fraction": 0.68970904120289,
+                "weighted_eligible_fraction": 0.7043477003453769,
+                "weighted_positive_support_fraction": 0.4152274389208346
+              },
+              "head_true_positives": {
+                "rows": 72548,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000716766830236,
+                "weighted_eligible_fraction": 0.6000322092946844,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.05187663826310179,
+              "relative_reduction": 0.21141921198812463,
+              "positive_gain": true
+            }
+          },
+          "ensemble": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 30244,
+                "rate": 0.3991922178372029,
+                "weighted_rate": 0.2365666118333686
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 25028,
+                "rate": 0.3303459472301783,
+                "weighted_rate": 0.18949212512201757
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 5216,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 48420,
+                "raw_eligible_fraction": 0.6390982405659755,
+                "weighted_eligible_fraction": 0.7553968901054103,
+                "weighted_positive_support_fraction": 0.4434973795778407
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 30244,
+                "eligible_rows": 20174,
+                "raw_eligible_fraction": 0.667041396640656,
+                "weighted_eligible_fraction": 0.7045541285197452,
+                "weighted_positive_support_fraction": 0.4256721047808022
+              },
+              "head_true_positives": {
+                "rows": 72548,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000716766830236,
+                "weighted_eligible_fraction": 0.6000322092946844,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.04707448671135103,
+              "relative_reduction": 0.19899040843730342,
+              "positive_gain": true
+            }
+          }
+        },
+        "gate": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:83:28:11"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      },
+      "B2": {
+        "query_rows": 148316,
+        "reports_sha256": "03adcd0f8a1f656de8e9c4bb997176531fe1e5c75fbee9c9d753acff2f1d56b6",
+        "reports": {
+          "27": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 30182,
+                "rate": 0.3983738764304476,
+                "weighted_rate": 0.23353329458103095
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72553,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 23110,
+                "rate": 0.3050301598405554,
+                "weighted_rate": 0.16783159250236931
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72553,
+                "rate": 1.0,
+                "weighted_rate": 1.0
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 7072,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 47206,
+                "raw_eligible_fraction": 0.6230745878595093,
+                "weighted_eligible_fraction": 0.740842481779646,
+                "weighted_positive_support_fraction": 0.5920411361317236
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 30182,
+                "eligible_rows": 18450,
+                "raw_eligible_fraction": 0.6112914982439864,
+                "weighted_eligible_fraction": 0.6653292911872885,
+                "weighted_positive_support_fraction": 0.5072043422371625
+              },
+              "head_true_positives": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.06570170207866163,
+              "relative_reduction": 0.28133762338485135,
+              "positive_gain": true
+            }
+          },
+          "127": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 23063,
+                "rate": 0.3044098042580151,
+                "weighted_rate": 0.19896981014116474
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72470,
+                "rate": 0.9988560087108734,
+                "weighted_rate": 0.998309625412044
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 15894,
+                "rate": 0.2097857793381994,
+                "weighted_rate": 0.1368947801987121
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72470,
+                "rate": 0.9988560087108734,
+                "weighted_rate": 0.998309625412044
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 7169,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 47206,
+                "raw_eligible_fraction": 0.6230745878595093,
+                "weighted_eligible_fraction": 0.740842481779646,
+                "weighted_positive_support_fraction": 0.5920411361317236
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 23063,
+                "eligible_rows": 14886,
+                "raw_eligible_fraction": 0.645449421150761,
+                "weighted_eligible_fraction": 0.679340511616112,
+                "weighted_positive_support_fraction": 0.5089260927842268
+              },
+              "head_true_positives": {
+                "rows": 72470,
+                "eligible_rows": 43512,
+                "raw_eligible_fraction": 0.6004139643990617,
+                "weighted_eligible_fraction": 0.6003669455977577,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.06207502994245265,
+              "relative_reduction": 0.3119821539680405,
+              "positive_gain": true
+            }
+          },
+          "227": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 30726,
+                "rate": 0.4055541623219778,
+                "weighted_rate": 0.24537334036613326
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 23188,
+                "rate": 0.30605968612647333,
+                "weighted_rate": 0.16326414365420877
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 7538,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 47206,
+                "raw_eligible_fraction": 0.6230745878595093,
+                "weighted_eligible_fraction": 0.740842481779646,
+                "weighted_positive_support_fraction": 0.5920411361317236
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 30726,
+                "eligible_rows": 20649,
+                "raw_eligible_fraction": 0.6720367115797696,
+                "weighted_eligible_fraction": 0.6897097619530912,
+                "weighted_positive_support_fraction": 0.5283327703315187
+              },
+              "head_true_positives": {
+                "rows": 72548,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000716766830236,
+                "weighted_eligible_fraction": 0.6000322092946844,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.08210919671192449,
+              "relative_reduction": 0.33462965695215885,
+              "positive_gain": true
+            }
+          },
+          "ensemble": {
+            "head": {
+              "normal": {
+                "rows": 75763,
+                "positive": 30244,
+                "rate": 0.3991922178372029,
+                "weighted_rate": 0.2365666118333686
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "full": {
+              "normal": {
+                "rows": 75763,
+                "positive": 23311,
+                "rate": 0.30768316988503625,
+                "weighted_rate": 0.16593484759395413
+              },
+              "attack": {
+                "rows": 72553,
+                "positive": 72548,
+                "rate": 0.9999310848621008,
+                "weighted_rate": 0.9999463207238121
+              }
+            },
+            "paired": {
+              "new_attack_misses": 0,
+              "new_attack_miss_uids": [],
+              "recovered_attacks": 0,
+              "normal_fixed": 6933,
+              "normal_new_false_positives": 0
+            },
+            "coverage": {
+              "normal": {
+                "rows": 75763,
+                "eligible_rows": 47206,
+                "raw_eligible_fraction": 0.6230745878595093,
+                "weighted_eligible_fraction": 0.740842481779646,
+                "weighted_positive_support_fraction": 0.5920411361317236
+              },
+              "attack": {
+                "rows": 72553,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000303226606757,
+                "weighted_eligible_fraction": 0.6,
+                "weighted_positive_support_fraction": 0.0
+              },
+              "head_false_positives": {
+                "rows": 30244,
+                "eligible_rows": 19632,
+                "raw_eligible_fraction": 0.6491204867081074,
+                "weighted_eligible_fraction": 0.6891676785509796,
+                "weighted_positive_support_fraction": 0.5311426720789668
+              },
+              "head_true_positives": {
+                "rows": 72548,
+                "eligible_rows": 43534,
+                "raw_eligible_fraction": 0.6000716766830236,
+                "weighted_eligible_fraction": 0.6000322092946844,
+                "weighted_positive_support_fraction": 0.0
+              }
+            },
+            "module_gain": {
+              "weighted_fpr_difference": 0.07063176423941447,
+              "relative_reduction": 0.29857029989154027,
+              "positive_gain": true
+            }
+          }
+        },
+        "gate": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:83:28:11"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      }
+    }
+  },
+  "paired_checks": [
+    {
+      "pool": "CIC_DEV",
+      "policy": "OLD_BANK",
+      "suffix": "27",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "OLD_BANK",
+      "suffix": "127",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "OLD_BANK",
+      "suffix": "227",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "OLD_BANK",
+      "suffix": "ensemble",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "B0",
+      "suffix": "27",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "B0",
+      "suffix": "127",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "B0",
+      "suffix": "227",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "B0",
+      "suffix": "ensemble",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "B1",
+      "suffix": "27",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "B1",
+      "suffix": "127",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "B1",
+      "suffix": "227",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "B1",
+      "suffix": "ensemble",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "B2",
+      "suffix": "27",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "B2",
+      "suffix": "127",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "B2",
+      "suffix": "227",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "CIC_DEV",
+      "policy": "B2",
+      "suffix": "ensemble",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "OLD_BANK",
+      "suffix": "27",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "OLD_BANK",
+      "suffix": "127",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "OLD_BANK",
+      "suffix": "227",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "OLD_BANK",
+      "suffix": "ensemble",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "B0",
+      "suffix": "27",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "B0",
+      "suffix": "127",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "B0",
+      "suffix": "227",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "B0",
+      "suffix": "ensemble",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "B1",
+      "suffix": "27",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "B1",
+      "suffix": "127",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "B1",
+      "suffix": "227",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "B1",
+      "suffix": "ensemble",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "B2",
+      "suffix": "27",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "B2",
+      "suffix": "127",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "B2",
+      "suffix": "227",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    },
+    {
+      "pool": "UNSW_DEV",
+      "policy": "B2",
+      "suffix": "ensemble",
+      "new_attack_misses": 0,
+      "attack_metrics_unchanged": true,
+      "full_denominator_retained": true
+    }
+  ],
+  "paired_check_count": 32,
+  "scientific_decisions": {
+    "OLD_BANK": {
+      "status": "FAIL",
+      "pools": {
+        "CIC_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:Eufy Home Base",
+            "DEVICE_FPR_2:HeimVision Camera"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        },
+        "UNSW_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:83:28:11"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      },
+      "missing_evidence": [
+        "CIC_THREE_DEVICE_REGRESSION_CONSUMED"
+      ],
+      "independent_confirmation": "NOT_RUN",
+      "automatic_promotion": false,
+      "status_scope": "Fixed development/regression gates only; not independent confirmation or proof of module benefit"
+    },
+    "B0": {
+      "status": "FAIL",
+      "pools": {
+        "CIC_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:Eufy Home Base",
+            "DEVICE_FPR_2:HeimVision Camera"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        },
+        "UNSW_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:83:28:11"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      },
+      "missing_evidence": [
+        "CIC_THREE_DEVICE_REGRESSION_CONSUMED"
+      ],
+      "independent_confirmation": "NOT_RUN",
+      "automatic_promotion": false,
+      "status_scope": "Fixed development/regression gates only; not independent confirmation or proof of module benefit"
+    },
+    "B1": {
+      "status": "FAIL",
+      "pools": {
+        "CIC_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:Eufy Home Base",
+            "DEVICE_FPR_2:HeimVision Camera"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        },
+        "UNSW_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:83:28:11"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      },
+      "missing_evidence": [
+        "CIC_THREE_DEVICE_REGRESSION_CONSUMED"
+      ],
+      "independent_confirmation": "NOT_RUN",
+      "automatic_promotion": false,
+      "status_scope": "Fixed development/regression gates only; not independent confirmation or proof of module benefit"
+    },
+    "B2": {
+      "status": "FAIL",
+      "pools": {
+        "CIC_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:Eufy Home Base",
+            "DEVICE_FPR_2:HeimVision Camera"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        },
+        "UNSW_DEV": {
+          "status": "FAIL",
+          "reasons": [
+            "POOL_FPR_1",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "DEVICE_FPR_2:unsw-attack-traces-2018:ec:1a:59:83:28:11"
+          ],
+          "missing_evidence": [],
+          "module_benefit": true,
+          "OLD_LEVEL_PRESERVED": "REPORT_ONLY_NOT_EVALUATED"
+        }
+      },
+      "missing_evidence": [
+        "CIC_THREE_DEVICE_REGRESSION_CONSUMED"
+      ],
+      "independent_confirmation": "NOT_RUN",
+      "automatic_promotion": false,
+      "status_scope": "Fixed development/regression gates only; not independent confirmation or proof of module benefit"
+    }
+  }
+}

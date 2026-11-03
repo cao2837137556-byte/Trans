@@ -1,0 +1,184 @@
+{
+  "schema": "c4-resume-timing-crosscheck-v1",
+  "created_utc": "2026-11-02T03:42:23.607429+00:00",
+  "status": "READ_ONLY_ESTIMATE_NOT_EXECUTION_AUTHORIZATION",
+  "inputs": {
+    "remote": {
+      "path": "runs/history_sample_coverage_c4_resume_audit_20261102/REMOTE_REPORT.json",
+      "bytes": 407190,
+      "sha256": "497b2ed9a8adf7d8b68e6e8121c35c450cc7afcdd8d66cd1ec5f79be50c0e975"
+    },
+    "c3_result": {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/output/RESULT.json",
+      "bytes": 1020133,
+      "sha256": "cbedc30311604b0f168a967619982054249568299321e1985cf6fd054f276f8c"
+    },
+    "c3_runtime": {
+      "path": "runs/history_normal_reference_c3_progress_repair_v1_20261101/EVALUATE_RUNTIME.json",
+      "bytes": 316,
+      "sha256": "5b7510ba766920a880aa6643fa1e5899f4b62e48b445f16cc874629e97d76656"
+    },
+    "d2_status": {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/output/STATUS.json",
+      "bytes": 6798,
+      "sha256": "0b8365659422d48c2d4ed8d48e4a67e9720cc2476ad94874f4a4ba3cc87f792f"
+    },
+    "d2_runtime": {
+      "path": "runs/history_normal_reference_d2_trace_v1_20261031/RUNTIME_RECEIPT.json",
+      "bytes": 201,
+      "sha256": "3be54232e75b9bd72d707421d5935841397ed0cea56337ed1904748d7ef83e15"
+    },
+    "old_diag": {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/REMOTE_DIAGNOSTICS.json",
+      "bytes": 149594,
+      "sha256": "12946b1ee78f8cf27d7896ec7265fa4e7cf59949648ad9df5e5a623bbeae7973"
+    },
+    "job180526": {
+      "path": "runs/history_sample_coverage_c4_deployment_repair_v1_20261101/STATE_RECEIPT.json",
+      "bytes": 6057,
+      "sha256": "d3d8479f08136bd93621e5409cfb5d8f90d0871e7200691cc22f1edd44841367"
+    },
+    "job180552": {
+      "path": "runs/history_sample_coverage_c4_memory_submission_repair_20261101/STATE_RECEIPT.json",
+      "bytes": 9246,
+      "sha256": "a5bec2d2450007845d62cb5a415ccac9625109844118d015a637bc886e006639"
+    },
+    "job180591": {
+      "path": "runs/history_sample_coverage_c4_checkpoint_deployment_20261101/STATE_RECEIPT.json",
+      "bytes": 8860,
+      "sha256": "d64364e9aef3748a1760475f89bdca1c6bbd6a30a2fa954bff62f7446b91b71c"
+    },
+    "preflight": {
+      "path": "runs/history_sample_coverage_c4_preflight_repair_20261102/PREFLIGHT_RECEIPT.json",
+      "bytes": 39831,
+      "sha256": "4606ad1a29c09f3d920c627651952162d4b4a2875e6e988e17aefa358fd3cb5a"
+    },
+    "original_code": {
+      "path": "runs/history_sample_coverage_c4_execution_v1_20261101/run.py",
+      "bytes": 15759,
+      "sha256": "ef70aca3c0df2ba19b007a10ae256278ce75de12fbcd33c442f10e1cee587035"
+    },
+    "recovery_code": {
+      "path": "runs/history_sample_coverage_c4_memory_repair_v1_20261101/recovery.py",
+      "bytes": 5176,
+      "sha256": "bd646a6fe00f8a0c7eca58c7a0080a2e58013acc8d5a90147eae698451114dd7"
+    }
+  },
+  "new_model_forwards": 0,
+  "new_distance_pairs": 0,
+  "source_modified": false,
+  "encoding_evidence": {
+    "source": "remote",
+    "object_key": "files[workers/NETATMO_encode.json].text decoded as JSON",
+    "elapsed_seconds": 2686.1826110569527,
+    "completed_logical_rows": 4658,
+    "total_logical_rows": 12288,
+    "complete_batches": 318,
+    "attempt_batches": 319,
+    "charged_logical_rows": 4674,
+    "complete_physical_rows": 4778,
+    "charged_physical_rows": 4794,
+    "last_attempt_shape": [
+      6,
+      73,
+      12
+    ],
+    "prepared_worker_elapsed_seconds": 1546.8268535210518,
+    "prepared_worker_object_key": "files[workers/NETATMO_prepare.json].text decoded as JSON",
+    "samsung_historical_crosscheck": {
+      "source": "old_diag",
+      "object_key": "outputs/encoding/workers/SAMSUNG_encode.json decoded as JSON",
+      "elapsed_seconds": 797.8275086160284,
+      "completed_rows": 8192
+    }
+  },
+  "encoding_estimate": {
+    "formula": "encode_worker_elapsed_seconds * full_rows / completed_rows",
+    "numerator_seconds_times_rows": 33007811.924667835,
+    "denominator_completed_rows": 4658,
+    "full_reencoding_linear_seconds": 7086.262757549986,
+    "qualification": "Worker time includes model loading, selection replay and tokenization; batches are sorted by shape. Neither constant row cost nor this extrapolation is guaranteed. Prepared capture replay is reused, but all 12288 Netatmo vectors must be recreated because only the ledger was durable."
+  },
+  "offline_evaluation_scenarios": {
+    "distance_pair_static_upper_bound": 997017497,
+    "c3": {
+      "distance_numerator": 161101561,
+      "distance_key": "distance_pairs",
+      "runtime_denominator_seconds": 225.7970000000205,
+      "runtime_key": "elapsed_seconds",
+      "pairs_per_second": 713479.6343617735,
+      "scaled_seconds": 1397.4014799901872
+    },
+    "d2": {
+      "distance_numerator": 29532235,
+      "distance_key": "consumed_pairs",
+      "runtime_denominator_seconds": 138.85999999998603,
+      "runtime_key": "wall_seconds",
+      "pairs_per_second": 212676.32867638607,
+      "scaled_seconds": 4687.957062288244
+    },
+    "reference_scenario_range_seconds": [
+      1397.4014799901872,
+      4687.957062288244
+    ],
+    "qualification": "Different bank sizes, query shapes, grouping, audit and serialization work make these historical scaling scenarios, not statistical confidence bounds or runtime guarantees."
+  },
+  "combined_estimate": {
+    "encoding_plus_offline_reference_range_seconds": [
+      8483.664237540173,
+      11774.21981983823
+    ],
+    "retrieval_and_independent_verification_not_measured_here": true,
+    "expected_communication_range_hours": [
+      2.5,
+      3.5
+    ],
+    "recommended_additional_hard_limit_seconds": 18000,
+    "recommended_additional_hard_limit_hours": 5,
+    "rationale": "About 50 percent headroom above the slower historical scaling scenario, including transfer and final checks, for larger later batch shapes and shared HPC throughput. The hard ceiling is a budget proposal, not a promise to finish.",
+    "same_resources": {
+      "cpu": 4,
+      "rss_bytes": 8589934592,
+      "output_bytes": 21474836480
+    },
+    "automatic_resubmit_authorized": false,
+    "automatic_retry": false
+  },
+  "logical_forward_accounting": {
+    "scope": "Registered C4 jobs 180526, 180552, 180591 and 180670 only; prior C1/C3 asset generation excluded.",
+    "job180526": {
+      "confirmed_complete_rows": 12288,
+      "device_at_failure": "Samsung",
+      "phase_at_failure": "ENDPOINT_CENSUS pass 1",
+      "discarded_samsung_forward_rows": 0,
+      "evidence": "STATUS encoded_rows is 12288; original run.py prepares an entire member before calling encode_member."
+    },
+    "job180552": {
+      "reused_rows": 12288,
+      "new_samsung_complete_rows": 8192,
+      "discarded_samsung_forward_rows": 0,
+      "evidence": "SAMSUNG_encode completed/total/charged all8192; executed preflight check_member reconciles complete batch ledger and tensor UID coverage. No raw historical ledger was re-downloaded in this crosscheck."
+    },
+    "job180591": {
+      "reused_rows": 20480,
+      "new_forward_charged_rows": 0,
+      "phase": "SELECTED_SNAPSHOTS"
+    },
+    "job180670": {
+      "reused_rows": 20480,
+      "complete_but_unpersisted_rows": 4658,
+      "charged_rows": 4674,
+      "inflight_charged_rows": 16
+    },
+    "prior_confirmed_completed_rows": 25138,
+    "prior_conservative_charged_rows": 25154,
+    "new_full_netatmo_logical_row_allowance": 12288,
+    "proposed_cumulative_charged_logical_row_ceiling": 37442,
+    "proposed_cumulative_confirmed_complete_rows_if_redo_finishes": 37426,
+    "original_logical_row_cap": 36864,
+    "extra_charged_allowance_above_original_cap": 578,
+    "unique_candidate_encoded_rows": 32768,
+    "physical_clone_positions_must_be_counted_separately": true,
+    "qualification": "37442 is a conservative charged logical-forward allowance, not an assertion of exactly37442 actually executed or durably saved vectors. The final16-row batch was ATTEMPT only; no extra attempt or second redo is included."
+  }
+}

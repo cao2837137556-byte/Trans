@@ -1,0 +1,361 @@
+{
+  "schema": "original104-batch1-readonly-audit-v1",
+  "job_id": "179536",
+  "created_utc": "2026-10-27T10:16:42.569086+00:00",
+  "status": "EVIDENCE_ONLY_CAUSAL_HYPOTHESIS_NOT_PROVED",
+  "operations": {
+    "remote_operations": 0,
+    "neural_forwards": 0,
+    "model_loads": 0,
+    "tokenizations": 0,
+    "target_bodies_exported": 0,
+    "production_mutations": 0,
+    "sqlite": "mode=ro&immutable=1"
+  },
+  "inputs": {
+    "runs/dense_reference_launch_repair_deployment_20261027/MISMATCH_UID_SHAPES_179536.json": "9c68927720e186de74f5a7611d90c44c8a716796bcea9a050ca7c289428aac1d",
+    "runs/dense_reference_launch_repair_deployment_20261027/NUMERICAL_STOP_179536.json": "4bf51de070f865e1cb4c4d1e086dfaa94782b50e062df8e96bd43537a3ea63c1",
+    "runs/dense_reference_matrix_v1_20261027/distribution/r2/package/vendor/encoding_v2/data/SOURCE_REFS/ORIGINAL104.jsonl.gz": "8490f8c7c74f262b0e1e026203b5aa24190f3c197fcd2a6c1295f7b57f050fba",
+    "runs/dense_reference_matrix_v1_20261027/distribution/r2/package/vendor/encoding_v2/data/SOURCE_REFS/EXISTING_BANK.npz": "b4859a65df61cf14ccef9ee5f23fa420a7c31afb162ffb929734345f697e53d6",
+    "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/environment.json": "6b8a287be071f5837aea6092d05621243db2019aea5a3d5556d33d181de3591e",
+    "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/metadata/environment.json": "9bf5c5aefa11d00271069c423e8cd88f895d676b2027db0c32d77d8fdb0a0265",
+    "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/RESUME_GATE_PASS.json": "3026c6963e156a16c0aadb49565e19bcab3f174c458ab30454d1587972df2d9b",
+    "runs/diagnostics_d1_d2_v1_20261022/src/score_references.py": "cecef31681bf0b0ea340a3cec69292a25ea7f49f8807cf2b036ade7a5621cb4f",
+    "runs/onboarding_new_lineage_v1_20261022/package_v3/new_onboarding_adapter.py": "25489667669c0bcbdcd1f060892da6bd7e6f8e3a596a5cbf7b249d880d331d9a",
+    "runs/dense_reference_matrix_v1_20261027/distribution/r2/package/vendor/encoding_v2/repo/ood/onboarding_supplement_encoder_r2.py": "c9648f0468431b55a5fc0a3532b00c42447372c4ad6eec64ccfdf1ee353dc959",
+    "runs/dense_reference_matrix_v1_20261027/distribution/r2/package/vendor/encoding_v2/repo/ood/continuous_features_v3.py": "275429d998bcd10f7b83162d2f4bd7fadcef04560af93dc03778347a96326cf4"
+  },
+  "spool": {
+    "path": "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/spool/snapshots.sqlite",
+    "declared_sha256": "f0afb582a0d3c513e29d13dd637ad550c2e967de1dc734e70b43031d24aa6a9c",
+    "source": "CACHE_REBUILD_COMPLETE.json",
+    "full_spool_rehashed": false
+  },
+  "summary": {
+    "rows": 104,
+    "exact": 96,
+    "mismatch": 8,
+    "max_abs_error": 9.238719940185547e-07,
+    "old_batch_size_uid_counts": {
+      "16": 104
+    },
+    "old_unique_batches": 98,
+    "new_batch_size_uid_counts": {
+      "1": 8,
+      "2": 10,
+      "3": 6,
+      "4": 4,
+      "12": 12,
+      "16": 64
+    },
+    "mismatch_set_equals_all_singleton_shapes": true,
+    "flow_equal_rows": 104,
+    "provenance_equal_rows": 104,
+    "state_different_rows": 77,
+    "complete_body_equal_rows": 0,
+    "new_body_extra_source_sha256_rows": 104,
+    "eight_old_batches_role_counts": {
+      "LEARN": 80,
+      "SOURCE_REFS": 8,
+      "UNSW_DEV": 15,
+      "CIC_DEV": 25
+    },
+    "old_cohort_source_only": false,
+    "old_cohort_rows": 128,
+    "original_cohort_payload_exported": false,
+    "input_tensor_list_sha256": "cedad6d681aee69cbc2ac0a6383b3680805c6efecb440108a651d27232de1155"
+  },
+  "provenance": {
+    "old104": "score_references.main -> adapter.old_references -> first768float32 of cache/features/SOURCE_REFS.npy for LEARN partition; no new E3 in reference scoring",
+    "old_cache_environment": "Python3.9.24; torch2.5.1+cpu; NumPy2.0.1; MKL2024.2; MKLDNN3.5.3; AMD EPYC7T83/AVX2/4threads",
+    "old_preserved_metadata_environment": "Same listed numerical implementation fields as cache environment",
+    "actual_hpc_environment": "Python3.11.11; torch2.5.1 CUDA11.8 build; NumPy2.0.1; MKL2023.1; MKLDNN3.5.3; AMD EPYC7742/AVX2/4threads",
+    "historical_imported_prefix_per_row_tensor_receipts_available": false
+  },
+  "interpretation": {
+    "primary": "All eight mismatches are exactly the eight B1 shape groups, whereas all96 non-singleton rows including B2/B3/B4/B12 tails match bytes. B1 versus B16 kernel behavior is the focused hypothesis.",
+    "causal_forward_run": false,
+    "model_input_scope": "tokenize consumes body.flow; verify_tokenized checks flow/provenance; collator tensors enter e3_forward_batches. body.state and added source_sha256 are not E3 inputs.",
+    "input_equivalence_limit": "Flow and provenance JSON objects equal for104; full body equality is false. Reconstructed input tensor hashes must be checked against179536 before diagnostic forwards. No claim of historical tensor receipt recovery.",
+    "environment": "Binary build differences are real but96 exact rows argue against blanket incompatibility; privateCPUwheel is a secondary candidate, not an established fix."
+  },
+  "next_diagnostic": {
+    "kind": "SOURCE_ONLY_B1_VERSUS_B16_CLONE_PROBE",
+    "anchors": 8,
+    "model_positions": 136,
+    "source_roles": [
+      "SOURCE_REFS"
+    ],
+    "actual_old_cohort_restored": false,
+    "execution_authorized_by_this_report": false,
+    "steps": [
+      "Seal eight source anchors, their exact frozen flow/provenance, actual179536 input/feature hashes and unchanged old expected feature hashes.",
+      "Before any forward require B1 and every B16 clone row tensor_hash exactly equal the corresponding179536 input hash.",
+      "Run eight B1 controls under the exact179536 runtime; require every feature hash reproduce the failed-HPC hash or stop before B16.",
+      "Run eight16-clone batches; require within-batch all16 feature hashes agree, then compare each anchor with its unchanged old expected float32 bytes. No tolerance, no bank/CAL/head/target evaluation.",
+      "A clone probe diagnoses a batch-size effect; it does not reproduce the actual historical cohort, authorize21660 supplementation, or demonstrate source-CAL/target gains."
+    ],
+    "forbidden": [
+      "Original128cohort target payload export in this source-only diagnostic",
+      "Substituting source companions while claiming original-cohort replay",
+      "Relaxing byte equality",
+      "Overwriting golden104",
+      "Backend-flag sweep",
+      "Auto restart or automatic production continuation"
+    ]
+  },
+  "anchors": [
+    {
+      "uid": "08435fcba19c73034542fac8b7cccec2142eaf1fbce8c126f498745070b9da03",
+      "device": "ArloQ Camera",
+      "role": "SOURCE_REFS",
+      "slot": 65,
+      "shape": [
+        6,
+        25,
+        10
+      ],
+      "old_batch_id": 9716,
+      "old_batch_size": 16,
+      "old_batch_uid_sorted_index": 8,
+      "old_batch_role_counts": {
+        "LEARN": 11,
+        "SOURCE_REFS": 1,
+        "UNSW_DEV": 4
+      },
+      "new_gate_batch_size": 1,
+      "flow_sha256": "0bc924a805455bf3a452a32693089452d9abbdaca09e4721f7013fc665b7f3bc",
+      "provenance_sha256": "952a5c376ff96f862e11b57432aa29c159788d3acb5a3ca862d048fa12b90412",
+      "actual_tensor_sha256": "03e2c385cad2c73e14205617bbf59209a09fdd14c07868a3c7a3ef3d724d0b51",
+      "actual_feature_sha256": "8a5de55cda8c8c1554dd33d8af3a96aeedf3c21879e53f7b2a14437574e71baf",
+      "old_expected_feature_sha256": "34acb5dbb0d7567b28a7e119e55e27323c270fd880b52e66c3de8c23ca5f88c3",
+      "input_comparison": {
+        "flow_equal": true,
+        "provenance_equal": true,
+        "state_equal": false,
+        "complete_body_equal": false
+      }
+    },
+    {
+      "uid": "2d2dc8b2e3e0c9bb550cfa1ecf63ecc8abff9e84639c22b41be1b882ca5b8a00",
+      "device": "Atomi Coffee Maker",
+      "role": "SOURCE_REFS",
+      "slot": 77,
+      "shape": [
+        17,
+        7,
+        4
+      ],
+      "old_batch_id": 53442,
+      "old_batch_size": 16,
+      "old_batch_uid_sorted_index": 8,
+      "old_batch_role_counts": {
+        "LEARN": 15,
+        "SOURCE_REFS": 1
+      },
+      "new_gate_batch_size": 1,
+      "flow_sha256": "8415aa8a67cd06be1e9f874d746b2cbc75ee650e66d44ceee7f8c0130c8fc47f",
+      "provenance_sha256": "6d3de6947c1b8da8f08ff35a48208a00cc1491ba473423f8082ba64a85b99c1d",
+      "actual_tensor_sha256": "daf375f38d77e9bc79c041b6d91c7e1c4a30d4af33798a3592fb8e72cb1af1bb",
+      "actual_feature_sha256": "4f4c59eadcff07ab5da600e90538ae04b68f48f966668ba1dcc4c7d891f19918",
+      "old_expected_feature_sha256": "0e5c28161dcf093b0e9b9e709a81b6280713cab724619faa6a63cefee3e386bf",
+      "input_comparison": {
+        "flow_equal": true,
+        "provenance_equal": true,
+        "state_equal": true,
+        "complete_body_equal": false
+      }
+    },
+    {
+      "uid": "34f33f8a5d4e56e95234fea13bdff7c71206210081a5de8543d86ed5d95f360b",
+      "device": "SimCam",
+      "role": "SOURCE_REFS",
+      "slot": 173,
+      "shape": [
+        6,
+        25,
+        8
+      ],
+      "old_batch_id": 9449,
+      "old_batch_size": 16,
+      "old_batch_uid_sorted_index": 1,
+      "old_batch_role_counts": {
+        "CIC_DEV": 1,
+        "LEARN": 11,
+        "SOURCE_REFS": 1,
+        "UNSW_DEV": 3
+      },
+      "new_gate_batch_size": 1,
+      "flow_sha256": "16ffc9ecb955e78a880d65b07fdbbb326f3a600b90f1641f4f1e6dbc6181dbcc",
+      "provenance_sha256": "c4668ccb1816c9296cf896e94e21141bde8a5ac2b1bebc63613153b184f3ee71",
+      "actual_tensor_sha256": "505bee0d8fa615eac5f69f5457b3450a95e6a1f9dd5ef67d403cd187b3e1e322",
+      "actual_feature_sha256": "d39e2aaac1a63104610d734502e496a7fea2a02ee8b97a8979ee23b6daf4de88",
+      "old_expected_feature_sha256": "e58872d2d4fd6da8c445bad5529843b9a4ea3b7c48a45a28c208d23e8b5dcd9a",
+      "input_comparison": {
+        "flow_equal": true,
+        "provenance_equal": true,
+        "state_equal": false,
+        "complete_body_equal": false
+      }
+    },
+    {
+      "uid": "5b77d9a64d8107a44de08a1124ed241637b21070aabf884e1c5eae00354a9786",
+      "device": "Philips Hue Bridge",
+      "role": "SOURCE_REFS",
+      "slot": 163,
+      "shape": [
+        17,
+        7,
+        1
+      ],
+      "old_batch_id": 50805,
+      "old_batch_size": 16,
+      "old_batch_uid_sorted_index": 1,
+      "old_batch_role_counts": {
+        "CIC_DEV": 7,
+        "LEARN": 7,
+        "SOURCE_REFS": 1,
+        "UNSW_DEV": 1
+      },
+      "new_gate_batch_size": 1,
+      "flow_sha256": "600b905a850021f2c535d15ee1cf56a441206d0be35503a6f05213756648cbb2",
+      "provenance_sha256": "8a00ad870853a78b8c6b28fa32d0e646b19ca71f5a7e7e4cb5bbdb620e69f7b8",
+      "actual_tensor_sha256": "5606bfe21a96e1351670871d4b3227ef66a5d0e52ee2b67578126bc368df231d",
+      "actual_feature_sha256": "d95ae8cbf4e82c3be861985e483e9c5da3739286cf282c9c6fad4ad58c20d185",
+      "old_expected_feature_sha256": "195b65bbafa7eeda5cdde3b98e54803af21092eea84dcd72b99d02f48e82c3df",
+      "input_comparison": {
+        "flow_equal": true,
+        "provenance_equal": true,
+        "state_equal": true,
+        "complete_body_equal": false
+      }
+    },
+    {
+      "uid": "75e945f27c50ba2d8dc6a7aaa44d6d38a28c9cdec543cafb1118255f60a08cf4",
+      "device": "SimCam",
+      "role": "SOURCE_REFS",
+      "slot": 177,
+      "shape": [
+        6,
+        25,
+        3
+      ],
+      "old_batch_id": 7470,
+      "old_batch_size": 16,
+      "old_batch_uid_sorted_index": 1,
+      "old_batch_role_counts": {
+        "CIC_DEV": 8,
+        "LEARN": 3,
+        "SOURCE_REFS": 1,
+        "UNSW_DEV": 4
+      },
+      "new_gate_batch_size": 1,
+      "flow_sha256": "2a496089c19085523c48ca2cfd9291e69800bf9be3dac52a75eb5314d97c6039",
+      "provenance_sha256": "b6dae1dc50eae8fa3dbc11fc4d60cf73c1c7bce53404318256455393f19ceb86",
+      "actual_tensor_sha256": "6e8dac6f01ad5242ed32ca2a93f8c9b5b08474ee238386a0e58e00657a8d8c8d",
+      "actual_feature_sha256": "eb73d939e7cea6023be03e373fcd74f5ed52ddd75ef185c6746cd8a1ef08a407",
+      "old_expected_feature_sha256": "37e4b007b1b6682bdbfcfd6d5e5746b9957df0095edd26b8a6d15d30ff9b3f94",
+      "input_comparison": {
+        "flow_equal": true,
+        "provenance_equal": true,
+        "state_equal": false,
+        "complete_body_equal": false
+      }
+    },
+    {
+      "uid": "894693b2d47dc5649b00f74aae2fb808a550b925ea46c7d1863009379c7241a8",
+      "device": "SimCam",
+      "role": "SOURCE_REFS",
+      "slot": 168,
+      "shape": [
+        6,
+        13,
+        7
+      ],
+      "old_batch_id": 6078,
+      "old_batch_size": 16,
+      "old_batch_uid_sorted_index": 3,
+      "old_batch_role_counts": {
+        "CIC_DEV": 6,
+        "LEARN": 8,
+        "SOURCE_REFS": 1,
+        "UNSW_DEV": 1
+      },
+      "new_gate_batch_size": 1,
+      "flow_sha256": "a4d9b48ae42a3044426f06c622e80b72ca217cd27354f0ff2b1f6968c8334f48",
+      "provenance_sha256": "c5990a337e5920ee3ec957f158e71822cc5fcfa310274d2db632121fa37b7503",
+      "actual_tensor_sha256": "c25aa17f997bd71321f916a5855c679807230923eb0a692548b7e3277d223376",
+      "actual_feature_sha256": "1b2a22d2d92244c29fd775edb74756230a1e487bf9f41f0408e3d3a7f4818ff4",
+      "old_expected_feature_sha256": "7b17516ed81609c941e57b02e96d2f6c602aaab2fa73c713f1a808a0fbc52acd",
+      "input_comparison": {
+        "flow_equal": true,
+        "provenance_equal": true,
+        "state_equal": false,
+        "complete_body_equal": false
+      }
+    },
+    {
+      "uid": "8efedb594ef1defd020a3efbb913179dbca863d57aa3c1230ff912b524289d4c",
+      "device": "Amcrest Camera",
+      "role": "SOURCE_REFS",
+      "slot": 15,
+      "shape": [
+        6,
+        13,
+        1
+      ],
+      "old_batch_id": 1501,
+      "old_batch_size": 16,
+      "old_batch_uid_sorted_index": 3,
+      "old_batch_role_counts": {
+        "CIC_DEV": 3,
+        "LEARN": 11,
+        "SOURCE_REFS": 1,
+        "UNSW_DEV": 1
+      },
+      "new_gate_batch_size": 1,
+      "flow_sha256": "4cb8e4a16bd6699bce359aae78ee305d65778319e2d86b837ed2a03ae2993aea",
+      "provenance_sha256": "e56dd718b09c36949ff0cd457505c3b2c378cc1d3c4a3148c58794ea859983af",
+      "actual_tensor_sha256": "70cce5d6ab8cf23074aa3ef2e6f5983e7c3285cbc40e8d6b7217f4e2d33a8cf7",
+      "actual_feature_sha256": "2d1657a7a91928fc6a97299036db38e1774f26bed615ec19007ff2b1bc850fca",
+      "old_expected_feature_sha256": "15af36e97cebb30c9d7bc5d4e1cd262213f5aba6a9dd1f0a67161fae285c24c7",
+      "input_comparison": {
+        "flow_equal": true,
+        "provenance_equal": true,
+        "state_equal": true,
+        "complete_body_equal": false
+      }
+    },
+    {
+      "uid": "dd358ae302232cfa918b5087d191834b9179a49652cd2de0dca66475d8f520eb",
+      "device": "Atomi Coffee Maker",
+      "role": "SOURCE_REFS",
+      "slot": 76,
+      "shape": [
+        6,
+        49,
+        7
+      ],
+      "old_batch_id": 21218,
+      "old_batch_size": 16,
+      "old_batch_uid_sorted_index": 6,
+      "old_batch_role_counts": {
+        "LEARN": 14,
+        "SOURCE_REFS": 1,
+        "UNSW_DEV": 1
+      },
+      "new_gate_batch_size": 1,
+      "flow_sha256": "76bca352524c696a0fe2287bf70c5e46fb13a6ae54870f35e2d7742f5a6beec4",
+      "provenance_sha256": "b5142d4275dfc8111fb9165425c8937fc15b916dd02d644e41c4a65e1b8a1f29",
+      "actual_tensor_sha256": "932fc9bda7507682db35a8a7af0d6143e06fc1b823294d78b9c9f43a9423e494",
+      "actual_feature_sha256": "f3b92970d14f795ec460bbe5124c3f52bd44bf919a13671cbd2454bdfac6c7da",
+      "old_expected_feature_sha256": "067ffc148cb953d91ff454dde65573474c51d9681e1d356b7b9a6003bd464d0e",
+      "input_comparison": {
+        "flow_equal": true,
+        "provenance_equal": true,
+        "state_equal": false,
+        "complete_body_equal": false
+      }
+    }
+  ]
+}

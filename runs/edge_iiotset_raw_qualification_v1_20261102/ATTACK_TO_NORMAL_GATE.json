@@ -1,0 +1,36 @@
+{
+  "schema": "ATTACK_ROLE_GATE_FOR_FIXED_NORMAL_ONLY_V1",
+  "created_utc": "2026-11-03T07:00:08.183689+00:00",
+  "continue_fixed_normal_qualification": true,
+  "checks": {
+    "HTTP_complete_container": true,
+    "HTTP_input_unchanged": true,
+    "HTTP_conservation": true,
+    "HTTP_no_truncation": true,
+    "HTTP_victim_MAC_is_single_observed_DC": true,
+    "UDP_complete_container": true,
+    "UDP_input_unchanged": true,
+    "UDP_conservation": true,
+    "UDP_no_truncation": true,
+    "UDP_victim_MAC_is_single_observed_DC": true,
+    "HTTP_direct_GET_only_targets_fixed_edge": true,
+    "UDP_target_direct_inbound_observed": true
+  },
+  "scope": "Continue only the approved fixed normal for cross-file identity/clock qualification, not dataset PASS or model authorization",
+  "observed_edge_IP": "192.168.0.128",
+  "observed_victim_MAC_both_attacks": "dc:a6:32:fb:69:b5",
+  "HTTP_direct_documented_source_GET_packets": 19076,
+  "UDP_observed_inbound_to_edge_packets": 2898830,
+  "label_status": "CANDIDATE_DIRECTION_NOT_CONFIRMED_PACKET_TRUTH",
+  "UDP_source_IP_warning": "Only4 actual UDP packets match four paper-listed IPs; random spoofed source IPs dominate. Never use the four listed IPs as an exhaustive attack filter.",
+  "remaining": [
+    "same physical identity in normal",
+    "normal actual 7200s, gaps and later normal",
+    "real temporal ordering before both attacks",
+    "official packet truth and active same-protocol reference coverage"
+  ],
+  "inputs": {
+    "HTTP_AUDIT.json": "42764644ab3d3ca71b9542b635feb595d8b45d085aedc5ca4985d3b5918793a9",
+    "UDP_AUDIT.json": "c4553c496d0e2209373ff00c0c2be7bfcfcfbf9dcaa2376b0cb8c2b42d143022"
+  }
+}

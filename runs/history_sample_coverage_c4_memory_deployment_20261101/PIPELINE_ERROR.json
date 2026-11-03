@@ -1,0 +1,5 @@
+{
+  "error": "SUBMISSION_FAILED",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\history_sample_coverage_c4_memory_deployment_20261101\\pipeline.py\", line 61, in <module>\n    try:main()\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\history_sample_coverage_c4_memory_deployment_20261101\\pipeline.py\", line 39, in main\n    need(submitted['submitted'],'SUBMISSION_FAILED');job=submitted['job_id'];progress('HPC_RUNNING',job_id=job)\n  File \"D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\history_sample_coverage_c4_memory_deployment_20261101\\receiver.py\", line 20, in need\n    if not ok:raise ValueError(msg)\nValueError: SUBMISSION_FAILED\n",
+  "automatic_retry": false
+}

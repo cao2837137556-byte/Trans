@@ -1,0 +1,71 @@
+{
+  "status": "SUBMITTED_AND_STARTED",
+  "job_id": "180552",
+  "scheduler": "RUNNING|node185|1:30",
+  "local_progress_http_status": 200,
+  "progress_url": "http://127.0.0.1:18789/",
+  "snapshot": {
+    "stage": "HPC_RUNNING",
+    "updated_beijing": "2026-11-01T17:57:22+08:00",
+    "job_id": "180552",
+    "worker": {
+      "automatic_retry": false,
+      "decoder_pass": 1,
+      "device": "Samsung",
+      "elapsed_seconds": 88.34888892201707,
+      "encoded_rows": 12288,
+      "legal_endpoints": {
+        "HIST_REF": 71447
+      },
+      "limits": {
+        "cpu": 4,
+        "encoded": 36864,
+        "output_bytes": 21474836480,
+        "pairs": 1000000000,
+        "rss_bytes": 8589934592,
+        "wall_seconds": 19736
+      },
+      "mode": "execute",
+      "output_bytes": 2410584916,
+      "pairs": 0,
+      "peak_output_bytes": 2410584916,
+      "peak_process_tree_rss_bytes": 847343616,
+      "phase": "ENDPOINT_CENSUS",
+      "process_memory": [
+        {
+          "name": "python",
+          "pid": 1289828,
+          "ppid": 1289822,
+          "rss_bytes": 65085440
+        },
+        {
+          "name": "python",
+          "pid": 1289837,
+          "ppid": 1289828,
+          "rss_bytes": 439816192
+        },
+        {
+          "name": "tshark",
+          "pid": 1289851,
+          "ppid": 1289837,
+          "rss_bytes": 342441984
+        }
+      ],
+      "process_tree_rss_bytes": 847343616,
+      "raw_packets": 114688,
+      "selected_snapshots": 0,
+      "service_heartbeat_utc": "2026-11-01T09:57:19.442954+00:00",
+      "started_utc": "2026-11-01T09:55:55.579010+00:00",
+      "synthetic": false,
+      "technical_status": "RUNNING",
+      "total": 5880402,
+      "traversal": "raw block copy",
+      "work_heartbeat_utc": "2026-11-01T09:57:17.464208+00:00",
+      "worker_encoded_charged": 0
+    },
+    "scheduler": "RUNNING|node185|1:30",
+    "network_error": null
+  },
+  "agent_continual_monitoring": false,
+  "submit_receipt_sha256": "19442476cccf23926e27498bb9c00286ab81bc5f16495e07e82550a5891ebb6b"
+}

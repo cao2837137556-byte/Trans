@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "checks": {
+    "process_group_leader_exits_first": "PASS",
+    "process_group_leader_needs_kill": "PASS",
+    "process_group_group_already_gone": "PASS",
+    "route_token_slicing_and_rejection": "PASS",
+    "launch_script_LF_explicit_exec": "PASS",
+    "submission_timeout_durable_and_no_retry": "PASS",
+    "submission_invalid_job_durable_and_no_retry": "PASS",
+    "submission_success_durable_and_no_retry": "PASS",
+    "submission_rejected_durable_and_no_retry": "PASS",
+    "no_orphan_preflight_gate": "PASS",
+    "GET_preflight_worker_error_and_log": "PASS"
+  },
+  "checks_count": 11,
+  "controller_sha256": "09921aa94a46c912588673f2c23f2521d470306639d191502ec798025c5e51f9",
+  "real_network_requests": 0,
+  "real_subprocesses_started": 0,
+  "real_scheduler_calls": 0,
+  "science_runs": 0,
+  "method": "AST-isolated handler and mocked POSIX process-group/subprocess boundary; temporary local receipt fixtures only. Linux signal values supplied on Windows host. Three test_preflight_worker unittests also passed."
+}

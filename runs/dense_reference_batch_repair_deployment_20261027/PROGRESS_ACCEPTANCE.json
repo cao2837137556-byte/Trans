@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "job_id": "179602",
+  "url": "http://127.0.0.1:18770/",
+  "routes": {
+    "/status": {
+      "job_id": "179602",
+      "status": "RUNNING",
+      "stage": "encode",
+      "reason": null,
+      "scheduler": {
+        "job_id": "179602",
+        "state": "RUNNING",
+        "exit_code": "0:0",
+        "elapsed": "00:02:44",
+        "node": "node185"
+      },
+      "evaluation_scope": "AUTHORIZED_STAGE_PREFIX_ONLY"
+    },
+    "/history/179523/status": {
+      "job_id": "179523",
+      "status": "EXCEPTION_STOP",
+      "stage": "package_sha",
+      "reason": "\u542f\u52a8\u524dSHA\u6821\u9a8c\u5931\u8d25\uff1aCRLF\u6e05\u5355\u88abLinux\u8bef\u8bfb\u4e3a\u6587\u4ef6\u540d\u3002\u72ec\u7acb\u4fee\u590d\u5df2\u4e0a\u4f20\u8d85\u7b97\uff1b\u539f1492\u6587\u4ef6\u3001\u4fee\u590d\u5c42SHA\u53ca21\u9879\u6d4b\u8bd5\u5168\u90e8\u901a\u8fc7\u3002179523\u5931\u8d25\u73b0\u573a\u4fdd\u7559\uff0c\u5c1a\u672a\u5f00\u59cb\u8865\u7f16\u7801\u6216\u6e90CAL\uff1b\u5f85\u786e\u8ba4\u4fee\u590d\u7248\u91cd\u65b0\u63d0\u4ea4\u3002",
+      "scheduler": {
+        "job_id": "179523",
+        "state": "FAILED",
+        "exit_code": "1:0",
+        "elapsed": "00:00:03",
+        "node": "node185"
+      },
+      "evaluation_scope": "AUTHORIZED_STAGE_PREFIX_ONLY"
+    },
+    "/history/179536/status": {
+      "job_id": "179536",
+      "status": "EXCEPTION_STOP",
+      "stage": "encode",
+      "reason": "\u539f104\u4e25\u683c\u91cd\u653e\u505c\u6b62\uff1a8/104\u6761\u5411\u91cf\u5b57\u8282\u4e0d\u4e00\u81f4\uff0c\u6700\u5927\u7edd\u5bf9\u5dee9.24e-07\u3002\u542f\u52a8\u548c\u73af\u5883\u68c0\u67e5\u5df2\u901a\u8fc7\uff1b\u65b0\u589e\u4f4d\u7f6e\u8865\u7f16\u7801\u4e0e\u6e90CAL\u5c1a\u672a\u5f00\u59cb\u3002\u5df2\u4fdd\u7559\u73b0\u573a\uff0c\u6b63\u5728\u6838\u67e5\u5355\u6837\u672c\u6279\u6b21\u5dee\u5f02\uff0c\u4e0d\u81ea\u52a8\u91cd\u8dd1\u3002",
+      "scheduler": {
+        "job_id": "179536",
+        "state": "FAILED",
+        "exit_code": "70:0",
+        "elapsed": "00:02:08",
+        "node": "node185"
+      },
+      "evaluation_scope": "AUTHORIZED_STAGE_PREFIX_ONLY"
+    },
+    "/history/179591/status": {
+      "job_id": "179591",
+      "status": "COMPLETE",
+      "stage": "DIAGNOSTIC_COMPLETE",
+      "reason": null,
+      "scheduler": {
+        "job_id": "179591",
+        "state": "COMPLETED",
+        "exit_code": "0:0",
+        "elapsed": "00:00:36",
+        "node": "node185"
+      },
+      "evaluation_scope": "SOURCE_REFERENCE8_B1_B16_CLONE_DIAGNOSTIC_ONLY"
+    }
+  },
+  "hidden_processes": {
+    "sync": {
+      "pid": 37168,
+      "hidden": true,
+      "script": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\dense_reference_matrix_v1_20261027\\hpc\\status_sync.py"
+    },
+    "dashboard": {
+      "pid": 60068,
+      "hidden": true,
+      "script": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\dense_reference_batch_repair_deployment_20261027\\progress_server.py"
+    }
+  },
+  "ai_polling": false,
+  "automatic_retry": false
+}

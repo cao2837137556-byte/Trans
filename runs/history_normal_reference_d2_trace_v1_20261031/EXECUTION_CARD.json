@@ -1,0 +1,32 @@
+{
+  "status": "AUTHORIZED_BOUNDED_DIAGNOSTIC_READY",
+  "spec": "D2-NEIGHBOR-TRACE-V1",
+  "spec_sha256": "b6a6b0c01fe0225f67072d38e9c1d2343f905223644302b86126282ed05173ff",
+  "authorization": "User accepted both tasks and confirmed connected; user executed read-only export and reported D2_EXPORT_READY. No repeated permission requested.",
+  "pair_limit": 80000000,
+  "wall_seconds_limit": 900,
+  "cpu_limit": 4,
+  "rss_bytes_limit": 4294967296,
+  "priorities": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "extra_neighbor_pair_checks_counted": true,
+  "eligible_exact": true,
+  "support_rtol": 0,
+  "support_atol": 1e-12,
+  "four_head_predictions_exact": true,
+  "model_forwards": 0,
+  "new_experiments_submitted": 0,
+  "frozen_rule_changes": 0,
+  "automatic_retry": false,
+  "code_sha256": {
+    "guarded_run.py": "94d4833eb0bc0ff317b306635fb871970031152ded1cdd9efb426461bf92e3e1",
+    "proxy_existing_tunnel.py": "c3b39b48d215d3a3ccbacab9b7174cab8b2c56c6d9a408dfb4368927bc1f081d",
+    "remote_export.py": "ced5f344532b5a5f74ef9471bda6d5b159eeacaed6daf656935dbfe2917ebf3d",
+    "retrieve.py": "38a55c0b94b0e67386ed90bd5608daedcdc780177711a2ad02e42d8f141d1c64",
+    "trace.py": "d433a5557b41799fd4e5a8d68434fd9dcb102f9fc2c3a9f3f0991c8eac48adc2"
+  }
+}

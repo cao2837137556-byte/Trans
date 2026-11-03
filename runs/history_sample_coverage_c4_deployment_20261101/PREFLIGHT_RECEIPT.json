@@ -1,0 +1,9 @@
+{
+  "status": "PREFLIGHT_FAIL",
+  "submitted": false,
+  "candidate": "C4_HISTORY_SAMPLE_COVERAGE_TOPUP",
+  "preflight": {
+    "returncode": 1,
+    "tail": "{\"python\": \"3.11.11\", \"numpy\": \"2.0.1\", \"torch\": \"2.5.1\"}\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_execution_v1_20261101/run.py\", line 30, in verify\n    require(digest(semantic(read(PACKAGE/'config/EXECUTION.json')))==card['config_semantic_sha256'],'CONFIG_SEMANTICS')\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_execution_v1_20261101/hnr/common.py\", line 40, in require\n    raise ValueError(message)\nValueError: CONFIG_SEMANTICS\n"
+  }
+}

@@ -1,0 +1,337 @@
+{
+  "a_history": {
+    "arrays": {
+      "bytes": 255678,
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.npz",
+      "sha256": "a9a1c06a1d272f371fedc12dc9ecaa424e61657b710007f3de061cc9a8ae1d6a"
+    },
+    "device": "HeimVision Camera",
+    "expected_rows": 11,
+    "rows": {
+      "bytes": 14893,
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.jsonl.gz",
+      "sha256": "997e1c4ab68781fba3787969a37938ef0a36d899559543e243aabeeda1953fb3"
+    }
+  },
+  "calibration": {
+    "cuts": {
+      "bytes": 193,
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/cuts.json",
+      "sha256": "d4c391302d2d32c5d8813a45612b6f4203468e4b52bbd58233cbd6f274c84bbd"
+    },
+    "geometry": {
+      "bytes": 11696,
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/geometry.json",
+      "sha256": "080c069fa41f6eb7fbcea2e890873be462f8471b8ff2a039a8a30935674ca124"
+    },
+    "normalizer": {
+      "bytes": 12792,
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz",
+      "sha256": "ba92b5439255435e854ee14b74738cae0e3606060456de37927b2b6a0e2ab8b2"
+    },
+    "protection": {
+      "bytes": 16796,
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/protection.json",
+      "sha256": "306afefda32b398fdb9dfabcd9562e44b79555dcb551add8dad9c9a51cab37e2"
+    },
+    "scales": {
+      "bytes": 510,
+      "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/calibration/scales.json",
+      "sha256": "06870509e49b642e1a03444e425542cc4559b5375d522cbb27295dc70d208fa2"
+    }
+  },
+  "heads": {
+    "design": {
+      "bytes": 12211,
+      "path": "runs/legacy_query_tail_learning_delivery_v2r1_20261010/bundle/design_contract.json",
+      "sha256": "c6027a90f1f997b1bb1e8dd44409237531d7dc97cc13813e9bec364dc40b21af"
+    },
+    "endpoints": {
+      "127": {
+        "endpoint.json": {
+          "bytes": 3795,
+          "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_127/endpoint.json",
+          "sha256": "2d59878ba5857dfd6e0c204b6c9ad4a6f0a72f3ecc5d62682066fcced23c850b"
+        },
+        "head.npz": {
+          "bytes": 402418,
+          "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_127/head.npz",
+          "sha256": "e356f4bd633e80657bef9d823786bccda7e87533a9c165a5889e4efaae344a29"
+        }
+      },
+      "227": {
+        "endpoint.json": {
+          "bytes": 3795,
+          "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_227/endpoint.json",
+          "sha256": "28c0887d7cc860f966b4b2513f49f7a05a08daa083fbbff794dd3581f0305415"
+        },
+        "head.npz": {
+          "bytes": 402418,
+          "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_227/head.npz",
+          "sha256": "38915803019303377afc5c3b5531a591f388de87bfdee0371521b0e44b933083"
+        }
+      },
+      "27": {
+        "endpoint.json": {
+          "bytes": 3794,
+          "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_27/endpoint.json",
+          "sha256": "197ffc5727f3c4a49e1c5f22dc0cadb936b05f951b33e5277c8bcaded1fa5f99"
+        },
+        "head.npz": {
+          "bytes": 402418,
+          "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/endpoints/QUERY_TAIL_27/head.npz",
+          "sha256": "35f4a892f6629e9995fcedc52b14a3f6abd64a4f01dedacb595a3073858415b7"
+        }
+      }
+    }
+  },
+  "pools": {
+    "CIC_DEV": {
+      "baseline_decisions": {
+        "bytes": 15056906,
+        "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/result_retrieval_179700_20261028/unpacked/job_179700/science/matrix/CIC_DEV/R-DENSE_epsilon_0p1_decisions.npz",
+        "sha256": "fb9ee480880d4508a45702f13d3cc892724ffb851fe2f0da02066190acc3b608"
+      },
+      "baseline_result": {
+        "bytes": 2991909,
+        "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/result_retrieval_179700_20261028/unpacked/job_179700/science/matrix/CIC_DEV/RESULT.json",
+        "sha256": "a6f2e1666a4bb3d0eec69e738e0298599c3f9ebd932ea3d46e329c3e15096783"
+      },
+      "dense_bank": {
+        "e3": {
+          "bytes": 23556186,
+          "key": "e3",
+          "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/CIC_DEV/bank.npz",
+          "sha256": "42f7e1649f7e4615738f76347d14eadc5207582f900e0ffe3de9ec070ce21353",
+          "uid_key": "uid"
+        },
+        "expected_ordered_uid_sha256": "53bd684394a36ea0fc25809f218e253fdb1fd6fb6666cfd5545c8f456e11e620",
+        "expected_rows": 8574,
+        "feature_uid_sha256": "53bd684394a36ea0fc25809f218e253fdb1fd6fb6666cfd5545c8f456e11e620",
+        "producer_receipt": {
+          "bytes": 307,
+          "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/CIC_DEV/receipt.json",
+          "sha256": "abe9e417e3be6e9bd2b0d1b06017617ee55f9cab2dc66aebcb0eea782bbf050e"
+        },
+        "q14": {
+          "bytes": 23556186,
+          "key": "q14",
+          "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/CIC_DEV/bank.npz",
+          "sha256": "42f7e1649f7e4615738f76347d14eadc5207582f900e0ffe3de9ec070ce21353",
+          "uid_key": "uid"
+        },
+        "q_uid_sha256": "53bd684394a36ea0fc25809f218e253fdb1fd6fb6666cfd5545c8f456e11e620",
+        "required_runtime_producer": "verified encoding output banks/CIC_DEV/bank.npz and receipt.json",
+        "rows": {
+          "bytes": 755851,
+          "path": "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/CIC_DEV/SELECTED_REFERENCES.jsonl.gz",
+          "sha256": "376b8d83da5f15acc1dd2c3eaa3c9b6919fae5cf2278e73c54a0409ef9af4f64"
+        },
+        "status": "COMPLETE_DERIVED_ENCODING"
+      },
+      "query": {
+        "e3": {
+          "bytes": 571318064,
+          "column_slice": [
+            0,
+            768
+          ],
+          "path": "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/features/CIC_DEV.npy",
+          "sha256": "8a511aed14f5f7b5be59b94452e0ebc7e57ba0ba704f24ab00bbc3ff78fcf422"
+        },
+        "feature_uid_sha256": "1b13ef4d89e5652d6c24931ab895842b58cce655249cf978ff3d1cdded04f35d",
+        "feature_uids": {
+          "bytes": 12771911,
+          "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/CIC_DEV_query_uids.json",
+          "sha256": "e3d4f13c7578fc3e939f9ebff65dab4db51ef746a252d7677051e83577b8f70d"
+        },
+        "logits": {
+          "bytes": 52527462,
+          "key": "head",
+          "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/CIC_DEV/B2/scores.npz",
+          "sha256": "be31c6ebe27cae2f8a8d7c80fc0d405b6c7e384b4e3a70d1fb75e97629ecba48",
+          "uid_key": "uid"
+        },
+        "ordered_uid_sha256": "1b13ef4d89e5652d6c24931ab895842b58cce655249cf978ff3d1cdded04f35d",
+        "q14": {
+          "bytes": 10073744,
+          "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV_q.npy",
+          "sha256": "13ddfc2326bb7e97d11191fa818b637fe89d1668fae2f6d29798a4f9c384d14f"
+        },
+        "q_uid_sha256": "1b13ef4d89e5652d6c24931ab895842b58cce655249cf978ff3d1cdded04f35d",
+        "q_uids": {
+          "bytes": 12771911,
+          "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/CIC_DEV_query_uids.json",
+          "sha256": "e3d4f13c7578fc3e939f9ebff65dab4db51ef746a252d7677051e83577b8f70d"
+        },
+        "rows": {
+          "bytes": 20489530,
+          "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV.jsonl.gz",
+          "sha256": "666c2e2dc648ab539b8e2bb5e1b1fb8fee8cd3bf92223a72d6631fc4c851f64f"
+        },
+        "upstream_uid_binding": "pinned cache feature seal and prepared metadata seal; runtime must validate NPZ score uid"
+      },
+      "windows": [
+        {
+          "capture_id": "active-00",
+          "device": "Eufy Home Base",
+          "end": 1635858900.06933,
+          "frame_end": 152883,
+          "partition": "DEV",
+          "reference_end": 1635858900.06933,
+          "source_sha256": "b19d63d7e3ac18d3b1d05add73ab86e7c6cdce5bbdee3485aa1d0bc90404bd3e",
+          "start": 1635851700.06933
+        },
+        {
+          "capture_id": "active-00",
+          "device": "HeimVision Camera",
+          "end": 1635858900.06933,
+          "frame_end": 152883,
+          "partition": "DEV",
+          "reference_end": 1635858900.06933,
+          "source_sha256": "b19d63d7e3ac18d3b1d05add73ab86e7c6cdce5bbdee3485aa1d0bc90404bd3e",
+          "start": 1635851700.06933
+        }
+      ]
+    },
+    "UNSW_DEV": {
+      "baseline_decisions": {
+        "bytes": 12970711,
+        "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/result_retrieval_179700_20261028/unpacked/job_179700/science/matrix/UNSW_DEV/R-DENSE_epsilon_0p1_decisions.npz",
+        "sha256": "a5861f11f835a04ae2f8d7c885c6bdca3d5522501d112b877e7a59f4dcd57d72"
+      },
+      "baseline_result": {
+        "bytes": 9091750,
+        "path": "runs/dense_reference_ab_stage_dependency_repair_execution_20261028/result_retrieval_179700_20261028/unpacked/job_179700/science/matrix/UNSW_DEV/RESULT.json",
+        "sha256": "022ffec2d9c44fb938a3e6493f3c98c1e7ee5cad440525bddfba867c4be13f61"
+      },
+      "dense_bank": {
+        "e3": {
+          "bytes": 33576112,
+          "key": "e3",
+          "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/UNSW_DEV/bank.npz",
+          "sha256": "15fc1dd490eb546e63ac163a5829ee46397d2bd0fe4d07f2612d0a7710d2ea74",
+          "uid_key": "uid"
+        },
+        "expected_ordered_uid_sha256": "b638abbc105bc512dd07fde561caca65ae87484cb3c6c3390c9d9d45cd771d4e",
+        "expected_rows": 13247,
+        "feature_uid_sha256": "b638abbc105bc512dd07fde561caca65ae87484cb3c6c3390c9d9d45cd771d4e",
+        "producer_receipt": {
+          "bytes": 308,
+          "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/UNSW_DEV/receipt.json",
+          "sha256": "b04f8dca9748539e269aba0f00cb57bb7dfcd41bd9fa32e1dcdbce9269da73c7"
+        },
+        "q14": {
+          "bytes": 33576112,
+          "key": "q14",
+          "path": "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/UNSW_DEV/bank.npz",
+          "sha256": "15fc1dd490eb546e63ac163a5829ee46397d2bd0fe4d07f2612d0a7710d2ea74",
+          "uid_key": "uid"
+        },
+        "q_uid_sha256": "b638abbc105bc512dd07fde561caca65ae87484cb3c6c3390c9d9d45cd771d4e",
+        "required_runtime_producer": "verified encoding output banks/UNSW_DEV/bank.npz and receipt.json",
+        "rows": {
+          "bytes": 1207067,
+          "path": "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/UNSW_DEV/SELECTED_REFERENCES.jsonl.gz",
+          "sha256": "850b68302ccf94138138e55455136dbe5bb1d5e2e122c41420763c597d89c456"
+        },
+        "status": "COMPLETE_DERIVED_ENCODING"
+      },
+      "query": {
+        "e3": {
+          "bytes": 471051744,
+          "column_slice": [
+            0,
+            768
+          ],
+          "path": "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/features/UNSW_DEV.npy",
+          "sha256": "a9f922e7e13eff477cb4c3fdd8d11fe9920b8e717aab225734dcd859dd59eb97"
+        },
+        "feature_uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+        "feature_uids": {
+          "bytes": 10530441,
+          "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/UNSW_DEV_query_uids.json",
+          "sha256": "ce463fe077cdbfe54e30d3cf52b7063b8150fd21b9e8cf18a97327e5282fad27"
+        },
+        "logits": {
+          "bytes": 43309022,
+          "key": "head",
+          "path": "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/UNSW_DEV/B2/scores.npz",
+          "sha256": "03cd8a70621d2953add44c57205c59d00fcfe59502876fd0426a424f985a3e7d",
+          "uid_key": "uid"
+        },
+        "ordered_uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+        "q14": {
+          "bytes": 8305824,
+          "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV_q.npy",
+          "sha256": "19278ac100c0ef8e85245439db3d436777d1f1e9121cb2b6015104469911856f"
+        },
+        "q_uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+        "q_uids": {
+          "bytes": 10530441,
+          "path": "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/UNSW_DEV_query_uids.json",
+          "sha256": "ce463fe077cdbfe54e30d3cf52b7063b8150fd21b9e8cf18a97327e5282fad27"
+        },
+        "rows": {
+          "bytes": 16428540,
+          "path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV.jsonl.gz",
+          "sha256": "d334f18c3a2857fe8b63f491fd78ba3dc984bbd0fa7a55a4f030d9e797098503"
+        },
+        "upstream_uid_binding": "pinned cache feature seal and prepared metadata seal; runtime must validate NPZ score uid"
+      },
+      "windows": [
+        {
+          "capture_id": "unsw-benign-20180528",
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+          "end": 1527472801.09039,
+          "frame_end": 369214,
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+          "reference_end": 1527472801.09039,
+          "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+          "start": 1527465601.09039
+        },
+        {
+          "capture_id": "unsw-benign-20180528",
+          "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+          "end": 1527472801.09039,
+          "frame_end": 369214,
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+          "reference_end": 1527472801.09039,
+          "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+          "start": 1527465601.09039
+        },
+        {
+          "capture_id": "unsw-benign-20180528",
+          "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+          "end": 1527472801.09039,
+          "frame_end": 369214,
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+          "reference_end": 1527472801.09039,
+          "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+          "start": 1527465601.09039
+        },
+        {
+          "capture_id": "unsw-benign-20180528",
+          "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+          "end": 1527472801.09039,
+          "frame_end": 369214,
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+          "reference_end": 1527472801.09039,
+          "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+          "start": 1527465601.09039
+        },
+        {
+          "capture_id": "unsw-benign-20180528",
+          "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+          "end": 1527472801.09039,
+          "frame_end": 369214,
+          "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+          "reference_end": 1527472801.09039,
+          "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+          "start": 1527465601.09039
+        }
+      ]
+    }
+  },
+  "schema": "history-normal-reference-assets-v1"
+}

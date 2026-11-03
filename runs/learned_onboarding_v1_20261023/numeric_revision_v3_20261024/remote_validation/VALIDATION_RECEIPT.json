@@ -1,0 +1,29 @@
+{
+  "schema": "paper04-numeric-revision-validation-run-v3",
+  "status": "PASS_VALIDATION_ONLY",
+  "production_training_started": false,
+  "experiment_resumed": false,
+  "automatic_retry": false,
+  "target_queries_read": 0,
+  "results": [
+    {
+      "stage": "original_tests",
+      "returncode": 0,
+      "elapsed_seconds": 8.250665633997414,
+      "log_sha256": "c60e354186bd08a58acca06acd34e74ae9d558095a0ed44e05e756265cbc3ee5"
+    },
+    {
+      "stage": "numeric_tests",
+      "returncode": 0,
+      "elapsed_seconds": 2.6779632740071975,
+      "log_sha256": "944ead40e7de278f4e061797fd5d4e2ce01ddfb5c6d69f40c156462bdaaf960e"
+    },
+    {
+      "stage": "source_forward",
+      "returncode": 0,
+      "elapsed_seconds": 380.07183322298806,
+      "log_sha256": "35edd9a34e7b773da688b5689eed2f515994239098d11349e7e0d7535ff3a3d7"
+    }
+  ],
+  "elapsed_seconds": 391.00174556599814
+}

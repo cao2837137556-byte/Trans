@@ -1,0 +1,69 @@
+{
+  "status": "STOPPED_ATTEMPT_EVIDENCE_VERIFIED",
+  "files": {
+    "state/status.json": {
+      "sha256": "71afd4e8bb2fdb089acef35d61aa44f2c81bc1b833e3a2d72c1711e19b4f614d",
+      "bytes": 797
+    },
+    "state/EXCEPTION_STOP.json": {
+      "sha256": "0163442a2f2d1d9775df6be69f9b3205e09fb191e794081f55e14c879345e47d",
+      "bytes": 1139
+    },
+    "state/package_manifest.json": {
+      "sha256": "9187038f3d0ca92b0a309c18863ee34e40cfbdfce8908b485d854cd7441e53be",
+      "bytes": 86642
+    },
+    "state/execution_contract.json": {
+      "sha256": "760db8bc933dd7e275051fa0e5078c7ac25c4c9ed2f97158bd542a27151461ae",
+      "bytes": 1749
+    },
+    "state/stages/tests/tests.json": {
+      "sha256": "24a6551ec4fe1232094b94a063e628edd6c376417141caab0a07a46b346e8c1a",
+      "bytes": 239
+    },
+    "state/stages/tests/runtime.json": {
+      "sha256": "c974236c9f710f2e36beccac94ff4889e3a3fad76dbd2ae605bf66de1502646a",
+      "bytes": 2335
+    },
+    "state/stages/tests/invocation.json": {
+      "sha256": "2f3374559ac1de8ed51094558ce2643ea96ca0c56f3d4a56d75ae1a3b7b10883",
+      "bytes": 848
+    },
+    "state/stages/tests/process_exit.json": {
+      "sha256": "d872097117139f4fe6dce38d704d507e7268d2499664a111b3b1404d3093b517",
+      "bytes": 217
+    },
+    "state/stages/tests/output.log": {
+      "sha256": "2b731e7f01b00070604c56f8c25ca442cbcc64802c8faf4d9efaade3cbd7212c",
+      "bytes": 4978
+    },
+    "LAUNCH_RECEIPT.json": {
+      "sha256": "6a00e4cb2663447f70514eeb15c1602240cc966681367d1588d409cf5364fac8",
+      "bytes": 2104
+    },
+    "EXECUTION_SLOT_RECEIPT.json": {
+      "sha256": "b4fb80f4c018ce64e0e6d45a26eda014f73f3de1300e4abebf1f3b9ae77fddf2",
+      "bytes": 318
+    },
+    "SERVICE_HARD_LIMIT_RECEIPT.json": {
+      "sha256": "7617e77052167f592234b84d140f7bd62a9415a6dfbac9352c09fb28819f9ebc",
+      "bytes": 584
+    },
+    "DEPLOYMENT_VERIFIED.json": {
+      "sha256": "8ae7cbe3b986a3efda683919c6da2b4422169ca7d30c0f5e8c4e667d2f5ac691",
+      "bytes": 313
+    },
+    "service.stdout.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "service.stderr.log": {
+      "sha256": "7d840289701a110e39c9b0f39761b3cf91902c0fef753ec78bf62b48f529c6c7",
+      "bytes": 781
+    }
+  },
+  "unit": "Result=exit-code\nExecMainStartTimestamp=Sat 2026-10-24 11:20:08 CST\nExecMainExitTimestamp=Sat 2026-10-24 11:20:15 CST\nExecMainStatus=1\nActiveState=failed\nSubState=failed\nInvocationID=db91ff9a9cbe4a88836839180d73ffa1\n",
+  "remote_modified": false,
+  "production_training_started": false,
+  "automatic_relaunch": false
+}

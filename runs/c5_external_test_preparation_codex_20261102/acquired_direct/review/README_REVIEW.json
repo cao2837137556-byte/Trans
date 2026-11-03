@@ -1,0 +1,127 @@
+{
+  "created_utc": "2026-11-03T03:15:34.764592+00:00",
+  "status": "METADATA_REVIEW_ONLY_RAW_QUALIFICATION_PENDING",
+  "source_artifacts": [
+    {
+      "file": "README.pdf",
+      "pages": 3,
+      "bytes": 6992913,
+      "sha256": "0ad5283fdc7086d03588c1cdc87f3d430e2ef32969985da51ba538eabc3b68af"
+    },
+    {
+      "file": "README_Wifi_and_MQTT_attacks.pdf",
+      "pages": 1,
+      "bytes": 138278,
+      "sha256": "fa88de1fcdc39c845e638f91c9b43a12f4341b24aa61e453897d76336c3a34a8"
+    },
+    {
+      "file": "README_profiling.pdf",
+      "pages": 2,
+      "bytes": 72511,
+      "sha256": "a6646e3a2e0f8a274a7537972f46441a6fa9b3a0b075b73dd90af9d61ad7b42d"
+    }
+  ],
+  "review_method": "pypdf full-page extraction plus pdftoppm 130dpi rendering of all 6 pages, visually reviewed; attack README body is outlined text and requires visual reading",
+  "facts": {
+    "total_real_devices": 25,
+    "total_simulated_devices": 15,
+    "attack_types": 18,
+    "real_wifi_devices_from_topology": [
+      "Sense-U Baby Monitor",
+      "SOS Multifunctional Pager",
+      "SINGCALL SOS Button",
+      "M1T Laxihub",
+      "Owltron",
+      "Blink Mini",
+      "Ecobee Camera"
+    ],
+    "active_contains_simulated_mqtt": true,
+    "active_behaviors": [
+      "SOS-button triggering",
+      "baby-sensor wearing",
+      "companion-app interaction",
+      "passive camera motion detection"
+    ],
+    "idle_description": "Devices left alone overnight; no exact duration or dates stated.",
+    "power_description": "Power on followed by power off; no exact duration stated.",
+    "camera_interactions": {
+      "devices": [
+        "Blink",
+        "Ecobee",
+        "M1T",
+        "Owltron"
+      ],
+      "actions": [
+        "MIC",
+        "WATCH",
+        "PHOTO",
+        "RECORDING"
+      ],
+      "network_modes": [
+        "LAN",
+        "WAN"
+      ]
+    },
+    "pager_interactions": {
+      "actions": [
+        "APP security-profile changes Home/Armed/Away",
+        "PHYSICAL emergency alarm"
+      ],
+      "network_modes": [
+        "LAN",
+        "WAN"
+      ]
+    },
+    "senseu_interactions": {
+      "actions": [
+        "EMERGENCY physical sensor orientation"
+      ],
+      "network_modes": [
+        "LAN",
+        "WAN"
+      ]
+    },
+    "singcall_interactions": {
+      "actions": [
+        "PHYSICAL emergency alarm"
+      ],
+      "network_modes": [
+        "LAN",
+        "WAN"
+      ]
+    },
+    "listed_flood_categories": [
+      "DoS TCP",
+      "DoS ICMP",
+      "DoS SYN",
+      "DoS UDP",
+      "DDoS SYN",
+      "DDoS TCP",
+      "DDoS ICMP",
+      "DDoS UDP"
+    ],
+    "author_attack_directory_split": [
+      "train",
+      "test"
+    ],
+    "author_csv_conversion_tools": [
+      "TCPDUMP",
+      "DPKT"
+    ],
+    "explicit_ack_flood_verified": false,
+    "tcp_attack_flag_direction_verified": false,
+    "udp_attack_direction_verified": false
+  },
+  "unresolved": [
+    "Per-device MAC/IP mapping and attacker/controller roles",
+    "Exact dates, timestamps and per-device active duration",
+    "Whether any raw capture meets actual 7200-second onboarding plus independent later normal and legal earlier normal history",
+    "Per-event attack schedules and labels",
+    "Whether TCP flood has direct attacker-to-victim ACK=1,SYN=0 packets, separated ACK-only/PSH+ACK/other",
+    "Direct UDP attack target/direction and response/background counts",
+    "Cross-capture and cross-dataset physical packet/device lineage overlap",
+    "Adequate final independent event/session/device populations"
+  ],
+  "no_raw_download": true,
+  "no_model_or_metric_evaluation": true
+}

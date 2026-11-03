@@ -1,0 +1,43 @@
+{
+  "job_id": "179536",
+  "package_gate_status": "PASS",
+  "original_files": 1492,
+  "repair_files": 5,
+  "launch": {
+    "status": "RUNNING",
+    "stage": "authorized_chain",
+    "returncode": null,
+    "failure_line": null,
+    "reason": null,
+    "updated_utc": "2026-10-27T10:01:17.267528+00:00",
+    "retries": 0,
+    "evidence_preserved": true,
+    "repair_scope": "LAUNCH_CRLF_AND_EXTERNAL_OUTPUT_ONLY",
+    "previous_failed_job_id": "179523"
+  },
+  "tests_tail": "terminal_scheduler_before_deciding_to_exit) ... ok\n\n----------------------------------------------------------------------\nRan 86 tests in 1.530s\n\nOK\n",
+  "science": {
+    "status": "RUNNING",
+    "stage": "encode",
+    "reason": null,
+    "updated_utc": "2026-10-27T10:03:02.671001+00:00"
+  },
+  "runtime_result": {
+    "status": "COMPLETE",
+    "overlay": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_launch_repair_v1_20261027/runtime/job_179536/science/runtime/numpy201",
+    "runtime_gate": "IMPORT_ONLY_NO_FORWARD",
+    "numpy_wheel_sha256": "15eb4eca47d36ec3f78cde0a3a2ee24cf05ca7396ef808dda2c0ddad7c2bde67",
+    "numerical_parity": "NOT_ASSESSED"
+  },
+  "runtime_environment_created": true,
+  "runtime_worker": {
+    "status": "COMPLETE",
+    "worker_pid": 2381957,
+    "worker_alive": false,
+    "updated_utc": "2026-10-27T10:02:34.641567+00:00",
+    "peak_rss_bytes": 2064707584,
+    "reason": null
+  },
+  "runtime_pip_tail": "Processing ./wheels/numpy-2.0.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nInstalling collected packages: numpy\nSuccessfully installed numpy-2.0.1\n",
+  "runtime_stderr_tail": ""
+}

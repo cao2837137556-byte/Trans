@@ -1,0 +1,34 @@
+{
+  "schema": "paper04.fixed_C2_train_diagnostic.v1",
+  "date": "2026-09-12",
+  "authorization": {
+    "user_statement": "行吧，一定要考虑全面，你是主力选手。",
+    "antecedent": "frontend_transfer_fair_trial_and_target_clarification_20260911.md: one bounded fixed-endpoint TRAIN-only mechanism diagnostic",
+    "implementation_and_synthetic_verification": true,
+    "one_real_diagnostic_after_acceptance": true,
+    "new_training_or_evaluation": false,
+    "automatic_retries": 0
+  },
+  "endpoint": {
+    "student": "runs/frontend_task_knowledge_transfer_t_v2_20260911/C2.pt",
+    "student_sha256": "6845f0d70c9248834b4f720908799755bb4380f747d40e91a9eabbbb0cd470d3",
+    "student_state_sha256": "54329465dabdc75c54d0e20f0aabb6278ea7be0e4010308720944d3b04d94ac1",
+    "projection_sha256": "a2881c4332ff53052b213a4025c2794544fe37fabe6161550bd7c6d952e07a70",
+    "P_manifest_sha256": "80019634c8b158e901678f55b369476fc488104b4bf1177193750432b83d567d",
+    "T_manifest_sha256": "6d51dfa3967ac13352a4bd9f41c40299282fcaf2a20443c5a2b24f4ad4194dec",
+    "E_manifest_identity_only_sha256": "20baf0790e7e01d12699820e1ad849259197883295cae1db5efe2a9cd9e95adb",
+    "E_train_member_only": "C2_train.csv.gz",
+    "E_train_member_sha256": "78ed1b749b91cc9c5d53b5b2aa33bded5a4edd66d670a5691b5fccbe219eeda0"
+  },
+  "counts": {"buckets": 197, "targets": 15073, "teacher_targets": 9379, "contexts": 10583, "max_batch": 32, "student_forwards": 394, "task_gradient_calls": 788, "hidden_gradient_calls": 197, "optimizer_steps": 0},
+  "limits": {"seconds": 900, "memory": 8589934592, "output": 67108864},
+  "traversal": "Original frozen epoch20 A/B order, original 197 buckets and A-then-B forward; all parameters fixed in eval mode; no optimizer construction, gradient write or new checkpoint.",
+  "losses": "Exact frozen label_A, label_B, guard(epoch20), teacher definitions and original context/class denominators; gradients individually from the same forward graph.",
+  "mean_gradient": "Sum signed flattened per-parameter task gradients across buckets, divide by197, then compute norms/cosines. Also report bucket geometry.",
+  "readout": "Float64 diagnostic errors of D(h)-t; task residual=s_T*sum_128(D(h)-t); anchored logit=canonical_teacher_logit+task_residual is teacher-dependent and not deployable.",
+  "head_alignment": "On the existing A forward graph, compare gradient of deployment q with respect to each eligible h against vD=s_T*sum_rows(D.weight). One hidden-gradient call per A bucket.",
+  "prediction_identity": {"absolute_tolerance": 0.00005, "relative_tolerance": 0.00002, "reference": "saved C2 TRAIN raw logit", "hard_prediction_must_match": true, "reason": "Frozen E and epoch20 use different packed batches; bound fixed before new numeric access."},
+  "allowed_access": ["TRAIN contexts/prefixes and A guard saved TRAIN scores from frozen recipe", "sealed P teacher cache and index, no teacher forward", "single C2 student and training-only D checkpoint", "E manifest bytes and only C2_train.csv.gz member", "P/T/package seals and protected workspace hashes"],
+  "forbidden": ["check/expanded numeric feature decoding, predictions or teacher values", "select/viewed/report/FINAL", "new optimizer/parameter update", "new head or candidate evaluation", "threshold/seed/model/loss changes", "new data download/raw decoding", "HPC", "resource retrial", "automatic retry"],
+  "interpretation": ["Fixed endpoint TRAIN geometry is not historical AdamW trajectory or proof of causal/generalization benefit.", "Teacher rows cover only A old-correct targets; no conclusion for B/OOD/whole unseen families.", "Zero teacher-to-head and label/guard-to-D gradients are structural; inactive guard is distinct from disconnect.", "Small coordinate loss can coexist with task-sum error. Large task residual alone does not identify capacity, missing input or underoptimization.", "Within-label/source/family summaries accompany pooled correlations to reduce label confounding.", "No precommitted success claim or automatic training revision follows. Specific evidence may justify one separately designed and authorized change."]
+}

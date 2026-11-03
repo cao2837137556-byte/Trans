@@ -1,0 +1,335 @@
+{
+  "version": "query-tail-sum-objective-diagnostics-design-v2-20261010",
+  "status": "DESIGN_FIXED",
+  "authorization": {
+    "design": true,
+    "consumed_metadata_analysis": true,
+    "real_training": false,
+    "remote_execution": false,
+    "historical_holdout": false,
+    "new_data": false,
+    "implementation": true,
+    "synthetic_validation": true
+  },
+  "parent_design_sha256": "a10a38edd2a871ebfb70cc37c1be3b1ac9715a2e0b0024019146f834b55674d9",
+  "design_document": "runs/mainline_docs/legacy_query_tail_learning_design_v1_20260930.md",
+  "primary_candidate": "QUERY_TAIL",
+  "scope": "Single-head discrimination repair. Reference commissioning NOT_TESTED. Independent ID NOT_RUN.",
+  "provenance": {
+    "base_job": 177891,
+    "base_local_run": "runs/legacy_continuous_input_repair_delivery_v3_20260929/pullback/verified_job177891/runs/real_repair",
+    "remote_base_run": "/public/home/jiangxinwei.zr/work/legacy_continuous_input_repair_v3_20260929/runs/real_repair",
+    "spool_sha256": "591890270a6c6d0c29d796cc765a870f943bc3a2c810f09f86f8fabec8271c3a",
+    "feature_manifest_sha256": "259ef4eadac38a4be0a30d79bd55b4513cf01a96a90ee9577a3a51c28100b040",
+    "normalizer_manifest_sha256": "b5770b28aff74ab5093e9be51af3d5b5da32dc74fd91e1f58466e60f21d05080",
+    "input_manifest_sha256": "d8ea248436cb95686ea747a5dbe0cb71323f1dfed31579be9cfb1a3e6e6b2009",
+    "source_inventory_sha256": "d99eb084ce7eb0731a0cb8e38454779d24e64c55b6d272d41da0ec1224e75f3c"
+  },
+  "data": {
+    "role_counts": {
+      "LEARN": 766727,
+      "CIC_DEV": 179886,
+      "UNSW_DEV": 148316
+    },
+    "uid_sha256": {
+      "LEARN": "5ed3b2bb21970ecc29cdb288ac3a58522cef784207dcbf1164478440b515ef23",
+      "CIC_DEV": "445369f8aeab600985fbd63df1cea9c2f9cac73b0c40d39654f530ad56821d7e",
+      "UNSW_DEV": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232"
+    },
+    "fit_cal_identity": {
+      "FIT": {
+        "rows": 617908,
+        "uid_sha256": "d87b1582b7c349b80b59c9478fcbb69d334e233f4fa5448b162e8bafd8dbd5b4",
+        "eligible_rows": 567175,
+        "eligible_uid_sha256": "f866cb49a51eb660037df471415eeff9cbdec9b25fc69e7defe0635a0eae5b76"
+      },
+      "CAL": {
+        "rows": 148819,
+        "uid_sha256": "5c3e3155c3ed96937bd79590e3bc1f11fd31d9b6ff4dafeab32dc5c2592bf8d0",
+        "eligible_rows": 136962,
+        "eligible_uid_sha256": "e1856bc38a35b5c6348af111e7103417cd6d34ee726dc2fd56ec301025da94b3"
+      }
+    },
+    "FIT": {
+      "normal": 134493,
+      "attack": 483415,
+      "rows": 617908
+    },
+    "CAL": {
+      "normal": 33147,
+      "attack": 115672,
+      "rows": 148819,
+      "attack_donor_pairs": 359875
+    },
+    "fit_weight": "continuous_model_v3.weights; class_weights(device,activity,capture_id,session_id,row)",
+    "source_Cal_only": true,
+    "external_optimizer_or_calibration": false,
+    "reference_use": false,
+    "metric_weight_rule": "Original metadata 1/label_metric_weight_denominator, checked against original census",
+    "target_status": "Both CIC_DEV and UNSW_DEV already consumed; development only"
+  },
+  "input": {
+    "reuse": "Job177891 current-inclusive RECENT cache; no E3 rerun or raw decode",
+    "e3_normalizer": "Exact Job177891 source FIT RECENT mean/scale, no refit",
+    "query_fields": [
+      "is_tcp",
+      "FIN",
+      "SYN",
+      "RST",
+      "PSH",
+      "ACK",
+      "URG",
+      "ECE",
+      "CWR",
+      "NS",
+      "log1p_encoded_ip_length/log65536",
+      "log1p_tcp_window/log65536",
+      "log1p_udp_length/log65536",
+      "direction_relative_to_first_retained_ip_source"
+    ],
+    "query_dimension": 14,
+    "base_dimension": 768,
+    "descriptor_rows": 1094929,
+    "query_locator": "Unique provenance.query_frame and exact query_time_ns in bursts; do not assume array last",
+    "header_offsets": {
+      "encoded_ip_length": 2,
+      "tcp_flags": 5,
+      "tcp_window": 6,
+      "udp_length": 5
+    },
+    "flag_bits": {
+      "FIN": 1,
+      "SYN": 2,
+      "RST": 4,
+      "PSH": 8,
+      "ACK": 16,
+      "URG": 32,
+      "ECE": 64,
+      "CWR": 128,
+      "NS": 256
+    },
+    "udp_tcp_fields": "For UDP TCP bits/window zero; for TCP UDP length zero; is_tcp disambiguates",
+    "banned": [
+      "addresses",
+      "ports",
+      "device_id",
+      "dataset_id",
+      "absolute_time",
+      "label",
+      "attack_elapsed",
+      "TTL",
+      "raw_seq_ack"
+    ],
+    "payload_length_reconstruction": false,
+    "missing_parse": "STOP; no imputation",
+    "support_stage_priority": [
+      "UDP",
+      "TCP_RST",
+      "TCP_SYN_NO_ACK",
+      "TCP_SYN_ACK",
+      "TCP_FIN",
+      "TCP_OTHER"
+    ]
+  },
+  "arms": [
+    {
+      "id": "RECENT",
+      "input_dim": 768,
+      "loss": "BCE",
+      "new_training": false,
+      "role": "sealed reference"
+    },
+    {
+      "id": "QUERY_BCE",
+      "input_dim": 782,
+      "loss": "BCE",
+      "new_training": true,
+      "role": "readout ablation"
+    },
+    {
+      "id": "RECENT_TAIL",
+      "input_dim": 768,
+      "loss": "SUM_BCE_TAIL",
+      "new_training": true,
+      "role": "objective ablation"
+    },
+    {
+      "id": "QUERY_TAIL",
+      "input_dim": 782,
+      "loss": "SUM_BCE_TAIL",
+      "new_training": true,
+      "role": "primary"
+    }
+  ],
+  "model": {
+    "architecture": "Linear(D,128)->ReLU->Linear(128,1)",
+    "output": "one attack logit",
+    "parameters_by_dimension": {
+      "768": 98561,
+      "782": 100353
+    },
+    "learned_veto": false,
+    "state26": false,
+    "initialization": "Same untrained 768 seed initializer as v3; extra query columns zero; copy biases/output layer",
+    "trained_checkpoint_warm_start": false
+  },
+  "training": {
+    "seeds": [
+      27,
+      127,
+      227
+    ],
+    "epochs": 40,
+    "batch_size": 256,
+    "optimizer": "AdamW",
+    "optimizer_parent_values": {
+      "lr": 0.0003,
+      "weight_decay": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08
+    },
+    "endpoint": "epoch40 only; no checkpoint or seed selection",
+    "data_order": "v3 torch random permutation per epoch",
+    "original_bce_weights_unchanged": true,
+    "protocol_stage_reweighting": false,
+    "negative_tail_mass": 0.01,
+    "tail_pair_weight": 1.0,
+    "bce_weight": 1.0,
+    "pair_loss": "softplus(s_negative-s_positive)",
+    "tail_source": "All FIT normal, conditional weights=2*original_bce_weight, live head at epoch start",
+    "tail_refresh": "Once per epoch; held fixed for that epoch; log stale-selection limitation",
+    "tail_ties": "Fractional remaining mass distributed proportionally within entire equal-score block",
+    "tail_negatives_per_batch": 128,
+    "tail_sampling": "With replacement, float64 inverse CDF in UID-sorted order",
+    "tail_random_stream": "Python3.9 random.Random(int(SHA256(query-tail-v1|seed|epoch),16)); separate from batch shuffle",
+    "positive_weight": "2*original_bce_weight; no within-batch renormalization",
+    "batch_pair_estimator": "N/b * sum_batch_positive(p_i * mean_128 softplus(s_j-s_i))",
+    "zero_positive_batch": "pair term 0, BCE unchanged",
+    "both_pair_sides_gradient": true,
+    "updates_per_head": 96560,
+    "new_heads": 9,
+    "new_total_updates": 869040,
+    "full_FIT_bce_visits_per_head": 24716320,
+    "tail_refresh_normal_visits_per_tail_head": 5379720,
+    "search": false,
+    "retry": false,
+    "theory_claim": "pAUC-inspired epoch mining, NOT SOPA and no borrowed convergence guarantee",
+    "diagnostics": {
+      "enabled": true,
+      "loss_log_format": "npy_float64",
+      "loss_columns": [
+        "bce",
+        "tail",
+        "total"
+      ],
+      "probe_batches": [
+        1,
+        1207,
+        2414
+      ],
+      "gradient_timing": "pre_step",
+      "adam_state_timing": "post_step",
+      "probes_per_head": 120,
+      "probes_nine_heads": 1080,
+      "extra_reverse_calls_upper_count": 2160,
+      "autograd": {
+        "retain_graph": true,
+        "create_graph": false,
+        "writes_grad": false
+      },
+      "batch_forward_reuse": true,
+      "extra_rng_draws": 0,
+      "extra_model_forwards": 0,
+      "extra_optimizer_updates": 0,
+      "disabled_only_in_generated_invariance_tests": true,
+      "gradient_ratio_excludes_weight_decay": true,
+      "adam_correction": "sqrt(exp_avg_sq/(1-beta2**actual_parameter_step))",
+      "adam_groups": [
+        "all_parameters",
+        "first_layer",
+        "output_layer",
+        "query14_columns"
+      ],
+      "invalid_ratios_are_null": true,
+      "norm_and_summary_accumulation_dtype": "float64",
+      "no_early_stopping_no_epoch_selection_no_hyperparameter_adaptation": true
+    }
+  },
+  "calibration": {
+    "source": "Original LEARN CAL normal only",
+    "weighted_FPR_budget": 0.01,
+    "algorithm": "continuous_model_v3.threshold; strict >; no interpolation",
+    "ensemble": "float64 arithmetic mean of three seed logits, calibrated independently on source CAL",
+    "per_device_thresholds": false,
+    "reference_thresholds": false,
+    "target_label_use": false
+  },
+  "gates": {
+    "common_inherited": {
+      "attack_recall_ensemble_each_pool_min": 0.99,
+      "attack_recall_ensemble_each_device_min": 0.97,
+      "attack_recall_each_seed_each_pool_min": 0.97,
+      "CIC_DEV_historical_Q_recall": 0.9998608581258854,
+      "CIC_DEV_max_drop_from_historical_Q_percentage_points": 0.1,
+      "normal_weighted_FPR_each_pool_max": 0.01,
+      "normal_weighted_FPR_each_device_max": 0.02,
+      "attack_gate_metric": "weighted_rate",
+      "historical_Q_comparison_metric": "rate"
+    },
+    "additional_regression": {
+      "max_drop_rate": 0.001,
+      "baseline": "RECENT own original source-CAL operating point",
+      "source_CAL_positive_groups": [
+        "TCP",
+        "UDP",
+        "Hydra"
+      ],
+      "CIC_DEV_positive_groups": "All nonempty protocol groups",
+      "group_metric": "Conditional weighted recall, plus integer TP/denominator",
+      "applies_to": "Each seed and ensemble of primary QUERY_TAIL",
+      "action": "Report FAIL; no model/epoch/threshold selection or retry"
+    },
+    "reference_veto_zero_added_misses": "NOT_TESTED",
+    "reference_adaptation_gain": "NOT_TESTED",
+    "independent_ID": "NOT_RUN",
+    "all_common_and_new_primary_gates_must_pass": true
+  },
+  "preflight": {
+    "scope": "Read-only original run; new outputs in new run only",
+    "source_stage_weight_census": "PENDING_REMOTE_SNAPSHOT; no claim of completion",
+    "stop_if": [
+      "SHA/UID/order/count/weight conservation mismatch",
+      "Missing/ambiguous/future query token",
+      "FIT SYN_NO_ACK label0 or label1 absent, or <2 devices or <2 components",
+      "FIT TCP non-SYN or UDP class missing",
+      "Any role leakage or nonfinite input"
+    ],
+    "support_note": "Two entities is a structural minimum, not evidence of adequate independent statistical support",
+    "no_model_optimizer_updates_before_pass": true,
+    "no_E3_forward": true
+  },
+  "delivery": {
+    "next_step": "Versioned sum-objective/probe implementation, synthetic invariance validation and review-ready package",
+    "resource_allocation": "amd 16CPU/64G/72h; three workers x four threads; unchanged nine-head update budget; diagnostics statically accounted",
+    "operator": "User uploads/submits/pulls; assistant supplies exact commands and self-reporting status",
+    "real_execution": "NOT_STARTED; user-operated future chain after cache identity and target-environment checks",
+    "paper": "STABLE_DRAFT_ONLY_NO_NEW_RESULTS",
+    "protected_pools": "CLOSED",
+    "auto_promotion": false,
+    "LODO": "SEPARATE_STAGE_A_PROTOCOL_NOT_IN_THIS_PACKAGE"
+  },
+  "revision_of_design_sha256": "8fc236975039773580fef8d40705d205dc382dbc5159c43833928958c62a6ecd",
+  "decision_document": "runs/mainline_docs/collab/20261010_query_tail_objective_decision_codex.md",
+  "acknowledgment_document": "runs/mainline_docs/collab/20261010_query_tail_objective_decision_ack_claude.md",
+  "interpretation": {
+    "prediction_rules": "prediction_rules.json",
+    "prediction_rules_sha256": "d51fb59198398c6b4f2b4db30f1875f1c8cb9fa7a3ca65d515358fd76e3d2926",
+    "old_predictions_preserved": true,
+    "target_evidence": "CONSUMED_DEVELOPMENT_ONLY",
+    "noise_scale_is_descriptive_only": true,
+    "independent_confirmation": false
+  }
+}

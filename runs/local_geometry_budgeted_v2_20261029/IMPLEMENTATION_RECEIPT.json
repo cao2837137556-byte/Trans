@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-29T03:39:04.460499+00:00",
+  "status": "IMPLEMENTED_AND_ACCEPTED_NOT_RUN",
+  "spec_sha256": "797a08dc7cd540f6c1c2d498490e520cb40d6938da8c6ceec350f5b80b17fc51",
+  "scientific_status": "NOT_EVALUATED",
+  "code_sha256": {
+    "DEPENDENCIES.json": "30099bdaa2be2b9decb8a3954d4b2ae8c34197991f0950bbd3b6fc2f8d69b281",
+    "EXPERIMENT_PLAN.md": "797a08dc7cd540f6c1c2d498490e520cb40d6938da8c6ceec350f5b80b17fc51",
+    "lg/__init__.py": "5e2eac54bf600c0a5ba4de2ec07fa282ca28c86f31912ce2a337e0f753f47e6f",
+    "lg/common.py": "fb25d5307530727f5058ea667e73b761a3529cfa2b06af301b363c3742c4cc5b",
+    "lg/geometry.py": "9d24dc4f0cde958fc332fb89142120fe2d4c942646601e633bcd51d247c62256",
+    "lg/legacy.py": "a7343b523c6184a08f24252ad9cf1dc865e933d20176a877e8f62b91f39a77a1",
+    "lg/metrics.py": "38af9abc26445f266c1e1e5f4edaaff181fb0d8dbbc702e53e8aa36624e69422",
+    "lg/runtime.py": "f228b5d256c87f9e5268354992d97455dc9be3bf735ab078beb9987f8128a83b",
+    "lg/source.py": "a8779f4f93cc2d941dcb971e5d51d714174bd02183904d896610b8c6b219b4f7",
+    "lg/target.py": "9c5b573263af7e6cadb51e6a56b977140c6aba5790f1f26d1508a0504ff108e2",
+    "run.py": "a04400d6cf116a44fccfc2988bd69a0b4449febab83f71c98574732b0466b839"
+  },
+  "files_sha256": {
+    "DEPENDENCIES.json": "30099bdaa2be2b9decb8a3954d4b2ae8c34197991f0950bbd3b6fc2f8d69b281",
+    "EXECUTION_CARD.md": "09fb6875daa9442447eb48603b3a37d83c55ea681f333f812805bcb03b596073",
+    "EXPERIMENT_PLAN.md": "797a08dc7cd540f6c1c2d498490e520cb40d6938da8c6ceec350f5b80b17fc51",
+    "EXPERIMENT_PLAN.md.sha256": "2005041a45254adc810268f98790a388baa10a75dadc18e98e4929501b399db1",
+    "lg/__init__.py": "5e2eac54bf600c0a5ba4de2ec07fa282ca28c86f31912ce2a337e0f753f47e6f",
+    "lg/common.py": "fb25d5307530727f5058ea667e73b761a3529cfa2b06af301b363c3742c4cc5b",
+    "lg/geometry.py": "9d24dc4f0cde958fc332fb89142120fe2d4c942646601e633bcd51d247c62256",
+    "lg/legacy.py": "a7343b523c6184a08f24252ad9cf1dc865e933d20176a877e8f62b91f39a77a1",
+    "lg/metrics.py": "38af9abc26445f266c1e1e5f4edaaff181fb0d8dbbc702e53e8aa36624e69422",
+    "lg/runtime.py": "f228b5d256c87f9e5268354992d97455dc9be3bf735ab078beb9987f8128a83b",
+    "lg/source.py": "a8779f4f93cc2d941dcb971e5d51d714174bd02183904d896610b8c6b219b4f7",
+    "lg/target.py": "9c5b573263af7e6cadb51e6a56b977140c6aba5790f1f26d1508a0504ff108e2",
+    "README.md": "392fa1606c9100669bbff7744b0a84d83e1dde96b28f1125d1f5f545d502f64e",
+    "run.py": "a04400d6cf116a44fccfc2988bd69a0b4449febab83f71c98574732b0466b839",
+    "seal_dependencies.py": "f07aa898d99b36a5adb934fc786c4f4cb5b8afafc494029ad5db2ba6161d64dc",
+    "tests/test_geometry.py": "69aa06a568d35f9074ff22646257325619ae3a51abcf07b2c48c7deb70a98aab",
+    "tests/test_metrics.py": "cf0375ec1745a14cc63bc1ea2aceead59beb6d942ccbab637b34ded6ad2e9b60",
+    "tests/test_runtime.py": "8f6d951380a83d4994d638face1e8a4195f303c5b08a0cf0b716c85fe5286f90",
+    "tests/test_source.py": "8c62955bf80ed4ad85d28d79537f03d0e22db4e66d9da72d2cfdbd74d59502bd",
+    "tests/test_target_integration.py": "4973aa5c2c6a5f49f795bb8a46de5730dadfd5a296162e3e00b551106b7bf8aa",
+    "validation/ENVIRONMENT.json": "e8b8c1343f29f191cf001ae2e5e723d6ae85f8f24d61ce6122441c057eae4ba4",
+    "validation/SYNTHETIC_ACCEPTANCE.json": "e494aa2c51161769d2366dae2d9e32f5ee697bfe354b38b0885e74ab11ae7af4",
+    "validation/synthetic_tests_final.log": "e15946271b58b9b8f14afb9ee06d3842f85f13b1f28bf24b6ee74cbc6336ed8e"
+  },
+  "implementation_sha256sums_sha256": "524c5884df650b15690383026502a2a1099f11af547f9882adb668742ef60abc",
+  "validation": {
+    "synthetic": {
+      "path": "validation/SYNTHETIC_ACCEPTANCE.json",
+      "sha256": "e494aa2c51161769d2366dae2d9e32f5ee697bfe354b38b0885e74ab11ae7af4",
+      "tests": 61,
+      "status": "PASS"
+    },
+    "readonly": {
+      "result": "outputs/implementation_check_final_20261029/RESULT.json",
+      "result_sha256": "6929a5573e43ca687602cc9f617e37853090834d369888bc028126c5391f1961",
+      "receipt": "outputs/implementation_check_final_20261029/STAGE_RECEIPT.json",
+      "receipt_sha256": "4945c2fda44e41105e94703fdc39f8940a683264bd965409df56c213eba44769",
+      "status": "CHECK_PASS",
+      "source_rows": 766727,
+      "reference_rows": 4728,
+      "elapsed_seconds": 48.13999999999942,
+      "peak_process_tree_rss_bytes": 4751290368
+    },
+    "environment": "validation/ENVIRONMENT.json"
+  },
+  "implementation_scope": {
+    "full_support": true,
+    "optional_cap_pruning": false,
+    "stages": [
+      "check",
+      "source",
+      "target"
+    ],
+    "default_stage": "check",
+    "target_requires_sealed_source_pass": true,
+    "ab_requires_main_cal_pass": true,
+    "automatic_retry": false
+  },
+  "real_operations": {
+    "new_head_forward_rows": 0,
+    "new_distance_pairs": 0,
+    "new_support": 0,
+    "new_lambda_selection": 0,
+    "training": 0,
+    "new_E3_encoding": 0,
+    "target_evaluations": 0,
+    "remote_jobs": 0
+  },
+  "limits": {
+    "check": {
+      "cpu": 4,
+      "rss_bytes": 8589934592,
+      "wall_seconds": 1800,
+      "output_bytes": 536870912,
+      "pairs": 0,
+      "forwards": 0
+    },
+    "source": {
+      "cpu": 4,
+      "rss_bytes": 8589934592,
+      "wall_seconds": 14400,
+      "output_bytes": 2147483648,
+      "pairs": 2000000000,
+      "forwards": 4600362
+    },
+    "target": {
+      "cpu": 4,
+      "rss_bytes": 8589934592,
+      "wall_seconds": 14400,
+      "output_bytes": 2147483648,
+      "pairs": 9000000000,
+      "forwards": 0
+    }
+  },
+  "pending": [
+    "Real source CAL/HELD numerical replay and own-FIT forwards",
+    "Source D0/L diagnostics",
+    "Conditional main CAL replay and A/B evaluation"
+  ],
+  "historical_state": {
+    "B1": "CLOSED_NOT_RUN",
+    "independent_source_1C": "DEFERRED",
+    "A_B_new_results": false
+  },
+  "collaboration_response": "runs/mainline_docs/collab/20261029_local_geometry_budgeted_v2_implementation_codex.md"
+}
