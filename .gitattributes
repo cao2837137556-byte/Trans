@@ -2494,3 +2494,10 @@ runs/frontend_f4_fieldwise_input_feasibility_v1_20260905_engineering_failure_*/*
 /scripts/start_legacy_reference_executor_v2.ps1 -text
 /scripts/start_unified_dual_view_v1.ps1 -text
 /scripts/watch_legacy_reference_dashboard_v2.ps1 -text
+
+# Feedback receipt and immutable backup verification.
+/runs/mainline_docs/collab/20261102_working_feedback_reply_codex.md -text
+/runs/mainline_docs/collab/20261102_working_feedback_reply_codex.md.sha256 -text
+/runs/working_feedback_receipt_codex_20261102/PUSH_VERIFICATION.json -text
+/runs/working_feedback_receipt_codex_20261102/STAGED_VERIFICATION.json -text
+/runs/working_feedback_receipt_codex_20261102/SELECTED_FILES.json -text
