@@ -1,0 +1,50 @@
+{
+  "schema": "EDGE_IO_REPAIR_INDEPENDENT_ENGINEERING_REVIEW_V1",
+  "reviewer": "Codex subagent repair_review",
+  "result": "NO_ENGINEERING_BLOCKER_FOR_ONE_BOUNDED_LINUX_PREFLIGHT",
+  "scope": "SOURCE_REVIEW_AND_LOCAL_NO_MODEL_TESTS_ONLY",
+  "prior_job_id": "181403",
+  "new_jobs_submitted_by_reviewer": 0,
+  "tests_independently_run": {
+    "test_delivery.py": {"run": 4, "pass": 4, "skip": 0},
+    "test_runner.py": {"run": 16, "pass": 14, "skip": 2},
+    "test_replay_io.py": {"run": 9, "pass": 9, "skip": 0}
+  },
+  "linux_only_tests_not_executed_locally": [
+    "POSIX SIGALRM interrupts blocked operation before hard deadline",
+    "Linux mountinfo longest real mount path interpretation"
+  ],
+  "reviewed_contracts": [
+    "Separate new deployment and submit intent; old 181403 namespace and raw inputs reused without overwriting prior intents or outputs",
+    "Only two sealed Slurm path assignments change; same 1 CPU, 6 GiB, 600 seconds and one submission",
+    "Original strict probe worker and four-head gates remain active; missing or incomplete probes cannot PASS",
+    "Per-packet deadlines stay effective while original process-tree RSS scans are throttled to once per second",
+    "Parent 560-second effective deadline covers setup, identity and post-verification with final receipt reserve",
+    "Scratch requires identified local filesystem, distinct persistent device and 2 GiB free; cleanup requires owned unique directory",
+    "Snapshot cache binds raw/code/selection/runtime and only reuses fully exhausted roles after original final checks",
+    "Partial role snapshots retain evidence but are never arbitrary-frame resume points",
+    "Restricted primitive snapshot loader verifies size, SHA, frame, types and rejects globals",
+    "Result export includes only current job receipts and copied current job scheduler logs; excludes caches and outside namespace files",
+    "Pipeline request, prepare, submit and result retrieval use new client namespace and existing user-authenticated tunnel"
+  ],
+  "read_real_replay_receipt": {
+    "file": "REAL_REPLAY_VALIDATION.json",
+    "passed": true,
+    "http_endpoints_exact_values_and_types": 14,
+    "completed_role_cache_reuse_exact": true,
+    "full_prefix_frames": {"NORMAL": 255220, "HTTP": 228978, "UDP": 16},
+    "full_prefix_seconds": {"NORMAL": 28.109, "HTTP": 81.438, "UDP": 1.359},
+    "total_validation_seconds": 119.594,
+    "observed_peak_temporary_bytes": 196879426,
+    "owned_temporary_removed": true
+  },
+  "limits": [
+    "Local numerical replay is Windows/Python 3.10 evidence and does not satisfy Linux/Python 3.11 runtime identity or Linux throughput",
+    "Original-versus-repaired numerical parity covers 14 real HTTP endpoints, not all 78 selected endpoints",
+    "Full 484214-packet prefix replay is no-model throughput evidence only; no encoder, distance or external performance result has been claimed",
+    "Linux preflight can only PASS with final DELIVERY_RESULT, real slice RESULT and all strict probes"
+  ],
+  "training": false,
+  "formal_external_evaluation": false,
+  "linux_preflight_pass": false
+}

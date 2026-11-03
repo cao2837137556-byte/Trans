@@ -1,0 +1,24 @@
+{
+  "schema": "EDGE_IO_RUNNER_REPAIR_LOCAL_TESTS_V1",
+  "scope": "NO_MODEL_NO_DECODER_NO_CLOUD",
+  "executed_utc": "2026-11-03T16:52:57.443899+00:00",
+  "tests_run": 16,
+  "failures": 0,
+  "errors": 0,
+  "skipped": [
+    {
+      "test": "test_slow_operation_receives_cooperative_stop_before_hard_deadline (test_runner.BoundaryTests)",
+      "reason": "POSIX alarm only"
+    },
+    {
+      "test": "test_mount_probe_uses_longest_real_mount (test_runner.ScratchTests)",
+      "reason": "Linux mount path interpretation"
+    }
+  ],
+  "status": "PASS",
+  "code_sha256": {
+    "launch_preflight.py": "00f08b65c2b75ff5986aea993f9585c375b2681e62e82d4ba614f2935141dfde",
+    "worker.py": "98de6de1e4a7af135adeff8b9cc4981d3a41982a68a841c29030ebc5dc5a4124",
+    "test_runner.py": "0af1e4fb41ceb01c59354a810200b3d7c27b456508e47706d88269a1589ec535"
+  }
+}

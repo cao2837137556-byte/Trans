@@ -819,3 +819,13 @@ __pycache__/
 !/runs/edge_decode_throughput_diagnostic_v1_20261103/RESULT.json
 !/runs/edge_decode_throughput_diagnostic_v1_20261103/README.md
 !/runs/edge_decode_throughput_diagnostic_v1_20261103/*.sha256
+
+# Isolated Edge I/O repair: only direct small source/receipts, never replay caches.
+!/runs/edge_preflight_io_repair_v1_20261103/
+/runs/edge_preflight_io_repair_v1_20261103/**
+!/runs/edge_preflight_io_repair_v1_20261103/*.py
+!/runs/edge_preflight_io_repair_v1_20261103/*.md
+!/runs/edge_preflight_io_repair_v1_20261103/*.json
+!/runs/edge_preflight_io_repair_v1_20261103/*.sha256
+/runs/edge_preflight_io_repair_v1_20261103/.private/**
+/runs/edge_preflight_io_repair_v1_20261103/RUN_IN_HPC_TERMINAL.txt

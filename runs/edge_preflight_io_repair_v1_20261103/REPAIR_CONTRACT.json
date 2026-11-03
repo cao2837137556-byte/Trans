@@ -1,0 +1,39 @@
+{
+  "schema": "EDGE_PREFLIGHT_IO_REPAIR_V1",
+  "prior_job_id": "181403",
+  "cpu": 1,
+  "memory_gib": 6,
+  "wall_seconds": 600,
+  "training": false,
+  "formal_external_evaluation": false,
+  "allowed_new_jobs": 1,
+  "automatic_resubmission": false,
+  "method": "C5_P3_UNCHANGED",
+  "logical_endpoints": 91,
+  "physical_prefix_packets": 484214,
+  "original_package_manifest_sha256": "f61af6ca64c629565e6914ef520c85352b65a5987e7af6d9515d1848cc4ccbd6",
+  "scratch": "VALIDATED_NODE_LOCAL_ONLY_NO_SHARED_FALLBACK",
+  "cache": "COMPLETE_ROLES_ONLY_BINDING_AND_BYTE_PINS",
+  "files": {
+    "launch_preflight.py": {
+      "bytes": 9615,
+      "sha256": "00f08b65c2b75ff5986aea993f9585c375b2681e62e82d4ba614f2935141dfde"
+    },
+    "worker.py": {
+      "bytes": 12444,
+      "sha256": "98de6de1e4a7af135adeff8b9cc4981d3a41982a68a841c29030ebc5dc5a4124"
+    },
+    "replay_io.py": {
+      "bytes": 17902,
+      "sha256": "034914f8e55cd61e033300b08c5407fe16986b991bf867e4a4488ff320bb261a"
+    },
+    "remote_receiver.py": {
+      "bytes": 10529,
+      "sha256": "ce2b0008dbec2e0ae0fbef69d666ccb912b159c3f7a21f3a2c93f2559171640f"
+    },
+    "ACTIVE_SLICE_CARD.json": {
+      "bytes": 14076,
+      "sha256": "fcd8837370be480b2a09f75e82f0431069982ee4702590fe9901aa3409a51465"
+    }
+  }
+}

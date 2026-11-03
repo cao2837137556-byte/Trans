@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "tests_run": 10,
+  "failures": 0,
+  "errors": 0,
+  "observed_command": "python -X utf8 -B -m unittest -v test_replay_io",
+  "test_names": [
+    "test_completed_cache_and_exact_types",
+    "test_timeout_persists_stop_before_raise",
+    "test_actual_deadline_writes_stop",
+    "test_deadline_expiring_after_first_snapshot_stops_prefix",
+    "test_partial_cache_never_reused",
+    "test_failed_final_check_never_marks_complete",
+    "test_tampered_snapshot_rejected",
+    "test_different_frames_and_card_do_not_reuse",
+    "test_scope_restored_on_failure",
+    "test_unpickler_blocks_globals_even_with_valid_sha"
+  ],
+  "replay_source_sha256": "034914f8e55cd61e033300b08c5407fe16986b991bf867e4a4488ff320bb261a",
+  "test_source_sha256": "97ced3f419f591cebcb749af9f2b25b76472184e4eadd1b8964f404f81ac3eb7",
+  "linux_runtime_claimed": false
+}
