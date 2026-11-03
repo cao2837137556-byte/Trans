@@ -1,0 +1,57 @@
+{
+  "active_slice": "runs/edge_query_selection_v1_20261103/shapes_v3/SLICE_CARD.json",
+  "active_slice_sha256": "fcd8837370be480b2a09f75e82f0431069982ee4702590fe9901aa3409a51465",
+  "automatic_full_evaluation_on_pass": false,
+  "automatic_retry": false,
+  "budget": {
+    "cpu": 1,
+    "outer_child_max_seconds": 540,
+    "ram_gib": 6,
+    "slurm_wall_seconds": 600,
+    "small_distance_pair_limit": 10000,
+    "unique_encoding_endpoint_cap": 100
+  },
+  "expected_runtime": {
+    "OS": "Linux",
+    "Python": "3.11.11",
+    "TShark": "4.6.6",
+    "no_installation_or_backend_precision_change": true,
+    "numpy": "2.0.1",
+    "torch": "2.5.1",
+    "transformers": "4.57.3"
+  },
+  "full_execution_ready": false,
+  "full_quality_evaluation_authorized": false,
+  "full_streaming_resume_worker_ready": false,
+  "ordinary_slice_endpoints": 78,
+  "post_preflight": "Return receipts to Codex/Claude; measured budget and any shape gaps must close before formal evaluation authorization.",
+  "preflight_entry": "runs/edge_query_selection_v1_20261103/run_preflight_with_probes.py",
+  "raw_inputs_separate_not_archived": {
+    "HTTP": {
+      "bytes": 28307602,
+      "filename": "DDoS HTTP Flood Attacks.pcap",
+      "sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba"
+    },
+    "NORMAL": {
+      "bytes": 345868816,
+      "filename": "Temperature_and_Humidity.pcap",
+      "sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f"
+    },
+    "UDP": {
+      "bytes": 247560012,
+      "filename": "DDoS UDP Flood Attacks.pcap",
+      "sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5"
+    }
+  },
+  "required_singleton_shape_probes": 13,
+  "schema": "EDGE_LINUX_PREFLIGHT_PACKAGE_V1",
+  "scope": "ENGINEERING_ONLY_NO_FULL_EXTERNAL_EVALUATION",
+  "selection_seal": "runs/edge_query_selection_v1_20261103/seal20k/QUERY_SELECTION_SEAL.json",
+  "selection_seal_sha256": "ecb7bd84ae1ff2005e98bb750f1d4f5aac10f09487189e489ad73c583efa6f08",
+  "shape_census_sha256": "c70fa16dcb07a08883db192ce407cb38161dfb8f6109e04b727cfc45bd2cbc25",
+  "shape_coverage_plan_sha256": "17003b80f114a8892f2d350882b18eb9ade4400ed2d5a1bd6bf64cb23aacf4f1",
+  "shape_extreme_coverage_not_assumed": true,
+  "status": "PACKAGE_PREPARED_NOT_SUBMITTED_OR_RUNTIME_PASSED",
+  "total_preflight_logical_with_probes": 91,
+  "training": false
+}

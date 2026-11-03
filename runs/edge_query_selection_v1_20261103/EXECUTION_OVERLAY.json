@@ -1,0 +1,110 @@
+{
+  "schema": "EDGE_SELECTION_EXECUTION_OVERLAY_V1",
+  "status": "BASE_SELECTION_SEALED_LINUX_PREFLIGHT_AND_FINAL_BUDGET_PENDING",
+  "created_utc": "2026-11-03T12:54:13.648697+00:00",
+  "original_engineering_card": {
+    "path": "runs/edge_external_test1_engineering_v1_20261103/ENGINEERING_CARD_R2.json",
+    "sha256": "365812545279a1589722f40d6774d2e5bb07b3882e3396eac19e531cd498c35b"
+  },
+  "C5_freeze_sha256": "ee11f25079cd03ee8b9d6dbbafd67e7fc96dd4402373808fc1c0b9f53b5c05e7",
+  "immutable_frozen_assets_verified": 46,
+  "selection_seal": {
+    "path": "runs/edge_query_selection_v1_20261103/seal20k/QUERY_SELECTION_SEAL.json",
+    "sha256": "ecb7bd84ae1ff2005e98bb750f1d4f5aac10f09487189e489ad73c583efa6f08"
+  },
+  "verification_sha256": "78774de96fa72287f7375c743d27c8a04fe6743b9d5aefdc56a3185e11e779ca",
+  "normal": {
+    "population_count": 1220126,
+    "component_count": 17025,
+    "selected": 20000,
+    "branch": "B_RESIDUAL_CAPACITY",
+    "all_components_represented": true,
+    "sampling": "Original B exact integer quotas; fixed new domain salt",
+    "fallback_registered_for_future_K_below_C": "Hash sample K components, one UID each; expansion C*N_g/K"
+  },
+  "attack": {
+    "HTTP": {
+      "PSH_ACK": 8882,
+      "ACK_ONLY": 1026,
+      "RST": 1000,
+      "SYN_NO_ACK": 8092,
+      "FIN": 1000
+    },
+    "UDP": {
+      "UDP": 20000
+    },
+    "quota_donor": "Largest current quota above floor; fixed stratum-order ties",
+    "source_scope": "Pinned scenario/direction establishes eligible population; within-population ranking uses only header strata and physical UID"
+  },
+  "base_query_rows": 60000,
+  "reference_rows": 4124,
+  "base_encoding_rows": 64124,
+  "selected_query_rows_by_protocol": {
+    "6": 39503,
+    "17": 20497
+  },
+  "reference_rows_by_protocol": {
+    "6": 4096,
+    "17": 28
+  },
+  "distance_upper": {
+    "one_same_protocol_pass": 162378204,
+    "C5_and_knn5_two_passes": 324756408,
+    "geometry_or_heads_changed": false,
+    "p1_p3_share_support": true,
+    "guard_or_fallback_savings_not_claimed": true
+  },
+  "storage_lower_bound": {
+    "E3_float32_bytes": 196988928,
+    "q14_float32_bytes": 3590944,
+    "caution": "Not a full disk budget; add original context state, metadata, checkpoint, decode and temporary files"
+  },
+  "resizing": {
+    "status": "NOT_PERFORMED_PENDING_LINUX_MEASUREMENTS",
+    "common_integer_K_range": [
+      10000,
+      20000
+    ],
+    "f": "K/20000 applied identically to all three role quotas; references remain4124",
+    "criterion": "Select largest K whose conservative measured complete pipeline estimate fits24h; include decode/context/shape batches/references/distances/I/O/resume",
+    "if_K10000_still_exceeds_budget": "STOP_BLOCKED_NO_AUTOMATIC_EXTENSION_OR_RESUBMISSION",
+    "preserve_base_seal": true,
+    "new_final_derived_seal_required": true,
+    "same_salts_and_rules": true,
+    "recompute_inclusion_weights": true,
+    "quality_results_must_not_influence": true
+  },
+  "reporting": {
+    "sample_rate": "Exact errors/selected rows, explicitly sample ratio",
+    "population_estimate": "Inverse inclusion weights divided by known full N; do not renormalize or clamp HT point estimate",
+    "normal_component_metric": "All components equal within B branch; sampled-component estimate in fallback",
+    "normal_FULL": "NOT_EVALUABLE_FROM_POSTWINDOW_ONLY_SELECTION",
+    "reference_rows_in_postwindow_query_denominator": 0,
+    "unselected_rows": "NOT_SAMPLED",
+    "methods_share_same_ordered_query_UIDs": true,
+    "independent_attack_event_recall": "NOT_EVALUABLE_WITHOUT_EVENT_LEDGER"
+  },
+  "temporal_sensitivity": {
+    "block_seconds": 60,
+    "anchor": "Original captured minimum timestamp within each pinned capture/scenario",
+    "blocks": "Enumerate entire eligible population blocks, including zero-selected blocks; never mix capture/scenario boundaries",
+    "repetitions": 2000,
+    "seed": 20261103,
+    "interval": "2.5th/97.5th percentiles of within-capture block resampling",
+    "label": "Conditional temporal sensitivity interval, not proof of full sampling-design95% coverage",
+    "at_least_HTTP_blocks": 5,
+    "at_least_UDP_blocks": 7,
+    "precision_halfwidth_0_3pp_guaranteed": false,
+    "attack_packets_not_independent_events": true,
+    "inference_implementation": "PENDING_FULL_WORKER_ENGINEERING_AND_SYNTHETIC_VALIDATION_BEFORE_FORMAL_EVALUATION"
+  },
+  "full_streaming_resume_worker_ready": false,
+  "formal_external_evaluation_authorized": false,
+  "execution_card_frozen": false,
+  "execution_ready": false,
+  "training": false,
+  "model_forwards_this_task": 0,
+  "cloud_jobs_submitted_this_task": 0,
+  "no_input_tensor_dedup": true,
+  "no_sampling_context_deletion": true
+}

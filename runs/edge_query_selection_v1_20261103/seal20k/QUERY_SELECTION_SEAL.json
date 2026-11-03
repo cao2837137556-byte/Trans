@@ -1,0 +1,156 @@
+{
+  "schema": "EDGE_QUERY_SELECTION_SEAL_V1",
+  "status": "SEALED_METADATA_ONLY_BASE_QUOTA",
+  "scientific_execution_ready": false,
+  "base_role_budget": 20000,
+  "current_uniform_factor": 1,
+  "formal_final_quota_pending_linux_throughput": true,
+  "roles": {
+    "NORMAL": {
+      "selected_rows": 20000,
+      "population_count": 1220126,
+      "strata": {
+        "NORMAL": 20000
+      },
+      "protocols": {
+        "6": 19503,
+        "17": 497
+      },
+      "selected_file": "NORMAL_SELECTED_QUERIES.jsonl.gz",
+      "selected_sha256": "a53aff809904187bf59891d35ff4b0018cd2b7af111d3eae749dba974bbec563",
+      "uid_file": "NORMAL_SELECTED_UIDS.txt",
+      "ordered_uid_sha256": "ea08ba7e868c964611a0646666dd4c26a24d16368db024040a82e49cc0dec29c",
+      "frame_file": "NORMAL_SELECTED_FRAMES.json",
+      "frame_sha256": "cb1a47c33532095b3a7be4f49e2876bd40ae9313f2fce7106e3ae9142a853afb",
+      "sample_exact_rate": true,
+      "full_packet_exact_rate": false,
+      "branch": "B_RESIDUAL_CAPACITY",
+      "population_components": 17025,
+      "selected_components": 17025,
+      "component_equal_metric": "All eligible components represented"
+    },
+    "HTTP": {
+      "selected_rows": 20000,
+      "population_count": 152352,
+      "strata": {
+        "PSH_ACK": 8882,
+        "ACK_ONLY": 1026,
+        "RST": 1000,
+        "SYN_NO_ACK": 8092,
+        "FIN": 1000
+      },
+      "protocols": {
+        "6": 20000
+      },
+      "selected_file": "HTTP_SELECTED_QUERIES.jsonl.gz",
+      "selected_sha256": "0d49f8b06bba7d29915e7ba92f7cff5089ee3a5e41b8c213cf680f04c92ab2b6",
+      "uid_file": "HTTP_SELECTED_UIDS.txt",
+      "ordered_uid_sha256": "1628ecab5fa159ffdd399f46f8f863ee8acf6444d6ef5918c212cb9305f7052e",
+      "frame_file": "HTTP_SELECTED_FRAMES.json",
+      "frame_sha256": "a76e107ae9eec0b39c84faff71738d5af05e87eaf5ad2ca0425f0762ee7a09d2",
+      "sample_exact_rate": true,
+      "full_packet_exact_rate": false
+    },
+    "UDP": {
+      "selected_rows": 20000,
+      "population_count": 2898830,
+      "strata": {
+        "UDP": 20000
+      },
+      "protocols": {
+        "17": 20000
+      },
+      "selected_file": "UDP_SELECTED_QUERIES.jsonl.gz",
+      "selected_sha256": "a0e1ad31a491c9fdcc5a3bab049779558a6b39f5f5c740d0c3b1541bb64295e2",
+      "uid_file": "UDP_SELECTED_UIDS.txt",
+      "ordered_uid_sha256": "e2bea5eeb89ce1e316f1930989353d58546f9c95c40cc3adca7153ad384b6078",
+      "frame_file": "UDP_SELECTED_FRAMES.json",
+      "frame_sha256": "ea02671b247a550a91eadfeb19b6d3309f3733f6f41fd8d44821febf44d1b96d",
+      "sample_exact_rate": true,
+      "full_packet_exact_rate": false
+    }
+  },
+  "references": {
+    "rows": 4124,
+    "source_path": "runs/edge_external_test1_engineering_v1_20261103/adapter/population_v1/REFERENCE_ROWS.jsonl.gz",
+    "source_sha256": "ff5aa18c56e5be7d73ea61011bc58ec727d3f2f5b5eb505cec5f298828f59e9d",
+    "ordered_uid_file": "REFERENCE_UIDS.txt",
+    "ordered_uid_sha256": "33baa3301a02a0ec06bf394b2ff6a75febb9d2be62f9cbf21c4e5bf7a765e1c0",
+    "reference_rule_changed": false
+  },
+  "selected_query_rows": 60000,
+  "total_logical_encoding_rows": 64124,
+  "output_pins": {
+    "NORMAL_SELECTED_QUERIES.jsonl.gz": {
+      "bytes": 3331045,
+      "sha256": "a53aff809904187bf59891d35ff4b0018cd2b7af111d3eae749dba974bbec563"
+    },
+    "NORMAL_SELECTED_UIDS.txt": {
+      "bytes": 1300000,
+      "sha256": "ea08ba7e868c964611a0646666dd4c26a24d16368db024040a82e49cc0dec29c"
+    },
+    "NORMAL_SELECTED_FRAMES.json": {
+      "bytes": 270306,
+      "sha256": "cb1a47c33532095b3a7be4f49e2876bd40ae9313f2fce7106e3ae9142a853afb"
+    },
+    "HTTP_SELECTED_QUERIES.jsonl.gz": {
+      "bytes": 3106583,
+      "sha256": "0d49f8b06bba7d29915e7ba92f7cff5089ee3a5e41b8c213cf680f04c92ab2b6"
+    },
+    "HTTP_SELECTED_UIDS.txt": {
+      "bytes": 1300000,
+      "sha256": "1628ecab5fa159ffdd399f46f8f863ee8acf6444d6ef5918c212cb9305f7052e"
+    },
+    "HTTP_SELECTED_FRAMES.json": {
+      "bytes": 251038,
+      "sha256": "a76e107ae9eec0b39c84faff71738d5af05e87eaf5ad2ca0425f0762ee7a09d2"
+    },
+    "UDP_SELECTED_QUERIES.jsonl.gz": {
+      "bytes": 2937061,
+      "sha256": "a0e1ad31a491c9fdcc5a3bab049779558a6b39f5f5c740d0c3b1541bb64295e2"
+    },
+    "UDP_SELECTED_UIDS.txt": {
+      "bytes": 1300000,
+      "sha256": "e2bea5eeb89ce1e316f1930989353d58546f9c95c40cc3adca7153ad384b6078"
+    },
+    "UDP_SELECTED_FRAMES.json": {
+      "bytes": 273452,
+      "sha256": "ea02671b247a550a91eadfeb19b6d3309f3733f6f41fd8d44821febf44d1b96d"
+    },
+    "REFERENCE_UIDS.txt": {
+      "bytes": 268060,
+      "sha256": "33baa3301a02a0ec06bf394b2ff6a75febb9d2be62f9cbf21c4e5bf7a765e1c0"
+    },
+    "SELECTION_PLANS.json": {
+      "bytes": 1330276,
+      "sha256": "63d99879a516b42bf8ed490bc0764012faf4ae71806c03023c149678e87f60c8"
+    },
+    "METADATA_CENSUS.json": {
+      "bytes": 3884,
+      "sha256": "f5776825bf463df4c1bd0e3d6d38c4fd01cac8091b50df55c01fdef87a9c1601"
+    },
+    "NORMAL_COMPONENT_COUNTS.json": {
+      "bytes": 1276540,
+      "sha256": "313e56439a1cc1229a2e82e771e9da31ec077ad2d48c5e544aba6d61404ca781"
+    }
+  },
+  "selection_code_pins": {
+    "selection_core.py": "3a0cc305b59f44aeafc4a9720789f7f2ed61a28acccbf4b8841c7eaafedb264a",
+    "select_queries.py": "b9c52943b098fb6ae028244ea923473075bb5825af399c5bedcacd53c13ffb25"
+  },
+  "source_contract": {
+    "path": "runs/mainline_docs/collab/20261103_edge_query_selection_convergence_claude.md",
+    "sha256": "95f0fcdf462fd40c9b704a817622dcf8a1b1d4cf5b82532c1a9b4e61ae7e3be5"
+  },
+  "immutable_asset_freeze_sha256": "ee11f25079cd03ee8b9d6dbbafd67e7fc96dd4402373808fc1c0b9f53b5c05e7",
+  "full_view_normal_metric": "NOT_EVALUABLE_FROM_THIS_POSTWINDOW_SAMPLE",
+  "population_estimate": "Known full N denominator; inverse row inclusion probabilities, including component selection",
+  "precision_guarantee": false,
+  "causal_context": "ALL_ORIGINAL_ROWS_REPLAYED_BEFORE_SELECTED_SNAPSHOTS",
+  "unselected_rows": "NOT_SAMPLED, never interpreted as correct negatives",
+  "input_tensor_dedup": false,
+  "model_forwards": 0,
+  "numerical_snapshots": 0,
+  "external_quality_evaluations": 0,
+  "cloud_jobs_submitted": 0
+}

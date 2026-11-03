@@ -1,0 +1,27 @@
+{
+  "status": "STOPPED_FOR_DISPOSABLE_SQLITE_IO_OPTIMIZATION",
+  "stopped_utc": "2026-11-03T12:54:46.4795440Z",
+  "actual_process_wall_seconds": 664.0003051,
+  "last_checkpoint": {
+    "stage": "HEADER_ONLY_EXACT_SHAPE_CENSUS",
+    "role": "UDP",
+    "frame": 1015808,
+    "records": 3215732,
+    "elapsed_seconds": 662.625,
+    "database_bytes": 189255680,
+    "numerical_snapshots": 0,
+    "model_forwards": 0
+  },
+  "completed_population_roles": [
+    "NORMAL",
+    "HTTP"
+  ],
+  "exact_completed_shape_counts_not_persisted": true,
+  "model_forwards": 0,
+  "numerical_snapshots": 0,
+  "cost_class": "EXTRA_HEADER_ONLY_SHAPE_ENGINEERING_ABORT",
+  "source_sha256": "1c15e0dda31db33130217345db4c2153e891d7c683cdcc10ccd576ae1e21f589",
+  "reason": "Existing SpillMap 2MiB page cache caused slow random-key state I/O; fresh rerun will use 128MiB and nondurable disposable scratch journaling",
+  "next_output": "shapes_v2",
+  "original_output_preserved": true
+}

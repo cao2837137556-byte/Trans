@@ -1,0 +1,396 @@
+{
+  "mode": "FIXED_HEADER_ONLY_ENGINEERING_SLICE",
+  "plan_path": "runs\\edge_query_selection_v1_20261103\\shapes_v2\\SHAPE_CENSUS.json",
+  "plan_sha256": "c70fa16dcb07a08883db192ce407cb38161dfb8f6109e04b727cfc45bd2cbc25",
+  "slices": [
+    {
+      "role": "NORMAL",
+      "frames": [
+        5311,
+        8516,
+        8517,
+        21978,
+        22057,
+        22058,
+        28851,
+        28852,
+        37133,
+        37134,
+        38447,
+        38450,
+        49833,
+        49834,
+        93394,
+        93395,
+        103523,
+        103524,
+        105453,
+        105454,
+        117378,
+        117379,
+        117380,
+        117381,
+        117382,
+        117383,
+        117384,
+        117385,
+        117386,
+        117387,
+        117388,
+        117389,
+        117390,
+        117391,
+        117392,
+        117393,
+        117443,
+        117575,
+        117633,
+        117660,
+        117705,
+        117751,
+        118174,
+        121902,
+        255220
+      ],
+      "reference_frames": [
+        105453,
+        105454,
+        49833,
+        49834,
+        37133,
+        37134,
+        93394,
+        93395,
+        22057,
+        22058,
+        28851,
+        28852,
+        103523,
+        103524,
+        8516,
+        8517,
+        5311,
+        21978,
+        38447,
+        38450
+      ]
+    },
+    {
+      "role": "HTTP",
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        26,
+        60,
+        192,
+        4201,
+        4202,
+        4203,
+        4204,
+        7296,
+        12140,
+        228978
+      ],
+      "reference_frames": []
+    },
+    {
+      "role": "UDP",
+      "frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "reference_frames": []
+    }
+  ],
+  "frame_semantics": "Original physical frame; complete original prefixes replayed unfiltered",
+  "reference_fixture": "Small legal deterministic subset for interface only, not official bank",
+  "no_external_performance_selection": true,
+  "no_individual_decisions_or_quality_export": true,
+  "parent_slice_path": "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\edge_external_test1_engineering_v1_20261103\\preflight\\SLICE_CARD.json",
+  "parent_slice_sha256": "c0fb6bebfd5c37c2ec4f8ceb426cfb13ba3ed8b44898af4ad632926335d464d5",
+  "shape_expansion": {
+    "source": "Complete header-only target shape census before model loading",
+    "required": {
+      "top10_shapes": [
+        "17,7,1",
+        "6,13,12",
+        "6,61,2",
+        "6,73,2",
+        "6,13,1",
+        "6,13,2",
+        "6,73,4",
+        "6,37,2",
+        "6,25,2",
+        "6,25,12"
+      ],
+      "maximum_width": 73,
+      "maximum_bursts": 12,
+      "widest_shape": "6,73,12",
+      "most_bursts_shape": "6,73,12",
+      "representatives": [
+        {
+          "role": "NORMAL",
+          "frame": 255220,
+          "shape": [
+            17,
+            7,
+            1
+          ],
+          "is_reference": false,
+          "count": 20179
+        },
+        {
+          "role": "HTTP",
+          "frame": 12140,
+          "shape": [
+            6,
+            13,
+            12
+          ],
+          "is_reference": false,
+          "count": 6433
+        },
+        {
+          "role": "NORMAL",
+          "frame": 118174,
+          "shape": [
+            6,
+            61,
+            2
+          ],
+          "is_reference": false,
+          "count": 3128
+        },
+        {
+          "role": "NORMAL",
+          "frame": 117633,
+          "shape": [
+            6,
+            73,
+            2
+          ],
+          "is_reference": false,
+          "count": 3075
+        },
+        {
+          "role": "NORMAL",
+          "frame": 117443,
+          "shape": [
+            6,
+            13,
+            1
+          ],
+          "is_reference": false,
+          "count": 2796
+        },
+        {
+          "role": "NORMAL",
+          "frame": 117705,
+          "shape": [
+            6,
+            13,
+            2
+          ],
+          "is_reference": false,
+          "count": 2695
+        },
+        {
+          "role": "NORMAL",
+          "frame": 117751,
+          "shape": [
+            6,
+            73,
+            4
+          ],
+          "is_reference": false,
+          "count": 2394
+        },
+        {
+          "role": "NORMAL",
+          "frame": 117660,
+          "shape": [
+            6,
+            37,
+            2
+          ],
+          "is_reference": false,
+          "count": 2303
+        },
+        {
+          "role": "NORMAL",
+          "frame": 117575,
+          "shape": [
+            6,
+            25,
+            2
+          ],
+          "is_reference": false,
+          "count": 2282
+        },
+        {
+          "role": "HTTP",
+          "frame": 7296,
+          "shape": [
+            6,
+            25,
+            12
+          ],
+          "is_reference": false,
+          "count": 2246
+        },
+        {
+          "role": "HTTP",
+          "frame": 228978,
+          "shape": [
+            6,
+            73,
+            12
+          ],
+          "is_reference": false,
+          "count": 1
+        }
+      ]
+    },
+    "additions": [
+      {
+        "role": "NORMAL",
+        "frame": 255220,
+        "shape": [
+          17,
+          7,
+          1
+        ],
+        "is_reference": false,
+        "count": 20179
+      },
+      {
+        "role": "HTTP",
+        "frame": 12140,
+        "shape": [
+          6,
+          13,
+          12
+        ],
+        "is_reference": false,
+        "count": 6433
+      },
+      {
+        "role": "NORMAL",
+        "frame": 118174,
+        "shape": [
+          6,
+          61,
+          2
+        ],
+        "is_reference": false,
+        "count": 3128
+      },
+      {
+        "role": "NORMAL",
+        "frame": 117633,
+        "shape": [
+          6,
+          73,
+          2
+        ],
+        "is_reference": false,
+        "count": 3075
+      },
+      {
+        "role": "NORMAL",
+        "frame": 117443,
+        "shape": [
+          6,
+          13,
+          1
+        ],
+        "is_reference": false,
+        "count": 2796
+      },
+      {
+        "role": "NORMAL",
+        "frame": 117705,
+        "shape": [
+          6,
+          13,
+          2
+        ],
+        "is_reference": false,
+        "count": 2695
+      },
+      {
+        "role": "NORMAL",
+        "frame": 117751,
+        "shape": [
+          6,
+          73,
+          4
+        ],
+        "is_reference": false,
+        "count": 2394
+      },
+      {
+        "role": "NORMAL",
+        "frame": 117660,
+        "shape": [
+          6,
+          37,
+          2
+        ],
+        "is_reference": false,
+        "count": 2303
+      },
+      {
+        "role": "NORMAL",
+        "frame": 117575,
+        "shape": [
+          6,
+          25,
+          2
+        ],
+        "is_reference": false,
+        "count": 2282
+      },
+      {
+        "role": "HTTP",
+        "frame": 7296,
+        "shape": [
+          6,
+          25,
+          12
+        ],
+        "is_reference": false,
+        "count": 2246
+      },
+      {
+        "role": "HTTP",
+        "frame": 228978,
+        "shape": [
+          6,
+          73,
+          12
+        ],
+        "is_reference": false,
+        "count": 1
+      }
+    ],
+    "no_score_or_label_dependent_shape_selection": true
+  }
+}

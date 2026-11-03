@@ -1,0 +1,320 @@
+{
+  "schema": "EDGE_FULL_AND_TARGET_SHAPE_COVERAGE_DERIVATION_V1",
+  "status": "PASS_METADATA_ONLY",
+  "source_census_path": "runs/edge_query_selection_v1_20261103/shapes_v2/SHAPE_CENSUS.json",
+  "source_census_sha256": "c70fa16dcb07a08883db192ce407cb38161dfb8f6109e04b727cfc45bd2cbc25",
+  "parent_slice_path": "runs/edge_query_selection_v1_20261103/shapes_v2/SLICE_CARD.json",
+  "parent_slice_sha256": "0fb36d4c75278497338458bd322ff8123ac9a62b923b30febe5996f4cdddb035",
+  "selection_seal_sha256": "ecb7bd84ae1ff2005e98bb750f1d4f5aac10f09487189e489ad73c583efa6f08",
+  "required": {
+    "scope": "FULL_AND_SELECTED_TARGET_TOP10_AND_EXTREMES_UNION",
+    "representatives": [
+      {
+        "role": "NORMAL",
+        "frame": 117443,
+        "shape": [
+          6,
+          13,
+          1
+        ],
+        "is_reference": false,
+        "count": 2796,
+        "requirement_domains": [
+          "target",
+          "full"
+        ],
+        "uid": "034e263a95b043297830a8504e353043a98501fd7e0ecead6fd93f6668907f9b",
+        "is_selected_target": true,
+        "legal_population_mask_code": 2,
+        "engineering_scope": "SELECTED_TARGET_SHAPE_FIXTURE",
+        "scientific_query_population_changed": false
+      },
+      {
+        "role": "NORMAL",
+        "frame": 117705,
+        "shape": [
+          6,
+          13,
+          2
+        ],
+        "is_reference": false,
+        "count": 2695,
+        "requirement_domains": [
+          "target",
+          "full"
+        ],
+        "uid": "2a7c665ddeebab40a2c609176111af6139a2e7a415527ba93faf009ce018aae4",
+        "is_selected_target": true,
+        "legal_population_mask_code": 2,
+        "engineering_scope": "SELECTED_TARGET_SHAPE_FIXTURE",
+        "scientific_query_population_changed": false
+      },
+      {
+        "role": "HTTP",
+        "frame": 12140,
+        "shape": [
+          6,
+          13,
+          12
+        ],
+        "is_reference": false,
+        "count": 6433,
+        "requirement_domains": [
+          "target"
+        ],
+        "uid": "1bb6cca927d545b14add84d55bb2c9a95a42a13e4c89a56017a851cda9b884ae",
+        "is_selected_target": true,
+        "legal_population_mask_code": 3,
+        "engineering_scope": "SELECTED_TARGET_SHAPE_FIXTURE",
+        "scientific_query_population_changed": false
+      },
+      {
+        "role": "NORMAL",
+        "frame": 117575,
+        "shape": [
+          6,
+          25,
+          2
+        ],
+        "is_reference": false,
+        "count": 2282,
+        "requirement_domains": [
+          "target",
+          "full"
+        ],
+        "uid": "4c60c571799c3d80105db84588aacd81ba3cfe2fa4e613c21ca4ddfacbe7e6ff",
+        "is_selected_target": true,
+        "legal_population_mask_code": 2,
+        "engineering_scope": "SELECTED_TARGET_SHAPE_FIXTURE",
+        "scientific_query_population_changed": false
+      },
+      {
+        "role": "HTTP",
+        "frame": 7296,
+        "shape": [
+          6,
+          25,
+          12
+        ],
+        "is_reference": false,
+        "count": 2246,
+        "requirement_domains": [
+          "target"
+        ],
+        "uid": "7663fe3091bf18c79761ab994deb4542ee65d5244a227584840061aca2f9b67b",
+        "is_selected_target": true,
+        "legal_population_mask_code": 3,
+        "engineering_scope": "SELECTED_TARGET_SHAPE_FIXTURE",
+        "scientific_query_population_changed": false
+      },
+      {
+        "role": "NORMAL",
+        "frame": 117660,
+        "shape": [
+          6,
+          37,
+          2
+        ],
+        "is_reference": false,
+        "count": 2303,
+        "requirement_domains": [
+          "target",
+          "full"
+        ],
+        "uid": "ca56c460e59a99a54ccab994a04a3825f8696bb32e51694da0f8ee753fa7b1fa",
+        "is_selected_target": true,
+        "legal_population_mask_code": 2,
+        "engineering_scope": "SELECTED_TARGET_SHAPE_FIXTURE",
+        "scientific_query_population_changed": false
+      },
+      {
+        "role": "NORMAL",
+        "frame": 18,
+        "shape": [
+          6,
+          49,
+          2
+        ],
+        "count": 156581,
+        "requirement_domains": [
+          "full"
+        ],
+        "uid": "012101948dbfe221cfe7750c23579492da5d0c784707dcc82e15252396e74415",
+        "is_selected_target": false,
+        "is_reference": false,
+        "legal_population_mask_code": 1,
+        "engineering_scope": "ENGINEERING_ONLY_FULL_POPULATION_SHAPE_COVERAGE",
+        "scientific_query_population_changed": false
+      },
+      {
+        "role": "NORMAL",
+        "frame": 118174,
+        "shape": [
+          6,
+          61,
+          2
+        ],
+        "is_reference": false,
+        "count": 3128,
+        "requirement_domains": [
+          "target",
+          "full"
+        ],
+        "uid": "de30974e998ff0cae4cd2b18b5184adb063c84e24b8f3a199c85b5f422bb88f3",
+        "is_selected_target": true,
+        "legal_population_mask_code": 2,
+        "engineering_scope": "SELECTED_TARGET_SHAPE_FIXTURE",
+        "scientific_query_population_changed": false
+      },
+      {
+        "role": "NORMAL",
+        "frame": 117633,
+        "shape": [
+          6,
+          73,
+          2
+        ],
+        "is_reference": false,
+        "count": 3075,
+        "requirement_domains": [
+          "target",
+          "full"
+        ],
+        "uid": "243563d424219add398a20fe90a7c10b6ed91a35603bfd4047f7ff20708d176a",
+        "is_selected_target": true,
+        "legal_population_mask_code": 2,
+        "engineering_scope": "SELECTED_TARGET_SHAPE_FIXTURE",
+        "scientific_query_population_changed": false
+      },
+      {
+        "role": "NORMAL",
+        "frame": 23,
+        "shape": [
+          6,
+          73,
+          3
+        ],
+        "count": 62662,
+        "requirement_domains": [
+          "full"
+        ],
+        "uid": "8aa9ce5d7d50727321d7e0f3019d795730bcb90853332b5bbbf12fbd6f0e576a",
+        "is_selected_target": false,
+        "is_reference": false,
+        "legal_population_mask_code": 1,
+        "engineering_scope": "ENGINEERING_ONLY_FULL_POPULATION_SHAPE_COVERAGE",
+        "scientific_query_population_changed": false
+      },
+      {
+        "role": "NORMAL",
+        "frame": 117751,
+        "shape": [
+          6,
+          73,
+          4
+        ],
+        "is_reference": false,
+        "count": 2394,
+        "requirement_domains": [
+          "target",
+          "full"
+        ],
+        "uid": "49324ec4f8dd6db2c201d3b625164e652b1126bc220bc9c16258c0b69fb12cb3",
+        "is_selected_target": true,
+        "legal_population_mask_code": 2,
+        "engineering_scope": "SELECTED_TARGET_SHAPE_FIXTURE",
+        "scientific_query_population_changed": false
+      },
+      {
+        "role": "HTTP",
+        "frame": 228978,
+        "shape": [
+          6,
+          73,
+          12
+        ],
+        "is_reference": false,
+        "count": 1,
+        "requirement_domains": [
+          "target",
+          "full"
+        ],
+        "uid": "aca3c561fa64d6ca15c376b2d34580276e50f89268c918466f701c9a7207cff3",
+        "is_selected_target": true,
+        "legal_population_mask_code": 3,
+        "engineering_scope": "SELECTED_TARGET_SHAPE_FIXTURE",
+        "scientific_query_population_changed": false
+      },
+      {
+        "role": "NORMAL",
+        "frame": 255220,
+        "shape": [
+          17,
+          7,
+          1
+        ],
+        "is_reference": false,
+        "count": 20179,
+        "requirement_domains": [
+          "target",
+          "full"
+        ],
+        "uid": "a34044d7fb60f1c2a6fd6c2c6c63c9b170f33e542f85ac4a960080b1eb792c65",
+        "is_selected_target": true,
+        "legal_population_mask_code": 2,
+        "engineering_scope": "SELECTED_TARGET_SHAPE_FIXTURE",
+        "scientific_query_population_changed": false
+      }
+    ]
+  },
+  "added_engineering_points": [
+    {
+      "role": "NORMAL",
+      "frame": 18,
+      "shape": [
+        6,
+        49,
+        2
+      ],
+      "count": 156581,
+      "requirement_domains": [
+        "full"
+      ],
+      "uid": "012101948dbfe221cfe7750c23579492da5d0c784707dcc82e15252396e74415",
+      "is_selected_target": false,
+      "is_reference": false,
+      "legal_population_mask_code": 1,
+      "engineering_scope": "ENGINEERING_ONLY_FULL_POPULATION_SHAPE_COVERAGE",
+      "scientific_query_population_changed": false
+    },
+    {
+      "role": "NORMAL",
+      "frame": 23,
+      "shape": [
+        6,
+        73,
+        3
+      ],
+      "count": 62662,
+      "requirement_domains": [
+        "full"
+      ],
+      "uid": "8aa9ce5d7d50727321d7e0f3019d795730bcb90853332b5bbbf12fbd6f0e576a",
+      "is_selected_target": false,
+      "is_reference": false,
+      "legal_population_mask_code": 1,
+      "engineering_scope": "ENGINEERING_ONLY_FULL_POPULATION_SHAPE_COVERAGE",
+      "scientific_query_population_changed": false
+    }
+  ],
+  "base_rows": 78,
+  "singleton_probes": 13,
+  "total_logical_with_probes": 91,
+  "raw_pcap_scans": 0,
+  "model_forwards": 0,
+  "numerical_snapshots": 0,
+  "external_quality_evaluations": 0,
+  "original_v2_preserved": true,
+  "original_scientific_population_preserved": true,
+  "source_script_sha256": "31ff0d0e862156eb0aa07e496a690704c3266bbd218ef8aedf65e87dc043a86c"
+}

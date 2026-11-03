@@ -1,0 +1,81 @@
+{
+  "schema": "EDGE_METADATA_QUERY_CENSUS_V1",
+  "status": "METADATA_ONLY_CENSUS_PASS",
+  "roles": {
+    "NORMAL": {
+      "counts": {
+        "decoded_records": 1629749,
+        "full_eligible": 1334562,
+        "query_candidates": 1220126
+      },
+      "strata": {
+        "NORMAL": 1220126
+      },
+      "raw_sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+      "raw_bytes": 345868816,
+      "raw_unchanged": true,
+      "mask_sha256": "86f223af69d7f4fb48ea45439ddab26069c8ee4710c14c500a01d2966fcb6d31",
+      "full_uid_sha256": "e52511f2e4ca40a3e3b94c7ab64eb9e0f4c380810f0c1bfcb6591cb1bd50f2f3",
+      "primary_uid_sha256": "41b6e6cc97d3eb5d7f435f329e0fe332c0ce606eebcb88b6ad0a7a34783be2ca",
+      "metadata_file": "NORMAL_metadata.tsv.gz",
+      "metadata_sha256": "547e67c1928a9c82fe37d0032aab1de01501cd97fb1d5481e84911ea59ac2798",
+      "seconds": 179.13999999999942
+    },
+    "HTTP": {
+      "counts": {
+        "decoded_records": 229142,
+        "full_eligible": 152352,
+        "query_candidates": 152352
+      },
+      "strata": {
+        "SYN_NO_ACK": 61641,
+        "PSH_ACK": 77043,
+        "FIN": 3402,
+        "ACK_ONLY": 7817,
+        "RST": 2449
+      },
+      "raw_sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+      "raw_bytes": 28307602,
+      "raw_unchanged": true,
+      "mask_sha256": "d3c3712fae9688c6c19a3afe41483c9cce6f21bb7e39f2eaa5652af65fa6fc96",
+      "full_uid_sha256": "d3412c5aab5ddd1d87008432951453e173d9b75028e08f29560129d6facbe5c1",
+      "primary_uid_sha256": "d3412c5aab5ddd1d87008432951453e173d9b75028e08f29560129d6facbe5c1",
+      "metadata_file": "HTTP_metadata.tsv.gz",
+      "metadata_sha256": "07195e9a3d563ab4ff1abb44cee81c01bd2f977c28df4f0674ea698c472daf45",
+      "seconds": 17.296000000002095
+    },
+    "UDP": {
+      "counts": {
+        "decoded_records": 3215732,
+        "full_eligible": 2898830,
+        "query_candidates": 2898830
+      },
+      "strata": {
+        "UDP": 2898830
+      },
+      "raw_sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+      "raw_bytes": 247560012,
+      "raw_unchanged": true,
+      "mask_sha256": "938f31333557353398372ca795c9e2250a5751095b1d59e67aa05b155b21137c",
+      "full_uid_sha256": "e0742bec9e5097ac23e36cf03cf0d9d1bdc332d31cc86a2e1cae8b820112640d",
+      "primary_uid_sha256": "e0742bec9e5097ac23e36cf03cf0d9d1bdc332d31cc86a2e1cae8b820112640d",
+      "metadata_file": "UDP_metadata.tsv.gz",
+      "metadata_sha256": "55d5e5748ac097c95ad5f8c1982562e98e3da269d8d202fc2b5c38fb8d9a5e43",
+      "seconds": 288.5
+    }
+  },
+  "normal_component_count": 17025,
+  "input_pins": {
+    "runs\\edge_external_test1_engineering_v1_20261103\\adapter\\population_v1\\POPULATION.json": "a6fd66b8cb28351875b7020f5990337ebfbaa6b4cf58ec75be6e5063d2aa8eee",
+    "runs\\external_scope_review_codex_20261103\\EDGE_EXECUTION_CARD_DRAFT.json": "0755167ae19033e06d2557a9ee3744f82abc4b4587a9e6452e87727ba12e706e",
+    "runs\\edge_external_test1_engineering_v1_20261103\\adapter\\population_v1\\NORMAL_FRAME_POPULATION.u8x2.bin": "86f223af69d7f4fb48ea45439ddab26069c8ee4710c14c500a01d2966fcb6d31",
+    "runs\\edge_external_test1_engineering_v1_20261103\\adapter\\population_v1\\HTTP_FRAME_POPULATION.u8x2.bin": "d3c3712fae9688c6c19a3afe41483c9cce6f21bb7e39f2eaa5652af65fa6fc96",
+    "runs\\edge_external_test1_engineering_v1_20261103\\adapter\\population_v1\\UDP_FRAME_POPULATION.u8x2.bin": "938f31333557353398372ca795c9e2250a5751095b1d59e67aa05b155b21137c"
+  },
+  "elapsed_seconds": 485.75,
+  "model_forwards": 0,
+  "numerical_snapshots": 0,
+  "external_quality_evaluations": 0,
+  "decode_order": "ALL_ORIGINAL_PHYSICAL_ROWS",
+  "eligibility": "Use immutable original complete eligibility mask; verify both ordered UID digests against it"
+}

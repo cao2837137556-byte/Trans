@@ -1,0 +1,26 @@
+{
+  "status": "PASS_SYNTHETIC_ENGINEERING_CHECKS_ONLY",
+  "selection_shape_and_probe_tests": 26,
+  "package_tests": 2,
+  "total_tests": 28,
+  "selection_suite_seconds": 1.047,
+  "package_suite_seconds": 0.035,
+  "selection_command": "python -X utf8 -B -m unittest discover -s runs/edge_query_selection_v1_20261103 -p test*.py -v",
+  "package_command": "python -X utf8 -B -m unittest discover -s runs/edge_linux_preflight_package_v1_20261103 -p test*.py -v",
+  "source_pins": {
+    "test_extend_shape_coverage.py": "f1b71af705d45b68d4c0ba8e8634c570084dca0144f6734b5064130a56adf12c",
+    "test_selection_core.py": "fbd2722970fe4ef65d0683cfbff6c5864280887fa6e4aa014ee46662cda1c057",
+    "test_selection_io.py": "778c311ad105b300d9c23b478d8e57cd8da96991478f2ed3c78bb190dc645df9",
+    "test_shape_census.py": "a9e3d808ff0d6b8b41a87a6aa2c040b5ce688a9f8703711509a03d4dc17750b6",
+    "test_shape_probes.py": "5a4c394c650e36d68f0af9b22af7c9415791ddba952c861c70587f353a9a3fef"
+  },
+  "real_metadata_selection_status": "PASS_REAL_METADATA_SELECTION_AUDIT",
+  "real_model_loaded": false,
+  "real_data_numerical_snapshots": 0,
+  "real_model_forwards": 0,
+  "training": false,
+  "hpc_submitted": false,
+  "linux_actual_preflight_pass": false,
+  "formal_evaluation_ready": false,
+  "limits": "Synthetic engineering tests cannot replace the real same-runtime Linux slice or full streaming-resume failure-injection checks."
+}
