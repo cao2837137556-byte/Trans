@@ -1,0 +1,28 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Edge v4 · 实时进度</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101920;color:#e7eff1;font:16px/1.65 system-ui}main{max-width:920px;margin:28px auto;padding:0 24px}h1{font-size:25px;margin:0}h2{font-size:17px;margin:0}section{background:#1c2933;border:1px solid #30404c;border-radius:14px;padding:22px;margin:18px 0}.muted,small{color:#adbdc5}.row{display:flex;justify-content:space-between;gap:15px;align-items:baseline}.pct{font-size:32px;font-weight:650;color:#8de3cb}.track{height:15px;border-radius:20px;background:#101920;overflow:hidden;margin:12px 0}.fill{height:100%;background:#8de3cb;transition:width .5s;max-width:100%;width:0}.safe{background:#729ee9}.budget{background:#d7b87c}.bad{color:#ffaf98}.steps{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.step{font-size:13px;border-radius:8px;padding:7px 10px;background:#101920;color:#adbdc5}.done{color:#8de3cb}.active{color:#fff;border:1px solid #8de3cb}p{margin:8px 0}.mono{font-variant-numeric:tabular-nums}@media(max-width:500px){main{padding:0 14px}section{padding:17px}.pct{font-size:27px}}
+</style><main>
+<h1>Edge v4 · 实时进度</h1><p class="muted">1 CPU · 8 GiB · 完整工程验证最长 2 小时</p>
+<section><div class="row"><h2 id="status">读取状态…</h2><span id="job" class="muted"></span></div><p id="message"></p><div class="steps" id="steps"></div><small id="updated"></small><p class="bad" id="error"></p></section>
+<section id="phase"><div class="row"><h2 id="phaseTitle">当前阶段</h2><span id="percent" class="pct mono">—</span></div><div class="track" role="progressbar" aria-label="当前阶段完成比例" id="phaseTrack"><div class="fill" id="phaseFill"></div></div><p id="counts" class="mono"></p><p id="eta"></p><small id="scope">当前阶段进度不等于整项工程完成度。</small></section>
+<section id="checkpoint"><div class="row"><h2>已持久保存的 UDP 恢复点</h2><b id="cpPct" class="mono">—</b></div><div class="track" role="progressbar" aria-label="UDP持久恢复进度" id="cpTrack"><div class="fill safe" id="cpFill"></div></div><p id="cpText"></p><small>约每 10 分钟提交一次。正在计算的位置与可恢复的位置分别显示。</small></section>
+<section><div class="row"><h2>时间预算已使用</h2><b id="budgetPct" class="mono">—</b></div><div class="track" role="progressbar" aria-label="时间预算使用比例" id="budgetTrack"><div class="fill budget" id="budgetFill"></div></div><p id="budgetText"></p><p id="memory" class="muted"></p><small>预算到期按守卫停止，不自动延期或重投。完成重放后仍需编码、恢复验证及最终验收。</small></section>
+<small>每 4 秒读取本地进度，远端采样约 15 秒一次。此页面只读，不控制作业。</small>
+</main><script>
+const $=id=>document.getElementById(id),fmt=n=>Number(n).toLocaleString('zh-CN'),mins=s=>Math.ceil(s/60)+' 分钟';
+function bar(id,track,p){$(id).style.width=Math.max(0,Math.min(100,p))+'%';$(track).setAttribute('aria-valuenow',Math.round(p));$(track).setAttribute('aria-valuemin','0');$(track).setAttribute('aria-valuemax','100')}
+function render(s){const w=s.worker||{},r=w.replay||w,a=s.display||{},terminal=['STOP','PASS'].includes(s.stage),running=s.stage==='RUNNING'&&s.scheduler_state==='RUNNING'&&!terminal;
+ $('status').textContent=({RUNNING:'正在运行',SUBMITTED:'等待调度',STOP:'已停止',PASS:'最终验收通过',CONNECTION_INTERRUPTED:'进度连接中断',RETRIEVING:'取回验收回执'}[s.stage]||s.stage||'等待状态');$('job').textContent=s.job_id?'作业 '+s.job_id:'';$('message').textContent=s.message||'';
+ const age=(Date.now()-Date.parse(s.updated_utc))/1000;$('updated').textContent='更新于 '+new Date(s.updated_utc).toLocaleTimeString('zh-CN')+' · '+Math.max(0,Math.floor(age))+' 秒前';$('error').textContent=s.error||(age>90?'进度超过 90 秒未刷新，需要核对连接或当前阶段。':'');
+ let shape=w.completed_shapes,totalShapes=w.total_shapes,replaying=!!(r.frame&&a.role_total),pct=replaying?100*r.frame/a.role_total:shape&&totalShapes?100*shape/totalShapes:null;
+ $('phaseTitle').textContent=replaying?r.role+' 原包重放':shape?'形状编码验证':w.stage||'等待阶段信息';$('percent').textContent=pct===null?'—':pct.toFixed(1)+'%';bar('phaseFill','phaseTrack',pct||0);
+ $('counts').textContent=replaying?fmt(r.frame)+' / '+fmt(a.role_total)+' 帧 · 已保存 '+fmt(r.selected_persisted||0)+' 个端点':shape?shape+' / '+totalShapes+' 种形状':'本阶段没有可计数的总量';
+ $('eta').textContent=running&&replaying&&a.role_remaining_seconds?'仅此段重放预计还需约 '+mins(a.role_remaining_seconds)+'（'+(a.rate_kind==='recent'?'最近采样速度':'本阶段平均速度')+' '+Math.round(a.frames_per_second)+' 帧/秒）':'本阶段剩余时间暂无可靠估计';
+ $('scope').textContent='这是当前阶段比例，后续编码、恢复验证及验收未计入。速度变化时估计会调整。';
+ const cp=s.replay_checkpoint?.frame||0;bar('cpFill','cpTrack',100*cp/3215732);$('cpPct').textContent=(100*cp/3215732).toFixed(1)+'%';$('cpText').textContent=cp?'最近已提交 '+fmt(cp)+' / 3,215,732 帧':'尚无已提交的 UDP 恢复点';
+ const elapsed=w.elapsed_seconds,limit=s.phase==='preflight'?600:7200;bar('budgetFill','budgetTrack',elapsed?100*elapsed/limit:0);$('budgetPct').textContent=elapsed?(100*elapsed/limit).toFixed(1)+'%':'—';$('budgetText').textContent=elapsed?'心跳时已运行 '+mins(elapsed)+' / '+mins(limit)+'；预算余量约 '+mins(Math.max(0,limit-elapsed)):'等待运行时计时';$('memory').textContent=w.max_tree_rss_bytes?'观测内存峰值 '+(w.max_tree_rss_bytes/2**30).toFixed(2)+' / 8 GiB':'';
+ const labels=['真实预检','完整角色复用','UDP 重放','73 种形状','恢复与 CAL','最终验收'];let index=s.stage==='PASS'?6:s.phase==='preflight'?0:r.role==='UDP'?2:shape?3:/RECOVERY|CAL|DISTANCE/.test(w.stage||'')?4:s.stage==='RETRIEVING'?5:1;$('steps').replaceChildren(...labels.map((text,i)=>{let e=document.createElement('span');e.className='step '+(i<index?'done':i===index?'active':'');e.textContent=(i<index?'✓ ':'')+text;return e}));
+}
+async function tick(){try{const response=await fetch('/state',{cache:'no-store'});if(!response.ok)throw Error();render(await response.json())}catch(e){$('error').textContent='本地状态暂不可读；不能据此确认作业正常。'}}tick();setInterval(tick,4000);
+</script></html>
