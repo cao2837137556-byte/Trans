@@ -1,0 +1,51 @@
+{
+  "stage": "RUNNING",
+  "updated_utc": "2026-11-04T17:42:29.355312+00:00",
+  "cpu": 1,
+  "memory_gib": 8,
+  "wall_seconds": 86400,
+  "formal_external_evaluation": true,
+  "automatic_resubmit": false,
+  "message": "正在执行真实78端点小切片，预检未通过不会启动正式数据集评价。",
+  "remote_prepare": {
+    "status": "PREPARING",
+    "stage": "VERIFY_FROZEN_RUNTIME_AND_AUTHORIZATION"
+  },
+  "job_id": "181930",
+  "phase": "preflight",
+  "replay_checkpoint": null,
+  "preflight_job_id": "181930",
+  "preflight_status": "PENDING",
+  "scheduler_state": "RUNNING",
+  "worker": {
+    "attempt_id": "848b66bfc38044b2b13739cfa12def79",
+    "automatic_resubmit": false,
+    "card_sha256": "28412d882d527bb96b1b8f646ac3a9e974724c932cff2eabaec4010dd6e9c4f2",
+    "elapsed_seconds": 223.1398739090655,
+    "formal_evaluation": false,
+    "max_tree_rss_bytes": 596332544,
+    "output_disk_bytes_60s_sampled_max": 302754080,
+    "scratch_disk_bytes_60s_sampled_max": 151989592,
+    "stage": "PREFLIGHT_REAL_REPLAY_CRASH_RESUME"
+  },
+  "attempt_id": "848b66bfc38044b2b13739cfa12def79",
+  "error": "",
+  "engineering_current": {
+    "attempt_id": "848b66bfc38044b2b13739cfa12def79",
+    "card_sha256": "28412d882d527bb96b1b8f646ac3a9e974724c932cff2eabaec4010dd6e9c4f2",
+    "receipt": "engineering_attempts/848b66bfc38044b2b13739cfa12def79/RUNNING.json",
+    "receipt_sha256": "5d356ae477e7928ae7b861ba26474fcd4fe8f219ea16ac07bb7cdc350e348c50",
+    "scope": "EDGE_EXTERNAL_TEST_1_FULL_EVALUATION",
+    "status": "RUNNING"
+  },
+  "attempt_receipt": {
+    "attempt_id": "848b66bfc38044b2b13739cfa12def79",
+    "automatic_resubmit": false,
+    "card_sha256": "28412d882d527bb96b1b8f646ac3a9e974724c932cff2eabaec4010dd6e9c4f2",
+    "external_quality_computed": false,
+    "phase": "STARTING",
+    "schema": "EDGE_ENGINEERING_ATTEMPT_V2",
+    "scope": "EDGE_EXTERNAL_TEST_1_FULL_EVALUATION",
+    "status": "RUNNING"
+  }
+}

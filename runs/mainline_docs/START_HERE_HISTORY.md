@@ -996,3 +996,17 @@ DeepSeek 已加入，沿用文档合作：`runs/mainline_docs/collab/YYYYMMDD_<�
 5. **最新证据**：[扩大预算与真实恢复验证](collab/20261104_edge_v4_extended_resume_codex.md) · [启动回执](../edge_formal_gate_resume_v4_20261104/STARTUP_READBACK.json) · [实时进度](http://127.0.0.1:18797/)。尚不能宣称实际恢复或完整工程门已通过。
 
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)
+
+
+---
+# 当前状态
+
+更新：2026-11-04（用户时区America/Los_Angeles）。固定五项，历史另存。
+
+1. **唯一方法**：C5（p=3）冻结；正式外部效果尚未确认，正式评价未授权。
+2. **工程门已验收PASS**：181905调度COMPLETED/0:0，用时44分17秒；1CPU、整树内存采样峰值6.49GiB，临时目录清理成功。
+3. **恢复已证实**：181902真实大检查点恢复及78端点预检PASS（13分31秒）；181905从2877608帧补算338124帧到UDP EOF，旧有效计算成功复用。
+4. **验收范围**：三角色64124快照齐全、73形状编码探针、编码中断恢复15文件字节一致、源已存CAL判定一致、合成距离通过；不等于全部64124行编码或正式外部质量评价。
+5. **最新证据/下一步**：[验收记录](collab/20261104_edge_181905_final_acceptance_codex.md) · [复核回执](../edge_formal_gate_resume_v4_20261104/VERIFIED_ACCEPTANCE.json) · [已结束进度页](http://127.0.0.1:18797/)。46文件及归档SHA复核；下一步按实测准备正式编码/评价执行卡，尚不提交。
+
+[历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)

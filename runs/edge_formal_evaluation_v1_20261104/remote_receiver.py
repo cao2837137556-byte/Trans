@@ -1,0 +1,287 @@
+"""Single authorized engineering job; existing assets and authenticated tunnel."""
+import hashlib
+import importlib.util
+import io
+import json
+import os
+from pathlib import Path, PurePosixPath
+import re
+import shlex
+import shutil
+import subprocess
+import sys
+import tarfile
+import threading
+from datetime import datetime, timezone
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[1]
+OLD = ROOT/'runs/edge_linux_preflight_deployment_v1_20261103'
+CODE = 'runs/edge_formal_execution_v4_20261104'
+BASE = 'runs/edge_linux_preflight_package_v1_20261103/PACKAGE_MANIFEST.json'
+BASE_SHA = 'f61af6ca64c629565e6914ef520c85352b65a5987e7af6d9515d1848cc4ccbd6'
+OLD_RECEIVER_SHA = 'e33aae00c97ab52d8ed51a9c4650c00cea845890755f26b0ba71bf8412892a80'
+assert hashlib.sha256((OLD/'remote_receiver.py').read_bytes()).hexdigest() == OLD_RECEIVER_SHA
+spec = importlib.util.spec_from_file_location('_edge_gate_transport_base', OLD/'remote_receiver.py')
+base = importlib.util.module_from_spec(spec);spec.loader.exec_module(base)
+read, write, sha, need = base.read, base.write, base.sha, base.need
+SOURCE_SHA = sha(__file__)
+TERMINAL = {'COMPLETED','FAILED','TIMEOUT','CANCELLED','OUT_OF_MEMORY','NODE_FAIL','PREEMPTED','BOOT_FAIL','DEADLINE'}
+
+
+def member_path(name):
+    p = PurePosixPath(name)
+    need(name and not p.is_absolute() and '..' not in p.parts and '\\' not in name and ':' not in name,
+         'DELIVERY_MEMBER_PATH')
+    return p
+
+
+def without_unconfigured_tmpdisk(source):
+    line=b'#SBATCH --tmp=32768\n'
+    need(source.count(line)==1,'EXACT_TMPDISK_DIRECTIVE_REQUIRED')
+    return source.replace(line,b'',1)
+
+
+class Receiver(base.Receiver):
+    def __init__(self, config, root=ROOT, runner=subprocess.run):
+        self.root, self.here = Path(root), Path(root)/'runs'/HERE.name
+        self.config, self.runner = config, runner
+        self.lock, self.last_error = threading.RLock(), None
+        self.receiver_source_sha256 = SOURCE_SHA
+        self.incoming, self.outputs = self.here/'incoming', self.here/'outputs'
+        self.checkout, self.raw = self.here/'checkout', Path(root)/'runs'/OLD.name/'raw'
+        self.prior_checkout = Path(root)/'runs'/OLD.name/'unpacked/edge_preflight_checkout'
+        need(set(config['files'])=={'archive'} and config['allowed_jobs']==1 and
+             config['cpu']==1 and config['memory_gib']==8 and config['wall_seconds']==86400
+             and config['allowed_preflight_jobs']==1 and config['preflight_wall_seconds']==1800,
+             'AUTHORIZED_RESOURCE_CONTRACT')
+        for p in (self.here,self.incoming,self.outputs):p.mkdir(parents=True,exist_ok=True)
+        binding={k:v for k,v in config.items() if k!='token'}
+        target=self.here/'DELIVERY_BINDING.json'
+        if target.exists():need(read(target)==binding,'DELIVERY_BINDING_CHANGED')
+        else:write(target,binding)
+
+    def environment(self):
+        return self.shell_environment()+('export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 '
+            'NUMEXPR_NUM_THREADS=1 TOKENIZERS_PARALLELISM=false CUDA_VISIBLE_DEVICES=""\n')
+
+    def runtime_command(self, code, timeout=300):
+        shell=self.environment()+'exec '+shlex.quote(base.PYTHON)+' -X utf8 -B -c '+shlex.quote(code)
+        result=self.runner(['bash','-c',shell],capture_output=True,text=True,timeout=timeout)
+        need(result.returncode==0,'RUNTIME_VALIDATION_FAILED:'+result.stderr[-2000:])
+        return json.loads(result.stdout.strip().splitlines()[-1])
+
+    def validate(self):
+        deploy=self.checkout/'runs'/HERE.name
+        code=('import sys,json;sys.path.insert(0,'+repr(str(self.checkout/CODE))+');'
+              'sys.path.insert(0,'+repr(str(deploy))+');from formal_job import require_engineering_authorization;'
+              'from worker import runtime_identity;'
+              'c=require_engineering_authorization('+repr(str(deploy/'ENGINEERING_CARD.json'))+','+
+              repr(str(deploy/'AUTHORIZATION.json'))+');'
+              'identity=runtime_identity('+repr(base.TSHARK)+');'
+              'assert identity==c["runtime_identity"],"RUNTIME_IDENTITY";'
+              'print(json.dumps(dict(status="PASS",runtime_identity=identity,artifact_pins=len(c["artifact_pins"]))))')
+        return self.runtime_command(code)
+
+    def site_adapter(self, original):
+        result=self.runner(['sinfo','-h','-p','amd','-o','%d'],capture_output=True,text=True,timeout=10)
+        values=result.stdout.split()
+        need(result.returncode==0 and values,'SITE_TMPDISK_CONFIGURATION')
+        zero=all(value=='0' for value in values)
+        target=self.here/(original.stem+'_site_adapter.slurm')
+        data=without_unconfigured_tmpdisk(original.read_bytes()) if zero else original.read_bytes()
+        target.write_bytes(data)
+        return dict(path=str(target),sha256=sha(target),original_sha256=sha(original),
+            scheduler_tmpdisk_registered=not zero,sinfo_output=result.stdout,
+            change='Remove only unconfigured --tmp field' if zero else 'Exact original script',
+            node_local_free_admission_bytes=32*1024**3,scratch_guard_bytes=24*1024**3,
+            scheduler_disk_reservation=False if zero else True,
+            cpu_memory_time_unchanged=True)
+
+    def validate_site_adapter(self, prepared, phase='gate'):
+        adapter=prepared['site_adapter'];target=Path(adapter['path'])
+        stem='preflight' if phase=='preflight' else 'engineering'
+        original=self.checkout/'runs'/HERE.name/(stem+'.slurm')
+        expected=original.read_bytes() if adapter['scheduler_tmpdisk_registered'] else without_unconfigured_tmpdisk(original.read_bytes())
+        need(target==self.here/(stem+'_site_adapter.slurm') and sha(target)==adapter['sha256']
+             and sha(original)==adapter['original_sha256'] and target.read_bytes()==expected,'SITE_ADAPTER_IDENTITY')
+
+    def prepare(self):
+        with self.lock:
+            receipt=self.here/'PREPARE_RECEIPT.json'
+            if receipt.exists():return read(receipt)
+            need(self.file_state('archive')['complete'],'DELTA_UPLOAD_REQUIRED')
+            self.phase('VERIFY_AND_CLONE_BASE')
+            manifest=self.prior_checkout/BASE
+            need(sha(manifest)==BASE_SHA,'BASE_MANIFEST_IDENTITY')
+            files=read(manifest)['files']
+            self.checkout.mkdir(exist_ok=True)
+            for name,pin in files.items():
+                member_path(name);source=self.prior_checkout/name;target=self.checkout/name
+                need(source.is_file() and source.stat().st_size==pin['bytes'] and sha(source)==pin['sha256'],
+                     'BASE_FILE_PIN:'+name)
+                target.parent.mkdir(parents=True,exist_ok=True)
+                if target.exists():need(sha(target)==pin['sha256'],'EXISTING_CLONE_CHANGED:'+name)
+                else:os.link(source,target)  # immutable source assets; no model duplication
+            self.phase('VERIFY_AND_INSTALL_DELTA')
+            with tarfile.open(self.path('archive')) as tar:
+                members=tar.getmembers();pins=self.config['members']
+                need(len(members)==len(pins) and {m.name for m in members}==set(pins),'DELTA_MEMBER_SET')
+                for m in members:
+                    member_path(m.name);need(m.isfile() and m.size==pins[m.name]['bytes'],'DELTA_MEMBER_TYPE_SIZE')
+                    data=tar.extractfile(m).read();need(hashlib.sha256(data).hexdigest()==pins[m.name]['sha256'],'DELTA_MEMBER_SHA')
+                    target=self.checkout/m.name;target.parent.mkdir(parents=True,exist_ok=True)
+                    if target.exists():need(sha(target)==pins[m.name]['sha256'],'NO_OVERWRITE_DIFFERENT_ASSET')
+                    else:
+                        with target.open('xb') as out:out.write(data)
+            need(shutil.disk_usage(self.here).free>=26*1024**3,'DURABLE_DISK_HEADROOM_26_GIB')
+            raw={}
+            for role,pin in self.config['raw_inputs'].items():
+                p=self.raw/pin['filename'];need(p.is_file() and p.stat().st_size==pin['bytes'] and sha(p)==pin['sha256'],'RAW_PIN:'+role)
+                raw[role]=str(p)
+            self.phase('VERIFY_FROZEN_RUNTIME_AND_AUTHORIZATION')
+            validated=self.validate()
+            deploy=self.checkout/'runs'/HERE.name
+            write(self.here/'RAW_PATHS.json',raw)
+            slurm=deploy/'engineering.slurm'
+            syntax=self.runner(['bash','-n',str(slurm)],capture_output=True,text=True,timeout=10)
+            need(syntax.returncode==0,'SLURM_SYNTAX')
+            adapter=self.site_adapter(slurm)
+            command=self.environment()+'cd '+shlex.quote(str(self.here))+'\nexec sbatch --parsable --partition=amd '+shlex.quote(adapter['path'])+'\n'
+            wrapper=self.here/'SUBMIT_ONCE.sh';wrapper.write_text('#!/usr/bin/env bash\nset -euo pipefail\numask 077\n'+command)
+            test=self.runner(['bash','-c',self.environment()+'sbatch --test-only --partition=amd '+shlex.quote(adapter['path'])],
+                             capture_output=True,text=True,timeout=30)
+            need(test.returncode==0,'SLURM_RESOURCE_REQUEST_REJECTED:'+test.stderr[-1500:])
+            value=dict(status='PREPARED_NOT_SUBMITTED',base_files=len(files),delta_members=len(pins),
+                validated=validated,submit_wrapper_sha256=sha(wrapper),slurm_sha256=sha(slurm),
+                raw_inputs_verified=True,shared_free_is_not_personal_quota=True,
+                scheduler_test_only=dict(returncode=test.returncode,stdout=test.stdout,stderr=test.stderr),
+                cpu=1,memory_gib=8,wall_seconds=86400,site_adapter=adapter,formal_external_evaluation=True)
+            preflight=deploy/'preflight.slurm'
+            syntax=self.runner(['bash','-n',str(preflight)],capture_output=True,text=True,timeout=10)
+            need(syntax.returncode==0,'PREFLIGHT_SLURM_SYNTAX')
+            pre_adapter=self.site_adapter(preflight)
+            pre_wrapper=self.here/'SUBMIT_PREFLIGHT_ONCE.sh'
+            pre_wrapper.write_text('#!/usr/bin/env bash\nset -euo pipefail\numask 077\n'+self.environment()+
+                'cd '+shlex.quote(str(self.here))+'\nexec sbatch --parsable --partition=amd '+shlex.quote(pre_adapter['path'])+'\n')
+            pre_test=self.runner(['bash','-c',self.environment()+'sbatch --test-only --partition=amd '+shlex.quote(pre_adapter['path'])],
+                                capture_output=True,text=True,timeout=30)
+            need(pre_test.returncode==0,'PREFLIGHT_RESOURCES_REJECTED:'+pre_test.stderr[-1500:])
+            value['preflight']=dict(status='PREPARED_NOT_SUBMITTED',site_adapter=pre_adapter,
+                submit_wrapper_sha256=sha(pre_wrapper),slurm_sha256=sha(preflight),
+                cpu=1,memory_gib=8,wall_seconds=1800,scheduler_test_only=dict(returncode=pre_test.returncode,stdout=pre_test.stdout,stderr=pre_test.stderr))
+            write(receipt,value);return value
+
+    def accept_preflight(self):
+        pre=read(self.here/'PREFLIGHT_SUBMIT_RECEIPT.json')
+        state=self.state()
+        need(state['job']['job_id']==pre['job_id'] and state['result_ready'],'PREFLIGHT_TERMINAL_REQUIRED')
+        deploy=self.checkout/'runs'/HERE.name
+        code=('import sys,json;sys.path.insert(0,'+repr(str(self.checkout/CODE))+');'
+              'sys.path.insert(0,'+repr(str(deploy))+');from preflight_acceptance import accept;'
+              'v=accept('+repr(str(self.here))+','+repr(str(deploy/'ENGINEERING_CARD.json'))+','+
+              repr(pre)+','+repr(state['scheduler'])+');print(json.dumps(v))')
+        return self.runtime_command(code)
+
+    def submit(self):
+        with self.lock:
+            pre_receipt=self.here/'PREFLIGHT_SUBMIT_RECEIPT.json'
+            gate_receipt=self.here/'SUBMIT_RECEIPT.json'
+            if gate_receipt.exists():return read(gate_receipt)
+            phase='gate' if pre_receipt.exists() else 'preflight'
+            if phase=='gate':self.accept_preflight()
+            receipt=gate_receipt if phase=='gate' else pre_receipt
+            intent=self.here/('SUBMIT_ATTEMPT.json' if phase=='gate' else 'PREFLIGHT_SUBMIT_ATTEMPT.json')
+            need(not intent.exists(),'UNCERTAIN_SUBMISSION_NO_AUTOMATIC_RETRY')
+            prepared=read(self.here/'PREPARE_RECEIPT.json')
+            if phase=='preflight':prepared=prepared['preflight']
+            wrapper=self.here/('SUBMIT_ONCE.sh' if phase=='gate' else 'SUBMIT_PREFLIGHT_ONCE.sh')
+            stem='engineering' if phase=='gate' else 'preflight'
+            need(prepared['status']=='PREPARED_NOT_SUBMITTED' and sha(wrapper)==prepared['submit_wrapper_sha256'],'SUBMISSION_BINDING')
+            need(sha(self.checkout/'runs'/HERE.name/(stem+'.slurm'))==prepared['slurm_sha256'],'SLURM_CHANGED')
+            self.validate_site_adapter(prepared,phase)
+            self.validate()
+            seconds=86400 if phase=='gate' else 1800
+            write(intent,dict(status='INTENT_PERSISTED_NO_RETRY',phase=phase,allowed_jobs=1,cpu=1,memory_gib=8,
+                wall_seconds=seconds,utc=datetime.now(timezone.utc).isoformat()))
+            result=self.runner(['bash',str(wrapper)],capture_output=True,text=True,timeout=30)
+            lines=result.stdout.strip().splitlines()
+            need(result.returncode==0 and lines and re.fullmatch(r'\d+(;[A-Za-z0-9_.-]+)?',lines[-1]),'SBATCH_UNCERTAIN_NO_RETRY')
+            job=lines[-1].split(';')[0]
+            value=dict(status='SUBMITTED',phase=phase,job_id=job,cpu=1,memory_gib=8,wall_seconds=seconds,
+                automatic_resubmit=False,output_directory=str(self.outputs/(phase+'_'+job)),
+                card_sha256=self.config['card_sha256'],utc=datetime.now(timezone.utc).isoformat())
+            write(receipt,value);return value
+
+    def state(self):
+        # Read-only polling must not block on a long prepare operation's lock.
+        def maybe(p):
+            try:return read(p)
+            except FileNotFoundError:return None
+        job=maybe(self.here/'SUBMIT_RECEIPT.json') or maybe(self.here/'PREFLIGHT_SUBMIT_RECEIPT.json')
+        value=dict(receiver_source_sha256=SOURCE_SHA,namespace=HERE.name,files={'archive':self.file_state('archive')},
+            job=job,preflight_acceptance=maybe(self.here/'PREFLIGHT_ACCEPTANCE.json'),
+            preflight_job=maybe(self.here/'PREFLIGHT_SUBMIT_RECEIPT.json'),gate_job=maybe(self.here/'SUBMIT_RECEIPT.json'),prepare_receipt=maybe(self.here/'PREPARE_RECEIPT.json'),
+            prepare_status=maybe(self.here/'PREPARE_STATUS.json'),last_error=self.last_error,
+            submission_intent=maybe(self.here/'SUBMIT_ATTEMPT.json'),result_ready=False,status='READY')
+        if job:
+            output=Path(job['output_directory'])
+            current=maybe(output/'CURRENT_ENGINEERING_ATTEMPT.json')
+            value.update(current=current,progress=maybe(output/'PROGRESS.json'),launch_stop=maybe(output/'LAUNCH_STOP.json'))
+            cp=maybe(output/'replay_checkpoints/UDP/CURRENT.json')
+            if cp and Path(cp['generation']).name==cp['generation']:
+                meta=maybe(output/'replay_checkpoints/UDP'/cp['generation']/'MANIFEST.json')
+                if meta:value['replay_checkpoint']=dict(frame=meta['frame'],generation=cp['generation'],manifest_sha256=cp['manifest_sha256'])
+            result=self.runner(['sacct','-j',job['job_id'],'--noheader','--parsable2',
+                '--format=JobIDRaw,State,ExitCode,Elapsed,MaxRSS,AllocCPUS,ReqMem,Timelimit'],capture_output=True,text=True,timeout=10)
+            value['scheduler']=dict(returncode=result.returncode,stdout=result.stdout[-12000:],stderr=result.stderr[-1000:])
+            rows=[x.split('|') for x in result.stdout.splitlines()]
+            primary=[x for x in rows if len(x)>=3 and x[0]==job['job_id']]
+            state=primary[0][1].split()[0].rstrip('+') if len(primary)==1 else 'PENDING_ACCOUNTING'
+            value.update(status=state,result_ready=state in TERMINAL)
+            if current:
+                value['attempt_receipt']=maybe(output/current['receipt'])
+                if current['status']=='PASS':
+                    value['candidate']=maybe(output/Path(current['receipt']).parent/'CANDIDATE.json')
+        return value
+
+    def results(self):
+        state=self.state();need(state['result_ready'],'JOB_NOT_TERMINAL')
+        output=Path(state['job']['output_directory'])
+        files=[p for p in self.here.glob('*.json') if not p.name.startswith('.')]
+        files += [p for p in output.glob('*.json') if p.is_file()]
+        files += [p for p in (output/'replay_status').glob('*.json') if p.is_file()]
+        files += [p for p in (output/'spools').glob('*/REPLAY_COVERAGE.json') if p.is_file()]
+        files += [p for p in (output/'replay_checkpoints').glob('*/CURRENT.json') if p.is_file()]
+        files += [p for p in (output/'replay_checkpoints').glob('*/LAST_ATTEMPT.json') if p.is_file()]
+        files += [p for p in (output/'engineering_attempts').rglob('*') if p.is_file() and p.suffix in ('.json','.log')]
+        files += [p for p in self.here.glob(state['job']['phase']+'-'+state['job']['job_id']+'.*') if p.suffix in ('.out','.err')]
+        pre=state.get('preflight_job')
+        if pre and pre['job_id'] != state['job']['job_id']:
+            preout=Path(pre['output_directory'])
+            files += list(preout.glob('*.json'))
+            files += [p for p in (preout/'engineering_attempts').rglob('*') if p.is_file() and p.suffix in ('.json','.log')]
+            files += [p for p in self.here.glob('preflight-'+pre['job_id']+'.*') if p.suffix in ('.out','.err')]
+        for candidate_output in [output] + ([Path(pre['output_directory'])] if pre else []):
+            actual=candidate_output/'prior_checkpoint_probe'
+            files += [p for p in actual.glob('*') if p.is_file() and p.name in ('RESULT.json','RESTORE.log')]
+            probe=candidate_output/'real_udp_resume_probe'
+            files += [p for p in probe.glob('*') if p.is_file() and p.name in ('RESULT.json','crash.log','resume.log')]
+        for name in ('evaluation/METRICS.json','evaluation/COMPLETE.json','encoded/COMPLETE.json','encoded/BINDING.json'):
+            p=output/name
+            if p.is_file():files.append(p)
+        files=sorted(set(files));need(all(not p.is_symlink() and p.stat().st_size<=32*1024**2 for p in files),'SMALL_RECEIPTS_ONLY')
+        need(sum(p.stat().st_size for p in files)<128*1024**2,'RECEIPT_TOTAL_LIMIT')
+        pins={p.relative_to(self.here).as_posix():dict(bytes=p.stat().st_size,sha256=sha(p)) for p in files}
+        manifest=dict(files=pins,scheduler=state['scheduler'],job=state['job'],raw_arrays_exported=False)
+        target=self.here/'results.tar'
+        with tarfile.open(target.with_suffix('.part'),'w') as tar:
+            for p in files:tar.add(p,arcname=p.relative_to(self.here).as_posix(),recursive=False)
+            data=json.dumps(manifest,sort_keys=True).encode();info=tarfile.TarInfo('RESULT_MANIFEST.json');info.size=len(data);tar.addfile(info,io.BytesIO(data))
+        target.with_suffix('.part').replace(target);return target
+
+
+if __name__=='__main__':
+    base.PORT=18831
+    base.Receiver=Receiver
+    source=(OLD/'remote_receiver.py').read_text();need(source.count('threading.Timer(4 * 3600, server.shutdown)')==1,'RECEIVER_LIFETIME_PATCH');exec(compile(source.replace('threading.Timer(4 * 3600, server.shutdown)','threading.Timer(48 * 3600, server.shutdown)'),str(OLD/'remote_receiver.py'),'exec'),base.__dict__);base.PORT=18831;base.Receiver=Receiver;base.main(read(HERE/'.receiver_private.json'))
