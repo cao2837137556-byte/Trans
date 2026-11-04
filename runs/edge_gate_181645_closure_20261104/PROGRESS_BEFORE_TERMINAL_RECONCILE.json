@@ -1,0 +1,73 @@
+{
+  "stage": "STOP",
+  "updated_utc": "2026-11-04T06:09:55.741426+00:00",
+  "cpu": 1,
+  "memory_gib": 8,
+  "wall_seconds": 7200,
+  "formal_external_evaluation": false,
+  "automatic_resubmit": false,
+  "message": "工程验证未通过，已保留失败回执，不自动重投。",
+  "remote_prepare": {
+    "status": "PREPARING",
+    "stage": "VERIFY_FROZEN_RUNTIME_AND_AUTHORIZATION"
+  },
+  "job_id": "181645",
+  "scheduler_state": "RUNNING",
+  "worker": {
+    "append_seconds": 2104.7801478463225,
+    "attempt_id": "a36fa394b62d4d719580572d00d77c01",
+    "automatic_resubmit": false,
+    "card_sha256": "54ad4848a9fe66864ba3fd0c6db489dc7461ed33985b6d66372509ca5692882f",
+    "contexts": [
+      {
+        "capture": "EDGE_UDP",
+        "files": {
+          "0001.sqlite": 1992556544,
+          "0001.sqlite-journal": 4721384
+        },
+        "spill": {
+          "hits": 1352619,
+          "loads": 0,
+          "peak_entries": 1343504,
+          "peak_resident": 256,
+          "serialized_bytes": 1501055859,
+          "spills": 1343248
+        }
+      }
+    ],
+    "decoder_next_seconds": 125.29268924030475,
+    "elapsed_seconds": 7024.26101604593,
+    "formal_evaluation": false,
+    "frame": 1523712,
+    "max_tree_rss_bytes": 3510927360,
+    "output_disk_bytes_60s_sampled_max": 256561906,
+    "replay_elapsed_seconds": 5838.72346317512,
+    "role": "UDP",
+    "role_elapsed_seconds": 5838.473356175004,
+    "scratch": "/tmp/edge-gate-owned-a36fa394b62d4d719580572d00d77c01-main/edge-numeric-owned-tbtr5ipv",
+    "scratch_disk_bytes_60s_sampled_max": 1963045487,
+    "selected_persisted": 9115,
+    "stage": "RAW_PREFIX_REPLAY",
+    "version": "EDGE_PREFLIGHT_IO_REPAIR_V1_20261103"
+  },
+  "attempt_id": "a36fa394b62d4d719580572d00d77c01",
+  "engineering_current": {
+    "attempt_id": "a36fa394b62d4d719580572d00d77c01",
+    "card_sha256": "54ad4848a9fe66864ba3fd0c6db489dc7461ed33985b6d66372509ca5692882f",
+    "receipt": "engineering_attempts/a36fa394b62d4d719580572d00d77c01/RUNNING.json",
+    "receipt_sha256": "1b7b0b454f5487ab6c6a9664689d03f0a2dbbbe6e7dcde41c844067a8ac13a83",
+    "scope": "EDGE_FORMAL_WORKER_ENGINEERING_GATE",
+    "status": "RUNNING"
+  },
+  "attempt_receipt": {
+    "attempt_id": "a36fa394b62d4d719580572d00d77c01",
+    "automatic_resubmit": false,
+    "card_sha256": "54ad4848a9fe66864ba3fd0c6db489dc7461ed33985b6d66372509ca5692882f",
+    "external_quality_computed": false,
+    "phase": "STARTING",
+    "schema": "EDGE_ENGINEERING_ATTEMPT_V2",
+    "scope": "EDGE_FORMAL_WORKER_ENGINEERING_GATE",
+    "status": "RUNNING"
+  },
+  "error": "ValueError:CURRENT_ATTEMPT_NOT_PASS"
+}

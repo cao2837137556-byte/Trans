@@ -1,5 +1,10 @@
 # Mainline Handoff
 
+## 2026-11-04 UTC：181645预算停止，独立v3已本地封存
+
+181645触发EDGE_REPLAY_DEADLINE，调度FAILED/1:0、117分37秒，24件回执验证、3.31GiB整树采样峰值与scratch清理成功。NORMAL 24124行、HTTP 20000行完整产物通过只读SHA/绑定/EOF审计，UDP部分角色不可复用。按用户确认分支集成独立v3，仅取消两条实时进度fsync；93项本地检查和60000查询元数据核验通过，971件卡pin由863基包+138件增量覆盖。v3默认新输出全量重放，不隐式迁移旧spool；待小anti独立复核与真实Linux验收，未提交新作业。见[停止封存与v3交付](collab/20261104_edge_181645_stop_and_v3_package_codex.md)。以下为历史。
+
+
 ## 2026-11-04 UTC：181645 UDP瓶颈已定位，进度I/O候选待小anti复核
 
 真实worker的24/24短时样本阻塞于共享盘REPLAY_HEARTBEAT的fsync。仅优化两条实时进度路径的候选已通过8项测试及同作业内小文件字节同值对照；未集成、未热改，完整Linux工程验收仍PENDING。原1CPU/8GiB/2小时作业继续，无自动延期或重投。见[诊断与候选](collab/20261104_udp_progress_io_bottleneck_codex.md)。以下为历史。

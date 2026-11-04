@@ -4,8 +4,8 @@
 
 1. **唯一方法**：C5（p=3）冻结，A/B仅作开发证据。[冻结JSON](../c5_method_freeze_v1_20261102/METHOD_FREEZE.json)。
 2. **现有结果**：B主视图选中查询误报1.55%，全时段2.24%；A召回99.82%。独立外部效果尚未确认。
-3. **当前实验**：Linux工程作业181645运行至UDP；1CPU/8GiB/2小时，最终验收PENDING，正式外部评价未启动。[进度页](http://127.0.0.1:18793/)自动更新，无AI持续监测、延期或自动重投。
-4. **已确认决策**：181645不热改，结束后标准验收；若预算内未完成，直接制作独立v3封存优化。完整角色须验明后复用，未完成UDP从原包起点重放；下一次独立复核交小anti。
-5. **最新证据**：[结束后分支决策](collab/20261104_edge_181645_postrun_decision_codex.md) · [UDP瓶颈与候选](collab/20261104_udp_progress_io_bottleneck_codex.md)。候选8项检查及Linux小文件对照通过，完整Linux门仍待完成。
+3. **181645终态**：1小时57分37秒触发重放时间守卫，工程验收STOP；峰值约3.31GiB，临时目录清理成功。NORMAL/HTTP完整产物校验通过，UDP部分角色不可复用。
+4. **已完成/下一步**：独立v3进度I/O优化已集成封存；93项本地检查、6万查询元数据核验通过。默认新输出全量重放，不隐式迁移v2；待小anti独立复核和真实Linux门，未提交新作业。
+5. **最新证据**：[停止与v3交付](collab/20261104_edge_181645_stop_and_v3_package_codex.md) · [v3复核清单](../edge_formal_execution_v3_20261104/REVIEW_REQUEST.md) · [进度/终态页](http://127.0.0.1:18793/)。正式评价未启动，无自动延期或重投。
 
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)
