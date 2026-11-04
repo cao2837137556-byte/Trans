@@ -1,0 +1,39 @@
+{
+  "candidate_sha256": "dc0b8f06efeec489064ede1d57083f941807c88ee7a2872d35ebd8cafb32f1fb",
+  "cpu_affinity": [
+    65
+  ],
+  "job_id": "181645",
+  "measurements": [
+    {
+      "bytes": 1203,
+      "mode": "live",
+      "seconds": 0.001276504946872592,
+      "sha256": "4a51f7c4e1b9314f3286cd3322e6905fc5818c6ee147452154e5828f7975b568"
+    },
+    {
+      "bytes": 1203,
+      "mode": "durable",
+      "seconds": 0.18153206002898514,
+      "sha256": "4a51f7c4e1b9314f3286cd3322e6905fc5818c6ee147452154e5828f7975b568"
+    },
+    {
+      "bytes": 1203,
+      "mode": "live",
+      "seconds": 0.0011178809218108654,
+      "sha256": "4a51f7c4e1b9314f3286cd3322e6905fc5818c6ee147452154e5828f7975b568"
+    },
+    {
+      "bytes": 1203,
+      "mode": "durable",
+      "seconds": 0.2614029389806092,
+      "sha256": "4a51f7c4e1b9314f3286cd3322e6905fc5818c6ee147452154e5828f7975b568"
+    }
+  ],
+  "model_calls": 0,
+  "original_replay_sha256": "034914f8e55cd61e033300b08c5407fe16986b991bf867e4a4488ff320bb261a",
+  "pending_mode": null,
+  "schema": "EDGE_SHARED_FS_TELEMETRY_MICROBENCH_V1",
+  "scope": "FOUR_SMALL_WRITES_NOT_SCIENTIFIC_OR_FULL_LINUX_GATE",
+  "status": "PASS_BYTE_IDENTICAL_TELEMETRY"
+}

@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "tests": 8,
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "test_authoritative_paths_keep_fsync (test_progress_io.ProgressIOTests) ... ok\ntest_both_live_paths_skip_fsync (test_progress_io.ProgressIOTests) ... ok\ntest_bytes_equal_frozen_writer (test_progress_io.ProgressIOTests) ... ok\ntest_invalid_json_preserves_previous (test_progress_io.ProgressIOTests) ... ok\ntest_replace_failure_preserves_previous_and_cleans_owned_temp (test_progress_io.ProgressIOTests) ... ok\ntest_replay_status_callback_and_counters_unchanged (test_progress_io.ProgressIOTests) ... ok\ntest_restore_after_exception (test_progress_io.ProgressIOTests) ... ok\ntest_same_basename_other_directory_stays_durable (test_progress_io.ProgressIOTests) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.099s\n\nOK\n",
+  "python": "3.10.0 (tags/v3.10.0:b494f59, Oct  4 2021, 19:00:18) [MSC v.1929 64 bit (AMD64)]",
+  "scope": "Targeted progress durability routing and exact telemetry bytes; not full scientific/Linux gate",
+  "candidate_sha256": "dc0b8f06efeec489064ede1d57083f941807c88ee7a2872d35ebd8cafb32f1fb"
+}

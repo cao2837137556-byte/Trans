@@ -1,5 +1,10 @@
 # Mainline Handoff
 
+## 2026-11-04 UTC：181645 UDP瓶颈已定位，进度I/O候选待小anti复核
+
+真实worker的24/24短时样本阻塞于共享盘REPLAY_HEARTBEAT的fsync。仅优化两条实时进度路径的候选已通过8项测试及同作业内小文件字节同值对照；未集成、未热改，完整Linux工程验收仍PENDING。原1CPU/8GiB/2小时作业继续，无自动延期或重投。见[诊断与候选](collab/20261104_udp_progress_io_bottleneck_codex.md)。以下为历史。
+
+
 ## 2026-11-03 用户授权Linux工程验证：181645已启动
 
 用户明确授权一次1CPU/8GiB/2小时，并要求进度页。181645实际提交、启动读回为RUNNING/NORMAL因果重放；普通程序更新http://127.0.0.1:18793/并取回小回执，最终工程验收PENDING。amd TmpDisk登记为0造成首次test-only拒绝，提交前仅去掉该不受支持字段，原失败与原脚本保留；实际节点空闲32GiB门及24GiB守卫仍执行，没有调度器磁盘预留保证。无正式外部评价、自动重投或AI持续监测。见[启动交付记录](collab/20261103_edge_v2_linux_gate_181645_start_codex.md)。以下为历史阶段。

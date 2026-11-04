@@ -1,0 +1,19 @@
+--- a/worker.py
++++ b/worker.py
+@@ -24,6 +24,7 @@
+ 
+ from checkpoint import atomic_json, canonical, require, sha
+ from streaming import ROOT, FrozenBackend, make_plan, module, run_encoding
++from progress_io import install as install_progress_io
+ 
+ HERE = Path(__file__).resolve().parent
+ SELECTION = ROOT/'runs/edge_query_selection_v1_20261103/seal20k/QUERY_SELECTION_SEAL.json'
+@@ -190,7 +191,7 @@
+             work.parent.mkdir(exist_ok=True)
+             # Bypass the old per-snapshot cache, while retaining its tested
+             # node-local numerical DB and per-physical-frame deadline hooks.
+-            with replay.install(adapter, output=output/'replay_status', cache_root=output/'unused_legacy_cache',
++            with install_progress_io(replay, sys.modules[__name__], output), replay.install(adapter, output=output/'replay_status', cache_root=output/'unused_legacy_cache',
+                 scratch_root=scratch, deadline=guard.started+guard.budget['wall_seconds']-120,
+                 guard=guard, heartbeat=guard.progress) as patched:
+                 patched.active = dict(role=role, frame=0, start=time.monotonic(),

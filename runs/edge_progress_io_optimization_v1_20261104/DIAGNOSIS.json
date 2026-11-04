@@ -1,0 +1,36 @@
+{
+  "schema": "EDGE_PROGRESS_IO_DIAGNOSIS_V1",
+  "utc": "2026-11-04T05:31:03.749774+00:00",
+  "status": "BOTTLENECK_OBSERVED_CANDIDATE_TESTED_NOT_DEPLOYED",
+  "job_id": "181645",
+  "worker_pid": 1319780,
+  "live_sample_count": 24,
+  "live_sample_seconds": 12,
+  "fsync_wait_samples": 24,
+  "worker_cpu_ticks_during_sample": 0,
+  "frame": 777593,
+  "role_seconds": 3215.6118517790455,
+  "append_seconds": 913.7088900634553,
+  "decode_seconds": 64.3122604212258,
+  "unattributed_seconds": 2237.5907012943644,
+  "warning": "Unattributed time is not a measured all-run fsync total. Twelve-second sample and four-write benchmark are local evidence, not full-run speedup or scientific parity.",
+  "scientific_worker_modified": false,
+  "running_job_modified": false,
+  "new_experiment_jobs": 0,
+  "diagnostic_steps_inside_existing_allocation": 3,
+  "diagnostic_steps": [
+    "12s supervisor read-only sample",
+    "12s worker read-only sample",
+    "four telemetry writes, 60s Slurm step cap"
+  ],
+  "integration_patch_applies": true,
+  "integration_compiles": true,
+  "next_independent_reviewer": "ANTIGRAVITY",
+  "source_pins": {
+    "runs/edge_formal_execution_v2_20261103/worker.py": "27d8d9ff23058405784ab077ef656829a192bda331a69658132157a276c25a39",
+    "runs/edge_preflight_io_repair_v1_20261103/replay_io.py": "034914f8e55cd61e033300b08c5407fe16986b991bf867e4a4488ff320bb261a",
+    "repo/ood/spill_mapping_v1.py": "f919f02351dc3cfc8255b2eec989c0b506221a9608b98c300fdcee316e93f4aa",
+    "repo/ood/continuous_input_v3.py": "a503c7b21c35234462a735d3890fa4cda918573ceeda072604e4bec6872b405d",
+    "runs/edge_progress_io_optimization_v1_20261104/progress_io.py": "dc0b8f06efeec489064ede1d57083f941807c88ee7a2872d35ebd8cafb32f1fb"
+  }
+}
