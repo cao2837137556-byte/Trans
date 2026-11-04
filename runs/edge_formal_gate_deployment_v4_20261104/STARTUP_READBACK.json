@@ -1,0 +1,77 @@
+{
+  "status": "AUTOMATED_PIPELINE_STARTED",
+  "observed_utc": "2026-11-04T13:42:02.046735+00:00",
+  "preflight_job_id": "181854",
+  "phase": "preflight",
+  "scheduler_state": "RUNNING",
+  "linux_preflight": "PENDING",
+  "linux_gate": "PENDING_NOT_SUBMITTED",
+  "pipeline_session_id": 43001,
+  "progress_server_session_id": 70974,
+  "progress_url": "http://127.0.0.1:18795/",
+  "automatic_resubmit": false,
+  "prior_udp_context_available": false,
+  "normal_http_adoption": "FULL_PAYLOAD_AUDIT_REQUIRED_IN_GATE",
+  "source_tests": 109,
+  "delivery_tests": 15,
+  "remote_receipt": "REMOTE_RECEIVER_IDENTITY.json",
+  "progress": {
+    "stage": "RUNNING",
+    "updated_utc": "2026-11-04T13:41:56.021270+00:00",
+    "cpu": 1,
+    "memory_gib": 8,
+    "wall_seconds": 7200,
+    "formal_external_evaluation": false,
+    "automatic_resubmit": false,
+    "message": "正在执行真实78端点小切片，预检未通过不会启动完整工程验证。",
+    "remote_prepare": {
+      "status": "PREPARING",
+      "stage": "VERIFY_FROZEN_RUNTIME_AND_AUTHORIZATION"
+    },
+    "job_id": "181854",
+    "phase": "preflight",
+    "replay_checkpoint": null,
+    "preflight_job_id": "181854",
+    "preflight_status": "PENDING",
+    "scheduler_state": "RUNNING",
+    "worker": {
+      "attempt_id": "be397465fd7947f18dd1af846087d27a",
+      "automatic_resubmit": false,
+      "batch_id": "b00007-f7ee700935ec251d",
+      "card_sha256": "a102bf35b20797971bf25803f274689631bf84f630fba532c7b1ea1d573274a3",
+      "elapsed_seconds": 252.01283261110075,
+      "formal_evaluation": false,
+      "logical_rows": 1,
+      "max_tree_rss_bytes": 1061109760,
+      "output_disk_bytes_60s_sampled_max": 573219,
+      "physical_rows": 16,
+      "scratch_disk_bytes_60s_sampled_max": 137925785,
+      "shape": [
+        6,
+        25,
+        12
+      ],
+      "stage": "PREFLIGHT_ENCODE_RESERVED"
+    },
+    "attempt_id": "be397465fd7947f18dd1af846087d27a",
+    "error": "",
+    "engineering_current": {
+      "attempt_id": "be397465fd7947f18dd1af846087d27a",
+      "card_sha256": "a102bf35b20797971bf25803f274689631bf84f630fba532c7b1ea1d573274a3",
+      "receipt": "engineering_attempts/be397465fd7947f18dd1af846087d27a/RUNNING.json",
+      "receipt_sha256": "bc99cda3c70a365c181d763229ca12d2fe616c9778af91373579c19a2300f71f",
+      "scope": "EDGE_FORMAL_WORKER_ENGINEERING_GATE",
+      "status": "RUNNING"
+    },
+    "attempt_receipt": {
+      "attempt_id": "be397465fd7947f18dd1af846087d27a",
+      "automatic_resubmit": false,
+      "card_sha256": "a102bf35b20797971bf25803f274689631bf84f630fba532c7b1ea1d573274a3",
+      "external_quality_computed": false,
+      "phase": "STARTING",
+      "schema": "EDGE_ENGINEERING_ATTEMPT_V2",
+      "scope": "EDGE_FORMAL_WORKER_ENGINEERING_GATE",
+      "status": "RUNNING"
+    }
+  }
+}

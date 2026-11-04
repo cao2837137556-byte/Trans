@@ -1,0 +1,11 @@
+test_arbitrary_pickle_globals_forbidden (test_replay_resume.ReplayResumeTests) ... ok
+test_changed_binding_cannot_load_checkpoint (test_replay_resume.ReplayResumeTests) ... ok
+test_frozen_states_ledgers_and_snapshot_suffix_survive_restart (test_replay_resume.ReplayResumeTests) ... ok
+test_incomplete_selected_prefix_cannot_be_checkpointed (test_replay_resume.ReplayResumeTests) ... ok
+test_real_process_death_before_or_after_commit (test_replay_resume.ReplayResumeTests) ... ok
+test_tampered_context_or_database_rejected_before_deserialization (test_replay_resume.ReplayResumeTests) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 4.000s
+
+OK

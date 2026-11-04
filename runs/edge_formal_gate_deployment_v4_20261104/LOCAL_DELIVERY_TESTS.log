@@ -1,0 +1,20 @@
+test_archive_paths_cannot_escape (test_delivery.DeliveryTests) ... ok
+test_confirmed_remote_receipt_reconciles_lost_response (test_delivery.DeliveryTests) ... ok
+test_gate_never_submits_after_failed_or_unknown_preflight (test_delivery.DeliveryTests) ... ok
+test_local_uncertain_submit_never_reposts (test_delivery.DeliveryTests) ... ok
+test_promotion_preserves_scientific_pins_and_budget (test_delivery.DeliveryTests) ... ok
+test_real_preflight_script_has_separate_budget_and_entry (test_delivery.DeliveryTests) ... ok
+test_remote_submit_once_and_no_retry_after_ambiguous_response (test_delivery.DeliveryTests) ... ok
+test_resource_contract_cannot_expand (test_delivery.DeliveryTests) ... ok
+test_site_adapter_identity_rejects_memory_or_time_edits (test_delivery.DeliveryTests) ... ok
+test_tmpdisk_adapter_changes_only_one_unsupported_directive (test_delivery.DeliveryTests) ... ok
+test_upload_requires_exact_offset_and_final_digest (test_delivery.DeliveryTests) ... ok
+test_wrong_chunk_never_written (test_delivery.DeliveryTests) ... ok
+test_acceptance_requires_bound_current_candidate_and_cannot_be_stale (test_preflight_acceptance.AcceptanceTests) ... ok
+test_old_pass_invalidated_by_fresh_running_attempt (test_preflight_acceptance.AcceptanceTests) ... ok
+test_scheduler_failures_and_changed_resource_contract_reject (test_preflight_acceptance.AcceptanceTests) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.793s
+
+OK

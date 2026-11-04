@@ -1,0 +1,24 @@
+{
+  "status": "PASS_LOCAL_V4_RESUME_PREFLIGHT_AND_GATE_PENDING",
+  "cards": {
+    "ENGINEERING_GATE_CARD_DRAFT.json": "9b1027934fe3f4cb363203ab0a1f366619cc389a65591e4af85cc155fef383d8",
+    "FORMAL_EXECUTION_CARD_DRAFT.json": "403da3335ed52fcc38e84f1193d29dbf548324ace664b4b3cf7bc3c89ac06d0e"
+  },
+  "local_tests": 109,
+  "scientific_code_unchanged": true,
+  "linux_preflight": "PENDING",
+  "linux_gate": "PENDING",
+  "independent_review": "USER_WAIVED",
+  "review_waiver_sha256": "69c2178e361d51e9463faefc01e15f9f488aba571bde217c07f7e75cbe70f531",
+  "automatic_resubmit": false,
+  "preflight_budget": {
+    "cpu": 1,
+    "memory_gib": 8,
+    "wall_seconds": 600
+  },
+  "full_gate_budget": {
+    "cpu": 1,
+    "memory_gib": 8,
+    "wall_seconds": 7200
+  }
+}

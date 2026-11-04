@@ -1,0 +1,1715 @@
+{
+  "schema": "EDGE_LINUX_MEASURED_BUDGET_SCENARIOS_V1",
+  "status": "PLANNING_SCENARIOS_NOT_A_CERTIFIED_FULL_PIPELINE_BOUND",
+  "input_pins": [
+    {
+      "path": "runs/edge_preflight_io_repair_v1_20261103/LINUX_PREFLIGHT_RESULT_181418.json",
+      "bytes": 42649,
+      "sha256": "c6b95240260936a6c138dec8f464282603e9707dd7a19028d534e1b6623a5ebc"
+    },
+    {
+      "path": "runs/edge_query_selection_v1_20261103/shapes_v2/SHAPE_CENSUS.json",
+      "bytes": 18345,
+      "sha256": "c70fa16dcb07a08883db192ce407cb38161dfb8f6109e04b727cfc45bd2cbc25"
+    },
+    {
+      "path": "runs/edge_query_selection_v1_20261103/seal20k/QUERY_SELECTION_SEAL.json",
+      "bytes": 6271,
+      "sha256": "ecb7bd84ae1ff2005e98bb750f1d4f5aac10f09487189e489ad73c583efa6f08"
+    },
+    {
+      "path": "runs/edge_query_selection_v1_20261103/EXECUTION_OVERLAY.json",
+      "bytes": 4815,
+      "sha256": "3fed1bdae6234deff3d34b9f5ac3e7c36b8ffc3250d17a9ba753449045b4e632"
+    },
+    {
+      "path": "runs/edge_formal_execution_v1_20261103/UDP_PROBE_RESULT.json",
+      "bytes": 5396,
+      "sha256": "95fdbc07fd4dbc15c22884b16027e623b4cda448574538ae122871afe233e8c8"
+    },
+    {
+      "path": "runs/edge_preflight_io_repair_v1_20261103/REAL_REPLAY_VALIDATION.json",
+      "bytes": 2102,
+      "sha256": "2d3f4f03c7e8350b3a5da384413ac566b5a19ff2d6d223cbcf7d1cae3b4d75fb"
+    }
+  ],
+  "exact_target_roles": {
+    "NORMAL": {
+      "raw_records": 1629749,
+      "target_rows": 24124
+    },
+    "HTTP": {
+      "raw_records": 229142,
+      "target_rows": 20000
+    },
+    "UDP": {
+      "raw_records": 3215732,
+      "target_rows": 20000
+    }
+  },
+  "query_rows": 60000,
+  "reference_rows": 4124,
+  "exact_target_shapes": 73,
+  "raw_prefix_measured": {
+    "NORMAL": 255220,
+    "HTTP": 228978,
+    "UDP": 16
+  },
+  "shape_coverage": {
+    "full_population_shapes": 82,
+    "selected_target_shapes": 73,
+    "measured_shapes": 21,
+    "unmeasured_full_shapes": 61,
+    "unmeasured_target_shapes": 52,
+    "interpretation": "Only selected endpoint shapes require formal encoder forwards; all original packets still enter causal context."
+  },
+  "full_raw_records": 5074623,
+  "frozen_batch_size": 16,
+  "input_dedup": false,
+  "encoding": {
+    "logical_rows": 64124,
+    "physical_rows": 64244,
+    "batches": 4046,
+    "exact_shape_rows": 58202,
+    "unmeasured_shape_rows": 5922,
+    "estimated_seconds": 44431.96256600529,
+    "shapes": [
+      {
+        "shape": [
+          6,
+          13,
+          1
+        ],
+        "logical_rows": 2796,
+        "physical_rows": 2796,
+        "batches": 175,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            13,
+            1
+          ]
+        ],
+        "seconds_per_physical_row": 0.1819321582559496,
+        "estimated_seconds": 508.6823144836351
+      },
+      {
+        "shape": [
+          6,
+          13,
+          2
+        ],
+        "logical_rows": 2695,
+        "physical_rows": 2695,
+        "batches": 169,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            13,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 0.22284212608991022,
+        "estimated_seconds": 600.559529812308
+      },
+      {
+        "shape": [
+          6,
+          13,
+          3
+        ],
+        "logical_rows": 1782,
+        "physical_rows": 1782,
+        "batches": 112,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            13,
+            3
+          ]
+        ],
+        "seconds_per_physical_row": 0.10329201661807019,
+        "estimated_seconds": 184.06637361340108
+      },
+      {
+        "shape": [
+          6,
+          13,
+          4
+        ],
+        "logical_rows": 2145,
+        "physical_rows": 2160,
+        "batches": 135,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            13,
+            4
+          ]
+        ],
+        "seconds_per_physical_row": 0.14017929199326318,
+        "estimated_seconds": 302.78727070544846
+      },
+      {
+        "shape": [
+          6,
+          13,
+          5
+        ],
+        "logical_rows": 1406,
+        "physical_rows": 1406,
+        "batches": 88,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            13,
+            12
+          ],
+          [
+            6,
+            25,
+            6
+          ],
+          [
+            6,
+            61,
+            5
+          ]
+        ],
+        "seconds_per_physical_row": 0.7700552741298452,
+        "estimated_seconds": 1082.6977154265624
+      },
+      {
+        "shape": [
+          6,
+          13,
+          6
+        ],
+        "logical_rows": 1151,
+        "physical_rows": 1151,
+        "batches": 72,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            13,
+            12
+          ],
+          [
+            6,
+            25,
+            6
+          ]
+        ],
+        "seconds_per_physical_row": 0.7700552741298452,
+        "estimated_seconds": 886.3336205234518
+      },
+      {
+        "shape": [
+          6,
+          13,
+          7
+        ],
+        "logical_rows": 316,
+        "physical_rows": 316,
+        "batches": 20,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            13,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 0.7700552741298452,
+        "estimated_seconds": 243.33746662503108
+      },
+      {
+        "shape": [
+          6,
+          13,
+          8
+        ],
+        "logical_rows": 283,
+        "physical_rows": 283,
+        "batches": 18,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            13,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 0.7700552741298452,
+        "estimated_seconds": 217.9256425787462
+      },
+      {
+        "shape": [
+          6,
+          13,
+          9
+        ],
+        "logical_rows": 306,
+        "physical_rows": 306,
+        "batches": 20,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            13,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 0.7700552741298452,
+        "estimated_seconds": 235.63691388373263
+      },
+      {
+        "shape": [
+          6,
+          13,
+          10
+        ],
+        "logical_rows": 256,
+        "physical_rows": 256,
+        "batches": 16,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            13,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 0.7700552741298452,
+        "estimated_seconds": 197.13415017724037
+      },
+      {
+        "shape": [
+          6,
+          13,
+          11
+        ],
+        "logical_rows": 311,
+        "physical_rows": 311,
+        "batches": 20,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            13,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 0.7700552741298452,
+        "estimated_seconds": 239.48719025438186
+      },
+      {
+        "shape": [
+          6,
+          13,
+          12
+        ],
+        "logical_rows": 6433,
+        "physical_rows": 6448,
+        "batches": 403,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            13,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 0.7700552741298452,
+        "estimated_seconds": 4965.316407589242
+      },
+      {
+        "shape": [
+          6,
+          25,
+          2
+        ],
+        "logical_rows": 2282,
+        "physical_rows": 2282,
+        "batches": 143,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            25,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 1.0727402373837929,
+        "estimated_seconds": 2447.9932217098153
+      },
+      {
+        "shape": [
+          6,
+          25,
+          3
+        ],
+        "logical_rows": 33,
+        "physical_rows": 48,
+        "batches": 3,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            25,
+            6
+          ],
+          [
+            6,
+            61,
+            3
+          ]
+        ],
+        "seconds_per_physical_row": 0.39212664432125166,
+        "estimated_seconds": 18.82207892742008
+      },
+      {
+        "shape": [
+          6,
+          25,
+          4
+        ],
+        "logical_rows": 111,
+        "physical_rows": 111,
+        "batches": 7,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            25,
+            6
+          ],
+          [
+            6,
+            61,
+            4
+          ]
+        ],
+        "seconds_per_physical_row": 0.6062042500125244,
+        "estimated_seconds": 67.28867175139021
+      },
+      {
+        "shape": [
+          6,
+          25,
+          5
+        ],
+        "logical_rows": 78,
+        "physical_rows": 78,
+        "batches": 5,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            25,
+            6
+          ],
+          [
+            6,
+            61,
+            5
+          ]
+        ],
+        "seconds_per_physical_row": 0.6587952990084887,
+        "estimated_seconds": 51.386033322662115
+      },
+      {
+        "shape": [
+          6,
+          25,
+          6
+        ],
+        "logical_rows": 78,
+        "physical_rows": 78,
+        "batches": 5,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            25,
+            6
+          ]
+        ],
+        "seconds_per_physical_row": 0.36963688500691205,
+        "estimated_seconds": 28.83167703053914
+      },
+      {
+        "shape": [
+          6,
+          25,
+          7
+        ],
+        "logical_rows": 87,
+        "physical_rows": 87,
+        "batches": 6,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            25,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 1.352660788630601,
+        "estimated_seconds": 117.68148861086229
+      },
+      {
+        "shape": [
+          6,
+          25,
+          8
+        ],
+        "logical_rows": 121,
+        "physical_rows": 121,
+        "batches": 8,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            25,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 1.352660788630601,
+        "estimated_seconds": 163.67195542430272
+      },
+      {
+        "shape": [
+          6,
+          25,
+          9
+        ],
+        "logical_rows": 147,
+        "physical_rows": 147,
+        "batches": 10,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            25,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 1.352660788630601,
+        "estimated_seconds": 198.84113592869835
+      },
+      {
+        "shape": [
+          6,
+          25,
+          10
+        ],
+        "logical_rows": 107,
+        "physical_rows": 107,
+        "batches": 7,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            25,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 1.352660788630601,
+        "estimated_seconds": 144.7347043834743
+      },
+      {
+        "shape": [
+          6,
+          25,
+          11
+        ],
+        "logical_rows": 110,
+        "physical_rows": 110,
+        "batches": 7,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            25,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 1.352660788630601,
+        "estimated_seconds": 148.7926867493661
+      },
+      {
+        "shape": [
+          6,
+          25,
+          12
+        ],
+        "logical_rows": 2246,
+        "physical_rows": 2246,
+        "batches": 141,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            25,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 1.352660788630601,
+        "estimated_seconds": 3038.07613126433
+      },
+      {
+        "shape": [
+          6,
+          37,
+          2
+        ],
+        "logical_rows": 2303,
+        "physical_rows": 2303,
+        "batches": 144,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            37,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 1.311928047022472,
+        "estimated_seconds": 3021.3702922927528
+      },
+      {
+        "shape": [
+          6,
+          37,
+          3
+        ],
+        "logical_rows": 27,
+        "physical_rows": 27,
+        "batches": 2,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            61,
+            3
+          ]
+        ],
+        "seconds_per_physical_row": 0.39212664432125166,
+        "estimated_seconds": 10.587419396673795
+      },
+      {
+        "shape": [
+          6,
+          37,
+          4
+        ],
+        "logical_rows": 169,
+        "physical_rows": 169,
+        "batches": 11,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            61,
+            4
+          ]
+        ],
+        "seconds_per_physical_row": 0.6062042500125244,
+        "estimated_seconds": 102.44851825211663
+      },
+      {
+        "shape": [
+          6,
+          37,
+          5
+        ],
+        "logical_rows": 63,
+        "physical_rows": 63,
+        "batches": 4,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            61,
+            5
+          ]
+        ],
+        "seconds_per_physical_row": 0.6587952990084887,
+        "estimated_seconds": 41.504103837534785
+      },
+      {
+        "shape": [
+          6,
+          37,
+          6
+        ],
+        "logical_rows": 42,
+        "physical_rows": 42,
+        "batches": 3,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            61,
+            6
+          ]
+        ],
+        "seconds_per_physical_row": 0.7995348643356314,
+        "estimated_seconds": 33.580464302096516
+      },
+      {
+        "shape": [
+          6,
+          37,
+          7
+        ],
+        "logical_rows": 27,
+        "physical_rows": 27,
+        "batches": 2,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 103.2580850469094
+      },
+      {
+        "shape": [
+          6,
+          37,
+          8
+        ],
+        "logical_rows": 30,
+        "physical_rows": 30,
+        "batches": 2,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 114.73120560767711
+      },
+      {
+        "shape": [
+          6,
+          37,
+          9
+        ],
+        "logical_rows": 10,
+        "physical_rows": 10,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 38.24373520255904
+      },
+      {
+        "shape": [
+          6,
+          37,
+          10
+        ],
+        "logical_rows": 5,
+        "physical_rows": 5,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 19.12186760127952
+      },
+      {
+        "shape": [
+          6,
+          37,
+          11
+        ],
+        "logical_rows": 2,
+        "physical_rows": 2,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 7.648747040511807
+      },
+      {
+        "shape": [
+          6,
+          37,
+          12
+        ],
+        "logical_rows": 49,
+        "physical_rows": 64,
+        "batches": 4,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 244.75990529637784
+      },
+      {
+        "shape": [
+          6,
+          49,
+          2
+        ],
+        "logical_rows": 2230,
+        "physical_rows": 2230,
+        "batches": 140,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            49,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 1.7158594883512706,
+        "estimated_seconds": 3826.3666590233333
+      },
+      {
+        "shape": [
+          6,
+          49,
+          3
+        ],
+        "logical_rows": 9,
+        "physical_rows": 9,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            61,
+            3
+          ]
+        ],
+        "seconds_per_physical_row": 0.39212664432125166,
+        "estimated_seconds": 3.529139798891265
+      },
+      {
+        "shape": [
+          6,
+          49,
+          4
+        ],
+        "logical_rows": 83,
+        "physical_rows": 83,
+        "batches": 6,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            61,
+            4
+          ]
+        ],
+        "seconds_per_physical_row": 0.6062042500125244,
+        "estimated_seconds": 50.31495275103953
+      },
+      {
+        "shape": [
+          6,
+          49,
+          5
+        ],
+        "logical_rows": 33,
+        "physical_rows": 48,
+        "batches": 3,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            61,
+            5
+          ]
+        ],
+        "seconds_per_physical_row": 0.6587952990084887,
+        "estimated_seconds": 31.622174352407455
+      },
+      {
+        "shape": [
+          6,
+          49,
+          6
+        ],
+        "logical_rows": 30,
+        "physical_rows": 30,
+        "batches": 2,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            61,
+            6
+          ]
+        ],
+        "seconds_per_physical_row": 0.7995348643356314,
+        "estimated_seconds": 23.98604593006894
+      },
+      {
+        "shape": [
+          6,
+          49,
+          7
+        ],
+        "logical_rows": 21,
+        "physical_rows": 21,
+        "batches": 2,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 80.31184392537398
+      },
+      {
+        "shape": [
+          6,
+          49,
+          8
+        ],
+        "logical_rows": 27,
+        "physical_rows": 27,
+        "batches": 2,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 103.2580850469094
+      },
+      {
+        "shape": [
+          6,
+          49,
+          9
+        ],
+        "logical_rows": 4,
+        "physical_rows": 4,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 15.297494081023615
+      },
+      {
+        "shape": [
+          6,
+          49,
+          10
+        ],
+        "logical_rows": 12,
+        "physical_rows": 12,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 45.892482243070845
+      },
+      {
+        "shape": [
+          6,
+          49,
+          12
+        ],
+        "logical_rows": 6,
+        "physical_rows": 6,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 22.946241121535422
+      },
+      {
+        "shape": [
+          6,
+          61,
+          2
+        ],
+        "logical_rows": 3128,
+        "physical_rows": 3128,
+        "batches": 196,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            61,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 2.9496202644659206,
+        "estimated_seconds": 9226.4121872494
+      },
+      {
+        "shape": [
+          6,
+          61,
+          3
+        ],
+        "logical_rows": 1125,
+        "physical_rows": 1125,
+        "batches": 71,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            61,
+            3
+          ]
+        ],
+        "seconds_per_physical_row": 0.39212664432125166,
+        "estimated_seconds": 441.1424748614081
+      },
+      {
+        "shape": [
+          6,
+          61,
+          4
+        ],
+        "logical_rows": 737,
+        "physical_rows": 752,
+        "batches": 47,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            61,
+            4
+          ]
+        ],
+        "seconds_per_physical_row": 0.6062042500125244,
+        "estimated_seconds": 455.86559600941837
+      },
+      {
+        "shape": [
+          6,
+          61,
+          5
+        ],
+        "logical_rows": 344,
+        "physical_rows": 344,
+        "batches": 22,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            61,
+            5
+          ]
+        ],
+        "seconds_per_physical_row": 0.6587952990084887,
+        "estimated_seconds": 226.6255828589201
+      },
+      {
+        "shape": [
+          6,
+          61,
+          6
+        ],
+        "logical_rows": 999,
+        "physical_rows": 999,
+        "batches": 63,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            61,
+            6
+          ]
+        ],
+        "seconds_per_physical_row": 0.7995348643356314,
+        "estimated_seconds": 798.7353294712957
+      },
+      {
+        "shape": [
+          6,
+          61,
+          7
+        ],
+        "logical_rows": 18,
+        "physical_rows": 18,
+        "batches": 2,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 68.83872336460627
+      },
+      {
+        "shape": [
+          6,
+          61,
+          8
+        ],
+        "logical_rows": 15,
+        "physical_rows": 15,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 57.365602803838556
+      },
+      {
+        "shape": [
+          6,
+          61,
+          9
+        ],
+        "logical_rows": 19,
+        "physical_rows": 19,
+        "batches": 2,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 72.66309688486217
+      },
+      {
+        "shape": [
+          6,
+          61,
+          10
+        ],
+        "logical_rows": 24,
+        "physical_rows": 24,
+        "batches": 2,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 91.78496448614169
+      },
+      {
+        "shape": [
+          6,
+          73,
+          2
+        ],
+        "logical_rows": 3075,
+        "physical_rows": 3075,
+        "batches": 193,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 0.6658071256824769,
+        "estimated_seconds": 2047.3569114736165
+      },
+      {
+        "shape": [
+          6,
+          73,
+          3
+        ],
+        "logical_rows": 1122,
+        "physical_rows": 1122,
+        "batches": 71,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            3
+          ]
+        ],
+        "seconds_per_physical_row": 0.9914338355592918,
+        "estimated_seconds": 1112.3887634975254
+      },
+      {
+        "shape": [
+          6,
+          73,
+          4
+        ],
+        "logical_rows": 2394,
+        "physical_rows": 2394,
+        "batches": 150,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            4
+          ]
+        ],
+        "seconds_per_physical_row": 1.3315481640020153,
+        "estimated_seconds": 3187.7263046208245
+      },
+      {
+        "shape": [
+          6,
+          73,
+          5
+        ],
+        "logical_rows": 106,
+        "physical_rows": 106,
+        "batches": 7,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 405.3835931471258
+      },
+      {
+        "shape": [
+          6,
+          73,
+          6
+        ],
+        "logical_rows": 9,
+        "physical_rows": 9,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 34.41936168230313
+      },
+      {
+        "shape": [
+          6,
+          73,
+          7
+        ],
+        "logical_rows": 10,
+        "physical_rows": 10,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 38.24373520255904
+      },
+      {
+        "shape": [
+          6,
+          73,
+          9
+        ],
+        "logical_rows": 6,
+        "physical_rows": 6,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 22.946241121535422
+      },
+      {
+        "shape": [
+          6,
+          73,
+          10
+        ],
+        "logical_rows": 3,
+        "physical_rows": 3,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 11.473120560767711
+      },
+      {
+        "shape": [
+          6,
+          73,
+          11
+        ],
+        "logical_rows": 2,
+        "physical_rows": 2,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_DOMINATING_SHAPE_SCENARIO",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 7.648747040511807
+      },
+      {
+        "shape": [
+          6,
+          73,
+          12
+        ],
+        "logical_rows": 1,
+        "physical_rows": 16,
+        "batches": 1,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            6,
+            73,
+            12
+          ]
+        ],
+        "seconds_per_physical_row": 3.8243735202559037,
+        "estimated_seconds": 61.18997632409446
+      },
+      {
+        "shape": [
+          17,
+          7,
+          1
+        ],
+        "logical_rows": 20179,
+        "physical_rows": 20179,
+        "batches": 1262,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            17,
+            7,
+            1
+          ]
+        ],
+        "seconds_per_physical_row": 0.09505630005151033,
+        "estimated_seconds": 1918.141078739427
+      },
+      {
+        "shape": [
+          17,
+          7,
+          2
+        ],
+        "logical_rows": 108,
+        "physical_rows": 108,
+        "batches": 7,
+        "measurement_kind": "EXACT_SHAPE_PHYSICAL_ROW_RATE",
+        "proxy_shapes": [
+          [
+            17,
+            7,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 0.0476612751808716,
+        "estimated_seconds": 5.147417719534133
+      },
+      {
+        "shape": [
+          17,
+          7,
+          3
+        ],
+        "logical_rows": 13,
+        "physical_rows": 13,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_TOKEN_AREA_EXTRAPOLATION",
+        "proxy_shapes": [
+          [
+            17,
+            7,
+            1
+          ],
+          [
+            17,
+            7,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 0.285168900154531,
+        "estimated_seconds": 3.707195702008903
+      },
+      {
+        "shape": [
+          17,
+          7,
+          5
+        ],
+        "logical_rows": 2,
+        "physical_rows": 2,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_TOKEN_AREA_EXTRAPOLATION",
+        "proxy_shapes": [
+          [
+            17,
+            7,
+            1
+          ],
+          [
+            17,
+            7,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 0.47528150025755167,
+        "estimated_seconds": 0.9505630005151033
+      },
+      {
+        "shape": [
+          17,
+          7,
+          6
+        ],
+        "logical_rows": 3,
+        "physical_rows": 3,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_TOKEN_AREA_EXTRAPOLATION",
+        "proxy_shapes": [
+          [
+            17,
+            7,
+            1
+          ],
+          [
+            17,
+            7,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 0.570337800309062,
+        "estimated_seconds": 1.711013400927186
+      },
+      {
+        "shape": [
+          17,
+          7,
+          7
+        ],
+        "logical_rows": 2,
+        "physical_rows": 2,
+        "batches": 1,
+        "measurement_kind": "UNMEASURED_TOKEN_AREA_EXTRAPOLATION",
+        "proxy_shapes": [
+          [
+            17,
+            7,
+            1
+          ],
+          [
+            17,
+            7,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 0.6653941003605723,
+        "estimated_seconds": 1.3307882007211447
+      },
+      {
+        "shape": [
+          17,
+          13,
+          1
+        ],
+        "logical_rows": 42,
+        "physical_rows": 42,
+        "batches": 3,
+        "measurement_kind": "UNMEASURED_TOKEN_AREA_EXTRAPOLATION",
+        "proxy_shapes": [
+          [
+            17,
+            7,
+            1
+          ],
+          [
+            17,
+            7,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 0.17653312866709062,
+        "estimated_seconds": 7.414391404017806
+      },
+      {
+        "shape": [
+          17,
+          13,
+          2
+        ],
+        "logical_rows": 81,
+        "physical_rows": 96,
+        "batches": 6,
+        "measurement_kind": "UNMEASURED_TOKEN_AREA_EXTRAPOLATION",
+        "proxy_shapes": [
+          [
+            17,
+            7,
+            1
+          ],
+          [
+            17,
+            7,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 0.35306625733418123,
+        "estimated_seconds": 33.8943607040814
+      },
+      {
+        "shape": [
+          17,
+          19,
+          2
+        ],
+        "logical_rows": 24,
+        "physical_rows": 24,
+        "batches": 2,
+        "measurement_kind": "UNMEASURED_TOKEN_AREA_EXTRAPOLATION",
+        "proxy_shapes": [
+          [
+            17,
+            7,
+            1
+          ],
+          [
+            17,
+            7,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 0.5160199145653418,
+        "estimated_seconds": 12.384477949568204
+      },
+      {
+        "shape": [
+          17,
+          25,
+          2
+        ],
+        "logical_rows": 71,
+        "physical_rows": 71,
+        "batches": 5,
+        "measurement_kind": "UNMEASURED_TOKEN_AREA_EXTRAPOLATION",
+        "proxy_shapes": [
+          [
+            17,
+            7,
+            1
+          ],
+          [
+            17,
+            7,
+            2
+          ]
+        ],
+        "seconds_per_physical_row": 0.6789735717965024,
+        "estimated_seconds": 48.20712359755167
+      }
+    ],
+    "safety_multiplier": 2.5,
+    "planning_seconds": 111079.90641501323,
+    "multiplier_is_assumption": true,
+    "strict_probe_seconds_not_added_per_batch": true,
+    "limitation": "Target shape census exact; unmeasured shape dominance/throughput and large-batch scaling are engineering assumptions, not wall-time bounds."
+  },
+  "decode": {
+    "local_udp_probe_rows": 32768,
+    "local_udp_probe_seconds": 8.139999999999418,
+    "local_udp_full_linear_seconds": 798.8299096679116,
+    "observed_linux_prefix_vs_windows_factor": 1.9645440911755734,
+    "planning_slowdown_multiplier": 3.0,
+    "planning_seconds": 6246.19435844691,
+    "linux_full_prefix_measured": false,
+    "limitations": [
+      "UDP 32k Windows probe is not Linux throughput.",
+      "Full TShark conversation/state-table growth and later-prefix I/O remain unmeasured.",
+      "All original physical packets remain in causal state; sampling changes encoding endpoints only."
+    ]
+  },
+  "distances": {
+    "two_pass_upper_pairs": 324756408,
+    "fixture_pairs": 1320,
+    "fixture_seconds": 0.04903008393011987,
+    "linear_fixture_projection_seconds": 12062.752985669887,
+    "planning_seconds": 24125.505971339775,
+    "isolated_full_bank_kernel_measurement": false,
+    "limitation": "Tiny fixture includes heads/setup; linear scaling is a deliberately padded scenario, not an empirical full-bank upper bound."
+  },
+  "planning_total_seconds": 143251.6067447999,
+  "planning_total_hours": 39.792112984666645,
+  "conditional_scenario_without_additional_multipliers": {
+    "encoding_seconds": 44431.96256600529,
+    "replay_seconds": 2082.06478614897,
+    "distance_seconds": 12062.752985669887,
+    "fixed_seconds": 1800.0,
+    "total_seconds": 60376.78033782415,
+    "total_hours": 16.77132787161782,
+    "fits_24h": true,
+    "interpretation": "Conditional projection only. Uses tiny variable-size encoder batches, proxy shapes, Windows/Linux prefix scaling and tiny-fixture distance scaling. Not a measured formal runtime or permission to run."
+  },
+  "fixed_overhead_allowance_seconds": 1800.0,
+  "quota_decision": {
+    "certified_largest_K": null,
+    "requested_base_K": 20000,
+    "pre_registered_K_range": [
+      10000,
+      20000
+    ],
+    "scenario_fits_24h": false,
+    "reason": "No complete Linux streaming/late-prefix/recovery measurement. Do not seal a lower K by proportional shape scaling: references stay fixed and re-selection changes shape mix.",
+    "quality_scores_used": false,
+    "new_derived_seal_required_if_resized": true
+  },
+  "resources": {
+    "proposed_cpu_threads": 1,
+    "proposed_rss_bytes": 8589934592,
+    "proposed_scratch_bytes": 34359738368,
+    "proposed_durable_output_bytes": 17179869184,
+    "proposed_wall_seconds": 86400,
+    "measured_linux_preflight_peak_tree_rss_bytes": 1237692416,
+    "udp_local_peak_tree_rss_bytes": 186548224,
+    "udp_full_db_linear_projection_bytes": 4178045690,
+    "udp_db_2x_planning_bytes": 8356091379,
+    "E3_bytes": 196988928,
+    "q14_bytes": 3590944,
+    "complete_snapshot_bytes_unknown": true,
+    "durable_includes_models_raw_arrays_checkpoints": true,
+    "local_retrieval": "SMALL_RECEIPTS_AND_SUMMARIES_ONLY_REMOTE_ARRAYS_REMAIN_REMOTE",
+    "hard_resource_guards_required": true,
+    "limitation": "Resource proposal with headroom, not a measured guarantee. Snapshot spooling, full decoder RSS and numerical-state late growth must be checked."
+  },
+  "blockers_before_claiming_formal_ready": [
+    "Final streaming worker snapshot/checkpoint storage bound and killed-worker byte-exact recovery gate.",
+    "Full or defensibly bounded Linux late-prefix decode/resource measurement, especially UDP.",
+    "Representative large-bank distance throughput measurement or explicitly approved conservative hard-stop budget.",
+    "Final complete execution card and independent review; explicit formal-run user authorization."
+  ],
+  "proposed_bounded_linux_engineering_validation": {
+    "submitted": false,
+    "requires_separate_resource_authorization": true,
+    "cpu_threads": 1,
+    "requested_rss_bytes": 8589934592,
+    "requested_scratch_bytes": 34359738368,
+    "hard_wall_seconds": 7200,
+    "hard_temporary_bytes": 25769803776,
+    "local_retrieval": "RECEIPTS_ONLY",
+    "quality_outputs": "DISCARD_NO_QUALITY_REPORT",
+    "steps": [
+      "Use the actual formal worker and pinned contracts; deliberately kill after an atomic shard, resume, and compare uninterrupted vs resumed arrays byte for byte on a fixed small real slice.",
+      "Causally replay the raw UDP stream from frame 1 through EOF with numerical spill state, preserving all original packets. Emit periodic live TShark+worker RSS and disk/rate samples, including the final 10 percent; no model/quality outputs for the scan.",
+      "In the same causal replay mechanism, collect only predetermined real representatives needed for missing selected target shapes. Benchmark exact-shape batch16 with deterministic engineering clones if fewer than16 real endpoints exist. Hard overall deadline applies; incomplete coverage remains BLOCKED.",
+      "Benchmark the actual distance kernels at 4124 reference rows on fixed synthetic embeddings/descriptors, bounded to query blocks no larger than4096; retain timings/checksums only, not external predictions.",
+      "Recompute the base20k scenario from observed batch16 throughput, complete UDP replay and full-bank kernel timing. Retain K20k unless a separately sealed metadata-only resize is required and authorized."
+    ],
+    "success_requires": [
+      "Killed-worker resume equality and input seal/hash equality.",
+      "UDP EOF reached with live late-prefix resource samples inside hard guards.",
+      "Sufficient true target-shape batch16 timing coverage or an explicit conservative remaining uncertainty; no claim that unmeasured shapes passed.",
+      "Full-bank kernel timing, durable/scratch accounting and a reviewed total budget before formal evaluation."
+    ],
+    "on_cap": "Preserve validated atomic shards and failure/resource receipts, stop without automatic resubmission; no scientific metrics are accepted."
+  },
+  "training": false,
+  "model_calls_this_analysis": 0,
+  "external_quality_values_used": false,
+  "new_cloud_jobs_submitted": 0
+}
