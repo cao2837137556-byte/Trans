@@ -1,0 +1,108 @@
+{
+  "cloud_jobs_submitted": 0,
+  "external_quality_evaluations": 0,
+  "groups": [
+    {
+      "capture_id": "EDGE_HTTP",
+      "population_blocks": 5,
+      "scenario": "HTTP",
+      "selected_rows": 20000,
+      "source_role": "HTTP",
+      "zero_eligible_blocks": 0,
+      "zero_selected_blocks": 0
+    },
+    {
+      "capture_id": "EDGE_NORMAL_SEGMENT_1",
+      "population_blocks": 528,
+      "scenario": "NORMAL",
+      "selected_rows": 7943,
+      "source_role": "NORMAL",
+      "zero_eligible_blocks": 9,
+      "zero_selected_blocks": 10
+    },
+    {
+      "capture_id": "EDGE_NORMAL_SEGMENT_2",
+      "population_blocks": 436,
+      "scenario": "NORMAL",
+      "selected_rows": 6376,
+      "source_role": "NORMAL",
+      "zero_eligible_blocks": 23,
+      "zero_selected_blocks": 24
+    },
+    {
+      "capture_id": "EDGE_NORMAL_SEGMENT_3",
+      "population_blocks": 192,
+      "scenario": "NORMAL",
+      "selected_rows": 2811,
+      "source_role": "NORMAL",
+      "zero_eligible_blocks": 0,
+      "zero_selected_blocks": 0
+    },
+    {
+      "capture_id": "EDGE_NORMAL_SEGMENT_4",
+      "population_blocks": 163,
+      "scenario": "NORMAL",
+      "selected_rows": 2492,
+      "source_role": "NORMAL",
+      "zero_eligible_blocks": 0,
+      "zero_selected_blocks": 0
+    },
+    {
+      "capture_id": "EDGE_NORMAL_SEGMENT_5",
+      "population_blocks": 19,
+      "scenario": "NORMAL",
+      "selected_rows": 378,
+      "source_role": "NORMAL",
+      "zero_eligible_blocks": 0,
+      "zero_selected_blocks": 0
+    },
+    {
+      "capture_id": "EDGE_UDP",
+      "population_blocks": 7,
+      "scenario": "UDP",
+      "selected_rows": 20000,
+      "source_role": "UDP",
+      "zero_eligible_blocks": 0,
+      "zero_selected_blocks": 0
+    }
+  ],
+  "input_pins": {
+    "runs\\edge_formal_execution_v2_20261103\\POPULATION_TEMPORAL_CENSUS.json": "3e25ef721496303a78f6ff0d8ef1723486dd96f9ca84e2bbd523d613b03d6c52",
+    "runs\\edge_query_selection_v1_20261103\\seal20k\\HTTP_SELECTED_QUERIES.jsonl.gz": "0d49f8b06bba7d29915e7ba92f7cff5089ee3a5e41b8c213cf680f04c92ab2b6",
+    "runs\\edge_query_selection_v1_20261103\\seal20k\\NORMAL_SELECTED_QUERIES.jsonl.gz": "a53aff809904187bf59891d35ff4b0018cd2b7af111d3eae749dba974bbec563",
+    "runs\\edge_query_selection_v1_20261103\\seal20k\\QUERY_SELECTION_SEAL.json": "ecb7bd84ae1ff2005e98bb750f1d4f5aac10f09487189e489ad73c583efa6f08",
+    "runs\\edge_query_selection_v1_20261103\\seal20k\\REFERENCE_UIDS.txt": "33baa3301a02a0ec06bf394b2ff6a75febb9d2be62f9cbf21c4e5bf7a765e1c0",
+    "runs\\edge_query_selection_v1_20261103\\seal20k\\UDP_SELECTED_QUERIES.jsonl.gz": "a0e1ad31a491c9fdcc5a3bab049779558a6b39f5f5c740d0c3b1541bb64295e2"
+  },
+  "model_calls": 0,
+  "normal_selected_components": 17025,
+  "raw_packets_read": false,
+  "reference_query_overlap": 0,
+  "roles": {
+    "HTTP": {
+      "expanded_selected_count": {
+        "denominator": 1,
+        "numerator": 152352
+      },
+      "known_population_count": 152352,
+      "selected_rows": 20000
+    },
+    "NORMAL": {
+      "expanded_selected_count": {
+        "denominator": 1,
+        "numerator": 1220126
+      },
+      "known_population_count": 1220126,
+      "selected_rows": 20000
+    },
+    "UDP": {
+      "expanded_selected_count": {
+        "denominator": 1,
+        "numerator": 2898830
+      },
+      "known_population_count": 2898830,
+      "selected_rows": 20000
+    }
+  },
+  "status": "PASS_REAL_SELECTED_METADATA_JOIN_AND_DENOMINATORS"
+}
