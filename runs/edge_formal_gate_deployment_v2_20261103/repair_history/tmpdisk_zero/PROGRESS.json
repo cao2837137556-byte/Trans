@@ -1,0 +1,15 @@
+{
+  "stage": "STOP",
+  "updated_utc": "2026-11-04T04:07:21.961810+00:00",
+  "cpu": 1,
+  "memory_gib": 8,
+  "wall_seconds": 7200,
+  "formal_external_evaluation": false,
+  "automatic_resubmit": false,
+  "message": "交付或验收出现故障，未自动重投。",
+  "remote_prepare": {
+    "status": "PREPARING",
+    "stage": "VERIFY_FROZEN_RUNTIME_AND_AUTHORIZATION"
+  },
+  "error": "ValueError:REMOTE_PREPARATION_FAILED:ValueError('SLURM_RESOURCE_REQUEST_REJECTED:allocation failure: Requested node configuration is not available\\n')"
+}
