@@ -76,14 +76,14 @@ def retrieve(state):
     progress('RETRIEVING',job_id=state['job']['job_id'],message='只取回小型回执和日志，完整spool与编码批次保留超算。')
     connection,response=request('results',timeout=120)
     try:
-        size=int(response.getheader('Content-Length'));digest=response.getheader('X-Content-SHA256')
+        size=int(response.getheader('Content-Length'));archive_digest=response.getheader('X-Content-SHA256')
         need(0<size<=32*1024**2,'RESULT_TRANSFER_LIMIT')
         target=HERE/'.private/results.tar';target.parent.mkdir(exist_ok=True)
         with target.open('wb') as out:
             remaining=size
             while remaining:
                 data=response.read(min(1024**2,remaining));need(data,'RESULT_EARLY_EOF');out.write(data);remaining-=len(data)
-        need(sha(target)==digest,'RESULT_TRANSFER_SHA')
+        need(sha(target)==archive_digest,'RESULT_TRANSFER_SHA')
     finally:connection.close()
     output=HERE/'retrieved';output.mkdir(exist_ok=True)
     with tarfile.open(target) as tar:
@@ -121,7 +121,7 @@ def retrieve(state):
     except Exception as exc:validation_error=type(exc).__name__+':'+str(exc)
     result=dict(status='PASS' if validation_error is None else 'STOP',job_id=job,
         phase=phase,card_sha256=read(HERE/'AUTHORIZATION.json')['card_sha256'],attempt=current,
-        result_archive=dict(bytes=size,sha256=digest),result_members=len(manifest['files']),
+        result_archive=dict(bytes=size,sha256=archive_digest),result_members=len(manifest['files']),
         scheduler=manifest['scheduler'],acceptance_error=validation_error,
         formal_external_evaluation=False,automatic_resubmit=False)
     child=job_output/'engineering_attempts'/(current or {}).get('attempt_id','absent')/'CHILD_STOP_main.json'
