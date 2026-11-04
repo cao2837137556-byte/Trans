@@ -3,9 +3,9 @@
 更新：2026-11-04（用户时区America/Los_Angeles）。固定五项，历史另存。
 
 1. **唯一方法**：C5（p=3）冻结；正式外部效果尚未确认，正式评价未授权。
-2. **旧轮封存**：181699在1:57:37触发EDGE_REPLAY_DEADLINE；UDP最后98.59%，上下文随scratch清理。旧结果与诊断保留。
-3. **本次修复**：独立v4新增持久帧级上下文检查点及跨作业恢复；NORMAL/HTTP完整产物逐块审计后复用，本次UDP重建。109+15本地测试通过，独立复核USER_WAIVED。
-4. **当前运行**：真实78端点＋UDP中断恢复预检181854已PASS（6分51秒）；完整门181856已RUNNING，1CPU/8GiB/2小时。最新状态见进度；无自动重投/延期。
-5. **最新证据**：[v4修复续跑](collab/20261104_edge_v4_durable_resume_codex.md) · [启动回执](../edge_formal_gate_deployment_v4_20261104/STARTUP_GATE_REMOTE_READBACK.json) · [实时进度](http://127.0.0.1:18796/)。完整门最终验收仍待完成，不将启动计为通过。
+2. **181856已封存**：运行1:57:42再次EDGE_REPLAY_DEADLINE；峰值5.50GiB。46件终态工件SHA核验，持久检查点2877608/3215732帧（89.5%）保留。
+3. **本次授权与修复**：用户同意增加时间；完整门改1CPU/8GiB/6小时，内部三处时限同步；传输观察12小时。冻结v4科学绑定不变，本地19检查通过，独立复核USER_WAIVED。
+4. **当前运行**：181902实际检查点恢复＋真实78端点预检RUNNING，上限30分钟；必须恢复大检查点并计算后续16个端点，通过后唯一完整续跑。完整门尚未提交，无自动延期/重投。
+5. **最新证据**：[扩大预算与真实恢复验证](collab/20261104_edge_v4_extended_resume_codex.md) · [启动回执](../edge_formal_gate_resume_v4_20261104/STARTUP_READBACK.json) · [实时进度](http://127.0.0.1:18797/)。尚不能宣称实际恢复或完整工程门已通过。
 
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)

@@ -1,0 +1,17 @@
+{
+  "status": "VERIFIED_TIMEOUT_CLOSURE",
+  "job_id": "181856",
+  "root_cause": "TimeoutError:EDGE_REPLAY_DEADLINE",
+  "elapsed": "01:57:42",
+  "rss_bytes": 5908410368,
+  "terminal_members": 46,
+  "archive_sha256": "f4f405dd4ac3691bd55b403260551ca2cbd5df759831107eeb8b96190946e243",
+  "last_frame": 2899076,
+  "durable_checkpoint_frame": 2877608,
+  "checkpoint_manifest_sha256": "a0db8de73251a18fe44dd3ce8e3feb2e9c2240e70f72a3f600eae67754e9fc23",
+  "actual_restore": "PENDING_IN_181902",
+  "scratch_cleaned": true,
+  "prior_eta": "Short-interval extrapolation underestimated later replay and checkpoint costs",
+  "engineering_failed": true,
+  "valid_work_preserved": true
+}

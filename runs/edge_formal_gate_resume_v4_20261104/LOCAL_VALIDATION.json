@@ -1,0 +1,29 @@
+{
+  "status": "PASS_LOCAL",
+  "tests": 19,
+  "source_binding": "IDENTICAL_TO_V4_181856",
+  "expanded_budget": {
+    "cpu": 1,
+    "memory_gib": 8,
+    "preflight_seconds": 1800,
+    "gate_seconds": 21600
+  },
+  "real_preflight": "PENDING",
+  "actual_prior_checkpoint_restore": "PENDING",
+  "source_sha256": {
+    "engineering_gate.py": "d606492f761897d9834e554e7a1159d6cd949cff035112eb666fbfa730f12d04",
+    "job_entry.py": "450719f794d27e811b708e734e100230cc06043992ae45d8e26a722a8edebf65",
+    "persistent_probe.py": "e7c2c9d9d939184ab4ab79810e51562ba27ef493965d6c76d545cbc29941ef22",
+    "pipeline.py": "525b51bf7e29cd95c92508027c818ba5ed34dd306cdef1bb428f6744e7020b35",
+    "preflight_acceptance.py": "064c3ddb793bcbc39887fa4918d0c0f004cd284319cdadac268769ba09bb1e8b",
+    "prepare_delivery.py": "a3d760c10abc5b165ca98c8b1d6c044aa2909364f3681479030896e1da5be7f6",
+    "real_slice_preflight.py": "92668610a87b48508527562e4af088c872157eaafa508eb5025761e4857f1a98",
+    "remote_receiver.py": "fab69eb1823eb180656f2de94af32078cda839ef90e3e1bb53e855cc39886bbe",
+    "test_delivery.py": "4b8712ff351b90bcd720ad0b3fb76ef640fef421e8726ec2855e9fa5968026ac",
+    "test_extension.py": "e0d094a6e319f03f68708ca581ef631cc0ba34d4396af661da2d00ebb0aeb20d",
+    "test_preflight_acceptance.py": "f5dd50fd01c3f6b22c5035f9ebe4baa472947f0518806105682371cfce26ae84"
+  },
+  "card_sha256": "d990035cf7d880e68358292cc2689b96c22db05f6b3af5b4a52c55c3f5be452f",
+  "old_terminal_members_verified": 46,
+  "independent_review": "USER_WAIVED"
+}

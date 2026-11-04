@@ -1,0 +1,61 @@
+{
+  "status": "PREFLIGHT_RUNNING",
+  "job_id": "181902",
+  "observed_utc": "2026-11-04T16:05:05.664235+00:00",
+  "actual_restore": "RUNNING_NOT_YET_PASS",
+  "full_gate": "PENDING",
+  "pipeline_session": 39692,
+  "ui_session": 39273,
+  "progress_url": "http://127.0.0.1:18797/",
+  "state": {
+    "stage": "RUNNING",
+    "updated_utc": "2026-11-04T16:05:03.168187+00:00",
+    "cpu": 1,
+    "memory_gib": 8,
+    "wall_seconds": 21600,
+    "formal_external_evaluation": false,
+    "automatic_resubmit": false,
+    "message": "正在执行真实78端点小切片，预检未通过不会启动完整工程验证。",
+    "remote_prepare": {
+      "status": "PREPARING",
+      "stage": "VERIFY_FROZEN_RUNTIME_AND_AUTHORIZATION"
+    },
+    "job_id": "181902",
+    "phase": "preflight",
+    "scheduler_state": "RUNNING",
+    "worker": {
+      "attempt_id": "33140e77aa514db7af69dc2fa5ccb1b0",
+      "automatic_resubmit": false,
+      "card_sha256": "d990035cf7d880e68358292cc2689b96c22db05f6b3af5b4a52c55c3f5be452f",
+      "elapsed_seconds": 8.390780565096065,
+      "formal_evaluation": false,
+      "max_tree_rss_bytes": 41455616,
+      "output_disk_bytes_60s_sampled_max": 3734,
+      "scratch_disk_bytes_60s_sampled_max": 428,
+      "stage": "PREFLIGHT_REAL_PRIOR_CHECKPOINT_RESTORE"
+    },
+    "replay_checkpoint": null,
+    "preflight_job_id": "181902",
+    "preflight_status": "PENDING",
+    "attempt_id": "33140e77aa514db7af69dc2fa5ccb1b0",
+    "error": "",
+    "engineering_current": {
+      "attempt_id": "33140e77aa514db7af69dc2fa5ccb1b0",
+      "card_sha256": "d990035cf7d880e68358292cc2689b96c22db05f6b3af5b4a52c55c3f5be452f",
+      "receipt": "engineering_attempts/33140e77aa514db7af69dc2fa5ccb1b0/RUNNING.json",
+      "receipt_sha256": "e70f5b68513112ca0b4928e2df77fca541cb390bd76ea704f8e8ece7af698606",
+      "scope": "EDGE_FORMAL_WORKER_ENGINEERING_GATE",
+      "status": "RUNNING"
+    },
+    "attempt_receipt": {
+      "attempt_id": "33140e77aa514db7af69dc2fa5ccb1b0",
+      "automatic_resubmit": false,
+      "card_sha256": "d990035cf7d880e68358292cc2689b96c22db05f6b3af5b4a52c55c3f5be452f",
+      "external_quality_computed": false,
+      "phase": "STARTING",
+      "schema": "EDGE_ENGINEERING_ATTEMPT_V2",
+      "scope": "EDGE_FORMAL_WORKER_ENGINEERING_GATE",
+      "status": "RUNNING"
+    }
+  }
+}
