@@ -1,5 +1,9 @@
 # Mainline Experiment Map
 
+## 2026-11-03 当前实验线
+
+C5/p=3与A/B开发线冻结。Edge独立外部线：181418真实小切片PASS；`runs/edge_formal_execution_v1_20261103/`完整worker、恢复、统计和增量包已准备，本地检查PASS，正式质量尚未评价。当前待小anti复核和一次1CPU/8GiB/2小时工程验证，核实新worker真实恢复/末段资源/完整批吞吐后再冻结正式预算。见[执行卡复核请求](collab/20261103_edge_formal_worker_and_budget_review_request_codex.md)。下方为历史阶段记录。
+
 ## 2026-10-28 最新：P1失败小诊断完成
 
 见[诊断与下一步判断](collab/20261028_p1_failure_diagnosis_and_direction_codex.md)及[当前接手入口](NEW_CHAT_START_HERE.md)。原48报告精确复现、69文件SHA保持；原QP停止，P2/P3未启动。G0新增漏报说明CAL缺跨设备近边界保护；G1共享校准收益只在单折。原QG可调/回退家族对当前B分数同样无2%/99%联合解，不列为原样A/B主攻候选，下一版先设计受保护的条件修正。本轮0新选阈值/训练/前向/距离/A/B加载/远端任务，无新A/B指标。下方10月25日“最新”为历史快照。

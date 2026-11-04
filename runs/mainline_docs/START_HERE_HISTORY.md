@@ -813,6 +813,8 @@ DeepSeek 已加入，沿用文档合作：`runs/mainline_docs/collab/YYYYMMDD_<�
 
 ## 2026-11-03：查询选取封存前的入口快照
 
+补充归档：181418在1CPU/6GiB/600秒内完成，Slurm COMPLETED、0:0、7分46秒，真实小切片与13形状严格探针通过；33导出成员SHA复验。该阶段只关闭旧小fixture门，完整worker当时尚未实现，正式预算与评价未授权。后续当前状态由NEW_CHAT_START_HERE.md顶部统一维护。
+
 # 当前状态
 
 更新：2026-11-03。后续只覆盖本区块，不再向入口追加历史。

@@ -1,0 +1,191 @@
+{
+  "schema": "EDGE_BOUNDED_UDP_NUMERICAL_CONTEXT_PROBE_V1",
+  "model_calls": 0,
+  "snapshots_emitted": 0,
+  "scores_computed": 0,
+  "cloud_jobs": 0,
+  "scope": "WINDOWS_LOCAL_NUMERICAL_STATE_ONLY_NOT_LINUX_RUNTIME_PASS",
+  "packet_cap": 32768,
+  "hard_wall_seconds": 30,
+  "hard_temporary_bytes": 268435456,
+  "python": "3.10.0 (tags/v3.10.0:b494f59, Oct  4 2021, 19:00:18) [MSC v.1929 64 bit (AMD64)]",
+  "cpu_affinity": [
+    0
+  ],
+  "samples": [
+    {
+      "frame": 4096,
+      "seconds": 1.5,
+      "decode_next_seconds": 0.7019999999902211,
+      "append_seconds": 0.43900000000576256,
+      "states": 3560,
+      "spill": {
+        "hits": 3560,
+        "loads": 0,
+        "spills": 3304,
+        "serialized_bytes": 3657221,
+        "peak_resident": 256,
+        "peak_entries": 3560
+      },
+      "temporary_bytes": 5043556,
+      "tree_rss_bytes": 145657856
+    },
+    {
+      "frame": 8192,
+      "seconds": 2.2969999999986612,
+      "decode_next_seconds": 0.9369999999908032,
+      "append_seconds": 0.9850000000005821,
+      "states": 7077,
+      "spill": {
+        "hits": 7077,
+        "loads": 0,
+        "spills": 6821,
+        "serialized_bytes": 7552484,
+        "peak_resident": 256,
+        "peak_entries": 7077
+      },
+      "temporary_bytes": 10008676,
+      "tree_rss_bytes": 152100864
+    },
+    {
+      "frame": 12288,
+      "seconds": 3.2180000000007567,
+      "decode_next_seconds": 1.2959999999875436,
+      "append_seconds": 1.5320000000065193,
+      "states": 10684,
+      "spill": {
+        "hits": 10684,
+        "loads": 0,
+        "spills": 10428,
+        "serialized_bytes": 11549315,
+        "peak_resident": 256,
+        "peak_entries": 10684
+      },
+      "temporary_bytes": 16009188,
+      "tree_rss_bytes": 158810112
+    },
+    {
+      "frame": 16384,
+      "seconds": 4.078000000001339,
+      "decode_next_seconds": 1.5599999999831198,
+      "append_seconds": 2.1120000000082655,
+      "states": 14344,
+      "spill": {
+        "hits": 14344,
+        "loads": 0,
+        "spills": 14088,
+        "serialized_bytes": 15606600,
+        "peak_resident": 256,
+        "peak_entries": 14344
+      },
+      "temporary_bytes": 21917764,
+      "tree_rss_bytes": 166113280
+    },
+    {
+      "frame": 20480,
+      "seconds": 5.0,
+      "decode_next_seconds": 1.8559999999706633,
+      "append_seconds": 2.7220000000161235,
+      "states": 18002,
+      "spill": {
+        "hits": 18002,
+        "loads": 0,
+        "spills": 17746,
+        "serialized_bytes": 19661599,
+        "peak_resident": 256,
+        "peak_entries": 18002
+      },
+      "temporary_bytes": 27155436,
+      "tree_rss_bytes": 173088768
+    },
+    {
+      "frame": 24576,
+      "seconds": 5.98399999999674,
+      "decode_next_seconds": 2.2189999999973224,
+      "append_seconds": 3.326999999990221,
+      "states": 21693,
+      "spill": {
+        "hits": 21693,
+        "loads": 0,
+        "spills": 21437,
+        "serialized_bytes": 23753181,
+        "peak_resident": 256,
+        "peak_entries": 21693
+      },
+      "temporary_bytes": 33629780,
+      "tree_rss_bytes": 179666944
+    },
+    {
+      "frame": 28672,
+      "seconds": 7.046999999998661,
+      "decode_next_seconds": 2.470000000022992,
+      "append_seconds": 4.107999999963795,
+      "states": 25376,
+      "spill": {
+        "hits": 25376,
+        "loads": 0,
+        "spills": 25120,
+        "serialized_bytes": 27835875,
+        "peak_resident": 256,
+        "peak_entries": 25376
+      },
+      "temporary_bytes": 38859964,
+      "tree_rss_bytes": 186548224
+    },
+    {
+      "frame": 32768,
+      "seconds": 8.125,
+      "decode_next_seconds": 2.753000000018801,
+      "append_seconds": 4.886999999966065,
+      "states": 28928,
+      "spill": {
+        "hits": 28928,
+        "loads": 0,
+        "spills": 28672,
+        "serialized_bytes": 31773481,
+        "peak_resident": 256,
+        "peak_entries": 28928
+      },
+      "temporary_bytes": 42573884,
+      "tree_rss_bytes": 50757632
+    },
+    {
+      "frame": 32768,
+      "seconds": 8.139999999999418,
+      "decode_next_seconds": 2.753000000018801,
+      "append_seconds": 4.886999999966065,
+      "states": 28928,
+      "spill": {
+        "hits": 28928,
+        "loads": 0,
+        "spills": 28672,
+        "serialized_bytes": 31773481,
+        "peak_resident": 256,
+        "peak_entries": 28928
+      },
+      "temporary_bytes": 42573884,
+      "tree_rss_bytes": 50798592
+    }
+  ],
+  "raw_sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+  "source_pins": {
+    "runs/edge_external_test1_engineering_v1_20261103/adapter/edge_adapter.py": "000fcf92592ca212c23537bfcda0b74c73cbf84a783813f01f5f997e4155db3b",
+    "repo/ood/continuous_input_v3.py": "a503c7b21c35234462a735d3890fa4cda918573ceeda072604e4bec6872b405d",
+    "repo/ood/continuous_input_engineering_v1.py": "c70b0be31fd5ec40432bc9f851e6ee8611c3b0ed18262122ddc964fba347b415",
+    "repo/ood/spill_mapping_v1.py": "f919f02351dc3cfc8255b2eec989c0b506221a9608b98c300fdcee316e93f4aa"
+  },
+  "status": "COMPLETE_32768_PACKET_PROBE",
+  "rows_completed": 32768,
+  "seconds": 8.139999999999418,
+  "decode_next_seconds": 2.753000000018801,
+  "append_seconds": 4.886999999966065,
+  "final_store": {
+    "hits": 28928,
+    "loads": 0,
+    "spills": 28672,
+    "serialized_bytes": 31773481,
+    "peak_resident": 256,
+    "peak_entries": 28928
+  },
+  "raw_sha256_unchanged": true
+}

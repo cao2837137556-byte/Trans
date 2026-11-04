@@ -1,0 +1,73 @@
+{
+  "cloud_jobs_submitted": 0,
+  "existing_tests": {
+    "executed_by_this_review": false,
+    "source_pins_verified": true,
+    "status": "PASS",
+    "tests": 14
+  },
+  "external_antigravity_formal_review": false,
+  "external_quality_evaluations": 0,
+  "files_modified_other_than_review_and_sidecar": [],
+  "findings": [
+    {
+      "description": "Intentional os._exit(75) bypasses child finally cleanup, leaving its independently allocated edge-gate-owned scratch directory. With reused input spools it normally contains only OWNERSHIP metadata.",
+      "id": "CRASH_SCRATCH_OWNERSHIP_ORPHAN",
+      "priority": "P2",
+      "recommendation": "Either record and remove verified child-owned scratch from supervisor cleanup, or explicitly disclose the small orphan and clean it after retrieval.",
+      "resolution": "Child writes an exact scratch marker in its recovery attempt; parent bounded_process finally invokes on_exit after child exit. Cleanup verifies marker scope/pid/output and an absolute direct child of scratch_root with the edge-gate-owned prefix, rejects symlinks, verifies OWNERSHIP scope/pid/output, and removes only that directory; no directory enumeration.",
+      "status": "RESOLVED_IN_REVIEWED_SOURCE"
+    },
+    {
+      "description": "Controlled recovery outputs use fixed engineering_recovery/baseline and resumed paths. Re-running the gate with the same output after partial/successful recovery reuses existing batches and no longer reaches expected first-batch crash/row counters.",
+      "id": "GATE_REENTRY_RECOVERY_NAMESPACE",
+      "priority": "P2",
+      "recommendation": "Use a fresh bounded recovery-attempt namespace while reusing science input spools, or require a fresh output directory for each independently authorized gate attempt.",
+      "resolution": "Every main execution generates a fresh 32-character lowercase hexadecimal recovery attempt ID. Baseline, crash/resume commits, scratch markers and logs use that attempt directory. Child phases receive the same validated --attempt-id while scientific input spools remain shared.",
+      "status": "RESOLVED_IN_REVIEWED_SOURCE"
+    }
+  ],
+  "historical_resolved_priority_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 2
+  },
+  "independent_of_implementation_author": true,
+  "input_pins": {
+    "ENGINEERING_GATE_TEST_RECEIPT.json": "c93650926300309048711e635ef588dff3e5245716134eb832c0e18bcf2c637a",
+    "checkpoint.py": "112a26789a654f2c96c1ab7dad310a1afc3fccdf41efd12d6c00cd05b0aa4faa",
+    "engineering_gate.py": "2650dddae864ac774c7a5653eef504d7b2a68e17aeef300209238e9f9b8afc0e",
+    "streaming.py": "295b1182e2383b84789c80d3badf011781f7a7580a80bd93c6ab98f95b9939ba",
+    "test_engineering_gate.py": "d1b7f9123ec2c8290a76a732957a262cb5ecf48b21d742a1881c55a7c4737752",
+    "worker.py": "6a0031699676a61531b9986ce7c174eb3b09332a60e6c9b8867a6e2ef23fdbc8"
+  },
+  "linux_runtime_gate_status": "PENDING_NOT_EXECUTED_BY_THIS_REVIEW",
+  "model_calls": 0,
+  "previous_review_sha256": "a8a9f662ce1142badaf865ffae821dbf007649cd27bc71e42fbf1848083511ef",
+  "priority_counts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0
+  },
+  "read_only_checks": [
+    "Original selected_snapshots generator preserved; decoder stop_after set to complete raw record count; generator exhaustion plus original final raw SHA and explicit last_frame==records required for full EOF receipt.",
+    "Scientific spool binding includes selection seal, runtime identity, scientific artifact pins and raw bytes/SHA; roles are usable only after complete gate.",
+    "73 shape groups each use lexicographic first min(16,N_shape) UIDs, with physical singleton cloning separate from logical row counts; no input deduplication.",
+    "Actual child exits after first committed batch; same ordered plan/binding reused; all committed files must match uninterrupted baseline bytes; exact reused/new rows checked.",
+    "Watchdog shares original absolute monotonic deadline across parent/children; reserved termination budget; one CPU affinity, 8GiB budget, independent node-local scratch checked.",
+    "Only saved source CAL16 E3/q14 reach cached/old frozen heads; maximum absolute tolerance1e-4 and four-head exact decisions required; no raw-to-E3 source parity overclaim.",
+    "Large-bank distances use fixed seed synthetic features; external encoded throughput outputs discarded except HPC-only recovery batches; no external quality evaluation route in engineering gate.",
+    "Separate bound engineering authorization scope and card status required before runtime; formal worker separately requires formal authorization, Linux recovery PASS and independent review PASS.",
+    "Final P2 resolutions re-read: isolated recovery attempt and exact exited-child-owned scratch cleanup.",
+    "Disk telemetry explicitly records 60-second sampled maxima for output and scratch, without claiming instantaneous peaks."
+  ],
+  "reviewer": "Codex independent statistics subagent",
+  "schema": "EDGE_ENGINEERING_GATE_SUBAGENT_READONLY_REVIEW_V1",
+  "scope": [
+    "engineering_gate.py",
+    "worker.py prepare_inputs and formal guards",
+    "called streaming/checkpoint interfaces",
+    "original selected_snapshots and replay_io EOF contracts"
+  ],
+  "status": "PASS_READ_ONLY_CODE_REVIEW_NO_OPEN_FINDINGS"
+}

@@ -1,0 +1,77 @@
+{
+  "schema": "EDGE_FORMAL_ENGINEERING_BUDGET_AGENT_REVIEW_V1",
+  "created_utc": "2026-11-03T18:11:12.054081+00:00",
+  "scope": "INDEPENDENT_READ_ONLY_SOURCE_INTERFACE_IDENTITY_RECOVERY_AND_IO_REVIEW",
+  "status": "NO_REMAINING_CONFIRMED_P0_P1_IN_REVIEWED_STREAMING_EVALUATE_SOURCE_LINUX_GATES_STILL_REQUIRED",
+  "reviewed_source_pins": [
+    {
+      "path": "runs/edge_formal_execution_v1_20261103/streaming.py",
+      "sha256": "295b1182e2383b84789c80d3badf011781f7a7580a80bd93c6ab98f95b9939ba",
+      "bytes": 7256
+    },
+    {
+      "path": "runs/edge_formal_execution_v1_20261103/evaluate.py",
+      "sha256": "131054c3361666f7abade8c621bfe2542104596ea3cb206cf29ff6aca87f4877",
+      "bytes": 10391
+    },
+    {
+      "path": "runs/edge_formal_execution_v1_20261103/worker.py",
+      "sha256": "1433cc9a71c4a5239279823b929c4b65423a3e869070303ffc36b9222b5b2b0f",
+      "bytes": 12815
+    },
+    {
+      "path": "runs/edge_formal_execution_v1_20261103/test_streaming.py",
+      "sha256": "9644e44314ec4f49a6f5acf1958dd7158876f735cbb8a88356427a5526834084",
+      "bytes": 8941
+    },
+    {
+      "path": "runs/edge_formal_execution_v1_20261103/checkpoint.py",
+      "sha256": "112a26789a654f2c96c1ab7dad310a1afc3fccdf41efd12d6c00cd05b0aa4faa",
+      "bytes": 29240
+    }
+  ],
+  "findings": [
+    {
+      "id": "BUDGET_REVIEW_01",
+      "priority": "P1",
+      "file": "worker.py",
+      "subject": "Replay heartbeat elapsed_seconds keyword collision",
+      "status": "ROOT_FIXED_SOURCE_REVIEWED",
+      "evidence": "replay_io.status passes elapsed_seconds to callback; previous Guard.progress supplied elapsed_seconds explicitly before **extra, causing deterministic TypeError. Current implementation copies extra, renames replay elapsed and updates worker fields.",
+      "verification": "Source reviewed; root owns regression test execution."
+    },
+    {
+      "id": "BUDGET_REVIEW_02",
+      "priority": "P2",
+      "file": "evaluate.py",
+      "subject": "UID-order random repeated checkpoint validation and shared-storage IO",
+      "status": "ROOT_FIXED_SOURCE_REVIEWED",
+      "evidence": "Previous role/UID evaluation order scattered shape-batch features, approaching60000 BatchStore.load calls and hundreds of thousands of file opens/hash checks. Current evaluation preserves encoded-batch order and reorders only final small predictions for reporting.",
+      "verification": "Source reviewed; full-bank wall/IO throughput still requires bounded Linux measurement."
+    }
+  ],
+  "positive_checks": [
+    "FrozenBackend imports the same frozen new_encoder/physical_batch implementation as181418; singleton clones remain16physical rows and clone outputs are checked byte-exact.",
+    "make_plan groups by exact protocol/token/burst shape, sorts UIDs, rejects duplicateUIDs, and commits no more than16logical rows.",
+    "BatchStore identity binds executioncard/seal/runtime/artifactpins; manifest payload hashes, arraydtype/shape/finite checks, exactUIDorder and complete expected coverage fail closed.",
+    "Incomplete role spools cannot produce scientific headers/inputs. Completion is after original causal generator exhaustion and final raw identity checks. Packed bodies are loaded only on demand.",
+    "Reference and query rows keep original UID/protocol/source/capture/component/owner/time metadata; selected score-independent weights are merged only after exact sharedfield and protocolflag checks.",
+    "FrozenHeads API matches the existing validated engine implementation; evaluate reuses one raw score table/support for p1/p3 and fourhead comparators, preserves SYN guard and zero-support exactRAW fallback.",
+    "Result chunks are binding/UID/hash/schema validated; formal scoring remains gated by a cardbound actualuserauthorization plus explicit Linuxrecovery and independentreview pass states.",
+    "Reporting receives identical final role/UID order and booleans for every comparator, and fixed selected counts4124reference/60000query are checked. Unselected normal rows are not silently counted as correctnegatives."
+  ],
+  "remaining_engineering_gates": [
+    "Actual frozen-backend Linux killedworker/resume equality with final sourcepins; local FakeBackend processkill tests prove orchestration, not model/runtime equality.",
+    "Complete causal UDP replay including still-live TShark lateprefix RSS/storage/rate samples;32k Windows prefix is insufficient.",
+    "Unmeasured selected shape coverage/batch16 throughput and representative fullbank distance throughput;20k24h budget not yet certified.",
+    "Durable PackedRoleSpool size and realsharedfilesystem IO measurement; application disk checks are sampled, with sitequota/Slurm the hardresource boundary.",
+    "Final card artifactpins must cover all operational code/config/assets, including subsequent engineering gate changes; this review is sourcebound and not an immutable final execution approval."
+  ],
+  "tests_executed_by_this_review": "AST_PARSE_ONLY_NO_TEST_RECEIPT_OVERWRITE",
+  "models_loaded": 0,
+  "model_forwards": 0,
+  "quality_metrics_computed": 0,
+  "cloud_jobs_submitted": 0,
+  "budget_files_modified": false,
+  "formal_execution_ready": false
+}

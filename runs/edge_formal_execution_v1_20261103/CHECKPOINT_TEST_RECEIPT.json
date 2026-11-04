@@ -1,0 +1,53 @@
+{
+  "schema": "EDGE_ATOMIC_CHECKPOINT_NO_MODEL_TEST_RECEIPT_V2",
+  "passed": true,
+  "tests_run": 19,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 7.9539999999979045,
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.10.0",
+  "model_calls": 0,
+  "cloud_jobs_submitted": 0,
+  "formal_external_evaluation": false,
+  "linux_runtime_resume_gate": "PENDING_NOT_EXECUTED_ON_HPC",
+  "fault_injection": {
+    "batch_actual_child_process_termination": "os._exit(73)",
+    "batch_phases": [
+      "after_payload",
+      "after_manifest",
+      "after_commit",
+      "after_ledger"
+    ],
+    "packed_spool_actual_child_process_termination": "os._exit(74)",
+    "packed_spool_phases": [
+      "after_chunk_payload",
+      "after_chunk_commit",
+      "before_complete",
+      "after_complete"
+    ],
+    "resumed_payload_and_complete_bytes_equal_uninterrupted": true,
+    "uncommitted_batches_never_loaded": true,
+    "partial_roles_never_supply_encoder_inputs": true
+  },
+  "packed_spool": {
+    "chunk_max_rows": 128,
+    "chunk_max_bytes": 67108864,
+    "snapshot_max_bytes": 16777216,
+    "complete_role_index_only": true,
+    "whole_chunk_sha_validation_once_on_reopen": true,
+    "individual_snapshot_sha_on_load": true,
+    "tuple_metadata_roundtrip": true
+  },
+  "files": {
+    "checkpoint.py": {
+      "bytes": 29240,
+      "sha256": "112a26789a654f2c96c1ab7dad310a1afc3fccdf41efd12d6c00cd05b0aa4faa"
+    },
+    "test_checkpoint.py": {
+      "bytes": 17528,
+      "sha256": "ff3125626d384a65e5df5bea6e13b034a2a973f1fa47f50de59ce7ec37900fc9"
+    }
+  }
+}

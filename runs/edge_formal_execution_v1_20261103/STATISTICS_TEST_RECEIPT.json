@@ -1,0 +1,33 @@
+{
+  "cloud_jobs_submitted": 0,
+  "errors": 0,
+  "external_quality_evaluations": 0,
+  "failures": 0,
+  "input_pins": {
+    "build_population_census.py": "c4bef38b63aa50f0dc5c9390e38107aba7ccb49b48fa12f247c7feaf8d19fbc1",
+    "reporting.py": "8ba3ecd3fdb454d7141612a6cef254081f0c5a70d3c7d03870be757aede51057",
+    "test_reporting.py": "b09d8323edad03cea137288488cdffbcfc7c8f61e8be04c3c46842f43249ff2c"
+  },
+  "model_calls": 0,
+  "scope": "SYNTHETIC_STATISTICS_ONLY_NO_REAL_PREDICTIONS",
+  "status": "PASS",
+  "test_cases": [
+    "__main__.ReportingTests.test_UTC_parser_keeps_all_nine_fractional_digits",
+    "__main__.ReportingTests.test_attack_spoofed_components_not_materialized_as_population_component_metric",
+    "__main__.ReportingTests.test_attack_strata_and_low_RAW_recall_withdrawal_gate",
+    "__main__.ReportingTests.test_capture_and_scenario_groups_never_merge",
+    "__main__.ReportingTests.test_complete_time_span_includes_zero_eligible_and_zero_selected_blocks",
+    "__main__.ReportingTests.test_fallback_HT_can_exceed_one_and_is_not_clamped_or_renormalized",
+    "__main__.ReportingTests.test_independent_detector_may_add_RAW_negative_alarm",
+    "__main__.ReportingTests.test_inverse_weight_mismatch_is_rejected",
+    "__main__.ReportingTests.test_nonempty_unselected_population_is_not_zero_error_estimate",
+    "__main__.ReportingTests.test_ordered_UID_join_and_duplicates_fail",
+    "__main__.ReportingTests.test_original_anchor_and_exact_integer_boundary",
+    "__main__.ReportingTests.test_overlapping_HTTP_flag_subsets_are_explicit_and_payload_not_inferred",
+    "__main__.ReportingTests.test_reference_query_overlap_is_rejected_in_denominator",
+    "__main__.ReportingTests.test_sample_component_and_known_N_population_rates_are_distinct",
+    "__main__.ReportingTests.test_three_distinct_rates_and_head_identity",
+    "__main__.ReportingTests.test_unobserved_roles_are_not_reported_as_perfect_detection"
+  ],
+  "tests_run": 16
+}

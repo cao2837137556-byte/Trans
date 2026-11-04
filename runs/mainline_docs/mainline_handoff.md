@@ -1,5 +1,9 @@
 # Mainline Handoff
 
+## 2026-11-03 当前接手
+
+当前唯一方法为冻结C5/p=3，A/B为开发证据。181418同运行时真实切片已验收通过；完整Edge worker/原子批次恢复/正式统计已实现，本地检查通过，尚未生成外部效果。新worker的Linux冻结encoder恢复、UDP末段资源和batch16/大库吞吐仍待一次有界工程验证，不能沿用旧小切片PASS宣布正式就绪。小anti按[新复核请求](collab/20261103_edge_formal_worker_and_budget_review_request_codex.md)核对执行卡后再申请具体资源授权；本轮未提交云作业。正常/HTTP/UDP各20k、原4,124参考及原seal保留，预算未锁，不自动重投。入口详见[五项当前状态](NEW_CHAT_START_HERE.md)；下方均按各自日期作为历史记录。
+
 ## 2026-10-28 最新接手：P1失败小诊断完成，原QP/QG不直接升级A/B
 
 最新背景与10月25日后完成链见[接手入口](NEW_CHAT_START_HERE.md)顶部；本轮见[诊断与下一步判断](collab/20261028_p1_failure_diagnosis_and_direction_codex.md)。P1原SOURCE_SIGNAL_FAIL保持，48报告精确复现、69原文件SHA未变；G0缺跨设备近边界攻击保护，G1共享1.96%仍为单折信号。原共享QG家族同当前B分数无2%/99%联合解，不宜原样A/B。下一版先设计有折外困难攻击保护的条件修正；0新阈值选择/训练/前向/距离/A/B加载/远端任务，P2/P3未启动。当前密参考A/B仍3.993482%/100%和9.519654%/99.966594%，下方10月25日“最新”为历史快照。

@@ -1,0 +1,100 @@
+{
+  "census_bytes": 4288120,
+  "census_file": "POPULATION_TEMPORAL_CENSUS.json",
+  "census_sha256": "3e25ef721496303a78f6ff0d8ef1723486dd96f9ca84e2bbd523d613b03d6c52",
+  "cloud_jobs_submitted": 0,
+  "compressed_bytes": 2060960,
+  "compressed_file": "POPULATION_TEMPORAL_CENSUS.json.gz",
+  "compressed_sha256": "ac9e701f7807467b9184ae17ea690cdde032b35cb3e7193fe6708c07d0a6f8e4",
+  "external_scores_read": false,
+  "groups": [
+    {
+      "anchor_ns": 1637836529350784000,
+      "blocks": 5,
+      "capture_id": "EDGE_HTTP",
+      "population_count": 152352,
+      "retained_normal_component_count": 0,
+      "scenario": "HTTP",
+      "source_role": "HTTP",
+      "zero_eligible_blocks": 0
+    },
+    {
+      "anchor_ns": 1637491450081753000,
+      "blocks": 528,
+      "capture_id": "EDGE_NORMAL_SEGMENT_1",
+      "population_count": 489624,
+      "retained_normal_component_count": 16065,
+      "scenario": "NORMAL",
+      "source_role": "NORMAL",
+      "zero_eligible_blocks": 9
+    },
+    {
+      "anchor_ns": 1637591660252618000,
+      "blocks": 436,
+      "capture_id": "EDGE_NORMAL_SEGMENT_2",
+      "population_count": 390597,
+      "retained_normal_component_count": 15553,
+      "scenario": "NORMAL",
+      "source_role": "NORMAL",
+      "zero_eligible_blocks": 23
+    },
+    {
+      "anchor_ns": 1637679338804754000,
+      "blocks": 192,
+      "capture_id": "EDGE_NORMAL_SEGMENT_3",
+      "population_count": 181661,
+      "retained_normal_component_count": 11391,
+      "scenario": "NORMAL",
+      "source_role": "NORMAL",
+      "zero_eligible_blocks": 0
+    },
+    {
+      "anchor_ns": 1637695650270762000,
+      "blocks": 163,
+      "capture_id": "EDGE_NORMAL_SEGMENT_4",
+      "population_count": 154906,
+      "retained_normal_component_count": 9814,
+      "scenario": "NORMAL",
+      "source_role": "NORMAL",
+      "zero_eligible_blocks": 0
+    },
+    {
+      "anchor_ns": 1639959767981993000,
+      "blocks": 19,
+      "capture_id": "EDGE_NORMAL_SEGMENT_5",
+      "population_count": 3338,
+      "retained_normal_component_count": 379,
+      "scenario": "NORMAL",
+      "source_role": "NORMAL",
+      "zero_eligible_blocks": 0
+    },
+    {
+      "anchor_ns": 1637792830139612000,
+      "blocks": 7,
+      "capture_id": "EDGE_UDP",
+      "population_count": 2898830,
+      "retained_normal_component_count": 0,
+      "scenario": "UDP",
+      "source_role": "UDP",
+      "zero_eligible_blocks": 0
+    }
+  ],
+  "input_pins": {
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\edge_query_selection_v1_20261103\\seal20k\\HTTP_metadata.tsv.gz": "07195e9a3d563ab4ff1abb44cee81c01bd2f977c28df4f0674ea698c472daf45",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\edge_query_selection_v1_20261103\\seal20k\\METADATA_CENSUS.json": "f5776825bf463df4c1bd0e3d6d38c4fd01cac8091b50df55c01fdef87a9c1601",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\edge_query_selection_v1_20261103\\seal20k\\NORMAL_metadata.tsv.gz": "547e67c1928a9c82fe37d0032aab1de01501cd97fb1d5481e84911ea59ac2798",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\edge_query_selection_v1_20261103\\seal20k\\QUERY_SELECTION_SEAL.json": "ecb7bd84ae1ff2005e98bb750f1d4f5aac10f09487189e489ad73c583efa6f08",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\edge_query_selection_v1_20261103\\seal20k\\UDP_metadata.tsv.gz": "55d5e5748ac097c95ad5f8c1982562e98e3da269d8d202fc2b5c38fb8d9a5e43",
+    "D:\\study\\paper\\anomaly_detection\\paper04\\worktrees\\kitnet-exp-mainline\\runs\\external_scope_review_codex_20261103\\EDGE_EXECUTION_CARD_DRAFT.json": "0755167ae19033e06d2557a9ee3744f82abc4b4587a9e6452e87727ba12e706e"
+  },
+  "model_calls": 0,
+  "population_counts": {
+    "HTTP": 152352,
+    "NORMAL": 1220126,
+    "UDP": 2898830
+  },
+  "raw_packets_read": false,
+  "schema": "EDGE_METADATA_TEMPORAL_CENSUS_SUMMARY_V1",
+  "source_scores_read": false,
+  "status": "METADATA_ONLY_FULL_POPULATION_CENSUS_PASS"
+}
