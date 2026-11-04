@@ -1,3 +1,7 @@
+## 2026-11-04 · 181699预算停止已诊断
+
+完整门STOP（1:57:37，EDGE_REPLAY_DEADLINE）；预检181696 PASS。UDP最后STOP心跳98.59%，append累计87.6分钟。NORMAL/HTTP完整标记已见，载荷审计待做；未重投。下一步完整产物同版本绑定审计与append内部瓶颈拆查。[详细证据](collab/20261104_edge_181699_budget_stop_codex.md)。
+
 ## 2026-11-04 · v3真实预检后完整工程门
 
 用户已免本次独立复核，USER_WAIVED；新v3r1本地98+15检查通过。真实78端点预检1CPU/8GiB/600秒，PASS后完整工程门1CPU/8GiB/7200秒；无自动重投，正式评价未授权。[交付与证据](collab/20261104_edge_v3_preflight_then_gate_codex.md)。进度18794（旧18793保留），由普通程序自动推进；当前提交/运行状态以新交付PROGRESS/SUBMIT_RECEIPT为准。

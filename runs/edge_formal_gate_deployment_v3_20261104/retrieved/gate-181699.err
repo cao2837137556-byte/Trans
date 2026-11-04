@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_gate_deployment_v3_20261104/checkout/runs/edge_formal_gate_deployment_v3_20261104/job_entry.py", line 51, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_gate_deployment_v3_20261104/checkout/runs/edge_formal_gate_deployment_v3_20261104/job_entry.py", line 44, in main
+    run(HERE/'ENGINEERING_CARD.json',HERE/'AUTHORIZATION.json',runtime_path,output)
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_gate_deployment_v3_20261104/checkout/runs/edge_formal_execution_v3r1_20261104/engineering_gate.py", line 383, in run
+    supervise(attempt, command, deadline, card['budget'])
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_gate_deployment_v3_20261104/checkout/runs/edge_formal_execution_v3r1_20261104/engineering_gate.py", line 332, in supervise
+    require(bounded_process(command, attempt.directory/'WORKER.log', deadline,
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_gate_deployment_v3_20261104/checkout/runs/edge_formal_execution_v3r1_20261104/checkpoint.py", line 31, in require
+    raise ValueError(message)
+ValueError: ENGINEERING_WORKER_FAILED

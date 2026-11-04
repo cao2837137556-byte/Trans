@@ -1,0 +1,45 @@
+{
+  "heartbeat": {
+    "append_seconds": 5254.093809177168,
+    "decoder_next_seconds": 262.5303347276058,
+    "frame": 3170387,
+    "reason": "TimeoutError:EDGE_REPLAY_DEADLINE",
+    "role": "UDP",
+    "role_elapsed_seconds": 5983.577121949056,
+    "selected_persisted": 19717,
+    "stage": "STOP"
+  },
+  "job_id": "181699",
+  "new_jobs_submitted": 0,
+  "payload_sha_audit": "NOT_PERFORMED_THIS_READ",
+  "provenance": "VISUAL_TRANSCRIPTION_OF_READ_ONLY_REMOTE_STDOUT",
+  "raw_receipt_downloaded": false,
+  "remote_command_source": "remote_summary.py",
+  "roles": {
+    "HTTP": {
+      "chunks": 157,
+      "complete_exists": true,
+      "expected_records": 229142,
+      "final_raw_identity_pass": true,
+      "generator_exhausted": true,
+      "last_frame": 229142,
+      "replay_to_eof": true,
+      "uid_count": 20000
+    },
+    "NORMAL": {
+      "chunks": 189,
+      "complete_exists": true,
+      "expected_records": 1629749,
+      "final_raw_identity_pass": true,
+      "generator_exhausted": true,
+      "last_frame": 1629749,
+      "replay_to_eof": true,
+      "uid_count": 24124
+    },
+    "UDP": {
+      "complete_exists": false,
+      "complete_uid_count": 0,
+      "coverage": {}
+    }
+  }
+}

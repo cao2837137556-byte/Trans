@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_gate_deployment_v3_20261104/checkout/runs/edge_formal_execution_v3r1_20261104/engineering_gate.py", line 414, in <module>
+    execute(args.card, args.authorization, args.runtime, args.output, args.deadline_monotonic,
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_gate_deployment_v3_20261104/checkout/runs/edge_formal_execution_v3r1_20261104/engineering_gate.py", line 257, in execute
+    prepared = prepare_inputs(card, runtime, output, scratch, guard, identity, replay_to_eof=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_gate_deployment_v3_20261104/checkout/runs/edge_formal_execution_v3r1_20261104/worker.py", line 209, in prepare_inputs
+    for snapshot in stream:
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_gate_deployment_v3_20261104/checkout/runs/edge_external_test1_engineering_v1_20261103/adapter/edge_adapter.py", line 242, in selected_snapshots
+    for packet in decode_rows(value['raw_inputs'][role]['path'], work/'decoder.stderr.log',
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_gate_deployment_v3_20261104/checkout/runs/edge_preflight_io_repair_v1_20261103/replay_io.py", line 239, in decode_rows
+    self.check()
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_gate_deployment_v3_20261104/checkout/runs/edge_preflight_io_repair_v1_20261103/replay_io.py", line 193, in check
+    raise TimeoutError('EDGE_REPLAY_DEADLINE')
+TimeoutError: EDGE_REPLAY_DEADLINE

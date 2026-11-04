@@ -1,0 +1,62 @@
+{
+  "status": "STOP",
+  "job_id": "181699",
+  "phase": "gate",
+  "card_sha256": "bd28847882260862f20d161d59b39e71770d95711e55cd54ad992eda40bda6b8",
+  "attempt": {
+    "attempt_id": "03798f4318274e61bac5875f9a273fd0",
+    "automatic_resubmit": false,
+    "card_sha256": "bd28847882260862f20d161d59b39e71770d95711e55cd54ad992eda40bda6b8",
+    "complete_roles_preserved": true,
+    "external_quality_computed": false,
+    "partial_roles_reusable": false,
+    "reason": "ValueError:ENGINEERING_WORKER_FAILED",
+    "resources": {
+      "max_rss_sample_gap_seconds": 0.5533399018459022,
+      "max_tree_rss_bytes": 6435995648,
+      "output_disk_bytes_60s_sampled_max": 299796686,
+      "peak_rss_processes": [
+        {
+          "pid": 1321800,
+          "rss_bytes": 31436800
+        },
+        {
+          "pid": 1321811,
+          "rss_bytes": 2623410176
+        },
+        {
+          "pid": 1321930,
+          "rss_bytes": 3781148672
+        }
+      ],
+      "peak_scope": "Nominal 0.25s RSS polling and 60s disk scans; measured RSS gap reported; sampled, not instantaneous peaks",
+      "rss_samples": 22446,
+      "scope": "supervisor + all descendants, including retained main and recovery workers",
+      "scratch_disk_bytes_60s_sampled_max": 4245282587
+    },
+    "schema": "EDGE_ENGINEERING_ATTEMPT_V2",
+    "scope": "EDGE_FORMAL_WORKER_ENGINEERING_GATE",
+    "scratch_cleanup": {
+      "complete": true,
+      "removed": [
+        "/tmp/edge-gate-owned-03798f4318274e61bac5875f9a273fd0-main",
+        "/tmp/edge-gate-owned-03798f4318274e61bac5875f9a273fd0-crash",
+        "/tmp/edge-gate-owned-03798f4318274e61bac5875f9a273fd0-resume"
+      ]
+    },
+    "status": "STOP"
+  },
+  "result_archive": {
+    "bytes": 143360,
+    "sha256": "673cfff08d1884a66f487cbf4783dd55e37c8769050d1d740e821bfe7e37be00"
+  },
+  "result_members": 36,
+  "scheduler": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "181699|FAILED|1:0|01:57:37||1|8G|02:00:00\n181699.batch|FAILED|1:0|01:57:37|6288900K|1||\n"
+  },
+  "acceptance_error": "ValueError:CURRENT_ATTEMPT_NOT_PASS",
+  "formal_external_evaluation": false,
+  "automatic_resubmit": false
+}
