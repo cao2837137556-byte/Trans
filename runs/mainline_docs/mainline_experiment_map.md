@@ -1,5 +1,9 @@
 # Mainline Experiment Map
 
+## 2026-11-03 实验11独立复核：工程验证前有四项待修
+
+用户指定本次由实验11 Codex复核实验10交付，下次再交小anti。原63项测试及60,000查询统计权重、35成员增量核验通过；独立复现发现1项P1（依赖身份闭包）和3项P2（父子资源监督、重入终态、超时scratch清理）。结论CHANGES_REQUESTED，先修复并复验；没有修改原工程源码/封存卡，也没有启动超算或生成外部效果。见[独立复核](collab/20261103_edge_formal_independent_review_experiment11_codex.md)。以下为此前状态。
+
 ## 2026-11-03 当前实验线
 
 C5/p=3与A/B开发线冻结。Edge独立外部线：181418真实小切片PASS；`runs/edge_formal_execution_v1_20261103/`完整worker、恢复、统计和增量包已准备，本地检查PASS，正式质量尚未评价。当前待小anti复核和一次1CPU/8GiB/2小时工程验证，核实新worker真实恢复/末段资源/完整批吞吐后再冻结正式预算。见[执行卡复核请求](collab/20261103_edge_formal_worker_and_budget_review_request_codex.md)。下方为历史阶段记录。

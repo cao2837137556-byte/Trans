@@ -1,0 +1,31 @@
+{
+  "status": "PASS_METADATA_AND_EXISTING_DELTA",
+  "roles": {
+    "NORMAL": {
+      "rows": 20000,
+      "population": 1220126,
+      "normal_components": 17025,
+      "exact_rational_weights_verified": true
+    },
+    "HTTP": {
+      "rows": 20000,
+      "population": 152352,
+      "normal_components": null,
+      "exact_rational_weights_verified": true
+    },
+    "UDP": {
+      "rows": 20000,
+      "population": 2898830,
+      "normal_components": null,
+      "exact_rational_weights_verified": true
+    }
+  },
+  "reference_rows": 4124,
+  "all_disjoint_logical_uids": 64124,
+  "delta_members": 35,
+  "delta_sha256": "1f907468a51f1580e157e757a362965c5859331a40b345a90059a638aa463aa5",
+  "models_loaded": 0,
+  "external_predictions_read": 0,
+  "raw_packets_read": 0,
+  "cloud_jobs_submitted": 0
+}

@@ -1,5 +1,9 @@
 # Mainline Handoff
 
+## 2026-11-03 实验11独立复核：工程验证前有四项待修
+
+用户指定本次由实验11 Codex复核实验10交付，下次再交小anti。原63项测试及60,000查询统计权重、35成员增量核验通过；独立复现发现1项P1（依赖身份闭包）和3项P2（父子资源监督、重入终态、超时scratch清理）。结论CHANGES_REQUESTED，先修复并复验；没有修改原工程源码/封存卡，也没有启动超算或生成外部效果。见[独立复核](collab/20261103_edge_formal_independent_review_experiment11_codex.md)。以下为此前状态。
+
 ## 2026-11-03 当前接手
 
 当前唯一方法为冻结C5/p=3，A/B为开发证据。181418同运行时真实切片已验收通过；完整Edge worker/原子批次恢复/正式统计已实现，本地检查通过，尚未生成外部效果。新worker的Linux冻结encoder恢复、UDP末段资源和batch16/大库吞吐仍待一次有界工程验证，不能沿用旧小切片PASS宣布正式就绪。小anti按[新复核请求](collab/20261103_edge_formal_worker_and_budget_review_request_codex.md)核对执行卡后再申请具体资源授权；本轮未提交云作业。正常/HTTP/UDP各20k、原4,124参考及原seal保留，预算未锁，不自动重投。入口详见[五项当前状态](NEW_CHAT_START_HERE.md)；下方均按各自日期作为历史记录。
