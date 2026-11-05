@@ -1,0 +1,24 @@
+{
+  "result": "REVIEW_RECONCILED_DESIGN_DRAFT",
+  "impact": "Accepted repair candidate with explicit corrections; no new results claimed",
+  "next": "Validate online semantics and pin engineering/gate contract before training",
+  "review_origin": "User supplied Antigravity document-review response; not an independently observed code replay",
+  "scientific_method_frozen": false,
+  "training_started": false,
+  "jobs_submitted": 0,
+  "messages_sent": 0,
+  "sha256": {
+    "runs/mainline_docs/collab/20261105_anti_context_review_reply_codex.md": "c4d0ecae6f73486acb2fa85948cbb9c867d4a540bd8ebd34234741892fca868e",
+    "runs/mainline_docs/collab/20261105_device_context_repair_design_draft_codex.md": "a553d600b77d45a82f33be2a6d497795df7ca7100ec3fa289bc7f02ba6a7b660",
+    "runs/context_separability_v1_20261104/PLAN.json": "25608a33046b85791bfa4ff8497a81abf50a80d85f394d9f841577c17aed7ff4",
+    "runs/c5_method_freeze_v1_20261102/METHOD_FREEZE.json": "ee11f25079cd03ee8b9d6dbbafd67e7fc96dd4402373808fc1c0b9f53b5c05e7",
+    "runs/legacy_query_tail_learning_delivery_v2r1_20261010/bundle/design_contract.json": "c6027a90f1f997b1bb1e8dd44409237531d7dc97cc13813e9bec364dc40b21af"
+  },
+  "primary_reference": "https://arxiv.org/pdf/1802.09089",
+  "unresolved": [
+    "online clock real-slice validation",
+    "resource/state caps and training budget",
+    "complete gate mapping",
+    "new independent confirmation data"
+  ]
+}
