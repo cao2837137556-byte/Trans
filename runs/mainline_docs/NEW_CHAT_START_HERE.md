@@ -2,10 +2,10 @@
 
 更新：2026-11-05（America/Los_Angeles）。固定五项，历史另存。
 
-1. **冻结/效果**：C5 p3 不变；Edge 正式评价工程 PASS、科学安全门 FAIL。尚未训练或验收修复模型。
-2. **诊断验收**：182279 预检 PASS；182280 COMPLETED/0:0、21分09秒、1CPU/8GiB。200条配对消融、Edge 60k跨连接统计通过，原始E3误差0，72个真实窗口暴力核对一致。
-3. **关键结论**：A UDP攻击截单包仍64/64检出，不能以更长连接历史解释该切片优势；Edge 1s包速率AUROC：UDP 0.999986、HTTP 0.999214，仅为描述性可分性。
-4. **证据/存储**：[验收报告与修复建议](collab/20261105_context_separability_acceptance_codex.md) · [验收/SHA](../context_separability_v1_20261104/FINAL_ACCEPTANCE.json)。大数组与逐条结果留超算，本地仅摘要。
-5. **评审/下一步**：已收到小anti文档评审；[核对回复](collab/20261105_anti_context_review_reply_codex.md)及[设计草案](collab/20261105_device_context_repair_design_draft_codex.md)已写。保留当前包因果语义，增加同配方782重训对照；在线时钟/资源/验收门待封存，未训练。
+1. **冻结/效果**：原 C5 p3 不变；Edge 既有科学安全门 FAIL，尚无修复模型训练或检测性能结果。
+2. **最新验收**：流式预检 182314/完整门 182315 均 COMPLETED/0:0，20秒/2分7秒；112个真实查询及83个恢复查询零差异，FINAL_ACCEPTANCE=PASS。
+3. **资源/限制**：1CPU/8GiB；UDP解码+统计8.44万帧/秒，压力流12.77万事件/秒、267.7MiB；NORMAL逻辑时钟最大超前854.643ms，须披露，112端点D0/D1相同不等于全局等价。
+4. **封存/证据**：[训练规格](../device_context_stream_gate_v1_20261105/TRAINING_SPEC_FROZEN.json) · [最终验收](../device_context_stream_gate_v1_20261105/FINAL_ACCEPTANCE.json) · [报告](collab/20261105_device_context_stream_gate_codex.md) · [进度](http://127.0.0.1:18805/)。大工件留超算。
+5. **下一步**：源原包/设备映射/完整特征UID及权重准入，真实训练与校准小切片；之后按OLD782/REFIT782/STATS8/FUSION790封存对照训练。每个新头计划1CPU/8GiB/30分钟，实际训练尚未提交。
 
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)

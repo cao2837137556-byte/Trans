@@ -1,0 +1,58 @@
+{
+  "status": "FROZEN_VALIDATION_PLAN_NO_TRAINING",
+  "selection": "hash(stream-gate-v1|UID), 8 per normal segment/protocol; 16 per attack role; no scores read",
+  "slice_counts": {
+    "NORMAL": 80,
+    "HTTP": 16,
+    "UDP": 16
+  },
+  "slices_sha256": "9324eaefa018e925a2c50f53654a266eac07531e5efc83240f316f236bed8e95",
+  "real_scan": "Complete raw scan for clock/resource census, selected endpoints for brute-force parity, no encoder/head evaluation",
+  "clock": "c_i=max(c_(i-1),raw_timestamp_i); logical segment reset; all physical frames advance clock",
+  "window": "j<=i AND c_i-W<c_j<=c_i; inbound target/protocol only; current included",
+  "windows_seconds": [
+    1,
+    10
+  ],
+  "feature_order": [
+    "pps_1",
+    "IP_Bps_1",
+    "sources_1",
+    "connections_1",
+    "pps_10",
+    "IP_Bps_10",
+    "sources_10",
+    "connections_10"
+  ],
+  "limits": {
+    "max_active_queue_entries": 1000000,
+    "max_active_groups": 4096,
+    "rss_limit_bytes": 2147483648,
+    "slurm_cpu": 1,
+    "slurm_memory_gib": 8,
+    "preflight_seconds": 300,
+    "full_seconds": 1500
+  },
+  "gates": {
+    "integer_mismatches": 0,
+    "float_mismatches": 0,
+    "restart_mismatches": 0,
+    "capacity_overflow_must_stop": true,
+    "idle_must_empty": true,
+    "max_real_clock_debt_ns": 1000000000,
+    "synthetic_core_min_events_per_second": 36000,
+    "full_real_min_frames_per_second": 18000,
+    "checkpoint_sha_and_binding": true
+  },
+  "stress": {
+    "events": 1500000,
+    "virtual_events_per_second": 50000,
+    "owners": 8,
+    "source_and_connection": "unique per event",
+    "final_idle_seconds": 11
+  },
+  "training_authorized": false,
+  "automatic_training_jobs": 0,
+  "freeze_after": "All stream/resource gates PASS and scheduler COMPLETED 0:0; freeze specification only",
+  "storage": "all arrays, checkpoints and raw data stay HPC; return summaries and SHA"
+}

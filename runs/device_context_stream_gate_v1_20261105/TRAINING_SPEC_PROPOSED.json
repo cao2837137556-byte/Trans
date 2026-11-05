@@ -1,0 +1,268 @@
+{
+  "status": "PROPOSED_PENDING_STREAM_GATE",
+  "version": "DEVICE_CONTEXT_D1_TRAINING_SPEC_V1",
+  "source_pins": {
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/config/ASSETS.json": "34d7829d5c2f262bd60b30058b677cbf7b67ee2c419d6ce924ddc01162b96b75",
+    "runs/c5_method_freeze_v1_20261102/METHOD_FREEZE.json": "ee11f25079cd03ee8b9d6dbbafd67e7fc96dd4402373808fc1c0b9f53b5c05e7",
+    "runs/legacy_query_tail_learning_delivery_v2r1_20261010/bundle/design_contract.json": "c6027a90f1f997b1bb1e8dd44409237531d7dc97cc13813e9bec364dc40b21af",
+    "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/metadata/resolved_raw_catalog.json": "18769831834c3848ae1edb4f9ac29f0a80bb65c80e649e409edf327b9829bce2",
+    "repo/ood/query_tail_core_v2.py": "9d9f716d2fcef8096b2d3eb77fe380e5d44f9d950bdb7844b362a9387d27de49",
+    "repo/ood/continuous_model_v3.py": "5f9f07e2a2827e412871880e5fecf3994c13ea6ba8e701dd70f6b798aa851f84",
+    "runs/edge_formal_execution_v4_20261104/reporting.py": "8ba3ecd3fdb454d7141612a6cef254081f0c5a70d3c7d03870be757aede51057"
+  },
+  "data_identity": {
+    "FIT": {
+      "rows": 617908,
+      "uid_sha256": "d87b1582b7c349b80b59c9478fcbb69d334e233f4fa5448b162e8bafd8dbd5b4",
+      "eligible_rows": 567175,
+      "eligible_uid_sha256": "f866cb49a51eb660037df471415eeff9cbdec9b25fc69e7defe0635a0eae5b76"
+    },
+    "CAL": {
+      "rows": 148819,
+      "uid_sha256": "5c3e3155c3ed96937bd79590e3bc1f11fd31d9b6ff4dafeab32dc5c2592bf8d0",
+      "eligible_rows": 136962,
+      "eligible_uid_sha256": "e1856bc38a35b5c6348af111e7103417cd6d34ee726dc2fd56ec301025da94b3"
+    }
+  },
+  "source_encoder_sha256": "e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105",
+  "arms": [
+    "OLD782_FROZEN",
+    "REFIT782",
+    "STATS8",
+    "FUSION790"
+  ],
+  "primary": "FUSION790",
+  "clock": "c_i=max(c_(i-1),raw_timestamp_i); logical segment reset; all physical frames advance clock",
+  "window": "j<=i AND c_i-W<c_j<=c_i; inbound target/protocol only; current included",
+  "windows_seconds": [
+    1,
+    10
+  ],
+  "features": [
+    "pps_1",
+    "IP_Bps_1",
+    "sources_1",
+    "connections_1",
+    "pps_10",
+    "IP_Bps_10",
+    "sources_10",
+    "connections_10"
+  ],
+  "scope_key": [
+    "logical_capture",
+    "protected_device",
+    "protocol"
+  ],
+  "engine_limits": {
+    "max_active_queue_entries": 1000000,
+    "max_active_groups": 4096,
+    "rss_limit_bytes": 2147483648,
+    "slurm_cpu": 1,
+    "slurm_memory_gib": 8,
+    "preflight_seconds": 300,
+    "full_seconds": 1500
+  },
+  "normalization": {
+    "e3": "reuse frozen source FIT mean/scale",
+    "q14": "unchanged",
+    "new8": "log1p; unweighted float64 FIT population mean and std; exactly-zero std -> 1; normalize float64 then cast float32",
+    "fit_role": "LEARN/FIT only",
+    "cal_role": "normal CAL threshold only"
+  },
+  "model": {
+    "encoder": "frozen",
+    "architecture": "Linear(D,128),ReLU,Linear(128,1)",
+    "seeds": [
+      27,
+      127,
+      227
+    ],
+    "initialization": "REFIT782 uses exact parent classifier; FUSION790 copies same untrained 782 columns/bias/output, new8 columns zero; STATS8 standard torch Linear initialization with seed; reset training RNG after model init",
+    "trained_checkpoint_warm_start": false
+  },
+  "training": {
+    "parent_recipe": {
+      "seeds": [
+        27,
+        127,
+        227
+      ],
+      "epochs": 40,
+      "batch_size": 256,
+      "optimizer": "AdamW",
+      "optimizer_parent_values": {
+        "lr": 0.0003,
+        "weight_decay": 0.0001,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08
+      },
+      "endpoint": "epoch40 only; no checkpoint or seed selection",
+      "data_order": "v3 torch random permutation per epoch",
+      "original_bce_weights_unchanged": true,
+      "protocol_stage_reweighting": false,
+      "negative_tail_mass": 0.01,
+      "tail_pair_weight": 1.0,
+      "bce_weight": 1.0,
+      "pair_loss": "softplus(s_negative-s_positive)",
+      "tail_source": "All FIT normal, conditional weights=2*original_bce_weight, live head at epoch start",
+      "tail_refresh": "Once per epoch; held fixed for that epoch; log stale-selection limitation",
+      "tail_ties": "Fractional remaining mass distributed proportionally within entire equal-score block",
+      "tail_negatives_per_batch": 128,
+      "tail_sampling": "With replacement, float64 inverse CDF in UID-sorted order",
+      "tail_random_stream": "Python3.9 random.Random(int(SHA256(query-tail-v1|seed|epoch),16)); separate from batch shuffle",
+      "positive_weight": "2*original_bce_weight; no within-batch renormalization",
+      "batch_pair_estimator": "N/b * sum_batch_positive(p_i * mean_128 softplus(s_j-s_i))",
+      "zero_positive_batch": "pair term 0, BCE unchanged",
+      "both_pair_sides_gradient": true,
+      "updates_per_head": 96560,
+      "new_heads": 9,
+      "new_total_updates": 869040,
+      "full_FIT_bce_visits_per_head": 24716320,
+      "tail_refresh_normal_visits_per_tail_head": 5379720,
+      "search": false,
+      "retry": false,
+      "theory_claim": "pAUC-inspired epoch mining, NOT SOPA and no borrowed convergence guarantee",
+      "diagnostics": {
+        "enabled": true,
+        "loss_log_format": "npy_float64",
+        "loss_columns": [
+          "bce",
+          "tail",
+          "total"
+        ],
+        "probe_batches": [
+          1,
+          1207,
+          2414
+        ],
+        "gradient_timing": "pre_step",
+        "adam_state_timing": "post_step",
+        "probes_per_head": 120,
+        "probes_nine_heads": 1080,
+        "extra_reverse_calls_upper_count": 2160,
+        "autograd": {
+          "retain_graph": true,
+          "create_graph": false,
+          "writes_grad": false
+        },
+        "batch_forward_reuse": true,
+        "extra_rng_draws": 0,
+        "extra_model_forwards": 0,
+        "extra_optimizer_updates": 0,
+        "disabled_only_in_generated_invariance_tests": true,
+        "gradient_ratio_excludes_weight_decay": true,
+        "adam_correction": "sqrt(exp_avg_sq/(1-beta2**actual_parameter_step))",
+        "adam_groups": [
+          "all_parameters",
+          "first_layer",
+          "output_layer",
+          "query14_columns"
+        ],
+        "invalid_ratios_are_null": true,
+        "norm_and_summary_accumulation_dtype": "float64",
+        "no_early_stopping_no_epoch_selection_no_hyperparameter_adaptation": true
+      }
+    },
+    "epochs": 40,
+    "endpoint": "epoch40 only, every seed reported",
+    "optimizer": {
+      "lr": 0.0003,
+      "weight_decay": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08
+    },
+    "batch_size": 256,
+    "loss": "unchanged SUM_BCE_TAIL",
+    "weights": "parent source FIT weights; no extra normal penalty",
+    "data_order": "independent CPU torch.Generator seed=seed; epoch randperm; independent original tail RNG",
+    "tail_mass": 0.01,
+    "tail_negative_samples": 128,
+    "new_heads": 9,
+    "retries": 0,
+    "model_selection": "none; no Edge/CIC_DEV/UNSW_DEV tuning"
+  },
+  "calibration": {
+    "source": "same source CAL normals",
+    "weighted_fpr_budget": 0.01,
+    "strict_comparison": ">",
+    "per_seed_and_ensemble": "independently calibrated",
+    "new_scales": "same FIT weighted q90-q10 algorithm; never reuse old logit scale for new heads"
+  },
+  "gates": {
+    "source_cal_fpr": {
+      "scope": "each trained seed and ensemble",
+      "weighted_max": 0.01
+    },
+    "raw_primary_absolute": {
+      "scope": "FUSION790, each A/B pool",
+      "ensemble_weighted_attack_min": 0.99,
+      "each_device_ensemble_weighted_attack_min": 0.97,
+      "each_seed_pool_weighted_attack_min": 0.97,
+      "weighted_normal_fpr_pool_max": 0.01,
+      "weighted_normal_fpr_device_max": 0.02,
+      "interpretation": "operating targets, not assertions old RAW already passed"
+    },
+    "raw_no_regression": {
+      "scope": "FUSION790 versus OLD782 at own source-CAL operating point; each seed and ensemble; each nonempty A/B protocol attack group and source CAL attack group",
+      "max_weighted_recall_drop": 0.001,
+      "normal_weighted_fpr_increase_pool_max": 0.001,
+      "integer_counts_required": true
+    },
+    "c5_safety": {
+      "scope": "each head and ensemble, A/B and Edge diagnostic separately",
+      "device_weighted_loss_pp_max": 1.0,
+      "scenario_weighted_loss_pp_max": 5.0,
+      "if_raw_recall_below_99_percent": "zero withdrawn RAW true positives",
+      "source": "pinned reporting.py _safety; no independent event-recall claim"
+    },
+    "edge": "predeclared all three new candidates and old anchor reported once as consumed diagnostic; no tuning or new external-confirmation claim",
+    "all_metrics": "weighted and unweighted; per pool/device/protocol/scenario; counts; null for unsupported denominators"
+  },
+  "c5": {
+    "applies_to": [
+      "OLD782",
+      "REFIT782",
+      "FUSION790"
+    ],
+    "stats8": "RAW baseline only",
+    "geometry": "unchanged frozen z/q14 and legal reference banks, verify UID/SHA before reuse",
+    "p": 3,
+    "lambda_value": 0.25,
+    "kernel": "1-(1-s)^3",
+    "guard": "same q14 SYN_NO_ACK",
+    "head_scale": "recompute source-FIT scales per new head",
+    "margin_report": [
+      "m=raw-cut",
+      "delta=raw-c5",
+      "m-delta",
+      "m/B when B>0",
+      "withdrawal counts",
+      "fraction m>B"
+    ],
+    "absolute_margin_target": null
+  },
+  "execution": {
+    "training_started": false,
+    "automatic_training_submission": false,
+    "planned_cpu_per_head": 1,
+    "planned_memory_gib_per_head": 8,
+    "wall_seconds_per_head": "set by full gate synthetic backward/forward estimate times3, rounded to900s, minimum1800 maximum14400; no optimizer fitting in gate",
+    "heads_sequential": true,
+    "feature_build": "separate pre-training admission; no source query may be silently omitted"
+  },
+  "mandatory_before_training": [
+    "All source raw files verified by registered catalog SHA and protected-device mapping",
+    "All FIT/CAL/A/B query identities/protocol/directions accounted for, including unsupported IPv6/fragments: STOP rather than silent drop",
+    "D1 full feature build with immutable UID order; checkpoint/restart gate",
+    "Exact source FIT/CAL/weight identity; no labels or model scores read by feature engine",
+    "Real same-runtime head-training implementation smoke and source-CAL calibration gate",
+    "Source forecast fits sealed per-head resource budget; otherwise new resource revision before submit"
+  ],
+  "future_confirmation": "Separate untouched device/capture qualification registered before reading scores; pending material, not required to call development experiment a development experiment"
+}

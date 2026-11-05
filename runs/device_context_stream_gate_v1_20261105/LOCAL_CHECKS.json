@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "synthetic": {
+    "status": "PASS",
+    "integer_and_float_checks": 5014,
+    "frames": 2507,
+    "checkpoint_restores": 4,
+    "capacity_failure_before_insertion": true,
+    "empty_state_after_idle": true,
+    "cases": [
+      "current_packet",
+      "equal_time_prefix",
+      "lower_boundary",
+      "regression",
+      "two_protocols",
+      "three_owners",
+      "outbound_no_insert",
+      "IPv6_identity",
+      "segment_reset",
+      "idle_cleanup",
+      "checkpoint_sha_and_binding"
+    ]
+  },
+  "existing_local_raw_prefixes": {
+    "NORMAL": {
+      "frames": 5000,
+      "integer_checks": 72
+    },
+    "HTTP": {
+      "frames": 5000,
+      "integer_checks": 72
+    },
+    "UDP": {
+      "frames": 5000,
+      "integer_checks": 72
+    }
+  },
+  "linux_gate": "PENDING",
+  "real_training": 0,
+  "worker_real_prefix_restart_oracle": "PASS"
+}

@@ -1,0 +1,52 @@
+{
+  "state": {
+    "stage": "PASS",
+    "phase": "FULL",
+    "PREFLIGHT_JOB": {
+      "job_id": "182314",
+      "phase": "PREFLIGHT",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 300
+    },
+    "PREFLIGHT_PROGRESS": {
+      "stage": "PASS",
+      "done": 1,
+      "total": 1,
+      "updated_unix": 1793872036.9290388
+    },
+    "PREFLIGHT_SCHEDULER": {
+      "stdout": "182314|COMPLETED|0:0|00:00:20||1|8G\n182314.batch|COMPLETED|0:0|00:00:20|1036K|1|\n",
+      "returncode": 0
+    },
+    "PREFLIGHT_STOP": null,
+    "FULL_JOB": {
+      "job_id": "182315",
+      "phase": "FULL",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 1500
+    },
+    "FULL_PROGRESS": {
+      "stage": "PASS",
+      "done": 1,
+      "total": 1,
+      "updated_unix": 1793872173.194254
+    },
+    "FULL_SCHEDULER": {
+      "stdout": "182315|COMPLETED|0:0|00:02:07||1|8G\n182315.batch|COMPLETED|0:0|00:02:07|353012K|1|\n",
+      "returncode": 0
+    },
+    "FULL_STOP": null
+  },
+  "sha256": {
+    "PREFLIGHT_RESULT.json": "57cd9fb7fdd7d3817d4c972128d73683d8f2a56e853309017f6449ec7cd81b01",
+    "PREFLIGHT_SCHEDULER.json": "fa0dca2d6863bbb54fec5563aa35df167b34e230344aae8068f93a0e8459c509",
+    "PREFLIGHT_JOB.json": "028031c58a6193704bbbf96a8a9dc52454c9b83f7078418d2b8e46cfefc21d4e",
+    "FULL_RESULT.json": "50ffe535938ec553b81a8dbe66a91c1b70690b6a9241e3c8e8c049e2db56c642",
+    "FULL_SCHEDULER.json": "e06a8e08c9c74147ec797e62db048b7d1f34a117ce5c1b94fdde10ba67f9a6a2",
+    "FULL_JOB.json": "41b57eb5def7a69cbd26a14101996cb209bd1d152002df8ae702b4e3818e3e46",
+    "TRAINING_SPEC_FROZEN.json": "501aea9c9dd62b84a80e0cb4931935aeb766afb3d5c24e9fb39d2866800fb065",
+    "TRAINING_FREEZE_RECEIPT.json": "c71733ed9ef32fa8fa00c3a27b25a25d7a3cbc4e70e15d2d8339e2b8eae74eb7"
+  }
+}

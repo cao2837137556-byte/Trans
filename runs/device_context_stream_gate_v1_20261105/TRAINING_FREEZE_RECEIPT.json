@@ -1,0 +1,23 @@
+{
+  "result": "PASS_SPECIFICATION_FROZEN",
+  "impact": "Engineering streaming gate passed; no new detection-quality claim or training execution",
+  "next": "Source asset/feature admission and same-runtime training smoke before separate training submission",
+  "status": "PASS",
+  "spec_sha256": "501aea9c9dd62b84a80e0cb4931935aeb766afb3d5c24e9fb39d2866800fb065",
+  "evidence_pins": {
+    "PREFLIGHT_RESULT.json": "57cd9fb7fdd7d3817d4c972128d73683d8f2a56e853309017f6449ec7cd81b01",
+    "FULL_RESULT.json": "50ffe535938ec553b81a8dbe66a91c1b70690b6a9241e3c8e8c049e2db56c642",
+    "PREFLIGHT_SCHEDULER.json": "fa0dca2d6863bbb54fec5563aa35df167b34e230344aae8068f93a0e8459c509",
+    "FULL_SCHEDULER.json": "e06a8e08c9c74147ec797e62db048b7d1f34a117ce5c1b94fdde10ba67f9a6a2",
+    "TRAINING_SPEC_PROPOSED.json": "afa9756b5eeb33039afdd5d235aa86a78557377e2b235d5e45a981cfe953fb47",
+    "VALIDATION_PLAN.json": "a583b648b030aba2fd9496bc48135ff8af788838db6a50a09d12ab099567e2b7",
+    "SLICES.json": "9324eaefa018e925a2c50f53654a266eac07531e5efc83240f316f236bed8e95",
+    "stream_core.py": "d8663a40e21d76ed2021b0999e1e2384b194b3b03b1c391ce88c43bae4a439aa",
+    "worker.py": "2215c05fb51a33569dc33f6433dc25fa35cf937c22d244295558bf490a34b2d4",
+    "packet_reader.py": "7ef0122fb66cbfd49d9130fd2f9325e2612eed0fe5c0a3791daa4122cd8c9881",
+    "test_core.py": "dbfa713f46269f5b456b0fc9ae942b042317edf6d66bc2981cf9d0dd577ed81a"
+  },
+  "automatic_training_jobs": 0,
+  "training_started": false,
+  "big_artifacts": "HPC only"
+}
