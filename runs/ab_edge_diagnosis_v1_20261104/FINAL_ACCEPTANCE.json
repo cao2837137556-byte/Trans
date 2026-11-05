@@ -1,0 +1,139 @@
+{
+  "result": "PASS_EXISTING_ARTIFACT_DIAGNOSIS_ACCEPTANCE",
+  "impact": "Diagnostic execution and returned summaries verified; this is not a scientific efficacy PASS.",
+  "next": "Freeze this diagnosis, preserve source results on HPC, then address the raw-to-snapshot boundary before a new method version.",
+  "verified_utc": "2026-11-05T05:53:27.074881+00:00",
+  "job_id": "182245",
+  "scheduler_state": "COMPLETED",
+  "exit_code": "0:0",
+  "elapsed": "00:03:19",
+  "cpu": 1,
+  "memory_gib": 8,
+  "wall_seconds": 3600,
+  "batch_max_rss_kib": 466068,
+  "preflight_seconds": 1.652195821981877,
+  "full_diagnostic_seconds": 198.72724626096897,
+  "ab_diagnostic_seconds": 20.375,
+  "supplemental_input_probe_seconds": 12.87276058504358,
+  "supplemental_probe_execution": "Read-only stdlib process on the existing remote terminal; one-CPU affinity and 120-second internal deadline, not a second Slurm job.",
+  "raw_replay": 0,
+  "new_encoding": 0,
+  "new_model_forward": 0,
+  "new_distance": 0,
+  "training": 0,
+  "threshold_fit": 0,
+  "source_writes": 0,
+  "external_safety": "FAIL_UNCHANGED_FROM_FORMAL_EVALUATION",
+  "hpc_source": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_resume_v2_20261104/outputs/gate_182089",
+  "hpc_input_manifest": {
+    "path": "/public/home/jiangxinwei.zr/work/paper04/runs/ab_edge_diagnosis_v1_20261104/outputs/EDGE_INPUT_SHA.json",
+    "sha256": "53fde0e48f57e47052cd2efedc59c48fcf5a6d27764edeb25dbbadb83fb67ae3",
+    "files": 21172
+  },
+  "files": {
+    "diagnose.py": {
+      "sha256": "fd496287dd81682317719eb1d9b50a4df520fc9aeb40bacdc8898273f38457ef",
+      "bytes": 14808
+    },
+    "receiver.py": {
+      "sha256": "396268182c327b18ff48a3580e7d891b2ae92792f9c0e6ed207460092ec1a22c",
+      "bytes": 5743
+    },
+    "dashboard.py": {
+      "sha256": "d22a67fb98d78286178e8a8cf8b47186316d9e4d60dba07b50477bfe1c27d15d",
+      "bytes": 3095
+    },
+    "input_probe.py": {
+      "sha256": "f74f5b4e640c0a310ca3a65cec2fc7a66ef20fa5afd9f25381a271c25302cc28",
+      "bytes": 5137
+    },
+    "ab_snapshot_probe.py": {
+      "sha256": "6efc647aba7fd60724b02026f2be48c04fdd124e584a5a5f374989c42d9cf6ed",
+      "bytes": 2850
+    },
+    "finalize_readout.py": {
+      "sha256": "b5d306a84daaa677875f303a73f5d4c78e0fd53767e41089c6090fa75b3011f2",
+      "bytes": 10449
+    },
+    "index.html": {
+      "sha256": "b028f2e9ef7d3a1cf4451b9882a16d3cbb98511ab4678e1568bc5d63a7b4968d",
+      "bytes": 4739
+    },
+    "DELIVERY.json": {
+      "sha256": "d5e18fa3d86e5ff07f375b015c3965bd9d94b9cc47041fabcc25377c9a8827a7",
+      "bytes": 570
+    },
+    "LOCAL_PREFLIGHT.json": {
+      "sha256": "b05372258f0b584dcd878dfc49f66cfb6b50320630386ef13965fc77168b0fb1",
+      "bytes": 183
+    },
+    "REMOTE_STATE.json": {
+      "sha256": "ec3b81684994b3604e9617e1f4833df5beb9f9ff08a495e5d687dead4d7db47e",
+      "bytes": 1361
+    },
+    "REMOTE_RETRIEVAL.json": {
+      "sha256": "ae48bf2d8bb67985da10cb10352477cc6e83442268dca1d603206d117e40e052",
+      "bytes": 276341
+    },
+    "AB_SNAPSHOT_DIAGNOSIS.json": {
+      "sha256": "44bd9b8a6ed0c62fee24a1c3a3598a86fe4ea605295c849d0fcf1e584ea38f40",
+      "bytes": 7626
+    },
+    "INPUT_PROBE_RESULT.json": {
+      "sha256": "f1adfe8792bf5cab5269d4173dbe57f3e9aa81b76376561574e35c1700fe862e",
+      "bytes": 889
+    },
+    "EDGE_INPUT_SHAPES.json": {
+      "sha256": "2938f6708103813cc32ca7d168b7888ef4b9478e5d6d529155c92d3bee0ec390",
+      "bytes": 3793
+    },
+    "DIAGNOSIS_READOUT.json": {
+      "sha256": "70646efd9ffa3e32fa846308003ddae346eb55925c3783a1fc658a2a2e74cf81",
+      "bytes": 8141
+    },
+    "local/AB_COMPLETE.json": {
+      "sha256": "4a5de0f944f6e3612587004f1ea7683e764d461cd73667da068fc105bbfeddf7",
+      "bytes": 451
+    },
+    "local/AB_INPUT_SHA.json": {
+      "sha256": "bffbc66e867ece7235365a19a856368c4eeda588960eb50b8f96d49c85e51372",
+      "bytes": 2180
+    },
+    "local/AB_PROGRESS.json": {
+      "sha256": "d517a6afd9df28c9ca8134ad436138facdf184ec2142945069b3abedf27805b0",
+      "bytes": 129
+    },
+    "local/CIC_DEV_DIAGNOSIS.json": {
+      "sha256": "da6b80f8ac1486863a9144773c3a00d88efa3ea257a952004c2bfb2dccad3a46",
+      "bytes": 177338
+    },
+    "local/EDGE_COMPLETE.json": {
+      "sha256": "ac0f5b037099749c375aa4ff26a6ccaf00c0e7818c5929ba7b0fdbc3c136518c",
+      "bytes": 348
+    },
+    "local/EDGE_DIAGNOSIS.json": {
+      "sha256": "f59b460a7eb361d9228fa44241e43a82011fcc55480073a0f53701b8ac8c279a",
+      "bytes": 218748
+    },
+    "local/PREFLIGHT_COMPLETE.json": {
+      "sha256": "fcb54891835a43b3ae4ece194def25abb546338e5d32ad72e8b0f5e8f9e57f37",
+      "bytes": 250
+    },
+    "local/UNSW_DEV_DIAGNOSIS.json": {
+      "sha256": "c247aeb13b84a594c0f6281019d7ef17ed1136d6f1d0becf1004a9cab136800f",
+      "bytes": 154456
+    }
+  },
+  "explanatory_source_pins": {
+    "repo/ood/continuous_input_v3.py": "a503c7b21c35234462a735d3890fa4cda918573ceeda072604e4bec6872b405d",
+    "repo/ood/query_tail_core_v2.py": "9d9f716d2fcef8096b2d3eb77fe380e5d44f9d950bdb7844b362a9387d27de49"
+  },
+  "limitations": [
+    "No independent fresh raw-PCAP-to-snapshot reconstruction: upstream semantic correctness is not fully proved.",
+    "No fresh encoder or classifier inference: input hashes are recorded receipts; saved outputs are analyzed.",
+    "Snapshot context comparisons use 128 score-independent UID-ordered slices, not full-population estimates.",
+    "No all-UDP source-IP/port census; do not claim all queries have unique source IPs or prove spoofing from this audit.",
+    "A/B use commissioning plus historical references; Edge uses commissioning only. Reference modes and sampling differ.",
+    "No new independent Antigravity review. Original external safety FAIL remains unchanged."
+  ]
+}

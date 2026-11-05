@@ -1,0 +1,222 @@
+{
+  "result": "COMPLETED_EXISTING_ARTIFACT_DIAGNOSIS",
+  "impact": "Evidence supports an input-representation blind spot, weak external RAW discrimination, and additional C5 HTTP alarm suppression; no checked artifact/alignment/decision error found.",
+  "next": "Before changing the method, independently spot-check selected UDP raw packets against saved snapshots; any subsequent method development needs a separate version and fresh external confirmation.",
+  "scope": "Read-only existing A/B and Edge results. No training, encoding, model forward, distance recomputation or threshold search.",
+  "dataset_roles": {
+    "A": "CICIoT2022 / CIC_DEV, CONSUMED_DEVELOPMENT_ONLY",
+    "B": "UNSW2018 / UNSW_DEV, CONSUMED_DEVELOPMENT_ONLY (not UNSW-NB15)",
+    "Edge": "POST_FREEZE_EXTERNAL; now inspected for diagnosis"
+  },
+  "metric_scope": "Unweighted fixed-query descriptive rates and AUROC; not HT population estimates, event recall, or three interchangeable independent tests.",
+  "aggregate_ensemble": [
+    {
+      "dataset": "CIC_DEV",
+      "group": "ATTACK/ALL",
+      "rows": 79056,
+      "raw_alarm_count": 79056,
+      "p1_alarm_count": 79023,
+      "p3_alarm_count": 78915,
+      "raw_rate": 1.0,
+      "p1_rate": 0.9995825743776563,
+      "p3_rate": 0.9982164541590771,
+      "p3_withdrawn": 141,
+      "auc_vs_same_protocol_normal": 0.9999984017369075
+    },
+    {
+      "dataset": "CIC_DEV",
+      "group": "NORMAL/ALL",
+      "rows": 96041,
+      "raw_alarm_count": 71,
+      "p1_alarm_count": 14,
+      "p3_alarm_count": 4,
+      "raw_rate": 0.0007392676044605949,
+      "p1_rate": 0.00014577107693589195,
+      "p3_rate": 4.164887912454056e-05,
+      "p3_withdrawn": 67,
+      "auc_vs_same_protocol_normal": null
+    },
+    {
+      "dataset": "UNSW_DEV",
+      "group": "ATTACK/ALL",
+      "rows": 72553,
+      "raw_alarm_count": 72548,
+      "p1_alarm_count": 72548,
+      "p3_alarm_count": 72548,
+      "raw_rate": 0.9999310848621008,
+      "p1_rate": 0.9999310848621008,
+      "p3_rate": 0.9999310848621008,
+      "p3_withdrawn": 0,
+      "auc_vs_same_protocol_normal": 0.9958510669690764
+    },
+    {
+      "dataset": "UNSW_DEV",
+      "group": "NORMAL/ALL",
+      "rows": 74444,
+      "raw_alarm_count": 29702,
+      "p1_alarm_count": 3606,
+      "p3_alarm_count": 1152,
+      "raw_rate": 0.3989844715490839,
+      "p1_rate": 0.04843909515877707,
+      "p3_rate": 0.015474719252055236,
+      "p3_withdrawn": 28550,
+      "auc_vs_same_protocol_normal": null
+    },
+    {
+      "dataset": "EDGE",
+      "group": "HTTP/ALL",
+      "rows": 20000,
+      "raw_alarm_count": 13266,
+      "p1_alarm_count": 10333,
+      "p3_alarm_count": 6239,
+      "raw_rate": 0.6633,
+      "p1_rate": 0.51665,
+      "p3_rate": 0.31195,
+      "p3_withdrawn": 7027,
+      "auc_vs_same_protocol_normal": 0.2254725401220325
+    },
+    {
+      "dataset": "EDGE",
+      "group": "NORMAL/ALL",
+      "rows": 20000,
+      "raw_alarm_count": 16806,
+      "p1_alarm_count": 146,
+      "p3_alarm_count": 95,
+      "raw_rate": 0.8403,
+      "p1_rate": 0.0073,
+      "p3_rate": 0.00475,
+      "p3_withdrawn": 16711,
+      "auc_vs_same_protocol_normal": null
+    },
+    {
+      "dataset": "EDGE",
+      "group": "UDP/ALL",
+      "rows": 20000,
+      "raw_alarm_count": 0,
+      "p1_alarm_count": 0,
+      "p3_alarm_count": 0,
+      "raw_rate": 0.0,
+      "p1_rate": 0.0,
+      "p3_rate": 0.0,
+      "p3_withdrawn": 0,
+      "auc_vs_same_protocol_normal": 0.42857142857142855
+    }
+  ],
+  "input_chain": {
+    "full_rows": {
+      "CIC_DEV": 179886,
+      "UNSW_DEV": 148316,
+      "EDGE": 60000
+    },
+    "primary_rows": {
+      "CIC_DEV": 175097,
+      "UNSW_DEV": 146997,
+      "EDGE": 60000
+    },
+    "edge_queries": 60000,
+    "edge_encoded_batches": 4046,
+    "edge_result_chunks": 469,
+    "edge_input_manifest": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/ab_edge_diagnosis_v1_20261104/outputs/EDGE_INPUT_SHA.json",
+      "sha256": "53fde0e48f57e47052cd2efedc59c48fcf5a6d27764edeb25dbbadb83fb67ae3",
+      "files": 21172
+    },
+    "saved_decision_replay": {
+      "AB": "C5_P1_AND_C5_P3_EXACT_FOUR_HEADS; RAW computed from saved scores and frozen cuts",
+      "Edge": "RAW_C5_P1_C5_P3_EXACT_FOUR_HEADS"
+    },
+    "ab_snapshot_q14_replay": "EXACT_FOR_SAVED_UID_ORDERED_SLICES",
+    "edge_udp_input_probe": {
+      "status": "PASS",
+      "scope": "20000 saved UDP tensor receipts plus 128 UID-ordered frozen snapshots",
+      "udp_rows": 20000,
+      "distinct_input_tensor_hashes": 1,
+      "tensor_hash_counts": {
+        "71b9df8bfc98d9e96db6526ba1d77cdeb3faadc61db5c3a942c16405fe42cfc3": 20000
+      },
+      "sample_rows": 128,
+      "sample_packets": {
+        "1": 128
+      },
+      "sample_bursts": {
+        "1": 128
+      },
+      "sample_duration": {
+        "0": 128
+      },
+      "sample_distinct_flows": 1,
+      "sample_reset_reasons": {
+        "FIRST_KEY": 128
+      },
+      "episode_first_equals_query": 128,
+      "sample_headers": {
+        "[20, 0, 28, 0, 64, 8]": 128
+      },
+      "sample_uid_sha256": "ae31db8c315f0e1192c21c9aeda408c1ca8ace8ea1537062a301bb77a68a8eda",
+      "seconds": 12.87276058504358,
+      "source_writes": 0,
+      "limitations": "Frozen snapshots and tensor receipts, not fresh raw-PCAP reconstruction; identical-input claim is within recorded model inputs."
+    }
+  },
+  "udp": {
+    "a_attack_rows": 22085,
+    "a_raw_detected": 22085,
+    "a_margin_median": 62.84401957194011,
+    "a_q14_distinct": 1,
+    "a_snapshot_slice_rows": 128,
+    "a_snapshot_slice_multiple_packets": 122,
+    "a_snapshot_slice_12_bursts": 86,
+    "edge_raw_score": {
+      "min": -38.00098546346029,
+      "p01": -38.00098546346029,
+      "p10": -38.00098546346029,
+      "p50": -38.00098546346029,
+      "p90": -38.00098546346029,
+      "p99": -38.00098546346029,
+      "max": -38.00098419189453
+    },
+    "edge_margin": {
+      "min": -15.337328592936199,
+      "p01": -15.337328592936199,
+      "p10": -15.337328592936199,
+      "p50": -15.337328592936199,
+      "p90": -15.337328592936199,
+      "p99": -15.337328592936199,
+      "max": -15.337327321370442
+    },
+    "edge_support_zero_rows": 20000,
+    "edge_p3_score_drop": {
+      "min": 0.0,
+      "p01": 0.0,
+      "p10": 0.0,
+      "p50": 0.0,
+      "p90": 0.0,
+      "p99": 0.0,
+      "max": 0.0
+    },
+    "interpretation": "Identical recorded encoder inputs plus q14 explain nearly constant RAW scores; C5 makes no UDP correction. Flow-scoped context can omit cross-flow flood intensity. A also has one q14 vector, so q14 identity alone is not the cause."
+  },
+  "http": {
+    "raw_auroc_vs_normal_tcp": 0.2254725401220325,
+    "withdrawn": 7027,
+    "psh_ack_rows": 8882,
+    "psh_raw": 7937,
+    "psh_p3": 1728,
+    "psh_withdrawn": 6209,
+    "psh_margin_median": 8.113293170928957,
+    "psh_drop_median": 11.957173379500837,
+    "psh_support_median": 0.1545171642337474,
+    "a_psh_margin_median": 48.2303269704183,
+    "a_psh_withdrawn": 0,
+    "b_attack_all_syn_no_ack": true,
+    "interpretation": "RAW ranking fails on selected external HTTP queries; C5 then removes 7027 existing attack-associated alarms, mostly PSH_ACK. Development attack coverage and margins differ substantially."
+  },
+  "limitations": [
+    "No independent fresh raw-PCAP-to-snapshot reconstruction: upstream semantic correctness is not fully proved.",
+    "No fresh encoder or classifier inference: input hashes are recorded receipts; saved outputs are analyzed.",
+    "Snapshot context comparisons use 128 score-independent UID-ordered slices, not full-population estimates.",
+    "No all-UDP source-IP/port census; do not claim all queries have unique source IPs or prove spoofing from this audit.",
+    "A/B use commissioning plus historical references; Edge uses commissioning only. Reference modes and sampling differ.",
+    "No new independent Antigravity review. Original external safety FAIL remains unchanged."
+  ]
+}

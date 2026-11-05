@@ -1,0 +1,49 @@
+{
+  "stage": "PASS",
+  "job_id": "182245",
+  "job": {
+    "job_id": "182245",
+    "cpu": 1,
+    "memory_gib": 8,
+    "wall_seconds": 3600,
+    "automatic_retry": false,
+    "source_writes": 0
+  },
+  "preflight": {
+    "status": "PASS",
+    "seconds": 1.652195821981877,
+    "files": {},
+    "model_forward": 0,
+    "training": 0,
+    "threshold_fit": 0,
+    "limitations": [
+      "Existing-artifact audit does not fully prove raw replay and encoder semantic equivalence."
+    ]
+  },
+  "progress": {
+    "stage": "PASS",
+    "done": 60000,
+    "total": 60000,
+    "updated_utc": "2026-11-05T05:34:06.361982+00:00"
+  },
+  "complete": {
+    "status": "PASS",
+    "seconds": 198.72724626096897,
+    "files": {
+      "EDGE_DIAGNOSIS.json": "f59b460a7eb361d9228fa44241e43a82011fcc55480073a0f53701b8ac8c279a"
+    },
+    "model_forward": 0,
+    "training": 0,
+    "threshold_fit": 0,
+    "limitations": [
+      "Existing-artifact audit does not fully prove raw replay and encoder semantic equivalence."
+    ]
+  },
+  "stop": null,
+  "scheduler": {
+    "stdout": "182245|COMPLETED|0:0|00:03:19||1|8G\n182245.batch|COMPLETED|0:0|00:03:19|466068K|1|\n",
+    "returncode": 0
+  },
+  "receiver_sha256": "396268182c327b18ff48a3580e7d891b2ae92792f9c0e6ed207460092ec1a22c",
+  "observed_utc": "2026-11-05T05:34:11.825882+00:00"
+}

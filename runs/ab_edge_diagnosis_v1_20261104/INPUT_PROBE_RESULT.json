@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "scope": "20000 saved UDP tensor receipts plus 128 UID-ordered frozen snapshots",
+  "udp_rows": 20000,
+  "distinct_input_tensor_hashes": 1,
+  "tensor_hash_counts": {
+    "71b9df8bfc98d9e96db6526ba1d77cdeb3faadc61db5c3a942c16405fe42cfc3": 20000
+  },
+  "sample_rows": 128,
+  "sample_packets": {
+    "1": 128
+  },
+  "sample_bursts": {
+    "1": 128
+  },
+  "sample_duration": {
+    "0": 128
+  },
+  "sample_distinct_flows": 1,
+  "sample_reset_reasons": {
+    "FIRST_KEY": 128
+  },
+  "episode_first_equals_query": 128,
+  "sample_headers": {
+    "[20, 0, 28, 0, 64, 8]": 128
+  },
+  "sample_uid_sha256": "ae31db8c315f0e1192c21c9aeda408c1ca8ace8ea1537062a301bb77a68a8eda",
+  "seconds": 12.87276058504358,
+  "source_writes": 0,
+  "limitations": "Frozen snapshots and tensor receipts, not fresh raw-PCAP reconstruction; identical-input claim is within recorded model inputs."
+}

@@ -1,3 +1,11 @@
+## 2026-11-04：A/B/Edge三层诊断完成，定位输入盲区与HTTP撤警
+
+结果：182245 COMPLETED/0:0、3分19秒；A/B全池及Edge 60k已有产物/判决复核PASS。
+影响：Edge UDP 20k已存输入同指纹、抽查单包，C5支持度全0；HTTP RAW样本AUROC 0.225，p3再撤7,027条告警。原外部安全FAIL不变。
+下一步：独立小切片核对UDP原包→快照语义边界，再决定新方法；没有新训练或评价。大文件留超算，[三层诊断报告](collab/20261104_ab_edge_three_layer_diagnosis_codex.md) · [结果页](http://127.0.0.1:18801/)。
+
+---
+
 ## 2026-11-04：Edge正式评价完成，工程PASS、召回损失检查FAIL
 
 结果：182071预检PASS；182089 COMPLETED/0:0，完整性及封存UID复核PASS。
