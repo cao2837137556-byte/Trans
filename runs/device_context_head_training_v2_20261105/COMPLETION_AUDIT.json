@@ -1,0 +1,114 @@
+{
+  "result": "PASS",
+  "scope": "TRAINING_AND_SOURCE_CALIBRATION_ONLY",
+  "impact": "Nine complete epoch40 endpoints and source calibration accepted; external detection unknown",
+  "next": "AB_NO_REGRESSION_AND_EDGE_DIAGNOSTIC",
+  "resources": {
+    "TRAIN_REFIT782_27": {
+      "job_id": "182345",
+      "elapsed_seconds": 744,
+      "slurm_max_rss_bytes": 3187240960.0
+    },
+    "TRAIN_REFIT782_127": {
+      "job_id": "182348",
+      "elapsed_seconds": 764,
+      "slurm_max_rss_bytes": 3187953664.0
+    },
+    "TRAIN_REFIT782_227": {
+      "job_id": "182356",
+      "elapsed_seconds": 770,
+      "slurm_max_rss_bytes": 3183386624.0
+    },
+    "TRAIN_STATS8_27": {
+      "job_id": "182363",
+      "elapsed_seconds": 281,
+      "slurm_max_rss_bytes": 1008259072.0
+    },
+    "TRAIN_STATS8_127": {
+      "job_id": "182365",
+      "elapsed_seconds": 299,
+      "slurm_max_rss_bytes": 1006084096.0
+    },
+    "TRAIN_STATS8_227": {
+      "job_id": "182367",
+      "elapsed_seconds": 279,
+      "slurm_max_rss_bytes": 1011245056.0
+    },
+    "TRAIN_FUSION790_27": {
+      "job_id": "182370",
+      "elapsed_seconds": 909,
+      "slurm_max_rss_bytes": 3189997568.0
+    },
+    "TRAIN_FUSION790_127": {
+      "job_id": "182376",
+      "elapsed_seconds": 806,
+      "slurm_max_rss_bytes": 3198443520.0
+    },
+    "TRAIN_FUSION790_227": {
+      "job_id": "182378",
+      "elapsed_seconds": 842,
+      "slurm_max_rss_bytes": 3452301312.0
+    },
+    "CALIBRATION": {
+      "job_id": "182392",
+      "elapsed_seconds": 22,
+      "slurm_max_rss_bytes": 1048576.0
+    }
+  },
+  "training_elapsed_sum_seconds": 5694,
+  "max_training_rss_bytes": 3452301312.0,
+  "refit_calibration_matches_old": {
+    "seed_cuts": true,
+    "seed_scales": true,
+    "ensemble_cut": true
+  },
+  "refit_identity_limit": "Matching cuts/scales does not prove every model parameter or every sample score is identical",
+  "ensembles": {
+    "REFIT782": {
+      "status": "PASS",
+      "cut": -22.66365687052409,
+      "weighted_normal_fpr": 0.00974305262004952,
+      "unweighted_normal_fpr": 0.0072404742510634446,
+      "seeds": [
+        27,
+        127,
+        227
+      ],
+      "normal_rows": 33147,
+      "comparison": ">",
+      "runtime_gate_only": false
+    },
+    "STATS8": {
+      "status": "PASS",
+      "cut": -3.320042292277018,
+      "weighted_normal_fpr": 0.009778627434340308,
+      "unweighted_normal_fpr": 0.01046851902132923,
+      "seeds": [
+        27,
+        127,
+        227
+      ],
+      "normal_rows": 33147,
+      "comparison": ">",
+      "runtime_gate_only": false
+    },
+    "FUSION790": {
+      "status": "PASS",
+      "cut": -23.2497984568278,
+      "weighted_normal_fpr": 0.009997568234487572,
+      "unweighted_normal_fpr": 0.00886958095755272,
+      "seeds": [
+        27,
+        127,
+        227
+      ],
+      "normal_rows": 33147,
+      "comparison": ">",
+      "runtime_gate_only": false
+    }
+  },
+  "new_heads": 9,
+  "total_optimizer_updates": 869040,
+  "verification_scope": "Pinned source and retrieved receipt audit; remote worker verified model/logit files, full arrays not downloaded",
+  "acceptance_sha256": "cfaff01c3af263625657748ed6e15fe2fb387401fa2573e9216f93b469bdd9ce"
+}

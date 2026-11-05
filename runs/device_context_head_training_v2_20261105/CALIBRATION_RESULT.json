@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "ensembles": {
+    "REFIT782": {
+      "status": "PASS",
+      "cut": -22.66365687052409,
+      "weighted_normal_fpr": 0.00974305262004952,
+      "unweighted_normal_fpr": 0.0072404742510634446,
+      "seeds": [
+        27,
+        127,
+        227
+      ],
+      "normal_rows": 33147,
+      "comparison": ">",
+      "runtime_gate_only": false
+    },
+    "STATS8": {
+      "status": "PASS",
+      "cut": -3.320042292277018,
+      "weighted_normal_fpr": 0.009778627434340308,
+      "unweighted_normal_fpr": 0.01046851902132923,
+      "seeds": [
+        27,
+        127,
+        227
+      ],
+      "normal_rows": 33147,
+      "comparison": ">",
+      "runtime_gate_only": false
+    },
+    "FUSION790": {
+      "status": "PASS",
+      "cut": -23.2497984568278,
+      "weighted_normal_fpr": 0.009997568234487572,
+      "unweighted_normal_fpr": 0.00886958095755272,
+      "seeds": [
+        27,
+        127,
+        227
+      ],
+      "normal_rows": 33147,
+      "comparison": ">",
+      "runtime_gate_only": false
+    }
+  },
+  "new_heads": 9,
+  "evaluation_pending": true,
+  "seconds": 17.172266158042476,
+  "cpu_threads": 1,
+  "rss_peak_bytes": 967880704,
+  "torch_version": "2.5.1",
+  "numpy_version": "2.0.1",
+  "external_data_read": false
+}

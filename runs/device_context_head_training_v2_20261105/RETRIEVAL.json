@@ -1,0 +1,291 @@
+{
+  "state": {
+    "stage": "TRAINING_COMPLETE",
+    "phase": "CALIBRATION",
+    "training_jobs": 9,
+    "next": "AB_AND_EDGE_EVALUATION",
+    "evaluation_pending": true,
+    "completed_heads": 9,
+    "total_heads": 9,
+    "runtime_forecast": {
+      "forecasts": {
+        "REFIT782_27": 1455.2794441003643,
+        "REFIT782_127": 1450.4280135075533,
+        "REFIT782_227": 1439.9311995373573,
+        "STATS8_27": 2703.752423951926,
+        "STATS8_127": 573.8472459683544,
+        "STATS8_227": 608.8175631905906,
+        "FUSION790_27": 1612.4315369624383,
+        "FUSION790_127": 1597.2979285234323,
+        "FUSION790_227": 1536.4748076800024
+      },
+      "budget_seconds": 3600,
+      "all_fit": true
+    },
+    "PREFLIGHT_JOB": {
+      "job_id": "182344",
+      "phase": "PREFLIGHT",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 1800
+    },
+    "PREFLIGHT_PROGRESS": {
+      "stage": "PASS",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 128,
+      "rss_mib": 3308.234375,
+      "updated_unix": 1793880729.6440034
+    },
+    "PREFLIGHT_SCHEDULER": {
+      "stdout": "182344|COMPLETED|0:0|00:02:45||1|8G\n182344.batch|COMPLETED|0:0|00:02:45|3386000K|1|\n",
+      "returncode": 0
+    },
+    "PREFLIGHT_STOP": null,
+    "TRAIN_REFIT782_27_JOB": {
+      "job_id": "182345",
+      "phase": "TRAIN_REFIT782_27",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "TRAIN_REFIT782_27_PROGRESS": {
+      "stage": "PASS",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 96560,
+      "rss_mib": 3296.3359375,
+      "updated_unix": 1793881479.674919
+    },
+    "TRAIN_REFIT782_27_SCHEDULER": {
+      "stdout": "182345|COMPLETED|0:0|00:12:24||1|8G\n182345.batch|COMPLETED|0:0|00:12:24|3112540K|1|\n",
+      "returncode": 0
+    },
+    "TRAIN_REFIT782_27_STOP": null,
+    "TRAIN_REFIT782_127_JOB": {
+      "job_id": "182348",
+      "phase": "TRAIN_REFIT782_127",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "TRAIN_REFIT782_127_PROGRESS": {
+      "stage": "PASS",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 96560,
+      "rss_mib": 3294.15625,
+      "updated_unix": 1793882251.477836
+    },
+    "TRAIN_REFIT782_127_SCHEDULER": {
+      "stdout": "182348|COMPLETED|0:0|00:12:44||1|8G\n182348.batch|COMPLETED|0:0|00:12:44|3113236K|1|\n",
+      "returncode": 0
+    },
+    "TRAIN_REFIT782_127_STOP": null,
+    "TRAIN_REFIT782_227_JOB": {
+      "job_id": "182356",
+      "phase": "TRAIN_REFIT782_227",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "TRAIN_REFIT782_227_PROGRESS": {
+      "stage": "PASS",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 96560,
+      "rss_mib": 3289.83203125,
+      "updated_unix": 1793883029.1645112
+    },
+    "TRAIN_REFIT782_227_SCHEDULER": {
+      "stdout": "182356|COMPLETED|0:0|00:12:50||1|8G\n182356.batch|COMPLETED|0:0|00:12:50|3108776K|1|\n",
+      "returncode": 0
+    },
+    "TRAIN_REFIT782_227_STOP": null,
+    "TRAIN_STATS8_27_JOB": {
+      "job_id": "182363",
+      "phase": "TRAIN_STATS8_27",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "TRAIN_STATS8_27_PROGRESS": {
+      "stage": "PASS",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 96560,
+      "rss_mib": 962.3515625,
+      "updated_unix": 1793883313.6864858
+    },
+    "TRAIN_STATS8_27_SCHEDULER": {
+      "stdout": "182363|COMPLETED|0:0|00:04:41||1|8G\n182363.batch|COMPLETED|0:0|00:04:41|984628K|1|\n",
+      "returncode": 0
+    },
+    "TRAIN_STATS8_27_STOP": null,
+    "TRAIN_STATS8_127_JOB": {
+      "job_id": "182365",
+      "phase": "TRAIN_STATS8_127",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "TRAIN_STATS8_127_PROGRESS": {
+      "stage": "PASS",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 96560,
+      "rss_mib": 960.48046875,
+      "updated_unix": 1793883620.8945913
+    },
+    "TRAIN_STATS8_127_SCHEDULER": {
+      "stdout": "182365|COMPLETED|0:0|00:04:59||1|8G\n182365.batch|COMPLETED|0:0|00:04:59|982504K|1|\n",
+      "returncode": 0
+    },
+    "TRAIN_STATS8_127_STOP": null,
+    "TRAIN_STATS8_227_JOB": {
+      "job_id": "182367",
+      "phase": "TRAIN_STATS8_227",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "TRAIN_STATS8_227_PROGRESS": {
+      "stage": "PASS",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 96560,
+      "rss_mib": 968.76953125,
+      "updated_unix": 1793883905.0655897
+    },
+    "TRAIN_STATS8_227_SCHEDULER": {
+      "stdout": "182367|COMPLETED|0:0|00:04:39||1|8G\n182367.batch|COMPLETED|0:0|00:04:39|987544K|1|\n",
+      "returncode": 0
+    },
+    "TRAIN_STATS8_227_STOP": null,
+    "TRAIN_FUSION790_27_JOB": {
+      "job_id": "182370",
+      "phase": "TRAIN_FUSION790_27",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "TRAIN_FUSION790_27_PROGRESS": {
+      "stage": "PASS",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 96560,
+      "rss_mib": 3296.4765625,
+      "updated_unix": 1793884817.059425
+    },
+    "TRAIN_FUSION790_27_SCHEDULER": {
+      "stdout": "182370|COMPLETED|0:0|00:15:09||1|8G\n182370.batch|COMPLETED|0:0|00:15:09|3115232K|1|\n",
+      "returncode": 0
+    },
+    "TRAIN_FUSION790_27_STOP": null,
+    "TRAIN_FUSION790_127_JOB": {
+      "job_id": "182376",
+      "phase": "TRAIN_FUSION790_127",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "TRAIN_FUSION790_127_PROGRESS": {
+      "stage": "PASS",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 96560,
+      "rss_mib": 3305.546875,
+      "updated_unix": 1793885627.9975207
+    },
+    "TRAIN_FUSION790_127_SCHEDULER": {
+      "stdout": "182376|COMPLETED|0:0|00:13:26||1|8G\n182376.batch|COMPLETED|0:0|00:13:26|3123480K|1|\n",
+      "returncode": 0
+    },
+    "TRAIN_FUSION790_127_STOP": null,
+    "TRAIN_FUSION790_227_JOB": {
+      "job_id": "182378",
+      "phase": "TRAIN_FUSION790_227",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "TRAIN_FUSION790_227_PROGRESS": {
+      "stage": "PASS",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 96560,
+      "rss_mib": 3292.90234375,
+      "updated_unix": 1793886475.6081583
+    },
+    "TRAIN_FUSION790_227_SCHEDULER": {
+      "stdout": "182378|COMPLETED|0:0|00:14:02||1|8G\n182378.batch|COMPLETED|0:0|00:14:02|3371388K|1|\n",
+      "returncode": 0
+    },
+    "TRAIN_FUSION790_227_STOP": null,
+    "CALIBRATION_JOB": {
+      "job_id": "182392",
+      "phase": "CALIBRATION",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 900
+    },
+    "CALIBRATION_PROGRESS": {
+      "stage": "TRAINING_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 0,
+      "rss_mib": 923.04296875,
+      "updated_unix": 1793886507.3326318,
+      "updated_utc": "2026-11-05T13:48:45.375681+00:00",
+      "phase": "CALIBRATION",
+      "job_id": null,
+      "version": "HEAD_V2",
+      "completed_heads": 9,
+      "total_heads": 9,
+      "error": null
+    },
+    "CALIBRATION_SCHEDULER": {
+      "stdout": "182392|COMPLETED|0:0|00:00:22||1|8G\n182392.batch|COMPLETED|0:0|00:00:22|1M|1|\n",
+      "returncode": 0
+    },
+    "CALIBRATION_STOP": null
+  },
+  "sha256": {
+    "PREFLIGHT_RESULT.json": "637ea9cc1dffa6e7453878eca2754bd8933cfb56793a81b239fa64b1d3bb7951",
+    "PREFLIGHT_SCHEDULER.json": "4ebb70b9845f67d09cd4736f765593c3b0c22387552171f09b330a1a955661a2",
+    "PREFLIGHT_JOB.json": "671a13f634649d60a39b544a0005e1c969a284d305baae5f02eb10c4103dde7b",
+    "TRAIN_REFIT782_27_RESULT.json": "4e0e47a1dcfd901c2ed0c48f3fb389ee1df40e0bc9036bd64b7a354d42b80518",
+    "TRAIN_REFIT782_27_SCHEDULER.json": "20652bf67441ab9d8eab704ed27ef70208bc1046046478e5b14fb03bea5caeec",
+    "TRAIN_REFIT782_27_JOB.json": "e4badb97e86f69824e2a15d69d8c812f49a9bc933285c174adac5ab670ca7709",
+    "TRAIN_REFIT782_127_RESULT.json": "4aa80a06ad7c67a1b550d53510ba9f8f1224e809024ee9929b4f42b45e744975",
+    "TRAIN_REFIT782_127_SCHEDULER.json": "6a8ca6a6bbc9c3413f8a5dee7fef676515bafe1111d4097a58d9094d09cae45b",
+    "TRAIN_REFIT782_127_JOB.json": "a6ca5503648886d9d2d1dd9bc0acf1506828a74b98e489a6369a743a8897ee1e",
+    "TRAIN_REFIT782_227_RESULT.json": "198a9760d967b39d17e737b8bf4b2e4e5a2cf32c6d90d044a32515897bca2e02",
+    "TRAIN_REFIT782_227_SCHEDULER.json": "21ad6fc1895e8e083f15ec586a1ef32dbb6000e4b1c638fdd2039e98b511fb59",
+    "TRAIN_REFIT782_227_JOB.json": "9e99b5faa4d42823e5448260e86ffb9f5431cd317bf4bf1a2a31d7b790c2c2b0",
+    "TRAIN_STATS8_27_RESULT.json": "f3792fcc9692e5aa7d7bde00a29cdd29fe4a63c524eb52ac5484b32de770e310",
+    "TRAIN_STATS8_27_SCHEDULER.json": "3f0a6e9e39b780926ec657761b9b8984d4dd454a8f11828bd969aae6dbf60a37",
+    "TRAIN_STATS8_27_JOB.json": "cb443756b6a8c59841a030855e4f073b2639ee31ad2f9294d309bfbdfc6777cb",
+    "TRAIN_STATS8_127_RESULT.json": "31159c91415c26ee5be24e99d0cad88f3d0b64349762b9dbcca816edf751ff02",
+    "TRAIN_STATS8_127_SCHEDULER.json": "8e8d0bfa09379a17098bec6f96c5d9a8fd60db73810ef420e8f81628ca546025",
+    "TRAIN_STATS8_127_JOB.json": "8a5d3ef0b05e6d14fcd5749c7347d4766bbdd33e66bc0bcb8713589c8a00f4e5",
+    "TRAIN_STATS8_227_RESULT.json": "32291b44fcd3ac2425d6327a3cd882611865aa085380c896dc50aa828d501183",
+    "TRAIN_STATS8_227_SCHEDULER.json": "e8caf5d27bce8dd4c4f6dba0a19be5c4692dd24065aaaedfd9ac39b72b55022e",
+    "TRAIN_STATS8_227_JOB.json": "24835d8e20f4370c9029b8d723002f0991a9781eef82ecbd8d99086b5cbb1072",
+    "TRAIN_FUSION790_27_RESULT.json": "9d6ff5234bf5319403efa04c5e43e64cb2c5cb813f675d3797749bde8d935893",
+    "TRAIN_FUSION790_27_SCHEDULER.json": "30037b193e3be5b2321c41c17d3dcc60974c7afcc37658bc21d33b5730c24058",
+    "TRAIN_FUSION790_27_JOB.json": "77e69a3868190bba57522f345bafef1266947a2fb0a811a8afc3c02a9d5d02d2",
+    "TRAIN_FUSION790_127_RESULT.json": "2374fc63c8d890940e361e31f5deaa2ea13bd8921c80ff259d3c72f06d7545ed",
+    "TRAIN_FUSION790_127_SCHEDULER.json": "60256ecff38a4fd6948e8d477af66e8eaa6e255b1bed22794080aa11ecf6f22f",
+    "TRAIN_FUSION790_127_JOB.json": "820e38799037263ddf0d3adedbb63062be096108a43a7f72f73e917175e8392b",
+    "TRAIN_FUSION790_227_RESULT.json": "1a646df6acfd6463e2b79095ed921965958076a667db2184c37be5a079dc564d",
+    "TRAIN_FUSION790_227_SCHEDULER.json": "528c6a57dff1082669bde081310aec30280a0b8ab57fd0db046dfe52f8ad4ade",
+    "TRAIN_FUSION790_227_JOB.json": "ddce16263109d43e5924616646b6f09cc714a2f22c19d6fb9527c439cdce648b",
+    "CALIBRATION_RESULT.json": "09bd37b71b7ed591d2bd1b93c9a4e356f2ae55b70c72364038ed3c4cad1426ac",
+    "CALIBRATION_SCHEDULER.json": "275f78e6910a1a635b5979ac30b590c06be633cd68eb4f171d8c7aa3f085d29f",
+    "CALIBRATION_JOB.json": "055407c4fde93f07e2d2b8ad137a01d89561a3b1e758f1be35280a88d6baf205",
+    "NORMALIZER.json": "d55a50f9142f00195a5ea0de91d9778d55a88acf00513e61206852b950f50086",
+    "RUNTIME_FORECAST.json": "e4de3a68e1dbc3252d4fd3da9c9d592313265b7b4f98b979e4b8761b08670ae9",
+    "LINUX_ADAPTER_REGRESSION.json": "e58eddb9e52e826fd764309145fe5d8971bb38307d637c5d4951bc6107369ab1"
+  }
+}
