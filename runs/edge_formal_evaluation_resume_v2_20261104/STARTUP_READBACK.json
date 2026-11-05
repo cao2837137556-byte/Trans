@@ -1,0 +1,53 @@
+{
+  "stage": "RUNNING",
+  "updated_utc": "2026-11-05T01:34:16.815966+00:00",
+  "cpu": 1,
+  "memory_gib": 8,
+  "wall_seconds": 86400,
+  "formal_external_evaluation": true,
+  "automatic_resubmit": false,
+  "message": "正在执行真实78端点小切片，预检未通过不会启动正式数据集评价。",
+  "remote_prepare": {
+    "status": "PREPARING",
+    "stage": "VERIFY_FROZEN_RUNTIME_AND_AUTHORIZATION"
+  },
+  "job_id": "182071",
+  "phase": "preflight",
+  "replay_checkpoint": null,
+  "preflight_job_id": "182071",
+  "preflight_status": "PENDING",
+  "scheduler_state": "RUNNING",
+  "worker": {
+    "attempt_id": "e87d56abd0434b7583e055b201a86d2a",
+    "automatic_resubmit": false,
+    "card_sha256": "96638c891ac0700879642765b39b5b90ad936f1d4a36ffd32447bdea7f25d588",
+    "elapsed_seconds": 88.23285784898326,
+    "formal_evaluation": false,
+    "max_tree_rss_bytes": 71720960,
+    "output_disk_bytes_60s_sampled_max": 55269202,
+    "scratch_disk_bytes_60s_sampled_max": 435,
+    "source_batches": 2679,
+    "stage": "IMPORT_ENCODED_BATCHES",
+    "validated_batches": 1152
+  },
+  "attempt_id": "e87d56abd0434b7583e055b201a86d2a",
+  "error": "",
+  "engineering_current": {
+    "attempt_id": "e87d56abd0434b7583e055b201a86d2a",
+    "card_sha256": "96638c891ac0700879642765b39b5b90ad936f1d4a36ffd32447bdea7f25d588",
+    "receipt": "engineering_attempts/e87d56abd0434b7583e055b201a86d2a/RUNNING.json",
+    "receipt_sha256": "85bf70196edc81efdd679526762e437c02e666ce89ac0de8e8b021d20bc25f17",
+    "scope": "EDGE_EXTERNAL_TEST_1_FULL_EVALUATION",
+    "status": "RUNNING"
+  },
+  "attempt_receipt": {
+    "attempt_id": "e87d56abd0434b7583e055b201a86d2a",
+    "automatic_resubmit": false,
+    "card_sha256": "96638c891ac0700879642765b39b5b90ad936f1d4a36ffd32447bdea7f25d588",
+    "external_quality_computed": false,
+    "phase": "STARTING",
+    "schema": "EDGE_ENGINEERING_ATTEMPT_V2",
+    "scope": "EDGE_EXTERNAL_TEST_1_FULL_EVALUATION",
+    "status": "RUNNING"
+  }
+}

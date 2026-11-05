@@ -1,0 +1,19 @@
+{
+  "status": "FAILURE_EVIDENCE_VERIFIED",
+  "job_id": "181931",
+  "scheduler": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "181931|FAILED|1:0|05:41:05||1|8G|1-00:00:00\n181931.batch|FAILED|1:0|05:41:05|2697848K|1||\n"
+  },
+  "archive": {
+    "bytes": 5365760,
+    "sha256": "83d19eb9f87dcd30c53f3a4af1da4e4683e8edcb8ea7176894434b750c83f28f"
+  },
+  "members_verified": 44,
+  "root_cause": "JobMonitor Path.rglob iterator races with atomic pending-to-batches rename",
+  "scientific_failure_observed": false,
+  "completed_encoding_requires_validation": true,
+  "final_acceptance_latent_bug": "BatchStore BINDING.json has identity wrapper; corrected and tested with actual BatchStore",
+  "previous_result_quality_accepted": false
+}

@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_v1_20261104/checkout/runs/edge_formal_evaluation_v1_20261104/job_entry.py", line 51, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_v1_20261104/checkout/runs/edge_formal_evaluation_v1_20261104/job_entry.py", line 44, in main
+    run(HERE/'ENGINEERING_CARD.json',HERE/'AUTHORIZATION.json',runtime_path,output)
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_v1_20261104/checkout/runs/edge_formal_evaluation_v1_20261104/formal_job.py", line 157, in run
+    return supervise(attempt,command,deadline,card['budget'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_v1_20261104/checkout/runs/edge_formal_evaluation_v1_20261104/formal_job.py", line 126, in supervise
+    require(bounded_process(command,attempt.directory/'WORKER.log',deadline,monitor=monitor,session=True)==0,'WORKER_FAILED')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_v1_20261104/checkout/runs/edge_formal_evaluation_v1_20261104/runtime_control.py", line 306, in bounded_process
+    monitor.sample()
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_v1_20261104/checkout/runs/edge_formal_evaluation_v1_20261104/runtime_control.py", line 229, in sample
+    out = size(self.output)
+          ^^^^^^^^^^^^^^^^^
+  File "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_v1_20261104/checkout/runs/edge_formal_evaluation_v1_20261104/runtime_control.py", line 222, in size
+    for p in root.rglob('*'):
+  File "/share/software/miniconda3.2025/envs/torch_demo_2025/lib/python3.11/pathlib.py", line 968, in rglob
+    for p in selector.select_from(self):
+  File "/share/software/miniconda3.2025/envs/torch_demo_2025/lib/python3.11/pathlib.py", line 407, in _select_from
+    for starting_point in self._iterate_directories(parent_path, is_dir, scandir):
+  File "/share/software/miniconda3.2025/envs/torch_demo_2025/lib/python3.11/pathlib.py", line 397, in _iterate_directories
+    for p in self._iterate_directories(path, is_dir, scandir):
+  File "/share/software/miniconda3.2025/envs/torch_demo_2025/lib/python3.11/pathlib.py", line 397, in _iterate_directories
+    for p in self._iterate_directories(path, is_dir, scandir):
+  File "/share/software/miniconda3.2025/envs/torch_demo_2025/lib/python3.11/pathlib.py", line 397, in _iterate_directories
+    for p in self._iterate_directories(path, is_dir, scandir):
+  File "/share/software/miniconda3.2025/envs/torch_demo_2025/lib/python3.11/pathlib.py", line 386, in _iterate_directories
+    with scandir(parent_path) as scandir_it:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/share/software/miniconda3.2025/envs/torch_demo_2025/lib/python3.11/pathlib.py", line 938, in _scandir
+    return os.scandir(self)
+           ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_v1_20261104/outputs/gate_181931/encoded/pending/b02678-938565a876178cf3.3b876df08d3a4dd0a433af11d76c7e2b'

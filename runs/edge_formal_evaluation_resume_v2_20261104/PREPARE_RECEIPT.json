@@ -1,0 +1,73 @@
+{
+  "status": "PREPARED_NOT_SUBMITTED",
+  "base_files": 863,
+  "delta_members": 199,
+  "validated": {
+    "status": "PASS",
+    "runtime_identity": {
+      "system": "Linux",
+      "python": "3.11.11",
+      "versions": {
+        "numpy": "2.0.1",
+        "torch": "2.5.1",
+        "transformers": "4.57.3",
+        "safetensors": "0.6.2",
+        "psutil": "7.1.3",
+        "dpkt": "1.9.8",
+        "pandas": "2.3.3"
+      },
+      "tshark_first_line": "TShark (Wireshark) 4.6.6 (Git commit 3a22c3ef473d)."
+    },
+    "artifact_pins": 1035
+  },
+  "submit_wrapper_sha256": "cec149c39c7accce3c8119b8e1724dbeedd371c242f97386f607e1a9b523c7bb",
+  "slurm_sha256": "97d167f5b95188d2017a629866eda69065ede17ea3eb0146372ef23f333226c6",
+  "raw_inputs_verified": true,
+  "shared_free_is_not_personal_quota": true,
+  "scheduler_test_only": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "sbatch: Job 182068 to start at 2026-11-05T09:32:00 a using 1 processors on nodes node185 in partition amd\n"
+  },
+  "cpu": 1,
+  "memory_gib": 8,
+  "wall_seconds": 86400,
+  "site_adapter": {
+    "path": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_resume_v2_20261104/engineering_site_adapter.slurm",
+    "sha256": "d35c39e1fadba60011f005e0c2de066e884dc85ad5e094c8812036dc8e828b9c",
+    "original_sha256": "97d167f5b95188d2017a629866eda69065ede17ea3eb0146372ef23f333226c6",
+    "scheduler_tmpdisk_registered": false,
+    "sinfo_output": "0\n",
+    "change": "Remove only unconfigured --tmp field",
+    "node_local_free_admission_bytes": 34359738368,
+    "scratch_guard_bytes": 25769803776,
+    "scheduler_disk_reservation": false,
+    "cpu_memory_time_unchanged": true
+  },
+  "formal_external_evaluation": true,
+  "preflight": {
+    "status": "PREPARED_NOT_SUBMITTED",
+    "site_adapter": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_resume_v2_20261104/preflight_site_adapter.slurm",
+      "sha256": "2c9f1ae7e8bb2630b885a691c50866594e2d122d4305e1d90ab4271e22d4a6e4",
+      "original_sha256": "c01952c08d7020ce94c8b084d37e24c0594c9adea5b1ed90b8805ae80541e98e",
+      "scheduler_tmpdisk_registered": false,
+      "sinfo_output": "0\n",
+      "change": "Remove only unconfigured --tmp field",
+      "node_local_free_admission_bytes": 34359738368,
+      "scratch_guard_bytes": 25769803776,
+      "scheduler_disk_reservation": false,
+      "cpu_memory_time_unchanged": true
+    },
+    "submit_wrapper_sha256": "fb6e4920c134036a3c435c15c82aafb6a982c4a4ed931e0a1f2a96f61c5bcc09",
+    "slurm_sha256": "c01952c08d7020ce94c8b084d37e24c0594c9adea5b1ed90b8805ae80541e98e",
+    "cpu": 1,
+    "memory_gib": 8,
+    "wall_seconds": 1800,
+    "scheduler_test_only": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "sbatch: Job 182069 to start at 2026-11-05T09:32:00 a using 1 processors on nodes node185 in partition amd\n"
+    }
+  }
+}
