@@ -1,0 +1,464 @@
+{
+  "status": "PASS",
+  "runtime_gate_only": true,
+  "heads": {
+    "REFIT782_27": {
+      "status": "PASS",
+      "arm": "REFIT782",
+      "seed": 27,
+      "runtime_gate_only": true,
+      "updates": 128,
+      "epochs": 1,
+      "calibration": {
+        "status": "PASS",
+        "arm": "REFIT782",
+        "cut": -0.9218688607215881,
+        "comparison": ">",
+        "weighted_normal_fpr": 0.009940613362901569,
+        "unweighted_normal_fpr": 0.021118049898935048,
+        "normal_rows": 33147,
+        "scale": 10.766307353973389,
+        "q10": -5.811977863311768,
+        "q90": 4.954329490661621,
+        "scale_source": "FIT",
+        "threshold_source": "CAL_NORMAL",
+        "logits_sha256": {
+          "fit": "a6cbc916d6139bd47bfb6dba2a453541e266256c282889703428b5be95ce5fb9",
+          "cal": "8f406d974aa276d21d4ab6c2eb0b9a3f51411bdb7cd5b907decf830156fd737c"
+        },
+        "cal_uid_sha256": "5c3e3155c3ed96937bd79590e3bc1f11fd31d9b6ff4dafeab32dc5c2592bf8d0",
+        "checkpoint_score_readback": true,
+        "seconds": 6.6218778260517865
+      },
+      "profile": [
+        {
+          "epoch": 1,
+          "tail_seconds": 1.4229595309589058,
+          "batch_seconds": 1.1449887161143124,
+          "batches": 128
+        }
+      ],
+      "head_sha256": "916d8d37be66a5241b0e8d81b3f3859a891f5b13bdc3c2180723369f34ff015a",
+      "initial_sha256": "a0863f096c8f3c92d2f2a2f50e4863808d368351ea5baf1af229b623d47a33cb",
+      "seconds": 16.485400089994073,
+      "rss_peak_bytes": 3452030976,
+      "endpoint_sha256": "8ca871d963519ecc1f5f5674030ee9ca2537a1ecab0bde6d5683db72c2555f48",
+      "forecast_seconds": 1455.2794441003643,
+      "forecast_rule": "1.5*(40*(full normal tail refresh + measured mean batch time*2414) + actual load/calibration/save overhead)+30"
+    },
+    "REFIT782_127": {
+      "status": "PASS",
+      "arm": "REFIT782",
+      "seed": 127,
+      "runtime_gate_only": true,
+      "updates": 128,
+      "epochs": 1,
+      "calibration": {
+        "status": "PASS",
+        "arm": "REFIT782",
+        "cut": -0.16357803344726562,
+        "comparison": ">",
+        "weighted_normal_fpr": 0.0026593372288412293,
+        "unweighted_normal_fpr": 0.008507557244999547,
+        "normal_rows": 33147,
+        "scale": 11.847135543823242,
+        "q10": -5.6581807136535645,
+        "q90": 6.188954830169678,
+        "scale_source": "FIT",
+        "threshold_source": "CAL_NORMAL",
+        "logits_sha256": {
+          "fit": "e4d9e95a72f08825c7597de2d4bfdc139689aba42dfc0069275264fc2aa99e2a",
+          "cal": "68da88bdad736906e4f817236349521f39ad5431785a9cf64c22553188dcc840"
+        },
+        "cal_uid_sha256": "5c3e3155c3ed96937bd79590e3bc1f11fd31d9b6ff4dafeab32dc5c2592bf8d0",
+        "checkpoint_score_readback": true,
+        "seconds": 5.687702379887924
+      },
+      "profile": [
+        {
+          "epoch": 1,
+          "tail_seconds": 1.323689121985808,
+          "batch_seconds": 1.148372797993943,
+          "batches": 128
+        }
+      ],
+      "head_sha256": "0e1c8f01e3bac7b1bb3145b88ece0ef692d6c8c2619325085a7dc7d79326bc3d",
+      "initial_sha256": "57fcfa1bcf27c7b8f31c20f2c7ef14e94a6a0789e2f0d97700ea5159f8ba42f3",
+      "seconds": 14.573176292004064,
+      "rss_peak_bytes": 3464454144,
+      "endpoint_sha256": "4c3cdeeb7110f60fb5535e6cac63a303ba986cb2c228bd8322a81237dfaa3a71",
+      "forecast_seconds": 1450.4280135075533,
+      "forecast_rule": "1.5*(40*(full normal tail refresh + measured mean batch time*2414) + actual load/calibration/save overhead)+30"
+    },
+    "REFIT782_227": {
+      "status": "PASS",
+      "arm": "REFIT782",
+      "seed": 227,
+      "runtime_gate_only": true,
+      "updates": 128,
+      "epochs": 1,
+      "calibration": {
+        "status": "PASS",
+        "arm": "REFIT782",
+        "cut": -0.4536604583263397,
+        "comparison": ">",
+        "weighted_normal_fpr": 0.008430082772101806,
+        "unweighted_normal_fpr": 0.014390442573988596,
+        "normal_rows": 33147,
+        "scale": 11.857076168060303,
+        "q10": -5.655691623687744,
+        "q90": 6.201384544372559,
+        "scale_source": "FIT",
+        "threshold_source": "CAL_NORMAL",
+        "logits_sha256": {
+          "fit": "574a638779929f8a0fff9feed2a2aac593134a0e9df5e14781f2cd85b48a3a73",
+          "cal": "e9b374952abb0565f0dff8e9f14ab7696c36be580ff846318d24b8eff6ec1151"
+        },
+        "cal_uid_sha256": "5c3e3155c3ed96937bd79590e3bc1f11fd31d9b6ff4dafeab32dc5c2592bf8d0",
+        "checkpoint_score_readback": true,
+        "seconds": 6.037677260814235
+      },
+      "profile": [
+        {
+          "epoch": 1,
+          "tail_seconds": 1.3642795758787543,
+          "batch_seconds": 1.1369033381342888,
+          "batches": 128
+        }
+      ],
+      "head_sha256": "1ab3cce4aa249ca53212c226c44b1e8a7ac4228d9c7d4445d93e13799560ca04",
+      "initial_sha256": "03776c4d91182a38fa36b844c1c2b1a6d5d466ebbe8be944fb2c27041e8b2d37",
+      "seconds": 14.633076931815594,
+      "rss_peak_bytes": 3465555968,
+      "endpoint_sha256": "5f9a79d2e36c6d295b497fa61972c41a6c4aec46fdf1d556b54e69c4ef63c13b",
+      "forecast_seconds": 1439.9311995373573,
+      "forecast_rule": "1.5*(40*(full normal tail refresh + measured mean batch time*2414) + actual load/calibration/save overhead)+30"
+    },
+    "STATS8_27": {
+      "status": "PASS",
+      "arm": "STATS8",
+      "seed": 27,
+      "runtime_gate_only": true,
+      "updates": 128,
+      "epochs": 1,
+      "calibration": {
+        "status": "PASS",
+        "arm": "STATS8",
+        "cut": -1.5221989154815674,
+        "comparison": ">",
+        "weighted_normal_fpr": 0.009854980716188285,
+        "unweighted_normal_fpr": 0.0668537122514858,
+        "normal_rows": 33147,
+        "scale": 3.094367742538452,
+        "q10": -2.3968799114227295,
+        "q90": 0.6974878311157227,
+        "scale_source": "FIT",
+        "threshold_source": "CAL_NORMAL",
+        "logits_sha256": {
+          "fit": "9ff1487070ee3c608d0403ff88513044bb363259d15c15cfc0959d4f2d39ce4c",
+          "cal": "4fbc3801a035da554cce346280814783e15840a09e06cb3bf8bb7b3a484cb2a4"
+        },
+        "cal_uid_sha256": "5c3e3155c3ed96937bd79590e3bc1f11fd31d9b6ff4dafeab32dc5c2592bf8d0",
+        "checkpoint_score_readback": true,
+        "seconds": 1.3688649300020188
+      },
+      "profile": [
+        {
+          "epoch": 1,
+          "tail_seconds": 2.3986410561483353,
+          "batch_seconds": 2.2051236471161246,
+          "batches": 128
+        }
+      ],
+      "head_sha256": "e6276100b8ca7c689a077ebb9a5a5d7eb2ace48372d1f026e8ca5d9edf16c0b3",
+      "initial_sha256": "d6beb81ef496e5323f379f1eb17713e032fe4649eff9966d6e6552cdbfce8b25",
+      "seconds": 12.069986865157261,
+      "rss_peak_bytes": 3466665984,
+      "endpoint_sha256": "108ed4f4a87c51c1bf9bd2e4498792f4c6f5824388aa0656362430743d34cd81",
+      "forecast_seconds": 2703.752423951926,
+      "forecast_rule": "1.5*(40*(full normal tail refresh + measured mean batch time*2414) + actual load/calibration/save overhead)+30"
+    },
+    "STATS8_127": {
+      "status": "PASS",
+      "arm": "STATS8",
+      "seed": 127,
+      "runtime_gate_only": true,
+      "updates": 128,
+      "epochs": 1,
+      "calibration": {
+        "status": "PASS",
+        "arm": "STATS8",
+        "cut": -0.5350852012634277,
+        "comparison": ">",
+        "weighted_normal_fpr": 0.0017356516812232067,
+        "unweighted_normal_fpr": 0.007481823392765559,
+        "normal_rows": 33147,
+        "scale": 2.5575936436653137,
+        "q10": -1.977184772491455,
+        "q90": 0.5804088711738586,
+        "scale_source": "FIT",
+        "threshold_source": "CAL_NORMAL",
+        "logits_sha256": {
+          "fit": "3fe4f8d67f957e5beade77dcd6d7f13ee2ce6fa281a88f2347033919add9e417",
+          "cal": "b4893e6897239aacf990a4220bfc871fa948fad315e97e73c3a690a8f946cff8"
+        },
+        "cal_uid_sha256": "5c3e3155c3ed96937bd79590e3bc1f11fd31d9b6ff4dafeab32dc5c2592bf8d0",
+        "checkpoint_score_readback": true,
+        "seconds": 1.4423014160711318
+      },
+      "profile": [
+        {
+          "epoch": 1,
+          "tail_seconds": 0.8190714188385755,
+          "batch_seconds": 0.4059995738789439,
+          "batches": 128
+        }
+      ],
+      "head_sha256": "0035002f405e506d59d5417c9be008c28289785965d39ef6829db2004c9db589",
+      "initial_sha256": "8a6f930edc3b11b0dfe5f82641ff5567a0c205299ca512b24faaaa9e352e3580",
+      "seconds": 9.15151607291773,
+      "rss_peak_bytes": 3467190272,
+      "endpoint_sha256": "08848a4a9538dc1a6f3f5ac840b3253f72639c2fa6c6953517c4f7164e11e8b1",
+      "forecast_seconds": 573.8472459683544,
+      "forecast_rule": "1.5*(40*(full normal tail refresh + measured mean batch time*2414) + actual load/calibration/save overhead)+30"
+    },
+    "STATS8_227": {
+      "status": "PASS",
+      "arm": "STATS8",
+      "seed": 227,
+      "runtime_gate_only": true,
+      "updates": 128,
+      "epochs": 1,
+      "calibration": {
+        "status": "PASS",
+        "arm": "STATS8",
+        "cut": -1.0459963083267212,
+        "comparison": ">",
+        "weighted_normal_fpr": 0.009573297097961859,
+        "unweighted_normal_fpr": 0.03879687452861496,
+        "normal_rows": 33147,
+        "scale": 2.3528993725776672,
+        "q10": -1.7402678728103638,
+        "q90": 0.6126314997673035,
+        "scale_source": "FIT",
+        "threshold_source": "CAL_NORMAL",
+        "logits_sha256": {
+          "fit": "d508f09eca7c0d3f26f0050064bc49464ab564c1ec7f098c3faf8a4b41fd24a2",
+          "cal": "754ee9a90c4cca990c0f5bc784633da78e3ceb9093039240326bcbc5ec7fad1d"
+        },
+        "cal_uid_sha256": "5c3e3155c3ed96937bd79590e3bc1f11fd31d9b6ff4dafeab32dc5c2592bf8d0",
+        "checkpoint_score_readback": true,
+        "seconds": 1.2931617838330567
+      },
+      "profile": [
+        {
+          "epoch": 1,
+          "tail_seconds": 0.6101856920868158,
+          "batch_seconds": 0.448673103004694,
+          "batches": 128
+        }
+      ],
+      "head_sha256": "ca00f23f3e0c5805643c74e145ff5ba0713838c17f6e657655932e28c465e32f",
+      "initial_sha256": "50949ff7445766e66576fe1d011fd0964d61f09b27697d2b6ba8423e18d2ef8f",
+      "seconds": 8.462434225948527,
+      "rss_peak_bytes": 3467771904,
+      "endpoint_sha256": "17a2346583e83fa3126b1f1f1b4aed61ff7e0cfd0b2e07e8bfaac9cb065d8ef9",
+      "forecast_seconds": 608.8175631905906,
+      "forecast_rule": "1.5*(40*(full normal tail refresh + measured mean batch time*2414) + actual load/calibration/save overhead)+30"
+    },
+    "FUSION790_27": {
+      "status": "PASS",
+      "arm": "FUSION790",
+      "seed": 27,
+      "runtime_gate_only": true,
+      "updates": 128,
+      "epochs": 1,
+      "calibration": {
+        "status": "PASS",
+        "arm": "FUSION790",
+        "cut": -1.2285534143447876,
+        "comparison": ">",
+        "weighted_normal_fpr": 0.009696648359910114,
+        "unweighted_normal_fpr": 0.016803933991009743,
+        "normal_rows": 33147,
+        "scale": 10.849049091339111,
+        "q10": -5.815883636474609,
+        "q90": 5.033165454864502,
+        "scale_source": "FIT",
+        "threshold_source": "CAL_NORMAL",
+        "logits_sha256": {
+          "fit": "00603a6d72f156888c5475f498bc524841a3a8dc40bc7d477875fc8c7989354a",
+          "cal": "8eee00595fc27ff534446f11e71b05bce5b9d451de7ded18bbff207355d52acf"
+        },
+        "cal_uid_sha256": "5c3e3155c3ed96937bd79590e3bc1f11fd31d9b6ff4dafeab32dc5c2592bf8d0",
+        "checkpoint_score_readback": true,
+        "seconds": 6.134002149105072
+      },
+      "profile": [
+        {
+          "epoch": 1,
+          "tail_seconds": 1.2518649210687727,
+          "batch_seconds": 1.2945365409832448,
+          "batches": 128
+        }
+      ],
+      "head_sha256": "abb6387f8c2ee8c98aa0f5830ccb0d208c5bd3b20510cc29c563c0dee7d51bd7",
+      "initial_sha256": "72627a223280106cb96fc3aae9a2580dd7e899aa72f6328a113db7fbe41db4aa",
+      "seconds": 15.26055922312662,
+      "rss_peak_bytes": 3468226560,
+      "endpoint_sha256": "a05b5a8c89302f7250a389ee1a7663d67c0cf9e9d29831253bfed305da133001",
+      "forecast_seconds": 1612.4315369624383,
+      "forecast_rule": "1.5*(40*(full normal tail refresh + measured mean batch time*2414) + actual load/calibration/save overhead)+30"
+    },
+    "FUSION790_127": {
+      "status": "PASS",
+      "arm": "FUSION790",
+      "seed": 127,
+      "runtime_gate_only": true,
+      "updates": 128,
+      "epochs": 1,
+      "calibration": {
+        "status": "PASS",
+        "arm": "FUSION790",
+        "cut": -0.5937468409538269,
+        "comparison": ">",
+        "weighted_normal_fpr": 0.005205021749152664,
+        "unweighted_normal_fpr": 0.012700998582073792,
+        "normal_rows": 33147,
+        "scale": 12.05180025100708,
+        "q10": -5.85166072845459,
+        "q90": 6.20013952255249,
+        "scale_source": "FIT",
+        "threshold_source": "CAL_NORMAL",
+        "logits_sha256": {
+          "fit": "1f8b772b36a67536a7be6712442e75f123e2bfe92761c769a4992f8a4f5c6ef7",
+          "cal": "bd01821556031b4fd23eb4315bc25ca1e3e81e595b2bd911df657aa142c47911"
+        },
+        "cal_uid_sha256": "5c3e3155c3ed96937bd79590e3bc1f11fd31d9b6ff4dafeab32dc5c2592bf8d0",
+        "checkpoint_score_readback": true,
+        "seconds": 6.435810110066086
+      },
+      "profile": [
+        {
+          "epoch": 1,
+          "tail_seconds": 1.5201044098939747,
+          "batch_seconds": 1.2674113239627331,
+          "batches": 128
+        }
+      ],
+      "head_sha256": "9f241b9fadca8a9b014260c61aa330a60a910c1ed69465ea3721b041012514c4",
+      "initial_sha256": "f11418a037405b92a43cd683f73d457ef36e7e2fe31e47a39184da3a40c5a444",
+      "seconds": 15.145607239101082,
+      "rss_peak_bytes": 3468226560,
+      "endpoint_sha256": "599eac9b2e026b7155cf38de56189978dba1556bc6047c4d7fb311ca60e38606",
+      "forecast_seconds": 1597.2979285234323,
+      "forecast_rule": "1.5*(40*(full normal tail refresh + measured mean batch time*2414) + actual load/calibration/save overhead)+30"
+    },
+    "FUSION790_227": {
+      "status": "PASS",
+      "arm": "FUSION790",
+      "seed": 227,
+      "runtime_gate_only": true,
+      "updates": 128,
+      "epochs": 1,
+      "calibration": {
+        "status": "PASS",
+        "arm": "FUSION790",
+        "cut": -0.582082211971283,
+        "comparison": ">",
+        "weighted_normal_fpr": 0.007225989400896954,
+        "unweighted_normal_fpr": 0.013545720578031195,
+        "normal_rows": 33147,
+        "scale": 11.977820873260498,
+        "q10": -5.786552429199219,
+        "q90": 6.191268444061279,
+        "scale_source": "FIT",
+        "threshold_source": "CAL_NORMAL",
+        "logits_sha256": {
+          "fit": "11f43cc2d13be3536e2d850949137882f2802aefb1ca4f78e0ff906a2d471864",
+          "cal": "215b7944a2ee58474f9134d7e69a9a16a61c8495018b62665eb2e0648c556594"
+        },
+        "cal_uid_sha256": "5c3e3155c3ed96937bd79590e3bc1f11fd31d9b6ff4dafeab32dc5c2592bf8d0",
+        "checkpoint_score_readback": true,
+        "seconds": 6.428701607044786
+      },
+      "profile": [
+        {
+          "epoch": 1,
+          "tail_seconds": 1.3134907949715853,
+          "batch_seconds": 1.224360452964902,
+          "batches": 128
+        }
+      ],
+      "head_sha256": "da7dee050bf28f8f735032f9aa7d16f8f7b95cfd34e9d734279b5fd6d2667ba0",
+      "initial_sha256": "0591a48f9743b70e81ae7216a9d2feb74d8a515253ec35f6670486a58539ed7e",
+      "seconds": 15.088240930112079,
+      "rss_peak_bytes": 3468935168,
+      "endpoint_sha256": "f1938b825948745987b2d3709a9676d446d1e3c5505f9fcc16bc165f10a4a4de",
+      "forecast_seconds": 1536.4748076800024,
+      "forecast_rule": "1.5*(40*(full normal tail refresh + measured mean batch time*2414) + actual load/calibration/save overhead)+30"
+    }
+  },
+  "ensembles": {
+    "REFIT782": {
+      "status": "PASS",
+      "cut": -1.1055261691411336,
+      "weighted_normal_fpr": 0.009992060382016903,
+      "unweighted_normal_fpr": 0.01683410263372251,
+      "seeds": [
+        27,
+        127,
+        227
+      ],
+      "normal_rows": 33147,
+      "comparison": ">",
+      "runtime_gate_only": true
+    },
+    "STATS8": {
+      "status": "PASS",
+      "cut": -1.0470584630966187,
+      "weighted_normal_fpr": 0.0033300681495267237,
+      "unweighted_normal_fpr": 0.02307901167526473,
+      "seeds": [
+        27,
+        127,
+        227
+      ],
+      "normal_rows": 33147,
+      "comparison": ">",
+      "runtime_gate_only": true
+    },
+    "FUSION790": {
+      "status": "PASS",
+      "cut": -1.2629178762435913,
+      "weighted_normal_fpr": 0.009899756213589378,
+      "unweighted_normal_fpr": 0.01795034241409479,
+      "seeds": [
+        27,
+        127,
+        227
+      ],
+      "normal_rows": 33147,
+      "comparison": ">",
+      "runtime_gate_only": true
+    }
+  },
+  "forecasts": {
+    "REFIT782_27": 1455.2794441003643,
+    "REFIT782_127": 1450.4280135075533,
+    "REFIT782_227": 1439.9311995373573,
+    "STATS8_27": 2703.752423951926,
+    "STATS8_127": 573.8472459683544,
+    "STATS8_227": 608.8175631905906,
+    "FUSION790_27": 1612.4315369624383,
+    "FUSION790_127": 1597.2979285234323,
+    "FUSION790_227": 1536.4748076800024
+  },
+  "normalizer_sha256": "c437bd81f7509666c7ddf7049eb931f1527c1e3831f5767fbf18bad4806eed79",
+  "seconds": 160.6798070569057,
+  "cpu_threads": 1,
+  "rss_peak_bytes": 3468935168,
+  "torch_version": "2.5.1",
+  "numpy_version": "2.0.1",
+  "external_data_read": false
+}

@@ -1,0 +1,24 @@
+{
+  "result": "REAL_TRAINING_CALIBRATION_RUNTIME_GATE_PASS",
+  "impact": "First formal head 182345 running; remaining sequential heads automatically follow",
+  "next": "Complete nine fixed heads and ensemble source calibration; AB/Edge evaluation pending",
+  "preflight_job": "182344",
+  "elapsed_seconds": 165,
+  "first_formal_job": "182345",
+  "gate_heads": 9,
+  "optimizer_steps_per_gate_head": 128,
+  "all_seed_and_ensemble_calibration_fpr_le_1percent": true,
+  "per_head_budget_seconds": 3600,
+  "max_forecast_seconds": 2703.752423951926,
+  "sum_forecast_minutes": 216.30433605703365,
+  "small_receipt_pins": {
+    "PREFLIGHT_RESULT.json": "637ea9cc1dffa6e7453878eca2754bd8933cfb56793a81b239fa64b1d3bb7951",
+    "PREFLIGHT_SCHEDULER.json": "4ebb70b9845f67d09cd4736f765593c3b0c22387552171f09b330a1a955661a2",
+    "PREFLIGHT_JOB.json": "671a13f634649d60a39b544a0005e1c969a284d305baae5f02eb10c4103dde7b",
+    "TRAIN_REFIT782_27_SCHEDULER.json": "18f3bd399396abd5721e6f9907cc0421685e10caee5592010ce26e41d3817263",
+    "TRAIN_REFIT782_27_JOB.json": "e4badb97e86f69824e2a15d69d8c812f49a9bc933285c174adac5ab670ca7709",
+    "NORMALIZER.json": "d55a50f9142f00195a5ea0de91d9778d55a88acf00513e61206852b950f50086",
+    "RUNTIME_FORECAST.json": "e4de3a68e1dbc3252d4fd3da9c9d592313265b7b4f98b979e4b8761b08670ae9",
+    "LINUX_ADAPTER_REGRESSION.json": "e58eddb9e52e826fd764309145fe5d8971bb38307d637c5d4951bc6107369ab1"
+  }
+}
