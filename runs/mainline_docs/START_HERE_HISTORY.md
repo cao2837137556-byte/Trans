@@ -1084,3 +1084,18 @@ DeepSeek 已加入，沿用文档合作：`runs/mainline_docs/collab/YYYYMMDD_<�
 5. **下一步/边界**：核验范围未发现模型替换、漏接或提取错误；尚未因果分离表示设计与分类头泛化。建议预登记诊断消融，未启动新方法、训练或调阈值，未新增小anti审查。
 
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)
+
+
+---
+
+# 当前状态
+
+更新：2026-11-04（America/Los_Angeles）。固定五项，历史另存。
+
+1. **冻结/效果**：C5 p3 不变；Edge 正式评价 182089 工程 PASS、科学安全门 FAIL，UDP 各方法均 0。
+2. **已验收诊断**：182266/182267 模型审计 PASS；19 条实际 E3 误差 0、头误差≤0.00001145，337 个权重名称一致；UDP 20k 首包与 HTTP 五层原包重建均核对通过。
+3. **当前执行**：用户已授权单包消融和跨连接统计；真实 Linux 预检 182279 PASS（1分10秒），完整作业 182280 运行中：200 条配对消融及 Edge 60k 查询，1 CPU/8 GiB，15+105 分钟预算。
+4. **证据/进度**：[执行方案](../context_separability_v1_20261104/README.md) · [冻结设计](../context_separability_v1_20261104/PLAN.json) · [实时进度](http://127.0.0.1:18804/)。大数组/逐条结果留超算，仅回收摘要与 SHA。
+5. **下一步/边界**：完成后验收并选择修复方向；当前不训练、不调阈值、不宣称已修好。Edge 已用于诊断；用户计划下周写论文，先把机制证据做扎实。未新增小anti审查。
+
+[历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)

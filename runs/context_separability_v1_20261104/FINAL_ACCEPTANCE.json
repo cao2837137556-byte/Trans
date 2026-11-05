@@ -1,0 +1,146 @@
+{
+  "result": "DIAGNOSTIC_ACCEPTANCE_PASS_REPAIR_UNVALIDATED",
+  "impact": "A UDP single-packet detections survive; prioritize causal cross-connection statistics as repair candidate",
+  "next": "Prepare source-side 782/8/790 feature comparison and fixed-FPR validation; no new training launched",
+  "job_id": "182280",
+  "scheduler": {
+    "stdout": "182280|COMPLETED|0:0|00:21:09||1|8G\n182280.batch|COMPLETED|0:0|00:21:09|1558944K|1|\n",
+    "returncode": 0
+  },
+  "ablation_rows": 200,
+  "cross_queries": 60000,
+  "original_e3_max_abs_error": 0.0,
+  "original_head_max_abs_error": 1.1444091796875e-05,
+  "single_packet_invariant_rows": 37,
+  "real_range_parity_checks": 72,
+  "ablation_alarm_counts": {
+    "CIC_DEV/ATTACK/Eufy Home Base/ALL": {
+      "rows": 32,
+      "ensemble_alarms": [
+        32,
+        32,
+        32
+      ]
+    },
+    "CIC_DEV/ATTACK/HeimVision Camera/ALL": {
+      "rows": 32,
+      "ensemble_alarms": [
+        32,
+        32,
+        32
+      ]
+    },
+    "CIC_DEV/NORMAL/Eufy Home Base/ALL": {
+      "rows": 32,
+      "ensemble_alarms": [
+        0,
+        0,
+        0
+      ]
+    },
+    "CIC_DEV/NORMAL/HeimVision Camera/ALL": {
+      "rows": 32,
+      "ensemble_alarms": [
+        1,
+        0,
+        0
+      ]
+    },
+    "EDGE/NORMAL/UDP/ALL": {
+      "rows": 16,
+      "ensemble_alarms": [
+        7,
+        0,
+        0
+      ]
+    },
+    "EDGE/UDP/UDP/ALL": {
+      "rows": 16,
+      "ensemble_alarms": [
+        0,
+        0,
+        0
+      ]
+    },
+    "UNSW_DEV/NORMAL/unsw-attack-traces-2018:00:16:6c:ab:6b:88/ALL": {
+      "rows": 8,
+      "ensemble_alarms": [
+        3,
+        1,
+        1
+      ]
+    },
+    "UNSW_DEV/NORMAL/unsw-attack-traces-2018:50:c7:bf:00:56:39/ALL": {
+      "rows": 8,
+      "ensemble_alarms": [
+        0,
+        0,
+        0
+      ]
+    },
+    "UNSW_DEV/NORMAL/unsw-attack-traces-2018:70:ee:50:18:34:43/ALL": {
+      "rows": 8,
+      "ensemble_alarms": [
+        4,
+        5,
+        5
+      ]
+    },
+    "UNSW_DEV/NORMAL/unsw-attack-traces-2018:ec:1a:59:79:f4:89/ALL": {
+      "rows": 8,
+      "ensemble_alarms": [
+        0,
+        0,
+        0
+      ]
+    },
+    "UNSW_DEV/NORMAL/unsw-attack-traces-2018:ec:1a:59:83:28:11/ALL": {
+      "rows": 8,
+      "ensemble_alarms": [
+        1,
+        2,
+        2
+      ]
+    }
+  },
+  "comparison_scope": "Fixed selected-query descriptive diagnosis, not post-repair recall or independent external confirmation",
+  "summary_sha256": {
+    "PREFLIGHT_RESULT.json": "16035696aec2954e5dbbdf34ca22904a0920bfd37b6442f9d2416cebc2eb27b1",
+    "PREFLIGHT_CROSS_SUMMARY.json": "878f99b184b6e3b3e7d3c084754c57faca904c52704dc9e39501a69e3ac9bcd7",
+    "PREFLIGHT_ABLATION_SUMMARY.json": "341b4870c0bec5311a51899f0c62794461c72678d67c6b666f1f9a2b7f7c003e",
+    "PREFLIGHT_ACTUAL_SELECTION.json": "02047be92fc084bd9f3f8c361c8375c7427f0ea18002a18fefa83084942714e0",
+    "FULL_RESULT.json": "b44b52c7abc2ed980a006beb313cff0f55bbbdb86ac06c8065e81aab3af6b18a",
+    "FULL_CROSS_SUMMARY.json": "99127c791ecad8ebad0f0d923ca69ba8c0c902eceab32fd56132e1f8cb22716a",
+    "FULL_ABLATION_SUMMARY.json": "8ca0919e275920ec4530cdbe0c164e683f39f54ab83bd25ca9479c7bc89bf094",
+    "FULL_ACTUAL_SELECTION.json": "ea2824d4c595e5ba12953d8224268c63cb2489d5595d24fb6b20f09c77989354"
+  },
+  "remote_large_artifacts": {
+    "NORMAL": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/context_separability_v1_20261104/FULL_NORMAL_CROSS_FEATURES.npz",
+      "sha256": "eb78e0507855a9f75058af1fa2a960aeee4e1023c7f3f635515bad0797603b71",
+      "bytes": 1182305
+    },
+    "HTTP": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/context_separability_v1_20261104/FULL_HTTP_CROSS_FEATURES.npz",
+      "sha256": "4c219b66ca9fb5fada4a5ef0731aa3590cde915e38a1fe97d3ab7381546787f5",
+      "bytes": 1367702
+    },
+    "UDP": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/context_separability_v1_20261104/FULL_UDP_CROSS_FEATURES.npz",
+      "sha256": "7403921b672e65c8557d8a458f0144bacc1e00aa4131748e73adb202292e3266",
+      "bytes": 1492574
+    }
+  },
+  "remote_paired_details": {
+    "path": "/public/home/jiangxinwei.zr/work/paper04/runs/context_separability_v1_20261104/FULL_PAIRED_ROWS.jsonl",
+    "sha256": "70a735e4e674e9fcb0d022938d0357d19d6bda4e654c7c48e0de7caca3b8dc92",
+    "bytes": 217340
+  },
+  "review_report_sha256": "9b05a177bc9e1537c9e57f3ec8e209373df9bba5a5eddadea439af85e4b5b7a3",
+  "limitations": [
+    "Finite A attack slices; no necessity of long history on these 64 rows",
+    "Header-field attribution untested",
+    "Edge one device, separate captures, 497 normal UDP queries",
+    "No new model trained, no thresholds fit, C5 withdrawal issue not repaired"
+  ]
+}
