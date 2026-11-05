@@ -1,0 +1,17 @@
+{
+  "result": "AUTHORIZED",
+  "user_instruction": "继续做真实训练、校准和耗时预检，通过后按封存方案跑对照训练。大文件留超算，进度还是像之前一样给我看。",
+  "source_feature_job": "182332",
+  "spec_sha256": "501aea9c9dd62b84a80e0cb4931935aeb766afb3d5c24e9fb39d2866800fb065",
+  "preflight_cpu": 1,
+  "preflight_memory_gib": 8,
+  "preflight_wall_seconds": 1800,
+  "heads_sequential": true,
+  "new_heads": 9,
+  "per_head_cpu": 1,
+  "per_head_memory_gib": 8,
+  "per_head_wall_seconds": 1800,
+  "automatic_retries": 0,
+  "stop_on_failed_gate": true,
+  "evaluation_follows_training": true
+}
