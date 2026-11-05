@@ -1,0 +1,83 @@
+{
+  "selection": "First UID(s) per predeclared activity/protocol class, independent of scores",
+  "rows": 10,
+  "samples": [
+    {
+      "dataset": "CIC_DEV",
+      "group": "ATTACK_HTTP",
+      "uid": "001017c793b640f5f526a381e64aceac7594c3941233262b2c8bb521c2e4742c"
+    },
+    {
+      "dataset": "CIC_DEV",
+      "group": "ATTACK_HTTP",
+      "uid": "0010f75dbfc1495a9290e74260c93ec2ad60f82e89d6789c5ea00a228d78cb48"
+    },
+    {
+      "dataset": "CIC_DEV",
+      "group": "ATTACK_UDP",
+      "uid": "0005f673a22a9f5afa0f32bd82ad8c7012822468d704cf9f45beede011418704"
+    },
+    {
+      "dataset": "CIC_DEV",
+      "group": "ATTACK_UDP",
+      "uid": "001004a7205d0948ab4acc4b398906dd403223d52146b11a0dcb9d585dc61c30"
+    },
+    {
+      "dataset": "CIC_DEV",
+      "group": "NORMAL_17",
+      "uid": "00002c1d9cf47cf015958ac90854be43bc563394550f777d303f725bf1085f0c"
+    },
+    {
+      "dataset": "CIC_DEV",
+      "group": "NORMAL_6",
+      "uid": "002400c840e64ac10778e197a02beb6ae9c463d2506935db108a3d8c7b700134"
+    },
+    {
+      "dataset": "UNSW_DEV",
+      "group": "ATTACK_SYN",
+      "uid": "00010bc428e47a260238db006ee4552911568944b99afc2176d122225673547e"
+    },
+    {
+      "dataset": "UNSW_DEV",
+      "group": "ATTACK_SYN",
+      "uid": "00017e2516a8e53bcf3fe3eeb5089f9227cce6893606886dbdf366554e321c81"
+    },
+    {
+      "dataset": "UNSW_DEV",
+      "group": "NORMAL_17",
+      "uid": "0007e720362ff4e6620eb55148f950900f6f51dbf78e159589a6e2c95c85ae68"
+    },
+    {
+      "dataset": "UNSW_DEV",
+      "group": "NORMAL_6",
+      "uid": "0000e376b73169ea44ff278916a851d8ac8d79d5230da65e1fed2445c183099a"
+    }
+  ],
+  "payload_sha256": "c88f45e8edeffb81644218fd0e76c15e957b801ef57ff37a68155f2ef3ab6793",
+  "payload_bytes": 82745,
+  "source_pins": {
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV.jsonl.gz": "666c2e2dc648ab539b8e2bb5e1b1fb8fee8cd3bf92223a72d6631fc4c851f64f",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV_q.npy": "13ddfc2326bb7e97d11191fa818b637fe89d1668fae2f6d29798a4f9c384d14f",
+    "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/features/CIC_DEV.npy": "8a511aed14f5f7b5be59b94452e0ebc7e57ba0ba704f24ab00bbc3ff78fcf422",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/CIC_DEV/B2/scores.npz": "be31c6ebe27cae2f8a8d7c80fc0d405b6c7e384b4e3a70d1fb75e97629ecba48",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV.jsonl.gz": "d334f18c3a2857fe8b63f491fd78ba3dc984bbd0fa7a55a4f030d9e797098503",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV_q.npy": "19278ac100c0ef8e85245439db3d436777d1f1e9121cb2b6015104469911856f",
+    "runs/ecs_cache_resume_v1_20261020/verified_cache_20261022/features/UNSW_DEV.npy": "a9f922e7e13eff477cb4c3fdd8d11fe9920b8e717aab225734dcd859dd59eb97",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/onboarding/run/evaluation/UNSW_DEV/B2/scores.npz": "03cd8a70621d2953add44c57205c59d00fcfe59502876fd0426a424f985a3e7d"
+  },
+  "ab_encoder_checkpoint_sha256": "e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105",
+  "ab_runtime_versions": {
+    "numpy": "2.0.1",
+    "torch": "2.5.1",
+    "transformers": "4.57.3",
+    "tokenizers": "0.22.2",
+    "safetensors": "0.6.2",
+    "dpkt": "1.9.8",
+    "huggingface-hub": "0.36.2"
+  },
+  "tolerances": {
+    "e3_abs": 0.0002,
+    "head_abs": 0.002
+  },
+  "comparison": "Fresh singleton-as-16-identical-clones vs original saved batching; numerical tolerance predeclared, decisions also checked"
+}

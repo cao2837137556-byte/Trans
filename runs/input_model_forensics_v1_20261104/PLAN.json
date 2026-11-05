@@ -1,0 +1,16 @@
+{
+  "scope": "independent raw extraction and actual frozen model replay",
+  "source_writes": 0,
+  "training": 0,
+  "threshold_fit": 0,
+  "cpu": 1,
+  "memory_gib": 8,
+  "remote_wall_seconds": 7200,
+  "checks": [
+    "A/B/Edge encoder checkpoint and runtime identity",
+    "same three classifier heads and normalizer",
+    "independent UDP raw packet context census",
+    "same-input fresh forward vs saved E3 and logits",
+    "feature branch sensitivity and independent numpy head calculation"
+  ]
+}

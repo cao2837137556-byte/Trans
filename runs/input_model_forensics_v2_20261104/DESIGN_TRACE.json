@@ -1,0 +1,94 @@
+{
+  "status": "STATIC_DESIGN_TRACE_COMPLETE_RUNTIME_REPLAY_PENDING",
+  "intended_input": {
+    "reuse": "Job177891 current-inclusive RECENT cache; no E3 rerun or raw decode",
+    "e3_normalizer": "Exact Job177891 source FIT RECENT mean/scale, no refit",
+    "query_fields": [
+      "is_tcp",
+      "FIN",
+      "SYN",
+      "RST",
+      "PSH",
+      "ACK",
+      "URG",
+      "ECE",
+      "CWR",
+      "NS",
+      "log1p_encoded_ip_length/log65536",
+      "log1p_tcp_window/log65536",
+      "log1p_udp_length/log65536",
+      "direction_relative_to_first_retained_ip_source"
+    ],
+    "query_dimension": 14,
+    "base_dimension": 768,
+    "descriptor_rows": 1094929,
+    "query_locator": "Unique provenance.query_frame and exact query_time_ns in bursts; do not assume array last",
+    "header_offsets": {
+      "encoded_ip_length": 2,
+      "tcp_flags": 5,
+      "tcp_window": 6,
+      "udp_length": 5
+    },
+    "flag_bits": {
+      "FIN": 1,
+      "SYN": 2,
+      "RST": 4,
+      "PSH": 8,
+      "ACK": 16,
+      "URG": 32,
+      "ECE": 64,
+      "CWR": 128,
+      "NS": 256
+    },
+    "udp_tcp_fields": "For UDP TCP bits/window zero; for TCP UDP length zero; is_tcp disambiguates",
+    "banned": [
+      "addresses",
+      "ports",
+      "device_id",
+      "dataset_id",
+      "absolute_time",
+      "label",
+      "attack_elapsed",
+      "TTL",
+      "raw_seq_ack"
+    ],
+    "payload_length_reconstruction": false,
+    "missing_parse": "STOP; no imputation",
+    "support_stage_priority": [
+      "UDP",
+      "TCP_RST",
+      "TCP_SYN_NO_ACK",
+      "TCP_SYN_ACK",
+      "TCP_FIN",
+      "TCP_OTHER"
+    ]
+  },
+  "intended_head": {
+    "architecture": "Linear(D,128)->ReLU->Linear(128,1)",
+    "output": "one attack logit",
+    "parameters_by_dimension": {
+      "768": 98561,
+      "782": 100353
+    },
+    "learned_veto": false,
+    "state26": false,
+    "initialization": "Same untrained 768 seed initializer as v3; extra query columns zero; copy biases/output layer",
+    "trained_checkpoint_warm_start": false
+  },
+  "findings": [
+    "Frozen contract explicitly specifies 768+14 and state26=false. State26 omission is not a newly introduced Edge slicing error.",
+    "E3 forward consumes header tokens, masks, direction, iats, bytes, pkt_count, protocol and burst sizes, followed by masked-mean pooling.",
+    "Edge calls the same E3 builder and query_tail_core_v2 normalized(...,782); same frozen head asset specification as A/B. Actual loaded weight and saved-feature replay are separate runtime gates."
+  ],
+  "pins": {
+    "runs/legacy_query_tail_learning_delivery_v2r1_20261010/bundle/design_contract.json": "c6027a90f1f997b1bb1e8dd44409237531d7dc97cc13813e9bec364dc40b21af",
+    "repo/ood/query_tail_core_v2.py": "9d9f716d2fcef8096b2d3eb77fe380e5d44f9d950bdb7844b362a9387d27de49",
+    "repo/ood/continuous_input_v3.py": "a503c7b21c35234462a735d3890fa4cda918573ceeda072604e4bec6872b405d",
+    "repo/ood/continuous_features_v3.py": "275429d998bcd10f7b83162d2f4bd7fadcef04560af93dc03778347a96326cf4",
+    "repo/ood/issue27ckda_d1_representation_probe_v1.py": "f8f477ca78d8ed1fa490880d24a01f65111e3f910eaa8ab72af154d8a143de4e",
+    "repo/ood/issue27ckda_d1_e3_embed_v1.py": "360cbaa72f818e6fc423b16f3b4989333bfba002a1423085ff15b2cb1569de14",
+    "runs/edge_formal_execution_v4_20261104/streaming.py": "295b1182e2383b84789c80d3badf011781f7a7580a80bd93c6ab98f95b9939ba",
+    "runs/edge_formal_execution_v4_20261104/evaluate.py": "131054c3361666f7abade8c621bfe2542104596ea3cb206cf29ff6aca87f4877",
+    "runs/diagnostics_c5_step2_package_v1_20261025/local_benchmark_v1/runtime/vendor/netFound/src/modules/netFoundLayers.py": "707be3e24a6123151eb24aea490f12ee328253b64030e99d9ee29a1beff60c6c"
+  }
+}

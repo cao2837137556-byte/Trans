@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "scope": "Independent full raw UDP file scan, fixed 20000 selected queries, no production parser/context used",
+  "raw_sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+  "selected_sha256": "a0e1ad31a491c9fdcc5a3bab049779558a6b39f5f5c740d0c3b1541bb64295e2",
+  "raw_frames": 3215732,
+  "queries": 20000,
+  "distinct_selected_keys": 20000,
+  "distinct_selected_src_ips": 19998,
+  "query_prefix_packet_counts": {
+    "1": 20000
+  },
+  "selected_keys_full_capture_packet_counts": {
+    "1": 19998,
+    "2": 2
+  },
+  "query_is_first_key_frame": 20000,
+  "header_counts": {
+    "(20, 0, 28, 0, 64, 8)": 20000
+  },
+  "payload_bytes": {
+    "0": 20000
+  },
+  "seconds": 23.875,
+  "source_writes": 0,
+  "limitations": "Independent raw semantics; saved snapshot/encoder parity is checked separately."
+}

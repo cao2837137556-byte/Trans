@@ -1,0 +1,44 @@
+{
+  "state": {
+    "stage": "PASS",
+    "phase": "FULL",
+    "PREFLIGHT_JOB": {
+      "job_id": "182266",
+      "phase": "PREFLIGHT",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 900
+    },
+    "PREFLIGHT_PROGRESS": {
+      "stage": "PASS",
+      "done": 2,
+      "total": 2
+    },
+    "PREFLIGHT_SCHEDULER": {
+      "stdout": "182266|COMPLETED|0:0|00:00:18||1|8G\n182266.batch|COMPLETED|0:0|00:00:18|1032K|1|\n",
+      "returncode": 0
+    },
+    "PREFLIGHT_STOP": null,
+    "FULL_JOB": {
+      "job_id": "182267",
+      "phase": "FULL",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 6300
+    },
+    "FULL_PROGRESS": {
+      "stage": "PASS",
+      "done": 19,
+      "total": 19
+    },
+    "FULL_SCHEDULER": {
+      "stdout": "182267|COMPLETED|0:0|00:02:39||1|8G\n182267.batch|COMPLETED|0:0|00:02:39|1612744K|1|\n",
+      "returncode": 0
+    },
+    "FULL_STOP": null
+  },
+  "sha256": {
+    "PREFLIGHT_RESULT.json": "14bcec91ff9f26db2f49129f0be089ed77e89e28c317b192ba18218d4b0a6187",
+    "FULL_RESULT.json": "8e5a601a0a8d2567889d48909fd7e904632628bb45fe58574cc78dd21c8117cd"
+  }
+}

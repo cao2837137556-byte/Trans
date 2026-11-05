@@ -1,0 +1,158 @@
+{
+  "result": "PASS_BOUNDED_INPUT_MODEL_EXECUTION_AUDIT",
+  "impact": "No model replacement, missing feature branch, checkpoint load failure, or saved-feature/score discrepancy found in the checked scope. This does not reverse the external efficacy FAIL.",
+  "next": "Separate representation design and learned decision-boundary generalization with a preregistered diagnostic ablation; no new model or threshold change has been made.",
+  "verified_utc": "2026-11-05T07:19:46.097163+00:00",
+  "jobs": {
+    "initial_auditor_stop": "182263: 51 seconds; shared-weight serialization assumption; no scientific source change",
+    "preflight": "182266 COMPLETED/0:0, 18 seconds",
+    "full": "182267 COMPLETED/0:0, 159 seconds"
+  },
+  "resources": {
+    "cpu": 1,
+    "memory_request_gib": 8,
+    "full_batch_max_rss_kib": 1612744,
+    "preflight_max_rss_reliable": false
+  },
+  "checkpoint_sha256": "e6237f49ce58840f8bf7d0cafa5ae80f58d05ea158053d031792d0369d7f5105",
+  "live_encoder_names_exact": 337,
+  "shared_alias_names": 11,
+  "actual_forward_rows": 19,
+  "datasets": {
+    "CIC_DEV": 6,
+    "UNSW_DEV": 4,
+    "EDGE": 9
+  },
+  "max_e3_abs_error": 0.0,
+  "max_head_abs_error": 1.1444091796875e-05,
+  "max_independent_numpy_head_abs_error": 7.62939453125e-06,
+  "all_seed_and_ensemble_decisions_equal": true,
+  "e3_and_q14_branch_sensitivity_observed_all_samples": true,
+  "raw_udp_queries": 20000,
+  "raw_udp_first_packet_queries": 20000,
+  "raw_udp_q14_exact_queries": 20000,
+  "independent_raw_http_tensor_exact_samples": 5,
+  "unchanged_science": {
+    "training": 0,
+    "threshold_fit": 0,
+    "source_writes": 0
+  },
+  "limitations": [
+    "19 score-independent forward samples and 5 HTTP raw reconstruction samples are not universal bug absence proofs.",
+    "A/B snapshots were re-encoded but A/B raw packets were not independently reconstructed in this round.",
+    "Zero-branch sensitivity verifies wiring; it is not a trained performance ablation.",
+    "Remaining representation-design versus classifier-generalization causal contributions have not been experimentally separated.",
+    "No new independent Antigravity review."
+  ],
+  "hpc_source": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_resume_v2_20261104/outputs/gate_182089",
+  "files": {
+    "accept_results.py": {
+      "sha256": "eb90f16129c699fd2fdf684faea036baaecb18f35ea8dda13243c940a1da7d40",
+      "bytes": 6442
+    },
+    "dashboard.py": {
+      "sha256": "92d699290c463e7ac0b7b18c9c51167fa4d1ba61fab2b84ebef2fb0246f32801",
+      "bytes": 3414
+    },
+    "DELIVERY.json": {
+      "sha256": "98539fc6c58916a4193be1fff60d326ea093b7da16c37a12817a0cc8dfb75017",
+      "bytes": 766
+    },
+    "DESIGN_TRACE.json": {
+      "sha256": "0a4c247fd69a907a619b385ac7183e7bf70c92ab941c402919074dbb6c5d679d",
+      "bytes": 3801
+    },
+    "FULL_RESULT.json": {
+      "sha256": "8e5a601a0a8d2567889d48909fd7e904632628bb45fe58574cc78dd21c8117cd",
+      "bytes": 169377
+    },
+    "index.html": {
+      "sha256": "0e04f9d018a9d198f253756f15c7e7e2398392cde8308167e2356dd796a0609f",
+      "bytes": 4239
+    },
+    "loaded_weight_check.py": {
+      "sha256": "34fe1a9e2a24f94c746c3e03a666e8e9eb8984f847c3b6b7a66aad931c9d9c60",
+      "bytes": 2241
+    },
+    "model_probe.py": {
+      "sha256": "29f4d37672564d307bf8c5f7b2867b54c8004191b96e71a0c571053bde9bd9d6",
+      "bytes": 10402
+    },
+    "PLAN.json": {
+      "sha256": "2c76717b9767c7820b20e4c69423fbc97ca66087472c934ec2645ac34f6e3ee6",
+      "bytes": 513
+    },
+    "PREFLIGHT_RESULT.json": {
+      "sha256": "14bcec91ff9f26db2f49129f0be089ed77e89e28c317b192ba18218d4b0a6187",
+      "bytes": 152333
+    },
+    "prepare_samples.py": {
+      "sha256": "5155bc62291649090369311f5a8c11ff6d755af4e7b6b7b1aac0987eb00f6140",
+      "bytes": 2988
+    },
+    "raw_http_input_audit.py": {
+      "sha256": "baf1f2192fb6a67061958a7f3de26fa5f0ea1752073b47079d94bac9d17ea792",
+      "bytes": 7091
+    },
+    "RAW_HTTP_INPUT_PARITY.json": {
+      "sha256": "ab3768a1a89e5fd3f5c84d2ab9c131807563fe1059bc7c85db1688cfd3b8fe30",
+      "bytes": 1700
+    },
+    "RAW_HTTP_INPUT_RESULT.json": {
+      "sha256": "56f14d480580cbed5daf31fe8f3df9754d8c8e374b38180fed9ea9276ac5bb6e",
+      "bytes": 1557
+    },
+    "RAW_PROGRESS.json": {
+      "sha256": "ade5ef76417c74c9aed8dab9af0fcd48e2dbc134dff3dc517430275256b0cb0f",
+      "bytes": 60
+    },
+    "RAW_Q14_PARITY.json": {
+      "sha256": "7626d6710a7ff4084423cb23c74be336c6339c590294bd2ac0821de0f9e2d948",
+      "bytes": 570
+    },
+    "raw_udp_audit.py": {
+      "sha256": "c2d9bcd48f42217372c238feaff5b3d7f023915a8ee4604e6bdb9d162e721e05",
+      "bytes": 5201
+    },
+    "RAW_UDP_RESULT.json": {
+      "sha256": "5d44ee7f1525c8f8c3dd1926bcbbfe709a7da8e29895b96ab10ba50127096dc4",
+      "bytes": 869
+    },
+    "receiver.py": {
+      "sha256": "305f59f5d369e578dd3e5edb433628ec22cab5467b2ce34e659f84c89d1bd9f3",
+      "bytes": 5873
+    },
+    "REMOTE_STATE.json": {
+      "sha256": "2253d3210ca549134c339a75ca57502a53ff2408adabb05b29951bfcaaec98c4",
+      "bytes": 907
+    },
+    "RETRIEVAL.json": {
+      "sha256": "5fb9d5ac60564f78ee48a587f618b07ee72f329bd91269af147f7337fa397ea1",
+      "bytes": 1154
+    },
+    "REVISION.json": {
+      "sha256": "3c4eaba6fc2e89d534bd23133425428c2e8bb80bcb6b4f1ebd0c5352ec23ed3f",
+      "bytes": 405
+    },
+    "SAMPLE_RECEIPT.json": {
+      "sha256": "209bd276b03894e47dff19edfabdec935810b180363a71de3b99e2ef88f5eaf2",
+      "bytes": 3622
+    },
+    "START_INTENT.json": {
+      "sha256": "ce086ee0527e236aa1379be332292c0d1e48d9467a73063c6945276cadc3e454",
+      "bytes": 56
+    },
+    "START_RECEIPT.json": {
+      "sha256": "038cafd0a8fce615fc70cf56bc2b752495fc248c44f38e230e838f5c213faa88",
+      "bytes": 29
+    },
+    "UPLOAD.json": {
+      "sha256": "39447c221bbbae85d07d95f788e8e71e4a3279352b87969be286cdc4f83d1696",
+      "bytes": 30
+    },
+    "WEIGHT_AUDIT_REGRESSION.json": {
+      "sha256": "6cbf3ca1356a9986dd13dfd1b0ab42a5a3313c7569bb653254797e99871c4469",
+      "bytes": 205
+    }
+  }
+}

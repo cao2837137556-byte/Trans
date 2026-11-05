@@ -1,0 +1,30 @@
+{
+  "stage": "STOP",
+  "error": "PREFLIGHT:AssertionError(('ENCODER_LIVE_WEIGHTS', 326, ['base_transformer.encoder.layer.0.position_embeddings.weight', 'base_transformer.encoder.layer.1.position_embeddings.weight', 'base_transformer.encoder.layer.2.position_embeddings.weight', 'base_transformer.encoder.layer.3.position_embeddings.weight', 'base_transformer.encoder.layer.4.position_embeddings.weight', 'base_transformer.encoder.layer.5.position_embeddings.weight', 'base_transformer.encoder.layer.6.position_embeddings.weight', 'base_transformer.encoder.layer.7.position_embeddings.weight', 'base_transformer.encoder.layer.8.position_embeddings.weight', 'base_transformer.encoder.layer.10.position_embeddings.weight', 'base_transformer.encoder.layer.11.position_embeddings.weight'], []))",
+  "PREFLIGHT_JOB": {
+    "job_id": "182263",
+    "phase": "PREFLIGHT",
+    "cpu": 1,
+    "memory_gib": 8,
+    "wall_seconds": 900
+  },
+  "PREFLIGHT_PROGRESS": {
+    "stage": "LOAD_ACTUAL_ENCODER",
+    "done": 0,
+    "total": 2
+  },
+  "PREFLIGHT_SCHEDULER": {
+    "stdout": "182263|FAILED|1:0|00:00:51||1|8G\n182263.batch|FAILED|1:0|00:00:51|380380K|1|\n",
+    "returncode": 0
+  },
+  "PREFLIGHT_STOP": {
+    "status": "FAIL",
+    "error": "AssertionError(('ENCODER_LIVE_WEIGHTS', 326, ['base_transformer.encoder.layer.0.position_embeddings.weight', 'base_transformer.encoder.layer.1.position_embeddings.weight', 'base_transformer.encoder.layer.2.position_embeddings.weight', 'base_transformer.encoder.layer.3.position_embeddings.weight', 'base_transformer.encoder.layer.4.position_embeddings.weight', 'base_transformer.encoder.layer.5.position_embeddings.weight', 'base_transformer.encoder.layer.6.position_embeddings.weight', 'base_transformer.encoder.layer.7.position_embeddings.weight', 'base_transformer.encoder.layer.8.position_embeddings.weight', 'base_transformer.encoder.layer.10.position_embeddings.weight', 'base_transformer.encoder.layer.11.position_embeddings.weight'], []))",
+    "traceback": "Traceback (most recent call last):\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/input_model_forensics_v1_20261104/model_probe.py\", line 141, in <module>\n    try:main()\n        ^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/input_model_forensics_v1_20261104/model_probe.py\", line 105, in main\n    assert matched>0 and not missing and not different,('ENCODER_LIVE_WEIGHTS',matched,missing,different)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('ENCODER_LIVE_WEIGHTS', 326, ['base_transformer.encoder.layer.0.position_embeddings.weight', 'base_transformer.encoder.layer.1.position_embeddings.weight', 'base_transformer.encoder.layer.2.position_embeddings.weight', 'base_transformer.encoder.layer.3.position_embeddings.weight', 'base_transformer.encoder.layer.4.position_embeddings.weight', 'base_transformer.encoder.layer.5.position_embeddings.weight', 'base_transformer.encoder.layer.6.position_embeddings.weight', 'base_transformer.encoder.layer.7.position_embeddings.weight', 'base_transformer.encoder.layer.8.position_embeddings.weight', 'base_transformer.encoder.layer.10.position_embeddings.weight', 'base_transformer.encoder.layer.11.position_embeddings.weight'], [])\n"
+  },
+  "FULL_JOB": null,
+  "FULL_PROGRESS": null,
+  "FULL_SCHEDULER": null,
+  "FULL_STOP": null,
+  "observed_utc": "2026-11-05T07:02:58.834172+00:00"
+}
