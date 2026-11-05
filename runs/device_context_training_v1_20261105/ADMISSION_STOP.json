@@ -1,0 +1,5 @@
+{
+  "status": "FAIL",
+  "error": "AttributeError(\"'NoneType' object has no attribute 'replace'\")",
+  "traceback": "Traceback (most recent call last):\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/device_context_training_v1_20261105/source_admission.py\", line 68, in <module>\n    try:main()\n        ^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/device_context_training_v1_20261105/source_admission.py\", line 34, in main\n    assert c.get('external') or c['owner'].replace(':','').lower()==owner,'OWNER_CATALOG'\n                                ^^^^^^^^^^^^^^^^^^\nAttributeError: 'NoneType' object has no attribute 'replace'\n"
+}

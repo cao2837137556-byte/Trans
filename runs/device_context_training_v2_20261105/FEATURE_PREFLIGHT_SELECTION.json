@@ -1,0 +1,19 @@
+{
+  "rule": "smallest registered raw bytes then capture_id per role/protocol, earliest8 queries per represented role/protocol, scores not read",
+  "captures": [
+    "interaction-attack-104",
+    "interaction-attack-152",
+    "interaction-attack-185",
+    "interaction-attack-282",
+    "unsw-benign-20180528",
+    "unsw-mixed-20180601"
+  ],
+  "groups": {
+    "(0, 17)": "interaction-attack-282",
+    "(0, 6)": "interaction-attack-152",
+    "(1, 17)": "interaction-attack-104",
+    "(1, 6)": "interaction-attack-185",
+    "(2, 6)": "unsw-mixed-20180601",
+    "(2, 17)": "unsw-benign-20180528"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "result": "AUTHORIZED",
+  "impact": "User approved source qualification, full context features, real training gate then frozen comparison training/evaluation",
+  "next": "Proceed within existing authorization, stopping on failed gates",
+  "user_reply": "\u53ef\u4ee5",
+  "parent_spec_sha256": "501aea9c9dd62b84a80e0cb4931935aeb766afb3d5c24e9fb39d2866800fb065",
+  "training_arms": [
+    "OLD782_FROZEN_ANCHOR",
+    "REFIT782",
+    "STATS8",
+    "FUSION790"
+  ],
+  "new_heads": 9,
+  "per_head_budget": {
+    "cpu": 1,
+    "memory_gib": 8,
+    "seconds": 1800
+  },
+  "source_build_budget": {
+    "cpu": 1,
+    "memory_gib": 8,
+    "admission_seconds": 900,
+    "real_preflight_seconds": 900,
+    "full_build_seconds": 1800
+  },
+  "no_training_before_real_runtime_gate": true,
+  "large_files_stay_hpc": true
+}

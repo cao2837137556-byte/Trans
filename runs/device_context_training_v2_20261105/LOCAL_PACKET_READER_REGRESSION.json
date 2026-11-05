@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "existing_raw_prefixes": {
+    "unsw-benign-20180528.pcap": {
+      "raw_records": 10000,
+      "eligible_headers": 8632
+    },
+    "unsw-mixed-20180601.pcap": {
+      "raw_records": 10000,
+      "eligible_headers": 8332
+    }
+  },
+  "synthetic_endian_resolution_offset_cases": 6,
+  "truncated_blocks_rejected": 6,
+  "scope": "Container adapter only; IPv6/fragments remain explicit unsupported-query STOP"
+}

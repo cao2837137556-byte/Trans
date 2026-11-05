@@ -1,0 +1,10 @@
+{
+  "result": "FAIL_CLOSED_BEFORE_TRAINING",
+  "impact": "Catalog null owner for seven documented shared ACTIVE captures was incorrectly treated as a mandatory single-owner field; no sample or model changed",
+  "next": "v2 validates each row against the independently registered device roster, retains all mandatory raw/UID/weight gates",
+  "job": "182321",
+  "elapsed_seconds": 42,
+  "valid_work": "231 source asset SHA checks completed before metadata failure; not counted as model training",
+  "retry": "independent v2 deployment, no hot patch",
+  "stop_sha256": "45c2148e1bba26e225c9c86dc97d1023b9c0b313d328a18290ad9b7e5c3c6b72"
+}

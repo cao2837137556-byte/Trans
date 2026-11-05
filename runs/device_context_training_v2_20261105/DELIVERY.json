@@ -1,0 +1,29 @@
+{
+  "result": "PREPARED",
+  "impact": "Roster repair and PCAPNG container support, frozen stream core unchanged",
+  "next": "ADMISSION then FEATURE_PREFLIGHT then FEATURE_BUILD; training runtime gate follows",
+  "pins": {
+    "source_admission.py": "7305961ea513e229de7dacd1f22e71d97adae05f3dddbddece28a1b442012a51",
+    "feature_worker.py": "64f3f441cc684c5ff1544394346f8492645b9640150eec45e74eae6b19f140f8",
+    "source_packets.py": "be76540116cb7ea89b64b376761a08f0c0e99dbbf066390413bf00f23cd5cafe",
+    "stream_core.py": "d8663a40e21d76ed2021b0999e1e2384b194b3b03b1c391ce88c43bae4a439aa",
+    "packet_reader.py": "7ef0122fb66cbfd49d9130fd2f9325e2612eed0fe5c0a3791daa4122cd8c9881",
+    "ASSET_PLAN.json": "a7cc39c8425719ee4c68f83dca742b967b61d64b3df892bc63b9335d4e7300f8",
+    "INVENTORY.json": "210f34e0e7b9a17764e44daf0eeb06abd30764d22a6538b09effffdf804e64d8",
+    "RAW_CATALOG.json": "18769831834c3848ae1edb4f9ac29f0a80bb65c80e649e409edf327b9829bce2",
+    "OWNER_REGISTRY.json": "c3309c4bbbaf9a6acd663ce552121ccaa19c7710219ba9fec3d8fb81e4be5bf0",
+    "TRAINING_SPEC_FROZEN.json": "501aea9c9dd62b84a80e0cb4931935aeb766afb3d5c24e9fb39d2866800fb065"
+  },
+  "receiver_sha256": "c09708d0a62b90b526abbc9d7765e26b9388928f809c8c47aa500f3ab3a9ad7f",
+  "cpu": 1,
+  "memory_gib": 8,
+  "phase_wall_seconds": {
+    "ADMISSION": 900,
+    "FEATURE_PREFLIGHT": 900,
+    "FEATURE_BUILD": 1800
+  },
+  "automatic_job_retries": 0,
+  "prior_failure_job": "182321",
+  "large_assets_reused": 231,
+  "training_jobs_submitted": 0
+}

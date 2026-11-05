@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "phase": "ADMISSION",
+  "seconds": 52.80420109513216,
+  "assets_verified": 231,
+  "raw_catalog": 219,
+  "queried_captures": 200,
+  "roles": {
+    "LEARN": {
+      "rows": 766727,
+      "uid_sha256": "5ed3b2bb21970ecc29cdb288ac3a58522cef784207dcbf1164478440b515ef23",
+      "ordered_uid_sha256": "da9e90297ce28ac97b298eb6ff37964b7abede42c4df39189c9c882ad82641f8",
+      "counts": {
+        "1/0/6": 67563,
+        "1/0/17": 66930,
+        "2/0/6": 16430,
+        "2/0/17": 16717,
+        "1/1/6": 429821,
+        "2/1/6": 102813,
+        "1/1/17": 53594,
+        "2/1/17": 12859
+      },
+      "z_sha256": "6d06cbe5d20f08b6ebbbe57c807e3f52d0c94251ba513f815c080e5f404d1356",
+      "q_sha256": "388c92ce4a1cb8029ba81d52cd7b511c8e49a8e97f848ab5982050d470e63b9e"
+    },
+    "CIC_DEV": {
+      "rows": 179886,
+      "uid_sha256": "445369f8aeab600985fbd63df1cea9c2f9cac73b0c40d39654f530ad56821d7e",
+      "ordered_uid_sha256": "1b13ef4d89e5652d6c24931ab895842b58cce655249cf978ff3d1cdded04f35d",
+      "counts": {
+        "0/0/17": 99032,
+        "0/0/6": 1798,
+        "0/1/17": 22085,
+        "0/1/6": 56971
+      },
+      "z_sha256": "8a511aed14f5f7b5be59b94452e0ebc7e57ba0ba704f24ab00bbc3ff78fcf422",
+      "q_sha256": "13ddfc2326bb7e97d11191fa818b637fe89d1668fae2f6d29798a4f9c384d14f"
+    },
+    "UNSW_DEV": {
+      "rows": 148316,
+      "uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+      "ordered_uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+      "counts": {
+        "0/0/6": 53625,
+        "0/1/6": 72553,
+        "0/0/17": 22138
+      },
+      "z_sha256": "a9f922e7e13eff477cb4c3fdd8d11fe9920b8e717aab225734dcd859dd59eb97",
+      "q_sha256": "19278ac100c0ef8e85245439db3d436777d1f1e9121cb2b6015104469911856f"
+    }
+  },
+  "fit_weight_sha256": "a15d8badee167e8a50dafe6862522413a52e72a67e54b6d895efda5546b710de",
+  "query_manifest_sha256": "e499b31a914698964d43bcad876a717d65f267694938d873de2db59c911c1a7c",
+  "training_started": false,
+  "notes": "Metadata and whole-asset SHA gate; per-packet direction/parser/clock qualification follows before training"
+}

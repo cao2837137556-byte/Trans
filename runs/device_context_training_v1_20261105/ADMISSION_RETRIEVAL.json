@@ -1,0 +1,36 @@
+{
+  "state": {
+    "stage": "STOP",
+    "error": "ADMISSION:AttributeError(\"'NoneType' object has no attribute 'replace'\")",
+    "ADMISSION_JOB": {
+      "job_id": "182321",
+      "phase": "ADMISSION",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 900
+    },
+    "ADMISSION_PROGRESS": {
+      "stage": "METADATA_LEARN",
+      "done": 0,
+      "total": 93547174,
+      "updated_unix": 1793875644.5829225,
+      "unit": "rows",
+      "updated_utc": "2026-11-05T10:47:38.095150+00:00",
+      "job_id": null
+    },
+    "ADMISSION_SCHEDULER": {
+      "stdout": "182321|FAILED|1:0|00:00:42||1|8G\n182321.batch|FAILED|1:0|00:00:42|38196K|1|\n",
+      "returncode": 0
+    },
+    "ADMISSION_STOP": {
+      "status": "FAIL",
+      "error": "AttributeError(\"'NoneType' object has no attribute 'replace'\")",
+      "traceback": "Traceback (most recent call last):\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/device_context_training_v1_20261105/source_admission.py\", line 68, in <module>\n    try:main()\n        ^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/device_context_training_v1_20261105/source_admission.py\", line 34, in main\n    assert c.get('external') or c['owner'].replace(':','').lower()==owner,'OWNER_CATALOG'\n                                ^^^^^^^^^^^^^^^^^^\nAttributeError: 'NoneType' object has no attribute 'replace'\n"
+    }
+  },
+  "sha256": {
+    "ADMISSION_STOP.json": "45c2148e1bba26e225c9c86dc97d1023b9c0b313d328a18290ad9b7e5c3c6b72",
+    "ADMISSION_SCHEDULER.json": "aa3536009e15288ecab6cd7763d03ac4aa8f752912b216a854103ebd484830a3",
+    "ADMISSION_JOB.json": "74e727ccf39fbbab07131b57a855c6c432f52867932220f54a8475af6cd15435"
+  }
+}
