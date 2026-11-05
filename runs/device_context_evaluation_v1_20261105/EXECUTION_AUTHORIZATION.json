@@ -1,0 +1,39 @@
+{
+  "user_authorization": "\u5141\u8bb8\u8fd0\u884c\u3002",
+  "scope": "Fixed nine trained endpoints plus OLD782; A/B no-regression, source CAL attack checks, consumed Edge RAW/C5 diagnostic",
+  "arms": [
+    "OLD782",
+    "REFIT782",
+    "STATS8",
+    "FUSION790"
+  ],
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "ensemble": true,
+  "training": false,
+  "calibration": false,
+  "selection": "All fixed endpoints and all registered queries; no performance selection",
+  "resources": {
+    "cpu": 1,
+    "memory_gib": 8,
+    "phase_wall_seconds": {
+      "PREFLIGHT": 1800,
+      "CONTEXT": 1800,
+      "AB": 3600,
+      "EDGE": 3600
+    },
+    "sequential": true
+  },
+  "automatic_job_retries": 0,
+  "engineering_fail": "STOP",
+  "scientific_fail": "Report and continue all registered arms",
+  "large_artifacts": "HPC only",
+  "gate": "Real decode, original full-batch encode, legal-reference distance, all-head evaluation and receipt before formal phases",
+  "normalization": "Frozen source FIT only",
+  "thresholds": "Frozen source CAL only",
+  "c5": "Frozen reference geometry, p3, lambda=.25, original SYN guard; trained FIT per-head scales",
+  "clock": "Frozen D1 current-inclusive prefix clock; no global sort"
+}

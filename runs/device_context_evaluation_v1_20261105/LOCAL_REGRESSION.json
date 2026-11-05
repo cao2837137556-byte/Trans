@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "checks": {
+    "CIC_DEV": {
+      "rows": 179886,
+      "p3_decisions_verified": 719544,
+      "replay_sha256": "7d24757be44bd20f1b0ea8c7f908c5d2c7e5f29efa4abf0e4b5767b2705e71ae"
+    },
+    "UNSW_DEV": {
+      "rows": 148316,
+      "p3_decisions_verified": 593264,
+      "replay_sha256": "f0648656e812b2b1696ab47b9c116b2aa57b18565a090cded7fbe2b094991c80"
+    }
+  },
+  "zero_support_syn_guard": true,
+  "conditional_weighting": true,
+  "scientific_failure_reporting": true,
+  "linux_real_gate": "PENDING"
+}

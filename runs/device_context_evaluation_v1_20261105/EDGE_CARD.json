@@ -1,0 +1,278 @@
+{
+  "schema": "EDGE_EXTERNAL_TEST_1_EXECUTION_CARD_DRAFT_V1",
+  "status": "SCOPE_ELIGIBLE_CONTEXT_ADAPTER_BASELINES_AND_BUDGET_PENDING",
+  "date": "2026-11-03 America/Los_Angeles",
+  "execution_ready": false,
+  "model_evaluation_authorized": false,
+  "training_authorized": false,
+  "cloud_run_authorized": false,
+  "criteria_sha256": "d060323660a7899416ba6c40d9e7907e684ffd0f887b4510dd46f1ec46bffe41",
+  "scope_assessment": {
+    "S1": "PASS_OBSERVED_EDGE_IDENTITY_AND_DOCUMENTED_ROLE",
+    "S2": "PASS_ORIGINAL_INTEGER_CLOCK_PCAP",
+    "S3": "PASS_OBSERVED_UNFILTERED_FIRST_WINDOW_UNDER_REGISTERED_GAP_RULE",
+    "S4": "PASS_RECONSTRUCTED_DIRECTION_LABEL_CONTRACT_NOT_PUBLISHER_PACKET_TRUTH",
+    "S5": "PASS_NETWORK_VISIBLE_FLOOD",
+    "S6": "PASS_NAMED_USED_METADATA_AND_DECLARED_RELEASE_PROVENANCE_SCOPE"
+  },
+  "method": {
+    "freeze_path": "runs/c5_method_freeze_v1_20261102/METHOD_FREEZE.json",
+    "sha256": "ee11f25079cd03ee8b9d6dbbafd67e7fc96dd4402373808fc1c0b9f53b5c05e7",
+    "p": 3,
+    "lambda": 0.25,
+    "head_order": [
+      27,
+      127,
+      227,
+      "ensemble"
+    ],
+    "cuts_scales_geometry_encoder": "Unchanged; exact pins are in METHOD_FREEZE.json.",
+    "guard": "TCP SYN=1 and ACK=0 keeps RAW for every target.",
+    "selection_reapplied": false,
+    "AB_development_closed": true
+  },
+  "target": {
+    "dataset": "Edge-IIoTset",
+    "IP": "192.168.0.128",
+    "MAC": "dc:a6:32:fb:69:b5",
+    "role": "Raspberry Pi 4 Model B edge/Mosquitto server",
+    "physical_targets": 1,
+    "not_claimed": [
+      "Attacks on 10 sensor nodes",
+      "Independent multi-device confirmation",
+      "Hardware serial identity",
+      "Complete encoder pretraining non-overlap"
+    ]
+  },
+  "raw_inputs": {
+    "HTTP": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS HTTP Flood Attacks.pcap",
+      "bytes": 28307602,
+      "sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+      "records": 229142,
+      "UTC_range": [
+        "2021-11-25T10:35:29.350784000Z",
+        "2021-11-25T10:40:01.284354000Z"
+      ],
+      "span_seconds": 271.93357
+    },
+    "UDP": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\DDoS UDP Flood Attacks.pcap",
+      "bytes": 247560012,
+      "sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+      "records": 3215732,
+      "UTC_range": [
+        "2021-11-24T22:27:10.139612000Z",
+        "2021-11-24T22:33:51.047885000Z"
+      ],
+      "span_seconds": 400.908273
+    },
+    "NORMAL": {
+      "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\edge_iiotset\\qualification_v1\\Temperature_and_Humidity.pcap",
+      "bytes": 345868816,
+      "sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+      "records": 1629749,
+      "UTC_range": [
+        "2021-11-21T10:44:10.081753000Z",
+        "2021-12-20T00:40:55.043322000Z"
+      ],
+      "span_seconds": 2469404.961569
+    }
+  },
+  "reference": {
+    "mode": "COMMISSIONING_ONLY_NO_ADMITTED_SEPARATE_HISTORY",
+    "description": "Early trusted normal within the same capture; not cross-year historical validation.",
+    "raw_role": "NORMAL",
+    "t0_ns": 1637491450081753000,
+    "cutoff_ns": 1637498650081753000,
+    "observation_seconds": 7200,
+    "original_prefix_frames": [
+      1,
+      117376
+    ],
+    "first_after_cutoff": {
+      "frame": 117377,
+      "timestamp_ns": 1637498650081789000
+    },
+    "selection": "Frozen dense commissioning rule on all legal target endpoints in the complete unfiltered prefix; preserve distinct-component eligibility and RAW fallback.",
+    "new_history_or_topup_from_query_rows": false,
+    "external_HIST_DEV_selection": false,
+    "reference_query_roles_must_be_materialized_and_sealed_before_scores": true
+  },
+  "capture_boundaries": {
+    "rule": "Split original NORMAL record ranges at positive capture-order gaps >3600s; do not shift clocks, sort regressions or join segments.",
+    "normal_segments": [
+      {
+        "first_frame": 1,
+        "last_frame": 884555,
+        "min_ns": 1637491450081753000,
+        "max_ns": 1637530272740630000,
+        "span_seconds": 38822.658877
+      },
+      {
+        "first_frame": 884556,
+        "last_frame": 1279552,
+        "min_ns": 1637591660252618000,
+        "max_ns": 1637617805757227000,
+        "span_seconds": 26145.504609
+      },
+      {
+        "first_frame": 1279553,
+        "last_frame": 1469919,
+        "min_ns": 1637679338804754000,
+        "max_ns": 1637690830421639000,
+        "span_seconds": 11491.616885
+      },
+      {
+        "first_frame": 1469920,
+        "last_frame": 1626212,
+        "min_ns": 1637695650270762000,
+        "max_ns": 1637705429988676000,
+        "span_seconds": 9779.717914
+      },
+      {
+        "first_frame": 1626213,
+        "last_frame": 1629749,
+        "min_ns": 1639959767981993000,
+        "max_ns": 1639960855043322000,
+        "span_seconds": 1087.061329
+      }
+    ],
+    "context": "Reset RECENT context at each logical-capture boundary; preserve original raw SHA/frame lineage and pin any logical-frame mapping.",
+    "bank": "One earliest completed static bank remains causally available for later captures; never rebuild it using their normal queries.",
+    "gap_independence_scope": "Independent context/reporting segments, not independent devices or newly onboarded reference budgets.",
+    "December_segment": "Later normal queries only, not pre-attack reference. It need not independently supply a fresh 7200s bank.",
+    "capture_duration_caution": "First two >1h-gap segments exceed the paper stated 3h capture maximum; these are observed time segments, not verified independent recording sessions."
+  },
+  "context_and_population_gate": {
+    "unfiltered_context_required": true,
+    "same_namespace_regression": "Keep frozen permanent poison semantics; do not repair the clock or reorder.",
+    "cross_key_capture_regression": "Record under frozen Contexts; not automatically equivalent to a poisoned namespace.",
+    "invalid_or_unsupported_rows": "Count by reason before scores and seal population/UIDs; do not turn unscored rows into correct negatives or silently drop required truth.",
+    "complete": false
+  },
+  "labels": {
+    "evidence_level": "Researcher-reconstructed attack-associated direct direction, supported by official scenario/tool descriptions and observed traffic; not official packet payload ground truth.",
+    "normal": "Official Normal traffic/Temperature_and_Humidity file, target-owned legal TCP/UDP; other-protocol context is outside evaluated protocol scope.",
+    "HTTP": {
+      "predicate": "origin=HTTP AND IPv4.src=192.168.0.170 AND IPv4.dst=192.168.0.128 AND eth.dst=dc:a6:32:fb:69:b5 AND IP.proto=6 AND TCP.dport=80 AND original timestamp in the pinned capture interval",
+      "flags_for_all_direct": "All observed TCP flags remain in direct session population; do not infer maliciousness from flags alone.",
+      "ACK_no_SYN_stratum": "(flags & 0x10)!=0 AND (flags & 0x02)==0",
+      "guard_stratum": "(flags & 0x02)!=0 AND (flags & 0x10)==0",
+      "ACK_only": "flags==0x10",
+      "PSH_ACK": "flags==0x18",
+      "reported_flags": {
+        "2": 61641,
+        "24": 77043,
+        "17": 3003,
+        "16": 7817,
+        "4": 2449,
+        "25": 399
+      },
+      "captured_interval_ns": [
+        1637836529350784000,
+        1637836801284354000
+      ],
+      "ACK_control_semantics": "ACK/FIN/handshake are attack-session control traffic, not independent ACK floods; GET starts (19076 observed) and payload-containing packets are reported separately."
+    },
+    "UDP": {
+      "predicate": "origin=UDP AND IPv4.dst=192.168.0.128 AND eth.dst=dc:a6:32:fb:69:b5 AND IP.proto=17 AND UDP.dport=0 AND original timestamp in the pinned capture interval",
+      "source_policy": "No four-IP whitelist: the authors describe source spoofing; do not pretend random source IPs are independent attackers.",
+      "port_zero": "Observed header value; preserve frozen legal endpoint range 0..65535.",
+      "captured_interval_ns": [
+        1637792830139612000,
+        1637793231047885000
+      ]
+    },
+    "outside_attack_direction": "Retain for full unfiltered context and separate audit; exclude from normal/attack scored truth and every reference bank.",
+    "public_HTTP_counterpart": "216.58.198.74:80 exchanges with target local port42162 are background-role traffic, not attacker->target:80.",
+    "publication_claim": "Direct attack-associated packet recall, with control/GET/payload strata; not detection probability of independent attacks."
+  },
+  "header_populations_before_context_eligibility": {
+    "normal_full_TCP_UDP": 1334858,
+    "normal_first_7200_TCP_UDP": 114436,
+    "normal_primary_TCP_UDP": 1220422,
+    "HTTP_direct": 152352,
+    "HTTP_ACK_no_SYN": 88262,
+    "HTTP_ACK_only": 7817,
+    "HTTP_PSH_ACK": 77043,
+    "HTTP_SYN_guarded": 61641,
+    "UDP_direct": 2898830,
+    "all_direct": 3051182,
+    "not_yet_final_encoded_query_counts": true
+  },
+  "difficulty_descriptive_only": {
+    "normal_TCP": 1332428,
+    "normal_UDP": 2430,
+    "normal_target_local_TCP80_full_first_post": [
+      0,
+      0,
+      0
+    ],
+    "normal_target_local_UDP0_full_first_post": [
+      0,
+      0,
+      0
+    ],
+    "same_protocol_present": {
+      "TCP": true,
+      "UDP": true
+    },
+    "interpretation": "Service/traffic-distribution shift, not absent UDP protocol; ports are component metadata rather than direct numeric RECENT header-token features. Do not predict detector success from this."
+  },
+  "metrics_draft": {
+    "views": [
+      "full",
+      "post_window_primary"
+    ],
+    "primary": "Same-population per-packet ensemble FPR, recall, FP/FN and counts; all four heads and each segment/scenario/flags stratum also reported.",
+    "full_causal_rule": "Before bank closure keep RAW; after closure use only the fixed completed bank.",
+    "normal_weight_proposal": [
+      "device",
+      "logical_capture_segment",
+      "canonical_component"
+    ],
+    "attack_weight_proposal": [
+      "device",
+      "scenario_capture",
+      "canonical_component"
+    ],
+    "weight_allocation": "Equal child mass at each level; normalize normal and attack separately. These are external weights, not A/B-identical metrics.",
+    "event_report": "Two scenario capture groups; exact number of repeated official events unknown. No invented UNKNOWN event pass or claim millions of independent attacks.",
+    "safety": "Cumulative TP withdrawals relative to RAW, device<=1pp and available scenario<=5pp, low-RAW-recall group zero TP withdrawal; retain frozen four-head safety logic, mark missing truth NOT_EVALUABLE.",
+    "uncertainty": "No naive binomial/Wilson CI on weighted or correlated packets. Show counts and per-day/scenario limits; cluster scheme must be sealed before scores.",
+    "schema_frozen": false
+  },
+  "methods": {
+    "required_comparisons": [
+      "RAW",
+      "same-bank C2/p1",
+      "C5/p3"
+    ],
+    "same_bank_p1_is_strong_baseline": false,
+    "strong_baseline": "Must be selected, implemented and source-calibrated under the same normal-information/time budget before external scores; not ready."
+  },
+  "resources": {
+    "CPU": null,
+    "RAM_bytes": null,
+    "wall_seconds": null,
+    "distance_pairs": null,
+    "unique_encoding_rows": null,
+    "location": null,
+    "raw_bytes_already_present": 621736430,
+    "population_sampling": "No subsampling authorized/fixed here; any feasibility sampling must be specified before scores and the card resealed.",
+    "automatic_resubmit_or_budget_extension": false
+  },
+  "required_before_execution": [
+    "Close real decoder/context/physical-lineage/UID population gates",
+    "Implement isolated external adapter without changing numeric core and verify source parity",
+    "Seal external metrics, uncertainty scheme, query population and baselines",
+    "Fill resource/runtime bounds and pass same-delivery real-slice E2E",
+    "Obtain actual external-evaluation authorization"
+  ],
+  "progress": {
+    "Codex_right_panel": true,
+    "continuous_AI_monitoring": false
+  },
+  "outcome_policy": "Report failures; no external-output-driven p/lambda/cut/radius/bank/salt adjustment or dataset selection."
+}
