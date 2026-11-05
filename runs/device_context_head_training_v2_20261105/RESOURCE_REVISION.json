@@ -1,0 +1,23 @@
+{
+  "result": "RESOURCE_ONLY_REVISION",
+  "version": "DEVICE_CONTEXT_HEAD_RESOURCE_V2",
+  "method_spec_sha256": "501aea9c9dd62b84a80e0cb4931935aeb766afb3d5c24e9fb39d2866800fb065",
+  "authority": "User previously explicitly requested more time when insufficient; current instruction authorizes runtime qualification then fixed comparison training",
+  "user_prior_instruction": "时间不够多给点时间不行嘛？我不希望再出什么交上去，等好久看不到结果报错。",
+  "prior_preflight_job": "182342",
+  "prior_resource_stop_sha256": "881742d031cc588f708545633331d55369a3b02c8a781aafd309ffb910c5b10d",
+  "prior_forecast_sha256": "ee3579a1cce4f31e749308948a6dd9905ce9365258aa01b730b14d72d71d9cf8",
+  "observed_max_forecast_seconds": 2395.90594338777,
+  "old_per_head_wall_seconds": 1800,
+  "per_head_wall_seconds": 3600,
+  "cpu": 1,
+  "memory_gib": 8,
+  "preflight_wall_seconds": 1800,
+  "calibration_wall_seconds": 900,
+  "epochs": 40,
+  "new_heads": 9,
+  "model_or_threshold_change": false,
+  "resource_only": true,
+  "retries": 0,
+  "notes": "New directory, full real preflight repeated under same method. No change to old receipts or running jobs; method-spec planned wall times overridden only by this explicit versioned resource record."
+}

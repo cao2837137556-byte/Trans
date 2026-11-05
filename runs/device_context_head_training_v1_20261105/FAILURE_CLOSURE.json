@@ -1,0 +1,30 @@
+{
+  "result": "STOPPED_AT_RESOURCE_GATE",
+  "impact": "Zero formal heads submitted; all nine real smoke training/calibration paths and ensemble calibration completed before budget check",
+  "next": "Isolated v2 resource-only revision; original result preserved",
+  "job_id": "182342",
+  "slurm": {
+    "stdout": "182342|FAILED|1:0|00:03:16||1|8G\n182342.batch|FAILED|1:0|00:03:16|3414676K|1|\n",
+    "returncode": 0
+  },
+  "error": "RuntimeError('SEALED_1800_SECOND_BUDGET_NOT_MET')",
+  "valid_scientific_work": "9 x 128 real optimizer steps, full FIT-normal tail refresh, full FIT/CAL scoring, per-seed and ensemble calibration and checkpoint readback",
+  "elapsed_seconds": 196,
+  "forecast": {
+    "forecasts": {
+      "REFIT782_27": 2395.90594338777,
+      "REFIT782_127": 1319.1357688512508,
+      "REFIT782_227": 1356.6248624181171,
+      "STATS8_27": 631.721079262541,
+      "STATS8_127": 528.0877881845663,
+      "STATS8_227": 570.409906219531,
+      "FUSION790_27": 2027.206165947835,
+      "FUSION790_127": 1326.7826445716346,
+      "FUSION790_227": 1441.4164766898612
+    },
+    "budget_seconds": 1800,
+    "all_fit": false
+  },
+  "evidence_scope": "Control flow reaches budget check only after all nine smoke and ensemble routines return; their large/intermediate outputs remain HPC",
+  "automatic_retry": false
+}

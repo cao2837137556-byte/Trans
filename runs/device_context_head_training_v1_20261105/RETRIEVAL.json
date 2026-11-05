@@ -1,0 +1,102 @@
+{
+  "state": {
+    "stage": "STOP",
+    "error": "PREFLIGHT:RuntimeError('SEALED_1800_SECOND_BUDGET_NOT_MET')",
+    "completed_heads": 0,
+    "total_heads": 9,
+    "runtime_forecast": {
+      "forecasts": {
+        "REFIT782_27": 2395.90594338777,
+        "REFIT782_127": 1319.1357688512508,
+        "REFIT782_227": 1356.6248624181171,
+        "STATS8_27": 631.721079262541,
+        "STATS8_127": 528.0877881845663,
+        "STATS8_227": 570.409906219531,
+        "FUSION790_27": 2027.206165947835,
+        "FUSION790_127": 1326.7826445716346,
+        "FUSION790_227": 1441.4164766898612
+      },
+      "budget_seconds": 1800,
+      "all_fit": false
+    },
+    "PREFLIGHT_JOB": {
+      "job_id": "182342",
+      "phase": "PREFLIGHT",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 1800
+    },
+    "PREFLIGHT_PROGRESS": {
+      "stage": "STOP",
+      "done": 148819,
+      "total": 148819,
+      "optimizer_updates": 128,
+      "rss_mib": 3315.4453125,
+      "updated_unix": 1793880184.4859338,
+      "updated_utc": "2026-11-05T12:03:20.179634+00:00",
+      "phase": "PREFLIGHT",
+      "job_id": null,
+      "version": "HEAD_V1",
+      "completed_heads": 0,
+      "total_heads": 9,
+      "error": "PREFLIGHT:RuntimeError('SEALED_1800_SECOND_BUDGET_NOT_MET')"
+    },
+    "PREFLIGHT_SCHEDULER": {
+      "stdout": "182342|FAILED|1:0|00:03:16||1|8G\n182342.batch|FAILED|1:0|00:03:16|3414676K|1|\n",
+      "returncode": 0
+    },
+    "PREFLIGHT_STOP": {
+      "status": "FAIL",
+      "error": "RuntimeError('SEALED_1800_SECOND_BUDGET_NOT_MET')",
+      "traceback": "Traceback (most recent call last):\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/device_context_head_training_v1_20261105/worker.py\", line 258, in <module>\n    main()\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/device_context_head_training_v1_20261105/worker.py\", line 237, in main\n    c.require(max(forecasts.values()) <= 1800, 'SEALED_1800_SECOND_BUDGET_NOT_MET')\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/device_context_head_training_v1_20261105/continuous_common_v3.py\", line 19, in require\n    raise RuntimeError(message)\nRuntimeError: SEALED_1800_SECOND_BUDGET_NOT_MET\n"
+    },
+    "TRAIN_REFIT782_27_JOB": null,
+    "TRAIN_REFIT782_27_PROGRESS": null,
+    "TRAIN_REFIT782_27_SCHEDULER": null,
+    "TRAIN_REFIT782_27_STOP": null,
+    "TRAIN_REFIT782_127_JOB": null,
+    "TRAIN_REFIT782_127_PROGRESS": null,
+    "TRAIN_REFIT782_127_SCHEDULER": null,
+    "TRAIN_REFIT782_127_STOP": null,
+    "TRAIN_REFIT782_227_JOB": null,
+    "TRAIN_REFIT782_227_PROGRESS": null,
+    "TRAIN_REFIT782_227_SCHEDULER": null,
+    "TRAIN_REFIT782_227_STOP": null,
+    "TRAIN_STATS8_27_JOB": null,
+    "TRAIN_STATS8_27_PROGRESS": null,
+    "TRAIN_STATS8_27_SCHEDULER": null,
+    "TRAIN_STATS8_27_STOP": null,
+    "TRAIN_STATS8_127_JOB": null,
+    "TRAIN_STATS8_127_PROGRESS": null,
+    "TRAIN_STATS8_127_SCHEDULER": null,
+    "TRAIN_STATS8_127_STOP": null,
+    "TRAIN_STATS8_227_JOB": null,
+    "TRAIN_STATS8_227_PROGRESS": null,
+    "TRAIN_STATS8_227_SCHEDULER": null,
+    "TRAIN_STATS8_227_STOP": null,
+    "TRAIN_FUSION790_27_JOB": null,
+    "TRAIN_FUSION790_27_PROGRESS": null,
+    "TRAIN_FUSION790_27_SCHEDULER": null,
+    "TRAIN_FUSION790_27_STOP": null,
+    "TRAIN_FUSION790_127_JOB": null,
+    "TRAIN_FUSION790_127_PROGRESS": null,
+    "TRAIN_FUSION790_127_SCHEDULER": null,
+    "TRAIN_FUSION790_127_STOP": null,
+    "TRAIN_FUSION790_227_JOB": null,
+    "TRAIN_FUSION790_227_PROGRESS": null,
+    "TRAIN_FUSION790_227_SCHEDULER": null,
+    "TRAIN_FUSION790_227_STOP": null,
+    "CALIBRATION_JOB": null,
+    "CALIBRATION_PROGRESS": null,
+    "CALIBRATION_SCHEDULER": null,
+    "CALIBRATION_STOP": null
+  },
+  "sha256": {
+    "PREFLIGHT_STOP.json": "881742d031cc588f708545633331d55369a3b02c8a781aafd309ffb910c5b10d",
+    "PREFLIGHT_SCHEDULER.json": "2bcdb355a1fd52e2124ea99856b110332a7f0f85dbe22f5e28aac06b0410ca3a",
+    "PREFLIGHT_JOB.json": "5751ca0ffc6c1d81a10bdca290db502d508aee664dce6d938561780305d5c443",
+    "NORMALIZER.json": "d55a50f9142f00195a5ea0de91d9778d55a88acf00513e61206852b950f50086",
+    "RUNTIME_FORECAST.json": "ee3579a1cce4f31e749308948a6dd9905ce9365258aa01b730b14d72d71d9cf8",
+    "LINUX_ADAPTER_REGRESSION.json": "e58eddb9e52e826fd764309145fe5d8971bb38307d637c5d4951bc6107369ab1"
+  }
+}

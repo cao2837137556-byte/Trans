@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "refit_parent_parameters_losses_orders_and_samples_exact": true,
+  "diagnostics_do_not_change_parameters": true,
+  "fusion_context_columns_receive_updates": true,
+  "fusion_initial_copy_and_zero_columns_seeds": [
+    27,
+    127,
+    227
+  ],
+  "dimensions": [
+    {
+      "arm": "REFIT782",
+      "finite": true,
+      "diagnostics_probes": 6
+    },
+    {
+      "arm": "STATS8",
+      "finite": true,
+      "diagnostics_probes": 6
+    },
+    {
+      "arm": "FUSION790",
+      "finite": true,
+      "diagnostics_probes": 6
+    }
+  ],
+  "scope": "Generated local invariance; real Linux runtime gate still mandatory",
+  "torch": "2.5.1"
+}

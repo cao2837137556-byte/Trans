@@ -1,0 +1,5 @@
+{
+  "status": "FAIL",
+  "error": "RuntimeError('SEALED_1800_SECOND_BUDGET_NOT_MET')",
+  "traceback": "Traceback (most recent call last):\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/device_context_head_training_v1_20261105/worker.py\", line 258, in <module>\n    main()\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/device_context_head_training_v1_20261105/worker.py\", line 237, in main\n    c.require(max(forecasts.values()) <= 1800, 'SEALED_1800_SECOND_BUDGET_NOT_MET')\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/device_context_head_training_v1_20261105/continuous_common_v3.py\", line 19, in require\n    raise RuntimeError(message)\nRuntimeError: SEALED_1800_SECOND_BUDGET_NOT_MET\n"
+}
