@@ -1,0 +1,1515 @@
+{
+  "status": "PASS",
+  "scope": "Edge fixed queries, eight causal features, descriptive only",
+  "roles": {
+    "NORMAL": {
+      "queries": 32,
+      "raw_frames_read": 424277,
+      "raw_total_frames": 1629749,
+      "source_sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+      "parser_counts": {
+        "ELIGIBLE": 421826,
+        "NON_IPV4": 2003,
+        "NON_TCP_UDP": 448
+      },
+      "capture_order_regressions": 11,
+      "inbound_events": 206987,
+      "arrays": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/context_separability_v1_20261104/PREFLIGHT_NORMAL_CROSS_FEATURES.npz",
+        "sha256": "b8549191557f12c85e6e04b30558ceac51cedcda72eee151e15ed250c777fe83",
+        "bytes": 3689
+      }
+    },
+    "HTTP": {
+      "queries": 16,
+      "raw_frames_read": 118,
+      "raw_total_frames": 229142,
+      "source_sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+      "parser_counts": {
+        "ELIGIBLE": 118
+      },
+      "capture_order_regressions": 0,
+      "inbound_events": 117,
+      "arrays": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/context_separability_v1_20261104/PREFLIGHT_HTTP_CROSS_FEATURES.npz",
+        "sha256": "8bcf9b8379defd4cc1f5c5f322ff35c31c8309199decc83f5d953de497da9c53",
+        "bytes": 2687
+      }
+    },
+    "UDP": {
+      "queries": 16,
+      "raw_frames_read": 2535,
+      "raw_total_frames": 3215732,
+      "source_sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+      "parser_counts": {
+        "ELIGIBLE": 2273,
+        "NON_IPV4": 2,
+        "NON_TCP_UDP": 260
+      },
+      "capture_order_regressions": 0,
+      "inbound_events": 2273,
+      "arrays": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/context_separability_v1_20261104/PREFLIGHT_UDP_CROSS_FEATURES.npz",
+        "sha256": "2322c4e0f0f06ad957285d67d495f15407ed5f62152bf11e787ca3f4c023dcb2",
+        "bytes": 2724
+      }
+    }
+  },
+  "real_brute_force_queries_checked": 24,
+  "feature_order": [
+    "packet_rate_1s",
+    "IP_byte_rate_1s",
+    "source_count_1s",
+    "connection_count_1s",
+    "packet_rate_10s",
+    "IP_byte_rate_10s",
+    "source_count_10s",
+    "connection_count_10s"
+  ],
+  "summary": {
+    "NORMAL": {
+      "ALL": {
+        "n": 32,
+        "full_10s": 32,
+        "features": {
+          "packet_rate_1s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 1.0,
+              "p50": 3.0,
+              "p90": 8.700000000000006,
+              "p99": 12.760000000000005,
+              "max": 14.0
+            },
+            "unique_values": 9,
+            "zero_fraction": 0.09375
+          },
+          "IP_byte_rate_1s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 76.0,
+              "p50": 187.0,
+              "p90": 528.0,
+              "p99": 703.0500000000001,
+              "max": 717.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.09375
+          },
+          "source_count_1s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 1.0,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 2,
+            "zero_fraction": 0.09375
+          },
+          "connection_count_1s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 1.0,
+              "p50": 1.0,
+              "p90": 2.0,
+              "p99": 2.0,
+              "max": 2.0
+            },
+            "unique_values": 3,
+            "zero_fraction": 0.09375
+          },
+          "packet_rate_10s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.1,
+              "p50": 4.3,
+              "p90": 7.59,
+              "p99": 7.938000000000001,
+              "max": 8.0
+            },
+            "unique_values": 13,
+            "zero_fraction": 0.0625
+          },
+          "IP_byte_rate_10s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 7.6,
+              "p50": 351.8,
+              "p90": 372.6,
+              "p99": 386.52,
+              "max": 389.0
+            },
+            "unique_values": 17,
+            "zero_fraction": 0.0625
+          },
+          "source_count_10s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 1.0,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 2,
+            "zero_fraction": 0.0625
+          },
+          "connection_count_10s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 1.0,
+              "p50": 6.5,
+              "p90": 10.0,
+              "p99": 10.0,
+              "max": 10.0
+            },
+            "unique_values": 5,
+            "zero_fraction": 0.0625
+          }
+        }
+      },
+      "PROTO_6": {
+        "n": 16,
+        "full_10s": 16,
+        "features": {
+          "packet_rate_1s": {
+            "quantiles": {
+              "min": 3.0,
+              "p01": 3.0,
+              "p10": 3.0,
+              "p50": 4.5,
+              "p90": 10.0,
+              "p99": 13.399999999999999,
+              "max": 14.0
+            },
+            "unique_values": 7,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_1s": {
+            "quantiles": {
+              "min": 132.0,
+              "p01": 132.0,
+              "p10": 159.0,
+              "p50": 248.0,
+              "p90": 525.0,
+              "p99": 650.0999999999999,
+              "max": 672.0
+            },
+            "unique_values": 11,
+            "zero_fraction": 0.0
+          },
+          "source_count_1s": {
+            "quantiles": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p10": 1.0,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 1,
+            "zero_fraction": 0.0
+          },
+          "connection_count_1s": {
+            "quantiles": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p10": 1.0,
+              "p50": 2.0,
+              "p90": 2.0,
+              "p99": 2.0,
+              "max": 2.0
+            },
+            "unique_values": 2,
+            "zero_fraction": 0.0
+          },
+          "packet_rate_10s": {
+            "quantiles": {
+              "min": 7.3,
+              "p01": 7.3,
+              "p10": 7.3,
+              "p50": 7.5,
+              "p90": 7.75,
+              "p99": 7.97,
+              "max": 8.0
+            },
+            "unique_values": 7,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_10s": {
+            "quantiles": {
+              "min": 355.3,
+              "p01": 355.3,
+              "p10": 355.3,
+              "p50": 368.8,
+              "p90": 379.0,
+              "p99": 387.8,
+              "max": 389.0
+            },
+            "unique_values": 9,
+            "zero_fraction": 0.0
+          },
+          "source_count_10s": {
+            "quantiles": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p10": 1.0,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 1,
+            "zero_fraction": 0.0
+          },
+          "connection_count_10s": {
+            "quantiles": {
+              "min": 10.0,
+              "p01": 10.0,
+              "p10": 10.0,
+              "p50": 10.0,
+              "p90": 10.0,
+              "p99": 10.0,
+              "max": 10.0
+            },
+            "unique_values": 1,
+            "zero_fraction": 0.0
+          }
+        }
+      },
+      "PROTO_17": {
+        "n": 16,
+        "full_10s": 16,
+        "features": {
+          "packet_rate_1s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.0,
+              "p50": 1.0,
+              "p90": 2.0,
+              "p99": 3.8499999999999996,
+              "max": 4.0
+            },
+            "unique_values": 4,
+            "zero_fraction": 0.1875
+          },
+          "IP_byte_rate_1s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.0,
+              "p50": 76.0,
+              "p90": 591.0,
+              "p99": 707.55,
+              "max": 717.0
+            },
+            "unique_values": 5,
+            "zero_fraction": 0.1875
+          },
+          "source_count_1s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.0,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 2,
+            "zero_fraction": 0.1875
+          },
+          "connection_count_1s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.0,
+              "p50": 1.0,
+              "p90": 1.5,
+              "p99": 2.0,
+              "max": 2.0
+            },
+            "unique_values": 3,
+            "zero_fraction": 0.1875
+          },
+          "packet_rate_10s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.05,
+              "p50": 0.1,
+              "p90": 1.1,
+              "p99": 1.27,
+              "max": 1.3
+            },
+            "unique_values": 6,
+            "zero_fraction": 0.125
+          },
+          "IP_byte_rate_10s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 3.8,
+              "p50": 7.6,
+              "p90": 258.45,
+              "p99": 340.38,
+              "max": 348.3
+            },
+            "unique_values": 8,
+            "zero_fraction": 0.125
+          },
+          "source_count_10s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.5,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 2,
+            "zero_fraction": 0.125
+          },
+          "connection_count_10s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.5,
+              "p50": 1.0,
+              "p90": 2.0,
+              "p99": 2.8499999999999996,
+              "max": 3.0
+            },
+            "unique_values": 4,
+            "zero_fraction": 0.125
+          }
+        }
+      },
+      "SEG_0_PROTO_6": {
+        "n": 16,
+        "full_10s": 16,
+        "features": {
+          "packet_rate_1s": {
+            "quantiles": {
+              "min": 3.0,
+              "p01": 3.0,
+              "p10": 3.0,
+              "p50": 4.5,
+              "p90": 10.0,
+              "p99": 13.399999999999999,
+              "max": 14.0
+            },
+            "unique_values": 7,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_1s": {
+            "quantiles": {
+              "min": 132.0,
+              "p01": 132.0,
+              "p10": 159.0,
+              "p50": 248.0,
+              "p90": 525.0,
+              "p99": 650.0999999999999,
+              "max": 672.0
+            },
+            "unique_values": 11,
+            "zero_fraction": 0.0
+          },
+          "source_count_1s": {
+            "quantiles": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p10": 1.0,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 1,
+            "zero_fraction": 0.0
+          },
+          "connection_count_1s": {
+            "quantiles": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p10": 1.0,
+              "p50": 2.0,
+              "p90": 2.0,
+              "p99": 2.0,
+              "max": 2.0
+            },
+            "unique_values": 2,
+            "zero_fraction": 0.0
+          },
+          "packet_rate_10s": {
+            "quantiles": {
+              "min": 7.3,
+              "p01": 7.3,
+              "p10": 7.3,
+              "p50": 7.5,
+              "p90": 7.75,
+              "p99": 7.97,
+              "max": 8.0
+            },
+            "unique_values": 7,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_10s": {
+            "quantiles": {
+              "min": 355.3,
+              "p01": 355.3,
+              "p10": 355.3,
+              "p50": 368.8,
+              "p90": 379.0,
+              "p99": 387.8,
+              "max": 389.0
+            },
+            "unique_values": 9,
+            "zero_fraction": 0.0
+          },
+          "source_count_10s": {
+            "quantiles": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p10": 1.0,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 1,
+            "zero_fraction": 0.0
+          },
+          "connection_count_10s": {
+            "quantiles": {
+              "min": 10.0,
+              "p01": 10.0,
+              "p10": 10.0,
+              "p50": 10.0,
+              "p90": 10.0,
+              "p99": 10.0,
+              "max": 10.0
+            },
+            "unique_values": 1,
+            "zero_fraction": 0.0
+          }
+        }
+      },
+      "SEG_0_PROTO_17": {
+        "n": 16,
+        "full_10s": 16,
+        "features": {
+          "packet_rate_1s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.0,
+              "p50": 1.0,
+              "p90": 2.0,
+              "p99": 3.8499999999999996,
+              "max": 4.0
+            },
+            "unique_values": 4,
+            "zero_fraction": 0.1875
+          },
+          "IP_byte_rate_1s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.0,
+              "p50": 76.0,
+              "p90": 591.0,
+              "p99": 707.55,
+              "max": 717.0
+            },
+            "unique_values": 5,
+            "zero_fraction": 0.1875
+          },
+          "source_count_1s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.0,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 2,
+            "zero_fraction": 0.1875
+          },
+          "connection_count_1s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.0,
+              "p50": 1.0,
+              "p90": 1.5,
+              "p99": 2.0,
+              "max": 2.0
+            },
+            "unique_values": 3,
+            "zero_fraction": 0.1875
+          },
+          "packet_rate_10s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.05,
+              "p50": 0.1,
+              "p90": 1.1,
+              "p99": 1.27,
+              "max": 1.3
+            },
+            "unique_values": 6,
+            "zero_fraction": 0.125
+          },
+          "IP_byte_rate_10s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 3.8,
+              "p50": 7.6,
+              "p90": 258.45,
+              "p99": 340.38,
+              "max": 348.3
+            },
+            "unique_values": 8,
+            "zero_fraction": 0.125
+          },
+          "source_count_10s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.5,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 2,
+            "zero_fraction": 0.125
+          },
+          "connection_count_10s": {
+            "quantiles": {
+              "min": 0.0,
+              "p01": 0.0,
+              "p10": 0.5,
+              "p50": 1.0,
+              "p90": 2.0,
+              "p99": 2.8499999999999996,
+              "max": 3.0
+            },
+            "unique_values": 4,
+            "zero_fraction": 0.125
+          }
+        }
+      }
+    },
+    "HTTP": {
+      "ALL": {
+        "n": 16,
+        "full_10s": 0,
+        "features": {
+          "packet_rate_1s": {
+            "quantiles": {
+              "min": 2.0,
+              "p01": 2.6,
+              "p10": 9.0,
+              "p50": 41.0,
+              "p90": 81.0,
+              "p99": 91.85,
+              "max": 92.0
+            },
+            "unique_values": 15,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_1s": {
+            "quantiles": {
+              "min": 120.0,
+              "p01": 156.0,
+              "p10": 545.5,
+              "p50": 2760.0,
+              "p90": 5443.5,
+              "p99": 6089.0,
+              "max": 6098.0
+            },
+            "unique_values": 15,
+            "zero_fraction": 0.0
+          },
+          "source_count_1s": {
+            "quantiles": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p10": 1.0,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 1,
+            "zero_fraction": 0.0
+          },
+          "connection_count_1s": {
+            "quantiles": {
+              "min": 2.0,
+              "p01": 2.6,
+              "p10": 9.0,
+              "p50": 40.0,
+              "p90": 79.0,
+              "p99": 90.7,
+              "max": 91.0
+            },
+            "unique_values": 15,
+            "zero_fraction": 0.0
+          },
+          "packet_rate_10s": {
+            "quantiles": {
+              "min": 0.2,
+              "p01": 0.26,
+              "p10": 0.8999999999999999,
+              "p50": 4.1,
+              "p90": 9.4,
+              "p99": 11.639999999999999,
+              "max": 11.7
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_10s": {
+            "quantiles": {
+              "min": 12.0,
+              "p01": 15.6,
+              "p10": 54.55,
+              "p50": 276.0,
+              "p90": 622.9,
+              "p99": 757.3,
+              "max": 760.9
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "source_count_10s": {
+            "quantiles": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p10": 1.0,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 1,
+            "zero_fraction": 0.0
+          },
+          "connection_count_10s": {
+            "quantiles": {
+              "min": 2.0,
+              "p01": 2.6,
+              "p10": 9.0,
+              "p50": 40.0,
+              "p90": 79.5,
+              "p99": 90.7,
+              "max": 91.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          }
+        }
+      },
+      "PROTO_6": {
+        "n": 16,
+        "full_10s": 0,
+        "features": {
+          "packet_rate_1s": {
+            "quantiles": {
+              "min": 2.0,
+              "p01": 2.6,
+              "p10": 9.0,
+              "p50": 41.0,
+              "p90": 81.0,
+              "p99": 91.85,
+              "max": 92.0
+            },
+            "unique_values": 15,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_1s": {
+            "quantiles": {
+              "min": 120.0,
+              "p01": 156.0,
+              "p10": 545.5,
+              "p50": 2760.0,
+              "p90": 5443.5,
+              "p99": 6089.0,
+              "max": 6098.0
+            },
+            "unique_values": 15,
+            "zero_fraction": 0.0
+          },
+          "source_count_1s": {
+            "quantiles": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p10": 1.0,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 1,
+            "zero_fraction": 0.0
+          },
+          "connection_count_1s": {
+            "quantiles": {
+              "min": 2.0,
+              "p01": 2.6,
+              "p10": 9.0,
+              "p50": 40.0,
+              "p90": 79.0,
+              "p99": 90.7,
+              "max": 91.0
+            },
+            "unique_values": 15,
+            "zero_fraction": 0.0
+          },
+          "packet_rate_10s": {
+            "quantiles": {
+              "min": 0.2,
+              "p01": 0.26,
+              "p10": 0.8999999999999999,
+              "p50": 4.1,
+              "p90": 9.4,
+              "p99": 11.639999999999999,
+              "max": 11.7
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_10s": {
+            "quantiles": {
+              "min": 12.0,
+              "p01": 15.6,
+              "p10": 54.55,
+              "p50": 276.0,
+              "p90": 622.9,
+              "p99": 757.3,
+              "max": 760.9
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "source_count_10s": {
+            "quantiles": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p10": 1.0,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 1,
+            "zero_fraction": 0.0
+          },
+          "connection_count_10s": {
+            "quantiles": {
+              "min": 2.0,
+              "p01": 2.6,
+              "p10": 9.0,
+              "p50": 40.0,
+              "p90": 79.5,
+              "p99": 90.7,
+              "max": 91.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          }
+        }
+      },
+      "SEG_0_PROTO_6": {
+        "n": 16,
+        "full_10s": 0,
+        "features": {
+          "packet_rate_1s": {
+            "quantiles": {
+              "min": 2.0,
+              "p01": 2.6,
+              "p10": 9.0,
+              "p50": 41.0,
+              "p90": 81.0,
+              "p99": 91.85,
+              "max": 92.0
+            },
+            "unique_values": 15,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_1s": {
+            "quantiles": {
+              "min": 120.0,
+              "p01": 156.0,
+              "p10": 545.5,
+              "p50": 2760.0,
+              "p90": 5443.5,
+              "p99": 6089.0,
+              "max": 6098.0
+            },
+            "unique_values": 15,
+            "zero_fraction": 0.0
+          },
+          "source_count_1s": {
+            "quantiles": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p10": 1.0,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 1,
+            "zero_fraction": 0.0
+          },
+          "connection_count_1s": {
+            "quantiles": {
+              "min": 2.0,
+              "p01": 2.6,
+              "p10": 9.0,
+              "p50": 40.0,
+              "p90": 79.0,
+              "p99": 90.7,
+              "max": 91.0
+            },
+            "unique_values": 15,
+            "zero_fraction": 0.0
+          },
+          "packet_rate_10s": {
+            "quantiles": {
+              "min": 0.2,
+              "p01": 0.26,
+              "p10": 0.8999999999999999,
+              "p50": 4.1,
+              "p90": 9.4,
+              "p99": 11.639999999999999,
+              "max": 11.7
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_10s": {
+            "quantiles": {
+              "min": 12.0,
+              "p01": 15.6,
+              "p10": 54.55,
+              "p50": 276.0,
+              "p90": 622.9,
+              "p99": 757.3,
+              "max": 760.9
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "source_count_10s": {
+            "quantiles": {
+              "min": 1.0,
+              "p01": 1.0,
+              "p10": 1.0,
+              "p50": 1.0,
+              "p90": 1.0,
+              "p99": 1.0,
+              "max": 1.0
+            },
+            "unique_values": 1,
+            "zero_fraction": 0.0
+          },
+          "connection_count_10s": {
+            "quantiles": {
+              "min": 2.0,
+              "p01": 2.6,
+              "p10": 9.0,
+              "p50": 40.0,
+              "p90": 79.5,
+              "p99": 90.7,
+              "max": 91.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          }
+        }
+      }
+    },
+    "UDP": {
+      "ALL": {
+        "n": 16,
+        "full_10s": 0,
+        "features": {
+          "packet_rate_1s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_1s": {
+            "quantiles": {
+              "min": 224.0,
+              "p01": 1542.8,
+              "p10": 10290.0,
+              "p50": 32060.0,
+              "p90": 51226.0,
+              "p99": 62010.2,
+              "max": 63644.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "source_count_1s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "connection_count_1s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "packet_rate_10s": {
+            "quantiles": {
+              "min": 0.8,
+              "p01": 5.51,
+              "p10": 36.75,
+              "p50": 114.5,
+              "p90": 182.95,
+              "p99": 221.465,
+              "max": 227.3
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_10s": {
+            "quantiles": {
+              "min": 22.4,
+              "p01": 154.28,
+              "p10": 1029.0,
+              "p50": 3206.0,
+              "p90": 5122.6,
+              "p99": 6201.0199999999995,
+              "max": 6364.4
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "source_count_10s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "connection_count_10s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          }
+        }
+      },
+      "PROTO_17": {
+        "n": 16,
+        "full_10s": 0,
+        "features": {
+          "packet_rate_1s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_1s": {
+            "quantiles": {
+              "min": 224.0,
+              "p01": 1542.8,
+              "p10": 10290.0,
+              "p50": 32060.0,
+              "p90": 51226.0,
+              "p99": 62010.2,
+              "max": 63644.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "source_count_1s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "connection_count_1s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "packet_rate_10s": {
+            "quantiles": {
+              "min": 0.8,
+              "p01": 5.51,
+              "p10": 36.75,
+              "p50": 114.5,
+              "p90": 182.95,
+              "p99": 221.465,
+              "max": 227.3
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_10s": {
+            "quantiles": {
+              "min": 22.4,
+              "p01": 154.28,
+              "p10": 1029.0,
+              "p50": 3206.0,
+              "p90": 5122.6,
+              "p99": 6201.0199999999995,
+              "max": 6364.4
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "source_count_10s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "connection_count_10s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          }
+        }
+      },
+      "SEG_0_PROTO_17": {
+        "n": 16,
+        "full_10s": 0,
+        "features": {
+          "packet_rate_1s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_1s": {
+            "quantiles": {
+              "min": 224.0,
+              "p01": 1542.8,
+              "p10": 10290.0,
+              "p50": 32060.0,
+              "p90": 51226.0,
+              "p99": 62010.2,
+              "max": 63644.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "source_count_1s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "connection_count_1s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "packet_rate_10s": {
+            "quantiles": {
+              "min": 0.8,
+              "p01": 5.51,
+              "p10": 36.75,
+              "p50": 114.5,
+              "p90": 182.95,
+              "p99": 221.465,
+              "max": 227.3
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "IP_byte_rate_10s": {
+            "quantiles": {
+              "min": 22.4,
+              "p01": 154.28,
+              "p10": 1029.0,
+              "p50": 3206.0,
+              "p90": 5122.6,
+              "p99": 6201.0199999999995,
+              "max": 6364.4
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "source_count_10s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          },
+          "connection_count_10s": {
+            "quantiles": {
+              "min": 8.0,
+              "p01": 55.1,
+              "p10": 367.5,
+              "p50": 1145.0,
+              "p90": 1829.5,
+              "p99": 2214.6499999999996,
+              "max": 2273.0
+            },
+            "unique_values": 16,
+            "zero_fraction": 0.0
+          }
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "HTTP/inbound=False/full10s=False/normal_segment=None": {
+      "normal_n": 16,
+      "attack_n": 16,
+      "auc_high_is_attack": {
+        "packet_rate_1s": 0.916015625,
+        "IP_byte_rate_1s": 0.921875,
+        "source_count_1s": 0.5,
+        "connection_count_1s": 0.978515625,
+        "packet_rate_10s": 0.1796875,
+        "IP_byte_rate_10s": 0.375,
+        "source_count_10s": 0.5,
+        "connection_count_10s": 0.875
+      }
+    },
+    "HTTP/inbound=False/full10s=False/normal_segment=0": {
+      "normal_n": 16,
+      "attack_n": 16,
+      "auc_high_is_attack": {
+        "packet_rate_1s": 0.916015625,
+        "IP_byte_rate_1s": 0.921875,
+        "source_count_1s": 0.5,
+        "connection_count_1s": 0.978515625,
+        "packet_rate_10s": 0.1796875,
+        "IP_byte_rate_10s": 0.375,
+        "source_count_10s": 0.5,
+        "connection_count_10s": 0.875
+      }
+    },
+    "HTTP/inbound=False/full10s=True/normal_segment=None": {
+      "normal_n": 16,
+      "attack_n": 0,
+      "auc_high_is_attack": {
+        "packet_rate_1s": null,
+        "IP_byte_rate_1s": null,
+        "source_count_1s": null,
+        "connection_count_1s": null,
+        "packet_rate_10s": null,
+        "IP_byte_rate_10s": null,
+        "source_count_10s": null,
+        "connection_count_10s": null
+      }
+    },
+    "HTTP/inbound=False/full10s=True/normal_segment=0": {
+      "normal_n": 16,
+      "attack_n": 0,
+      "auc_high_is_attack": {
+        "packet_rate_1s": null,
+        "IP_byte_rate_1s": null,
+        "source_count_1s": null,
+        "connection_count_1s": null,
+        "packet_rate_10s": null,
+        "IP_byte_rate_10s": null,
+        "source_count_10s": null,
+        "connection_count_10s": null
+      }
+    },
+    "HTTP/inbound=True/full10s=False/normal_segment=None": {
+      "normal_n": 6,
+      "attack_n": 16,
+      "auc_high_is_attack": {
+        "packet_rate_1s": 0.921875,
+        "IP_byte_rate_1s": 0.9270833333333334,
+        "source_count_1s": 0.5,
+        "connection_count_1s": 0.984375,
+        "packet_rate_10s": 0.17708333333333334,
+        "IP_byte_rate_10s": 0.375,
+        "source_count_10s": 0.5,
+        "connection_count_10s": 0.875
+      }
+    },
+    "HTTP/inbound=True/full10s=False/normal_segment=0": {
+      "normal_n": 6,
+      "attack_n": 16,
+      "auc_high_is_attack": {
+        "packet_rate_1s": 0.921875,
+        "IP_byte_rate_1s": 0.9270833333333334,
+        "source_count_1s": 0.5,
+        "connection_count_1s": 0.984375,
+        "packet_rate_10s": 0.17708333333333334,
+        "IP_byte_rate_10s": 0.375,
+        "source_count_10s": 0.5,
+        "connection_count_10s": 0.875
+      }
+    },
+    "HTTP/inbound=True/full10s=True/normal_segment=None": {
+      "normal_n": 6,
+      "attack_n": 0,
+      "auc_high_is_attack": {
+        "packet_rate_1s": null,
+        "IP_byte_rate_1s": null,
+        "source_count_1s": null,
+        "connection_count_1s": null,
+        "packet_rate_10s": null,
+        "IP_byte_rate_10s": null,
+        "source_count_10s": null,
+        "connection_count_10s": null
+      }
+    },
+    "HTTP/inbound=True/full10s=True/normal_segment=0": {
+      "normal_n": 6,
+      "attack_n": 0,
+      "auc_high_is_attack": {
+        "packet_rate_1s": null,
+        "IP_byte_rate_1s": null,
+        "source_count_1s": null,
+        "connection_count_1s": null,
+        "packet_rate_10s": null,
+        "IP_byte_rate_10s": null,
+        "source_count_10s": null,
+        "connection_count_10s": null
+      }
+    },
+    "UDP/inbound=False/full10s=False/normal_segment=None": {
+      "normal_n": 16,
+      "attack_n": 16,
+      "auc_high_is_attack": {
+        "packet_rate_1s": 1.0,
+        "IP_byte_rate_1s": 0.9765625,
+        "source_count_1s": 1.0,
+        "connection_count_1s": 1.0,
+        "packet_rate_10s": 0.984375,
+        "IP_byte_rate_10s": 0.97265625,
+        "source_count_10s": 1.0,
+        "connection_count_10s": 1.0
+      }
+    },
+    "UDP/inbound=False/full10s=False/normal_segment=0": {
+      "normal_n": 16,
+      "attack_n": 16,
+      "auc_high_is_attack": {
+        "packet_rate_1s": 1.0,
+        "IP_byte_rate_1s": 0.9765625,
+        "source_count_1s": 1.0,
+        "connection_count_1s": 1.0,
+        "packet_rate_10s": 0.984375,
+        "IP_byte_rate_10s": 0.97265625,
+        "source_count_10s": 1.0,
+        "connection_count_10s": 1.0
+      }
+    },
+    "UDP/inbound=False/full10s=True/normal_segment=None": {
+      "normal_n": 16,
+      "attack_n": 0,
+      "auc_high_is_attack": {
+        "packet_rate_1s": null,
+        "IP_byte_rate_1s": null,
+        "source_count_1s": null,
+        "connection_count_1s": null,
+        "packet_rate_10s": null,
+        "IP_byte_rate_10s": null,
+        "source_count_10s": null,
+        "connection_count_10s": null
+      }
+    },
+    "UDP/inbound=False/full10s=True/normal_segment=0": {
+      "normal_n": 16,
+      "attack_n": 0,
+      "auc_high_is_attack": {
+        "packet_rate_1s": null,
+        "IP_byte_rate_1s": null,
+        "source_count_1s": null,
+        "connection_count_1s": null,
+        "packet_rate_10s": null,
+        "IP_byte_rate_10s": null,
+        "source_count_10s": null,
+        "connection_count_10s": null
+      }
+    },
+    "UDP/inbound=True/full10s=False/normal_segment=None": {
+      "normal_n": 12,
+      "attack_n": 16,
+      "auc_high_is_attack": {
+        "packet_rate_1s": 1.0,
+        "IP_byte_rate_1s": 0.9739583333333334,
+        "source_count_1s": 1.0,
+        "connection_count_1s": 1.0,
+        "packet_rate_10s": 0.984375,
+        "IP_byte_rate_10s": 0.9739583333333334,
+        "source_count_10s": 1.0,
+        "connection_count_10s": 1.0
+      }
+    },
+    "UDP/inbound=True/full10s=False/normal_segment=0": {
+      "normal_n": 12,
+      "attack_n": 16,
+      "auc_high_is_attack": {
+        "packet_rate_1s": 1.0,
+        "IP_byte_rate_1s": 0.9739583333333334,
+        "source_count_1s": 1.0,
+        "connection_count_1s": 1.0,
+        "packet_rate_10s": 0.984375,
+        "IP_byte_rate_10s": 0.9739583333333334,
+        "source_count_10s": 1.0,
+        "connection_count_10s": 1.0
+      }
+    },
+    "UDP/inbound=True/full10s=True/normal_segment=None": {
+      "normal_n": 12,
+      "attack_n": 0,
+      "auc_high_is_attack": {
+        "packet_rate_1s": null,
+        "IP_byte_rate_1s": null,
+        "source_count_1s": null,
+        "connection_count_1s": null,
+        "packet_rate_10s": null,
+        "IP_byte_rate_10s": null,
+        "source_count_10s": null,
+        "connection_count_10s": null
+      }
+    },
+    "UDP/inbound=True/full10s=True/normal_segment=0": {
+      "normal_n": 12,
+      "attack_n": 0,
+      "auc_high_is_attack": {
+        "packet_rate_1s": null,
+        "IP_byte_rate_1s": null,
+        "source_count_1s": null,
+        "connection_count_1s": null,
+        "packet_rate_10s": null,
+        "IP_byte_rate_10s": null,
+        "source_count_10s": null,
+        "connection_count_10s": null
+      }
+    }
+  },
+  "threshold_fit": 0,
+  "training": 0
+}

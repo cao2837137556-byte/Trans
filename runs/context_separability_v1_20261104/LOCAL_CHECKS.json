@@ -1,0 +1,36 @@
+{
+  "regression": {
+    "status": "PASS",
+    "queries": 58,
+    "windows": [
+      1,
+      10
+    ],
+    "cases": [
+      "time_reversal",
+      "ties",
+      "exclusive_lower_boundary",
+      "future_frame_exclusion",
+      "distinct_repeated_keys",
+      "sparse_queries"
+    ]
+  },
+  "raw": {
+    "NORMAL": {
+      "frames_read": 121905,
+      "queries": 2
+    },
+    "HTTP": {
+      "frames_read": 2,
+      "queries": 1
+    },
+    "UDP": {
+      "frames_read": 8,
+      "queries": 1
+    }
+  },
+  "status": "PASS",
+  "tokenizer_single_packet_samples": 168,
+  "seconds": 21.25,
+  "scope": "Local math, real PCAP prefixes and tokenizer only; Linux frozen forward gate still required"
+}

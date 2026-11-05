@@ -1,0 +1,29 @@
+{
+  "status": "PREREGISTERED_DIAGNOSTIC",
+  "purpose": "Separate connection-context dependence from missing causal target-device flood statistics; no model repair claim yet",
+  "selection": "Primary A/B query rows only. Rank SHA256(context-v1|UID), before loading features or scores. A UDP: 32 per device and label; B normal UDP: 8 per device. Edge UDP: 16 normal and 16 attack, same ranking.",
+  "ablation": {
+    "protocol": "UDP only; avoids TCP sequence/ack anchor confounding",
+    "arms": ["fresh original E3 + original q14", "current-packet E3, direction anchored true + original q14", "current-packet E3 + q14 direction true"],
+    "single_packet": "One burst, one current UDP header, six padding zeros, IAT=0, IP bytes=current IP length, packet count=1, duration=0, direction=true",
+    "controls": "Normal UDP from A/B/Edge; already-single-packet rows must be invariant. Baseline replay against saved E3/head decisions.",
+    "model": "Same frozen encoder, normalizer, three heads and RAW cuts; C5 distances/support are not recomputed and no modified-input C5 performance is claimed",
+    "tolerances": {"e3_abs": 0.0002, "score_abs": 0.002},
+    "report": "Paired margins, alarm transitions, E3 changes, header/input uniqueness; per device/class and original packet count. Descriptive fixed slices only."
+  },
+  "cross_connection": {
+    "scope": "Edge existing 20000 selected queries in each of NORMAL, HTTP, UDP; scan original three PCAPs on HPC",
+    "windows_seconds": [1, 10],
+    "features_per_window": ["inbound same-protocol packets/second", "inbound same-protocol IP bytes/second", "distinct source IP count", "distinct directed five-tuple count"],
+    "causality": "Same target MAC, logical capture segment, protocol; frame <= query frame and query timestamp-window < event timestamp <= query timestamp, including current packet. No clock sorting in replay; offline exact range algorithm must independently match brute force.",
+    "identity": "IP addresses/ports/MAC used for grouping and cardinalities only; no literal identifiers, labels, model scores or absolute times enter features",
+    "coverage": "IPv4 TCP/UDP, unfragmented, complete IP headers and transport ports; record exclusions and assert all selected query protocol/time/owner identities",
+    "segments": "Frozen five NORMAL segments; no joining. Report all queries and full-window queries separately, protocol matched and inbound-only comparisons, each normal segment separately.",
+    "statistics": "Report all eight features, fixed high-is-attack AUROC, quantiles and constant fraction. No best-feature selection, training, threshold fitting or IID confidence intervals. AUC is diagnostic separability, not detector recall.",
+    "limitations": "Edge is now consumed diagnostic data; one device, separate normal/attack captures and normal UDP count 497 limit inference. Capture/session confounding cannot be eliminated. A/B cross-connection raw scans are outside this first diagnostic."
+  },
+  "execution": {"cpu": 1, "memory_gib": 8, "preflight_seconds": 900, "full_seconds": 6300, "automatic_retries": 0},
+  "preflight": "Same Linux runtime: real raw prefix decoding -> exact cross-connection statistics/brute-force comparison -> original and single-packet encoder/head replay -> saved summary; no distance stage because RAW-only mechanism diagnosis",
+  "storage": "Raw packets, full feature arrays and detailed paired records stay HPC; retrieve summaries, manifests and acceptance receipts only",
+  "decision": "A ablation losing margins supports dependence on connection context; strong cross-connection separation motivates a causal aggregate branch, but requires a separately frozen design and future evaluation. Otherwise examine single-packet header domain shift/classifier boundary. Do not force a favorable conclusion."
+}
