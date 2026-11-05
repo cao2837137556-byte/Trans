@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "job_id": "182089",
+  "phase": "gate",
+  "card_sha256": "96638c891ac0700879642765b39b5b90ad936f1d4a36ffd32447bdea7f25d588",
+  "attempt": {
+    "attempt_id": "8693290f260f48f09a66b89ebf80d9e7",
+    "automatic_resubmit": false,
+    "candidate": "CANDIDATE.json",
+    "candidate_sha256": "9e0e53f2c51c8e54c4fe0cb90c09b82c87b20f3f97dc8a9174c25a6aaf63230e",
+    "card_sha256": "96638c891ac0700879642765b39b5b90ad936f1d4a36ffd32447bdea7f25d588",
+    "cleanup_complete": true,
+    "evaluation_authorized": true,
+    "external_quality_computed": true,
+    "resources": {
+      "max_rss_sample_gap_seconds": 2.528098948067054,
+      "max_tree_rss_bytes": 2998996992,
+      "output_disk_bytes_60s_sampled_max": 632388741,
+      "peak_rss_processes": [
+        {
+          "pid": 1379477,
+          "rss_bytes": 46100480
+        },
+        {
+          "pid": 1379484,
+          "rss_bytes": 2952896512
+        }
+      ],
+      "peak_scope": "Nominal 0.25s RSS polling and 60s disk scans; measured RSS gap reported; sampled, not instantaneous peaks",
+      "rss_samples": 20978,
+      "scope": "supervisor + all descendants, including retained main and recovery workers",
+      "scratch_disk_bytes_60s_sampled_max": 1296
+    },
+    "schema": "EDGE_ENGINEERING_ATTEMPT_V2",
+    "scope": "EDGE_EXTERNAL_TEST_1_FULL_EVALUATION",
+    "scratch_removed": [
+      "/tmp/edge-gate-owned-8693290f260f48f09a66b89ebf80d9e7-main",
+      "/tmp/edge-gate-owned-8693290f260f48f09a66b89ebf80d9e7-crash",
+      "/tmp/edge-gate-owned-8693290f260f48f09a66b89ebf80d9e7-resume"
+    ],
+    "status": "PASS"
+  },
+  "result_archive": {
+    "bytes": 20480000,
+    "sha256": "e010726919844b927983fdf8984db2bb398df18e099ca9393db2f8cd0f742943"
+  },
+  "result_members": 50,
+  "scheduler": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "182089|COMPLETED|0:0|01:53:17||1|8G|1-00:00:00\n182089.batch|COMPLETED|0:0|01:53:17|2927276K|1||\n"
+  },
+  "acceptance_error": null,
+  "formal_external_evaluation": true,
+  "automatic_resubmit": false
+}

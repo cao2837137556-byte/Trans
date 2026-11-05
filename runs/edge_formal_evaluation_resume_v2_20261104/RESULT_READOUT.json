@@ -1,0 +1,3099 @@
+{
+  "result": "工程与完整性验收PASS；C5 p3及p1预设召回损失检查FAIL。",
+  "impact": "误报大幅下降伴随HTTP攻击关联召回损失；UDP在RAW及所有方法/种子下均为0。",
+  "next": "只读诊断UDP基线盲区及HTTP撤警分层；保留冻结方法和全部外部结果。",
+  "job_id": "182089",
+  "scheduler": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "182089|COMPLETED|0:0|01:53:17||1|8G|1-00:00:00\n182089.batch|COMPLETED|0:0|01:53:17|2927276K|1||\n"
+  },
+  "sampled_resources": {
+    "max_rss_sample_gap_seconds": 2.528098948067054,
+    "max_tree_rss_bytes": 2998996992,
+    "output_disk_bytes_60s_sampled_max": 632388741,
+    "peak_rss_processes": [
+      {
+        "pid": 1379477,
+        "rss_bytes": 46100480
+      },
+      {
+        "pid": 1379484,
+        "rss_bytes": 2952896512
+      }
+    ],
+    "peak_scope": "Nominal 0.25s RSS polling and 60s disk scans; measured RSS gap reported; sampled, not instantaneous peaks",
+    "rss_samples": 20978,
+    "scope": "supervisor + all descendants, including retained main and recovery workers",
+    "scratch_disk_bytes_60s_sampled_max": 1296
+  },
+  "encoding_rows": 64124,
+  "reused_encoding_rows": 42428,
+  "new_encoding_rows": 21696,
+  "reused_committed_batches": 2679,
+  "metrics_sha256": "df53579503268da97ef7041102988e61995f3e5356c9200e08678686cdb2c4f8",
+  "methods": {
+    "C5_P1": {
+      "heads": {
+        "127": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 7946,
+              "exact_selected_sample_alarm_rate": 0.3973,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.3905179372543527,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.33712225455034744,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 84,
+                  "exact_selected_sample_alarm_rate": 0.08187134502923976,
+                  "ht_expanded_alarm_count": 639.9883040935672,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.08187134502923976,
+                  "no_alarm_count": 942,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.0822673506894752,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 730,
+                  "exact_selected_sample_alarm_rate": 0.73,
+                  "ht_expanded_alarm_count": 2483.46,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.73,
+                  "no_alarm_count": 270,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.6772381331452136,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 4704,
+                  "exact_selected_sample_alarm_rate": 0.5296104480972754,
+                  "ht_expanded_alarm_count": 40802.77775275839,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.5296104480972754,
+                  "no_alarm_count": 4178,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.48188439368709174,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 566,
+                  "exact_selected_sample_alarm_rate": 0.566,
+                  "ht_expanded_alarm_count": 1386.134,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.5660000000000001,
+                  "no_alarm_count": 434,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.5476053871854001,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 1862,
+                  "exact_selected_sample_alarm_rate": 0.2301038062283737,
+                  "ht_expanded_alarm_count": 14183.828719723184,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.2301038062283737,
+                  "no_alarm_count": 6230,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.2431657117936119,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 173,
+              "exact_selected_sample_alarm_rate": 0.00865,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 0.0013842832625482941,
+              "normal_component_equal_alarm_rate": 0.010102790014684287,
+              "selected_hierarchical_alarm_rate": 0.08352768708726478,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 173,
+                  "exact_selected_sample_alarm_rate": 0.00865,
+                  "ht_expanded_alarm_count": 1689.0,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 0.0013842832625482941,
+                  "no_alarm_count": 19827,
+                  "normal_component_equal_alarm_rate": 0.010102790014684287,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 0.08352768708726478,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "groups": {
+              "device:Edge-IIoTset Raspberry Pi edge server": {
+                "budget_pp": 1.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.22629775551544062,
+                "rows": 40000,
+                "status": "FAIL",
+                "weighted_loss_pp": 5.773662824026691,
+                "withdrawn_raw_TP": 3025
+              },
+              "scenario:HTTP": {
+                "budget_pp": 5.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.45259551103088125,
+                "rows": 20000,
+                "status": "FAIL",
+                "weighted_loss_pp": 11.547325648053382,
+                "withdrawn_raw_TP": 3025
+              },
+              "scenario:UDP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.0,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              }
+            },
+            "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER",
+            "status": "FAIL"
+          }
+        },
+        "227": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 8817,
+              "exact_selected_sample_alarm_rate": 0.44085,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.42957456029868846,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.38755175875425385,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 83,
+                  "exact_selected_sample_alarm_rate": 0.08089668615984405,
+                  "ht_expanded_alarm_count": 632.3693957115009,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.08089668615984405,
+                  "no_alarm_count": 943,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.08022646352405675,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 834,
+                  "exact_selected_sample_alarm_rate": 0.834,
+                  "ht_expanded_alarm_count": 2837.268,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.834,
+                  "no_alarm_count": 166,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.8106438644960574,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 4882,
+                  "exact_selected_sample_alarm_rate": 0.5496509795091196,
+                  "ht_expanded_alarm_count": 42346.7604143211,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.5496509795091196,
+                  "no_alarm_count": 4000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.5022116892367446,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 650,
+                  "exact_selected_sample_alarm_rate": 0.65,
+                  "ht_expanded_alarm_count": 1591.85,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.6499999999999999,
+                  "no_alarm_count": 350,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.6331704782494474,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 2368,
+                  "exact_selected_sample_alarm_rate": 0.2926347009391992,
+                  "ht_expanded_alarm_count": 18038.295600593177,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.2926347009391992,
+                  "no_alarm_count": 5724,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.30526219872707927,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 129,
+              "exact_selected_sample_alarm_rate": 0.00645,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 0.0009876029196984573,
+              "normal_component_equal_alarm_rate": 0.0075477239353891334,
+              "selected_hierarchical_alarm_rate": 0.06625620585863291,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 129,
+                  "exact_selected_sample_alarm_rate": 0.00645,
+                  "ht_expanded_alarm_count": 1205.0,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 0.0009876029196984573,
+                  "no_alarm_count": 19871,
+                  "normal_component_equal_alarm_rate": 0.0075477239353891334,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 0.06625620585863291,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "groups": {
+              "device:Edge-IIoTset Raspberry Pi edge server": {
+                "budget_pp": 1.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.26412823359947074,
+                "rows": 40000,
+                "status": "FAIL",
+                "weighted_loss_pp": 7.035235422234383,
+                "withdrawn_raw_TP": 3651
+              },
+              "scenario:HTTP": {
+                "budget_pp": 5.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.5282564671989415,
+                "rows": 20000,
+                "status": "FAIL",
+                "weighted_loss_pp": 14.070470844468765,
+                "withdrawn_raw_TP": 3651
+              },
+              "scenario:UDP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.0,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              }
+            },
+            "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER",
+            "status": "FAIL"
+          }
+        },
+        "27": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 10683,
+              "exact_selected_sample_alarm_rate": 0.53415,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.5233730134144765,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.5049580462021261,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 149,
+                  "exact_selected_sample_alarm_rate": 0.145224171539961,
+                  "ht_expanded_alarm_count": 1135.2173489278753,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.145224171539961,
+                  "no_alarm_count": 877,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.1478235298153116,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 827,
+                  "exact_selected_sample_alarm_rate": 0.827,
+                  "ht_expanded_alarm_count": 2813.454,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.8270000000000001,
+                  "no_alarm_count": 173,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.8076084974892639,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 5288,
+                  "exact_selected_sample_alarm_rate": 0.595361405088944,
+                  "ht_expanded_alarm_count": 45868.42873226751,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.595361405088944,
+                  "no_alarm_count": 3594,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.5526934268114571,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 724,
+                  "exact_selected_sample_alarm_rate": 0.724,
+                  "ht_expanded_alarm_count": 1773.0759999999998,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.7239999999999999,
+                  "no_alarm_count": 276,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.7066859449773127,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 3695,
+                  "exact_selected_sample_alarm_rate": 0.4566238260009886,
+                  "ht_expanded_alarm_count": 28146.74925852694,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.4566238260009886,
+                  "no_alarm_count": 4397,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.47204890370326474,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 545,
+              "exact_selected_sample_alarm_rate": 0.02725,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 0.022843952181987762,
+              "normal_component_equal_alarm_rate": 0.028017621145374448,
+              "selected_hierarchical_alarm_rate": 0.07929536671604487,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 545,
+                  "exact_selected_sample_alarm_rate": 0.02725,
+                  "ht_expanded_alarm_count": 27872.5,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 0.022843952181987762,
+                  "no_alarm_count": 19455,
+                  "normal_component_equal_alarm_rate": 0.028017621145374448,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 0.07929536671604487,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "groups": {
+              "device:Edge-IIoTset Raspberry Pi edge server": {
+                "budget_pp": 1.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.3162249180875726,
+                "rows": 40000,
+                "status": "FAIL",
+                "weighted_loss_pp": 6.374589498650953,
+                "withdrawn_raw_TP": 3292
+              },
+              "scenario:HTTP": {
+                "budget_pp": 5.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.6324498361751452,
+                "rows": 20000,
+                "status": "FAIL",
+                "weighted_loss_pp": 12.749178997301906,
+                "withdrawn_raw_TP": 3292
+              },
+              "scenario:UDP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.0,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              }
+            },
+            "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER",
+            "status": "FAIL"
+          }
+        },
+        "ensemble": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 10333,
+              "exact_selected_sample_alarm_rate": 0.51665,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.5085807967751119,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.4696166968836485,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 125,
+                  "exact_selected_sample_alarm_rate": 0.12183235867446393,
+                  "ht_expanded_alarm_count": 952.3635477582845,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.12183235867446393,
+                  "no_alarm_count": 901,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.12907597635593515,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 841,
+                  "exact_selected_sample_alarm_rate": 0.841,
+                  "ht_expanded_alarm_count": 2861.0820000000003,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.8410000000000001,
+                  "no_alarm_count": 159,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.8187381765141736,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 5568,
+                  "exact_selected_sample_alarm_rate": 0.6268858365233055,
+                  "ht_expanded_alarm_count": 48297.16550326503,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.6268858365233055,
+                  "no_alarm_count": 3314,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.5765009151111526,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 690,
+                  "exact_selected_sample_alarm_rate": 0.69,
+                  "ht_expanded_alarm_count": 1689.81,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.69,
+                  "no_alarm_count": 310,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.670820027818574,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 3109,
+                  "exact_selected_sample_alarm_rate": 0.384206623826001,
+                  "ht_expanded_alarm_count": 23682.88049925853,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.384206623826001,
+                  "no_alarm_count": 4983,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.4014797125030401,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 146,
+              "exact_selected_sample_alarm_rate": 0.0073,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 0.0019321774964225005,
+              "normal_component_equal_alarm_rate": 0.0084287812041116,
+              "selected_hierarchical_alarm_rate": 0.06683466935983755,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 146,
+                  "exact_selected_sample_alarm_rate": 0.0073,
+                  "ht_expanded_alarm_count": 2357.5,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 0.0019321774964225005,
+                  "no_alarm_count": 19854,
+                  "normal_component_equal_alarm_rate": 0.0084287812041116,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 0.06683466935983755,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "groups": {
+              "device:Edge-IIoTset Raspberry Pi edge server": {
+                "budget_pp": 1.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.29281249262333936,
+                "rows": 40000,
+                "status": "FAIL",
+                "weighted_loss_pp": 5.80041441815151,
+                "withdrawn_raw_TP": 2933
+              },
+              "scenario:HTTP": {
+                "budget_pp": 5.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.5856249852466787,
+                "rows": 20000,
+                "status": "FAIL",
+                "weighted_loss_pp": 11.60082883630302,
+                "withdrawn_raw_TP": 2933
+              },
+              "scenario:UDP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.0,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              }
+            },
+            "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER",
+            "status": "FAIL"
+          }
+        }
+      }
+    },
+    "C5_P3": {
+      "heads": {
+        "127": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 4210,
+              "exact_selected_sample_alarm_rate": 0.2105,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.18343287475573555,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.22200480362372474,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 28,
+                  "exact_selected_sample_alarm_rate": 0.02729044834307992,
+                  "ht_expanded_alarm_count": 213.32943469785573,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.02729044834307992,
+                  "no_alarm_count": 998,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.027144249827033482,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 711,
+                  "exact_selected_sample_alarm_rate": 0.711,
+                  "ht_expanded_alarm_count": 2418.822,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.7110000000000001,
+                  "no_alarm_count": 289,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.653766038451565,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 1155,
+                  "exact_selected_sample_alarm_rate": 0.13003827966674172,
+                  "ht_expanded_alarm_count": 10018.539180364784,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.13003827966674172,
+                  "no_alarm_count": 7727,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.1264835180776418,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 454,
+                  "exact_selected_sample_alarm_rate": 0.454,
+                  "ht_expanded_alarm_count": 1111.846,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.454,
+                  "no_alarm_count": 546,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.43782104385197324,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 1862,
+                  "exact_selected_sample_alarm_rate": 0.2301038062283737,
+                  "ht_expanded_alarm_count": 14183.828719723184,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.2301038062283737,
+                  "no_alarm_count": 6230,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.2431657117936119,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 116,
+              "exact_selected_sample_alarm_rate": 0.0058,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 0.0007777885234803619,
+              "normal_component_equal_alarm_rate": 0.006813509544787077,
+              "selected_hierarchical_alarm_rate": 0.06087904947554071,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 116,
+                  "exact_selected_sample_alarm_rate": 0.0058,
+                  "ht_expanded_alarm_count": 949.0,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 0.0007777885234803619,
+                  "no_alarm_count": 19884,
+                  "normal_component_equal_alarm_rate": 0.006813509544787077,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 0.06087904947554071,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "groups": {
+              "device:Edge-IIoTset Raspberry Pi edge server": {
+                "budget_pp": 1.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.22629775551544062,
+                "rows": 40000,
+                "status": "FAIL",
+                "weighted_loss_pp": 11.529535370357827,
+                "withdrawn_raw_TP": 6761
+              },
+              "scenario:HTTP": {
+                "budget_pp": 5.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.45259551103088125,
+                "rows": 20000,
+                "status": "FAIL",
+                "weighted_loss_pp": 23.059070740715654,
+                "withdrawn_raw_TP": 6761
+              },
+              "scenario:UDP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.0,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              }
+            },
+            "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER",
+            "status": "FAIL"
+          }
+        },
+        "227": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 5005,
+              "exact_selected_sample_alarm_rate": 0.25025,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.21877578525354247,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.26739325387817936,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 27,
+                  "exact_selected_sample_alarm_rate": 0.02631578947368421,
+                  "ht_expanded_alarm_count": 205.71052631578948,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.026315789473684213,
+                  "no_alarm_count": 999,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.025799426827304107,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 802,
+                  "exact_selected_sample_alarm_rate": 0.802,
+                  "ht_expanded_alarm_count": 2728.404,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.802,
+                  "no_alarm_count": 198,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.7749315906530626,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 1274,
+                  "exact_selected_sample_alarm_rate": 0.14343616302634543,
+                  "ht_expanded_alarm_count": 11050.752308038731,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.14343616302634543,
+                  "no_alarm_count": 7608,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.1331599134427696,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 534,
+                  "exact_selected_sample_alarm_rate": 0.534,
+                  "ht_expanded_alarm_count": 1307.7659999999998,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.5339999999999999,
+                  "no_alarm_count": 466,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.5111331360627902,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 2368,
+                  "exact_selected_sample_alarm_rate": 0.2926347009391992,
+                  "ht_expanded_alarm_count": 18038.295600593177,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.2926347009391992,
+                  "no_alarm_count": 5724,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.30526219872707927,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 90,
+              "exact_selected_sample_alarm_rate": 0.0045,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 0.0005901029893633936,
+              "normal_component_equal_alarm_rate": 0.0052863436123348016,
+              "selected_hierarchical_alarm_rate": 0.04761904761904762,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 90,
+                  "exact_selected_sample_alarm_rate": 0.0045,
+                  "ht_expanded_alarm_count": 720.0,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 0.0005901029893633936,
+                  "no_alarm_count": 19910,
+                  "normal_component_equal_alarm_rate": 0.0052863436123348016,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 0.04761904761904762,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "groups": {
+              "device:Edge-IIoTset Raspberry Pi edge server": {
+                "budget_pp": 1.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.26412823359947074,
+                "rows": 40000,
+                "status": "FAIL",
+                "weighted_loss_pp": 13.043160666038107,
+                "withdrawn_raw_TP": 7463
+              },
+              "scenario:HTTP": {
+                "budget_pp": 5.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.5282564671989415,
+                "rows": 20000,
+                "status": "FAIL",
+                "weighted_loss_pp": 26.086321332076214,
+                "withdrawn_raw_TP": 7463
+              },
+              "scenario:UDP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.0,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              }
+            },
+            "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER",
+            "status": "FAIL"
+          }
+        },
+        "27": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 6506,
+              "exact_selected_sample_alarm_rate": 0.3253,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.2930230180800847,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.3713861286634765,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 33,
+                  "exact_selected_sample_alarm_rate": 0.03216374269005848,
+                  "ht_expanded_alarm_count": 251.42397660818713,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.03216374269005848,
+                  "no_alarm_count": 993,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.033175679612251915,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 788,
+                  "exact_selected_sample_alarm_rate": 0.788,
+                  "ht_expanded_alarm_count": 2680.7760000000003,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.788,
+                  "no_alarm_count": 212,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.7680676422648779,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 1396,
+                  "exact_selected_sample_alarm_rate": 0.15717180815131726,
+                  "ht_expanded_alarm_count": 12108.987615401937,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.15717180815131726,
+                  "no_alarm_count": 7486,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.1498488032659828,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 594,
+                  "exact_selected_sample_alarm_rate": 0.594,
+                  "ht_expanded_alarm_count": 1454.706,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.594,
+                  "no_alarm_count": 406,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.5695862565714889,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 3695,
+                  "exact_selected_sample_alarm_rate": 0.4566238260009886,
+                  "ht_expanded_alarm_count": 28146.74925852694,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.4566238260009886,
+                  "no_alarm_count": 4397,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.47204890370326474,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 11,
+              "exact_selected_sample_alarm_rate": 0.00055,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 0.0005323220716548947,
+              "normal_component_equal_alarm_rate": 0.0005580029368575624,
+              "selected_hierarchical_alarm_rate": 0.00043864994601066953,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 11,
+                  "exact_selected_sample_alarm_rate": 0.00055,
+                  "ht_expanded_alarm_count": 649.5,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 0.0005323220716548947,
+                  "no_alarm_count": 19989,
+                  "normal_component_equal_alarm_rate": 0.0005580029368575624,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 0.00043864994601066953,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "groups": {
+              "device:Edge-IIoTset Raspberry Pi edge server": {
+                "budget_pp": 1.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.3162249180875726,
+                "rows": 40000,
+                "status": "FAIL",
+                "weighted_loss_pp": 13.053185375583434,
+                "withdrawn_raw_TP": 7469
+              },
+              "scenario:HTTP": {
+                "budget_pp": 5.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.6324498361751452,
+                "rows": 20000,
+                "status": "FAIL",
+                "weighted_loss_pp": 26.106370751166867,
+                "withdrawn_raw_TP": 7469
+              },
+              "scenario:UDP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.0,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              }
+            },
+            "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER",
+            "status": "FAIL"
+          }
+        },
+        "ensemble": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 6239,
+              "exact_selected_sample_alarm_rate": 0.31195,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.28256307029288796,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.3393529551320934,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 34,
+                  "exact_selected_sample_alarm_rate": 0.03313840155945419,
+                  "ht_expanded_alarm_count": 259.0428849902534,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.03313840155945419,
+                  "no_alarm_count": 992,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.03247736281172243,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 806,
+                  "exact_selected_sample_alarm_rate": 0.806,
+                  "ht_expanded_alarm_count": 2742.012,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.806,
+                  "no_alarm_count": 194,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.7828284804268345,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 1728,
+                  "exact_selected_sample_alarm_rate": 0.19455077685206035,
+                  "ht_expanded_alarm_count": 14988.775501013286,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.19455077685206035,
+                  "no_alarm_count": 7154,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.18147574194852123,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 562,
+                  "exact_selected_sample_alarm_rate": 0.562,
+                  "ht_expanded_alarm_count": 1376.338,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.5619999999999999,
+                  "no_alarm_count": 438,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.5352728069994118,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 3109,
+                  "exact_selected_sample_alarm_rate": 0.384206623826001,
+                  "ht_expanded_alarm_count": 23682.88049925853,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.384206623826001,
+                  "no_alarm_count": 4983,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.4014797125030401,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 95,
+              "exact_selected_sample_alarm_rate": 0.00475,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 0.0006400978259622367,
+              "normal_component_equal_alarm_rate": 0.005580029368575624,
+              "selected_hierarchical_alarm_rate": 0.049767938364429595,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 95,
+                  "exact_selected_sample_alarm_rate": 0.00475,
+                  "ht_expanded_alarm_count": 781.0,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 0.0006400978259622367,
+                  "no_alarm_count": 19905,
+                  "normal_component_equal_alarm_rate": 0.005580029368575624,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 0.049767938364429595,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "groups": {
+              "device:Edge-IIoTset Raspberry Pi edge server": {
+                "budget_pp": 1.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.29281249262333936,
+                "rows": 40000,
+                "status": "FAIL",
+                "weighted_loss_pp": 12.313601505729265,
+                "withdrawn_raw_TP": 7027
+              },
+              "scenario:HTTP": {
+                "budget_pp": 5.0,
+                "failures": [
+                  "WITHDRAWAL_BUDGET",
+                  "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+                ],
+                "raw_recall": 0.5856249852466787,
+                "rows": 20000,
+                "status": "FAIL",
+                "weighted_loss_pp": 24.62720301145853,
+                "withdrawn_raw_TP": 7027
+              },
+              "scenario:UDP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.0,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              }
+            },
+            "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER",
+            "status": "FAIL"
+          }
+        }
+      }
+    },
+    "RAW": {
+      "heads": {
+        "127": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 10971,
+              "exact_selected_sample_alarm_rate": 0.54855,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.5567077826997915,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.45259551103088125,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 286,
+                  "exact_selected_sample_alarm_rate": 0.2787524366471735,
+                  "ht_expanded_alarm_count": 2179.007797270955,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.2787524366471735,
+                  "no_alarm_count": 740,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.2890074184384919,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 779,
+                  "exact_selected_sample_alarm_rate": 0.779,
+                  "ht_expanded_alarm_count": 2650.158,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.779,
+                  "no_alarm_count": 221,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.7349629872325973,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 7406,
+                  "exact_selected_sample_alarm_rate": 0.8338212114388651,
+                  "ht_expanded_alarm_count": 64240.08759288449,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.8338212114388652,
+                  "no_alarm_count": 1476,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.817482420679873,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 638,
+                  "exact_selected_sample_alarm_rate": 0.638,
+                  "ht_expanded_alarm_count": 1562.462,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.638,
+                  "no_alarm_count": 362,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.6261268987024771,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 1862,
+                  "exact_selected_sample_alarm_rate": 0.2301038062283737,
+                  "ht_expanded_alarm_count": 14183.828719723184,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.2301038062283737,
+                  "no_alarm_count": 6230,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.2431657117936119,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 16639,
+              "exact_selected_sample_alarm_rate": 0.83195,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 0.8457946146545521,
+              "normal_component_equal_alarm_rate": 0.8285168869309838,
+              "selected_hierarchical_alarm_rate": 0.7926059535166183,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 16639,
+                  "exact_selected_sample_alarm_rate": 0.83195,
+                  "ht_expanded_alarm_count": 1031976.0,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 0.8457946146545521,
+                  "no_alarm_count": 3361,
+                  "normal_component_equal_alarm_rate": 0.8285168869309838,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 0.7926059535166183,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "groups": {
+              "device:Edge-IIoTset Raspberry Pi edge server": {
+                "budget_pp": 1.0,
+                "failures": [],
+                "raw_recall": 0.22629775551544062,
+                "rows": 40000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              },
+              "scenario:HTTP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.45259551103088125,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              },
+              "scenario:UDP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.0,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              }
+            },
+            "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER",
+            "status": "PASS"
+          }
+        },
+        "227": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 12468,
+              "exact_selected_sample_alarm_rate": 0.6234,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.6250742145787009,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.5282564671989415,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 576,
+                  "exact_selected_sample_alarm_rate": 0.5614035087719298,
+                  "ht_expanded_alarm_count": 4388.491228070176,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.5614035087719298,
+                  "no_alarm_count": 450,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.5885764177187751,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 892,
+                  "exact_selected_sample_alarm_rate": 0.892,
+                  "ht_expanded_alarm_count": 3034.5840000000003,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.8920000000000001,
+                  "no_alarm_count": 108,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.8730363445032957,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 7812,
+                  "exact_selected_sample_alarm_rate": 0.8795316370186895,
+                  "ht_expanded_alarm_count": 67761.75591083089,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.8795316370186894,
+                  "no_alarm_count": 1070,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.8675289820948536,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 820,
+                  "exact_selected_sample_alarm_rate": 0.82,
+                  "ht_expanded_alarm_count": 2008.1799999999998,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.82,
+                  "no_alarm_count": 180,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.8149077151580134,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 2368,
+                  "exact_selected_sample_alarm_rate": 0.2926347009391992,
+                  "ht_expanded_alarm_count": 18038.295600593177,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.2926347009391992,
+                  "no_alarm_count": 5724,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.30526219872707927,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 16451,
+              "exact_selected_sample_alarm_rate": 0.82255,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 0.8365894178142257,
+              "normal_component_equal_alarm_rate": 0.8185609397944199,
+              "selected_hierarchical_alarm_rate": 0.7765761779714002,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 16451,
+                  "exact_selected_sample_alarm_rate": 0.82255,
+                  "ht_expanded_alarm_count": 1020744.5,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 0.8365894178142257,
+                  "no_alarm_count": 3549,
+                  "normal_component_equal_alarm_rate": 0.8185609397944199,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 0.7765761779714002,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "groups": {
+              "device:Edge-IIoTset Raspberry Pi edge server": {
+                "budget_pp": 1.0,
+                "failures": [],
+                "raw_recall": 0.26412823359947074,
+                "rows": 40000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              },
+              "scenario:HTTP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.5282564671989415,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              },
+              "scenario:UDP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.0,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              }
+            },
+            "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER",
+            "status": "PASS"
+          }
+        },
+        "27": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 13975,
+              "exact_selected_sample_alarm_rate": 0.69875,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.7018357165085254,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.6324498361751452,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 600,
+                  "exact_selected_sample_alarm_rate": 0.5847953216374269,
+                  "ht_expanded_alarm_count": 4571.345029239766,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.5847953216374269,
+                  "no_alarm_count": 426,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.6149108453206784,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 886,
+                  "exact_selected_sample_alarm_rate": 0.886,
+                  "ht_expanded_alarm_count": 3014.172,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.886,
+                  "no_alarm_count": 114,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.8746615526219156,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 7977,
+                  "exact_selected_sample_alarm_rate": 0.8981085341139383,
+                  "ht_expanded_alarm_count": 69192.97579374016,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.8981085341139384,
+                  "no_alarm_count": 905,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.889869332579006,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 817,
+                  "exact_selected_sample_alarm_rate": 0.817,
+                  "ht_expanded_alarm_count": 2000.8329999999999,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.817,
+                  "no_alarm_count": 183,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.8011830932466375,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 3695,
+                  "exact_selected_sample_alarm_rate": 0.4566238260009886,
+                  "ht_expanded_alarm_count": 28146.74925852694,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.4566238260009886,
+                  "no_alarm_count": 4397,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.47204890370326474,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 16777,
+              "exact_selected_sample_alarm_rate": 0.83885,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 0.853931479207885,
+              "normal_component_equal_alarm_rate": 0.8349192364170337,
+              "selected_hierarchical_alarm_rate": 0.7911453664804211,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 16777,
+                  "exact_selected_sample_alarm_rate": 0.83885,
+                  "ht_expanded_alarm_count": 1041904.0,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 0.853931479207885,
+                  "no_alarm_count": 3223,
+                  "normal_component_equal_alarm_rate": 0.8349192364170337,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 0.7911453664804211,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "groups": {
+              "device:Edge-IIoTset Raspberry Pi edge server": {
+                "budget_pp": 1.0,
+                "failures": [],
+                "raw_recall": 0.3162249180875726,
+                "rows": 40000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              },
+              "scenario:HTTP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.6324498361751452,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              },
+              "scenario:UDP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.0,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              }
+            },
+            "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER",
+            "status": "PASS"
+          }
+        },
+        "ensemble": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 13266,
+              "exact_selected_sample_alarm_rate": 0.6633,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.6664633723620875,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.5856249852466787,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 526,
+                  "exact_selected_sample_alarm_rate": 0.5126705653021443,
+                  "ht_expanded_alarm_count": 4007.5458089668614,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.5126705653021443,
+                  "no_alarm_count": 500,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.5274714450376041,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 894,
+                  "exact_selected_sample_alarm_rate": 0.894,
+                  "ht_expanded_alarm_count": 3041.388,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.894,
+                  "no_alarm_count": 106,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.8774783450010422,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 7937,
+                  "exact_selected_sample_alarm_rate": 0.8936050439090295,
+                  "ht_expanded_alarm_count": 68846.01339788336,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.8936050439090295,
+                  "no_alarm_count": 945,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.883383497379893,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 800,
+                  "exact_selected_sample_alarm_rate": 0.8,
+                  "ht_expanded_alarm_count": 1959.1999999999998,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.7999999999999999,
+                  "no_alarm_count": 200,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.788460185571407,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 3109,
+                  "exact_selected_sample_alarm_rate": 0.384206623826001,
+                  "ht_expanded_alarm_count": 23682.88049925853,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.384206623826001,
+                  "no_alarm_count": 4983,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.4014797125030401,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 16806,
+              "exact_selected_sample_alarm_rate": 0.8403,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 0.8538884508649107,
+              "normal_component_equal_alarm_rate": 0.8367107195301028,
+              "selected_hierarchical_alarm_rate": 0.8035446372979652,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 16806,
+                  "exact_selected_sample_alarm_rate": 0.8403,
+                  "ht_expanded_alarm_count": 1041851.5,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 0.8538884508649107,
+                  "no_alarm_count": 3194,
+                  "normal_component_equal_alarm_rate": 0.8367107195301028,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 0.8035446372979652,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "groups": {
+              "device:Edge-IIoTset Raspberry Pi edge server": {
+                "budget_pp": 1.0,
+                "failures": [],
+                "raw_recall": 0.29281249262333936,
+                "rows": 40000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              },
+              "scenario:HTTP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.5856249852466787,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              },
+              "scenario:UDP": {
+                "budget_pp": 5.0,
+                "failures": [],
+                "raw_recall": 0.0,
+                "rows": 20000,
+                "status": "PASS",
+                "weighted_loss_pp": 0.0,
+                "withdrawn_raw_TP": 0
+              }
+            },
+            "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER",
+            "status": "PASS"
+          }
+        }
+      }
+    },
+    "STANDARD_KNN5": {
+      "heads": {
+        "127": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 7,
+              "exact_selected_sample_alarm_rate": 0.00035,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.00019424175457387794,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.00044280158638481385,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 1026,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 1000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 2,
+                  "exact_selected_sample_alarm_rate": 0.00022517451024544022,
+                  "ht_expanded_alarm_count": 17.34811979283945,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.00022517451024544022,
+                  "no_alarm_count": 8880,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.0005069534107758057,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 5,
+                  "exact_selected_sample_alarm_rate": 0.005,
+                  "ht_expanded_alarm_count": 12.245,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.005,
+                  "no_alarm_count": 995,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.007958133275809342,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 8092,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 2,
+              "exact_selected_sample_alarm_rate": 0.0001,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 1.1474224793177098e-05,
+              "normal_component_equal_alarm_rate": 0.00011747430249632892,
+              "selected_hierarchical_alarm_rate": 5.366246310705661e-05,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 2,
+                  "exact_selected_sample_alarm_rate": 0.0001,
+                  "ht_expanded_alarm_count": 14.0,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 1.1474224793177098e-05,
+                  "no_alarm_count": 19998,
+                  "normal_component_equal_alarm_rate": 0.00011747430249632892,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 5.366246310705661e-05,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "added_raw_negative_alarms": 6,
+            "status": "DESCRIPTIVE_INDEPENDENT_DETECTOR",
+            "suppression_only_gate_applies": false,
+            "withdrawn_raw_TP": 10968
+          }
+        },
+        "227": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 7,
+              "exact_selected_sample_alarm_rate": 0.00035,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.00019424175457387794,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.00044280158638481385,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 1026,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 1000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 2,
+                  "exact_selected_sample_alarm_rate": 0.00022517451024544022,
+                  "ht_expanded_alarm_count": 17.34811979283945,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.00022517451024544022,
+                  "no_alarm_count": 8880,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.0005069534107758057,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 5,
+                  "exact_selected_sample_alarm_rate": 0.005,
+                  "ht_expanded_alarm_count": 12.245,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.005,
+                  "no_alarm_count": 995,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.007958133275809342,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 8092,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 2,
+              "exact_selected_sample_alarm_rate": 0.0001,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 1.1474224793177098e-05,
+              "normal_component_equal_alarm_rate": 0.00011747430249632892,
+              "selected_hierarchical_alarm_rate": 5.366246310705661e-05,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 2,
+                  "exact_selected_sample_alarm_rate": 0.0001,
+                  "ht_expanded_alarm_count": 14.0,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 1.1474224793177098e-05,
+                  "no_alarm_count": 19998,
+                  "normal_component_equal_alarm_rate": 0.00011747430249632892,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 5.366246310705661e-05,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "added_raw_negative_alarms": 6,
+            "status": "DESCRIPTIVE_INDEPENDENT_DETECTOR",
+            "suppression_only_gate_applies": false,
+            "withdrawn_raw_TP": 12465
+          }
+        },
+        "27": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 7,
+              "exact_selected_sample_alarm_rate": 0.00035,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.00019424175457387794,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.00044280158638481385,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 1026,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 1000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 2,
+                  "exact_selected_sample_alarm_rate": 0.00022517451024544022,
+                  "ht_expanded_alarm_count": 17.34811979283945,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.00022517451024544022,
+                  "no_alarm_count": 8880,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.0005069534107758057,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 5,
+                  "exact_selected_sample_alarm_rate": 0.005,
+                  "ht_expanded_alarm_count": 12.245,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.005,
+                  "no_alarm_count": 995,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.007958133275809342,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 8092,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 2,
+              "exact_selected_sample_alarm_rate": 0.0001,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 1.1474224793177098e-05,
+              "normal_component_equal_alarm_rate": 0.00011747430249632892,
+              "selected_hierarchical_alarm_rate": 5.366246310705661e-05,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 2,
+                  "exact_selected_sample_alarm_rate": 0.0001,
+                  "ht_expanded_alarm_count": 14.0,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 1.1474224793177098e-05,
+                  "no_alarm_count": 19998,
+                  "normal_component_equal_alarm_rate": 0.00011747430249632892,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 5.366246310705661e-05,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "added_raw_negative_alarms": 6,
+            "status": "DESCRIPTIVE_INDEPENDENT_DETECTOR",
+            "suppression_only_gate_applies": false,
+            "withdrawn_raw_TP": 13972
+          }
+        },
+        "ensemble": {
+          "roles": {
+            "HTTP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 7,
+              "exact_selected_sample_alarm_rate": 0.00035,
+              "population_count": 152352,
+              "ht_population_alarm_estimate": 0.00019424175457387794,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.00044280158638481385,
+              "strata": {
+                "ACK_ONLY": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 7817.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 1026,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 7817,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.02034891439852743,
+                  "selected_rows": 1026
+                },
+                "FIN": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 3402.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 1000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 3402,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.019503620729507294,
+                  "selected_rows": 1000
+                },
+                "OTHER": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": null,
+                  "ht_expanded_alarm_count": null,
+                  "ht_expanded_sample_count": 0.0,
+                  "ht_population_alarm_estimate": null,
+                  "no_alarm_count": 0,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 0,
+                  "selected_hierarchical_alarm_rate": null,
+                  "selected_hierarchical_weight_mass": 0.0,
+                  "selected_rows": 0
+                },
+                "PSH_ACK": {
+                  "alarm_count": 2,
+                  "exact_selected_sample_alarm_rate": 0.00022517451024544022,
+                  "ht_expanded_alarm_count": 17.34811979283945,
+                  "ht_expanded_sample_count": 77043.0,
+                  "ht_population_alarm_estimate": 0.00022517451024544022,
+                  "no_alarm_count": 8880,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 77043,
+                  "selected_hierarchical_alarm_rate": 0.0005069534107758057,
+                  "selected_hierarchical_weight_mass": 0.1519054215008356,
+                  "selected_rows": 8882
+                },
+                "RST": {
+                  "alarm_count": 5,
+                  "exact_selected_sample_alarm_rate": 0.005,
+                  "ht_expanded_alarm_count": 12.245,
+                  "ht_expanded_sample_count": 2449.0,
+                  "ht_population_alarm_estimate": 0.005,
+                  "no_alarm_count": 995,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2449,
+                  "selected_hierarchical_alarm_rate": 0.007958133275809342,
+                  "selected_hierarchical_weight_mass": 0.018143931075662624,
+                  "selected_rows": 1000
+                },
+                "SYN_NO_ACK": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 61641.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 8092,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 61641,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.29009811229546706,
+                  "selected_rows": 8092
+                }
+              }
+            },
+            "NORMAL": {
+              "metric": "FPR",
+              "selected_rows": 20000,
+              "alarm_count": 2,
+              "exact_selected_sample_alarm_rate": 0.0001,
+              "population_count": 1220126,
+              "ht_population_alarm_estimate": 1.1474224793177098e-05,
+              "normal_component_equal_alarm_rate": 0.00011747430249632892,
+              "selected_hierarchical_alarm_rate": 5.366246310705661e-05,
+              "strata": {
+                "NORMAL": {
+                  "alarm_count": 2,
+                  "exact_selected_sample_alarm_rate": 0.0001,
+                  "ht_expanded_alarm_count": 14.0,
+                  "ht_expanded_sample_count": 1220126.0,
+                  "ht_population_alarm_estimate": 1.1474224793177098e-05,
+                  "no_alarm_count": 19998,
+                  "normal_component_equal_alarm_rate": 0.00011747430249632892,
+                  "normal_component_metric_weight_mass": 1.0,
+                  "population_component_alarm_rate": null,
+                  "population_count": 1220126,
+                  "selected_hierarchical_alarm_rate": 5.366246310705661e-05,
+                  "selected_hierarchical_weight_mass": 1.0,
+                  "selected_rows": 20000
+                }
+              }
+            },
+            "UDP": {
+              "metric": "ATTACK_ASSOCIATED_RECALL",
+              "selected_rows": 20000,
+              "alarm_count": 0,
+              "exact_selected_sample_alarm_rate": 0.0,
+              "population_count": 2898830,
+              "ht_population_alarm_estimate": 0.0,
+              "normal_component_equal_alarm_rate": null,
+              "selected_hierarchical_alarm_rate": 0.0,
+              "strata": {
+                "UDP": {
+                  "alarm_count": 0,
+                  "exact_selected_sample_alarm_rate": 0.0,
+                  "ht_expanded_alarm_count": 0.0,
+                  "ht_expanded_sample_count": 2898830.0,
+                  "ht_population_alarm_estimate": 0.0,
+                  "no_alarm_count": 20000,
+                  "normal_component_equal_alarm_rate": null,
+                  "normal_component_metric_weight_mass": 0.0,
+                  "population_component_alarm_rate": "NOT_EVALUABLE_NO_ATTACK_COMPONENT_INCLUSION",
+                  "population_count": 2898830,
+                  "selected_hierarchical_alarm_rate": 0.0,
+                  "selected_hierarchical_weight_mass": 0.5,
+                  "selected_rows": 20000
+                }
+              }
+            }
+          },
+          "raw_cumulative_safety": {
+            "added_raw_negative_alarms": 6,
+            "status": "DESCRIPTIVE_INDEPENDENT_DETECTOR",
+            "suppression_only_gate_applies": false,
+            "withdrawn_raw_TP": 13263
+          }
+        }
+      }
+    }
+  },
+  "views": {
+    "full": {
+      "attack": "SAME_ELIGIBLE_ATTACK_POPULATION_AS_PRIMARY",
+      "normal": "NOT_EVALUABLE_POSTWINDOW_ONLY_SELECTION"
+    },
+    "post_window_primary": "EVALUATED_SELECTED_QUERIES"
+  },
+  "independent_attack_event_recall": "NOT_EVALUABLE_NO_EVENT_LEDGER",
+  "uncertainty": "Conditional temporal sensitivity interval; not full sampling-design 95% coverage",
+  "limitations": [
+    "样本率、HT总体估计、预设安全门的层次加权损失是不同口径，不能互换。",
+    "每角色20000条固定抽样；未抽样行不作为正确阴性。",
+    "攻击指标为ATTACK_ASSOCIATED_RECALL，不等同独立攻击事件召回。",
+    "时间区间仅为条件时间敏感性，不宣称完整抽样设计95%覆盖。",
+    "本地复核覆盖取回文件和封存选择；完整数组验证采用远端回执，数组保留超算。",
+    "未修改p、阈值、数据角色或外部候选选择。"
+  ],
+  "hpc_output": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_resume_v2_20261104/outputs/gate_182089"
+}
