@@ -1,0 +1,73 @@
+{
+  "result": "PASS",
+  "scope": "SOURCE_FEATURES_ONLY",
+  "impact": "All source rows have aligned context features; training and evaluation remain pending",
+  "next": "REAL_TRAINING_RUNTIME_GATE",
+  "training_jobs": 0,
+  "job_id": "182332",
+  "elapsed": "00:12:07",
+  "slurm_max_rss_kib": 216724,
+  "captures": 200,
+  "frames": 39075313,
+  "queries": 1094929,
+  "preflight_independent_queries": 57,
+  "full_restart_queries": 581590,
+  "max_clock_debt_ns": 359803000,
+  "max_queue_entries": 349672,
+  "max_groups": 10,
+  "arrays": {
+    "LEARN": {
+      "sha256": "6949e7e8aa08d229cb0fcb9b0c14396d3d922309e1e1bb40066d20973c7a8fa3",
+      "bytes": 49070656
+    },
+    "CIC_DEV": {
+      "sha256": "b6be5cd75ad0c60bcf1f390d9e32bb6f52be271158cec3f479eeb6f46ab15131",
+      "bytes": 11512832
+    },
+    "UNSW_DEV": {
+      "sha256": "42ed12d909bb4198c3be8791ede3321a8f3076fc78c0e79bbbc601144225e544",
+      "bytes": 9492352
+    }
+  },
+  "roles": {
+    "LEARN": 766727,
+    "CIC_DEV": 179886,
+    "UNSW_DEV": 148316
+  },
+  "receipt_sha256": {
+    "ADMISSION_RESULT.json": "308bd617f9d849086d2ddc1828ca4f823771e605821678344c545b5415672c7e",
+    "ADMISSION_SCHEDULER.json": "50a96eee740fceddc00276cb8c774c1d7a7c74b1319b186d48558fdecb1a0258",
+    "ADMISSION_JOB.json": "25ec6ddd3863380dcf52bf3ad36e9ff1e4058b502621f3580e8bbba0f58c2147",
+    "FEATURE_PREFLIGHT_RESULT.json": "2c56c6b9596f4055fce26b52474b5c721ab38494b560cb09f1f1b2c2c66ffa39",
+    "FEATURE_PREFLIGHT_SCHEDULER.json": "25f0e99562917a727007b0e68f95122a1247b0a3d222babbcda95cc2fe20da8a",
+    "FEATURE_PREFLIGHT_JOB.json": "60a4084130d746c1e3be8f205af415a661baea05121090597979c3af33a31a50",
+    "FEATURE_BUILD_RESULT.json": "7ec7cdc86869503c483e56e87886d5f9cbff5df69eb12cb06e000947ce93dabb",
+    "FEATURE_BUILD_SCHEDULER.json": "6648ffdb6de9846d2975085c2a4f9a2a1db8e552726bbef9a63219f452163ff1",
+    "FEATURE_BUILD_JOB.json": "58d8e6bd04fc391d0d06c726c51b2efed35eadbad436f46e817de0fac0df29a1",
+    "FEATURE_PREFLIGHT_SELECTION.json": "f746217f6ef45c4f515012db1f2eb5be8d4db807724b59a957d69ec00d35b6f7"
+  },
+  "delivery_sha256": "ef7d38d0329ca280c352fbf244a3e00907b86b2e8d564c27cdce9a0b40f3286b",
+  "acceptor_sha256": "eae58ee7dc471353e8b5aed8d6483f2f85893844b873781709b77deab911320c",
+  "verification_scope": "Local receipt and pinned-code audit; per-row UID, coverage, finite values and array hashes verified by pinned HPC worker; arrays not downloaded",
+  "unqueried_catalog_captures": [
+    "interaction-attack-007",
+    "interaction-attack-008",
+    "interaction-attack-009",
+    "interaction-attack-028",
+    "interaction-attack-029",
+    "interaction-attack-030",
+    "interaction-attack-057",
+    "interaction-attack-106",
+    "interaction-attack-107",
+    "interaction-attack-108",
+    "interaction-attack-156",
+    "interaction-attack-189",
+    "interaction-attack-190",
+    "interaction-attack-191",
+    "interaction-attack-237",
+    "interaction-attack-240",
+    "interaction-attack-287",
+    "interaction-attack-288",
+    "interaction-attack-289"
+  ]
+}
