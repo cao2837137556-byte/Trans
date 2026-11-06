@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "scope": "REAL_ENGINEERING_AND_SOURCE_TRAINING_GATE_ONLY",
+  "jobs": [
+    "182577",
+    "182578"
+  ],
+  "pilot_job": "182579",
+  "pilot_stage": "PILOT_RUNNING",
+  "receipt_sha256": {
+    "DECODE_PREFLIGHT_RESULT.json": "1743710c9dc02579e06faef433fde6403f4f7b6fab237838605f5418e8f34370",
+    "DECODE_PREFLIGHT_SCHEDULER.json": "6ecbfe8e8da98dff3dced892a8db6b261f8856c197da4b74223f12f4529a22de",
+    "DECODE_PREFLIGHT_JOB.json": "a696d4160fc2a5284d4121a093be7b6bd5f11ee9b0a8a33538d87a8e6a796e1e",
+    "TRAIN_PREFLIGHT_RESULT.json": "2f0551dab275b3956475a2383425a0ecf256f3d2102088e15c92becf246add41",
+    "TRAIN_PREFLIGHT_SCHEDULER.json": "5695ff182285b62dba0eb06095e113e6b12143cb7a749810336f7e1b77662ff0",
+    "TRAIN_PREFLIGHT_JOB.json": "b59646de87c182539b951e48ffb9da79d6124f47b0c31f00610c98cf9e0aa141",
+    "PILOT_SCHEDULER.json": "c9bc56e080d85c253521e292d8a210fc8f677a38179f190b4049ecbd8019f79f",
+    "PILOT_JOB.json": "2aae4b48fa96590336b67db208f41abf89ca37501fe8b50935e951aea8297938"
+  },
+  "baseline_full_FIT_CAL_exact_parity": true,
+  "real_updates": 24,
+  "all_three_seeds_changed": true,
+  "pilot_forecast_seconds": 484.7304049823433,
+  "peak_gib": 3.3362045288085938,
+  "scientific_acceptance": false,
+  "full_training_or_external_evaluation": false
+}
