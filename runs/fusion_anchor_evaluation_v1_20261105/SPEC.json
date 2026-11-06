@@ -1,0 +1,45 @@
+{
+  "version": "FROZEN_ANCHOR_EVALUATION_V1",
+  "arms": [
+    "OLD782",
+    "REFIT782",
+    "STATS8",
+    "FUSION790",
+    "ANCHOR790"
+  ],
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "ensemble": "same ordered float64 mean",
+  "endpoints": "fixed epoch40; heads/cuts/scales from pinned final source acceptance",
+  "pools": [
+    "CIC_DEV",
+    "UNSW_DEV",
+    "EDGE"
+  ],
+  "methods": "RAW and C5_P3 except STATS8 RAW only",
+  "threshold_fitting": false,
+  "training": false,
+  "model_selection": false,
+  "context": "reuse exact accepted causal8 cache and FIT normalizer",
+  "geometry": "same protected-target reference bank, p3 lambda=.25, SYN guard; own FIT scales",
+  "gates": "original evaluator gates unchanged; alias ANCHOR790 to candidate parameter name FUSION790 only when calling legacy gates; original FUSION790 also reported",
+  "ab_exception": "Observed prior A/B regression accepted by user; original FAIL retained, no automatic relaxation",
+  "preflight": "new process real 112-row encoder/distance and five-arm small-slice evaluation; FrozenBackend sole interop initializer; exact UID and baseline decision parity",
+  "scientific_failures_stop_chain": false,
+  "engineering_failures_stop_chain": true,
+  "large_artifacts": "HPC only; retrieve compact JSON receipts/metrics/margins and SHA",
+  "external_role": "Edge is consumed diagnostic evidence, not fresh independent confirmation",
+  "resources": {
+    "cpu": 1,
+    "memory_gib": 8,
+    "phase_minutes": {
+      "PREFLIGHT": 30,
+      "AB": 60,
+      "EDGE": 60
+    },
+    "retries": 0
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "result": "PASS",
+  "scope": "TRAINING_AND_SOURCE_CALIBRATION_ONLY",
+  "heads": {
+    "27": {
+      "head_sha256": "dfb613b785ef753b84488b9eb196a0ec770f67ab46171a87048d17c96b8174f1",
+      "cut": -22.82166290283203,
+      "scale": 119.51728057861328,
+      "updates": 96560,
+      "epoch_checkpoints": 40
+    },
+    "127": {
+      "head_sha256": "1a03918aba7ff65ee7bc4caab31953cbe2e1d3ac119bcf1dfc59aeef8422b261",
+      "cut": -20.400161743164062,
+      "scale": 121.44668960571289,
+      "updates": 96560,
+      "epoch_checkpoints": 40
+    },
+    "227": {
+      "head_sha256": "41139537f75d97293ba1d3abd020f903450a3a13f4aac606ca076b2e0b5c1161",
+      "cut": -21.347383499145508,
+      "scale": 122.05692291259766,
+      "updates": 96560,
+      "epoch_checkpoints": 40
+    }
+  },
+  "ensemble": {
+    "status": "PASS",
+    "cut": -23.03176498413086,
+    "weighted_normal_fpr": 0.009787823082290176,
+    "unweighted_normal_fpr": 0.007934353033457025,
+    "normal_rows": 33147,
+    "seeds": [
+      27,
+      127,
+      227
+    ],
+    "comparison": ">",
+    "runtime_gate_only": false
+  },
+  "evaluation_pending": true,
+  "receipt_sha256": {
+    "DECODE_PREFLIGHT_RESULT.json": "01529de5b519485f61e31cc37e652a4885f0414bb10d8b10cf62611a7e029ae0",
+    "DECODE_PREFLIGHT_SCHEDULER.json": "46d39b4142cb9acd7a40883d8dcff4d03c9912550c15ecdd8388ab209afcc2b4",
+    "DECODE_PREFLIGHT_JOB.json": "b14fedfcab6d1bfc6cfe28dd5a51f5cf9b9542fb4862d74e84a5504fb3712e9f",
+    "TRAIN_PREFLIGHT_RESULT.json": "de8392d356581f90e93f4dc2a759648a6e1eb30d4de72392454815741106b65f",
+    "TRAIN_PREFLIGHT_SCHEDULER.json": "8b984d67e86510d779dce3bb460b3c760b989d3fe49a9adc2e38664fc9b9c07d",
+    "TRAIN_PREFLIGHT_JOB.json": "273d84486521408d9a2e87409731fe07524977e6ae9ae4e609cd8d842b677c3e",
+    "TRAIN_27_RESULT.json": "d1c9fa5bef8e147fc7836e3acd5f0e935d519d986ffb9eb36db211d9baa0a5c6",
+    "TRAIN_27_SCHEDULER.json": "5b88109b5ecd33f4c9bed6e5b8a2b941773f29c38d1cbfede9a65860d6bf90ed",
+    "TRAIN_27_JOB.json": "68951f6aad785f88a7f9f17873e7f861068b0b75ce66c705461fd4ff6b92a461",
+    "TRAIN_127_RESULT.json": "0e45d58c1b3c53b1d71d2dda5c4aa7c3ccfe1a01670aef9c682c14c881177503",
+    "TRAIN_127_SCHEDULER.json": "e257030ee1b4f67d8b7aa47548df3a32deef41639c0c044358e6248a2418b0b3",
+    "TRAIN_127_JOB.json": "46978658987ceba1922158c9ae99a1e52d5e505aa0c88fea64f8144d2ae88e37",
+    "TRAIN_227_RESULT.json": "86f84e3ebdf5ae65e73feaebbd13693910dff72f8444b330a83f31ddfd8b148a",
+    "TRAIN_227_SCHEDULER.json": "94ce42f3879b6551d8521815c716c1c39787c527c22d4a37f1c00c8f71ef6374",
+    "TRAIN_227_JOB.json": "ad47617085e58c0b462d866f458ad5e49b54f992b388edeca40c3b84d266e71a",
+    "CALIBRATION_RESULT.json": "c89872e24d32a1442deb0ee58107e9c75f257778243d7e21bca3060c60e08a91",
+    "CALIBRATION_SCHEDULER.json": "04f7cde7b212b401ebbaaa44aab763a07bc70308b168c946c95cf679e6cf6e62",
+    "CALIBRATION_JOB.json": "3f577d40810304c56c866542437512962ac9f6f36cd5f10ff25476415e0c0863",
+    "RUNTIME_FORECAST.json": "8e989d51b1289fc509cfe409c58de9b1b5a04eec5d8576c9d68a718323201f67",
+    "LINUX_REGRESSION.json": "6d04e6f7003a531732df6bbaf9e4c46de94f0efd8a845bdb2fc6fc8dd9a3657f",
+    "LINUX_THREAD_REGRESSION.json": "7c5912a2b6175b393dc697c9206f34f4634db6fc648bad800aed631afa9e2c24",
+    "COMPLETION_AUDIT.json": "4f3b54c17954a76d29ccf31c4681c13c2de32e9fb17a4415b1fdfec243cc1d61",
+    "SOURCE_COMPARISON.json": "d1f46a4253504df711353aef4b0afd525958d7da5cbb25718d1e70a6f00eeb47",
+    "REMOTE_ARTIFACTS.json": "1bffaf1b665a7a482fe42ed44f3783a42a2c2a6fa7d05502704eb4e5c6764987",
+    "SPEC.json": "1f45ac6664ccd804355bc24539d5be9dd3d5c18bdf1be4bd556876cabf50c330"
+  }
+}
