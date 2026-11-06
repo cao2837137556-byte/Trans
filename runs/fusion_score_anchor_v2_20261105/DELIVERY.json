@@ -1,0 +1,28 @@
+{
+  "result": "PREPARED",
+  "scope": "ONE_FIXED_SOURCE_ONLY_ANCHOR_CANDIDATE",
+  "pins": {
+    "worker.py": "84b4d7f6ad0e04f5de0e3f9f1cc5595567d5029d77bf1183208f88d9d2510384",
+    "anchor_train.py": "b6834d17150a3aeb24cbc4810cdde78737e14a7dffbc0b25b455207c608ead4c",
+    "anchor_diagnostics.py": "09a2aa47a4d054bb336e792ea6c3077a1f59e57694624dbac5caa1edb6bb525e",
+    "test_anchor.py": "1e919a40f14bc1194f83b156ece70d80a08fa1e2c7263756b48af9d5da64c37b",
+    "test_thread_ownership.py": "8bdbfa86862d1abdb8b4c2caa9849a46eb9683c5ff9b9adbf44bd84aa7c81690",
+    "RUNTIME_FIX.json": "81759fced8669a35cd6c8ae2e71d011b0b3c8d34d165b967edb95867c759f6b0",
+    "PARENT_PINS.json": "5896b7c4cbbea0bfc132cb713819f68ea091176d80be3d0f8e1ef57a789539ac",
+    "TRAINING_ACCEPTANCE.json": "cfaff01c3af263625657748ed6e15fe2fb387401fa2573e9216f93b469bdd9ce",
+    "SPEC.json": "1f45ac6664ccd804355bc24539d5be9dd3d5c18bdf1be4bd556876cabf50c330"
+  },
+  "receiver_sha256": "7445c6f3b9e2b37ffae26464d1080bcd94d9aa915aea03e46f65e4ae1590843e",
+  "cpu": 1,
+  "memory_gib": 8,
+  "preflight_seconds": 1800,
+  "per_head_seconds": 3600,
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "new_heads": 3,
+  "automatic_retries": 0,
+  "accept_existing_ab_regression_only": true
+}

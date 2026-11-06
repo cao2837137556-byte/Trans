@@ -1,0 +1,81 @@
+--- context_train.py
++++ anchor_train.py
+@@ -7,7 +7,7 @@
+ import numpy as np
+ import torch
+ import context_core as k
+-import context_diagnostics as d
++import anchor_diagnostics as d
+ c = k.c
+ 
+ 
+@@ -26,7 +26,7 @@
+                 uid_weight_sha256=digest.hexdigest(), stages=dict(stage_mass), **groups)
+ 
+ 
+-def train(design, rows, values, q, norm, indices, stages, arm, seed, out, progress, synthetic=False, logging_enabled=None, runtime_batches=None):
++def train(design, rows, values, q, norm, indices, stages, arm, seed, out, progress, synthetic=False, logging_enabled=None, runtime_batches=None, teacher_scores=None, teacher_scale=1., anchor_lambda=1.):
+     c.require(runtime_batches in (None, 128) and not (synthetic and runtime_batches), "RUNTIME_GATE_SCOPE")
+     c.require(arm in k.ARMS and seed in c.SEEDS, 'TRAIN_SCOPE')
+     hp = design['training']; n = len(indices)
+@@ -46,6 +46,8 @@
+                   diagnostics.get('gradient_timing') == 'pre_step' and
+                   diagnostics.get('adam_state_timing') == 'post_step', 'DIAGNOSTICS_CONTRACT')
+     rr = [rows[int(i)] for i in indices]; w = k.weights(rr)
++    c.require(arm == 'FUSION790' and anchor_lambda in (0.,1.) and teacher_scale > 0, 'ANCHOR_CONTRACT')
++    c.require(teacher_scores is not None and teacher_scores.shape == (n,) and np.isfinite(teacher_scores).all(), 'TEACHER_TARGETS')
+     c.require(len(set(indices)) == n and all(r['use'] != 'REFERENCE' for r in rr), 'TRAIN_UID_ROLE')
+     out = Path(out); out.mkdir(parents=True, exist_ok=False)
+     dimension = k.DIMENSIONS[arm]
+@@ -65,6 +67,9 @@
+     executed_batches = runtime_batches or nbatches
+     probe_batches = [1, 64, 128] if runtime_batches else d.probe_batches(nbatches, synthetic=synthetic)
+     profile = []
++    component_losses = np.empty((epochs_run*executed_batches,4),np.float64)
++    probe_indices = np.asarray(sorted(range(n),key=lambda i:rr[i]['uid'])[:4096],dtype=np.int64)
++    c.save_arrays(out/'source_probe_identity.npz',uid=np.asarray([rr[i]['uid'] for i in probe_indices],dtype='S64'),teacher=teacher_scores[probe_indices])
+     diagnostic_log = d.DiagnosticLog(out, epochs_run*executed_batches, executed_batches, epochs_run, probe_batches) if enabled else None
+     with d.diagnostic_context(diagnostic_log):
+         for epoch in range(epochs_run):
+@@ -94,6 +99,13 @@
+                 batch = start//hp['batch_size']+1
+                 batch_labels = torch.from_numpy(labels[local])
+                 bce, pair, loss = k.objective_components(logits, batch_labels, w[local], n, negatives)
++                base_bce = bce
++                targets = torch.from_numpy(teacher_scores[local].copy())
++                anchor = (torch.from_numpy(w[local]) * ((logits-targets)/teacher_scale).square()).sum() * n / len(local)
++                if anchor_lambda:
++                    bce = bce + anchor_lambda * anchor
++                    loss = bce + pair
++                component_losses[count] = [float(base_bce.detach()),float(pair.detach()),float(anchor.detach()),float(loss.detach())]
+                 c.require(bool(torch.isfinite(loss)), 'NONFINITE_LOSS')
+                 probe = expected = None
+                 if enabled:
+@@ -117,6 +129,9 @@
+                 tail_total += float(pair.detach())*len(local)/n
+                 progress.optimizer_updates = count
+                 progress.tick(count, epochs_run*executed_batches)
++            c.save_arrays(out/('epoch_%02d_head.npz' % (epoch+1)), **{name:v.detach().numpy() for name,v in model.state_dict().items()})
++            probe_scores = k.scores(model,values,q,indices[probe_indices],norm,dimension)
++            c.save_arrays(out/('epoch_%02d_source_probe.npz' % (epoch+1)),scores=probe_scores)
+             c.require(visits == min(n, executed_batches*hp['batch_size']), 'FULL_FIT_OR_GATE_PREFIX_VISITS')
+             profile.append(dict(epoch=epoch+1, tail_seconds=tail_seconds, batch_seconds=time.monotonic()-batch_started, batches=executed_batches))
+             if enabled: diagnostic_log.checkpoint()
+@@ -128,6 +143,8 @@
+         if not synthetic and runtime_batches is None: c.require(count == hp['updates_per_head'], 'FROZEN_UPDATE_COUNT')
+         if enabled:
+             diagnostic_log.checkpoint(complete=True)
++    np.save(out/'objective_components.npy',component_losses,allow_pickle=False)
++    c.write(out/'anchor_contract.json',dict(lambda_value=anchor_lambda,teacher_scale=teacher_scale,teacher_source='matched frozen REFIT782 FIT logits',component_columns=['BCE','TAIL','ANCHOR_UNSCALED','TOTAL'],diagnostic_bce_field='BCE_PLUS_ANCHOR',source_probe_selection='first 4096 FIT UIDs in lexical order; report only',probe_uid_sha256=c.uid_sha(rr[i]['uid'] for i in probe_indices)))
+     c.save_arrays(out/'head.npz', **{name:v.detach().numpy() for name,v in model.state_dict().items()})
+     c.write(out/'endpoint.json', dict(status='COMPLETE', arm=arm, seed=seed, dimension=dimension,
+             epochs=epochs_run, runtime_gate_only=runtime_batches is not None, profile=profile, updates=count, rows=n, uid_sha256=c.uid_sha(r['uid'] for r in rr),
+@@ -136,7 +153,7 @@
+             normalizer_digest=c.digest([v.tolist() for v in norm]), design_digest=c.digest(design),
+             synthetic_only=synthetic, reference_used=False, DEV_used=False,
+             diagnostics_enabled=enabled, diagnostics_schema=d.SCHEMA,
+-            objective='BCE+TAIL' if tail else 'BCE', sampler_salt='query-tail-v1'))
++            objective='BCE+TAIL+SOURCE_SCORE_ANCHOR', sampler_salt='query-tail-v1'))
+     c.seal(out); c.verify(out)
+     return model.eval().requires_grad_(False)
+ 

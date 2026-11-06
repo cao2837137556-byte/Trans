@@ -1,0 +1,16 @@
+{
+  "scope": "RUNTIME_ONLY",
+  "failed_job": "182502",
+  "failure": "duplicate torch.set_num_interop_threads: entrypoint plus FrozenBackend",
+  "classification": "BOOTSTRAP_RUNTIME_OWNERSHIP",
+  "repair": "DECODE_PREFLIGHT leaves interop ownership to FrozenBackend; training processes configure once",
+  "method_spec_sha256": "1f45ac6664ccd804355bc24539d5be9dd3d5c18bdf1be4bd556876cabf50c330",
+  "method_changed": false,
+  "loss_unchanged": true,
+  "data_unchanged": true,
+  "formal_heads_started": 0,
+  "failed_job_elapsed_seconds": 187,
+  "failed_job_peak_rss_kib": 858544,
+  "valid_scientific_outputs_reused": 0,
+  "substage_timing": "Unavailable; 187 seconds includes validated input reads; no valid encoder/result receipt; cannot split exact useful I/O vs wasted time"
+}

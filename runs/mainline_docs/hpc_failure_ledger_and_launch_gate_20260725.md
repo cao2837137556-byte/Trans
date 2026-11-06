@@ -1,3 +1,13 @@
+## 2026-11-05 SOURCE_SCORE_ANCHOR_V1：线程初始化重复
+
+- 作业182502，DECODE_PREFLIGHT，FAILED/1:0，187秒、858544KiB；正式头0。
+- 根因：新入口与FrozenBackend都调用torch.set_num_interop_threads(1)。线程配置只能有一个初始化归属。
+- 永久门：test_thread_ownership.py覆盖旧重复路径必须拒绝、解码交给backend路径通过、独立训练入口路径通过；真实Linux门前运行，禁止捕获异常后静默继续。
+- 修复：独立fusion_score_anchor_v2_20261105，方法字节不变；真实预检182507。失败原目录不修改代码/回执。
+- 记账：无可复用科学输出；187秒含有效输入核验，但无子阶段计时，精确拆分未知。
+
+---
+
 # Paper04 HPC Failure Ledger and Launch Gate
 
 Date: 2026-07-25

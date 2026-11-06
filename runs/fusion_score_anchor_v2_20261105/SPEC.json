@@ -1,0 +1,44 @@
+{
+  "version": "SOURCE_SCORE_ANCHOR_V1",
+  "status": "FROZEN_BEFORE_NEW_TRAINING",
+  "architecture": "790-128-ReLU-1; E3 encoder frozen; all head parameters trained",
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "initialization": "exact parent fusion initialization; context columns zero; not warm starting from trained teacher",
+  "epochs": 40,
+  "updates_per_head": 96560,
+  "objective": "parent BCE + parent TAIL + balanced-FIT weighted mean ((student_logit - matched_REFIT782_teacher_logit)/teacher_FIT_q90_q10)^2",
+  "anchor_lambda": 1.0,
+  "teacher": "matched seed frozen REFIT782, source FIT only, existing UID/pin verified predictions",
+  "normalization": "reuse pinned source FIT normalizers; no new feature extraction",
+  "calibration": "unchanged final source CAL weighted normal FPR<=0.01; own FIT q90-q10 C5 scale; p3 lambda 0.25 unchanged",
+  "data_roles": "FIT trains; CAL final threshold only; A/B and consumed Edge report only; no seed/epoch/lambda selection",
+  "ab_exception": "User accepts only already observed A/B regression from prior fusion evaluation; original failures retained; no new threshold relaxation",
+  "reason": "Control score magnitude drift under near-zero source classification loss; testable hypothesis, no guarantee of external repair",
+  "limitations": [
+    "Current logs cannot locate normal-score drift epoch",
+    "Original and fusion source loss saturation is shared, not unique proof for seed 127",
+    "Teacher anchoring can reduce useful context gains; must report UDP and HTTP, not FPR alone",
+    "Edge has informed diagnosis and is consumed; cannot claim new independent external validation"
+  ],
+  "trajectory": "save all 40 epoch heads and fixed source FIT UID probe scores; final epoch used, no early stopping",
+  "automatic_chain": [
+    "DECODE_PREFLIGHT",
+    "TRAIN_PREFLIGHT",
+    "TRAIN_27",
+    "TRAIN_127",
+    "TRAIN_227",
+    "CALIBRATION"
+  ],
+  "resources": {
+    "cpu": 1,
+    "memory_gib": 8,
+    "preflight_seconds": 1800,
+    "per_head_seconds": 3600,
+    "automatic_retries": 0
+  },
+  "evaluation": "All three seeds and ensemble, RAW and C5 on A/B/Edge after training; no automatic external performance based changes"
+}

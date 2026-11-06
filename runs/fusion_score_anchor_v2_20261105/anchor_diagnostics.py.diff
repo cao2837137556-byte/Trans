@@ -1,0 +1,20 @@
+--- context_diagnostics.py
++++ anchor_diagnostics.py
+@@ -8,7 +8,7 @@
+ import torch
+ import continuous_common_v3 as c
+ 
+-SCHEMA = 'query-tail-diagnostics-v2-20261010'
++SCHEMA = 'source-score-anchor-diagnostics-v1-20261105'
+ BACKWARD_SANITY_RTOL = 1e-4
+ BACKWARD_SANITY_ATOL = 1e-30
+ BACKWARD_SANITY_CRITERION = 'l2_difference <= 1e-4*(bce_grad_norm+tail_grad_norm)+1e-30'
+@@ -25,7 +25,7 @@
+         self.completed_optimizer_updates = 0
+         self.probes_written = 0
+         self.observed_dtypes = [set(), set(), set()]
+-        self.meta = dict(schema=SCHEMA, status='RUNNING', columns=['bce', 'tail', 'total'],
++        self.meta = dict(bce_field_semantics='BCE_PLUS_ANCHOR; uncombined components saved in objective_components.npy', schema=SCHEMA, status='RUNNING', columns=['bce_plus_anchor', 'tail', 'total'],
+                          shape=[updates, 3], storage_dtype='float64', updates_per_epoch=nbatches,
+                          expected_probe_rows=epochs*len(probes),
+                          epochs=epochs, index='row=prospective_global_update-1; batch and epoch are 1-based',

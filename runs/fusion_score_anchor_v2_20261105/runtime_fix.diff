@@ -1,0 +1,22 @@
+--- v1/worker.py
++++ v2/worker.py
+@@ -85,10 +85,17 @@
+     write('DECODE_METRICS_ENGINEERING_ONLY.json',report_metrics)
+     return dict(status='PASS',real_encoder_distance=result,evaluation_receipt_sha256=c.sha(HERE/'DECODE_METRICS_ENGINEERING_ONLY.json'),external_scores_used_for_fitting=False)
+ 
++def configure_threads(phase):
++    torch.set_num_threads(1)
++    if phase != 'DECODE_PREFLIGHT':torch.set_num_interop_threads(1)
++    torch.use_deterministic_algorithms(True)
++
+ def main():
+-    start=time.monotonic();torch.set_num_threads(1);torch.set_num_interop_threads(1);torch.use_deterministic_algorithms(True)
++    start=time.monotonic();configure_threads(PHASE)
+     verify();progress=Progress()
+-    if PHASE=='DECODE_PREFLIGHT':result=decode(progress)
++    if PHASE=='DECODE_PREFLIGHT':
++        import test_thread_ownership;test_thread_ownership.main('LINUX_THREAD_REGRESSION.json')
++        result=decode(progress)
+     else:
+         assert c.read(HERE/'DECODE_PREFLIGHT_RESULT.json')['status']=='PASS'
+         if PHASE!='TRAIN_PREFLIGHT':assert c.read(HERE/'TRAIN_PREFLIGHT_RESULT.json')['status']=='PASS'
