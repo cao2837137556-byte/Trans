@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "real_encoder_distance": {
+    "status": "PASS",
+    "query_rows": 4,
+    "reference_rows": 4124,
+    "encoded_rows": 112,
+    "encoded_batches": 7,
+    "e3_max_abs_error": 0.0,
+    "cached_support_error": 0.0,
+    "fresh_support_error": 0.0
+  },
+  "checks": {
+    "CIC_DEV": {
+      "rows": 9,
+      "baseline_errors": {
+        "OLD782_RAW": 3.814697265625e-06,
+        "OLD782_C5_P3": 3.814697265625e-06,
+        "REFIT782_RAW": 3.814697265625e-06,
+        "REFIT782_C5_P3": 3.814697265625e-06,
+        "STATS8_RAW": 3.814697265625e-06,
+        "FUSION790_RAW": 3.814697265625e-06,
+        "FUSION790_C5_P3": 3.814697265625e-06
+      },
+      "metric_receipt_sha256": "5f3cd98328e542a1d805c655ff12c46d670259f40055a285099c38ea40f3dfaf",
+      "candidate_gates_computed": true,
+      "scientific_selection": false
+    },
+    "UNSW_DEV": {
+      "rows": 15,
+      "baseline_errors": {
+        "OLD782_RAW": 3.814697265625e-06,
+        "OLD782_C5_P3": 3.814697265625e-06,
+        "REFIT782_RAW": 3.814697265625e-06,
+        "REFIT782_C5_P3": 3.814697265625e-06,
+        "STATS8_RAW": 3.814697265625e-06,
+        "FUSION790_RAW": 3.814697265625e-06,
+        "FUSION790_C5_P3": 3.814697265625e-06
+      },
+      "metric_receipt_sha256": "e0271207647378900f39e81c38fc13225b964ef2d06bc66fa8e8a4374ef5aad0",
+      "candidate_gates_computed": true,
+      "scientific_selection": false
+    },
+    "EDGE": {
+      "rows": 4,
+      "baseline_errors": {
+        "OLD782_RAW": 0.0,
+        "OLD782_C5_P3": 0.0,
+        "REFIT782_RAW": 0.0,
+        "REFIT782_C5_P3": 0.0,
+        "STATS8_RAW": 0.0,
+        "FUSION790_RAW": 0.0,
+        "FUSION790_C5_P3": 0.0
+      },
+      "metric_receipt_sha256": "18f542f97004baf87356c69cdebc69714c54b59066f5994603548d744b0c3352",
+      "candidate_gates_computed": true,
+      "scientific_selection": false
+    }
+  },
+  "scope": "REAL_ENGINEERING_GATE_ONLY",
+  "seconds": 179.71400026394986,
+  "rss_peak_bytes": 1577320448,
+  "phase": "PREFLIGHT",
+  "training": false,
+  "threshold_fitting": false,
+  "model_selection": false,
+  "scientific_failures_stop_chain": false,
+  "interpretation": "Consumed diagnostic evaluation; all fixed seeds/arms; original gates retained"
+}

@@ -1,0 +1,808 @@
+{
+  "engineering_status": "PASS",
+  "scientific_status": "FAIL",
+  "candidate_adopted": false,
+  "scope": "FROZEN_THREE_DATASET_CONSUMED_DIAGNOSTIC_EVALUATION",
+  "receipt_sha256": {
+    "PREFLIGHT_RESULT.json": "23ffc94c5d544dc6ec5f1930ea1293d31b5c18fed645b080f27d531d6d85a59f",
+    "PREFLIGHT_SCHEDULER.json": "a2120942182d345c2e0824026920d1345a850c46f98d0b5c32212470f349741a",
+    "PREFLIGHT_JOB.json": "8ea20abd263758f1c005669ed482dcf3f957cd79c92eba354f7c2a9e1dec08a1",
+    "AB_RESULT.json": "bb5cb5f9607d4f77070484d4e6841b34f609ba3ecb4b733385adeb0741cd85e2",
+    "AB_SCHEDULER.json": "7a9de7fd634fe3665f3ad0d8300d9a2f902a0d44cff39062b8df86e99c5016e0",
+    "AB_JOB.json": "9afdff2e798411de5c4571534b933a807a27e9447b117eed6c4ee21e1768ae7e",
+    "EDGE_RESULT.json": "f20428f8db2b3d2d4fd8163c3d854d63a6165c1abcd660ffc8918ba822f66f1a",
+    "EDGE_SCHEDULER.json": "21dc940680f855f7bfd67b739df3bd68177a6bd96026b0a1f512958b4a66ad5e",
+    "EDGE_JOB.json": "a60c26bdf445317054a2fafe3bb5ce9325edc81c4a6759b6e732ac80bc5b595e"
+  },
+  "comparison_sha256": "d95d5639dfffa47bb484601b2023aaae319fb60fa420c25c5a6a5a7149d40eff",
+  "baseline_pool_metric_comparisons": 868,
+  "baseline_decision_parity": "Enforced for all four prior arms in preflight and full workers before PASS",
+  "resources": {
+    "PREFLIGHT": {
+      "job_id": "182554",
+      "elapsed_seconds": 183,
+      "scheduler_maxrss_kib": 1191156,
+      "worker_seconds": 179.71400026394986,
+      "worker_sampled_rss_peak_bytes": 1577320448
+    },
+    "AB": {
+      "job_id": "182555",
+      "elapsed_seconds": 81,
+      "scheduler_maxrss_kib": 1773276,
+      "worker_seconds": 79.43095644400455,
+      "worker_sampled_rss_peak_bytes": 1795309568
+    },
+    "EDGE": {
+      "job_id": "182556",
+      "elapsed_seconds": 37,
+      "scheduler_maxrss_kib": 895500,
+      "worker_seconds": 36.02683258219622,
+      "worker_sampled_rss_peak_bytes": 911953920
+    }
+  },
+  "total_scheduler_seconds": 301,
+  "max_scheduler_rss_gib": 1.6911277770996094,
+  "ab_original_candidate_gates": {
+    "CIC_DEV": {
+      "status": "FAIL",
+      "checks": [
+        {
+          "test": "absolute/ensemble/pool/normal",
+          "status": "FAIL",
+          "value": 0.05127832647859929,
+          "limit": 0.01
+        },
+        {
+          "test": "absolute/ensemble/pool/attack",
+          "status": "PASS",
+          "value": 0.9999942984856778,
+          "limit": 0.99
+        },
+        {
+          "test": "absolute/ensemble/device:Eufy Home Base/normal",
+          "status": "PASS",
+          "value": 2.3191094619666046e-06,
+          "limit": 0.02
+        },
+        {
+          "test": "absolute/ensemble/device:Eufy Home Base/attack",
+          "status": "PASS",
+          "value": 1.0,
+          "limit": 0.97
+        },
+        {
+          "test": "absolute/ensemble/device:HeimVision Camera/normal",
+          "status": "FAIL",
+          "value": 0.10255433384773661,
+          "limit": 0.02
+        },
+        {
+          "test": "absolute/ensemble/device:HeimVision Camera/attack",
+          "status": "PASS",
+          "value": 0.9999885969713556,
+          "limit": 0.97
+        },
+        {
+          "test": "absolute/seed/27",
+          "status": "PASS",
+          "value": 1.0,
+          "limit": 0.97
+        },
+        {
+          "test": "absolute/seed/127",
+          "status": "PASS",
+          "value": 0.9997865463278527,
+          "limit": 0.97
+        },
+        {
+          "test": "absolute/seed/227",
+          "status": "PASS",
+          "value": 0.9999771939427112,
+          "limit": 0.97
+        },
+        {
+          "test": "no_regression/27/protocol:17",
+          "status": "PASS",
+          "old": {
+            "rows": 22085,
+            "alarm_count": 22085,
+            "no_alarm_count": 0,
+            "unweighted_rate": 1.0,
+            "weighted_rate": 1.0,
+            "weight_mass": 0.4166666666666667
+          },
+          "new": {
+            "rows": 22085,
+            "alarm_count": 22085,
+            "no_alarm_count": 0,
+            "unweighted_rate": 1.0,
+            "weighted_rate": 1.0,
+            "weight_mass": 0.4166666666666667
+          },
+          "max_drop": 0.001
+        },
+        {
+          "test": "no_regression/27/protocol:6",
+          "status": "PASS",
+          "old": {
+            "rows": 56971,
+            "alarm_count": 56971,
+            "no_alarm_count": 0,
+            "unweighted_rate": 1.0,
+            "weighted_rate": 1.0,
+            "weight_mass": 0.5833333333333334
+          },
+          "new": {
+            "rows": 56971,
+            "alarm_count": 56971,
+            "no_alarm_count": 0,
+            "unweighted_rate": 1.0,
+            "weighted_rate": 1.0,
+            "weight_mass": 0.5833333333333334
+          },
+          "max_drop": 0.001
+        },
+        {
+          "test": "normal_increase/27",
+          "status": "PASS",
+          "old": {
+            "rows": 96041,
+            "alarm_count": 74,
+            "no_alarm_count": 95967,
+            "unweighted_rate": 0.0007705042638040003,
+            "weighted_rate": 0.050170396090534974,
+            "weight_mass": 1.0
+          },
+          "new": {
+            "rows": 96041,
+            "alarm_count": 66,
+            "no_alarm_count": 95975,
+            "unweighted_rate": 0.0006872065055549192,
+            "weighted_rate": 0.04873087062757202,
+            "weight_mass": 1.0
+          },
+          "max_increase": 0.001
+        },
+        {
+          "test": "no_regression/127/protocol:17",
+          "status": "PASS",
+          "old": {
+            "rows": 22085,
+            "alarm_count": 22085,
+            "no_alarm_count": 0,
+            "unweighted_rate": 1.0,
+            "weighted_rate": 1.0,
+            "weight_mass": 0.4166666666666667
+          },
+          "new": {
+            "rows": 22085,
+            "alarm_count": 22085,
+            "no_alarm_count": 0,
+            "unweighted_rate": 1.0,
+            "weighted_rate": 1.0,
+            "weight_mass": 0.4166666666666667
+          },
+          "max_drop": 0.001
+        },
+        {
+          "test": "no_regression/127/protocol:6",
+          "status": "PASS",
+          "old": {
+            "rows": 56971,
+            "alarm_count": 56959,
+            "no_alarm_count": 12,
+            "unweighted_rate": 0.9997893665198083,
+            "weighted_rate": 0.9996682885051091,
+            "weight_mass": 0.5833333333333334
+          },
+          "new": {
+            "rows": 56971,
+            "alarm_count": 56952,
+            "no_alarm_count": 19,
+            "unweighted_rate": 0.9996664969896966,
+            "weighted_rate": 0.999634079419176,
+            "weight_mass": 0.5833333333333334
+          },
+          "max_drop": 0.001
+        },
+        {
+          "test": "normal_increase/127",
+          "status": "FAIL",
+          "old": {
+            "rows": 96041,
+            "alarm_count": 42,
+            "no_alarm_count": 95999,
+            "unweighted_rate": 0.0004373132308076759,
+            "weighted_rate": 0.026415757275132273,
+            "weight_mass": 1.0
+          },
+          "new": {
+            "rows": 96041,
+            "alarm_count": 48,
+            "no_alarm_count": 95993,
+            "unweighted_rate": 0.0004997865494944867,
+            "weighted_rate": 0.03077566964285714,
+            "weight_mass": 1.0
+          },
+          "max_increase": 0.001
+        },
+        {
+          "test": "no_regression/227/protocol:17",
+          "status": "PASS",
+          "old": {
+            "rows": 22085,
+            "alarm_count": 22085,
+            "no_alarm_count": 0,
+            "unweighted_rate": 1.0,
+            "weighted_rate": 1.0,
+            "weight_mass": 0.4166666666666667
+          },
+          "new": {
+            "rows": 22085,
+            "alarm_count": 22085,
+            "no_alarm_count": 0,
+            "unweighted_rate": 1.0,
+            "weighted_rate": 1.0,
+            "weight_mass": 0.4166666666666667
+          },
+          "max_drop": 0.001
+        },
+        {
+          "test": "no_regression/227/protocol:6",
+          "status": "PASS",
+          "old": {
+            "rows": 56971,
+            "alarm_count": 56969,
+            "no_alarm_count": 2,
+            "unweighted_rate": 0.999964894419968,
+            "weighted_rate": 0.9999902259754476,
+            "weight_mass": 0.5833333333333334
+          },
+          "new": {
+            "rows": 56971,
+            "alarm_count": 56963,
+            "no_alarm_count": 8,
+            "unweighted_rate": 0.9998595776798722,
+            "weighted_rate": 0.9999609039017905,
+            "weight_mass": 0.5833333333333334
+          },
+          "max_drop": 0.001
+        },
+        {
+          "test": "normal_increase/227",
+          "status": "PASS",
+          "old": {
+            "rows": 96041,
+            "alarm_count": 85,
+            "no_alarm_count": 95956,
+            "unweighted_rate": 0.000885038681396487,
+            "weighted_rate": 0.05052171642015392,
+            "weight_mass": 1.0
+          },
+          "new": {
+            "rows": 96041,
+            "alarm_count": 73,
+            "no_alarm_count": 95968,
+            "unweighted_rate": 0.0007600920440228652,
+            "weighted_rate": 0.04114283513279049,
+            "weight_mass": 1.0
+          },
+          "max_increase": 0.001
+        },
+        {
+          "test": "no_regression/ensemble/protocol:17",
+          "status": "PASS",
+          "old": {
+            "rows": 22085,
+            "alarm_count": 22085,
+            "no_alarm_count": 0,
+            "unweighted_rate": 1.0,
+            "weighted_rate": 1.0,
+            "weight_mass": 0.4166666666666667
+          },
+          "new": {
+            "rows": 22085,
+            "alarm_count": 22085,
+            "no_alarm_count": 0,
+            "unweighted_rate": 1.0,
+            "weighted_rate": 1.0,
+            "weight_mass": 0.4166666666666667
+          },
+          "max_drop": 0.001
+        },
+        {
+          "test": "no_regression/ensemble/protocol:6",
+          "status": "PASS",
+          "old": {
+            "rows": 56971,
+            "alarm_count": 56971,
+            "no_alarm_count": 0,
+            "unweighted_rate": 1.0,
+            "weighted_rate": 1.0,
+            "weight_mass": 0.5833333333333334
+          },
+          "new": {
+            "rows": 56971,
+            "alarm_count": 56969,
+            "no_alarm_count": 2,
+            "unweighted_rate": 0.999964894419968,
+            "weighted_rate": 0.9999902259754476,
+            "weight_mass": 0.5833333333333334
+          },
+          "max_drop": 0.001
+        },
+        {
+          "test": "normal_increase/ensemble",
+          "status": "FAIL",
+          "old": {
+            "rows": 96041,
+            "alarm_count": 71,
+            "no_alarm_count": 95970,
+            "unweighted_rate": 0.0007392676044605949,
+            "weighted_rate": 0.04809545610822892,
+            "weight_mass": 1.0
+          },
+          "new": {
+            "rows": 96041,
+            "alarm_count": 71,
+            "no_alarm_count": 95970,
+            "unweighted_rate": 0.0007392676044605949,
+            "weighted_rate": 0.05127832647859929,
+            "weight_mass": 1.0
+          },
+          "max_increase": 0.001
+        }
+      ],
+      "scope": "primary view; all nonempty registered groups; no adaptive selection",
+      "evaluated_candidate": "ANCHOR790",
+      "legacy_function_alias_only": "FUSION790"
+    },
+    "UNSW_DEV": {
+      "status": "FAIL",
+      "checks": [
+        {
+          "test": "absolute/ensemble/pool/normal",
+          "status": "FAIL",
+          "value": 0.24219172820181814,
+          "limit": 0.01
+        },
+        {
+          "test": "absolute/ensemble/pool/attack",
+          "status": "PASS",
+          "value": 0.9998659940764473,
+          "limit": 0.99
+        },
+        {
+          "test": "absolute/ensemble/device:unsw-attack-traces-2018:00:16:6c:ab:6b:88/normal",
+          "status": "FAIL",
+          "value": 0.13298442988698583,
+          "limit": 0.02
+        },
+        {
+          "test": "absolute/ensemble/device:unsw-attack-traces-2018:00:16:6c:ab:6b:88/attack",
+          "status": "PASS",
+          "value": 0.9995138213430002,
+          "limit": 0.97
+        },
+        {
+          "test": "absolute/ensemble/device:unsw-attack-traces-2018:50:c7:bf:00:56:39/normal",
+          "status": "FAIL",
+          "value": 0.13416182571639665,
+          "limit": 0.02
+        },
+        {
+          "test": "absolute/ensemble/device:unsw-attack-traces-2018:50:c7:bf:00:56:39/attack",
+          "status": "PASS",
+          "value": 0.9998827690718798,
+          "limit": 0.97
+        },
+        {
+          "test": "absolute/ensemble/device:unsw-attack-traces-2018:70:ee:50:18:34:43/normal",
+          "status": "FAIL",
+          "value": 0.3347831280841583,
+          "limit": 0.02
+        },
+        {
+          "test": "absolute/ensemble/device:unsw-attack-traces-2018:70:ee:50:18:34:43/attack",
+          "status": "PASS",
+          "value": 1.0,
+          "limit": 0.97
+        },
+        {
+          "test": "absolute/ensemble/device:unsw-attack-traces-2018:ec:1a:59:79:f4:89/normal",
+          "status": "FAIL",
+          "value": 0.26613474955580657,
+          "limit": 0.02
+        },
+        {
+          "test": "absolute/ensemble/device:unsw-attack-traces-2018:ec:1a:59:79:f4:89/attack",
+          "status": "PASS",
+          "value": 0.9999333799673561,
+          "limit": 0.97
+        },
+        {
+          "test": "absolute/ensemble/device:unsw-attack-traces-2018:ec:1a:59:83:28:11/normal",
+          "status": "FAIL",
+          "value": 0.3428945077657434,
+          "limit": 0.02
+        },
+        {
+          "test": "absolute/ensemble/device:unsw-attack-traces-2018:ec:1a:59:83:28:11/attack",
+          "status": "PASS",
+          "value": 1.0,
+          "limit": 0.97
+        },
+        {
+          "test": "absolute/seed/27",
+          "status": "PASS",
+          "value": 0.99952845112039,
+          "limit": 0.97
+        },
+        {
+          "test": "absolute/seed/127",
+          "status": "PASS",
+          "value": 0.99775340968528,
+          "limit": 0.97
+        },
+        {
+          "test": "absolute/seed/227",
+          "status": "PASS",
+          "value": 0.9997895962785578,
+          "limit": 0.97
+        },
+        {
+          "test": "no_regression/27/protocol:6",
+          "status": "PASS",
+          "old": {
+            "rows": 72553,
+            "alarm_count": 72553,
+            "no_alarm_count": 0,
+            "unweighted_rate": 1.0,
+            "weighted_rate": 1.0,
+            "weight_mass": 1.0
+          },
+          "new": {
+            "rows": 72553,
+            "alarm_count": 72538,
+            "no_alarm_count": 15,
+            "unweighted_rate": 0.9997932545863024,
+            "weighted_rate": 0.99952845112039,
+            "weight_mass": 1.0
+          },
+          "max_drop": 0.001
+        },
+        {
+          "test": "normal_increase/27",
+          "status": "FAIL",
+          "old": {
+            "rows": 74444,
+            "alarm_count": 29613,
+            "no_alarm_count": 44831,
+            "unweighted_rate": 0.3977889420235345,
+            "weighted_rate": 0.23384855460725454,
+            "weight_mass": 1.0
+          },
+          "new": {
+            "rows": 74444,
+            "alarm_count": 25598,
+            "no_alarm_count": 48846,
+            "unweighted_rate": 0.3438557842136371,
+            "weighted_rate": 0.2382610041632743,
+            "weight_mass": 1.0
+          },
+          "max_increase": 0.001
+        },
+        {
+          "test": "no_regression/127/protocol:6",
+          "status": "PASS",
+          "old": {
+            "rows": 72553,
+            "alarm_count": 72470,
+            "no_alarm_count": 83,
+            "unweighted_rate": 0.9988560087108734,
+            "weighted_rate": 0.998309625412044,
+            "weight_mass": 1.0
+          },
+          "new": {
+            "rows": 72553,
+            "alarm_count": 72429,
+            "no_alarm_count": 124,
+            "unweighted_rate": 0.9982909045801001,
+            "weighted_rate": 0.99775340968528,
+            "weight_mass": 1.0
+          },
+          "max_drop": 0.001
+        },
+        {
+          "test": "normal_increase/127",
+          "status": "FAIL",
+          "old": {
+            "rows": 74444,
+            "alarm_count": 22646,
+            "no_alarm_count": 51798,
+            "unweighted_rate": 0.30420181613024555,
+            "weighted_rate": 0.1992140210125078,
+            "weight_mass": 1.0
+          },
+          "new": {
+            "rows": 74444,
+            "alarm_count": 21886,
+            "no_alarm_count": 52558,
+            "unweighted_rate": 0.29399279995701466,
+            "weighted_rate": 0.21023717175434825,
+            "weight_mass": 1.0
+          },
+          "max_increase": 0.001
+        },
+        {
+          "test": "no_regression/227/protocol:6",
+          "status": "PASS",
+          "old": {
+            "rows": 72553,
+            "alarm_count": 72548,
+            "no_alarm_count": 5,
+            "unweighted_rate": 0.9999310848621008,
+            "weighted_rate": 0.9999463207238121,
+            "weight_mass": 1.0
+          },
+          "new": {
+            "rows": 72553,
+            "alarm_count": 72526,
+            "no_alarm_count": 27,
+            "unweighted_rate": 0.9996278582553444,
+            "weighted_rate": 0.9997895962785578,
+            "weight_mass": 1.0
+          },
+          "max_drop": 0.001
+        },
+        {
+          "test": "normal_increase/227",
+          "status": "PASS",
+          "old": {
+            "rows": 74444,
+            "alarm_count": 30183,
+            "no_alarm_count": 44261,
+            "unweighted_rate": 0.40544570415345765,
+            "weighted_rate": 0.2458907425880533,
+            "weight_mass": 1.0
+          },
+          "new": {
+            "rows": 74444,
+            "alarm_count": 27056,
+            "no_alarm_count": 47388,
+            "unweighted_rate": 0.3634409757670195,
+            "weighted_rate": 0.2455941021158295,
+            "weight_mass": 1.0
+          },
+          "max_increase": 0.001
+        },
+        {
+          "test": "no_regression/ensemble/protocol:6",
+          "status": "PASS",
+          "old": {
+            "rows": 72553,
+            "alarm_count": 72548,
+            "no_alarm_count": 5,
+            "unweighted_rate": 0.9999310848621008,
+            "weighted_rate": 0.9999463207238121,
+            "weight_mass": 1.0
+          },
+          "new": {
+            "rows": 72553,
+            "alarm_count": 72539,
+            "no_alarm_count": 14,
+            "unweighted_rate": 0.9998070376138822,
+            "weighted_rate": 0.9998659940764473,
+            "weight_mass": 1.0
+          },
+          "max_drop": 0.001
+        },
+        {
+          "test": "normal_increase/ensemble",
+          "status": "FAIL",
+          "old": {
+            "rows": 74444,
+            "alarm_count": 29702,
+            "no_alarm_count": 44742,
+            "unweighted_rate": 0.3989844715490839,
+            "weighted_rate": 0.23695673789127641,
+            "weight_mass": 1.0
+          },
+          "new": {
+            "rows": 74444,
+            "alarm_count": 27100,
+            "no_alarm_count": 47344,
+            "unweighted_rate": 0.3640320240717855,
+            "weighted_rate": 0.24219172820181814,
+            "weight_mass": 1.0
+          },
+          "max_increase": 0.001
+        }
+      ],
+      "scope": "primary view; all nonempty registered groups; no adaptive selection",
+      "evaluated_candidate": "ANCHOR790",
+      "legacy_function_alias_only": "FUSION790"
+    }
+  },
+  "edge_c5_safety": {
+    "27": {
+      "status": "FAIL",
+      "groups": {
+        "device:Edge-IIoTset Raspberry Pi edge server": {
+          "rows": 40000,
+          "raw_recall": 0.381638035190074,
+          "withdrawn_raw_TP": 7028,
+          "weighted_loss_pp": 12.492762169613274,
+          "budget_pp": 1.0,
+          "status": "FAIL",
+          "failures": [
+            "WITHDRAWAL_BUDGET",
+            "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+          ]
+        },
+        "scenario:HTTP": {
+          "rows": 20000,
+          "raw_recall": 0.763276070380148,
+          "withdrawn_raw_TP": 7028,
+          "weighted_loss_pp": 24.985524339226547,
+          "budget_pp": 5.0,
+          "status": "FAIL",
+          "failures": [
+            "WITHDRAWAL_BUDGET",
+            "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+          ]
+        },
+        "scenario:UDP": {
+          "rows": 20000,
+          "raw_recall": 0.0,
+          "withdrawn_raw_TP": 0,
+          "weighted_loss_pp": 0.0,
+          "budget_pp": 5.0,
+          "status": "PASS",
+          "failures": []
+        }
+      },
+      "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER"
+    },
+    "127": {
+      "status": "FAIL",
+      "groups": {
+        "device:Edge-IIoTset Raspberry Pi edge server": {
+          "rows": 40000,
+          "raw_recall": 0.3177267305487243,
+          "withdrawn_raw_TP": 6532,
+          "weighted_loss_pp": 11.413641452049678,
+          "budget_pp": 1.0,
+          "status": "FAIL",
+          "failures": [
+            "WITHDRAWAL_BUDGET",
+            "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+          ]
+        },
+        "scenario:HTTP": {
+          "rows": 20000,
+          "raw_recall": 0.6354534610974486,
+          "withdrawn_raw_TP": 6532,
+          "weighted_loss_pp": 22.827282904099356,
+          "budget_pp": 5.0,
+          "status": "FAIL",
+          "failures": [
+            "WITHDRAWAL_BUDGET",
+            "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+          ]
+        },
+        "scenario:UDP": {
+          "rows": 20000,
+          "raw_recall": 0.0,
+          "withdrawn_raw_TP": 0,
+          "weighted_loss_pp": 0.0,
+          "budget_pp": 5.0,
+          "status": "PASS",
+          "failures": []
+        }
+      },
+      "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER"
+    },
+    "227": {
+      "status": "FAIL",
+      "groups": {
+        "device:Edge-IIoTset Raspberry Pi edge server": {
+          "rows": 40000,
+          "raw_recall": 0.34680467646275664,
+          "withdrawn_raw_TP": 7090,
+          "weighted_loss_pp": 12.568957296345538,
+          "budget_pp": 1.0,
+          "status": "FAIL",
+          "failures": [
+            "WITHDRAWAL_BUDGET",
+            "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+          ]
+        },
+        "scenario:HTTP": {
+          "rows": 20000,
+          "raw_recall": 0.6936093529255133,
+          "withdrawn_raw_TP": 7090,
+          "weighted_loss_pp": 25.137914592691075,
+          "budget_pp": 5.0,
+          "status": "FAIL",
+          "failures": [
+            "WITHDRAWAL_BUDGET",
+            "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+          ]
+        },
+        "scenario:UDP": {
+          "rows": 20000,
+          "raw_recall": 0.0,
+          "withdrawn_raw_TP": 0,
+          "weighted_loss_pp": 0.0,
+          "budget_pp": 5.0,
+          "status": "PASS",
+          "failures": []
+        }
+      },
+      "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER"
+    },
+    "ensemble": {
+      "status": "FAIL",
+      "groups": {
+        "device:Edge-IIoTset Raspberry Pi edge server": {
+          "rows": 40000,
+          "raw_recall": 0.37523029429723437,
+          "withdrawn_raw_TP": 6467,
+          "weighted_loss_pp": 11.682982766210213,
+          "budget_pp": 1.0,
+          "status": "FAIL",
+          "failures": [
+            "WITHDRAWAL_BUDGET",
+            "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+          ]
+        },
+        "scenario:HTTP": {
+          "rows": 20000,
+          "raw_recall": 0.7504605885944687,
+          "withdrawn_raw_TP": 6467,
+          "weighted_loss_pp": 23.365965532420425,
+          "budget_pp": 5.0,
+          "status": "FAIL",
+          "failures": [
+            "WITHDRAWAL_BUDGET",
+            "LOW_RAW_RECALL_ANY_WITHDRAWAL"
+          ]
+        },
+        "scenario:UDP": {
+          "rows": 20000,
+          "raw_recall": 0.0,
+          "withdrawn_raw_TP": 0,
+          "weighted_loss_pp": 0.0,
+          "budget_pp": 5.0,
+          "status": "PASS",
+          "failures": []
+        }
+      },
+      "independent_official_event_gate": "NOT_EVALUABLE_NO_EVENT_LEDGER"
+    }
+  },
+  "rejection_reasons": [
+    "All three seeds and ensemble have zero Edge UDP detections before C5",
+    "HTTP ensemble C5 recall falls from 94.995% to 46.51%; withdrawal rises from 967 to 6467",
+    "Original A/B RAW gates and Edge C5 safety remain FAIL"
+  ],
+  "interpretation": "FPR and inter-seed alarm disagreement improved, but attack gains were not retained. No new tuning, seed or epoch selection.",
+  "remote_artifacts": {
+    "CIC_DEV": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/fusion_anchor_evaluation_v1_20261105/CIC_DEV_SCORES.npz",
+      "sha256": "720443d09b65546894aa039a31e0f5b6c0101c043fc3cf0e6f92600703505caa",
+      "bytes": 97860560
+    },
+    "UNSW_DEV": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/fusion_anchor_evaluation_v1_20261105/UNSW_DEV_SCORES.npz",
+      "sha256": "05ef695ff6e36b41c02836f152466e938dfab3878f6d5ab92b87487158ce2e10",
+      "bytes": 80686480
+    },
+    "EDGE": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/fusion_anchor_evaluation_v1_20261105/EDGE_SCORES.npz",
+      "sha256": "f8831f52447db26f66dbbf517c6fb0dc11bce3196def667f33929b204a67fd9e",
+      "bytes": 32642576
+    }
+  }
+}
