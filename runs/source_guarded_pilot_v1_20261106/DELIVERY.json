@@ -1,0 +1,32 @@
+{
+  "result": "PREPARED",
+  "scope": "SOURCE_GUARDED_PILOT",
+  "pins": {
+    "worker.py": "313b6cc5d3f3fe9cfca0b5576c5a1488b7f198fd3c54133b4172d56256d6f1c1",
+    "risk_core.py": "0d6292ad6fac7ea0a15939d53554d0d1629acffdcfe32e3169b6b143bb56c29d",
+    "test_risk.py": "6274378ed1261c0f320e489cf834638b44910c2a7c963de2a065137dad7943b2",
+    "sampling_core.py": "d94102f52b7a53c0ca3f0977e3c3dd4adb3e4b9191f166f0dbeae1aa8f324970",
+    "test_sampling.py": "1deabb5719132d5729e800f7dc80b98d6ad52c1eccffa0a682dee5e599c17f77",
+    "guard_core.py": "57725f9af5f448a51dc0ba44101a20f7659cfd0b269e3b8c829ec4f892bd821d",
+    "guarded_training.py": "9425fcabc8dece79d4b6d05f1218f7bdafde798fa8685b6071a05b5aa450608a",
+    "test_guard.py": "ffcd98756238551abdfbf781fb9e7ae2a2882baabe4cbc19b30059d204574896",
+    "dependency_gate.py": "9f1128fef7c9a8e259b33ef59fe1c150231ca4c6ebec10421a739dee1f217b08",
+    "test_dependencies.py": "a805fad55d2e7d3fa3f50b0c4ad667d946a325b252efd071974be4c4de8162fc",
+    "INPUT_PINS.json": "cdd4b9952591f7e248162ff992b5f6706bc578b38f11e7f9e2b02cedebe362dc",
+    "SPEC.json": "b0c1ed821b4c9bb2cc82b5cff8672a36195a030529ae1b98c6200688eca330f3"
+  },
+  "receiver_sha256": "cbef74c2d9cdcc943911e08c150100e9711e21a7a516d096ce78018669b4572a",
+  "cpu": 1,
+  "memory_gib": 8,
+  "preflight_seconds": 1800,
+  "evaluation_phase_seconds": 3600,
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "new_heads": 3,
+  "automatic_retries": 0,
+  "external_evaluation_authorized": false,
+  "full_training_authorized": false
+}

@@ -1,0 +1,108 @@
+{
+  "version": "SOURCE_GUARDED_PILOT_V1",
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "sample_seed": 20261106,
+  "sample_per_class": 8192,
+  "batch_per_class": 128,
+  "epochs": 5,
+  "updates_per_seed": 320,
+  "learning_rate": 1e-05,
+  "optimizer": "AdamW",
+  "betas": [
+    0.9,
+    0.999
+  ],
+  "eps": 1e-08,
+  "weight_decay": 0,
+  "initial_model": "matched original FUSION790 epoch40; new optimizer; encoder and normalizers frozen",
+  "normal_upper": "weighted 90th percentile of original model full FIT normal scores",
+  "normal_risk": "E_full_FIT_normal[relu((score-upper)/original_FIT_scale)^2] estimated by fixed stratified draw set",
+  "attack_preservation": "E_full_FIT_attack[relu((baseline-score)/original_FIT_scale-0.01)^2] estimated by fixed stratified draw set",
+  "context_preservation": "E_full_FIT_attack[1(lift0>0)*relu((0.9*lift0-lift)/original_FIT_scale)^2] estimated by fixed stratified draw set",
+  "total_loss": "normal_risk + 10*attack_preservation + 10*context_preservation",
+  "coefficients_preregistered": true,
+  "hyperparameter_search": false,
+  "attack_tolerance": "0.01 original FIT scale; soft penalty, not a guaranteed hard constraint",
+  "context_intervention": "zero normalized 8 columns; off-manifold diagnostic regularizer only",
+  "pilot_weights": "For each draw in stratum g use Wg/ng, never multiply original row weight again; existing balanced minibatch n_class/batch_class scaling unchanged",
+  "threshold_policy": "original FUSION790 per-seed and ensemble CAL thresholds fixed; no recalibration",
+  "primary_endpoint": "retained state after fixed fifth source-guarded proposal round, never CAL-selected",
+  "scientific_gates": {
+    "per_seed_roles": [
+      "FIT",
+      "FIT_NOT_SAMPLED_FOR_GRADIENT",
+      "CAL"
+    ],
+    "normal_weighted_and_unweighted_nonincrease": true,
+    "attack_recall_max_drop": 0.001,
+    "attack_removed_fraction_max": 0.001,
+    "attack_standardized_p01_change_min": -0.01,
+    "positive_context_mean_retention_min": 0.9,
+    "per_protocol_attack_recall_max_drop": 0.001,
+    "ensemble_CAL_weighted_FPR_relative_reduction_min": 0.1
+  },
+  "phases": {
+    "DECODE_PREFLIGHT": 1800,
+    "TRAIN_PREFLIGHT": 1800,
+    "PILOT": 3600
+  },
+  "cpu": 1,
+  "memory_gib": 8,
+  "preflight_updates_per_seed": 8,
+  "automatic_full_training": false,
+  "automatic_external_evaluation": false,
+  "external_use": "unchanged old engineering encoder/distance/metric replay only; candidate never scored externally",
+  "limitations": [
+    "Source CAL previously used to set original cuts and is not a fresh test.",
+    "FIT outside pilot was used by original model; holdout only for this fine-tuning.",
+    "Source protection does not guarantee Edge attack preservation.",
+    "Upper-tail compression may transfer poorly; report NO_GO rather than tune to Edge.",
+    "No new independent test; CAL has been inspected diagnostically.",
+    "Three model seeds share a single sampling realization, not independent sampling replicates.",
+    "Same step budget and full-source target; not the same realized empirical objective as old uniform subset.",
+    "Strata coverage does not guarantee within-stratum tail coverage or better detection.",
+    "With-replacement fixed sample optimization can overfit; estimator expectation does not guarantee adaptive gradient unbiasedness.",
+    "All FIT now participates in optimization feedback; non-gradient FIT is not validation.",
+    "Per-seed source guard does not guarantee CAL, external or ensemble quantile preservation.",
+    "Original soft loss retained; finite guard prevents storing rejected round endpoints only.",
+    "Backtracking may stall; report zero accepted progress rather than expanding time or relaxing guards.",
+    "Guarded vs historical control has different compute; report actual attempted and retained updates."
+  ],
+  "sampling": "Within label: semantic strata (device,activity,protocol); one draw minimum per stratum, largest remainder allocation of remaining draws proportional to full FIT class mass; conditional PPS with replacement",
+  "intended_target": "full FIT per-class hierarchical expectation; unbiased design expectation for fixed parameters before sampling, not an adaptive optimization unbiasedness claim",
+  "control": "Frozen source_stratified_pilot_v1 epoch5 endpoint; identical sampling identities/weights, teacher, loss, baseline optimizer; guarded LR replay adds compute and may retain fewer steps",
+  "sample_count_semantics": "8192 draws per class; duplicate source identities allowed; actual unique identities reported; fixed draw set reused over five epochs",
+  "sampling_independent_of_CAL_scores": true,
+  "expected_semantic_groups": {
+    "normal": 94,
+    "attack": 11
+  },
+  "updates_count_semantics": "320 nominal proposal slots, up to1280 actual optimizer steps; retained optimizer steps<=320; runtime negative controls separately reported",
+  "guard": {
+    "rounds": 5,
+    "batches_per_round": 64,
+    "lr_factors": [
+      1.0,
+      0.5,
+      0.25,
+      0.125
+    ],
+    "check_scope": [
+      "all FIT",
+      "FIT not sampled for gradient"
+    ],
+    "acceptance": "All original per-seed source scientific criteria plus full FIT normal tail risk nonincrease from previous retained state",
+    "rollback": "restore complete model, Adam moments/step counters and torch RNG before every attempt; all fail restores previous retained state",
+    "full_FIT_feedback": true,
+    "CAL_feedback": false,
+    "normal_risk_atol": 1e-14,
+    "normal_risk_rtol": 1e-10,
+    "no_per_packet_or_intermediate_step_guarantee": true
+  },
+  "forecast": "2*(load_seconds + sum(preflight_head_seconds + 5*4*worst_measured_scaled_attempt_seconds)) +60 <=3600",
+  "preflight_actual_steps": "8 nominal, up to32 on replay; plus4 forced one-step rejections to verify complete state restoration"
+}

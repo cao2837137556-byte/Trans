@@ -1509,3 +1509,18 @@ DeepSeek 已加入，沿用文档合作：`runs/mainline_docs/collab/YYYYMMDD_<�
 5. **证据/边界**：[执行卡](collab/20261106_source_stratified_pilot_design_codex.md)、[启动回执](collab/20261106_source_stratified_pilot_launch_codex.md)；CAL仅开发核验，不参与选样本；大文件留超算，[进度页](http://127.0.0.1:18806/)。
 
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)
+
+
+## 2026-11-06 before source guarded pilot
+
+# 当前状态
+
+更新：2026-11-06（America/Los_Angeles）。固定五项，历史另存。
+
+1. **分层小试已验收**：182589/182590/182591累计5:22，三种子各320更新；工程PASS、科学NO_GO，原FUSION790保留，无新作业。
+2. **误报继续降，权重门未过**：集成CAL普通161→137条、0.4857%→0.4133%；加权0.9507%→0.9466%，相对原头降5.32%未达10%。原3条SimCam录制TCP误报仍在，占剩余加权误报86.95%。
+3. **攻击/8维**：源FIT/CAL召回100%、撤警0；集成CAL p01−0.010729→−0.009964通过，超限1410→1133条。27在FIT/未用FIT、127三个核验集仍失败；227全过。正向8维总贡献103.38%，个别低保留行7→13。
+4. **覆盖/下一步**：全部94/11语义组覆盖；SimCam录制TCP不同训练行3→59/66，Hydra 4→320/384。41个有效梯度探针均冲突。固定采样，设计源域攻击尾部约束下的正常风险更新小对照；不盲目扩量、不按CAL挑样本或放宽门。
+5. **证据/边界**：[验收报告](collab/20261106_source_stratified_pilot_acceptance_codex.md)、`runs/source_stratified_pilot_v1_20261106/FINAL_PILOT_ACCEPTANCE.json`；CAL仅开发核验，无A/B/Edge/C5新成绩。大文件留超算，[进度页](http://127.0.0.1:18806/)。
+
+[历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)

@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "tests": [
+    "all_rejected_restores_parameters_adam_moments_steps_and_rng",
+    "backtrack_replays_from_same_state_matches_direct_smaller_lr",
+    "normal_risk_increase_rejected_even_if_attack_safe",
+    "full_and_non_gradient_FIT_guard_matches_frozen_metrics_and_gates",
+    "attack_quantile_failure_rejected",
+    "context_collapse_rejected",
+    "real_round_driver_proposal_retention_and_forced_rollback_accounting"
+  ]
+}
