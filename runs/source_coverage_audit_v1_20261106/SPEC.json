@@ -1,0 +1,44 @@
+{
+  "version": "SOURCE_COVERAGE_AUDIT_V1",
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "source": "same frozen FIT/CAL rows, pilot memberships and epoch5 arrays",
+  "primary": "full FIT normal risk coverage and attack score-decline tail coverage",
+  "levels": [
+    "device",
+    "device+activity",
+    "device+activity+protocol",
+    "device+activity+capture+session+protocol"
+  ],
+  "membership_plans": [
+    "ACTUAL_8192_EACH",
+    "UNIFORM_16384_EACH",
+    "WEIGHTED_8192_EACH"
+  ],
+  "seed": 20261106,
+  "weighted_plan": "class conditional original FIT hierarchy weights; without replacement; coverage only, no training or inclusion-corrected objective claim",
+  "cal": "descriptive semantic stratum join only; never used to construct any selection",
+  "score_derivative": "analytical absolute derivative of normal/attack squared hinge w.r.t score; not neural parameter gradient",
+  "prediction_claim": false,
+  "optimizer_updates": 0,
+  "new_heads": 0,
+  "threshold_refit": false,
+  "external_candidate_scoring": false,
+  "cpu": 1,
+  "memory_gib": 8,
+  "phases": {
+    "PREFLIGHT": 1800,
+    "COVERAGE": 3600
+  },
+  "automatic_retries": 0,
+  "forecast": "2*12*measured one-head actual-membership source audit seconds +120; <=3600",
+  "limitations": [
+    "same semantic stratum does not guarantee same feature distribution",
+    "coverage simulations do not predict trained efficacy",
+    "no causal parameter-gradient diagnosis; no CAL-selected training identities",
+    "preflight old engineering replay does not score new external candidates"
+  ]
+}

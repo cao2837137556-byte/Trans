@@ -1,0 +1,27 @@
+{
+  "result": "PREPARED",
+  "scope": "SOURCE_COVERAGE_AND_TAIL_AUDIT",
+  "pins": {
+    "worker.py": "900e61b244bcb636591a12d396506dfb7278286cd84e09c4334bfcd1b81c9279",
+    "coverage_core.py": "6060c9bc758d01b9c25f86b076b3d54350a9c7a33cebc1bf4fffdb60fd929c00",
+    "test_coverage.py": "ce09277dd29fe426f29ed2aa1c72491507cc316e38b62b446c63c961ae6435b4",
+    "dependency_gate.py": "9f1128fef7c9a8e259b33ef59fe1c150231ca4c6ebec10421a739dee1f217b08",
+    "test_dependencies.py": "a805fad55d2e7d3fa3f50b0c4ad667d946a325b252efd071974be4c4de8162fc",
+    "INPUT_PINS.json": "d452fea5b2c4766febf1a3053417e75c63097755f4f6de89c291b1533c83f67c",
+    "SPEC.json": "9611112541098a709c6d403517847841ac4726c727487a150a05f9c94ca01655"
+  },
+  "receiver_sha256": "9a6cc8026e4fbe4dc3af260215e885041e7a882bfd07f8b68400d0112f752f36",
+  "cpu": 1,
+  "memory_gib": 8,
+  "preflight_seconds": 1800,
+  "evaluation_phase_seconds": 3600,
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "new_heads": 0,
+  "automatic_retries": 0,
+  "external_evaluation_authorized": false,
+  "full_training_authorized": false
+}
