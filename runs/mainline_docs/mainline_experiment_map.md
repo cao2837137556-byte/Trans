@@ -1,3 +1,9 @@
+## 2026-11-05：四组评价工程完成，科学验收未通过
+
+四阶段累计10分35秒、峰值1.662GiB。融合C5 Edge样本UDP98.66%、HTTP94.995%，正常FPR5.79%；A/B RAW误报退化和Edge C5安全门失败。保留全部种子，先诊断误报/种子稳定性，不自动重训。见 [验收报告](collab/20261105_device_context_evaluation_acceptance_codex.md)。
+
+---
+
 ## 2026-11-05：四组固定模型评价启动
 
 真实预检作业 182427 已运行；通过后自动 CONTEXT→AB→EDGE。真实门、A/B 防退化与 Edge 科学效果尚未验收。全部固定种子和组报告，工程失败停止、科学失败照实汇报；大工件留超算。见 [执行回执](collab/20261105_device_context_evaluation_launch_codex.md)。

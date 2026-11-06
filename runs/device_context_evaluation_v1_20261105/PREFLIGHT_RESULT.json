@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "checks": {
+    "CIC_DEV": {
+      "rows": 8,
+      "old_forward_error": 0.0
+    },
+    "UNSW_DEV": {
+      "rows": 15,
+      "old_forward_error": 3.814697265625e-06
+    },
+    "real_encoder_distance": {
+      "status": "PASS",
+      "query_rows": 4,
+      "reference_rows": 4124,
+      "encoded_rows": 112,
+      "encoded_batches": 7,
+      "e3_max_abs_error": 0.0,
+      "cached_support_error": 0.0,
+      "fresh_support_error": 0.0
+    },
+    "edge": {
+      "rows": 32,
+      "old_forward_error": 0.0
+    }
+  },
+  "external_performance_disclosed": false,
+  "seconds": 443.1927728529554,
+  "phase": "PREFLIGHT",
+  "pins_verified": 21395
+}

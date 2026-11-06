@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "scope": "Receipt identities, pinned evaluator code, all registered heads, counts/rates, scheduler resources; no large-array download or new scoring",
+  "engineering": "PASS",
+  "scientific_acceptance": "NOT_PASSED",
+  "ab_gates": {
+    "CIC_DEV": "FAIL",
+    "UNSW_DEV": "FAIL",
+    "CAL": "PASS"
+  },
+  "edge_fusion_c5_safety": {
+    "27": "FAIL",
+    "127": "FAIL",
+    "227": "FAIL",
+    "ensemble": "FAIL"
+  },
+  "jobs": [
+    {
+      "phase": "PREFLIGHT",
+      "job_id": "182427",
+      "elapsed_seconds": 447,
+      "max_rss_kib": 929760
+    },
+    {
+      "phase": "CONTEXT",
+      "job_id": "182429",
+      "elapsed_seconds": 73,
+      "max_rss_kib": 227872
+    },
+    {
+      "phase": "AB",
+      "job_id": "182430",
+      "elapsed_seconds": 84,
+      "max_rss_kib": 1742584
+    },
+    {
+      "phase": "EDGE",
+      "job_id": "182431",
+      "elapsed_seconds": 31,
+      "max_rss_kib": 880500
+    }
+  ],
+  "total_elapsed_seconds": 635,
+  "peak_rss_gib": 1.6618576049804688,
+  "receipt_sha256": {
+    "PREFLIGHT_RESULT.json": "cc004c0503abafd2832402372882063c5a69ecc8d12a099615c2db89032ab47b",
+    "PREFLIGHT_SCHEDULER.json": "0440331d8b0b17d12f83998af2d8e2210a2f3169d892410b134a4de1dfeb5ff7",
+    "PREFLIGHT_JOB.json": "24795002a5f91487b46ff102b0b1b6cca338eacaabacf323e5cb0ff76626dfa0",
+    "CONTEXT_RESULT.json": "778dc113e66982339c3b96147c9add6646cd92350d7830af394c38d899f9fc52",
+    "CONTEXT_SCHEDULER.json": "19d1a685bf8aec238a5828488acb3073068245bb36841e2a3618b7323c60eb4b",
+    "CONTEXT_JOB.json": "dddcf03845e15496f04a64916417f7cb1857b0743b4d5dbceab5625a9ba56393",
+    "AB_RESULT.json": "882562ec6a77ffdb50e67b6276505ba00074291edcf9387657dd5c71839ce393",
+    "AB_SCHEDULER.json": "e36c6ff3fe021213bac5281caf7f7c14f7cdd0d97a24942759291d71d684d12e",
+    "AB_JOB.json": "8d2d6b36b313710c567ebd80d834172c941de01218c34d37e1857abebf23ecad",
+    "EDGE_RESULT.json": "66f7a798095a58ed662d50f3f62c78d56afd2860b633681f21c62a14f7ddd89a",
+    "EDGE_SCHEDULER.json": "4de9bdf8e06176edbba65cd76ceef7623da38c950dc1962b09c5bfdeed1ab188",
+    "EDGE_JOB.json": "ddfd16162791e9107186b14b99f75f5c8e4348c8b82de6fea063a7e61a0ff651",
+    "INVENTORY.json": "6cdbc3de946c4542e4857fa0a1276e63d34d03de83ee5991b1ae76758dea8850"
+  },
+  "refit_old_report_parity": true,
+  "real_encoder_distance": {
+    "status": "PASS",
+    "query_rows": 4,
+    "reference_rows": 4124,
+    "encoded_rows": 112,
+    "encoded_batches": 7,
+    "e3_max_abs_error": 0.0,
+    "cached_support_error": 0.0,
+    "fresh_support_error": 0.0
+  },
+  "model_selection": false,
+  "new_jobs": 0
+}

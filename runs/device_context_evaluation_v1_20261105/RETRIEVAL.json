@@ -1,0 +1,107 @@
+{
+  "state": {
+    "stage": "EVALUATION_COMPLETE",
+    "phase": "EDGE",
+    "completed_phases": 4,
+    "total_phases": 4,
+    "runtime_forecast": null,
+    "PREFLIGHT_JOB": {
+      "job_id": "182427",
+      "phase": "PREFLIGHT",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 1800
+    },
+    "PREFLIGHT_PROGRESS": {
+      "stage": "PREFLIGHT_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "rss_mib": 999.6875,
+      "updated_unix": 1793898221.4750268
+    },
+    "PREFLIGHT_SCHEDULER": {
+      "stdout": "182427|COMPLETED|0:0|00:07:27||1|8G\n182427.batch|COMPLETED|0:0|00:07:27|929760K|1|\n",
+      "returncode": 0
+    },
+    "PREFLIGHT_STOP": null,
+    "CONTEXT_JOB": {
+      "job_id": "182429",
+      "phase": "CONTEXT",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 1800
+    },
+    "CONTEXT_PROGRESS": {
+      "stage": "CONTEXT_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "rss_mib": 125.38671875,
+      "updated_unix": 1793898301.6357396
+    },
+    "CONTEXT_SCHEDULER": {
+      "stdout": "182429|COMPLETED|0:0|00:01:13||1|8G\n182429.batch|COMPLETED|0:0|00:01:13|227872K|1|\n",
+      "returncode": 0
+    },
+    "CONTEXT_STOP": null,
+    "AB_JOB": {
+      "job_id": "182430",
+      "phase": "AB",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "AB_PROGRESS": {
+      "stage": "AB_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "rss_mib": 546.12890625,
+      "updated_unix": 1793898391.314499
+    },
+    "AB_SCHEDULER": {
+      "stdout": "182430|COMPLETED|0:0|00:01:24||1|8G\n182430.batch|COMPLETED|0:0|00:01:24|1742584K|1|\n",
+      "returncode": 0
+    },
+    "AB_STOP": null,
+    "EDGE_JOB": {
+      "job_id": "182431",
+      "phase": "EDGE",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "EDGE_PROGRESS": {
+      "stage": "EVALUATION_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "rss_mib": 871.10546875,
+      "updated_unix": 1793898428.519617,
+      "updated_utc": "2026-11-05T17:07:22.758826+00:00",
+      "phase": "EDGE",
+      "job_id": null,
+      "version": "EVAL_V1",
+      "completed_phases": 4,
+      "total_phases": 4,
+      "error": null
+    },
+    "EDGE_SCHEDULER": {
+      "stdout": "182431|COMPLETED|0:0|00:00:31||1|8G\n182431.batch|COMPLETED|0:0|00:00:31|880500K|1|\n",
+      "returncode": 0
+    },
+    "EDGE_STOP": null
+  },
+  "sha256": {
+    "PREFLIGHT_RESULT.json": "cc004c0503abafd2832402372882063c5a69ecc8d12a099615c2db89032ab47b",
+    "PREFLIGHT_SCHEDULER.json": "0440331d8b0b17d12f83998af2d8e2210a2f3169d892410b134a4de1dfeb5ff7",
+    "PREFLIGHT_JOB.json": "24795002a5f91487b46ff102b0b1b6cca338eacaabacf323e5cb0ff76626dfa0",
+    "CONTEXT_RESULT.json": "778dc113e66982339c3b96147c9add6646cd92350d7830af394c38d899f9fc52",
+    "CONTEXT_SCHEDULER.json": "19d1a685bf8aec238a5828488acb3073068245bb36841e2a3618b7323c60eb4b",
+    "CONTEXT_JOB.json": "dddcf03845e15496f04a64916417f7cb1857b0743b4d5dbceab5625a9ba56393",
+    "AB_RESULT.json": "882562ec6a77ffdb50e67b6276505ba00074291edcf9387657dd5c71839ce393",
+    "AB_SCHEDULER.json": "e36c6ff3fe021213bac5281caf7f7c14f7cdd0d97a24942759291d71d684d12e",
+    "AB_JOB.json": "8d2d6b36b313710c567ebd80d834172c941de01218c34d37e1857abebf23ecad",
+    "EDGE_RESULT.json": "66f7a798095a58ed662d50f3f62c78d56afd2860b633681f21c62a14f7ddd89a",
+    "EDGE_SCHEDULER.json": "4de9bdf8e06176edbba65cd76ceef7623da38c950dc1962b09c5bfdeed1ab188",
+    "EDGE_JOB.json": "ddfd16162791e9107186b14b99f75f5c8e4348c8b82de6fea063a7e61a0ff651",
+    "INVENTORY.json": "6cdbc3de946c4542e4857fa0a1276e63d34d03de83ee5991b1ae76758dea8850"
+  }
+}

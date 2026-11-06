@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "roles": {
+    "NORMAL": {
+      "rows": 20000,
+      "frames": 1629749,
+      "sha256": "d161b7473ccf280a8d332a0400402df73b32f58ae8404b48fd6af732bbf0e79c",
+      "file": "NORMAL_CONTEXT.npz",
+      "source_sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+      "max_clock_debt_ns": 854643000,
+      "restart_queries": 13137,
+      "seconds": 14.248433459084481,
+      "peak_entries": 197
+    },
+    "HTTP": {
+      "rows": 20000,
+      "frames": 229142,
+      "sha256": "2f80737118df8ca953c00e778c3e2b10fc7de93dfc13328eb3b3927bc37c23ec",
+      "file": "HTTP_CONTEXT.npz",
+      "source_sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+      "max_clock_debt_ns": 483000,
+      "restart_queries": 10451,
+      "seconds": 2.994088373845443,
+      "peak_entries": 11727
+    },
+    "UDP": {
+      "rows": 20000,
+      "frames": 3215732,
+      "sha256": "02e21bfc3cb34aa5a534e89c9a7f8472fd614fd990645dda8c86e2797114f0ee",
+      "file": "UDP_CONTEXT.npz",
+      "source_sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+      "max_clock_debt_ns": 630000,
+      "restart_queries": 10374,
+      "seconds": 54.64611444296315,
+      "peak_entries": 184615
+    }
+  },
+  "independent_checks": 0,
+  "selection": "all sealed 60000 queries",
+  "seconds": 73.21614525001496,
+  "phase": "CONTEXT",
+  "pins_verified": 107
+}
