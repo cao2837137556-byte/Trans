@@ -1,0 +1,98 @@
+{
+  "version": "CONTEXT_ANCHOR_DIAGNOSIS_V1",
+  "status": "FROZEN_BEFORE_DIAGNOSIS",
+  "training": false,
+  "optimizer_updates": 0,
+  "threshold_fitting": false,
+  "model_selection": false,
+  "contribution": {
+    "pools": [
+      "CIC_DEV",
+      "UNSW_DEV",
+      "EDGE"
+    ],
+    "arms": [
+      "FUSION790",
+      "ANCHOR790"
+    ],
+    "seeds": [
+      27,
+      127,
+      227
+    ],
+    "ensemble": "same ordered float64 mean",
+    "endpoint": 40,
+    "variants": [
+      "ACTUAL",
+      "ZERO_NORMALIZED_CONTEXT8",
+      "SHUFFLE_DEVICE_PROTOCOL_20261105",
+      "SHUFFLE_DEVICE_PROTOCOL_20261106"
+    ],
+    "donor_scope": "within same dataset device and protocol; joint 8-dimensional vectors; no labels scores or capture roles; hash-ordered cyclic derangement; singletons unchanged",
+    "normalization": "existing source FIT; zero denotes source mean in log-normalized coordinates, not no packets",
+    "thresholds": "existing frozen thresholds; intervention decisions diagnostic only",
+    "reporting": "primary cohort counts and RAW margins/deltas; full arrays HPC; no new efficacy claims or threshold/epoch selection"
+  },
+  "gradients": {
+    "data": "source LEARN/FIT only; source loader checks original UID and weight identities",
+    "snapshots": {
+      "FUSION790": [
+        40
+      ],
+      "ANCHOR790": [
+        0,
+        1,
+        5,
+        10,
+        20,
+        40
+      ]
+    },
+    "seeds": [
+      27,
+      127,
+      227
+    ],
+    "query_batches": 64,
+    "batch_rows": 256,
+    "sample": "np default_rng(20261105) uniform FIT permutation first 16384 positions; same queries across snapshots; original n/batch weights",
+    "tail": "full current-snapshot normal FIT tail, original mass and 128-negative sampler; counterfactual current-state diagnostic, not historic pre-step reconstruction",
+    "terms": [
+      "BCE_NORMAL",
+      "BCE_ATTACK",
+      "TAIL",
+      "ANCHOR_NORMAL",
+      "ANCHOR_ATTACK"
+    ],
+    "anchor": "original lambda1, matched frozen REFIT782 targets and FIT scale",
+    "groups": [
+      "ALL",
+      "E3",
+      "Q14",
+      "CONTEXT8",
+      "OTHER"
+    ],
+    "near_zero_floor": 1e-12,
+    "checks": [
+      "same original objective",
+      "gradient sum sanity",
+      "sealed snapshot identities",
+      "before/after parameter fingerprint",
+      "report source loss trajectory separately"
+    ],
+    "limitations": "sampled gradient estimate; endpoint saturation/near-zero norms not proof of conflict; no Adam state replay; no external epoch scoring"
+  },
+  "preflight": "fresh real112-row encoder/distance then small all-pool interventions and two real FIT gradient batches; measured gradient forecast required <=3600s",
+  "resources": {
+    "cpu": 1,
+    "memory_gib": 8,
+    "phase_minutes": {
+      "PREFLIGHT": 30,
+      "CONTRIBUTION": 30,
+      "GRADIENT": 60
+    },
+    "retries": 0
+  },
+  "storage": "large arrays and per-batch gradient diagnostics remain HPC; retrieve small summaries and SHA",
+  "external_role": "consumed diagnostic evidence, not independent confirmation"
+}

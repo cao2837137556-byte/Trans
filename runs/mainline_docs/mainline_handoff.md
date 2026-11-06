@@ -1,3 +1,9 @@
+## 2026-11-05：8维贡献与锚定冲突诊断启动
+
+用户授权只读机制排查。真实Linux预检182560运行，之后条件自动CONTRIBUTION→GRADIENT，1CPU/8GiB总上限2小时。固定三数据集/三种子/第40轮端点做真实8维、置零、同设备协议内两次置换；源FIT拆分BCE_NORMAL/BCE_ATTACK/TAIL/ANCHOR_NORMAL/ANCHOR_ATTACK，21个预定快照、固定64批，保留范数和近零不可解释门。无训练、调阈值或外部选轮次；大数组/逐批明细留超算。当前仅启动，尚无机制结论。见[执行卡](collab/20261105_context_anchor_diagnosis_launch_codex.md)。
+
+---
+
 ## 2026-11-05：锚定790统一评价结束，工程PASS、科学FAIL
 
 182554/182555/182556累计5:01，峰值1.691GiB；真实编码距离门及五组全量复现通过，868项旧指标一致。新Edge集成C5正常误报5.79%→0.58%，127误报5047→116，但UDP98.66%→0%、HTTP94.995%→46.51%；UDP RAW已失败，HTTP撤警967→6467。A/B原RAW门、Edge安全门仍FAIL。不替换主候选，无新作业；建议固定头8维干预和源FIT梯度冲突诊断后再定目标，不按Edge选种子/轮次。大数组留超算。见[验收报告](collab/20261105_fusion_anchor_evaluation_acceptance_codex.md)。

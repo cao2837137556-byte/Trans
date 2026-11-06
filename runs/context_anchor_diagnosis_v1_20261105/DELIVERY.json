@@ -1,0 +1,24 @@
+{
+  "result": "PREPARED",
+  "scope": "CONTEXT_CONTRIBUTION_SOURCE_GRADIENT_DIAGNOSIS",
+  "pins": {
+    "worker.py": "8f44a1b0e494af1edafec0e3df862e75e33a974e38a64c4caf7f9510b4190fa2",
+    "analysis_core.py": "20514d9f0c584847b37a26f05aa0616437b80b62757b76182d8ae6caa9b4a41d",
+    "test_diagnosis.py": "936dacd4b6fbd9a0c3b2805c2e5d9bcc52e6a275c708f3caa26a0a1cb4676503",
+    "INPUT_PINS.json": "7e420f21b4e5cd6e160ff4a45625fbc975a12a1e2b09f3a9c41f2e5dd72f464e",
+    "SPEC.json": "895df5c100633ff03298b55d5a393df05fa53d2f7986d482a40e453ea2216363"
+  },
+  "receiver_sha256": "965438cdb8ecae3eb22a1fb72de5de21748da5e892a6b09acb4ee600d8bf3ed9",
+  "cpu": 1,
+  "memory_gib": 8,
+  "preflight_seconds": 1800,
+  "evaluation_phase_seconds": 3600,
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "new_heads": 0,
+  "automatic_retries": 0,
+  "accept_existing_ab_regression_only": true
+}

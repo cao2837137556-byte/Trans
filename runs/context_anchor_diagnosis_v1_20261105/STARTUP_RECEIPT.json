@@ -1,0 +1,35 @@
+{
+  "stage": "PREFLIGHT_RUNNING",
+  "job_id": "182560",
+  "phase": "PREFLIGHT",
+  "completed_phases": 0,
+  "total_phases": 3,
+  "runtime_forecast": null,
+  "PREFLIGHT_JOB": {
+    "job_id": "182560",
+    "phase": "PREFLIGHT",
+    "cpu": 1,
+    "memory_gib": 8,
+    "wall_seconds": 1800
+  },
+  "PREFLIGHT_PROGRESS": {
+    "stage": "EDGE_CACHE_VERIFY",
+    "done": 4000,
+    "total": 4046,
+    "rss_mib": 819.41796875,
+    "updated_unix": 1793951735.047031
+  },
+  "PREFLIGHT_SCHEDULER": {
+    "stdout": "182560|RUNNING|0:0|00:00:10||1|8G\n182560.batch|RUNNING|0:0|00:00:10||1|\n",
+    "returncode": 0
+  },
+  "PREFLIGHT_STOP": null,
+  "CONTRIBUTION_JOB": null,
+  "CONTRIBUTION_PROGRESS": null,
+  "CONTRIBUTION_SCHEDULER": null,
+  "CONTRIBUTION_STOP": null,
+  "GRADIENT_JOB": null,
+  "GRADIENT_PROGRESS": null,
+  "GRADIENT_SCHEDULER": null,
+  "GRADIENT_STOP": null
+}
