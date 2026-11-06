@@ -1,0 +1,70 @@
+{
+  "state": {
+    "stage": "SOURCE_COVERAGE_COMPLETE",
+    "phase": "COVERAGE",
+    "completed_phases": 2,
+    "total_phases": 2,
+    "runtime_forecast": {
+      "audit_seconds": 712.9022031594068,
+      "budget_seconds": 3600
+    },
+    "dependency_gate": {
+      "status": "PASS",
+      "files_checked": 52,
+      "before_sbatch": true
+    },
+    "PREFLIGHT_JOB": {
+      "job_id": "182585",
+      "phase": "PREFLIGHT",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 1800
+    },
+    "PREFLIGHT_PROGRESS": {
+      "stage": "PREFLIGHT_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "rss_mib": 1510.0703125,
+      "updated_unix": 1793964429.9205656
+    },
+    "PREFLIGHT_SCHEDULER": {
+      "stdout": "182585|COMPLETED|0:0|00:05:13||1|8G\n182585.batch|COMPLETED|0:0|00:05:13|1472624K|1|\n",
+      "returncode": 0
+    },
+    "PREFLIGHT_STOP": null,
+    "COVERAGE_JOB": {
+      "job_id": "182586",
+      "phase": "COVERAGE",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "COVERAGE_PROGRESS": {
+      "stage": "SOURCE_COVERAGE_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "rss_mib": 1022.84375,
+      "updated_unix": 1793964520.4843304,
+      "updated_utc": "2026-11-06T11:28:55.242935+00:00",
+      "phase": "COVERAGE",
+      "job_id": null,
+      "version": "SOURCE_COVERAGE_V1",
+      "completed_phases": 2,
+      "total_phases": 2,
+      "error": null
+    },
+    "COVERAGE_SCHEDULER": {
+      "stdout": "182586|COMPLETED|0:0|00:01:23||1|8G\n182586.batch|COMPLETED|0:0|00:01:23|1193248K|1|\n",
+      "returncode": 0
+    },
+    "COVERAGE_STOP": null
+  },
+  "sha256": {
+    "PREFLIGHT_RESULT.json": "c1aafd8ea75338ec9ab2224f8068b4f92b5a6f340e80dc41826bd8569498a3c8",
+    "PREFLIGHT_SCHEDULER.json": "52e9e336688be249453fa662eedc4525977532f5b1904ead8201f408ec44360c",
+    "PREFLIGHT_JOB.json": "6e065b5b04449e56d209d2214cf11b99c54032c8fd6e2efab6e5e2b8e8d30155",
+    "COVERAGE_RESULT.json": "949abf5a27b7335772895b6a0ec0110d54f159f655fd822576b0a2992b98d427",
+    "COVERAGE_SCHEDULER.json": "3c4d0b68117b1b42ea9ca066f29ce76a0c21db78d3d00e7bf8af4f953e99db3e",
+    "COVERAGE_JOB.json": "fc7aa0ef8ec7b9a4e1d1f8ee6343d9284a8f32feaa04f9755f08e301aafebf59"
+  }
+}

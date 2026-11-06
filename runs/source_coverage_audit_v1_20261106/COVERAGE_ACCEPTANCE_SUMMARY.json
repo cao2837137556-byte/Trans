@@ -1,0 +1,319 @@
+{
+  "status": "PASS",
+  "scope": "COMPACT_RECEIPT_AND_SUMMARY_AUDIT",
+  "checks": 6648,
+  "engineering_complete": true,
+  "diagnostic_acceptance": true,
+  "training_go": false,
+  "decision": "SOURCE_ONLY_SAMPLING_AND_WEIGHT_ESTIMATOR_REDESIGN_BEFORE_NEXT_PILOT",
+  "heads": {
+    "27": {
+      "ACTUAL_8192_EACH": {
+        "normal": {
+          "rows": 134493,
+          "pilot_rows": 8192,
+          "strata": 94,
+          "missing_strata": 35,
+          "missing_stratum_class_mass": 0.29059074453811296,
+          "class_mass_TV_distance": 0.38142391969984035,
+          "selected_share_of_original_risk": 0.09648793878072737,
+          "selected_share_of_original_score_derivative": 0.0877892599169908
+        },
+        "attack": {
+          "rows": 483415,
+          "pilot_rows": 8192,
+          "strata": 11,
+          "missing_strata": 1,
+          "missing_stratum_class_mass": 0.16666666666666663,
+          "class_mass_TV_distance": 0.19174622001007172,
+          "selected_share_of_original_risk": 0.005231401180707274,
+          "selected_share_of_original_score_derivative": 0.006211109749281155
+        }
+      },
+      "UNIFORM_16384_EACH": {
+        "normal": {
+          "rows": 134493,
+          "pilot_rows": 16384,
+          "strata": 94,
+          "missing_strata": 20,
+          "missing_stratum_class_mass": 0.13182408884163274,
+          "class_mass_TV_distance": 0.22448834294596576,
+          "selected_share_of_original_risk": 0.12814863928035872,
+          "selected_share_of_original_score_derivative": 0.1264108734461762
+        },
+        "attack": {
+          "rows": 483415,
+          "pilot_rows": 16384,
+          "strata": 11,
+          "missing_strata": 0,
+          "missing_stratum_class_mass": 0.0,
+          "class_mass_TV_distance": 0.0665912872089361,
+          "selected_share_of_original_risk": 0.014853448496397529,
+          "selected_share_of_original_score_derivative": 0.017579063765088512
+        }
+      },
+      "WEIGHTED_8192_EACH": {
+        "normal": {
+          "rows": 134493,
+          "pilot_rows": 8192,
+          "strata": 94,
+          "missing_strata": 0,
+          "missing_stratum_class_mass": 0.0,
+          "class_mass_TV_distance": 0.13161907013927332,
+          "selected_share_of_original_risk": 0.7410307373396373,
+          "selected_share_of_original_score_derivative": 0.7342397602138078
+        },
+        "attack": {
+          "rows": 483415,
+          "pilot_rows": 8192,
+          "strata": 11,
+          "missing_strata": 0,
+          "missing_stratum_class_mass": 0.0,
+          "class_mass_TV_distance": 0.5076424342901316,
+          "selected_share_of_original_risk": 0.6892183286804276,
+          "selected_share_of_original_score_derivative": 0.7960974152107417
+        }
+      }
+    },
+    "127": {
+      "ACTUAL_8192_EACH": {
+        "normal": {
+          "rows": 134493,
+          "pilot_rows": 8192,
+          "strata": 94,
+          "missing_strata": 35,
+          "missing_stratum_class_mass": 0.29059074453811296,
+          "class_mass_TV_distance": 0.38142391969984035,
+          "selected_share_of_original_risk": 0.07876105094508991,
+          "selected_share_of_original_score_derivative": 0.07334675132098349
+        },
+        "attack": {
+          "rows": 483415,
+          "pilot_rows": 8192,
+          "strata": 11,
+          "missing_strata": 1,
+          "missing_stratum_class_mass": 0.16666666666666663,
+          "class_mass_TV_distance": 0.19174622001007172,
+          "selected_share_of_original_risk": 0.0026029795189762743,
+          "selected_share_of_original_score_derivative": 0.003185193315820253
+        }
+      },
+      "UNIFORM_16384_EACH": {
+        "normal": {
+          "rows": 134493,
+          "pilot_rows": 16384,
+          "strata": 94,
+          "missing_strata": 20,
+          "missing_stratum_class_mass": 0.13182408884163274,
+          "class_mass_TV_distance": 0.22448834294596576,
+          "selected_share_of_original_risk": 0.11860888744054442,
+          "selected_share_of_original_score_derivative": 0.11794818819018599
+        },
+        "attack": {
+          "rows": 483415,
+          "pilot_rows": 16384,
+          "strata": 11,
+          "missing_strata": 0,
+          "missing_stratum_class_mass": 0.0,
+          "class_mass_TV_distance": 0.0665912872089361,
+          "selected_share_of_original_risk": 0.01832411385004179,
+          "selected_share_of_original_score_derivative": 0.032635267493093305
+        }
+      },
+      "WEIGHTED_8192_EACH": {
+        "normal": {
+          "rows": 134493,
+          "pilot_rows": 8192,
+          "strata": 94,
+          "missing_strata": 0,
+          "missing_stratum_class_mass": 0.0,
+          "class_mass_TV_distance": 0.13161907013927332,
+          "selected_share_of_original_risk": 0.7829530765208731,
+          "selected_share_of_original_score_derivative": 0.7830964137343936
+        },
+        "attack": {
+          "rows": 483415,
+          "pilot_rows": 8192,
+          "strata": 11,
+          "missing_strata": 0,
+          "missing_stratum_class_mass": 0.0,
+          "class_mass_TV_distance": 0.5076424342901316,
+          "selected_share_of_original_risk": 0.6481011037967265,
+          "selected_share_of_original_score_derivative": 0.7663427359248958
+        }
+      }
+    },
+    "227": {
+      "ACTUAL_8192_EACH": {
+        "normal": {
+          "rows": 134493,
+          "pilot_rows": 8192,
+          "strata": 94,
+          "missing_strata": 35,
+          "missing_stratum_class_mass": 0.29059074453811296,
+          "class_mass_TV_distance": 0.38142391969984035,
+          "selected_share_of_original_risk": 0.09604311234716699,
+          "selected_share_of_original_score_derivative": 0.09083905801865519
+        },
+        "attack": {
+          "rows": 483415,
+          "pilot_rows": 8192,
+          "strata": 11,
+          "missing_strata": 1,
+          "missing_stratum_class_mass": 0.16666666666666663,
+          "class_mass_TV_distance": 0.19174622001007172,
+          "selected_share_of_original_risk": 0.0021208866969898345,
+          "selected_share_of_original_score_derivative": 0.0036370298316733616
+        }
+      },
+      "UNIFORM_16384_EACH": {
+        "normal": {
+          "rows": 134493,
+          "pilot_rows": 16384,
+          "strata": 94,
+          "missing_strata": 20,
+          "missing_stratum_class_mass": 0.13182408884163274,
+          "class_mass_TV_distance": 0.22448834294596576,
+          "selected_share_of_original_risk": 0.1273208544810681,
+          "selected_share_of_original_score_derivative": 0.12497411014177108
+        },
+        "attack": {
+          "rows": 483415,
+          "pilot_rows": 16384,
+          "strata": 11,
+          "missing_strata": 0,
+          "missing_stratum_class_mass": 0.0,
+          "class_mass_TV_distance": 0.0665912872089361,
+          "selected_share_of_original_risk": 0.008754322074515904,
+          "selected_share_of_original_score_derivative": 0.01002713729486055
+        }
+      },
+      "WEIGHTED_8192_EACH": {
+        "normal": {
+          "rows": 134493,
+          "pilot_rows": 8192,
+          "strata": 94,
+          "missing_strata": 0,
+          "missing_stratum_class_mass": 0.0,
+          "class_mass_TV_distance": 0.13161907013927332,
+          "selected_share_of_original_risk": 0.7220049381599376,
+          "selected_share_of_original_score_derivative": 0.7363063410880737
+        },
+        "attack": {
+          "rows": 483415,
+          "pilot_rows": 8192,
+          "strata": 11,
+          "missing_strata": 0,
+          "missing_stratum_class_mass": 0.0,
+          "class_mass_TV_distance": 0.5076424342901316,
+          "selected_share_of_original_risk": 0.7326094200362739,
+          "selected_share_of_original_score_derivative": 0.8102117597099107
+        }
+      }
+    },
+    "ensemble": {
+      "ACTUAL_8192_EACH": {
+        "normal": {
+          "rows": 134493,
+          "pilot_rows": 8192,
+          "strata": 94,
+          "missing_strata": 35,
+          "missing_stratum_class_mass": 0.29059074453811296,
+          "class_mass_TV_distance": 0.38142391969984035,
+          "selected_share_of_original_risk": 0.09671078518218855,
+          "selected_share_of_original_score_derivative": 0.0909032063155849
+        },
+        "attack": {
+          "rows": 483415,
+          "pilot_rows": 8192,
+          "strata": 11,
+          "missing_strata": 1,
+          "missing_stratum_class_mass": 0.16666666666666663,
+          "class_mass_TV_distance": 0.19174622001007172,
+          "selected_share_of_original_risk": 0.0033856930370399774,
+          "selected_share_of_original_score_derivative": 0.0046933324750451436
+        }
+      },
+      "UNIFORM_16384_EACH": {
+        "normal": {
+          "rows": 134493,
+          "pilot_rows": 16384,
+          "strata": 94,
+          "missing_strata": 20,
+          "missing_stratum_class_mass": 0.13182408884163274,
+          "class_mass_TV_distance": 0.22448834294596576,
+          "selected_share_of_original_risk": 0.1275198645113635,
+          "selected_share_of_original_score_derivative": 0.1273673758720453
+        },
+        "attack": {
+          "rows": 483415,
+          "pilot_rows": 16384,
+          "strata": 11,
+          "missing_strata": 0,
+          "missing_stratum_class_mass": 0.0,
+          "class_mass_TV_distance": 0.0665912872089361,
+          "selected_share_of_original_risk": 0.012687120725664134,
+          "selected_share_of_original_score_derivative": 0.018700221741328463
+        }
+      },
+      "WEIGHTED_8192_EACH": {
+        "normal": {
+          "rows": 134493,
+          "pilot_rows": 8192,
+          "strata": 94,
+          "missing_strata": 0,
+          "missing_stratum_class_mass": 0.0,
+          "class_mass_TV_distance": 0.13161907013927332,
+          "selected_share_of_original_risk": 0.7398606419720929,
+          "selected_share_of_original_score_derivative": 0.7423865457469652
+        },
+        "attack": {
+          "rows": 483415,
+          "pilot_rows": 8192,
+          "strata": 11,
+          "missing_strata": 0,
+          "missing_stratum_class_mass": 0.0,
+          "class_mass_TV_distance": 0.5076424342901316,
+          "selected_share_of_original_risk": 0.6582668012338371,
+          "selected_share_of_original_score_derivative": 0.7794198942476526
+        }
+      }
+    }
+  },
+  "simcam_recording_cal": {
+    "rows": 9,
+    "alarms": 3,
+    "weighted_remaining_FP_share": 0.8657288240433092,
+    "fit_rows": 66,
+    "pilot_rows": 3
+  },
+  "remote_artifacts": {
+    "large_details": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/source_coverage_audit_v1_20261106/ALL_STRATA.json.gz",
+      "sha256": "b6fd960c1999f3ae38d73aa5f4227170a2b2f1076f7ff3f23124d570f23ee20b",
+      "bytes": 3177
+    },
+    "memberships": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/source_coverage_audit_v1_20261106/FIT_MEMBERSHIP_COUNTERFACTUALS.npz",
+      "sha256": "ed3dcdad7c824ebb197c3624e3e7eb368f11eb5233deaec8b91595c4758588a6",
+      "bytes": 160039232
+    }
+  },
+  "receipt_sha256": {
+    "PREFLIGHT_RESULT.json": "c1aafd8ea75338ec9ab2224f8068b4f92b5a6f340e80dc41826bd8569498a3c8",
+    "PREFLIGHT_SCHEDULER.json": "52e9e336688be249453fa662eedc4525977532f5b1904ead8201f408ec44360c",
+    "PREFLIGHT_JOB.json": "6e065b5b04449e56d209d2214cf11b99c54032c8fd6e2efab6e5e2b8e8d30155",
+    "COVERAGE_RESULT.json": "949abf5a27b7335772895b6a0ec0110d54f159f655fd822576b0a2992b98d427",
+    "COVERAGE_SCHEDULER.json": "3c4d0b68117b1b42ea9ca066f29ce76a0c21db78d3d00e7bf8af4f953e99db3e",
+    "COVERAGE_JOB.json": "fc7aa0ef8ec7b9a4e1d1f8ee6343d9284a8f32feaa04f9755f08e301aafebf59"
+  },
+  "limitations": [
+    "Original pilot trained on ACTUAL rows; residual-risk comparisons are descriptive and training-conditioned, not causal efficacy tests.",
+    "Weighted without-replacement membership improves coverage but is not an unbiased training estimator; blindly retaining old row weights double emphasizes high-weight rows.",
+    "CAL semantic support is not feature-distribution equivalence; no CAL-driven membership selection.",
+    "All heads share memberships, so seeds are not independent sampling replications.",
+    "No local re-download or independent re-score of HPC arrays; hashes and compact receipt consistency checked.",
+    "Attack residual_alarm fields count correctly detected attacks, not errors. Normal score_violation fields are score decreases, not protection failures.",
+    "Ensemble objective is descriptive; actual training objectives operated separately per seed."
+  ]
+}
