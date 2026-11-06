@@ -1,0 +1,25 @@
+{
+  "result": "PREPARED",
+  "scope": "SOURCE_RISK_PRESERVATION_PILOT",
+  "pins": {
+    "worker.py": "8293b7dafe2e2947f997d0aa03361afa2d5847329f7ae0e8b3c544c90cfa23eb",
+    "risk_core.py": "0d6292ad6fac7ea0a15939d53554d0d1629acffdcfe32e3169b6b143bb56c29d",
+    "test_risk.py": "e4536222636b69bb7a1b3715ed3625a6466a2e80d3047fb5fb82f462cc92dc96",
+    "INPUT_PINS.json": "1e13d309c83e05010bf492437f266bc21adc1e84b9b885f06a561132ef5e1d80",
+    "SPEC.json": "11212b8655fa1060172afbe80979c0b5fc6ab1e007feb4ef03437bc5fb3ad003"
+  },
+  "receiver_sha256": "9d31eac8b0f7b496780519cea850f7ce7641bf21164600c069e2f18c1f4f10e0",
+  "cpu": 1,
+  "memory_gib": 8,
+  "preflight_seconds": 1800,
+  "evaluation_phase_seconds": 3600,
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "new_heads": 3,
+  "automatic_retries": 0,
+  "external_evaluation_authorized": false,
+  "full_training_authorized": false
+}

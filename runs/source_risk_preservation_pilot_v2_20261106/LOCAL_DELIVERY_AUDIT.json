@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "payloads": 7,
+  "base64_exact_roundtrip": true,
+  "lf_only": true,
+  "method_spec_and_worker_and_loss_byte_identical_to_v1": true,
+  "dependency_regression": "PASS",
+  "real_remote_gate": {
+    "status": "PASS",
+    "files_checked": 45,
+    "before_sbatch": true
+  },
+  "v1_failure": "182576 COMPUTE_STARTUP_FAILURE 3 seconds; no training",
+  "runtime_test_import": "explicit file module; tested with parent-first sys.path"
+}

@@ -1,3 +1,13 @@
+## 2026-11-06 SOURCE_RISK_PILOT_V1：本地审计脚本误列运行依赖
+
+- 作业182576，DECODE_PREFLIGHT，COMPUTE_STARTUP_FAILURE，FAILED/1:0，3秒；训练更新0，无可复用科学产物。调度MaxRSS仅1032KiB，启动采样不足，不能作为模型内存占用。
+- 根因：本地glob全部.py把仅本地audit_completion.py等误列为远端必备；运行入口校验正确拒绝。
+- 永久门：依赖来自已封存DELIVERY显式清单，提交前逐项路径范围/存在性/SHA校验；缺文件、错SHA、路径逃逸负例必须拒绝。45项真实远端核验已通过。
+- 独立v2：source_risk_preservation_pilot_v2_20261106；SPEC/worker/risk_core字节不变，测试导入采用显式路径防止同名父worker遮蔽；源域小试目标/数据/步数不变。
+- 旧失败原目录/回执保留；需要重新执行真实工程门，不能沿用本次未执行结果。
+
+---
+
 ## 2026-11-05 SOURCE_SCORE_ANCHOR_V1：线程初始化重复
 
 - 作业182502，DECODE_PREFLIGHT，FAILED/1:0，187秒、858544KiB；正式头0。

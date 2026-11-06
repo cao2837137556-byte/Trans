@@ -1,0 +1,57 @@
+{
+  "stage": "TRAIN_PREFLIGHT_RUNNING",
+  "job_id": "182578",
+  "phase": "TRAIN_PREFLIGHT",
+  "completed_phases": 1,
+  "total_phases": 3,
+  "runtime_forecast": null,
+  "dependency_gate": {
+    "status": "PASS",
+    "files_checked": 45,
+    "before_sbatch": true
+  },
+  "DECODE_PREFLIGHT_JOB": {
+    "job_id": "182577",
+    "phase": "DECODE_PREFLIGHT",
+    "cpu": 1,
+    "memory_gib": 8,
+    "wall_seconds": 1800
+  },
+  "DECODE_PREFLIGHT_PROGRESS": {
+    "stage": "DECODE_PREFLIGHT_COMPLETE",
+    "done": 1,
+    "total": 1,
+    "optimizer_updates": 0,
+    "rss_mib": 1492.015625,
+    "updated_unix": 1793955458.5803845
+  },
+  "DECODE_PREFLIGHT_SCHEDULER": {
+    "stdout": "182577|COMPLETED|0:0|00:00:40||1|8G\n182577.batch|COMPLETED|0:0|00:00:40|1625500K|1|\n",
+    "returncode": 0
+  },
+  "DECODE_PREFLIGHT_STOP": null,
+  "TRAIN_PREFLIGHT_JOB": {
+    "job_id": "182578",
+    "phase": "TRAIN_PREFLIGHT",
+    "cpu": 1,
+    "memory_gib": 8,
+    "wall_seconds": 1800
+  },
+  "TRAIN_PREFLIGHT_PROGRESS": {
+    "stage": "SOURCE_ENDPOINT_27_cal",
+    "done": 148819,
+    "total": 148819,
+    "optimizer_updates": 8,
+    "rss_mib": 3412.20703125,
+    "updated_unix": 1793955525.2339375
+  },
+  "TRAIN_PREFLIGHT_SCHEDULER": {
+    "stdout": "182578|RUNNING|0:0|00:00:50||1|8G\n182578.batch|RUNNING|0:0|00:00:50||1|\n",
+    "returncode": 0
+  },
+  "TRAIN_PREFLIGHT_STOP": null,
+  "PILOT_JOB": null,
+  "PILOT_PROGRESS": null,
+  "PILOT_SCHEDULER": null,
+  "PILOT_STOP": null
+}

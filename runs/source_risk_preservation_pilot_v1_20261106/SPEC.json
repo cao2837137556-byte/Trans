@@ -1,0 +1,65 @@
+{
+  "version": "SOURCE_RISK_PRESERVATION_PILOT_V1",
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "sample_seed": 20261106,
+  "sample_per_class": 8192,
+  "batch_per_class": 128,
+  "epochs": 5,
+  "updates_per_seed": 320,
+  "learning_rate": 1e-05,
+  "optimizer": "AdamW",
+  "betas": [
+    0.9,
+    0.999
+  ],
+  "eps": 1e-08,
+  "weight_decay": 0,
+  "initial_model": "matched original FUSION790 epoch40; new optimizer; encoder and normalizers frozen",
+  "normal_upper": "weighted 90th percentile of original model full FIT normal scores",
+  "normal_risk": "E_pilot_normal[relu((score-upper)/original_FIT_scale)^2]",
+  "attack_preservation": "E_pilot_attack[relu((baseline-score)/original_FIT_scale-0.01)^2]",
+  "context_preservation": "E_pilot_attack[1(lift0>0)*relu((0.9*lift0-lift)/original_FIT_scale)^2]",
+  "total_loss": "normal_risk + 10*attack_preservation + 10*context_preservation",
+  "coefficients_preregistered": true,
+  "hyperparameter_search": false,
+  "attack_tolerance": "0.01 original FIT scale; soft penalty, not a guaranteed hard constraint",
+  "context_intervention": "zero normalized 8 columns; off-manifold diagnostic regularizer only",
+  "pilot_weights": "preserve original FIT weights ratios, renormalize within each sampled class; equal-sized balanced batches",
+  "threshold_policy": "original FUSION790 per-seed and ensemble CAL thresholds fixed; no recalibration",
+  "primary_endpoint": "fixed fifth epoch; all seeds and ordered float64 ensemble reported; no selection",
+  "scientific_gates": {
+    "per_seed_roles": [
+      "FIT",
+      "FIT_NOT_IN_PILOT",
+      "CAL"
+    ],
+    "normal_weighted_and_unweighted_nonincrease": true,
+    "attack_recall_max_drop": 0.001,
+    "attack_removed_fraction_max": 0.001,
+    "attack_standardized_p01_change_min": -0.01,
+    "positive_context_mean_retention_min": 0.9,
+    "per_protocol_attack_recall_max_drop": 0.001,
+    "ensemble_CAL_weighted_FPR_relative_reduction_min": 0.1
+  },
+  "phases": {
+    "DECODE_PREFLIGHT": 1800,
+    "TRAIN_PREFLIGHT": 1800,
+    "PILOT": 3600
+  },
+  "cpu": 1,
+  "memory_gib": 8,
+  "preflight_updates_per_seed": 8,
+  "automatic_full_training": false,
+  "automatic_external_evaluation": false,
+  "external_use": "unchanged old engineering encoder/distance/metric replay only; candidate never scored externally",
+  "limitations": [
+    "Source CAL previously used to set original cuts and is not a fresh test.",
+    "FIT outside pilot was used by original model; holdout only for this fine-tuning.",
+    "Source protection does not guarantee Edge attack preservation.",
+    "Upper-tail compression may transfer poorly; report NO_GO rather than tune to Edge."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "classification": "COMPUTE_STARTUP_FAILURE",
+  "job": "182576",
+  "elapsed_seconds": 3,
+  "training_updates": 0,
+  "reusable_scientific_outputs": 0,
+  "root_cause": "local-only audit_completion.py included by directory glob as remote runtime dependency",
+  "correction": "build dependency pins from actual sealed DELIVERY manifests; verify all remote dependencies before sbatch",
+  "new_version": "source_risk_preservation_pilot_v2_20261106",
+  "method_unchanged": true
+}
