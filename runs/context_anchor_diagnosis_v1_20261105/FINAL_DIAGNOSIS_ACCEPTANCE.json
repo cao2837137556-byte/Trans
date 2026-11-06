@@ -1,0 +1,114 @@
+{
+  "result": "PASS",
+  "scope": "DIAGNOSTIC_ENGINEERING_AND_EVIDENCE_ACCEPTANCE_NOT_MODEL_REPAIR",
+  "model_repair_status": "UNRESOLVED_PRIOR_ANCHOR790_SCIENTIFIC_FAIL_RETAINED",
+  "resources": {
+    "PREFLIGHT": {
+      "job_id": "182560",
+      "elapsed_seconds": 67,
+      "scheduler_maxrss_kib": 1202000,
+      "worker_sampled_rss_peak_bytes": 1700528128
+    },
+    "CONTRIBUTION": {
+      "job_id": "182561",
+      "elapsed_seconds": 58,
+      "scheduler_maxrss_kib": 1176824,
+      "worker_sampled_rss_peak_bytes": 1807671296
+    },
+    "GRADIENT": {
+      "job_id": "182562",
+      "elapsed_seconds": 69,
+      "scheduler_maxrss_kib": 1467460,
+      "worker_sampled_rss_peak_bytes": 1504030720
+    }
+  },
+  "total_scheduler_seconds": 194,
+  "max_worker_sampled_rss_gib": 1.6835250854492188,
+  "max_scheduler_rss_gib": 1.3994789123535156,
+  "receipt_sha256": {
+    "PREFLIGHT_RESULT.json": "846cbd59dfe3c4353fdf871cc366958c1d635961fa97a38a3596ba1cb0a1b074",
+    "PREFLIGHT_SCHEDULER.json": "af5cecb5a388eec6fa806ade5756b1c23cc0ee03e2f8b976f20e6dcf46e29d82",
+    "PREFLIGHT_JOB.json": "d6d8c7fa401326c10fc322ef1b3abffe49b4e473a655fee7bd452fe16d1baa4e",
+    "CONTRIBUTION_RESULT.json": "1bb488882e1f235563143373374a7ff52f5accfb8918c15eacf40c82720b734c",
+    "CONTRIBUTION_SCHEDULER.json": "bcbe5f20020e486fa2e74e9310b211ae8a587be62f5255d96a12892e95444d88",
+    "CONTRIBUTION_JOB.json": "5388b553ec4ea202be2cc14d7237e74b7723060c7c49c03bdb8ef14bb5d994a6",
+    "GRADIENT_RESULT.json": "51745cfc5e7b7fc05881951391870e62431ee500ba67f10b8e8ee269b86f25ed",
+    "GRADIENT_SCHEDULER.json": "b15d8b45fad424dcbe38110b555f86032b75bbb10028c80acc3d4898fcbba3bd",
+    "GRADIENT_JOB.json": "dc30a681bdeeed35ae2dfd481108c069696f510890a25757eb80c63404519d2e"
+  },
+  "summary_sha256": "9b9e354a740e496a7fe89991952ec1b0df207264d19632cf7181e37056bbe5d9",
+  "checked_intervention_cohort_heads": 1408,
+  "endpoint_score_parity": "exact on all three datasets for both arms; all seeds and ensemble",
+  "source_and_external_head_fingerprints_match": true,
+  "source_snapshot_count": 21,
+  "source_probe_batches_per_snapshot": 64,
+  "edge_udp": {
+    "FUSION790": {
+      "actual_alarm_count": 19732,
+      "zero_alarm_count": 0,
+      "actual_margin_median": 4.4601538976033535,
+      "zero_margin_median": -1.4489116668701172,
+      "context_uplift_median": 5.909065564473471
+    },
+    "ANCHOR790": {
+      "actual_alarm_count": 0,
+      "zero_alarm_count": 0,
+      "actual_margin_median": -17.492019653320312,
+      "zero_margin_median": -18.128520965576172,
+      "context_uplift_median": 0.6365013122558594
+    }
+  },
+  "supported": [
+    "Context8 is read and has nonzero functional effects; original fusion UDP alarms disappear under zero intervention",
+    "Anchored UDP context uplift shrinks and zero-context baseline margin moves far below threshold",
+    "At epoch1 all seeds show opposing average classification-vs-anchor gradients at ALL and CONTEXT8 blocks",
+    "Late source classification gradients are saturated while anchor data gradients dominate in magnitude; conflict signs are not universal"
+  ],
+  "not_proven": [
+    "Complete causal reconstruction of historical Adam updates or weight decay effects",
+    "External epoch of UDP gain loss; intermediate checkpoints were source-only",
+    "Specific replacement objective effectiveness or source-domain hard-negative coverage",
+    "All-future/all-protocol feature extraction correctness or independent external generalization"
+  ],
+  "next_direction": "Preserve context-enabled fusion discrimination; abandon full-logit imitation of weak 782 teacher. Specify source-only normal-risk and attack-margin protections before a new small trial; no new training authorized or started by this audit.",
+  "remote_artifacts": {
+    "CIC_DEV": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/context_anchor_diagnosis_v1_20261105/CIC_DEV_INTERVENTIONS.npz",
+      "sha256": "c34a959d486af96b22ef032465e53d3ec57607991031be65e6c44401bfc7ea51",
+      "bytes": 92104076
+    },
+    "UNSW_DEV": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/context_anchor_diagnosis_v1_20261105/UNSW_DEV_INTERVENTIONS.npz",
+      "sha256": "7bacf2f249777b5928ad3c43814adee01398a67df8d07e1b3ab2c025eb16d0ae",
+      "bytes": 75940236
+    },
+    "EDGE": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/context_anchor_diagnosis_v1_20261105/EDGE_INTERVENTIONS.npz",
+      "sha256": "1c44cc0459e1869ca238d79359e2170dd28dde207cf48aac2e514a2c8c905edd",
+      "bytes": 30722444
+    }
+  },
+  "remote_batch_summary_sha256": {
+    "FUSION790_27_epoch40_BATCH_GRADIENTS.json": "26647ae69e0369b874399ce9db217c50bee65b4780d0ebb321687394bc2b31dc",
+    "ANCHOR790_27_epoch0_BATCH_GRADIENTS.json": "a287ec1f80507535f721f9e4b5c056f6002a8b8d950ca88dedc0501109cdcc51",
+    "ANCHOR790_27_epoch1_BATCH_GRADIENTS.json": "74ae5e619d87548cf12ad8bdd9658584bc175a38fa12ddde983fe3bb7306b8b1",
+    "ANCHOR790_27_epoch5_BATCH_GRADIENTS.json": "58875adf192483920072c4f256bdd4cbdcad0a6a93c60d485ef45e25031252f2",
+    "ANCHOR790_27_epoch10_BATCH_GRADIENTS.json": "7eb7eaa68539a0b020fde3f9d4a4a6bd8743f642e99fe38ca16bce364bc16007",
+    "ANCHOR790_27_epoch20_BATCH_GRADIENTS.json": "dde030c77ed9c82962e356673336647a2cfbdb842e50a53648c03202caaabb81",
+    "ANCHOR790_27_epoch40_BATCH_GRADIENTS.json": "23c56d9644e2c00ea8a0da7572759de2e62418635742af8ef9dfb1ce027e10d0",
+    "FUSION790_127_epoch40_BATCH_GRADIENTS.json": "63cacd9e0dfbd572af30aed475a743dcd3109984247ad0309b720a4519cd9e06",
+    "ANCHOR790_127_epoch0_BATCH_GRADIENTS.json": "133032e2290817d5ec3a9463e85f67ed5f7f9cb0141bb2988b4e861712090cd3",
+    "ANCHOR790_127_epoch1_BATCH_GRADIENTS.json": "363dcd0eff1381b3acac05f1baa2deef37f2fca8f4b4414d7f0bd977e8069b92",
+    "ANCHOR790_127_epoch5_BATCH_GRADIENTS.json": "0064a90bbc684f87261a5ee10cf2c38682973a6a62cfabb1904cd911e6a405ce",
+    "ANCHOR790_127_epoch10_BATCH_GRADIENTS.json": "4defbd327a63169dc0f8d6e858df8ab536206bb8e0318a2a4f6e3be5037a3a2d",
+    "ANCHOR790_127_epoch20_BATCH_GRADIENTS.json": "3c39937f35241fe8bdab6abc76b8f1c253851ddc13ab52f2f4b212dfa13f3977",
+    "ANCHOR790_127_epoch40_BATCH_GRADIENTS.json": "01d525c58be5aa2f97ad1ef03cbc6eec27dcf6414e04ea5e0e2cbf66d174d9f7",
+    "FUSION790_227_epoch40_BATCH_GRADIENTS.json": "3a8d5b389c4f9f2112011ed3ce8b66b9f256ca5f7b0f8b2beed0df053ac2df43",
+    "ANCHOR790_227_epoch0_BATCH_GRADIENTS.json": "43663b8c5febbdcafcaf5e587f34bd8e7d6995c5748948b1f44f5e52961718cb",
+    "ANCHOR790_227_epoch1_BATCH_GRADIENTS.json": "2edd77589624711a32fb704483c8c37d07ec69e003601b7e74059ef923e4010d",
+    "ANCHOR790_227_epoch5_BATCH_GRADIENTS.json": "75317e08a467821c359876a1e53c2099933c4a51d213e4ed279d4137cf5bbb37",
+    "ANCHOR790_227_epoch10_BATCH_GRADIENTS.json": "062765869339ff9fda5c1c8083fccd831ef10ca42d9c0b352b553f1817540192",
+    "ANCHOR790_227_epoch20_BATCH_GRADIENTS.json": "52dafd968f551d0486b7b083b160a1e86a511ba021117af5155c926bf4ed6937",
+    "ANCHOR790_227_epoch40_BATCH_GRADIENTS.json": "848fd99a41fa3770b2bbd395008b1112717ac0c8adb5cc2d31c9428b8b8d4e8c"
+  }
+}
