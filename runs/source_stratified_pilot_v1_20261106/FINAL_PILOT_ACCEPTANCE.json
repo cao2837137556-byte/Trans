@@ -1,0 +1,30 @@
+{
+  "engineering": "PASS",
+  "scientific": "SOURCE_PILOT_NO_GO",
+  "scope": "SOURCE_ONLY_FIXED_ENDPOINT_RAW_FIXED_THRESHOLDS",
+  "epochs_per_seed": 5,
+  "total_updates": 960,
+  "receipt_sha256": {
+    "DECODE_PREFLIGHT_RESULT.json": "b328bbc8c3c300208fef63a1579e0df1d5668454a821c9325288526a6015f266",
+    "DECODE_PREFLIGHT_SCHEDULER.json": "77e0aa0126dd7f2307bb5a68773864e70c1d2922f6735668456de965aa8b36fc",
+    "DECODE_PREFLIGHT_JOB.json": "7b54a45e73634d83427381d60a9ab1d21a3dfa49cf726fe6fa2329c106b8f184",
+    "TRAIN_PREFLIGHT_RESULT.json": "886209eeade1556fbe270229c1f884661471171bf81f979049e9f16737fcb621",
+    "TRAIN_PREFLIGHT_SCHEDULER.json": "804aff0244a3af58bfcc9533d0775134bf5898af5287e2103eae46f20e299e75",
+    "TRAIN_PREFLIGHT_JOB.json": "80f481a006f8d43e63f0fc730ee752ded891e66e857b9b96a9d1af88c8f72e51",
+    "PILOT_RESULT.json": "2db48f21df3ccec9167f69a41eb0000117641915bb8a8d77fc7b22f7416d98e4",
+    "PILOT_SCHEDULER.json": "20eaf020f86783256d8ecd1e7de27ce91dbebca03e360a4dc0a00dd7ab6c9467",
+    "PILOT_JOB.json": "b6685ccd4f4763c0ac73b9b057f879b6f36dcd3f71ad395cd69c6b1d695a2336"
+  },
+  "audit_summary_sha256": "fc0bca8cab09b9ece9ca9e72be3e6a132fe909e1af6a349ae8396ccc075d368d",
+  "no_new_jobs": true,
+  "external_efficacy_unknown": true,
+  "remote_arrays_recomputed_locally": false,
+  "limitations": [
+    "CAL reused from original calibration; not independent test",
+    "Source attacks remain far above threshold; recall alone is weak evidence of external safety",
+    "Positive context preservation is aggregate, not every row",
+    "Near-zero LC does not establish that LC caused preservation",
+    "Sampling plus estimator changed jointly; single draw realization reused for all model seeds",
+    "Unused FIT membership differs between pilots, compare common full FIT and CAL for effects"
+  ]
+}

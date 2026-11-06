@@ -1,0 +1,4658 @@
+{
+  "cal": {
+    "27": {
+      "normal_rows": 33147,
+      "baseline_false_alarms": 278,
+      "candidate_false_alarms": 133,
+      "sample_FPR_before": 0.00838688267414849,
+      "sample_FPR_after": 0.004012429480797659,
+      "sample_FPR_relative_reduction": 0.5215827338129496,
+      "weighted_FPR_before": 0.009871501048570219,
+      "weighted_FPR_after": 0.009453510819556744,
+      "weighted_FPR_relative_reduction": 0.042343127651697565,
+      "attack_rows": 115672,
+      "attack_recall": 1.0,
+      "attack_removed": 0,
+      "attack_p01_standardized_score_change": -0.009945110660046339,
+      "attack_slack_violation_fraction": 0.009820872812780967,
+      "attack_slack_violation_rows": 1136,
+      "attack_min_actual_margin": 32.528621673583984,
+      "positive_context_rows": 111019,
+      "positive_context_retention": 1.0361475425284827,
+      "context_below_90pct_rows": 10,
+      "context_lift_median_before": 3.437589645385742,
+      "context_lift_median_after": 3.5047502517700195
+    },
+    "127": {
+      "normal_rows": 33147,
+      "baseline_false_alarms": 278,
+      "candidate_false_alarms": 120,
+      "sample_FPR_before": 0.00838688267414849,
+      "sample_FPR_after": 0.0036202371255317223,
+      "sample_FPR_relative_reduction": 0.5683453237410072,
+      "weighted_FPR_before": 0.009988215835090363,
+      "weighted_FPR_after": 0.009310727340158535,
+      "weighted_FPR_relative_reduction": 0.06782878004615123,
+      "attack_rows": 115672,
+      "attack_recall": 1.0,
+      "attack_removed": 0,
+      "attack_p01_standardized_score_change": -0.010950826769694687,
+      "attack_slack_violation_fraction": 0.014653503008506812,
+      "attack_slack_violation_rows": 1695,
+      "attack_min_actual_margin": 31.84048080444336,
+      "positive_context_rows": 111016,
+      "positive_context_retention": 1.0363401637565117,
+      "context_below_90pct_rows": 21,
+      "context_lift_median_before": 3.805906295776367,
+      "context_lift_median_after": 3.8667774200439453
+    },
+    "227": {
+      "normal_rows": 33147,
+      "baseline_false_alarms": 270,
+      "candidate_false_alarms": 127,
+      "sample_FPR_before": 0.008145533532446375,
+      "sample_FPR_after": 0.0038314176245210726,
+      "sample_FPR_relative_reduction": 0.5296296296296297,
+      "weighted_FPR_before": 0.009858839304371661,
+      "weighted_FPR_after": 0.009430244675398948,
+      "weighted_FPR_relative_reduction": 0.043473132662043,
+      "attack_rows": 115672,
+      "attack_recall": 1.0,
+      "attack_removed": 0,
+      "attack_p01_standardized_score_change": -0.009428085898980499,
+      "attack_slack_violation_fraction": 0.007132235977591811,
+      "attack_slack_violation_rows": 825,
+      "attack_min_actual_margin": 32.318599700927734,
+      "positive_context_rows": 110986,
+      "positive_context_retention": 1.029088379546301,
+      "context_below_90pct_rows": 12,
+      "context_lift_median_before": 3.7684545516967773,
+      "context_lift_median_after": 3.852725028991699
+    },
+    "ensemble": {
+      "normal_rows": 33147,
+      "baseline_false_alarms": 294,
+      "candidate_false_alarms": 137,
+      "sample_FPR_before": 0.00886958095755272,
+      "sample_FPR_after": 0.004133104051648716,
+      "sample_FPR_relative_reduction": 0.5340136054421769,
+      "weighted_FPR_before": 0.009997568234487574,
+      "weighted_FPR_after": 0.009465720231076337,
+      "weighted_FPR_relative_reduction": 0.05319773678328854,
+      "attack_rows": 115672,
+      "attack_recall": 1.0,
+      "attack_removed": 0,
+      "attack_p01_standardized_score_change": -0.009964338908884037,
+      "attack_slack_violation_fraction": 0.009794937409226087,
+      "attack_slack_violation_rows": 1133,
+      "attack_min_actual_margin": 32.487977027893066,
+      "positive_context_rows": 111005,
+      "positive_context_retention": 1.0338383531758568,
+      "context_below_90pct_rows": 13,
+      "context_lift_median_before": 3.665699640909832,
+      "context_lift_median_after": 3.741520563761396
+    }
+  },
+  "failed_gates": {
+    "27_fit": [
+      "attack_p01_margin_drop_within_slack"
+    ],
+    "27_fit_not_used_in_pilot": [
+      "attack_p01_margin_drop_within_slack"
+    ],
+    "27_cal": [],
+    "127_fit": [
+      "attack_p01_margin_drop_within_slack"
+    ],
+    "127_fit_not_used_in_pilot": [
+      "attack_p01_margin_drop_within_slack"
+    ],
+    "127_cal": [
+      "attack_p01_margin_drop_within_slack"
+    ],
+    "227_fit": [],
+    "227_fit_not_used_in_pilot": [],
+    "227_cal": [],
+    "ensemble_cal": [
+      "cal_weighted_fpr_relative_reduction_10pct"
+    ]
+  },
+  "resources": {
+    "DECODE_PREFLIGHT": {
+      "job": "182589",
+      "elapsed_seconds": 37,
+      "slurm_maxrss_bytes": 1586098176.0,
+      "process_sampled_peak_bytes": 1586229248
+    },
+    "TRAIN_PREFLIGHT": {
+      "job": "182590",
+      "elapsed_seconds": 139,
+      "slurm_maxrss_bytes": 3578195968.0,
+      "process_sampled_peak_bytes": 3579224064
+    },
+    "PILOT": {
+      "job": "182591",
+      "elapsed_seconds": 146,
+      "slurm_maxrss_bytes": 3739983872.0,
+      "process_sampled_peak_bytes": 3587084288
+    }
+  },
+  "comparison": {
+    "27": {
+      "previous": {
+        "normal_rows": 33147,
+        "baseline_false_alarms": 278,
+        "candidate_false_alarms": 161,
+        "sample_FPR_before": 0.00838688267414849,
+        "sample_FPR_after": 0.00485715147675506,
+        "sample_FPR_relative_reduction": 0.42086330935251803,
+        "weighted_FPR_before": 0.009871501048570219,
+        "weighted_FPR_after": 0.00949586394363178,
+        "weighted_FPR_relative_reduction": 0.038052683486554995,
+        "attack_rows": 115672,
+        "attack_recall": 1.0,
+        "attack_removed": 0,
+        "attack_p01_standardized_score_change": -0.01037789070047438,
+        "attack_slack_violation_fraction": 0.011057127048896881,
+        "attack_slack_violation_rows": 1279,
+        "attack_min_actual_margin": 33.158226013183594,
+        "positive_context_rows": 111019,
+        "positive_context_retention": 1.0189069333318492,
+        "context_below_90pct_rows": 6,
+        "context_lift_median_before": 3.437589645385742,
+        "context_lift_median_after": 3.4862899780273438
+      },
+      "current": {
+        "normal_rows": 33147,
+        "baseline_false_alarms": 278,
+        "candidate_false_alarms": 133,
+        "sample_FPR_before": 0.00838688267414849,
+        "sample_FPR_after": 0.004012429480797659,
+        "sample_FPR_relative_reduction": 0.5215827338129496,
+        "weighted_FPR_before": 0.009871501048570219,
+        "weighted_FPR_after": 0.009453510819556744,
+        "weighted_FPR_relative_reduction": 0.042343127651697565,
+        "attack_rows": 115672,
+        "attack_recall": 1.0,
+        "attack_removed": 0,
+        "attack_p01_standardized_score_change": -0.009945110660046339,
+        "attack_slack_violation_fraction": 0.009820872812780967,
+        "attack_slack_violation_rows": 1136,
+        "attack_min_actual_margin": 32.528621673583984,
+        "positive_context_rows": 111019,
+        "positive_context_retention": 1.0361475425284827,
+        "context_below_90pct_rows": 10,
+        "context_lift_median_before": 3.437589645385742,
+        "context_lift_median_after": 3.5047502517700195
+      }
+    },
+    "127": {
+      "previous": {
+        "normal_rows": 33147,
+        "baseline_false_alarms": 278,
+        "candidate_false_alarms": 142,
+        "sample_FPR_before": 0.00838688267414849,
+        "sample_FPR_after": 0.004283947265212538,
+        "sample_FPR_relative_reduction": 0.48920863309352514,
+        "weighted_FPR_before": 0.009988215835090363,
+        "weighted_FPR_after": 0.009447244877127245,
+        "weighted_FPR_relative_reduction": 0.05416091991750838,
+        "attack_rows": 115672,
+        "attack_recall": 1.0,
+        "attack_removed": 0,
+        "attack_p01_standardized_score_change": -0.01203517621383071,
+        "attack_slack_violation_fraction": 0.015163565945086105,
+        "attack_slack_violation_rows": 1754,
+        "attack_min_actual_margin": 32.56549835205078,
+        "positive_context_rows": 111016,
+        "positive_context_retention": 1.0172939115295232,
+        "context_below_90pct_rows": 17,
+        "context_lift_median_before": 3.805906295776367,
+        "context_lift_median_after": 3.848402976989746
+      },
+      "current": {
+        "normal_rows": 33147,
+        "baseline_false_alarms": 278,
+        "candidate_false_alarms": 120,
+        "sample_FPR_before": 0.00838688267414849,
+        "sample_FPR_after": 0.0036202371255317223,
+        "sample_FPR_relative_reduction": 0.5683453237410072,
+        "weighted_FPR_before": 0.009988215835090363,
+        "weighted_FPR_after": 0.009310727340158535,
+        "weighted_FPR_relative_reduction": 0.06782878004615123,
+        "attack_rows": 115672,
+        "attack_recall": 1.0,
+        "attack_removed": 0,
+        "attack_p01_standardized_score_change": -0.010950826769694687,
+        "attack_slack_violation_fraction": 0.014653503008506812,
+        "attack_slack_violation_rows": 1695,
+        "attack_min_actual_margin": 31.84048080444336,
+        "positive_context_rows": 111016,
+        "positive_context_retention": 1.0363401637565117,
+        "context_below_90pct_rows": 21,
+        "context_lift_median_before": 3.805906295776367,
+        "context_lift_median_after": 3.8667774200439453
+      }
+    },
+    "227": {
+      "previous": {
+        "normal_rows": 33147,
+        "baseline_false_alarms": 270,
+        "candidate_false_alarms": 151,
+        "sample_FPR_before": 0.008145533532446375,
+        "sample_FPR_after": 0.0045554650496274175,
+        "sample_FPR_relative_reduction": 0.44074074074074066,
+        "weighted_FPR_before": 0.009858839304371661,
+        "weighted_FPR_after": 0.009459655879415906,
+        "weighted_FPR_relative_reduction": 0.040489900751171315,
+        "attack_rows": 115672,
+        "attack_recall": 1.0,
+        "attack_removed": 0,
+        "attack_p01_standardized_score_change": -0.010112240640446543,
+        "attack_slack_violation_fraction": 0.010356871152915139,
+        "attack_slack_violation_rows": 1198,
+        "attack_min_actual_margin": 32.77342987060547,
+        "positive_context_rows": 110986,
+        "positive_context_retention": 1.0183835409691686,
+        "context_below_90pct_rows": 10,
+        "context_lift_median_before": 3.7684545516967773,
+        "context_lift_median_after": 3.831228256225586
+      },
+      "current": {
+        "normal_rows": 33147,
+        "baseline_false_alarms": 270,
+        "candidate_false_alarms": 127,
+        "sample_FPR_before": 0.008145533532446375,
+        "sample_FPR_after": 0.0038314176245210726,
+        "sample_FPR_relative_reduction": 0.5296296296296297,
+        "weighted_FPR_before": 0.009858839304371661,
+        "weighted_FPR_after": 0.009430244675398948,
+        "weighted_FPR_relative_reduction": 0.043473132662043,
+        "attack_rows": 115672,
+        "attack_recall": 1.0,
+        "attack_removed": 0,
+        "attack_p01_standardized_score_change": -0.009428085898980499,
+        "attack_slack_violation_fraction": 0.007132235977591811,
+        "attack_slack_violation_rows": 825,
+        "attack_min_actual_margin": 32.318599700927734,
+        "positive_context_rows": 110986,
+        "positive_context_retention": 1.029088379546301,
+        "context_below_90pct_rows": 12,
+        "context_lift_median_before": 3.7684545516967773,
+        "context_lift_median_after": 3.852725028991699
+      }
+    },
+    "ensemble": {
+      "previous": {
+        "normal_rows": 33147,
+        "baseline_false_alarms": 294,
+        "candidate_false_alarms": 161,
+        "sample_FPR_before": 0.00886958095755272,
+        "sample_FPR_after": 0.00485715147675506,
+        "sample_FPR_relative_reduction": 0.45238095238095244,
+        "weighted_FPR_before": 0.009997568234487574,
+        "weighted_FPR_after": 0.009506963897144519,
+        "weighted_FPR_relative_reduction": 0.04907236698326978,
+        "attack_rows": 115672,
+        "attack_recall": 1.0,
+        "attack_removed": 0,
+        "attack_p01_standardized_score_change": -0.010729234187168884,
+        "attack_slack_violation_fraction": 0.012189639670793277,
+        "attack_slack_violation_rows": 1410,
+        "attack_min_actual_margin": 33.091127713521324,
+        "positive_context_rows": 111005,
+        "positive_context_retention": 1.0182050370620135,
+        "context_below_90pct_rows": 7,
+        "context_lift_median_before": 3.665699640909832,
+        "context_lift_median_after": 3.719888369242346
+      },
+      "current": {
+        "normal_rows": 33147,
+        "baseline_false_alarms": 294,
+        "candidate_false_alarms": 137,
+        "sample_FPR_before": 0.00886958095755272,
+        "sample_FPR_after": 0.004133104051648716,
+        "sample_FPR_relative_reduction": 0.5340136054421769,
+        "weighted_FPR_before": 0.009997568234487574,
+        "weighted_FPR_after": 0.009465720231076337,
+        "weighted_FPR_relative_reduction": 0.05319773678328854,
+        "attack_rows": 115672,
+        "attack_recall": 1.0,
+        "attack_removed": 0,
+        "attack_p01_standardized_score_change": -0.009964338908884037,
+        "attack_slack_violation_fraction": 0.009794937409226087,
+        "attack_slack_violation_rows": 1133,
+        "attack_min_actual_margin": 32.487977027893066,
+        "positive_context_rows": 111005,
+        "positive_context_retention": 1.0338383531758568,
+        "context_below_90pct_rows": 13,
+        "context_lift_median_before": 3.665699640909832,
+        "context_lift_median_after": 3.741520563761396
+      }
+    }
+  },
+  "sampling": {
+    "27": {
+      "rows": 16384,
+      "normal_rows": 8192,
+      "attack_rows": 8192,
+      "uid_sha256": "c601e79dc78bb6e0f00dd36a88241345f828944865924affa513ac722f655d3a",
+      "source_spec_sha256": "501aea9c9dd62b84a80e0cb4931935aeb766afb3d5c24e9fb39d2866800fb065",
+      "sample_weight_sha256": "458d14766586e317cad94533fb9f8bf24fa342eb480ff58e956f35695ae8b652",
+      "sampling": {
+        "method": "fixed semantic quotas; within-stratum PPS with replacement; weight Wg/ng per draw",
+        "fields": [
+          "device",
+          "activity",
+          "protocol"
+        ],
+        "seed": 20261106,
+        "draws": 16384,
+        "unique_rows": 9503,
+        "strata": [
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 22632,
+            "draws": 302,
+            "unique_rows": 301,
+            "class_mass": 0.037188308202443475,
+            "per_draw_weight": 0.0001231400933855744
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 10196,
+            "draws": 150,
+            "unique_rows": 147,
+            "class_mass": 0.01836724735311209,
+            "per_draw_weight": 0.00012244831568741394
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "LAN_PHOTO",
+              "17"
+            ],
+            "source_rows": 31,
+            "draws": 276,
+            "unique_rows": 31,
+            "class_mass": 0.03395061728395062,
+            "per_draw_weight": 0.00012300948291286458
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "LAN_PHOTO",
+              "6"
+            ],
+            "source_rows": 9,
+            "draws": 176,
+            "unique_rows": 9,
+            "class_mass": 0.021604938271604944,
+            "per_draw_weight": 0.00012275533108866446
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "LAN_RECORDING",
+              "17"
+            ],
+            "source_rows": 26,
+            "draws": 243,
+            "unique_rows": 26,
+            "class_mass": 0.029894179894179893,
+            "per_draw_weight": 0.0001230213164369543
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "LAN_RECORDING",
+              "6"
+            ],
+            "source_rows": 46,
+            "draws": 209,
+            "unique_rows": 37,
+            "class_mass": 0.025661375661375663,
+            "per_draw_weight": 0.00012278170172907014
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 3002,
+            "draws": 121,
+            "unique_rows": 111,
+            "class_mass": 0.014783271433156999,
+            "per_draw_weight": 0.00012217579696823967
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 33696,
+            "draws": 106,
+            "unique_rows": 106,
+            "class_mass": 0.012994506344620784,
+            "per_draw_weight": 0.00012258968249642248
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_PHOTO",
+              "17"
+            ],
+            "source_rows": 4,
+            "draws": 39,
+            "unique_rows": 4,
+            "class_mass": 0.00462962962962963,
+            "per_draw_weight": 0.0001187084520417854
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_PHOTO",
+              "6"
+            ],
+            "source_rows": 116,
+            "draws": 188,
+            "unique_rows": 81,
+            "class_mass": 0.023148148148148154,
+            "per_draw_weight": 0.00012312844759653275
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_RECORDING",
+              "17"
+            ],
+            "source_rows": 8,
+            "draws": 56,
+            "unique_rows": 8,
+            "class_mass": 0.006790123456790124,
+            "per_draw_weight": 0.00012125220458553793
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_RECORDING",
+              "6"
+            ],
+            "source_rows": 256,
+            "draws": 171,
+            "unique_rows": 124,
+            "class_mass": 0.020987654320987658,
+            "per_draw_weight": 0.0001227348205905711
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_WATCH",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 75,
+            "unique_rows": 10,
+            "class_mass": 0.00910493827160494,
+            "per_draw_weight": 0.00012139917695473253
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_WATCH",
+              "6"
+            ],
+            "source_rows": 249,
+            "draws": 152,
+            "unique_rows": 110,
+            "class_mass": 0.01867283950617284,
+            "per_draw_weight": 0.00012284762833008448
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "WAN_PHOTO",
+              "17"
+            ],
+            "source_rows": 6,
+            "draws": 50,
+            "unique_rows": 6,
+            "class_mass": 0.006018518518518519,
+            "per_draw_weight": 0.00012037037037037039
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "WAN_PHOTO",
+              "6"
+            ],
+            "source_rows": 174,
+            "draws": 177,
+            "unique_rows": 82,
+            "class_mass": 0.02175925925925926,
+            "per_draw_weight": 0.00012293366813140826
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "WAN_RECORDING",
+              "17"
+            ],
+            "source_rows": 8,
+            "draws": 52,
+            "unique_rows": 8,
+            "class_mass": 0.00634920634920635,
+            "per_draw_weight": 0.00012210012210012213
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "WAN_RECORDING",
+              "6"
+            ],
+            "source_rows": 281,
+            "draws": 175,
+            "unique_rows": 117,
+            "class_mass": 0.021428571428571432,
+            "per_draw_weight": 0.00012244897959183676
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 489,
+            "draws": 62,
+            "unique_rows": 52,
+            "class_mass": 0.007541245852934166,
+            "per_draw_weight": 0.00012163299762797042
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 2428,
+            "draws": 63,
+            "unique_rows": 63,
+            "class_mass": 0.007610269298580988,
+            "per_draw_weight": 0.0001207979253743014
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ALEXA_VOICE_OFF",
+              "17"
+            ],
+            "source_rows": 12,
+            "draws": 62,
+            "unique_rows": 12,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ALEXA_VOICE_OFF",
+              "6"
+            ],
+            "source_rows": 33,
+            "draws": 62,
+            "unique_rows": 30,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ALEXA_VOICE_ON",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 62,
+            "unique_rows": 9,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ALEXA_VOICE_ON",
+              "6"
+            ],
+            "source_rows": 28,
+            "draws": 62,
+            "unique_rows": 26,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "GOOGLE_VOICE_OFF",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 62,
+            "unique_rows": 9,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "GOOGLE_VOICE_OFF",
+              "6"
+            ],
+            "source_rows": 35,
+            "draws": 62,
+            "unique_rows": 30,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "GOOGLE_VOICE_ON",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 62,
+            "unique_rows": 9,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "GOOGLE_VOICE_ON",
+              "6"
+            ],
+            "source_rows": 31,
+            "draws": 62,
+            "unique_rows": 27,
+            "class_mass": 0.007575757575757579,
+            "per_draw_weight": 0.00012218963831867063
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LAN_OFF",
+              "17"
+            ],
+            "source_rows": 8,
+            "draws": 62,
+            "unique_rows": 8,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LAN_OFF",
+              "6"
+            ],
+            "source_rows": 17,
+            "draws": 62,
+            "unique_rows": 17,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LAN_ON",
+              "17"
+            ],
+            "source_rows": 3,
+            "draws": 62,
+            "unique_rows": 3,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LAN_ON",
+              "6"
+            ],
+            "source_rows": 11,
+            "draws": 62,
+            "unique_rows": 11,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LOCAL_OFF",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 62,
+            "unique_rows": 11,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LOCAL_OFF",
+              "6"
+            ],
+            "source_rows": 26,
+            "draws": 62,
+            "unique_rows": 25,
+            "class_mass": 0.007575757575757579,
+            "per_draw_weight": 0.00012218963831867063
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LOCAL_ON",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 62,
+            "unique_rows": 10,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LOCAL_ON",
+              "6"
+            ],
+            "source_rows": 31,
+            "draws": 62,
+            "unique_rows": 24,
+            "class_mass": 0.007575757575757579,
+            "per_draw_weight": 0.00012218963831867063
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "WAN_OFF",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 62,
+            "unique_rows": 11,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "WAN_OFF",
+              "6"
+            ],
+            "source_rows": 38,
+            "draws": 62,
+            "unique_rows": 31,
+            "class_mass": 0.007575757575757575,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "WAN_ON",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 62,
+            "unique_rows": 10,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "WAN_ON",
+              "6"
+            ],
+            "source_rows": 30,
+            "draws": 62,
+            "unique_rows": 24,
+            "class_mass": 0.007575757575757579,
+            "per_draw_weight": 0.00012218963831867063
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 228,
+            "draws": 26,
+            "unique_rows": 21,
+            "class_mass": 0.0030701754385964917,
+            "per_draw_weight": 0.00011808367071524968
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 410,
+            "draws": 47,
+            "unique_rows": 44,
+            "class_mass": 0.0057017543859649135,
+            "per_draw_weight": 0.00012131392310563645
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_COLOR",
+              "17"
+            ],
+            "source_rows": 12,
+            "draws": 72,
+            "unique_rows": 12,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_COLOR_TEMP",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 72,
+            "unique_rows": 11,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_OFF",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 37,
+            "unique_rows": 9,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_OFF",
+              "6"
+            ],
+            "source_rows": 15,
+            "draws": 37,
+            "unique_rows": 11,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_ON",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 37,
+            "unique_rows": 9,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_ON",
+              "6"
+            ],
+            "source_rows": 20,
+            "draws": 37,
+            "unique_rows": 18,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "GOOGLE_COLOR",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 72,
+            "unique_rows": 11,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "GOOGLE_COLOR_TEMP",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 72,
+            "unique_rows": 11,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "GOOGLE_OFF",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 72,
+            "unique_rows": 11,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "GOOGLE_ON",
+              "17"
+            ],
+            "source_rows": 12,
+            "draws": 72,
+            "unique_rows": 12,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_COLOR",
+              "6"
+            ],
+            "source_rows": 9,
+            "draws": 72,
+            "unique_rows": 9,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_COLOR_TEMP",
+              "17"
+            ],
+            "source_rows": 3,
+            "draws": 13,
+            "unique_rows": 3,
+            "class_mass": 0.0014619883040935674,
+            "per_draw_weight": 0.00011246063877642825
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_COLOR_TEMP",
+              "6"
+            ],
+            "source_rows": 16,
+            "draws": 60,
+            "unique_rows": 16,
+            "class_mass": 0.007309941520467837,
+            "per_draw_weight": 0.00012183235867446394
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_OFF",
+              "6"
+            ],
+            "source_rows": 9,
+            "draws": 72,
+            "unique_rows": 9,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_ON",
+              "6"
+            ],
+            "source_rows": 12,
+            "draws": 72,
+            "unique_rows": 12,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LOCAL_OFF",
+              "17"
+            ],
+            "source_rows": 3,
+            "draws": 37,
+            "unique_rows": 3,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LOCAL_OFF",
+              "6"
+            ],
+            "source_rows": 6,
+            "draws": 37,
+            "unique_rows": 6,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LOCAL_ON",
+              "17"
+            ],
+            "source_rows": 7,
+            "draws": 37,
+            "unique_rows": 7,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LOCAL_ON",
+              "6"
+            ],
+            "source_rows": 7,
+            "draws": 37,
+            "unique_rows": 6,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_COLOR",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 37,
+            "unique_rows": 10,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_COLOR",
+              "6"
+            ],
+            "source_rows": 15,
+            "draws": 37,
+            "unique_rows": 14,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_COLOR_TEMP",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 37,
+            "unique_rows": 10,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_COLOR_TEMP",
+              "6"
+            ],
+            "source_rows": 12,
+            "draws": 37,
+            "unique_rows": 12,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_OFF",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 37,
+            "unique_rows": 9,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_OFF",
+              "6"
+            ],
+            "source_rows": 12,
+            "draws": 37,
+            "unique_rows": 11,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_ON",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 37,
+            "unique_rows": 9,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_ON",
+              "6"
+            ],
+            "source_rows": 19,
+            "draws": 37,
+            "unique_rows": 18,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 37980,
+            "draws": 112,
+            "unique_rows": 112,
+            "class_mass": 0.013729794035867637,
+            "per_draw_weight": 0.00012258744674881818
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 10293,
+            "draws": 25,
+            "unique_rows": 25,
+            "class_mass": 0.0029368726307990338,
+            "per_draw_weight": 0.00011747490523196135
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ALEXA_OFF",
+              "17"
+            ],
+            "source_rows": 12,
+            "draws": 27,
+            "unique_rows": 10,
+            "class_mass": 0.003240740740740742,
+            "per_draw_weight": 0.0001200274348422497
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ALEXA_OFF",
+              "6"
+            ],
+            "source_rows": 63,
+            "draws": 110,
+            "unique_rows": 40,
+            "class_mass": 0.013425925925925926,
+            "per_draw_weight": 0.00012205387205387206
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ALEXA_ON",
+              "17"
+            ],
+            "source_rows": 42,
+            "draws": 61,
+            "unique_rows": 25,
+            "class_mass": 0.0074074074074074086,
+            "per_draw_weight": 0.00012143290831815424
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ALEXA_ON",
+              "6"
+            ],
+            "source_rows": 86,
+            "draws": 76,
+            "unique_rows": 40,
+            "class_mass": 0.009259259259259264,
+            "per_draw_weight": 0.000121832358674464
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "GOOGLE_OFF",
+              "17"
+            ],
+            "source_rows": 17,
+            "draws": 51,
+            "unique_rows": 16,
+            "class_mass": 0.006111111111111112,
+            "per_draw_weight": 0.0001198257080610022
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "GOOGLE_OFF",
+              "6"
+            ],
+            "source_rows": 13,
+            "draws": 86,
+            "unique_rows": 12,
+            "class_mass": 0.010555555555555558,
+            "per_draw_weight": 0.00012273901808785532
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "GOOGLE_ON",
+              "17"
+            ],
+            "source_rows": 14,
+            "draws": 68,
+            "unique_rows": 13,
+            "class_mass": 0.008333333333333335,
+            "per_draw_weight": 0.00012254901960784316
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "GOOGLE_ON",
+              "6"
+            ],
+            "source_rows": 4,
+            "draws": 68,
+            "unique_rows": 4,
+            "class_mass": 0.008333333333333335,
+            "per_draw_weight": 0.00012254901960784316
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LAN_OFF",
+              "17"
+            ],
+            "source_rows": 62,
+            "draws": 53,
+            "unique_rows": 25,
+            "class_mass": 0.006481481481481481,
+            "per_draw_weight": 0.0001222921034241789
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LAN_OFF",
+              "6"
+            ],
+            "source_rows": 25,
+            "draws": 83,
+            "unique_rows": 21,
+            "class_mass": 0.010185185185185188,
+            "per_draw_weight": 0.00012271307452030346
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LAN_ON",
+              "17"
+            ],
+            "source_rows": 6,
+            "draws": 12,
+            "unique_rows": 5,
+            "class_mass": 0.001388888888888889,
+            "per_draw_weight": 0.00011574074074074075
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LAN_ON",
+              "6"
+            ],
+            "source_rows": 21,
+            "draws": 125,
+            "unique_rows": 20,
+            "class_mass": 0.015277777777777779,
+            "per_draw_weight": 0.00012222222222222224
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LOCAL_BUTTON",
+              "17"
+            ],
+            "source_rows": 40,
+            "draws": 55,
+            "unique_rows": 21,
+            "class_mass": 0.006666666666666667,
+            "per_draw_weight": 0.00012121212121212122
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LOCAL_BUTTON",
+              "6"
+            ],
+            "source_rows": 94,
+            "draws": 82,
+            "unique_rows": 37,
+            "class_mass": 0.010000000000000005,
+            "per_draw_weight": 0.00012195121951219519
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "WAN_OFF",
+              "17"
+            ],
+            "source_rows": 2,
+            "draws": 46,
+            "unique_rows": 2,
+            "class_mass": 0.005555555555555557,
+            "per_draw_weight": 0.0001207729468599034
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "WAN_OFF",
+              "6"
+            ],
+            "source_rows": 38,
+            "draws": 91,
+            "unique_rows": 28,
+            "class_mass": 0.01111111111111111,
+            "per_draw_weight": 0.00012210012210012207
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "WAN_ON",
+              "17"
+            ],
+            "source_rows": 6,
+            "draws": 18,
+            "unique_rows": 5,
+            "class_mass": 0.0020833333333333337,
+            "per_draw_weight": 0.00011574074074074076
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "WAN_ON",
+              "6"
+            ],
+            "source_rows": 74,
+            "draws": 119,
+            "unique_rows": 46,
+            "class_mass": 0.014583333333333335,
+            "per_draw_weight": 0.00012254901960784316
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 1976,
+            "draws": 241,
+            "unique_rows": 219,
+            "class_mass": 0.029612487878803776,
+            "per_draw_weight": 0.00012287339368798248
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 8493,
+            "draws": 211,
+            "unique_rows": 203,
+            "class_mass": 0.025943067676751787,
+            "per_draw_weight": 0.00012295292737797054
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "LAN_PHOTO",
+              "17"
+            ],
+            "source_rows": 24,
+            "draws": 451,
+            "unique_rows": 24,
+            "class_mass": 0.05555555555555556,
+            "per_draw_weight": 0.0001231830500123183
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "LAN_RECORDING",
+              "17"
+            ],
+            "source_rows": 76,
+            "draws": 226,
+            "unique_rows": 71,
+            "class_mass": 0.027777777777777773,
+            "per_draw_weight": 0.00012291052114060962
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "LAN_RECORDING",
+              "6"
+            ],
+            "source_rows": 66,
+            "draws": 226,
+            "unique_rows": 59,
+            "class_mass": 0.02777777777777778,
+            "per_draw_weight": 0.00012291052114060964
+          },
+          {
+            "label": 1,
+            "key": [
+              "Amcrest Camera",
+              "Hydra",
+              "6"
+            ],
+            "source_rows": 87,
+            "draws": 1364,
+            "unique_rows": 87,
+            "class_mass": 0.16666666666666663,
+            "per_draw_weight": 0.00012218963831867055
+          },
+          {
+            "label": 1,
+            "key": [
+              "ArloQ Camera",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 2345,
+            "draws": 683,
+            "unique_rows": 599,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "ArloQ Camera",
+              "UDP",
+              "17"
+            ],
+            "source_rows": 13683,
+            "draws": 683,
+            "unique_rows": 662,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "Atomi Coffee Maker",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 4793,
+            "draws": 683,
+            "unique_rows": 638,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "Atomi Coffee Maker",
+              "UDP",
+              "17"
+            ],
+            "source_rows": 13728,
+            "draws": 683,
+            "unique_rows": 670,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "Globe Lamp",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 5011,
+            "draws": 683,
+            "unique_rows": 628,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "Globe Lamp",
+              "UDP",
+              "17"
+            ],
+            "source_rows": 12647,
+            "draws": 682,
+            "unique_rows": 666,
+            "class_mass": 0.08333333333333331,
+            "per_draw_weight": 0.00012218963831867055
+          },
+          {
+            "label": 1,
+            "key": [
+              "Philips Hue Bridge",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 149612,
+            "draws": 682,
+            "unique_rows": 681,
+            "class_mass": 0.08333333333333333,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 1,
+            "key": [
+              "Philips Hue Bridge",
+              "UDP",
+              "17"
+            ],
+            "source_rows": 13536,
+            "draws": 683,
+            "unique_rows": 672,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "SimCam",
+              "Hydra",
+              "6"
+            ],
+            "source_rows": 384,
+            "draws": 683,
+            "unique_rows": 320,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "SimCam",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 267589,
+            "draws": 683,
+            "unique_rows": 683,
+            "class_mass": 0.08333333333333338,
+            "per_draw_weight": 0.00012201073694485122
+          }
+        ],
+        "expected_row_weight_max_error": 4.336808689942018e-19,
+        "expectation_verified": true,
+        "selection_uses_scores": false,
+        "selection_uses_CAL": false,
+        "unbiased_for_fixed_parameters_before_draw": true,
+        "adaptive_training_unbiasedness_claim": false
+      },
+      "unique_normal_rows": 3197,
+      "unique_attack_rows": 6306,
+      "normal_active_rows": 817,
+      "attack_positive_lift_rows": 4136,
+      "coverage": {
+        "device": {
+          "0": 6,
+          "1": 6
+        },
+        "activity": {
+          "0": 29,
+          "1": 3
+        },
+        "protocol": {
+          "0": 2,
+          "1": 2
+        },
+        "capture_id": {
+          "0": 136,
+          "1": 33
+        },
+        "component_id": {
+          "0": 1384,
+          "1": 4492
+        }
+      }
+    },
+    "127": {
+      "rows": 16384,
+      "normal_rows": 8192,
+      "attack_rows": 8192,
+      "uid_sha256": "c601e79dc78bb6e0f00dd36a88241345f828944865924affa513ac722f655d3a",
+      "source_spec_sha256": "501aea9c9dd62b84a80e0cb4931935aeb766afb3d5c24e9fb39d2866800fb065",
+      "sample_weight_sha256": "458d14766586e317cad94533fb9f8bf24fa342eb480ff58e956f35695ae8b652",
+      "sampling": {
+        "method": "fixed semantic quotas; within-stratum PPS with replacement; weight Wg/ng per draw",
+        "fields": [
+          "device",
+          "activity",
+          "protocol"
+        ],
+        "seed": 20261106,
+        "draws": 16384,
+        "unique_rows": 9503,
+        "strata": [
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 22632,
+            "draws": 302,
+            "unique_rows": 301,
+            "class_mass": 0.037188308202443475,
+            "per_draw_weight": 0.0001231400933855744
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 10196,
+            "draws": 150,
+            "unique_rows": 147,
+            "class_mass": 0.01836724735311209,
+            "per_draw_weight": 0.00012244831568741394
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "LAN_PHOTO",
+              "17"
+            ],
+            "source_rows": 31,
+            "draws": 276,
+            "unique_rows": 31,
+            "class_mass": 0.03395061728395062,
+            "per_draw_weight": 0.00012300948291286458
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "LAN_PHOTO",
+              "6"
+            ],
+            "source_rows": 9,
+            "draws": 176,
+            "unique_rows": 9,
+            "class_mass": 0.021604938271604944,
+            "per_draw_weight": 0.00012275533108866446
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "LAN_RECORDING",
+              "17"
+            ],
+            "source_rows": 26,
+            "draws": 243,
+            "unique_rows": 26,
+            "class_mass": 0.029894179894179893,
+            "per_draw_weight": 0.0001230213164369543
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "LAN_RECORDING",
+              "6"
+            ],
+            "source_rows": 46,
+            "draws": 209,
+            "unique_rows": 37,
+            "class_mass": 0.025661375661375663,
+            "per_draw_weight": 0.00012278170172907014
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 3002,
+            "draws": 121,
+            "unique_rows": 111,
+            "class_mass": 0.014783271433156999,
+            "per_draw_weight": 0.00012217579696823967
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 33696,
+            "draws": 106,
+            "unique_rows": 106,
+            "class_mass": 0.012994506344620784,
+            "per_draw_weight": 0.00012258968249642248
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_PHOTO",
+              "17"
+            ],
+            "source_rows": 4,
+            "draws": 39,
+            "unique_rows": 4,
+            "class_mass": 0.00462962962962963,
+            "per_draw_weight": 0.0001187084520417854
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_PHOTO",
+              "6"
+            ],
+            "source_rows": 116,
+            "draws": 188,
+            "unique_rows": 81,
+            "class_mass": 0.023148148148148154,
+            "per_draw_weight": 0.00012312844759653275
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_RECORDING",
+              "17"
+            ],
+            "source_rows": 8,
+            "draws": 56,
+            "unique_rows": 8,
+            "class_mass": 0.006790123456790124,
+            "per_draw_weight": 0.00012125220458553793
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_RECORDING",
+              "6"
+            ],
+            "source_rows": 256,
+            "draws": 171,
+            "unique_rows": 124,
+            "class_mass": 0.020987654320987658,
+            "per_draw_weight": 0.0001227348205905711
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_WATCH",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 75,
+            "unique_rows": 10,
+            "class_mass": 0.00910493827160494,
+            "per_draw_weight": 0.00012139917695473253
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_WATCH",
+              "6"
+            ],
+            "source_rows": 249,
+            "draws": 152,
+            "unique_rows": 110,
+            "class_mass": 0.01867283950617284,
+            "per_draw_weight": 0.00012284762833008448
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "WAN_PHOTO",
+              "17"
+            ],
+            "source_rows": 6,
+            "draws": 50,
+            "unique_rows": 6,
+            "class_mass": 0.006018518518518519,
+            "per_draw_weight": 0.00012037037037037039
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "WAN_PHOTO",
+              "6"
+            ],
+            "source_rows": 174,
+            "draws": 177,
+            "unique_rows": 82,
+            "class_mass": 0.02175925925925926,
+            "per_draw_weight": 0.00012293366813140826
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "WAN_RECORDING",
+              "17"
+            ],
+            "source_rows": 8,
+            "draws": 52,
+            "unique_rows": 8,
+            "class_mass": 0.00634920634920635,
+            "per_draw_weight": 0.00012210012210012213
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "WAN_RECORDING",
+              "6"
+            ],
+            "source_rows": 281,
+            "draws": 175,
+            "unique_rows": 117,
+            "class_mass": 0.021428571428571432,
+            "per_draw_weight": 0.00012244897959183676
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 489,
+            "draws": 62,
+            "unique_rows": 52,
+            "class_mass": 0.007541245852934166,
+            "per_draw_weight": 0.00012163299762797042
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 2428,
+            "draws": 63,
+            "unique_rows": 63,
+            "class_mass": 0.007610269298580988,
+            "per_draw_weight": 0.0001207979253743014
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ALEXA_VOICE_OFF",
+              "17"
+            ],
+            "source_rows": 12,
+            "draws": 62,
+            "unique_rows": 12,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ALEXA_VOICE_OFF",
+              "6"
+            ],
+            "source_rows": 33,
+            "draws": 62,
+            "unique_rows": 30,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ALEXA_VOICE_ON",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 62,
+            "unique_rows": 9,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ALEXA_VOICE_ON",
+              "6"
+            ],
+            "source_rows": 28,
+            "draws": 62,
+            "unique_rows": 26,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "GOOGLE_VOICE_OFF",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 62,
+            "unique_rows": 9,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "GOOGLE_VOICE_OFF",
+              "6"
+            ],
+            "source_rows": 35,
+            "draws": 62,
+            "unique_rows": 30,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "GOOGLE_VOICE_ON",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 62,
+            "unique_rows": 9,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "GOOGLE_VOICE_ON",
+              "6"
+            ],
+            "source_rows": 31,
+            "draws": 62,
+            "unique_rows": 27,
+            "class_mass": 0.007575757575757579,
+            "per_draw_weight": 0.00012218963831867063
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LAN_OFF",
+              "17"
+            ],
+            "source_rows": 8,
+            "draws": 62,
+            "unique_rows": 8,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LAN_OFF",
+              "6"
+            ],
+            "source_rows": 17,
+            "draws": 62,
+            "unique_rows": 17,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LAN_ON",
+              "17"
+            ],
+            "source_rows": 3,
+            "draws": 62,
+            "unique_rows": 3,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LAN_ON",
+              "6"
+            ],
+            "source_rows": 11,
+            "draws": 62,
+            "unique_rows": 11,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LOCAL_OFF",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 62,
+            "unique_rows": 11,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LOCAL_OFF",
+              "6"
+            ],
+            "source_rows": 26,
+            "draws": 62,
+            "unique_rows": 25,
+            "class_mass": 0.007575757575757579,
+            "per_draw_weight": 0.00012218963831867063
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LOCAL_ON",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 62,
+            "unique_rows": 10,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LOCAL_ON",
+              "6"
+            ],
+            "source_rows": 31,
+            "draws": 62,
+            "unique_rows": 24,
+            "class_mass": 0.007575757575757579,
+            "per_draw_weight": 0.00012218963831867063
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "WAN_OFF",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 62,
+            "unique_rows": 11,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "WAN_OFF",
+              "6"
+            ],
+            "source_rows": 38,
+            "draws": 62,
+            "unique_rows": 31,
+            "class_mass": 0.007575757575757575,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "WAN_ON",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 62,
+            "unique_rows": 10,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "WAN_ON",
+              "6"
+            ],
+            "source_rows": 30,
+            "draws": 62,
+            "unique_rows": 24,
+            "class_mass": 0.007575757575757579,
+            "per_draw_weight": 0.00012218963831867063
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 228,
+            "draws": 26,
+            "unique_rows": 21,
+            "class_mass": 0.0030701754385964917,
+            "per_draw_weight": 0.00011808367071524968
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 410,
+            "draws": 47,
+            "unique_rows": 44,
+            "class_mass": 0.0057017543859649135,
+            "per_draw_weight": 0.00012131392310563645
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_COLOR",
+              "17"
+            ],
+            "source_rows": 12,
+            "draws": 72,
+            "unique_rows": 12,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_COLOR_TEMP",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 72,
+            "unique_rows": 11,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_OFF",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 37,
+            "unique_rows": 9,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_OFF",
+              "6"
+            ],
+            "source_rows": 15,
+            "draws": 37,
+            "unique_rows": 11,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_ON",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 37,
+            "unique_rows": 9,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_ON",
+              "6"
+            ],
+            "source_rows": 20,
+            "draws": 37,
+            "unique_rows": 18,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "GOOGLE_COLOR",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 72,
+            "unique_rows": 11,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "GOOGLE_COLOR_TEMP",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 72,
+            "unique_rows": 11,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "GOOGLE_OFF",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 72,
+            "unique_rows": 11,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "GOOGLE_ON",
+              "17"
+            ],
+            "source_rows": 12,
+            "draws": 72,
+            "unique_rows": 12,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_COLOR",
+              "6"
+            ],
+            "source_rows": 9,
+            "draws": 72,
+            "unique_rows": 9,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_COLOR_TEMP",
+              "17"
+            ],
+            "source_rows": 3,
+            "draws": 13,
+            "unique_rows": 3,
+            "class_mass": 0.0014619883040935674,
+            "per_draw_weight": 0.00011246063877642825
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_COLOR_TEMP",
+              "6"
+            ],
+            "source_rows": 16,
+            "draws": 60,
+            "unique_rows": 16,
+            "class_mass": 0.007309941520467837,
+            "per_draw_weight": 0.00012183235867446394
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_OFF",
+              "6"
+            ],
+            "source_rows": 9,
+            "draws": 72,
+            "unique_rows": 9,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_ON",
+              "6"
+            ],
+            "source_rows": 12,
+            "draws": 72,
+            "unique_rows": 12,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LOCAL_OFF",
+              "17"
+            ],
+            "source_rows": 3,
+            "draws": 37,
+            "unique_rows": 3,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LOCAL_OFF",
+              "6"
+            ],
+            "source_rows": 6,
+            "draws": 37,
+            "unique_rows": 6,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LOCAL_ON",
+              "17"
+            ],
+            "source_rows": 7,
+            "draws": 37,
+            "unique_rows": 7,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LOCAL_ON",
+              "6"
+            ],
+            "source_rows": 7,
+            "draws": 37,
+            "unique_rows": 6,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_COLOR",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 37,
+            "unique_rows": 10,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_COLOR",
+              "6"
+            ],
+            "source_rows": 15,
+            "draws": 37,
+            "unique_rows": 14,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_COLOR_TEMP",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 37,
+            "unique_rows": 10,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_COLOR_TEMP",
+              "6"
+            ],
+            "source_rows": 12,
+            "draws": 37,
+            "unique_rows": 12,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_OFF",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 37,
+            "unique_rows": 9,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_OFF",
+              "6"
+            ],
+            "source_rows": 12,
+            "draws": 37,
+            "unique_rows": 11,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_ON",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 37,
+            "unique_rows": 9,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_ON",
+              "6"
+            ],
+            "source_rows": 19,
+            "draws": 37,
+            "unique_rows": 18,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 37980,
+            "draws": 112,
+            "unique_rows": 112,
+            "class_mass": 0.013729794035867637,
+            "per_draw_weight": 0.00012258744674881818
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 10293,
+            "draws": 25,
+            "unique_rows": 25,
+            "class_mass": 0.0029368726307990338,
+            "per_draw_weight": 0.00011747490523196135
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ALEXA_OFF",
+              "17"
+            ],
+            "source_rows": 12,
+            "draws": 27,
+            "unique_rows": 10,
+            "class_mass": 0.003240740740740742,
+            "per_draw_weight": 0.0001200274348422497
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ALEXA_OFF",
+              "6"
+            ],
+            "source_rows": 63,
+            "draws": 110,
+            "unique_rows": 40,
+            "class_mass": 0.013425925925925926,
+            "per_draw_weight": 0.00012205387205387206
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ALEXA_ON",
+              "17"
+            ],
+            "source_rows": 42,
+            "draws": 61,
+            "unique_rows": 25,
+            "class_mass": 0.0074074074074074086,
+            "per_draw_weight": 0.00012143290831815424
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ALEXA_ON",
+              "6"
+            ],
+            "source_rows": 86,
+            "draws": 76,
+            "unique_rows": 40,
+            "class_mass": 0.009259259259259264,
+            "per_draw_weight": 0.000121832358674464
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "GOOGLE_OFF",
+              "17"
+            ],
+            "source_rows": 17,
+            "draws": 51,
+            "unique_rows": 16,
+            "class_mass": 0.006111111111111112,
+            "per_draw_weight": 0.0001198257080610022
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "GOOGLE_OFF",
+              "6"
+            ],
+            "source_rows": 13,
+            "draws": 86,
+            "unique_rows": 12,
+            "class_mass": 0.010555555555555558,
+            "per_draw_weight": 0.00012273901808785532
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "GOOGLE_ON",
+              "17"
+            ],
+            "source_rows": 14,
+            "draws": 68,
+            "unique_rows": 13,
+            "class_mass": 0.008333333333333335,
+            "per_draw_weight": 0.00012254901960784316
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "GOOGLE_ON",
+              "6"
+            ],
+            "source_rows": 4,
+            "draws": 68,
+            "unique_rows": 4,
+            "class_mass": 0.008333333333333335,
+            "per_draw_weight": 0.00012254901960784316
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LAN_OFF",
+              "17"
+            ],
+            "source_rows": 62,
+            "draws": 53,
+            "unique_rows": 25,
+            "class_mass": 0.006481481481481481,
+            "per_draw_weight": 0.0001222921034241789
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LAN_OFF",
+              "6"
+            ],
+            "source_rows": 25,
+            "draws": 83,
+            "unique_rows": 21,
+            "class_mass": 0.010185185185185188,
+            "per_draw_weight": 0.00012271307452030346
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LAN_ON",
+              "17"
+            ],
+            "source_rows": 6,
+            "draws": 12,
+            "unique_rows": 5,
+            "class_mass": 0.001388888888888889,
+            "per_draw_weight": 0.00011574074074074075
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LAN_ON",
+              "6"
+            ],
+            "source_rows": 21,
+            "draws": 125,
+            "unique_rows": 20,
+            "class_mass": 0.015277777777777779,
+            "per_draw_weight": 0.00012222222222222224
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LOCAL_BUTTON",
+              "17"
+            ],
+            "source_rows": 40,
+            "draws": 55,
+            "unique_rows": 21,
+            "class_mass": 0.006666666666666667,
+            "per_draw_weight": 0.00012121212121212122
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LOCAL_BUTTON",
+              "6"
+            ],
+            "source_rows": 94,
+            "draws": 82,
+            "unique_rows": 37,
+            "class_mass": 0.010000000000000005,
+            "per_draw_weight": 0.00012195121951219519
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "WAN_OFF",
+              "17"
+            ],
+            "source_rows": 2,
+            "draws": 46,
+            "unique_rows": 2,
+            "class_mass": 0.005555555555555557,
+            "per_draw_weight": 0.0001207729468599034
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "WAN_OFF",
+              "6"
+            ],
+            "source_rows": 38,
+            "draws": 91,
+            "unique_rows": 28,
+            "class_mass": 0.01111111111111111,
+            "per_draw_weight": 0.00012210012210012207
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "WAN_ON",
+              "17"
+            ],
+            "source_rows": 6,
+            "draws": 18,
+            "unique_rows": 5,
+            "class_mass": 0.0020833333333333337,
+            "per_draw_weight": 0.00011574074074074076
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "WAN_ON",
+              "6"
+            ],
+            "source_rows": 74,
+            "draws": 119,
+            "unique_rows": 46,
+            "class_mass": 0.014583333333333335,
+            "per_draw_weight": 0.00012254901960784316
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 1976,
+            "draws": 241,
+            "unique_rows": 219,
+            "class_mass": 0.029612487878803776,
+            "per_draw_weight": 0.00012287339368798248
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 8493,
+            "draws": 211,
+            "unique_rows": 203,
+            "class_mass": 0.025943067676751787,
+            "per_draw_weight": 0.00012295292737797054
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "LAN_PHOTO",
+              "17"
+            ],
+            "source_rows": 24,
+            "draws": 451,
+            "unique_rows": 24,
+            "class_mass": 0.05555555555555556,
+            "per_draw_weight": 0.0001231830500123183
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "LAN_RECORDING",
+              "17"
+            ],
+            "source_rows": 76,
+            "draws": 226,
+            "unique_rows": 71,
+            "class_mass": 0.027777777777777773,
+            "per_draw_weight": 0.00012291052114060962
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "LAN_RECORDING",
+              "6"
+            ],
+            "source_rows": 66,
+            "draws": 226,
+            "unique_rows": 59,
+            "class_mass": 0.02777777777777778,
+            "per_draw_weight": 0.00012291052114060964
+          },
+          {
+            "label": 1,
+            "key": [
+              "Amcrest Camera",
+              "Hydra",
+              "6"
+            ],
+            "source_rows": 87,
+            "draws": 1364,
+            "unique_rows": 87,
+            "class_mass": 0.16666666666666663,
+            "per_draw_weight": 0.00012218963831867055
+          },
+          {
+            "label": 1,
+            "key": [
+              "ArloQ Camera",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 2345,
+            "draws": 683,
+            "unique_rows": 599,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "ArloQ Camera",
+              "UDP",
+              "17"
+            ],
+            "source_rows": 13683,
+            "draws": 683,
+            "unique_rows": 662,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "Atomi Coffee Maker",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 4793,
+            "draws": 683,
+            "unique_rows": 638,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "Atomi Coffee Maker",
+              "UDP",
+              "17"
+            ],
+            "source_rows": 13728,
+            "draws": 683,
+            "unique_rows": 670,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "Globe Lamp",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 5011,
+            "draws": 683,
+            "unique_rows": 628,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "Globe Lamp",
+              "UDP",
+              "17"
+            ],
+            "source_rows": 12647,
+            "draws": 682,
+            "unique_rows": 666,
+            "class_mass": 0.08333333333333331,
+            "per_draw_weight": 0.00012218963831867055
+          },
+          {
+            "label": 1,
+            "key": [
+              "Philips Hue Bridge",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 149612,
+            "draws": 682,
+            "unique_rows": 681,
+            "class_mass": 0.08333333333333333,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 1,
+            "key": [
+              "Philips Hue Bridge",
+              "UDP",
+              "17"
+            ],
+            "source_rows": 13536,
+            "draws": 683,
+            "unique_rows": 672,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "SimCam",
+              "Hydra",
+              "6"
+            ],
+            "source_rows": 384,
+            "draws": 683,
+            "unique_rows": 320,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "SimCam",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 267589,
+            "draws": 683,
+            "unique_rows": 683,
+            "class_mass": 0.08333333333333338,
+            "per_draw_weight": 0.00012201073694485122
+          }
+        ],
+        "expected_row_weight_max_error": 4.336808689942018e-19,
+        "expectation_verified": true,
+        "selection_uses_scores": false,
+        "selection_uses_CAL": false,
+        "unbiased_for_fixed_parameters_before_draw": true,
+        "adaptive_training_unbiasedness_claim": false
+      },
+      "unique_normal_rows": 3197,
+      "unique_attack_rows": 6306,
+      "normal_active_rows": 828,
+      "attack_positive_lift_rows": 4114,
+      "coverage": {
+        "device": {
+          "0": 6,
+          "1": 6
+        },
+        "activity": {
+          "0": 29,
+          "1": 3
+        },
+        "protocol": {
+          "0": 2,
+          "1": 2
+        },
+        "capture_id": {
+          "0": 136,
+          "1": 33
+        },
+        "component_id": {
+          "0": 1384,
+          "1": 4492
+        }
+      }
+    },
+    "227": {
+      "rows": 16384,
+      "normal_rows": 8192,
+      "attack_rows": 8192,
+      "uid_sha256": "c601e79dc78bb6e0f00dd36a88241345f828944865924affa513ac722f655d3a",
+      "source_spec_sha256": "501aea9c9dd62b84a80e0cb4931935aeb766afb3d5c24e9fb39d2866800fb065",
+      "sample_weight_sha256": "458d14766586e317cad94533fb9f8bf24fa342eb480ff58e956f35695ae8b652",
+      "sampling": {
+        "method": "fixed semantic quotas; within-stratum PPS with replacement; weight Wg/ng per draw",
+        "fields": [
+          "device",
+          "activity",
+          "protocol"
+        ],
+        "seed": 20261106,
+        "draws": 16384,
+        "unique_rows": 9503,
+        "strata": [
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 22632,
+            "draws": 302,
+            "unique_rows": 301,
+            "class_mass": 0.037188308202443475,
+            "per_draw_weight": 0.0001231400933855744
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 10196,
+            "draws": 150,
+            "unique_rows": 147,
+            "class_mass": 0.01836724735311209,
+            "per_draw_weight": 0.00012244831568741394
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "LAN_PHOTO",
+              "17"
+            ],
+            "source_rows": 31,
+            "draws": 276,
+            "unique_rows": 31,
+            "class_mass": 0.03395061728395062,
+            "per_draw_weight": 0.00012300948291286458
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "LAN_PHOTO",
+              "6"
+            ],
+            "source_rows": 9,
+            "draws": 176,
+            "unique_rows": 9,
+            "class_mass": 0.021604938271604944,
+            "per_draw_weight": 0.00012275533108866446
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "LAN_RECORDING",
+              "17"
+            ],
+            "source_rows": 26,
+            "draws": 243,
+            "unique_rows": 26,
+            "class_mass": 0.029894179894179893,
+            "per_draw_weight": 0.0001230213164369543
+          },
+          {
+            "label": 0,
+            "key": [
+              "Amcrest Camera",
+              "LAN_RECORDING",
+              "6"
+            ],
+            "source_rows": 46,
+            "draws": 209,
+            "unique_rows": 37,
+            "class_mass": 0.025661375661375663,
+            "per_draw_weight": 0.00012278170172907014
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 3002,
+            "draws": 121,
+            "unique_rows": 111,
+            "class_mass": 0.014783271433156999,
+            "per_draw_weight": 0.00012217579696823967
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 33696,
+            "draws": 106,
+            "unique_rows": 106,
+            "class_mass": 0.012994506344620784,
+            "per_draw_weight": 0.00012258968249642248
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_PHOTO",
+              "17"
+            ],
+            "source_rows": 4,
+            "draws": 39,
+            "unique_rows": 4,
+            "class_mass": 0.00462962962962963,
+            "per_draw_weight": 0.0001187084520417854
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_PHOTO",
+              "6"
+            ],
+            "source_rows": 116,
+            "draws": 188,
+            "unique_rows": 81,
+            "class_mass": 0.023148148148148154,
+            "per_draw_weight": 0.00012312844759653275
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_RECORDING",
+              "17"
+            ],
+            "source_rows": 8,
+            "draws": 56,
+            "unique_rows": 8,
+            "class_mass": 0.006790123456790124,
+            "per_draw_weight": 0.00012125220458553793
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_RECORDING",
+              "6"
+            ],
+            "source_rows": 256,
+            "draws": 171,
+            "unique_rows": 124,
+            "class_mass": 0.020987654320987658,
+            "per_draw_weight": 0.0001227348205905711
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_WATCH",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 75,
+            "unique_rows": 10,
+            "class_mass": 0.00910493827160494,
+            "per_draw_weight": 0.00012139917695473253
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "LAN_WATCH",
+              "6"
+            ],
+            "source_rows": 249,
+            "draws": 152,
+            "unique_rows": 110,
+            "class_mass": 0.01867283950617284,
+            "per_draw_weight": 0.00012284762833008448
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "WAN_PHOTO",
+              "17"
+            ],
+            "source_rows": 6,
+            "draws": 50,
+            "unique_rows": 6,
+            "class_mass": 0.006018518518518519,
+            "per_draw_weight": 0.00012037037037037039
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "WAN_PHOTO",
+              "6"
+            ],
+            "source_rows": 174,
+            "draws": 177,
+            "unique_rows": 82,
+            "class_mass": 0.02175925925925926,
+            "per_draw_weight": 0.00012293366813140826
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "WAN_RECORDING",
+              "17"
+            ],
+            "source_rows": 8,
+            "draws": 52,
+            "unique_rows": 8,
+            "class_mass": 0.00634920634920635,
+            "per_draw_weight": 0.00012210012210012213
+          },
+          {
+            "label": 0,
+            "key": [
+              "ArloQ Camera",
+              "WAN_RECORDING",
+              "6"
+            ],
+            "source_rows": 281,
+            "draws": 175,
+            "unique_rows": 117,
+            "class_mass": 0.021428571428571432,
+            "per_draw_weight": 0.00012244897959183676
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 489,
+            "draws": 62,
+            "unique_rows": 52,
+            "class_mass": 0.007541245852934166,
+            "per_draw_weight": 0.00012163299762797042
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 2428,
+            "draws": 63,
+            "unique_rows": 63,
+            "class_mass": 0.007610269298580988,
+            "per_draw_weight": 0.0001207979253743014
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ALEXA_VOICE_OFF",
+              "17"
+            ],
+            "source_rows": 12,
+            "draws": 62,
+            "unique_rows": 12,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ALEXA_VOICE_OFF",
+              "6"
+            ],
+            "source_rows": 33,
+            "draws": 62,
+            "unique_rows": 30,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ALEXA_VOICE_ON",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 62,
+            "unique_rows": 9,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "ALEXA_VOICE_ON",
+              "6"
+            ],
+            "source_rows": 28,
+            "draws": 62,
+            "unique_rows": 26,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "GOOGLE_VOICE_OFF",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 62,
+            "unique_rows": 9,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "GOOGLE_VOICE_OFF",
+              "6"
+            ],
+            "source_rows": 35,
+            "draws": 62,
+            "unique_rows": 30,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "GOOGLE_VOICE_ON",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 62,
+            "unique_rows": 9,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "GOOGLE_VOICE_ON",
+              "6"
+            ],
+            "source_rows": 31,
+            "draws": 62,
+            "unique_rows": 27,
+            "class_mass": 0.007575757575757579,
+            "per_draw_weight": 0.00012218963831867063
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LAN_OFF",
+              "17"
+            ],
+            "source_rows": 8,
+            "draws": 62,
+            "unique_rows": 8,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LAN_OFF",
+              "6"
+            ],
+            "source_rows": 17,
+            "draws": 62,
+            "unique_rows": 17,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LAN_ON",
+              "17"
+            ],
+            "source_rows": 3,
+            "draws": 62,
+            "unique_rows": 3,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LAN_ON",
+              "6"
+            ],
+            "source_rows": 11,
+            "draws": 62,
+            "unique_rows": 11,
+            "class_mass": 0.007575757575757577,
+            "per_draw_weight": 0.0001221896383186706
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LOCAL_OFF",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 62,
+            "unique_rows": 11,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LOCAL_OFF",
+              "6"
+            ],
+            "source_rows": 26,
+            "draws": 62,
+            "unique_rows": 25,
+            "class_mass": 0.007575757575757579,
+            "per_draw_weight": 0.00012218963831867063
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LOCAL_ON",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 62,
+            "unique_rows": 10,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "LOCAL_ON",
+              "6"
+            ],
+            "source_rows": 31,
+            "draws": 62,
+            "unique_rows": 24,
+            "class_mass": 0.007575757575757579,
+            "per_draw_weight": 0.00012218963831867063
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "WAN_OFF",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 62,
+            "unique_rows": 11,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "WAN_OFF",
+              "6"
+            ],
+            "source_rows": 38,
+            "draws": 62,
+            "unique_rows": 31,
+            "class_mass": 0.007575757575757575,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "WAN_ON",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 62,
+            "unique_rows": 10,
+            "class_mass": 0.007575757575757576,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 0,
+            "key": [
+              "Atomi Coffee Maker",
+              "WAN_ON",
+              "6"
+            ],
+            "source_rows": 30,
+            "draws": 62,
+            "unique_rows": 24,
+            "class_mass": 0.007575757575757579,
+            "per_draw_weight": 0.00012218963831867063
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 228,
+            "draws": 26,
+            "unique_rows": 21,
+            "class_mass": 0.0030701754385964917,
+            "per_draw_weight": 0.00011808367071524968
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 410,
+            "draws": 47,
+            "unique_rows": 44,
+            "class_mass": 0.0057017543859649135,
+            "per_draw_weight": 0.00012131392310563645
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_COLOR",
+              "17"
+            ],
+            "source_rows": 12,
+            "draws": 72,
+            "unique_rows": 12,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_COLOR_TEMP",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 72,
+            "unique_rows": 11,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_OFF",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 37,
+            "unique_rows": 9,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_OFF",
+              "6"
+            ],
+            "source_rows": 15,
+            "draws": 37,
+            "unique_rows": 11,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_ON",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 37,
+            "unique_rows": 9,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "ALEXA_ON",
+              "6"
+            ],
+            "source_rows": 20,
+            "draws": 37,
+            "unique_rows": 18,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "GOOGLE_COLOR",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 72,
+            "unique_rows": 11,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "GOOGLE_COLOR_TEMP",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 72,
+            "unique_rows": 11,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "GOOGLE_OFF",
+              "17"
+            ],
+            "source_rows": 11,
+            "draws": 72,
+            "unique_rows": 11,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "GOOGLE_ON",
+              "17"
+            ],
+            "source_rows": 12,
+            "draws": 72,
+            "unique_rows": 12,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_COLOR",
+              "6"
+            ],
+            "source_rows": 9,
+            "draws": 72,
+            "unique_rows": 9,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_COLOR_TEMP",
+              "17"
+            ],
+            "source_rows": 3,
+            "draws": 13,
+            "unique_rows": 3,
+            "class_mass": 0.0014619883040935674,
+            "per_draw_weight": 0.00011246063877642825
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_COLOR_TEMP",
+              "6"
+            ],
+            "source_rows": 16,
+            "draws": 60,
+            "unique_rows": 16,
+            "class_mass": 0.007309941520467837,
+            "per_draw_weight": 0.00012183235867446394
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_OFF",
+              "6"
+            ],
+            "source_rows": 9,
+            "draws": 72,
+            "unique_rows": 9,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LAN_ON",
+              "6"
+            ],
+            "source_rows": 12,
+            "draws": 72,
+            "unique_rows": 12,
+            "class_mass": 0.008771929824561405,
+            "per_draw_weight": 0.00012183235867446396
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LOCAL_OFF",
+              "17"
+            ],
+            "source_rows": 3,
+            "draws": 37,
+            "unique_rows": 3,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LOCAL_OFF",
+              "6"
+            ],
+            "source_rows": 6,
+            "draws": 37,
+            "unique_rows": 6,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LOCAL_ON",
+              "17"
+            ],
+            "source_rows": 7,
+            "draws": 37,
+            "unique_rows": 7,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "LOCAL_ON",
+              "6"
+            ],
+            "source_rows": 7,
+            "draws": 37,
+            "unique_rows": 6,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_COLOR",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 37,
+            "unique_rows": 10,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_COLOR",
+              "6"
+            ],
+            "source_rows": 15,
+            "draws": 37,
+            "unique_rows": 14,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_COLOR_TEMP",
+              "17"
+            ],
+            "source_rows": 10,
+            "draws": 37,
+            "unique_rows": 10,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_COLOR_TEMP",
+              "6"
+            ],
+            "source_rows": 12,
+            "draws": 37,
+            "unique_rows": 12,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_OFF",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 37,
+            "unique_rows": 9,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_OFF",
+              "6"
+            ],
+            "source_rows": 12,
+            "draws": 37,
+            "unique_rows": 11,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_ON",
+              "17"
+            ],
+            "source_rows": 9,
+            "draws": 37,
+            "unique_rows": 9,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Globe Lamp",
+              "WAN_ON",
+              "6"
+            ],
+            "source_rows": 19,
+            "draws": 37,
+            "unique_rows": 18,
+            "class_mass": 0.004385964912280702,
+            "per_draw_weight": 0.00011853959222380276
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 37980,
+            "draws": 112,
+            "unique_rows": 112,
+            "class_mass": 0.013729794035867637,
+            "per_draw_weight": 0.00012258744674881818
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 10293,
+            "draws": 25,
+            "unique_rows": 25,
+            "class_mass": 0.0029368726307990338,
+            "per_draw_weight": 0.00011747490523196135
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ALEXA_OFF",
+              "17"
+            ],
+            "source_rows": 12,
+            "draws": 27,
+            "unique_rows": 10,
+            "class_mass": 0.003240740740740742,
+            "per_draw_weight": 0.0001200274348422497
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ALEXA_OFF",
+              "6"
+            ],
+            "source_rows": 63,
+            "draws": 110,
+            "unique_rows": 40,
+            "class_mass": 0.013425925925925926,
+            "per_draw_weight": 0.00012205387205387206
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ALEXA_ON",
+              "17"
+            ],
+            "source_rows": 42,
+            "draws": 61,
+            "unique_rows": 25,
+            "class_mass": 0.0074074074074074086,
+            "per_draw_weight": 0.00012143290831815424
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "ALEXA_ON",
+              "6"
+            ],
+            "source_rows": 86,
+            "draws": 76,
+            "unique_rows": 40,
+            "class_mass": 0.009259259259259264,
+            "per_draw_weight": 0.000121832358674464
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "GOOGLE_OFF",
+              "17"
+            ],
+            "source_rows": 17,
+            "draws": 51,
+            "unique_rows": 16,
+            "class_mass": 0.006111111111111112,
+            "per_draw_weight": 0.0001198257080610022
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "GOOGLE_OFF",
+              "6"
+            ],
+            "source_rows": 13,
+            "draws": 86,
+            "unique_rows": 12,
+            "class_mass": 0.010555555555555558,
+            "per_draw_weight": 0.00012273901808785532
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "GOOGLE_ON",
+              "17"
+            ],
+            "source_rows": 14,
+            "draws": 68,
+            "unique_rows": 13,
+            "class_mass": 0.008333333333333335,
+            "per_draw_weight": 0.00012254901960784316
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "GOOGLE_ON",
+              "6"
+            ],
+            "source_rows": 4,
+            "draws": 68,
+            "unique_rows": 4,
+            "class_mass": 0.008333333333333335,
+            "per_draw_weight": 0.00012254901960784316
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LAN_OFF",
+              "17"
+            ],
+            "source_rows": 62,
+            "draws": 53,
+            "unique_rows": 25,
+            "class_mass": 0.006481481481481481,
+            "per_draw_weight": 0.0001222921034241789
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LAN_OFF",
+              "6"
+            ],
+            "source_rows": 25,
+            "draws": 83,
+            "unique_rows": 21,
+            "class_mass": 0.010185185185185188,
+            "per_draw_weight": 0.00012271307452030346
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LAN_ON",
+              "17"
+            ],
+            "source_rows": 6,
+            "draws": 12,
+            "unique_rows": 5,
+            "class_mass": 0.001388888888888889,
+            "per_draw_weight": 0.00011574074074074075
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LAN_ON",
+              "6"
+            ],
+            "source_rows": 21,
+            "draws": 125,
+            "unique_rows": 20,
+            "class_mass": 0.015277777777777779,
+            "per_draw_weight": 0.00012222222222222224
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LOCAL_BUTTON",
+              "17"
+            ],
+            "source_rows": 40,
+            "draws": 55,
+            "unique_rows": 21,
+            "class_mass": 0.006666666666666667,
+            "per_draw_weight": 0.00012121212121212122
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "LOCAL_BUTTON",
+              "6"
+            ],
+            "source_rows": 94,
+            "draws": 82,
+            "unique_rows": 37,
+            "class_mass": 0.010000000000000005,
+            "per_draw_weight": 0.00012195121951219519
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "WAN_OFF",
+              "17"
+            ],
+            "source_rows": 2,
+            "draws": 46,
+            "unique_rows": 2,
+            "class_mass": 0.005555555555555557,
+            "per_draw_weight": 0.0001207729468599034
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "WAN_OFF",
+              "6"
+            ],
+            "source_rows": 38,
+            "draws": 91,
+            "unique_rows": 28,
+            "class_mass": 0.01111111111111111,
+            "per_draw_weight": 0.00012210012210012207
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "WAN_ON",
+              "17"
+            ],
+            "source_rows": 6,
+            "draws": 18,
+            "unique_rows": 5,
+            "class_mass": 0.0020833333333333337,
+            "per_draw_weight": 0.00011574074074074076
+          },
+          {
+            "label": 0,
+            "key": [
+              "Philips Hue Bridge",
+              "WAN_ON",
+              "6"
+            ],
+            "source_rows": 74,
+            "draws": 119,
+            "unique_rows": 46,
+            "class_mass": 0.014583333333333335,
+            "per_draw_weight": 0.00012254901960784316
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "ACTIVE_UNANNOTATED",
+              "17"
+            ],
+            "source_rows": 1976,
+            "draws": 241,
+            "unique_rows": 219,
+            "class_mass": 0.029612487878803776,
+            "per_draw_weight": 0.00012287339368798248
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "ACTIVE_UNANNOTATED",
+              "6"
+            ],
+            "source_rows": 8493,
+            "draws": 211,
+            "unique_rows": 203,
+            "class_mass": 0.025943067676751787,
+            "per_draw_weight": 0.00012295292737797054
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "LAN_PHOTO",
+              "17"
+            ],
+            "source_rows": 24,
+            "draws": 451,
+            "unique_rows": 24,
+            "class_mass": 0.05555555555555556,
+            "per_draw_weight": 0.0001231830500123183
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "LAN_RECORDING",
+              "17"
+            ],
+            "source_rows": 76,
+            "draws": 226,
+            "unique_rows": 71,
+            "class_mass": 0.027777777777777773,
+            "per_draw_weight": 0.00012291052114060962
+          },
+          {
+            "label": 0,
+            "key": [
+              "SimCam",
+              "LAN_RECORDING",
+              "6"
+            ],
+            "source_rows": 66,
+            "draws": 226,
+            "unique_rows": 59,
+            "class_mass": 0.02777777777777778,
+            "per_draw_weight": 0.00012291052114060964
+          },
+          {
+            "label": 1,
+            "key": [
+              "Amcrest Camera",
+              "Hydra",
+              "6"
+            ],
+            "source_rows": 87,
+            "draws": 1364,
+            "unique_rows": 87,
+            "class_mass": 0.16666666666666663,
+            "per_draw_weight": 0.00012218963831867055
+          },
+          {
+            "label": 1,
+            "key": [
+              "ArloQ Camera",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 2345,
+            "draws": 683,
+            "unique_rows": 599,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "ArloQ Camera",
+              "UDP",
+              "17"
+            ],
+            "source_rows": 13683,
+            "draws": 683,
+            "unique_rows": 662,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "Atomi Coffee Maker",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 4793,
+            "draws": 683,
+            "unique_rows": 638,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "Atomi Coffee Maker",
+              "UDP",
+              "17"
+            ],
+            "source_rows": 13728,
+            "draws": 683,
+            "unique_rows": 670,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "Globe Lamp",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 5011,
+            "draws": 683,
+            "unique_rows": 628,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "Globe Lamp",
+              "UDP",
+              "17"
+            ],
+            "source_rows": 12647,
+            "draws": 682,
+            "unique_rows": 666,
+            "class_mass": 0.08333333333333331,
+            "per_draw_weight": 0.00012218963831867055
+          },
+          {
+            "label": 1,
+            "key": [
+              "Philips Hue Bridge",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 149612,
+            "draws": 682,
+            "unique_rows": 681,
+            "class_mass": 0.08333333333333333,
+            "per_draw_weight": 0.00012218963831867058
+          },
+          {
+            "label": 1,
+            "key": [
+              "Philips Hue Bridge",
+              "UDP",
+              "17"
+            ],
+            "source_rows": 13536,
+            "draws": 683,
+            "unique_rows": 672,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "SimCam",
+              "Hydra",
+              "6"
+            ],
+            "source_rows": 384,
+            "draws": 683,
+            "unique_rows": 320,
+            "class_mass": 0.08333333333333334,
+            "per_draw_weight": 0.00012201073694485116
+          },
+          {
+            "label": 1,
+            "key": [
+              "SimCam",
+              "TCP",
+              "6"
+            ],
+            "source_rows": 267589,
+            "draws": 683,
+            "unique_rows": 683,
+            "class_mass": 0.08333333333333338,
+            "per_draw_weight": 0.00012201073694485122
+          }
+        ],
+        "expected_row_weight_max_error": 4.336808689942018e-19,
+        "expectation_verified": true,
+        "selection_uses_scores": false,
+        "selection_uses_CAL": false,
+        "unbiased_for_fixed_parameters_before_draw": true,
+        "adaptive_training_unbiasedness_claim": false
+      },
+      "unique_normal_rows": 3197,
+      "unique_attack_rows": 6306,
+      "normal_active_rows": 818,
+      "attack_positive_lift_rows": 4102,
+      "coverage": {
+        "device": {
+          "0": 6,
+          "1": 6
+        },
+        "activity": {
+          "0": 29,
+          "1": 3
+        },
+        "protocol": {
+          "0": 2,
+          "1": 2
+        },
+        "capture_id": {
+          "0": 136,
+          "1": 33
+        },
+        "component_id": {
+          "0": 1384,
+          "1": 4492
+        }
+      }
+    }
+  },
+  "gradient_probe_signs": {
+    "27": {
+      "defined": 14,
+      "negative": 14
+    },
+    "127": {
+      "defined": 14,
+      "negative": 14
+    },
+    "227": {
+      "defined": 13,
+      "negative": 13
+    }
+  },
+  "unchanged_LAN_alarms": {
+    "alarms": 3,
+    "identities_inferred_by_baseline_set_and_zero_removals": true,
+    "mass": 0.00823045267489712,
+    "share_of_new_weighted_FP": 0.8695009438242444
+  },
+  "successful_chain_seconds": 322,
+  "residual_CAL_weighted_FP_SimCam_share": 0.8780118699518177,
+  "cohort_count_checks": 403,
+  "context_regularizer_causality": "not established: near-zero LC and no removal ablation",
+  "remote_large_artifacts": {
+    "27": {
+      "arrays": {
+        "fit": {
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/source_stratified_pilot_v1_20261106/heads/27/fit_scores.npz",
+          "sha256": "f353f471dadf1fd6eb100559e67651dbbaa794baaa359e17ee95a862e621019c"
+        },
+        "cal": {
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/source_stratified_pilot_v1_20261106/heads/27/cal_scores.npz",
+          "sha256": "55ae38ce36cd1812999c676eeadb873ac1a71861a5713f0807ff40cbc1d80a72"
+        }
+      },
+      "head_sha256": "5339f5e2ae79d3f0559b695273f732b33b34073756bfe2eac2757fea2828d4d0",
+      "sample_identity_sha256": "ffa9ca22cab0f8384f22e4d445c3764366481c94723e78915b912181677e8c35"
+    },
+    "127": {
+      "arrays": {
+        "fit": {
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/source_stratified_pilot_v1_20261106/heads/127/fit_scores.npz",
+          "sha256": "1b35dd829772de27352e7799c98a9560d496f900dbdbe96b73ddd2b5b72ca90e"
+        },
+        "cal": {
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/source_stratified_pilot_v1_20261106/heads/127/cal_scores.npz",
+          "sha256": "6ddfaec8a97006bdbd162ee010d8f9b9874d12b90eac5f00e978774f0de85d0e"
+        }
+      },
+      "head_sha256": "539d717af4084b554ef8959317dc91204c96306d3b87f36faa79c3ad172a87ee",
+      "sample_identity_sha256": "ffa9ca22cab0f8384f22e4d445c3764366481c94723e78915b912181677e8c35"
+    },
+    "227": {
+      "arrays": {
+        "fit": {
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/source_stratified_pilot_v1_20261106/heads/227/fit_scores.npz",
+          "sha256": "0d07d9c575b801a92b2134c5f99c34c62f903e14c74433bee328be12f1787cac"
+        },
+        "cal": {
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/source_stratified_pilot_v1_20261106/heads/227/cal_scores.npz",
+          "sha256": "29e0f4fc675503f7ba94bd78066c3b3561e009abbf8c40ca9c8b63691e76c43b"
+        }
+      },
+      "head_sha256": "6f583db7585df2d8b335eb9302fa6c896905415ad37863fedab4b1e32ef40816",
+      "sample_identity_sha256": "ffa9ca22cab0f8384f22e4d445c3764366481c94723e78915b912181677e8c35"
+    }
+  }
+}
