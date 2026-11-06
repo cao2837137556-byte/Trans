@@ -1,0 +1,59 @@
+{
+  "question": "Does the classifier correctly receive and functionally use frozen E3-768, and why do added context-8 features improve attacks while normal FPR and seed stability degrade?",
+  "scope": "Read-only frozen checkpoints/cache analysis; no fitting, selection, recalibration or deployment change",
+  "arms": [
+    "OLD782",
+    "REFIT782",
+    "STATS8",
+    "FUSION790"
+  ],
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "pools": [
+    "CIC_DEV",
+    "UNSW_DEV",
+    "EDGE"
+  ],
+  "blocks": {
+    "E3": [
+      0,
+      768
+    ],
+    "Q14": [
+      768,
+      782
+    ],
+    "CONTEXT8": [
+      782,
+      790
+    ]
+  },
+  "coalitions": "All 8 block coalitions with normalized zero reference, including current biased output; Q14 zero is a synthetic diagnostic reference, not a valid normal packet",
+  "attribution": "Exact 3-block Shapley for the zero-reference game; report signed and absolute values, efficiency residual; not causal information or retraining value",
+  "permutation": "Two deterministic UID-hash cyclic derangements within pool/protocol, seeds 20261105 and 20261106; E3/Q14/CONTEXT8 separately; no label/score matching; report donor differences and singleton groups",
+  "c5_diagnosis": "2x2x2 frozen score-arm OLD/FUSION x cut-arm OLD/FUSION x scale-arm OLD/FUSION; fixed original support and original q14 guard; not alternative operating points for selection",
+  "normal_errors": "All heads and ensemble; error overlaps, per device/protocol/capture counts and conditional weighted rates, margins, support, context FIT range violations; all groups retained on HPC",
+  "source_profile": "Existing source FIT rows only: per-context min/max and .001/.01/.5/.99/.999 quantiles; diagnostic summaries only, never replacement normalizer",
+  "preflight": "Real same-runtime decode+causal oracle+original batch encoding+distance+all diagnostic functions on fixed identity slices before formal diagnosis",
+  "resources": {
+    "cpu": 1,
+    "memory_gib": 8,
+    "phase_wall_seconds": {
+      "PREFLIGHT": 1800,
+      "DIAGNOSE": 7200
+    }
+  },
+  "automatic_retries": 0,
+  "large_artifacts": "HPC only",
+  "interpretation_limits": [
+    "Sensitivity is not accuracy",
+    "Zeroing can be off manifold",
+    "Permutations break block dependencies",
+    "Weight magnitude alone does not measure usefulness",
+    "Frozen encoder prevents weights learning during head training, not forward use",
+    "Edge is consumed diagnostic data, not untouched confirmation"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "state": {
+    "stage": "STOP",
+    "error": "PREFLIGHT:FileNotFoundError:[Errno 2] No such file or directory: '/public/home/jiangxinwei.zr/work/paper04/runs/device_context_evaluation_v1_20261105/FINAL_EVALUATION_ACCEPTANCE.json'",
+    "completed_phases": 0,
+    "total_phases": 2,
+    "runtime_forecast": null,
+    "PREFLIGHT_JOB": {
+      "job_id": "182469",
+      "phase": "PREFLIGHT",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 1800
+    },
+    "PREFLIGHT_PROGRESS": null,
+    "PREFLIGHT_SCHEDULER": {
+      "stdout": "182469|FAILED|1:0|00:00:04||1|8G\n182469.batch|FAILED|1:0|00:00:04|1M|1|\n",
+      "returncode": 0
+    },
+    "PREFLIGHT_STOP": {
+      "status": "STOP",
+      "error": "FileNotFoundError:[Errno 2] No such file or directory: '/public/home/jiangxinwei.zr/work/paper04/runs/device_context_evaluation_v1_20261105/FINAL_EVALUATION_ACCEPTANCE.json'",
+      "traceback": "Traceback (most recent call last):\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/representation_usage_diagnosis_v1_20261105/worker.py\", line 175, in <module>\n    try:main()\n        ^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/representation_usage_diagnosis_v1_20261105/worker.py\", line 148, in main\n    c,inputs,context=initialize();k,norm,arms=c.models();profile=fit_profile(c);out={}\n                     ^^^^^^^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/representation_usage_diagnosis_v1_20261105/worker.py\", line 22, in initialize\n    for n,h in read(HERE/'PARENT_PINS.json').items():assert sha(PARENT/n)==h,'PARENT_PIN:'+n\n                                                            ^^^^^^^^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/representation_usage_diagnosis_v1_20261105/worker.py\", line 12, in sha\n    with Path(p).open('rb') as f:\n         ^^^^^^^^^^^^^^^^^^\n  File \"/share/software/miniconda3.2025/envs/torch_demo_2025/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/public/home/jiangxinwei.zr/work/paper04/runs/device_context_evaluation_v1_20261105/FINAL_EVALUATION_ACCEPTANCE.json'\n"
+    },
+    "DIAGNOSE_JOB": null,
+    "DIAGNOSE_PROGRESS": null,
+    "DIAGNOSE_SCHEDULER": null,
+    "DIAGNOSE_STOP": null
+  },
+  "sha256": {
+    "PREFLIGHT_STOP.json": "d3ee425f15e2515a18af862fabe750074963e03fdb5fdcbaf742d72d324b7b4d",
+    "PREFLIGHT_SCHEDULER.json": "fb265a7196585036afebbc82ac9825da5307618bbd1779926aeb445889c6afcd",
+    "PREFLIGHT_JOB.json": "b910cde23fa1b96690890ab541831a807c359dd08a53604e77ad41fbf0be5f24"
+  }
+}

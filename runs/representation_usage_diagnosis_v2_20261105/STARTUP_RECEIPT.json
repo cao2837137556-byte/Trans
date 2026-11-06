@@ -1,0 +1,23 @@
+{
+  "status": "PREFLIGHT_RUNNING",
+  "job": {
+    "job_id": "182478",
+    "phase": "PREFLIGHT",
+    "cpu": 1,
+    "memory_gib": 8,
+    "wall_seconds": 1800
+  },
+  "progress": {
+    "stage": "EDGE_CACHE_VERIFY",
+    "done": 300,
+    "total": 4046,
+    "rss_mib": 383.7890625,
+    "updated_unix": 1793927234.572701
+  },
+  "real_preflight_passed": false,
+  "automatic_chain": [
+    "PREFLIGHT",
+    "DIAGNOSE"
+  ],
+  "dashboard": "http://127.0.0.1:18806/"
+}

@@ -1,0 +1,22 @@
+{
+  "result": "PREPARED",
+  "impact": "Frozen-head functional dependence, normal false-positive and C5 factor diagnosis; no fitting",
+  "next": "PREFLIGHT -> DIAGNOSE",
+  "pins": {
+    "worker.py": "51ee1030137fa16552f979e1a15eaf7133cea2acc80d9d31aa8fea08f004601c",
+    "analysis_core.py": "17615b2faf517bae720c4f4473b0e5837d689343ba18ffa1fc74072e63dc9cb0",
+    "PARENT_PINS.json": "5d955141cc1b5032e90b80b167b40048f5093863f51cdd9ee17125b6fc368fb3",
+    "DIAGNOSTIC_SPEC.json": "0e323c511a934e0ddc095a91bdb9c8ed35a722ff167ddd795d9eead91c233ecd",
+    "EDGE_CARD.json": "0755167ae19033e06d2557a9ee3744f82abc4b4587a9e6452e87727ba12e706e",
+    "stream_core.py": "d8663a40e21d76ed2021b0999e1e2384b194b3b03b1c391ce88c43bae4a439aa"
+  },
+  "receiver_sha256": "78b2310c3804b5820604097b788d580f9830210148068ad1d133ec7d613d8f3d",
+  "cpu": 1,
+  "memory_gib": 8,
+  "phase_wall_seconds": {
+    "PREFLIGHT": 1800,
+    "DIAGNOSE": 7200
+  },
+  "automatic_job_retries": 0,
+  "training_jobs": 0
+}

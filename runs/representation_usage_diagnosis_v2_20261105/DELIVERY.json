@@ -1,0 +1,24 @@
+{
+  "result": "PREPARED",
+  "impact": "Frozen-head functional dependence, normal false-positive and C5 factor diagnosis; no fitting",
+  "next": "PREFLIGHT -> DIAGNOSE",
+  "pins": {
+    "worker.py": "f55e0e19bd938ebff43faa6dbff53116a64599ea3a4f302fda49faa1adad1a11",
+    "analysis_core.py": "17615b2faf517bae720c4f4473b0e5837d689343ba18ffa1fc74072e63dc9cb0",
+    "PARENT_PINS.json": "234f64203d805ab62e590a588eed6dbc40e6495ff645df71fd26abb46ab478a9",
+    "DIAGNOSTIC_SPEC.json": "0e323c511a934e0ddc095a91bdb9c8ed35a722ff167ddd795d9eead91c233ecd",
+    "EDGE_CARD.json": "0755167ae19033e06d2557a9ee3744f82abc4b4587a9e6452e87727ba12e706e",
+    "stream_core.py": "d8663a40e21d76ed2021b0999e1e2384b194b3b03b1c391ce88c43bae4a439aa",
+    "EVALUATION_ACCEPTANCE.json": "ff7f4e46c8360313a6b03e3040c47b14d6a2420b0d3cf099057a3b0ef12bde3b",
+    "DELIVERY_FIX.json": "94905ed46930a45fe6a3f41aae667ccdadb97e848cd4143df0f2477b41be21be"
+  },
+  "receiver_sha256": "dcea4ce71ee80258af4ba47eec4c502dd41bb8aa85f06e8d43eb62dc940cf38c",
+  "cpu": 1,
+  "memory_gib": 8,
+  "phase_wall_seconds": {
+    "PREFLIGHT": 1800,
+    "DIAGNOSE": 7200
+  },
+  "automatic_job_retries": 0,
+  "training_jobs": 0
+}
