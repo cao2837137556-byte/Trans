@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "scope": "TRAINING_SOURCE_CAL_AND_RECEIPT_AUDIT",
+  "new_heads": 3,
+  "epochs_per_head": 40,
+  "optimizer_updates": 289680,
+  "epoch_checkpoints": 120,
+  "elapsed_seconds": 3112,
+  "formal_training_elapsed_seconds": 2688,
+  "peak_rss_bytes": 3550654464,
+  "peak_rss_gib": 3.306804656982422,
+  "phases": {
+    "DECODE_PREFLIGHT": {
+      "job_id": "182507",
+      "elapsed_seconds": 304,
+      "worker_seconds": 300.32816343498416
+    },
+    "TRAIN_PREFLIGHT": {
+      "job_id": "182509",
+      "elapsed_seconds": 100,
+      "worker_seconds": 96.41152562294155
+    },
+    "TRAIN_27": {
+      "job_id": "182510",
+      "elapsed_seconds": 830,
+      "worker_seconds": 826.7978187610861
+    },
+    "TRAIN_127": {
+      "job_id": "182513",
+      "elapsed_seconds": 1024,
+      "worker_seconds": 1021.9718664600514
+    },
+    "TRAIN_227": {
+      "job_id": "182517",
+      "elapsed_seconds": 834,
+      "worker_seconds": 830.8387128200848
+    },
+    "CALIBRATION": {
+      "job_id": "182521",
+      "elapsed_seconds": 20,
+      "worker_seconds": 16.196707190014422
+    }
+  },
+  "receipt_pins_verified": 21,
+  "external_evaluation_completed": false,
+  "effectiveness_unknown": true,
+  "failed_v1_elapsed_seconds_separate": 187
+}

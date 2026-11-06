@@ -1,0 +1,91 @@
+{
+  "heads": {
+    "27": {
+      "OLD782_MATCHED": {
+        "scale": 118.95627975463867,
+        "cut": -23.066728591918945,
+        "weighted_cal_normal_fpr": 0.009755209847071766,
+        "sample_cal_normal_fpr": 0.00721030560835068,
+        "c5_max_deduction": 29.739069938659668
+      },
+      "FUSION790": {
+        "scale": 91.68742370605469,
+        "cut": -23.04324722290039,
+        "weighted_cal_normal_fpr": 0.009871501048570215,
+        "sample_cal_normal_fpr": 0.00838688267414849,
+        "c5_max_deduction": 22.921855926513672
+      },
+      "ANCHOR790": {
+        "scale": 119.51728057861328,
+        "cut": -22.82166290283203,
+        "weighted_cal_normal_fpr": 0.009738441935787328,
+        "sample_cal_normal_fpr": 0.006818113253084744,
+        "c5_max_deduction": 29.87932014465332
+      },
+      "anchor_scale_change_from_teacher_percent": 0.47160252920799284
+    },
+    "127": {
+      "OLD782_MATCHED": {
+        "scale": 121.3746566772461,
+        "cut": -19.736963272094727,
+        "weighted_cal_normal_fpr": 0.009112727279654119,
+        "sample_cal_normal_fpr": 0.0030470329139891997,
+        "c5_max_deduction": 30.343664169311523
+      },
+      "FUSION790": {
+        "scale": 95.98065185546875,
+        "cut": -23.315204620361328,
+        "weighted_cal_normal_fpr": 0.00998821583509036,
+        "sample_cal_normal_fpr": 0.00838688267414849,
+        "c5_max_deduction": 23.995162963867188
+      },
+      "ANCHOR790": {
+        "scale": 121.44668960571289,
+        "cut": -20.400161743164062,
+        "weighted_cal_normal_fpr": 0.009907095155352343,
+        "sample_cal_normal_fpr": 0.004223609979787009,
+        "c5_max_deduction": 30.361672401428223
+      },
+      "anchor_scale_change_from_teacher_percent": 0.05934758576360277
+    },
+    "227": {
+      "OLD782_MATCHED": {
+        "scale": 122.36117172241211,
+        "cut": -20.966501235961914,
+        "weighted_cal_normal_fpr": 0.009581074128220254,
+        "sample_cal_normal_fpr": 0.005309681117446526,
+        "c5_max_deduction": 30.590292930603027
+      },
+      "FUSION790": {
+        "scale": 87.30691528320312,
+        "cut": -22.614715576171875,
+        "weighted_cal_normal_fpr": 0.009858839304371658,
+        "sample_cal_normal_fpr": 0.008145533532446375,
+        "c5_max_deduction": 21.82672882080078
+      },
+      "ANCHOR790": {
+        "scale": 122.05692291259766,
+        "cut": -21.347383499145508,
+        "weighted_cal_normal_fpr": 0.009439972878469208,
+        "sample_cal_normal_fpr": 0.006637101396808158,
+        "c5_max_deduction": 30.514230728149414
+      },
+      "anchor_scale_change_from_teacher_percent": -0.24864816635188358
+    }
+  },
+  "ensemble": {
+    "status": "PASS",
+    "cut": -23.03176498413086,
+    "weighted_normal_fpr": 0.009787823082290176,
+    "unweighted_normal_fpr": 0.007934353033457025,
+    "normal_rows": 33147,
+    "seeds": [
+      27,
+      127,
+      227
+    ],
+    "comparison": ">",
+    "runtime_gate_only": false
+  },
+  "interpretation": "Source scale/threshold diagnostics only; CAL FPR is fitted, not external generalization evidence"
+}

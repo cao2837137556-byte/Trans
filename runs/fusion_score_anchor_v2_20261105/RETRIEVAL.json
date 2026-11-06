@@ -1,0 +1,166 @@
+{
+  "state": {
+    "stage": "ANCHOR_TRAINING_COMPLETE",
+    "phase": "CALIBRATION",
+    "completed_phases": 6,
+    "total_phases": 6,
+    "runtime_forecast": {
+      "forecasts": {
+        "27": 2161.0198546553,
+        "127": 2763.54619937815,
+        "227": 2284.9532894679287
+      },
+      "budget_seconds": 3600
+    },
+    "DECODE_PREFLIGHT_JOB": {
+      "job_id": "182507",
+      "phase": "DECODE_PREFLIGHT",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 1800
+    },
+    "DECODE_PREFLIGHT_PROGRESS": {
+      "stage": "DECODE_PREFLIGHT_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 0,
+      "rss_mib": 1515.25,
+      "updated_unix": 1793933761.8238723
+    },
+    "DECODE_PREFLIGHT_SCHEDULER": {
+      "stdout": "182507|COMPLETED|0:0|00:05:04||1|8G\n182507.batch|COMPLETED|0:0|00:05:04|1564412K|1|\n",
+      "returncode": 0
+    },
+    "DECODE_PREFLIGHT_STOP": null,
+    "TRAIN_PREFLIGHT_JOB": {
+      "job_id": "182509",
+      "phase": "TRAIN_PREFLIGHT",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 1800
+    },
+    "TRAIN_PREFLIGHT_PROGRESS": {
+      "stage": "TRAIN_PREFLIGHT_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 128,
+      "rss_mib": 3299.03515625,
+      "updated_unix": 1793933868.56805
+    },
+    "TRAIN_PREFLIGHT_SCHEDULER": {
+      "stdout": "182509|COMPLETED|0:0|00:01:40||1|8G\n182509.batch|COMPLETED|0:0|00:01:40|3467436K|1|\n",
+      "returncode": 0
+    },
+    "TRAIN_PREFLIGHT_STOP": null,
+    "TRAIN_27_JOB": {
+      "job_id": "182510",
+      "phase": "TRAIN_27",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "TRAIN_27_PROGRESS": {
+      "stage": "TRAIN_27_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 96560,
+      "rss_mib": 3297.203125,
+      "updated_unix": 1793934708.930044
+    },
+    "TRAIN_27_SCHEDULER": {
+      "stdout": "182510|COMPLETED|0:0|00:13:50||1|8G\n182510.batch|COMPLETED|0:0|00:13:50|3116196K|1|\n",
+      "returncode": 0
+    },
+    "TRAIN_27_STOP": null,
+    "TRAIN_127_JOB": {
+      "job_id": "182513",
+      "phase": "TRAIN_127",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "TRAIN_127_PROGRESS": {
+      "stage": "TRAIN_127_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 96560,
+      "rss_mib": 3298.05078125,
+      "updated_unix": 1793935736.0828698
+    },
+    "TRAIN_127_SCHEDULER": {
+      "stdout": "182513|COMPLETED|0:0|00:17:04||1|8G\n182513.batch|COMPLETED|0:0|00:17:04|3374980K|1|\n",
+      "returncode": 0
+    },
+    "TRAIN_127_STOP": null,
+    "TRAIN_227_JOB": {
+      "job_id": "182517",
+      "phase": "TRAIN_227",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "TRAIN_227_PROGRESS": {
+      "stage": "TRAIN_227_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 96560,
+      "rss_mib": 3298.19921875,
+      "updated_unix": 1793936576.9295752
+    },
+    "TRAIN_227_SCHEDULER": {
+      "stdout": "182517|COMPLETED|0:0|00:13:54||1|8G\n182517.batch|COMPLETED|0:0|00:13:54|3116104K|1|\n",
+      "returncode": 0
+    },
+    "TRAIN_227_STOP": null,
+    "CALIBRATION_JOB": {
+      "job_id": "182521",
+      "phase": "CALIBRATION",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 1800
+    },
+    "CALIBRATION_PROGRESS": {
+      "stage": "ANCHOR_TRAINING_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "optimizer_updates": 0,
+      "rss_mib": 922.86328125,
+      "updated_unix": 1793936603.2635815,
+      "updated_utc": "2026-11-06T03:43:37.890110+00:00",
+      "phase": "CALIBRATION",
+      "job_id": null,
+      "version": "ANCHOR_V2",
+      "completed_phases": 6,
+      "total_phases": 6,
+      "error": null
+    },
+    "CALIBRATION_SCHEDULER": {
+      "stdout": "182521|COMPLETED|0:0|00:00:20||1|8G\n182521.batch|COMPLETED|0:0|00:00:20|1M|1|\n",
+      "returncode": 0
+    },
+    "CALIBRATION_STOP": null
+  },
+  "sha256": {
+    "DECODE_PREFLIGHT_RESULT.json": "01529de5b519485f61e31cc37e652a4885f0414bb10d8b10cf62611a7e029ae0",
+    "DECODE_PREFLIGHT_SCHEDULER.json": "46d39b4142cb9acd7a40883d8dcff4d03c9912550c15ecdd8388ab209afcc2b4",
+    "DECODE_PREFLIGHT_JOB.json": "b14fedfcab6d1bfc6cfe28dd5a51f5cf9b9542fb4862d74e84a5504fb3712e9f",
+    "TRAIN_PREFLIGHT_RESULT.json": "de8392d356581f90e93f4dc2a759648a6e1eb30d4de72392454815741106b65f",
+    "TRAIN_PREFLIGHT_SCHEDULER.json": "8b984d67e86510d779dce3bb460b3c760b989d3fe49a9adc2e38664fc9b9c07d",
+    "TRAIN_PREFLIGHT_JOB.json": "273d84486521408d9a2e87409731fe07524977e6ae9ae4e609cd8d842b677c3e",
+    "TRAIN_27_RESULT.json": "d1c9fa5bef8e147fc7836e3acd5f0e935d519d986ffb9eb36db211d9baa0a5c6",
+    "TRAIN_27_SCHEDULER.json": "5b88109b5ecd33f4c9bed6e5b8a2b941773f29c38d1cbfede9a65860d6bf90ed",
+    "TRAIN_27_JOB.json": "68951f6aad785f88a7f9f17873e7f861068b0b75ce66c705461fd4ff6b92a461",
+    "TRAIN_127_RESULT.json": "0e45d58c1b3c53b1d71d2dda5c4aa7c3ccfe1a01670aef9c682c14c881177503",
+    "TRAIN_127_SCHEDULER.json": "e257030ee1b4f67d8b7aa47548df3a32deef41639c0c044358e6248a2418b0b3",
+    "TRAIN_127_JOB.json": "46978658987ceba1922158c9ae99a1e52d5e505aa0c88fea64f8144d2ae88e37",
+    "TRAIN_227_RESULT.json": "86f84e3ebdf5ae65e73feaebbd13693910dff72f8444b330a83f31ddfd8b148a",
+    "TRAIN_227_SCHEDULER.json": "94ce42f3879b6551d8521815c716c1c39787c527c22d4a37f1c00c8f71ef6374",
+    "TRAIN_227_JOB.json": "ad47617085e58c0b462d866f458ad5e49b54f992b388edeca40c3b84d266e71a",
+    "CALIBRATION_RESULT.json": "c89872e24d32a1442deb0ee58107e9c75f257778243d7e21bca3060c60e08a91",
+    "CALIBRATION_SCHEDULER.json": "04f7cde7b212b401ebbaaa44aab763a07bc70308b168c946c95cf679e6cf6e62",
+    "CALIBRATION_JOB.json": "3f577d40810304c56c866542437512962ac9f6f36cd5f10ff25476415e0c0863",
+    "RUNTIME_FORECAST.json": "8e989d51b1289fc509cfe409c58de9b1b5a04eec5d8576c9d68a718323201f67",
+    "LINUX_REGRESSION.json": "6d04e6f7003a531732df6bbaf9e4c46de94f0efd8a845bdb2fc6fc8dd9a3657f",
+    "LINUX_THREAD_REGRESSION.json": "7c5912a2b6175b393dc697c9206f34f4634db6fc648bad800aed631afa9e2c24"
+  }
+}

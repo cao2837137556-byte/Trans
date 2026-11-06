@@ -1329,3 +1329,18 @@ DeepSeek 已加入，沿用文档合作：`runs/mainline_docs/collab/YYYYMMDD_<�
 5. **交接/存储**：见[执行卡](collab/20261105_fusion_score_anchor_runtime_v2_codex.md)及`runs/fusion_score_anchor_v2_20261105/CHAIN_STATE.json`。大文件留超算，小回执自动取回；[进度](http://127.0.0.1:18806/)。Edge已消费，只能作为诊断评价。
 
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)
+
+
+---
+
+# 当前状态
+
+更新：2026-11-05（America/Los_Angeles）。固定五项，历史另存。
+
+1. **当前运行**：v2真实全链路182507已PASS（5:04、112行/7批、编码和距离误差0）；182509真实训练/校准/耗时预检运行。门通过自动三种子40轮＋源CAL，当前尚无新效果结论。
+2. **用户取舍**：接受此前已展示的A/B小幅退化，继续修复正常误报和种子稳定性；旧FAIL不改写，Edge误报5.79%、127误报25.235%及HTTP撤警仍待解决。
+3. **训练日志**：9头869,040更新、360轮、1,080探针核验通过。源损失饱和及尾梯度弱非127独有；缺少旧逐轮模型/分数，不能确定正常漂移起点或唯一训练根因。
+4. **固定修复**：保留790维/冻结编码器，原BCE＋TAIL加系数1的源FIT教师分数锚定，同种子冻结REFIT782作教师；源CAL、C5公式不变。固定40轮，新增逐轮模型与源探针；所有种子统一评价，不凭Edge调参。
+5. **交接/存储**：见[执行卡](collab/20261105_fusion_score_anchor_runtime_v2_codex.md)及`runs/fusion_score_anchor_v2_20261105/CHAIN_STATE.json`。大文件留超算，小回执自动取回；[进度](http://127.0.0.1:18806/)。Edge已消费，只能作为诊断评价。
+
+[历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)
