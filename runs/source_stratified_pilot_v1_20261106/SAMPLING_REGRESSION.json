@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "tests": [
+    "deterministic_with_replacement_fixed_draw_budget",
+    "every_semantic_stratum_present",
+    "exact_expected_nonlinear_loss_matches_full_source",
+    "exact_expected_parameter_gradient_matches_full_source",
+    "double_weighting_negative_control",
+    "balanced_minibatch_mean_equals_fixed_draw_objective",
+    "unrelated_score_fields_do_not_affect_selection",
+    "insufficient_quota_budget_rejected"
+  ]
+}

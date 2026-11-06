@@ -1479,3 +1479,18 @@ DeepSeek 已加入，沿用文档合作：`runs/mainline_docs/collab/YYYYMMDD_<�
 5. **证据/执行**：[设计卡](collab/20261106_source_coverage_audit_design_codex.md)、[启动回执](collab/20261106_source_coverage_audit_launch_codex.md)；52项远端依赖PASS，真实预检通过后自动诊断、失败停止。大文件留超算，[进度页](http://127.0.0.1:18806/)。
 
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)
+
+
+## 2026-11-06 before source stratified pilot
+
+# 当前状态
+
+更新：2026-11-06（America/Los_Angeles）。固定五项，历史另存。
+
+1. **覆盖诊断已验收**：182585预检5:13＋182586完整1:23，工程/诊断PASS，6648项摘要一致性断言通过；无新训练作业，原小试科学NO_GO不变。
+2. **已有数据，抽样不足**：原小试遗漏35/94正常语义组、1/11攻击组；SimCam/Hydra有384条仅抽4条，当前282条超限仅2条被抽中。均维持攻击检出。
+3. **等量改善抽样更有依据**：集成正常/攻击残余风险覆盖9.67%/0.34%→73.99%/65.83%；均匀加倍仅12.75%/1.27%。这是覆盖诊断，受原成员拟合影响，不是效果预测。
+4. **仍有未解决部分/下一步**：CAL全部剩余误报组已有FIT及实际抽样支持；SimCam录制TCP的3条占剩余加权误报86.57%。先设计源分层/重要性抽样与权重校正，固定更新小对照；不能直接双重加权或保证消除误报。
+5. **证据/边界**：[验收报告](collab/20261106_source_coverage_audit_acceptance_codex.md)、`runs/source_coverage_audit_v1_20261106/FINAL_COVERAGE_ACCEPTANCE.json`；CAL不选训练成员，无A/B/Edge/C5新成绩。大文件留超算，[进度页](http://127.0.0.1:18806/)。
+
+[历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)

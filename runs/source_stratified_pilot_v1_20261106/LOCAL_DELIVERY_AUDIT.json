@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "payloads": 9,
+  "payload_sha_LF_AST_base64_verified": true,
+  "loss_byte_identical": true,
+  "metric_gate_and_scoring_AST_identical": true,
+  "local_regressions": {
+    "LOCAL_REGRESSION": 10,
+    "SAMPLING_REGRESSION": 8,
+    "DEPENDENCY_REGRESSION": 4
+  },
+  "remote_dependency_gate": {
+    "status": "PASS",
+    "files_checked": 52,
+    "before_sbatch": true
+  }
+}

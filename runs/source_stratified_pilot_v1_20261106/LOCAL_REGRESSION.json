@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "tests": [
+    "original_weight_ratios_per_class",
+    "normal_descent_lowers_high_scores",
+    "attack_descent_restores_dropped_scores",
+    "positive_context_lift_preserved_only",
+    "no_two_sided_teacher_imitation",
+    "batch_expectation_matches_full_pilot",
+    "deterministic_disjoint_class_sample",
+    "finite_difference_gradient",
+    "real_790_optimizer_update_teacher_frozen_context_gradient",
+    "metric_receipt_counts_and_preservation_failure_gate"
+  ]
+}
