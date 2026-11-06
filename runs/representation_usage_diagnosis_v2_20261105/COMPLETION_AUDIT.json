@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "scope": "Local receipt/code pin audit, arithmetic and all registered arms; large artifacts retained remotely, no independent raw rerun this turn",
+  "jobs": [
+    {
+      "phase": "PREFLIGHT",
+      "job_id": "182478",
+      "elapsed_seconds": 475,
+      "max_rss_kib": 1678580
+    },
+    {
+      "phase": "DIAGNOSE",
+      "job_id": "182486",
+      "elapsed_seconds": 207,
+      "max_rss_kib": 3230104
+    }
+  ],
+  "total_elapsed_seconds": 682,
+  "peak_rss_gib": 3.0804672241210938,
+  "forward_max_abs_error": 0,
+  "decomposition_max_abs_error": 0.00019397525130671056,
+  "decomposition_decision_changes": 0,
+  "receipt_sha256": {
+    "PREFLIGHT_RESULT.json": "714f4277422094efa6ddad525d519768bdd749fb3061c0ec3b959b91931c3821",
+    "PREFLIGHT_SCHEDULER.json": "a708efaf9fef8ba05e93c05bb7dcbdb65ef02ac59629e0603510aec971902bf5",
+    "PREFLIGHT_JOB.json": "710b7c054d918e1b5039e37f039a6fabbede15ad105f2b41c039898c0a127f17",
+    "DIAGNOSE_RESULT.json": "f61b9dc1907979b0728ccf2a5a514ffa3120289509561a75a2d10df13c52006c",
+    "DIAGNOSE_SCHEDULER.json": "4183f6f07956c49720d542de3f65d16a5734afe317eefef7fb24a60620a28f70",
+    "DIAGNOSE_JOB.json": "5dfa70867e9ec8585202c1934f625ed50e50e13788ea2bfbb41f582704620c02",
+    "FIT_CONTEXT_PROFILE.json": "17481ec0a9f0a8349a1ed03c5329b8e73754c78a92315f3e49ce0b826d25af3a",
+    "PARAMETER_AUDIT.json": "4b165e9feb80da33effafe9afe5f71df1123936918a80b740e1d9e2de56e4db9"
+  },
+  "interpretation": "Functional use established; external feature and score/calibration/C5 compatibility limitations remain",
+  "new_training_jobs": 0
+}

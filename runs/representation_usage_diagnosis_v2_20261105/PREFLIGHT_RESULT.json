@@ -1,0 +1,152 @@
+{
+  "status": "PASS",
+  "phase": "PREFLIGHT",
+  "seconds": 473.27686426392756,
+  "pools": {
+    "CIC_DEV": {
+      "rows": 72,
+      "status": "PASS",
+      "forward_checks": {
+        "OLD782": {
+          "forward_error": 0.0,
+          "decomposition_error": 1.2092205963654123e-05,
+          "decomposition_decision_roundoff": 0
+        },
+        "REFIT782": {
+          "forward_error": 0.0,
+          "decomposition_error": 1.2092205963654123e-05,
+          "decomposition_decision_roundoff": 0
+        },
+        "STATS8": {
+          "forward_error": 0.0,
+          "decomposition_error": 6.43145494905184e-06,
+          "decomposition_decision_roundoff": 0
+        },
+        "FUSION790": {
+          "forward_error": 0.0,
+          "decomposition_error": 8.337390625001717e-06,
+          "decomposition_decision_roundoff": 0
+        }
+      },
+      "artifacts": {
+        "DETAILS.json": {
+          "sha256": "d574fd90289c6d97ba56131199c4a913cc8207fac53b1af76d9ee603f6c26512",
+          "bytes": 2673159
+        },
+        "ERROR_GROUPS.json": {
+          "sha256": "3248a82ffaa3938e1de61d2412fbc5eeeedfb1106dec1e0259b9905d33747b8a",
+          "bytes": 921501
+        },
+        "GRADIENT_DIMENSIONS.json": {
+          "sha256": "d37bf144f7a6b25618c4531537f9881f851b695ad373e80a2f71c8f376b728e1",
+          "bytes": 188594
+        },
+        "DIAGNOSTICS.npz": {
+          "sha256": "fb5692c7621b49bca71d4640f501743c2c172aec342dd94409dcde505e819eab",
+          "bytes": 184332
+        }
+      }
+    },
+    "UNSW_DEV": {
+      "rows": 120,
+      "status": "PASS",
+      "forward_checks": {
+        "OLD782": {
+          "forward_error": 0.0,
+          "decomposition_error": 1.3792233829690304e-05,
+          "decomposition_decision_roundoff": 0
+        },
+        "REFIT782": {
+          "forward_error": 0.0,
+          "decomposition_error": 1.3792233829690304e-05,
+          "decomposition_decision_roundoff": 0
+        },
+        "STATS8": {
+          "forward_error": 0.0,
+          "decomposition_error": 1.038404036535212e-05,
+          "decomposition_decision_roundoff": 0
+        },
+        "FUSION790": {
+          "forward_error": 0.0,
+          "decomposition_error": 6.9843562826577e-06,
+          "decomposition_decision_roundoff": 0
+        }
+      },
+      "artifacts": {
+        "DETAILS.json": {
+          "sha256": "df7101ed7ddc43c741a8abe2707df01a146b628863d3bb20f66b077f7b60bad6",
+          "bytes": 1334355
+        },
+        "ERROR_GROUPS.json": {
+          "sha256": "becdc9faee5c07e40207b0c3840f2db8a449a3f0eb954175931e0d4822e7fdf4",
+          "bytes": 491718
+        },
+        "GRADIENT_DIMENSIONS.json": {
+          "sha256": "503be3123c5c42269da21aca323ffc46f41740b8d3544eeb8c6023df45d364dc",
+          "bytes": 188649
+        },
+        "DIAGNOSTICS.npz": {
+          "sha256": "a2aeec42dc1d139ed8f477cb559f03f1a245de42e434a2b9e030731e19730f53",
+          "bytes": 301068
+        }
+      }
+    },
+    "EDGE": {
+      "rows": 32,
+      "status": "PASS",
+      "forward_checks": {
+        "OLD782": {
+          "forward_error": 0.0,
+          "decomposition_error": 7.082404067659809e-06,
+          "decomposition_decision_roundoff": 0
+        },
+        "REFIT782": {
+          "forward_error": 0.0,
+          "decomposition_error": 7.082404067659809e-06,
+          "decomposition_decision_roundoff": 0
+        },
+        "STATS8": {
+          "forward_error": 0.0,
+          "decomposition_error": 0.000121626071575065,
+          "decomposition_decision_roundoff": 0
+        },
+        "FUSION790": {
+          "forward_error": 0.0,
+          "decomposition_error": 5.482657741140429e-06,
+          "decomposition_decision_roundoff": 0
+        }
+      },
+      "artifacts": {
+        "DETAILS.json": {
+          "sha256": "5a66a827cf34e0244aae9c5447a15b36b88e62a3f99ae75acc290b461fcff8ef",
+          "bytes": 1774270
+        },
+        "ERROR_GROUPS.json": {
+          "sha256": "7acedcd633981c450f4c6930b3968f814a80ca8b821f9e6db6e238a5b8e0c604",
+          "bytes": 540559
+        },
+        "GRADIENT_DIMENSIONS.json": {
+          "sha256": "997155af86d84bfa04bfcce3f971ed96c2adadfe626473d44a5ea6207be13d1a",
+          "bytes": 189095
+        },
+        "DIAGNOSTICS.npz": {
+          "sha256": "b1c5566b7c3c0b2ef43b3052e56e7c70fadd6f89f23fbe495c6044baf4f0de97",
+          "bytes": 87052
+        }
+      }
+    }
+  },
+  "training": false,
+  "threshold_fitting": false,
+  "model_selection": false,
+  "real_encoder_distance": {
+    "status": "PASS",
+    "query_rows": 4,
+    "reference_rows": 4124,
+    "encoded_rows": 112,
+    "encoded_batches": 7,
+    "e3_max_abs_error": 0.0,
+    "cached_support_error": 0.0,
+    "fresh_support_error": 0.0
+  }
+}

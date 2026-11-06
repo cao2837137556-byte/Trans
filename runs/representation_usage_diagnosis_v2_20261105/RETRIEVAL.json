@@ -1,0 +1,64 @@
+{
+  "state": {
+    "stage": "DIAGNOSIS_COMPLETE",
+    "phase": "DIAGNOSE",
+    "completed_phases": 2,
+    "total_phases": 2,
+    "runtime_forecast": null,
+    "PREFLIGHT_JOB": {
+      "job_id": "182478",
+      "phase": "PREFLIGHT",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 1800
+    },
+    "PREFLIGHT_PROGRESS": {
+      "stage": "PREFLIGHT_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "rss_mib": 962.296875,
+      "updated_unix": 1793927641.664839
+    },
+    "PREFLIGHT_SCHEDULER": {
+      "stdout": "182478|COMPLETED|0:0|00:07:55||1|8G\n182478.batch|COMPLETED|0:0|00:07:55|1678580K|1|\n",
+      "returncode": 0
+    },
+    "PREFLIGHT_STOP": null,
+    "DIAGNOSE_JOB": {
+      "job_id": "182486",
+      "phase": "DIAGNOSE",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 7200
+    },
+    "DIAGNOSE_PROGRESS": {
+      "stage": "DIAGNOSIS_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "rss_mib": 812.421875,
+      "updated_unix": 1793927855.6330857,
+      "updated_utc": "2026-11-06T01:17:44.541254+00:00",
+      "phase": "DIAGNOSE",
+      "job_id": null,
+      "version": "DIAG_V2",
+      "completed_phases": 2,
+      "total_phases": 2,
+      "error": null
+    },
+    "DIAGNOSE_SCHEDULER": {
+      "stdout": "182486|COMPLETED|0:0|00:03:27||1|8G\n182486.batch|COMPLETED|0:0|00:03:27|3230104K|1|\n",
+      "returncode": 0
+    },
+    "DIAGNOSE_STOP": null
+  },
+  "sha256": {
+    "PREFLIGHT_RESULT.json": "714f4277422094efa6ddad525d519768bdd749fb3061c0ec3b959b91931c3821",
+    "PREFLIGHT_SCHEDULER.json": "a708efaf9fef8ba05e93c05bb7dcbdb65ef02ac59629e0603510aec971902bf5",
+    "PREFLIGHT_JOB.json": "710b7c054d918e1b5039e37f039a6fabbede15ad105f2b41c039898c0a127f17",
+    "DIAGNOSE_RESULT.json": "f61b9dc1907979b0728ccf2a5a514ffa3120289509561a75a2d10df13c52006c",
+    "DIAGNOSE_SCHEDULER.json": "4183f6f07956c49720d542de3f65d16a5734afe317eefef7fb24a60620a28f70",
+    "DIAGNOSE_JOB.json": "5dfa70867e9ec8585202c1934f625ed50e50e13788ea2bfbb41f582704620c02",
+    "FIT_CONTEXT_PROFILE.json": "17481ec0a9f0a8349a1ed03c5329b8e73754c78a92315f3e49ce0b826d25af3a",
+    "PARAMETER_AUDIT.json": "4b165e9feb80da33effafe9afe5f71df1123936918a80b740e1d9e2de56e4db9"
+  }
+}
