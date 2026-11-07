@@ -1,0 +1,5 @@
+{
+  "status": "STOP",
+  "error": "AssertionError('OLD_GEOMETRY_PARITY')",
+  "traceback": "Traceback (most recent call last):\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/context_geometry_attribution_v1_20261106/worker.py\", line 182, in <module>\n    try:main()\n        ^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/context_geometry_attribution_v1_20261106/worker.py\", line 150, in main\n    rc=c.extra_normalized(refphys);t=time.monotonic();old,new,matchdc,seconddc=geo.evaluate(d,refs,rz,rq,rc,norm,geom,rhoc,core,progress);distance_seconds=time.monotonic()-t\n                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/context_geometry_attribution_v1_20261106/geometry.py\", line 52, in evaluate\n    assert np.max(np.abs(old['support']-d['support']))<=2e-10,'OLD_GEOMETRY_PARITY'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: OLD_GEOMETRY_PARITY\n"
+}

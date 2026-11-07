@@ -1,3 +1,12 @@
+## 2026-11-06 CONTEXT_GEOMETRY_V1：参考库身份混比
+
+- 182644，PREFLIGHT，RUNTIME_FAILURE，FAILED/1:0，90秒，MaxRSS866004KiB；无完整诊断、训练更新0。源半径和参考物理解码已执行有效工作，但未跨版复用；90秒无精确子阶段拆分，不全部宣称为无效计算。
+- 根因：inputs.ab现行支持度来自C4历史扩充库，而本次候选按合同使用OLD_ASSETS两小时dense_bank；直接做OLD_GEOMETRY_PARITY会合法失败。
+- 永久门：明确保存support_frozen与候选support；候选2D对SHA固定的同库R-DENSE支持度逐行复现，现行C5对原C4支持度独立复现；不放宽误差，不删历史结果。反事实3D只能与同库2D归因比较。
+- 独立v2真实预检182645 PASS，80秒；小切片跨库差A0.83034、B0.99413、Edge0，同库门通过。完整182646必须再次全行核验，失败停止。
+
+---
+
 ## 2026-11-06 SOURCE_RISK_PILOT_V1：本地审计脚本误列运行依赖
 
 - 作业182576，DECODE_PREFLIGHT，COMPUTE_STARTUP_FAILURE，FAILED/1:0，3秒；训练更新0，无可复用科学产物。调度MaxRSS仅1032KiB，启动采样不足，不能作为模型内存占用。

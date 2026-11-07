@@ -1599,3 +1599,18 @@ DeepSeek 已加入，沿用文档合作：`runs/mainline_docs/collab/YYYYMMDD_<�
 5. **证据/存储**：[执行及启动回执](collab/20261106_common_threshold_audit_launch_codex.md)，大数组留超算，[进度页](http://127.0.0.1:18806/)自动更新。原融合保留，旧NO_GO不改写，结果只作开发泛化诊断。
 
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)
+
+
+---
+
+# 当前状态
+
+更新：2026-11-06（America/Los_Angeles）。固定五项，历史另存。
+
+1. **诊断已验收**：182635/182636累计1分37秒；真实预检、544项旧成绩复现及34266项摘要/SHA断言PASS。
+2. **共同阈值无解**：四组×RAW/C5×三种子及集成，普通/加权/HT及全口径共256个问题均INFEASIBLE。
+3. **关键代价**：原C5集成Edge普通误报<2%时HTTP93.99%、UDP98.12%；保两类99.9%则误报最低70.005%。A/B集成在原阈值和误报受限端点仍达标。
+4. **下一步建议**：冲突样本分组归因与源支持检查，再决定训练/上下文修复；未提交新训练，原融合与旧NO_GO保留，不部署诊断阈值。
+5. **证据/存储**：[验收报告](collab/20261106_common_threshold_audit_acceptance_codex.md)；大数组留超算，[结果页](http://127.0.0.1:18806/)可切换模型流程与口径。Edge已消费，只作开发迁移/弱泛化诊断。
+
+[历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)

@@ -1,0 +1,54 @@
+{
+  "state": {
+    "stage": "STOP",
+    "error": "PREFLIGHT:AssertionError('OLD_GEOMETRY_PARITY')",
+    "completed_phases": 0,
+    "total_phases": 2,
+    "runtime_forecast": null,
+    "dependency_gate": {
+      "status": "PASS",
+      "files_checked": 24,
+      "before_sbatch": true
+    },
+    "scoreboard": null,
+    "PREFLIGHT_JOB": {
+      "job_id": "182644",
+      "phase": "PREFLIGHT",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 1800
+    },
+    "PREFLIGHT_PROGRESS": {
+      "stage": "STOP",
+      "done": 100000,
+      "total": 152866,
+      "rss_mib": 3832.93359375,
+      "updated_unix": 1794028274.9612274,
+      "updated_utc": "2026-11-07T05:11:23.440693+00:00",
+      "phase": "PREFLIGHT",
+      "job_id": null,
+      "version": "CONTEXT_GEOMETRY_V1",
+      "completed_phases": 0,
+      "total_phases": 2,
+      "error": "PREFLIGHT:AssertionError('OLD_GEOMETRY_PARITY')"
+    },
+    "PREFLIGHT_SCHEDULER": {
+      "stdout": "182644|FAILED|1:0|00:01:30||1|8G\n182644.batch|FAILED|1:0|00:01:30|866004K|1|\n",
+      "returncode": 0
+    },
+    "PREFLIGHT_STOP": {
+      "status": "STOP",
+      "error": "AssertionError('OLD_GEOMETRY_PARITY')",
+      "traceback": "Traceback (most recent call last):\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/context_geometry_attribution_v1_20261106/worker.py\", line 182, in <module>\n    try:main()\n        ^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/context_geometry_attribution_v1_20261106/worker.py\", line 150, in main\n    rc=c.extra_normalized(refphys);t=time.monotonic();old,new,matchdc,seconddc=geo.evaluate(d,refs,rz,rq,rc,norm,geom,rhoc,core,progress);distance_seconds=time.monotonic()-t\n                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/context_geometry_attribution_v1_20261106/geometry.py\", line 52, in evaluate\n    assert np.max(np.abs(old['support']-d['support']))<=2e-10,'OLD_GEOMETRY_PARITY'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: OLD_GEOMETRY_PARITY\n"
+    },
+    "DIAGNOSE_JOB": null,
+    "DIAGNOSE_PROGRESS": null,
+    "DIAGNOSE_SCHEDULER": null,
+    "DIAGNOSE_STOP": null
+  },
+  "sha256": {
+    "PREFLIGHT_STOP.json": "25b45c69f95f8faf0745682b588c111cc3b6919639b749d7962b4c62d5f9bca1",
+    "PREFLIGHT_SCHEDULER.json": "f1ed77f6fe49218ed1680340205c37fad99ecacd7280b4d3e22795b96f078b16",
+    "PREFLIGHT_JOB.json": "5b9bb3a90b28d8abb40709259b134431ac7a567ff9f3e81210bec3afb8c8f3dc"
+  }
+}

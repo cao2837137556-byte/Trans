@@ -1,0 +1,64 @@
+{
+  "version": "context_geometry_attribution_v2_20261106",
+  "review_sha256": "4953030dbe29553ca4fbc142f94261fc7b18fc3f75c897978beb161a748a1b99",
+  "training": false,
+  "deployment_change": false,
+  "arms": [
+    "FUSION790",
+    "STATS8 attribution only"
+  ],
+  "heads": [
+    27,
+    127,
+    227,
+    "ensemble"
+  ],
+  "geometry": {
+    "context_distance": "RMS of existing source-FIT log1p standardized context8",
+    "rho_c": "source LEARN FIT normals own-bank second distinct-component distance weighted q90; same eligibility/class_weights as frozen fit_geometry",
+    "rho_z_rho_q": "unchanged",
+    "joint": "max(dz/rho_z,dq/rho_q,dc/rho_c)",
+    "support": "clip(1-second_joint,0,1)",
+    "guard": "unchanged TCP SYN without ACK"
+  },
+  "scales": [
+    "FUSION790",
+    "OLD782_SOURCE_NONCOMPRESSED"
+  ],
+  "cut": "frozen FUSION790 source cuts for every variant",
+  "variants": [
+    "RAW",
+    "C5_FROZEN",
+    "C5_2D_FUSION",
+    "C5_2D_OLD",
+    "C5_3D_FUSION",
+    "C5_3D_OLD"
+  ],
+  "physical_groups": "overlapping warm<1s/<10s/noninbound; mutually exclusive warm_or_noninbound, mature_inbound_pps_above_ref_p99, mature_inbound_pps_within_ref_p99; pps either1s or10s above matched protocol normal-bank p99; descriptive not truth relabel",
+  "context_fields": [
+    "pps_1s",
+    "ip_Bps_1s",
+    "unique_src_1s",
+    "unique_5tuple_1s",
+    "pps_10s",
+    "ip_Bps_10s",
+    "unique_src_10s",
+    "unique_5tuple_10s"
+  ],
+  "attribution": "exact straight-line context integrated gradients from standardized zero with E3/q fixed + local gradient; reference-dependent, not causal",
+  "budget": {
+    "cpu": 1,
+    "memory_gib": 8,
+    "preflight_minutes": 30,
+    "diagnose_minutes": 88
+  },
+  "selections": "all requested cohorts, all seeds; no result-guided scale/radius tuning",
+  "theoretical_ceiling": "subtractive C5 cannot repair RAW misses; no claim of 99.9% attainable at frozen cuts",
+  "reference_control": "A/B frozen scores include historical additions; candidate 2D/3D both commissioning-only. Reproduce candidate 2D against pinned R-DENSE support, frozen scores against saved C4/C5 support; report both baselines.",
+  "failure_previous": {
+    "job": "182644",
+    "seconds": 90,
+    "error": "Compared commissioning-only bank to historical-augmented frozen C5 support",
+    "regression": "Separate bank identities; exact per-bank support parity mandatory"
+  }
+}
