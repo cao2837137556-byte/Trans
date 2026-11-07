@@ -1,0 +1,503 @@
+{
+  "packs": {
+    "CIC_DEV": [
+      {
+        "rows": "a0",
+        "arrays": "a1",
+        "device": "HeimVision Camera",
+        "count": 11
+      },
+      {
+        "rows": "a2",
+        "arrays": "a3",
+        "count": 278
+      }
+    ],
+    "UNSW_DEV": [
+      {
+        "rows": "a4",
+        "arrays": "a5"
+      },
+      {
+        "rows": "a6",
+        "arrays": "a7"
+      },
+      {
+        "rows": "a8",
+        "arrays": "a9"
+      },
+      {
+        "rows": "a10",
+        "arrays": "a11"
+      },
+      {
+        "rows": "a12",
+        "arrays": "a13"
+      },
+      {
+        "rows": "a14",
+        "arrays": "a15"
+      },
+      {
+        "rows": "a16",
+        "arrays": "a17"
+      }
+    ]
+  },
+  "b_targets": [
+    {
+      "bank_end_frame": 66004,
+      "capture_id": "well-history-r2-tp_link-45d1bd14569950ab",
+      "chronological_order": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\timeline_index\\TPLinkSmartPlug_50c7bf005639.chronological_order.npy",
+        "sha256": "9da30d4ebcf5cfe8c34d1f4e008dc90fea30746c0787ce437b46312901f84d23",
+        "asset": "a20"
+      },
+      "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+      "display_name": "TP Link",
+      "first_dev_time_us": 1486357446065969,
+      "key": "TP_LINK",
+      "known_macs": [
+        "00:16:6c:ab:6b:88",
+        "50:c7:bf:00:56:39",
+        "70:ee:50:18:34:43",
+        "ec:1a:59:79:f4:89",
+        "ec:1a:59:83:28:11"
+      ],
+      "normality_evidence": "Dryad official UNSW IoTraffic 2025 publisher lab setup/idle/interactions normal-source assumption; no event-level benign truth",
+      "owner": "50:c7:bf:00:56:39",
+      "packet_index": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\timeline_index\\TPLinkSmartPlug_50c7bf005639.packet_index.npy",
+        "sha256": "a96028abcbe562fc0704b68b3695c7f99ffd629ad152b9a565e1b3c96d847299",
+        "asset": "a19"
+      },
+      "packets": 79773,
+      "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+      "raw": {
+        "bytes": 12682108,
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\raw_selected\\TPLinkSmartPlug_50c7bf005639.pcap",
+        "sha256": "45d1bd14569950ab6c356bac70a7870b2a0d98a4efc8e3e6d2310ef422e212f5",
+        "asset": "a18"
+      },
+      "reference_end_us": 1480856333261023,
+      "timestamp_offset_seconds": 0
+    },
+    {
+      "bank_end_frame": 3430150,
+      "capture_id": "well-history-r2-wemo_power-445b24a2555bd4af",
+      "chronological_order": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\timeline_index\\BelkinWemoSwitch_ec1a5979f489.chronological_order.npy",
+        "sha256": "d0b8b7e190bc49f33212c9210781c2ac51207c474704d684762901ca4af44923",
+        "asset": "a23"
+      },
+      "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+      "display_name": "WEMO Power",
+      "first_dev_time_us": 1484092851673414,
+      "key": "WEMO_POWER",
+      "known_macs": [
+        "00:16:6c:ab:6b:88",
+        "50:c7:bf:00:56:39",
+        "70:ee:50:18:34:43",
+        "ec:1a:59:79:f4:89",
+        "ec:1a:59:83:28:11"
+      ],
+      "normality_evidence": "Dryad official UNSW IoTraffic 2025 publisher lab setup/idle/interactions normal-source assumption; no event-level benign truth",
+      "owner": "ec:1a:59:79:f4:89",
+      "packet_index": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\timeline_index\\BelkinWemoSwitch_ec1a5979f489.packet_index.npy",
+        "sha256": "00273d29f728b26b8b3e3219a5bb12ac17a4e8f34763e7ecc0687e3e0cdea733",
+        "asset": "a22"
+      },
+      "packets": 4273643,
+      "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+      "raw": {
+        "bytes": 1102039280,
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\raw_selected\\BelkinWemoSwitch_ec1a5979f489.pcap",
+        "sha256": "445b24a2555bd4af7991e83752ad63aba1cd9f1c96e7cbbd76da6a81b6dcbc64",
+        "asset": "a21"
+      },
+      "reference_end_us": 1484092799863312,
+      "timestamp_offset_seconds": 0
+    },
+    {
+      "bank_end_frame": 4419000,
+      "capture_id": "well-history-r2-samsung-55fbfcbb4f5dce65",
+      "chronological_order": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\timeline_index\\SamsungCamera_00166cab6b88.chronological_order.npy",
+        "sha256": "03686f44f22bba2add9de04baefc579877b68b80037f923e853353ba2c25cb50",
+        "asset": "a26"
+      },
+      "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+      "display_name": "Samsung",
+      "first_dev_time_us": 1490054401482691,
+      "key": "SAMSUNG",
+      "known_macs": [
+        "00:16:6c:ab:6b:88",
+        "50:c7:bf:00:56:39",
+        "70:ee:50:18:34:43",
+        "ec:1a:59:79:f4:89",
+        "ec:1a:59:83:28:11"
+      ],
+      "normality_evidence": "Dryad official UNSW IoTraffic 2025 publisher lab setup/idle/interactions normal-source assumption; no event-level benign truth",
+      "owner": "00:16:6c:ab:6b:88",
+      "packet_index": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\timeline_index\\SamsungCamera_00166cab6b88.packet_index.npy",
+        "sha256": "2a639b7cba9961cb8608d5f5b2c9f2b5ab8bb3b7e7469899aaf77973ac56f8a2",
+        "asset": "a25"
+      },
+      "packets": 5880402,
+      "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+      "raw": {
+        "bytes": 2154137280,
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\raw_selected\\SamsungCamera_00166cab6b88.pcap",
+        "sha256": "55fbfcbb4f5dce65ac51a41658550e087da1d1e2b30370386eb167c4d9dfedf9",
+        "asset": "a24"
+      },
+      "reference_end_us": 1490054396682107,
+      "timestamp_offset_seconds": 0
+    },
+    {
+      "bank_end_frame": 3766102,
+      "capture_id": "c4-history-netatmo-e4eb79d34e3e45e3",
+      "chronological_order": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\timeline_index\\NetatmoWelcome_70ee50183443.chronological_order.npy",
+        "sha256": "6a86c8a637a2ac6aaefb4a8105d40473cac9bb8417b31ddf96cf4e415ac20d2d",
+        "asset": "a29"
+      },
+      "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+      "display_name": "Netatmo Camera",
+      "first_dev_time_us": 1485907201277175,
+      "key": "NETATMO",
+      "known_macs": [
+        "00:16:6c:ab:6b:88",
+        "50:c7:bf:00:56:39",
+        "70:ee:50:18:34:43",
+        "ec:1a:59:79:f4:89",
+        "ec:1a:59:83:28:11"
+      ],
+      "normality_evidence": "Dryad official UNSW IoTraffic 2025 publisher lab setup/idle/interactions normal-source assumption; no event-level benign truth",
+      "owner": "70:ee:50:18:34:43",
+      "packet_index": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\timeline_index\\NetatmoWelcome_70ee50183443.packet_index.npy",
+        "sha256": "f84357e735e4bf0a0214adf1dcd8627141c6469679d5b07e8f97c14c0d55dec6",
+        "asset": "a28"
+      },
+      "packets": 4967010,
+      "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+      "raw": {
+        "path": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\unsw_iotraffic_2025\\raw_selected\\NetatmoWelcome_70ee50183443.pcap",
+        "sha256": "e4eb79d34e3e45e3de71190ce65a2449be4989d663a6e13d7f26b4e928d13006",
+        "bytes": 2206626972,
+        "asset": "a27"
+      },
+      "reference_end_us": 1485907186758350,
+      "timestamp_offset_seconds": 0
+    }
+  ],
+  "a_captures": [
+    {
+      "capture_id": "interaction-attack-189",
+      "file_id": 189,
+      "member_path": "3-Interactions/Cameras/HeimVision Camera/LAN_WATCH/heimvisioncamLANWATCH_1.pcap",
+      "path": "runs/legacy_reference_material_audit_v1_20260916/raw_selected/189.pcap",
+      "sha256": "ae762e6333698ae94adfb652b37d21eea12d04ebdd1d5a92ac18ab68a6f0f23d",
+      "bytes": 43027,
+      "provenance": "normal",
+      "device": "HeimVision Camera",
+      "owner": "44:01:bb:ec:10:4a",
+      "partition": "DEV",
+      "mode": "LAN_WATCH",
+      "use": "REFERENCE",
+      "expected_packets": 105,
+      "old_candidate_count": 104,
+      "first": 1633539900.741864,
+      "last": 1633539927.760204,
+      "skip_reason": null,
+      "normality_evidence": "CIC original member paths 3-Interactions/Cameras/HeimVision Camera/LAN_WATCH; publisher normal interaction category, verified device MAC and pre-existing REFERENCE time role. No independent per-packet maliciousness oracle; interaction-attack is only a project capture prefix.",
+      "asset": "a30"
+    },
+    {
+      "capture_id": "interaction-attack-190",
+      "file_id": 190,
+      "member_path": "3-Interactions/Cameras/HeimVision Camera/LAN_WATCH/heimvisioncamLANWATCH_3.pcap",
+      "path": "runs/legacy_reference_material_audit_v1_20260916/raw_selected/190.pcap",
+      "sha256": "ba5b3c67ebeb2d38737046d3a64a70113ad52252afe25248ed30f0e52da7adf6",
+      "bytes": 41596,
+      "provenance": "normal",
+      "device": "HeimVision Camera",
+      "owner": "44:01:bb:ec:10:4a",
+      "partition": "DEV",
+      "mode": "LAN_WATCH",
+      "use": "REFERENCE",
+      "expected_packets": 101,
+      "old_candidate_count": 98,
+      "first": 1633540142.843962,
+      "last": 1633540171.541785,
+      "skip_reason": null,
+      "normality_evidence": "CIC original member paths 3-Interactions/Cameras/HeimVision Camera/LAN_WATCH; publisher normal interaction category, verified device MAC and pre-existing REFERENCE time role. No independent per-packet maliciousness oracle; interaction-attack is only a project capture prefix.",
+      "asset": "a31"
+    },
+    {
+      "capture_id": "interaction-attack-191",
+      "file_id": 191,
+      "member_path": "3-Interactions/Cameras/HeimVision Camera/LAN_WATCH/heimvisioncamLANWATCH_2.pcap",
+      "path": "runs/legacy_reference_material_audit_v1_20260916/raw_selected/191.pcap",
+      "sha256": "0a0332a5f5f6a5b0381faa33abfa95e0af19aed77f08858d464bdcacd63787f2",
+      "bytes": 28043,
+      "provenance": "normal",
+      "device": "HeimVision Camera",
+      "owner": "44:01:bb:ec:10:4a",
+      "partition": "DEV",
+      "mode": "LAN_WATCH",
+      "use": "REFERENCE",
+      "expected_packets": 88,
+      "old_candidate_count": 87,
+      "first": 1633540046.39205,
+      "last": 1633540076.228605,
+      "skip_reason": null,
+      "normality_evidence": "CIC original member paths 3-Interactions/Cameras/HeimVision Camera/LAN_WATCH; publisher normal interaction category, verified device MAC and pre-existing REFERENCE time role. No independent per-packet maliciousness oracle; interaction-attack is only a project capture prefix.",
+      "asset": "a32"
+    }
+  ],
+  "assets": {
+    "a0": {
+      "sha256": "997e1c4ab68781fba3787969a37938ef0a36d899559543e243aabeeda1953fb3",
+      "bytes": 14893,
+      "candidates": [
+        "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.jsonl.gz"
+      ]
+    },
+    "a1": {
+      "sha256": "a9a1c06a1d272f371fedc12dc9ecaa424e61657b710007f3de061cc9a8ae1d6a",
+      "bytes": 255678,
+      "candidates": [
+        "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.npz"
+      ]
+    },
+    "a2": {
+      "sha256": "c9a9d58ba3a6bda65e5fdc7db02af69f6b038b6691b6093aed6ccbc595e3e9d1",
+      "bytes": 20431,
+      "candidates": [
+        "runs/history_normal_reference_c3_progress_repair_v1_20261101/retrieved/encoded/references.jsonl.gz"
+      ]
+    },
+    "a3": {
+      "sha256": "0ad6e1ce891d6a7aa1487b7af379bd214b7b15ccfd5d98b71d8c282c683dcca2",
+      "bytes": 941486,
+      "candidates": [
+        "runs/history_normal_reference_c3_progress_repair_v1_20261101/retrieved/encoded/references.npz"
+      ]
+    },
+    "a4": {
+      "sha256": "f06b9fdcf06a5db8956813954cc0c76a42a3fb0c9dbbe13f0c3271bd2bef4d65",
+      "bytes": 1242828,
+      "candidates": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/TP_LINK_references.jsonl.gz"
+      ]
+    },
+    "a5": {
+      "sha256": "af444c6fc516d3461c0b867484343fa1bcb69507f6814ad84fc9125a31c525f3",
+      "bytes": 26324870,
+      "candidates": [
+        "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/TP_LINK/encoded/references.npz"
+      ]
+    },
+    "a6": {
+      "sha256": "bc9b1cf16e4dfeee9688659a77c2aa909830d83d31aed5e7b6ab4de9f2665ad1",
+      "bytes": 1309590,
+      "candidates": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/WEMO_POWER_references.jsonl.gz"
+      ]
+    },
+    "a7": {
+      "sha256": "dd60faeb8b91967ba1fde0a6d5516bb3fb801f56e30248a8d431dde418912e3b",
+      "bytes": 27722462,
+      "candidates": [
+        "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/WEMO_POWER/encoded/references.npz"
+      ]
+    },
+    "a8": {
+      "sha256": "ffb92fe922c68530e392548c66bcb0134383c3ea76913c5274c7e050050c7808",
+      "bytes": 1331587,
+      "candidates": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/SAMSUNG_references.jsonl.gz"
+      ]
+    },
+    "a9": {
+      "sha256": "e3aaeabab396f436bb3f1bb949413da638d853af542ad737488992fe1bda36fe",
+      "bytes": 27722462,
+      "candidates": [
+        "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/SAMSUNG/encoded/references.npz"
+      ]
+    },
+    "a10": {
+      "sha256": "017422f2efa68c5ba2cc1e75d936155482592cc7d632822bcbf44d630e98794b",
+      "bytes": 630674,
+      "candidates": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/TP_LINK/encoded/references.jsonl.gz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/TP_LINK/encoded/references.jsonl.gz"
+      ]
+    },
+    "a11": {
+      "sha256": "4118f6e2dd0bf17b2611edc8ee011f847f0380814cc6e7bb3494489f72f13c3b",
+      "bytes": 13861598,
+      "candidates": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/TP_LINK/encoded/references.npz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/TP_LINK/encoded/references.npz"
+      ]
+    },
+    "a12": {
+      "sha256": "30b52d1341b20903690400d30a8a2c80b13827f80cb4e94396782c9a577ca400",
+      "bytes": 1215454,
+      "candidates": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/WEMO_POWER/encoded/references.jsonl.gz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/WEMO_POWER/encoded/references.jsonl.gz"
+      ]
+    },
+    "a13": {
+      "sha256": "0927accce3c3e110cf495311f862c5d8a74486e4f87726c8979e16ddb5558e96",
+      "bytes": 27722462,
+      "candidates": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/WEMO_POWER/encoded/references.npz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/WEMO_POWER/encoded/references.npz"
+      ]
+    },
+    "a14": {
+      "sha256": "4a42a9973e2fab262bfb3067d4858afd69cd36195cfdd0a6405bbe8f5f691447",
+      "bytes": 1008931,
+      "candidates": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/SAMSUNG/encoded/references.jsonl.gz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/SAMSUNG/encoded/references.jsonl.gz"
+      ]
+    },
+    "a15": {
+      "sha256": "133454d130496bd9039e5dfb2c42105366f39cd1e84c240ab105b2341ee5a024",
+      "bytes": 27722462,
+      "candidates": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/SAMSUNG/encoded/references.npz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/SAMSUNG/encoded/references.npz"
+      ]
+    },
+    "a16": {
+      "sha256": "8c62b0281bd708b2816176a86c70cb6621f89b8e2807df0d8bd68d55e39ab9e6",
+      "bytes": 1242511,
+      "candidates": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/NETATMO/encoded/references.jsonl.gz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/NETATMO/encoded/references.jsonl.gz"
+      ]
+    },
+    "a17": {
+      "sha256": "c9fdc76b1309f53e456959df62a6e846d1b1d7665b6d6b5ab6b999a098fc67dc",
+      "bytes": 27722462,
+      "candidates": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/NETATMO/encoded/references.npz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/NETATMO/encoded/references.npz"
+      ]
+    },
+    "a18": {
+      "sha256": "45d1bd14569950ab6c356bac70a7870b2a0d98a4efc8e3e6d2310ef422e212f5",
+      "bytes": 12682108,
+      "candidates": [
+        "data_external/unsw_iotraffic_2025/raw_selected/TPLinkSmartPlug_50c7bf005639.pcap"
+      ]
+    },
+    "a19": {
+      "sha256": "a96028abcbe562fc0704b68b3695c7f99ffd629ad152b9a565e1b3c96d847299",
+      "bytes": 2552992,
+      "candidates": [
+        "data_external/unsw_iotraffic_2025/timeline_index/TPLinkSmartPlug_50c7bf005639.packet_index.npy"
+      ]
+    },
+    "a20": {
+      "sha256": "9da30d4ebcf5cfe8c34d1f4e008dc90fea30746c0787ce437b46312901f84d23",
+      "bytes": 638312,
+      "candidates": [
+        "data_external/unsw_iotraffic_2025/timeline_index/TPLinkSmartPlug_50c7bf005639.chronological_order.npy"
+      ]
+    },
+    "a21": {
+      "sha256": "445b24a2555bd4af7991e83752ad63aba1cd9f1c96e7cbbd76da6a81b6dcbc64",
+      "bytes": 1102039280,
+      "candidates": [
+        "data_external/unsw_iotraffic_2025/raw_selected/BelkinWemoSwitch_ec1a5979f489.pcap"
+      ]
+    },
+    "a22": {
+      "sha256": "00273d29f728b26b8b3e3219a5bb12ac17a4e8f34763e7ecc0687e3e0cdea733",
+      "bytes": 136756832,
+      "candidates": [
+        "data_external/unsw_iotraffic_2025/timeline_index/BelkinWemoSwitch_ec1a5979f489.packet_index.npy"
+      ]
+    },
+    "a23": {
+      "sha256": "d0b8b7e190bc49f33212c9210781c2ac51207c474704d684762901ca4af44923",
+      "bytes": 34189272,
+      "candidates": [
+        "data_external/unsw_iotraffic_2025/timeline_index/BelkinWemoSwitch_ec1a5979f489.chronological_order.npy"
+      ]
+    },
+    "a24": {
+      "sha256": "55fbfcbb4f5dce65ac51a41658550e087da1d1e2b30370386eb167c4d9dfedf9",
+      "bytes": 2154137280,
+      "candidates": [
+        "data_external/unsw_iotraffic_2025/raw_selected/SamsungCamera_00166cab6b88.pcap"
+      ]
+    },
+    "a25": {
+      "sha256": "2a639b7cba9961cb8608d5f5b2c9f2b5ab8bb3b7e7469899aaf77973ac56f8a2",
+      "bytes": 188173120,
+      "candidates": [
+        "data_external/unsw_iotraffic_2025/timeline_index/SamsungCamera_00166cab6b88.packet_index.npy"
+      ]
+    },
+    "a26": {
+      "sha256": "03686f44f22bba2add9de04baefc579877b68b80037f923e853353ba2c25cb50",
+      "bytes": 47043344,
+      "candidates": [
+        "data_external/unsw_iotraffic_2025/timeline_index/SamsungCamera_00166cab6b88.chronological_order.npy"
+      ]
+    },
+    "a27": {
+      "sha256": "e4eb79d34e3e45e3de71190ce65a2449be4989d663a6e13d7f26b4e928d13006",
+      "bytes": 2206626972,
+      "candidates": [
+        "data_external/unsw_iotraffic_2025/raw_selected/NetatmoWelcome_70ee50183443.pcap"
+      ]
+    },
+    "a28": {
+      "sha256": "f84357e735e4bf0a0214adf1dcd8627141c6469679d5b07e8f97c14c0d55dec6",
+      "bytes": 158944576,
+      "candidates": [
+        "data_external/unsw_iotraffic_2025/timeline_index/NetatmoWelcome_70ee50183443.packet_index.npy"
+      ]
+    },
+    "a29": {
+      "sha256": "6a86c8a637a2ac6aaefb4a8105d40473cac9bb8417b31ddf96cf4e415ac20d2d",
+      "bytes": 39736208,
+      "candidates": [
+        "data_external/unsw_iotraffic_2025/timeline_index/NetatmoWelcome_70ee50183443.chronological_order.npy"
+      ]
+    },
+    "a30": {
+      "sha256": "ae762e6333698ae94adfb652b37d21eea12d04ebdd1d5a92ac18ab68a6f0f23d",
+      "bytes": 43027,
+      "candidates": [
+        "runs/legacy_reference_material_audit_v1_20260916/raw_selected/189.pcap"
+      ]
+    },
+    "a31": {
+      "sha256": "ba5b3c67ebeb2d38737046d3a64a70113ad52252afe25248ed30f0e52da7adf6",
+      "bytes": 41596,
+      "candidates": [
+        "runs/legacy_reference_material_audit_v1_20260916/raw_selected/190.pcap"
+      ]
+    },
+    "a32": {
+      "sha256": "0a0332a5f5f6a5b0381faa33abfa95e0af19aed77f08858d464bdcacd63787f2",
+      "bytes": 28043,
+      "candidates": [
+        "runs/legacy_reference_material_audit_v1_20260916/raw_selected/191.pcap"
+      ]
+    }
+  }
+}

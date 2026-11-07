@@ -1,0 +1,30 @@
+{
+  "status": "PREPARED",
+  "scope": "READONLY_ATTRIBUTION_AND_3D_C5_COUNTERFACTUAL",
+  "pins": {
+    "worker.py": "a7a98ac1100b16d696083ee717265f6e58e0bdece5584e067f1fd9a0d240c044",
+    "geometry.py": "aa4633dace8f83e19a0232d5a02b3585fe6e2235da64d8260d09e71009e7c2a1",
+    "attribution.py": "f0df9b0586e01bcdd301a8f5e8df0503d4e0690fee86d511e1db4dbb05ecf3a0",
+    "physical.py": "a800f2eecb263c681dfe83fb4058061ba9d16994b12436bf189208f416823720",
+    "stream_core.py": "d8663a40e21d76ed2021b0999e1e2384b194b3b03b1c391ce88c43bae4a439aa",
+    "source_packets.py": "be76540116cb7ea89b64b376761a08f0c0e99dbbf066390413bf00f23cd5cafe",
+    "packet_reader.py": "7ef0122fb66cbfd49d9130fd2f9325e2612eed0fe5c0a3791daa4122cd8c9881",
+    "base_worker.py": "41502f79c60069e375ea73f9083a50f8ade26d0d3d3eb804e742f6dfc889f6c5",
+    "history_context.py": "4ca4dbdf513e479edc69504e8f5ea493cef08d806325e22b020f85f57bcc2e16",
+    "HISTORY_INPUTS.json": "5799d5cc864283c3278012eb6a54947edbfdf5a4239b6d56cae7e9dae2d103db",
+    "INPUT_PINS.json": "5a679200802cdd6f23f19e9f0f58ebbe5b613744ba525aac9497f1db37d67b28",
+    "dependency_gate.py": "9f1128fef7c9a8e259b33ef59fe1c150231ca4c6ebec10421a739dee1f217b08",
+    "SPEC.json": "83fdcbfae5c2b0ada93f143f31172088af8ddc31a74d4192bb43fdba8be848b4",
+    "test_contract.py": "5d0e319f44a26b1984355098bf960e09617b2bbefce1e1c2a9c15c2be50ed1fd"
+  },
+  "receiver_sha256": "93b46c509d24ab84a8a335115793921693e85f30eca8b75a17132effb0532e0b",
+  "cpu": 1,
+  "memory_gib": 8,
+  "budget_minutes": [
+    30,
+    90
+  ],
+  "training": false,
+  "deployment_change": false,
+  "automatic_retries": 0
+}

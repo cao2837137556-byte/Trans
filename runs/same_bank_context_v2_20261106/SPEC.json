@@ -1,0 +1,32 @@
+{
+  "version": "same_bank_context_v2_20261106",
+  "review_sha256": "64342c45ec1d0bbb3b19887d2ede007ee16c751a3ac29ea35ad3c2cc839a6fa8",
+  "training": false,
+  "deployment_change": false,
+  "cpu": 1,
+  "memory_gib": 8,
+  "budget_minutes": [
+    30,
+    90
+  ],
+  "prior_preflight_sha256": "74be73317509af6a2e83f3c22e4ce577cdf052621ce21fdd66f62dac9aa05cb6",
+  "prior_result_sha256": "5d7f012686205ee353f982951b29f9c8086d721cd24b82e14d5f44d23b8bb654",
+  "radii": "all source radii reused unchanged",
+  "reference_scope": "frozen C3 A and C4 B dense+historical UID union; Edge unchanged",
+  "window": "current inclusive (t-W,t], original Engine semantics",
+  "b_timeline": "sealed index/order logical frames1..bank_end_frame; stable equal timestamps; no HIST_DEV payload decode",
+  "a_timeline": "independent Engine per 3 captures",
+  "parity": "support<=2e-10 except C3 guarded Heim support stored under older definition; all scores<=2e-10 and all four head flips0",
+  "variants": [
+    "RAW",
+    "C5_FROZEN",
+    "C5_2D_FUSION",
+    "C5_2D_OLD",
+    "C5_3D_FUSION",
+    "C5_3D_OLD"
+  ],
+  "reporting": "primary/full device normal+attack all4heads; Edge ordinary/hierarchical/HT",
+  "donor_audit": "normal by BOTH_DENSE BOTH_HIST MIXED_DENSE_HIST and NO_TWO_LEGAL_MATCHES; devices; support quantiles and retained positives; dc/rhoc; false alarms all heads",
+  "forecast": "real small query against full bank * fullrows/smallrows *1.5 +600sec; must fit90min",
+  "materialization": "Missing assets staged isolated, sha required before sbatch; v1 was preparation only, zero sbatch"
+}

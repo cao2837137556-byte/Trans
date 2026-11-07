@@ -1,0 +1,19 @@
+<!doctype html><meta charset="utf-8"><title>同库历史参考与三维C5对照</title>
+<style>body{background:#101923;color:#e5edf4;font:16px system-ui;margin:28px;max-width:1100px}p{line-height:1.65}td,th{padding:9px;border-bottom:1px solid #456}table{border-collapse:collapse;width:100%}select{padding:5px;margin:6px}progress{width:100%;height:18px}small{color:#afc1d3}.status{color:#5dd6b5}</style>
+<h1>同库历史参考与三维 C5 对照</h1>
+<p>只用原 FUSION790；不训练、不改部署阈值。大数组留超算，小型汇总自动取回。</p>
+<h2 id="stage" class="status">正在读取状态</h2><progress id="progress" max="1" value="0"></progress><p id="detail"></p>
+<p>① 历史context时间序与暴力核对　② 同库二维严格复现　③ 三维×两尺度全口径对照　④ 历史供体支持度留存</p>
+<p><small>1 CPU / 8 GiB，预检30分钟＋完整对照90分钟上限。真实解码、编码、距离、分数复现和耗时门通过后自动进入完整对照；失败停止，不盲目重试。</small></p>
+<label>数据 <select id="pool"><option>EDGE</option><option>CIC_DEV</option><option>UNSW_DEV</option></select></label>
+<label>头 <select id="head"><option>ensemble</option><option>27</option><option>127</option><option>227</option></select></label>
+<label>口径 <select id="basis"><option value="sample_rate">普通</option><option value="hierarchical_rate">分层加权</option><option value="HT_rate">Edge HT</option></select></label>
+<table><thead><tr><th>固定离线对照</th><th>正常误报</th><th>HTTP / A、B攻击检出</th><th>UDP检出</th></tr></thead><tbody id="rows"></tbody></table>
+<p>二维与三维均保留现行历史正常参考；二维必须逐条复现现行封存C5。三维 C5 增加上下文距离约束；OLD尺度为已封存的旧源FIT尺度。所有对照保留原阈值、全部种子与SYN保护。减分式C5不能修复RAW漏检；不剔除暖机或低速样本来宣布达标。</p>
+<script>
+const $=x=>document.getElementById(x);let board={};const labels={RAW:'RAW（检出上限）',C5_FROZEN:'现行封存 C5（含既有历史参考）',C5_2D_FUSION:'同库二维＋当前尺度',C5_2D_OLD:'同库二维＋旧源尺度',C5_3D_FUSION:'三维＋当前尺度',C5_3D_OLD:'三维＋旧源尺度'};
+function value(r){let v=r?.[$('basis').value];return typeof v==='number'?(100*v).toFixed(3)+'%':'—'}
+function draw(){let pool=$('pool').value;let s=board[pool]||{};$('rows').innerHTML=Object.entries(labels).map(([k,label])=>{let h=s[k]?.[$('head').value];return `<tr><td>${label}</td><td>${value(h?.NORMAL)}</td><td>${value(h?.[pool==='EDGE'?'HTTP':'ATTACK'])}</td><td>${value(h?.UDP)}</td></tr>`}).join('')}
+for(let k of ['pool','head','basis'])$(k).onchange=draw;draw();
+async function update(){try{let all=await(await fetch('/state')).json(),s=all.CHAIN_STATE||{},p=all.PROGRESS||{};if(p.version!=='CONTEXT_GEOMETRY_V1')return;let complete=s.stage==='CONTEXT_GEOMETRY_COMPLETE';$('stage').textContent=(complete?'完整对照结束，汇总已生成':s.stage==='STOP'?'已停止，请查看错误':s.phase==='PREFLIGHT'?'真实预检中':'完整对照中')+' · 作业 '+(s.job_id||s.DIAGNOSE_JOB?.job_id||s.PREFLIGHT_JOB?.job_id||'待回执');$('progress').value=complete?1:Math.min(1,(p.done||0)/(p.total||1));$('detail').textContent=s.error||`${p.stage||s.stage} · 当前步骤 ${p.done||0}/${p.total||1} · 已完成阶段 ${s.completed_phases||0}/2 · RSS ${p.rss_mib?Number(p.rss_mib).toFixed(0):'—'} MiB`;board=s.scoreboard||{};draw()}catch(e){$('detail').textContent='本地连接暂不可达'}}update();setInterval(update,5000);
+</script>

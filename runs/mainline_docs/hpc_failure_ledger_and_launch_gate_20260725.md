@@ -1,3 +1,12 @@
+## 2026-11-06 SAME_BANK_CONTEXT_V2：提交前误列本地交付回执
+
+- INSTALL_OR_SUBMIT_FAILURE；DEPENDENCY_MISSING:runs/context_geometry_attribution_v2_20261106/DELIVERY.json。提交前门主动拒绝，sbatch0、分配CPU秒0。33项历史材料已通过并作为有效准备复用，不重传。
+- 根因：构建下一轮依赖清单时额外把上轮本地DELIVERY加入远端运行依赖，worker未读取该文件。与已登记本地审计工具误列远端依赖同类，不能归因超算环境。
+- 修订独立same_bank_context_v3_20261106，仅去掉这项未使用依赖；worker/base_worker/geometry/history_context字节不变，仍核验上轮PREFLIGHT/DIAGNOSE结果SHA及实际代码、33项历史材料。回归门拒绝INPUT_PINS中的本地DELIVERY项；22项本地检查通过。
+- v1材料盘点0作业，v2补齐材料后被提交门拒绝0作业；v3必须重新通过真实Linux预检才可完整运行。未放宽支持度/分数/因果/预算科学工程门。
+
+---
+
 ## 2026-11-06 CONTEXT_GEOMETRY_V2：报告误用复核分层计数
 
 - POST_RESULT_FAILURE，仅本地报告。182645/182646均COMPLETED/0:0；完整结果和取回SHA通过，训练更新0，无需远端重跑。

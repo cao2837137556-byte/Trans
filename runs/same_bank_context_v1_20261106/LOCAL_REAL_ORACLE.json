@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "pools": {
+    "CIC_DEV": {
+      "history_rows": 289,
+      "oracle_rows": 24,
+      "receipts": {
+        "interaction-attack-189": {
+          "rows": 8,
+          "frames": 8,
+          "oracle_checks": 8,
+          "peak_entries": 6,
+          "independent_engine": true
+        },
+        "interaction-attack-190": {
+          "rows": 8,
+          "frames": 8,
+          "oracle_checks": 8,
+          "peak_entries": 6,
+          "independent_engine": true
+        },
+        "interaction-attack-191": {
+          "rows": 8,
+          "frames": 8,
+          "oracle_checks": 8,
+          "peak_entries": 6,
+          "independent_engine": true
+        }
+      }
+    },
+    "UNSW_DEV": {
+      "history_rows": 52835,
+      "oracle_rows": 32,
+      "receipts": {
+        "TP_LINK": {
+          "rows": 8,
+          "frames": 12,
+          "bank_end_frame": 66004,
+          "decoded_hist_dev": 0,
+          "oracle_checks": 8,
+          "seconds": 0.0,
+          "peak_entries": 4
+        },
+        "WEMO_POWER": {
+          "rows": 8,
+          "frames": 1632,
+          "bank_end_frame": 3430150,
+          "decoded_hist_dev": 0,
+          "oracle_checks": 8,
+          "seconds": 0.03200000000651926,
+          "peak_entries": 147
+        },
+        "SAMSUNG": {
+          "rows": 8,
+          "frames": 3751,
+          "bank_end_frame": 4419000,
+          "decoded_hist_dev": 0,
+          "oracle_checks": 8,
+          "seconds": 0.0470000000204891,
+          "peak_entries": 44
+        },
+        "NETATMO": {
+          "rows": 8,
+          "frames": 2685,
+          "bank_end_frame": 3766102,
+          "decoded_hist_dev": 0,
+          "oracle_checks": 8,
+          "seconds": 0.031000000017229468,
+          "peak_entries": 20
+        }
+      }
+    }
+  },
+  "scope": "local engineering only; HPC gate still required"
+}
