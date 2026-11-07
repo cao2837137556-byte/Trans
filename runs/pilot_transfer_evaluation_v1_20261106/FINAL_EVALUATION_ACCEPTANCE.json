@@ -1,0 +1,26 @@
+{
+  "engineering": "PASS",
+  "overall_target": "NOT_ACHIEVED",
+  "AB_ensemble_C5_sample_and_weighted": "ALL_FOUR_PASS",
+  "EDGE_all_heads_and_arms_joint_target": "NONE_PASS",
+  "checks": 23907,
+  "summary_sha256": "07b77458342ab1978f912e96459e6d8ffe8879ff9f25250d36a4a34b10288dcf",
+  "receipt_sha256": {
+    "PREFLIGHT_RESULT.json": "2fcb2187972ccc3ae9db9fe181ff9e908bb1f67015f3833e87c548878b57be2d",
+    "PREFLIGHT_SCHEDULER.json": "04bc83b0e8f48f7963efe0ea106850141005d44a2d203c8ff3256bdbe0abf0e8",
+    "PREFLIGHT_JOB.json": "e44432fd515f352098c806b4844f1df45703f803a834df0c65113ee98d548ba5",
+    "AB_RESULT.json": "951c8f5699d86d06777e3d7d80d2356e12473dac240efcfb29245b4b155d4d3a",
+    "AB_SCHEDULER.json": "ba2ae962fbf20e1e21bb262fa934e015417e224b6f5bf1f6d73fd52ea786c439",
+    "AB_JOB.json": "abc4e682311c3c6133a1c4c8e40784378bdb5167084036ebbfb503de42f018cb",
+    "EDGE_RESULT.json": "4159a2a0e77c9e97493330ddea234f78c8a77451184acebd24b84d4ad3fdc1cf",
+    "EDGE_SCHEDULER.json": "02a2bdea7c61520c1595353dab551f0d8458025dae4fd499eec252fc5bfcf5e7",
+    "EDGE_JOB.json": "edefffdcab698b13daa13da0dccf1e0242aa46ec56ea11673565c05a90ddc798"
+  },
+  "new_training": false,
+  "large_arrays_rescored_locally": false,
+  "limitations": [
+    "Compact metrics and receipt hashes audited, not independent re-inference of large HPC arrays.",
+    "Consumed development datasets, not untouched external confirmation.",
+    "Source NO_GO and original scientific gates remain unchanged."
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "real_encoder_distance": {
+    "status": "PASS",
+    "query_rows": 4,
+    "reference_rows": 4124,
+    "encoded_rows": 112,
+    "encoded_batches": 7,
+    "e3_max_abs_error": 0.0,
+    "cached_support_error": 0.0,
+    "fresh_support_error": 0.0
+  },
+  "checks": {
+    "CIC_DEV": {
+      "rows": 9,
+      "baseline_errors": {
+        "OLD782_RAW": 3.814697265625e-06,
+        "OLD782_C5_P3": 3.814697265625e-06,
+        "FUSION790_RAW": 3.814697265625e-06,
+        "FUSION790_C5_P3": 3.814697265625e-06
+      },
+      "metric_receipt_sha256": "a5bea16f710d29ad732c710a40ca14ac61c8d9855734f142604cf5f1f1a94666",
+      "candidate_gates_computed": true,
+      "scientific_selection": false
+    },
+    "UNSW_DEV": {
+      "rows": 15,
+      "baseline_errors": {
+        "OLD782_RAW": 3.814697265625e-06,
+        "OLD782_C5_P3": 3.814697265625e-06,
+        "FUSION790_RAW": 3.814697265625e-06,
+        "FUSION790_C5_P3": 3.814697265625e-06
+      },
+      "metric_receipt_sha256": "8203598028876a557b2f313e1e590c923b8052e5f226cc624806bafe20ec4f5e",
+      "candidate_gates_computed": true,
+      "scientific_selection": false
+    },
+    "EDGE": {
+      "rows": 4,
+      "baseline_errors": {
+        "OLD782_RAW": 0.0,
+        "OLD782_C5_P3": 0.0,
+        "FUSION790_RAW": 0.0,
+        "FUSION790_C5_P3": 0.0
+      },
+      "metric_receipt_sha256": "492ce3b47816eb9dc539c1fa5e69d879c5d0990e4294ddabc65c3a7577fc8c20",
+      "candidate_gates_computed": true,
+      "scientific_selection": false
+    }
+  },
+  "scope": "REAL_ENGINEERING_GATE_ONLY",
+  "seconds": 287.5579875931144,
+  "rss_peak_bytes": 1583587328,
+  "phase": "PREFLIGHT",
+  "training": false,
+  "threshold_fitting": false,
+  "model_selection": false,
+  "scientific_failures_stop_chain": false,
+  "interpretation": "Consumed diagnostic evaluation; all fixed seeds/arms; original gates retained"
+}

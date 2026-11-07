@@ -1,3 +1,9 @@
+## 2026-11-06：四组跨数据集验收，误报改善但Edge检出受损
+
+182628/182630/182632累计7:06、峰值1.703GiB，23907项摘要/SHA断言通过。四组集成及三新组全部种子A/B C5普通/加权2%/99.9%均达标；Edge无任何头同时达标。原/均匀/分层/受限Edge普通FPR 5.79/3.115/0.45/1.79%，HTTP94.995/93.155/91.325/93.405%，UDP98.66/97.18/51.8/96.02%；分层/受限加权FPR仍2.071/4.554%。UDP RAW已损失、无C5撤警；HTTP同样扣分下撤警增加。保留原融合，源NO_GO和旧科学FAIL不变。下一步建议固定分数的共同阈值可达性诊断，不部署Edge拟合阈值，未提交新作业。见[验收报告](collab/20261106_pilot_transfer_evaluation_acceptance_codex.md)。
+
+---
+
 ## 2026-11-06：四组模型A/B/Edge统一评价启动
 
 用户授权原FUSION790＋最近三轮固定端点统一评价。作业182628、启动快照PREFLIGHT_RUNNING；27项远端依赖和15项本地回归PASS，真实预检后自动AB→EDGE。1CPU/8GiB总上限2小时，无训练/调阈值/挑种子。直接展示误报<2%与检出≥99.9%，普通/加权/Edge HT分列，HTTP/UDP分别验收；RAW与C5及原门保留。源侧NO_GO不阻止本次诊断，也不改写为GO。大数组留超算，尚无新最终成绩。见[执行卡](collab/20261106_pilot_transfer_evaluation_design_codex.md)及[启动回执](collab/20261106_pilot_transfer_evaluation_launch_codex.md)。
