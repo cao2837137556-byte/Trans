@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "rows": 148316,
+  "compared_rows": 148316,
+  "excluded_rows": 0,
+  "max_abs_error": 1.887379141862766e-15,
+  "mismatch_count": 0,
+  "mismatch_examples": [],
+  "c2_zero_rows": 15264,
+  "c2_zero_by_device": {
+    "unsw-attack-traces-2018:ec:1a:59:83:28:11": 15264
+  },
+  "geometric_vs_stored_max_abs_difference": 0.9999999999999997,
+  "definition": "C2 effective-zero; C3 non-guarded Heim refresh; C4 four-device all-row refresh; Edge geometric"
+}

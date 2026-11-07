@@ -1,0 +1,199 @@
+{
+  "status": "PASS",
+  "seconds": 1516.6763807240122,
+  "budget": 5400,
+  "setup_counted_once": true,
+  "pools": {
+    "CIC_DEV": {
+      "setup_seconds": 0.09943262999877334,
+      "groups": [
+        {
+          "key": [
+            "DEV",
+            "HeimVision Camera",
+            17
+          ],
+          "rows": 128,
+          "seconds": 0.058331904001533985,
+          "full_rows": 18532,
+          "projected_seconds": 8.445365976222092
+        },
+        {
+          "key": [
+            "DEV",
+            "HeimVision Camera",
+            6
+          ],
+          "rows": 128,
+          "seconds": 0.06554095004685223,
+          "full_rows": 48014,
+          "projected_seconds": 24.58502480898096
+        },
+        {
+          "key": [
+            "DEV",
+            "Eufy Home Base",
+            6
+          ],
+          "rows": 128,
+          "seconds": 3.1800009310245514e-06,
+          "full_rows": 10755,
+          "projected_seconds": 0.0002671946094778832
+        },
+        {
+          "key": [
+            "DEV",
+            "Eufy Home Base",
+            17
+          ],
+          "rows": 128,
+          "seconds": 0.11409026896581054,
+          "full_rows": 102585,
+          "projected_seconds": 91.43711126451308
+        }
+      ]
+    },
+    "UNSW_DEV": {
+      "setup_seconds": 1.1333122269716114,
+      "groups": [
+        {
+          "key": [
+            "EXTERNAL_ARCHIVAL_EVALUATION",
+            "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            6
+          ],
+          "rows": 128,
+          "seconds": 0.5716425739228725,
+          "full_rows": 29371,
+          "projected_seconds": 131.1696409272554
+        },
+        {
+          "key": [
+            "EXTERNAL_ARCHIVAL_EVALUATION",
+            "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            6
+          ],
+          "rows": 128,
+          "seconds": 0.1598611909430474,
+          "full_rows": 30935,
+          "projected_seconds": 38.63520267049353
+        },
+        {
+          "key": [
+            "EXTERNAL_ARCHIVAL_EVALUATION",
+            "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            6
+          ],
+          "rows": 128,
+          "seconds": 0.31987114693038166,
+          "full_rows": 21835,
+          "projected_seconds": 54.5655194783194
+        },
+        {
+          "key": [
+            "EXTERNAL_ARCHIVAL_EVALUATION",
+            "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            6
+          ],
+          "rows": 128,
+          "seconds": 0.3792213478591293,
+          "full_rows": 26991,
+          "projected_seconds": 79.96533906301374
+        },
+        {
+          "key": [
+            "EXTERNAL_ARCHIVAL_EVALUATION",
+            "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            6
+          ],
+          "rows": 128,
+          "seconds": 0.35928158718161285,
+          "full_rows": 17046,
+          "projected_seconds": 47.84620261795135
+        },
+        {
+          "key": [
+            "EXTERNAL_ARCHIVAL_EVALUATION",
+            "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            17
+          ],
+          "rows": 64,
+          "seconds": 0.1007578568533063,
+          "full_rows": 12542,
+          "projected_seconds": 19.745391260221368
+        },
+        {
+          "key": [
+            "EXTERNAL_ARCHIVAL_EVALUATION",
+            "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+            17
+          ],
+          "rows": 64,
+          "seconds": 0.03998410585336387,
+          "full_rows": 3618,
+          "projected_seconds": 2.2603514840229764
+        },
+        {
+          "key": [
+            "EXTERNAL_ARCHIVAL_EVALUATION",
+            "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            17
+          ],
+          "rows": 64,
+          "seconds": 0.3319288338534534,
+          "full_rows": 5135,
+          "projected_seconds": 26.632102528710675
+        },
+        {
+          "key": [
+            "EXTERNAL_ARCHIVAL_EVALUATION",
+            "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            17
+          ],
+          "rows": 64,
+          "seconds": 0.20015062508173287,
+          "full_rows": 605,
+          "projected_seconds": 1.892048877725756
+        },
+        {
+          "key": [
+            "EXTERNAL_ARCHIVAL_EVALUATION",
+            "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            17
+          ],
+          "rows": 64,
+          "seconds": 0.09034384414553642,
+          "full_rows": 238,
+          "projected_seconds": 0.33596617041621357
+        }
+      ]
+    },
+    "EDGE": {
+      "setup_seconds": 0.04141312511637807,
+      "groups": [
+        {
+          "key": [
+            "EXTERNAL_ARCHIVAL_EVALUATION",
+            "Edge-IIoTset Raspberry Pi edge server",
+            6
+          ],
+          "rows": 128,
+          "seconds": 0.2641973150894046,
+          "full_rows": 39503,
+          "projected_seconds": 81.53583232794335
+        },
+        {
+          "key": [
+            "EXTERNAL_ARCHIVAL_EVALUATION",
+            "Edge-IIoTset Raspberry Pi edge server",
+            17
+          ],
+          "rows": 128,
+          "seconds": 0.004946284927427769,
+          "full_rows": 20497,
+          "projected_seconds": 0.792062516855367
+        }
+      ]
+    }
+  }
+}
