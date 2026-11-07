@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "checks": 3253,
+  "scope": "LOCAL_SUMMARY_SHA_AND_FROZEN_BASELINE_AUDIT",
+  "engineering": "PASS",
+  "scientific_target": "NO_GO",
+  "training": false,
+  "deployment_change": false,
+  "withdrawal_strata": {
+    "PSH_ACK": 842,
+    "ACK_ONLY": 123,
+    "FIN": 1,
+    "RST": 1
+  },
+  "post_result_repair": "Expected strata derived from frozen source, remote artifacts unchanged",
+  "remote_arrays_reloaded": false,
+  "result_sha256": "5d7f012686205ee353f982951b29f9c8086d721cd24b82e14d5f44d23b8bb654"
+}

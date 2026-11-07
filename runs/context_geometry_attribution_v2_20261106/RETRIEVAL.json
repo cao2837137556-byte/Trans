@@ -1,0 +1,1675 @@
+{
+  "state": {
+    "stage": "CONTEXT_GEOMETRY_COMPLETE",
+    "phase": "DIAGNOSE",
+    "completed_phases": 2,
+    "total_phases": 2,
+    "runtime_forecast": {
+      "status": "PASS",
+      "seconds": 4836.314039503697,
+      "budget": 5280
+    },
+    "dependency_gate": {
+      "status": "PASS",
+      "files_checked": 24,
+      "before_sbatch": true
+    },
+    "scoreboard": {
+      "CIC_DEV": {
+        "RAW": {
+          "27": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 103,
+              "sample_rate": 0.0010724586374569194,
+              "hierarchical_rate": 0.06241855387637659,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 83,
+              "sample_rate": 0.0008642142418342167,
+              "hierarchical_rate": 0.048640319553747424,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 127,
+              "sample_rate": 0.0013223519122041627,
+              "hierarchical_rate": 0.06543799729969635,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 99,
+              "sample_rate": 0.0010308097583323788,
+              "hierarchical_rate": 0.05526880302684895,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          }
+        },
+        "C5_FROZEN": {
+          "27": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 21,
+              "sample_rate": 0.00021865661540383796,
+              "hierarchical_rate": 0.003490097269968594,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 82
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79050,
+              "sample_rate": 0.9999241044323012,
+              "hierarchical_rate": 0.999986019226573,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 6
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 15,
+              "sample_rate": 0.0001561832967170271,
+              "hierarchical_rate": 0.0017505074946645323,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 68
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79044,
+              "sample_rate": 0.9998482088646024,
+              "hierarchical_rate": 0.9999593375175546,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 12
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 41,
+              "sample_rate": 0.0004269010110265407,
+              "hierarchical_rate": 0.0012076272967569174,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 86
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79053,
+              "sample_rate": 0.9999620522161505,
+              "hierarchical_rate": 0.9999930096132865,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 3
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 22,
+              "sample_rate": 0.0002290688351849731,
+              "hierarchical_rate": 0.002337163550070589,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 77
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79051,
+              "sample_rate": 0.9999367536935843,
+              "hierarchical_rate": 0.9999873080989643,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 5
+            }
+          }
+        },
+        "C5_2D_FUSION": {
+          "27": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 93,
+              "sample_rate": 0.0009683364396455681,
+              "hierarchical_rate": 0.049462939531873355,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 10
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 74,
+              "sample_rate": 0.0007705042638040003,
+              "hierarchical_rate": 0.03960703031212485,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 9
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 112,
+              "sample_rate": 0.0011661686154871356,
+              "hierarchical_rate": 0.04975570104014315,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 15
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 89,
+              "sample_rate": 0.0009266875605210275,
+              "hierarchical_rate": 0.045206707200864234,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 10
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          }
+        },
+        "C5_2D_OLD": {
+          "27": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 92,
+              "sample_rate": 0.000957924219864433,
+              "hierarchical_rate": 0.04888423582816965,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 11
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 74,
+              "sample_rate": 0.0007705042638040003,
+              "hierarchical_rate": 0.03960703031212485,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 9
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 112,
+              "sample_rate": 0.0011661686154871356,
+              "hierarchical_rate": 0.04975570104014315,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 15
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 89,
+              "sample_rate": 0.0009266875605210275,
+              "hierarchical_rate": 0.045206707200864234,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 10
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          }
+        },
+        "C5_3D_FUSION": {
+          "27": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 98,
+              "sample_rate": 0.0010203975385512437,
+              "hierarchical_rate": 0.05558066439959822,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 5
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 78,
+              "sample_rate": 0.0008121531429285409,
+              "hierarchical_rate": 0.0422525329576275,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 5
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 115,
+              "sample_rate": 0.001197405274830541,
+              "hierarchical_rate": 0.05156931711157173,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 12
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 93,
+              "sample_rate": 0.0009683364396455681,
+              "hierarchical_rate": 0.047852209846366886,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 6
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          }
+        },
+        "C5_3D_OLD": {
+          "27": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 95,
+              "sample_rate": 0.0009891608792078383,
+              "hierarchical_rate": 0.05384455328848712,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 8
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 76,
+              "sample_rate": 0.0007913287033662706,
+              "hierarchical_rate": 0.04109512555022009,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 7
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 115,
+              "sample_rate": 0.001197405274830541,
+              "hierarchical_rate": 0.05156931711157173,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 12
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 96041,
+              "alarm_count": 91,
+              "sample_rate": 0.0009475120000832978,
+              "hierarchical_rate": 0.04669480243895947,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 8
+            },
+            "ATTACK": {
+              "rows": 79056,
+              "alarm_count": 79056,
+              "sample_rate": 1.0,
+              "hierarchical_rate": 1.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          }
+        }
+      },
+      "UNSW_DEV": {
+        "RAW": {
+          "27": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 37668,
+              "sample_rate": 0.5059910805437644,
+              "hierarchical_rate": 0.27138306377615673,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72538,
+              "sample_rate": 0.9997932545863024,
+              "hierarchical_rate": 0.9998796122985557,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 37580,
+              "sample_rate": 0.5048089839342325,
+              "hierarchical_rate": 0.24979583189511462,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72543,
+              "sample_rate": 0.9998621697242016,
+              "hierarchical_rate": 0.9999027889921831,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 43196,
+              "sample_rate": 0.5802482402880017,
+              "hierarchical_rate": 0.31454188920757586,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72533,
+              "sample_rate": 0.9997243394484032,
+              "hierarchical_rate": 0.9998158596485576,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 40121,
+              "sample_rate": 0.5389420235344689,
+              "hierarchical_rate": 0.27110960868267914,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72543,
+              "sample_rate": 0.9998621697242016,
+              "hierarchical_rate": 0.9999129788729754,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          }
+        },
+        "C5_FROZEN": {
+          "27": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 1164,
+              "sample_rate": 0.015635914244264144,
+              "hierarchical_rate": 0.005508943511067016,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 36504
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72538,
+              "sample_rate": 0.9997932545863024,
+              "hierarchical_rate": 0.9998796122985557,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 918,
+              "sample_rate": 0.012331416903981516,
+              "hierarchical_rate": 0.004724987842030792,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 36662
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72543,
+              "sample_rate": 0.9998621697242016,
+              "hierarchical_rate": 0.9999027889921831,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 1657,
+              "sample_rate": 0.02225834184084681,
+              "hierarchical_rate": 0.008822222552437017,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 41539
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72533,
+              "sample_rate": 0.9997243394484032,
+              "hierarchical_rate": 0.9998158596485576,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 1299,
+              "sample_rate": 0.01744935790661437,
+              "hierarchical_rate": 0.005605098801914425,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 38822
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72543,
+              "sample_rate": 0.9998621697242016,
+              "hierarchical_rate": 0.9999129788729754,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          }
+        },
+        "C5_2D_FUSION": {
+          "27": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 21297,
+              "sample_rate": 0.28608081242276073,
+              "hierarchical_rate": 0.09362278070913578,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16371
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72538,
+              "sample_rate": 0.9997932545863024,
+              "hierarchical_rate": 0.9998796122985557,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 20549,
+              "sample_rate": 0.27603299124173875,
+              "hierarchical_rate": 0.0875583676264819,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 17031
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72543,
+              "sample_rate": 0.9998621697242016,
+              "hierarchical_rate": 0.9999027889921831,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 26024,
+              "sample_rate": 0.34957820643705334,
+              "hierarchical_rate": 0.10179570709585793,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 17172
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72533,
+              "sample_rate": 0.9997243394484032,
+              "hierarchical_rate": 0.9998158596485576,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 23486,
+              "sample_rate": 0.3154854655848692,
+              "hierarchical_rate": 0.09533073937216377,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16635
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72543,
+              "sample_rate": 0.9998621697242016,
+              "hierarchical_rate": 0.9999129788729754,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          }
+        },
+        "C5_2D_OLD": {
+          "27": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 20398,
+              "sample_rate": 0.27400462092311,
+              "hierarchical_rate": 0.09087187806475522,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 17270
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72538,
+              "sample_rate": 0.9997932545863024,
+              "hierarchical_rate": 0.9998796122985557,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 19820,
+              "sample_rate": 0.2662403954650476,
+              "hierarchical_rate": 0.08588637559403467,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 17760
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72543,
+              "sample_rate": 0.9998621697242016,
+              "hierarchical_rate": 0.9999027889921831,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 25015,
+              "sample_rate": 0.33602439417548763,
+              "hierarchical_rate": 0.09862688875666875,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 18181
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72533,
+              "sample_rate": 0.9997243394484032,
+              "hierarchical_rate": 0.9998158596485576,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 22636,
+              "sample_rate": 0.30406748697007147,
+              "hierarchical_rate": 0.09288776628323808,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 17485
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72543,
+              "sample_rate": 0.9998621697242016,
+              "hierarchical_rate": 0.9999129788729754,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          }
+        },
+        "C5_3D_FUSION": {
+          "27": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 21412,
+              "sample_rate": 0.28762559776476276,
+              "hierarchical_rate": 0.09559279894642962,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16256
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72538,
+              "sample_rate": 0.9997932545863024,
+              "hierarchical_rate": 0.9998796122985557,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 20653,
+              "sample_rate": 0.2774300145075493,
+              "hierarchical_rate": 0.08916747405043976,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16927
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72543,
+              "sample_rate": 0.9998621697242016,
+              "hierarchical_rate": 0.9999027889921831,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 26137,
+              "sample_rate": 0.35109612594702055,
+              "hierarchical_rate": 0.10361096721939164,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 17059
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72533,
+              "sample_rate": 0.9997243394484032,
+              "hierarchical_rate": 0.9998158596485576,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 23606,
+              "sample_rate": 0.31709741550695825,
+              "hierarchical_rate": 0.09729203884272704,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16515
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72543,
+              "sample_rate": 0.9998621697242016,
+              "hierarchical_rate": 0.9999129788729754,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          }
+        },
+        "C5_3D_OLD": {
+          "27": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 20508,
+              "sample_rate": 0.275482241685025,
+              "hierarchical_rate": 0.09218573928284948,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 17160
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72538,
+              "sample_rate": 0.9997932545863024,
+              "hierarchical_rate": 0.9998796122985557,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 19970,
+              "sample_rate": 0.2682553328676589,
+              "hierarchical_rate": 0.08690755810902898,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 17610
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72543,
+              "sample_rate": 0.9998621697242016,
+              "hierarchical_rate": 0.9999027889921831,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 25143,
+              "sample_rate": 0.33774380742571597,
+              "hierarchical_rate": 0.09950831055941717,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 18053
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72533,
+              "sample_rate": 0.9997243394484032,
+              "hierarchical_rate": 0.9998158596485576,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 74444,
+              "alarm_count": 22772,
+              "sample_rate": 0.3058943635484391,
+              "hierarchical_rate": 0.09377998141452289,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 17349
+            },
+            "ATTACK": {
+              "rows": 72553,
+              "alarm_count": 72543,
+              "sample_rate": 0.9998621697242016,
+              "hierarchical_rate": 0.9999129788729754,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0
+            }
+          }
+        }
+      },
+      "EDGE": {
+        "RAW": {
+          "27": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 16673,
+              "sample_rate": 0.83365,
+              "hierarchical_rate": 0.7882449772299541,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.8477362174070546
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 19974,
+              "sample_rate": 0.9987,
+              "hierarchical_rate": 0.9983510453967886,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9987809831883473
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19529,
+              "sample_rate": 0.97645,
+              "hierarchical_rate": 0.9764499999999998,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9764499999999998
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 16746,
+              "sample_rate": 0.8373,
+              "hierarchical_rate": 0.79529943857222,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.8509801446735829
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 19524,
+              "sample_rate": 0.9762,
+              "hierarchical_rate": 0.968152206398712,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9762534698530657
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19876,
+              "sample_rate": 0.9938,
+              "hierarchical_rate": 0.9937999999999999,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9937999999999998
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 16573,
+              "sample_rate": 0.82865,
+              "hierarchical_rate": 0.7773805985983392,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.843155952745864
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 19967,
+              "sample_rate": 0.99835,
+              "hierarchical_rate": 0.9979775518847944,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9984101821905976
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19670,
+              "sample_rate": 0.9835,
+              "hierarchical_rate": 0.9834999999999998,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9834999999999997
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 16699,
+              "sample_rate": 0.83495,
+              "hierarchical_rate": 0.7894644507714701,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.849135253244337
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 19966,
+              "sample_rate": 0.9983,
+              "hierarchical_rate": 0.9979390473990217,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9983671175307077
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19732,
+              "sample_rate": 0.9866,
+              "hierarchical_rate": 0.9865999999999999,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9865999999999998
+            }
+          }
+        },
+        "C5_FROZEN": {
+          "27": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 147,
+              "sample_rate": 0.00735,
+              "hierarchical_rate": 0.049529857295204066,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16526,
+              "HT_rate": 0.0034717725874212992
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 18962,
+              "sample_rate": 0.9481,
+              "hierarchical_rate": 0.9605621042030883,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 1012,
+              "HT_rate": 0.9421537689478063
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19529,
+              "sample_rate": 0.97645,
+              "hierarchical_rate": 0.9764499999999998,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9764499999999998
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 5047,
+              "sample_rate": 0.25235,
+              "hierarchical_rate": 0.260713614741468,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 11699,
+              "HT_rate": 0.2554559938891557
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 18263,
+              "sample_rate": 0.91315,
+              "hierarchical_rate": 0.9222488115378262,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 1261,
+              "HT_rate": 0.9069400117605693
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19876,
+              "sample_rate": 0.9938,
+              "hierarchical_rate": 0.9937999999999999,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9937999999999998
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 51,
+              "sample_rate": 0.00255,
+              "hierarchical_rate": 0.018000581480333313,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16522,
+              "HT_rate": 0.001157257529140433
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 19113,
+              "sample_rate": 0.95565,
+              "hierarchical_rate": 0.966333514072338,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 854,
+              "HT_rate": 0.9503762533809194
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19670,
+              "sample_rate": 0.9835,
+              "hierarchical_rate": 0.9834999999999998,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9834999999999997
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 1158,
+              "sample_rate": 0.0579,
+              "hierarchical_rate": 0.09332312552642902,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 15541,
+              "HT_rate": 0.055312729996738044
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 18999,
+              "sample_rate": 0.94995,
+              "hierarchical_rate": 0.9624380977563373,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 967,
+              "HT_rate": 0.944238946165845
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19732,
+              "sample_rate": 0.9866,
+              "hierarchical_rate": 0.9865999999999999,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9865999999999998
+            }
+          }
+        },
+        "C5_2D_FUSION": {
+          "27": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 147,
+              "sample_rate": 0.00735,
+              "hierarchical_rate": 0.049529857295204066,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16526,
+              "HT_rate": 0.0034717725874212992
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 18962,
+              "sample_rate": 0.9481,
+              "hierarchical_rate": 0.9605621042030883,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 1012,
+              "HT_rate": 0.9421537689478063
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19529,
+              "sample_rate": 0.97645,
+              "hierarchical_rate": 0.9764499999999998,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9764499999999998
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 5047,
+              "sample_rate": 0.25235,
+              "hierarchical_rate": 0.260713614741468,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 11699,
+              "HT_rate": 0.2554559938891557
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 18263,
+              "sample_rate": 0.91315,
+              "hierarchical_rate": 0.9222488115378262,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 1261,
+              "HT_rate": 0.9069400117605693
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19876,
+              "sample_rate": 0.9938,
+              "hierarchical_rate": 0.9937999999999999,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9937999999999998
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 51,
+              "sample_rate": 0.00255,
+              "hierarchical_rate": 0.018000581480333313,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16522,
+              "HT_rate": 0.001157257529140433
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 19113,
+              "sample_rate": 0.95565,
+              "hierarchical_rate": 0.966333514072338,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 854,
+              "HT_rate": 0.9503762533809194
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19670,
+              "sample_rate": 0.9835,
+              "hierarchical_rate": 0.9834999999999998,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9834999999999997
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 1158,
+              "sample_rate": 0.0579,
+              "hierarchical_rate": 0.09332312552642902,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 15541,
+              "HT_rate": 0.055312729996738044
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 18999,
+              "sample_rate": 0.94995,
+              "hierarchical_rate": 0.9624380977563373,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 967,
+              "HT_rate": 0.944238946165845
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19732,
+              "sample_rate": 0.9866,
+              "hierarchical_rate": 0.9865999999999999,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9865999999999998
+            }
+          }
+        },
+        "C5_2D_OLD": {
+          "27": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 16,
+              "sample_rate": 0.0008,
+              "hierarchical_rate": 0.007968996565487795,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16657,
+              "HT_rate": 0.0001221185352988134
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 17689,
+              "sample_rate": 0.88445,
+              "hierarchical_rate": 0.912592836616748,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 2285,
+              "HT_rate": 0.8738909069137444
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19529,
+              "sample_rate": 0.97645,
+              "hierarchical_rate": 0.9764499999999998,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9764499999999998
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 67,
+              "sample_rate": 0.00335,
+              "hierarchical_rate": 0.033463287849252774,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16679,
+              "HT_rate": 0.0005925617518190745
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 17152,
+              "sample_rate": 0.8576,
+              "hierarchical_rate": 0.8791224456495335,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 2372,
+              "HT_rate": 0.8483659823003485
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19876,
+              "sample_rate": 0.9938,
+              "hierarchical_rate": 0.9937999999999999,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9937999999999998
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 0,
+              "sample_rate": 0.0,
+              "hierarchical_rate": 0.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16573,
+              "HT_rate": 0.0
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 17520,
+              "sample_rate": 0.876,
+              "hierarchical_rate": 0.9059658020672228,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 2447,
+              "HT_rate": 0.8641521189683014
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19670,
+              "sample_rate": 0.9835,
+              "hierarchical_rate": 0.9834999999999998,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9834999999999997
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 17,
+              "sample_rate": 0.00085,
+              "hierarchical_rate": 0.008498097094588323,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16682,
+              "HT_rate": 0.00012867523518062887
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 17662,
+              "sample_rate": 0.8831,
+              "hierarchical_rate": 0.911421016766402,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 2304,
+              "HT_rate": 0.8724805815818206
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19732,
+              "sample_rate": 0.9866,
+              "hierarchical_rate": 0.9865999999999999,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9865999999999998
+            }
+          }
+        },
+        "C5_3D_FUSION": {
+          "27": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 150,
+              "sample_rate": 0.0075,
+              "hierarchical_rate": 0.05062054698238499,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16523,
+              "HT_rate": 0.00352504577396105
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 19965,
+              "sample_rate": 0.99825,
+              "hierarchical_rate": 0.9978851411189403,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 9,
+              "HT_rate": 0.9982685741680013
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19529,
+              "sample_rate": 0.97645,
+              "hierarchical_rate": 0.9764499999999998,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9764499999999998
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 5054,
+              "sample_rate": 0.2527,
+              "hierarchical_rate": 0.2609647004656641,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 11692,
+              "HT_rate": 0.25576251960863056
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 19518,
+              "sample_rate": 0.9759,
+              "hierarchical_rate": 0.9678056660267588,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 6,
+              "HT_rate": 0.9759527235584184
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19876,
+              "sample_rate": 0.9938,
+              "hierarchical_rate": 0.9937999999999999,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9937999999999998
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 57,
+              "sample_rate": 0.00285,
+              "hierarchical_rate": 0.02117518465493649,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16516,
+              "HT_rate": 0.0011965977284313259
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 19961,
+              "sample_rate": 0.99805,
+              "hierarchical_rate": 0.9976502637557275,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 6,
+              "HT_rate": 0.9980685761770335
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19670,
+              "sample_rate": 0.9835,
+              "hierarchical_rate": 0.9834999999999998,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9834999999999997
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 1163,
+              "sample_rate": 0.05815,
+              "hierarchical_rate": 0.09596862817193165,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 15536,
+              "HT_rate": 0.05534551349614712
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 19959,
+              "sample_rate": 0.99795,
+              "hierarchical_rate": 0.997569404335605,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 7,
+              "HT_rate": 0.9979685771815497
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19732,
+              "sample_rate": 0.9866,
+              "hierarchical_rate": 0.9865999999999999,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9865999999999998
+            }
+          }
+        },
+        "C5_3D_OLD": {
+          "27": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 23,
+              "sample_rate": 0.00115,
+              "hierarchical_rate": 0.011672700269191493,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16650,
+              "HT_rate": 0.00016801543447152179
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 19964,
+              "sample_rate": 0.9982,
+              "hierarchical_rate": 0.9978273843902814,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 10,
+              "HT_rate": 0.9982524995513242
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19529,
+              "sample_rate": 0.97645,
+              "hierarchical_rate": 0.9764499999999998,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9764499999999998
+            }
+          },
+          "127": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 72,
+              "sample_rate": 0.0036,
+              "hierarchical_rate": 0.03610879049475541,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16674,
+              "HT_rate": 0.0006253452512281518
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 19518,
+              "sample_rate": 0.9759,
+              "hierarchical_rate": 0.9678056660267588,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 6,
+              "HT_rate": 0.9759527235584184
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19876,
+              "sample_rate": 0.9938,
+              "hierarchical_rate": 0.9937999999999999,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9937999999999998
+            }
+          },
+          "227": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 0,
+              "sample_rate": 0.0,
+              "hierarchical_rate": 0.0,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16573,
+              "HT_rate": 0.0
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 19959,
+              "sample_rate": 0.99795,
+              "hierarchical_rate": 0.9975347502984098,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 8,
+              "HT_rate": 0.997995567224762
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19670,
+              "sample_rate": 0.9835,
+              "hierarchical_rate": 0.9834999999999998,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9834999999999997
+            }
+          },
+          "ensemble": {
+            "NORMAL": {
+              "rows": 20000,
+              "alarm_count": 24,
+              "sample_rate": 0.0012,
+              "hierarchical_rate": 0.012201800798292027,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 16675,
+              "HT_rate": 0.00017457213435333727
+            },
+            "HTTP": {
+              "rows": 20000,
+              "alarm_count": 19958,
+              "sample_rate": 0.9979,
+              "hierarchical_rate": 0.9975116476069461,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 8,
+              "HT_rate": 0.9979525025648726
+            },
+            "UDP": {
+              "rows": 20000,
+              "alarm_count": 19732,
+              "sample_rate": 0.9866,
+              "hierarchical_rate": 0.9865999999999999,
+              "added_vs_RAW": 0,
+              "removed_vs_RAW": 0,
+              "HT_rate": 0.9865999999999998
+            }
+          }
+        }
+      }
+    },
+    "PREFLIGHT_JOB": {
+      "job_id": "182645",
+      "phase": "PREFLIGHT",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 1800
+    },
+    "PREFLIGHT_PROGRESS": {
+      "stage": "PREFLIGHT_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "rss_mib": 3832.1796875,
+      "updated_unix": 1794028735.054143
+    },
+    "PREFLIGHT_SCHEDULER": {
+      "stdout": "182645|COMPLETED|0:0|00:01:20||1|8G\n182645.batch|COMPLETED|0:0|00:01:20|1239956K|1|\n",
+      "returncode": 0
+    },
+    "PREFLIGHT_STOP": null,
+    "DIAGNOSE_JOB": {
+      "job_id": "182646",
+      "phase": "DIAGNOSE",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 5280
+    },
+    "DIAGNOSE_PROGRESS": {
+      "stage": "CONTEXT_GEOMETRY_COMPLETE",
+      "done": 1,
+      "total": 1,
+      "rss_mib": 1962.59375,
+      "updated_unix": 1794030581.1929674,
+      "updated_utc": "2026-11-07T05:50:01.718620+00:00",
+      "phase": "DIAGNOSE",
+      "job_id": null,
+      "version": "CONTEXT_GEOMETRY_V1",
+      "completed_phases": 2,
+      "total_phases": 2,
+      "error": null
+    },
+    "DIAGNOSE_SCHEDULER": {
+      "stdout": "182646|COMPLETED|0:0|00:30:36||1|8G\n182646.batch|COMPLETED|0:0|00:30:36|1949492K|1|\n",
+      "returncode": 0
+    },
+    "DIAGNOSE_STOP": null
+  },
+  "sha256": {
+    "PREFLIGHT_RESULT.json": "74be73317509af6a2e83f3c22e4ce577cdf052621ce21fdd66f62dac9aa05cb6",
+    "PREFLIGHT_SCHEDULER.json": "a8e0a6b30396c22ef5b9dd43cc92ae17ee5f3455ac26c3307d2f883156eda06b",
+    "PREFLIGHT_JOB.json": "ac35f9d5a00b522435dfa263fa624d8edb95acb51aec2632eb6c38777107ad6b",
+    "DIAGNOSE_RESULT.json": "5d7f012686205ee353f982951b29f9c8086d721cd24b82e14d5f44d23b8bb654",
+    "DIAGNOSE_SCHEDULER.json": "a803a1d8caa3cf53cdf3918bfdbedb82ac35d917644e2ae34f166ef5cdcdcbfd",
+    "DIAGNOSE_JOB.json": "e4696bdd459ddd46b57498de33f0fa508ab22ad620e48d4201e222e579d0b062"
+  }
+}

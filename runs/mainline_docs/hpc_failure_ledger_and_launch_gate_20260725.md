@@ -1,3 +1,12 @@
+## 2026-11-06 CONTEXT_GEOMETRY_V2：报告误用复核分层计数
+
+- POST_RESULT_FAILURE，仅本地报告。182645/182646均COMPLETED/0:0；完整结果和取回SHA通过，训练更新0，无需远端重跑。
+- 原accept_results.py把复核文档的967撤警细分硬编码成842 PSH_ACK、123 ACK_ONLY、2 SYN，实际旧封存与本轮均为FIN/RST各1、SYN0。断言正确拦下不一致，但期望来源错误。
+- 修复新增accept_results_reviewed.py，保留原代码；从封存RAW/C5同一互斥分层推导期望，对本次逐行摘要核验。audit_completion.py加拒绝旧错误期望及新期望复现门；3253项通过。未更改远端分数、标签或阈值。
+- 科学结论与工程分别记账；全目标仍NO_GO。后续复核文档数字必须回到源回执核验，不能当唯一测试真值。
+
+---
+
 ## 2026-11-06 CONTEXT_GEOMETRY_V1：参考库身份混比
 
 - 182644，PREFLIGHT，RUNTIME_FAILURE，FAILED/1:0，90秒，MaxRSS866004KiB；无完整诊断、训练更新0。源半径和参考物理解码已执行有效工作，但未跨版复用；90秒无精确子阶段拆分，不全部宣称为无效计算。

@@ -1,0 +1,54 @@
+{
+  "remote_root": "/public/home/jiangxinwei.zr/work/paper04/runs/context_geometry_attribution_v2_20261106",
+  "artifacts": {
+    "CIC_DEV": {
+      "large_artifacts": {
+        "file": "CIC_DEV_ATTRIBUTION.npz",
+        "sha256": "448c6c438cd63a682bf6c166e02a9f598871177756d32e7121c389f4eb1f0183",
+        "bytes": 243210742
+      }
+    },
+    "UNSW_DEV": {
+      "large_artifacts": {
+        "file": "UNSW_DEV_ATTRIBUTION.npz",
+        "sha256": "472ca6f849c67a6503284e1d39a1d119e10462ec6f707ce04213515d82807140",
+        "bytes": 200528102
+      }
+    },
+    "EDGE": {
+      "large_artifacts": {
+        "file": "EDGE_ATTRIBUTION.npz",
+        "sha256": "b2240f207c27201a3918420047e8bc9284f28369a568d8efbb383f1362b64317",
+        "bytes": 81124870
+      },
+      "physical_artifact": {
+        "file": "EDGE_PHYSICAL.npz",
+        "sha256": "837b43088cb5f7e4cbb5f23a1b7d1f0a4b8021dff47821f81112dce37df9fb42",
+        "bytes": 19741006
+      }
+    },
+    "source_calibration": {
+      "file": "SOURCE_CONTEXT_CALIBRATION.npz",
+      "sha256": "e01a669711eb63789bf75afa06ed1b10b0644902edd4de3c45eff5aa15185e41",
+      "bytes": 35540466
+    },
+    "reference_context": {
+      "CIC_DEV": {
+        "file": "CIC_DEV_REF_CONTEXT.npz",
+        "sha256": "586c0cc3aee7ad5d8074996be518c38e8a644b903761aebbdc65668dae8696d8",
+        "bytes": 2744188
+      },
+      "UNSW_DEV": {
+        "file": "UNSW_DEV_REF_CONTEXT.npz",
+        "sha256": "3de7890980895774ad218db38a288c6e32e3dafd7776c7f03ef691c2cab0ef02",
+        "bytes": 4239548
+      },
+      "EDGE": {
+        "file": "EDGE_REF_CONTEXT.npz",
+        "sha256": "2e6207cb1bbf4058aee44f29ba3340c4a008b99a3b98edbaa74fbfe1d1ffe4f6",
+        "bytes": 1320188
+      }
+    }
+  },
+  "retrieved_large_arrays": false
+}

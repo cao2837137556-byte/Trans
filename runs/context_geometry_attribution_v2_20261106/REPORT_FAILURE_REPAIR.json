@@ -1,0 +1,19 @@
+{
+  "classification": "POST_RESULT_FAILURE",
+  "component": "local accept_results.py",
+  "remote_jobs": "COMPLETED",
+  "error": "Wrong hardcoded HTTP withdrawal strata copied from review",
+  "incorrect": {
+    "PSH_ACK": 842,
+    "ACK_ONLY": 123,
+    "SYN_NO_ACK": 2
+  },
+  "verified": {
+    "PSH_ACK": 842,
+    "ACK_ONLY": 123,
+    "FIN": 1,
+    "RST": 1
+  },
+  "repair": "accept_results_reviewed.py derives expected strata from frozen RAW/C5; audit_completion.py regression",
+  "remote_rerun": false
+}
