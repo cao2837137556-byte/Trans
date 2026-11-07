@@ -1,0 +1,58 @@
+{
+  "version": "pilot_transfer_evaluation_v1_20261106",
+  "arms": [
+    "FUSION790",
+    "RISK_UNIFORM",
+    "RISK_STRATIFIED",
+    "RISK_GUARDED"
+  ],
+  "identity_control": "OLD782",
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "ensemble": "fixed arithmetic mean float64",
+  "pools": [
+    "CIC_DEV",
+    "UNSW_DEV",
+    "EDGE"
+  ],
+  "phases": [
+    "PREFLIGHT",
+    "AB",
+    "EDGE"
+  ],
+  "cpu": 1,
+  "memory_gib": 8,
+  "wall_minutes": [
+    30,
+    45,
+    45
+  ],
+  "training": false,
+  "threshold_fitting": false,
+  "scale_fitting": false,
+  "C5": "original support, q14 guard, lambda=.25 cubic kernel, original per-seed FUSION790 scales",
+  "goals": {
+    "FPR": "strictly < 0.02",
+    "attack_recall": ">= 0.999",
+    "AB": [
+      "ordinary",
+      "hierarchical weighted"
+    ],
+    "EDGE": [
+      "selected sample",
+      "HT population estimate",
+      "hierarchical weighted separate"
+    ],
+    "HTTP_UDP_separate": true
+  },
+  "endpoint": "all three pilots fixed fifth-round endpoint, no source-GO filtering",
+  "scope": "Development cross-dataset generalization diagnostics; not untouched external confirmation",
+  "scientific_failures_do_not_stop_evaluation": true,
+  "automatic_training": false,
+  "automatic_retries": 0,
+  "large_artifacts": "HPC only",
+  "historical_pilot_NO_GO_preserved": true
+}

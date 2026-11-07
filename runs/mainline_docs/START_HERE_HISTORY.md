@@ -1539,3 +1539,18 @@ DeepSeek 已加入，沿用文档合作：`runs/mainline_docs/collab/YYYYMMDD_<�
 5. **证据/存储**：[执行卡](collab/20261106_source_guarded_pilot_design_codex.md)、[启动回执](collab/20261106_source_guarded_pilot_launch_codex.md)；前序分层小试仍NO_GO、原FUSION790保留，大文件留超算，[进度页](http://127.0.0.1:18806/)。
 
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)
+
+
+## 2026-11-06 before pilot transfer evaluation
+
+# 当前状态
+
+更新：2026-11-06（America/Los_Angeles）。固定五项，历史另存。
+
+1. **受限更新已验收：工程PASS、科学NO_GO**。182592/182593/182598累计11:53、峰值约3.37GiB；809项摘要/回执/保护记账检查通过。
+2. **收益与代价**：集成CAL攻击召回100%，下降超限1133→735，8维总体贡献101.67%；普通误报137→177，加权0.9466%→0.9570%，相对原头下降4.28%未达10%。种子27 CAL攻击尾部仍失败。
+3. **保护真实执行**：28次提案因攻击尾部拒绝；实际2432步、保留640步。227全步长接受且模型SHA与上轮一致。全部FIT参与优化反馈，不能充当独立验证。
+4. **下一步方向**：原3条高权重正常误报仍占剩余加权误报约86%。先查源内对应表达与约束攻击尾部是否共享降分方向；不盲目缩步长/加轮次或放宽门。原FUSION790保留，本次无新训练/外部评价。
+5. **证据/存储**：[验收报告](collab/20261106_source_guarded_pilot_acceptance_codex.md)及source_guarded_pilot_v1_20261106验收回执；大模型/数组留超算，[进度页](http://127.0.0.1:18806/)展示验收结果。
+
+[历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)

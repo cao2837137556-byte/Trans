@@ -1,0 +1,28 @@
+{
+  "result": "PREPARED",
+  "scope": "FOUR_ARM_FROZEN_PILOT_TRANSFER_EVALUATION",
+  "pins": {
+    "worker.py": "301964657760810c4e57b2c9ebd5f36b96caa09efd984f9e8746d3b443e2bfda",
+    "test_evaluation.py": "e42781ced1da6ef138fa9e161ff9c3bf15b5b9aacd5a822b51550c69d3bfad57",
+    "PARENT_PINS.json": "56cef010b19ca9816235953580819403763110698b2a41878c6f433b36822465",
+    "MODEL_PINS.json": "cad9d1a71e50bd72ab64d4215279770f4397f8d8b5cf2a7780a8d62aafec8ca6",
+    "INPUT_PINS.json": "90a2453a62d779229af8c3ff34d479727e3efbcce7c0e8d664636acfab82978b",
+    "dependency_gate.py": "9f1128fef7c9a8e259b33ef59fe1c150231ca4c6ebec10421a739dee1f217b08",
+    "test_dependencies.py": "a805fad55d2e7d3fa3f50b0c4ad667d946a325b252efd071974be4c4de8162fc",
+    "scoreboard.py": "09f0d38138a11a7d0831414ee76c1234529783ee62f05814a033873f56241798",
+    "SPEC.json": "2c7be098f5092c2263180476a44eec92d635f05e35c1eb8788f7b1ec10741bf1"
+  },
+  "receiver_sha256": "eb27db7f53d711c951c91dfb9309c5816dbd5d7ee5eb9a924f0030e371d5dbbe",
+  "cpu": 1,
+  "memory_gib": 8,
+  "preflight_seconds": 1800,
+  "evaluation_phase_seconds": 2700,
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "new_heads": 0,
+  "automatic_retries": 0,
+  "accept_existing_ab_regression_only": true
+}
