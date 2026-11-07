@@ -1,0 +1,116 @@
+All available device strata, heads and views for the frozen candidate. Do not replace these with pooled performance.
+
+| Head | Pool | View | Method | Group | Alarms/N | Sample (%) | Weighted (%) | HT (%) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 27 | CIC_DEV | post_window_primary | C5_3D_OLD | device:Eufy Home Base / NORMAL | 15/95369 | 0.015728 | 0.003575 | -- |
+| 27 | CIC_DEV | post_window_primary | C5_3D_OLD | device:Eufy Home Base / ATTACK | 13507/13507 | 100.000000 | 100.000000 | -- |
+| 27 | CIC_DEV | post_window_primary | C5_3D_OLD | device:HeimVision Camera / NORMAL | 0/672 | 0.000000 | 0.000000 | -- |
+| 27 | CIC_DEV | post_window_primary | C5_3D_OLD | device:HeimVision Camera / ATTACK | 65546/65549 | 99.995423 | 99.997332 | -- |
+| 127 | CIC_DEV | post_window_primary | C5_3D_OLD | device:Eufy Home Base / NORMAL | 12/95369 | 0.012583 | 0.002879 | -- |
+| 127 | CIC_DEV | post_window_primary | C5_3D_OLD | device:Eufy Home Base / ATTACK | 13507/13507 | 100.000000 | 100.000000 | -- |
+| 127 | CIC_DEV | post_window_primary | C5_3D_OLD | device:HeimVision Camera / NORMAL | 0/672 | 0.000000 | 0.000000 | -- |
+| 127 | CIC_DEV | post_window_primary | C5_3D_OLD | device:HeimVision Camera / ATTACK | 65548/65549 | 99.998474 | 99.999430 | -- |
+| 227 | CIC_DEV | post_window_primary | C5_3D_OLD | device:Eufy Home Base / NORMAL | 39/95369 | 0.040894 | 0.010044 | -- |
+| 227 | CIC_DEV | post_window_primary | C5_3D_OLD | device:Eufy Home Base / ATTACK | 13507/13507 | 100.000000 | 100.000000 | -- |
+| 227 | CIC_DEV | post_window_primary | C5_3D_OLD | device:HeimVision Camera / NORMAL | 0/672 | 0.000000 | 0.000000 | -- |
+| 227 | CIC_DEV | post_window_primary | C5_3D_OLD | device:HeimVision Camera / ATTACK | 65549/65549 | 100.000000 | 100.000000 | -- |
+| ensemble | CIC_DEV | post_window_primary | C5_3D_OLD | device:Eufy Home Base / NORMAL | 18/95369 | 0.018874 | 0.004470 | -- |
+| ensemble | CIC_DEV | post_window_primary | C5_3D_OLD | device:Eufy Home Base / ATTACK | 13507/13507 | 100.000000 | 100.000000 | -- |
+| ensemble | CIC_DEV | post_window_primary | C5_3D_OLD | device:HeimVision Camera / NORMAL | 0/672 | 0.000000 | 0.000000 | -- |
+| ensemble | CIC_DEV | post_window_primary | C5_3D_OLD | device:HeimVision Camera / ATTACK | 65549/65549 | 100.000000 | 100.000000 | -- |
+| 27 | CIC_DEV | full | C5_3D_OLD | device:Eufy Home Base / NORMAL | 334/99833 | 0.334559 | 4.794862 | -- |
+| 27 | CIC_DEV | full | C5_3D_OLD | device:Eufy Home Base / ATTACK | 13507/13507 | 100.000000 | 100.000000 | -- |
+| 27 | CIC_DEV | full | C5_3D_OLD | device:HeimVision Camera / NORMAL | 66/997 | 6.619860 | 5.271815 | -- |
+| 27 | CIC_DEV | full | C5_3D_OLD | device:HeimVision Camera / ATTACK | 65546/65549 | 99.995423 | 99.997332 | -- |
+| 127 | CIC_DEV | full | C5_3D_OLD | device:Eufy Home Base / NORMAL | 419/99833 | 0.419701 | 5.852415 | -- |
+| 127 | CIC_DEV | full | C5_3D_OLD | device:Eufy Home Base / ATTACK | 13507/13507 | 100.000000 | 100.000000 | -- |
+| 127 | CIC_DEV | full | C5_3D_OLD | device:HeimVision Camera / NORMAL | 63/997 | 6.318957 | 4.991100 | -- |
+| 127 | CIC_DEV | full | C5_3D_OLD | device:HeimVision Camera / ATTACK | 65548/65549 | 99.998474 | 99.999430 | -- |
+| 227 | CIC_DEV | full | C5_3D_OLD | device:Eufy Home Base / NORMAL | 393/99833 | 0.393657 | 5.204788 | -- |
+| 227 | CIC_DEV | full | C5_3D_OLD | device:Eufy Home Base / ATTACK | 13507/13507 | 100.000000 | 100.000000 | -- |
+| 227 | CIC_DEV | full | C5_3D_OLD | device:HeimVision Camera / NORMAL | 60/997 | 6.018054 | 4.913589 | -- |
+| 227 | CIC_DEV | full | C5_3D_OLD | device:HeimVision Camera / ATTACK | 65549/65549 | 100.000000 | 100.000000 | -- |
+| ensemble | CIC_DEV | full | C5_3D_OLD | device:Eufy Home Base / NORMAL | 398/99833 | 0.398666 | 5.516173 | -- |
+| ensemble | CIC_DEV | full | C5_3D_OLD | device:Eufy Home Base / ATTACK | 13507/13507 | 100.000000 | 100.000000 | -- |
+| ensemble | CIC_DEV | full | C5_3D_OLD | device:HeimVision Camera / NORMAL | 66/997 | 6.619860 | 5.308510 | -- |
+| ensemble | CIC_DEV | full | C5_3D_OLD | device:HeimVision Camera / ATTACK | 65549/65549 | 100.000000 | 100.000000 | -- |
+| 27 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / NORMAL | 52/19711 | 0.263812 | 0.021775 | -- |
+| 27 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / ATTACK | 14494/14506 | 99.917276 | 99.949757 | -- |
+| 27 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / NORMAL | 1/2597 | 0.038506 | 0.000528 | -- |
+| 27 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / ATTACK | 14602/14604 | 99.986305 | 99.993380 | -- |
+| 27 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / NORMAL | 20/19879 | 0.100609 | 0.052450 | -- |
+| 27 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / ATTACK | 14377/14377 | 100.000000 | 100.000000 | -- |
+| 27 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / NORMAL | 105/13028 | 0.805956 | 0.874493 | -- |
+| 27 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / ATTACK | 14512/14513 | 99.993110 | 99.996669 | -- |
+| 27 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL | 32/19229 | 0.166415 | 0.370947 | -- |
+| 27 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / ATTACK | 14553/14553 | 100.000000 | 100.000000 | -- |
+| 127 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / NORMAL | 37/19711 | 0.187712 | 0.016360 | -- |
+| 127 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / ATTACK | 14497/14506 | 99.937957 | 99.954725 | -- |
+| 127 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / NORMAL | 2/2597 | 0.077012 | 0.001055 | -- |
+| 127 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / ATTACK | 14604/14604 | 100.000000 | 100.000000 | -- |
+| 127 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / NORMAL | 13/19879 | 0.065396 | 0.052452 | -- |
+| 127 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / ATTACK | 14377/14377 | 100.000000 | 100.000000 | -- |
+| 127 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / NORMAL | 91/13028 | 0.698496 | 0.748186 | -- |
+| 127 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / ATTACK | 14512/14513 | 99.993110 | 99.996669 | -- |
+| 127 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL | 46/19229 | 0.239222 | 0.520385 | -- |
+| 127 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / ATTACK | 14553/14553 | 100.000000 | 100.000000 | -- |
+| 227 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / NORMAL | 39/19711 | 0.197859 | 0.469233 | -- |
+| 227 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / ATTACK | 14491/14506 | 99.896595 | 99.924542 | -- |
+| 227 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / NORMAL | 4/2597 | 0.154024 | 0.150481 | -- |
+| 227 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / ATTACK | 14602/14604 | 99.986305 | 99.993380 | -- |
+| 227 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / NORMAL | 39/19879 | 0.196187 | 0.039703 | -- |
+| 227 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / ATTACK | 14377/14377 | 100.000000 | 100.000000 | -- |
+| 227 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / NORMAL | 141/13028 | 1.082284 | 1.546309 | -- |
+| 227 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / ATTACK | 14510/14513 | 99.979329 | 99.990007 | -- |
+| 227 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL | 35/19229 | 0.182017 | 0.408474 | -- |
+| 227 | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / ATTACK | 14553/14553 | 100.000000 | 100.000000 | -- |
+| ensemble | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / NORMAL | 40/19711 | 0.202932 | 0.017827 | -- |
+| ensemble | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / ATTACK | 14498/14506 | 99.944850 | 99.963130 | -- |
+| ensemble | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / NORMAL | 1/2597 | 0.038506 | 0.000528 | -- |
+| ensemble | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / ATTACK | 14603/14604 | 99.993153 | 99.996690 | -- |
+| ensemble | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / NORMAL | 27/19879 | 0.135822 | 0.052623 | -- |
+| ensemble | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / ATTACK | 14377/14377 | 100.000000 | 100.000000 | -- |
+| ensemble | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / NORMAL | 104/13028 | 0.798281 | 0.933786 | -- |
+| ensemble | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / ATTACK | 14512/14513 | 99.993110 | 99.996669 | -- |
+| ensemble | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL | 38/19229 | 0.197618 | 0.426568 | -- |
+| ensemble | UNSW_DEV | post_window_primary | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / ATTACK | 14553/14553 | 100.000000 | 100.000000 | -- |
+| 27 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / NORMAL | 104/20000 | 0.520000 | 0.059784 | -- |
+| 27 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / ATTACK | 14494/14506 | 99.917276 | 99.949757 | -- |
+| 27 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / NORMAL | 21/2680 | 0.783582 | 0.467904 | -- |
+| 27 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / ATTACK | 14602/14604 | 99.986305 | 99.993380 | -- |
+| 27 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / NORMAL | 96/20000 | 0.480000 | 0.633948 | -- |
+| 27 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / ATTACK | 14377/14377 | 100.000000 | 100.000000 | -- |
+| 27 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / NORMAL | 129/13083 | 0.986012 | 0.894799 | -- |
+| 27 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / ATTACK | 14512/14513 | 99.993110 | 99.996669 | -- |
+| 27 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL | 464/20000 | 2.320000 | 1.526293 | -- |
+| 27 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / ATTACK | 14553/14553 | 100.000000 | 100.000000 | -- |
+| 127 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / NORMAL | 158/20000 | 0.790000 | 0.125615 | -- |
+| 127 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / ATTACK | 14497/14506 | 99.937957 | 99.954725 | -- |
+| 127 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / NORMAL | 21/2680 | 0.783582 | 0.215895 | -- |
+| 127 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / ATTACK | 14604/14604 | 100.000000 | 100.000000 | -- |
+| 127 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / NORMAL | 85/20000 | 0.425000 | 0.569551 | -- |
+| 127 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / ATTACK | 14377/14377 | 100.000000 | 100.000000 | -- |
+| 127 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / NORMAL | 114/13083 | 0.871360 | 0.767645 | -- |
+| 127 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / ATTACK | 14512/14513 | 99.993110 | 99.996669 | -- |
+| 127 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL | 466/20000 | 2.330000 | 1.715545 | -- |
+| 127 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / ATTACK | 14553/14553 | 100.000000 | 100.000000 | -- |
+| 227 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / NORMAL | 154/20000 | 0.770000 | 0.567194 | -- |
+| 227 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / ATTACK | 14491/14506 | 99.896595 | 99.924542 | -- |
+| 227 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / NORMAL | 24/2680 | 0.895522 | 0.375952 | -- |
+| 227 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / ATTACK | 14602/14604 | 99.986305 | 99.993380 | -- |
+| 227 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / NORMAL | 115/20000 | 0.575000 | 0.600757 | -- |
+| 227 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / ATTACK | 14377/14377 | 100.000000 | 100.000000 | -- |
+| 227 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / NORMAL | 165/13083 | 1.261179 | 1.566615 | -- |
+| 227 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / ATTACK | 14510/14513 | 99.979329 | 99.990007 | -- |
+| 227 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL | 441/20000 | 2.205000 | 1.494817 | -- |
+| 227 | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / ATTACK | 14553/14553 | 100.000000 | 100.000000 | -- |
+| ensemble | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / NORMAL | 119/20000 | 0.595000 | 0.088419 | -- |
+| ensemble | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / ATTACK | 14498/14506 | 99.944850 | 99.963130 | -- |
+| ensemble | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / NORMAL | 21/2680 | 0.783582 | 0.229028 | -- |
+| ensemble | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:50:c7:bf:00:56:39 / ATTACK | 14603/14604 | 99.993153 | 99.996690 | -- |
+| ensemble | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / NORMAL | 103/20000 | 0.515000 | 0.634119 | -- |
+| ensemble | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:70:ee:50:18:34:43 / ATTACK | 14377/14377 | 100.000000 | 100.000000 | -- |
+| ensemble | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / NORMAL | 128/13083 | 0.978369 | 0.954091 | -- |
+| ensemble | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:79:f4:89 / ATTACK | 14512/14513 | 99.993110 | 99.996669 | -- |
+| ensemble | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL | 462/20000 | 2.310000 | 1.573411 | -- |
+| ensemble | UNSW_DEV | full | C5_3D_OLD | device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / ATTACK | 14553/14553 | 100.000000 | 100.000000 | -- |

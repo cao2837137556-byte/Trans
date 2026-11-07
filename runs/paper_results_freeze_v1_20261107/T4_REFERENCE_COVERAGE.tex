@@ -1,0 +1,35 @@
+% Cross-run bank-scope comparison, fixed OLD scale and FUSION790. Previous commissioning-only and current complete-bank receipts; not a new randomized experiment. Edge bank is unchanged. Includes both 2D and 3D to expose bank-scope confounding.
+\begin{tabular}{lllllllll}
+\hline
+Bank & Pool & View & Method & Group & Alarms/N & Sample (\%) & Weighted (\%) & HT (\%) \\
+\hline
+commissioning\_only & CIC\_DEV & post\_window\_primary & C5\_2D\_OLD & NORMAL & 89/96041 & 0.092669 & 4.520671 & -- \\
+commissioning\_only & CIC\_DEV & post\_window\_primary & C5\_2D\_OLD & ATTACK & 79056/79056 & 100.000000 & 100.000000 & -- \\
+complete\_bank & CIC\_DEV & post\_window\_primary & C5\_2D\_OLD & NORMAL & 18/96041 & 0.018742 & 0.002235 & -- \\
+complete\_bank & CIC\_DEV & post\_window\_primary & C5\_2D\_OLD & ATTACK & 79021/79056 & 99.955728 & 99.988888 & -- \\
+commissioning\_only & CIC\_DEV & post\_window\_primary & C5\_3D\_OLD & NORMAL & 91/96041 & 0.094751 & 4.669480 & -- \\
+commissioning\_only & CIC\_DEV & post\_window\_primary & C5\_3D\_OLD & ATTACK & 79056/79056 & 100.000000 & 100.000000 & -- \\
+complete\_bank & CIC\_DEV & post\_window\_primary & C5\_3D\_OLD & NORMAL & 18/96041 & 0.018742 & 0.002235 & -- \\
+complete\_bank & CIC\_DEV & post\_window\_primary & C5\_3D\_OLD & ATTACK & 79056/79056 & 100.000000 & 100.000000 & -- \\
+commissioning\_only & UNSW\_DEV & post\_window\_primary & C5\_2D\_OLD & NORMAL & 22636/74444 & 30.406749 & 9.288777 & -- \\
+commissioning\_only & UNSW\_DEV & post\_window\_primary & C5\_2D\_OLD & ATTACK & 72543/72553 & 99.986217 & 99.991298 & -- \\
+complete\_bank & UNSW\_DEV & post\_window\_primary & C5\_2D\_OLD & NORMAL & 132/74444 & 0.177314 & 0.210230 & -- \\
+complete\_bank & UNSW\_DEV & post\_window\_primary & C5\_2D\_OLD & ATTACK & 72543/72553 & 99.986217 & 99.991298 & -- \\
+commissioning\_only & UNSW\_DEV & post\_window\_primary & C5\_3D\_OLD & NORMAL & 22772/74444 & 30.589436 & 9.377998 & -- \\
+commissioning\_only & UNSW\_DEV & post\_window\_primary & C5\_3D\_OLD & ATTACK & 72543/72553 & 99.986217 & 99.991298 & -- \\
+complete\_bank & UNSW\_DEV & post\_window\_primary & C5\_3D\_OLD & NORMAL & 210/74444 & 0.282091 & 0.286266 & -- \\
+complete\_bank & UNSW\_DEV & post\_window\_primary & C5\_3D\_OLD & ATTACK & 72543/72553 & 99.986217 & 99.991298 & -- \\
+commissioning\_only & EDGE & full & C5\_2D\_OLD & NORMAL & 17/20000 & 0.085000 & 0.849810 & 0.012868 \\
+commissioning\_only & EDGE & full & C5\_2D\_OLD & HTTP & 17662/20000 & 88.310000 & 91.142102 & 87.248058 \\
+commissioning\_only & EDGE & full & C5\_2D\_OLD & UDP & 19732/20000 & 98.660000 & 98.660000 & 98.660000 \\
+complete\_bank & EDGE & full & C5\_2D\_OLD & NORMAL & 17/20000 & 0.085000 & 0.849810 & 0.012868 \\
+complete\_bank & EDGE & full & C5\_2D\_OLD & HTTP & 17662/20000 & 88.310000 & 91.142102 & 87.248058 \\
+complete\_bank & EDGE & full & C5\_2D\_OLD & UDP & 19732/20000 & 98.660000 & 98.660000 & 98.660000 \\
+commissioning\_only & EDGE & full & C5\_3D\_OLD & NORMAL & 24/20000 & 0.120000 & 1.220180 & 0.017457 \\
+commissioning\_only & EDGE & full & C5\_3D\_OLD & HTTP & 19958/20000 & 99.790000 & 99.751165 & 99.795250 \\
+commissioning\_only & EDGE & full & C5\_3D\_OLD & UDP & 19732/20000 & 98.660000 & 98.660000 & 98.660000 \\
+complete\_bank & EDGE & full & C5\_3D\_OLD & NORMAL & 24/20000 & 0.120000 & 1.220180 & 0.017457 \\
+complete\_bank & EDGE & full & C5\_3D\_OLD & HTTP & 19958/20000 & 99.790000 & 99.751165 & 99.795250 \\
+complete\_bank & EDGE & full & C5\_3D\_OLD & UDP & 19732/20000 & 98.660000 & 98.660000 & 98.660000 \\
+\hline
+\end{tabular}

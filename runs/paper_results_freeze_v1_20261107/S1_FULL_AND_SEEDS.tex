@@ -1,0 +1,51 @@
+% All three seeds and the fixed ensemble, all registered views; ensemble is not a fourth independent seed. Includes commissioning-period queries in full A/B views.
+\begin{tabular}{lllllllll}
+\hline
+Head & Pool & View & Method & Group & Alarms/N & Sample (\%) & Weighted (\%) & HT (\%) \\
+\hline
+27 & CIC\_DEV & post\_window\_primary & C5\_3D\_OLD & NORMAL & 15/96041 & 0.015618 & 0.001788 & -- \\
+27 & CIC\_DEV & post\_window\_primary & C5\_3D\_OLD & ATTACK & 79053/79056 & 99.996205 & 99.998666 & -- \\
+127 & CIC\_DEV & post\_window\_primary & C5\_3D\_OLD & NORMAL & 12/96041 & 0.012495 & 0.001440 & -- \\
+127 & CIC\_DEV & post\_window\_primary & C5\_3D\_OLD & ATTACK & 79055/79056 & 99.998735 & 99.999715 & -- \\
+227 & CIC\_DEV & post\_window\_primary & C5\_3D\_OLD & NORMAL & 39/96041 & 0.040608 & 0.005022 & -- \\
+227 & CIC\_DEV & post\_window\_primary & C5\_3D\_OLD & ATTACK & 79056/79056 & 100.000000 & 100.000000 & -- \\
+ensemble & CIC\_DEV & post\_window\_primary & C5\_3D\_OLD & NORMAL & 18/96041 & 0.018742 & 0.002235 & -- \\
+ensemble & CIC\_DEV & post\_window\_primary & C5\_3D\_OLD & ATTACK & 79056/79056 & 100.000000 & 100.000000 & -- \\
+27 & CIC\_DEV & full & C5\_3D\_OLD & NORMAL & 400/100830 & 0.396707 & 5.033339 & -- \\
+27 & CIC\_DEV & full & C5\_3D\_OLD & ATTACK & 79053/79056 & 99.996205 & 99.998666 & -- \\
+127 & CIC\_DEV & full & C5\_3D\_OLD & NORMAL & 482/100830 & 0.478032 & 5.421758 & -- \\
+127 & CIC\_DEV & full & C5\_3D\_OLD & ATTACK & 79055/79056 & 99.998735 & 99.999715 & -- \\
+227 & CIC\_DEV & full & C5\_3D\_OLD & NORMAL & 453/100830 & 0.449271 & 5.059189 & -- \\
+227 & CIC\_DEV & full & C5\_3D\_OLD & ATTACK & 79056/79056 & 100.000000 & 100.000000 & -- \\
+ensemble & CIC\_DEV & full & C5\_3D\_OLD & NORMAL & 464/100830 & 0.460181 & 5.412342 & -- \\
+ensemble & CIC\_DEV & full & C5\_3D\_OLD & ATTACK & 79056/79056 & 100.000000 & 100.000000 & -- \\
+27 & UNSW\_DEV & post\_window\_primary & C5\_3D\_OLD & NORMAL & 210/74444 & 0.282091 & 0.264039 & -- \\
+27 & UNSW\_DEV & post\_window\_primary & C5\_3D\_OLD & ATTACK & 72538/72553 & 99.979325 & 99.987961 & -- \\
+127 & UNSW\_DEV & post\_window\_primary & C5\_3D\_OLD & NORMAL & 189/74444 & 0.253882 & 0.267688 & -- \\
+127 & UNSW\_DEV & post\_window\_primary & C5\_3D\_OLD & ATTACK & 72543/72553 & 99.986217 & 99.990279 & -- \\
+227 & UNSW\_DEV & post\_window\_primary & C5\_3D\_OLD & NORMAL & 258/74444 & 0.346569 & 0.522840 & -- \\
+227 & UNSW\_DEV & post\_window\_primary & C5\_3D\_OLD & ATTACK & 72533/72553 & 99.972434 & 99.981586 & -- \\
+ensemble & UNSW\_DEV & post\_window\_primary & C5\_3D\_OLD & NORMAL & 210/74444 & 0.282091 & 0.286266 & -- \\
+ensemble & UNSW\_DEV & post\_window\_primary & C5\_3D\_OLD & ATTACK & 72543/72553 & 99.986217 & 99.991298 & -- \\
+27 & UNSW\_DEV & full & C5\_3D\_OLD & NORMAL & 814/75763 & 1.074403 & 0.716546 & -- \\
+27 & UNSW\_DEV & full & C5\_3D\_OLD & ATTACK & 72538/72553 & 99.979325 & 99.987961 & -- \\
+127 & UNSW\_DEV & full & C5\_3D\_OLD & NORMAL & 844/75763 & 1.114000 & 0.678850 & -- \\
+127 & UNSW\_DEV & full & C5\_3D\_OLD & ATTACK & 72543/72553 & 99.986217 & 99.990279 & -- \\
+227 & UNSW\_DEV & full & C5\_3D\_OLD & NORMAL & 899/75763 & 1.186595 & 0.921067 & -- \\
+227 & UNSW\_DEV & full & C5\_3D\_OLD & ATTACK & 72533/72553 & 99.972434 & 99.981586 & -- \\
+ensemble & UNSW\_DEV & full & C5\_3D\_OLD & NORMAL & 833/75763 & 1.099481 & 0.695814 & -- \\
+ensemble & UNSW\_DEV & full & C5\_3D\_OLD & ATTACK & 72543/72553 & 99.986217 & 99.991298 & -- \\
+27 & EDGE & full & C5\_3D\_OLD & NORMAL & 23/20000 & 0.115000 & 1.167270 & 0.016802 \\
+27 & EDGE & full & C5\_3D\_OLD & HTTP & 19964/20000 & 99.820000 & 99.782738 & 99.825250 \\
+27 & EDGE & full & C5\_3D\_OLD & UDP & 19529/20000 & 97.645000 & 97.645000 & 97.645000 \\
+127 & EDGE & full & C5\_3D\_OLD & NORMAL & 72/20000 & 0.360000 & 3.610879 & 0.062535 \\
+127 & EDGE & full & C5\_3D\_OLD & HTTP & 19518/20000 & 97.590000 & 96.780567 & 97.595272 \\
+127 & EDGE & full & C5\_3D\_OLD & UDP & 19876/20000 & 99.380000 & 99.380000 & 99.380000 \\
+227 & EDGE & full & C5\_3D\_OLD & NORMAL & 0/20000 & 0.000000 & 0.000000 & 0.000000 \\
+227 & EDGE & full & C5\_3D\_OLD & HTTP & 19959/20000 & 99.795000 & 99.753475 & 99.799557 \\
+227 & EDGE & full & C5\_3D\_OLD & UDP & 19670/20000 & 98.350000 & 98.350000 & 98.350000 \\
+ensemble & EDGE & full & C5\_3D\_OLD & NORMAL & 24/20000 & 0.120000 & 1.220180 & 0.017457 \\
+ensemble & EDGE & full & C5\_3D\_OLD & HTTP & 19958/20000 & 99.790000 & 99.751165 & 99.795250 \\
+ensemble & EDGE & full & C5\_3D\_OLD & UDP & 19732/20000 & 98.660000 & 98.660000 & 98.660000 \\
+\hline
+\end{tabular}

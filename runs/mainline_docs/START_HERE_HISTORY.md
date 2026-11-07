@@ -1721,3 +1721,20 @@ DeepSeek 已加入，沿用文档合作：`runs/mainline_docs/collab/YYYYMMDD_<�
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)
 
 <!-- End archived entry; original snapshot bytes preserved above. -->
+
+
+## 2026-11-07 paper freeze previous entry snapshot
+
+# 当前状态
+
+更新：2026-11-07（America/Los_Angeles）。固定五项，历史另存。
+
+1. **已验收**：同库历史参考三维C5 v6，182658/182659完成，成功链14:39；5261项验收、388202行四头一致性通过，排除0。
+2. **候选效果**：完整历史库＋C5_3D_OLD集成A/B主视图普通FPR 0.018742%/0.282091%，检出100%/99.986217%；Edge普通/加权FPR 0.12%/1.220180%，HTTP99.79%、UDP98.66%。
+3. **科学边界**：全A加权FPR5.412342%、Edge127稳定性及UDP检出仍未达标；A/B为开发证据，Edge已用于诊断；原全口径2%/99.9%目标未全部达到。
+4. **下一步**：封存后处理候选并整理论文主结果/消融；RAW漏检、单种子和建档期作为独立剩余问题。原模型、阈值与部署未变，未启动新训练。
+5. **证据/存储**：[验收报告](collab/20261107_same_bank_context_acceptance_codex.md)、[验收JSON](../same_bank_context_v6_20261106/FORMAL_ACCEPTANCE.json)、[进度页](http://127.0.0.1:18806/)；大逐行产物留超算，本地保留摘要与SHA。
+
+[历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)
+
+<!-- End archived entry; original bytes preserved. -->
