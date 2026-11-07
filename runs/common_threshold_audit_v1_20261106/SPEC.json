@@ -1,0 +1,39 @@
+{
+  "version": "common_threshold_audit_v1_20261106",
+  "training": false,
+  "threshold_deployment": false,
+  "seeds": [
+    27,
+    127,
+    227,
+    "ensemble"
+  ],
+  "arms": [
+    "FUSION790",
+    "RISK_UNIFORM",
+    "RISK_STRATIFIED",
+    "RISK_GUARDED"
+  ],
+  "methods": [
+    "RAW",
+    "C5_P3"
+  ],
+  "rule": "score>cut; common scalar per arm/method/head across datasets and classes",
+  "targets": "FPR<.02; HTTP/UDP and A/B attack recall>=.999",
+  "bases": [
+    "sample",
+    "hierarchical",
+    "HT EDGE only"
+  ],
+  "weighted_near_boundary": "1e-12 conservatively unresolved, never claim exact infeasibility",
+  "budget": {
+    "cpu": 1,
+    "memory_gib": 8,
+    "minutes": [
+      30,
+      90
+    ]
+  },
+  "fit": false,
+  "selection": false
+}

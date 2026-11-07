@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "checks": 34266,
+  "scope": "RECEIPT_HASH_AND_SUMMARY_ENDPOINT_AUDIT",
+  "infeasible_cases": 256,
+  "ab_checks": [
+    {
+      "arm": "FUSION790",
+      "endpoint": "source_point",
+      "all_ab_bases_pass": true
+    },
+    {
+      "arm": "FUSION790",
+      "endpoint": "sample_fpr",
+      "all_ab_bases_pass": true
+    },
+    {
+      "arm": "FUSION790",
+      "endpoint": "all_basis_fpr",
+      "all_ab_bases_pass": true
+    },
+    {
+      "arm": "RISK_UNIFORM",
+      "endpoint": "source_point",
+      "all_ab_bases_pass": true
+    },
+    {
+      "arm": "RISK_UNIFORM",
+      "endpoint": "sample_fpr",
+      "all_ab_bases_pass": true
+    },
+    {
+      "arm": "RISK_UNIFORM",
+      "endpoint": "all_basis_fpr",
+      "all_ab_bases_pass": true
+    },
+    {
+      "arm": "RISK_STRATIFIED",
+      "endpoint": "source_point",
+      "all_ab_bases_pass": true
+    },
+    {
+      "arm": "RISK_STRATIFIED",
+      "endpoint": "sample_fpr",
+      "all_ab_bases_pass": true
+    },
+    {
+      "arm": "RISK_STRATIFIED",
+      "endpoint": "all_basis_fpr",
+      "all_ab_bases_pass": true
+    },
+    {
+      "arm": "RISK_GUARDED",
+      "endpoint": "source_point",
+      "all_ab_bases_pass": true
+    },
+    {
+      "arm": "RISK_GUARDED",
+      "endpoint": "sample_fpr",
+      "all_ab_bases_pass": true
+    },
+    {
+      "arm": "RISK_GUARDED",
+      "endpoint": "all_basis_fpr",
+      "all_ab_bases_pass": true
+    }
+  ],
+  "conclusion": "NO_COMMON_THRESHOLD_ON_FROZEN_SCORES",
+  "deployment_changed": false,
+  "limits": "No independent local rescore of remote large arrays. Worker verified 544 old metrics and direct endpoint sums. Empirical diagnostic on consumed datasets, not deployment guarantee."
+}

@@ -1569,3 +1569,33 @@ DeepSeek 已加入，沿用文档合作：`runs/mainline_docs/collab/YYYYMMDD_<�
 5. **证据与存储**：[执行卡](collab/20261106_pilot_transfer_evaluation_design_codex.md)、[启动回执](collab/20261106_pilot_transfer_evaluation_launch_codex.md)；大文件留超算，[进度页](http://127.0.0.1:18806/)随数据集完成更新成绩。A/B/Edge均为开发泛化诊断。
 
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)
+
+
+## 2026-11-06 before common threshold audit
+
+# 当前状态
+
+更新：2026-11-06（America/Los_Angeles）。固定五项，历史另存。
+
+1. **四组跨数据集评价已验收**：182628/182630/182632全部完成，累计7:06、峰值1.703GiB；23907项摘要/SHA审计通过，工程PASS，整体2%/99.9%目标未达到。
+2. **A/B保持达标**：四组集成C5普通/加权目标均PASS，三新组所有种子亦PASS；误报下降、召回小降。旧RAW科学门仍FAIL，不混用流程或口径。
+3. **Edge未达标**：原/均匀/分层/受限C5普通FPR为5.79/3.115/0.45/1.79%，HTTP检出94.995/93.155/91.325/93.405%，UDP98.66/97.18/51.8/96.02%。分层/受限加权FPR仍2.071/4.554%，无任何头共同达标。
+4. **下一步方向**：UDP退化已在RAW，HTTP相同C5扣分下撤警增加。先对固定分数做共同阈值可达性诊断，区分校准位置与排序重叠；不直接采用Edge诊断阈值。原模型保留，未启动新作业。
+5. **证据/存储**：[验收报告](collab/20261106_pilot_transfer_evaluation_acceptance_codex.md)、ACCEPTANCE_SUMMARY及FINAL回执；大数组留超算，[成绩页](http://127.0.0.1:18806/)可切换方法/种子/口径。A/B/Edge均属开发泛化诊断。
+
+[历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)
+
+
+## 2026-11-06 before common threshold acceptance
+
+# 当前状态
+
+更新：2026-11-06（America/Los_Angeles）。固定五项，历史另存。
+
+1. **共同阈值诊断已提交**：作业182635, 182636，快照COMMON_THRESHOLD_COMPLETE；最终可达性尚未验收。
+2. **固定对象**：原融合＋最近三轮，RAW/C5、三种子及集成全报；一个阈值跨类别和A/B/Edge，不训练、不替换部署阈值。
+3. **诊断目标**：误报<2%、HTTP/UDP及A/B攻击检出≥99.9%；普通/加权/HT分列，另求全口径共同区间。同分数整体处理，浮点边界保守待核查。
+4. **资源与门**：38项远端依赖及29项本地数值/依赖检查PASS；真实编码距离＋原成绩复现→完整扫描。1CPU/8GiB，30＋90分钟上限；不自动重试。
+5. **证据/存储**：[执行及启动回执](collab/20261106_common_threshold_audit_launch_codex.md)，大数组留超算，[进度页](http://127.0.0.1:18806/)自动更新。原融合保留，旧NO_GO不改写，结果只作开发泛化诊断。
+
+[历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)

@@ -1,0 +1,26 @@
+{
+  "result": "PREPARED",
+  "scope": "FOUR_ARM_FROZEN_COMMON_THRESHOLD",
+  "pins": {
+    "worker.py": "f62e9fe9094bbbb2d0d5c1c2e5f2fa9e78e3174e562089a4fbc351cec337f5a6",
+    "core.py": "8fcb6f6ff9356f99443b40fb0746bf9e80dd1ad9d1e3db5880b939c3bfea19b9",
+    "test_core.py": "e2b0b734de187eaf94e79f3290ecc63d75b26b59ded1616770c85959b7be8ba4",
+    "INPUT_PINS.json": "5a390ebafd0b541939f0d05d018dac963f2df836585fd42535085d3e7d4d22b4",
+    "dependency_gate.py": "9f1128fef7c9a8e259b33ef59fe1c150231ca4c6ebec10421a739dee1f217b08",
+    "test_dependencies.py": "a805fad55d2e7d3fa3f50b0c4ad667d946a325b252efd071974be4c4de8162fc",
+    "SPEC.json": "51971394cd8636ca4e751a9ce008126d070e511f661f396744e1d25751d6a9df"
+  },
+  "receiver_sha256": "d2e118c5b72197b40f380ab83a26895176eace346cedc6fbddb334f32dd9ad50",
+  "cpu": 1,
+  "memory_gib": 8,
+  "preflight_seconds": 1800,
+  "evaluation_phase_seconds": 5400,
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "new_heads": 0,
+  "automatic_retries": 0,
+  "accept_existing_ab_regression_only": true
+}
