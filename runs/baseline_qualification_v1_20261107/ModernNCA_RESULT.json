@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "scope": "ENGINEERING_ONLY_NOT_EFFICACY",
+  "method": "ModernNCA",
+  "config": {
+    "architecture": {
+      "d_in": 790,
+      "d_num": 790,
+      "d_out": 2,
+      "dim": 128,
+      "dropout": 0.1,
+      "d_block": 512,
+      "n_blocks": 0,
+      "temperature": 1,
+      "num_embeddings": {
+        "type": "PLREmbeddings",
+        "n_frequencies": 77,
+        "frequency_scale": 0.04431360576139521,
+        "d_embedding": 34,
+        "lite": true
+      },
+      "sample_rate": 0.5
+    },
+    "optimizer": "AdamW",
+    "lr": 0.01,
+    "weight_decay": 0.0002,
+    "batch": 16
+  },
+  "seed": 27,
+  "updates": 16,
+  "fit_rows": 1024,
+  "cal_normal_rows": 1024,
+  "parameters": 3504308,
+  "loss_first": 0.6744144558906555,
+  "loss_last": 1.0073809623718262,
+  "step_seconds": [
+    1.1209405360277742,
+    1.0339893240015954,
+    1.0647022379562259,
+    1.026900172000751,
+    1.0619202030356973,
+    1.0245063970796764,
+    1.0609890269115567,
+    1.0223712790757418,
+    1.0591082167811692,
+    1.0245163168292493,
+    1.0625034980475903,
+    1.028054352849722,
+    1.0611027099657804,
+    1.0239664819091558,
+    1.0580373669508845,
+    1.0173618320841342
+  ],
+  "score_seconds": {
+    "CAL": 44.41886061592959,
+    "CIC_DEV": 2.7667662880849093,
+    "UNSW_DEV": 2.8007407998666167,
+    "EDGE": 1.3682813241612166
+  },
+  "source_cal_cut": -16.118093490600586,
+  "source_cal_weighted_fpr": 0.00941356532080771,
+  "checkpoint_sha256": "4b137fd9c2608b85bca7895b0006d6a775e4f75080e070c8b5c8e524439927eb",
+  "score_sha256": "b614d6fb43e2c79771a9b6269f31318c00bac5c7524a84962a2fa411b2521950",
+  "reload_exact": true,
+  "full_training_qualified": false,
+  "formal_tuning_pending": true,
+  "scaling_warning": "1024-row retrieval pilot; 617908-row pool requires separate chunking/GPU/resource gate. No linear runtime certification.",
+  "seconds": 74.85074511403218,
+  "rss_peak_mib": 1683.71875
+}

@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "scope": "ENGINEERING_ONLY_NOT_EFFICACY",
+  "method": "TabM",
+  "config": {
+    "architecture": {
+      "n_num_features": 790,
+      "cat_cardinalities": [],
+      "d_out": 1,
+      "num_embeddings": null
+    },
+    "optimizer": "AdamW",
+    "lr": 0.002,
+    "weight_decay": 0.0003,
+    "batch": 16
+  },
+  "seed": 27,
+  "updates": 16,
+  "fit_rows": 1024,
+  "cal_normal_rows": 1024,
+  "parameters": 1101536,
+  "loss_first": 0.6936799883842468,
+  "loss_last": 0.026360124349594116,
+  "step_seconds": [
+    0.11898206197656691,
+    0.05748539208434522,
+    0.05233632097952068,
+    0.05128090316429734,
+    0.051890429109334946,
+    0.05194792104884982,
+    0.05177390598692,
+    0.05130784399807453,
+    0.051585680805146694,
+    0.05141875706613064,
+    0.05155874113552272,
+    0.051626973086968064,
+    0.0840503629297018,
+    0.05172929516993463,
+    0.05169582413509488,
+    0.0513913850300014
+  ],
+  "score_seconds": {
+    "CAL": 0.9771885110531002,
+    "CIC_DEV": 0.06065402808599174,
+    "UNSW_DEV": 0.05967622110620141,
+    "EDGE": 0.03005152614787221
+  },
+  "source_cal_cut": 5.751103401184082,
+  "source_cal_weighted_fpr": 0.0019257703081232494,
+  "checkpoint_sha256": "7513ba8f4efa9a667904163d901faa1a2d5b24a0eb09127294377393fd9255ef",
+  "score_sha256": "c9bdafdc9f482685c592f0353535d88af1942afd47ae86f28602b26f76f16ff1",
+  "reload_exact": true,
+  "full_training_qualified": false,
+  "formal_tuning_pending": true,
+  "seconds": 6.877691354835406,
+  "rss_peak_mib": 460.01171875
+}

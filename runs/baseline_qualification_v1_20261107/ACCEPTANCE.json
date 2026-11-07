@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "scope": "REAL_INPUT_ENGINEERING_QUALIFICATION_ONLY",
+  "job_id": "182677",
+  "full_training_authorized": false,
+  "main_model_changed": false,
+  "seconds": 214.526727481978,
+  "scheduler_elapsed": "00:03:36",
+  "peak_sampled_tree_rss_mib": 3634.30859375,
+  "scheduler_maxrss": "1819208K",
+  "causal_frames": 322679,
+  "real_encoded_rows": 112,
+  "qualified_pilot_methods": [
+    "TabM",
+    "ModernNCA",
+    "DisentAD"
+  ],
+  "other_candidates_pending": true,
+  "formal_training_scaling_pending": true,
+  "receipt_sha256": {
+    "RESULT.json": "dc460bb186f01caf650fa02465e52be2c4a9f04f2e80d66fc7eb2326ffedec0a",
+    "JOB.json": "30c9b33d7162f294fedf2afd44b32d27d5eca2eddda932dc9247dd5cbff45eb5",
+    "SCHEDULER.json": "e867be4283bc69792a092ad8819b489a074f71e47cad40c8e019b9f6e8f3f676",
+    "DEPENDENCY_GATE.json": "341377e8e5dd38e642d32553b3f3968bc97d89cfe004599b855ea6199e9f1ecc",
+    "PIPELINE_RESULT.json": "6c974a3c0899f22189fd1ff67c2a1e84ce1fedb7c143aef4352376f4048f3bfa",
+    "TabM_RESULT.json": "72a1b658aca69d8694c05e0bc0e02d1a3ca7b0b53c9e37d95c45953632cf90b4",
+    "ModernNCA_RESULT.json": "3e8255cf720e33fbd800fbfbf23628aa3fd7c22f4651ba634df545dbf39856ce",
+    "DisentAD_RESULT.json": "bdc91b9b87a7d9a3754adefc650380f8e2d26ffd892a101b69745ddad0db4928"
+  }
+}

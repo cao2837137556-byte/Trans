@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "scope": "ENGINEERING_ONLY_NOT_EFFICACY",
+  "method": "DisentAD",
+  "config": {
+    "architecture": {
+      "dim": 128,
+      "att_dim": 1,
+      "num_heads": 2,
+      "patch_size": 1,
+      "overlap": 0
+    },
+    "optimizer": "Adam",
+    "lr": 0.0001,
+    "weight_decay": 0.0,
+    "batch": 4
+  },
+  "seed": 27,
+  "updates": 16,
+  "fit_rows": 564,
+  "cal_normal_rows": 1024,
+  "parameters": 297345,
+  "loss_first": 4.615706443786621,
+  "loss_last": 4.375921726226807,
+  "step_seconds": [
+    0.3387232299428433,
+    0.2967316899448633,
+    0.3291101490613073,
+    0.29180174600332975,
+    0.2889646489638835,
+    0.29297690698876977,
+    0.29346357099711895,
+    0.2896398969460279,
+    0.29075913806445897,
+    0.3259816230274737,
+    0.29028750490397215,
+    0.29001872800290585,
+    0.29468852397985756,
+    0.29070655605755746,
+    0.29132512281648815,
+    0.2916812130715698
+  ],
+  "score_seconds": {
+    "CAL": 23.245906109921634,
+    "CIC_DEV": 1.4564146669581532,
+    "UNSW_DEV": 1.439641190925613,
+    "EDGE": 0.7116772900335491
+  },
+  "source_cal_cut": 6885.0966796875,
+  "source_cal_weighted_fpr": 0.009193121693121692,
+  "checkpoint_sha256": "377d3c8701397dd54a9fc1fa669cd93c14b1f5f75117ecb0d62b4cae762f16a8",
+  "score_sha256": "7484028438b9e291c0618c953b60b19e89f40cb53f06f317cf3d2897bcb9a9f7",
+  "reload_exact": true,
+  "full_training_qualified": false,
+  "formal_tuning_pending": true,
+  "seconds": 37.66428379598074,
+  "rss_peak_mib": 656.4609375
+}
