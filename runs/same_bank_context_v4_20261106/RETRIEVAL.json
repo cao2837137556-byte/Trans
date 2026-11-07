@@ -1,0 +1,54 @@
+{
+  "state": {
+    "stage": "STOP",
+    "error": "PREFLIGHT:AssertionError('EXPANDED_2D_FROZEN_PARITY_GATE')",
+    "completed_phases": 0,
+    "total_phases": 2,
+    "runtime_forecast": null,
+    "dependency_gate": {
+      "status": "PASS",
+      "files_checked": 27,
+      "before_sbatch": true
+    },
+    "scoreboard": null,
+    "PREFLIGHT_JOB": {
+      "job_id": "182656",
+      "phase": "PREFLIGHT",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 1800
+    },
+    "PREFLIGHT_PROGRESS": {
+      "stage": "STOP",
+      "done": 948,
+      "total": 960,
+      "rss_mib": 2343.58203125,
+      "updated_unix": 1794035546.0142405,
+      "updated_utc": "2026-11-07T07:12:41.394001+00:00",
+      "phase": "PREFLIGHT",
+      "job_id": null,
+      "version": "CONTEXT_GEOMETRY_V1",
+      "completed_phases": 0,
+      "total_phases": 2,
+      "error": "PREFLIGHT:AssertionError('EXPANDED_2D_FROZEN_PARITY_GATE')"
+    },
+    "PREFLIGHT_SCHEDULER": {
+      "stdout": "182656|FAILED|1:0|00:03:03||1|8G\n182656.batch|FAILED|1:0|00:03:03|2356316K|1|\n",
+      "returncode": 0
+    },
+    "PREFLIGHT_STOP": {
+      "error": "AssertionError('EXPANDED_2D_FROZEN_PARITY_GATE')",
+      "traceback": "Traceback (most recent call last):\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v4_20261106/worker.py\", line 145, in <module>\n    try:main(args.phase)\n        ^^^^^^^^^^^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v4_20261106/worker.py\", line 111, in main\n    old,new,dc,second,variants,gate,elapsed=evaluate(pool,d,refs,rz,rq,rc,c,norm,arms,geom,rhoc,reporting)\n                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v4_20261106/worker.py\", line 69, in evaluate\n    old,new,dc,second=fast_geometry.evaluate(d,refs,rz,rq,rc,norm,geom,rhoc,c.core,w.progress)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v4_20261106/fast_geometry.py\", line 123, in evaluate\n    assert np.max(np.abs(old['support'][mask]-d['support'][mask]), initial=0) <= 2e-10, 'EXPANDED_2D_FROZEN_PARITY_GATE'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: EXPANDED_2D_FROZEN_PARITY_GATE\n"
+    },
+    "DIAGNOSE_JOB": null,
+    "DIAGNOSE_PROGRESS": null,
+    "DIAGNOSE_SCHEDULER": null,
+    "DIAGNOSE_STOP": null
+  },
+  "sha256": {
+    "PREFLIGHT_STOP.json": "1afde1609a7f450443fcf48dfa5af15c05f1c46dfe7e915f726a8f27d3ec7999",
+    "PREFLIGHT_SCHEDULER.json": "2518728ed4b57e96f6492f705ae4e6e048ea22fdd752729c3836dfc6bb0fb5e0",
+    "PREFLIGHT_JOB.json": "249158475f6d035cb0abe9e49dc39e9bb136446674d9f2bc3412016fa7c31ef0",
+    "PREFLIGHT_PARTIAL.json": "4cbf518e300f3edbdcffc247688cae0a3d1dfddce549b3b2bb078365c5a1f9bf"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "B_real_960": {
+    "status": "PASS",
+    "rows": 960,
+    "compared_rows": 960,
+    "excluded_rows": 0,
+    "max_abs_error": 1.1102230246251565e-15,
+    "mismatch_count": 0,
+    "mismatch_examples": [],
+    "c2_zero_rows": 66,
+    "c2_zero_by_device": {
+      "unsw-attack-traces-2018:ec:1a:59:83:28:11": 66
+    },
+    "geometric_vs_stored_max_abs_difference": 0.9012413633311998,
+    "definition": "C2 effective-zero; C3 non-guarded Heim refresh; C4 four-device all-row refresh; Edge geometric"
+  },
+  "B_all_untouched": {
+    "status": "PASS",
+    "rows": 34553,
+    "compared_rows": 34553,
+    "excluded_rows": 0,
+    "max_abs_error": 1.7763568394002505e-15,
+    "mismatch_count": 0,
+    "mismatch_examples": [],
+    "c2_zero_rows": 15264,
+    "c2_zero_by_device": {
+      "unsw-attack-traces-2018:ec:1a:59:83:28:11": 15264
+    },
+    "geometric_vs_stored_max_abs_difference": 0.9999999999999997,
+    "definition": "C2 effective-zero; C3 non-guarded Heim refresh; C4 four-device all-row refresh; Edge geometric"
+  },
+  "A_full_guarded_rows": 14432,
+  "A_full_guard_stored_zero": true,
+  "excluded_rows": 0,
+  "scope": "real frozen arrays; all B untouched rows and A full guard storage; no model or dataset fitting",
+  "seconds": 74.90599999995902
+}

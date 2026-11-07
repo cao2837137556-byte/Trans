@@ -1,3 +1,12 @@
+## 2026-11-06 SAME_BANK_CONTEXT_V4：混比几何支持与旧C2有效支持
+
+- STORED_SUPPORT_SCHEMA_MISMATCH；182656 FAILED/1:0，183秒、MaxRSS2356316K，完整作业0。A真实预检已走完，B历史重放已执行；无可靠子阶段记账，不将全部计为无效计算。
+- 真实960行定位11个差异，全部WEMO Motion SYN守卫。原始与优化几何最大差1.11e-15、匹配UID差0。C2存support=np.where(guard,0,original)，C3只重算非守卫Heim，C4仅重算四设备；旧值含有效支持而非统一几何支持。
+- 永久门：support_contract明确C2/C3/C4存储视图，全部查询比较、排除0；raw geometry另存并用于三维/供体审计。全部四头分数/判决门保留。每池PARITY_AUDIT失败前落盘且自动取回；旧源码SHA随包封存。
+- 本地54项检查、B34553条未改动设备全量存储复现和A14432条全守卫零值通过。v5新预检182657，1CPU8GiB30+90分钟不变；未放宽2e-10门、未改训练/阈值/数据/半径。
+
+---
+
 ## 2026-11-06 SAME_BANK_CONTEXT_V3：预算预测门停止
 
 - PREFLIGHT_BUDGET_GATE_STOP；182655 FAILED/1:0，245秒，MaxRSS2169016K，完整作业0。未保存断言前分池预测，无法给出旧预测分钟数；历史重放/匹配有效工程计算与失败分别说明，不虚构无效CPU比例。

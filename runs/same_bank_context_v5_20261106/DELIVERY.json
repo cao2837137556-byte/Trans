@@ -1,0 +1,38 @@
+{
+  "status": "PREPARED",
+  "scope": "READONLY_ATTRIBUTION_AND_3D_C5_COUNTERFACTUAL",
+  "pins": {
+    "support_contract.py": "f6ddae5a3205e7e7324a9e4bddbbd8ef37461893d127b38fd6746d1e33e28041",
+    "SUPPORT_SCHEMA_PROVENANCE.json": "3162c4586ff1060ab438a776eff6cff5de8f9abfe089ea1c3a84bdf7181d5c80",
+    "c2_run.py.txt": "45c34aacce4245838d50b16081e7cd9046cdd035d8f1686d8e0af377c15eac1b",
+    "c3_evaluate.py.txt": "bc76c3345e3fb06c3c258d456346b0c559669f1a82ba2a593d59f60540baa802",
+    "c4_run.py.txt": "d013e2706db414fd86ecb7cf83fec64fee4eadb90e6eaaaf1af2b8d13ee1f7f7",
+    "c4_gates.py.txt": "414e540234aa764a367ab13e531d5a5b7939aae32453a0120a158c6fbf7b70b1",
+    "fast_geometry.py": "79cf6e2b44a8980c7b9e1b3836e12cc9a5a3eb7bad032a3cc6027de780a68d91",
+    "geometry_frozen.py": "aa4633dace8f83e19a0232d5a02b3585fe6e2235da64d8260d09e71009e7c2a1",
+    "worker.py": "6fc0016a39f06ae3672dc642006d4de78c792da70577f8a8142fc24e1a63bec9",
+    "geometry.py": "aa4633dace8f83e19a0232d5a02b3585fe6e2235da64d8260d09e71009e7c2a1",
+    "attribution.py": "f0df9b0586e01bcdd301a8f5e8df0503d4e0690fee86d511e1db4dbb05ecf3a0",
+    "physical.py": "a800f2eecb263c681dfe83fb4058061ba9d16994b12436bf189208f416823720",
+    "stream_core.py": "d8663a40e21d76ed2021b0999e1e2384b194b3b03b1c391ce88c43bae4a439aa",
+    "source_packets.py": "be76540116cb7ea89b64b376761a08f0c0e99dbbf066390413bf00f23cd5cafe",
+    "packet_reader.py": "7ef0122fb66cbfd49d9130fd2f9325e2612eed0fe5c0a3791daa4122cd8c9881",
+    "base_worker.py": "96f9a71820bf8c1e87a5282f26bad4d83fc6fd2aaa55aeff76ee221f797c22ca",
+    "history_context.py": "4ca4dbdf513e479edc69504e8f5ea493cef08d806325e22b020f85f57bcc2e16",
+    "HISTORY_INPUTS.json": "5799d5cc864283c3278012eb6a54947edbfdf5a4239b6d56cae7e9dae2d103db",
+    "INPUT_PINS.json": "5a679200802cdd6f23f19e9f0f58ebbe5b613744ba525aac9497f1db37d67b28",
+    "dependency_gate.py": "9f1128fef7c9a8e259b33ef59fe1c150231ca4c6ebec10421a739dee1f217b08",
+    "SPEC.json": "a9fdfa1ae83a9093f9ac07205c346449fc877aebb01d4e8ce48d4381e7dd18ff",
+    "test_contract.py": "318a6d87ff0a215d69ac2da17f79a876f33c9685233165792a3859ef81cdf112"
+  },
+  "receiver_sha256": "6bd571c5b0392352556a6618d059988aaa7f329cf8d855106544efce5032292f",
+  "cpu": 1,
+  "memory_gib": 8,
+  "budget_minutes": [
+    30,
+    90
+  ],
+  "training": false,
+  "deployment_change": false,
+  "automatic_retries": 0
+}
