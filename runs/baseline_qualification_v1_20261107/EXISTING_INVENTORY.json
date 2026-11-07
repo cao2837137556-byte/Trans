@@ -1,0 +1,203 @@
+{
+  "scope": "Existing code and historical results; no current790 matched evaluation certified",
+  "groups": {
+    "TabM official reusable": [
+      {
+        "path": "repo/ood/vendor/tabm_v0_0_3/tabm.py",
+        "bytes": 62351,
+        "sha256": "fb8ed71b4d0a5e0a64725e57b7b3fb5b423776b09a9f68f2263ba6e85e25f64f"
+      },
+      {
+        "path": "repo/ood/vendor/tabm_v0_0_3/UPSTREAM_PROVENANCE.md",
+        "bytes": 1080,
+        "sha256": "018dd55a4e79b6dc0185b9b209e8ad58e5d7bac6f44987b054b52e7de72d5160"
+      },
+      {
+        "path": "repo/ood/issue27ckbm_tabm_causal_source_calibration_v1.py",
+        "bytes": 71439,
+        "sha256": "f1f44da951d9524f842f31d2836973ed3ab0d4ab686dd0b90c1c5b7055476c47"
+      },
+      {
+        "path": "runs/modern_head_new_lineage_v1_20261022/target_validation/tabm_batch256.json",
+        "bytes": 3328,
+        "sha256": "8b0910bf233eb8e5eb78efbfa8b6754a1f62db5ea2d0de6679bd40e4fe8a2107"
+      }
+    ],
+    "DROCC historical": [
+      {
+        "path": "repo/ood/issue27ckby_drocc_train_local_v1.py",
+        "bytes": 15919,
+        "sha256": "5d3d16f1bb51ac42f00a0b16b1d477b2079a83ba9dcc48356e49471f2c644ed1"
+      },
+      {
+        "path": "repo/ood/issue27ckby_drocc_feature_dump_v1.py",
+        "bytes": 11530,
+        "sha256": "41c5e83493a3e3f6d4fd8f15f5584147e0fbb70b6e66af1943f4060c88228162"
+      },
+      {
+        "path": "repo/ood/issue27ckby_drocc_eval_local_v1.py",
+        "bytes": 10478,
+        "sha256": "2fb6bbd3a14eb3ecba1c8edb9a2ca77b5a2192bafdec3bcf26e8328e53d864b5"
+      }
+    ],
+    "Frontend100 classical and DeepSVDD": [
+      {
+        "path": "repo/ood/frontend100_external_baselines.py",
+        "bytes": 22743,
+        "sha256": "47caad239801fb7f443a50fe9909e81ae45e81856fe2bf704e5040755b54ebd6"
+      },
+      {
+        "path": "repo/ood/frontend100_deep_svdd_baseline.py",
+        "bytes": 31286,
+        "sha256": "40853919298469eed591fdf9b0469f82e5de5adaf99277d2b9a69e108d7528b3"
+      },
+      {
+        "path": "runs/prism_handoffs/2026-04-08/prism_paper_revision_pack_2026-04-08/evidence_summaries/external_baselines_summary.md",
+        "bytes": 3026,
+        "sha256": "a0d463e5776f8fdbcaf5aee0ac5fb16cf5e39fcceb18af41d6c35fc2ac808acb"
+      }
+    ],
+    "May strong baseline pack": [
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/ablation_component_summary.csv",
+        "bytes": 1141,
+        "sha256": "88493700e4e6bf15e0785e8779486ce81464b766a90313265b8b2fb056b80f15"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_candidate_definitions.csv",
+        "bytes": 1782,
+        "sha256": "ccade1ca4c3f45552cd33adc683e864c87916cda1c6fb9e737f7b783cd06eda4"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_candidate_definitions.md",
+        "bytes": 1325,
+        "sha256": "be3a364f99f6f94f20264a66cc61c95ae38de9c4e9e13e40595d241dcbc8b280"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_complexity_summary.csv",
+        "bytes": 1317,
+        "sha256": "1bfa4d258d7a88f30263434c1a243f917a9f20b9dcf2f8e6d4c1c51228ce4cda"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_failure_analysis.md",
+        "bytes": 868,
+        "sha256": "cb327a2346c08794e70413f7bd920654b7e312671adbb6e5f06202e6a4c88974"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_hyperparameter_selection_report.md",
+        "bytes": 683,
+        "sha256": "fca8a04cb19285c25def62f0764a38eb7c0b8e68693cc2646203036fa881ab51"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_hyperparameter_validation_rows.csv",
+        "bytes": 68439,
+        "sha256": "621fb1ea601174621e4c05e08822dd07757015737ccee4958049b1724adad84e"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_method_comparison_by_seed.csv",
+        "bytes": 326379,
+        "sha256": "55880caf1a22e07cad9a63e995d0dca8756b120c5cf6ad5cc10804d4ebe72627"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_method_comparison_summary.csv",
+        "bytes": 57463,
+        "sha256": "b600534d199a957b8e02022f1c90abea563fc57463046851606c41cfecdfa5d5"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_search_space.csv",
+        "bytes": 1553,
+        "sha256": "66d104bdbffa41cdf59109e988a8199acb0e8573dee0de1b7a7f607fa9ea969e"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/baseline_selected_configs.csv",
+        "bytes": 80232,
+        "sha256": "c6fd0b0f805853926175f891c30eeb9a8f0ad8a8c937155b3a655b4ab9aa73aa"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/claim_boundary.md",
+        "bytes": 565,
+        "sha256": "82248707325f56cd1ca2ff01a6a51527d68f034a1ea946f5588d3d3b01ced452"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/config.json",
+        "bytes": 592,
+        "sha256": "5a7b5dfd59ee766def771c7b39c7b59a00046782598d8f9886ac2e367caf67e9"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/consistency_primary_holdout_chrono.csv",
+        "bytes": 25168,
+        "sha256": "1f35b24b6ad5909d7da72ab3b687cb0eb8de1252a6dbcc3c09f241f707017226"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/doc_update_patch_suggestion.md",
+        "bytes": 494,
+        "sha256": "8ec009249325fb79393c4361e5aca2cda74c2f0b2fdd7c7bba6cddf66fd5a4ed"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/fairness_audit_report.md",
+        "bytes": 918,
+        "sha256": "f5bd8667f55d472ce77a066d4c42be1319f49f6c98e2694bec62e2a0d5bcea68"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/locked_asset_report.csv",
+        "bytes": 1355,
+        "sha256": "9803d2cf16ae73265033b5940ed6bb15178d654d4181fa5cb651fb53c9b4679b"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/locked_bins_baseline_by_seed.csv",
+        "bytes": 186734,
+        "sha256": "2c774635a26c0259bf3e1513f829b203a45130da62383e0e97a61833973a996b"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/locked_bins_baseline_summary.csv",
+        "bytes": 2651,
+        "sha256": "65431239f8ad5892ad1415cc75230cf52cdca053e85a2e2f7bd24396b1f6b0d8"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/low_fpr_metrics_baseline_summary.csv",
+        "bytes": 24216,
+        "sha256": "fc38919085eae7d112b820787a4d6c40144bb6957e06c9188dffb75bcb250dce"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/manifest.csv",
+        "bytes": 1197,
+        "sha256": "5038573c429b6c498df6763cf0f33329572908a2af053f17ad16a07f8281a627"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/missing_input_report.md",
+        "bytes": 58,
+        "sha256": "14409ccdbddfe3fc11fde74760804ed9a0b2a53bfe55f30c77a98bc5c74e84b7"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/preflight_strong_baseline_execution_check.md",
+        "bytes": 601,
+        "sha256": "4d09dbd08fa177e7d639e9941ee4ca79b1508df14c48aa7a13bf70cfdcafd07f"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/protocol.md",
+        "bytes": 895,
+        "sha256": "eb30b066b97ce0e3713d0df5af81066eefa37959387b6c2a71851d045e45ae3a"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/recommended_next_action.md",
+        "bytes": 518,
+        "sha256": "57c0af6971ff7871cf663d2140ce5829e476c2d81b40f873bfa2d6d8482e5f5b"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/risk_register.csv",
+        "bytes": 1042,
+        "sha256": "1b1e7bb323f1439272c14a48da343336f80af96c7274fed59f3655bcda66d731"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/summary.md",
+        "bytes": 2601,
+        "sha256": "ecbf878a36faa363138e3914cd4b5ea3248398b490d0f41d0137ca4a3ec9bea8"
+      },
+      {
+        "path": "runs/issue25c_strong_baseline_pack_execution_for_enhanced_lowguard_top64_2026-05-18/threshold_provenance.csv",
+        "bytes": 112547,
+        "sha256": "419463ff25122bd8c3f99bbc56fd37d21acfa1a8f6a42636ce3d7c30612e4571"
+      }
+    ]
+  }
+}
