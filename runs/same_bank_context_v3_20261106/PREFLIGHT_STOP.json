@@ -1,0 +1,4 @@
+{
+  "error": "AssertionError('FULL_RUNTIME_FORECAST_EXCEEDS_BUDGET')",
+  "traceback": "Traceback (most recent call last):\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v3_20261106/worker.py\", line 132, in <module>\n    try:main(args.phase)\n        ^^^^^^^^^^^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v3_20261106/worker.py\", line 128, in main\n    forecast+=600;assert forecast<5400,'FULL_RUNTIME_FORECAST_EXCEEDS_BUDGET';out['forecast_seconds']=forecast;w.write('RUNTIME_FORECAST.json',dict(status='PASS',seconds=forecast,budget=5400))\n                         ^^^^^^^^^^^^^\nAssertionError: FULL_RUNTIME_FORECAST_EXCEEDS_BUDGET\n"
+}

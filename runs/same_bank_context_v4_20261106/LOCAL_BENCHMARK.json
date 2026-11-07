@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "scope": "LOCAL_SYNTHETIC_NOT_HPC_TIMING",
+  "queries": 128,
+  "references": 5000,
+  "frozen_seconds": 0.9839999999967404,
+  "optimized_seconds": 0.28200000000651926,
+  "speedup": 3.489361702035434,
+  "parity": {
+    "status": "PASS",
+    "max_abs_errors": {
+      "support": 1.1102230246251565e-16,
+      "second_dz": 1.1102230246251565e-16,
+      "second_dq": 0.0,
+      "second_joint": 5.551115123125783e-17,
+      "bank_end": 0.0,
+      "1": 1.1102230246251565e-16,
+      "2": 0.0,
+      "3": 0.0
+    },
+    "donor_uids_and_metadata_exact": true
+  }
+}
