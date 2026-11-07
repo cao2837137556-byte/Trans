@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "full_sample_rows": 960,
+  "subset_rows": 120,
+  "original_self_cross_subset_donor_mismatch_rows": 1,
+  "original_self_cross_subset_support_max_abs_error": 4.440892098500626e-16,
+  "fixed_same_batch_donor_differences": 0,
+  "fixed_numeric_errors": {
+    "support": 0.0,
+    "second_dz": 0.0,
+    "second_dq": 0.0,
+    "second_joint": 0.0,
+    "bank_end": 0.0
+  },
+  "examples": [
+    {
+      "uid": "fffbc2d5126af712b684a5c619fb7805bb160a8010e8e7b7fabbfa89314a5f93",
+      "full_original": [
+        "fb65a8e65a8229b6ad0b94fcdb2ca6490b2223cc04a526ecbe8984b76e83109d",
+        "f0dd0cc3642324962ddf7bc96a48c4b9a47d112c4b3d77557173cf255ccd4f7b"
+      ],
+      "subset_original": [
+        "20f5da61707c9f31b6e33a366404ab88a7042de327863a3b8fb780e7b00184cd",
+        "f0dd0cc3642324962ddf7bc96a48c4b9a47d112c4b3d77557173cf255ccd4f7b"
+      ]
+    }
+  ],
+  "scope": "local real arrays, same core compared with itself across query population; v6 same-batch exact discrete parity"
+}

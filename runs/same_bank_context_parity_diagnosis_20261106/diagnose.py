@@ -39,6 +39,21 @@ def main():
   row=d['rows'][i];examples.append(dict(row=row,saved=float(d['support'][i]),original=float(original['support'][i]),optimized=float(optimized['support'][i]),guard=bool(d['q'][i,0]==1 and d['q'][i,2]==1 and d['q'][i,5]==0),reason=original['reason'][i],matched=original['matched_reference_uids'][i].tolist()))
  out=dict(status='DIAGNOSIS_ONLY',rows=len(ix),mismatch_count=len(bad),optimized_original_max_error=float(error.max()),optimized_original_donor_differences=donor_differences,mismatch_by_device=dict(collections.Counter(v['row']['device'] for v in examples)),mismatch_by_guard=dict(collections.Counter(str(v['guard']) for v in examples)),examples=examples,seconds=time.monotonic()-start,input_pins=pins)
  (HERE/'RESULT.json').write_text(json.dumps(out,indent=2)+'\n');print(json.dumps({k:v for k,v in out.items() if k not in ['examples','input_pins']}))
+ if '--batch-audit' in sys.argv:
+  import importlib.util
+  oi=w.select_small(d,per_group=8);sub=[d['rows'][i] for i in oi];su=[r['uid'] for r in sub]
+  oracle=bank.own(sub,d['z'][oi,:768],d['q'][oi],geom,feature_uids=su,q_uids=su)
+  different=np.flatnonzero(np.any(oracle['matched_reference_uids']!=original['matched_reference_uids'][oi],axis=1))
+  spec=importlib.util.spec_from_file_location('repaired_fast',ROOT/'runs/same_bank_context_v6_20261106/fast_geometry.py');module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+  fixed=module.evaluate(d,refs,rz,rq,np.zeros((len(refs),8)),norm,geom,rhoc,core,lambda *a,**kw:None)[0]
+  errs={}
+  for key,a in original.items():
+   b=fixed[key]
+   if a.dtype.kind in 'fc':
+    finite=np.isfinite(a);assert np.array_equal(finite,np.isfinite(b));err=float(np.max(np.abs(a[finite]-b[finite]),initial=0));assert err<=2e-10;errs[key]=err
+   else:assert np.array_equal(a,b),key
+  result=dict(status='PASS',full_sample_rows=len(ix),subset_rows=len(oi),original_self_cross_subset_donor_mismatch_rows=len(different),original_self_cross_subset_support_max_abs_error=float(np.max(np.abs(oracle['support']-original['support'][oi]))),fixed_same_batch_donor_differences=0,fixed_numeric_errors=errs,examples=[dict(uid=sub[i]['uid'],full_original=original['matched_reference_uids'][oi[i]].tolist(),subset_original=oracle['matched_reference_uids'][i].tolist()) for i in different[:16]],scope='local real arrays, same core compared with itself across query population; v6 same-batch exact discrete parity')
+  (HERE/'BATCH_AUDIT.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
  if '--verify-repair' in sys.argv:
   sys.path.insert(0,str(ROOT/'runs/same_bank_context_v5_20261106'));import support_contract as contract
   small=contract.audit('UNSW_DEV',d['rows'],d['q'],optimized['support'],d['support']);assert small['status']=='PASS' and small['excluded_rows']==0

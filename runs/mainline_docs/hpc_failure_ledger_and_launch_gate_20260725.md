@@ -1,3 +1,12 @@
+## 2026-11-06 SAME_BANK_CONTEXT_V5：跨批次供体身份oracle错误
+
+- CROSS_BATCH_DONOR_ORACLE_MISMATCH；182657 FAILED/1:0，186秒，MaxRSS2392764K，完整作业0。A/B存储支持门已经通过，非v4存储语义修复失败；失败于matched_reference_uids。保留已完成工程证据，不虚构无效CPU拆分。
+- 本地同原始算法960全样本vs120子集可复现1条供体差、支持最大差4.44e-16，属于末批/批量浮点舍入对近似平局身份的影响。不能把数值容差内同值当作跨批次供体必须相同。
+- v6永久门：原core.BLOCK_ROWS/PAIR_BUDGET、同legal tuple合并、同查询顺序，全部真实预检样本与原算法比较，身份严格一致、不放宽2e-10。失败前保存OPTIMIZATION_AUDIT逐UID匹配证据并自动回收。
+- 本地56项及真实960行数值0差/离散完全一致；新预检182658运行。1CPU8GiB30+90分钟、旧存储schema全行门和科学口径均保留。真实门前不宣称最终通过。
+
+---
+
 ## 2026-11-06 SAME_BANK_CONTEXT_V4：混比几何支持与旧C2有效支持
 
 - STORED_SUPPORT_SCHEMA_MISMATCH；182656 FAILED/1:0，183秒、MaxRSS2356316K，完整作业0。A真实预检已走完，B历史重放已执行；无可靠子阶段记账，不将全部计为无效计算。

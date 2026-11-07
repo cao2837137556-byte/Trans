@@ -1,0 +1,175 @@
+{
+  "status": "PASS",
+  "training": false,
+  "deployment_change": false,
+  "phase": "PREFLIGHT",
+  "pools": {
+    "CIC_DEV": {
+      "rows": 512,
+      "full_rows": 179886,
+      "reference_rows": 8863,
+      "reference_uid_sha256": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2",
+      "parity_gate": {
+        "status": "PASS",
+        "support_max_abs_error": 1.2212453270876722e-15,
+        "score_max_abs_error": 2.1316282072803006e-14,
+        "decision_differences": 0,
+        "support_compared_rows": 512,
+        "support_excluded_rows": 0,
+        "support_storage_contract": {
+          "status": "PASS",
+          "rows": 512,
+          "compared_rows": 512,
+          "excluded_rows": 0,
+          "max_abs_error": 1.2212453270876722e-15,
+          "mismatch_count": 0,
+          "mismatch_examples": [],
+          "c2_zero_rows": 72,
+          "c2_zero_by_device": {
+            "Eufy Home Base": 66,
+            "HeimVision Camera": 6
+          },
+          "geometric_vs_stored_max_abs_difference": 1.2212453270876722e-15,
+          "definition": "C2 effective-zero; C3 non-guarded Heim refresh; C4 four-device all-row refresh; Edge geometric"
+        },
+        "score_compared_rows": 512,
+        "untouched_devices_included": true
+      },
+      "distance_seconds": 0.6032138711307198,
+      "history_rows": 289,
+      "history_context": {
+        "file": "CIC_DEV_HISTORY_CONTEXT.npz",
+        "sha256": "c4e50596fc2fb1dd411cab0e04afd75350ea2be8e736c190896addc74f386a88",
+        "bytes": 92988
+      },
+      "history_replay": {
+        "interaction-attack-189": {
+          "rows": 104,
+          "frames": 105,
+          "oracle_checks": 0,
+          "peak_entries": 40,
+          "independent_engine": true
+        },
+        "interaction-attack-190": {
+          "rows": 98,
+          "frames": 101,
+          "oracle_checks": 0,
+          "peak_entries": 36,
+          "independent_engine": true
+        },
+        "interaction-attack-191": {
+          "rows": 87,
+          "frames": 88,
+          "oracle_checks": 0,
+          "peak_entries": 30,
+          "independent_engine": true
+        }
+      },
+      "oracle_replay": {
+        "interaction-attack-189": {
+          "rows": 8,
+          "frames": 8,
+          "oracle_checks": 8,
+          "peak_entries": 6,
+          "independent_engine": true
+        },
+        "interaction-attack-190": {
+          "rows": 8,
+          "frames": 8,
+          "oracle_checks": 8,
+          "peak_entries": 6,
+          "independent_engine": true
+        },
+        "interaction-attack-191": {
+          "rows": 8,
+          "frames": 8,
+          "oracle_checks": 8,
+          "peak_entries": 6,
+          "independent_engine": true
+        }
+      },
+      "timing": {
+        "setup_seconds": 0.10000784392468631,
+        "groups": [
+          {
+            "key": [
+              "DEV",
+              "HeimVision Camera",
+              17
+            ],
+            "rows": 128,
+            "seconds": 0.056192720076069236,
+            "full_rows": 18532,
+            "projected_seconds": 8.135652253513399
+          },
+          {
+            "key": [
+              "DEV",
+              "HeimVision Camera",
+              6
+            ],
+            "rows": 128,
+            "seconds": 0.06027021002955735,
+            "full_rows": 48014,
+            "projected_seconds": 22.607920815305988
+          },
+          {
+            "key": [
+              "DEV",
+              "Eufy Home Base",
+              6
+            ],
+            "rows": 128,
+            "seconds": 3.1599774956703186e-06,
+            "full_rows": 10755,
+            "projected_seconds": 0.00026551217160886154
+          },
+          {
+            "key": [
+              "DEV",
+              "Eufy Home Base",
+              17
+            ],
+            "rows": 128,
+            "seconds": 0.09916339116171002,
+            "full_rows": 102585,
+            "projected_seconds": 79.47403501815643
+          }
+        ]
+      },
+      "projected_seconds_with_margin": 165.47682216460817,
+      "optimization_parity": {
+        "status": "PASS",
+        "max_abs_errors": {
+          "support": 0.0,
+          "second_dz": 1.1102230246251565e-16,
+          "second_dq": 0.0,
+          "second_joint": 2.220446049250313e-16,
+          "bank_end": 0.0,
+          "1": 1.6653345369377348e-15,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "donor_uids_and_metadata_exact": true
+      }
+    }
+  },
+  "calibration": {
+    "6": {
+      "status": "READY",
+      "rho_c": 1.2302964232644185,
+      "rows": 54042,
+      "eligible_uid_sha256": "2bbb6c714c990f2551d8d6a901633a85c221c9854284955a475eea1572072420",
+      "quantile": 0.9,
+      "weight_sum": 1.0
+    },
+    "17": {
+      "status": "READY",
+      "rho_c": 1.787982272961578,
+      "rows": 65984,
+      "eligible_uid_sha256": "5f1c4f1a2604e9e3b7bfaa2fc4bd8a9261070f48eb53d229085e89a4631d11a5",
+      "quantile": 0.9,
+      "weight_sum": 1.0
+    }
+  }
+}
