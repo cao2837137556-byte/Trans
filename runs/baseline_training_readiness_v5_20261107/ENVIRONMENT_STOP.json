@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "error": "No module named 'faiss'",
+  "traceback": "Traceback (most recent call last):\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/baseline_training_readiness_v5_20261107/worker.py\", line 10, in main\n    if phase=='ENVIRONMENT':r=environment_gate()\n                              ^^^^^^^^^^^^^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/baseline_training_readiness_v5_20261107/readiness.py\", line 203, in environment_gate\n    install_assets()\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/baseline_training_readiness_v5_20261107/readiness.py\", line 27, in install_assets\n    import faiss\nModuleNotFoundError: No module named 'faiss'\n",
+  "seconds": 29.289779307087883
+}

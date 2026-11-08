@@ -1,0 +1,11 @@
+{
+  "status": "DEPENDENCY_CLOSURE_REPAIR",
+  "previous_job": 182747,
+  "previous_state": "FAILED 1:0",
+  "elapsed_seconds": 107,
+  "valid_pipeline_preserved": true,
+  "reason": "new DTE requires sklearn absent from prior lightweight environment",
+  "fix": "pinned isolated Linux wheels for entire sklearn/CatBoost closure; add ENVIRONMENT native import+transform+CatBoost fit before FIDELITY and real pipeline; runtime path activated in every subprocess",
+  "automatic_retries": 0,
+  "no_main_model_change": true
+}

@@ -1,0 +1,49 @@
+{
+  "version": "BASELINE_READINESS_V5",
+  "cpu": 1,
+  "memory_gib": 8,
+  "wall_seconds": 7200,
+  "phases": [
+    "ENVIRONMENT",
+    "FIDELITY",
+    "PIPELINE",
+    "DTE_PILOT",
+    "CAT_PILOT",
+    "SOURCE",
+    "TABM_FULL",
+    "TABR_FULL",
+    "SLAD_FULL",
+    "DISENT_FULL",
+    "DTE_FULL",
+    "CAT_FULL",
+    "NCA_RESOURCE",
+    "SEAL"
+  ],
+  "phase_caps_seconds": {
+    "PIPELINE": 1200,
+    "FIDELITY": 300,
+    "DTE_PILOT": 300,
+    "CAT_PILOT": 300,
+    "SOURCE": 1500,
+    "TABM_FULL": 600,
+    "TABR_FULL": 900,
+    "SLAD_FULL": 900,
+    "DISENT_FULL": 600,
+    "DTE_FULL": 900,
+    "CAT_FULL": 900,
+    "NCA_RESOURCE": 600,
+    "SEAL": 60,
+    "ENVIRONMENT": 300
+  },
+  "resource_phases": [
+    "TABM_FULL",
+    "TABR_FULL",
+    "SLAD_FULL",
+    "DISENT_FULL",
+    "DTE_FULL",
+    "CAT_FULL",
+    "NCA_RESOURCE"
+  ],
+  "full_training": false,
+  "author_dataset_replication_required": false
+}
