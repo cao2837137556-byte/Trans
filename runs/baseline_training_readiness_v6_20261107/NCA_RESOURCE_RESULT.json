@@ -1,0 +1,29 @@
+{
+  "status": "NEEDS_RESOURCES",
+  "reason": "FULL_TRAINING_NOT_QUALIFIED",
+  "full_fit_rows": 617908,
+  "author_sample_rate": 0.5,
+  "default_sampled_candidates": 308698,
+  "embedded_dim": 26860,
+  "single_expanded_activation_gib": 30.888722389936447,
+  "measured": [
+    {
+      "pool_rows": 1024,
+      "sampled_candidates": 504,
+      "backward_step_seconds": 1.1924759589601308,
+      "loss": -1.750885871842911e-07
+    },
+    {
+      "pool_rows": 4096,
+      "sampled_candidates": 2040,
+      "backward_step_seconds": 4.537082799011841,
+      "loss": -5.2153954044342754e-08
+    }
+  ],
+  "default_full_step_linear_estimate_seconds": 686.5629342594889,
+  "estimate_excludes_batch_and_memory_nonlinearity": true,
+  "full_pool_backward_executed": false,
+  "formal_candidate_cap": null,
+  "seconds": 11.81340515287593,
+  "rss_peak_mib": 3089.87109375
+}

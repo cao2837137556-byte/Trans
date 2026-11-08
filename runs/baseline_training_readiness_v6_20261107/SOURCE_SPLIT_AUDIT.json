@@ -1,0 +1,70 @@
+{
+  "status": "NEEDS_STRATIFIED_GROUP_SPLIT",
+  "current_split_basic_gate": "PASS",
+  "devices": {
+    "ArloQ Camera": {
+      "train_normal": 36957,
+      "valid_normal": 853,
+      "train_attack": 16028,
+      "valid_attack": 0,
+      "normal_groups": 4,
+      "attack_groups": 4
+    },
+    "Philips Hue Bridge": {
+      "train_normal": 12081,
+      "valid_normal": 36811,
+      "train_attack": 163148,
+      "valid_attack": 0,
+      "normal_groups": 4,
+      "attack_groups": 4
+    },
+    "Globe Lamp": {
+      "train_normal": 927,
+      "valid_normal": 0,
+      "train_attack": 17658,
+      "valid_attack": 0,
+      "normal_groups": 3,
+      "attack_groups": 4
+    },
+    "Amcrest Camera": {
+      "train_normal": 28635,
+      "valid_normal": 4305,
+      "train_attack": 58,
+      "valid_attack": 29,
+      "normal_groups": 6,
+      "attack_groups": 3
+    },
+    "SimCam": {
+      "train_normal": 10635,
+      "valid_normal": 0,
+      "train_attack": 160898,
+      "valid_attack": 107075,
+      "normal_groups": 3,
+      "attack_groups": 6
+    },
+    "Atomi Coffee Maker": {
+      "train_normal": 3289,
+      "valid_normal": 0,
+      "train_attack": 18521,
+      "valid_attack": 0,
+      "normal_groups": 3,
+      "attack_groups": 4
+    }
+  },
+  "missing_validation": {
+    "normal": [
+      "Atomi Coffee Maker",
+      "Globe Lamp",
+      "SimCam"
+    ],
+    "attack": [
+      "ArloQ Camera",
+      "Atomi Coffee Maker",
+      "Globe Lamp",
+      "Philips Hue Bridge"
+    ]
+  },
+  "validation_simcam_attack_fraction": 0.9997292351359426,
+  "validation_hue_normal_fraction": 0.8770997641116062,
+  "scores_used": false
+}

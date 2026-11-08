@@ -1,0 +1,24 @@
+{
+  "status": "CONDITIONAL_PROTOCOL_ARCHIVE_NOT_EXECUTABLE_RELEASE",
+  "engineering_acceptance_sha256": "94bf4b35819134fb33c3a55e60e770bfd8796f0955ba97bf0d1e0a7181970529",
+  "runtime_plan_sha256": "261014e3ea42849bcf0ff464a0242800b059f0037df1c45b59d4537a0ffd7875",
+  "source_split_audit_sha256": "de844f36d6992cc35e8247a6b3e78e7f6546fa2661c83ec7f3b69993d2a86241",
+  "source_split_candidate_sha256": "ab37e04d8958c1ce34749263cbd02ff95d02e2047f0cf62de5b656196b8e2b08",
+  "formal_training_allowed": false,
+  "locked_principles": [
+    "Official implementation identities and documented adaptations",
+    "Main method frozen; source-only fitting and calibration; no target tuning",
+    "Three seeds27/127/227; all qualified baselines reported; A/B/Edge ordinary and weighted metrics",
+    "No author benchmark dataset replication requirement"
+  ],
+  "not_yet_released": [
+    "Revised grouped split arrays, UID identities, activity/protocol coverage",
+    "Fully enumerated16 trials per method, explicit sampling distributions and weighting formulas",
+    "Formal hardware allocation and end-to-end epoch/validation/I/O costs",
+    "Checkpoint optimizer/RNG/sampler exact recovery",
+    "ModernNCA full backward capacity and search-space worst-case resource gate",
+    "Equal-information reference access for any claimed end-to-end system superiority"
+  ],
+  "main_model_changed": false,
+  "new_jobs_submitted": false
+}

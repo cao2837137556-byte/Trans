@@ -1,0 +1,63 @@
+{
+  "status": "FROZEN_PROTOCOL_WITH_RESOURCE_GATES",
+  "protocol_sha256": "01a44beaa92801767749be35f32a3278b6ae07b0a8927aabb94310c5637ea90d",
+  "source_identity": {
+    "FIT_X.npy": "1abf8bcac80cae0ff2fbc51ac33d81be34d2352fb6d496ae166fdc0fcdd3f1a7",
+    "NORMAL_X.npy": "e664c89cda2bf14638f707841d7147c3de5ae4431456df218e05aeb20fb4ff1a",
+    "INNER_VALID.npy": "224b9c9ce296cc8bb05298ef233607515064b33b93b487b39f80cc22f7153fca",
+    "GROUP_ID.npy": "840ec0be2286a8d954cd07e526b61d63cdfafd485f343f7dd651af68cb55c7dd",
+    "FIT_y.npy": "32d2f0dda567f176cf9ca6dfbc6e12bb82491224dd3b8a0b77ef8f5405c67fc2"
+  },
+  "source_split_gate": "PASS",
+  "resources": {
+    "TABM_FULL": {
+      "status": "PASS",
+      "seconds": 23.78367661102675,
+      "rss_peak_mib": 1256.08984375,
+      "conservative_epoch_seconds": 4017.3456835441757
+    },
+    "TABR_FULL": {
+      "status": "PASS",
+      "seconds": 14.234868864063174,
+      "rss_peak_mib": 6191.88671875,
+      "conservative_epoch_seconds": 52084.7497613827
+    },
+    "SLAD_FULL": {
+      "status": "PASS",
+      "seconds": 11.942728831898421,
+      "rss_peak_mib": 2109.27734375
+    },
+    "DISENT_FULL": {
+      "status": "PASS",
+      "seconds": 9.691761719994247,
+      "rss_peak_mib": 617.37109375,
+      "conservative_epoch_seconds": 17478.345174869522
+    },
+    "DTE_FULL": {
+      "status": "PASS",
+      "seconds": 21.50150911300443,
+      "rss_peak_mib": 1690.625,
+      "forecast_400_epochs_seconds": 10539.000022178516
+    },
+    "CAT_FULL": {
+      "status": "PASS",
+      "seconds": 130.4213590552099,
+      "rss_peak_mib": 6456.96484375,
+      "forecast_2000_iterations_seconds": 47684.51425724197
+    },
+    "NCA_RESOURCE": {
+      "status": "NEEDS_RESOURCES",
+      "seconds": 11.81340515287593,
+      "rss_peak_mib": 3089.87109375,
+      "reason": "FULL_TRAINING_NOT_QUALIFIED"
+    }
+  },
+  "pending": [
+    "Formal adequately converged training and three-seed evaluation have not run.",
+    "ModernNCA full backward needs a larger-memory execution contract.",
+    "SLAD full-epoch timing and all-method source validation cost still require measurement."
+  ],
+  "automatic_formal_training": false,
+  "main_model_changed": false,
+  "author_benchmark_datasets_required": false
+}

@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "scope": "ENGINEERING_ONLY",
+  "causal": {
+    "NORMAL": {
+      "rows": 16,
+      "frames": 321502,
+      "sha256": "6c61596937628b04ba9fae1bce5dca4b26a3c04846292463a42837a07ad6fcee",
+      "file": "SMALL_NORMAL_CONTEXT.npz",
+      "source_sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+      "max_clock_debt_ns": 117000,
+      "restart_queries": 6,
+      "seconds": 3.343744075857103,
+      "peak_entries": 163
+    },
+    "HTTP": {
+      "rows": 8,
+      "frames": 40,
+      "sha256": "27143fb9826b1f5c921c80839ec8b04f96939c016bba73553bea0cfbf22a53ac",
+      "file": "SMALL_HTTP_CONTEXT.npz",
+      "source_sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+      "max_clock_debt_ns": 0,
+      "restart_queries": 4,
+      "seconds": 0.0051285510417073965,
+      "peak_entries": 80
+    },
+    "UDP": {
+      "rows": 8,
+      "frames": 1137,
+      "sha256": "8df05208d9d0b701bbd874f893a639622e14b2391ff975655e7b1856b4b3544f",
+      "file": "SMALL_UDP_CONTEXT.npz",
+      "source_sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+      "max_clock_debt_ns": 0,
+      "restart_queries": 3,
+      "seconds": 0.020466240821406245,
+      "peak_entries": 2272
+    }
+  },
+  "encoder": {
+    "status": "PASS",
+    "query_rows": 4,
+    "reference_rows": 4124,
+    "encoded_rows": 112,
+    "encoded_batches": 7,
+    "e3_max_abs_error": 0.0,
+    "cached_support_error": 0.0,
+    "fresh_support_error": 0.0
+  },
+  "input_sha256": "03f615449e837c65c6016827023777687c0ef76e1931cbb3a30e997899a7f2e7",
+  "fit_rows": 1024,
+  "cal_normal_rows": 1024,
+  "target_rows": {
+    "CIC_DEV": 64,
+    "UNSW_DEV": 64,
+    "EDGE": 32
+  },
+  "full_training_qualified": false,
+  "seconds": 70.35361739713699,
+  "rss_peak_mib": 3633.4375
+}

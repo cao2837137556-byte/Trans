@@ -1,13 +1,8 @@
 {
   "version": "BASELINE_READINESS_V6",
-  "stage": "RUNNING",
-  "phase": "PIPELINE",
-  "job_id": "182749",
-  "done": 2,
+  "stage": "COMPLETE",
+  "done": 14,
   "total": 14,
-  "detail": "PIPELINE",
-  "inner_done": 0,
-  "inner_total": 1,
   "results": {
     "ENVIRONMENT": {
       "status": "PASS",
@@ -81,9 +76,867 @@
       "author_dataset_replication_required": false,
       "seconds": 7.057578969048336,
       "rss_peak_mib": 431.54296875
+    },
+    "PIPELINE": {
+      "status": "PASS",
+      "scope": "ENGINEERING_ONLY",
+      "causal": {
+        "NORMAL": {
+          "rows": 16,
+          "frames": 321502,
+          "sha256": "6c61596937628b04ba9fae1bce5dca4b26a3c04846292463a42837a07ad6fcee",
+          "file": "SMALL_NORMAL_CONTEXT.npz",
+          "source_sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+          "max_clock_debt_ns": 117000,
+          "restart_queries": 6,
+          "seconds": 3.343744075857103,
+          "peak_entries": 163
+        },
+        "HTTP": {
+          "rows": 8,
+          "frames": 40,
+          "sha256": "27143fb9826b1f5c921c80839ec8b04f96939c016bba73553bea0cfbf22a53ac",
+          "file": "SMALL_HTTP_CONTEXT.npz",
+          "source_sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+          "max_clock_debt_ns": 0,
+          "restart_queries": 4,
+          "seconds": 0.0051285510417073965,
+          "peak_entries": 80
+        },
+        "UDP": {
+          "rows": 8,
+          "frames": 1137,
+          "sha256": "8df05208d9d0b701bbd874f893a639622e14b2391ff975655e7b1856b4b3544f",
+          "file": "SMALL_UDP_CONTEXT.npz",
+          "source_sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+          "max_clock_debt_ns": 0,
+          "restart_queries": 3,
+          "seconds": 0.020466240821406245,
+          "peak_entries": 2272
+        }
+      },
+      "encoder": {
+        "status": "PASS",
+        "query_rows": 4,
+        "reference_rows": 4124,
+        "encoded_rows": 112,
+        "encoded_batches": 7,
+        "e3_max_abs_error": 0.0,
+        "cached_support_error": 0.0,
+        "fresh_support_error": 0.0
+      },
+      "input_sha256": "03f615449e837c65c6016827023777687c0ef76e1931cbb3a30e997899a7f2e7",
+      "fit_rows": 1024,
+      "cal_normal_rows": 1024,
+      "target_rows": {
+        "CIC_DEV": 64,
+        "UNSW_DEV": 64,
+        "EDGE": 32
+      },
+      "full_training_qualified": false,
+      "seconds": 70.35361739713699,
+      "rss_peak_mib": 3633.4375
+    },
+    "DTE_PILOT": {
+      "status": "PASS",
+      "train_normal_rows": 564,
+      "epochs": 1,
+      "source_cal_cut": 3.002144753932953,
+      "source_cal_weighted_fpr": 0.00934852868350405,
+      "checkpoint_sha256": "d81553012d201de6a7d2c4937670b35fdfc2bcf1f752c2c806f56572ad4cdf8f",
+      "formal_training": false,
+      "seconds": 7.998407342936844,
+      "rss_peak_mib": 475.8671875
+    },
+    "CAT_PILOT": {
+      "status": "PASS",
+      "version": "1.2.8",
+      "source_cal_cut": -2.038839116124698,
+      "source_cal_weighted_fpr": 0.009601014676107533,
+      "checkpoint_sha256": "2e3ba54f215e65939fef61c1e1b96107d55b98f287477f94857072dfbdcde91f",
+      "reload_exact": true,
+      "formal_training": false,
+      "seconds": 7.91617123503238,
+      "rss_peak_mib": 775.6640625
+    },
+    "SOURCE": {
+      "status": "PASS",
+      "full_fit_rows": 617908,
+      "normal_fit_rows": 134493,
+      "feature_count": 790,
+      "materialize_seconds": 13.862615697085857,
+      "sha256": {
+        "FIT_X.npy": "1abf8bcac80cae0ff2fbc51ac33d81be34d2352fb6d496ae166fdc0fcdd3f1a7",
+        "NORMAL_X.npy": "e664c89cda2bf14638f707841d7147c3de5ae4431456df218e05aeb20fb4ff1a",
+        "INNER_VALID.npy": "224b9c9ce296cc8bb05298ef233607515064b33b93b487b39f80cc22f7153fca",
+        "GROUP_ID.npy": "840ec0be2286a8d954cd07e526b61d63cdfafd485f343f7dd651af68cb55c7dd",
+        "FIT_y.npy": "32d2f0dda567f176cf9ca6dfbc6e12bb82491224dd3b8a0b77ef8f5405c67fc2"
+      },
+      "inner_split_gate": "PASS",
+      "split_counts": {
+        "train": {
+          "normal": 92524,
+          "attack": 376311
+        },
+        "validation": {
+          "normal": 41969,
+          "attack": 107104
+        }
+      },
+      "groups": [
+        {
+          "group": 18,
+          "captures": [
+            "ArloQ Camera|interaction-attack-019",
+            "ArloQ Camera|interaction-attack-020",
+            "ArloQ Camera|interaction-attack-021"
+          ],
+          "normal": 259,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 21,
+          "captures": [
+            "Philips Hue Bridge|interaction-attack-226"
+          ],
+          "normal": 8,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 22,
+          "captures": [
+            "Philips Hue Bridge|interaction-attack-215",
+            "Philips Hue Bridge|interaction-attack-216",
+            "Philips Hue Bridge|interaction-attack-217",
+            "Philips Hue Bridge|interaction-attack-218",
+            "Philips Hue Bridge|interaction-attack-219",
+            "Philips Hue Bridge|interaction-attack-220",
+            "Philips Hue Bridge|interaction-attack-221",
+            "Philips Hue Bridge|interaction-attack-222",
+            "Philips Hue Bridge|interaction-attack-223",
+            "Philips Hue Bridge|interaction-attack-224",
+            "Philips Hue Bridge|interaction-attack-225",
+            "Philips Hue Bridge|interaction-attack-227",
+            "Philips Hue Bridge|interaction-attack-228",
+            "Philips Hue Bridge|interaction-attack-229",
+            "Philips Hue Bridge|interaction-attack-230",
+            "Philips Hue Bridge|interaction-attack-231",
+            "Philips Hue Bridge|interaction-attack-232",
+            "Philips Hue Bridge|interaction-attack-233",
+            "Philips Hue Bridge|interaction-attack-234",
+            "Philips Hue Bridge|interaction-attack-235",
+            "Philips Hue Bridge|interaction-attack-238",
+            "Philips Hue Bridge|interaction-attack-239",
+            "Philips Hue Bridge|interaction-attack-241"
+          ],
+          "normal": 611,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 27,
+          "captures": [
+            "Globe Lamp|interaction-attack-120",
+            "Globe Lamp|interaction-attack-121",
+            "Globe Lamp|interaction-attack-122",
+            "Globe Lamp|interaction-attack-123",
+            "Globe Lamp|interaction-attack-124",
+            "Globe Lamp|interaction-attack-125",
+            "Globe Lamp|interaction-attack-126",
+            "Globe Lamp|interaction-attack-127",
+            "Globe Lamp|interaction-attack-128",
+            "Globe Lamp|interaction-attack-129",
+            "Globe Lamp|interaction-attack-130",
+            "Globe Lamp|interaction-attack-131",
+            "Globe Lamp|interaction-attack-132",
+            "Globe Lamp|interaction-attack-133",
+            "Globe Lamp|interaction-attack-134",
+            "Globe Lamp|interaction-attack-135",
+            "Globe Lamp|interaction-attack-136",
+            "Globe Lamp|interaction-attack-137",
+            "Globe Lamp|interaction-attack-138",
+            "Globe Lamp|interaction-attack-139",
+            "Globe Lamp|interaction-attack-140",
+            "Globe Lamp|interaction-attack-141",
+            "Globe Lamp|interaction-attack-142",
+            "Globe Lamp|interaction-attack-143",
+            "Globe Lamp|interaction-attack-144",
+            "Globe Lamp|interaction-attack-145",
+            "Globe Lamp|interaction-attack-146",
+            "Globe Lamp|interaction-attack-147",
+            "Globe Lamp|interaction-attack-148",
+            "Globe Lamp|interaction-attack-149",
+            "Globe Lamp|interaction-attack-150",
+            "Globe Lamp|interaction-attack-151",
+            "Globe Lamp|interaction-attack-152",
+            "Globe Lamp|interaction-attack-153",
+            "Globe Lamp|interaction-attack-154",
+            "Globe Lamp|interaction-attack-155",
+            "Globe Lamp|interaction-attack-158",
+            "Globe Lamp|interaction-attack-160",
+            "Globe Lamp|interaction-attack-161",
+            "Globe Lamp|interaction-attack-162",
+            "Globe Lamp|interaction-attack-163",
+            "Globe Lamp|interaction-attack-164",
+            "Globe Lamp|interaction-attack-165",
+            "Globe Lamp|interaction-attack-166",
+            "Globe Lamp|interaction-attack-167",
+            "Globe Lamp|interaction-attack-168",
+            "Globe Lamp|interaction-attack-169",
+            "Globe Lamp|interaction-attack-170",
+            "Globe Lamp|interaction-attack-171",
+            "Globe Lamp|interaction-attack-172",
+            "Globe Lamp|interaction-attack-173"
+          ],
+          "normal": 289,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 78,
+          "captures": [
+            "ArloQ Camera|interaction-attack-013",
+            "ArloQ Camera|interaction-attack-014",
+            "ArloQ Camera|interaction-attack-015",
+            "ArloQ Camera|interaction-attack-016",
+            "ArloQ Camera|interaction-attack-017",
+            "ArloQ Camera|interaction-attack-018",
+            "ArloQ Camera|interaction-attack-022",
+            "ArloQ Camera|interaction-attack-023",
+            "ArloQ Camera|interaction-attack-024",
+            "ArloQ Camera|interaction-attack-025",
+            "ArloQ Camera|interaction-attack-026",
+            "ArloQ Camera|interaction-attack-027"
+          ],
+          "normal": 853,
+          "attack": 0,
+          "validation": true
+        },
+        {
+          "group": 90,
+          "captures": [
+            "Amcrest Camera|interaction-attack-001",
+            "Amcrest Camera|interaction-attack-002",
+            "Amcrest Camera|interaction-attack-003",
+            "Amcrest Camera|interaction-attack-004",
+            "Amcrest Camera|interaction-attack-005",
+            "Amcrest Camera|interaction-attack-006"
+          ],
+          "normal": 112,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 96,
+          "captures": [
+            "SimCam|interaction-attack-281",
+            "SimCam|interaction-attack-282",
+            "SimCam|interaction-attack-283",
+            "SimCam|interaction-attack-284",
+            "SimCam|interaction-attack-285",
+            "SimCam|interaction-attack-286"
+          ],
+          "normal": 166,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 102,
+          "captures": [
+            "Atomi Coffee Maker|interaction-attack-040",
+            "Atomi Coffee Maker|interaction-attack-041",
+            "Atomi Coffee Maker|interaction-attack-042",
+            "Atomi Coffee Maker|interaction-attack-043",
+            "Atomi Coffee Maker|interaction-attack-044",
+            "Atomi Coffee Maker|interaction-attack-045",
+            "Atomi Coffee Maker|interaction-attack-046",
+            "Atomi Coffee Maker|interaction-attack-047",
+            "Atomi Coffee Maker|interaction-attack-048",
+            "Atomi Coffee Maker|interaction-attack-049",
+            "Atomi Coffee Maker|interaction-attack-050",
+            "Atomi Coffee Maker|interaction-attack-051",
+            "Atomi Coffee Maker|interaction-attack-052",
+            "Atomi Coffee Maker|interaction-attack-054",
+            "Atomi Coffee Maker|interaction-attack-056",
+            "Atomi Coffee Maker|interaction-attack-058",
+            "Atomi Coffee Maker|interaction-attack-059",
+            "Atomi Coffee Maker|interaction-attack-060",
+            "Atomi Coffee Maker|interaction-attack-061",
+            "Atomi Coffee Maker|interaction-attack-062",
+            "Atomi Coffee Maker|interaction-attack-063",
+            "Atomi Coffee Maker|interaction-attack-064",
+            "Atomi Coffee Maker|interaction-attack-065",
+            "Atomi Coffee Maker|interaction-attack-066",
+            "Atomi Coffee Maker|interaction-attack-067",
+            "Atomi Coffee Maker|interaction-attack-068",
+            "Atomi Coffee Maker|interaction-attack-069"
+          ],
+          "normal": 372,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 129,
+          "captures": [
+            "Globe Lamp|active-00",
+            "Globe Lamp|active-01"
+          ],
+          "normal": 149,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 130,
+          "captures": [
+            "Philips Hue Bridge|active-00",
+            "Philips Hue Bridge|active-01"
+          ],
+          "normal": 11462,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 131,
+          "captures": [
+            "SimCam|active-00",
+            "SimCam|active-01"
+          ],
+          "normal": 3616,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 132,
+          "captures": [
+            "Atomi Coffee Maker|active-00",
+            "Atomi Coffee Maker|active-01"
+          ],
+          "normal": 838,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 133,
+          "captures": [
+            "ArloQ Camera|active-00",
+            "ArloQ Camera|active-01",
+            "ArloQ Camera|active-02"
+          ],
+          "normal": 11664,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 134,
+          "captures": [
+            "Amcrest Camera|active-00"
+          ],
+          "normal": 5080,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 140,
+          "captures": [
+            "Amcrest Camera|active-01"
+          ],
+          "normal": 4305,
+          "attack": 0,
+          "validation": true
+        },
+        {
+          "group": 141,
+          "captures": [
+            "Atomi Coffee Maker|active-02",
+            "Atomi Coffee Maker|active-03",
+            "Atomi Coffee Maker|active-04",
+            "Atomi Coffee Maker|active-05",
+            "Atomi Coffee Maker|active-06"
+          ],
+          "normal": 2079,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 142,
+          "captures": [
+            "Globe Lamp|active-02",
+            "Globe Lamp|active-03",
+            "Globe Lamp|active-04",
+            "Globe Lamp|active-05",
+            "Globe Lamp|active-06"
+          ],
+          "normal": 489,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 143,
+          "captures": [
+            "SimCam|active-02",
+            "SimCam|active-03",
+            "SimCam|active-04",
+            "SimCam|active-05",
+            "SimCam|active-06"
+          ],
+          "normal": 6853,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 144,
+          "captures": [
+            "Philips Hue Bridge|active-02",
+            "Philips Hue Bridge|active-03",
+            "Philips Hue Bridge|active-04",
+            "Philips Hue Bridge|active-05",
+            "Philips Hue Bridge|active-06"
+          ],
+          "normal": 36811,
+          "attack": 0,
+          "validation": true
+        },
+        {
+          "group": 146,
+          "captures": [
+            "Amcrest Camera|active-02"
+          ],
+          "normal": 4742,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 151,
+          "captures": [
+            "ArloQ Camera|active-03",
+            "ArloQ Camera|active-04",
+            "ArloQ Camera|active-05",
+            "ArloQ Camera|active-06"
+          ],
+          "normal": 25034,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 152,
+          "captures": [
+            "Amcrest Camera|active-03",
+            "Amcrest Camera|active-05",
+            "Amcrest Camera|active-06"
+          ],
+          "normal": 14418,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 157,
+          "captures": [
+            "Amcrest Camera|active-04"
+          ],
+          "normal": 4283,
+          "attack": 0,
+          "validation": false
+        },
+        {
+          "group": 171,
+          "captures": [
+            "ArloQ Camera|interaction-attack-036"
+          ],
+          "normal": 0,
+          "attack": 791,
+          "validation": false
+        },
+        {
+          "group": 172,
+          "captures": [
+            "ArloQ Camera|interaction-attack-034"
+          ],
+          "normal": 0,
+          "attack": 786,
+          "validation": false
+        },
+        {
+          "group": 173,
+          "captures": [
+            "ArloQ Camera|interaction-attack-035"
+          ],
+          "normal": 0,
+          "attack": 768,
+          "validation": false
+        },
+        {
+          "group": 174,
+          "captures": [
+            "ArloQ Camera|interaction-attack-037",
+            "ArloQ Camera|interaction-attack-038",
+            "ArloQ Camera|interaction-attack-039"
+          ],
+          "normal": 0,
+          "attack": 13683,
+          "validation": false
+        },
+        {
+          "group": 177,
+          "captures": [
+            "SimCam|interaction-attack-290"
+          ],
+          "normal": 0,
+          "attack": 106915,
+          "validation": true
+        },
+        {
+          "group": 178,
+          "captures": [
+            "SimCam|interaction-attack-291"
+          ],
+          "normal": 0,
+          "attack": 74741,
+          "validation": false
+        },
+        {
+          "group": 179,
+          "captures": [
+            "SimCam|interaction-attack-292"
+          ],
+          "normal": 0,
+          "attack": 85933,
+          "validation": false
+        },
+        {
+          "group": 180,
+          "captures": [
+            "Amcrest Camera|interaction-attack-012"
+          ],
+          "normal": 0,
+          "attack": 29,
+          "validation": true
+        },
+        {
+          "group": 181,
+          "captures": [
+            "Amcrest Camera|interaction-attack-010"
+          ],
+          "normal": 0,
+          "attack": 26,
+          "validation": false
+        },
+        {
+          "group": 182,
+          "captures": [
+            "Amcrest Camera|interaction-attack-011"
+          ],
+          "normal": 0,
+          "attack": 32,
+          "validation": false
+        },
+        {
+          "group": 183,
+          "captures": [
+            "Globe Lamp|interaction-attack-177"
+          ],
+          "normal": 0,
+          "attack": 1714,
+          "validation": false
+        },
+        {
+          "group": 184,
+          "captures": [
+            "Globe Lamp|interaction-attack-178"
+          ],
+          "normal": 0,
+          "attack": 1638,
+          "validation": false
+        },
+        {
+          "group": 185,
+          "captures": [
+            "Globe Lamp|interaction-attack-179"
+          ],
+          "normal": 0,
+          "attack": 1659,
+          "validation": false
+        },
+        {
+          "group": 186,
+          "captures": [
+            "Globe Lamp|interaction-attack-180",
+            "Globe Lamp|interaction-attack-181",
+            "Globe Lamp|interaction-attack-182"
+          ],
+          "normal": 0,
+          "attack": 12647,
+          "validation": false
+        },
+        {
+          "group": 189,
+          "captures": [
+            "Philips Hue Bridge|interaction-attack-242"
+          ],
+          "normal": 0,
+          "attack": 44164,
+          "validation": false
+        },
+        {
+          "group": 190,
+          "captures": [
+            "Philips Hue Bridge|interaction-attack-243"
+          ],
+          "normal": 0,
+          "attack": 51289,
+          "validation": false
+        },
+        {
+          "group": 191,
+          "captures": [
+            "Philips Hue Bridge|interaction-attack-244"
+          ],
+          "normal": 0,
+          "attack": 54159,
+          "validation": false
+        },
+        {
+          "group": 192,
+          "captures": [
+            "Philips Hue Bridge|interaction-attack-245",
+            "Philips Hue Bridge|interaction-attack-246",
+            "Philips Hue Bridge|interaction-attack-247"
+          ],
+          "normal": 0,
+          "attack": 13536,
+          "validation": false
+        },
+        {
+          "group": 195,
+          "captures": [
+            "Atomi Coffee Maker|interaction-attack-073"
+          ],
+          "normal": 0,
+          "attack": 1611,
+          "validation": false
+        },
+        {
+          "group": 196,
+          "captures": [
+            "Atomi Coffee Maker|interaction-attack-074"
+          ],
+          "normal": 0,
+          "attack": 1575,
+          "validation": false
+        },
+        {
+          "group": 197,
+          "captures": [
+            "Atomi Coffee Maker|interaction-attack-075"
+          ],
+          "normal": 0,
+          "attack": 1607,
+          "validation": false
+        },
+        {
+          "group": 198,
+          "captures": [
+            "Atomi Coffee Maker|interaction-attack-076",
+            "Atomi Coffee Maker|interaction-attack-077",
+            "Atomi Coffee Maker|interaction-attack-078"
+          ],
+          "normal": 0,
+          "attack": 13728,
+          "validation": false
+        },
+        {
+          "group": 201,
+          "captures": [
+            "SimCam|interaction-attack-293"
+          ],
+          "normal": 0,
+          "attack": 96,
+          "validation": false
+        },
+        {
+          "group": 202,
+          "captures": [
+            "SimCam|interaction-attack-294"
+          ],
+          "normal": 0,
+          "attack": 128,
+          "validation": false
+        },
+        {
+          "group": 203,
+          "captures": [
+            "SimCam|interaction-attack-295"
+          ],
+          "normal": 0,
+          "attack": 160,
+          "validation": true
+        }
+      ],
+      "grouping": "capture union shared device/session and device/component; fixed SHA modulo 5",
+      "source_cal_used_for_tuning": false,
+      "seconds": 41.985018512932584,
+      "rss_peak_mib": 5005.9609375
+    },
+    "TABM_FULL": {
+      "status": "PASS",
+      "training_input_rows": 617908,
+      "steps": 16,
+      "batch": 256,
+      "step_seconds": [
+        1.109457521000877,
+        1.066005697939545,
+        1.0593218950089067,
+        1.049435303080827,
+        1.061990907881409,
+        1.0657207809854299,
+        1.052670693024993,
+        1.058609144994989,
+        1.0493825029116124,
+        1.061866434989497,
+        1.0537335621193051,
+        1.054399689892307,
+        1.0370400929823518,
+        1.047595193143934,
+        1.0626442860811949,
+        1.05570052517578
+      ],
+      "conservative_epoch_seconds": 4017.3456835441757,
+      "full_candidate_backward": false,
+      "native_memory_efficient": false,
+      "full_epoch_executed": false,
+      "formal_training": false,
+      "seconds": 23.78367661102675,
+      "rss_peak_mib": 1256.08984375
+    },
+    "TABR_FULL": {
+      "status": "PASS",
+      "training_input_rows": 617908,
+      "steps": 2,
+      "batch": 64,
+      "step_seconds": [
+        3.5963921810034662,
+        3.5413174380082637
+      ],
+      "conservative_epoch_seconds": 52084.7497613827,
+      "full_candidate_backward": true,
+      "native_memory_efficient": true,
+      "full_epoch_executed": false,
+      "formal_training": false,
+      "seconds": 14.234868864063174,
+      "rss_peak_mib": 6191.88671875
+    },
+    "SLAD_FULL": {
+      "status": "PASS",
+      "full_normal_input_rows": 134493,
+      "author_transformed_rows": 134480,
+      "author_preprocessing_complete": true,
+      "updates": 16,
+      "fit_seconds": 8.367407739860937,
+      "full_epoch_training_qualified": false,
+      "formal_training": false,
+      "seconds": 11.942728831898421,
+      "rss_peak_mib": 2109.27734375
+    },
+    "DISENT_FULL": {
+      "status": "PASS",
+      "training_input_rows": 134493,
+      "steps": 16,
+      "batch": 4,
+      "step_seconds": [
+        0.3450981620699167,
+        0.318870821967721,
+        0.34386085788719356,
+        0.3092768688220531,
+        0.3088628768455237,
+        0.33943318692035973,
+        0.30374401714652777,
+        0.3045617691241205,
+        0.3083575831260532,
+        0.34530968801118433,
+        0.31378292199224234,
+        0.30983352405019104,
+        0.3407973537687212,
+        0.3117783470079303,
+        0.30608814186416566,
+        0.34654503082856536
+      ],
+      "conservative_epoch_seconds": 17478.345174869522,
+      "full_candidate_backward": false,
+      "native_memory_efficient": false,
+      "full_epoch_executed": false,
+      "formal_training": false,
+      "seconds": 9.691761719994247,
+      "rss_peak_mib": 617.37109375
+    },
+    "DTE_FULL": {
+      "status": "PASS",
+      "full_normal_input_rows": 134493,
+      "epochs": 1,
+      "steps": 2102,
+      "fit_seconds": 17.565000036964193,
+      "forecast_400_epochs_seconds": 10539.000022178516,
+      "forecast_only": true,
+      "checkpoint_sha256": "3573d2aba147664a269dab07e7777e2238b02f36483f9db6d22c727121165b3b",
+      "formal_training": false,
+      "seconds": 21.50150911300443,
+      "rss_peak_mib": 1690.625
+    },
+    "CAT_FULL": {
+      "status": "PASS",
+      "full_training_input_rows": 617908,
+      "iterations": 8,
+      "fit_seconds": 127.15870468597859,
+      "forecast_2000_iterations_seconds": 47684.51425724197,
+      "forecast_only": true,
+      "formal_training": false,
+      "seconds": 130.4213590552099,
+      "rss_peak_mib": 6456.96484375
+    },
+    "NCA_RESOURCE": {
+      "status": "NEEDS_RESOURCES",
+      "reason": "FULL_TRAINING_NOT_QUALIFIED",
+      "full_fit_rows": 617908,
+      "author_sample_rate": 0.5,
+      "default_sampled_candidates": 308698,
+      "embedded_dim": 26860,
+      "single_expanded_activation_gib": 30.888722389936447,
+      "measured": [
+        {
+          "pool_rows": 1024,
+          "sampled_candidates": 504,
+          "backward_step_seconds": 1.1924759589601308,
+          "loss": -1.750885871842911e-07
+        },
+        {
+          "pool_rows": 4096,
+          "sampled_candidates": 2040,
+          "backward_step_seconds": 4.537082799011841,
+          "loss": -5.2153954044342754e-08
+        }
+      ],
+      "default_full_step_linear_estimate_seconds": 686.5629342594889,
+      "estimate_excludes_batch_and_memory_nonlinearity": true,
+      "full_pool_backward_executed": false,
+      "formal_candidate_cap": null,
+      "seconds": 11.81340515287593,
+      "rss_peak_mib": 3089.87109375
+    },
+    "SEAL": {
+      "status": "PASS",
+      "scope": "PROTOCOL_AND_MEASURED_RESOURCE_REPORT",
+      "plan_sha256": "261014e3ea42849bcf0ff464a0242800b059f0037df1c45b59d4537a0ffd7875",
+      "formal_training_ready": false,
+      "pending": [
+        "Formal adequately converged training and three-seed evaluation have not run.",
+        "ModernNCA full backward needs a larger-memory execution contract.",
+        "SLAD full-epoch timing and all-method source validation cost still require measurement."
+      ],
+      "seconds": 3.354831920005381,
+      "rss_peak_mib": 299.3671875
     }
   },
-  "rss_mib": 583.48828125,
-  "elapsed_seconds": 48.94245231500827,
-  "updated_unix": 1794120148.3662121
+  "job_id": "182749",
+  "detail": "资源报告与方案已封存；NEEDS_RESOURCES须单列，尚未启动正式训练",
+  "updated_unix": 1794120497.4912486
 }

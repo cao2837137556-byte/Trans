@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "checks": {
+    "TabM": {
+      "status": "PASS",
+      "output_classes": 2,
+      "loss": "per-member CE",
+      "ensemble": "mean probability",
+      "legacy_logit_mean_counterexample": true
+    },
+    "ModernNCA": {
+      "status": "PASS",
+      "chunk_max_log_probability_errors": [
+        1.9005511064928982e-07,
+        1.9005511109337903e-07,
+        1.9198433087730393e-07
+      ],
+      "tolerance": 0.0005,
+      "inference_only": true
+    },
+    "SLAD": {
+      "status": "PASS",
+      "loss_formula_max_abs_error": 1.1102230246251565e-16,
+      "author_log_softmax_of_probabilities_preserved": true
+    },
+    "DisentAD": {
+      "status": "PASS",
+      "patch_input_exact": true
+    },
+    "TabR": {
+      "status": "PASS",
+      "official_class_AST_unchanged": true,
+      "faiss_vs_exhaustive_logit_error": 0.0
+    },
+    "DTE": {
+      "status": "PASS",
+      "loss": "author CE on softmax probabilities preserved",
+      "noise": "variance only, no drift",
+      "score": "expected bin index",
+      "loss_exact": true
+    },
+    "TabR_native_memory_efficient": {
+      "status": "PASS",
+      "eval_max_abs_error": 0.0,
+      "training_path": "original author recomputation"
+    }
+  },
+  "author_dataset_replication_required": false,
+  "seconds": 7.057578969048336,
+  "rss_peak_mib": 431.54296875
+}
