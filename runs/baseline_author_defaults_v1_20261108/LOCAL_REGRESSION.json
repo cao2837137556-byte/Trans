@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "checks": [
+    "syntax:adapters.py",
+    "syntax:check_local.py",
+    "syntax:client.py",
+    "syntax:controller.py",
+    "syntax:formal.py",
+    "syntax:gate_worker.py",
+    "syntax:pipeline_parent.py",
+    "syntax:readiness.py",
+    "syntax:receiver.py",
+    "fresh_process_epoch_exact:DTE-C",
+    "bounded_checkpoint:DTE-C",
+    "fresh_process_epoch_exact:SLAD",
+    "bounded_checkpoint:SLAD",
+    "fixed_scope"
+  ],
+  "linux_real_gate_pending": true
+}

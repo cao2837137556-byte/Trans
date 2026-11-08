@@ -1897,3 +1897,14 @@ DeepSeek 已加入，沿用文档合作：`runs/mainline_docs/collab/YYYYMMDD_<�
 5. **后续**：跨进程恢复、TabR/Disent/ModernNCA/CatBoost资源、逐个16配置仍待补；GPU清单不等于完整大显存卡可用。见[验收报告](collab/20261108_baseline_split_resource_acceptance_codex.md)、[验收JSON](../baseline_split_resource_v1_20261107/ACCEPTANCE.json)。
 
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md) · [实验地图](mainline_experiment_map.md)
+
+
+# 当前状态
+
+1. **方法**：FUSION790＋完整历史正常参考＋C5_3D_OLD冻结，主模型不改。
+2. **最新决定**：用户取消基线超参数搜索，采用作者推荐通用配置；无推荐时用固定官方版本默认值并披露，不再准备16配置搜索。
+3. **已有证据**：182752完成50:29、峰值3.588GiB、135检查；DTE/SLAD/TabM整轮资源通过。源验证存在协议/活动覆盖缺口；训练重叠探针分数只供计时。
+4. **验证角色**：不为调参继续修统一内层划分；作者流程若需早停/选检查点，仍须合法独立源验证并审覆盖。固定轮数不选模时完整FIT训练，独立CAL调阈值，A/B/Edge评价。
+5. **下一步**：逐方法核实配置出处、训练停止规则，补剩余全量资源与跨进程恢复后封存执行卡；本轮无新作业，大工件留超算。见[方案修订](collab/20261108_baseline_author_defaults_decision_codex.md)。
+
+[历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md)

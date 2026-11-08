@@ -1,0 +1,94 @@
+{
+  "version": "AUTHOR_DEFAULTS_V1",
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "main_model_changed": false,
+  "hyperparameter_search": false,
+  "source_fit_rows": 617908,
+  "source_normal_rows": 134493,
+  "source_cal_normal_rows": 33147,
+  "threshold_alpha": 0.01,
+  "threshold_comparison": "strict >",
+  "input": "frozen shared790",
+  "normalization": "DTE train-normal StandardScaler; SLAD and CatBoost consume frozen shared790 without additional normalization",
+  "released_candidates": {
+    "DTE-C": {
+      "epochs": 400,
+      "batch_size": 64,
+      "hidden_size": [
+        256,
+        512,
+        256
+      ],
+      "lr": 0.0001,
+      "weight_decay": 0.0005,
+      "T": 400,
+      "num_bins": 7,
+      "optimizer": "Adam",
+      "source": "vendor/dte/diffusion/dte.py:DTECategorical"
+    },
+    "SLAD": {
+      "epochs": 100,
+      "batch_size": 128,
+      "lr": 0.001,
+      "weight_decay": 1e-05,
+      "hidden_dims": 100,
+      "n_ensemble": 20,
+      "distribution_size": 10,
+      "n_unified_features": 128,
+      "epoch_steps": -1,
+      "source": "vendor/slad/algorithms/slad.py and base.py"
+    },
+    "CatBoost": {
+      "iterations": 1000,
+      "loss_function": "Logloss",
+      "version": "1.2.8",
+      "learning_rate": "official automatic training-only default; record get_all_params",
+      "depth": "official default 6",
+      "source": "official CatBoost defaults; no validation early stopping"
+    }
+  },
+  "pending_methods": {
+    "TabM": {
+      "configuration": "official TabM.make no embeddings option; AdamW lr .002 wd .0003 batch256 clip1; patience16",
+      "gate": "Author early stopping needs independent source validation; remaining split and actual hardware whole-epoch qualification"
+    },
+    "TabR": {
+      "configuration": "official default-evaluation shared CA/adult: d_main265 context96 batch256 lr.0003121273641315169 wd1.2260352006404615e-6 patience16",
+      "gate": "Official archived mixer_dropout renamed context_dropout in current model: semantic binding and full training resources required; early stopping needs source split"
+    },
+    "DisentAD": {
+      "configuration": "official tabular configs are dataset-specific; shared790 patch1/dim128 adaptation retained, not universal author optimum",
+      "gate": "No universal default for 790 inputs; actual adapted batch whole-epoch memory/time needed"
+    },
+    "ModernNCA": {
+      "configuration": "official fixed TALENT default PLR77x34 sample_rate.5 lr.01 wd.0002",
+      "gate": "308698 sampled candidates; single expanded tensor30.89GiB excludes intermediates/gradients; no full backward hardware qualification; retain pending not a poor score"
+    }
+  },
+  "evaluation": {
+    "pools": [
+      "CIC_DEV",
+      "UNSW_DEV",
+      "EDGE"
+    ],
+    "views": [
+      "full",
+      "post_window_primary",
+      "device",
+      "Edge HT"
+    ],
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "target_role": "development/consumed transfer diagnosis",
+    "comparison": "RAW shared790 table; frozen main C5 system reference access disclosed separately",
+    "ranking": "ordinary AUROC/AUPRC with prevalence; existing weighted FPR and TPR reports"
+  }
+}
