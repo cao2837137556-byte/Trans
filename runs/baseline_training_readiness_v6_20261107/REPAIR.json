@@ -1,0 +1,16 @@
+{
+  "status": "NEGATIVE_IMPORT_CACHE_REPAIR",
+  "previous_job": 182748,
+  "previous_stage": "ENVIRONMENT",
+  "previous_seconds": 31.757629941916093,
+  "reason": "nonexistent runtime path was inserted before extraction and cached as no finder",
+  "confirmed_remote_files": {
+    "faiss": true,
+    "sklearn": true,
+    "catboost": true
+  },
+  "local_old_bug_reproduced": true,
+  "fix": "only register existing runtime on worker import; invalidate import caches and remove cached None after extraction; assert required package roots before import",
+  "no_main_model_change": true,
+  "automatic_retries": 0
+}

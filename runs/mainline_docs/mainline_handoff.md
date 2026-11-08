@@ -1,3 +1,9 @@
+## 2026-11-07：隔离依赖导入缓存修复
+
+独立v6作业182749已提交，86材料/17远端依赖，1CPU8GiB2小时14阶段。182748在ENVIRONMENT约32秒失败：包已解压，但预先加入不存在目录造成Python finder负缓存；远端文件核对、本地同故障复现/修复回归、新进程全依赖真实导入全部通过。v6清缓存并检查模块实体，仍先计算节点启动门；主模型/方法/协议不变，大工件留超算。两次工程失败与有效链路分别记账；正式训练资源未验收，不虚称全部可训练。见[修复回执](collab/20261107_baseline_training_import_cache_repair_codex.md)。
+
+---
+
 ## 2026-11-07：基线资源预检依赖闭包修复
 
 182747 FAILED/1:0、1:47，真实PIPELINE已PASS，新DTE缺sklearn在FIDELITY停止。独立v5固定22个官方wheel，31项Linux3.11依赖约束通过；各子进程统一runtime，ENVIRONMENT原生导入/标准化/CatBoost小拟合前移，14阶段。修正版作业182748已运行，进入ENVIRONMENT启动验证；1CPU8GiB2小时，主模型/方法/协议不变，无正式训练。保留有效原链路和失败分账，不改运行包。见[修复回执](collab/20261107_baseline_training_dependency_repair_codex.md)。
