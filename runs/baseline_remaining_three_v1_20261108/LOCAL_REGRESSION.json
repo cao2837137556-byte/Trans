@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "scope": "LOCAL_CPU_REGRESSION_NOT_LINUX_RELEASE",
+  "checks": {
+    "TabM": {
+      "fresh_process_updated_weights_exact": true,
+      "clean_process_score_exact": true,
+      "shape": [
+        8
+      ],
+      "finite": true,
+      "faiss": null
+    },
+    "TabR": {
+      "fresh_process_updated_weights_exact": true,
+      "clean_process_score_exact": true,
+      "shape": [
+        8
+      ],
+      "finite": true,
+      "faiss": "local exhaustive oracle only"
+    },
+    "DisentAD": {
+      "fresh_process_updated_weights_exact": true,
+      "clean_process_score_exact": true,
+      "shape": [
+        8
+      ],
+      "finite": true,
+      "faiss": null
+    },
+    "source_split": {
+      "feasible_protocol_coverage": true,
+      "singleton_kept_train": true,
+      "indivisible_class_fails_closed": true,
+      "uses_no_model_scores": true
+    }
+  },
+  "main_model_changed": false
+}

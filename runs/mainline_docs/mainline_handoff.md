@@ -1,3 +1,9 @@
+## 2026-11-08：六基线后三方法独立放行链182796
+
+用户取消ModernNCA；共享预检182796运行，8CPU24GiB2小时，后续TabM/TabR/Disent各申请RTX4090+8CPU32GiB、7天硬上限，整轮资源门通过即三种子正式训练/CAL/A-B-Edge评价。Disent不受监督划分等待。保留全候选精确检索、作者早停和训练loss选择，本地跨进程恢复通过，GPU门尚待实测。客户端35108统一18806，接收端18878；旧包/主模型不热改。见[回执](collab/20261108_remaining_three_baseline_launch_codex.md)。
+
+---
+
 ## 2026-11-08：固定七基线，推进剩余四方法审查
 
 用户取消8–10数量目标，固定现有七个。四方法本地前后向检查完成；Disent-AD须沿用最低训练loss保存规则、不用控制台最佳测试AP，ModernNCA原默认周期拼接单张量float32约139.91GiB（总峰值更高），TabR参数更名历史证据仍待核实。无新作业，不动现有训练包。见[审查回执](collab/20261108_remaining_four_baseline_audit_codex.md)。

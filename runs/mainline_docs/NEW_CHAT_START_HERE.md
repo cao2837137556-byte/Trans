@@ -1,9 +1,9 @@
 # 当前状态
 
-1. **范围**：用户明确固定7个基线，不再扩至8–10；主模型冻结、作者推荐/默认、无搜索、大工件留超算。
-2. **已获结果**：CatBoost与SLAD三种子训练评价已完成，效果已向用户报告；DTE最近查询仍训练。此轮未重新查询运行状态。
-3. **本次审查**：TabM/TabR/Disent-AD/ModernNCA本地小张量构造/反传通过，仅审查证据，非Linux全量资格。未启动新作业。
-4. **具体发现**：Disent保存最低训练loss，不能采用控制台最佳测试AP；NCA默认周期拼接单张量float32约139.91GiB，30.89GiB不是总峰值；TabR历史dropout改名证据尚未核实。
-5. **后续**：补TabM源组隔离早停及合适硬件整轮、TabR参数绑定与检索资源、Disent固定适配资源、NCA可用内存；进度客户端34636保持既有首批流程。见[审查回执](collab/20261108_remaining_four_baseline_audit_codex.md)。
+1. **范围**：用户移除ModernNCA，最终六基线；仅推进TabM/TabR/Disent-AD，主模型冻结、无搜索、大工件留超算。
+2. **现有结果**：CatBoost与SLAD完成；DTE182778第三种子仍训练，未重新训练旧模型。
+3. **本轮执行**：共享真实预检182796 RUNNING，8CPU/24GiB/2h；通过后各方法GPU整轮门独立放行三种子训练/CAL/A-B-Edge评价，尚不称全部资源通过。
+4. **参数边界**：TabM/TabR源整组验证早停后全FIT重训；TabR全候选CPU FAISS精确检索+GPU网络；Disent最低训练loss100轮；三方法本地跨进程恢复精确通过。
+5. **进度与接续**：客户端35108、新接收端18878、进度页18806；新包baseline_remaining_three_v1_20261108。见[启动回执](collab/20261108_remaining_three_baseline_launch_codex.md)，先查询该包PROGRESS/STOP/QUALIFY/RELEASE再判断阶段。
 
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md)
