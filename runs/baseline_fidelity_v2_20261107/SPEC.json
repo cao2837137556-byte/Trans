@@ -1,0 +1,18 @@
+{
+  "version": "BASELINE_FIDELITY_V2",
+  "old_nca_checkpoint_sha256": "4b137fd9c2608b85bca7895b0006d6a775e4f75080e070c8b5c8e524439927eb",
+  "old_nca_cut": -16.118093490600586,
+  "cpu": 1,
+  "memory_gib": 8,
+  "wall_seconds": 7200,
+  "phases": [
+    "PIPELINE",
+    "FIDELITY",
+    "TabM",
+    "TabR",
+    "SLAD",
+    "NCA_SCALE"
+  ],
+  "full_training": false,
+  "official_benchmark_replication_pending": true
+}
