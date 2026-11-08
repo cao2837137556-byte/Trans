@@ -1,3 +1,9 @@
+## 2026-11-08：后三基线提交模块冲突修复182804
+
+182796真实小切片PASS后，通用import controller被旧包截获，submit缺seconds而停止，未产生新训练作业。v2绝对路径加载+模块/worker/签名身份门，本地与计算节点启动提交包装器回归PASS；182804共享预检完成，Disent182805/TabM182806/TabR182807已提交排队。原训练worker/CONFIG字节不变；DTE旧作业继续。客户端8748、接收端18879、进度18806。见[修复回执](collab/20261108_remaining_three_dispatch_repair_codex.md)。
+
+---
+
 ## 2026-11-08：六基线后三方法独立放行链182796
 
 用户取消ModernNCA；共享预检182796运行，8CPU24GiB2小时，后续TabM/TabR/Disent各申请RTX4090+8CPU32GiB、7天硬上限，整轮资源门通过即三种子正式训练/CAL/A-B-Edge评价。Disent不受监督划分等待。保留全候选精确检索、作者早停和训练loss选择，本地跨进程恢复通过，GPU门尚待实测。客户端35108统一18806，接收端18878；旧包/主模型不热改。见[回执](collab/20261108_remaining_three_baseline_launch_codex.md)。

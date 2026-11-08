@@ -1,0 +1,72 @@
+{
+  "version": "REMAINING_THREE_V1",
+  "portfolio": [
+    "DTE-C",
+    "SLAD",
+    "CatBoost",
+    "TabM",
+    "TabR",
+    "DisentAD"
+  ],
+  "removed": "ModernNCA",
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "main_model_changed": false,
+  "hyperparameter_search": false,
+  "method_wall_seconds": 604800,
+  "operational_epoch_cap": 1000,
+  "input": "frozen shared790, no new target fit",
+  "normalization": "shared790 frozen source normalization; no additional quantile or per-row transform",
+  "threshold": "same source normal CAL weighted 1 percent; strict >",
+  "selection": "TabM/TabR source grouped early stop then fresh full-FIT refit at selected epoch count; Disent minimum mean training loss, 100 epochs",
+  "methods": {
+    "TabM": {
+      "optimizer": "AdamW",
+      "lr": 0.002,
+      "weight_decay": 0.0003,
+      "batch": 256,
+      "score_batch": 256,
+      "patience": 16,
+      "clip_norm": 1,
+      "num_embeddings": null
+    },
+    "TabR": {
+      "optimizer": "AdamW",
+      "lr": 0.0003121273641315169,
+      "weight_decay": 1.2260352006404615e-06,
+      "batch": 256,
+      "score_batch": 256,
+      "patience": 16,
+      "context_size": 96,
+      "architecture": {
+        "d_main": 265,
+        "context_dropout": 0.38920071545944357,
+        "dropout0": 0.38852797479169876,
+        "memory_efficient": true,
+        "candidate_encoding_batch_size": 4096
+      },
+      "mapping": "archived mixer_dropout explicitly mapped to sole context-probability dropout in current Model; no unproven historical rename claim",
+      "retrieval": "official exact CPU FAISS IndexFlatL2 with CPU/GPU tensor transport; ALL legal candidates; no approximation or subsampling",
+      "weight_decay_note": "all parameters as deliberately preserved in author lib/deep.py issue19"
+    },
+    "DisentAD": {
+      "optimizer": "Adam",
+      "lr": 0.0001,
+      "weight_decay": 0.0,
+      "batch": 64,
+      "score_batch": 64,
+      "epochs": 100,
+      "architecture": {
+        "dim": 128,
+        "att_dim": 1,
+        "num_heads": 2,
+        "patch_size": 1,
+        "overlap": 0
+      },
+      "basis": "author breastw/wbc/wine patch1 norm-none config reused explicitly for shared790; not a universal author-optimal 790 configuration"
+    }
+  }
+}

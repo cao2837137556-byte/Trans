@@ -1,0 +1,80 @@
+{
+  "status": "FAILURE_CONFIRMED",
+  "failed_job": {
+    "job_id": "182796",
+    "cpu": 8,
+    "memory_gib": 24,
+    "wall_seconds": 7200
+  },
+  "scheduler": "182796|FAILED|1:0|00:04:20||8|24G\n182796.batch|FAILED|1:0|00:04:20|3757788K|8|\n",
+  "error": {
+    "status": "STOP",
+    "error": "submit() missing 1 required positional argument: 'seconds'",
+    "traceback": "Traceback (most recent call last):\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/baseline_remaining_three_v1_20261108/preflight.py\", line 70, in <module>\n    try:prepare()\n        ^^^^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/baseline_remaining_three_v1_20261108/preflight.py\", line 64, in prepare\n    controller.submit('DisentAD')\nTypeError: submit() missing 1 required positional argument: 'seconds'\n"
+  },
+  "valid_pipeline": {
+    "status": "PASS",
+    "scope": "ENGINEERING_ONLY",
+    "causal": {
+      "NORMAL": {
+        "rows": 16,
+        "frames": 321502,
+        "sha256": "6c61596937628b04ba9fae1bce5dca4b26a3c04846292463a42837a07ad6fcee",
+        "file": "SMALL_NORMAL_CONTEXT.npz",
+        "source_sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+        "max_clock_debt_ns": 117000,
+        "restart_queries": 6,
+        "seconds": 3.245413813041523,
+        "peak_entries": 163
+      },
+      "HTTP": {
+        "rows": 8,
+        "frames": 40,
+        "sha256": "27143fb9826b1f5c921c80839ec8b04f96939c016bba73553bea0cfbf22a53ac",
+        "file": "SMALL_HTTP_CONTEXT.npz",
+        "source_sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+        "max_clock_debt_ns": 0,
+        "restart_queries": 4,
+        "seconds": 0.0060430041048675776,
+        "peak_entries": 80
+      },
+      "UDP": {
+        "rows": 8,
+        "frames": 1137,
+        "sha256": "8df05208d9d0b701bbd874f893a639622e14b2391ff975655e7b1856b4b3544f",
+        "file": "SMALL_UDP_CONTEXT.npz",
+        "source_sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+        "max_clock_debt_ns": 0,
+        "restart_queries": 3,
+        "seconds": 0.021088836947456002,
+        "peak_entries": 2272
+      }
+    },
+    "encoder": {
+      "status": "PASS",
+      "query_rows": 4,
+      "reference_rows": 4124,
+      "encoded_rows": 112,
+      "encoded_batches": 7,
+      "e3_max_abs_error": 0.0,
+      "cached_support_error": 3.3306690738754696e-16,
+      "fresh_support_error": 0.0
+    },
+    "input_sha256": "03f615449e837c65c6016827023777687c0ef76e1931cbb3a30e997899a7f2e7",
+    "fit_rows": 1024,
+    "cal_normal_rows": 1024,
+    "target_rows": {
+      "CIC_DEV": 64,
+      "UNSW_DEV": 64,
+      "EDGE": 32
+    },
+    "full_training_qualified": false
+  },
+  "models_started": 0,
+  "cause": "generic controller import resolves frozen parent after sys.path mutation",
+  "repair": "exact-path sibling load plus module/signature/identity gates before and after real pipeline",
+  "regression": "local and compute-node dispatch test; source config and worker byte identical",
+  "config_unchanged": true,
+  "worker_unchanged": true,
+  "wall_accounting": "260 seconds wall; 8 allocated CPUs; peak RSS 3757788K; exact useful/overhead CPU split unavailable"
+}

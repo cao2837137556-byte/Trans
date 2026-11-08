@@ -1,0 +1,51 @@
+{
+  "status": "SHARED_PREFLIGHT_PASS_METHOD_JOBS_PENDING",
+  "preflight_job": {
+    "job_id": "182804",
+    "cpu": 8,
+    "memory_gib": 24,
+    "wall_seconds": 7200
+  },
+  "preflight_scheduler": "182804|COMPLETED|0:0|00:01:34||8|24G\n182804.batch|COMPLETED|0:0|00:01:34|6565952K|8|\n",
+  "methods": {
+    "DisentAD": {
+      "stage": "SUBMITTED",
+      "job": {
+        "job_id": "182805",
+        "cpu": 8,
+        "memory_gib": 32,
+        "gpu": "one RTX4090",
+        "wall_seconds": 604800,
+        "scope": "resource qualification THEN conditional three-seed formal training and evaluation"
+      },
+      "scheduler": "182805|PENDING|0:0|00:00:00||0|32G\n"
+    },
+    "TabM": {
+      "stage": "SUBMITTED",
+      "job": {
+        "job_id": "182806",
+        "cpu": 8,
+        "memory_gib": 32,
+        "gpu": "one RTX4090",
+        "wall_seconds": 604800,
+        "scope": "resource qualification THEN conditional three-seed formal training and evaluation"
+      },
+      "scheduler": "182806|PENDING|0:0|00:00:00||0|32G\n"
+    },
+    "TabR": {
+      "stage": "SUBMITTED",
+      "job": {
+        "job_id": "182807",
+        "cpu": 8,
+        "memory_gib": 32,
+        "gpu": "one RTX4090",
+        "wall_seconds": 604800,
+        "scope": "resource qualification THEN conditional three-seed formal training and evaluation"
+      },
+      "scheduler": "182807|PENDING|0:0|00:00:00||0|32G\n"
+    }
+  },
+  "runtime_dispatch_pass": true,
+  "formal_gpu_qualification_pass": false,
+  "main_model_changed": false
+}

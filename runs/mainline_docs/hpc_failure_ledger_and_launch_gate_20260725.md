@@ -1,3 +1,9 @@
+## 2026-11-08：后三基线提交模块冲突修复182804
+
+182796真实小切片PASS后，通用import controller被旧包截获，submit缺seconds而停止，未产生新训练作业。v2绝对路径加载+模块/worker/签名身份门，本地与计算节点启动提交包装器回归PASS；182804共享预检完成，Disent182805/TabM182806/TabR182807已提交排队。原训练worker/CONFIG字节不变；DTE旧作业继续。客户端8748、接收端18879、进度18806。见[修复回执](collab/20261108_remaining_three_dispatch_repair_codex.md)。
+
+---
+
 ## 2026-11-08：SLAD独立评价导入路径修复182782
 
 182779三种子训练100轮均完成，纯评价torch.load缺algorithms模块而失败。原续训检查因先construct注册路径而漏检；新进程直接predictor回归复现错误并验证修复预测精确一致。独立修复182782运行（1CPU8GiB2小时），复用三模型与大数组、先真实链路和加载门再CAL/A/B/Edge，无重训、不热改DTE父包。DTE182778仍运行，CatBoost182781完成待验收。客户端34636统一18806状态。见[回执](collab/20261108_slad_prediction_import_repair_codex.md)。
