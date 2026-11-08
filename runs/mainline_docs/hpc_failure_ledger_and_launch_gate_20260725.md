@@ -1,3 +1,9 @@
+## 2026-11-08：SLAD独立评价导入路径修复182782
+
+182779三种子训练100轮均完成，纯评价torch.load缺algorithms模块而失败。原续训检查因先construct注册路径而漏检；新进程直接predictor回归复现错误并验证修复预测精确一致。独立修复182782运行（1CPU8GiB2小时），复用三模型与大数组、先真实链路和加载门再CAL/A/B/Edge，无重训、不热改DTE父包。DTE182778仍运行，CatBoost182781完成待验收。客户端34636统一18806状态。见[回执](collab/20261108_slad_prediction_import_repair_codex.md)。
+
+---
+
 ## 2026-11-06 SAME_BANK_CONTEXT_V5：跨批次供体身份oracle错误
 
 - CROSS_BATCH_DONOR_ORACLE_MISMATCH；182657 FAILED/1:0，186秒，MaxRSS2392764K，完整作业0。A/B存储支持门已经通过，非v4存储语义修复失败；失败于matched_reference_uids。保留已完成工程证据，不虚构无效CPU拆分。

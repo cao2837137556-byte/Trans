@@ -1,3 +1,9 @@
+## 2026-11-08：SLAD独立评价导入路径修复182782
+
+182779三种子训练100轮均完成，纯评价torch.load缺algorithms模块而失败。原续训检查因先construct注册路径而漏检；新进程直接predictor回归复现错误并验证修复预测精确一致。独立修复182782运行（1CPU8GiB2小时），复用三模型与大数组、先真实链路和加载门再CAL/A/B/Edge，无重训、不热改DTE父包。DTE182778仍运行，CatBoost182781完成待验收。客户端34636统一18806状态。见[回执](collab/20261108_slad_prediction_import_repair_codex.md)。
+
+---
+
 ## 2026-11-08：作者参数首批自动训练链182777
 
 已提交1CPU12GiB2小时真实预检，环境门PASS。DTE-C/SLAD/CatBoost按作者默认固定400/100轮、1000树，各自资源门后自动提交三种子训练、独立CAL、A/B/Edge评价；1CPU12GiB按实测定时长，每方法最多24小时。主模型不变，大工件留超算，客户端PID29824和18806进度页。TabM/TabR早停与资源、Disent适配资源、ModernNCA内存仍待办，未宣称七方法全部放行。见[启动回执](collab/20261108_baseline_author_defaults_launch_codex.md)。
