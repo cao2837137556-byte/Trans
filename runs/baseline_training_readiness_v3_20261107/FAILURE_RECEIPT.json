@@ -1,0 +1,9 @@
+{
+  "status": "PRE_SUBMISSION_REPAIR",
+  "previous_version": "baseline_training_readiness_v3_20261107",
+  "previous_jobs_submitted": 0,
+  "error": "LOCAL_ONLY_FREEZE_MANIFEST_IN_REMOTE_DEPENDENCY_LIST",
+  "fix": "Bundle immutable freeze manifest within package; retain17 actual existing remote dependencies",
+  "no_running_job_modified": true,
+  "regression_gate": "PORTABLE_FREEZE_IDENTITY; package SHA verifies bundled freeze"
+}
