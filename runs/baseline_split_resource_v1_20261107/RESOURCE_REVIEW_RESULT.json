@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "scope": "RESOURCE_GATE_REPORT_NOT_FORMAL_RELEASE",
+  "inventory": {
+    "partitions": {
+      "returncode": 0,
+      "stdout": "amd*|up|14-00:00:00|4|128+|386268+|(null)\ngpu|up|7-00:00:00|1|128|257048|gpu:nvidia_geforce_rtx_4090:2(S:0-1),gpu:nvidia_h100_pcie_1g.20gb:8(S:0)\ngpu|up|7-00:00:00|1|192|2030000|gpu:nvidia_h100_80gb_hbm3_1g.20gb:24(S:0-1)\ngpu|up|7-00:00:00|2|48|257060|gpu:4(S:0-1)\ngpu|up|7-00:00:00|1|64|128035|gpu:8(S:0-1)\nintel|up|14-00:00:00|12|48+|224809+|(null)\nApollo|inactive|infinite|14|24|128000|(null)\nLame_D|inactive|infinite|7|20|79932|(null)\n",
+      "stderr": ""
+    },
+    "limits": {
+      "returncode": 0,
+      "stdout": "root||normal||\n",
+      "stderr": ""
+    }
+  },
+  "epochs": {
+    "DTE_EPOCH": {
+      "status": "PASS",
+      "train_rows": 134493,
+      "full_epoch": true,
+      "steps": 2102,
+      "preparation_seconds": 4.663500447990373,
+      "train_seconds": 13.125340718077496,
+      "validation_rows": 160788,
+      "validation_seconds": 4.100201762048528,
+      "checkpoint_sha256": "ba351725c0aaa4f3f3955970c746e2677023f3eb86a3c7adbf822d2b86dc2a46",
+      "same_process_optimizer_rng_cursor_replay_exact": true,
+      "fresh_process_resume_gate": "PENDING",
+      "purpose": "RESOURCE_ONLY_FULL_REFIT_SIZE; validation overlap; scores prohibited for tuning or reporting accuracy",
+      "formal_training": false,
+      "seconds": 27.873980733100325,
+      "rss_peak_mib": 1688.8828125
+    },
+    "SLAD_EPOCH": {
+      "status": "PASS",
+      "train_rows": 134493,
+      "full_epoch": true,
+      "steps": 1051,
+      "preparation_seconds": 2.4647055298555642,
+      "train_seconds": 10.10514339315705,
+      "validation_rows": 160788,
+      "validation_seconds": 121.80948650999926,
+      "checkpoint_sha256": "dd300b8a1f02071ee58f003eb8be3128bab3d94fff959a76d8530c347e05e73b",
+      "same_process_optimizer_rng_cursor_replay_exact": "PENDING_AUTHOR_TRANSFORM_RNG_STATE",
+      "fresh_process_resume_gate": "PENDING",
+      "purpose": "RESOURCE_ONLY_FULL_REFIT_SIZE; validation overlap; scores prohibited for tuning or reporting accuracy",
+      "formal_training": false,
+      "seconds": 139.20358986710198,
+      "rss_peak_mib": 3092.1953125
+    },
+    "TABM_EPOCH": {
+      "status": "PASS",
+      "train_rows": 617908,
+      "full_epoch": true,
+      "steps": 2414,
+      "preparation_seconds": 0.9342574151232839,
+      "train_seconds": 2546.106072073104,
+      "validation_rows": 160788,
+      "validation_seconds": 160.27142546814866,
+      "checkpoint_sha256": "cab1e790d99e17f78a9fb37a4111025f5e465dc040d9bda8e1fcd36940bd2ab6",
+      "same_process_optimizer_rng_cursor_replay_exact": true,
+      "fresh_process_resume_gate": "PENDING",
+      "purpose": "RESOURCE_ONLY_FULL_REFIT_SIZE; validation overlap; scores prohibited for tuning or reporting accuracy",
+      "formal_training": false,
+      "seconds": 2712.4724608920515,
+      "rss_peak_mib": 3286.1640625
+    }
+  },
+  "remaining": [
+    "Review activity/protocol coverage and source-only selection weighting",
+    "Fresh-process optimizer/RNG/sampler recovery for every method",
+    "TabR and DisentAD full epochs on suitable resources",
+    "ModernNCA full backward memory qualification",
+    "CatBoost steady-state training/quantization separation and resume",
+    "Enumerated16-trial constructor and worst-case resource qualification"
+  ],
+  "formal_training_ready": false,
+  "main_model_changed": false,
+  "seconds": 3.3661643778905272,
+  "rss_peak_mib": 298.34765625
+}

@@ -1,0 +1,36 @@
+{
+  "status": "ENGINEERING_ACCEPTED_TUNING_RELEASE_BLOCKED",
+  "checks": 135,
+  "job_id": "182752",
+  "scheduler_seconds": 3029,
+  "worker_seconds": 3028.230754290009,
+  "peak_gib": 3.5876083374023438,
+  "device_class_and_isolation_gate": "PASS",
+  "activity_protocol_gate": "NEEDS_FEASIBILITY_AUDIT",
+  "coverage_gap_slices": 57,
+  "protocol_gap_slices": 5,
+  "formal_training_ready": false,
+  "main_model_changed": false,
+  "new_jobs_submitted": false,
+  "large_artifacts": "HPC_ONLY",
+  "next": [
+    "Audit independent group counts by device/label/protocol/activity before redesigning splits",
+    "Prioritize protocol-aware whole-group coverage; single-group strata cannot be split across both sides without leakage",
+    "Fresh-process resume and remaining methods resource qualification",
+    "Freeze explicit tuning configurations and final hardware budgets"
+  ],
+  "receipt_sha256": {
+    "RESULT.json": "d59bd05142d7f5d8411f004737c9535aaa1f83dc2c676a4012e977d8ad984b07",
+    "JOB.json": "30ef60912f9dc28af9ae5063d955e08c2f78745a4d3ea438e3adf110622a214f",
+    "SCHEDULER.json": "3189fdec0341c6bfd7678dda9edc86b45220df934217904b9eae0e573339244c",
+    "DEPENDENCY_GATE.json": "ffbade2c53738af4e1b5a157a1e379041fc2a357c219b0e7e54bb32fcfbd99d5",
+    "ENVIRONMENT_RESULT.json": "207e997a61c9612dee4675249ccecce7bdae83c29100cd4c56a341e4802911b0",
+    "FIDELITY_RESULT.json": "38c3a36ccb521d29ae758b959af8c3dcfaf8216293c6727af4c8ac6e7d3f9140",
+    "PIPELINE_RESULT.json": "55ec9bc022785b26ce85205d49a92b4cbb17eb424500ea5c94e44e3eff48781a",
+    "SPLIT_RESULT.json": "d2a7677c04ace26796e67a7fb634879f1fbcddf5188500b1eda505eb3aa95749",
+    "DTE_EPOCH_RESULT.json": "6342958fc03c5141266fc8ef6118475a625993c9a2f31746f271a5e8429aa10c",
+    "SLAD_EPOCH_RESULT.json": "d9c51c81d689831b9630587d19b848d9a0e5660e5760980d7089fcd43e6a1d94",
+    "TABM_EPOCH_RESULT.json": "a4f3c88f4bad61aa1271734b0a1bb251928d11f22b04697bb8febdf6578062c6",
+    "RESOURCE_REVIEW_RESULT.json": "06bd5cd7ba727e08b965875a03a1da3a3ba1459d9a36a28a5fadb602c653d7ce"
+  }
+}

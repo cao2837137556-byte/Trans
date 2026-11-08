@@ -1,0 +1,873 @@
+{
+  "status": "PASS_WITH_RESOURCE_GATES",
+  "results": {
+    "ENVIRONMENT": {
+      "status": "PASS",
+      "versions": {
+        "numpy": "2.0.1",
+        "torch": "2.5.1",
+        "sklearn": "1.5.2",
+        "scipy": "1.14.1",
+        "catboost": "1.2.8",
+        "pandas": "2.2.3",
+        "plotly": "5.24.1",
+        "matplotlib": "3.9.2",
+        "graphviz": "0.20.3",
+        "joblib": "1.4.2",
+        "threadpoolctl": "3.5.0"
+      },
+      "isolated_wheels": true,
+      "sklearn_transform_and_metric": true,
+      "catboost_native_fit": true,
+      "executed_before_real_pipeline": true,
+      "seconds": 34.658207691973075,
+      "rss_peak_mib": 410.6328125
+    },
+    "FIDELITY": {
+      "status": "PASS",
+      "checks": {
+        "TabM": {
+          "status": "PASS",
+          "output_classes": 2,
+          "loss": "per-member CE",
+          "ensemble": "mean probability",
+          "legacy_logit_mean_counterexample": true
+        },
+        "ModernNCA": {
+          "status": "PASS",
+          "chunk_max_log_probability_errors": [
+            1.9005511064928982e-07,
+            1.9005511109337903e-07,
+            1.9198433087730393e-07
+          ],
+          "tolerance": 0.0005,
+          "inference_only": true
+        },
+        "SLAD": {
+          "status": "PASS",
+          "loss_formula_max_abs_error": 1.1102230246251565e-16,
+          "author_log_softmax_of_probabilities_preserved": true
+        },
+        "DisentAD": {
+          "status": "PASS",
+          "patch_input_exact": true
+        },
+        "TabR": {
+          "status": "PASS",
+          "official_class_AST_unchanged": true,
+          "faiss_vs_exhaustive_logit_error": 0.0
+        },
+        "DTE": {
+          "status": "PASS",
+          "loss": "author CE on softmax probabilities preserved",
+          "noise": "variance only, no drift",
+          "score": "expected bin index",
+          "loss_exact": true
+        },
+        "TabR_native_memory_efficient": {
+          "status": "PASS",
+          "eval_max_abs_error": 0.0,
+          "training_path": "original author recomputation"
+        }
+      },
+      "author_dataset_replication_required": false,
+      "seconds": 6.536711476044729,
+      "rss_peak_mib": 432.796875
+    },
+    "PIPELINE": {
+      "status": "PASS",
+      "scope": "ENGINEERING_ONLY",
+      "causal": {
+        "NORMAL": {
+          "rows": 16,
+          "frames": 321502,
+          "sha256": "6c61596937628b04ba9fae1bce5dca4b26a3c04846292463a42837a07ad6fcee",
+          "file": "SMALL_NORMAL_CONTEXT.npz",
+          "source_sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+          "max_clock_debt_ns": 117000,
+          "restart_queries": 6,
+          "seconds": 3.3419711589813232,
+          "peak_entries": 163
+        },
+        "HTTP": {
+          "rows": 8,
+          "frames": 40,
+          "sha256": "27143fb9826b1f5c921c80839ec8b04f96939c016bba73553bea0cfbf22a53ac",
+          "file": "SMALL_HTTP_CONTEXT.npz",
+          "source_sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+          "max_clock_debt_ns": 0,
+          "restart_queries": 4,
+          "seconds": 0.005336536094546318,
+          "peak_entries": 80
+        },
+        "UDP": {
+          "rows": 8,
+          "frames": 1137,
+          "sha256": "8df05208d9d0b701bbd874f893a639622e14b2391ff975655e7b1856b4b3544f",
+          "file": "SMALL_UDP_CONTEXT.npz",
+          "source_sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+          "max_clock_debt_ns": 0,
+          "restart_queries": 3,
+          "seconds": 0.02204214595258236,
+          "peak_entries": 2272
+        }
+      },
+      "encoder": {
+        "status": "PASS",
+        "query_rows": 4,
+        "reference_rows": 4124,
+        "encoded_rows": 112,
+        "encoded_batches": 7,
+        "e3_max_abs_error": 0.0,
+        "cached_support_error": 0.0,
+        "fresh_support_error": 0.0
+      },
+      "input_sha256": "03f615449e837c65c6016827023777687c0ef76e1931cbb3a30e997899a7f2e7",
+      "fit_rows": 1024,
+      "cal_normal_rows": 1024,
+      "target_rows": {
+        "CIC_DEV": 64,
+        "UNSW_DEV": 64,
+        "EDGE": 32
+      },
+      "full_training_qualified": false,
+      "seconds": 70.02532292180695,
+      "rss_peak_mib": 3673.7109375
+    },
+    "SPLIT": {
+      "status": "PASS",
+      "training_rows": 457120,
+      "validation_rows": 160788,
+      "train_uid_sha256": "1cfe5bd14c009dcbe647c0033f232a8f896dc100a3bcce8751e4d35e944cf075",
+      "validation_uid_sha256": "956d4ca446f5309ec5d4eddd8e400386efb170d52472e3d8098fa491ea1f9fd3",
+      "mask_sha256": "a687727378654c8bb61ec7c807877ca98aa9b26f8de484867d7b939bfb6a16de",
+      "weight_sha256": "7fbdb500dd5f7c64191eb2719411dcc7b2ce9ba4528a9d963ab92ed34ef3fe79",
+      "device_class_coverage": true,
+      "capture_session_component_disjoint": true,
+      "activity_protocol_missing": [
+        {
+          "device": "Amcrest Camera",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_PHOTO",
+          "train": 0,
+          "validation": 40
+        },
+        {
+          "device": "Amcrest Camera",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_RECORDING",
+          "train": 0,
+          "validation": 72
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_PHOTO",
+          "train": 120,
+          "validation": 0
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_RECORDING",
+          "train": 264,
+          "validation": 0
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_WATCH",
+          "train": 259,
+          "validation": 0
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": 0,
+          "field": "activity",
+          "value": "WAN_PHOTO",
+          "train": 180,
+          "validation": 0
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": 0,
+          "field": "activity",
+          "value": "WAN_RECORDING",
+          "train": 289,
+          "validation": 0
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": 1,
+          "field": "activity",
+          "value": "TCP",
+          "train": 0,
+          "validation": 2345
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": 1,
+          "field": "activity",
+          "value": "UDP",
+          "train": 13683,
+          "validation": 0
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": 1,
+          "field": "protocol",
+          "value": "17",
+          "train": 13683,
+          "validation": 0
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": 1,
+          "field": "protocol",
+          "value": "6",
+          "train": 0,
+          "validation": 2345
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 0,
+          "field": "activity",
+          "value": "ALEXA_VOICE_OFF",
+          "train": 45,
+          "validation": 0
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 0,
+          "field": "activity",
+          "value": "ALEXA_VOICE_ON",
+          "train": 37,
+          "validation": 0
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 0,
+          "field": "activity",
+          "value": "GOOGLE_VOICE_OFF",
+          "train": 44,
+          "validation": 0
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 0,
+          "field": "activity",
+          "value": "GOOGLE_VOICE_ON",
+          "train": 40,
+          "validation": 0
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_OFF",
+          "train": 25,
+          "validation": 0
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_ON",
+          "train": 14,
+          "validation": 0
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 0,
+          "field": "activity",
+          "value": "LOCAL_OFF",
+          "train": 37,
+          "validation": 0
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 0,
+          "field": "activity",
+          "value": "LOCAL_ON",
+          "train": 41,
+          "validation": 0
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 0,
+          "field": "activity",
+          "value": "WAN_OFF",
+          "train": 49,
+          "validation": 0
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 0,
+          "field": "activity",
+          "value": "WAN_ON",
+          "train": 40,
+          "validation": 0
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 1,
+          "field": "activity",
+          "value": "UDP",
+          "train": 13728,
+          "validation": 0
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": 1,
+          "field": "protocol",
+          "value": "17",
+          "train": 13728,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "ALEXA_COLOR",
+          "train": 12,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "ALEXA_COLOR_TEMP",
+          "train": 11,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "ALEXA_OFF",
+          "train": 24,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "ALEXA_ON",
+          "train": 29,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "GOOGLE_COLOR",
+          "train": 11,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "GOOGLE_COLOR_TEMP",
+          "train": 11,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "GOOGLE_OFF",
+          "train": 11,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "GOOGLE_ON",
+          "train": 12,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_COLOR",
+          "train": 9,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_COLOR_TEMP",
+          "train": 19,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_OFF",
+          "train": 9,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_ON",
+          "train": 12,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "LOCAL_OFF",
+          "train": 9,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "LOCAL_ON",
+          "train": 14,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "WAN_COLOR",
+          "train": 25,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "WAN_COLOR_TEMP",
+          "train": 22,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "WAN_OFF",
+          "train": 21,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 0,
+          "field": "activity",
+          "value": "WAN_ON",
+          "train": 28,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 1,
+          "field": "activity",
+          "value": "UDP",
+          "train": 12647,
+          "validation": 0
+        },
+        {
+          "device": "Globe Lamp",
+          "label": 1,
+          "field": "protocol",
+          "value": "17",
+          "train": 12647,
+          "validation": 0
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 0,
+          "field": "activity",
+          "value": "ALEXA_OFF",
+          "train": 75,
+          "validation": 0
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 0,
+          "field": "activity",
+          "value": "ALEXA_ON",
+          "train": 128,
+          "validation": 0
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 0,
+          "field": "activity",
+          "value": "GOOGLE_OFF",
+          "train": 30,
+          "validation": 0
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 0,
+          "field": "activity",
+          "value": "GOOGLE_ON",
+          "train": 18,
+          "validation": 0
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_OFF",
+          "train": 87,
+          "validation": 0
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_ON",
+          "train": 27,
+          "validation": 0
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 0,
+          "field": "activity",
+          "value": "LOCAL_BUTTON",
+          "train": 134,
+          "validation": 0
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 0,
+          "field": "activity",
+          "value": "WAN_OFF",
+          "train": 40,
+          "validation": 0
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 0,
+          "field": "activity",
+          "value": "WAN_ON",
+          "train": 80,
+          "validation": 0
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 1,
+          "field": "activity",
+          "value": "UDP",
+          "train": 13536,
+          "validation": 0
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": 1,
+          "field": "protocol",
+          "value": "17",
+          "train": 13536,
+          "validation": 0
+        },
+        {
+          "device": "SimCam",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_PHOTO",
+          "train": 24,
+          "validation": 0
+        },
+        {
+          "device": "SimCam",
+          "label": 0,
+          "field": "activity",
+          "value": "LAN_RECORDING",
+          "train": 142,
+          "validation": 0
+        },
+        {
+          "device": "SimCam",
+          "label": 1,
+          "field": "activity",
+          "value": "Hydra",
+          "train": 384,
+          "validation": 0
+        }
+      ],
+      "secondary_coverage_gate": "NEEDS_REVIEW",
+      "strata": [
+        {
+          "device": "Amcrest Camera",
+          "label": "attack",
+          "train_rows": 61,
+          "validation_rows": 26,
+          "validation_groups": [
+            181
+          ],
+          "validation_fraction": 0.2988505747126437
+        },
+        {
+          "device": "Amcrest Camera",
+          "label": "normal",
+          "train_rows": 27748,
+          "validation_rows": 5192,
+          "validation_groups": [
+            90,
+            134
+          ],
+          "validation_fraction": 0.15761991499696418
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": "attack",
+          "train_rows": 13683,
+          "validation_rows": 2345,
+          "validation_groups": [
+            171,
+            172,
+            173
+          ],
+          "validation_fraction": 0.14630646368854505
+        },
+        {
+          "device": "ArloQ Camera",
+          "label": "normal",
+          "train_rows": 26146,
+          "validation_rows": 11664,
+          "validation_groups": [
+            133
+          ],
+          "validation_fraction": 0.3084898175085956
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": "attack",
+          "train_rows": 15303,
+          "validation_rows": 3218,
+          "validation_groups": [
+            195,
+            197
+          ],
+          "validation_fraction": 0.17374871767183198
+        },
+        {
+          "device": "Atomi Coffee Maker",
+          "label": "normal",
+          "train_rows": 2451,
+          "validation_rows": 838,
+          "validation_groups": [
+            132
+          ],
+          "validation_fraction": 0.25478868957129824
+        },
+        {
+          "device": "Globe Lamp",
+          "label": "attack",
+          "train_rows": 14285,
+          "validation_rows": 3373,
+          "validation_groups": [
+            183,
+            185
+          ],
+          "validation_fraction": 0.191018235360743
+        },
+        {
+          "device": "Globe Lamp",
+          "label": "normal",
+          "train_rows": 778,
+          "validation_rows": 149,
+          "validation_groups": [
+            129
+          ],
+          "validation_fraction": 0.16073354908306364
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": "attack",
+          "train_rows": 118984,
+          "validation_rows": 44164,
+          "validation_groups": [
+            189
+          ],
+          "validation_fraction": 0.2706989972295094
+        },
+        {
+          "device": "Philips Hue Bridge",
+          "label": "normal",
+          "train_rows": 37430,
+          "validation_rows": 11462,
+          "validation_groups": [
+            130
+          ],
+          "validation_fraction": 0.23443508140391067
+        },
+        {
+          "device": "SimCam",
+          "label": "attack",
+          "train_rows": 193232,
+          "validation_rows": 74741,
+          "validation_groups": [
+            178
+          ],
+          "validation_fraction": 0.2789124277445862
+        },
+        {
+          "device": "SimCam",
+          "label": "normal",
+          "train_rows": 7019,
+          "validation_rows": 3616,
+          "validation_groups": [
+            131
+          ],
+          "validation_fraction": 0.3400094029149036
+        }
+      ],
+      "weight_definition": "class mass .5 each; existing device/activity/capture/session hierarchy separately within class",
+      "target_scores_used": false,
+      "seconds": 34.073671092046425,
+      "rss_peak_mib": 3633.3203125
+    },
+    "DTE_EPOCH": {
+      "status": "PASS",
+      "train_rows": 134493,
+      "full_epoch": true,
+      "steps": 2102,
+      "preparation_seconds": 4.663500447990373,
+      "train_seconds": 13.125340718077496,
+      "validation_rows": 160788,
+      "validation_seconds": 4.100201762048528,
+      "checkpoint_sha256": "ba351725c0aaa4f3f3955970c746e2677023f3eb86a3c7adbf822d2b86dc2a46",
+      "same_process_optimizer_rng_cursor_replay_exact": true,
+      "fresh_process_resume_gate": "PENDING",
+      "purpose": "RESOURCE_ONLY_FULL_REFIT_SIZE; validation overlap; scores prohibited for tuning or reporting accuracy",
+      "formal_training": false,
+      "seconds": 27.873980733100325,
+      "rss_peak_mib": 1688.8828125
+    },
+    "SLAD_EPOCH": {
+      "status": "PASS",
+      "train_rows": 134493,
+      "full_epoch": true,
+      "steps": 1051,
+      "preparation_seconds": 2.4647055298555642,
+      "train_seconds": 10.10514339315705,
+      "validation_rows": 160788,
+      "validation_seconds": 121.80948650999926,
+      "checkpoint_sha256": "dd300b8a1f02071ee58f003eb8be3128bab3d94fff959a76d8530c347e05e73b",
+      "same_process_optimizer_rng_cursor_replay_exact": "PENDING_AUTHOR_TRANSFORM_RNG_STATE",
+      "fresh_process_resume_gate": "PENDING",
+      "purpose": "RESOURCE_ONLY_FULL_REFIT_SIZE; validation overlap; scores prohibited for tuning or reporting accuracy",
+      "formal_training": false,
+      "seconds": 139.20358986710198,
+      "rss_peak_mib": 3092.1953125
+    },
+    "TABM_EPOCH": {
+      "status": "PASS",
+      "train_rows": 617908,
+      "full_epoch": true,
+      "steps": 2414,
+      "preparation_seconds": 0.9342574151232839,
+      "train_seconds": 2546.106072073104,
+      "validation_rows": 160788,
+      "validation_seconds": 160.27142546814866,
+      "checkpoint_sha256": "cab1e790d99e17f78a9fb37a4111025f5e465dc040d9bda8e1fcd36940bd2ab6",
+      "same_process_optimizer_rng_cursor_replay_exact": true,
+      "fresh_process_resume_gate": "PENDING",
+      "purpose": "RESOURCE_ONLY_FULL_REFIT_SIZE; validation overlap; scores prohibited for tuning or reporting accuracy",
+      "formal_training": false,
+      "seconds": 2712.4724608920515,
+      "rss_peak_mib": 3286.1640625
+    },
+    "RESOURCE_REVIEW": {
+      "status": "PASS",
+      "scope": "RESOURCE_GATE_REPORT_NOT_FORMAL_RELEASE",
+      "inventory": {
+        "partitions": {
+          "returncode": 0,
+          "stdout": "amd*|up|14-00:00:00|4|128+|386268+|(null)\ngpu|up|7-00:00:00|1|128|257048|gpu:nvidia_geforce_rtx_4090:2(S:0-1),gpu:nvidia_h100_pcie_1g.20gb:8(S:0)\ngpu|up|7-00:00:00|1|192|2030000|gpu:nvidia_h100_80gb_hbm3_1g.20gb:24(S:0-1)\ngpu|up|7-00:00:00|2|48|257060|gpu:4(S:0-1)\ngpu|up|7-00:00:00|1|64|128035|gpu:8(S:0-1)\nintel|up|14-00:00:00|12|48+|224809+|(null)\nApollo|inactive|infinite|14|24|128000|(null)\nLame_D|inactive|infinite|7|20|79932|(null)\n",
+          "stderr": ""
+        },
+        "limits": {
+          "returncode": 0,
+          "stdout": "root||normal||\n",
+          "stderr": ""
+        }
+      },
+      "epochs": {
+        "DTE_EPOCH": {
+          "status": "PASS",
+          "train_rows": 134493,
+          "full_epoch": true,
+          "steps": 2102,
+          "preparation_seconds": 4.663500447990373,
+          "train_seconds": 13.125340718077496,
+          "validation_rows": 160788,
+          "validation_seconds": 4.100201762048528,
+          "checkpoint_sha256": "ba351725c0aaa4f3f3955970c746e2677023f3eb86a3c7adbf822d2b86dc2a46",
+          "same_process_optimizer_rng_cursor_replay_exact": true,
+          "fresh_process_resume_gate": "PENDING",
+          "purpose": "RESOURCE_ONLY_FULL_REFIT_SIZE; validation overlap; scores prohibited for tuning or reporting accuracy",
+          "formal_training": false,
+          "seconds": 27.873980733100325,
+          "rss_peak_mib": 1688.8828125
+        },
+        "SLAD_EPOCH": {
+          "status": "PASS",
+          "train_rows": 134493,
+          "full_epoch": true,
+          "steps": 1051,
+          "preparation_seconds": 2.4647055298555642,
+          "train_seconds": 10.10514339315705,
+          "validation_rows": 160788,
+          "validation_seconds": 121.80948650999926,
+          "checkpoint_sha256": "dd300b8a1f02071ee58f003eb8be3128bab3d94fff959a76d8530c347e05e73b",
+          "same_process_optimizer_rng_cursor_replay_exact": "PENDING_AUTHOR_TRANSFORM_RNG_STATE",
+          "fresh_process_resume_gate": "PENDING",
+          "purpose": "RESOURCE_ONLY_FULL_REFIT_SIZE; validation overlap; scores prohibited for tuning or reporting accuracy",
+          "formal_training": false,
+          "seconds": 139.20358986710198,
+          "rss_peak_mib": 3092.1953125
+        },
+        "TABM_EPOCH": {
+          "status": "PASS",
+          "train_rows": 617908,
+          "full_epoch": true,
+          "steps": 2414,
+          "preparation_seconds": 0.9342574151232839,
+          "train_seconds": 2546.106072073104,
+          "validation_rows": 160788,
+          "validation_seconds": 160.27142546814866,
+          "checkpoint_sha256": "cab1e790d99e17f78a9fb37a4111025f5e465dc040d9bda8e1fcd36940bd2ab6",
+          "same_process_optimizer_rng_cursor_replay_exact": true,
+          "fresh_process_resume_gate": "PENDING",
+          "purpose": "RESOURCE_ONLY_FULL_REFIT_SIZE; validation overlap; scores prohibited for tuning or reporting accuracy",
+          "formal_training": false,
+          "seconds": 2712.4724608920515,
+          "rss_peak_mib": 3286.1640625
+        }
+      },
+      "remaining": [
+        "Review activity/protocol coverage and source-only selection weighting",
+        "Fresh-process optimizer/RNG/sampler recovery for every method",
+        "TabR and DisentAD full epochs on suitable resources",
+        "ModernNCA full backward memory qualification",
+        "CatBoost steady-state training/quantization separation and resume",
+        "Enumerated16-trial constructor and worst-case resource qualification"
+      ],
+      "formal_training_ready": false,
+      "main_model_changed": false,
+      "seconds": 3.3661643778905272,
+      "rss_peak_mib": 298.34765625
+    }
+  },
+  "seconds": 3028.230754290009,
+  "formal_training_started": false
+}

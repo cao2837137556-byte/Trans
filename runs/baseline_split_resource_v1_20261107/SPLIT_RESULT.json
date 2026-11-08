@@ -1,0 +1,601 @@
+{
+  "status": "PASS",
+  "training_rows": 457120,
+  "validation_rows": 160788,
+  "train_uid_sha256": "1cfe5bd14c009dcbe647c0033f232a8f896dc100a3bcce8751e4d35e944cf075",
+  "validation_uid_sha256": "956d4ca446f5309ec5d4eddd8e400386efb170d52472e3d8098fa491ea1f9fd3",
+  "mask_sha256": "a687727378654c8bb61ec7c807877ca98aa9b26f8de484867d7b939bfb6a16de",
+  "weight_sha256": "7fbdb500dd5f7c64191eb2719411dcc7b2ce9ba4528a9d963ab92ed34ef3fe79",
+  "device_class_coverage": true,
+  "capture_session_component_disjoint": true,
+  "activity_protocol_missing": [
+    {
+      "device": "Amcrest Camera",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_PHOTO",
+      "train": 0,
+      "validation": 40
+    },
+    {
+      "device": "Amcrest Camera",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_RECORDING",
+      "train": 0,
+      "validation": 72
+    },
+    {
+      "device": "ArloQ Camera",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_PHOTO",
+      "train": 120,
+      "validation": 0
+    },
+    {
+      "device": "ArloQ Camera",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_RECORDING",
+      "train": 264,
+      "validation": 0
+    },
+    {
+      "device": "ArloQ Camera",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_WATCH",
+      "train": 259,
+      "validation": 0
+    },
+    {
+      "device": "ArloQ Camera",
+      "label": 0,
+      "field": "activity",
+      "value": "WAN_PHOTO",
+      "train": 180,
+      "validation": 0
+    },
+    {
+      "device": "ArloQ Camera",
+      "label": 0,
+      "field": "activity",
+      "value": "WAN_RECORDING",
+      "train": 289,
+      "validation": 0
+    },
+    {
+      "device": "ArloQ Camera",
+      "label": 1,
+      "field": "activity",
+      "value": "TCP",
+      "train": 0,
+      "validation": 2345
+    },
+    {
+      "device": "ArloQ Camera",
+      "label": 1,
+      "field": "activity",
+      "value": "UDP",
+      "train": 13683,
+      "validation": 0
+    },
+    {
+      "device": "ArloQ Camera",
+      "label": 1,
+      "field": "protocol",
+      "value": "17",
+      "train": 13683,
+      "validation": 0
+    },
+    {
+      "device": "ArloQ Camera",
+      "label": 1,
+      "field": "protocol",
+      "value": "6",
+      "train": 0,
+      "validation": 2345
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": 0,
+      "field": "activity",
+      "value": "ALEXA_VOICE_OFF",
+      "train": 45,
+      "validation": 0
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": 0,
+      "field": "activity",
+      "value": "ALEXA_VOICE_ON",
+      "train": 37,
+      "validation": 0
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": 0,
+      "field": "activity",
+      "value": "GOOGLE_VOICE_OFF",
+      "train": 44,
+      "validation": 0
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": 0,
+      "field": "activity",
+      "value": "GOOGLE_VOICE_ON",
+      "train": 40,
+      "validation": 0
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_OFF",
+      "train": 25,
+      "validation": 0
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_ON",
+      "train": 14,
+      "validation": 0
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": 0,
+      "field": "activity",
+      "value": "LOCAL_OFF",
+      "train": 37,
+      "validation": 0
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": 0,
+      "field": "activity",
+      "value": "LOCAL_ON",
+      "train": 41,
+      "validation": 0
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": 0,
+      "field": "activity",
+      "value": "WAN_OFF",
+      "train": 49,
+      "validation": 0
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": 0,
+      "field": "activity",
+      "value": "WAN_ON",
+      "train": 40,
+      "validation": 0
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": 1,
+      "field": "activity",
+      "value": "UDP",
+      "train": 13728,
+      "validation": 0
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": 1,
+      "field": "protocol",
+      "value": "17",
+      "train": 13728,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "ALEXA_COLOR",
+      "train": 12,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "ALEXA_COLOR_TEMP",
+      "train": 11,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "ALEXA_OFF",
+      "train": 24,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "ALEXA_ON",
+      "train": 29,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "GOOGLE_COLOR",
+      "train": 11,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "GOOGLE_COLOR_TEMP",
+      "train": 11,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "GOOGLE_OFF",
+      "train": 11,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "GOOGLE_ON",
+      "train": 12,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_COLOR",
+      "train": 9,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_COLOR_TEMP",
+      "train": 19,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_OFF",
+      "train": 9,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_ON",
+      "train": 12,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "LOCAL_OFF",
+      "train": 9,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "LOCAL_ON",
+      "train": 14,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "WAN_COLOR",
+      "train": 25,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "WAN_COLOR_TEMP",
+      "train": 22,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "WAN_OFF",
+      "train": 21,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 0,
+      "field": "activity",
+      "value": "WAN_ON",
+      "train": 28,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 1,
+      "field": "activity",
+      "value": "UDP",
+      "train": 12647,
+      "validation": 0
+    },
+    {
+      "device": "Globe Lamp",
+      "label": 1,
+      "field": "protocol",
+      "value": "17",
+      "train": 12647,
+      "validation": 0
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": 0,
+      "field": "activity",
+      "value": "ALEXA_OFF",
+      "train": 75,
+      "validation": 0
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": 0,
+      "field": "activity",
+      "value": "ALEXA_ON",
+      "train": 128,
+      "validation": 0
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": 0,
+      "field": "activity",
+      "value": "GOOGLE_OFF",
+      "train": 30,
+      "validation": 0
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": 0,
+      "field": "activity",
+      "value": "GOOGLE_ON",
+      "train": 18,
+      "validation": 0
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_OFF",
+      "train": 87,
+      "validation": 0
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_ON",
+      "train": 27,
+      "validation": 0
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": 0,
+      "field": "activity",
+      "value": "LOCAL_BUTTON",
+      "train": 134,
+      "validation": 0
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": 0,
+      "field": "activity",
+      "value": "WAN_OFF",
+      "train": 40,
+      "validation": 0
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": 0,
+      "field": "activity",
+      "value": "WAN_ON",
+      "train": 80,
+      "validation": 0
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": 1,
+      "field": "activity",
+      "value": "UDP",
+      "train": 13536,
+      "validation": 0
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": 1,
+      "field": "protocol",
+      "value": "17",
+      "train": 13536,
+      "validation": 0
+    },
+    {
+      "device": "SimCam",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_PHOTO",
+      "train": 24,
+      "validation": 0
+    },
+    {
+      "device": "SimCam",
+      "label": 0,
+      "field": "activity",
+      "value": "LAN_RECORDING",
+      "train": 142,
+      "validation": 0
+    },
+    {
+      "device": "SimCam",
+      "label": 1,
+      "field": "activity",
+      "value": "Hydra",
+      "train": 384,
+      "validation": 0
+    }
+  ],
+  "secondary_coverage_gate": "NEEDS_REVIEW",
+  "strata": [
+    {
+      "device": "Amcrest Camera",
+      "label": "attack",
+      "train_rows": 61,
+      "validation_rows": 26,
+      "validation_groups": [
+        181
+      ],
+      "validation_fraction": 0.2988505747126437
+    },
+    {
+      "device": "Amcrest Camera",
+      "label": "normal",
+      "train_rows": 27748,
+      "validation_rows": 5192,
+      "validation_groups": [
+        90,
+        134
+      ],
+      "validation_fraction": 0.15761991499696418
+    },
+    {
+      "device": "ArloQ Camera",
+      "label": "attack",
+      "train_rows": 13683,
+      "validation_rows": 2345,
+      "validation_groups": [
+        171,
+        172,
+        173
+      ],
+      "validation_fraction": 0.14630646368854505
+    },
+    {
+      "device": "ArloQ Camera",
+      "label": "normal",
+      "train_rows": 26146,
+      "validation_rows": 11664,
+      "validation_groups": [
+        133
+      ],
+      "validation_fraction": 0.3084898175085956
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": "attack",
+      "train_rows": 15303,
+      "validation_rows": 3218,
+      "validation_groups": [
+        195,
+        197
+      ],
+      "validation_fraction": 0.17374871767183198
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": "normal",
+      "train_rows": 2451,
+      "validation_rows": 838,
+      "validation_groups": [
+        132
+      ],
+      "validation_fraction": 0.25478868957129824
+    },
+    {
+      "device": "Globe Lamp",
+      "label": "attack",
+      "train_rows": 14285,
+      "validation_rows": 3373,
+      "validation_groups": [
+        183,
+        185
+      ],
+      "validation_fraction": 0.191018235360743
+    },
+    {
+      "device": "Globe Lamp",
+      "label": "normal",
+      "train_rows": 778,
+      "validation_rows": 149,
+      "validation_groups": [
+        129
+      ],
+      "validation_fraction": 0.16073354908306364
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": "attack",
+      "train_rows": 118984,
+      "validation_rows": 44164,
+      "validation_groups": [
+        189
+      ],
+      "validation_fraction": 0.2706989972295094
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": "normal",
+      "train_rows": 37430,
+      "validation_rows": 11462,
+      "validation_groups": [
+        130
+      ],
+      "validation_fraction": 0.23443508140391067
+    },
+    {
+      "device": "SimCam",
+      "label": "attack",
+      "train_rows": 193232,
+      "validation_rows": 74741,
+      "validation_groups": [
+        178
+      ],
+      "validation_fraction": 0.2789124277445862
+    },
+    {
+      "device": "SimCam",
+      "label": "normal",
+      "train_rows": 7019,
+      "validation_rows": 3616,
+      "validation_groups": [
+        131
+      ],
+      "validation_fraction": 0.3400094029149036
+    }
+  ],
+  "weight_definition": "class mass .5 each; existing device/activity/capture/session hierarchy separately within class",
+  "target_scores_used": false,
+  "seconds": 34.073671092046425,
+  "rss_peak_mib": 3633.3203125
+}
