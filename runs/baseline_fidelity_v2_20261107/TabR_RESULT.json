@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "scope": "ENGINEERING_FIDELITY_NOT_PAPER_BENCHMARK_REPRODUCTION",
+  "method": "TabR",
+  "config": {
+    "updates": 16,
+    "batch": 16,
+    "lr": 0.0001,
+    "weight_decay": 0.0,
+    "score": "native_binary_logit",
+    "tabr_context_size": 96
+  },
+  "train_seconds": 1.7538229930214584,
+  "step_seconds": [
+    0.05943198804743588,
+    0.032054058043286204,
+    0.0569106990005821,
+    0.027555865002796054,
+    0.027907775016501546,
+    0.02777535212226212,
+    0.027359250001609325,
+    0.025744755985215306,
+    0.026411914033815265,
+    0.028420598013326526,
+    0.02590082911774516,
+    0.027467082953080535,
+    0.02625894988887012,
+    0.030520936008542776,
+    0.03012558608315885,
+    0.0303554420825094
+  ],
+  "score_seconds": {
+    "CAL": 0.5468680029734969,
+    "CIC_DEV": 0.03554636402986944,
+    "UNSW_DEV": 0.03422989812679589,
+    "EDGE": 0.018823705846443772
+  },
+  "reload_exact": true,
+  "source_cal_cut": -0.32383012771606445,
+  "source_cal_weighted_fpr": 0.005094871552862796,
+  "checkpoint_sha256": "d1b9513458280238f8656ece57f38659efd6b41bdc827071499b9f6b1a86dc54",
+  "score_sha256": "f62c2d6169acf45f109765b8a036d8a72406d5cfc25535a184e9683107b752b9",
+  "official_benchmark_replication_pending": true,
+  "formal_training_pending": true,
+  "seconds": 6.6954928021878,
+  "rss_peak_mib": 425.39453125
+}

@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "scope": "ENGINEERING_FIDELITY_NOT_PAPER_BENCHMARK_REPRODUCTION",
+  "method": "SLAD",
+  "config": {
+    "epochs": 1,
+    "epoch_steps": 15,
+    "actual_steps": 16,
+    "n_ensemble": 20,
+    "distribution_size": 10,
+    "n_unified_features": 128,
+    "hidden_dims": 100,
+    "normal_fit_rows": 564,
+    "normalization": "frozen shared790 source transform"
+  },
+  "train_seconds": 1.5720830638892949,
+  "step_seconds": [],
+  "score_seconds": {
+    "CAL": 0.9007702600210905,
+    "CIC_DEV": 0.0613380610011518,
+    "UNSW_DEV": 0.062163383001461625,
+    "EDGE": 0.04239612212404609
+  },
+  "reload_exact": true,
+  "source_cal_cut": 0.8500377535820007,
+  "source_cal_weighted_fpr": 0.006047640015602199,
+  "checkpoint_sha256": "9da38a0a9049a6a36c92d51256c9be3a7d851f3f0868447c68d25bcd3ae473a0",
+  "score_sha256": "3baa0955a47b1e80e9ada8fe932cd3df5af5f7951b59263e5ab95cbfc205b7ec",
+  "official_benchmark_replication_pending": true,
+  "formal_training_pending": true,
+  "seconds": 6.774216619087383,
+  "rss_peak_mib": 541.75
+}

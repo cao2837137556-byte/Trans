@@ -1,0 +1,257 @@
+{
+  "status": "PASS",
+  "scope": "ENGINEERING_ONLY",
+  "full_training_authorized": false,
+  "results": {
+    "PIPELINE": {
+      "status": "PASS",
+      "scope": "ENGINEERING_ONLY",
+      "causal": {
+        "NORMAL": {
+          "rows": 16,
+          "frames": 321502,
+          "sha256": "6c61596937628b04ba9fae1bce5dca4b26a3c04846292463a42837a07ad6fcee",
+          "file": "SMALL_NORMAL_CONTEXT.npz",
+          "source_sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+          "max_clock_debt_ns": 117000,
+          "restart_queries": 6,
+          "seconds": 3.1849079558160156,
+          "peak_entries": 163
+        },
+        "HTTP": {
+          "rows": 8,
+          "frames": 40,
+          "sha256": "27143fb9826b1f5c921c80839ec8b04f96939c016bba73553bea0cfbf22a53ac",
+          "file": "SMALL_HTTP_CONTEXT.npz",
+          "source_sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+          "max_clock_debt_ns": 0,
+          "restart_queries": 4,
+          "seconds": 0.005819639191031456,
+          "peak_entries": 80
+        },
+        "UDP": {
+          "rows": 8,
+          "frames": 1137,
+          "sha256": "8df05208d9d0b701bbd874f893a639622e14b2391ff975655e7b1856b4b3544f",
+          "file": "SMALL_UDP_CONTEXT.npz",
+          "source_sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+          "max_clock_debt_ns": 0,
+          "restart_queries": 3,
+          "seconds": 0.022690932033583522,
+          "peak_entries": 2272
+        }
+      },
+      "encoder": {
+        "status": "PASS",
+        "query_rows": 4,
+        "reference_rows": 4124,
+        "encoded_rows": 112,
+        "encoded_batches": 7,
+        "e3_max_abs_error": 0.0,
+        "cached_support_error": 0.0,
+        "fresh_support_error": 0.0
+      },
+      "input_sha256": "03f615449e837c65c6016827023777687c0ef76e1931cbb3a30e997899a7f2e7",
+      "fit_rows": 1024,
+      "cal_normal_rows": 1024,
+      "target_rows": {
+        "CIC_DEV": 64,
+        "UNSW_DEV": 64,
+        "EDGE": 32
+      },
+      "full_training_qualified": false,
+      "seconds": 99.2947693229653,
+      "rss_peak_mib": 3716.1328125
+    },
+    "FIDELITY": {
+      "status": "PASS",
+      "faiss_version": "1.9.0",
+      "checks": {
+        "TabM": {
+          "status": "PASS",
+          "output_classes": 2,
+          "loss": "per-member CE",
+          "ensemble": "mean probability",
+          "legacy_logit_mean_counterexample": true
+        },
+        "ModernNCA": {
+          "status": "PASS",
+          "chunk_max_log_probability_errors": [
+            1.9005511064928982e-07,
+            1.9005511109337903e-07,
+            1.9198433087730393e-07
+          ],
+          "tolerance": 0.0005,
+          "inference_only": true
+        },
+        "SLAD": {
+          "status": "PASS",
+          "loss_formula_max_abs_error": 1.1102230246251565e-16,
+          "author_log_softmax_of_probabilities_preserved": true
+        },
+        "DisentAD": {
+          "status": "PASS",
+          "patch_input_exact": true
+        },
+        "TabR": {
+          "status": "PASS",
+          "official_class_AST_unchanged": true,
+          "faiss_vs_exhaustive_logit_error": 0.0
+        }
+      },
+      "official_benchmark_replication_pending": true,
+      "seconds": 4.731457337969914,
+      "rss_peak_mib": 299.984375
+    },
+    "TabM": {
+      "status": "PASS",
+      "scope": "ENGINEERING_FIDELITY_NOT_PAPER_BENCHMARK_REPRODUCTION",
+      "method": "TabM",
+      "config": {
+        "updates": 16,
+        "batch": 16,
+        "lr": 0.002,
+        "weight_decay": 0.0003,
+        "score": "mean_softmax_positive_probability",
+        "tabr_context_size": null
+      },
+      "train_seconds": 2.2418938560876995,
+      "step_seconds": [
+        0.09833032381720841,
+        0.057902145897969604,
+        0.05368186114355922,
+        0.054069372126832604,
+        0.058592616114765406,
+        0.05310513498261571,
+        0.05672437394969165,
+        0.05293750995770097,
+        0.05570111609995365,
+        0.053918987046927214,
+        0.053294511046260595,
+        0.08763041091151536,
+        0.053043132880702615,
+        0.05552556086331606,
+        0.052309323102235794,
+        0.05374673311598599
+      ],
+      "score_seconds": {
+        "CAL": 0.8594643280375749,
+        "CIC_DEV": 0.05647126701660454,
+        "UNSW_DEV": 0.055558301974087954,
+        "EDGE": 0.030270769027993083
+      },
+      "reload_exact": true,
+      "source_cal_cut": 0.9612102508544922,
+      "source_cal_weighted_fpr": 0.000496031746031746,
+      "checkpoint_sha256": "bc6c1a674068aa78d39676de765f471492be93b5ab705a13f15ef25c3af43b5c",
+      "score_sha256": "6ff2b7ab944c65dc0e5646f264664d777f69fd174dabea5c07da1ea52c0d5a7d",
+      "official_benchmark_replication_pending": true,
+      "formal_training_pending": true,
+      "seconds": 6.768285125028342,
+      "rss_peak_mib": 456.8203125
+    },
+    "TabR": {
+      "status": "PASS",
+      "scope": "ENGINEERING_FIDELITY_NOT_PAPER_BENCHMARK_REPRODUCTION",
+      "method": "TabR",
+      "config": {
+        "updates": 16,
+        "batch": 16,
+        "lr": 0.0001,
+        "weight_decay": 0.0,
+        "score": "native_binary_logit",
+        "tabr_context_size": 96
+      },
+      "train_seconds": 1.7538229930214584,
+      "step_seconds": [
+        0.05943198804743588,
+        0.032054058043286204,
+        0.0569106990005821,
+        0.027555865002796054,
+        0.027907775016501546,
+        0.02777535212226212,
+        0.027359250001609325,
+        0.025744755985215306,
+        0.026411914033815265,
+        0.028420598013326526,
+        0.02590082911774516,
+        0.027467082953080535,
+        0.02625894988887012,
+        0.030520936008542776,
+        0.03012558608315885,
+        0.0303554420825094
+      ],
+      "score_seconds": {
+        "CAL": 0.5468680029734969,
+        "CIC_DEV": 0.03554636402986944,
+        "UNSW_DEV": 0.03422989812679589,
+        "EDGE": 0.018823705846443772
+      },
+      "reload_exact": true,
+      "source_cal_cut": -0.32383012771606445,
+      "source_cal_weighted_fpr": 0.005094871552862796,
+      "checkpoint_sha256": "d1b9513458280238f8656ece57f38659efd6b41bdc827071499b9f6b1a86dc54",
+      "score_sha256": "f62c2d6169acf45f109765b8a036d8a72406d5cfc25535a184e9683107b752b9",
+      "official_benchmark_replication_pending": true,
+      "formal_training_pending": true,
+      "seconds": 6.6954928021878,
+      "rss_peak_mib": 425.39453125
+    },
+    "SLAD": {
+      "status": "PASS",
+      "scope": "ENGINEERING_FIDELITY_NOT_PAPER_BENCHMARK_REPRODUCTION",
+      "method": "SLAD",
+      "config": {
+        "epochs": 1,
+        "epoch_steps": 15,
+        "actual_steps": 16,
+        "n_ensemble": 20,
+        "distribution_size": 10,
+        "n_unified_features": 128,
+        "hidden_dims": 100,
+        "normal_fit_rows": 564,
+        "normalization": "frozen shared790 source transform"
+      },
+      "train_seconds": 1.5720830638892949,
+      "step_seconds": [],
+      "score_seconds": {
+        "CAL": 0.9007702600210905,
+        "CIC_DEV": 0.0613380610011518,
+        "UNSW_DEV": 0.062163383001461625,
+        "EDGE": 0.04239612212404609
+      },
+      "reload_exact": true,
+      "source_cal_cut": 0.8500377535820007,
+      "source_cal_weighted_fpr": 0.006047640015602199,
+      "checkpoint_sha256": "9da38a0a9049a6a36c92d51256c9be3a7d851f3f0868447c68d25bcd3ae473a0",
+      "score_sha256": "3baa0955a47b1e80e9ada8fe932cd3df5af5f7951b59263e5ab95cbfc205b7ec",
+      "official_benchmark_replication_pending": true,
+      "formal_training_pending": true,
+      "seconds": 6.774216619087383,
+      "rss_peak_mib": 541.75
+    },
+    "NCA_SCALE": {
+      "status": "PASS",
+      "scope": "SOURCE_ONLY_INFERENCE_SCALING",
+      "real_parity_errors": {
+        "64": 2.530091016694769e-07,
+        "128": 2.530091016694769e-07,
+        "511": 2.530091016694769e-07
+      },
+      "full_pool_completed": true,
+      "source_fit_rows": 617908,
+      "all_candidates_included": true,
+      "encoding_seconds": 502.00691593112424,
+      "cal8_score_seconds": 0.20928632305003703,
+      "key_bytes": 316369024,
+      "key_sha256": "fa29cb64c169fd41202cf6332c6bec6ceacf123aebfccbe6fcfffd54c722d287",
+      "labels_sha256": "32d2f0dda567f176cf9ca6dfbc6e12bb82491224dd3b8a0b77ef8f5405c67fc2",
+      "forecast_seconds": 749.8054864354797,
+      "training_gradient_chunking_qualified": false,
+      "full_training_pending": true,
+      "seconds": 532.3175038781483,
+      "rss_peak_mib": 6155.59375
+    }
+  },
+  "seconds": 656.5978141140658
+}

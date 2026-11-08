@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "scope": "AUTHOR_SEMANTICS_AND_REAL_ENGINEERING_ONLY",
+  "job_id": "182719",
+  "scheduler_elapsed_seconds": 664,
+  "worker_seconds": 656.5978141140658,
+  "sampled_tree_peak_mib": 6155.59375,
+  "scheduler_maxrss_kib": 6479828,
+  "conservative_peak_gib": 6.179645538330078,
+  "main_model_changed": false,
+  "formal_training_authorized": false,
+  "paper_benchmark_reproduction_pending": true,
+  "qualified_engineering_methods_cumulative": [
+    "TabM_corrected_v2",
+    "ModernNCA",
+    "DisentAD",
+    "TabR",
+    "SLAD"
+  ],
+  "source_fit_inference_candidates": 617908,
+  "real_nca_max_log_probability_error": 2.530091016694769e-07,
+  "nca_training_scaling_pending": true,
+  "large_artifacts": "HPC_ONLY",
+  "receipt_sha256": {
+    "RESULT.json": "31afa8d2a7b801e7e3047113e29286d1fa423d55ad2090fae362e697d38b5221",
+    "JOB.json": "6d950082f7234aebf8b430901ae65d8a6a46f02c49293eaf9a1fd3c5f646d2d3",
+    "SCHEDULER.json": "4c404b9ed9140ec281a66bc9830aca2b9d49c3953b29d233a79aee1cb0be564d",
+    "DEPENDENCY_GATE.json": "341377e8e5dd38e642d32553b3f3968bc97d89cfe004599b855ea6199e9f1ecc",
+    "NCA_FORECAST.json": "afa7fafa14cfd20aa2676409b9598fa598c49b157bd5da64c1a28b7995f8069c",
+    "PIPELINE_RESULT.json": "ab91857520591c780a144d7981bbfa37d332ea4584511f623456f7ac9a60c320",
+    "FIDELITY_RESULT.json": "55d284d019a4821d015f30494ddc68aaaed121c204e4e730292ed025931f2cb0",
+    "TabM_RESULT.json": "c5701556735f3f6c59d482b24515fb0602a677b2b334a3f355e964de79bec24f",
+    "TabR_RESULT.json": "e36251cb49d765d4b935439fc8e094ad47409abf4f27d0b1b5b6afe4cb6d005f",
+    "SLAD_RESULT.json": "ca80d2b7fdbd104aba2d04eb5c2bcbd7e05ad90e6cf137c3481045ccfdaabc11",
+    "NCA_SCALE_RESULT.json": "d3ce7b74304b031b5e0b22688d57d5fd41f9bad8cb5dc6c127c1bd0dcdd1aab8"
+  }
+}
