@@ -1,0 +1,89 @@
+{
+  "version": "BASELINE_SPLIT_RESOURCE_V1",
+  "stage": "RUNNING",
+  "phase": "PIPELINE",
+  "job_id": "182752",
+  "done": 2,
+  "total": 8,
+  "detail": "PIPELINE",
+  "inner_done": 0,
+  "inner_total": 1,
+  "results": {
+    "ENVIRONMENT": {
+      "status": "PASS",
+      "versions": {
+        "numpy": "2.0.1",
+        "torch": "2.5.1",
+        "sklearn": "1.5.2",
+        "scipy": "1.14.1",
+        "catboost": "1.2.8",
+        "pandas": "2.2.3",
+        "plotly": "5.24.1",
+        "matplotlib": "3.9.2",
+        "graphviz": "0.20.3",
+        "joblib": "1.4.2",
+        "threadpoolctl": "3.5.0"
+      },
+      "isolated_wheels": true,
+      "sklearn_transform_and_metric": true,
+      "catboost_native_fit": true,
+      "executed_before_real_pipeline": true,
+      "seconds": 34.658207691973075,
+      "rss_peak_mib": 410.6328125
+    },
+    "FIDELITY": {
+      "status": "PASS",
+      "checks": {
+        "TabM": {
+          "status": "PASS",
+          "output_classes": 2,
+          "loss": "per-member CE",
+          "ensemble": "mean probability",
+          "legacy_logit_mean_counterexample": true
+        },
+        "ModernNCA": {
+          "status": "PASS",
+          "chunk_max_log_probability_errors": [
+            1.9005511064928982e-07,
+            1.9005511109337903e-07,
+            1.9198433087730393e-07
+          ],
+          "tolerance": 0.0005,
+          "inference_only": true
+        },
+        "SLAD": {
+          "status": "PASS",
+          "loss_formula_max_abs_error": 1.1102230246251565e-16,
+          "author_log_softmax_of_probabilities_preserved": true
+        },
+        "DisentAD": {
+          "status": "PASS",
+          "patch_input_exact": true
+        },
+        "TabR": {
+          "status": "PASS",
+          "official_class_AST_unchanged": true,
+          "faiss_vs_exhaustive_logit_error": 0.0
+        },
+        "DTE": {
+          "status": "PASS",
+          "loss": "author CE on softmax probabilities preserved",
+          "noise": "variance only, no drift",
+          "score": "expected bin index",
+          "loss_exact": true
+        },
+        "TabR_native_memory_efficient": {
+          "status": "PASS",
+          "eval_max_abs_error": 0.0,
+          "training_path": "original author recomputation"
+        }
+      },
+      "author_dataset_replication_required": false,
+      "seconds": 6.536711476044729,
+      "rss_peak_mib": 432.796875
+    }
+  },
+  "rss_mib": 2918.57421875,
+  "elapsed_seconds": 58.35927024483681,
+  "updated_unix": 1794121927.76914
+}

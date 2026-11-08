@@ -1,0 +1,309 @@
+{
+  "version": "BASELINE_FORMAL_PROTOCOL_V3",
+  "status": "DESIGN_FROZEN_RESOURCE_GATED",
+  "main_model_changed": false,
+  "author_benchmark_replication_required": false,
+  "external_dataset_downloads": false,
+  "methods": [
+    "TabM",
+    "ModernNCA",
+    "DisentAD",
+    "TabR",
+    "SLAD",
+    "DTE-C",
+    "CatBoost"
+  ],
+  "candidate_count_is_not_qualified_count": true,
+  "input": "same frozen causal790; shared representation comparison, not independent end-to-end feature learning",
+  "information_groups": {
+    "supervised_source": [
+      "TabM",
+      "ModernNCA",
+      "TabR",
+      "CatBoost"
+    ],
+    "normal_fit_only": [
+      "DisentAD",
+      "SLAD",
+      "DTE-C"
+    ]
+  },
+  "data": {
+    "fit_rows": 617908,
+    "normal_fit_rows": 134493,
+    "cal_rows": 148819,
+    "cal_normal_rows": 33147,
+    "inner_group_split": "capture union shared device/session/component; SHA modulo5 validation; fail closed if either class missing",
+    "source_cal_role": "normal only, final threshold 1% hierarchical weighted FPR; never tune/early stop",
+    "targets": [
+      "CIC_DEV",
+      "UNSW_DEV",
+      "EDGE"
+    ],
+    "target_role": "development/transfer diagnosis consumed, not unseen",
+    "frontend_fit_scope_disclosure": "frozen shared encoder previously learned source FIT including inner validation; not independent representation validation"
+  },
+  "normalization": "Any model-specific normalizer fitted inner training only, then refitted full legal FIT after selection; normal-only methods fit normal training only; never target/CAL fitting",
+  "tuning": {
+    "seed": 27,
+    "trials_per_method": 16,
+    "trial0": "registered author/default setting",
+    "other_trials": "15 deterministic random configurations sampled once and SHA sealed before any validation score",
+    "selection_metric": "source inner validation normalized weighted partial ROC AUC up to FPR .02",
+    "tie_break": [
+      "weighted full ROC AUC",
+      "smaller measured training compute",
+      "lower trial index"
+    ],
+    "source_validation_attack_labels": "available for selection equally; normal-only objectives still never train on attacks",
+    "early_stopping_patience_epochs": 20,
+    "neural_epoch_caps": {
+      "DTE-C": 400,
+      "SLAD": 100,
+      "DisentAD": 200,
+      "TabM": 1000,
+      "TabR": 1000,
+      "ModernNCA": 1000
+    },
+    "catboost_max_iterations": 4000,
+    "cap_hit_rule": "if validation still improving at cap or wall cap aborts, label incomplete; extend justified contract before reporting as fully trained",
+    "search_space": {
+      "TabM": {
+        "lr": [
+          0.0001,
+          0.005
+        ],
+        "weight_decay": [
+          0,
+          0.01
+        ],
+        "width": [
+          128,
+          256,
+          512
+        ],
+        "blocks": [
+          2,
+          3,
+          4
+        ],
+        "num_embeddings": [
+          "none"
+        ],
+        "k": [
+          32
+        ]
+      },
+      "TabR": {
+        "lr": [
+          3e-05,
+          0.001
+        ],
+        "weight_decay": [
+          0,
+          0.001
+        ],
+        "d_main": [
+          128,
+          256
+        ],
+        "context_size": [
+          32,
+          96,
+          128
+        ],
+        "encoder_n_blocks": [
+          0
+        ],
+        "predictor_n_blocks": [
+          1,
+          2
+        ],
+        "memory_efficient": [
+          true
+        ]
+      },
+      "ModernNCA": {
+        "sample_rate": [
+          0.05,
+          0.1,
+          0.25,
+          0.5
+        ],
+        "temperature": [
+          0.1,
+          1,
+          10
+        ],
+        "lr": [
+          0.0001,
+          0.01
+        ],
+        "weight_decay": [
+          0,
+          0.001
+        ],
+        "PLR": "author frozen default; n_blocks0; full backward gate required"
+      },
+      "DisentAD": {
+        "lr": [
+          3e-05,
+          0.001
+        ],
+        "dim": [
+          64,
+          128,
+          256
+        ],
+        "patch_size": [
+          1
+        ],
+        "num_heads": [
+          2
+        ]
+      },
+      "SLAD": {
+        "lr": [
+          0.0001,
+          0.003
+        ],
+        "hidden_dims": [
+          64,
+          100,
+          128
+        ],
+        "n_ensemble": [
+          20
+        ],
+        "distribution_size": [
+          10
+        ],
+        "n_unified_features": [
+          128
+        ],
+        "epoch_steps": [
+          -1
+        ]
+      },
+      "DTE-C": {
+        "lr": [
+          3e-05,
+          0.001
+        ],
+        "weight_decay": [
+          0,
+          0.001
+        ],
+        "hidden_size": [
+          [
+            128,
+            256,
+            128
+          ],
+          [
+            256,
+            512,
+            256
+          ]
+        ],
+        "T": [
+          200,
+          400,
+          800
+        ],
+        "num_bins": [
+          5,
+          7,
+          10
+        ]
+      },
+      "CatBoost": {
+        "depth": [
+          4,
+          6,
+          8,
+          10
+        ],
+        "learning_rate": [
+          0.01,
+          0.1
+        ],
+        "l2_leaf_reg": [
+          1,
+          3,
+          10,
+          30
+        ],
+        "random_strength": [
+          0,
+          1,
+          5
+        ]
+      }
+    }
+  },
+  "final_training": {
+    "seeds": [
+      27,
+      127,
+      227
+    ],
+    "refit": "full legal source FIT; use selected epoch count from inner validation, no target early stop",
+    "checkpoints": "save optimizer, RNG, sampler cursor, input SHA, config SHA; verify exact resume before long job",
+    "ensemble": "arithmetic mean of same-method seed scores, separate CAL threshold; no cross-method score average"
+  },
+  "thresholds": {
+    "fit": "all33147 legal source CAL normals",
+    "normal_weighting": "existing hierarchical device/activity/capture/session weighting",
+    "alpha": 0.01,
+    "comparison": "strict >",
+    "score_direction": "larger means attack/anomaly",
+    "target_threshold_fit": false
+  },
+  "evaluation": {
+    "head_table": "all baseline RAW versus frozen main RAW on identical790 and same query UIDs",
+    "system_table": "main C5_3D_OLD with legal target normal reference shown separately; explicitly disclose extra reference and do not call unmatched RAW comparison equal-information end-to-end proof",
+    "C5_on_baselines": "not silently applied; needs separately sealed own source score scale and common legal reference access",
+    "views": [
+      "A/B full",
+      "A/B post_window_primary",
+      "per-device",
+      "Edge HT-weighted and ordinary"
+    ],
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "metrics": [
+      "ordinary and weighted FPR",
+      "HTTP and UDP TPR separately",
+      "all attacks TPR",
+      "AUROC",
+      "AUPRC with prevalence",
+      "TP/FP/FN/TN denominators",
+      "latency and peak memory"
+    ],
+    "target_acceptance": "FPR<.02 and TPR>=.999 are reporting targets, never tuning targets",
+    "all_valid_methods_reported": true
+  },
+  "resources": {
+    "preflight": "1CPU8GiB2h only",
+    "formal": "per-method actual full training/validation/I/O plus 50% time headroom; memory measured plus30%; request changed allocation before formal launch if current resources insufficient",
+    "equal_trial_count": 16,
+    "report_actual_compute": true,
+    "resource_failures_not_losses": true,
+    "cannot_seal_total_runtime_from_inference_only": true
+  },
+  "gates": [
+    "source grouped split coverage",
+    "exact official implementation/adaptation semantics",
+    "real pipeline",
+    "checkpoint reload and resume",
+    "actual full-size training memory qualification",
+    "whole epoch plus source validation timing before wall budget finalization",
+    "all trial configurations and seeds frozen before tuning",
+    "no target tuning"
+  ]
+}

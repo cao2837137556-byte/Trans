@@ -1,0 +1,159 @@
+{
+  "status": "DESIGN_ONLY_NOT_MATERIALIZED",
+  "rule": "Per device/class choose nonempty proper whole-group subset minimizing abs(5*validation_rows-total_rows); tie by fixed SHA256",
+  "source_group_sha256": "8346d8478ccef857893007e6fc2c1fcce289f531448f37923cd2dae34d1c4e8e",
+  "selected_validation_group_ids": [
+    90,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    171,
+    172,
+    173,
+    178,
+    181,
+    183,
+    185,
+    189,
+    195,
+    197
+  ],
+  "strata": [
+    {
+      "device": "Amcrest Camera",
+      "label": "attack",
+      "train_rows": 61,
+      "validation_rows": 26,
+      "validation_groups": [
+        181
+      ],
+      "validation_fraction": 0.2988505747126437
+    },
+    {
+      "device": "Amcrest Camera",
+      "label": "normal",
+      "train_rows": 27748,
+      "validation_rows": 5192,
+      "validation_groups": [
+        90,
+        134
+      ],
+      "validation_fraction": 0.15761991499696418
+    },
+    {
+      "device": "ArloQ Camera",
+      "label": "attack",
+      "train_rows": 13683,
+      "validation_rows": 2345,
+      "validation_groups": [
+        171,
+        172,
+        173
+      ],
+      "validation_fraction": 0.14630646368854505
+    },
+    {
+      "device": "ArloQ Camera",
+      "label": "normal",
+      "train_rows": 26146,
+      "validation_rows": 11664,
+      "validation_groups": [
+        133
+      ],
+      "validation_fraction": 0.3084898175085956
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": "attack",
+      "train_rows": 15303,
+      "validation_rows": 3218,
+      "validation_groups": [
+        195,
+        197
+      ],
+      "validation_fraction": 0.17374871767183198
+    },
+    {
+      "device": "Atomi Coffee Maker",
+      "label": "normal",
+      "train_rows": 2451,
+      "validation_rows": 838,
+      "validation_groups": [
+        132
+      ],
+      "validation_fraction": 0.25478868957129824
+    },
+    {
+      "device": "Globe Lamp",
+      "label": "attack",
+      "train_rows": 14285,
+      "validation_rows": 3373,
+      "validation_groups": [
+        183,
+        185
+      ],
+      "validation_fraction": 0.191018235360743
+    },
+    {
+      "device": "Globe Lamp",
+      "label": "normal",
+      "train_rows": 778,
+      "validation_rows": 149,
+      "validation_groups": [
+        129
+      ],
+      "validation_fraction": 0.16073354908306364
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": "attack",
+      "train_rows": 118984,
+      "validation_rows": 44164,
+      "validation_groups": [
+        189
+      ],
+      "validation_fraction": 0.2706989972295094
+    },
+    {
+      "device": "Philips Hue Bridge",
+      "label": "normal",
+      "train_rows": 37430,
+      "validation_rows": 11462,
+      "validation_groups": [
+        130
+      ],
+      "validation_fraction": 0.23443508140391067
+    },
+    {
+      "device": "SimCam",
+      "label": "attack",
+      "train_rows": 193232,
+      "validation_rows": 74741,
+      "validation_groups": [
+        178
+      ],
+      "validation_fraction": 0.2789124277445862
+    },
+    {
+      "device": "SimCam",
+      "label": "normal",
+      "train_rows": 7019,
+      "validation_rows": 3616,
+      "validation_groups": [
+        131
+      ],
+      "validation_fraction": 0.3400094029149036
+    }
+  ],
+  "scores_used": false,
+  "cal_used": false,
+  "required_before_training": [
+    "Materialize new masks on HPC and seal train/validation UID hashes",
+    "Verify capture/session/component disjointness on original rows",
+    "Audit activity/protocol coverage and weighted metric definition"
+  ],
+  "old_arrays_unchanged": true
+}

@@ -1,0 +1,32 @@
+{
+  "version": "BASELINE_SPLIT_RESOURCE_V1",
+  "cpu": 1,
+  "memory_gib": 8,
+  "wall_seconds": 7200,
+  "phases": [
+    "ENVIRONMENT",
+    "FIDELITY",
+    "PIPELINE",
+    "SPLIT",
+    "DTE_EPOCH",
+    "SLAD_EPOCH",
+    "TABM_EPOCH",
+    "RESOURCE_REVIEW"
+  ],
+  "phase_caps_seconds": {
+    "ENVIRONMENT": 300,
+    "FIDELITY": 120,
+    "PIPELINE": 600,
+    "SPLIT": 600,
+    "DTE_EPOCH": 600,
+    "SLAD_EPOCH": 900,
+    "TABM_EPOCH": 4800,
+    "RESOURCE_REVIEW": 60
+  },
+  "resource_phases": [
+    "DTE_EPOCH",
+    "SLAD_EPOCH",
+    "TABM_EPOCH"
+  ],
+  "full_training": false
+}
