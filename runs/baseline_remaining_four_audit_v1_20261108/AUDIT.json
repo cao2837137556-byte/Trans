@@ -1,0 +1,57 @@
+{
+  "status": "LOCAL_REVIEW_COMPLETE_NOT_HPC_RELEASE",
+  "fixed_portfolio": [
+    "TabM",
+    "TabR",
+    "DisentAD",
+    "ModernNCA",
+    "SLAD",
+    "DTE-C",
+    "CatBoost"
+  ],
+  "methods": {
+    "TabM": {
+      "shape": [
+        4,
+        32,
+        2
+      ],
+      "finite_loss": true,
+      "parameters": 1117952,
+      "stop_rule": "author validation accuracy patience16; clip norm1; group-disjoint source validation still required"
+    },
+    "TabR": {
+      "constructor_and_backward": true,
+      "shape": [
+        4,
+        1
+      ],
+      "finite_loss": true,
+      "small_pool_oracle_only": true,
+      "archived_default_config_binding": "mixer_dropout -> context_dropout plausible from current code but historical rename evidence not found; not yet certified",
+      "production_context_size": 96
+    },
+    "ModernNCA": {
+      "small_pool_backward": true,
+      "observed_periodic_shape": [
+        30,
+        790,
+        154
+      ],
+      "sampled_full_candidates": 308698,
+      "float32_periodic_concat_gib": 139.90774258971214,
+      "float32_embedding_output_gib": 30.888722389936447,
+      "scope": "individual tensor sizes, not total peak; full backward NOT qualified; float64 doubles these values"
+    },
+    "DisentAD": {
+      "patch1_dim128_forward_backward": true,
+      "score_shape": [
+        2
+      ],
+      "finite_scores": true,
+      "selection": "lowest mean training loss checkpoint; never best target test AP",
+      "batch512_single_attention_gib": 2.3807525634765625,
+      "scope": "attention tensor only; full adapted epoch pending"
+    }
+  }
+}

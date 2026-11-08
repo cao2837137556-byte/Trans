@@ -1,9 +1,9 @@
 # 当前状态
 
-1. **方法**：主模型冻结；基线作者推荐/默认参数，无搜索；大工件留超算。
-2. **故障与修复**：SLAD182779训练3种子各100轮成功，独立评价缺algorithms导入路径失败；修复182782已运行，1CPU8GiB2小时，仅评价，不重训，不热改父包。
-3. **回归门**：新进程不先construct直接predictor，旧错误复现、修复预测精确一致本地PASS；Linux真实小片+3模型SHA/回读后自动CAL和A/B/Edge，成果在独立目录。
-4. **其他方法**：DTE-C182778仍正常（第二种子约122/400）；CatBoost182781训练评价完成待科学验收；其他4基线资格待办不变。
-5. **进度与交付**：baseline_slad_eval_repair_v1_20261108，客户端PID34636合并状态到18806，旧PID29824仅状态客户端已停止。见[修复回执](collab/20261108_slad_prediction_import_repair_codex.md)。
+1. **范围**：用户明确固定7个基线，不再扩至8–10；主模型冻结、作者推荐/默认、无搜索、大工件留超算。
+2. **已获结果**：CatBoost与SLAD三种子训练评价已完成，效果已向用户报告；DTE最近查询仍训练。此轮未重新查询运行状态。
+3. **本次审查**：TabM/TabR/Disent-AD/ModernNCA本地小张量构造/反传通过，仅审查证据，非Linux全量资格。未启动新作业。
+4. **具体发现**：Disent保存最低训练loss，不能采用控制台最佳测试AP；NCA默认周期拼接单张量float32约139.91GiB，30.89GiB不是总峰值；TabR历史dropout改名证据尚未核实。
+5. **后续**：补TabM源组隔离早停及合适硬件整轮、TabR参数绑定与检索资源、Disent固定适配资源、NCA可用内存；进度客户端34636保持既有首批流程。见[审查回执](collab/20261108_remaining_four_baseline_audit_codex.md)。
 
 [历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md)

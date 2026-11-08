@@ -1,3 +1,9 @@
+## 2026-11-08：固定七基线，推进剩余四方法审查
+
+用户取消8–10数量目标，固定现有七个。四方法本地前后向检查完成；Disent-AD须沿用最低训练loss保存规则、不用控制台最佳测试AP，ModernNCA原默认周期拼接单张量float32约139.91GiB（总峰值更高），TabR参数更名历史证据仍待核实。无新作业，不动现有训练包。见[审查回执](collab/20261108_remaining_four_baseline_audit_codex.md)。
+
+---
+
 ## 2026-11-08：SLAD独立评价导入路径修复182782
 
 182779三种子训练100轮均完成，纯评价torch.load缺algorithms模块而失败。原续训检查因先construct注册路径而漏检；新进程直接predictor回归复现错误并验证修复预测精确一致。独立修复182782运行（1CPU8GiB2小时），复用三模型与大数组、先真实链路和加载门再CAL/A/B/Edge，无重训、不热改DTE父包。DTE182778仍运行，CatBoost182781完成待验收。客户端34636统一18806状态。见[回执](collab/20261108_slad_prediction_import_repair_codex.md)。
