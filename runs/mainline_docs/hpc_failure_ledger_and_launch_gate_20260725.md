@@ -1,3 +1,9 @@
+## 2026-11-08：TabR分种子预算修复182914
+
+182807数值/整轮通过，因三种子总预算超过单作业7天被拦。独立种子作业+afterok评价替代单长链，科学worker/CONFIG字节未改，真实预检182914运行。客户端39556/18880/原页面18806；其他方法不重跑。见[修复回执](collab/20261108_tabr_seed_budget_repair_codex.md)。
+
+---
+
 ## 2026-11-08：后三基线提交模块冲突修复182804
 
 182796真实小切片PASS后，通用import controller被旧包截获，submit缺seconds而停止，未产生新训练作业。v2绝对路径加载+模块/worker/签名身份门，本地与计算节点启动提交包装器回归PASS；182804共享预检完成，Disent182805/TabM182806/TabR182807已提交排队。原训练worker/CONFIG字节不变；DTE旧作业继续。客户端8748、接收端18879、进度18806。见[修复回执](collab/20261108_remaining_three_dispatch_repair_codex.md)。
