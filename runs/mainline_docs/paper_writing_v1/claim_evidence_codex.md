@@ -9,7 +9,7 @@ ALL_METRICS按`pool,view,method,head,group`唯一定位；数值字段为`rows,a
 |当前方法是790维融合头＋完整合法历史参考＋3D_OLD|F/METHOD_FREEZE.json：method、heads、correction、geometry、references|固定27/127/227；OLD仅扣分尺度|不是旧782分类器；不是旧少样本LR|已证实|
 |A正常18/96041、攻击79056/79056；B正常210/74444、攻击72543/72553|F/ALL_METRICS.json；F/T1_MAIN.md|C5_3D_OLD；post_window_primary；ensemble；普通率|已消费开发数据；查询级|已证实|
 |B相对原C5减少1089条正常误报，攻击数不变|同上，method=C5_FROZEN与C5_3D_OLD|相同UID、视图、阈值、ensemble；普通计数|不是外部检测器对比|已证实|
-|Edge最终正常24/20000、HTTP19958/20000、UDP19732/20000|同上，pool=EDGE、view=full|ensemble；普通率0.12%、99.79%、98.66%|不是未消费盲测；非事件率|已证实|
+|Edge最终正常24/20000、HTTP19958/20000、UDP19732/20000|同上，pool=EDGE、view=full|ensemble；普通率0.12%、99.79%、98.66%|用户明确Edge未参与开发；盲测流程待核对；非事件率|已证实|
 |Edge正常加权1.220180%，HT约0.017457%|同上hierarchical_rate、HT_rate；D/reporting.py:_rate|同一方法/头/视图，不同权重|不能与0.12%混写；HT是抽样展开点估计|已证实|
 |同库OLD尺度三维比二维多保住2296条HTTP，正常误报增加7条|F/T2_GEOMETRY_SCALE_ABLATION.md；ALL_METRICS对应2D_OLD/3D_OLD|Edge full ensemble普通计数；其余固定|三维保护不等于三维降低误报；不推论所有域|已证实|
 |仅三维加当前尺度不足以解决误报|同表3D_FUSION：B2.153296%、Edge5.815%|B主视图、Edge full；ensemble普通率|收益是组合，不归因单因素|已证实|
@@ -30,3 +30,7 @@ ALL_METRICS按`pool,view,method,head,group`唯一定位；数值字段为`rows,a
 2. PAPER_RESULTS草稿中的“显著改善”本轮收窄成“观察到改善/减少具体计数”；没有统计检验，不使用统计显著性措辞。
 3. 旧EXPERIMENT_ROADMAP的基线名单被当前六方法规则替代；其统计、外部确认和成本缺口仍适用。ModernNCA不恢复。
 4. 归档支持数组包含历史守卫存储差异，G/support_contract.py用于复现存储语义；最终分数守卫统一应用于所有设备，不把历史四设备存储规则写成当前方法特例。
+
+## Edge角色纠正（2026-11-08）
+
+用户明确指出Edge未参与开发。本轮撤回先前将A/B/Edge一并定性为开发数据的表述。该旧判断来自接手包、论文冻结selection_scope及同库验收中的文字结论，本写作对话没有独立验证其因果时间线。另一方面，D/TRAINING_SPEC_FROZEN.json:training.model_selection明确写明none; no Edge/CIC_DEV/UNSW_DEV tuning。该字段支持训练/选模规则，但单独不能证明完整方法设计的时间线。当前正文按用户更正将Edge列为跨数据集外部评价；历史文件保持原样，记录冲突，不修改冻结工件。若进一步使用“独立盲测”，应核对方法/规则冻结时间、首次查看Edge结果时间，以及是否存在据Edge反馈改变输入、规则或最终版本的具体记录；不能仅以评价多次、事后诊断或正常参考访问推出参与开发。
