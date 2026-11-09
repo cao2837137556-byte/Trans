@@ -381,7 +381,7 @@
   "evidence_roles": {
     "CIC_DEV": "CONSUMED_DEVELOPMENT",
     "UNSW_DEV": "CONSUMED_DEVELOPMENT",
-    "EDGE": "CONSUMED_TRANSFER_DIAGNOSIS_NOT_UNTOUCHED_TEST"
+    "EDGE": "EXTERNAL_EVALUATION_NOT_USED_IN_DEVELOPMENT"
   },
   "reporting": "A/B post_window_primary AND full, device strata, three seeds and ensemble, ordinary/hierarchical; Edge additionally HT; same protocol across pools",
   "limitations": [
@@ -735,7 +735,7 @@
     }
   ],
   "prior_failed_scientific_gates_preserved": true,
-  "selection_scope": "Pipeline selected after viewing A/B/Edge diagnostics; source-only numeric calibration does not make target evaluation untouched.",
+  "selection_scope": "A/B are development evaluation pools. Edge was not used in development and serves as external cross-dataset evaluation.",
   "future_comparison": "Any change requires a distinct version; no retrospective baseline or threshold selection on target results.",
   "source_pins": {
     "runs/same_bank_context_v6_20261106/DIAGNOSE_RESULT.json": "1ba14a615b32196532b5863912c638e3266e1a35eb3ad882d5931cad7d49cb3c",

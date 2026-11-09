@@ -89,7 +89,7 @@ def main():
     pooled = [r for r in rows_all if not r['group'].startswith('device:')]
     primary = lambda r: r['view'] == ('full' if r['pool'] == 'EDGE' else 'post_window_primary')
     table('T1_MAIN', fields, [formatted(r) for r in pooled if r['head']=='ensemble' and primary(r) and r['method'] in ['RAW','C5_FROZEN',candidate]],
-          'Ensemble. NORMAL is FPR; ATTACK/HTTP/UDP are query detection rates. A/B are consumed development pools; Edge is consumed transfer diagnosis. All rate columns are percentages; no event-level claim.')
+          'Ensemble. NORMAL is FPR; ATTACK/HTTP/UDP are query detection rates. A/B are consumed development pools; Edge is external cross-dataset evaluation and was not used in development. All rate columns are percentages; no event-level claim.')
     table('T2_GEOMETRY_SCALE_ABLATION', fields, [formatted(r) for r in pooled if r['head']=='ensemble' and primary(r) and r['method'].startswith(('C5_2D_', 'C5_3D_'))],
           'Controlled 2x2 ablation: same FUSION790, full reference bank, query UIDs, thresholds and source radii; vary geometry and correction scale only. Not independent external baselines.')
     table('S1_FULL_AND_SEEDS', ['Head']+fields, [[r['head']]+formatted(r) for r in pooled if r['method']==candidate],
@@ -138,10 +138,10 @@ def main():
         context=dict(window=spec['window'],b_timeline=spec['b_timeline'],a_timeline=spec['a_timeline'],normalizer=read(EVAL/'NORMALIZER.json')),
         references={pool:{'rows':p['reference_rows'],'uid_sha256':p['reference_uid_sha256']} for pool,p in d['pools'].items()},
         result_artifacts={pool:p['artifact'] for pool,p in d['pools'].items()},
-        evidence_roles={'CIC_DEV':'CONSUMED_DEVELOPMENT','UNSW_DEV':'CONSUMED_DEVELOPMENT','EDGE':'CONSUMED_TRANSFER_DIAGNOSIS_NOT_UNTOUCHED_TEST'},
+        evidence_roles={'CIC_DEV':'CONSUMED_DEVELOPMENT','UNSW_DEV':'CONSUMED_DEVELOPMENT','EDGE':'EXTERNAL_EVALUATION_NOT_USED_IN_DEVELOPMENT'},
         reporting='A/B post_window_primary AND full, device strata, three seeds and ensemble, ordinary/hierarchical; Edge additionally HT; same protocol across pools',
         limitations=acceptance['exceptions'],prior_failed_scientific_gates_preserved=True,
-        selection_scope='Pipeline selected after viewing A/B/Edge diagnostics; source-only numeric calibration does not make target evaluation untouched.',
+        selection_scope='A/B are development evaluation pools. Edge was not used in development and serves as external cross-dataset evaluation.',
         future_comparison='Any change requires a distinct version; no retrospective baseline or threshold selection on target results.',source_pins=pins)
     save('METHOD_FREEZE.json',freeze)
     save('SOURCE_PINS.json',pins)

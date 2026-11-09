@@ -1,4 +1,4 @@
-Ensemble. NORMAL is FPR; ATTACK/HTTP/UDP are query detection rates. A/B are consumed development pools; Edge is consumed transfer diagnosis. All rate columns are percentages; no event-level claim.
+Ensemble. NORMAL is FPR; ATTACK/HTTP/UDP are query detection rates. A/B are consumed development pools; Edge is external cross-dataset evaluation and was not used in development. All rate columns are percentages; no event-level claim.
 
 | Pool | View | Method | Group | Alarms/N | Sample (%) | Weighted (%) | HT (%) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
