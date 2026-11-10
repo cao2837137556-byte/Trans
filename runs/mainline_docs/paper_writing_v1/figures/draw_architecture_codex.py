@@ -29,7 +29,7 @@ def arrow(p, q, dashed=False):
 
 ax.axhspan(.76,.99,color='#f3f5f7')
 ax.text(.018,.97,'离线准备：参数与阈值固定后进入评价',fontsize=12,fontweight='bold',va='top',color='#263747')
-box(.025,.785,.245,.13,'源训练与表示','编码器 / 融合分类头\n源归一化统计量')
+box(.025,.785,.245,.13,'编码与源训练','官方编码器冻结；分类头训练\n源归一化统计量')
 box(.365,.785,.285,.13,'源几何与分数尺度','半径：由源正常样本估计\n离散尺度：由源训练分数估计')
 box(.745,.785,.23,.13,'源正常校准','1% 加权误报预算\n固定告警阈值 τ')
 ax.text(.018,.72,'现场推理：仅使用已观测前缀与时间合格的正常参考',fontsize=12,fontweight='bold',color='#263747')
@@ -53,6 +53,8 @@ ax.text(.713,.62,'分数',fontsize=9,color='#52667c')
 ax.text(.715,.37,'支持',fontsize=9,color='#52667c',rotation=30)
 ax.text(.025,.035,'上方为离线固定配置，下方为现场推理的主要数据路径。上下文同时用于基础判别与正常参考约束。',fontsize=10,color='#52667c')
 fig.subplots_adjust(left=.015,right=.985,top=.99,bottom=.015)
-fig.savefig(OUT/'context_reference_architecture_codex.svg',bbox_inches='tight')
+svg_path = OUT/'context_reference_architecture_codex.svg'
+fig.savefig(svg_path,bbox_inches='tight')
+svg_path.write_text('\n'.join(line.rstrip() for line in svg_path.read_text(encoding='utf-8').splitlines())+'\n', encoding='utf-8')
 fig.savefig(OUT/'context_reference_architecture_codex.png',dpi=160,bbox_inches='tight')
 plt.close(fig)

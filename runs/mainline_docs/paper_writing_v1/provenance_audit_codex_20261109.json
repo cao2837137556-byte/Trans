@@ -1,0 +1,1643 @@
+{
+  "scope": "READ_ONLY_METADATA_AND_SAVED_Q14_NO_MODEL_EXECUTION",
+  "pools": {
+    "LEARN": {
+      "metadata_path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN.jsonl.gz",
+      "metadata_sha256": "295a714ab573baf50086464d0c5e97ddfa9ca9e065a06cf282037df75541ae91",
+      "q14_path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/LEARN_q.npy",
+      "q14_sha256": "388c92ce4a1cb8029ba81d52cd7b511c8e49a8e97f848ab5982050d470e63b9e",
+      "total_rows": 766727,
+      "groups": [
+        {
+          "role": "FIT",
+          "device": "Philips Hue Bridge",
+          "label": 0,
+          "rows": 48892,
+          "protocol_guard_rows": 525,
+          "first_utc": "2021-10-05T17:30:34.547789+00:00",
+          "last_utc": "2021-11-26T22:51:47.417607+00:00",
+          "capture_count": 31
+        },
+        {
+          "role": "CAL",
+          "device": "Philips Hue Bridge",
+          "label": 0,
+          "rows": 12376,
+          "protocol_guard_rows": 135,
+          "first_utc": "2021-10-05T17:54:23.325618+00:00",
+          "last_utc": "2021-11-26T22:51:59.691218+00:00",
+          "capture_count": 16
+        },
+        {
+          "role": "FIT",
+          "device": "ArloQ Camera",
+          "label": 0,
+          "rows": 37810,
+          "protocol_guard_rows": 1345,
+          "first_utc": "2021-10-06T14:47:31.728651+00:00",
+          "last_utc": "2021-11-26T22:52:02.612077+00:00",
+          "capture_count": 22
+        },
+        {
+          "role": "CAL",
+          "device": "ArloQ Camera",
+          "label": 0,
+          "rows": 8946,
+          "protocol_guard_rows": 319,
+          "first_utc": "2021-10-06T14:47:48.552705+00:00",
+          "last_utc": "2021-11-26T22:51:49.429434+00:00",
+          "capture_count": 14
+        },
+        {
+          "role": "FIT",
+          "device": "Globe Lamp",
+          "label": 0,
+          "rows": 927,
+          "protocol_guard_rows": 12,
+          "first_utc": "2021-10-07T18:17:56.469403+00:00",
+          "last_utc": "2021-11-26T22:52:00.100116+00:00",
+          "capture_count": 58
+        },
+        {
+          "role": "CAL",
+          "device": "Globe Lamp",
+          "label": 0,
+          "rows": 180,
+          "protocol_guard_rows": 2,
+          "first_utc": "2021-10-08T11:24:25.150989+00:00",
+          "last_utc": "2021-11-23T15:53:03.902827+00:00",
+          "capture_count": 20
+        },
+        {
+          "role": "FIT",
+          "device": "Amcrest Camera",
+          "label": 0,
+          "rows": 32940,
+          "protocol_guard_rows": 8952,
+          "first_utc": "2021-10-12T13:14:37.780338+00:00",
+          "last_utc": "2021-11-26T22:51:48.875875+00:00",
+          "capture_count": 13
+        },
+        {
+          "role": "CAL",
+          "device": "Amcrest Camera",
+          "label": 0,
+          "rows": 8237,
+          "protocol_guard_rows": 2358,
+          "first_utc": "2021-10-12T13:14:40.129579+00:00",
+          "last_utc": "2021-11-26T22:52:01.177952+00:00",
+          "capture_count": 9
+        },
+        {
+          "role": "FIT",
+          "device": "SimCam",
+          "label": 0,
+          "rows": 10635,
+          "protocol_guard_rows": 510,
+          "first_utc": "2021-10-12T13:35:14.288587+00:00",
+          "last_utc": "2021-11-26T22:51:58.351653+00:00",
+          "capture_count": 13
+        },
+        {
+          "role": "CAL",
+          "device": "SimCam",
+          "label": 0,
+          "rows": 2767,
+          "protocol_guard_rows": 116,
+          "first_utc": "2021-10-12T13:35:14.288587+00:00",
+          "last_utc": "2021-11-26T22:52:01.850406+00:00",
+          "capture_count": 13
+        },
+        {
+          "role": "FIT",
+          "device": "Atomi Coffee Maker",
+          "label": 0,
+          "rows": 3289,
+          "protocol_guard_rows": 133,
+          "first_utc": "2021-10-13T13:25:07.684371+00:00",
+          "last_utc": "2021-11-26T22:52:00.679111+00:00",
+          "capture_count": 34
+        },
+        {
+          "role": "CAL",
+          "device": "Atomi Coffee Maker",
+          "label": 0,
+          "rows": 641,
+          "protocol_guard_rows": 27,
+          "first_utc": "2021-11-02T12:00:54.849559+00:00",
+          "last_utc": "2021-11-26T22:46:51.206025+00:00",
+          "capture_count": 7
+        },
+        {
+          "role": "FIT",
+          "device": "ArloQ Camera",
+          "label": 1,
+          "rows": 16028,
+          "protocol_guard_rows": 2345,
+          "first_utc": "2021-11-29T18:41:14.627764+00:00",
+          "last_utc": "2021-11-29T19:21:02.632978+00:00",
+          "capture_count": 6
+        },
+        {
+          "role": "CAL",
+          "device": "ArloQ Camera",
+          "label": 1,
+          "rows": 4302,
+          "protocol_guard_rows": 661,
+          "first_utc": "2021-11-29T18:41:14.627764+00:00",
+          "last_utc": "2021-11-29T19:21:02.627367+00:00",
+          "capture_count": 6
+        },
+        {
+          "role": "FIT",
+          "device": "SimCam",
+          "label": 1,
+          "rows": 267973,
+          "protocol_guard_rows": 12602,
+          "first_utc": "2021-11-30T15:47:17.412763+00:00",
+          "last_utc": "2021-12-15T18:53:37.235557+00:00",
+          "capture_count": 6
+        },
+        {
+          "role": "CAL",
+          "device": "SimCam",
+          "label": 1,
+          "rows": 64088,
+          "protocol_guard_rows": 2972,
+          "first_utc": "2021-11-30T15:47:17.412764+00:00",
+          "last_utc": "2021-12-15T18:53:37.277748+00:00",
+          "capture_count": 6
+        },
+        {
+          "role": "FIT",
+          "device": "Amcrest Camera",
+          "label": 1,
+          "rows": 87,
+          "protocol_guard_rows": 0,
+          "first_utc": "2021-12-02T12:40:30.908438+00:00",
+          "last_utc": "2021-12-02T12:50:52.315606+00:00",
+          "capture_count": 3
+        },
+        {
+          "role": "CAL",
+          "device": "Amcrest Camera",
+          "label": 1,
+          "rows": 21,
+          "protocol_guard_rows": 0,
+          "first_utc": "2021-12-02T12:40:30.941108+00:00",
+          "last_utc": "2021-12-02T12:50:18.715233+00:00",
+          "capture_count": 3
+        },
+        {
+          "role": "FIT",
+          "device": "Globe Lamp",
+          "label": 1,
+          "rows": 17658,
+          "protocol_guard_rows": 5011,
+          "first_utc": "2021-12-02T13:38:08.285763+00:00",
+          "last_utc": "2021-12-02T14:12:47.674315+00:00",
+          "capture_count": 6
+        },
+        {
+          "role": "CAL",
+          "device": "Globe Lamp",
+          "label": 1,
+          "rows": 4112,
+          "protocol_guard_rows": 1168,
+          "first_utc": "2021-12-02T13:38:08.286504+00:00",
+          "last_utc": "2021-12-02T14:12:47.672083+00:00",
+          "capture_count": 6
+        },
+        {
+          "role": "FIT",
+          "device": "Philips Hue Bridge",
+          "label": 1,
+          "rows": 163148,
+          "protocol_guard_rows": 14992,
+          "first_utc": "2021-12-02T14:19:25.359346+00:00",
+          "last_utc": "2021-12-02T14:49:11.041265+00:00",
+          "capture_count": 6
+        },
+        {
+          "role": "CAL",
+          "device": "Philips Hue Bridge",
+          "label": 1,
+          "rows": 38947,
+          "protocol_guard_rows": 3586,
+          "first_utc": "2021-12-02T14:19:25.359677+00:00",
+          "last_utc": "2021-12-02T14:49:11.040341+00:00",
+          "capture_count": 6
+        },
+        {
+          "role": "FIT",
+          "device": "Atomi Coffee Maker",
+          "label": 1,
+          "rows": 18521,
+          "protocol_guard_rows": 4793,
+          "first_utc": "2021-12-02T16:58:51.749200+00:00",
+          "last_utc": "2021-12-02T17:33:40.625016+00:00",
+          "capture_count": 6
+        },
+        {
+          "role": "CAL",
+          "device": "Atomi Coffee Maker",
+          "label": 1,
+          "rows": 4202,
+          "protocol_guard_rows": 1256,
+          "first_utc": "2021-12-02T16:58:51.749201+00:00",
+          "last_utc": "2021-12-02T17:33:40.617673+00:00",
+          "capture_count": 6
+        }
+      ],
+      "captures": {
+        "interaction-attack-238": {
+          "source_sha256": "a51e67bd7694869351c31e0fb98df4ca0f1db0ce278948a5785f5ae074ac9fc5",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-239": {
+          "source_sha256": "77aa1b3991b391c44d7164118de62b6025fe1de9f6191215a2e1fc35e10a019b",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-241": {
+          "source_sha256": "7eed38b4b7e18f30d51bfc63b3e710f422b921fd9e24e60cf9ff10ceef5bff04",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-227": {
+          "source_sha256": "a1528c2fac0f8f4b04c9530ff2b564cab064c130617d3c9151649d9d522cd519",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-231": {
+          "source_sha256": "76191e773ac6361952433c1c4af631dd5f66ca2d966be1e2e3c61bc706e316c7",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-229": {
+          "source_sha256": "4e540ae5444d40eac481ddd8846d82c62e0fcdfbe9be8993d7f512537763dc83",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-230": {
+          "source_sha256": "ea16a9880e5d61d22bff1a262d36b1b73f14efd415435429ad5cd9b19962b5cc",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-228": {
+          "source_sha256": "9eb8ac882ea675e0bf3e3c910b597d94b2d71ba7a17ea9f2929b2f677c78c647",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-232": {
+          "source_sha256": "37d80aa5ab3bff4bff538dbce05859c0f44380b001b10ee6f27312ac358448bf",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-215": {
+          "source_sha256": "386ee6a51fa39009a4789d340656158ea22f2762900d354c99c5f6c2329db787",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-219": {
+          "source_sha256": "408eef2b924f16ddd9ec668fb5521efbf2912563fe7ce6207505858305fdfdbb",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-217": {
+          "source_sha256": "81c736b2ab7f087adcf11b3f72e2f44e5dc38357e5aaddf04261955a90af8225",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-218": {
+          "source_sha256": "04f50404707a03f9d2cd974d7fe0516bc5c9698a6c302522452bcac7a8fba505",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-216": {
+          "source_sha256": "87c7d292c4878ddc6c1713b70802364b26bcf039b736141a7b737e471ae744ab",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-220": {
+          "source_sha256": "a65ac139f8f444b12e7ba38b25d744f4317775f6776bf57c830ec17d8267f3c0",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-233": {
+          "source_sha256": "e1a4039654b8040c78df627802a8442f74476bc0f42b248546319de65d6632bc",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-235": {
+          "source_sha256": "7c9874a0780fbbf624b47d305a3f8e215c95fcd4ce5cbfe7bc12fcfbd9c6f48e",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-234": {
+          "source_sha256": "b80d1f58cb355fcb783485fc7fa23a2590a1ebb2a2389f372b66e2dbb3534571",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-020": {
+          "source_sha256": "3f3a6de971781e70c0c4ed2cde6342701e405bef74e05aa12610d8f8c9223720",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-019": {
+          "source_sha256": "6fafea76585096ff831f3311f3ce80437cccbe658b065a71aa77b823d2b37db9",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-021": {
+          "source_sha256": "efea8e9e12cf6091dfbb580e88ba93a78256e7623b528569c87d27b984b2c427",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-226": {
+          "source_sha256": "b5f87d4377248a888d38819bfe76ee6ed918889f61bd176515da7dc5c957a35f",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-221": {
+          "source_sha256": "f11a45bc82fcb27b44f9a31ff75d2f9b311d212ad6d353c7306d36af87d5ba40",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-225": {
+          "source_sha256": "cc83c95f68ac853a1d515ef5ce4e37d96dac1a6ebe60b4c667d96f92f753527f",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-223": {
+          "source_sha256": "a44cfe03b79d9922bc8b9fb80ff01a568553962c1f89f762193d08cc120117e8",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-224": {
+          "source_sha256": "922ae8f0d8760ae28604fe3d47cd8d40c3a19985283482979cca1606ab6a967c",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-222": {
+          "source_sha256": "2ac8f718fed968a1ace6d546e281bba47c60b899608816bdaaa4d4c621f25019",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-161": {
+          "source_sha256": "182733ae13b49d7782535b0e061fd7d5e682c3d2c2d722e3ca0cbe2ff53740cf",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-158": {
+          "source_sha256": "98a145121a95fd56b5f9a39edc4c53e06e1b9181f6157860a96a598f32b3832c",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-160": {
+          "source_sha256": "83a2279e8c3692d40143b3a1c75f75eae8feef1443c8addad53207301d57c69a",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-169": {
+          "source_sha256": "3699dfe9e860739642a81e59ef9a77b2c3ca45ac77941678568a09b55fd4ad7c",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-172": {
+          "source_sha256": "ab3b0002e2891240345eaa6cda5e920d44749a1cee6aaf9b70a4b80463ee8e82",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-171": {
+          "source_sha256": "b9636d5d34d55292537d09e7d48171edb98045f20693417dd3d5e81c8bb9631b",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-168": {
+          "source_sha256": "481ca858394be223c8bc83b7637da32ac38c72b6eac1cf795ae5b1fdc75f3ed9",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-173": {
+          "source_sha256": "5a0a2ea6f5a5d975988bff21c8797b6f99b1fcf2db0e707b96404024eaa75e85",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-170": {
+          "source_sha256": "0a8549d21069f281d03d8c9f3a3b5b43557794953f13431e96c1dec9107885ce",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-153": {
+          "source_sha256": "6016d78e0e47bea2b7d970483901a4ad5e211a7f2843d36b0c8e967c6756f700",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-150": {
+          "source_sha256": "6220e028bd28feceda921e6ce3eca3b981f0b764060942502a5b9d213e025f3b",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-155": {
+          "source_sha256": "8786e1581c7e0298dc69253f8beeec751f1f03ef29d231ab4bf4e0acc140e101",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-152": {
+          "source_sha256": "d98ad2b2dbc6b98a39827bccc76e39d7afb97bbbb635cab8f46ce16611df3bf8",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-154": {
+          "source_sha256": "c3c769e7a513cedd40300eef15304b176e313675cc2dacebbb730e13dd5d0111",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-151": {
+          "source_sha256": "df02e58fd7a1a6316d5a0dbfac5b6c0f4084a3e6852c5b6ab2e7887b892dacd7",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-166": {
+          "source_sha256": "71d523a92f7a60bf83f75c9786598bd79aa30d6b21ab986a24c15ac15aaa048c",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-165": {
+          "source_sha256": "bd2185015edcb90069ab98b26fff015446b8c0a2fac29e52d78e8820234e2be1",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-167": {
+          "source_sha256": "3b62bdbe2ff95fed40c099b1ddbc9202086e4f192fd00282795fbeab05fe07ca",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-163": {
+          "source_sha256": "f90ca59b506129ef327421e251a07ec5866e0ec6e8e2685e0315d4cc737f8456",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-162": {
+          "source_sha256": "7f630b99eef2a59dc79948f688d9047ad804b3f60be70bc9540a00039c2f0b61",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-164": {
+          "source_sha256": "2f0904269a787c6781dfbe3fce71ab6402ef74a5f73dd199aebbbacadcdbf2c9",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-149": {
+          "source_sha256": "6debf5eac991a5c05f111786e7d1ad5ff1cd751772dfda92803778ee5c9636d3",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-148": {
+          "source_sha256": "89c2c9592c0c41255765dcf9d61cff274cbd2aa5619465a615c718ef80bad850",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-147": {
+          "source_sha256": "52193543b27a882d579cee1bf5e158075e481ff738bf0a80f9ac31f38803368e",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-144": {
+          "source_sha256": "af66cb2e3770bdf4915753cb0af80510fe55a79e9320a34e37961d3979ae1f9e",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-146": {
+          "source_sha256": "5362abeb724f198484b7cd81da2e289804bbf9c582fd799acac0cbb86de8f555",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-145": {
+          "source_sha256": "90066f493328c9aaa29b235c9cf419a1d80b38e973b4c454000f08d884cf2b3e",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-128": {
+          "source_sha256": "c090afec5ced9b7615e391c78ae03970c95a1db17f92c72d2f73d31d480224dd",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-131": {
+          "source_sha256": "a699e38fc16ee5d498df22d7c1a2fd9130f0794ffbba154189857a418e80c7f2",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-127": {
+          "source_sha256": "7dedc608d61729a2f9d8659d7cb059b4ef2d78a276f5d133bedd358616a98c74",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-130": {
+          "source_sha256": "d1a88e6e104fc096c877b3ce3d66cfe35f2e41c441b0ad5923889960c897a942",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-126": {
+          "source_sha256": "5b6fe10239b0ed7cf3cc55fb57d07c090ce0b0acf21fa7db4df4ff0181f24363",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-129": {
+          "source_sha256": "a0d76e28ed044577f8b3d335f83fc6930e6d012124115ada5d0ade74ba098b0d",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-125": {
+          "source_sha256": "5e687bafcc50ebd6797971e5c0818792b3107a47e4fa6fe5e37180f1f538d97b",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-124": {
+          "source_sha256": "0add6cdb458aa79b6e8b426cbea9e0cb941e19ee0ec1334d77865e1d509f9988",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-123": {
+          "source_sha256": "711dff78345439791be1a6d60da74ffd0e680a6a8a03ab85809527fc316ef328",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-120": {
+          "source_sha256": "dcaf4dd3227773d47e2e0d4951f5d25647b9340b41d483d07fab00fb5e26df70",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-122": {
+          "source_sha256": "6c16720c9f26b6583b0b7a76f42acd2c2e5ef4053d0298c786f27ead55e677bd",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-121": {
+          "source_sha256": "c3bca1e2e5635233bed8b8159c627f49ece66d62a8d4330754debda674256c48",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-138": {
+          "source_sha256": "4a9602c63840ba2cf772d7ee47c2f602d0d1d304519919b28cccffad6b1c2a6b",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-143": {
+          "source_sha256": "a56d1365ebbd8f93559b0fcba54c43bfdef1c594c849bfca8d9474d56a0b735c",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-140": {
+          "source_sha256": "d69adbf5efd03ebe8a9a01d0824cef36a684570f8941f7cab76cd1d7aef5888e",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-142": {
+          "source_sha256": "1981bfd709e617e4def6126341a96f1ada59bc3fc6f9e59520c89bad166962a1",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-139": {
+          "source_sha256": "4b0dff278f76f26d7ba82346a986a507f8d982a1a5e7cc0d45d96bf178da694c",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-141": {
+          "source_sha256": "31f6b010a0cefdd8cb7042f9c804a6988875b5f7a7df0ae0a5fe7e73e8b63786",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-135": {
+          "source_sha256": "4647a9019eb4a8f2f977c1ba12fb39db99ae58e872324e716a1c7604a5aebeb5",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-137": {
+          "source_sha256": "dc45aa63f29b08f26b1c6c027bc5f5d7ddd950e485d1969af128ffc9c7d9b1dd",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-136": {
+          "source_sha256": "2d84766095eaf3c4a50f64824e347b109d23bb4132714cdadc51786b98e827bb",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-132": {
+          "source_sha256": "2fb34a7bae8277afe11dd0cf824d0d35509e6500167a54bc3e803f914da33c21",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-134": {
+          "source_sha256": "f5e96f9039c5bedc74fae6f39c85099c01176e33e4007fc20bd88a7b8a501d75",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-133": {
+          "source_sha256": "4d869aacf10b3301fcc67c25c0da2a30e25fc720cb27e9bce302d0c82c5464e3",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-023": {
+          "source_sha256": "ceecda180afd0cc78e2f9537c845b0912519533cd9087e23eabf5e954a2f68ee",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-022": {
+          "source_sha256": "90775c35f63a69f0929045ecff42dee307666886a48c529a4094c358c402b77f",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-024": {
+          "source_sha256": "0c884a0a7a0e3da4064f50cad680d8753f5d0da340f186bfa110c97318b397fd",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-014": {
+          "source_sha256": "34f219f1e46ac95661c422f402e0623c83c053218b9d08bc18af6d2551a91f2f",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-013": {
+          "source_sha256": "287bdb4892295a4a2a082b1b15691ab1bf8560ae7057e029edf3e79d056fe6f9",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-015": {
+          "source_sha256": "996e7edf7b04276d350e14af655bc2c8e098f0ed486a7d8cd12f6ddce96711f4",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-018": {
+          "source_sha256": "14ad1fb9ddc55afa808de2b7f99c5d559eae56da9621cc73466035792c1d892d",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-017": {
+          "source_sha256": "626cfcca84c2df560e7e7308af71e8200aa189daa4d386defd6a53d26c74e042",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-016": {
+          "source_sha256": "5cb3814553ba581cc092bfe318164366cb52f09491a05fa6fe54ef87738b127c",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-025": {
+          "source_sha256": "872bf2d0640b36df0be87bdaa8338a9563f36fda26a0a382f7afe993e4a5a2f6",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-027": {
+          "source_sha256": "4eabc655ac2df4f8f3b85e4dddd50a1a7e3b8ea64a151f265a9a0ad4d234c5a7",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-026": {
+          "source_sha256": "ecd3e1f77ffcc1670810b15cda13a054073e3649724fa33036e670f706ce58e0",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-002": {
+          "source_sha256": "d7e912d27e787baf577cd10972a4c602d5aa0eae8296801c3f1a997d4d8b6435",
+          "device": "Amcrest Camera"
+        },
+        "interaction-attack-001": {
+          "source_sha256": "a360003fde5340881bf8ff1b9decbbac92b02f0b39cdcb887ba513377f9daea6",
+          "device": "Amcrest Camera"
+        },
+        "interaction-attack-003": {
+          "source_sha256": "7c073fd102816edfb37e7debc22e59d08de3eccbb5d757a95a7bd746d9be26ab",
+          "device": "Amcrest Camera"
+        },
+        "interaction-attack-005": {
+          "source_sha256": "c6d39584db679e5a32b3225e888a27da71bd59751bce7c1fc612d0ff0a540186",
+          "device": "Amcrest Camera"
+        },
+        "interaction-attack-004": {
+          "source_sha256": "3eb1cace17c686765330f684dcd5cde2ee3ee799e1171ae893912171bb1d26b9",
+          "device": "Amcrest Camera"
+        },
+        "interaction-attack-006": {
+          "source_sha256": "951021a0ab8d28e7ad9becca2a90af08e9c9aea010bb812d678bd329fdd1d477",
+          "device": "Amcrest Camera"
+        },
+        "interaction-attack-281": {
+          "source_sha256": "85987e218dd590a62c7ead0ec7e87998605ff4ca2d277c70ab82500726aa7c53",
+          "device": "SimCam"
+        },
+        "interaction-attack-283": {
+          "source_sha256": "8b2f3d628d1e0c5527ccd27833d5d8173cebe6ebcd90617b223ff221e5f82eca",
+          "device": "SimCam"
+        },
+        "interaction-attack-282": {
+          "source_sha256": "62ce082122a1b14ffe8bab46cf55684b19b47b1f9d749838c469c374e7a813b5",
+          "device": "SimCam"
+        },
+        "interaction-attack-286": {
+          "source_sha256": "08aed0946d00eee6405170a74493247c10cdc4939a3dc419de047dcf1dc7f466",
+          "device": "SimCam"
+        },
+        "interaction-attack-285": {
+          "source_sha256": "ccee83d123eb89e88146ab57067b4d6c5b80e8da355a367771855458822d93fe",
+          "device": "SimCam"
+        },
+        "interaction-attack-284": {
+          "source_sha256": "b746da108cb30b0e229fd83be50aa868a265f424a8fd6ebd59411fa85bcd15e6",
+          "device": "SimCam"
+        },
+        "interaction-attack-052": {
+          "source_sha256": "eabf26fef655e0d90549f90ff49b55feed621212091bed953559efe1475fa5bd",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-056": {
+          "source_sha256": "6256bd18e9f84cee3a90d186dba2745547a4316de7c6f3ef82429c90a1f7535c",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-054": {
+          "source_sha256": "0c39cea38909867c7fbaab6362ad21172e108848a2866c5811dab577eb469597",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-067": {
+          "source_sha256": "f9833fb4f160b99accad973c5c57f1132b6825951cd35eeeac9dfd04bfdf7d58",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-065": {
+          "source_sha256": "e21f9636bed315c2e60f986364d745235e008c1ab5b375c23ad5eb9e5c699329",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-069": {
+          "source_sha256": "a142e1d2ab6c86e603a005b1929b13291272e038e0782395b70dd4c99b46f79b",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-064": {
+          "source_sha256": "b1f7e58301585bc0a3cf52ab4748a04556f40e01850acbb35e56c8eb7b04fdb5",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-068": {
+          "source_sha256": "5d94e52fc76394aa1aca4e066496607226cc92eaebcdbfa61b9f2b8b6e2e66c2",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-066": {
+          "source_sha256": "27287ce6d0c906d92f2374648d28f39eefa20959efa4c7313b4e3d280a5704ce",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-063": {
+          "source_sha256": "69cd312de196f45f03a64ec0e1dbfbc79bec5d2ced5e7d8e8658ec063033e6bd",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-060": {
+          "source_sha256": "b3805bc2e59338169d4ef783860d07a434116b5806dd6430580eb0a0a6b46eb5",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-062": {
+          "source_sha256": "99aa088d86a74979319a722c3e55d12c2f9c347ab608f930265504ffb45618f9",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-059": {
+          "source_sha256": "ef785b58bbd5d01866cc80b5483cd47ae34002d8ddb23411216f2ba39e4ec9f3",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-061": {
+          "source_sha256": "8a7099e60ccc87a13a8b72d45c7694610595ffd702ad0dc3300e39425aebc40c",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-058": {
+          "source_sha256": "9ad5db35bb3391ac1a5d1eb0aaf2d55cbdb3fc7a59ab88f321e45c07f4a9f62c",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-043": {
+          "source_sha256": "be888d31df67c866d0d190d0d3c2c77fb0262b06e6492d551ab97b8243879951",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-041": {
+          "source_sha256": "146fbc5bf1bb3edea127641c2d5e232f8501ff12266e6025c5d94b14422f3a19",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-045": {
+          "source_sha256": "ea7e72d7dcbaf95eeb565a7e73bfc071921e7ae8444fb8f2bf1bd9650901c679",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-040": {
+          "source_sha256": "f63292ecbfd343bb76820fd0f5b247a0b7e90b6040a038cc38d694213911ee0b",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-044": {
+          "source_sha256": "8d707e0153ae2a3b69a7e5a46f40795a2da6be8ca55e2052ed7280ccdf81a369",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-042": {
+          "source_sha256": "a17710aebcd8189042100a47c3c253ceeba9acfb7c265e20c7cb5455873de345",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-050": {
+          "source_sha256": "ad5a29768aa8be73019a321450f46d2e1b9a4b0f17475bee26c70bd1ed14cffc",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-046": {
+          "source_sha256": "515316ec23f28bbfa5a9c60a12331cdaf10e5841724b87d0e8dee603104db8af",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-049": {
+          "source_sha256": "07646235908a4cac706daef1eb61055c92009a760dd13150b003d235991047da",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-048": {
+          "source_sha256": "50e59ae4b0300f506644d9d5d42b84e5aa6c8262207f505317a20029757f8f92",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-051": {
+          "source_sha256": "b3f2f1592f858819b56722ef928e051a0b247996bb292b316632f52df8fcce93",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-047": {
+          "source_sha256": "da285e2c440104c66b54250635e64db8e0f43925ced3fc33d2cd476ed5565963",
+          "device": "Atomi Coffee Maker"
+        },
+        "active-00": {
+          "source_sha256": "b19d63d7e3ac18d3b1d05add73ab86e7c6cdce5bbdee3485aa1d0bc90404bd3e",
+          "device": "Globe Lamp"
+        },
+        "active-01": {
+          "source_sha256": "290660b745286380361f262e93542a8d3cbc0cfd52dfb728aa687df2cea052e3",
+          "device": "Globe Lamp"
+        },
+        "active-02": {
+          "source_sha256": "6cdc75427e135a5b3a45fb5d6c7b45942980e6ad44be1a415b7c642ea2e41bf0",
+          "device": "Atomi Coffee Maker"
+        },
+        "active-03": {
+          "source_sha256": "0bccb95bd080e3900a9c7653f4b740dd048f0a015b9cc77e977de210844b3ca4",
+          "device": "Atomi Coffee Maker"
+        },
+        "active-04": {
+          "source_sha256": "63bc5808ac3bd4c57bade58d76d9cc766b96b2f9edbb967044604cb23da5f83b",
+          "device": "SimCam"
+        },
+        "active-05": {
+          "source_sha256": "bff209e1bfdaebb4e6fef98f1f086c827b83928deec6b40a496b2fad1be7e6ce",
+          "device": "Atomi Coffee Maker"
+        },
+        "active-06": {
+          "source_sha256": "445551f2e8bdfa270d1700e36fb57076eb8d9fe48c4006b7e80225af7b11b9bf",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-036": {
+          "source_sha256": "3716e31eecf465952ee8f1960bb49154f3913a2a2fefd9491dac615b03d26b49",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-034": {
+          "source_sha256": "08d922ac35d0d7901d7949e94d7c05ceb2b31576c4fecc582dda55ed3efe7fc4",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-035": {
+          "source_sha256": "9eadbe955e594d6c17f70cc0ba5775c2284cdd26a690485ab966fa109143ab68",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-037": {
+          "source_sha256": "e794098df60d775d347d2233e8381321a51a4bb45ca10e3a47fb86996c1f61cc",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-038": {
+          "source_sha256": "003df6c9c127f47aed7fb38370cf86a8f21ee9e1daf87ec0d32c91d7e5ae4e3a",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-039": {
+          "source_sha256": "fb83229cd6894b2a1b097d258d3f62ac7a10b5af9e7fdbc35d483094afd29e06",
+          "device": "ArloQ Camera"
+        },
+        "interaction-attack-290": {
+          "source_sha256": "1915458d10494df1cb8f6393dce4dc347c506376c7b1094396c866fa0fc2573a",
+          "device": "SimCam"
+        },
+        "interaction-attack-291": {
+          "source_sha256": "c7102db02b5238af946ccd6be75670a55b1f4919a50fefe298101f57e6ed078b",
+          "device": "SimCam"
+        },
+        "interaction-attack-292": {
+          "source_sha256": "e7e8b21ece81f37c6edc69feb7d88b91ab8afe6828a5ad3c32b2d2bed9b5b2a2",
+          "device": "SimCam"
+        },
+        "interaction-attack-012": {
+          "source_sha256": "0834c24ce01b586733b71d08d86a2fc0366cb2a1a8f298b027032a892fd6d0c5",
+          "device": "Amcrest Camera"
+        },
+        "interaction-attack-010": {
+          "source_sha256": "c4754ed6e78fa364b242fd3c3409de51eb0c4da8b7fe1323efe9af27897ac69f",
+          "device": "Amcrest Camera"
+        },
+        "interaction-attack-011": {
+          "source_sha256": "bab575cbd6c51556287d61abbcbb8b1791474afd8d7619f125b8fd9f2135a913",
+          "device": "Amcrest Camera"
+        },
+        "interaction-attack-177": {
+          "source_sha256": "7b25f4b15f83fff2ca237101919ba657afd5e19c66b0b026a2f12f1f2946afab",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-178": {
+          "source_sha256": "ff34f02ca73337ef4156d0909dce497f5909d7bec0eb56a111ebfb36bdf9ddf2",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-179": {
+          "source_sha256": "e146ab62ddbeb01654775475a8004ed694b6088c8a9cda55000c097c68752aa1",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-180": {
+          "source_sha256": "4f70fa71a6cef1818d50bcca5f87f9d38c8c46ed8c746169fbb9e5880a237d16",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-181": {
+          "source_sha256": "f001b6fbee1aec6e099eea05791fce3aec85c3aba92d7e96fc102eaf2ddcf69e",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-182": {
+          "source_sha256": "5ae395229c306f4b206d7dee638fcce16b672cbe0ef0090c452b91033d91aa36",
+          "device": "Globe Lamp"
+        },
+        "interaction-attack-242": {
+          "source_sha256": "b1686455560381c31733433893934c48b214f60a983f1b56652152738147b02e",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-243": {
+          "source_sha256": "e65f609e5686c1e63e7ef01598a96770e9a443331d4113648042ea3abff37df4",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-244": {
+          "source_sha256": "e9e913ebba4e8298e548e77a038ffa4a64637e57891221979147b5383df6ab7b",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-245": {
+          "source_sha256": "d541607cc485b0db719a75ffb17d5c418c57bdbed8756c7a431e9bb916dd2cb3",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-246": {
+          "source_sha256": "c1ca104ca9579e421bdbb87ecd72b138893d7d609fb9361e82447cf46a5fae7f",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-247": {
+          "source_sha256": "6e877140dd3fb6ca2583a3a2075c444a5cfaffe5e36215eb34bef7483e1b5bef",
+          "device": "Philips Hue Bridge"
+        },
+        "interaction-attack-073": {
+          "source_sha256": "7816dbeb17811a35ed74c3b878bb94ad410653f2bd710cb6ec306404df063834",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-074": {
+          "source_sha256": "1e9a3a850f6a6937d901ff8c19c21f93226e85e0865731acb4a65d7fb4c89521",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-075": {
+          "source_sha256": "91ab7b67199b0359bda3b9a75b90251310e4a9c57f57f474fe9f35cda04d5027",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-076": {
+          "source_sha256": "5cc6321716e0ba1dac0e2074215537efee2a19cbad416f40616b468fbf560410",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-077": {
+          "source_sha256": "dca8dac9a94ddb96c941b2c77823958145f1d80e7784c792fa01fca7d39b1df2",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-078": {
+          "source_sha256": "f6dcd8357b13b35be601f9bbc7d0a1203cfc12bda2cd0957ceec8e53ab098710",
+          "device": "Atomi Coffee Maker"
+        },
+        "interaction-attack-293": {
+          "source_sha256": "0a0a264d9cc8ab6cd6ad9dd6e73e4b3a958e19d4131634f8cfc708bc37cbdeb2",
+          "device": "SimCam"
+        },
+        "interaction-attack-294": {
+          "source_sha256": "ea3dadb67ef75e6676ace15083fa49ddc1d155fafb5a781c689c2d58b1e467b8",
+          "device": "SimCam"
+        },
+        "interaction-attack-295": {
+          "source_sha256": "92491b0143a074147176f12a6b349bba8abbac3a5a29504be0fe84d0c4152483",
+          "device": "SimCam"
+        }
+      },
+      "fit_cal_component_overlap": 0,
+      "fit_cal_session_overlap": 0,
+      "current_training_asset_pin_match": true
+    },
+    "CIC_DEV": {
+      "metadata_path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV.jsonl.gz",
+      "metadata_sha256": "666c2e2dc648ab539b8e2bb5e1b1fb8fee8cd3bf92223a72d6631fc4c851f64f",
+      "q14_path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/CIC_DEV_q.npy",
+      "q14_sha256": "13ddfc2326bb7e97d11191fa818b637fe89d1668fae2f6d29798a4f9c384d14f",
+      "total_rows": 179886,
+      "groups": [
+        {
+          "role": "EVAL",
+          "device": "HeimVision Camera",
+          "label": 0,
+          "rows": 997,
+          "protocol_guard_rows": 0,
+          "first_utc": "2021-10-12T13:52:28.850539+00:00",
+          "last_utc": "2021-11-26T22:52:00.446671+00:00",
+          "capture_count": 14
+        },
+        {
+          "role": "EVAL",
+          "device": "Eufy Home Base",
+          "label": 0,
+          "rows": 99833,
+          "protocol_guard_rows": 56,
+          "first_utc": "2021-10-13T14:35:42.834257+00:00",
+          "last_utc": "2021-11-26T22:52:02.112654+00:00",
+          "capture_count": 17
+        },
+        {
+          "role": "EVAL",
+          "device": "HeimVision Camera",
+          "label": 1,
+          "rows": 65549,
+          "protocol_guard_rows": 5087,
+          "first_utc": "2021-11-29T17:00:31.954365+00:00",
+          "last_utc": "2021-11-29T18:09:32.135692+00:00",
+          "capture_count": 7
+        },
+        {
+          "role": "EVAL",
+          "device": "Eufy Home Base",
+          "label": 1,
+          "rows": 13507,
+          "protocol_guard_rows": 9289,
+          "first_utc": "2021-12-02T17:41:32.850043+00:00",
+          "last_utc": "2021-12-02T20:23:17.131930+00:00",
+          "capture_count": 4
+        }
+      ],
+      "captures": {
+        "interaction-attack-192": {
+          "source_sha256": "e5475e017de873e8c5093a83bd016e7e4b1065cee6ea3bf00281e30b089636a7",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-193": {
+          "source_sha256": "54032608218c56dd72fd91b43d5cbe76c21e2a7c595fc60988cb2dd625582ba7",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-183": {
+          "source_sha256": "08902430d83372ec9ceb6a3d0914d668ee702c65982ec232cb0033fa5acd619d",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-185": {
+          "source_sha256": "9fc4ffec49e9dd49cd744bc86e06dff64557cd04ffb384fd2379e31cfe38db6b",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-184": {
+          "source_sha256": "9df64154c1f3c835cfcc013d12d4dbaf18fc7bf8805f312bec2795817bb4714f",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-187": {
+          "source_sha256": "2a3a26b7036f4ccb7cecadd25b3233c28b91ae019958cc89cc0b4515641e63b2",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-186": {
+          "source_sha256": "88434306a4bc2bbb8708724f78b03cec9c8d17ce1569e89f386d2afcbaa3180b",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-188": {
+          "source_sha256": "b3fe9bb3fd1fc64b8fb5272fbb9f79a5d729d72b3f359d88c5b8b840f676baf2",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-112": {
+          "source_sha256": "1e6d18dc9d56a037016dd3552fac8afd597901ccf541be08de9814e6937eccdb",
+          "device": "Eufy Home Base"
+        },
+        "interaction-attack-111": {
+          "source_sha256": "e5f66d7f5b74e226b2543a251694725a342dfa3d28f8ac7e2312319cbb996cdb",
+          "device": "Eufy Home Base"
+        },
+        "interaction-attack-109": {
+          "source_sha256": "44526698aa092de2e4c042ca7874b8e16aab114c0e1894a1065ac93f260f2412",
+          "device": "Eufy Home Base"
+        },
+        "interaction-attack-110": {
+          "source_sha256": "a78f7f67ea91537b65f1357dfb7f9787a35597e54ffba44eaf348253043d4313",
+          "device": "Eufy Home Base"
+        },
+        "interaction-attack-103": {
+          "source_sha256": "f09fb9e0e2e28f16a9041595e28704e00672355f29aad76e4ea965d81029265e",
+          "device": "Eufy Home Base"
+        },
+        "interaction-attack-105": {
+          "source_sha256": "092a51f650cbad8134f5d8639366430256cd405a5e606327c886f98f01df6990",
+          "device": "Eufy Home Base"
+        },
+        "interaction-attack-104": {
+          "source_sha256": "a8169fea9a2fbd4034554d696423995229b0787da1781ea80ff9f7d1999f6d58",
+          "device": "Eufy Home Base"
+        },
+        "interaction-attack-101": {
+          "source_sha256": "a17a1637c72f562d589475ba12745396586a529f5eb15237cdd8e78dc775a411",
+          "device": "Eufy Home Base"
+        },
+        "interaction-attack-100": {
+          "source_sha256": "f1bad571ccf60501c744eb625dd02d2997543dd5dc70f338197a170e3fac368f",
+          "device": "Eufy Home Base"
+        },
+        "interaction-attack-102": {
+          "source_sha256": "2e5b0a8230dd64e68db0b9246316533a9d22edc546168ef1e22d4b15c1a5c902",
+          "device": "Eufy Home Base"
+        },
+        "active-00": {
+          "source_sha256": "b19d63d7e3ac18d3b1d05add73ab86e7c6cdce5bbdee3485aa1d0bc90404bd3e",
+          "device": "HeimVision Camera"
+        },
+        "active-01": {
+          "source_sha256": "290660b745286380361f262e93542a8d3cbc0cfd52dfb728aa687df2cea052e3",
+          "device": "HeimVision Camera"
+        },
+        "active-02": {
+          "source_sha256": "6cdc75427e135a5b3a45fb5d6c7b45942980e6ad44be1a415b7c642ea2e41bf0",
+          "device": "HeimVision Camera"
+        },
+        "active-03": {
+          "source_sha256": "0bccb95bd080e3900a9c7653f4b740dd048f0a015b9cc77e977de210844b3ca4",
+          "device": "HeimVision Camera"
+        },
+        "active-04": {
+          "source_sha256": "63bc5808ac3bd4c57bade58d76d9cc766b96b2f9edbb967044604cb23da5f83b",
+          "device": "Eufy Home Base"
+        },
+        "active-05": {
+          "source_sha256": "bff209e1bfdaebb4e6fef98f1f086c827b83928deec6b40a496b2fad1be7e6ce",
+          "device": "HeimVision Camera"
+        },
+        "active-06": {
+          "source_sha256": "445551f2e8bdfa270d1700e36fb57076eb8d9fe48c4006b7e80225af7b11b9bf",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-198": {
+          "source_sha256": "bbce4a6735e2c4ccf1142b43b3bc516e9a50dc4b338d0a4bac790dffa37a791f",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-199": {
+          "source_sha256": "97ad1870b94632e418c6e1a7d529e52eefec99233783ac77d1233d7c0910bd35",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-200": {
+          "source_sha256": "151de44da2ba4c06e3a991be96a86bccd24695efb7abcbfd38b3ac7f0dffd0cf",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-195": {
+          "source_sha256": "d80f27fbac51e942ca4de1fce599f9a3cb25c34b2d1487213b6e0d697359f1ce",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-196": {
+          "source_sha256": "876aed07709e29afba3498477848551e9bcf1cb535343190566a14577d3c1afb",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-197": {
+          "source_sha256": "2a5c95843d6dab98baf69bad34230ef5bcc6df0826414d69e3dcc90032235875",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-194": {
+          "source_sha256": "c1cca7c167ed39fdd5c12e63f042372044f0727089157f2c824eae64661a12ee",
+          "device": "HeimVision Camera"
+        },
+        "interaction-attack-116": {
+          "source_sha256": "2177eaecd845004dbc9cc0de277677c7e67d55d46f1ceca9f631614cbc2314d2",
+          "device": "Eufy Home Base"
+        },
+        "interaction-attack-117": {
+          "source_sha256": "b8788e49e39b1c42b183e76743a284a5b404258630c196f7dcc8a49c39c8a293",
+          "device": "Eufy Home Base"
+        },
+        "interaction-attack-118": {
+          "source_sha256": "66ee0365f977ec8cd67536f123b5ba6334d85ba3103f580e8addc4f538fda7e1",
+          "device": "Eufy Home Base"
+        },
+        "interaction-attack-119": {
+          "source_sha256": "3d28e2f0175d4ca2553f8ff54d07f56a4a7287cc5105b5b09d9ef18d59868d33",
+          "device": "Eufy Home Base"
+        }
+      },
+      "current_training_asset_pin_match": true
+    },
+    "UNSW_DEV": {
+      "metadata_path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV.jsonl.gz",
+      "metadata_sha256": "d334f18c3a2857fe8b63f491fd78ba3dc984bbd0fa7a55a4f030d9e797098503",
+      "q14_path": "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/UNSW_DEV_q.npy",
+      "q14_sha256": "19278ac100c0ef8e85245439db3d436777d1f1e9121cb2b6015104469911856f",
+      "total_rows": 148316,
+      "groups": [
+        {
+          "role": "EVAL",
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+          "label": 0,
+          "rows": 20000,
+          "protocol_guard_rows": 12,
+          "first_utc": "2018-05-28T01:00:20.833267+00:00",
+          "last_utc": "2018-05-28T23:59:32.696026+00:00",
+          "capture_count": 1
+        },
+        {
+          "role": "EVAL",
+          "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+          "label": 1,
+          "rows": 14553,
+          "protocol_guard_rows": 14553,
+          "first_utc": "2018-06-01T11:08:42.125676+00:00",
+          "last_utc": "2018-06-01T12:12:20.969698+00:00",
+          "capture_count": 1
+        },
+        {
+          "role": "EVAL",
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+          "label": 1,
+          "rows": 14506,
+          "protocol_guard_rows": 14506,
+          "first_utc": "2018-06-01T13:49:56.106492+00:00",
+          "last_utc": "2018-06-01T14:53:34.959122+00:00",
+          "capture_count": 1
+        },
+        {
+          "role": "EVAL",
+          "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+          "label": 0,
+          "rows": 20000,
+          "protocol_guard_rows": 472,
+          "first_utc": "2018-05-28T01:00:35.353417+00:00",
+          "last_utc": "2018-05-28T23:57:17.011341+00:00",
+          "capture_count": 1
+        },
+        {
+          "role": "EVAL",
+          "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+          "label": 1,
+          "rows": 14513,
+          "protocol_guard_rows": 14513,
+          "first_utc": "2018-06-01T12:29:18.342725+00:00",
+          "last_utc": "2018-06-01T13:32:56.968021+00:00",
+          "capture_count": 1
+        },
+        {
+          "role": "EVAL",
+          "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+          "label": 1,
+          "rows": 14377,
+          "protocol_guard_rows": 14377,
+          "first_utc": "2018-06-01T16:31:16.196961+00:00",
+          "last_utc": "2018-06-01T17:34:49.974910+00:00",
+          "capture_count": 1
+        },
+        {
+          "role": "EVAL",
+          "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+          "label": 1,
+          "rows": 14604,
+          "protocol_guard_rows": 14604,
+          "first_utc": "2018-06-01T15:10:35.679310+00:00",
+          "last_utc": "2018-06-01T16:14:16.970335+00:00",
+          "capture_count": 1
+        },
+        {
+          "role": "EVAL",
+          "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+          "label": 0,
+          "rows": 20000,
+          "protocol_guard_rows": 711,
+          "first_utc": "2018-05-28T01:00:17.042467+00:00",
+          "last_utc": "2018-05-28T23:59:55.417390+00:00",
+          "capture_count": 1
+        },
+        {
+          "role": "EVAL",
+          "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+          "label": 0,
+          "rows": 13083,
+          "protocol_guard_rows": 371,
+          "first_utc": "2018-05-28T01:02:42.214069+00:00",
+          "last_utc": "2018-05-28T23:58:28.566415+00:00",
+          "capture_count": 1
+        },
+        {
+          "role": "EVAL",
+          "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+          "label": 0,
+          "rows": 2680,
+          "protocol_guard_rows": 37,
+          "first_utc": "2018-05-28T01:00:32.778922+00:00",
+          "last_utc": "2018-05-28T23:59:50.618406+00:00",
+          "capture_count": 1
+        }
+      ],
+      "captures": {
+        "unsw-benign-20180528": {
+          "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88"
+        },
+        "unsw-mixed-20180601": {
+          "source_sha256": "befc3f6882a2b3137652a81af1deba4f71d3cbd4b80db6344c2d64a9fc112bed",
+          "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11"
+        }
+      },
+      "current_training_asset_pin_match": true
+    }
+  },
+  "references": {
+    "CIC_DEV": {
+      "rows": 8863,
+      "ordered_uid_sha256": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2",
+      "frozen_ordered_uid_sha256": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2",
+      "groups": [
+        {
+          "device": "Eufy Home Base",
+          "protocol": 17,
+          "origin": "commissioning",
+          "rows": 3724,
+          "components": 347,
+          "min_rows_per_component": 2,
+          "max_rows_per_component": 360,
+          "first_utc": "2021-11-02T11:15:02.273828+00:00",
+          "last_utc": "2021-11-02T13:14:45.912475+00:00",
+          "reference_ends": [
+            1635858900.06933
+          ]
+        },
+        {
+          "device": "HeimVision Camera",
+          "protocol": 6,
+          "origin": "commissioning",
+          "rows": 2521,
+          "components": 1,
+          "min_rows_per_component": 2521,
+          "max_rows_per_component": 2521,
+          "first_utc": "2021-11-02T11:15:06.072550+00:00",
+          "last_utc": "2021-11-02T13:14:59.929102+00:00",
+          "reference_ends": [
+            1635858900.06933
+          ]
+        },
+        {
+          "device": "HeimVision Camera",
+          "protocol": 6,
+          "origin": "history",
+          "rows": 213,
+          "components": 1,
+          "min_rows_per_component": 213,
+          "max_rows_per_component": 213,
+          "first_utc": "2021-10-06T17:05:00.741864+00:00",
+          "last_utc": "2021-10-06T17:09:24.552751+00:00",
+          "reference_ends": [
+            1633540171.541785
+          ]
+        },
+        {
+          "device": "HeimVision Camera",
+          "protocol": 17,
+          "origin": "commissioning",
+          "rows": 2329,
+          "components": 2,
+          "min_rows_per_component": 1164,
+          "max_rows_per_component": 1165,
+          "first_utc": "2021-11-02T11:15:01.414629+00:00",
+          "last_utc": "2021-11-02T13:14:59.560748+00:00",
+          "reference_ends": [
+            1635858900.06933
+          ]
+        },
+        {
+          "device": "HeimVision Camera",
+          "protocol": 17,
+          "origin": "history",
+          "rows": 76,
+          "components": 10,
+          "min_rows_per_component": 1,
+          "max_rows_per_component": 15,
+          "first_utc": "2021-10-06T17:05:01.089378+00:00",
+          "last_utc": "2021-10-06T17:09:31.541785+00:00",
+          "reference_ends": [
+            1633540171.541785
+          ]
+        }
+      ],
+      "audit_identity_scope": "RECONSTRUCTED_RUNTIME_ORDER_MATCHES_METHOD_FREEZE"
+    },
+    "UNSW_DEV": {
+      "rows": 66082,
+      "ordered_uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6",
+      "frozen_ordered_uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6",
+      "groups": [
+        {
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+          "protocol": 6,
+          "origin": "commissioning",
+          "rows": 717,
+          "components": 1,
+          "min_rows_per_component": 717,
+          "max_rows_per_component": 717,
+          "first_utc": "2018-05-28T00:00:27.922055+00:00",
+          "last_utc": "2018-05-28T01:59:35.467249+00:00",
+          "reference_ends": [
+            1527472801.09039
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+          "protocol": 6,
+          "origin": "history",
+          "rows": 8192,
+          "components": 5023,
+          "min_rows_per_component": 1,
+          "max_rows_per_component": 435,
+          "first_utc": "2016-09-30T14:05:08.237484+00:00",
+          "last_utc": "2017-03-20T23:57:56.561357+00:00",
+          "reference_ends": [
+            1490054396.682107
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+          "protocol": 17,
+          "origin": "commissioning",
+          "rows": 2669,
+          "components": 5,
+          "min_rows_per_component": 2,
+          "max_rows_per_component": 1701,
+          "first_utc": "2018-05-28T00:00:20.722546+00:00",
+          "last_utc": "2018-05-28T01:59:50.657637+00:00",
+          "reference_ends": [
+            1527472801.09039
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+          "protocol": 17,
+          "origin": "history",
+          "rows": 8192,
+          "components": 4232,
+          "min_rows_per_component": 1,
+          "max_rows_per_component": 985,
+          "first_utc": "2016-09-30T14:14:47.553273+00:00",
+          "last_utc": "2017-03-20T23:42:31.417112+00:00",
+          "reference_ends": [
+            1490054396.682107
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+          "protocol": 6,
+          "origin": "commissioning",
+          "rows": 147,
+          "components": 3,
+          "min_rows_per_component": 28,
+          "max_rows_per_component": 81,
+          "first_utc": "2018-05-28T00:01:07.638971+00:00",
+          "last_utc": "2018-05-28T01:59:50.935588+00:00",
+          "reference_ends": [
+            1527472801.09039
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+          "protocol": 6,
+          "origin": "history",
+          "rows": 8192,
+          "components": 428,
+          "min_rows_per_component": 2,
+          "max_rows_per_component": 37,
+          "first_utc": "2016-09-30T14:00:02.367889+00:00",
+          "last_utc": "2016-12-04T12:58:48.254013+00:00",
+          "reference_ends": [
+            1480856333.261023
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+          "protocol": 17,
+          "origin": "commissioning",
+          "rows": 14,
+          "components": 7,
+          "min_rows_per_component": 2,
+          "max_rows_per_component": 2,
+          "first_utc": "2018-05-28T00:23:57.752531+00:00",
+          "last_utc": "2018-05-28T01:44:45.673203+00:00",
+          "reference_ends": [
+            1527472801.09039
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+          "protocol": 17,
+          "origin": "history",
+          "rows": 3683,
+          "components": 1692,
+          "min_rows_per_component": 1,
+          "max_rows_per_component": 157,
+          "first_utc": "2016-09-30T14:00:20.152722+00:00",
+          "last_utc": "2016-12-04T12:33:15.635345+00:00",
+          "reference_ends": [
+            1480856333.261023
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+          "protocol": 6,
+          "origin": "commissioning",
+          "rows": 1609,
+          "components": 50,
+          "min_rows_per_component": 2,
+          "max_rows_per_component": 110,
+          "first_utc": "2018-05-28T00:08:47.426423+00:00",
+          "last_utc": "2018-05-28T01:59:52.043412+00:00",
+          "reference_ends": [
+            1527472801.09039
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+          "protocol": 6,
+          "origin": "history",
+          "rows": 4096,
+          "components": 2947,
+          "min_rows_per_component": 1,
+          "max_rows_per_component": 214,
+          "first_utc": "2016-09-30T15:50:26.100681+00:00",
+          "last_utc": "2017-01-31T16:31:20.524110+00:00",
+          "reference_ends": [
+            1485907186.75835
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+          "protocol": 17,
+          "origin": "commissioning",
+          "rows": 1172,
+          "components": 16,
+          "min_rows_per_component": 2,
+          "max_rows_per_component": 1140,
+          "first_utc": "2018-05-28T00:00:04.237932+00:00",
+          "last_utc": "2018-05-28T01:59:53.196649+00:00",
+          "reference_ends": [
+            1527472801.09039
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+          "protocol": 17,
+          "origin": "history",
+          "rows": 4096,
+          "components": 343,
+          "min_rows_per_component": 1,
+          "max_rows_per_component": 322,
+          "first_utc": "2016-09-30T14:00:58.518650+00:00",
+          "last_utc": "2017-01-31T23:41:34.686861+00:00",
+          "reference_ends": [
+            1485907186.75835
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+          "protocol": 6,
+          "origin": "commissioning",
+          "rows": 88,
+          "components": 1,
+          "min_rows_per_component": 88,
+          "max_rows_per_component": 88,
+          "first_utc": "2018-05-28T00:04:04.346135+00:00",
+          "last_utc": "2018-05-28T01:56:46.736987+00:00",
+          "reference_ends": [
+            1527472801.09039
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+          "protocol": 6,
+          "origin": "history",
+          "rows": 8192,
+          "components": 803,
+          "min_rows_per_component": 1,
+          "max_rows_per_component": 109,
+          "first_utc": "2016-09-30T14:03:39.963434+00:00",
+          "last_utc": "2017-01-10T23:57:52.882703+00:00",
+          "reference_ends": [
+            1484092799.863312
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+          "protocol": 17,
+          "origin": "commissioning",
+          "rows": 52,
+          "components": 3,
+          "min_rows_per_component": 2,
+          "max_rows_per_component": 26,
+          "first_utc": "2018-05-28T00:05:41.455840+00:00",
+          "last_utc": "2018-05-28T01:55:41.889091+00:00",
+          "reference_ends": [
+            1527472801.09039
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+          "protocol": 17,
+          "origin": "history",
+          "rows": 8192,
+          "components": 797,
+          "min_rows_per_component": 1,
+          "max_rows_per_component": 199,
+          "first_utc": "2016-09-30T14:07:45.658150+00:00",
+          "last_utc": "2017-01-10T23:57:44.745688+00:00",
+          "reference_ends": [
+            1484092799.863312
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+          "protocol": 6,
+          "origin": "commissioning",
+          "rows": 4096,
+          "components": 1064,
+          "min_rows_per_component": 1,
+          "max_rows_per_component": 7,
+          "first_utc": "2018-05-28T00:00:01.090390+00:00",
+          "last_utc": "2018-05-28T02:00:00.962889+00:00",
+          "reference_ends": [
+            1527472801.09039
+          ]
+        },
+        {
+          "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+          "protocol": 17,
+          "origin": "commissioning",
+          "rows": 2683,
+          "components": 34,
+          "min_rows_per_component": 1,
+          "max_rows_per_component": 296,
+          "first_utc": "2018-05-28T00:00:08.063484+00:00",
+          "last_utc": "2018-05-28T01:59:48.902428+00:00",
+          "reference_ends": [
+            1527472801.09039
+          ]
+        }
+      ],
+      "audit_identity_scope": "RECONSTRUCTED_RUNTIME_ORDER_MATCHES_METHOD_FREEZE"
+    },
+    "EDGE": {
+      "rows": 4124,
+      "frozen_ordered_uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e",
+      "groups": [
+        {
+          "device": "Edge-IIoTset Raspberry Pi edge server",
+          "protocol": 6,
+          "origin": "commissioning",
+          "rows": 4096,
+          "components": 4096,
+          "min_rows_per_component": 1,
+          "max_rows_per_component": 1,
+          "first_utc": "2021-11-21T10:44:10.162218+00:00",
+          "last_utc": "2021-11-21T12:44:08.133419+00:00",
+          "reference_ends": [
+            1637498650.081753
+          ]
+        },
+        {
+          "device": "Edge-IIoTset Raspberry Pi edge server",
+          "protocol": 17,
+          "origin": "commissioning",
+          "rows": 28,
+          "components": 12,
+          "min_rows_per_component": 2,
+          "max_rows_per_component": 4,
+          "first_utc": "2021-11-21T10:44:27.342782+00:00",
+          "last_utc": "2021-11-21T12:40:45.166663+00:00",
+          "reference_ends": [
+            1637498650.081753
+          ]
+        }
+      ],
+      "audit_identity_scope": "SOURCE_METADATA_SHA_MATCHES_SELECTION_SEAL; RUNTIME_BATCH_ORDER_NOT_RECONSTRUCTED_LOCALLY",
+      "source_metadata_order_uid_sha256": "ebb548bb427b12d365636bdf21fd32f6701eefcfdb52689fbd294769bc219727",
+      "runtime_order_note": "Frozen runtime builds reference order by encoded batch manifests. Source metadata order and runtime order are distinct; this audit verifies source file identity and composition, not the frozen runtime order.",
+      "selection_seal_source_sha_match": true
+    }
+  },
+  "reference_metadata_pins": {
+    "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/CIC_DEV/SELECTED_REFERENCES.jsonl.gz": "376b8d83da5f15acc1dd2c3eaa3c9b6919fae5cf2278e73c54a0409ef9af4f64",
+    "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.jsonl.gz": "997e1c4ab68781fba3787969a37938ef0a36d899559543e243aabeeda1953fb3",
+    "runs/history_normal_reference_c3_progress_repair_v1_20261101/retrieved/encoded/references.jsonl.gz": "c9a9d58ba3a6bda65e5fdc7db02af69f6b038b6691b6093aed6ccbc595e3e9d1",
+    "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/UNSW_DEV/SELECTED_REFERENCES.jsonl.gz": "850b68302ccf94138138e55455136dbe5bb1d5e2e122c41420763c597d89c456",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/TP_LINK_references.jsonl.gz": "f06b9fdcf06a5db8956813954cc0c76a42a3fb0c9dbbe13f0c3271bd2bef4d65",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/WEMO_POWER_references.jsonl.gz": "bc9b1cf16e4dfeee9688659a77c2aa909830d83d31aed5e7b6ab4de9f2665ad1",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/SAMSUNG_references.jsonl.gz": "ffb92fe922c68530e392548c66bcb0134383c3ea76913c5274c7e050050c7808",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/TP_LINK/encoded/references.jsonl.gz": "017422f2efa68c5ba2cc1e75d936155482592cc7d632822bcbf44d630e98794b",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/WEMO_POWER/encoded/references.jsonl.gz": "30b52d1341b20903690400d30a8a2c80b13827f80cb4e94396782c9a577ca400",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/SAMSUNG/encoded/references.jsonl.gz": "4a42a9973e2fab262bfb3067d4858afd69cd36195cfdd0a6405bbe8f5f691447",
+    "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/NETATMO/encoded/references.jsonl.gz": "8c62b0281bd708b2816176a86c70cb6621f89b8e2807df0d8bd68d55e39ab9e6",
+    "runs/edge_external_test1_engineering_v1_20261103/adapter/population_v1/REFERENCE_ROWS.jsonl.gz": "ff5aa18c56e5be7d73ea61011bc58ec727d3f2f5b5eb505cec5f298828f59e9d"
+  }
+}
