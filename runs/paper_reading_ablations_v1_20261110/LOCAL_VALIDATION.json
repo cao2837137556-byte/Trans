@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "synthetic_only": true,
+  "real_cache_gate": "NOT_RUN",
+  "producer_p3_bitwise_equal": true,
+  "raw_support_guard_trap_detected": true,
+  "metric_and_pair_weight_checks": true,
+  "mutated_baseline_rejected": true,
+  "strict_threshold_and_support_bounds": true,
+  "tiny_score_decision_flip_rejected": true,
+  "per_item_artifacts_and_sha_checked": true,
+  "invariants": [
+    {
+      "status": "PASS",
+      "checks": 4,
+      "strict_decision": true
+    },
+    {
+      "status": "PASS",
+      "checks": 9,
+      "strict_decision": true
+    }
+  ],
+  "source_hashes": {
+    "analysis_core.py": "2182cf7d205a4d6e6d6e101decf7056c230dc088d03fb11bdc66c6605cae2ad7",
+    "run.py": "e03c9e9e82b409d9e2e4951bab7fb0c4b3dafcab7faafd9f2b621d090c4611f8"
+  }
+}
