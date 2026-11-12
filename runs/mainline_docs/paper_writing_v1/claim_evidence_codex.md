@@ -1,5 +1,19 @@
 # 主张—证据映射（Codex，2026-11-08）
 
+## 2026-11-12：当前主结果与新增证据
+
+当前正文以完整库MLP p4为主结果，身份绑定见 `paper_main_configuration_p4_codex_20261112.json`。以下较早p3计数均保留为历史，不能回填当前p4主表。
+
+|当前主张|直接证据|正文与范围|
+|---|---|---|
+|主系统CIC正常18/96041、攻击79050/79056；UNSW正常130/74444、攻击72543/72553；Edge正常0/20000、HTTP19958/20000、UDP19732/20000|`runs/p4_tabm_acceptance_v1_20261111/controls/METRICS.json`，P4_MAIN、ensemble、相应视图、ALL|表2/4/6；全头/视图普通/加权/HT见补充S3；零误报只限本次选中查询集成|
+|同基准尺度p4下三空间保全：Edge HTTP多2976，正常均0；CIC多44，正常均18；UNSW多34正常、攻击不变|controls的P4_2D_BASE/P4_MAIN指标与配对|表3及4.3；不能延用p3的2296/7|
+|p4旁路收益：UNSW攻击+428、正常+28，Edge HTTP+5|controls的P4_MAIN/P4_GUARD_OFF|表7/C3；不是p3的295|
+|TabM模块迁移有收益但不统一优于主方法|`tabm_p4/METRICS.json`和`PAIRED_CHANGES.json`；TABM_RAW、TABM_3D_SELF_P4及MLP-self对照|表9、补充S4；原生概率域和自身尺度，不自动替换MLP|
+|参考库规模不变，4936只是冗余候选|HISTORY_LINEAGE_COUNTS_CORRECTED、LINEAGE_METADATA_CORRECTION及FORMAL_ACCEPTANCE|3.5、讨论、附录D；未删库/压缩未验证；开发策略与逐点规则分别披露|
+
+本次原始指标和配对共14,720/14,720条的本地一致性核对摘要见 `p4_tabm_writing_audit_codex_20261112.json`；保留原回执和未知的压缩后表现。
+
 ## 2026-11-11：最终3D保护与指数证据更新
 
 |主张|直接证据|范围与正文位置|

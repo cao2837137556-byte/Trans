@@ -1,0 +1,60 @@
+{
+  "scope": "READ_ONLY_ACCEPTED_SUMMARIES_NO_NEW_EXPERIMENT",
+  "parts": {
+    "controls": {
+      "status": "PASS",
+      "verified_output_hashes": 11,
+      "metric_rows": 5888,
+      "paired_rows": 6624
+    },
+    "tabm_p3": {
+      "status": "PASS",
+      "verified_output_hashes": 12,
+      "metric_rows": 3680,
+      "paired_rows": 4416
+    },
+    "tabm_p4": {
+      "status": "PASS",
+      "verified_output_hashes": 7,
+      "metric_rows": 5152,
+      "paired_rows": 3680
+    }
+  },
+  "input_sha256": {
+    "runs/p4_tabm_acceptance_v1_20261111/controls/COMPLETE.json": "c43c07d7a32b4e364e382277103ce4047f20b2ea973bc00bd13c058f02b01dbf",
+    "runs/p4_tabm_acceptance_v1_20261111/controls/METRICS.json": "4749a9dd13544ac861200257a6cc8d1eb649b4cca088da50c636e72b496e7139",
+    "runs/p4_tabm_acceptance_v1_20261111/controls/PAIRED_CHANGES.json": "4cb6d30aa4b19d48adda64b790a5d043f217e0062ff14c02807c4835d802d4d1",
+    "runs/p4_tabm_acceptance_v1_20261111/tabm_p3/RUN_COMPLETE.json": "90811677d0bd6f60d8e8817e117d826c4ac36a246d1c3ba1a1ede7af4ae52ba0",
+    "runs/p4_tabm_acceptance_v1_20261111/tabm_p3/METRICS.json": "2a78d92fc6afca8909e7fc92b821056aac41fdc808f38b11b317fedd3ab153bb",
+    "runs/p4_tabm_acceptance_v1_20261111/tabm_p3/PAIRED_CHANGES.json": "94b54ebefc996a7e3e206d43dcb71ed1f80de4451c143e0690415b4dc5d0afbf",
+    "runs/p4_tabm_acceptance_v1_20261111/tabm_p4/COMPLETE.json": "66559934f8169409b32e3dd344ed466a0b503d2d1690a2cbfe8baf0e7a100f87",
+    "runs/p4_tabm_acceptance_v1_20261111/tabm_p4/METRICS.json": "ab02a6f68f495c766787fff01b6596875cf40fdf62cf4e622712c8b5c56d9fae",
+    "runs/p4_tabm_acceptance_v1_20261111/tabm_p4/PAIRED_CHANGES.json": "2c77cce81c5381f90fd606d08039bed0855373c8c2045c3b6d56017df7e5a3c2",
+    "runs/p4_tabm_acceptance_v1_20261111/FORMAL_ACCEPTANCE.json": "3ab8980a5fefd81b05b0dec6039b9e334d2430d09c779eb9c9929bc99be9c64c",
+    "runs/p4_tabm_acceptance_v1_20261111/HISTORY_LINEAGE_COUNTS_CORRECTED.json": "e40b3cdc08979cc549daf4021ace51ef1ba561fcf27c83a466d016cad2b7b092",
+    "runs/p4_tabm_acceptance_v1_20261111/LINEAGE_METADATA_CORRECTION.json": "a168ac1b0bdd73ce0b27607ad58930a71dbf63e4ea5a9d2d3ce513cb9f5ed013",
+    "runs/p4_tabm_acceptance_v1_20261111/controls/CIC_SIX_WITHDRAWALS.json": "90f33bce5e266382cdcd8dc55561d583c834821121c33dcdbfadb3a5503f4ff8"
+  },
+  "reference_inventory": {
+    "history_rows_unsw": 52835,
+    "full_bank_rows_unsw": 66082,
+    "potential_redundant_rows": 4936,
+    "compression_performed": false
+  },
+  "large_score_and_changed_uid_arrays": "not downloaded or independently replayed in writing turn",
+  "document_verification": {
+    "main_method": "full-bank MLP p4",
+    "numbered_tables": 20,
+    "source_metrics_exported": {
+      "controls": 384,
+      "tabm_p3_and_p4": 576
+    },
+    "all_exported_rates_and_counts_match_sources": true,
+    "saved_cic_six_margin_crossings_verified": 6,
+    "section_3_2_unchanged": true,
+    "raw_frontend_table_unchanged": true,
+    "current_kernel_exponent": 4,
+    "tabm_promoted": false,
+    "reference_rows_removed": 0
+  }
+}

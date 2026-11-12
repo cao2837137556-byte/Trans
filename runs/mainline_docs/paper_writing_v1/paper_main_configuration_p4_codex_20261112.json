@@ -1,0 +1,78 @@
+{
+  "scope": "PAPER_CONFIGURATION_AND_EVIDENCE_BINDING_NOT_RUNTIME_MUTATION",
+  "date": "2026-11-12",
+  "main_method": "MLP_FULL_BANK_3D_BASE_SCALE_P4",
+  "main_result_config": "P4_MAIN",
+  "predecessor_method_freeze": {
+    "path": "runs/paper_results_freeze_v1_20261107/METHOD_FREEZE.json",
+    "sha256": "31bfa81800b02c147cc2ac60be9501606af7fd8da6dee0a5237f5776845b0b68"
+  },
+  "heads": {
+    "27": {
+      "job_id": "182370",
+      "head_sha256": "738ded855e7c6d72a514579840025b3cc76fa3bf471a5c223b5c4faaf1d86669",
+      "cut": -23.04324722290039,
+      "scale": 91.68742370605469
+    },
+    "127": {
+      "job_id": "182376",
+      "head_sha256": "07812cc598801b726bc5213e21278427aa62a0104121b7045dcb0c1b74f5aed5",
+      "cut": -23.315204620361328,
+      "scale": 95.98065185546875
+    },
+    "227": {
+      "job_id": "182378",
+      "head_sha256": "ebf23b94d605b6c823fa28dde66b629a851b33a49205c7b074852846582fe59d",
+      "cut": -22.614715576171875,
+      "scale": 87.30691528320312
+    }
+  },
+  "ensemble": {
+    "rule": "float64 arithmetic mean in seed order 27,127,227; strict score > cut",
+    "cut": -23.2497984568278
+  },
+  "correction": {
+    "p": 4,
+    "lambda_value": 0.25,
+    "scales": [
+      118.95627975463867,
+      121.3746566772461,
+      122.36117172241211
+    ],
+    "scale_origin": "OLD782 frozen source FIT scale, not OLD782 classifier or cuts",
+    "kernel": "g(s)=1-(1-s)^4",
+    "guard": "(q14[0]==1) & (q14[2]==1) & (q14[5]==0); all devices; guarded query keeps RAW"
+  },
+  "references": {
+    "CIC_DEV": {
+      "rows": 8863,
+      "uid_sha256": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2"
+    },
+    "UNSW_DEV": {
+      "rows": 66082,
+      "uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6"
+    },
+    "EDGE": {
+      "rows": 4124,
+      "uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e"
+    }
+  },
+  "adopted_result_inputs": {
+    "runs/p4_tabm_acceptance_v1_20261111/controls/COMPLETE.json": "c43c07d7a32b4e364e382277103ce4047f20b2ea973bc00bd13c058f02b01dbf",
+    "runs/p4_tabm_acceptance_v1_20261111/controls/METRICS.json": "4749a9dd13544ac861200257a6cc8d1eb649b4cca088da50c636e72b496e7139",
+    "runs/p4_tabm_acceptance_v1_20261111/controls/PAIRED_CHANGES.json": "4cb6d30aa4b19d48adda64b790a5d043f217e0062ff14c02807c4835d802d4d1",
+    "runs/p4_tabm_acceptance_v1_20261111/tabm_p3/RUN_COMPLETE.json": "90811677d0bd6f60d8e8817e117d826c4ac36a246d1c3ba1a1ede7af4ae52ba0",
+    "runs/p4_tabm_acceptance_v1_20261111/tabm_p3/METRICS.json": "2a78d92fc6afca8909e7fc92b821056aac41fdc808f38b11b317fedd3ab153bb",
+    "runs/p4_tabm_acceptance_v1_20261111/tabm_p3/PAIRED_CHANGES.json": "94b54ebefc996a7e3e206d43dcb71ed1f80de4451c143e0690415b4dc5d0afbf",
+    "runs/p4_tabm_acceptance_v1_20261111/tabm_p4/COMPLETE.json": "66559934f8169409b32e3dd344ed466a0b503d2d1690a2cbfe8baf0e7a100f87",
+    "runs/p4_tabm_acceptance_v1_20261111/tabm_p4/METRICS.json": "ab02a6f68f495c766787fff01b6596875cf40fdf62cf4e622712c8b5c56d9fae",
+    "runs/p4_tabm_acceptance_v1_20261111/tabm_p4/PAIRED_CHANGES.json": "2c77cce81c5381f90fd606d08039bed0855373c8c2045c3b6d56017df7e5a3c2",
+    "runs/p4_tabm_acceptance_v1_20261111/FORMAL_ACCEPTANCE.json": "3ab8980a5fefd81b05b0dec6039b9e334d2430d09c779eb9c9929bc99be9c64c",
+    "runs/p4_tabm_acceptance_v1_20261111/HISTORY_LINEAGE_COUNTS_CORRECTED.json": "e40b3cdc08979cc549daf4021ace51ef1ba561fcf27c83a466d016cad2b7b092",
+    "runs/p4_tabm_acceptance_v1_20261111/LINEAGE_METADATA_CORRECTION.json": "a168ac1b0bdd73ce0b27607ad58930a71dbf63e4ea5a9d2d3ce513cb9f5ed013",
+    "runs/p4_tabm_acceptance_v1_20261111/controls/CIC_SIX_WITHDRAWALS.json": "90f33bce5e266382cdcd8dc55561d583c834821121c33dcdbfadb3a5503f4ff8"
+  },
+  "tabm_role": "TRANSFER_COMPARISON_NOT_MAIN_METHOD",
+  "reference_compression_performed": false,
+  "selection_provenance": "p4 adopted after known-result sensitivity comparison; p3 history retained, no new unseen-data confirmation asserted"
+}
