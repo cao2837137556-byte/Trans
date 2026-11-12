@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "stage": "guard",
+  "invariants": {
+    "CIC_DEV": {
+      "status": "PASS",
+      "checks": 4,
+      "strict_decision": true
+    },
+    "UNSW_DEV": {
+      "status": "PASS",
+      "checks": 4,
+      "strict_decision": true
+    },
+    "EDGE": {
+      "status": "PASS",
+      "checks": 4,
+      "strict_decision": true
+    }
+  },
+  "seconds": 6.449615400051698,
+  "distances_recomputed": false,
+  "trained": false,
+  "threshold_refit": false,
+  "metrics_rows": 1472,
+  "pair_rows": 736,
+  "raw_support3": true,
+  "baseline_acceptance_sha256": "323169a360b155b9f57a188f2d3ba298fcfaa8bdd506fc551b9b9e218289ca1b",
+  "output_sha256": {
+    "METRICS.json": "361a81b04449bcbce35f7448763a0229bb27ba8e486c873a74c1d036a9108d3e",
+    "METRICS.csv": "3619c00f8f18a3af3f85b6b52caa244990f41689a8e9740708f74748637fcaa3",
+    "PAIRED_CHANGES.json": "b3481ce35c3ac19aa1799d968a39d73cfb383c41ceec84050c18ab57abf09397",
+    "PAIRED_CHANGES.csv": "434bb111814fa755edce0281926be3a2c5de9de5ccbabf05e42e1b9df6c40f3b",
+    "RESULT_READOUT.md": "7c95aae368cebc0e1849ac94b7c1b1eb8e31c74079cdf61ee212cfe22a9df4f9",
+    "CHANGED_UID_MANIFEST.json": "d03165694e8ee9ef1a1a60caa548f2a66a8d23934dc707cd2401b945f196e27a"
+  }
+}

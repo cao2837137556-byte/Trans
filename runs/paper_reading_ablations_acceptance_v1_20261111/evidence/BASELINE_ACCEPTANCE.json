@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "all_pools_before_variants": true,
+  "pools": {
+    "CIC_DEV": {
+      "status": "PASS",
+      "max_score_abs_error": 0.0,
+      "uid_head_decision_differences": 0,
+      "frozen_metric_rows_verified": 48,
+      "input_artifact": {
+        "file": "CIC_DEV_SAME_BANK.npz",
+        "sha256": "e99d8866f0eec2b3be3ced469ccead046aaf60474de2d9f9d0bec7190aefb563",
+        "bytes": 181508586
+      },
+      "reference": {
+        "rows": 8863,
+        "uid_sha256": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2"
+      },
+      "raw_support_field": "support3",
+      "support3_before_guard": true,
+      "rows": 179886,
+      "guard_rows": 14432,
+      "guard_positive_support_rows": 0,
+      "historical_zero_mask_rows": 14432,
+      "raw_support_positive_on_historical_zero_rows": 0,
+      "q14_sha256": "9540390a269dcebccbdd4762cb0e0915a58ec5dd638079514f54a012245742ee",
+      "uid_order_sha256": "c2cd06cc6c923b95a82c3be29d38395573e78639049a436e3f6bba5925d6c5a5",
+      "q14_shape": [
+        179886,
+        14
+      ],
+      "q14_dtype": "float32"
+    },
+    "UNSW_DEV": {
+      "status": "PASS",
+      "max_score_abs_error": 0.0,
+      "uid_head_decision_differences": 0,
+      "frozen_metric_rows_verified": 96,
+      "input_artifact": {
+        "file": "UNSW_DEV_SAME_BANK.npz",
+        "sha256": "baa088e8d8b6a89199263f074b07847c1c5477b090e7d4f4ebadc1365676bef9",
+        "bytes": 149654456
+      },
+      "reference": {
+        "rows": 66082,
+        "uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6"
+      },
+      "raw_support_field": "support3",
+      "support3_before_guard": true,
+      "rows": 148316,
+      "guard_rows": 74156,
+      "guard_positive_support_rows": 11397,
+      "historical_zero_mask_rows": 15264,
+      "raw_support_positive_on_historical_zero_rows": 2306,
+      "q14_sha256": "6eb54eb93b6f0b11b2d5154230854fbc3d980262d6651bea549bdcfb21260407",
+      "uid_order_sha256": "90c3cbb00b5e9cfbf18b4768207a5b8f03690548b134cf81144416a75fd0b82c",
+      "q14_shape": [
+        148316,
+        14
+      ],
+      "q14_dtype": "float32"
+    },
+    "EDGE": {
+      "status": "PASS",
+      "max_score_abs_error": 0.0,
+      "uid_head_decision_differences": 0,
+      "frozen_metric_rows_verified": 12,
+      "input_artifact": {
+        "file": "EDGE_SAME_BANK.npz",
+        "sha256": "ee36d704f1b34e0f62fe7620ecef8718dba29ac2ff1c527a85887941fe926740",
+        "bytes": 60543612
+      },
+      "reference": {
+        "rows": 4124,
+        "uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e"
+      },
+      "raw_support_field": "support3",
+      "support3_before_guard": true,
+      "rows": 60000,
+      "guard_rows": 9320,
+      "guard_positive_support_rows": 1236,
+      "historical_zero_mask_rows": 0,
+      "raw_support_positive_on_historical_zero_rows": 0,
+      "q14_sha256": "f1a28856e89c224a166161c4b5b5400b7520e7849947091965d8c0506886f699",
+      "uid_order_sha256": "d492fad0fbf3a44bd2e112f20acf60535619f009a8d3eccb02e6e493cbff4dfe",
+      "q14_shape": [
+        60000,
+        14
+      ],
+      "q14_dtype": "float32"
+    }
+  },
+  "metric_rows": 156,
+  "method_freeze_sha256": "31bfa81800b02c147cc2ac60be9501606af7fd8da6dee0a5237f5776845b0b68"
+}

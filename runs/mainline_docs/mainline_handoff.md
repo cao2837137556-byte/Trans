@@ -1,3 +1,9 @@
+## 2026-11-11：保护及指数五臂消融正式验收
+
+183530正常完成，两项PASS；388202查询冻结基准0误差/0判定差，156指标一致。B保护保留295攻击告警并保留28正常误报，Edge保留5 HTTP；p3→p4减少B/Edge误报80/24，但A少6攻击告警，单种子代价保留。五臂/全部头/视图/子组与SHA交付paper_reading_ablations_acceptance_v1_20261111；[论文回传](paper_writing_v1/experiment_results_guard_exponent_codex_20261111.md)。不重新挑参数，不扩大实验，六基线另验收。
+
+---
+
 ## 2026-11-11：五配置消融已提交183530
 
 用户恢复连接并授权提交。来源四份JSON在独立v2中按原SHA快照，67依赖通过；183529因无/usr/bin/time启动1秒失败未进科学计算，183530通过Python资源记录器重交，已实际核验Edge缓存。只做SYN保护及p=1/2/3/4，基准全通过后分项运行/回传。客户端47644、接收18881、进度18806；六基线状态全部COMPLETE待结果验收。见[回执](collab/20261111_paper_reading_ablations_submission_codex.md)。
