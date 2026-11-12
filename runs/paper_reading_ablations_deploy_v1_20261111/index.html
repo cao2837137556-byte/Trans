@@ -1,0 +1,24 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>最终3D：保护规则与指数消融</title>
+<style>body{background:#101923;color:#e5edf4;font:16px system-ui;margin:28px;max-width:1150px}p{line-height:1.7}article{padding:16px;margin:14px 0;background:#1a2938;border-radius:10px}progress{width:100%;height:20px}.hint{color:#bdc9d4}h1{font-size:26px}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:9px;border-bottom:1px solid #456}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style>
+<h1>最终3D：保护规则与指数消融</h1><p>固定主模型、完整参考库、尺度、λ、阈值及查询身份 · 大文件留超算</p>
+<h2 id="status">正在连接进度</h2><p id="job"></p><p id="phase"></p><progress id="bar" max="1"></progress>
+<p class="hint">1 CPU · 8 GiB · 1小时上限。先核对原始 support3，三池基准完全复现后才计算变体；每完成一项自动取回小型指标与核验回执。</p>
+<article><h3 id="base">冻结基准：待核验</h3><p>逐UID核对三个种子及集成判定，核验156条冻结指标；不调整阈值消除差异。</p></article>
+<article><h3 id="guard">① SYN保护开关：等待基准</h3><p>固定 p=3，比较保护开启与关闭。观察保住多少攻击告警，同时多保留多少正常误报。</p></article>
+<article><h3 id="exponent">② 指数比较：等待基准</h3><p>保护开启，比较 p=1、2、3、4，完整报告误报减少与攻击告警减少的折中。</p></article>
+<table><thead><tr><th>配置</th><th>指数</th><th>SYN保护</th></tr></thead><tbody><tr><td>BASE（共同冻结基准）</td><td>3</td><td>开启</td></tr><tr><td>GUARD_OFF</td><td>3</td><td>关闭</td></tr><tr><td>P1</td><td>1</td><td>开启</td></tr><tr><td>P2</td><td>2</td><td>开启</td></tr><tr><td>P4</td><td>4</td><td>开启</td></tr></tbody></table>
+<h3>已有基线</h3><p id="baselines">本次连接已核对六个基线作业完成；结果正式验收另行进行。</p><p class="hint">本批不增加λ、双组件聚合等其他消融，也不重训模型。</p><pre id="error"></pre><p id="updated"></p>
+<script>
+const $=x=>document.getElementById(x);
+function phaseName(s){return ({BASELINE_LOAD_CIC_DEV:'复现冻结基准：A',BASELINE_LOAD_UNSW_DEV:'复现冻结基准：B',BASELINE_LOAD_EDGE:'复现冻结基准：Edge',EDGE_CACHE_VERIFY:'核验 Edge 特征缓存',GUARD_CIC_DEV:'保护开关：A',GUARD_UNSW_DEV:'保护开关：B',GUARD_EDGE:'保护开关：Edge',GUARD_COMPLETE:'保护开关已完成，进入指数比较',EXPONENT_CIC_DEV:'指数比较：A',EXPONENT_UNSW_DEV:'指数比较：B',EXPONENT_EDGE:'指数比较：Edge',COMPLETE:'两项计算均完成，等待正式验收'})[s]||s||'等待计算节点启动'}
+async function update(){try{const a=await(await fetch('/state')).json(),p=a.PROGRESS||{};if(p.version!=='PAPER_READING_ABLATIONS_V1'){$('status').textContent='正在切换到本次消融进度';return}
+$('status').textContent=({SUBMITTED:'已提交 / 排队',RUNNING:'运行中',COMPLETE:'两项均完成，等待验收',STOP:'作业停止，查看下方原因'})[p.stage]||p.stage;
+$('job').textContent='作业 '+(p.job?.job_id||'尚未提交')+' · 1 CPU / 8 GiB / 1小时上限';const d=p.detail||{};$('phase').textContent=phaseName(d.stage)+(d.total>1?' · '+d.done+'/'+d.total:'');
+if(d.total>1){$('bar').max=d.total;$('bar').value=d.done||0}else if(p.stage==='COMPLETE'){$('bar').max=1;$('bar').value=1}else{$('bar').removeAttribute('value')}
+$('base').textContent='冻结基准：'+(p.baseline?.status==='PASS'?'全部通过':'待完成真实核验');
+$('guard').textContent='① SYN保护开关：'+(p.items?.guard?'已完成，回执可取回':p.baseline?'计算中 / 待计算':'等待基准');
+$('exponent').textContent='② 指数比较：'+(p.items?.exponent?'已完成，回执可取回':p.items?.guard?'计算中 / 待计算':'等待保护开关项完成');
+$('error').textContent=p.error?JSON.stringify(p.error,null,2):p.stage==='STOP'?(p.scheduler||'调度器停止，待查看日志'):'';
+$('updated').textContent='状态获取时间：'+new Date(p.updated_unix*1000).toLocaleString();if(Date.now()/1000-p.updated_unix>90&&!['STOP','COMPLETE'].includes(p.stage)){$('status').textContent='进度连接中断：以下为最后记录，不能据此判断仍在排队'}
+}catch(e){$('status').textContent='本地进度暂不可达'}}update();setInterval(update,5000);
+</script></html>

@@ -1,3 +1,9 @@
+## 2026-11-11：五配置消融已提交183530
+
+用户恢复连接并授权提交。来源四份JSON在独立v2中按原SHA快照，67依赖通过；183529因无/usr/bin/time启动1秒失败未进科学计算，183530通过Python资源记录器重交，已实际核验Edge缓存。只做SYN保护及p=1/2/3/4，基准全通过后分项运行/回传。客户端47644、接收18881、进度18806；六基线状态全部COMPLETE待结果验收。见[回执](collab/20261111_paper_reading_ablations_submission_codex.md)。
+
+---
+
 ## 2026-11-10：五配置补充消融本地交付
 
 用户因超算网络故障要求先本地打包。paper_reading_ablations_v1_20261110已准备ZIP和SHA：五臂、原始support3身份门、BASE全指标与判定门、保护/指数分项回执、加权配对和HT。合成回归及67依赖核验通过，真实缓存未读、未提交。基线不操作，状态不可据旧快照推定。见[本地交付回执](collab/20261110_paper_reading_ablations_local_package_codex.md)。

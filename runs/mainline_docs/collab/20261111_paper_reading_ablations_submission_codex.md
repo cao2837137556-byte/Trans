@@ -1,0 +1,25 @@
+# 五配置补充消融提交回执
+
+结果：作业183530已重交并进入真实缓存核验；1CPU、8GiB、1小时。当前为运行阶段，不宣称最终基准或消融验收完成。
+影响：只做最终3D配置的SYN保护开关和p=1/2/3/4，共五臂共享BASE；主模型/参考库/尺度/λ/阈值/查询身份不改，其他建议未扩展。
+下一步：三池全部BASE逐UID四头判定和156指标复现通过后，先保护开关、后指数；普通客户端按项完成取回小型指标、配对变化和核验回执，完整改变UID明细留超算。
+
+## 交付身份与修复
+
+原本地ZIP的SHA为3c36b331d05ebaf57613c4bbca2d5f69b860c5943715bd73bb54429cfa131746。远端提交前检查发现FORMAL_ACCEPTANCE/EVALUATION_COMPLETION/DELIVERY三份来源回执仅在本地；HISTORY_INVENTORY远端字节SHA不同，但递归JSON内容0差异（远端SHA 2bde335a263be113011f36d24f93701ad9012d37d5cf45cbce24b4794e341435）。
+
+独立v2把四份来源回执按原SHA置于provenance/，严格限定PIN_LOCATIONS映射范围；其余63依赖仍检查原远端文件SHA。历史清单另验语义相等，记录原远端摘要，不覆盖旧封存文件。analysis_core.py、METHOD_FREEZE、BASE_EXPECTED_METRICS、INPUT_PINS及资源申请与v1逐字节一致，变动只有来源文件定位。
+
+v2 ZIP SHA为078831f7c1d8d70a25cd9e41a7754a7ac63a529e8a6b6d6f708ed773842cb5e5，实际计算目录runs/paper_reading_ablations_v2_20261111。部署目录runs/paper_reading_ablations_deploy_v1_20261111。
+
+183529在1秒内以127:0退出，因为计算节点无/usr/bin/time，未启动Python计算，未产生科学results。该环境依赖是本地交付漏检。修复通过独立launch_accounted.py调用同一冻结run.py，以Python resource.getrusage记录子进程用时/峰值RSS，Slurm独立记账；没有热改科学包。183530已实际越过启动路径，进入BASELINE_LOAD_EDGE/EDGE_CACHE_VERIFY。源任务失败和预检失败历史均保留。
+
+## 当前运行与进度
+
+本次复用用户已有SSH隧道53960，不新登录；接收端18881只读并鉴权。普通进度客户端PID47644，页面http://127.0.0.1:18806/已显示当前183530及两项实验说明。逐项完成后拉取结果，未来无需AI守候。results/guard与results/exponent分别具有COMPLETE及SHA回执。
+
+大分数/特征/支持缓存及改变UID gzip保留超算，只取小型重要表/回执。没有重训主模型或重新拟合阈值，未加入λ或双组件消融。当前真实结果尚未正式验收，分项完成也不能当作论文已核准结论。
+
+顺带只读核对：DTE-C、SLAD、CatBoost、TabM、Disent-AD、TabR的任务状态均COMPLETE；本次不重跑基线，也未展开新一轮基线科学验收。完整调度快照保存在BASELINE_STATUS_SNAPSHOT.json。
+
+Edge开发角色的来源表述冲突仍在v2 README登记，本批固定敏感性不据Edge重选参数，未改写写作方文档。

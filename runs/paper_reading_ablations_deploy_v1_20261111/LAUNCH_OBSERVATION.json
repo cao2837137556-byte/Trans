@@ -1,0 +1,29 @@
+{
+  "stage": "RUNNING",
+  "job": {
+    "job_id": "183530",
+    "cpu": 1,
+    "memory_gib": 8,
+    "wall_seconds": 3600,
+    "scope": "BASELINE_THEN_GUARD_THEN_EXPONENT_CACHED_ABLATIONS",
+    "previous_failed_job": "183529",
+    "repair": "Python resource accounting replaces unavailable /usr/bin/time; frozen science unchanged"
+  },
+  "scheduler": "183530|RUNNING|0:0|00:02:43||1|8G\n183530.batch|RUNNING|0:0|00:02:43||1|\n",
+  "detail": {
+    "stage": "EDGE_CACHE_VERIFY",
+    "done": 400,
+    "total": 4046,
+    "updated_unix": 1794450517.982779,
+    "rss_bytes": 1756823552
+  },
+  "items": {
+    "guard": null,
+    "exponent": null
+  },
+  "error": null,
+  "progress_client_pid": 47644,
+  "receiver_port": 18881,
+  "socks_port": 53960,
+  "science_package_sha256": "078831f7c1d8d70a25cd9e41a7754a7ac63a529e8a6b6d6f708ed773842cb5e5"
+}

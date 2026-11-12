@@ -1,0 +1,316 @@
+{
+  "version": "BASELINE_SIX_V1",
+  "stage": "COMPLETE",
+  "done": 6,
+  "total": 6,
+  "updated_unix": 1794449590.1337888,
+  "methods": {
+    "DTE-C": {
+      "stage": "COMPLETE",
+      "job": {
+        "job_id": "182778",
+        "cpu": 1,
+        "memory_gib": 12,
+        "wall_seconds": 25260
+      },
+      "detail": {
+        "detail": "DTE-C_227_SCORE_EDGE",
+        "done": 57344,
+        "total": 60000,
+        "updated_unix": 1794146652.6658704
+      },
+      "error": null,
+      "scheduler": "182778|COMPLETED|0:0|04:42:25||1|12G\n182778.batch|COMPLETED|0:0|04:42:25|1468156K|1|\n"
+    },
+    "SLAD": {
+      "stage": "COMPLETE",
+      "job": {
+        "job_id": "182782",
+        "cpu": 1,
+        "memory_gib": 8,
+        "wall_seconds": 7200,
+        "evaluation_only": true
+      },
+      "detail": {
+        "detail": "SLAD_227_SCORE_EDGE",
+        "done": 57344,
+        "total": 60000,
+        "updated_unix": 1794138736.491825
+      },
+      "error": null,
+      "previous_failed_job": {
+        "job_id": "182779",
+        "cpu": 1,
+        "memory_gib": 12,
+        "wall_seconds": 6360
+      },
+      "scheduler": "182782|COMPLETED|0:0|00:23:18||1|8G\n182782.batch|COMPLETED|0:0|00:23:18|3709520K|1|\n"
+    },
+    "CatBoost": {
+      "stage": "COMPLETE",
+      "job": {
+        "job_id": "182781",
+        "cpu": 1,
+        "memory_gib": 12,
+        "wall_seconds": 25320
+      },
+      "detail": {
+        "detail": "CatBoost_227_SCORE_EDGE",
+        "done": 57344,
+        "total": 60000,
+        "updated_unix": 1794134110.7922728
+      },
+      "error": null,
+      "scheduler": "182781|COMPLETED|0:0|01:10:13||1|12G\n182781.batch|COMPLETED|0:0|01:10:13|6639112K|1|\n"
+    },
+    "TabM": {
+      "stage": "COMPLETE",
+      "job": {
+        "job_id": "182806",
+        "cpu": 8,
+        "memory_gib": 32,
+        "gpu": "one RTX4090",
+        "wall_seconds": 604800,
+        "scope": "resource qualification THEN conditional three-seed formal training and evaluation"
+      },
+      "detail": {
+        "detail": "TabM_227_SCORE_EDGE",
+        "done": 57344,
+        "total": 60000,
+        "updated_unix": 1794182850.8055723
+      },
+      "error": null,
+      "qualification": {
+        "status": "PASS",
+        "full_epoch_rows": 617908,
+        "epoch_seconds": 8.503487190930173,
+        "pilot_score_seconds": 0.012719042133539915,
+        "estimated_seconds": 10508.193037303492,
+        "planning_epochs": 100,
+        "peak_gpu_gib": 2.122734546661377,
+        "gpu": "NVIDIA GeForce RTX 4090",
+        "fresh_process_resume_exact": true,
+        "pure_prediction_reload_exact": true,
+        "tabr_cpu_gpu_transport_error": null,
+        "all_candidates": true,
+        "scope": "ENGINEERING_ONLY_NOT_FORMAL_MODEL"
+      },
+      "release": {
+        "status": "PASS",
+        "stage": "FORMAL_RELEASED",
+        "qualification_sha256": "15de32cf2885ccd32c8ea080e2b23983b3b338183e040726681ba03bd5a64717",
+        "source_only": true
+      },
+      "scheduler": "182806|COMPLETED|0:0|00:08:57||8|32G\n182806.batch|COMPLETED|0:0|00:08:57|3340452K|8|\n"
+    },
+    "TabR": {
+      "stage": "COMPLETE",
+      "job": {
+        "job_id": "182915",
+        "stage": "seed-27",
+        "cpu": 8,
+        "memory_gib": 32,
+        "gpu": "RTX4090",
+        "wall_seconds": 604800,
+        "afterok": []
+      },
+      "detail": {
+        "detail": "REAL_ENCODER",
+        "done": 112,
+        "total": 112,
+        "updated_unix": 1794189768.5867205
+      },
+      "error": null,
+      "subjobs": {
+        "seed-27": {
+          "job": {
+            "job_id": "182915",
+            "stage": "seed-27",
+            "cpu": 8,
+            "memory_gib": 32,
+            "gpu": "RTX4090",
+            "wall_seconds": 604800,
+            "afterok": []
+          },
+          "scheduler": "182915|COMPLETED|0:0|06:44:24||8|32G\n182915.batch|COMPLETED|0:0|06:44:24|2184556K|8|\n",
+          "detail": {
+            "detail": "TabR_27_refit_EPOCH_3",
+            "done": 614400,
+            "total": 617908,
+            "updated_unix": 1794217439.7773967,
+            "epoch": 3,
+            "best_epoch": 2,
+            "bad_epochs": 0
+          },
+          "complete": {
+            "status": "PASS",
+            "method": "TabR",
+            "seed": 27,
+            "phase": "refit",
+            "epochs": 3,
+            "best_epoch": 3,
+            "best_value": 3.0,
+            "best_sha256": "83cb503be5ce3dfc22546f03b5fe8588c39eb915b0da969ac6866ef033622f51",
+            "checkpoint_sha256": "0e4d3e4a18847cb36b0f2292b904cc9ccf9424cf01858c22f43cef0295b7ca82",
+            "source_only": true
+          }
+        },
+        "seed-127": {
+          "job": {
+            "job_id": "182916",
+            "stage": "seed-127",
+            "cpu": 8,
+            "memory_gib": 32,
+            "gpu": "RTX4090",
+            "wall_seconds": 604800,
+            "afterok": []
+          },
+          "scheduler": "182916|COMPLETED|0:0|16:15:00||8|32G\n182916.batch|COMPLETED|0:0|16:15:00|2106336K|8|\n",
+          "detail": {
+            "detail": "TabR_127_refit_EPOCH_6",
+            "done": 614400,
+            "total": 617908,
+            "updated_unix": 1794261061.1924317,
+            "epoch": 6,
+            "best_epoch": 5,
+            "bad_epochs": 0
+          },
+          "complete": {
+            "status": "PASS",
+            "method": "TabR",
+            "seed": 127,
+            "phase": "refit",
+            "epochs": 6,
+            "best_epoch": 6,
+            "best_value": 6.0,
+            "best_sha256": "3d9ef243a4c468ef8aadf93c837382b374c761aaf9d976cb822ded767de97bf6",
+            "checkpoint_sha256": "63f5990b730d4347abaef469ec7e119e7ec2bfd55ced9b6d31341c504b8ee53c",
+            "source_only": true
+          }
+        },
+        "seed-227": {
+          "job": {
+            "job_id": "182917",
+            "stage": "seed-227",
+            "cpu": 8,
+            "memory_gib": 32,
+            "gpu": "RTX4090",
+            "wall_seconds": 604800,
+            "afterok": []
+          },
+          "scheduler": "182917|COMPLETED|0:0|11:19:09||8|32G\n182917.batch|COMPLETED|0:0|11:19:09|2175416K|8|\n",
+          "detail": {
+            "detail": "TabR_227_refit_EPOCH_10",
+            "done": 614400,
+            "total": 617908,
+            "updated_unix": 1794258188.6374319,
+            "epoch": 10,
+            "best_epoch": 9,
+            "bad_epochs": 0
+          },
+          "complete": {
+            "status": "PASS",
+            "method": "TabR",
+            "seed": 227,
+            "phase": "refit",
+            "epochs": 10,
+            "best_epoch": 10,
+            "best_value": 10.0,
+            "best_sha256": "8356613d38eff7ed371e6b392f1519a0a53149fb3157d79e8c1895358d337fd4",
+            "checkpoint_sha256": "fa6a6006557dc79e370196a0d86d40cd87f35aa4c5b84d496c84475a1f338f8b",
+            "source_only": true
+          }
+        },
+        "evaluate": {
+          "job": {
+            "job_id": "182918",
+            "stage": "evaluate",
+            "cpu": 8,
+            "memory_gib": 32,
+            "gpu": "RTX4090",
+            "wall_seconds": 86400,
+            "afterok": [
+              "182915",
+              "182916",
+              "182917"
+            ]
+          },
+          "scheduler": "182918|COMPLETED|0:0|01:20:17||8|32G\n182918.batch|COMPLETED|0:0|01:20:17|4908332K|8|\n",
+          "detail": {
+            "detail": "TabR_227_SCORE_EDGE",
+            "done": 57344,
+            "total": 60000,
+            "updated_unix": 1794265875.7713833
+          },
+          "complete": null
+        }
+      },
+      "previous_failed_job": "182807"
+    },
+    "DisentAD": {
+      "stage": "COMPLETE",
+      "job": {
+        "job_id": "182805",
+        "cpu": 8,
+        "memory_gib": 32,
+        "gpu": "one RTX4090",
+        "wall_seconds": 604800,
+        "scope": "resource qualification THEN conditional three-seed formal training and evaluation"
+      },
+      "detail": {
+        "detail": "DisentAD_227_SCORE_EDGE",
+        "done": 57344,
+        "total": 60000,
+        "updated_unix": 1794202568.0449874
+      },
+      "error": null,
+      "qualification": {
+        "status": "PASS",
+        "full_epoch_rows": 134493,
+        "epoch_seconds": 67.25619786605239,
+        "pilot_score_seconds": 0.12599313794635236,
+        "estimated_seconds": 31040.526919587795,
+        "planning_epochs": 100,
+        "peak_gpu_gib": 2.2596397399902344,
+        "gpu": "NVIDIA GeForce RTX 4090",
+        "fresh_process_resume_exact": true,
+        "pure_prediction_reload_exact": true,
+        "tabr_cpu_gpu_transport_error": null,
+        "all_candidates": true,
+        "scope": "ENGINEERING_ONLY_NOT_FORMAL_MODEL"
+      },
+      "release": {
+        "status": "PASS",
+        "stage": "FORMAL_RELEASED",
+        "qualification_sha256": "f5dde7626bc44f04c61382a6a402828f389c95d38df81e3703597717d26ce1a8",
+        "source_only": true
+      },
+      "scheduler": "182805|COMPLETED|0:0|05:44:22||8|32G\n182805.batch|COMPLETED|0:0|05:44:22|1945560K|8|\n"
+    }
+  },
+  "job_id": "182777",
+  "detail": {
+    "detail": "SOURCE_GROUP_SPLIT",
+    "done": 0,
+    "total": 1,
+    "updated_unix": 1794145742.861773
+  },
+  "pending_methods": {},
+  "slad_repair": "Evaluation only; all three completed checkpoints reused",
+  "removed": [
+    "ModernNCA"
+  ],
+  "preflight_job": {
+    "job_id": "182804",
+    "cpu": 8,
+    "memory_gib": 24,
+    "wall_seconds": 7200
+  },
+  "previous_failed_preflight": {
+    "job_id": "182796",
+    "reason": "legacy controller import shadowed new submit(method)",
+    "replacement": "isolated v2 with exact-path module identity gate"
+  },
+  "preflight_error": null,
+  "preflight_scheduler": "182804|COMPLETED|0:0|00:01:34||8|24G\n182804.batch|COMPLETED|0:0|00:01:34|6565952K|8|\n"
+}

@@ -1,0 +1,393 @@
+{
+  "status": "ACCEPTED_WITH_EXPLICIT_LIMITATIONS",
+  "engineering": "PASS",
+  "scientific": "SUPPORTED_SAME_BANK_POSTPROCESSING_IMPROVEMENT_NOT_ALL_TARGETS_MET",
+  "checks": 5261,
+  "compared_rows": 388202,
+  "excluded_rows": 0,
+  "history_oracle_points": 56,
+  "jobs": [
+    {
+      "job_id": "182658",
+      "seconds": 242
+    },
+    {
+      "job_id": "182659",
+      "seconds": 637
+    }
+  ],
+  "successful_chain_seconds": 879,
+  "rss_sample_peak_gib": 2.7289352416992188,
+  "candidate": "FUSION790 + full historical bank + C5_3D_OLD",
+  "AB_primary_all_four_heads_pooled_2pct_999": true,
+  "all_views_devices_heads_original_target": false,
+  "exceptions": [
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "27",
+      "group": "NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.05033338601644363
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "27",
+      "group": "device:Eufy Home Base / NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.047948618273066804
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "27",
+      "group": "device:HeimVision Camera / NORMAL",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.06619859578736209,
+        "hierarchical_rate": 0.052718153759820446
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "127",
+      "group": "NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.05421757613463673
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "127",
+      "group": "device:Eufy Home Base / NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.058524149884312704
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "127",
+      "group": "device:HeimVision Camera / NORMAL",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.06318956870611836,
+        "hierarchical_rate": 0.04991100238496071
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "227",
+      "group": "NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.05059188617109604
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "227",
+      "group": "device:Eufy Home Base / NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.0520478821906769
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "227",
+      "group": "device:HeimVision Camera / NORMAL",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.06018054162487462,
+        "hierarchical_rate": 0.04913589015151516
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "ensemble",
+      "group": "NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.0541234191232178
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "ensemble",
+      "group": "device:Eufy Home Base / NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.0551617337290394
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "ensemble",
+      "group": "device:HeimVision Camera / NORMAL",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.06619859578736209,
+        "hierarchical_rate": 0.0530851045173962
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "head": "227",
+      "group": "device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / ATTACK",
+      "failed": [
+        "sample_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9989659451261547
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "27",
+      "group": "device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL",
+      "failed": [
+        "sample_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.0232
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "127",
+      "group": "device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL",
+      "failed": [
+        "sample_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.0233
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "227",
+      "group": "device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / ATTACK",
+      "failed": [
+        "sample_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9989659451261547
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "227",
+      "group": "device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL",
+      "failed": [
+        "sample_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.02205
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "ensemble",
+      "group": "device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL",
+      "failed": [
+        "sample_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.0231
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "27",
+      "group": "HTTP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9982,
+        "hierarchical_rate": 0.9978273843902814
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "27",
+      "group": "UDP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.97645,
+        "hierarchical_rate": 0.9764499999999998
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "127",
+      "group": "NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.03610879049475541
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "127",
+      "group": "HTTP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9759,
+        "hierarchical_rate": 0.9678056660267588
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "127",
+      "group": "UDP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9938,
+        "hierarchical_rate": 0.9937999999999999
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "227",
+      "group": "HTTP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.99795,
+        "hierarchical_rate": 0.9975347502984098
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "227",
+      "group": "UDP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9835,
+        "hierarchical_rate": 0.9834999999999998
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "ensemble",
+      "group": "HTTP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9979,
+        "hierarchical_rate": 0.9975116476069461
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "ensemble",
+      "group": "UDP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9866,
+        "hierarchical_rate": 0.9865999999999999
+      }
+    }
+  ],
+  "training_started": false,
+  "deployment_changed": false,
+  "evidence_role": "A/B development; Edge previously consumed diagnostic transfer evaluation",
+  "receipt_sha256": {
+    "PREFLIGHT_RESULT.json": "33b322391e5fc6e03c52a9cfdaec9938142df33670668601adc797522004486c",
+    "PREFLIGHT_SCHEDULER.json": "ba7ec2d69c35055ad4fc3a10d81bd15c6628490ed05de09452620f0447ce367d",
+    "PREFLIGHT_JOB.json": "38c24f4f5376872c8392f8979e23359650e8bdd325ded60ba8601b223144c3c6",
+    "DIAGNOSE_RESULT.json": "1ba14a615b32196532b5863912c638e3266e1a35eb3ad882d5931cad7d49cb3c",
+    "DIAGNOSE_SCHEDULER.json": "c09e47bc0d74d2799c772501f233181acf18947069e9901920a07b5e2d73cf0f",
+    "DIAGNOSE_JOB.json": "20cc6c1b0ce0e463538b9577f8a47fc8fecb8100dcff2160a4a638690c22550d",
+    "PREFLIGHT_PARTIAL.json": "4f468b1c6dfc8109a7493cd462ba99793c3763ce82d40f7f07e604f1a1cfe345",
+    "RUNTIME_FORECAST.json": "2ff069d3162ab2aca439ac17e01a713f2822759dd77f9541378b89eef4ae9394",
+    "CIC_DEV_PARITY_AUDIT.json": "82ed481faad5845a07ad95c06a14c4d3b9ffd0a9e340838d252904a3cce14801",
+    "CIC_DEV_OPTIMIZATION_AUDIT.json": "05c992925d161e0a90ae3cdb8d0452c6c8228f702a2965b94bbeb7f63cd52bfe",
+    "UNSW_DEV_PARITY_AUDIT.json": "175fb2fea92d29e797dc9a84070e7a669f46047f9fcd2a58a449a7210d38a142",
+    "UNSW_DEV_OPTIMIZATION_AUDIT.json": "9afcc7f4443704152e6c8c1f2f4ac3e06ebbb16d97781c83531d7180cb3c1e50",
+    "EDGE_PARITY_AUDIT.json": "d0152ea5e756f25bf76b3281371c2d7ca0a29636d0fbd7b179be7f2b54a7c856",
+    "EDGE_OPTIMIZATION_AUDIT.json": "709e76e9a45103d337dfbf9029ed5f415ef4c50b19cf5cddd13cf36242b4117c"
+  }
+}
