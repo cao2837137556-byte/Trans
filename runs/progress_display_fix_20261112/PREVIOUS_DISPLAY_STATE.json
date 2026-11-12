@@ -1,0 +1,409 @@
+{
+  "version": "TABM_TRANSFER_REPAIR_V1",
+  "stage": "COMPLETE",
+  "job": {
+    "job_id": "183558",
+    "cpu": 1,
+    "memory_gib": 12,
+    "wall_seconds": 3600,
+    "evaluation_only": true,
+    "new_forward": false,
+    "replaces_failed": "183549",
+    "replaces_pending": "183552"
+  },
+  "scheduler": "183558|COMPLETED|0:0|00:01:53||1|12G\n183558.batch|COMPLETED|0:0|00:01:53|3919612K|1|\n",
+  "detail": {
+    "stage": "COMPLETE",
+    "done": 2,
+    "total": 2,
+    "updated_unix": 1794468601.6064186,
+    "rss_bytes": 1489002496
+  },
+  "error": null,
+  "p3_complete": {
+    "status": "PASS",
+    "recovery": "CPU cached evaluation; original bitwise gate unchanged",
+    "training": false,
+    "new_forward": false,
+    "original_gpu_job": "183549",
+    "output_sha256": {
+      "TABM_SOURCE_CALIBRATION.json": "82a11414586bbb65548d205ca9b72dff185cf914687ebb8f88e9b783b800aa4a",
+      "SOURCE_FIT_IDENTITY.json": "f99e45a490fea7bf45f9b90b8f328d67bf14a5df446c7ce7313963460830f22b",
+      "TABM_RAW_REPRODUCTION.json": "a0ed2c1c03ce7c1f88770a597bec4ca592d80b34b4c99702fdb455462435ffec",
+      "RESULT_READOUT.md": "0810c825a75787b6fde29c07a114528b1e5d6ac421d342b4288443fa3ffebce8",
+      "METRICS.json": "2a78d92fc6afca8909e7fc92b821056aac41fdc808f38b11b317fedd3ab153bb",
+      "TABM_NATIVE_METRIC_REPRODUCTION.json": "351f3f268b18cff8e2c2e117621ad8c64460abd3d7c75da83f51b2d79ef36dad",
+      "METRICS.csv": "875ffe303772b91566aed686dba24d46aa3c6e3e881dff345a0b0479970ec291",
+      "CHANGED_UID_MANIFEST.json": "9a0cf3cd48dab74663657cecda33f92485cc0f6f845f38a3c9702657df186038",
+      "PAIRED_CHANGES.csv": "83e0c52cb8aeb5d665cfca3280602d776b61528253b1b887abc2f3c0a92aa3c1",
+      "PAIRED_CHANGES.json": "94b54ebefc996a7e3e206d43dcb71ed1f80de4451c143e0690415b4dc5d0afbf",
+      "SCALE_AND_THRESHOLD_FREEZE.json": "12c19eac53730180a7e51967d73714843c4851ef9c7626469cfaa1c6c8d5f826",
+      "EVALUATION_GATES.json": "ca3c99020996bd36274312501ab88d40a8f55578068f95a64238368b03f9b3c2"
+    }
+  },
+  "p4_complete": {
+    "status": "PASS",
+    "task": "tabm",
+    "training": false,
+    "new_forward": false,
+    "outputs_sha256": {
+      "METRICS.csv": "ce153b27363869e4802c234042cdc20708915af18a48c8284951e3b61ab9c20f",
+      "PAIRED_CHANGES.csv": "6496bb707b9573c650c6ff688732a3c96595c69284d67372eccfa1376c49c347",
+      "RESULT_READOUT.md": "27f9229307b29599f74d53a03f635f80bf9ede8450c500fd3f2cc4bda3eabee9",
+      "PAIRED_CHANGES.json": "2c77cce81c5381f90fd606d08039bed0855373c8c2045c3b6d56017df7e5a3c2",
+      "VERIFICATION.json": "9bb223918ebcc960c1d0caa0c3c3dc1bce08025c22b22f4c011f77667821e9f3",
+      "CHANGED_UID_MANIFEST.json": "675776bb9f846cddbd6779457c0d01b586943d31bde1ae318d5c32d78856f976",
+      "METRICS.json": "ab02a6f68f495c766787fff01b6596875cf40fdf62cf4e622712c8b5c56d9fae"
+    }
+  },
+  "controls_complete": {
+    "status": "PASS",
+    "task": "controls",
+    "seconds": 372.07735472591594,
+    "maxrss_kib": 2175088,
+    "outputs_sha256": {
+      "PAIRED_CHANGES.csv": "2fffa244360b88b0f44543dc98d8103404f71f161027e8b060a8d0574a2d5c66",
+      "REFERENCE_BANKS.json": "bf73cc421dfee9a7616a2a5813fee8e3e555a0a6a42dea4a1e5abc06f5eaae66",
+      "CHANGED_UID_MANIFEST.json": "a8bdf3853a0df58ffd5a428799c30532d256019cc0c36a7e75188b44dc1f80d9",
+      "HISTORY_LINEAGE_COUNTS.json": "00eb9fcf8193f7834dff3ff043715a40aacd5c002a69c45818f09106605c6615",
+      "QUERY_ASSETS.json": "cc1f8f358616de397b07824bf26306037596ee0accd70f1b05928c5ec06e9c4d",
+      "PAIRED_CHANGES.json": "4cb6d30aa4b19d48adda64b790a5d043f217e0062ff14c02807c4835d802d4d1",
+      "METRICS.csv": "3db856ca7eb9f359f58d0571a1421f3050d90a0fc557a33431bb6bb387d77b01",
+      "VERIFICATION.json": "f473451a8b2caa643bc7f97c1ebf9214a93d9c64f1fba96f383a3301ee6cfa1f",
+      "CIC_SIX_WITHDRAWALS.json": "90f33bce5e266382cdcd8dc55561d583c834821121c33dcdbfadb3a5503f4ff8",
+      "RESULT_READOUT.md": "65d35df18942d9a70ba33c95b40f025fc246adcc2fd7cb225af3ecee9c5f1090",
+      "METRICS.json": "4749a9dd13544ac861200257a6cc8d1eb649b4cca088da50c636e72b496e7139"
+    }
+  },
+  "corrected_lineage": {
+    "CIC_DEV": {
+      "status": "PASS",
+      "history_rows": 289,
+      "packs": [
+        {
+          "asset_key": "a0",
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.jsonl.gz",
+          "sha256": "997e1c4ab68781fba3787969a37938ef0a36d899559543e243aabeeda1953fb3",
+          "rows": 11,
+          "groups": [
+            {
+              "device": "HeimVision Camera",
+              "protocol": 6,
+              "rows": 1,
+              "components": 1,
+              "captures": 1,
+              "first_time": 1633540164.552751,
+              "last_time": 1633540164.552751,
+              "origins": {
+                "UNRECORDED": 1
+              }
+            },
+            {
+              "device": "HeimVision Camera",
+              "protocol": 17,
+              "rows": 10,
+              "components": 10,
+              "captures": 3,
+              "first_time": 1633539902.925146,
+              "last_time": 1633540171.541785,
+              "origins": {
+                "UNRECORDED": 10
+              }
+            }
+          ]
+        },
+        {
+          "asset_key": "a2",
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v2_20261106/assets/a2",
+          "sha256": "c9a9d58ba3a6bda65e5fdc7db02af69f6b038b6691b6093aed6ccbc595e3e9d1",
+          "rows": 278,
+          "groups": [
+            {
+              "device": "HeimVision Camera",
+              "protocol": 6,
+              "rows": 212,
+              "components": 1,
+              "captures": 3,
+              "first_time": 1633539900.741864,
+              "last_time": 1633540164.424872,
+              "origins": {
+                "C3_ADMITTED_LEGACY_REFERENCE": 212
+              }
+            },
+            {
+              "device": "HeimVision Camera",
+              "protocol": 17,
+              "rows": 66,
+              "components": 9,
+              "captures": 3,
+              "first_time": 1633539901.089378,
+              "last_time": 1633540165.461663,
+              "origins": {
+                "C3_ADMITTED_LEGACY_REFERENCE": 66
+              }
+            }
+          ]
+        }
+      ],
+      "selection_reexecuted": false,
+      "compression_performed": false,
+      "query_scores_used_for_inventory": false,
+      "exact_equivalence_inventory": {
+        "scope": "historical references only; same component/eligibility key and exactly equal raw E3/q14/context8; no target score or error UID used",
+        "equivalence_groups": 289,
+        "duplicate_groups": 0,
+        "potential_redundant_rows": 0,
+        "largest_group": 1,
+        "note": "Candidates only: no rows deleted; any future deduplication needs identical per-query support/decision replay before claiming lossless compression"
+      }
+    },
+    "UNSW_DEV": {
+      "status": "PASS",
+      "history_rows": 52835,
+      "packs": [
+        {
+          "asset_key": "a4",
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/TP_LINK_references.jsonl.gz",
+          "sha256": "f06b9fdcf06a5db8956813954cc0c76a42a3fb0c9dbbe13f0c3271bd2bef4d65",
+          "rows": 7779,
+          "groups": [
+            {
+              "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+              "protocol": 6,
+              "rows": 4096,
+              "components": 428,
+              "captures": 1,
+              "first_time": 1475244002.367889,
+              "last_time": 1480856328.254013,
+              "origins": {
+                "HIST_B_2016_2017": 4096
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+              "protocol": 17,
+              "rows": 3683,
+              "components": 1692,
+              "captures": 1,
+              "first_time": 1475244020.152722,
+              "last_time": 1480854795.635345,
+              "origins": {
+                "HIST_B_2016_2017": 3683
+              }
+            }
+          ]
+        },
+        {
+          "asset_key": "a6",
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/WEMO_POWER_references.jsonl.gz",
+          "sha256": "bc9b1cf16e4dfeee9688659a77c2aa909830d83d31aed5e7b6ab4de9f2665ad1",
+          "rows": 8192,
+          "groups": [
+            {
+              "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+              "protocol": 6,
+              "rows": 4096,
+              "components": 803,
+              "captures": 1,
+              "first_time": 1475244219.963434,
+              "last_time": 1484092672.882703,
+              "origins": {
+                "HIST_B_2016_2017": 4096
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+              "protocol": 17,
+              "rows": 4096,
+              "components": 797,
+              "captures": 1,
+              "first_time": 1475244465.65815,
+              "last_time": 1484092664.745688,
+              "origins": {
+                "HIST_B_2016_2017": 4096
+              }
+            }
+          ]
+        },
+        {
+          "asset_key": "a8",
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/SAMSUNG_references.jsonl.gz",
+          "sha256": "ffb92fe922c68530e392548c66bcb0134383c3ea76913c5274c7e050050c7808",
+          "rows": 8192,
+          "groups": [
+            {
+              "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+              "protocol": 6,
+              "rows": 4096,
+              "components": 4096,
+              "captures": 1,
+              "first_time": 1475250322.083937,
+              "last_time": 1490024425.869836,
+              "origins": {
+                "HIST_B_2016_2017": 4096
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+              "protocol": 17,
+              "rows": 4096,
+              "components": 4096,
+              "captures": 1,
+              "first_time": 1475251831.912597,
+              "last_time": 1489994253.842278,
+              "origins": {
+                "HIST_B_2016_2017": 4096
+              }
+            }
+          ]
+        },
+        {
+          "asset_key": "a10",
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/TP_LINK/encoded/references.jsonl.gz",
+          "sha256": "017422f2efa68c5ba2cc1e75d936155482592cc7d632822bcbf44d630e98794b",
+          "rows": 4096,
+          "groups": [
+            {
+              "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+              "protocol": 6,
+              "rows": 4096,
+              "components": 346,
+              "captures": 1,
+              "first_time": 1475244020.310565,
+              "last_time": 1480853730.404547,
+              "origins": {
+                "HIST_B_2016_2017": 4096
+              }
+            }
+          ]
+        },
+        {
+          "asset_key": "a12",
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/WEMO_POWER/encoded/references.jsonl.gz",
+          "sha256": "30b52d1341b20903690400d30a8a2c80b13827f80cb4e94396782c9a577ca400",
+          "rows": 8192,
+          "groups": [
+            {
+              "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+              "protocol": 6,
+              "rows": 4096,
+              "components": 423,
+              "captures": 1,
+              "first_time": 1475244760.477276,
+              "last_time": 1484092132.207483,
+              "origins": {
+                "HIST_B_2016_2017": 4096
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+              "protocol": 17,
+              "rows": 4096,
+              "components": 240,
+              "captures": 1,
+              "first_time": 1475250806.060257,
+              "last_time": 1484092664.745388,
+              "origins": {
+                "HIST_B_2016_2017": 4096
+              }
+            }
+          ]
+        },
+        {
+          "asset_key": "a14",
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/SAMSUNG/encoded/references.jsonl.gz",
+          "sha256": "4a42a9973e2fab262bfb3067d4858afd69cd36195cfdd0a6405bbe8f5f691447",
+          "rows": 8192,
+          "groups": [
+            {
+              "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+              "protocol": 6,
+              "rows": 4096,
+              "components": 1129,
+              "captures": 1,
+              "first_time": 1475244308.237484,
+              "last_time": 1490054276.561357,
+              "origins": {
+                "HIST_B_2016_2017": 4096
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+              "protocol": 17,
+              "rows": 4096,
+              "components": 192,
+              "captures": 1,
+              "first_time": 1475244887.553273,
+              "last_time": 1490053351.417112,
+              "origins": {
+                "HIST_B_2016_2017": 4096
+              }
+            }
+          ]
+        },
+        {
+          "asset_key": "a16",
+          "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/NETATMO/encoded/references.jsonl.gz",
+          "sha256": "8c62b0281bd708b2816176a86c70cb6621f89b8e2807df0d8bd68d55e39ab9e6",
+          "rows": 8192,
+          "groups": [
+            {
+              "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+              "protocol": 6,
+              "rows": 4096,
+              "components": 2947,
+              "captures": 1,
+              "first_time": 1475250626.100681,
+              "last_time": 1485880280.52411,
+              "origins": {
+                "HIST_B_2016_2017": 4096
+              }
+            },
+            {
+              "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+              "protocol": 17,
+              "rows": 4096,
+              "components": 343,
+              "captures": 1,
+              "first_time": 1475244058.51865,
+              "last_time": 1485906094.686861,
+              "origins": {
+                "HIST_B_2016_2017": 4096
+              }
+            }
+          ]
+        }
+      ],
+      "selection_reexecuted": false,
+      "compression_performed": false,
+      "query_scores_used_for_inventory": false,
+      "exact_equivalence_inventory": {
+        "scope": "historical references only; same component/eligibility key and exactly equal raw E3/q14/context8; no target score or error UID used",
+        "equivalence_groups": 47899,
+        "duplicate_groups": 714,
+        "potential_redundant_rows": 4936,
+        "largest_group": 77,
+        "note": "Candidates only: no rows deleted; any future deduplication needs identical per-query support/decision replay before claiming lossless compression"
+      }
+    },
+    "EDGE": {
+      "status": "PASS",
+      "history_rows": 0,
+      "packs": [],
+      "selection_reexecuted": false,
+      "compression_performed": false,
+      "query_scores_used_for_inventory": false,
+      "exact_equivalence_inventory": {
+        "scope": "historical references only; same component/eligibility key and exactly equal raw E3/q14/context8; no target score or error UID used",
+        "equivalence_groups": 0,
+        "duplicate_groups": 0,
+        "potential_redundant_rows": 0,
+        "largest_group": 0,
+        "note": "Candidates only: no rows deleted; any future deduplication needs identical per-query support/decision replay before claiming lossless compression"
+      }
+    }
+  },
+  "previous_failed_job": "183549",
+  "replaced_pending_job": "183552",
+  "updated_unix": 1794468817.0214944
+}
