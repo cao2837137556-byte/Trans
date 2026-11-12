@@ -1,5 +1,7 @@
 # 可转发给实验对话：推进现代检测头迁移
 
+2026-11-11换版衔接：按用户最新取舍推进p=4新版准备，见 `p4_upgrade_handoff_codex_20261111.md`。已安排的p=3迁移继续保留；在同一TabM分数/自身尺度上追加p=4修正即可。若尚未开始，可一次输出两档，不重新训练，不扩大其他参数搜索。以下p=3协议作为配对及版本衔接依据保留。
+
 请读取并按已登记方案推进TabM检测头与3D正常参考模块的首轮迁移比较：
 
 `D:/study/paper/anomaly_detection/paper04/worktrees/kitnet-exp-mainline/runs/mainline_docs/paper_writing_v1/modern_head_transfer_plan_codex_20261111.md`
