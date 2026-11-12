@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "gates": {
+    "CIC_DEV": {
+      "status": "PASS",
+      "raw_unchanged": true,
+      "p3_bridge_exact": true,
+      "p4_subset_of_p3": true,
+      "score_sha256": "1502f54f7363907cc865ec648455e227c3ab2a848f3c530cc9777f938153ea9a"
+    },
+    "UNSW_DEV": {
+      "status": "PASS",
+      "raw_unchanged": true,
+      "p3_bridge_exact": true,
+      "p4_subset_of_p3": true,
+      "score_sha256": "c9427722493baecd186758971178c7b15af54c2cfc6d8903715d90adc4329328"
+    },
+    "EDGE": {
+      "status": "PASS",
+      "raw_unchanged": true,
+      "p3_bridge_exact": true,
+      "p4_subset_of_p3": true,
+      "score_sha256": "d8d97b88c85b34add54006a648415d80dd8e44fbd90965e045ced57f283f2225"
+    }
+  },
+  "tabm_source_calibration": {
+    "status": "PASS",
+    "seeds": [
+      "27",
+      "127",
+      "227"
+    ],
+    "score": "per-model mean of 32 member class-1 probabilities; float32 native output promoted to float64; seed-order float64 arithmetic mean",
+    "q10": [
+      1.6836356309113398e-08,
+      5.616695997190391e-11,
+      3.6502775628555195e-12
+    ],
+    "q90": [
+      0.9999998807907104,
+      1.0,
+      1.0
+    ],
+    "scales": [
+      0.9999998639543541,
+      0.999999999943833,
+      0.9999999999963497
+    ],
+    "zero_scale_seeds": [],
+    "cuts": [
+      0.038286350667476654,
+      0.07064133882522583,
+      0.01989559642970562,
+      0.03535898278156916
+    ],
+    "ensemble_cut_independently_calibrated": true,
+    "normal_cal_rows": 33147,
+    "weighted_cal_fpr": [
+      0.008772347182204912,
+      0.00913569705862511,
+      0.009997071659814527,
+      0.009156329080706765
+    ],
+    "scale_role": "SOURCE_FIT",
+    "threshold_role": "SOURCE_CAL_NORMAL",
+    "lambda_value": 0.25,
+    "p": 3,
+    "guard": true,
+    "corrected_scores_clipped": false
+  },
+  "main_rows": [
+    "MLP_RAW",
+    "MLP_3D_SELF_P4",
+    "TABM_RAW",
+    "TABM_3D_SELF_P4",
+    "P4_MAIN"
+  ],
+  "bridge_rows": [
+    "TABM_3D_SELF_P3",
+    "MLP_3D_SELF_P3"
+  ],
+  "new_forward": false,
+  "training": false,
+  "clipping": false
+}

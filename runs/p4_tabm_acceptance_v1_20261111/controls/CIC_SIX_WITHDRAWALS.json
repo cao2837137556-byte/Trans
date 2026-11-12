@@ -1,0 +1,650 @@
+[
+  {
+    "original_metadata": {
+      "uid": "2d5ba89f89bcf87e0b99d4ad0c7826ef17e7c0d8af100e7da1f598c0089cc518",
+      "capture_id": "interaction-attack-195",
+      "source_sha256": "d80f27fbac51e942ca4de1fce599f9a3cb25c34b2d1487213b6e0d697359f1ce",
+      "frame": 42152,
+      "timestamp": 1638206677.269209,
+      "device": "HeimVision Camera",
+      "owner": "44:01:bb:ec:10:4a",
+      "partition": "DEV",
+      "use": "LATER_ATTACK_QUERY",
+      "label": 1,
+      "activity": "TCP",
+      "session_id": "9b5720d6dbae18bbfbd1f2f42756f754c72aeb4e2764312c7c91b655e6281dd1",
+      "component_id": "f7da9e428d8cd35e5fcab0e455c5df984d44036f8f42b5c5b7825e433bd911b1",
+      "protocol": 6,
+      "canonical_key": [
+        6,
+        [
+          "192.168.137.142",
+          80
+        ],
+        [
+          "192.168.137.5",
+          57390
+        ]
+      ],
+      "candidate_rank": 31,
+      "candidate_count": 35,
+      "sample_count": 32,
+      "reference_end": 1633540171.541785,
+      "packet_sha256": "cf8b74b154fccc2416daf25a7f3d71884cae57a30d3331db81cc488a798cb3c7",
+      "reference_dependency_stratum": "different_canonical_component",
+      "normal_activity_stratum": "attack",
+      "label_metric_weight_denominator": 350784,
+      "balanced_bce_weight_denominator": 701568
+    },
+    "uid": "2d5ba89f89bcf87e0b99d4ad0c7826ef17e7c0d8af100e7da1f598c0089cc518",
+    "q14": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.6564269661903381,
+      0.6877637505531311,
+      0.0,
+      0.0
+    ],
+    "tcp_syn": false,
+    "tcp_ack": true,
+    "guard": false,
+    "support3": 0.1825138913154679,
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "raw": [
+      -5.896718502044678,
+      -10.081206321716309,
+      -7.225980281829834,
+      -7.73463503519694
+    ],
+    "cuts": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "raw_margin": [
+      17.146528720855713,
+      13.23399829864502,
+      15.388735294342041,
+      15.51516342163086
+    ],
+    "deduction_p3": [
+      13.492244028432896,
+      13.766540868077275,
+      13.878433252023328,
+      13.712406049511163
+    ],
+    "deduction_p4": [
+      16.457515446833355,
+      16.792096148601853,
+      16.928579793078978,
+      16.726063796171395
+    ],
+    "score_p3": [
+      -19.388962530477574,
+      -23.847747189793584,
+      -21.10441353385316,
+      -21.447041084708104
+    ],
+    "score_p4": [
+      -22.354233948878033,
+      -26.873302470318162,
+      -24.15456007490881,
+      -24.460698831368337
+    ],
+    "unit": "query, not independently identified attack event"
+  },
+  {
+    "original_metadata": {
+      "uid": "0c9a692e72487a0250b14c3d47aafe828c28231d936b08d71ee3f13ec07abfe8",
+      "capture_id": "interaction-attack-195",
+      "source_sha256": "d80f27fbac51e942ca4de1fce599f9a3cb25c34b2d1487213b6e0d697359f1ce",
+      "frame": 42320,
+      "timestamp": 1638206688.3682,
+      "device": "HeimVision Camera",
+      "owner": "44:01:bb:ec:10:4a",
+      "partition": "DEV",
+      "use": "LATER_ATTACK_QUERY",
+      "label": 1,
+      "activity": "TCP",
+      "session_id": "34dc1d0d71f2c1ac52cb3cd30da53ab5498453835f14976ae293bab1c714ddc7",
+      "component_id": "557f9ec7b8bbbbd089322f5d85abafdf4562f43c44c8d97068abe333885cc01c",
+      "protocol": 6,
+      "canonical_key": [
+        6,
+        [
+          "192.168.137.142",
+          80
+        ],
+        [
+          "192.168.137.5",
+          57198
+        ]
+      ],
+      "candidate_rank": 56,
+      "candidate_count": 57,
+      "sample_count": 32,
+      "reference_end": 1633540171.541785,
+      "packet_sha256": "9ab117a7a360b36ae8754fce89421833f7e3f6b9e556e444492f998a99228897",
+      "reference_dependency_stratum": "different_canonical_component",
+      "normal_activity_stratum": "attack",
+      "label_metric_weight_denominator": 350784,
+      "balanced_bce_weight_denominator": 701568
+    },
+    "uid": "0c9a692e72487a0250b14c3d47aafe828c28231d936b08d71ee3f13ec07abfe8",
+    "q14": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.4462219476699829,
+      0.6877637505531311,
+      0.0,
+      1.0
+    ],
+    "tcp_syn": false,
+    "tcp_ack": true,
+    "guard": false,
+    "support3": 0.18643047119269063,
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "raw": [
+      -13.181693077087402,
+      -6.695350646972656,
+      -7.867185592651367,
+      -9.248076438903809
+    ],
+    "cuts": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "raw_margin": [
+      9.861554145812988,
+      16.619853973388672,
+      14.747529983520508,
+      14.001722017923992
+    ],
+    "deduction_p3": [
+      13.724642902650636,
+      14.003664403115003,
+      14.117484091667158,
+      13.948597132477602
+    ],
+    "deduction_p4": [
+      16.710220080854764,
+      17.049938258815473,
+      17.18851760537709,
+      16.982891981682442
+    ],
+    "score_p3": [
+      -26.90633597973804,
+      -20.69901505008766,
+      -21.984669684318526,
+      -23.19667357138141
+    ],
+    "score_p4": [
+      -29.891913157942167,
+      -23.74528890578813,
+      -25.055703198028457,
+      -26.23096842058625
+    ],
+    "unit": "query, not independently identified attack event"
+  },
+  {
+    "original_metadata": {
+      "uid": "42d39c9439195ad8b0da96abcf89a0c3f18834b56478126bd605a9d5686d6a24",
+      "capture_id": "interaction-attack-196",
+      "source_sha256": "876aed07709e29afba3498477848551e9bcf1cb535343190566a14577d3c1afb",
+      "frame": 16499,
+      "timestamp": 1638206897.150153,
+      "device": "HeimVision Camera",
+      "owner": "44:01:bb:ec:10:4a",
+      "partition": "DEV",
+      "use": "LATER_ATTACK_QUERY",
+      "label": 1,
+      "activity": "TCP",
+      "session_id": "4a6925d604a545a790eccfe41bd3f87d07de6ca958901a36acd2581c32986dc4",
+      "component_id": "15f60183be8978daf23080c8e80e843377295a35fd51fc15b0a2d94eecf816c2",
+      "protocol": 6,
+      "canonical_key": [
+        6,
+        [
+          "192.168.137.142",
+          80
+        ],
+        [
+          "192.168.137.5",
+          57677
+        ]
+      ],
+      "candidate_rank": 54,
+      "candidate_count": 55,
+      "sample_count": 32,
+      "reference_end": 1633540171.541785,
+      "packet_sha256": "5d32a7ebdf41985d9537635c8e43ef7ce9d23d80383dfee07db93f4cb5ee43e6",
+      "reference_dependency_stratum": "different_canonical_component",
+      "normal_activity_stratum": "attack",
+      "label_metric_weight_denominator": 190656,
+      "balanced_bce_weight_denominator": 381312
+    },
+    "uid": "42d39c9439195ad8b0da96abcf89a0c3f18834b56478126bd605a9d5686d6a24",
+    "q14": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.3596804738044739,
+      0.6877637505531311,
+      0.0,
+      1.0
+    ],
+    "tcp_syn": false,
+    "tcp_ack": true,
+    "guard": false,
+    "support3": 0.38554246632520484,
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "raw": [
+      -0.35526978969573975,
+      2.689800977706909,
+      1.8529690504074097,
+      1.395833412806193
+    ],
+    "cuts": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "raw_margin": [
+      22.68797743320465,
+      26.005005598068237,
+      24.467684626579285,
+      24.645631869633995
+    ],
+    "deduction_p3": [
+      22.839802145679716,
+      23.304134508291934,
+      23.49354702599846,
+      23.212494559990034
+    ],
+    "deduction_p4": [
+      25.49976286642326,
+      26.01817213557086,
+      26.229643944943003,
+      25.915859648979044
+    ],
+    "score_p3": [
+      -23.195071935375456,
+      -20.614333530585025,
+      -21.64057797559105,
+      -21.81666114718384
+    ],
+    "score_p4": [
+      -25.855032656119,
+      -23.328371157863952,
+      -24.376674894535594,
+      -24.52002623617285
+    ],
+    "unit": "query, not independently identified attack event"
+  },
+  {
+    "original_metadata": {
+      "uid": "75eb3b715396139b2ed1496c8dad5d01d50f3e65e60cfa6612416709047ba684",
+      "capture_id": "interaction-attack-196",
+      "source_sha256": "876aed07709e29afba3498477848551e9bcf1cb535343190566a14577d3c1afb",
+      "frame": 16503,
+      "timestamp": 1638206898.52525,
+      "device": "HeimVision Camera",
+      "owner": "44:01:bb:ec:10:4a",
+      "partition": "DEV",
+      "use": "LATER_ATTACK_QUERY",
+      "label": 1,
+      "activity": "TCP",
+      "session_id": "b287b6abcd0714811fc10d6a650a41d2352147f6640e463184f45dcf23e122f3",
+      "component_id": "b3900eec6060da4a28cf71cefcf915137fd90bd8d8381dd4ab8f9ca70cbca5c4",
+      "protocol": 6,
+      "canonical_key": [
+        6,
+        [
+          "192.168.137.142",
+          80
+        ],
+        [
+          "192.168.137.5",
+          57610
+        ]
+      ],
+      "candidate_rank": 61,
+      "candidate_count": 62,
+      "sample_count": 32,
+      "reference_end": 1633540171.541785,
+      "packet_sha256": "21fdf85408a22e2dfed3ac21a68253edc2e7501a4dd54f8c8ec6d98acdbacca5",
+      "reference_dependency_stratum": "different_canonical_component",
+      "normal_activity_stratum": "attack",
+      "label_metric_weight_denominator": 190656,
+      "balanced_bce_weight_denominator": 381312
+    },
+    "uid": "75eb3b715396139b2ed1496c8dad5d01d50f3e65e60cfa6612416709047ba684",
+    "q14": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.3596804738044739,
+      0.6877637505531311,
+      0.0,
+      1.0
+    ],
+    "tcp_syn": false,
+    "tcp_ack": true,
+    "guard": false,
+    "support3": 0.2930825060824399,
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "raw": [
+      -4.448373794555664,
+      -0.31578749418258667,
+      -1.112632393836975,
+      -1.9589312275250752
+    ],
+    "cuts": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "raw_margin": [
+      18.594873428344727,
+      22.99941712617874,
+      21.5020831823349,
+      21.290867229302727
+    ],
+    "deduction_p3": [
+      19.233162509600163,
+      19.624172017109256,
+      19.783674350411705,
+      19.547002959040377
+    ],
+    "deduction_p4": [
+      22.312260187579046,
+      22.765867641007745,
+      22.950905206171235,
+      22.67634434491934
+    ],
+    "score_p3": [
+      -23.681536304155827,
+      -19.939959511291843,
+      -20.89630674424868,
+      -21.50593418656545
+    ],
+    "score_p4": [
+      -26.76063398213471,
+      -23.08165513519033,
+      -24.06353760000821,
+      -24.635275572444414
+    ],
+    "unit": "query, not independently identified attack event"
+  },
+  {
+    "original_metadata": {
+      "uid": "3d809f49acb013c46a5d48b44cb8caa218d328bb95386dd7db4a49c0bee46be3",
+      "capture_id": "interaction-attack-196",
+      "source_sha256": "876aed07709e29afba3498477848551e9bcf1cb535343190566a14577d3c1afb",
+      "frame": 16512,
+      "timestamp": 1638206899.702231,
+      "device": "HeimVision Camera",
+      "owner": "44:01:bb:ec:10:4a",
+      "partition": "DEV",
+      "use": "LATER_ATTACK_QUERY",
+      "label": 1,
+      "activity": "TCP",
+      "session_id": "92e3a5842639804a8cf1d69b96eb0572bb1cfbf73f64155fa9f4ae91d2fe4ed6",
+      "component_id": "215a2bfee7e085c097a41695177b800913077609b1beab5ca94203ec4833ed0d",
+      "protocol": 6,
+      "canonical_key": [
+        6,
+        [
+          "192.168.137.142",
+          80
+        ],
+        [
+          "192.168.137.5",
+          57668
+        ]
+      ],
+      "candidate_rank": 39,
+      "candidate_count": 40,
+      "sample_count": 32,
+      "reference_end": 1633540171.541785,
+      "packet_sha256": "97516d86d9b207b29fdecd77f6334e1302642e81782d5f78459ae7f4bc7839cb",
+      "reference_dependency_stratum": "different_canonical_component",
+      "normal_activity_stratum": "attack",
+      "label_metric_weight_denominator": 190656,
+      "balanced_bce_weight_denominator": 381312
+    },
+    "uid": "3d809f49acb013c46a5d48b44cb8caa218d328bb95386dd7db4a49c0bee46be3",
+    "q14": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.3596804738044739,
+      0.6877637505531311,
+      0.0,
+      1.0
+    ],
+    "tcp_syn": false,
+    "tcp_ack": true,
+    "guard": false,
+    "support3": 0.2930825060824399,
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "raw": [
+      -3.6190712451934814,
+      0.5974105000495911,
+      -0.17852748930454254,
+      -1.066729411482811
+    ],
+    "cuts": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "raw_margin": [
+      19.42417597770691,
+      23.91261512041092,
+      22.436188086867332,
+      22.18306904534499
+    ],
+    "deduction_p3": [
+      19.233162509600163,
+      19.624172017109256,
+      19.783674350411705,
+      19.547002959040373
+    ],
+    "deduction_p4": [
+      22.312260187579046,
+      22.765867641007745,
+      22.950905206171235,
+      22.67634434491934
+    ],
+    "score_p3": [
+      -22.852233754793644,
+      -19.026761517059665,
+      -19.962201839716247,
+      -20.613732370523184
+    ],
+    "score_p4": [
+      -25.931331432772527,
+      -22.168457140958154,
+      -23.129432695475778,
+      -23.74307375640215
+    ],
+    "unit": "query, not independently identified attack event"
+  },
+  {
+    "original_metadata": {
+      "uid": "6d4b54fe905ebd307e87384d3a1d9d975dbf7a9248a96aac3375c91c6d28e994",
+      "capture_id": "interaction-attack-196",
+      "source_sha256": "876aed07709e29afba3498477848551e9bcf1cb535343190566a14577d3c1afb",
+      "frame": 16586,
+      "timestamp": 1638206912.078648,
+      "device": "HeimVision Camera",
+      "owner": "44:01:bb:ec:10:4a",
+      "partition": "DEV",
+      "use": "LATER_ATTACK_QUERY",
+      "label": 1,
+      "activity": "TCP",
+      "session_id": "ce6e0a83d819f563b12b3de58e6efabdb4216df00e4697714a0bb3f38a1b9b89",
+      "component_id": "1890b2c5611dbba647680b1f1e85ff554dc638289d7d39d89ca769ac01b95c3d",
+      "protocol": 6,
+      "canonical_key": [
+        6,
+        [
+          "192.168.137.142",
+          80
+        ],
+        [
+          "192.168.137.5",
+          57685
+        ]
+      ],
+      "candidate_rank": 66,
+      "candidate_count": 67,
+      "sample_count": 32,
+      "reference_end": 1633540171.541785,
+      "packet_sha256": "59faff18ac14b08809d85c213c5951e82508b61fa6f81ba3b17309706c8ffe10",
+      "reference_dependency_stratum": "different_canonical_component",
+      "normal_activity_stratum": "attack",
+      "label_metric_weight_denominator": 190656,
+      "balanced_bce_weight_denominator": 381312
+    },
+    "uid": "6d4b54fe905ebd307e87384d3a1d9d975dbf7a9248a96aac3375c91c6d28e994",
+    "q14": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.3596804738044739,
+      0.6877637505531311,
+      0.0,
+      1.0
+    ],
+    "tcp_syn": false,
+    "tcp_ack": true,
+    "guard": false,
+    "support3": 0.2930825060824399,
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "raw": [
+      -3.3331356048583984,
+      0.9090033173561096,
+      0.15077458322048187,
+      -0.757785901427269
+    ],
+    "cuts": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "raw_margin": [
+      19.710111618041992,
+      24.224207937717438,
+      22.765490159392357,
+      22.49201255540053
+    ],
+    "deduction_p3": [
+      19.233162509600163,
+      19.624172017109256,
+      19.783674350411705,
+      19.547002959040373
+    ],
+    "deduction_p4": [
+      22.312260187579046,
+      22.765867641007745,
+      22.950905206171235,
+      22.67634434491934
+    ],
+    "score_p3": [
+      -22.56629811445856,
+      -18.715168699753146,
+      -19.632899767191223,
+      -20.304788860467642
+    ],
+    "score_p4": [
+      -25.645395792437444,
+      -21.856864323651635,
+      -22.800130622950753,
+      -23.43413024634661
+    ],
+    "unit": "query, not independently identified attack event"
+  }
+]

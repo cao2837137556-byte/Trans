@@ -1,0 +1,328 @@
+{
+  "CIC_DEV": {
+    "status": "PASS",
+    "history_rows": 289,
+    "packs": [
+      {
+        "asset_key": "a0",
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.jsonl.gz",
+        "sha256": "997e1c4ab68781fba3787969a37938ef0a36d899559543e243aabeeda1953fb3",
+        "rows": 11,
+        "groups": [
+          {
+            "device": "HeimVision Camera",
+            "protocol": 6,
+            "rows": 1,
+            "components": 1,
+            "captures": 1,
+            "first_time": 1633540164.552751,
+            "last_time": 1633540164.552751,
+            "origins": {
+              "UNRECORDED": 1
+            }
+          },
+          {
+            "device": "HeimVision Camera",
+            "protocol": 17,
+            "rows": 10,
+            "components": 10,
+            "captures": 3,
+            "first_time": 1633539902.925146,
+            "last_time": 1633540171.541785,
+            "origins": {
+              "UNRECORDED": 10
+            }
+          }
+        ]
+      },
+      {
+        "asset_key": "a2",
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v2_20261106/assets/a2",
+        "sha256": "c9a9d58ba3a6bda65e5fdc7db02af69f6b038b6691b6093aed6ccbc595e3e9d1",
+        "rows": 278,
+        "groups": [
+          {
+            "device": "HeimVision Camera",
+            "protocol": 6,
+            "rows": 212,
+            "components": 1,
+            "captures": 3,
+            "first_time": 1633539900.741864,
+            "last_time": 1633540164.424872,
+            "origins": {
+              "C3_ADMITTED_LEGACY_REFERENCE": 212
+            }
+          },
+          {
+            "device": "HeimVision Camera",
+            "protocol": 17,
+            "rows": 66,
+            "components": 9,
+            "captures": 3,
+            "first_time": 1633539901.089378,
+            "last_time": 1633540165.461663,
+            "origins": {
+              "C3_ADMITTED_LEGACY_REFERENCE": 66
+            }
+          }
+        ]
+      }
+    ],
+    "selection_reexecuted": false,
+    "compression_performed": false,
+    "query_scores_used_for_inventory": false,
+    "exact_equivalence_inventory": {
+      "scope": "historical references only; same component/eligibility key and exactly equal raw E3/q14/context8; no target score or error UID used",
+      "equivalence_groups": 289,
+      "duplicate_groups": 0,
+      "potential_redundant_rows": 0,
+      "largest_group": 1,
+      "note": "Candidates only: no rows deleted; any future deduplication needs identical per-query support/decision replay before claiming lossless compression"
+    }
+  },
+  "UNSW_DEV": {
+    "status": "PASS",
+    "history_rows": 52835,
+    "packs": [
+      {
+        "asset_key": "a4",
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/TP_LINK_references.jsonl.gz",
+        "sha256": "f06b9fdcf06a5db8956813954cc0c76a42a3fb0c9dbbe13f0c3271bd2bef4d65",
+        "rows": 7779,
+        "groups": [
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "protocol": 6,
+            "rows": 4096,
+            "components": 428,
+            "captures": 1,
+            "first_time": 1475244002.367889,
+            "last_time": 1480856328.254013,
+            "origins": {
+              "HIST_B_2016_2017": 4096
+            }
+          },
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "protocol": 17,
+            "rows": 3683,
+            "components": 1692,
+            "captures": 1,
+            "first_time": 1475244020.152722,
+            "last_time": 1480854795.635345,
+            "origins": {
+              "HIST_B_2016_2017": 3683
+            }
+          }
+        ]
+      },
+      {
+        "asset_key": "a6",
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/WEMO_POWER_references.jsonl.gz",
+        "sha256": "bc9b1cf16e4dfeee9688659a77c2aa909830d83d31aed5e7b6ab4de9f2665ad1",
+        "rows": 8192,
+        "groups": [
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "protocol": 6,
+            "rows": 4096,
+            "components": 803,
+            "captures": 1,
+            "first_time": 1475244219.963434,
+            "last_time": 1484092672.882703,
+            "origins": {
+              "HIST_B_2016_2017": 4096
+            }
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "protocol": 17,
+            "rows": 4096,
+            "components": 797,
+            "captures": 1,
+            "first_time": 1475244465.65815,
+            "last_time": 1484092664.745688,
+            "origins": {
+              "HIST_B_2016_2017": 4096
+            }
+          }
+        ]
+      },
+      {
+        "asset_key": "a8",
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/SAMSUNG_references.jsonl.gz",
+        "sha256": "ffb92fe922c68530e392548c66bcb0134383c3ea76913c5274c7e050050c7808",
+        "rows": 8192,
+        "groups": [
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "protocol": 6,
+            "rows": 4096,
+            "components": 4096,
+            "captures": 1,
+            "first_time": 1475250322.083937,
+            "last_time": 1490024425.869836,
+            "origins": {
+              "HIST_B_2016_2017": 4096
+            }
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "protocol": 17,
+            "rows": 4096,
+            "components": 4096,
+            "captures": 1,
+            "first_time": 1475251831.912597,
+            "last_time": 1489994253.842278,
+            "origins": {
+              "HIST_B_2016_2017": 4096
+            }
+          }
+        ]
+      },
+      {
+        "asset_key": "a10",
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/TP_LINK/encoded/references.jsonl.gz",
+        "sha256": "017422f2efa68c5ba2cc1e75d936155482592cc7d632822bcbf44d630e98794b",
+        "rows": 4096,
+        "groups": [
+          {
+            "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+            "protocol": 6,
+            "rows": 4096,
+            "components": 346,
+            "captures": 1,
+            "first_time": 1475244020.310565,
+            "last_time": 1480853730.404547,
+            "origins": {
+              "HIST_B_2016_2017": 4096
+            }
+          }
+        ]
+      },
+      {
+        "asset_key": "a12",
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/WEMO_POWER/encoded/references.jsonl.gz",
+        "sha256": "30b52d1341b20903690400d30a8a2c80b13827f80cb4e94396782c9a577ca400",
+        "rows": 8192,
+        "groups": [
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "protocol": 6,
+            "rows": 4096,
+            "components": 423,
+            "captures": 1,
+            "first_time": 1475244760.477276,
+            "last_time": 1484092132.207483,
+            "origins": {
+              "HIST_B_2016_2017": 4096
+            }
+          },
+          {
+            "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+            "protocol": 17,
+            "rows": 4096,
+            "components": 240,
+            "captures": 1,
+            "first_time": 1475250806.060257,
+            "last_time": 1484092664.745388,
+            "origins": {
+              "HIST_B_2016_2017": 4096
+            }
+          }
+        ]
+      },
+      {
+        "asset_key": "a14",
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/SAMSUNG/encoded/references.jsonl.gz",
+        "sha256": "4a42a9973e2fab262bfb3067d4858afd69cd36195cfdd0a6405bbe8f5f691447",
+        "rows": 8192,
+        "groups": [
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "protocol": 6,
+            "rows": 4096,
+            "components": 1129,
+            "captures": 1,
+            "first_time": 1475244308.237484,
+            "last_time": 1490054276.561357,
+            "origins": {
+              "HIST_B_2016_2017": 4096
+            }
+          },
+          {
+            "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+            "protocol": 17,
+            "rows": 4096,
+            "components": 192,
+            "captures": 1,
+            "first_time": 1475244887.553273,
+            "last_time": 1490053351.417112,
+            "origins": {
+              "HIST_B_2016_2017": 4096
+            }
+          }
+        ]
+      },
+      {
+        "asset_key": "a16",
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/NETATMO/encoded/references.jsonl.gz",
+        "sha256": "8c62b0281bd708b2816176a86c70cb6621f89b8e2807df0d8bd68d55e39ab9e6",
+        "rows": 8192,
+        "groups": [
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "protocol": 6,
+            "rows": 4096,
+            "components": 2947,
+            "captures": 1,
+            "first_time": 1475250626.100681,
+            "last_time": 1485880280.52411,
+            "origins": {
+              "HIST_B_2016_2017": 4096
+            }
+          },
+          {
+            "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+            "protocol": 17,
+            "rows": 4096,
+            "components": 343,
+            "captures": 1,
+            "first_time": 1475244058.51865,
+            "last_time": 1485906094.686861,
+            "origins": {
+              "HIST_B_2016_2017": 4096
+            }
+          }
+        ]
+      }
+    ],
+    "selection_reexecuted": false,
+    "compression_performed": false,
+    "query_scores_used_for_inventory": false,
+    "exact_equivalence_inventory": {
+      "scope": "historical references only; same component/eligibility key and exactly equal raw E3/q14/context8; no target score or error UID used",
+      "equivalence_groups": 47899,
+      "duplicate_groups": 714,
+      "potential_redundant_rows": 4936,
+      "largest_group": 77,
+      "note": "Candidates only: no rows deleted; any future deduplication needs identical per-query support/decision replay before claiming lossless compression"
+    }
+  },
+  "EDGE": {
+    "status": "PASS",
+    "history_rows": 0,
+    "packs": [],
+    "selection_reexecuted": false,
+    "compression_performed": false,
+    "query_scores_used_for_inventory": false,
+    "exact_equivalence_inventory": {
+      "scope": "historical references only; same component/eligibility key and exactly equal raw E3/q14/context8; no target score or error UID used",
+      "equivalence_groups": 0,
+      "duplicate_groups": 0,
+      "potential_redundant_rows": 0,
+      "largest_group": 0,
+      "note": "Candidates only: no rows deleted; any future deduplication needs identical per-query support/decision replay before claiming lossless compression"
+    }
+  }
+}

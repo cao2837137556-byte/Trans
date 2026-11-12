@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "checks": 702089,
+  "items": {
+    "controls": {
+      "metrics": 5888,
+      "pairs": 6624,
+      "receipt_sha256": "c43c07d7a32b4e364e382277103ce4047f20b2ea973bc00bd13c058f02b01dbf"
+    },
+    "tabm_p3": {
+      "metrics": 3680,
+      "pairs": 4416,
+      "receipt_sha256": "90811677d0bd6f60d8e8817e117d826c4ac36a246d1c3ba1a1ede7af4ae52ba0"
+    },
+    "tabm_p4": {
+      "metrics": 5152,
+      "pairs": 3680,
+      "receipt_sha256": "66559934f8169409b32e3dd344ed466a0b503d2d1690a2cbfe8baf0e7a100f87"
+    }
+  },
+  "completed_controls_job": "183551",
+  "repair_job": "183558",
+  "failed_job_preserved": "183549",
+  "obsolete_pending_replaced": "183552",
+  "original_bitwise_gate_retained": true,
+  "new_forward_in_repair": false,
+  "reference_rows_removed": 0,
+  "compression_validated": false,
+  "source_scale": {
+    "status": "PASS",
+    "seeds": [
+      "27",
+      "127",
+      "227"
+    ],
+    "score": "per-model mean of 32 member class-1 probabilities; float32 native output promoted to float64; seed-order float64 arithmetic mean",
+    "q10": [
+      1.6836356309113398e-08,
+      5.616695997190391e-11,
+      3.6502775628555195e-12
+    ],
+    "q90": [
+      0.9999998807907104,
+      1.0,
+      1.0
+    ],
+    "scales": [
+      0.9999998639543541,
+      0.999999999943833,
+      0.9999999999963497
+    ],
+    "zero_scale_seeds": [],
+    "cuts": [
+      0.038286350667476654,
+      0.07064133882522583,
+      0.01989559642970562,
+      0.03535898278156916
+    ],
+    "ensemble_cut_independently_calibrated": true,
+    "normal_cal_rows": 33147,
+    "weighted_cal_fpr": [
+      0.008772347182204912,
+      0.00913569705862511,
+      0.009997071659814527,
+      0.009156329080706765
+    ],
+    "scale_role": "SOURCE_FIT",
+    "threshold_role": "SOURCE_CAL_NORMAL",
+    "lambda_value": 0.25,
+    "p": 3,
+    "guard": true,
+    "corrected_scores_clipped": false
+  },
+  "root_cause_limit": "Original GPU-host failure did not log the numeric residual; CPU same-input replays pass bitwise. Specific hardware/dispatch cause not established.",
+  "changed_uid_files": "HPC only; producer SHA manifests returned, not downloaded"
+}

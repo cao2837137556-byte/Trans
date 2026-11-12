@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "rows": 617908,
+  "uid_sha256": "d87b1582b7c349b80b59c9478fcbb69d334e233f4fa5448b162e8bafd8dbd5b4",
+  "fit_x_path": "/public/home/jiangxinwei.zr/work/paper04/runs/baseline_training_readiness_v6_20261107/artifacts/source/FIT_X.npy",
+  "fit_x_sha256": "1abf8bcac80cae0ff2fbc51ac33d81be34d2352fb6d496ae166fdc0fcdd3f1a7",
+  "weight_sha256": "800d37c60e569ef1e02325e21c95fe68bb30373797b7e40ba4b1f4ab6cd66540",
+  "class_mass": [
+    0.49999999999999994,
+    0.5
+  ],
+  "rule": "fixed source device/activity/capture/session hierarchy, each class mass 0.5",
+  "mlp_self_scales": [
+    {
+      "seed": "27",
+      "q10": -55.015281677246094,
+      "q90": 36.672142028808594,
+      "scale": 91.68742370605469,
+      "fit_scores_sha256": "8c69fd323f36d31c20d225934cdbc3eb0c773b29e5b3d864047a494bfd1c3640"
+    },
+    {
+      "seed": "127",
+      "q10": -58.374603271484375,
+      "q90": 37.606048583984375,
+      "scale": 95.98065185546875,
+      "fit_scores_sha256": "056d03c1aac1bb1310e46002c74c0672c4c3ef6873007016ba5563eb293a6eb5"
+    },
+    {
+      "seed": "227",
+      "q10": -49.74467468261719,
+      "q90": 37.56224060058594,
+      "scale": 87.30691528320312,
+      "fit_scores_sha256": "35bbe4fe73b834c791cd0fce0d25f4d7c8ab0fc17717e548bb222c3c30eae1fb"
+    }
+  ]
+}

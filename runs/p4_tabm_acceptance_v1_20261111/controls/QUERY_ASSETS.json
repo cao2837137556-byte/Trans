@@ -1,0 +1,44 @@
+{
+  "CIC_DEV": {
+    "rows_file": "CIC_DEV_ROWS.jsonl.gz",
+    "rows_sha256": "d9261f2bf41e9c4462a1cc6becec5d7bbaf5d12f74d10a70a0a9bb2fcc1ba2f1",
+    "array_file": "CIC_DEV_QUERY.npz",
+    "array_sha256": "f2e2957bd14713d28b4089d26ada7a32989f67db0719c379c3387db84a664b15",
+    "views": [
+      "full",
+      "post_window_primary"
+    ],
+    "population": null,
+    "scores_file": "CIC_DEV_CONTROLS.npz",
+    "scores_sha256": "ad78ff384ccff2cb70ff8fa4f7d3251d1874a5c9fa40680f06c4726cc4f8fe8e"
+  },
+  "UNSW_DEV": {
+    "rows_file": "UNSW_DEV_ROWS.jsonl.gz",
+    "rows_sha256": "19c001eb4f0c67cf07ed08edb98ee5b105b9b22539ff9433e80736f8074899d8",
+    "array_file": "UNSW_DEV_QUERY.npz",
+    "array_sha256": "4699def51df6ffc3e0c3b04b2bc820815caa65f9335aabaa3febd9f8906b9186",
+    "views": [
+      "full",
+      "post_window_primary"
+    ],
+    "population": null,
+    "scores_file": "UNSW_DEV_CONTROLS.npz",
+    "scores_sha256": "3f6398bfa7c0c085c43b6d801d4ac5e62763fd96590e4b6bb08f1746a2ec7f0c"
+  },
+  "EDGE": {
+    "rows_file": "EDGE_ROWS.jsonl.gz",
+    "rows_sha256": "06da9eee66654a0ae12b7ad33d89b12091b934df29f33a5ab71d9118ad798da3",
+    "array_file": "EDGE_QUERY.npz",
+    "array_sha256": "e248c3c12bc992804fb0479955d54a58be79e682bfa3d15b7d982172980596ee",
+    "views": [
+      "full"
+    ],
+    "population": {
+      "NORMAL": 1220126,
+      "HTTP": 152352,
+      "UDP": 2898830
+    },
+    "scores_file": "EDGE_CONTROLS.npz",
+    "scores_sha256": "a893e72106a94e4dad67ae6302e8851a732d2749f9731d371b42bf7b1d756f74"
+  }
+}
