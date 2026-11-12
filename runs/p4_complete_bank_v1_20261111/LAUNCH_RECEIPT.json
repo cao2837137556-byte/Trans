@@ -1,0 +1,28 @@
+{
+  "status": "SUBMITTED",
+  "jobs": {
+    "controls": {
+      "job_id": "183551",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600
+    },
+    "tabm": {
+      "job_id": "183552",
+      "cpu": 1,
+      "memory_gib": 8,
+      "wall_seconds": 3600,
+      "afterok": [
+        "183549",
+        "183551"
+      ]
+    }
+  },
+  "tabm_p3_original_job": "183549",
+  "progress_client_pid": 19112,
+  "receiver_port": 18883,
+  "compression_performed": false,
+  "history_equivalence_inventory_only": true,
+  "model_training": false,
+  "main_reference_bank_unchanged": true
+}
