@@ -1,3 +1,9 @@
+## 2026-11-11：TabM原生概率域3D迁移183549
+
+已提交固定五行比较，初始PENDING。复用权重，完整源FIT补打分，自身Q90−Q10尺度和源正常CAL阈值；完整RAW与旧指标通过后才做p3/λ.25/保护开修正，不裁剪、不套MLP尺度、不重训。RTX4090+8CPU16GiB2小时，20依赖通过；客户端44692、18882接收、18806页面。未宣称结果已完成；[回执](collab/20261111_tabm_3d_transfer_launch_codex.md)。
+
+---
+
 ## 2026-11-11：保护及指数五臂消融正式验收
 
 183530正常完成，两项PASS；388202查询冻结基准0误差/0判定差，156指标一致。B保护保留295攻击告警并保留28正常误报，Edge保留5 HTTP；p3→p4减少B/Edge误报80/24，但A少6攻击告警，单种子代价保留。五臂/全部头/视图/子组与SHA交付paper_reading_ablations_acceptance_v1_20261111；[论文回传](paper_writing_v1/experiment_results_guard_exponent_codex_20261111.md)。不重新挑参数，不扩大实验，六基线另验收。

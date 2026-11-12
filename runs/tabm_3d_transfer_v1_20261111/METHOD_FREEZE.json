@@ -1,0 +1,809 @@
+{
+  "schema": "PAPER_METHOD_FREEZE_V1",
+  "date": "2026-11-07",
+  "status": "FROZEN_FOR_PAPER_COMPARISON",
+  "authority": "User: fix this scheme, organize paper main results and ablations, temporarily do not change model.",
+  "accepted_commit": "002524d",
+  "method": "FUSION790_FULL_HISTORY_C5_3D_OLD",
+  "variant_key": "C5_3D_OLD",
+  "training_authorized": false,
+  "new_jobs_submitted": 0,
+  "deployment_changed": false,
+  "model_updates_allowed": false,
+  "seeds": [
+    27,
+    127,
+    227
+  ],
+  "heads": {
+    "27": {
+      "job_id": "182370",
+      "head_sha256": "738ded855e7c6d72a514579840025b3cc76fa3bf471a5c223b5c4faaf1d86669",
+      "cut": -23.04324722290039,
+      "scale": 91.68742370605469
+    },
+    "127": {
+      "job_id": "182376",
+      "head_sha256": "07812cc598801b726bc5213e21278427aa62a0104121b7045dcb0c1b74f5aed5",
+      "cut": -23.315204620361328,
+      "scale": 95.98065185546875
+    },
+    "227": {
+      "job_id": "182378",
+      "head_sha256": "ebf23b94d605b6c823fa28dde66b629a851b33a49205c7b074852846582fe59d",
+      "cut": -22.614715576171875,
+      "scale": 87.30691528320312
+    }
+  },
+  "ensemble": {
+    "rule": "float64 arithmetic mean in seed order 27,127,227; strict score > cut",
+    "cut": -23.2497984568278
+  },
+  "correction": {
+    "p": 3,
+    "lambda_value": 0.25,
+    "scales": [
+      118.95627975463867,
+      121.3746566772461,
+      122.36117172241211
+    ],
+    "scale_origin": "OLD782 frozen source FIT scale, not OLD782 classifier or cuts",
+    "kernel": "g(0)=0; g(s)=1-(1-s)^3 for s>0",
+    "guard": "(q14[0]==1) & (q14[2]==1) & (q14[5]==0); all devices; guarded query keeps RAW"
+  },
+  "geometry": {
+    "joint": "max(dz/rho_z, dq/rho_q, dc/rho_c)",
+    "support": "clip(1-second_distinct_component_joint,0,1); two distinct legal components; unavailable=0",
+    "source_geometry": {
+      "version": "constrained-onboarding-geometry-v1",
+      "protocols": {
+        "6": {
+          "status": "READY",
+          "rows": 54042,
+          "devices": [
+            "ArloQ Camera",
+            "Philips Hue Bridge",
+            "SimCam"
+          ],
+          "eligible_uid_sha256": "2bbb6c714c990f2551d8d6a901633a85c221c9854284955a475eea1572072420",
+          "rho_z": 0.6350346595136246,
+          "rho_q": 0.3784318683067434,
+          "weight_sum": 1.0
+        },
+        "17": {
+          "status": "READY",
+          "rows": 65984,
+          "devices": [
+            "Amcrest Camera",
+            "ArloQ Camera",
+            "Philips Hue Bridge",
+            "SimCam"
+          ],
+          "eligible_uid_sha256": "5f1c4f1a2604e9e3b7bfaa2fc4bd8a9261070f48eb53d229085e89a4631d11a5",
+          "rho_z": 0.538951893262028,
+          "rho_q": 0.27275012216397504,
+          "weight_sum": 1.0
+        }
+      },
+      "fit_normal_uid_sha256": "d8d014a3d313c1b497e4e4e590462fb470263c14c25d66462b9fe132b5eae01e",
+      "source_roster": [
+        {
+          "partition": "LEARN",
+          "device": "Amcrest Camera",
+          "protocol": 6,
+          "reference_end": 1633532109.461121,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "8efedb594ef1defd020a3efbb913179dbca863d57aa3c1230ff912b524289d4c"
+          ],
+          "distinct_components": 1
+        },
+        {
+          "partition": "LEARN",
+          "device": "Amcrest Camera",
+          "protocol": 17,
+          "reference_end": 1633532109.461121,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "0483c9030db65932b21a02e06ae90ffa431143adea9065230c8b3874964efba4",
+            "0527f4520f79f0ccb30c5cff395d0e204236bc59ec882646aad02a4529723d08",
+            "064572da06b1c171541a86d6ff67567290fd12c3c9853f8f85abcb59e9f17dba",
+            "0847625d50877b2e8d9b5a7a36e43aebcbad857a49f19d1b921314d6690071f0",
+            "0dad5924045558a763e9ce4b3faaafeeb24d28cfc7bfcd383bd2902653863a16",
+            "0ddc248b851b9f6c693b374c977200ac0a8e2aea16bec6cc69a37d1e16f287fe",
+            "0f8b7b4f7a371fbc579f99077aeec29e0cd956fef39fe6c108966eebf66462af",
+            "15cf0806754b3d978cf62d069d7e2cca3636596c0fde0799bb8c8ce21ce7f3ca",
+            "18d607ba45cff0a97b9688943f31aef22fae6bb6716e43a7abfbf764ab46c232",
+            "1992c029e98d13c01fa149c1d37dfdef0a22f158aa2bdea9601786ce13ba849d",
+            "1e457286f53280697081f6532d9ce6c5a2e8005fa8d299b054d38d3a14d0c4c3",
+            "1eea9db12a550d418fd77c268f6fc4070b59782947884c383717d5b200e58c2e",
+            "1f3f0fd996a68778175b768e34dcdd929edcab83a331b563d663a9e541d46318",
+            "1fcff362e2a31f75ddf0779b1567f2248383e4cb2b2d90840716583b28c433e1",
+            "21dcf4631f857e8c79168fd8a2cd232d33422a686fae07aba5300ceb94a50307",
+            "25b271583151fc6e07b75d87d3c5e4a035602d1f1b1c1af887a2b546cf9f55c7",
+            "2b8e8b4f81f2f117be46b2bbe98c21af372c9f9696c7cd618bb81dc8fbeaa940",
+            "3fa327c27696aa075602c30b19949872c74d7cc490cd2381d01bfc41a84fc982",
+            "3fa8c8cd1818c1aeeebbca3b94992c8e3b58ee2f4033fae4e1d1113553f093f8",
+            "507e76421b4f56b2a133009ad622e4aa7cd07bc6e121ce9506e57e16be9e23f6",
+            "5946a527bf7e8b26a8a31842ccc53fdf1a76e4ee5f7a439c84c952be2e858d33",
+            "5a0bfeac72755d8039f12a9845b7c10c3e73eded564f45f318c6b50c4779a223",
+            "5a2b568f57b5715978126af24cb6e7346ac608e1db8ef39e12eac0bcea82b57f",
+            "5ac1808d9064d5cac83054c30641fd668d8c065491571a13961f02bbbdf57592",
+            "5c3b45aa7355481637fc7f24ad02714401e4a0a78ce977e08bb9d5b0f0d6f819",
+            "5f96be51bf87df70e975a57b6237e77175ad5dc7f470c33f02c1eac7206b16cf",
+            "647a5db56e92e79165113ff77b1860dce2aa9d5dad9c8374b45bf31f3e1c41ea",
+            "6de32ddaeb86df14faa5e7775a69667960b6219332e535a6b8300b5cbec9766c",
+            "7304b7259e130517058116936400344494239dc1dbdb79c16894d2f2afb6b0b5",
+            "77ae8dbfc1e12dc3be0ab9f71cc78cc722a54912d11a54edf50bb61dae132c93",
+            "7b091734e59f6c845cfd955e09552e71446bfec0515d9ae01bfca0bd03bc7399",
+            "7b2df249429bcc43dac51e6002eed6c15a16db5aa962e80a3c911a70d96514ba",
+            "7e859c9d9ee19f2c68e09115f92e01ba66ff156399ce54a6d828763b5f42b5e0",
+            "80cdb3a894674103446329b6a6b99c5f14b05dd61c8d21e2cdce68203a65b194",
+            "8235d5412ba7490a28b701113ff93fcadeea0eab6fc33af43393403ff8702e38",
+            "82e66b24295f85e382b155a0eedf49aa1baa35bbd45920affa853672f45b1336",
+            "8801558a85b63685c5d9fd967e0401e720cb61826a4a515f3b0b229bc28871a0",
+            "88efa007517caa320408b48457752dde1e9e58ce931b40c41206872885a924af",
+            "8e8f5750a340cd978b16d18c794434d9599575c4f01ad90e7e6cf0f33af2496e",
+            "901041b5a17a4d148950fdb0e363415b4f2135368c923bb3912c16b057464f34",
+            "96ea0576d9ccbd4343bbb6be15731b4d85048b27c2ae0379402ded16d95deaeb",
+            "989fa7ba32888ade229f0cfd9375755a9072e1b9dd6f522ea63c05c9a64d767b",
+            "9e60d1f50b3171814f15d1cacc96e0272cb02dc008f0ad3a2e55459137d76032",
+            "a24fe9252f55e3ce7c758735057fe60c95ec65c8998e5668e77f9154d6fa1353",
+            "a25e21c4b34f508d69989c30bb5bac82c7c01a9d2cbbfacce2e529a765ac6fae",
+            "a465c2f36f8263865758ee89c8fdd2663e067b1e18f3749dc3f35009ac8ff381",
+            "a53516b2612e961d8ec63dc58cf44968e99a9df84cba4f3c94a06a7602af439b",
+            "a547d3c3ba0622c983a87e40469e02a95f3d998e8982cb842fd3177c7c2d8a32",
+            "b7776e3b8743c18b135e09e23c4ae059a1dac1fccf513d1565a20f7f3194bf50",
+            "bfda4259fc711de6cdf17acaa97a409807c386eef5476d29164b6e175c7a4931",
+            "c81b250c49ea3dcddf69ccbd78b9d9214dab7e17174e5d30138812a6693ed861",
+            "ccce5cbaf239c0fe756d79be2f6561dec2c71821b4360e20e3ad364172f80510",
+            "d443b690672c314fe148976fced327a0158250a7ffe0adee9796974c3eeb9b57",
+            "d7a4741bcc74ee001b359273f4515923f1d54e0f2b301fc2d609c63cbb76c179",
+            "deae23e0e5c9af8eded2fda82ddddeabc6d963c0f0208c6b854c995c00e28720",
+            "e31632374aa7a23bc3d3e864dca488c93b736508f80c3be0bc6b2f7404db18ec",
+            "e360e9ced2d971955b30c705b6135f66fdd47b0aed824aaa389dec94228c6a69",
+            "e91c27bf4011224d88d34a550ebbfe1ac2921f1aafb169250c073ed87e173fd8",
+            "ebdb2a0fcbd09aec95e2b08736e0e963c3d11c7e7d9e9632462deeb503c8a0a8",
+            "ee4950b0be58bcd1195ce2356bfa529b2f34bb316dcab53e2e8ab425a297e5ec",
+            "f659e9ba4ff91586ab814d0acc6e66ea6e6159a05a2fcc4b51d6a048fbd679dc",
+            "f9cfda8d12d671038475a0005f2807bfa5780a6e76880267b4de8e69a257f5ff",
+            "fef5b87bcad99a6646d2bc016957b636c6b705e3f78923a45a080cf2220a71ea"
+          ],
+          "distinct_components": 63
+        },
+        {
+          "partition": "LEARN",
+          "device": "ArloQ Camera",
+          "protocol": 6,
+          "reference_end": 1633531542.09702,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "08435fcba19c73034542fac8b7cccec2142eaf1fbce8c126f498745070b9da03",
+            "4057993785c8c0b274bf01205e95b96e1625feee66f9583e0da627955d48f6e3",
+            "474a4a3986f640192b04e1219381e2db7ea2df985b9279ea9c3554a8a2275e75",
+            "59245b8f27ef558b56b7b0940a096df5f844a02fd46c8af8231925cc096aeb36",
+            "8981c967d1e7af1aeb810912a51b0d54f57c7a587e965f5304199dd4d647b59e",
+            "a36fbcf327f76c31a8f89b6a3749f78551b239e5ed54fb40a865a5a93ed8d385",
+            "c654caedf6b53fb054805b3ef737e3f415826d652600bfe6bcd25cda40659539",
+            "d7d81077638d86101dfeacc012082a45c6b1cf98a4f3e472a098163a7dff9846"
+          ],
+          "distinct_components": 8
+        },
+        {
+          "partition": "LEARN",
+          "device": "ArloQ Camera",
+          "protocol": 17,
+          "reference_end": 1633531542.09702,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "4cb3656d7074f656b96e04f84219c88e0e37475bbc58b41e9a802a29decd6775",
+            "7b02f10f0ce84033a2fc510a3681cf34b9515a6aa19c78ac7b2586993094eece",
+            "b39058a7c1604f6baefbcc0100a945d8848673f599d49fd5eed7f125ab919854",
+            "de201676a4d9fab421bdfff55caefca4f6b654617744912adfa330e7402b7762"
+          ],
+          "distinct_components": 4
+        },
+        {
+          "partition": "LEARN",
+          "device": "Atomi Coffee Maker",
+          "protocol": 6,
+          "reference_end": 1634131492.850729,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "dd358ae302232cfa918b5087d191834b9179a49652cd2de0dca66475d8f520eb"
+          ],
+          "distinct_components": 1
+        },
+        {
+          "partition": "LEARN",
+          "device": "Atomi Coffee Maker",
+          "protocol": 17,
+          "reference_end": 1634131492.850729,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "2d2dc8b2e3e0c9bb550cfa1ecf63ecc8abff9e84639c22b41be1b882ca5b8a00"
+          ],
+          "distinct_components": 1
+        },
+        {
+          "partition": "LEARN",
+          "device": "Globe Lamp",
+          "protocol": 6,
+          "reference_end": 1633630653.218999,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "46523781556fb1a8696c59177bbb48b5457ea2bff609a23f8214c93ac807d072"
+          ],
+          "distinct_components": 1
+        },
+        {
+          "partition": "LEARN",
+          "device": "Globe Lamp",
+          "protocol": 17,
+          "reference_end": 1633630653.218999,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "ea91cecb5f034a3270650554a3a5dc33b8c256751c9df380d913de4fff67e7a6"
+          ],
+          "distinct_components": 1
+        },
+        {
+          "partition": "LEARN",
+          "device": "Philips Hue Bridge",
+          "protocol": 6,
+          "reference_end": 1633454960.164599,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "7e8dbdde18346631e2bbacd5e5653720218299e454dfed2064829c9816c3aa8b",
+            "8f2ca1753f6ea5df654af4ef04de39a2b37aded2771d7e101dddaf2865a9a595",
+            "d694421067f04daa05fb1b26c77dd964c8f1f7174667c0df7e379303cb5d81b3",
+            "e189d48498ec5deda72d86c32e9d51ec28d5f4455e74da52011c0a178595fc4b"
+          ],
+          "distinct_components": 4
+        },
+        {
+          "partition": "LEARN",
+          "device": "Philips Hue Bridge",
+          "protocol": 17,
+          "reference_end": 1633454960.164599,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "5b77d9a64d8107a44de08a1124ed241637b21070aabf884e1c5eae00354a9786",
+            "813286eeafd01a3c78e87f31701a532489815e07e0b4feba8995ab625ec122ae",
+            "b7911aace135eb8e328b83bb1e8658aa70cbde8c35b69149ffe89c3824e01d3f",
+            "e247aff1f2cfb78ef9399b9b4085daaf64e1fed79473f77d550a69365974f51e",
+            "ee8ba20f001bd857f9cb43b9c4442871500a54f41ef1e7dc2a274ac183376f09"
+          ],
+          "distinct_components": 5
+        },
+        {
+          "partition": "LEARN",
+          "device": "SimCam",
+          "protocol": 6,
+          "reference_end": 1633542608.728952,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "34ce6c0aed4369019aca644ff722c9942f2c6fe8eab638c9821755fd1b1c1ba5",
+            "34f33f8a5d4e56e95234fea13bdff7c71206210081a5de8543d86ed5d95f360b",
+            "75e945f27c50ba2d8dc6a7aaa44d6d38a28c9cdec543cafb1118255f60a08cf4",
+            "81b9148a7c8cd14a2f89e244a788f428b21c7477f65373371604289cbe3809f7",
+            "894693b2d47dc5649b00f74aae2fb808a550b925ea46c7d1863009379c7241a8",
+            "98ed62f1877fa20184ca1571d354d3e19e612b0ecb4ccb9fb80768739fded02e",
+            "9e9367e8b3c3a8794fe635a61e2df1d52a58bbc5c1e2f2d41d06adee4264ee75",
+            "af8b56da55b6ade16886a6478fdef0b3c1de605324f974c45a43a07abc8fad54"
+          ],
+          "distinct_components": 8
+        },
+        {
+          "partition": "LEARN",
+          "device": "SimCam",
+          "protocol": 17,
+          "reference_end": 1633542608.728952,
+          "bank_end_frames": {},
+          "reference_uids": [
+            "67782951183d65d8f66de07b696502b94e5137e5dea5d475ba540977e4d94abb",
+            "689c4cfb35d996ea17fc9bdfb4b749c74c7873b6f4f5a7e53494aaa2ddbb64b3",
+            "834a1e79e8e59ae65f79ccd8e8fa9913342cd3230ae3311c52f079c155988757",
+            "a7a19ef8a7f720cdbc495dc123979d68ddef39ede5aa28fb30ff992c2a79ac94",
+            "d184765448bb33f38ae8b4abb91eaa347465e71fbbfe4620c95aa7155877de71",
+            "eb9c4e4a6efc94c2dfb36b1913d60cc363b27170a0ca45648030f297501fdd6a",
+            "f0c412409725a64abeabf13580b62041936b131d42c371f189b8ce94d750f086"
+          ],
+          "distinct_components": 7
+        }
+      ],
+      "quantile": 0.9,
+      "weight_rule": "class_weights within eligible protocol subset"
+    },
+    "context_radii": {
+      "6": {
+        "status": "READY",
+        "rho_c": 1.2302964232644185,
+        "rows": 54042,
+        "eligible_uid_sha256": "2bbb6c714c990f2551d8d6a901633a85c221c9854284955a475eea1572072420",
+        "quantile": 0.9,
+        "weight_sum": 1.0
+      },
+      "17": {
+        "status": "READY",
+        "rho_c": 1.787982272961578,
+        "rows": 65984,
+        "eligible_uid_sha256": "5f1c4f1a2604e9e3b7bfaa2fc4bd8a9261070f48eb53d229085e89a4631d11a5",
+        "quantile": 0.9,
+        "weight_sum": 1.0
+      }
+    }
+  },
+  "context": {
+    "window": "current inclusive (t-W,t], original Engine semantics",
+    "b_timeline": "sealed index/order logical frames1..bank_end_frame; stable equal timestamps; no HIST_DEV payload decode",
+    "a_timeline": "independent Engine per 3 captures",
+    "normalizer": {
+      "status": "PASS",
+      "source": "LEARN/FIT",
+      "rows": 617908,
+      "fit_uid_sha256": "d87b1582b7c349b80b59c9478fcbb69d334e233f4fa5448b162e8bafd8dbd5b4",
+      "sha256": "c437bd81f7509666c7ddf7049eb931f1527c1e3831f5767fbf18bad4806eed79",
+      "transform": "log1p; float64 population mean/std; exact-zero std=1; cast result to float32"
+    }
+  },
+  "references": {
+    "CIC_DEV": {
+      "rows": 8863,
+      "uid_sha256": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2"
+    },
+    "UNSW_DEV": {
+      "rows": 66082,
+      "uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6"
+    },
+    "EDGE": {
+      "rows": 4124,
+      "uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e"
+    }
+  },
+  "result_artifacts": {
+    "CIC_DEV": {
+      "file": "CIC_DEV_SAME_BANK.npz",
+      "sha256": "e99d8866f0eec2b3be3ced469ccead046aaf60474de2d9f9d0bec7190aefb563",
+      "bytes": 181508586
+    },
+    "UNSW_DEV": {
+      "file": "UNSW_DEV_SAME_BANK.npz",
+      "sha256": "baa088e8d8b6a89199263f074b07847c1c5477b090e7d4f4ebadc1365676bef9",
+      "bytes": 149654456
+    },
+    "EDGE": {
+      "file": "EDGE_SAME_BANK.npz",
+      "sha256": "ee36d704f1b34e0f62fe7620ecef8718dba29ac2ff1c527a85887941fe926740",
+      "bytes": 60543612
+    }
+  },
+  "evidence_roles": {
+    "CIC_DEV": "CONSUMED_DEVELOPMENT",
+    "UNSW_DEV": "CONSUMED_DEVELOPMENT",
+    "EDGE": "EXTERNAL_EVALUATION_NOT_USED_IN_DEVELOPMENT"
+  },
+  "reporting": "A/B post_window_primary AND full, device strata, three seeds and ensemble, ordinary/hierarchical; Edge additionally HT; same protocol across pools",
+  "limitations": [
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "27",
+      "group": "NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.05033338601644363
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "27",
+      "group": "device:Eufy Home Base / NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.047948618273066804
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "27",
+      "group": "device:HeimVision Camera / NORMAL",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.06619859578736209,
+        "hierarchical_rate": 0.052718153759820446
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "127",
+      "group": "NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.05421757613463673
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "127",
+      "group": "device:Eufy Home Base / NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.058524149884312704
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "127",
+      "group": "device:HeimVision Camera / NORMAL",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.06318956870611836,
+        "hierarchical_rate": 0.04991100238496071
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "227",
+      "group": "NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.05059188617109604
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "227",
+      "group": "device:Eufy Home Base / NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.0520478821906769
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "227",
+      "group": "device:HeimVision Camera / NORMAL",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.06018054162487462,
+        "hierarchical_rate": 0.04913589015151516
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "ensemble",
+      "group": "NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.0541234191232178
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "ensemble",
+      "group": "device:Eufy Home Base / NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.0551617337290394
+      }
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "ensemble",
+      "group": "device:HeimVision Camera / NORMAL",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.06619859578736209,
+        "hierarchical_rate": 0.0530851045173962
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "head": "227",
+      "group": "device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / ATTACK",
+      "failed": [
+        "sample_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9989659451261547
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "27",
+      "group": "device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL",
+      "failed": [
+        "sample_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.0232
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "127",
+      "group": "device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL",
+      "failed": [
+        "sample_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.0233
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "227",
+      "group": "device:unsw-attack-traces-2018:00:16:6c:ab:6b:88 / ATTACK",
+      "failed": [
+        "sample_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9989659451261547
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "227",
+      "group": "device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL",
+      "failed": [
+        "sample_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.02205
+      }
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "ensemble",
+      "group": "device:unsw-attack-traces-2018:ec:1a:59:83:28:11 / NORMAL",
+      "failed": [
+        "sample_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.0231
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "27",
+      "group": "HTTP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9982,
+        "hierarchical_rate": 0.9978273843902814
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "27",
+      "group": "UDP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.97645,
+        "hierarchical_rate": 0.9764499999999998
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "127",
+      "group": "NORMAL",
+      "failed": [
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "hierarchical_rate": 0.03610879049475541
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "127",
+      "group": "HTTP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9759,
+        "hierarchical_rate": 0.9678056660267588
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "127",
+      "group": "UDP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9938,
+        "hierarchical_rate": 0.9937999999999999
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "227",
+      "group": "HTTP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.99795,
+        "hierarchical_rate": 0.9975347502984098
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "227",
+      "group": "UDP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9835,
+        "hierarchical_rate": 0.9834999999999998
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "ensemble",
+      "group": "HTTP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9979,
+        "hierarchical_rate": 0.9975116476069461
+      }
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "ensemble",
+      "group": "UDP",
+      "failed": [
+        "sample_rate",
+        "hierarchical_rate"
+      ],
+      "rates": {
+        "sample_rate": 0.9866,
+        "hierarchical_rate": 0.9865999999999999
+      }
+    }
+  ],
+  "prior_failed_scientific_gates_preserved": true,
+  "selection_scope": "A/B are development evaluation pools. Edge was not used in development and serves as external cross-dataset evaluation.",
+  "future_comparison": "Any change requires a distinct version; no retrospective baseline or threshold selection on target results.",
+  "source_pins": {
+    "runs/same_bank_context_v6_20261106/DIAGNOSE_RESULT.json": "1ba14a615b32196532b5863912c638e3266e1a35eb3ad882d5931cad7d49cb3c",
+    "runs/same_bank_context_v6_20261106/FORMAL_ACCEPTANCE.json": "f318ee3a3518d3466f83d1eb87f3890632efdc4994307f8a4f98bfdc8fc66c6c",
+    "runs/same_bank_context_v6_20261106/EVALUATION_COMPLETION.json": "5e419e88616e28db3c0ac6f1d21c064aa907d4e083b86d89f839048820d8082d",
+    "runs/same_bank_context_v6_20261106/PREFLIGHT_RESULT.json": "33b322391e5fc6e03c52a9cfdaec9938142df33670668601adc797522004486c",
+    "runs/same_bank_context_v6_20261106/PREFLIGHT_SCHEDULER.json": "ba7ec2d69c35055ad4fc3a10d81bd15c6628490ed05de09452620f0447ce367d",
+    "runs/same_bank_context_v6_20261106/PREFLIGHT_JOB.json": "38c24f4f5376872c8392f8979e23359650e8bdd325ded60ba8601b223144c3c6",
+    "runs/same_bank_context_v6_20261106/DIAGNOSE_SCHEDULER.json": "c09e47bc0d74d2799c772501f233181acf18947069e9901920a07b5e2d73cf0f",
+    "runs/same_bank_context_v6_20261106/DIAGNOSE_JOB.json": "20cc6c1b0ce0e463538b9577f8a47fc8fecb8100dcff2160a4a638690c22550d",
+    "runs/same_bank_context_v6_20261106/PREFLIGHT_PARTIAL.json": "4f468b1c6dfc8109a7493cd462ba99793c3763ce82d40f7f07e604f1a1cfe345",
+    "runs/same_bank_context_v6_20261106/RUNTIME_FORECAST.json": "2ff069d3162ab2aca439ac17e01a713f2822759dd77f9541378b89eef4ae9394",
+    "runs/same_bank_context_v6_20261106/CIC_DEV_PARITY_AUDIT.json": "82ed481faad5845a07ad95c06a14c4d3b9ffd0a9e340838d252904a3cce14801",
+    "runs/same_bank_context_v6_20261106/CIC_DEV_OPTIMIZATION_AUDIT.json": "05c992925d161e0a90ae3cdb8d0452c6c8228f702a2965b94bbeb7f63cd52bfe",
+    "runs/same_bank_context_v6_20261106/UNSW_DEV_PARITY_AUDIT.json": "175fb2fea92d29e797dc9a84070e7a669f46047f9fcd2a58a449a7210d38a142",
+    "runs/same_bank_context_v6_20261106/UNSW_DEV_OPTIMIZATION_AUDIT.json": "9afcc7f4443704152e6c8c1f2f4ac3e06ebbb16d97781c83531d7180cb3c1e50",
+    "runs/same_bank_context_v6_20261106/EDGE_PARITY_AUDIT.json": "d0152ea5e756f25bf76b3281371c2d7ca0a29636d0fbd7b179be7f2b54a7c856",
+    "runs/same_bank_context_v6_20261106/EDGE_OPTIMIZATION_AUDIT.json": "709e76e9a45103d337dfbf9029ed5f415ef4c50b19cf5cddd13cf36242b4117c",
+    "runs/same_bank_context_v6_20261106/DELIVERY.json": "7f010c58cd0b4de93de06d70dc6e66bd07473ff04faa76aa79590f1010a2cc82",
+    "runs/same_bank_context_v6_20261106/support_contract.py": "f6ddae5a3205e7e7324a9e4bddbbd8ef37461893d127b38fd6746d1e33e28041",
+    "runs/same_bank_context_v6_20261106/SUPPORT_SCHEMA_PROVENANCE.json": "3162c4586ff1060ab438a776eff6cff5de8f9abfe089ea1c3a84bdf7181d5c80",
+    "runs/same_bank_context_v6_20261106/c2_run.py.txt": "45c34aacce4245838d50b16081e7cd9046cdd035d8f1686d8e0af377c15eac1b",
+    "runs/same_bank_context_v6_20261106/c3_evaluate.py.txt": "bc76c3345e3fb06c3c258d456346b0c559669f1a82ba2a593d59f60540baa802",
+    "runs/same_bank_context_v6_20261106/c4_run.py.txt": "d013e2706db414fd86ecb7cf83fec64fee4eadb90e6eaaaf1af2b8d13ee1f7f7",
+    "runs/same_bank_context_v6_20261106/c4_gates.py.txt": "414e540234aa764a367ab13e531d5a5b7939aae32453a0120a158c6fbf7b70b1",
+    "runs/same_bank_context_v6_20261106/fast_geometry.py": "643f7a6020ba44b00badab696abd24aff64754d62dd2ea578378ac6c0390f3ad",
+    "runs/same_bank_context_v6_20261106/geometry_frozen.py": "aa4633dace8f83e19a0232d5a02b3585fe6e2235da64d8260d09e71009e7c2a1",
+    "runs/same_bank_context_v6_20261106/worker.py": "9aa93dc830634dbd8c410a9bf6e85cf4187cacd9c23c99df0e8be4354e2d4cca",
+    "runs/same_bank_context_v6_20261106/geometry.py": "aa4633dace8f83e19a0232d5a02b3585fe6e2235da64d8260d09e71009e7c2a1",
+    "runs/same_bank_context_v6_20261106/attribution.py": "f0df9b0586e01bcdd301a8f5e8df0503d4e0690fee86d511e1db4dbb05ecf3a0",
+    "runs/same_bank_context_v6_20261106/physical.py": "a800f2eecb263c681dfe83fb4058061ba9d16994b12436bf189208f416823720",
+    "runs/same_bank_context_v6_20261106/stream_core.py": "d8663a40e21d76ed2021b0999e1e2384b194b3b03b1c391ce88c43bae4a439aa",
+    "runs/same_bank_context_v6_20261106/source_packets.py": "be76540116cb7ea89b64b376761a08f0c0e99dbbf066390413bf00f23cd5cafe",
+    "runs/same_bank_context_v6_20261106/packet_reader.py": "7ef0122fb66cbfd49d9130fd2f9325e2612eed0fe5c0a3791daa4122cd8c9881",
+    "runs/same_bank_context_v6_20261106/base_worker.py": "96f9a71820bf8c1e87a5282f26bad4d83fc6fd2aaa55aeff76ee221f797c22ca",
+    "runs/same_bank_context_v6_20261106/history_context.py": "4ca4dbdf513e479edc69504e8f5ea493cef08d806325e22b020f85f57bcc2e16",
+    "runs/same_bank_context_v6_20261106/HISTORY_INPUTS.json": "5799d5cc864283c3278012eb6a54947edbfdf5a4239b6d56cae7e9dae2d103db",
+    "runs/same_bank_context_v6_20261106/INPUT_PINS.json": "5a679200802cdd6f23f19e9f0f58ebbe5b613744ba525aac9497f1db37d67b28",
+    "runs/same_bank_context_v6_20261106/dependency_gate.py": "9f1128fef7c9a8e259b33ef59fe1c150231ca4c6ebec10421a739dee1f217b08",
+    "runs/same_bank_context_v6_20261106/SPEC.json": "d83084c6c9c6ed3feb068123e876aa0448de8573b0e8ae745d9181bfb9afbb19",
+    "runs/same_bank_context_v6_20261106/test_contract.py": "85de82a186c9eaa8454a2a5162e9a134b025ab97619b86cf50d47526b218e605",
+    "runs/device_context_evaluation_v1_20261105/ASSET_PLAN.json": "267c51fc5f2e11deea8d81be035b76c4b68e1a113204e0beb51d2bf6e260df73",
+    "runs/device_context_evaluation_v1_20261105/EDGE_CARD.json": "0755167ae19033e06d2557a9ee3744f82abc4b4587a9e6452e87727ba12e706e",
+    "runs/device_context_evaluation_v1_20261105/EXECUTION_AUTHORIZATION.json": "faa2cf8942ff0846378a2e5f358c2051d409d1f5f80f9cd9ef2a9238e6392d8e",
+    "runs/device_context_evaluation_v1_20261105/FINAL_TRAINING_ACCEPTANCE.json": "cfaff01c3af263625657748ed6e15fe2fb387401fa2573e9216f93b469bdd9ce",
+    "runs/device_context_evaluation_v1_20261105/LEGACY_RUNTIME_PINS.json": "60daed34105faf6508031aa73240f5aabe68b7376bb6ce54640dd0c7077b3d74",
+    "runs/device_context_evaluation_v1_20261105/METHOD_FREEZE.json": "ee11f25079cd03ee8b9d6dbbafd67e7fc96dd4402373808fc1c0b9f53b5c05e7",
+    "runs/device_context_evaluation_v1_20261105/NORMALIZER.json": "d55a50f9142f00195a5ea0de91d9778d55a88acf00513e61206852b950f50086",
+    "runs/device_context_evaluation_v1_20261105/OLD_ASSETS.json": "34d7829d5c2f262bd60b30058b677cbf7b67ee2c419d6ce924ddc01162b96b75",
+    "runs/device_context_evaluation_v1_20261105/SOURCE_FEATURE_ACCEPTANCE.json": "c3c3c17d19f37f3b7f8124f3856644a72668234ed863fb7415c4616d79e39143",
+    "runs/device_context_evaluation_v1_20261105/TRAINING_DELIVERY.json": "ca3e195ffd7f9975b01e712e5d2c58e1c75cb468b07abd452a054729f30cfed0",
+    "runs/device_context_evaluation_v1_20261105/TRAINING_SPEC_FROZEN.json": "501aea9c9dd62b84a80e0cb4931935aeb766afb3d5c24e9fb39d2866800fb065",
+    "runs/device_context_evaluation_v1_20261105/common.py": "6f1479297d01e3d9bb427e15f02b0fedfb8f063ce9422ca62beac6dcb8a3151d",
+    "runs/device_context_evaluation_v1_20261105/edge_context.py": "594646bdf1c15230d2f0f8987ac084ec8e3d385aedff987a6c3bd2c7f30afa05",
+    "runs/device_context_evaluation_v1_20261105/inputs.py": "497eeb392c3872a75ba6569461eed693dd4119ecddf323f608442b76ffa1374f",
+    "runs/device_context_evaluation_v1_20261105/metrics.py": "34bfe3a29b138c00397628f13f23539e22dfc72768e97285282b9f612e852b49",
+    "runs/device_context_evaluation_v1_20261105/packet_reader.py": "7ef0122fb66cbfd49d9130fd2f9325e2612eed0fe5c0a3791daa4122cd8c9881",
+    "runs/device_context_evaluation_v1_20261105/preflight_encoder.py": "a4e0ada077842fdcf714e3c23e02f5fa7f727b62ac4e5844d11aaeda62a086d2",
+    "runs/device_context_evaluation_v1_20261105/reporting.py": "8ba3ecd3fdb454d7141612a6cef254081f0c5a70d3c7d03870be757aede51057",
+    "runs/device_context_evaluation_v1_20261105/source_packets.py": "be76540116cb7ea89b64b376761a08f0c0e99dbbf066390413bf00f23cd5cafe",
+    "runs/device_context_evaluation_v1_20261105/stream_core.py": "d8663a40e21d76ed2021b0999e1e2384b194b3b03b1c391ce88c43bae4a439aa",
+    "runs/device_context_evaluation_v1_20261105/worker.py": "6d86ae8988b2057d25b05c1e77457aabb78507b0e0de08c8a2b4be98a3500c56",
+    "runs/device_context_evaluation_v1_20261105/AB_RESULT.json": "882562ec6a77ffdb50e67b6276505ba00074291edcf9387657dd5c71839ce393",
+    "runs/device_context_evaluation_v1_20261105/EDGE_RESULT.json": "66f7a798095a58ed662d50f3f62c78d56afd2860b633681f21c62a14f7ddd89a",
+    "runs/device_context_evaluation_v1_20261105/CONTEXT_RESULT.json": "778dc113e66982339c3b96147c9add6646cd92350d7830af394c38d899f9fc52",
+    "runs/context_geometry_attribution_v2_20261106/worker.py": "d6ca1b7651ac27a6ea2c857b2ca9866cde4fd801a18726143e74cdc6c2176f60",
+    "runs/context_geometry_attribution_v2_20261106/PREFLIGHT_RESULT.json": "74be73317509af6a2e83f3c22e4ce577cdf052621ce21fdd66f62dac9aa05cb6",
+    "runs/context_geometry_attribution_v2_20261106/DIAGNOSE_RESULT.json": "5d7f012686205ee353f982951b29f9c8086d721cd24b82e14d5f44d23b8bb654",
+    "runs/same_bank_context_v6_20261106/HISTORY_INVENTORY.json": "6c02878b6bb160a0e32c5825e1299f054fab08031fe3cf7a1c95f8106a8928f6"
+  }
+}
