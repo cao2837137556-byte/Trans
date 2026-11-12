@@ -1,0 +1,38 @@
+{
+  "scope": "TABM_MIGRATION_ONLY_NO_SIX_CONTROL_REEXECUTION",
+  "source_checks": {
+    "tabm_p3": {
+      "hashes": 12,
+      "json_csv_rows": {
+        "METRICS": 3680,
+        "PAIRED_CHANGES": 4416
+      }
+    },
+    "tabm_p4": {
+      "hashes": 7,
+      "json_csv_rows": {
+        "METRICS": 5152,
+        "PAIRED_CHANGES": 3680
+      }
+    }
+  },
+  "new_experiment": false,
+  "tabm_p4_device_metrics_codex_20261112.csv": {
+    "rows": 840,
+    "fields_preserved": true
+  },
+  "tabm_p4_paired_detail_codex_20261112.csv": {
+    "rows": 840,
+    "fields_preserved": true
+  },
+  "manuscript_scope": "4.8 device interpretation and appendix links only; controls chapter unchanged",
+  "status": "PASS",
+  "comparison_names": [
+    "MLP_RAW",
+    "MLP_3D_SELF_P4",
+    "TABM_RAW",
+    "TABM_3D_SELF_P4",
+    "P4_MAIN"
+  ],
+  "large_arrays_or_changed_uid_bytes_read": false
+}
