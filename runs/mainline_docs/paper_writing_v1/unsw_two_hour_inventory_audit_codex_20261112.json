@@ -1,0 +1,94 @@
+{
+  "scope": "READ_ONLY_EXISTING_REFERENCE_PLAN_AND_ACCEPTED_IDENTITY",
+  "plan_path": "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/UNSW_DEV/DENSE_PLAN.json",
+  "plan_sha256": "5bdbf36a208cc53d1ff281ad136671c4fe6961ac57e726f7f4b90d0d581a9d88",
+  "current_commission_rows": 13247,
+  "ordered_uid_sha256": "b638abbc105bc512dd07fde561caca65ae87484cb3c6c3390c9d9d45cd771d4e",
+  "ordered_uid_matches_current_accepted_bank": true,
+  "group_cap": 4096,
+  "groups": [
+    {
+      "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+      "protocol": 6,
+      "legal_candidate_positions": 717,
+      "legal_components": 1,
+      "selected_positions": 717,
+      "selected_components": 1
+    },
+    {
+      "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+      "protocol": 17,
+      "legal_candidate_positions": 2669,
+      "legal_components": 5,
+      "selected_positions": 2669,
+      "selected_components": 5
+    },
+    {
+      "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+      "protocol": 6,
+      "legal_candidate_positions": 147,
+      "legal_components": 3,
+      "selected_positions": 147,
+      "selected_components": 3
+    },
+    {
+      "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+      "protocol": 17,
+      "legal_candidate_positions": 14,
+      "legal_components": 7,
+      "selected_positions": 14,
+      "selected_components": 7
+    },
+    {
+      "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+      "protocol": 6,
+      "legal_candidate_positions": 1609,
+      "legal_components": 50,
+      "selected_positions": 1609,
+      "selected_components": 50
+    },
+    {
+      "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+      "protocol": 17,
+      "legal_candidate_positions": 1172,
+      "legal_components": 16,
+      "selected_positions": 1172,
+      "selected_components": 16
+    },
+    {
+      "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+      "protocol": 6,
+      "legal_candidate_positions": 88,
+      "legal_components": 1,
+      "selected_positions": 88,
+      "selected_components": 1
+    },
+    {
+      "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+      "protocol": 17,
+      "legal_candidate_positions": 52,
+      "legal_components": 3,
+      "selected_positions": 52,
+      "selected_components": 3
+    },
+    {
+      "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+      "protocol": 6,
+      "legal_candidate_positions": 35985,
+      "legal_components": 1064,
+      "selected_positions": 4096,
+      "selected_components": 1064
+    },
+    {
+      "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+      "protocol": 17,
+      "legal_candidate_positions": 2683,
+      "legal_components": 34,
+      "selected_positions": 2683,
+      "selected_components": 34
+    }
+  ],
+  "all_candidates_admitted_groups": 9,
+  "total_groups": 10,
+  "limits": "Candidate legality is defined by the existing frontend. This verifies selection coverage, not packet quality or completeness of real device behavior."
+}
