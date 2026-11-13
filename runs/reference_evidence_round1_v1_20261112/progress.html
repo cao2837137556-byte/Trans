@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paper04 · 正常参考补证首轮</title>
+<style>
+:root {color-scheme:dark; background:#0e1722; color:#eff5fb; font:16px system-ui,sans-serif}
+body {max-width:900px; margin:0 auto; padding:28px clamp(16px,5vw,48px)}
+h1 {margin:0 0 8px; font-size:clamp(1.65rem,5vw,2.4rem)}
+p {line-height:1.55}
+header p, .muted {color:#aabdd0}
+section {background:#182637; border:1px solid #2b4056; border-radius:14px; margin:20px 0; padding:20px}
+section h2 {margin:0 0 12px; font-size:1.25rem}
+#status {color:#82ddcf}
+#status.error {color:#ffb197}
+progress {width:100%;height:12px; accent-color:#82ddcf}
+dt {color:#adbed0;font-size:.88rem;margin-top:12px}
+dd {margin:3px 0;overflow-wrap:anywhere}
+.cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}
+.cards div {border-top:2px solid #486680;padding-top:8px}
+.cards p {font-size:.9rem;color:#adbed0;margin:5px 0 0}
+</style>
+</head>
+<body>
+<header><h1>正常参考补证首轮</h1><p>Paper04 · UNSW 固定查询与 p4 工作点</p></header>
+<section aria-live="polite">
+<h2 id="status">读取状态</h2>
+<p id="detail"></p>
+<progress id="bar" max="1" value="0" hidden></progress>
+<dl>
+<dt>作业与调度</dt><dd id="jobs">等待回执</dd>
+<dt>当前计算</dt><dd id="work">等待启动</dd>
+<dt>资源</dt><dd id="resources">等待实测</dd>
+<dt>状态更新时间</dt><dd id="updated">—</dd>
+</dl>
+</section>
+<section class="cards" aria-label="执行范围">
+<div><strong>D · 两小时诊断</strong><p>复核资格、真实联合支持和可撤警的误报。</p></div>
+<div><strong>M · 等条数混合</strong><p>10,011 条两小时参考和 3,236 条历史参考。</p></div>
+<div><strong>C0 · 严格去重</strong><p>比对全部查询的支持、分数和告警。</p></div>
+<div><strong>C1 · 组内代表</strong><p>C0 通过后先核条数，再选点和重放。</p></div>
+</section>
+<script>
+const labels = {
+ PREPARED:'本地准备就绪', WAITING_FOR_USER_SSH:'等待用户建立超算连接',
+ WAITING_FOR_HPC_RELAY:'等待已登录终端启动回传通道', UPLOADING:'正在上传运行包',
+ INSTALLING:'正在核对远端运行包', VERIFYING_REMOTE_INPUTS:'正在逐项核验远端输入',
+ SUBMITTED:'已提交，等待调度', RUNNING:'计算节点运行中',
+ COMPUTE_COMPLETED_VERIFYING:'作业退出，正在验收', ACCEPTED:'计算已验收',
+ PARTIAL_C0_FAILED:'D 与 M 已回收，C0 未通过', STOP:'运行链停止',
+ LOCAL_CLIENT_STOP:'本地回传程序停止', CONNECTION_PAUSED:'当前通道不可用',
+ LOCAL_CLIENT_WAIT_EXPIRED:'本地回传等待已到期'
+};
+const explain = {
+ PREPARED:'本地运行包已封存，尚未取得本批作业回执。',
+ WAITING_FOR_USER_SSH:'本地尚未看到可复用的 SSH 转发。请使用已登录的超算终端。',
+ WAITING_FOR_HPC_RELAY:'已发现 SSH 转发，等待本批回传端点。',
+ CONNECTION_PAUSED:'显示最后一次收到的记录，远端状态需要接通后更新。',
+ PARTIAL_C0_FAILED:'C1 保持未放行。',
+ ACCEPTED:'判定保持性及指标见最终验收回执。'
+};
+const names = {first:'D 与真实预检',eval:'M／C0／C1'};
+const operations = {
+ VERIFY_INPUTS:'核对输入 SHA',LOAD_REFERENCE_ONLY:'载入候选母池',
+ LOAD_REFERENCES:'载入参考库',LOAD_QUERIES:'校验查询和分数',
+ REAL_INPUT_PREFLIGHT:'真实小切片',FULL_CACHED_BASELINE:'全查询基准复现',
+ D_DENSE_DISTANCE:'两小时库真实距离',D_DIAGNOSIS:'误报分账',
+ M_DISTANCE:'混合参考重放',C0_DISTANCE:'严格去重重放',
+ C1_DISTANCE:'代表点重放',C1_SELECT_REFERENCES:'计算组内代表点',D_COMPLETE:'D 诊断完成',
+ EVALUATION_COMPLETE:'固定查询评价完成'
+};
+const el = id => document.getElementById(id);
+async function refresh() {
+ try {
+   const response = await fetch('/state',{cache:'no-store'});
+   if (!response.ok) throw new Error('HTTP '+response.status);
+   const d = await response.json();
+   const remote = d.remote || d.previous || {};
+   const work = remote.current_progress || remote.detail || {};
+   const jobs = Object.values(remote.jobs || {}).filter(Boolean);
+   el('status').textContent = labels[d.stage] || d.stage;
+   el('status').className = /STOP|FAILED|EXPIRED/.test(d.stage) ? 'error' : '';
+   el('detail').textContent = d.error || remote.error || (d.local_pullback ? '小结果和改变 UID 索引已回传并核对 SHA。' : explain[d.stage] || '');
+   el('jobs').textContent = jobs.length ? jobs.map(j => names[j.phase]+' '+j.job_id).join(' · ') +
+     (remote.scheduler_state ? ' · '+remote.scheduler_state+(remote.scheduler_reason?' · '+remote.scheduler_reason:'') : '') : '尚无本批作业回执';
+   el('work').textContent = work.stage ? (operations[work.stage] || work.stage) +
+     (work.total ? ' · '+work.done+' / '+work.total : '')+(work.asset?' · '+work.asset:'') : '等待阶段记录';
+   const peak = work.peak_rss_kib ? '进程峰值 '+(work.peak_rss_kib/1048576).toFixed(2)+' GiB' : '等待实测';
+   const usage = remote.live_usage?.stdout?.trim();
+   el('resources').textContent = peak + (usage ? ' · Slurm CPU / 内存 / 读 / 写 '+usage : '');
+   const total = d.total_bytes || work.total || 0;
+   el('bar').hidden = !(total > 0);
+   if (total > 0) { el('bar').max = total; el('bar').value = d.uploaded_bytes || work.done || 0; }
+   el('updated').textContent = d.updated_utc ? new Date(d.updated_utc).toLocaleString() : '—';
+ } catch (error) {
+   el('status').textContent = '进度暂不可读';
+   el('detail').textContent = error.message;
+ }
+}
+refresh();
+setInterval(refresh,5000);
+</script>
+</body>
+</html>

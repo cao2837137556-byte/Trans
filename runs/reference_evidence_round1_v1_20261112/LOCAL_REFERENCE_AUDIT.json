@@ -1,0 +1,113 @@
+{
+  "status": "PASS",
+  "scope": "local SHA and real reference metadata; no query inputs",
+  "full": {
+    "rows": 66082,
+    "uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6"
+  },
+  "dense": {
+    "rows": 13247,
+    "uid_sha256": "b638abbc105bc512dd07fde561caca65ae87484cb3c6c3390c9d9d45cd771d4e"
+  },
+  "m_rows": 13247,
+  "m_dense": 10011,
+  "m_history": 3236,
+  "m_reference_uid_sha256": "83ea1461b16415951940b63d9a08dafb1b833708cdb408f7a5abe95fe4498ee2",
+  "local_m_roster": {
+    "file": "LOCAL_M_UIDS.jsonl.gz",
+    "sha256": "3b1fa1d9ea77ea40bc1855d143a09eb71eff6d1ba47ecad7ffe2a9d6c3886a6a",
+    "bytes": 559560,
+    "rows": 13247
+  },
+  "quotas": [
+    {
+      "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+      "protocol": 6,
+      "dense": 358,
+      "history": 359,
+      "source_dense": 717,
+      "source_history": 8192
+    },
+    {
+      "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+      "protocol": 17,
+      "dense": 1334,
+      "history": 1335,
+      "source_dense": 2669,
+      "source_history": 8192
+    },
+    {
+      "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+      "protocol": 6,
+      "dense": 73,
+      "history": 74,
+      "source_dense": 147,
+      "source_history": 8192
+    },
+    {
+      "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+      "protocol": 17,
+      "dense": 7,
+      "history": 7,
+      "source_dense": 14,
+      "source_history": 3683
+    },
+    {
+      "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+      "protocol": 6,
+      "dense": 804,
+      "history": 805,
+      "source_dense": 1609,
+      "source_history": 4096
+    },
+    {
+      "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+      "protocol": 17,
+      "dense": 586,
+      "history": 586,
+      "source_dense": 1172,
+      "source_history": 4096
+    },
+    {
+      "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+      "protocol": 6,
+      "dense": 44,
+      "history": 44,
+      "source_dense": 88,
+      "source_history": 8192
+    },
+    {
+      "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+      "protocol": 17,
+      "dense": 26,
+      "history": 26,
+      "source_dense": 52,
+      "source_history": 8192
+    },
+    {
+      "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+      "protocol": 6,
+      "dense": 4096,
+      "history": 0,
+      "source_dense": 4096,
+      "source_history": 0
+    },
+    {
+      "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+      "protocol": 17,
+      "dense": 2683,
+      "history": 0,
+      "source_dense": 2683,
+      "source_history": 0
+    }
+  ],
+  "local_reference_pins_verified": 17,
+  "local_missing_reference_pins": [
+    "context_normalizer",
+    "dense_context",
+    "history_context"
+  ],
+  "real_slurm_preflight": "NOT_EXECUTED",
+  "c0": "not constructed locally",
+  "c1": "not constructed locally"
+}

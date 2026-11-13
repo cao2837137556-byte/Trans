@@ -1,0 +1,499 @@
+{
+  "scope": "D/M/C0/C1_UNSW_ONLY",
+  "parent_commit": "a27b694929af1d11d66ab2ebb7e1ca3710093853",
+  "method": {
+    "p": 4,
+    "kernel": "g(s)=1-(1-s)^4",
+    "lambda_value": 0.25,
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "cuts": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "scales": [
+      118.95627975463867,
+      121.3746566772461,
+      122.36117172241211
+    ],
+    "guard": "SYN_AND_NOT_ACK_ALL_DEVICES",
+    "head_sha256": {
+      "27": "738ded855e7c6d72a514579840025b3cc76fa3bf471a5c223b5c4faaf1d86669",
+      "127": "07812cc598801b726bc5213e21278427aa62a0104121b7045dcb0c1b74f5aed5",
+      "227": "ebf23b94d605b6c823fa28dde66b629a851b33a49205c7b074852846582fe59d"
+    },
+    "decision": "strict score > cut; arithmetic mean float64 seed order 27,127,227"
+  },
+  "geometry": {
+    "version": "constrained-onboarding-geometry-v1",
+    "protocols": {
+      "6": {
+        "status": "READY",
+        "rows": 54042,
+        "devices": [
+          "ArloQ Camera",
+          "Philips Hue Bridge",
+          "SimCam"
+        ],
+        "eligible_uid_sha256": "2bbb6c714c990f2551d8d6a901633a85c221c9854284955a475eea1572072420",
+        "rho_z": 0.6350346595136246,
+        "rho_q": 0.3784318683067434,
+        "weight_sum": 1.0
+      },
+      "17": {
+        "status": "READY",
+        "rows": 65984,
+        "devices": [
+          "Amcrest Camera",
+          "ArloQ Camera",
+          "Philips Hue Bridge",
+          "SimCam"
+        ],
+        "eligible_uid_sha256": "5f1c4f1a2604e9e3b7bfaa2fc4bd8a9261070f48eb53d229085e89a4631d11a5",
+        "rho_z": 0.538951893262028,
+        "rho_q": 0.27275012216397504,
+        "weight_sum": 1.0
+      }
+    },
+    "fit_normal_uid_sha256": "d8d014a3d313c1b497e4e4e590462fb470263c14c25d66462b9fe132b5eae01e",
+    "source_roster": [
+      {
+        "partition": "LEARN",
+        "device": "Amcrest Camera",
+        "protocol": 6,
+        "reference_end": 1633532109.461121,
+        "bank_end_frames": {},
+        "reference_uids": [
+          "8efedb594ef1defd020a3efbb913179dbca863d57aa3c1230ff912b524289d4c"
+        ],
+        "distinct_components": 1
+      },
+      {
+        "partition": "LEARN",
+        "device": "Amcrest Camera",
+        "protocol": 17,
+        "reference_end": 1633532109.461121,
+        "bank_end_frames": {},
+        "reference_uids": [
+          "0483c9030db65932b21a02e06ae90ffa431143adea9065230c8b3874964efba4",
+          "0527f4520f79f0ccb30c5cff395d0e204236bc59ec882646aad02a4529723d08",
+          "064572da06b1c171541a86d6ff67567290fd12c3c9853f8f85abcb59e9f17dba",
+          "0847625d50877b2e8d9b5a7a36e43aebcbad857a49f19d1b921314d6690071f0",
+          "0dad5924045558a763e9ce4b3faaafeeb24d28cfc7bfcd383bd2902653863a16",
+          "0ddc248b851b9f6c693b374c977200ac0a8e2aea16bec6cc69a37d1e16f287fe",
+          "0f8b7b4f7a371fbc579f99077aeec29e0cd956fef39fe6c108966eebf66462af",
+          "15cf0806754b3d978cf62d069d7e2cca3636596c0fde0799bb8c8ce21ce7f3ca",
+          "18d607ba45cff0a97b9688943f31aef22fae6bb6716e43a7abfbf764ab46c232",
+          "1992c029e98d13c01fa149c1d37dfdef0a22f158aa2bdea9601786ce13ba849d",
+          "1e457286f53280697081f6532d9ce6c5a2e8005fa8d299b054d38d3a14d0c4c3",
+          "1eea9db12a550d418fd77c268f6fc4070b59782947884c383717d5b200e58c2e",
+          "1f3f0fd996a68778175b768e34dcdd929edcab83a331b563d663a9e541d46318",
+          "1fcff362e2a31f75ddf0779b1567f2248383e4cb2b2d90840716583b28c433e1",
+          "21dcf4631f857e8c79168fd8a2cd232d33422a686fae07aba5300ceb94a50307",
+          "25b271583151fc6e07b75d87d3c5e4a035602d1f1b1c1af887a2b546cf9f55c7",
+          "2b8e8b4f81f2f117be46b2bbe98c21af372c9f9696c7cd618bb81dc8fbeaa940",
+          "3fa327c27696aa075602c30b19949872c74d7cc490cd2381d01bfc41a84fc982",
+          "3fa8c8cd1818c1aeeebbca3b94992c8e3b58ee2f4033fae4e1d1113553f093f8",
+          "507e76421b4f56b2a133009ad622e4aa7cd07bc6e121ce9506e57e16be9e23f6",
+          "5946a527bf7e8b26a8a31842ccc53fdf1a76e4ee5f7a439c84c952be2e858d33",
+          "5a0bfeac72755d8039f12a9845b7c10c3e73eded564f45f318c6b50c4779a223",
+          "5a2b568f57b5715978126af24cb6e7346ac608e1db8ef39e12eac0bcea82b57f",
+          "5ac1808d9064d5cac83054c30641fd668d8c065491571a13961f02bbbdf57592",
+          "5c3b45aa7355481637fc7f24ad02714401e4a0a78ce977e08bb9d5b0f0d6f819",
+          "5f96be51bf87df70e975a57b6237e77175ad5dc7f470c33f02c1eac7206b16cf",
+          "647a5db56e92e79165113ff77b1860dce2aa9d5dad9c8374b45bf31f3e1c41ea",
+          "6de32ddaeb86df14faa5e7775a69667960b6219332e535a6b8300b5cbec9766c",
+          "7304b7259e130517058116936400344494239dc1dbdb79c16894d2f2afb6b0b5",
+          "77ae8dbfc1e12dc3be0ab9f71cc78cc722a54912d11a54edf50bb61dae132c93",
+          "7b091734e59f6c845cfd955e09552e71446bfec0515d9ae01bfca0bd03bc7399",
+          "7b2df249429bcc43dac51e6002eed6c15a16db5aa962e80a3c911a70d96514ba",
+          "7e859c9d9ee19f2c68e09115f92e01ba66ff156399ce54a6d828763b5f42b5e0",
+          "80cdb3a894674103446329b6a6b99c5f14b05dd61c8d21e2cdce68203a65b194",
+          "8235d5412ba7490a28b701113ff93fcadeea0eab6fc33af43393403ff8702e38",
+          "82e66b24295f85e382b155a0eedf49aa1baa35bbd45920affa853672f45b1336",
+          "8801558a85b63685c5d9fd967e0401e720cb61826a4a515f3b0b229bc28871a0",
+          "88efa007517caa320408b48457752dde1e9e58ce931b40c41206872885a924af",
+          "8e8f5750a340cd978b16d18c794434d9599575c4f01ad90e7e6cf0f33af2496e",
+          "901041b5a17a4d148950fdb0e363415b4f2135368c923bb3912c16b057464f34",
+          "96ea0576d9ccbd4343bbb6be15731b4d85048b27c2ae0379402ded16d95deaeb",
+          "989fa7ba32888ade229f0cfd9375755a9072e1b9dd6f522ea63c05c9a64d767b",
+          "9e60d1f50b3171814f15d1cacc96e0272cb02dc008f0ad3a2e55459137d76032",
+          "a24fe9252f55e3ce7c758735057fe60c95ec65c8998e5668e77f9154d6fa1353",
+          "a25e21c4b34f508d69989c30bb5bac82c7c01a9d2cbbfacce2e529a765ac6fae",
+          "a465c2f36f8263865758ee89c8fdd2663e067b1e18f3749dc3f35009ac8ff381",
+          "a53516b2612e961d8ec63dc58cf44968e99a9df84cba4f3c94a06a7602af439b",
+          "a547d3c3ba0622c983a87e40469e02a95f3d998e8982cb842fd3177c7c2d8a32",
+          "b7776e3b8743c18b135e09e23c4ae059a1dac1fccf513d1565a20f7f3194bf50",
+          "bfda4259fc711de6cdf17acaa97a409807c386eef5476d29164b6e175c7a4931",
+          "c81b250c49ea3dcddf69ccbd78b9d9214dab7e17174e5d30138812a6693ed861",
+          "ccce5cbaf239c0fe756d79be2f6561dec2c71821b4360e20e3ad364172f80510",
+          "d443b690672c314fe148976fced327a0158250a7ffe0adee9796974c3eeb9b57",
+          "d7a4741bcc74ee001b359273f4515923f1d54e0f2b301fc2d609c63cbb76c179",
+          "deae23e0e5c9af8eded2fda82ddddeabc6d963c0f0208c6b854c995c00e28720",
+          "e31632374aa7a23bc3d3e864dca488c93b736508f80c3be0bc6b2f7404db18ec",
+          "e360e9ced2d971955b30c705b6135f66fdd47b0aed824aaa389dec94228c6a69",
+          "e91c27bf4011224d88d34a550ebbfe1ac2921f1aafb169250c073ed87e173fd8",
+          "ebdb2a0fcbd09aec95e2b08736e0e963c3d11c7e7d9e9632462deeb503c8a0a8",
+          "ee4950b0be58bcd1195ce2356bfa529b2f34bb316dcab53e2e8ab425a297e5ec",
+          "f659e9ba4ff91586ab814d0acc6e66ea6e6159a05a2fcc4b51d6a048fbd679dc",
+          "f9cfda8d12d671038475a0005f2807bfa5780a6e76880267b4de8e69a257f5ff",
+          "fef5b87bcad99a6646d2bc016957b636c6b705e3f78923a45a080cf2220a71ea"
+        ],
+        "distinct_components": 63
+      },
+      {
+        "partition": "LEARN",
+        "device": "ArloQ Camera",
+        "protocol": 6,
+        "reference_end": 1633531542.09702,
+        "bank_end_frames": {},
+        "reference_uids": [
+          "08435fcba19c73034542fac8b7cccec2142eaf1fbce8c126f498745070b9da03",
+          "4057993785c8c0b274bf01205e95b96e1625feee66f9583e0da627955d48f6e3",
+          "474a4a3986f640192b04e1219381e2db7ea2df985b9279ea9c3554a8a2275e75",
+          "59245b8f27ef558b56b7b0940a096df5f844a02fd46c8af8231925cc096aeb36",
+          "8981c967d1e7af1aeb810912a51b0d54f57c7a587e965f5304199dd4d647b59e",
+          "a36fbcf327f76c31a8f89b6a3749f78551b239e5ed54fb40a865a5a93ed8d385",
+          "c654caedf6b53fb054805b3ef737e3f415826d652600bfe6bcd25cda40659539",
+          "d7d81077638d86101dfeacc012082a45c6b1cf98a4f3e472a098163a7dff9846"
+        ],
+        "distinct_components": 8
+      },
+      {
+        "partition": "LEARN",
+        "device": "ArloQ Camera",
+        "protocol": 17,
+        "reference_end": 1633531542.09702,
+        "bank_end_frames": {},
+        "reference_uids": [
+          "4cb3656d7074f656b96e04f84219c88e0e37475bbc58b41e9a802a29decd6775",
+          "7b02f10f0ce84033a2fc510a3681cf34b9515a6aa19c78ac7b2586993094eece",
+          "b39058a7c1604f6baefbcc0100a945d8848673f599d49fd5eed7f125ab919854",
+          "de201676a4d9fab421bdfff55caefca4f6b654617744912adfa330e7402b7762"
+        ],
+        "distinct_components": 4
+      },
+      {
+        "partition": "LEARN",
+        "device": "Atomi Coffee Maker",
+        "protocol": 6,
+        "reference_end": 1634131492.850729,
+        "bank_end_frames": {},
+        "reference_uids": [
+          "dd358ae302232cfa918b5087d191834b9179a49652cd2de0dca66475d8f520eb"
+        ],
+        "distinct_components": 1
+      },
+      {
+        "partition": "LEARN",
+        "device": "Atomi Coffee Maker",
+        "protocol": 17,
+        "reference_end": 1634131492.850729,
+        "bank_end_frames": {},
+        "reference_uids": [
+          "2d2dc8b2e3e0c9bb550cfa1ecf63ecc8abff9e84639c22b41be1b882ca5b8a00"
+        ],
+        "distinct_components": 1
+      },
+      {
+        "partition": "LEARN",
+        "device": "Globe Lamp",
+        "protocol": 6,
+        "reference_end": 1633630653.218999,
+        "bank_end_frames": {},
+        "reference_uids": [
+          "46523781556fb1a8696c59177bbb48b5457ea2bff609a23f8214c93ac807d072"
+        ],
+        "distinct_components": 1
+      },
+      {
+        "partition": "LEARN",
+        "device": "Globe Lamp",
+        "protocol": 17,
+        "reference_end": 1633630653.218999,
+        "bank_end_frames": {},
+        "reference_uids": [
+          "ea91cecb5f034a3270650554a3a5dc33b8c256751c9df380d913de4fff67e7a6"
+        ],
+        "distinct_components": 1
+      },
+      {
+        "partition": "LEARN",
+        "device": "Philips Hue Bridge",
+        "protocol": 6,
+        "reference_end": 1633454960.164599,
+        "bank_end_frames": {},
+        "reference_uids": [
+          "7e8dbdde18346631e2bbacd5e5653720218299e454dfed2064829c9816c3aa8b",
+          "8f2ca1753f6ea5df654af4ef04de39a2b37aded2771d7e101dddaf2865a9a595",
+          "d694421067f04daa05fb1b26c77dd964c8f1f7174667c0df7e379303cb5d81b3",
+          "e189d48498ec5deda72d86c32e9d51ec28d5f4455e74da52011c0a178595fc4b"
+        ],
+        "distinct_components": 4
+      },
+      {
+        "partition": "LEARN",
+        "device": "Philips Hue Bridge",
+        "protocol": 17,
+        "reference_end": 1633454960.164599,
+        "bank_end_frames": {},
+        "reference_uids": [
+          "5b77d9a64d8107a44de08a1124ed241637b21070aabf884e1c5eae00354a9786",
+          "813286eeafd01a3c78e87f31701a532489815e07e0b4feba8995ab625ec122ae",
+          "b7911aace135eb8e328b83bb1e8658aa70cbde8c35b69149ffe89c3824e01d3f",
+          "e247aff1f2cfb78ef9399b9b4085daaf64e1fed79473f77d550a69365974f51e",
+          "ee8ba20f001bd857f9cb43b9c4442871500a54f41ef1e7dc2a274ac183376f09"
+        ],
+        "distinct_components": 5
+      },
+      {
+        "partition": "LEARN",
+        "device": "SimCam",
+        "protocol": 6,
+        "reference_end": 1633542608.728952,
+        "bank_end_frames": {},
+        "reference_uids": [
+          "34ce6c0aed4369019aca644ff722c9942f2c6fe8eab638c9821755fd1b1c1ba5",
+          "34f33f8a5d4e56e95234fea13bdff7c71206210081a5de8543d86ed5d95f360b",
+          "75e945f27c50ba2d8dc6a7aaa44d6d38a28c9cdec543cafb1118255f60a08cf4",
+          "81b9148a7c8cd14a2f89e244a788f428b21c7477f65373371604289cbe3809f7",
+          "894693b2d47dc5649b00f74aae2fb808a550b925ea46c7d1863009379c7241a8",
+          "98ed62f1877fa20184ca1571d354d3e19e612b0ecb4ccb9fb80768739fded02e",
+          "9e9367e8b3c3a8794fe635a61e2df1d52a58bbc5c1e2f2d41d06adee4264ee75",
+          "af8b56da55b6ade16886a6478fdef0b3c1de605324f974c45a43a07abc8fad54"
+        ],
+        "distinct_components": 8
+      },
+      {
+        "partition": "LEARN",
+        "device": "SimCam",
+        "protocol": 17,
+        "reference_end": 1633542608.728952,
+        "bank_end_frames": {},
+        "reference_uids": [
+          "67782951183d65d8f66de07b696502b94e5137e5dea5d475ba540977e4d94abb",
+          "689c4cfb35d996ea17fc9bdfb4b749c74c7873b6f4f5a7e53494aaa2ddbb64b3",
+          "834a1e79e8e59ae65f79ccd8e8fa9913342cd3230ae3311c52f079c155988757",
+          "a7a19ef8a7f720cdbc495dc123979d68ddef39ede5aa28fb30ff992c2a79ac94",
+          "d184765448bb33f38ae8b4abb91eaa347465e71fbbfe4620c95aa7155877de71",
+          "eb9c4e4a6efc94c2dfb36b1913d60cc363b27170a0ca45648030f297501fdd6a",
+          "f0c412409725a64abeabf13580b62041936b131d42c371f189b8ce94d750f086"
+        ],
+        "distinct_components": 7
+      }
+    ],
+    "quantile": 0.9,
+    "weight_rule": "class_weights within eligible protocol subset"
+  },
+  "context_radii": {
+    "6": {
+      "status": "READY",
+      "rho_c": 1.2302964232644185,
+      "rows": 54042,
+      "eligible_uid_sha256": "2bbb6c714c990f2551d8d6a901633a85c221c9854284955a475eea1572072420",
+      "quantile": 0.9,
+      "weight_sum": 1.0
+    },
+    "17": {
+      "status": "READY",
+      "rho_c": 1.787982272961578,
+      "rows": 65984,
+      "eligible_uid_sha256": "5f1c4f1a2604e9e3b7bfaa2fc4bd8a9261070f48eb53d229085e89a4631d11a5",
+      "quantile": 0.9,
+      "weight_sum": 1.0
+    }
+  },
+  "windows": [
+    {
+      "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+      "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+      "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+      "capture_id": "unsw-benign-20180528",
+      "start": 1527465601.09039,
+      "end": 1527472801.09039,
+      "reference_end": 1527472801.09039,
+      "frame_end": 369214
+    },
+    {
+      "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+      "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+      "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+      "capture_id": "unsw-benign-20180528",
+      "start": 1527465601.09039,
+      "end": 1527472801.09039,
+      "reference_end": 1527472801.09039,
+      "frame_end": 369214
+    },
+    {
+      "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+      "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+      "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+      "capture_id": "unsw-benign-20180528",
+      "start": 1527465601.09039,
+      "end": 1527472801.09039,
+      "reference_end": 1527472801.09039,
+      "frame_end": 369214
+    },
+    {
+      "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+      "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+      "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+      "capture_id": "unsw-benign-20180528",
+      "start": 1527465601.09039,
+      "end": 1527472801.09039,
+      "reference_end": 1527472801.09039,
+      "frame_end": 369214
+    },
+    {
+      "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+      "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+      "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+      "capture_id": "unsw-benign-20180528",
+      "start": 1527465601.09039,
+      "end": 1527472801.09039,
+      "reference_end": 1527472801.09039,
+      "frame_end": 369214
+    }
+  ],
+  "reference_identity": {
+    "dense": {
+      "rows": 13247,
+      "uid_sha256": "b638abbc105bc512dd07fde561caca65ae87484cb3c6c3390c9d9d45cd771d4e"
+    },
+    "full": {
+      "rows": 66082,
+      "uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6"
+    },
+    "history_rows": 52835
+  },
+  "query_identity": {
+    "rows": 148316,
+    "uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232"
+  },
+  "views": [
+    "full",
+    "post_window_primary"
+  ],
+  "history_packs": [
+    {
+      "rows": "a4",
+      "arrays": "a5"
+    },
+    {
+      "rows": "a6",
+      "arrays": "a7"
+    },
+    {
+      "rows": "a8",
+      "arrays": "a9"
+    },
+    {
+      "rows": "a10",
+      "arrays": "a11"
+    },
+    {
+      "rows": "a12",
+      "arrays": "a13"
+    },
+    {
+      "rows": "a14",
+      "arrays": "a15"
+    },
+    {
+      "rows": "a16",
+      "arrays": "a17"
+    }
+  ],
+  "m": {
+    "salt": "paper04_refbudget_m13247_v1_20261112",
+    "quotas": [
+      {
+        "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+        "protocol": 6,
+        "dense": 358,
+        "history": 359
+      },
+      {
+        "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+        "protocol": 17,
+        "dense": 1334,
+        "history": 1335
+      },
+      {
+        "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+        "protocol": 6,
+        "dense": 73,
+        "history": 74
+      },
+      {
+        "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+        "protocol": 17,
+        "dense": 7,
+        "history": 7
+      },
+      {
+        "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+        "protocol": 6,
+        "dense": 804,
+        "history": 805
+      },
+      {
+        "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+        "protocol": 17,
+        "dense": 586,
+        "history": 586
+      },
+      {
+        "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+        "protocol": 6,
+        "dense": 44,
+        "history": 44
+      },
+      {
+        "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+        "protocol": 17,
+        "dense": 26,
+        "history": 26
+      },
+      {
+        "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+        "protocol": 6,
+        "dense": 4096,
+        "history": 0
+      },
+      {
+        "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+        "protocol": 17,
+        "dense": 2683,
+        "history": 0
+      }
+    ]
+  },
+  "c0": {
+    "rows": 61146,
+    "history_rows": 47899,
+    "atol": 2e-10,
+    "rtol": 0
+  },
+  "c1": {
+    "expected_low": 43128,
+    "expected_high": 46139,
+    "quota": "ceil(n/2)"
+  },
+  "resource": {
+    "partition": "amd",
+    "first_wall_seconds": 3600,
+    "first_memory_mib": 8192,
+    "eval_max_wall_seconds": 10800,
+    "eval_max_memory_mib": 12288,
+    "sample_per_pattern": 96,
+    "forecast_margin_fraction": 0.68,
+    "history_pair_upper_bound": 1859901
+  }
+}
