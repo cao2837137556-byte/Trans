@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paper04 统一参考库 K8192</title>
+<style>
+  :root { color-scheme: dark; background: #121923; color: #eef2f7; font: 16px Inter, system-ui, sans-serif; }
+  body { max-width: 710px; margin: 7vh auto; padding: 0 20px; }
+  h1 { font-size: clamp(1.65rem, 6vw, 2.4rem); margin-bottom: 28px; }
+  section { background: #1c2735; border: 1px solid #364657; border-radius: 12px; padding: 20px; }
+  h2 { margin: 0; color: #9fe7d1; font-size: 1.2rem; }
+  progress { width: 100%; margin: 18px 0 4px; accent-color: #88d9c3; }
+  p { overflow-wrap: anywhere; line-height: 1.5; }
+  #error { color: #ffb29c; white-space: pre-wrap; }
+</style>
+<h1>Paper04 统一参考库 K8192</h1>
+<section aria-live="polite">
+  <h2 id="status">读取回执</h2>
+  <p id="job"></p>
+  <progress id="bar" max="1" hidden></progress>
+  <p id="detail"></p>
+  <p id="error"></p>
+</section>
+<script>
+const get = name => document.getElementById(name);
+const names = {
+  WAITING_FOR_VERIFIED_MOTION: "等待 Motion 文件校验",
+  SLURM_ADMISSION: "核对调度及现有作业",
+  SUBMITTED: "已提交",
+  PENDING: "等待计算节点",
+  RUNNING: "计算中",
+  COMPLETED: "核验作业回执",
+  COMPLETE: "配对重放完成",
+  STOP: "流程停止"
+};
+async function refresh() {
+  try {
+    const response = await fetch("/state", { cache: "no-store" });
+    if (!response.ok) throw Error(response.statusText);
+    const {remote, motion, retrieved} = await response.json();
+    const chain = remote?.chain;
+    const current = remote?.progress;
+    const phase = chain?.phase === "replay" ? "正式重放" : "资产准备与预检";
+    get("status").textContent = chain ? names[chain.stage] ?? chain.stage
+        : motion?.complete ? "Motion 文件已校验，等待安装运行包" : "传输 Motion 原包";
+    get("job").textContent = chain?.job_id ? phase + " · 作业 " + chain.job_id + (chain.reason ? " · " + chain.reason : "") : "";
+    const point = current?.phase === chain?.phase ? current : null;
+    get("bar").hidden = !point || point.total <= 1;
+    if (!get("bar").hidden) {
+      get("bar").max = point.total;
+      get("bar").value = point.done;
+    }
+    get("detail").textContent = point
+        ? [point.stage, point.device ?? point.pool, point.total > 1 ? point.done.toLocaleString() + " / " + point.total.toLocaleString() : "", (point.peak_rss_kib/1048576).toFixed(2) + " GiB 峰值"].filter(Boolean).join(" · ")
+        : motion?.complete ? "338,708,100 字节，SHA256 校验通过" : "";
+    if (chain?.outcome) {
+      get("detail").textContent = chain.outcome === "ZERO_DEGRADATION_PASS" ? "通过零退化验收" : "完成评价，零退化门槛未通过";
+      if (retrieved) get("detail").textContent += " · 结果已回传";
+    }
+    get("error").textContent = chain?.error ?? "";
+  } catch {
+    get("status").textContent = "进度暂不可读";
+  }
+}
+refresh();
+setInterval(refresh, 8000);
+</script>
+</html>
