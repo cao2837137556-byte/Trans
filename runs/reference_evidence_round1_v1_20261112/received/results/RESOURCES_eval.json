@@ -1,0 +1,93 @@
+{
+  "phase": "eval",
+  "stages": [
+    {
+      "stage": "EVAL_LOAD_REFERENCES",
+      "status": "PASS",
+      "seconds": 3.2605036818422377,
+      "peak_rss_kib": 1878636
+    },
+    {
+      "stage": "EVAL_LOAD_QUERIES",
+      "status": "PASS",
+      "seconds": 5.780140992021188,
+      "peak_rss_kib": 2488568
+    },
+    {
+      "stage": "M_REAL_SLICE",
+      "status": "PASS",
+      "seconds": 1.670892114052549,
+      "peak_rss_kib": 2488568
+    },
+    {
+      "stage": "M_FULL_REPLAY",
+      "status": "PASS",
+      "seconds": 48.85526530793868,
+      "peak_rss_kib": 2502512
+    },
+    {
+      "stage": "M_REPORT",
+      "status": "PASS",
+      "seconds": 7.368182389065623,
+      "peak_rss_kib": 2539720
+    },
+    {
+      "stage": "C0_REAL_SLICE",
+      "status": "PASS",
+      "seconds": 7.650941458996385,
+      "peak_rss_kib": 3342580
+    },
+    {
+      "stage": "C0_FULL_REPLAY",
+      "status": "PASS",
+      "seconds": 272.498859904008,
+      "peak_rss_kib": 3342580
+    },
+    {
+      "stage": "C0_REPORT",
+      "status": "PASS",
+      "seconds": 4.08541578007862,
+      "peak_rss_kib": 3342580
+    },
+    {
+      "stage": "C1_REFERENCE_ONLY",
+      "status": "PASS",
+      "seconds": 9.444204844068736,
+      "peak_rss_kib": 3342580
+    },
+    {
+      "stage": "C1_RELOAD_REFERENCES",
+      "status": "PASS",
+      "seconds": 3.1608017501421273,
+      "peak_rss_kib": 3342580
+    },
+    {
+      "stage": "C1_RELOAD_QUERIES",
+      "status": "PASS",
+      "seconds": 5.36572135402821,
+      "peak_rss_kib": 3342580
+    },
+    {
+      "stage": "C1_REAL_SLICE",
+      "status": "PASS",
+      "seconds": 6.223076331894845,
+      "peak_rss_kib": 3342580
+    },
+    {
+      "stage": "C1_FULL_REPLAY",
+      "status": "PASS",
+      "seconds": 186.91714810300618,
+      "peak_rss_kib": 3342580
+    },
+    {
+      "stage": "C1_REPORT",
+      "status": "PASS",
+      "seconds": 3.617682416923344,
+      "peak_rss_kib": 3342580
+    }
+  ],
+  "peak_rss_kib": 3342580,
+  "elapsed_seconds": 573.9884360691067,
+  "user_cpu_seconds": 564.768605,
+  "system_cpu_seconds": 4.931425
+}

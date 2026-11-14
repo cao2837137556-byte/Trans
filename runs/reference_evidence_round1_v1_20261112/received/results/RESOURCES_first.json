@@ -1,0 +1,45 @@
+{
+  "phase": "first",
+  "stages": [
+    {
+      "stage": "LOAD_REFERENCES",
+      "status": "PASS",
+      "seconds": 3.2052891908679157,
+      "peak_rss_kib": 2080964
+    },
+    {
+      "stage": "LOAD_QUERIES",
+      "status": "PASS",
+      "seconds": 5.796150490874425,
+      "peak_rss_kib": 2490012
+    },
+    {
+      "stage": "REAL_INPUT_PREFLIGHT",
+      "status": "PASS",
+      "seconds": 39.809903503162786,
+      "peak_rss_kib": 2756848
+    },
+    {
+      "stage": "FULL_CACHED_BASELINE",
+      "status": "PASS",
+      "seconds": 6.523066231049597,
+      "peak_rss_kib": 2756848
+    },
+    {
+      "stage": "D_DENSE_REPLAY",
+      "status": "PASS",
+      "seconds": 52.39858831302263,
+      "peak_rss_kib": 2756848
+    },
+    {
+      "stage": "D_DIAGNOSIS",
+      "status": "PASS",
+      "seconds": 10.004550184123218,
+      "peak_rss_kib": 2756848
+    }
+  ],
+  "peak_rss_kib": 2756848,
+  "elapsed_seconds": 128.87659918586724,
+  "user_cpu_seconds": 123.39178000000001,
+  "system_cpu_seconds": 4.327714
+}

@@ -1,0 +1,108 @@
+{
+  "status": "PASS",
+  "rows": 148316,
+  "heads": [
+    "27",
+    "127",
+    "227",
+    "ensemble"
+  ],
+  "views": [
+    "full",
+    "post_window_primary"
+  ],
+  "check": {
+    "P4_COMMISSION_3D": {
+      "score": {
+        "max_abs_error": 0.0,
+        "finite_values": 593264,
+        "nonfinite_left": 0,
+        "nonfinite_right": 0,
+        "nonfinite_pattern_exact": true,
+        "changed_values": 0,
+        "above_tolerance_values": 0,
+        "above_tolerance_uid_count": 0,
+        "examples": []
+      },
+      "decision_differences": 0,
+      "verified_metric_rows": 280
+    },
+    "P4_MAIN": {
+      "score": {
+        "max_abs_error": 0.0,
+        "finite_values": 593264,
+        "nonfinite_left": 0,
+        "nonfinite_right": 0,
+        "nonfinite_pattern_exact": true,
+        "changed_values": 0,
+        "above_tolerance_values": 0,
+        "above_tolerance_uid_count": 0,
+        "examples": []
+      },
+      "decision_differences": 0,
+      "verified_metric_rows": 280
+    },
+    "RAW": {
+      "verified_metric_rows": 280
+    }
+  },
+  "weights_bound": true,
+  "query_uid_order": true,
+  "frozen_external_metrics_compared": true,
+  "both_archived_pair_tables_compared": true,
+  "reference_identity": {
+    "dense": {
+      "rows": 13247,
+      "uid_sha256": "b638abbc105bc512dd07fde561caca65ae87484cb3c6c3390c9d9d45cd771d4e"
+    },
+    "full": {
+      "rows": 66082,
+      "uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6"
+    },
+    "history_rows": 52835
+  },
+  "query_identity": {
+    "rows": 148316,
+    "uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232"
+  },
+  "frozen_windows_exact": true,
+  "live_support_witness": {
+    "support": {
+      "support2": {
+        "max_abs_error": 0.0,
+        "finite_values": 148316,
+        "nonfinite_left": 0,
+        "nonfinite_right": 0,
+        "nonfinite_pattern_exact": true,
+        "changed_values": 0,
+        "above_tolerance_values": 0,
+        "above_tolerance_uid_count": 0,
+        "examples": []
+      },
+      "support3": {
+        "max_abs_error": 1.3322676295501878e-15,
+        "finite_values": 148316,
+        "nonfinite_left": 0,
+        "nonfinite_right": 0,
+        "nonfinite_pattern_exact": true,
+        "changed_values": 651,
+        "above_tolerance_values": 0,
+        "above_tolerance_uid_count": 0,
+        "examples": []
+      }
+    },
+    "scores": {
+      "max_abs_error": 8.526512829121202e-14,
+      "finite_values": 593264,
+      "nonfinite_left": 0,
+      "nonfinite_right": 0,
+      "nonfinite_pattern_exact": true,
+      "changed_values": 198,
+      "above_tolerance_values": 0,
+      "above_tolerance_uid_count": 0,
+      "examples": []
+    },
+    "decision_differences": 0
+  },
+  "real_slice_full_geometry_verified": true
+}

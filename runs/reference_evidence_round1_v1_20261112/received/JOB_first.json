@@ -1,0 +1,32 @@
+{
+  "phase": "first",
+  "job_name": "p04-ref-r1-d",
+  "partition": "amd",
+  "cpu": 1,
+  "memory_mib": 8192,
+  "wall_seconds": 3600,
+  "package_manifest_sha256": "c864b19ceafa4cd44f89ebb67c3e6a13f0c6e478c6c0f7dc9c7601b7e9a0aa10",
+  "created_unix": 1794621118.340098,
+  "args": [
+    "sbatch",
+    "--parsable",
+    "--no-requeue",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--job-name=p04-ref-r1-d",
+    "--partition=amd",
+    "--mem=8192M",
+    "--time=01:00:00",
+    "--chdir=/public/home/jiangxinwei.zr/work/paper04/runs/reference_evidence_round1_v1_20261112/package",
+    "--output=/public/home/jiangxinwei.zr/work/paper04/runs/reference_evidence_round1_v1_20261112/results/logs/first-%j.out",
+    "--error=/public/home/jiangxinwei.zr/work/paper04/runs/reference_evidence_round1_v1_20261112/results/logs/first-%j.err",
+    "/public/home/jiangxinwei.zr/work/paper04/runs/reference_evidence_round1_v1_20261112/package/run.slurm",
+    "first",
+    "/public/home/jiangxinwei.zr/work/paper04/runs/reference_evidence_round1_v1_20261112/results",
+    "/public/home/jiangxinwei.zr/work/paper04",
+    "8192"
+  ],
+  "job_id": "183918",
+  "sbatch_stdout": "183918"
+}

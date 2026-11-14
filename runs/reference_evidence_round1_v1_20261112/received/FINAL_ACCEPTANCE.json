@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "execution_class": "SCIENTIFIC_NO_GO",
+  "evidence_scope": "fixed UNSW queries; CIC and Edge reused from p4 acceptance",
+  "original_p4_main_kept": true,
+  "default_reference_bank_changed": false,
+  "training_updates": 0,
+  "model_forwards": 0,
+  "new_raw_pcap_encodings": 0,
+  "input_package_sha256": "c864b19ceafa4cd44f89ebb67c3e6a13f0c6e478c6c0f7dc9c7601b7e9a0aa10",
+  "jobs": [
+    "183918",
+    "183920"
+  ],
+  "real_preflight_rows": 984,
+  "comparisons": {
+    "M": {
+      "status": "PASS",
+      "outcome": "DECISION_CHANGED",
+      "numeric_comparison": "NUMERICALLY_DIFFERENT"
+    },
+    "C0": {
+      "status": "PASS",
+      "outcome": "DECISION_PRESERVING",
+      "numeric_comparison": "NUMERICALLY_EQUIVALENT"
+    },
+    "C1": {
+      "status": "PASS",
+      "outcome": "DECISION_CHANGED",
+      "numeric_comparison": "NUMERICALLY_DIFFERENT"
+    }
+  },
+  "changed_uids_retained": true
+}

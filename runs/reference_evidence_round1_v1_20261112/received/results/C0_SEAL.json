@@ -1,0 +1,255 @@
+{
+  "status": "SEALED",
+  "candidate": "C0",
+  "rows": 61146,
+  "reference_uid_sha256": "feae9234f389d5dd777e315c267764421f0b8694c4cb3b22a33a3aee7a7ed777",
+  "roster": {
+    "file": "C0_UIDS.jsonl.gz",
+    "sha256": "2336da991f67f97eb225db914aedd4f03786afe5beb8e91cdd18bdf0947f5618",
+    "bytes": 2564019,
+    "rows": 61146
+  },
+  "mapping": {
+    "file": "C0_REPRESENTATIVES.jsonl.gz",
+    "sha256": "b247724261749f8c6040f923bc78431e63026128d3746c1625c9519d44b62ee3",
+    "bytes": 3476246,
+    "rows": 66082
+  },
+  "inputs": {
+    "status": "PASS",
+    "site": "HPC",
+    "checked": {
+      "dense_rows": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/UNSW_DEV/SELECTED_REFERENCES.jsonl.gz",
+        "sha256": "850b68302ccf94138138e55455136dbe5bb1d5e2e122c41420763c597d89c456",
+        "bytes": 1207067,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "dense_arrays": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/UNSW_DEV/bank.npz",
+        "sha256": "15fc1dd490eb546e63ac163a5829ee46397d2bd0fe4d07f2612d0a7710d2ea74",
+        "bytes": 33576112,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "a4": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/TP_LINK_references.jsonl.gz",
+        "sha256": "f06b9fdcf06a5db8956813954cc0c76a42a3fb0c9dbbe13f0c3271bd2bef4d65",
+        "bytes": 1242828,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "a5": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v2_20261106/assets/a5",
+        "sha256": "af444c6fc516d3461c0b867484343fa1bcb69507f6814ad84fc9125a31c525f3",
+        "bytes": 26324870,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "a6": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/WEMO_POWER_references.jsonl.gz",
+        "sha256": "bc9b1cf16e4dfeee9688659a77c2aa909830d83d31aed5e7b6ab4de9f2665ad1",
+        "bytes": 1309590,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "a7": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v2_20261106/assets/a7",
+        "sha256": "dd60faeb8b91967ba1fde0a6d5516bb3fb801f56e30248a8d431dde418912e3b",
+        "bytes": 27722462,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "a8": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/SAMSUNG_references.jsonl.gz",
+        "sha256": "ffb92fe922c68530e392548c66bcb0134383c3ea76913c5274c7e050050c7808",
+        "bytes": 1331587,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "a9": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v2_20261106/assets/a9",
+        "sha256": "e3aaeabab396f436bb3f1bb949413da638d853af542ad737488992fe1bda36fe",
+        "bytes": 27722462,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "a10": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/TP_LINK/encoded/references.jsonl.gz",
+        "sha256": "017422f2efa68c5ba2cc1e75d936155482592cc7d632822bcbf44d630e98794b",
+        "bytes": 630674,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "a11": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/TP_LINK/encoded/references.npz",
+        "sha256": "4118f6e2dd0bf17b2611edc8ee011f847f0380814cc6e7bb3494489f72f13c3b",
+        "bytes": 13861598,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "a12": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/WEMO_POWER/encoded/references.jsonl.gz",
+        "sha256": "30b52d1341b20903690400d30a8a2c80b13827f80cb4e94396782c9a577ca400",
+        "bytes": 1215454,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "a13": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/WEMO_POWER/encoded/references.npz",
+        "sha256": "0927accce3c3e110cf495311f862c5d8a74486e4f87726c8979e16ddb5558e96",
+        "bytes": 27722462,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "a14": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/SAMSUNG/encoded/references.jsonl.gz",
+        "sha256": "4a42a9973e2fab262bfb3067d4858afd69cd36195cfdd0a6405bbe8f5f691447",
+        "bytes": 1008931,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "a15": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/SAMSUNG/encoded/references.npz",
+        "sha256": "133454d130496bd9039e5dfb2c42105366f39cd1e84c240ab105b2341ee5a024",
+        "bytes": 27722462,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "a16": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/NETATMO/encoded/references.jsonl.gz",
+        "sha256": "8c62b0281bd708b2816176a86c70cb6621f89b8e2807df0d8bd68d55e39ab9e6",
+        "bytes": 1242511,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "a17": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/NETATMO/encoded/references.npz",
+        "sha256": "c9fdc76b1309f53e456959df62a6e846d1b1d7665b6d6b5ab6b999a098fc67dc",
+        "bytes": 27722462,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "dense_context": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/context_geometry_attribution_v2_20261106/UNSW_DEV_REF_CONTEXT.npz",
+        "sha256": "3de7890980895774ad218db38a288c6e32e3dafd7776c7f03ef691c2cab0ef02",
+        "bytes": 4239548,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "history_context": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v6_20261106/UNSW_DEV_HISTORY_CONTEXT.npz",
+        "sha256": "e2eef2aee2c235887f8e60ff3a063abe14eefbdae155fc28c1cd59e13930c4c7",
+        "bytes": 16907708,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "e3_normalizer": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_resume_v2_20261104/checkout/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz",
+        "sha256": "ba92b5439255435e854ee14b74738cae0e3606060456de37927b2b6a0e2ab8b2",
+        "bytes": 12792,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      },
+      "context_normalizer": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/device_context_head_training_v2_20261105/context_normalizer.npz",
+        "sha256": "c437bd81f7509666c7ddf7049eb931f1527c1e3831f5767fbf18bad4806eed79",
+        "bytes": 632,
+        "role": "reference",
+        "gate": "PINNED_SHA256"
+      }
+    },
+    "failures": {}
+  },
+  "package_manifest_sha256": "c864b19ceafa4cd44f89ebb67c3e6a13f0c6e478c6c0f7dc9c7601b7e9a0aa10",
+  "query_assets_read": 0,
+  "ends": [
+    [
+      "EXTERNAL_ARCHIVAL_EVALUATION",
+      "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+      1527472801.09039
+    ],
+    [
+      "EXTERNAL_ARCHIVAL_EVALUATION",
+      "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+      1527472801.09039
+    ],
+    [
+      "EXTERNAL_ARCHIVAL_EVALUATION",
+      "unsw-attack-traces-2018:70:ee:50:18:34:43",
+      1527472801.09039
+    ],
+    [
+      "EXTERNAL_ARCHIVAL_EVALUATION",
+      "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+      1527472801.09039
+    ],
+    [
+      "EXTERNAL_ARCHIVAL_EVALUATION",
+      "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+      1527472801.09039
+    ]
+  ],
+  "frame_ends": [
+    [
+      "EXTERNAL_ARCHIVAL_EVALUATION",
+      "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+      "unsw-benign-20180528",
+      369214
+    ],
+    [
+      "EXTERNAL_ARCHIVAL_EVALUATION",
+      "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+      "well-history-r2-samsung-55fbfcbb4f5dce65",
+      4419000
+    ],
+    [
+      "EXTERNAL_ARCHIVAL_EVALUATION",
+      "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+      "unsw-benign-20180528",
+      369214
+    ],
+    [
+      "EXTERNAL_ARCHIVAL_EVALUATION",
+      "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+      "well-history-r2-tp_link-45d1bd14569950ab",
+      66004
+    ],
+    [
+      "EXTERNAL_ARCHIVAL_EVALUATION",
+      "unsw-attack-traces-2018:70:ee:50:18:34:43",
+      "c4-history-netatmo-e4eb79d34e3e45e3",
+      3766102
+    ],
+    [
+      "EXTERNAL_ARCHIVAL_EVALUATION",
+      "unsw-attack-traces-2018:70:ee:50:18:34:43",
+      "unsw-benign-20180528",
+      369214
+    ],
+    [
+      "EXTERNAL_ARCHIVAL_EVALUATION",
+      "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+      "unsw-benign-20180528",
+      369214
+    ],
+    [
+      "EXTERNAL_ARCHIVAL_EVALUATION",
+      "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+      "well-history-r2-wemo_power-445b24a2555bd4af",
+      3430150
+    ],
+    [
+      "EXTERNAL_ARCHIVAL_EVALUATION",
+      "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+      "unsw-benign-20180528",
+      369214
+    ]
+  ],
+  "candidate_is_frozen_subset": true,
+  "exact_raw_feature_dtype_and_value": true,
+  "eligibility_proof": "static per-member signature",
+  "full_dense_rows_retained": 13247,
+  "history_rows": 47899
+}

@@ -1,0 +1,311 @@
+{
+  "status": "PASS",
+  "check": "independent local review of returned artifacts",
+  "jobs": [
+    "183918",
+    "183920"
+  ],
+  "sha_files_verified": 77,
+  "pullback_manifest_sha256": "678da9ff210089b70979a0ff96a5b7b08f96107f47a73cf5338d83dc6ecebaf3",
+  "baseline_rows": 148316,
+  "baseline_metric_rows_verified": 840,
+  "d_primary_ensemble": {
+    "REFERENCE_NOT_OPEN": 0,
+    "NO_LEGAL_REFERENCE": 0,
+    "ONE_LEGAL_COMPONENT": 11840,
+    "GEOMETRY_UNAVAILABLE": 0,
+    "ZERO_JOINT_SUPPORT_2D": 10226,
+    "ZERO_JOINT_SUPPORT_3D_ONLY": 20,
+    "GUARD_PREVENTED_WITHDRAWAL": 6,
+    "DEDUCTION_INSUFFICIENT": 319,
+    "THEORETICAL_LIMIT_ALL": 25,
+    "THEORETICAL_LIMIT_RESIDUAL": 25,
+    "SINGLE_COMPONENT_POSITIVE_SUPPORT": 2407,
+    "SINGLE_COMPONENT_ACTUAL_WITHDRAWAL": 1755,
+    "SINGLE_COMPONENT_WITHDRAWAL_OF_ALL_RESIDUAL": 1755
+  },
+  "candidates": {
+    "M": {
+      "rows": 13247,
+      "reference_uid_sha256": "83ea1461b16415951940b63d9a08dafb1b833708cdb408f7a5abe95fe4498ee2",
+      "outcome": "DECISION_CHANGED",
+      "numeric_comparison": "NUMERICALLY_DIFFERENT",
+      "decision_changes_by_head": [
+        6562,
+        6633,
+        8918,
+        7795
+      ],
+      "affected_indices": {
+        "P4_COMMISSION_3D": {
+          "affected_queries": 18399,
+          "attack_queries": 0,
+          "head_order": [
+            "27",
+            "127",
+            "227",
+            "ensemble"
+          ],
+          "normal_removed_and_added_by_head": [
+            [
+              13466,
+              0
+            ],
+            [
+              12831,
+              1
+            ],
+            [
+              15721,
+              0
+            ],
+            [
+              14487,
+              1
+            ]
+          ],
+          "sha256": "8fb32e00f0c3de8bef3074adf96b00534a0a6ace2f5a3c79657b9fd21d89adba"
+        },
+        "P4_MAIN": {
+          "affected_queries": 9094,
+          "attack_queries": 0,
+          "head_order": [
+            "27",
+            "127",
+            "227",
+            "ensemble"
+          ],
+          "normal_removed_and_added_by_head": [
+            [
+              0,
+              6562
+            ],
+            [
+              0,
+              6633
+            ],
+            [
+              0,
+              8918
+            ],
+            [
+              0,
+              7795
+            ]
+          ],
+          "sha256": "cc5865dd22deb2f0ac7515bd0e7d422fd94243670d63c0d38545ad534f199eca"
+        }
+      }
+    },
+    "C0": {
+      "rows": 61146,
+      "reference_uid_sha256": "feae9234f389d5dd777e315c267764421f0b8694c4cb3b22a33a3aee7a7ed777",
+      "outcome": "DECISION_PRESERVING",
+      "numeric_comparison": "NUMERICALLY_EQUIVALENT",
+      "decision_changes_by_head": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "affected_indices": {
+        "P4_MAIN": {
+          "affected_queries": 0,
+          "attack_queries": 0,
+          "head_order": [
+            "27",
+            "127",
+            "227",
+            "ensemble"
+          ],
+          "normal_removed_and_added_by_head": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "sha256": "471bca732c742e1b5e345b262c55c05c700029e1bd52440c7c5a9aefc5d3d518"
+        }
+      }
+    },
+    "C1": {
+      "rows": 43672,
+      "reference_uid_sha256": "a511b70dc5e016ef4fdcf5f04a93317e84647e12a0c13b3cd19a6facf4a8d87f",
+      "outcome": "DECISION_CHANGED",
+      "numeric_comparison": "NUMERICALLY_DIFFERENT",
+      "decision_changes_by_head": [
+        21,
+        26,
+        22,
+        21
+      ],
+      "affected_indices": {
+        "P4_MAIN": {
+          "affected_queries": 48,
+          "attack_queries": 0,
+          "head_order": [
+            "27",
+            "127",
+            "227",
+            "ensemble"
+          ],
+          "normal_removed_and_added_by_head": [
+            [
+              0,
+              21
+            ],
+            [
+              0,
+              26
+            ],
+            [
+              0,
+              22
+            ],
+            [
+              0,
+              21
+            ]
+          ],
+          "sha256": "c43df9a6fb35f0eccd9b17a5c9fecf6c73f824872ad26666f7b114384633ab49"
+        }
+      }
+    }
+  },
+  "c1_cardinality_summary": {
+    "status": "EXACT_QUOTA_BEFORE_SELECTION",
+    "total": 43672,
+    "dense": 13247,
+    "history": 30425,
+    "groups": 16265,
+    "singleton_groups": 11866,
+    "odd_groups": 12951,
+    "largest_group": 980,
+    "max_pair_computations": 1678843,
+    "device_protocol": [
+      {
+        "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+        "protocol": 6,
+        "dense": 717,
+        "groups": 5023,
+        "singleton_groups": 4802,
+        "odd_groups": 4831,
+        "c0_history": 8191,
+        "c1_history": 6511,
+        "c1_total": 7228
+      },
+      {
+        "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+        "protocol": 17,
+        "dense": 2669,
+        "groups": 4232,
+        "singleton_groups": 4176,
+        "odd_groups": 4187,
+        "c0_history": 8163,
+        "c1_history": 6175,
+        "c1_total": 8844
+      },
+      {
+        "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+        "protocol": 6,
+        "dense": 147,
+        "groups": 428,
+        "singleton_groups": 0,
+        "odd_groups": 236,
+        "c0_history": 5696,
+        "c1_history": 2966,
+        "c1_total": 3113
+      },
+      {
+        "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+        "protocol": 17,
+        "dense": 14,
+        "groups": 1692,
+        "singleton_groups": 9,
+        "odd_groups": 43,
+        "c0_history": 3571,
+        "c1_history": 1807,
+        "c1_total": 1821
+      },
+      {
+        "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+        "protocol": 6,
+        "dense": 1609,
+        "groups": 2947,
+        "singleton_groups": 2468,
+        "odd_groups": 2530,
+        "c0_history": 4096,
+        "c1_history": 3313,
+        "c1_total": 4922
+      },
+      {
+        "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+        "protocol": 17,
+        "dense": 1172,
+        "groups": 343,
+        "singleton_groups": 220,
+        "odd_groups": 276,
+        "c0_history": 4094,
+        "c1_history": 2185,
+        "c1_total": 3357
+      },
+      {
+        "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+        "protocol": 6,
+        "dense": 88,
+        "groups": 803,
+        "singleton_groups": 26,
+        "odd_groups": 494,
+        "c0_history": 7044,
+        "c1_history": 3769,
+        "c1_total": 3857
+      },
+      {
+        "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+        "protocol": 17,
+        "dense": 52,
+        "groups": 797,
+        "singleton_groups": 165,
+        "odd_groups": 354,
+        "c0_history": 7044,
+        "c1_history": 3699,
+        "c1_total": 3751
+      },
+      {
+        "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+        "protocol": 6,
+        "dense": 4096,
+        "groups": 0,
+        "singleton_groups": 0,
+        "odd_groups": 0,
+        "c0_history": 0,
+        "c1_history": 0,
+        "c1_total": 4096
+      },
+      {
+        "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+        "protocol": 17,
+        "dense": 2683,
+        "groups": 0,
+        "singleton_groups": 0,
+        "odd_groups": 0,
+        "c0_history": 0,
+        "c1_history": 0,
+        "c1_total": 2683
+      }
+    ]
+  },
+  "c1_full_cardinality_sha256": "731074005b128fb60247d0148adcdc2447b535fab5063a79801439e995abc19b"
+}

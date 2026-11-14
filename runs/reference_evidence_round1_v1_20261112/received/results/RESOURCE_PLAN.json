@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "first_elapsed_seconds": 128.46412324393168,
+  "first_peak_rss_kib": 2756848,
+  "dense_measured_distance_seconds": 50.50468136323616,
+  "projected_one_full_bank_seconds": 417.99051565933524,
+  "c1_selection_pair_upper_bound": 1859901,
+  "c1_projected_pair_seconds": 0.9863878494393904,
+  "conservative_eval_seconds": 2616.176385948029,
+  "eval_wall_seconds": 3900,
+  "eval_memory_mib": 5120,
+  "partition": "amd",
+  "cpus": 1,
+  "distance_chunk_pairs": 65536,
+  "memory_formula": "ceil GiB of max(4 GiB, 1.6 x measured peak + 768 MiB)",
+  "time_formula": "3 full-bank upper budgets and C1 selection projection, 1.75x plus 420s; 68% allocation gate"
+}

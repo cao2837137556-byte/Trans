@@ -1,0 +1,573 @@
+{
+  "status": "PASS",
+  "actual_compute_node": "node185",
+  "slurm_job_id": "183918",
+  "rows": 984,
+  "uid_sha256": "380188b3fa89b1d1791c13af926457f99b566ca92c3550199243fb5c100862fd",
+  "input": "frozen cached arrays; real UID/feature/geometry/p4/decision/metric/receipt",
+  "baseline": {
+    "status": "PASS",
+    "rows": 984,
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "views": [
+      "full",
+      "post_window_primary"
+    ],
+    "check": {
+      "P4_COMMISSION_3D": {
+        "score": {
+          "max_abs_error": 0.0,
+          "finite_values": 3936,
+          "nonfinite_left": 0,
+          "nonfinite_right": 0,
+          "nonfinite_pattern_exact": true,
+          "changed_values": 0,
+          "above_tolerance_values": 0,
+          "above_tolerance_uid_count": 0,
+          "examples": []
+        },
+        "decision_differences": 0,
+        "verified_metric_rows": 272
+      },
+      "P4_MAIN": {
+        "score": {
+          "max_abs_error": 0.0,
+          "finite_values": 3936,
+          "nonfinite_left": 0,
+          "nonfinite_right": 0,
+          "nonfinite_pattern_exact": true,
+          "changed_values": 0,
+          "above_tolerance_values": 0,
+          "above_tolerance_uid_count": 0,
+          "examples": []
+        },
+        "decision_differences": 0,
+        "verified_metric_rows": 272
+      },
+      "RAW": {
+        "verified_metric_rows": 272
+      }
+    },
+    "weights_bound": true,
+    "query_uid_order": true,
+    "frozen_external_metrics_compared": false,
+    "both_archived_pair_tables_compared": false
+  },
+  "geometry": {
+    "P4_MAIN": {
+      "timing": {
+        "setup_seconds": 0.09053104906342924,
+        "groups": [
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+              6
+            ],
+            "seconds": 0.4535843669436872,
+            "scored_rows": 96,
+            "pairs": 855264
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+              6
+            ],
+            "seconds": 0.12414775788784027,
+            "scored_rows": 96,
+            "pairs": 393216
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:70:ee:50:18:34:43",
+              6
+            ],
+            "seconds": 0.24070977908559144,
+            "scored_rows": 96,
+            "pairs": 547680
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+              6
+            ],
+            "seconds": 0.3096631069201976,
+            "scored_rows": 96,
+            "pairs": 794880
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+              6
+            ],
+            "seconds": 0.2890890340786427,
+            "scored_rows": 96,
+            "pairs": 800544
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:70:ee:50:18:34:43",
+              17
+            ],
+            "seconds": 0.1397381250280887,
+            "scored_rows": 96,
+            "pairs": 505728
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+              17
+            ],
+            "seconds": 0.05242684599943459,
+            "scored_rows": 96,
+            "pairs": 257568
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+              17
+            ],
+            "seconds": 0.4967806900385767,
+            "scored_rows": 96,
+            "pairs": 1042656
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+              17
+            ],
+            "seconds": 0.3103144660126418,
+            "scored_rows": 96,
+            "pairs": 791424
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+              17
+            ],
+            "seconds": 0.13577119703404605,
+            "scored_rows": 96,
+            "pairs": 354912
+          }
+        ],
+        "chunk_pairs": 65536
+      },
+      "frozen_oracle": {
+        "status": "PASS",
+        "max_abs_errors": {
+          "support": 0.0,
+          "second_dz": 0.0,
+          "second_dq": 0.0,
+          "second_joint": 0.0,
+          "bank_end": 0.0,
+          "1": 7.771561172376096e-16,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "donor_uids_and_metadata_exact": true
+      },
+      "current_to_production": {
+        "support": {
+          "support2": {
+            "max_abs_error": 0.0,
+            "finite_values": 984,
+            "nonfinite_left": 0,
+            "nonfinite_right": 0,
+            "nonfinite_pattern_exact": true,
+            "changed_values": 0,
+            "above_tolerance_values": 0,
+            "above_tolerance_uid_count": 0,
+            "examples": []
+          },
+          "support3": {
+            "max_abs_error": 0.0,
+            "finite_values": 984,
+            "nonfinite_left": 0,
+            "nonfinite_right": 0,
+            "nonfinite_pattern_exact": true,
+            "changed_values": 0,
+            "above_tolerance_values": 0,
+            "above_tolerance_uid_count": 0,
+            "examples": []
+          }
+        },
+        "scores": {
+          "max_abs_error": 2.1316282072803006e-14,
+          "finite_values": 3936,
+          "nonfinite_left": 0,
+          "nonfinite_right": 0,
+          "nonfinite_pattern_exact": true,
+          "changed_values": 19,
+          "above_tolerance_values": 0,
+          "above_tolerance_uid_count": 0,
+          "examples": []
+        },
+        "decision_differences": 0
+      },
+      "current_to_archived": {
+        "support": {
+          "support2": {
+            "max_abs_error": 8.881784197001252e-16,
+            "finite_values": 984,
+            "nonfinite_left": 0,
+            "nonfinite_right": 0,
+            "nonfinite_pattern_exact": true,
+            "changed_values": 41,
+            "above_tolerance_values": 0,
+            "above_tolerance_uid_count": 0,
+            "examples": []
+          },
+          "support3": {
+            "max_abs_error": 8.881784197001252e-16,
+            "finite_values": 984,
+            "nonfinite_left": 0,
+            "nonfinite_right": 0,
+            "nonfinite_pattern_exact": true,
+            "changed_values": 29,
+            "above_tolerance_values": 0,
+            "above_tolerance_uid_count": 0,
+            "examples": []
+          }
+        },
+        "scores": {
+          "max_abs_error": 2.1316282072803006e-14,
+          "finite_values": 3936,
+          "nonfinite_left": 0,
+          "nonfinite_right": 0,
+          "nonfinite_pattern_exact": true,
+          "changed_values": 19,
+          "above_tolerance_values": 0,
+          "above_tolerance_uid_count": 0,
+          "examples": []
+        },
+        "decision_differences": 0
+      }
+    },
+    "P4_COMMISSION_3D": {
+      "timing": {
+        "setup_seconds": 0.02405925909988582,
+        "groups": [
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+              6
+            ],
+            "seconds": 1.7371028661727905e-05,
+            "scored_rows": 0,
+            "pairs": 0
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+              6
+            ],
+            "seconds": 0.12511031585745513,
+            "scored_rows": 96,
+            "pairs": 393216
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:70:ee:50:18:34:43",
+              6
+            ],
+            "seconds": 0.031645495910197496,
+            "scored_rows": 96,
+            "pairs": 154464
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+              6
+            ],
+            "seconds": 3.780098631978035e-05,
+            "scored_rows": 0,
+            "pairs": 0
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+              6
+            ],
+            "seconds": 0.0029119900427758694,
+            "scored_rows": 96,
+            "pairs": 14112
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:70:ee:50:18:34:43",
+              17
+            ],
+            "seconds": 0.021559410030022264,
+            "scored_rows": 96,
+            "pairs": 112512
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+              17
+            ],
+            "seconds": 0.055415377020835876,
+            "scored_rows": 96,
+            "pairs": 257568
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+              17
+            ],
+            "seconds": 0.04833936411887407,
+            "scored_rows": 96,
+            "pairs": 256224
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+              17
+            ],
+            "seconds": 0.0015979339368641376,
+            "scored_rows": 96,
+            "pairs": 4992
+          },
+          {
+            "key": [
+              "EXTERNAL_ARCHIVAL_EVALUATION",
+              "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+              17
+            ],
+            "seconds": 0.0009176658932119608,
+            "scored_rows": 96,
+            "pairs": 1344
+          }
+        ],
+        "chunk_pairs": 65536
+      },
+      "frozen_oracle": {
+        "status": "PASS",
+        "max_abs_errors": {
+          "support": 0.0,
+          "second_dz": 0.0,
+          "second_dq": 0.0,
+          "second_joint": 0.0,
+          "bank_end": 0.0,
+          "1": 3.3306690738754696e-16,
+          "2": 0.0,
+          "3": 0.0
+        },
+        "donor_uids_and_metadata_exact": true
+      },
+      "current_to_production": {
+        "support": {
+          "support2": {
+            "max_abs_error": 0.0,
+            "finite_values": 984,
+            "nonfinite_left": 0,
+            "nonfinite_right": 0,
+            "nonfinite_pattern_exact": true,
+            "changed_values": 0,
+            "above_tolerance_values": 0,
+            "above_tolerance_uid_count": 0,
+            "examples": []
+          },
+          "support3": {
+            "max_abs_error": 0.0,
+            "finite_values": 984,
+            "nonfinite_left": 0,
+            "nonfinite_right": 0,
+            "nonfinite_pattern_exact": true,
+            "changed_values": 0,
+            "above_tolerance_values": 0,
+            "above_tolerance_uid_count": 0,
+            "examples": []
+          }
+        },
+        "scores": {
+          "max_abs_error": 0.0,
+          "finite_values": 3936,
+          "nonfinite_left": 0,
+          "nonfinite_right": 0,
+          "nonfinite_pattern_exact": true,
+          "changed_values": 0,
+          "above_tolerance_values": 0,
+          "above_tolerance_uid_count": 0,
+          "examples": []
+        },
+        "decision_differences": 0
+      },
+      "current_to_archived": {
+        "support": {
+          "support2": {
+            "max_abs_error": 2.220446049250313e-16,
+            "finite_values": 984,
+            "nonfinite_left": 0,
+            "nonfinite_right": 0,
+            "nonfinite_pattern_exact": true,
+            "changed_values": 2,
+            "above_tolerance_values": 0,
+            "above_tolerance_uid_count": 0,
+            "examples": []
+          },
+          "support3": {
+            "max_abs_error": 2.220446049250313e-16,
+            "finite_values": 984,
+            "nonfinite_left": 0,
+            "nonfinite_right": 0,
+            "nonfinite_pattern_exact": true,
+            "changed_values": 1,
+            "above_tolerance_values": 0,
+            "above_tolerance_uid_count": 0,
+            "examples": []
+          }
+        },
+        "scores": {
+          "max_abs_error": 0.0,
+          "finite_values": 3936,
+          "nonfinite_left": 0,
+          "nonfinite_right": 0,
+          "nonfinite_pattern_exact": true,
+          "changed_values": 0,
+          "above_tolerance_values": 0,
+          "above_tolerance_uid_count": 0,
+          "examples": []
+        },
+        "decision_differences": 0
+      }
+    }
+  },
+  "single_component_oracle_rows": 12,
+  "forecast_groups": [
+    {
+      "key": [
+        "EXTERNAL_ARCHIVAL_EVALUATION",
+        "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+        6
+      ],
+      "full_pairs": 261096063,
+      "sample_pairs": 855264,
+      "sample_seconds": 0.4535843669436872,
+      "projected_seconds": 138.4708025210275
+    },
+    {
+      "key": [
+        "EXTERNAL_ARCHIVAL_EVALUATION",
+        "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+        6
+      ],
+      "full_pairs": 123772928,
+      "sample_pairs": 393216,
+      "sample_seconds": 0.12414775788784027,
+      "projected_seconds": 39.078093206820384
+    },
+    {
+      "key": [
+        "EXTERNAL_ARCHIVAL_EVALUATION",
+        "unsw-attack-traces-2018:70:ee:50:18:34:43",
+        6
+      ],
+      "full_pairs": 123998175,
+      "sample_pairs": 547680,
+      "sample_seconds": 0.24070977908559144,
+      "projected_seconds": 54.498198421097186
+    },
+    {
+      "key": [
+        "EXTERNAL_ARCHIVAL_EVALUATION",
+        "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+        6
+      ],
+      "full_pairs": 223146000,
+      "sample_pairs": 794880,
+      "sample_seconds": 0.3096631069201976,
+      "projected_seconds": 86.93146595311798
+    },
+    {
+      "key": [
+        "EXTERNAL_ARCHIVAL_EVALUATION",
+        "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+        6
+      ],
+      "full_pairs": 141521169,
+      "sample_pairs": 800544,
+      "sample_seconds": 0.2890890340786427,
+      "projected_seconds": 51.10552080571506
+    },
+    {
+      "key": [
+        "EXTERNAL_ARCHIVAL_EVALUATION",
+        "unsw-attack-traces-2018:70:ee:50:18:34:43",
+        17
+      ],
+      "full_pairs": 65960628,
+      "sample_pairs": 505728,
+      "sample_seconds": 0.1397381250280887,
+      "projected_seconds": 18.225636077882278
+    },
+    {
+      "key": [
+        "EXTERNAL_ARCHIVAL_EVALUATION",
+        "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+        17
+      ],
+      "full_pairs": 9562212,
+      "sample_pairs": 257568,
+      "sample_seconds": 0.05242684599943459,
+      "projected_seconds": 1.9463466577290092
+    },
+    {
+      "key": [
+        "EXTERNAL_ARCHIVAL_EVALUATION",
+        "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+        17
+      ],
+      "full_pairs": 53327510,
+      "sample_pairs": 1042656,
+      "sample_seconds": 0.4967806900385767,
+      "projected_seconds": 25.408262375931372
+    },
+    {
+      "key": [
+        "EXTERNAL_ARCHIVAL_EVALUATION",
+        "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+        17
+      ],
+      "full_pairs": 4872204,
+      "sample_pairs": 791424,
+      "sample_seconds": 0.3103144660126418,
+      "projected_seconds": 1.910373431390326
+    },
+    {
+      "key": [
+        "EXTERNAL_ARCHIVAL_EVALUATION",
+        "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+        17
+      ],
+      "full_pairs": 850310,
+      "sample_pairs": 354912,
+      "sample_seconds": 0.13577119703404605,
+      "projected_seconds": 0.32528515956073534
+    }
+  ],
+  "memory_kib": 2756848
+}
