@@ -1,0 +1,105 @@
+{
+  "phase": "first",
+  "stages": [
+    {
+      "stage": "LOAD_FROZEN_MLP",
+      "status": "PASS",
+      "seconds": 0.9484680460300297,
+      "peak_rss_kib": 310388
+    },
+    {
+      "stage": "LOAD_REFERENCE_CIC_DEV",
+      "status": "PASS",
+      "seconds": 0.3216871889308095,
+      "peak_rss_kib": 397084
+    },
+    {
+      "stage": "REAL_REFERENCE_PREFLIGHT_CIC_DEV",
+      "status": "PASS",
+      "seconds": 0.17667848290875554,
+      "peak_rss_kib": 397084
+    },
+    {
+      "stage": "FULL_REFERENCE_FORWARD_CIC_DEV",
+      "status": "PASS",
+      "seconds": 0.22632872685790062,
+      "peak_rss_kib": 397084
+    },
+    {
+      "stage": "FIT_THRESHOLDS_CIC_DEV",
+      "status": "PASS",
+      "seconds": 0.036780755035579205,
+      "peak_rss_kib": 397084
+    },
+    {
+      "stage": "LOAD_REFERENCE_UNSW_DEV",
+      "status": "PASS",
+      "seconds": 2.546132144983858,
+      "peak_rss_kib": 1140472
+    },
+    {
+      "stage": "REAL_REFERENCE_PREFLIGHT_UNSW_DEV",
+      "status": "PASS",
+      "seconds": 0.25453910999931395,
+      "peak_rss_kib": 1140472
+    },
+    {
+      "stage": "FULL_REFERENCE_FORWARD_UNSW_DEV",
+      "status": "PASS",
+      "seconds": 1.5237413791473955,
+      "peak_rss_kib": 1140472
+    },
+    {
+      "stage": "FIT_THRESHOLDS_UNSW_DEV",
+      "status": "PASS",
+      "seconds": 0.38595460797660053,
+      "peak_rss_kib": 1140472
+    },
+    {
+      "stage": "LOAD_REFERENCE_EDGE",
+      "status": "PASS",
+      "seconds": 190.33033615490422,
+      "peak_rss_kib": 1140472
+    },
+    {
+      "stage": "REAL_REFERENCE_PREFLIGHT_EDGE",
+      "status": "PASS",
+      "seconds": 0.2533616591244936,
+      "peak_rss_kib": 1140472
+    },
+    {
+      "stage": "FULL_REFERENCE_FORWARD_EDGE",
+      "status": "PASS",
+      "seconds": 0.30404492118395865,
+      "peak_rss_kib": 1140472
+    },
+    {
+      "stage": "FIT_THRESHOLDS_EDGE",
+      "status": "PASS",
+      "seconds": 0.02098176791332662,
+      "peak_rss_kib": 1140472
+    },
+    {
+      "stage": "EVALUATE_CIC_DEV",
+      "status": "PASS",
+      "seconds": 20.986055806977674,
+      "peak_rss_kib": 1550024
+    },
+    {
+      "stage": "EVALUATE_UNSW_DEV",
+      "status": "PASS",
+      "seconds": 14.148329383926466,
+      "peak_rss_kib": 1550024
+    },
+    {
+      "stage": "EVALUATE_EDGE",
+      "status": "PASS",
+      "seconds": 9.181635932065547,
+      "peak_rss_kib": 1550024
+    }
+  ],
+  "peak_rss_kib": 1550024,
+  "elapsed_seconds": 255.4202274188865,
+  "user_cpu_seconds": 48.427521,
+  "system_cpu_seconds": 3.450293
+}

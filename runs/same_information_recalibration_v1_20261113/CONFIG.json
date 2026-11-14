@@ -1,0 +1,276 @@
+{
+  "scope": "FUSION790_SAME_REFERENCE_INFORMATION",
+  "parent_commit": "888592f05d454b8eab050caa4cf2a55b6131b382",
+  "method": {
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "p": 4,
+    "kernel": "g(s)=1-(1-s)^4",
+    "lambda_value": 0.25,
+    "cuts": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "scales": [
+      118.95627975463867,
+      121.3746566772461,
+      122.36117172241211
+    ],
+    "guard": "SYN_AND_NOT_ACK_ALL_DEVICES"
+  },
+  "calibration": {
+    "budget": 0.01,
+    "groups": [
+      "device",
+      "capture_id",
+      "component_id"
+    ],
+    "with_guard": "conditional_1pct"
+  },
+  "reference": {
+    "CIC_DEV": {
+      "commission_rows": 8574,
+      "commission_uid_sha256": "53bd684394a36ea0fc25809f218e253fdb1fd6fb6666cfd5545c8f456e11e620",
+      "full_bank": {
+        "rows": 8863,
+        "uid_sha256": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2"
+      },
+      "commission_support_artifact": {
+        "file": "CIC_DEV_ATTRIBUTION.npz",
+        "sha256": "448c6c438cd63a682bf6c166e02a9f598871177756d32e7121c389f4eb1f0183",
+        "bytes": 243210742
+      }
+    },
+    "UNSW_DEV": {
+      "commission_rows": 13247,
+      "commission_uid_sha256": "b638abbc105bc512dd07fde561caca65ae87484cb3c6c3390c9d9d45cd771d4e",
+      "full_bank": {
+        "rows": 66082,
+        "uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6"
+      },
+      "commission_support_artifact": {
+        "file": "UNSW_DEV_ATTRIBUTION.npz",
+        "sha256": "472ca6f849c67a6503284e1d39a1d119e10462ec6f707ce04213515d82807140",
+        "bytes": 200528102
+      }
+    },
+    "EDGE": {
+      "commission_rows": 4124,
+      "commission_uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e",
+      "full_bank": {
+        "rows": 4124,
+        "uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e"
+      },
+      "commission_support_artifact": {
+        "file": "EDGE_ATTRIBUTION.npz",
+        "sha256": "b2240f207c27201a3918420047e8bc9284f28369a568d8efbb383f1362b64317",
+        "bytes": 81124870
+      }
+    }
+  },
+  "query": {
+    "CIC_DEV": {
+      "rows_file": "CIC_DEV_ROWS.jsonl.gz",
+      "rows_sha256": "d9261f2bf41e9c4462a1cc6becec5d7bbaf5d12f74d10a70a0a9bb2fcc1ba2f1",
+      "array_file": "CIC_DEV_QUERY.npz",
+      "array_sha256": "f2e2957bd14713d28b4089d26ada7a32989f67db0719c379c3387db84a664b15",
+      "views": [
+        "full",
+        "post_window_primary"
+      ],
+      "population": null,
+      "scores_file": "CIC_DEV_CONTROLS.npz",
+      "scores_sha256": "ad78ff384ccff2cb70ff8fa4f7d3251d1874a5c9fa40680f06c4726cc4f8fe8e"
+    },
+    "UNSW_DEV": {
+      "rows_file": "UNSW_DEV_ROWS.jsonl.gz",
+      "rows_sha256": "19c001eb4f0c67cf07ed08edb98ee5b105b9b22539ff9433e80736f8074899d8",
+      "array_file": "UNSW_DEV_QUERY.npz",
+      "array_sha256": "4699def51df6ffc3e0c3b04b2bc820815caa65f9335aabaa3febd9f8906b9186",
+      "views": [
+        "full",
+        "post_window_primary"
+      ],
+      "population": null,
+      "scores_file": "UNSW_DEV_CONTROLS.npz",
+      "scores_sha256": "3f6398bfa7c0c085c43b6d801d4ac5e62763fd96590e4b6bb08f1746a2ec7f0c"
+    },
+    "EDGE": {
+      "rows_file": "EDGE_ROWS.jsonl.gz",
+      "rows_sha256": "06da9eee66654a0ae12b7ad33d89b12091b934df29f33a5ab71d9118ad798da3",
+      "array_file": "EDGE_QUERY.npz",
+      "array_sha256": "e248c3c12bc992804fb0479955d54a58be79e682bfa3d15b7d982172980596ee",
+      "views": [
+        "full"
+      ],
+      "population": {
+        "NORMAL": 1220126,
+        "HTTP": 152352,
+        "UDP": 2898830
+      },
+      "scores_file": "EDGE_CONTROLS.npz",
+      "scores_sha256": "a893e72106a94e4dad67ae6302e8851a732d2749f9731d371b42bf7b1d756f74"
+    }
+  },
+  "query_counts": {
+    "CIC_DEV": [
+      179886,
+      175097,
+      3334
+    ],
+    "UNSW_DEV": [
+      148316,
+      146997,
+      1319
+    ],
+    "EDGE": [
+      60000,
+      60000,
+      0
+    ]
+  },
+  "windows": {
+    "CIC_DEV": [
+      {
+        "partition": "DEV",
+        "device": "Eufy Home Base",
+        "source_sha256": "b19d63d7e3ac18d3b1d05add73ab86e7c6cdce5bbdee3485aa1d0bc90404bd3e",
+        "capture_id": "active-00",
+        "start": 1635851700.06933,
+        "end": 1635858900.06933,
+        "reference_end": 1635858900.06933,
+        "frame_end": 152883
+      },
+      {
+        "partition": "DEV",
+        "device": "HeimVision Camera",
+        "source_sha256": "b19d63d7e3ac18d3b1d05add73ab86e7c6cdce5bbdee3485aa1d0bc90404bd3e",
+        "capture_id": "active-00",
+        "start": 1635851700.06933,
+        "end": 1635858900.06933,
+        "reference_end": 1635858900.06933,
+        "frame_end": 152883
+      }
+    ],
+    "UNSW_DEV": [
+      {
+        "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+        "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+        "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+        "capture_id": "unsw-benign-20180528",
+        "start": 1527465601.09039,
+        "end": 1527472801.09039,
+        "reference_end": 1527472801.09039,
+        "frame_end": 369214
+      },
+      {
+        "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+        "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+        "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+        "capture_id": "unsw-benign-20180528",
+        "start": 1527465601.09039,
+        "end": 1527472801.09039,
+        "reference_end": 1527472801.09039,
+        "frame_end": 369214
+      },
+      {
+        "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+        "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+        "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+        "capture_id": "unsw-benign-20180528",
+        "start": 1527465601.09039,
+        "end": 1527472801.09039,
+        "reference_end": 1527472801.09039,
+        "frame_end": 369214
+      },
+      {
+        "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+        "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+        "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+        "capture_id": "unsw-benign-20180528",
+        "start": 1527465601.09039,
+        "end": 1527472801.09039,
+        "reference_end": 1527472801.09039,
+        "frame_end": 369214
+      },
+      {
+        "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+        "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+        "source_sha256": "42c8c8444ab6d2a50170e8aee7012436fe2ce877d40f026b07614972f06ca808",
+        "capture_id": "unsw-benign-20180528",
+        "start": 1527465601.09039,
+        "end": 1527472801.09039,
+        "reference_end": 1527472801.09039,
+        "frame_end": 369214
+      }
+    ]
+  },
+  "history_packs": {
+    "CIC_DEV": [
+      {
+        "rows": "a0",
+        "arrays": "a1",
+        "device": "HeimVision Camera",
+        "count": 11
+      },
+      {
+        "rows": "a2",
+        "arrays": "a3",
+        "count": 278
+      }
+    ],
+    "UNSW_DEV": [
+      {
+        "rows": "a4",
+        "arrays": "a5"
+      },
+      {
+        "rows": "a6",
+        "arrays": "a7"
+      },
+      {
+        "rows": "a8",
+        "arrays": "a9"
+      },
+      {
+        "rows": "a10",
+        "arrays": "a11"
+      },
+      {
+        "rows": "a12",
+        "arrays": "a13"
+      },
+      {
+        "rows": "a14",
+        "arrays": "a15"
+      },
+      {
+        "rows": "a16",
+        "arrays": "a17"
+      }
+    ]
+  },
+  "edge_cutoff": 1637498650081753000,
+  "edge_last_frame": 117376,
+  "model_modules": [
+    "context_core",
+    "query_tail_core_v2",
+    "continuous_model_v3",
+    "continuous_common_v3",
+    "legacy_qref_data_v1",
+    "legacy_qref_common_v1",
+    "legacy_qref_model_v1",
+    "legacy_unsw_archival_common_v1",
+    "legacy_unsw_archival_runtime_v1",
+    "legacy_unsw_archival_runtime_v2"
+  ],
+  "partition": "amd",
+  "memory_mib": 8192,
+  "wall_seconds": 3600
+}

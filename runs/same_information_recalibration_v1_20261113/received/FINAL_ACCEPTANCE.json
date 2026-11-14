@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "pools": [
+    "CIC_DEV",
+    "UNSW_DEV",
+    "EDGE"
+  ],
+  "reference_rows": 79069,
+  "query_rows": 388202,
+  "slurm_job_id": "183937",
+  "package_manifest_sha256": "2d18e612856cf7d772aed156a438bab7dadecad6a5bc9f3236e18b39f00cd7f0",
+  "threshold_sha256": "8cdcab82c9f9de08cfb7bc95e453be782fe33ff0ec8e3d01acf2af73e102e2da",
+  "baseline_metric_rows": 1472,
+  "original_p4_main_kept": true,
+  "training_updates": 0,
+  "query_model_forwards": 0,
+  "raw_pcap_encodings": 0,
+  "reference_rows_scored": 79069,
+  "conditional_unguarded_budget": 0.01,
+  "coverage": {
+    "CIC_DEV": {
+      "rows": 179886,
+      "post_rows": 175097,
+      "query_uid_sha256": "1b13ef4d89e5652d6c24931ab895842b58cce655249cf978ff3d1cdded04f35d",
+      "real_slice_rows": 535,
+      "baseline_metric_rows": 544,
+      "changed_uid_index": {
+        "file": "CIC_DEV_CHANGED_UIDS.jsonl.gz",
+        "sha256": "573b8438cda7cba733594a5e21c09797249d9480061da7cdcb08c4cae02d576f",
+        "bytes": 6602,
+        "rows": 151
+      }
+    },
+    "UNSW_DEV": {
+      "rows": 148316,
+      "post_rows": 146997,
+      "query_uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+      "real_slice_rows": 535,
+      "baseline_metric_rows": 560,
+      "changed_uid_index": {
+        "file": "UNSW_DEV_CHANGED_UIDS.jsonl.gz",
+        "sha256": "e763e96330c83c9002f15ea85a771c7e5ebe6101bb2dc212f76aec5bb8f899e5",
+        "bytes": 1977262,
+        "rows": 48560
+      }
+    },
+    "EDGE": {
+      "rows": 60000,
+      "post_rows": 60000,
+      "query_uid_sha256": "cec6dcd9399b5286fe8325828aaa7acb4584d6dd28c867fb76cbc7e17a7c5404",
+      "real_slice_rows": 527,
+      "baseline_metric_rows": 368,
+      "changed_uid_index": {
+        "file": "EDGE_CHANGED_UIDS.jsonl.gz",
+        "sha256": "683617a17674110062bce48e366e2d9cc9ea5f54d81922bd04ea10de02a2b35b",
+        "bytes": 2002141,
+        "rows": 50266
+      }
+    }
+  }
+}

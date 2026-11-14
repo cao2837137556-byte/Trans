@@ -1,3 +1,17 @@
+## 2026-11-13 before same-information threshold comparison acceptance
+
+# 当前状态
+
+1. **正常参考补证首轮已完成**：183918/183920 均 COMPLETED/0:0，984 条真实小切片通过，148,316 条 UNSW 查询基准复现，77 项本地回传 SHA 通过。
+2. **D/M 结果**：两小时残留误报 22,411 条，其中 11,840 条只有一个合法组件，10,226 条二维联合支持为零。同样 13,247 条的 M 将建档后集成误报降至 7,925，完整库为 130。
+3. **压缩候选**：C0 从 66,082 减至 61,146 条，四头零翻转；C1 保留 43,672 条，集成新增 21 条正常误报，判定保持未通过。现行完整库 MLP p4 保持主结果。
+4. **论文回传**：[首轮结果入口](../reference_evidence_round1_v1_20261112/received/RESULTS_FOR_PAPER.md) · [验收](../reference_evidence_round1_v1_20261112/received/FINAL_ACCEPTANCE.json)。各头、视图、权重和配对表见本地 received/results/。CIC 与 Edge 复用原结果。
+5. **工作边界**：用户手动建立超算连接。已授权首轮结束，新增实验另行确定范围。大数组留超算，接续优先使用本地回执。
+
+[历史记录](START_HERE_HISTORY.md) · [主线交接](mainline_handoff.md)
+
+---
+
 ## 2026-11-13 before reference evidence round 1 acceptance
 
 # 当前状态

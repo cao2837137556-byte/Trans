@@ -1,0 +1,359 @@
+{
+  "status": "PASS",
+  "pools": {
+    "CIC_DEV": {
+      "rows": 1024,
+      "seconds": 0.20642100810073316,
+      "projected_seconds": 1.786630268356248,
+      "reference_uid_sha256": "5340cdca36a42aa1285a74bd271eb2a58ff43f973bb9d9999f1c508993c73227",
+      "finite_scores": true,
+      "target_reference_fit": true,
+      "threshold_check": {
+        "rows": 1024,
+        "protected_rows": 0,
+        "protected_weight_mass": 0.0,
+        "weight_fields": [
+          "device",
+          "capture_id",
+          "component_id"
+        ],
+        "threshold_budget": 0.01,
+        "fits": {
+          "RECAL_NO_GUARD": {
+            "heads": [
+              {
+                "cut": -15.566401481628418,
+                "strict_tail_mass": 0.000429553264604811,
+                "tied_mass": 0.013888888888888888,
+                "tail_count": 3,
+                "distinct_scores": 939,
+                "delta_from_source": 7.476845741271973,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.000429553264604811
+              },
+              {
+                "cut": -15.22458267211914,
+                "strict_tail_mass": 0.000286368843069874,
+                "tied_mass": 0.013888888888888888,
+                "tail_count": 2,
+                "distinct_scores": 939,
+                "delta_from_source": 8.090621948242188,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.000286368843069874
+              },
+              {
+                "cut": -13.719688415527344,
+                "strict_tail_mass": 0.000286368843069874,
+                "tied_mass": 0.013888888888888888,
+                "tail_count": 2,
+                "distinct_scores": 937,
+                "delta_from_source": 8.895027160644531,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.000286368843069874
+              },
+              {
+                "cut": -14.836890856424967,
+                "strict_tail_mass": 0.000286368843069874,
+                "tied_mass": 0.013888888888888888,
+                "tail_count": 2,
+                "distinct_scores": 944,
+                "delta_from_source": 8.412907600402834,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.000286368843069874
+              }
+            ],
+            "fitted_rows": 1024,
+            "fitted_weight_mass": 1.0,
+            "fitted_components": 257
+          },
+          "RECAL_WITH_GUARD": {
+            "heads": [
+              {
+                "cut": -15.566401481628418,
+                "strict_tail_mass": 0.000429553264604811,
+                "tied_mass": 0.013888888888888888,
+                "tail_count": 3,
+                "distinct_scores": 939,
+                "delta_from_source": 7.476845741271973,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.000429553264604811
+              },
+              {
+                "cut": -15.22458267211914,
+                "strict_tail_mass": 0.000286368843069874,
+                "tied_mass": 0.013888888888888888,
+                "tail_count": 2,
+                "distinct_scores": 939,
+                "delta_from_source": 8.090621948242188,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.000286368843069874
+              },
+              {
+                "cut": -13.719688415527344,
+                "strict_tail_mass": 0.000286368843069874,
+                "tied_mass": 0.013888888888888888,
+                "tail_count": 2,
+                "distinct_scores": 937,
+                "delta_from_source": 8.895027160644531,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.000286368843069874
+              },
+              {
+                "cut": -14.836890856424967,
+                "strict_tail_mass": 0.000286368843069874,
+                "tied_mass": 0.013888888888888888,
+                "tail_count": 2,
+                "distinct_scores": 944,
+                "delta_from_source": 8.412907600402834,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.000286368843069874
+              }
+            ],
+            "fitted_rows": 1024,
+            "fitted_weight_mass": 1.0,
+            "fitted_components": 257
+          }
+        }
+      },
+      "batch_max_abs_error": 3.814697265625e-06
+    },
+    "UNSW_DEV": {
+      "rows": 1024,
+      "seconds": 0.266757071018219,
+      "projected_seconds": 17.214688249048777,
+      "reference_uid_sha256": "7908fefdc3377b3a18e60d1f9923df12773bad142ec8372baaf72f6a22175f93",
+      "finite_scores": true,
+      "target_reference_fit": true,
+      "threshold_check": {
+        "rows": 1024,
+        "protected_rows": 50,
+        "protected_weight_mass": 0.07372027835505955,
+        "weight_fields": [
+          "device",
+          "capture_id",
+          "component_id"
+        ],
+        "threshold_budget": 0.01,
+        "fits": {
+          "RECAL_NO_GUARD": {
+            "heads": [
+              {
+                "cut": -1.0031930208206177,
+                "strict_tail_mass": 0.009972925728080177,
+                "tied_mass": 0.00020833333333333335,
+                "tail_count": 15,
+                "distinct_scores": 810,
+                "delta_from_source": 22.040054202079773,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.009972925728080177
+              },
+              {
+                "cut": -3.409761667251587,
+                "strict_tail_mass": 0.009742770223667357,
+                "tied_mass": 0.000980392156862745,
+                "tail_count": 18,
+                "distinct_scores": 823,
+                "delta_from_source": 19.90544295310974,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.009742770223667357
+              },
+              {
+                "cut": -1.1082650423049927,
+                "strict_tail_mass": 0.009584362639528173,
+                "tied_mass": 0.000625,
+                "tail_count": 17,
+                "distinct_scores": 816,
+                "delta_from_source": 21.506450533866882,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.009584362639528173
+              },
+              {
+                "cut": -1.8189390699068706,
+                "strict_tail_mass": 0.009117770223667356,
+                "tied_mass": 0.000980392156862745,
+                "tail_count": 17,
+                "distinct_scores": 836,
+                "delta_from_source": 21.43085938692093,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.009117770223667356
+              }
+            ],
+            "fitted_rows": 1024,
+            "fitted_weight_mass": 1.0,
+            "fitted_components": 744
+          },
+          "RECAL_WITH_GUARD": {
+            "heads": [
+              {
+                "cut": -0.582818865776062,
+                "strict_tail_mass": 0.009708226749526566,
+                "tied_mass": 0.0010584191081304346,
+                "tail_count": 14,
+                "distinct_scores": 786,
+                "delta_from_source": 22.46042835712433,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.008992533571217433
+              },
+              {
+                "cut": -3.4026355743408203,
+                "strict_tail_mass": 0.009843430672837682,
+                "tied_mass": 0.0006747421814331521,
+                "tail_count": 17,
+                "distinct_scores": 799,
+                "delta_from_source": 19.912569046020508,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.009117770223667356
+              },
+              {
+                "cut": -0.9051339626312256,
+                "strict_tail_mass": 0.009288738899936195,
+                "tied_mass": 0.0010584191081304346,
+                "tail_count": 16,
+                "distinct_scores": 792,
+                "delta_from_source": 21.70958161354065,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.00860397048266543
+              },
+              {
+                "cut": -1.8189390699068706,
+                "strict_tail_mass": 0.009843430672837682,
+                "tied_mass": 0.0010584191081304346,
+                "tail_count": 17,
+                "distinct_scores": 812,
+                "delta_from_source": 21.43085938692093,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.009117770223667356
+              }
+            ],
+            "fitted_rows": 974,
+            "fitted_weight_mass": 0.9262797216449404,
+            "fitted_components": 701
+          }
+        }
+      },
+      "batch_max_abs_error": 0.0
+    },
+    "EDGE": {
+      "rows": 1024,
+      "seconds": 0.27983166510239244,
+      "projected_seconds": 1.1269783075022133,
+      "reference_uid_sha256": "0f6fab55241b7af84e3ccbae3c4461557655f17dc9c208b761c732bc58db3ce3",
+      "finite_scores": true,
+      "target_reference_fit": true,
+      "threshold_check": {
+        "rows": 1024,
+        "protected_rows": 8,
+        "protected_weight_mass": 0.0078125,
+        "weight_fields": [
+          "device",
+          "capture_id",
+          "component_id"
+        ],
+        "threshold_budget": 0.01,
+        "fits": {
+          "RECAL_NO_GUARD": {
+            "heads": [
+              {
+                "cut": 0.2940009832382202,
+                "strict_tail_mass": 0.009765625,
+                "tied_mass": 0.0009765625,
+                "tail_count": 10,
+                "distinct_scores": 1023,
+                "delta_from_source": 23.33724820613861,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.009765625
+              },
+              {
+                "cut": 5.936431407928467,
+                "strict_tail_mass": 0.009765625,
+                "tied_mass": 0.0009765625,
+                "tail_count": 10,
+                "distinct_scores": 1023,
+                "delta_from_source": 29.251636028289795,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.009765625
+              },
+              {
+                "cut": -1.112918496131897,
+                "strict_tail_mass": 0.009765625,
+                "tied_mass": 0.0009765625,
+                "tail_count": 10,
+                "distinct_scores": 1023,
+                "delta_from_source": 21.501797080039978,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.009765625
+              },
+              {
+                "cut": 1.5002321402231853,
+                "strict_tail_mass": 0.009765625,
+                "tied_mass": 0.0009765625,
+                "tail_count": 10,
+                "distinct_scores": 1023,
+                "delta_from_source": 24.750030597050987,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.009765625
+              }
+            ],
+            "fitted_rows": 1024,
+            "fitted_weight_mass": 1.0,
+            "fitted_components": 1024
+          },
+          "RECAL_WITH_GUARD": {
+            "heads": [
+              {
+                "cut": 0.2940009832382202,
+                "strict_tail_mass": 0.00984251968503937,
+                "tied_mass": 0.000984251968503937,
+                "tail_count": 10,
+                "distinct_scores": 1015,
+                "delta_from_source": 23.33724820613861,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.009765625
+              },
+              {
+                "cut": 5.936431407928467,
+                "strict_tail_mass": 0.00984251968503937,
+                "tied_mass": 0.000984251968503937,
+                "tail_count": 10,
+                "distinct_scores": 1015,
+                "delta_from_source": 29.251636028289795,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.009765625
+              },
+              {
+                "cut": -1.112918496131897,
+                "strict_tail_mass": 0.00984251968503937,
+                "tied_mass": 0.000984251968503937,
+                "tail_count": 10,
+                "distinct_scores": 1015,
+                "delta_from_source": 21.501797080039978,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.009765625
+              },
+              {
+                "cut": 1.5002321402231853,
+                "strict_tail_mass": 0.00984251968503937,
+                "tied_mass": 0.000984251968503937,
+                "tail_count": 10,
+                "distinct_scores": 1015,
+                "delta_from_source": 24.750030597050987,
+                "protected_source_tail_mass": 0.0,
+                "full_reference_alarm_mass": 0.009765625
+              }
+            ],
+            "fitted_rows": 1016,
+            "fitted_weight_mass": 0.9921875,
+            "fitted_components": 1016
+          }
+        }
+      },
+      "batch_max_abs_error": 0.0
+    }
+  },
+  "query_rows": {
+    "CIC_DEV": 535,
+    "UNSW_DEV": 535,
+    "EDGE": 527
+  },
+  "no_query_forward": true
+}

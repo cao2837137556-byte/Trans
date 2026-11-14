@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "slurm_job_id": "183937",
+  "slurm_state": "COMPLETED",
+  "slurm_exit_code": "0:0",
+  "elapsed_seconds": 266,
+  "peak_rss_kib": 1550024,
+  "pullback_files_sha_verified": 27,
+  "pullback_manifest_sha256": "9ddb2afa922f678193c86707a14527978ba36f4d2bb39311ca69a09d0a031615",
+  "threshold_seal_sha256": "8cdcab82c9f9de08cfb7bc95e453be782fe33ff0ec8e3d01acf2af73e102e2da",
+  "reference_rows": 79069,
+  "query_rows": 388202,
+  "baseline_metric_rows_reproduced": 1472,
+  "reference_real_slice_rows": 3072,
+  "query_real_slice_rows": 1597,
+  "threshold_fit_used_evaluation": false,
+  "protected_and_prebank_raw_fallback": "PASS",
+  "primary_order": [
+    "RAW",
+    "P4_MAIN",
+    "RECAL_WITH_GUARD"
+  ],
+  "primary_ensemble": {
+    "CIC_DEV": {
+      "normal_false_alarms": [
+        99,
+        18,
+        43
+      ],
+      "attack_alarms": [
+        79056,
+        79050,
+        79056
+      ]
+    },
+    "UNSW_DEV": {
+      "normal_false_alarms": [
+        40121,
+        130,
+        1561
+      ],
+      "attack_alarms": [
+        72543,
+        72543,
+        72543
+      ]
+    },
+    "EDGE": {
+      "normal_false_alarms": [
+        16699,
+        0,
+        27
+      ],
+      "http_attack_alarms": [
+        19966,
+        19958,
+        14972
+      ],
+      "udp_attack_alarms": [
+        19732,
+        19732,
+        0
+      ]
+    }
+  }
+}

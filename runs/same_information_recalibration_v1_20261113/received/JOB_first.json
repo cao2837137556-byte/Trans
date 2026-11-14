@@ -1,0 +1,32 @@
+{
+  "phase": "first",
+  "job_name": "p04-ref-recal",
+  "partition": "amd",
+  "cpu": 1,
+  "memory_mib": 8192,
+  "wall_seconds": 3600,
+  "package_manifest_sha256": "2d18e612856cf7d772aed156a438bab7dadecad6a5bc9f3236e18b39f00cd7f0",
+  "created_unix": 1794632932.8302426,
+  "args": [
+    "sbatch",
+    "--parsable",
+    "--no-requeue",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--job-name=p04-ref-recal",
+    "--partition=amd",
+    "--mem=8192M",
+    "--time=01:00:00",
+    "--chdir=/public/home/jiangxinwei.zr/work/paper04/runs/same_information_recalibration_v1_20261113/package",
+    "--output=/public/home/jiangxinwei.zr/work/paper04/runs/same_information_recalibration_v1_20261113/results/logs/first-%j.out",
+    "--error=/public/home/jiangxinwei.zr/work/paper04/runs/same_information_recalibration_v1_20261113/results/logs/first-%j.err",
+    "/public/home/jiangxinwei.zr/work/paper04/runs/same_information_recalibration_v1_20261113/package/run.slurm",
+    "first",
+    "/public/home/jiangxinwei.zr/work/paper04/runs/same_information_recalibration_v1_20261113/results",
+    "/public/home/jiangxinwei.zr/work/paper04",
+    "8192"
+  ],
+  "job_id": "183937",
+  "sbatch_stdout": "183937"
+}

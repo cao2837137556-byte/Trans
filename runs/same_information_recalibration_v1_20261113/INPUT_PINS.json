@@ -1,0 +1,614 @@
+{
+  "inputs": {
+    "head_27": {
+      "role": "reference",
+      "sha256": "738ded855e7c6d72a514579840025b3cc76fa3bf471a5c223b5c4faaf1d86669",
+      "remote": [
+        "runs/device_context_head_training_v2_20261105/heads/FUSION790_27/train/head.npz"
+      ],
+      "local": [
+        "runs/device_context_head_training_v2_20261105/heads/FUSION790_27/train/head.npz"
+      ]
+    },
+    "head_127": {
+      "role": "reference",
+      "sha256": "07812cc598801b726bc5213e21278427aa62a0104121b7045dcb0c1b74f5aed5",
+      "remote": [
+        "runs/device_context_head_training_v2_20261105/heads/FUSION790_127/train/head.npz"
+      ],
+      "local": [
+        "runs/device_context_head_training_v2_20261105/heads/FUSION790_127/train/head.npz"
+      ]
+    },
+    "head_227": {
+      "role": "reference",
+      "sha256": "ebf23b94d605b6c823fa28dde66b629a851b33a49205c7b074852846582fe59d",
+      "remote": [
+        "runs/device_context_head_training_v2_20261105/heads/FUSION790_227/train/head.npz"
+      ],
+      "local": [
+        "runs/device_context_head_training_v2_20261105/heads/FUSION790_227/train/head.npz"
+      ]
+    },
+    "model:context_core": {
+      "role": "reference",
+      "sha256": "3860280c3c2aab2dc2effcc7898132fc02cc729e812f62d08cc4455bca71afd2",
+      "remote": [
+        "runs/device_context_head_training_v2_20261105/context_core.py"
+      ],
+      "local": [
+        "runs/device_context_head_training_v2_20261105/context_core.py"
+      ]
+    },
+    "model:query_tail_core_v2": {
+      "role": "reference",
+      "sha256": "9d9f716d2fcef8096b2d3eb77fe380e5d44f9d950bdb7844b362a9387d27de49",
+      "remote": [
+        "runs/device_context_head_training_v2_20261105/query_tail_core_v2.py"
+      ],
+      "local": [
+        "runs/device_context_head_training_v2_20261105/query_tail_core_v2.py"
+      ]
+    },
+    "model:continuous_model_v3": {
+      "role": "reference",
+      "sha256": "5f9f07e2a2827e412871880e5fecf3994c13ea6ba8e701dd70f6b798aa851f84",
+      "remote": [
+        "runs/device_context_head_training_v2_20261105/continuous_model_v3.py"
+      ],
+      "local": [
+        "runs/device_context_head_training_v2_20261105/continuous_model_v3.py"
+      ]
+    },
+    "model:continuous_common_v3": {
+      "role": "reference",
+      "sha256": "e0c4c339ab1c5ff44183cf2e10a70e7471546d0e05f6880424f326b7f2edd235",
+      "remote": [
+        "runs/device_context_head_training_v2_20261105/continuous_common_v3.py"
+      ],
+      "local": [
+        "runs/device_context_head_training_v2_20261105/continuous_common_v3.py"
+      ]
+    },
+    "model:legacy_qref_data_v1": {
+      "role": "reference",
+      "sha256": "dc575ff12529e1b3dd9e7062d4f05b34dcf1f11c323573fea134d958622c59f5",
+      "remote": [
+        "runs/device_context_head_training_v2_20261105/legacy_qref_data_v1.py"
+      ],
+      "local": [
+        "runs/device_context_head_training_v2_20261105/legacy_qref_data_v1.py"
+      ]
+    },
+    "model:legacy_qref_common_v1": {
+      "role": "reference",
+      "sha256": "909b01b43c7ec74a70e580a528e2fb70d6bdc18c4c5a3186c142757e8df88334",
+      "remote": [
+        "runs/device_context_head_training_v2_20261105/legacy_qref_common_v1.py"
+      ],
+      "local": [
+        "runs/device_context_head_training_v2_20261105/legacy_qref_common_v1.py"
+      ]
+    },
+    "model:legacy_qref_model_v1": {
+      "role": "reference",
+      "sha256": "7bfef2d0e6645791e1159cb5191a08b09d9c04d358d86bb6c34cf03880d67aa1",
+      "remote": [
+        "runs/device_context_head_training_v2_20261105/legacy_qref_model_v1.py"
+      ],
+      "local": [
+        "runs/device_context_head_training_v2_20261105/legacy_qref_model_v1.py"
+      ]
+    },
+    "model:legacy_unsw_archival_common_v1": {
+      "role": "reference",
+      "sha256": "65aac1bb0b99250bc46173df12316cc49ff5781d21a45f1b97f393ad94f657ad",
+      "remote": [
+        "runs/device_context_head_training_v2_20261105/legacy_unsw_archival_common_v1.py"
+      ],
+      "local": [
+        "runs/device_context_head_training_v2_20261105/legacy_unsw_archival_common_v1.py"
+      ]
+    },
+    "model:legacy_unsw_archival_runtime_v1": {
+      "role": "reference",
+      "sha256": "ca69c25cf83e5cef7d06f9f75bbb541688dfb53ab6ab9c7fb027c6fb5d1f137e",
+      "remote": [
+        "runs/device_context_head_training_v2_20261105/legacy_unsw_archival_runtime_v1.py"
+      ],
+      "local": [
+        "runs/device_context_head_training_v2_20261105/legacy_unsw_archival_runtime_v1.py"
+      ]
+    },
+    "model:legacy_unsw_archival_runtime_v2": {
+      "role": "reference",
+      "sha256": "5dd49f0deb8d3a73f36188a04b0f6dea75ed57dd1401b4a43697f32e586b38a3",
+      "remote": [
+        "runs/device_context_head_training_v2_20261105/legacy_unsw_archival_runtime_v2.py"
+      ],
+      "local": [
+        "runs/device_context_head_training_v2_20261105/legacy_unsw_archival_runtime_v2.py"
+      ]
+    },
+    "e3_normalizer": {
+      "role": "reference",
+      "sha256": "ba92b5439255435e854ee14b74738cae0e3606060456de37927b2b6a0e2ab8b2",
+      "remote": [
+        "runs/edge_formal_evaluation_resume_v2_20261104/checkout/runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz",
+        "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz"
+      ],
+      "local": [
+        "runs/diagnostics_d1_d2_v1_20261022/assets/heads/run/prepared/normalizer.npz"
+      ],
+      "bytes": 12792
+    },
+    "context_normalizer": {
+      "role": "reference",
+      "sha256": "c437bd81f7509666c7ddf7049eb931f1527c1e3831f5767fbf18bad4806eed79",
+      "remote": [
+        "runs/device_context_head_training_v2_20261105/context_normalizer.npz"
+      ],
+      "local": [
+        "runs/device_context_head_training_v2_20261105/context_normalizer.npz"
+      ]
+    },
+    "CIC_DEV:dense_context": {
+      "role": "reference",
+      "sha256": "586c0cc3aee7ad5d8074996be518c38e8a644b903761aebbdc65668dae8696d8",
+      "remote": [
+        "runs/context_geometry_attribution_v2_20261106/CIC_DEV_REF_CONTEXT.npz"
+      ],
+      "local": [
+        "runs/context_geometry_attribution_v2_20261106/CIC_DEV_REF_CONTEXT.npz"
+      ],
+      "bytes": 2744188
+    },
+    "CIC_DEV:query_rows": {
+      "role": "query",
+      "sha256": "d9261f2bf41e9c4462a1cc6becec5d7bbaf5d12f74d10a70a0a9bb2fcc1ba2f1",
+      "remote": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/CIC_DEV_ROWS.jsonl.gz"
+      ],
+      "local": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/CIC_DEV_ROWS.jsonl.gz"
+      ]
+    },
+    "CIC_DEV:query_array": {
+      "role": "query",
+      "sha256": "f2e2957bd14713d28b4089d26ada7a32989f67db0719c379c3387db84a664b15",
+      "remote": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/CIC_DEV_QUERY.npz"
+      ],
+      "local": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/CIC_DEV_QUERY.npz"
+      ]
+    },
+    "CIC_DEV:query_scores": {
+      "role": "query",
+      "sha256": "ad78ff384ccff2cb70ff8fa4f7d3251d1874a5c9fa40680f06c4726cc4f8fe8e",
+      "remote": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/CIC_DEV_CONTROLS.npz"
+      ],
+      "local": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/CIC_DEV_CONTROLS.npz"
+      ]
+    },
+    "CIC_DEV:dense_rows": {
+      "role": "reference",
+      "sha256": "376b8d83da5f15acc1dd2c3eaa3c9b6919fae5cf2278e73c54a0409ef9af4f64",
+      "remote": [
+        "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/CIC_DEV/SELECTED_REFERENCES.jsonl.gz"
+      ],
+      "local": [
+        "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/CIC_DEV/SELECTED_REFERENCES.jsonl.gz"
+      ],
+      "bytes": 755851
+    },
+    "CIC_DEV:dense_e3": {
+      "role": "reference",
+      "sha256": "42f7e1649f7e4615738f76347d14eadc5207582f900e0ffe3de9ec070ce21353",
+      "remote": [
+        "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/CIC_DEV/bank.npz"
+      ],
+      "local": [
+        "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/CIC_DEV/bank.npz"
+      ],
+      "bytes": 23556186
+    },
+    "a0": {
+      "role": "reference",
+      "sha256": "997e1c4ab68781fba3787969a37938ef0a36d899559543e243aabeeda1953fb3",
+      "remote": [
+        "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.jsonl.gz"
+      ],
+      "local": [
+        "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.jsonl.gz"
+      ],
+      "bytes": 14893
+    },
+    "a1": {
+      "role": "reference",
+      "sha256": "a9a1c06a1d272f371fedc12dc9ecaa424e61657b710007f3de061cc9a8ae1d6a",
+      "remote": [
+        "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.npz"
+      ],
+      "local": [
+        "runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.npz"
+      ],
+      "bytes": 255678
+    },
+    "a2": {
+      "role": "reference",
+      "sha256": "c9a9d58ba3a6bda65e5fdc7db02af69f6b038b6691b6093aed6ccbc595e3e9d1",
+      "remote": [
+        "runs/same_bank_context_v2_20261106/assets/a2",
+        "runs/history_normal_reference_c3_progress_repair_v1_20261101/retrieved/encoded/references.jsonl.gz"
+      ],
+      "local": [
+        "runs/same_bank_context_v2_20261106/assets/a2",
+        "runs/history_normal_reference_c3_progress_repair_v1_20261101/retrieved/encoded/references.jsonl.gz"
+      ],
+      "bytes": 20431
+    },
+    "a3": {
+      "role": "reference",
+      "sha256": "0ad6e1ce891d6a7aa1487b7af379bd214b7b15ccfd5d98b71d8c282c683dcca2",
+      "remote": [
+        "runs/same_bank_context_v2_20261106/assets/a3",
+        "runs/history_normal_reference_c3_progress_repair_v1_20261101/retrieved/encoded/references.npz"
+      ],
+      "local": [
+        "runs/same_bank_context_v2_20261106/assets/a3",
+        "runs/history_normal_reference_c3_progress_repair_v1_20261101/retrieved/encoded/references.npz"
+      ],
+      "bytes": 941486
+    },
+    "CIC_DEV:history_context": {
+      "role": "reference",
+      "sha256": "c4e50596fc2fb1dd411cab0e04afd75350ea2be8e736c190896addc74f386a88",
+      "remote": [
+        "runs/same_bank_context_v6_20261106/CIC_DEV_HISTORY_CONTEXT.npz"
+      ],
+      "local": [
+        "runs/same_bank_context_v6_20261106/CIC_DEV_HISTORY_CONTEXT.npz"
+      ],
+      "bytes": 92988
+    },
+    "UNSW_DEV:dense_context": {
+      "role": "reference",
+      "sha256": "3de7890980895774ad218db38a288c6e32e3dafd7776c7f03ef691c2cab0ef02",
+      "remote": [
+        "runs/context_geometry_attribution_v2_20261106/UNSW_DEV_REF_CONTEXT.npz"
+      ],
+      "local": [
+        "runs/context_geometry_attribution_v2_20261106/UNSW_DEV_REF_CONTEXT.npz"
+      ],
+      "bytes": 4239548
+    },
+    "UNSW_DEV:query_rows": {
+      "role": "query",
+      "sha256": "19c001eb4f0c67cf07ed08edb98ee5b105b9b22539ff9433e80736f8074899d8",
+      "remote": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/UNSW_DEV_ROWS.jsonl.gz"
+      ],
+      "local": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/UNSW_DEV_ROWS.jsonl.gz"
+      ]
+    },
+    "UNSW_DEV:query_array": {
+      "role": "query",
+      "sha256": "4699def51df6ffc3e0c3b04b2bc820815caa65f9335aabaa3febd9f8906b9186",
+      "remote": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/UNSW_DEV_QUERY.npz"
+      ],
+      "local": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/UNSW_DEV_QUERY.npz"
+      ]
+    },
+    "UNSW_DEV:query_scores": {
+      "role": "query",
+      "sha256": "3f6398bfa7c0c085c43b6d801d4ac5e62763fd96590e4b6bb08f1746a2ec7f0c",
+      "remote": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/UNSW_DEV_CONTROLS.npz"
+      ],
+      "local": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/UNSW_DEV_CONTROLS.npz"
+      ]
+    },
+    "UNSW_DEV:dense_rows": {
+      "role": "reference",
+      "sha256": "850b68302ccf94138138e55455136dbe5bb1d5e2e122c41420763c597d89c456",
+      "remote": [
+        "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/UNSW_DEV/SELECTED_REFERENCES.jsonl.gz"
+      ],
+      "local": [
+        "runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/UNSW_DEV/SELECTED_REFERENCES.jsonl.gz"
+      ],
+      "bytes": 1207067
+    },
+    "UNSW_DEV:dense_e3": {
+      "role": "reference",
+      "sha256": "15fc1dd490eb546e63ac163a5829ee46397d2bd0fe4d07f2612d0a7710d2ea74",
+      "remote": [
+        "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/UNSW_DEV/bank.npz"
+      ],
+      "local": [
+        "runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/UNSW_DEV/bank.npz"
+      ],
+      "bytes": 33576112
+    },
+    "a4": {
+      "role": "reference",
+      "sha256": "f06b9fdcf06a5db8956813954cc0c76a42a3fb0c9dbbe13f0c3271bd2bef4d65",
+      "remote": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/TP_LINK_references.jsonl.gz"
+      ],
+      "local": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/TP_LINK_references.jsonl.gz"
+      ],
+      "bytes": 1242828
+    },
+    "a5": {
+      "role": "reference",
+      "sha256": "af444c6fc516d3461c0b867484343fa1bcb69507f6814ad84fc9125a31c525f3",
+      "remote": [
+        "runs/same_bank_context_v2_20261106/assets/a5",
+        "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/TP_LINK/encoded/references.npz"
+      ],
+      "local": [
+        "runs/same_bank_context_v2_20261106/assets/a5",
+        "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/TP_LINK/encoded/references.npz"
+      ],
+      "bytes": 26324870
+    },
+    "a6": {
+      "role": "reference",
+      "sha256": "bc9b1cf16e4dfeee9688659a77c2aa909830d83d31aed5e7b6ab4de9f2665ad1",
+      "remote": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/WEMO_POWER_references.jsonl.gz"
+      ],
+      "local": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/WEMO_POWER_references.jsonl.gz"
+      ],
+      "bytes": 1309590
+    },
+    "a7": {
+      "role": "reference",
+      "sha256": "dd60faeb8b91967ba1fde0a6d5516bb3fb801f56e30248a8d431dde418912e3b",
+      "remote": [
+        "runs/same_bank_context_v2_20261106/assets/a7",
+        "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/WEMO_POWER/encoded/references.npz"
+      ],
+      "local": [
+        "runs/same_bank_context_v2_20261106/assets/a7",
+        "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/WEMO_POWER/encoded/references.npz"
+      ],
+      "bytes": 27722462
+    },
+    "a8": {
+      "role": "reference",
+      "sha256": "ffb92fe922c68530e392548c66bcb0134383c3ea76913c5274c7e050050c7808",
+      "remote": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/SAMSUNG_references.jsonl.gz"
+      ],
+      "local": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/SAMSUNG_references.jsonl.gz"
+      ],
+      "bytes": 1331587
+    },
+    "a9": {
+      "role": "reference",
+      "sha256": "e3aaeabab396f436bb3f1bb949413da638d853af542ad737488992fe1bda36fe",
+      "remote": [
+        "runs/same_bank_context_v2_20261106/assets/a9",
+        "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/SAMSUNG/encoded/references.npz"
+      ],
+      "local": [
+        "runs/same_bank_context_v2_20261106/assets/a9",
+        "runs/history_normal_reference_d2_trace_v1_20261031/retrieved/history/SAMSUNG/encoded/references.npz"
+      ],
+      "bytes": 27722462
+    },
+    "a10": {
+      "role": "reference",
+      "sha256": "017422f2efa68c5ba2cc1e75d936155482592cc7d632822bcbf44d630e98794b",
+      "remote": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/TP_LINK/encoded/references.jsonl.gz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/TP_LINK/encoded/references.jsonl.gz"
+      ],
+      "local": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/TP_LINK/encoded/references.jsonl.gz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/TP_LINK/encoded/references.jsonl.gz"
+      ],
+      "bytes": 630674
+    },
+    "a11": {
+      "role": "reference",
+      "sha256": "4118f6e2dd0bf17b2611edc8ee011f847f0380814cc6e7bb3494489f72f13c3b",
+      "remote": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/TP_LINK/encoded/references.npz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/TP_LINK/encoded/references.npz"
+      ],
+      "local": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/TP_LINK/encoded/references.npz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/TP_LINK/encoded/references.npz"
+      ],
+      "bytes": 13861598
+    },
+    "a12": {
+      "role": "reference",
+      "sha256": "30b52d1341b20903690400d30a8a2c80b13827f80cb4e94396782c9a577ca400",
+      "remote": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/WEMO_POWER/encoded/references.jsonl.gz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/WEMO_POWER/encoded/references.jsonl.gz"
+      ],
+      "local": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/WEMO_POWER/encoded/references.jsonl.gz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/WEMO_POWER/encoded/references.jsonl.gz"
+      ],
+      "bytes": 1215454
+    },
+    "a13": {
+      "role": "reference",
+      "sha256": "0927accce3c3e110cf495311f862c5d8a74486e4f87726c8979e16ddb5558e96",
+      "remote": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/WEMO_POWER/encoded/references.npz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/WEMO_POWER/encoded/references.npz"
+      ],
+      "local": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/WEMO_POWER/encoded/references.npz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/WEMO_POWER/encoded/references.npz"
+      ],
+      "bytes": 27722462
+    },
+    "a14": {
+      "role": "reference",
+      "sha256": "4a42a9973e2fab262bfb3067d4858afd69cd36195cfdd0a6405bbe8f5f691447",
+      "remote": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/SAMSUNG/encoded/references.jsonl.gz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/SAMSUNG/encoded/references.jsonl.gz"
+      ],
+      "local": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/SAMSUNG/encoded/references.jsonl.gz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/SAMSUNG/encoded/references.jsonl.gz"
+      ],
+      "bytes": 1008931
+    },
+    "a15": {
+      "role": "reference",
+      "sha256": "133454d130496bd9039e5dfb2c42105366f39cd1e84c240ab105b2341ee5a024",
+      "remote": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/SAMSUNG/encoded/references.npz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/SAMSUNG/encoded/references.npz"
+      ],
+      "local": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/SAMSUNG/encoded/references.npz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/SAMSUNG/encoded/references.npz"
+      ],
+      "bytes": 27722462
+    },
+    "a16": {
+      "role": "reference",
+      "sha256": "8c62b0281bd708b2816176a86c70cb6621f89b8e2807df0d8bd68d55e39ab9e6",
+      "remote": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/NETATMO/encoded/references.jsonl.gz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/NETATMO/encoded/references.jsonl.gz"
+      ],
+      "local": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/NETATMO/encoded/references.jsonl.gz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/NETATMO/encoded/references.jsonl.gz"
+      ],
+      "bytes": 1242511
+    },
+    "a17": {
+      "role": "reference",
+      "sha256": "c9fdc76b1309f53e456959df62a6e846d1b1d7665b6d6b5ab6b999a098fc67dc",
+      "remote": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/NETATMO/encoded/references.npz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/NETATMO/encoded/references.npz"
+      ],
+      "local": [
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/retrieved/history/NETATMO/encoded/references.npz",
+        "runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/NETATMO/encoded/references.npz"
+      ],
+      "bytes": 27722462
+    },
+    "UNSW_DEV:history_context": {
+      "role": "reference",
+      "sha256": "e2eef2aee2c235887f8e60ff3a063abe14eefbdae155fc28c1cd59e13930c4c7",
+      "remote": [
+        "runs/same_bank_context_v6_20261106/UNSW_DEV_HISTORY_CONTEXT.npz"
+      ],
+      "local": [
+        "runs/same_bank_context_v6_20261106/UNSW_DEV_HISTORY_CONTEXT.npz"
+      ],
+      "bytes": 16907708
+    },
+    "EDGE:dense_context": {
+      "role": "reference",
+      "sha256": "2e6207cb1bbf4058aee44f29ba3340c4a008b99a3b98edbaa74fbfe1d1ffe4f6",
+      "remote": [
+        "runs/context_geometry_attribution_v2_20261106/EDGE_REF_CONTEXT.npz"
+      ],
+      "local": [
+        "runs/context_geometry_attribution_v2_20261106/EDGE_REF_CONTEXT.npz"
+      ],
+      "bytes": 1320188
+    },
+    "EDGE:query_rows": {
+      "role": "query",
+      "sha256": "06da9eee66654a0ae12b7ad33d89b12091b934df29f33a5ab71d9118ad798da3",
+      "remote": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/EDGE_ROWS.jsonl.gz"
+      ],
+      "local": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/EDGE_ROWS.jsonl.gz"
+      ]
+    },
+    "EDGE:query_array": {
+      "role": "query",
+      "sha256": "e248c3c12bc992804fb0479955d54a58be79e682bfa3d15b7d982172980596ee",
+      "remote": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/EDGE_QUERY.npz"
+      ],
+      "local": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/EDGE_QUERY.npz"
+      ]
+    },
+    "EDGE:query_scores": {
+      "role": "query",
+      "sha256": "a893e72106a94e4dad67ae6302e8851a732d2749f9731d371b42bf7b1d756f74",
+      "remote": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/EDGE_CONTROLS.npz"
+      ],
+      "local": [
+        "runs/p4_complete_bank_v1_20261111/artifacts/EDGE_CONTROLS.npz"
+      ]
+    },
+    "EDGE:encoded_complete": {
+      "role": "reference",
+      "sha256": "7b0ffe2288281e8b15d91d8955392710f747604d051ce248b053f7ab9266ca01",
+      "remote": [
+        "runs/edge_formal_evaluation_resume_v2_20261104/outputs/gate_182089/encoded/COMPLETE.json"
+      ],
+      "local": [
+        "runs/edge_formal_evaluation_resume_v2_20261104/retrieved/outputs/gate_182089/encoded/COMPLETE.json"
+      ],
+      "bytes": 4834678
+    },
+    "EDGE:reference_rows": {
+      "role": "reference",
+      "sha256": "ff5aa18c56e5be7d73ea61011bc58ec727d3f2f5b5eb505cec5f298828f59e9d",
+      "remote": [
+        "runs/edge_external_test1_engineering_v1_20261103/adapter/population_v1/REFERENCE_ROWS.jsonl.gz",
+        "runs/edge_formal_evaluation_resume_v2_20261104/checkout/runs/edge_external_test1_engineering_v1_20261103/adapter/population_v1/REFERENCE_ROWS.jsonl.gz"
+      ],
+      "local": [
+        "runs/edge_external_test1_engineering_v1_20261103/adapter/population_v1/REFERENCE_ROWS.jsonl.gz",
+        "runs/edge_formal_evaluation_resume_v2_20261104/checkout/runs/edge_external_test1_engineering_v1_20261103/adapter/population_v1/REFERENCE_ROWS.jsonl.gz"
+      ]
+    }
+  },
+  "sources": {
+    "runs/mainline_docs/paper_writing_v1/paper_main_configuration_p4_codex_20261112.json": "06d43dfb05b77dd6a87fdf6acd4af1af0913c292bc1e84e728b5b93f31464b5c",
+    "runs/mainline_docs/collab/20261113_same_information_threshold_recalibration_protocol_draft_codex.md": "cc2b8cd5afe6b2e46cc46aa40876d4acf6b057138326e29e721d132626966bfc",
+    "runs/p4_tabm_acceptance_v1_20261111/controls/COMPLETE.json": "c43c07d7a32b4e364e382277103ce4047f20b2ea973bc00bd13c058f02b01dbf",
+    "runs/p4_tabm_acceptance_v1_20261111/controls/METRICS.json": "4749a9dd13544ac861200257a6cc8d1eb649b4cca088da50c636e72b496e7139",
+    "runs/p4_tabm_acceptance_v1_20261111/controls/QUERY_ASSETS.json": "cc1f8f358616de397b07824bf26306037596ee0accd70f1b05928c5ec06e9c4d",
+    "runs/p4_tabm_acceptance_v1_20261111/controls/REFERENCE_BANKS.json": "bf73cc421dfee9a7616a2a5813fee8e3e555a0a6a42dea4a1e5abc06f5eaae66",
+    "runs/device_context_evaluation_v1_20261105/OLD_ASSETS.json": "34d7829d5c2f262bd60b30058b677cbf7b67ee2c419d6ce924ddc01162b96b75",
+    "runs/device_context_evaluation_v1_20261105/NORMALIZER.json": "d55a50f9142f00195a5ea0de91d9778d55a88acf00513e61206852b950f50086",
+    "runs/device_context_evaluation_v1_20261105/FINAL_TRAINING_ACCEPTANCE.json": "cfaff01c3af263625657748ed6e15fe2fb387401fa2573e9216f93b469bdd9ce",
+    "runs/device_context_evaluation_v1_20261105/TRAINING_DELIVERY.json": "ca3e195ffd7f9975b01e712e5d2c58e1c75cb468b07abd452a054729f30cfed0",
+    "runs/same_bank_context_v6_20261106/HISTORY_INPUTS.json": "5799d5cc864283c3278012eb6a54947edbfdf5a4239b6d56cae7e9dae2d103db",
+    "runs/same_bank_context_v6_20261106/HISTORY_INVENTORY.json": "6c02878b6bb160a0e32c5825e1299f054fab08031fe3cf7a1c95f8106a8928f6",
+    "runs/same_bank_context_v6_20261106/PREFLIGHT_RESULT.json": "33b322391e5fc6e03c52a9cfdaec9938142df33670668601adc797522004486c",
+    "runs/context_geometry_attribution_v2_20261106/PREFLIGHT_RESULT.json": "74be73317509af6a2e83f3c22e4ce577cdf052621ce21fdd66f62dac9aa05cb6",
+    "runs/context_geometry_attribution_v2_20261106/DIAGNOSE_RESULT.json": "5d7f012686205ee353f982951b29f9c8086d721cd24b82e14d5f44d23b8bb654",
+    "runs/dense_reference_matrix_v1_20261027/preparation/frozen_final/bindings.json": "396f375c1dfa54609625713e0ce9ff3aba5bcc31b550ad381b1081d732b6321d",
+    "runs/device_context_evaluation_v1_20261105/EDGE_CARD.json": "0755167ae19033e06d2557a9ee3744f82abc4b4587a9e6452e87727ba12e706e",
+    "runs/edge_formal_evaluation_resume_v2_20261104/retrieved/RESULT_MANIFEST.json": "25bd26df46037f34e308157345da612fbe19a4d50faf0abda0dbde4897636d64",
+    "runs/edge_query_selection_v1_20261103/seal20k/QUERY_SELECTION_SEAL.json": "ecb7bd84ae1ff2005e98bb750f1d4f5aac10f09487189e489ad73c583efa6f08",
+    "runs/edge_formal_evaluation_resume_v2_20261104/retrieved/outputs/gate_182089/encoded/COMPLETE.json": "7b0ffe2288281e8b15d91d8955392710f747604d051ce248b053f7ab9266ca01"
+  }
+}
