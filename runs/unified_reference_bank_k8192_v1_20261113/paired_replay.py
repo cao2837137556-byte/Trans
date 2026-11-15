@@ -59,7 +59,10 @@ def isolation(history, dense, queries, pool, source_config, *, probe):
 
 def load_features(store, pool, rows, q, context_norm):
     with np.load(store.get(pool+':query_context_uids'), allow_pickle=False) as a:
-        need(a['uid'].tolist() == [r['uid'] for r in rows], 'QUERY_CONTEXT_UID_BINDING')
+        uids = a['uid']
+        need(uids.dtype in (np.dtype('S64'),np.dtype('U64')) and
+             np.array_equal(uids.astype('U64'),np.asarray([r['uid'] for r in rows],dtype='U64')),
+             'QUERY_CONTEXT_UID_BINDING')
     z = np.load(store.get(pool+':query_e3'), mmap_mode='r', allow_pickle=False)[:, :768]
     own_q = np.load(store.get(pool+':query_q'), mmap_mode='r', allow_pickle=False)
     x = np.load(store.get(pool+':query_context'), mmap_mode='r', allow_pickle=False)

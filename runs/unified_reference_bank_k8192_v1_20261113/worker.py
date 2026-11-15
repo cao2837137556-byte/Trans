@@ -11,7 +11,7 @@ import numpy as np
 
 from frozen_selector import need
 from motion_index import build
-from motion_ingress import REPAIR_RUN, RESUME_RUN, RUN, TIMEOUT_PREP_JOB
+from motion_ingress import EARLY_RUN, REPAIR_RUN, RESUME_RUN, RUN, TIMEOUT_PREP_JOB
 from runtime_support import HERE, Progress, Store, TSHARK_SHA, asset, digest, read, write
 
 CARD_SHA = '3a346a76bc05d8428a60dbd0e73c7951463d21b2452230b12e620b59088e5368'
@@ -77,18 +77,22 @@ def first(args, cfg, geom, tshark, progress):
     from paired_replay import run
 
     store = Store(args.project, ('raw_or_index', 'reference', 'census', 'runtime'))
-    resumed = args.target.name == RESUME_RUN
-    parent = args.project/'runs'/RUN if args.target.name in (REPAIR_RUN,RESUME_RUN) else None
+    resumed = args.target.name in (RESUME_RUN,EARLY_RUN)
+    parent = args.project/'runs'/RUN if resumed or args.target.name == REPAIR_RUN else None
     continuation = None
     if resumed:
-        receipt = read(args.target/'PREDECESSOR_TIMEOUT.json')
+        early = args.target.name == EARLY_RUN
+        receipt = read(args.target/('EARLY_REUSE.json' if early else 'PREDECESSOR_TIMEOUT.json'))
+        if early:
+            from dispatch import verify_early_holds
+            verify_early_holds(args.project,args.target,receipt)
         pins = read(HERE/'CONTINUATION_SOURCE_PINS.json')
         older = args.project/'runs'/REPAIR_RUN
-        need(receipt['status'] == 'CONFIRMED_TIMEOUT' and
+        need(receipt['status'] == ('EARLY_CENSUS_REUSE_AUTHORIZED' if early else 'CONFIRMED_TIMEOUT') and
              receipt['job_id'] == pins['job'] == TIMEOUT_PREP_JOB and
              pins['predecessor_run'] == older.name and
              digest(older/'package/PACKAGE_MANIFEST.json') == pins['predecessor_package_manifest_sha256'],
-             'CONTINUATION_TIMEOUT_AND_SOURCE_BINDING')
+             'CONTINUATION_ADMISSION_AND_SOURCE_BINDING')
         continuation = older/'candidate'
     prior_probe = parent/'preflight' if parent else None
     if parent is None:
@@ -104,6 +108,12 @@ def first(args, cfg, geom, tshark, progress):
     candidate = args.target/'candidate'
     prepare(store, candidate, motion, progress, tshark, cfg, probe=False, prior_probe=prior_probe,
             continuation=continuation)
+    certify_preparation(args,cfg,geom,progress,motion_receipt,probe_dir,candidate,resumed)
+
+
+def certify_preparation(args,cfg,geom,progress,motion_receipt,probe_dir,candidate,check_selector):
+    from paired_replay import run
+
     # Open frozen evaluation assets only after the complete candidate is sealed.
     eval_store = Store(args.project, ('reference','query'))
     result = run(eval_store, probe_dir, args.target, cfg, geom, progress, probe=True)
@@ -121,13 +131,13 @@ def first(args, cfg, geom, tshark, progress):
     sizing = args.target/'FORMAL_SIZING.json'
     write(sizing, dict(status='PASS', planned_wall_seconds=requested, memory_mib=12288,
           measured_peak_rss_kib=progress.rss(), projected_seconds=seconds, actual_reference_slice=pools))
-    if resumed:
+    if check_selector:
         parity = read(args.target/'SELECTOR_PARITY.json')
         need(parity['status'] == 'PASS' and parity['exact_ordered_rows'], 'STREAM_REAL_PARITY_RECEIPT')
     write(args.target/'PREP_RECEIPT.json', dict(status='READY_FOR_ONE_PAIRED_REPLAY',
           job_id=os.environ['SLURM_JOB_ID'], candidate=asset(candidate/'CANDIDATE.json'),
           preflight=asset(preflight), sizing=asset(sizing),
-          **({'selector_parity':asset(args.target/'SELECTOR_PARITY.json')} if resumed else {})))
+          **({'selector_parity':asset(args.target/'SELECTOR_PARITY.json')} if check_selector else {})))
 
 
 def formal(args, cfg, geom, progress):

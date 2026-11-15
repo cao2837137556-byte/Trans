@@ -1,0 +1,338 @@
+{
+  "query": {
+    "CIC_DEV": {
+      "rows_file": "CIC_DEV_ROWS.jsonl.gz",
+      "rows_sha256": "d9261f2bf41e9c4462a1cc6becec5d7bbaf5d12f74d10a70a0a9bb2fcc1ba2f1",
+      "array_file": "CIC_DEV_QUERY.npz",
+      "array_sha256": "f2e2957bd14713d28b4089d26ada7a32989f67db0719c379c3387db84a664b15",
+      "views": [
+        "full",
+        "post_window_primary"
+      ],
+      "population": null,
+      "scores_file": "CIC_DEV_CONTROLS.npz",
+      "scores_sha256": "ad78ff384ccff2cb70ff8fa4f7d3251d1874a5c9fa40680f06c4726cc4f8fe8e"
+    },
+    "UNSW_DEV": {
+      "rows_file": "UNSW_DEV_ROWS.jsonl.gz",
+      "rows_sha256": "19c001eb4f0c67cf07ed08edb98ee5b105b9b22539ff9433e80736f8074899d8",
+      "array_file": "UNSW_DEV_QUERY.npz",
+      "array_sha256": "4699def51df6ffc3e0c3b04b2bc820815caa65f9335aabaa3febd9f8906b9186",
+      "views": [
+        "full",
+        "post_window_primary"
+      ],
+      "population": null,
+      "scores_file": "UNSW_DEV_CONTROLS.npz",
+      "scores_sha256": "3f6398bfa7c0c085c43b6d801d4ac5e62763fd96590e4b6bb08f1746a2ec7f0c"
+    },
+    "EDGE": {
+      "rows_file": "EDGE_ROWS.jsonl.gz",
+      "rows_sha256": "06da9eee66654a0ae12b7ad33d89b12091b934df29f33a5ab71d9118ad798da3",
+      "array_file": "EDGE_QUERY.npz",
+      "array_sha256": "e248c3c12bc992804fb0479955d54a58be79e682bfa3d15b7d982172980596ee",
+      "views": [
+        "full"
+      ],
+      "population": {
+        "NORMAL": 1220126,
+        "HTTP": 152352,
+        "UDP": 2898830
+      },
+      "scores_file": "EDGE_CONTROLS.npz",
+      "scores_sha256": "a893e72106a94e4dad67ae6302e8851a732d2749f9731d371b42bf7b1d756f74"
+    }
+  },
+  "geometry": {
+    "CIC_DEV": {
+      "file": "CIC_DEV_SAME_BANK.npz",
+      "sha256": "e99d8866f0eec2b3be3ced469ccead046aaf60474de2d9f9d0bec7190aefb563",
+      "bytes": 181508586
+    },
+    "UNSW_DEV": {
+      "file": "UNSW_DEV_SAME_BANK.npz",
+      "sha256": "baa088e8d8b6a89199263f074b07847c1c5477b090e7d4f4ebadc1365676bef9",
+      "bytes": 149654456
+    },
+    "EDGE": {
+      "file": "EDGE_SAME_BANK.npz",
+      "sha256": "ee36d704f1b34e0f62fe7620ecef8718dba29ac2ff1c527a85887941fe926740",
+      "bytes": 60543612
+    }
+  },
+  "bank": {
+    "CIC_DEV": {
+      "commission_rows": 8574,
+      "commission_uid_sha256": "53bd684394a36ea0fc25809f218e253fdb1fd6fb6666cfd5545c8f456e11e620",
+      "full_bank": {
+        "rows": 8863,
+        "uid_sha256": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2"
+      },
+      "commission_support_artifact": {
+        "file": "CIC_DEV_ATTRIBUTION.npz",
+        "sha256": "448c6c438cd63a682bf6c166e02a9f598871177756d32e7121c389f4eb1f0183",
+        "bytes": 243210742
+      }
+    },
+    "UNSW_DEV": {
+      "commission_rows": 13247,
+      "commission_uid_sha256": "b638abbc105bc512dd07fde561caca65ae87484cb3c6c3390c9d9d45cd771d4e",
+      "full_bank": {
+        "rows": 66082,
+        "uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6"
+      },
+      "commission_support_artifact": {
+        "file": "UNSW_DEV_ATTRIBUTION.npz",
+        "sha256": "472ca6f849c67a6503284e1d39a1d119e10462ec6f707ce04213515d82807140",
+        "bytes": 200528102
+      }
+    },
+    "EDGE": {
+      "commission_rows": 4124,
+      "commission_uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e",
+      "full_bank": {
+        "rows": 4124,
+        "uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e"
+      },
+      "commission_support_artifact": {
+        "file": "EDGE_ATTRIBUTION.npz",
+        "sha256": "b2240f207c27201a3918420047e8bc9284f28369a568d8efbb383f1362b64317",
+        "bytes": 81124870
+      }
+    }
+  },
+  "source": {
+    "full_fit_rows": 617908,
+    "normal_fit_rows": 134493,
+    "feature_count": 790,
+    "sha256": {
+      "FIT_X.npy": "1abf8bcac80cae0ff2fbc51ac33d81be34d2352fb6d496ae166fdc0fcdd3f1a7",
+      "NORMAL_X.npy": "e664c89cda2bf14638f707841d7147c3de5ae4431456df218e05aeb20fb4ff1a",
+      "INNER_VALID.npy": "224b9c9ce296cc8bb05298ef233607515064b33b93b487b39f80cc22f7153fca",
+      "GROUP_ID.npy": "840ec0be2286a8d954cd07e526b61d63cdfafd485f343f7dd651af68cb55c7dd",
+      "FIT_y.npy": "32d2f0dda567f176cf9ca6dfbc6e12bb82491224dd3b8a0b77ef8f5405c67fc2"
+    }
+  },
+  "source_weights": {
+    "status": "PASS",
+    "rows": 617908,
+    "uid_sha256": "d87b1582b7c349b80b59c9478fcbb69d334e233f4fa5448b162e8bafd8dbd5b4",
+    "fit_x_path": "/public/home/jiangxinwei.zr/work/paper04/runs/baseline_training_readiness_v6_20261107/artifacts/source/FIT_X.npy",
+    "fit_x_sha256": "1abf8bcac80cae0ff2fbc51ac33d81be34d2352fb6d496ae166fdc0fcdd3f1a7",
+    "weight_sha256": "800d37c60e569ef1e02325e21c95fe68bb30373797b7e40ba4b1f4ab6cd66540",
+    "class_mass": [
+      0.49999999999999994,
+      0.5
+    ],
+    "rule": "fixed source device/activity/capture/session hierarchy, each class mass 0.5",
+    "mlp_self_scales": [
+      {
+        "seed": "27",
+        "q10": -55.015281677246094,
+        "q90": 36.672142028808594,
+        "scale": 91.68742370605469,
+        "fit_scores_sha256": "8c69fd323f36d31c20d225934cdbc3eb0c773b29e5b3d864047a494bfd1c3640"
+      },
+      {
+        "seed": "127",
+        "q10": -58.374603271484375,
+        "q90": 37.606048583984375,
+        "scale": 95.98065185546875,
+        "fit_scores_sha256": "056d03c1aac1bb1310e46002c74c0672c4c3ef6873007016ba5563eb293a6eb5"
+      },
+      {
+        "seed": "227",
+        "q10": -49.74467468261719,
+        "q90": 37.56224060058594,
+        "scale": 87.30691528320312,
+        "fit_scores_sha256": "35bbe4fe73b834c791cd0fce0d25f4d7c8ab0fc17717e548bb222c3c30eae1fb"
+      }
+    ]
+  },
+  "TabM": {
+    "status": "PASS",
+    "gates": {
+      "CIC_DEV": {
+        "status": "PASS",
+        "raw_unchanged": true,
+        "p3_bridge_exact": true,
+        "p4_subset_of_p3": true,
+        "score_sha256": "1502f54f7363907cc865ec648455e227c3ab2a848f3c530cc9777f938153ea9a"
+      },
+      "UNSW_DEV": {
+        "status": "PASS",
+        "raw_unchanged": true,
+        "p3_bridge_exact": true,
+        "p4_subset_of_p3": true,
+        "score_sha256": "c9427722493baecd186758971178c7b15af54c2cfc6d8903715d90adc4329328"
+      },
+      "EDGE": {
+        "status": "PASS",
+        "raw_unchanged": true,
+        "p3_bridge_exact": true,
+        "p4_subset_of_p3": true,
+        "score_sha256": "d8d97b88c85b34add54006a648415d80dd8e44fbd90965e045ced57f283f2225"
+      }
+    },
+    "tabm_source_calibration": {
+      "status": "PASS",
+      "seeds": [
+        "27",
+        "127",
+        "227"
+      ],
+      "score": "per-model mean of 32 member class-1 probabilities; float32 native output promoted to float64; seed-order float64 arithmetic mean",
+      "q10": [
+        1.6836356309113398e-08,
+        5.616695997190391e-11,
+        3.6502775628555195e-12
+      ],
+      "q90": [
+        0.9999998807907104,
+        1.0,
+        1.0
+      ],
+      "scales": [
+        0.9999998639543541,
+        0.999999999943833,
+        0.9999999999963497
+      ],
+      "zero_scale_seeds": [],
+      "cuts": [
+        0.038286350667476654,
+        0.07064133882522583,
+        0.01989559642970562,
+        0.03535898278156916
+      ],
+      "ensemble_cut_independently_calibrated": true,
+      "normal_cal_rows": 33147,
+      "weighted_cal_fpr": [
+        0.008772347182204912,
+        0.00913569705862511,
+        0.009997071659814527,
+        0.009156329080706765
+      ],
+      "scale_role": "SOURCE_FIT",
+      "threshold_role": "SOURCE_CAL_NORMAL",
+      "lambda_value": 0.25,
+      "p": 3,
+      "guard": true,
+      "corrected_scores_clipped": false
+    },
+    "main_rows": [
+      "MLP_RAW",
+      "MLP_3D_SELF_P4",
+      "TABM_RAW",
+      "TABM_3D_SELF_P4",
+      "P4_MAIN"
+    ],
+    "bridge_rows": [
+      "TABM_3D_SELF_P3",
+      "MLP_3D_SELF_P3"
+    ],
+    "new_forward": false,
+    "training": false,
+    "clipping": false
+  },
+  "CatBoost": {
+    "status": "PASS",
+    "method": "CatBoost",
+    "metrics_sha256": "42c93d9db48ffbda72edf4d563f00ea8edd30a4e6cf86318b8afe9878f7367bd",
+    "scores": {
+      "CAL": {
+        "sha256": "c27ab795379a5dfd8ee936cb0176c1e1912353c89be0036d428fe8643c3713c4",
+        "uid_sha256": "73abd56b72c4e4af2a9d292d9983e01c4312199e0e023c636d9f2b7270f9c90e"
+      },
+      "CIC_DEV": {
+        "sha256": "57c7404cc1354e503447bbd56a2ba8cedfa93903921bba3cd1480262cdd84256",
+        "uid_sha256": "445369f8aeab600985fbd63df1cea9c2f9cac73b0c40d39654f530ad56821d7e"
+      },
+      "UNSW_DEV": {
+        "sha256": "9894ed9dd5b05bc8d33e7044ec4604ea5b3d9dc397b86fce04f0b7fe9911508b",
+        "uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232"
+      },
+      "EDGE": {
+        "sha256": "616c739be43d10db78b43e94411878903ffab2d18968b38780f9a7d5d126f916",
+        "uid_sha256": "313ff8d19dee1922248ac2388812d48a436424b24061d95b6a848081982b0ca9"
+      }
+    },
+    "scope": "shared790 RAW; main system has additional normal-reference access",
+    "targets_consumed": true,
+    "wall_seconds": 40.1253320609685
+  },
+  "SLAD": {
+    "status": "PASS",
+    "method": "SLAD",
+    "metrics_sha256": "79c35df6d7f5f17aa67a0f6ec98c659469519154130b5743bf66c98f52958f05",
+    "scores": {
+      "CAL": {
+        "sha256": "7b881ecce064feedb2aef63dccc1afd5668bb5bfacb56bdfa2128473f59956b4",
+        "uid_sha256": "73abd56b72c4e4af2a9d292d9983e01c4312199e0e023c636d9f2b7270f9c90e"
+      },
+      "CIC_DEV": {
+        "sha256": "062d908054c300b4d2142a2a70735daa2a80f5fa9aea410bc09efc83d7906ce7",
+        "uid_sha256": "445369f8aeab600985fbd63df1cea9c2f9cac73b0c40d39654f530ad56821d7e"
+      },
+      "UNSW_DEV": {
+        "sha256": "9ef8aa76a1f3c3cb6d8a084b1d6cf7e0cccc910cd9020bab8a867a1fda740989",
+        "uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232"
+      },
+      "EDGE": {
+        "sha256": "6366d8c9577d173a526c1e0d1c46ef44f1c9a90f06321b36532054c0bdbee9bd",
+        "uid_sha256": "313ff8d19dee1922248ac2388812d48a436424b24061d95b6a848081982b0ca9"
+      }
+    },
+    "scope": "shared790 RAW; main system has additional normal-reference access",
+    "targets_consumed": true
+  },
+  "old_evaluation": {
+    "status": "PASS",
+    "pools": {
+      "CAL": {
+        "rows": 33147,
+        "uid_sha256": "73abd56b72c4e4af2a9d292d9983e01c4312199e0e023c636d9f2b7270f9c90e",
+        "x_sha256": "84ba1f25ffabd25cdb27a5fd5493a0dfa978e88f389aa7c6f6723a0a290c4774",
+        "rows_sha256": "04ec9db777988d849630ad88186de1a570af4858e3e13bc8feb9041dec03af78"
+      },
+      "CIC_DEV": {
+        "rows": 179886,
+        "uid_sha256": "445369f8aeab600985fbd63df1cea9c2f9cac73b0c40d39654f530ad56821d7e",
+        "x_sha256": "d390603173a5dd4461b9aa834264d3c5c73163c6706e82cc0ed9cfb556100a7f",
+        "rows_sha256": "edacdc5b8009c1bf90fc5fd8778ff8cd11f8917264cfbd648a32bf2d6473134f"
+      },
+      "UNSW_DEV": {
+        "rows": 148316,
+        "uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+        "x_sha256": "94dcc71459f1be7ec07872a4b0577c11151da2d83d28cf8fd410c9e7d7398b7a",
+        "rows_sha256": "0c12c0536b0a544f5e70b9ec58fe3f7742335f162483f561b5275bce7fe1fd1b"
+      },
+      "EDGE": {
+        "rows": 60000,
+        "uid_sha256": "313ff8d19dee1922248ac2388812d48a436424b24061d95b6a848081982b0ca9",
+        "x_sha256": "f7fb6f8e0ddfdfb2d2403274a32761957d47bb5f8c791eb21b84284ff02d1506",
+        "rows_sha256": "6ee91772c58ee206dd3cfb85f9b3286c4c7dad77f4d78e9c1e482541c3e2dca1"
+      }
+    }
+  },
+  "slad_reload": {
+    "status": "PASS",
+    "seeds": {
+      "27": {
+        "checkpoint_sha256": "6cc7851835472df3ca72e5bf22533be4580ef7a86cb9635c6a2afa756dfc1e5d",
+        "rows": 32,
+        "reload_scores_exact": true
+      },
+      "127": {
+        "checkpoint_sha256": "986a6dcd51714ae4e6d6fce921bcaa940c337e999260a4b45938b43fb9f94b18",
+        "rows": 32,
+        "reload_scores_exact": true
+      },
+      "227": {
+        "checkpoint_sha256": "554fe786e0dcd865b8c5397be2b8fadeeaae1b910e5e76f02de670f9587a4465",
+        "rows": 32,
+        "reload_scores_exact": true
+      }
+    },
+    "trained_again": false
+  }
+}

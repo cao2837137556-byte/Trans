@@ -11,7 +11,7 @@ import time
 import traceback
 
 from frozen_selector import need
-from motion_ingress import (ARCHIVE_BYTES, ARCHIVE_SHA, FAILED_PREP_JOB, REPAIR_RUN,
+from motion_ingress import (ARCHIVE_BYTES, ARCHIVE_SHA, EARLY_RUN, FAILED_PREP_JOB, REPAIR_RUN,
                             RESUME_RUN, RUN, TIMEOUT_PREP_JOB, digest)
 
 PACKAGE = Path(__file__).resolve().parent
@@ -20,6 +20,7 @@ TERMINAL = {'BOOT_FAIL', 'CANCELLED', 'COMPLETED', 'DEADLINE', 'FAILED', 'NODE_F
             'OUT_OF_MEMORY', 'PREEMPTED', 'REVOKED', 'SPECIAL_EXIT', 'TIMEOUT'}
 FORMAL_MARKERS = ('SUBMIT_INTENT_replay.json','SBATCH_replay.json','FORMAL_REPLAY_STARTED',
                   'REPLAY_RECEIPT.json','ACCEPTANCE.json')
+WAITING_PREP_MARKERS = ('SBATCH_prepare.json','PREP_RECEIPT.json','PREDECESSOR_TIMEOUT.json')
 
 
 def read(path):
@@ -48,7 +49,77 @@ def state(target, stage, **info):
     write(target/'CHAIN_STATE.json', dict(stage=stage, updated_unix=time.time(), **info))
 
 
-def prior_jobs(target, project, retry_job, *, current_preparation=None, timeout=None):
+def predecessor_pin(project):
+    parent = project/'runs'/REPAIR_RUN
+    pins = read(PACKAGE/'CONTINUATION_SOURCE_PINS.json')
+    install, submit_record = read(parent/'INSTALL.json'), read(parent/'SBATCH_prepare.json')
+    need(pins['predecessor_run'] == parent.name and pins['job'] == TIMEOUT_PREP_JOB and
+         submit_record['returncode'] == 0 and submit_record['stdout'].strip().split(';',1)[0] == TIMEOUT_PREP_JOB and
+         digest(parent/'package/PACKAGE_MANIFEST.json') ==
+         install['package_manifest_sha256'] == pins['predecessor_package_manifest_sha256'],
+         'PREDECESSOR_COMPUTE_IDENTITY')
+    return parent, pins
+
+
+def hold_payload(target, job, phase):
+    return dict(status='SUPERSEDED_BY_EARLY_CONTINUATION',run=target.name,
+                predecessor_job_id=job,phase=phase,sbatch_called=False)
+
+
+def release_holds(holds):
+    for path,payload in reversed(list(holds.items())):
+        path = Path(path)
+        if read(path) == payload:
+            path.unlink()
+
+
+def reserve_early_submission(project, target):
+    """Atomically reserve the two old controller entry points before submission."""
+    parent, pins = predecessor_pin(project)
+    waiting = project/'runs'/RESUME_RUN
+    waiting_state = read(waiting/'CHAIN_STATE.json')
+    need(target.name == EARLY_RUN and waiting_state is not None and
+         waiting_state['stage'] == 'WAITING_FOR_183987_TIMEOUT' and
+         waiting_state['job_id'] == TIMEOUT_PREP_JOB and
+         not any((waiting/name).exists() for name in WAITING_PREP_MARKERS+FORMAL_MARKERS) and
+         not any((parent/name).exists() for name in FORMAL_MARKERS), 'EARLY_HANDOFF_ALREADY_SUBMITTED')
+
+    # The old controllers both open these exact paths with mode x before
+    # sbatch. If either already owns its path, stop before submitting anything.
+    # If the second exclusive claim fails, release only our first claim.
+    holds = [(waiting/'SUBMIT_INTENT_prepare.json',hold_payload(target,TIMEOUT_PREP_JOB,'prepare')),
+             (parent/'SUBMIT_INTENT_replay.json',hold_payload(target,TIMEOUT_PREP_JOB,'replay'))]
+    created = {}
+    try:
+        for path,payload in holds:
+            with path.open('x',encoding='utf-8') as stream:
+                json.dump(payload,stream)
+                stream.flush()
+                os.fsync(stream.fileno())
+            created[str(path)] = payload
+        admission = dict(status='EARLY_CENSUS_REUSE_AUTHORIZED',job_id=TIMEOUT_PREP_JOB,
+                         predecessor_package_manifest_sha256=pins['predecessor_package_manifest_sha256'],
+                         holds=created)
+        write(target/'EARLY_REUSE.json',admission)
+    except BaseException:
+        release_holds(created)
+        raise
+    return admission
+
+
+def verify_early_holds(project, target, admission):
+    parent,waiting = (project/'runs'/name for name in (REPAIR_RUN,RESUME_RUN))
+    holds = [(waiting/'SUBMIT_INTENT_prepare.json',hold_payload(target,TIMEOUT_PREP_JOB,'prepare')),
+             (parent/'SUBMIT_INTENT_replay.json',hold_payload(target,TIMEOUT_PREP_JOB,'replay'))]
+    need(admission['status']=='EARLY_CENSUS_REUSE_AUTHORIZED' and admission['job_id']==TIMEOUT_PREP_JOB and
+         admission['holds']=={str(path):payload for path,payload in holds} and
+         all(read(path)==payload for path,payload in holds) and
+         all(not (parent/name).exists() for name in FORMAL_MARKERS[1:]) and
+         all(not (waiting/name).exists() for name in ('SBATCH_prepare.json','PREP_RECEIPT.json')+FORMAL_MARKERS),
+         'EARLY_EXCLUSIVE_SUBMISSION_OWNERSHIP')
+
+
+def prior_jobs(target, project, retry_job, *, current_preparation=None, timeout=None, early=None):
     user = getpass.getuser()
     live = checked(['squeue','-h','-u',user,'-o','%i|%j|%T'])
     past = checked(['sacct','-X','-n','-P','-u',user,'-S','2026-11-11',
@@ -64,14 +135,20 @@ def prior_jobs(target, project, retry_job, *, current_preparation=None, timeout=
         receipt = read(parent/'RETURN.json')
         allowed = [x for x in history if x[0] == FAILED_PREP_JOB and x[1] == NAMES['prepare']
                    and x[2] == 'FAILED' and x[3] == '1:0']
-        need(target.name in (REPAIR_RUN,RESUME_RUN) and len(allowed) == 1 and failure is not None and
+        need(target.name in (REPAIR_RUN,RESUME_RUN,EARLY_RUN) and len(allowed) == 1 and failure is not None and
              failure['stage'] == 'REFERENCE_E3_Q14_UNSW_DEV' and failure['error'] == 'SEALED_SNAPSHOT_ROW_JOIN'
              and old_submit['stdout'].strip().split(';',1)[0] == FAILED_PREP_JOB and
              digest(parent/'FAILURE_prepare.json') == receipt['files']['FAILURE_prepare.json']['sha256'] and
              all(not (parent/name).exists() for name in FORMAL_MARKERS),
              'PREDECESSOR_PREP_FAILURE_AND_ZERO_FORMAL_REPLAYS_REQUIRED')
         history = [x for x in history if x not in allowed]
-    if retry_job == TIMEOUT_PREP_JOB:
+    if early is not None:
+        verify_early_holds(project,target,early)
+        predecessor = [TIMEOUT_PREP_JOB,NAMES['prepare']]
+        need(any(x[:2] == predecessor for x in active+history), 'EARLY_PREDECESSOR_NOT_IN_SLURM')
+        active = [x for x in active if x[:2] != predecessor]
+        history = [x for x in history if x[:2] != predecessor]
+    elif retry_job == TIMEOUT_PREP_JOB:
         older = project/'runs'/REPAIR_RUN
         allowed = [x for x in history if x[:4] == [
             TIMEOUT_PREP_JOB,NAMES['prepare'],timeout['scheduler_state'],timeout['exit_code']]]
@@ -91,15 +168,8 @@ def prior_jobs(target, project, retry_job, *, current_preparation=None, timeout=
 
 
 def wait_for_timeout(project, target):
-    parent = project/'runs'/REPAIR_RUN
-    pins = read(PACKAGE/'CONTINUATION_SOURCE_PINS.json')
-    install, submit_record = read(parent/'INSTALL.json'), read(parent/'SBATCH_prepare.json')
-    need(target.name == RESUME_RUN and pins['predecessor_run'] == parent.name and
-         pins['job'] == TIMEOUT_PREP_JOB and submit_record['returncode'] == 0 and
-         submit_record['stdout'].strip().split(';',1)[0] == TIMEOUT_PREP_JOB and
-         digest(parent/'package/PACKAGE_MANIFEST.json') ==
-         install['package_manifest_sha256'] == pins['predecessor_package_manifest_sha256'],
-         'TIMEOUT_PREDECESSOR_IDENTITY')
+    parent,_ = predecessor_pin(project)
+    need(target.name == RESUME_RUN, 'TIMEOUT_CONTINUATION_OUTPUT_IDENTITY')
     deadline = time.monotonic()+20*3600
     while time.monotonic() < deadline:
         account = command(['sacct','-X','-n','-P','-j',TIMEOUT_PREP_JOB,
@@ -200,7 +270,7 @@ def seal_results(target):
                 'ACCEPTANCE.json','RESULT_INDEX.json','RESULTS_FOR_PAPER.md','CONTROLLER_FAILURE.json',
                 'DUPLICATE_GATE.json','INSTALL.json','INPUT_SHA.json','CANDIDATE_SHA.json',
                 'PREPARATION_REUSE.json','SNAPSHOT_REGRESSION.json','DUPLICATE_GATE_REPLAY.json',
-                'PREDECESSOR_TIMEOUT.json','SELECTOR_PARITY.json'}
+                'PREDECESSOR_TIMEOUT.json','EARLY_REUSE.json','SELECTOR_PARITY.json'}
     prefixes = ('RUNTIME_', 'RESOURCES_', 'SBATCH_', 'SCHEDULER_', 'FAILURE_', 'SLURM_STOP_',
                 'METRICS.', 'PAIRED.', 'ZERO_DEGRADATION.')
     files = {}
@@ -217,8 +287,10 @@ def main():
     parser.add_argument('target', type=Path)
     parser.add_argument('stage', type=Path)
     parser.add_argument('--retry-prepare-job', choices=(FAILED_PREP_JOB,TIMEOUT_PREP_JOB))
+    parser.add_argument('--early-183987', action='store_true')
     args = parser.parse_args()
     project, target, archive = args.project, args.target, args.stage/'motion.pcap.gz'
+    early = None
     try:
         state(target, 'WAITING_FOR_VERIFIED_MOTION')
         expires = time.monotonic()+3600
@@ -230,14 +302,16 @@ def main():
              archive.stat().st_size == ARCHIVE_BYTES and digest(archive) == ARCHIVE_SHA,
              'MOTION_UPLOAD_SHA')
         resumed = args.retry_prepare_job == TIMEOUT_PREP_JOB
-        timeout = wait_for_timeout(project,target) if resumed else None
-        if resumed and timeout is None:
+        need(not args.early_183987 or resumed,'EARLY_CONTINUATION_IDENTITY')
+        timeout = wait_for_timeout(project,target) if resumed and not args.early_183987 else None
+        if resumed and timeout is None and not args.early_183987:
             state(target,'PREDECESSOR_COMPLETED',job_id=TIMEOUT_PREP_JOB)
             return
         state(target, 'SLURM_ADMISSION')
         min_free = (12 if resumed else 75)*1024**3
         need(shutil.disk_usage(target).free >= min_free, 'SCRATCH_SPACE_FOR_NEW_ARTIFACTS')
-        prior_jobs(target, project, args.retry_prepare_job, timeout=timeout)
+        early = reserve_early_submission(project,target) if args.early_183987 else None
+        prior_jobs(target, project, args.retry_prepare_job, timeout=timeout, early=early)
         prepare_wall = 18*3600
         prep = submit(target, project, archive, 'prepare', 12288, prepare_wall)
         result = wait(target, 'prepare', prep, prepare_wall)
@@ -260,7 +334,7 @@ def main():
         wall = sizing['planned_wall_seconds']
         need(type(wall) is int and 3600 <= wall <= 21600 and sizing['memory_mib'] == 12288,
              'FORMAL_RESOURCE_PLAN_SCHEMA')
-        prior_jobs(target, project, args.retry_prepare_job, current_preparation=prep,timeout=timeout)
+        prior_jobs(target, project, args.retry_prepare_job, current_preparation=prep,timeout=timeout,early=early)
         replay = submit(target, project, archive, 'replay', sizing['memory_mib'], wall)
         result = wait(target, 'replay', replay, wall)
         acceptance = read(target/'ACCEPTANCE.json')
@@ -276,6 +350,8 @@ def main():
         (target/'RESULTS_FOR_PAPER.md').write_text('\n'.join(lines), encoding='utf-8')
         state(target, 'COMPLETE', phase='replay', job_id=replay, outcome=index['status'])
     except Exception as err:
+        if early is not None and not (target/'SUBMIT_INTENT_prepare.json').exists():
+            release_holds(early['holds'])
         error = str(err)
         write(target/'CONTROLLER_FAILURE.json', dict(status='ENGINEERING_STOP', error=error,
                                                      traceback=traceback.format_exc()))

@@ -22,6 +22,7 @@ FAILED_PREP_JOB = '183971'
 REPAIR_RUN = RUN + '_repair_' + FAILED_PREP_JOB
 TIMEOUT_PREP_JOB = '183987'
 RESUME_RUN = RUN + '_resume_' + TIMEOUT_PREP_JOB
+EARLY_RUN = RUN + '_early_' + TIMEOUT_PREP_JOB
 
 
 def digest(path):
@@ -42,7 +43,7 @@ def save(path, value):
     temporary.replace(path)
 
 
-def install(stage, archive_stage, target, data, failed_job):
+def install(stage, archive_stage, target, data, failed_job, *, early=False):
     project = stage.parent.parent
     if target.exists():
         receipt = load(target / 'INSTALL.json')
@@ -85,12 +86,16 @@ def install(stage, archive_stage, target, data, failed_job):
                    package_manifest_sha256=digest(target / 'package' / 'PACKAGE_MANIFEST.json'))
     if failed_job:
         receipt['failed_prepare_job'] = failed_job
+    if early:
+        receipt['early_continuation'] = True
     save(target / 'INSTALL.json', receipt)
     with (target / 'dispatch.log').open('ab') as log:
         argv = [sys.executable, '-X', 'utf8', '-B',
                 str(target / 'package' / 'dispatch.py'), str(project), str(target), str(archive_stage)]
         if failed_job:
             argv += ['--retry-prepare-job', failed_job]
+        if early:
+            argv.append('--early-183987')
         process = subprocess.Popen(argv,
             stdin=subprocess.DEVNULL, stdout=log, stderr=log, start_new_session=True)
     save(target / 'CONTROLLER_PID.json', dict(pid=process.pid))
@@ -102,6 +107,7 @@ def main():
     parser.add_argument('--stage', type=Path, required=True)
     parser.add_argument('--port', type=int, required=True)
     parser.add_argument('--retry-prepare-job', choices=(FAILED_PREP_JOB,TIMEOUT_PREP_JOB))
+    parser.add_argument('--early-183987', action='store_true')
     args = parser.parse_args()
     stage = args.stage.resolve()
     token = (stage / 'token').read_text().strip()
@@ -111,7 +117,10 @@ def main():
     archive = archive_stage / 'motion.pcap.gz.part'
     final = archive_stage / 'motion.pcap.gz'
     lock = threading.Lock()
-    run = {None:RUN, FAILED_PREP_JOB:REPAIR_RUN, TIMEOUT_PREP_JOB:RESUME_RUN}[args.retry_prepare_job]
+    if args.early_183987 and args.retry_prepare_job != TIMEOUT_PREP_JOB:
+        raise ValueError('EARLY_CONTINUATION_IDENTITY')
+    run = (EARLY_RUN if args.early_183987 else
+           {None:RUN, FAILED_PREP_JOB:REPAIR_RUN, TIMEOUT_PREP_JOB:RESUME_RUN}[args.retry_prepare_job])
     target = stage.parent / run
 
     def state():
@@ -187,7 +196,8 @@ def main():
                     if len(data) != size or hashlib.sha256(data).hexdigest() != self.headers['X-SHA256']:
                         raise ValueError('PACKAGE_UPLOAD_SHA')
                     with lock:
-                        receipt = install(stage, archive_stage, target, data, args.retry_prepare_job)
+                        receipt = install(stage, archive_stage, target, data, args.retry_prepare_job,
+                                          early=args.early_183987)
                     return self.respond(receipt)
                 if args.retry_prepare_job:
                     raise ValueError('REPAIR_USES_EXISTING_VERIFIED_MOTION')

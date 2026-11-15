@@ -1,0 +1,8 @@
+{
+  "status": "ENGINEERING_STOP",
+  "stage": "EVALUATION_INPUTS_CIC_DEV",
+  "error": "QUERY_CONTEXT_UID_BINDING",
+  "traceback": "Traceback (most recent call last):\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/unified_reference_bank_k8192_v1_20261113_early_183987/package/worker.py\", line 180, in main\n    first(args, cfg, geom, tshark, progress)\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/unified_reference_bank_k8192_v1_20261113_early_183987/package/worker.py\", line 113, in first\n    result = run(eval_store, probe_dir, args.target, cfg, geom, progress, probe=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/unified_reference_bank_k8192_v1_20261113_early_183987/package/paired_replay.py\", line 215, in run\n    zq, xc = load_features(store, pool, qr, q14, context_norm)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/unified_reference_bank_k8192_v1_20261113_early_183987/package/paired_replay.py\", line 62, in load_features\n    need(a['uid'].tolist() == [r['uid'] for r in rows], 'QUERY_CONTEXT_UID_BINDING')\n  File \"/public/home/jiangxinwei.zr/work/paper04/runs/unified_reference_bank_k8192_v1_20261113_early_183987/package/frozen_selector.py\", line 20, in need\n    raise ValueError(error)\nValueError: QUERY_CONTEXT_UID_BINDING\n",
+  "wall_seconds": 21725.930076388177,
+  "peak_rss_kib": 6828632
+}

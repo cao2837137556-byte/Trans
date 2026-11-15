@@ -1,0 +1,90 @@
+{
+  "seals": {
+    "preflight": {
+      "receipt_sha256": "2334a903da0f4df174ef7f1ab79e714122df9d64572b4ac74fd65f3831b1afe8",
+      "status": "PROBE_FEATURES_SEALED",
+      "selection": {
+        "bytes": 11495,
+        "sha256": "1336ed95933bdec78e8fdadbf357a31434b6c9e7cef16083e7d76c4a7e7a3cbc"
+      },
+      "pools": {
+        "CIC_DEV": {
+          "bytes": 111316,
+          "sha256": "93d0a91fba2a51532ddb5c92d3f0fadcc44cb289d992c2a113636d8c842d26a8"
+        },
+        "UNSW_DEV": {
+          "bytes": 111316,
+          "sha256": "a4447e5d061d16e31d1ee5710a92273e32b22c98c261721f335bb8da6660b5d0"
+        }
+      }
+    },
+    "candidate": {
+      "receipt_sha256": "bb3e2d093c8780b4f927cf1808ca806b160184e98b7ddf4460c0bd8819dc7a05",
+      "status": "CANDIDATE_SEALED",
+      "selection": {
+        "bytes": 32062,
+        "sha256": "ea9dbd9c93824b867d057b4969eca1c345197ff8e1e7907d6d32c00eafaaf6f7"
+      },
+      "pools": {
+        "CIC_DEV": {
+          "bytes": 3324852,
+          "sha256": "22d6cce59ccc8fe6ed2b0dec12f40d6b477081ecd5b55872ac7ce7c500457222"
+        },
+        "UNSW_DEV": {
+          "bytes": 266914108,
+          "sha256": "61634608d2eab73ff6ac1b7c42f1f322f678de2c1b0c6114f4f8e6bcb94e7116"
+        }
+      }
+    }
+  },
+  "contexts": {
+    "CIC_DEV": {
+      "meta_dtype": "|S64",
+      "query_dtype": "<U64",
+      "meta_shape": [
+        179886
+      ],
+      "query_shape": [
+        179886
+      ],
+      "dtype_normalized_exact": true,
+      "set_equal": true,
+      "uid_sha256": "e5561e323348b89cf67b08962f72d74016812ea67be5f3473b06f12e692afb47",
+      "meta_keys": [
+        "uid",
+        "owner",
+        "device",
+        "scenario",
+        "label",
+        "protocol",
+        "metric_weight",
+        "fit_role"
+      ],
+      "reference_meta": "183987"
+    },
+    "UNSW_DEV": {
+      "meta_dtype": "|S64",
+      "query_dtype": "<U64",
+      "meta_shape": [
+        148316
+      ],
+      "query_shape": [
+        148316
+      ],
+      "dtype_normalized_exact": true,
+      "set_equal": true,
+      "uid_sha256": "759fd918576a1117878f6aefacddf7193a5897753fd1e0d8457a0ffc19586cba",
+      "meta_keys": [
+        "uid",
+        "owner",
+        "device",
+        "scenario",
+        "label",
+        "protocol",
+        "metric_weight",
+        "fit_role"
+      ],
+      "reference_meta": "183987"
+    }
+  }
+}

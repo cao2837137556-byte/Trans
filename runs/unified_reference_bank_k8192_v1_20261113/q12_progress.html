@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paper04 实验进度</title>
+<style>
+  :root { color-scheme: light; font-family: "Inter", "Microsoft YaHei", sans-serif; color: #172431; background: #eef3f6; }
+  body { max-width: 960px; margin: 44px auto; padding: 0 18px; }
+  h1 { font-size: 1.75rem; }
+  main { display: grid; grid-template-columns: repeat(auto-fit,minmax(290px,1fr)); gap: 14px; }
+  section { background: white; padding: 20px; border: 1px solid #d8e3e8; border-radius: 12px; }
+  h2 { font-size: 1.08rem; margin-top: 0; }
+  p { margin-bottom: 0; overflow-wrap: anywhere; }
+  progress { width: 100%; margin-top: .8rem; accent-color: #006c67; }
+  small { color: #455a67; }
+  .fault { color: #a21919; }
+</style>
+<h1>Paper04 实验进度</h1>
+<main>
+  <section id="uid"><h2>统一参考库配对重放</h2><strong></strong><p></p><progress hidden></progress><p><small></small></p></section>
+  <section id="heads"><h2>检测头迁移补证</h2><strong></strong><p></p><progress hidden></progress><p><small></small></p></section>
+</main>
+<script>
+const states = {RUNNING:"运行中",PENDING:"排队中",SUBMITTED:"已提交",STOP:"已停止",COMPLETE:"已完成",CHECKPOINT_ADMISSION:"正在核验"};
+const stages = {K8192_REPLAY:"正式配对重放",VERIFY_184105_SEALED_REFERENCES:"核对已封存参考特征"};
+const clock = (stamp) => new Date(stamp * 1000).toLocaleTimeString("zh-CN",{hour12:false});
+function update(mode, state) {
+  const pane = document.getElementById(mode);
+  const chain = state?.chain;
+  const p = state?.progress;
+  const header = pane.querySelector("strong");
+  header.textContent = chain ? [states[chain.stage] ?? chain.stage,chain.job_id && ("作业 "+chain.job_id)].filter(Boolean).join(" · ") : "等待回执";
+  const detail = pane.querySelector("p");
+  detail.className = chain?.error ? "fault" : "";
+  detail.textContent = chain?.error ?? [p?.stage && (stages[p.stage] ?? p.stage),p?.device].filter(Boolean).join(" · ");
+  const bar = pane.querySelector("progress");
+  bar.hidden = !(p?.total > 1) || chain?.stage === "STOP";
+  if (!bar.hidden) { bar.max = p.total; bar.value = p.done; detail.textContent += " · " + p.done.toLocaleString() + " / " + p.total.toLocaleString(); }
+  pane.querySelector("small").textContent = [chain?.updated_unix && ("调度回执 "+clock(chain.updated_unix)),
+    p?.updated_unix && ("计算回执 "+clock(p.updated_unix)), chain?.worker_preflight==="PASS" && "真实预检通过",
+    chain?.outcome].filter(Boolean).join(" · ");
+}
+async function refresh() {
+  try {
+    const r=await fetch("/state",{cache:"no-store"});
+    if (!r.ok) throw Error(r.status);
+    const x=await r.json();
+    update("uid",x.uid);update("heads",x.heads);
+  } catch { document.querySelectorAll("small").forEach(el=>el.textContent="进度暂不可读"); }
+}
+refresh();
+setInterval(refresh,8000);
+</script>
+</html>
