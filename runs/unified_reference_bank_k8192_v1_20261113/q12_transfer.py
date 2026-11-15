@@ -50,7 +50,6 @@ def pull(relay, mode):
     target = HERE.parent/RUNS[mode]
     target.mkdir(exist_ok=True)
     status = relay.request('state-'+mode)
-    write(target/'LOCAL_PROGRESS.json',status)
     manifest = relay.request('manifest-'+mode)
     if manifest:
         folder = target/'received'
@@ -62,6 +61,17 @@ def pull(relay, mode):
             if not path.is_file() or digest(path) != pin['sha256']:
                 relay.request('file-'+mode+'-'+name,destination=(path,pin),timeout=60)
         write(folder/'RETURN.json',manifest)
+        chain = status.get('chain') or {}
+        if mode == 'heads' and chain.get('stage') == 'COMPLETE' and 'ACCEPTANCE.json' in manifest['files']:
+            accepted = json.loads((folder/'ACCEPTANCE.json').read_text(encoding='utf-8'))
+            count = accepted.get('method_configurations')
+            if (accepted == status.get('acceptance') and accepted['status'] == 'PASS' and
+                    accepted['job_id'] == chain.get('job_id') and type(count) is int and count > 1):
+                progress = status.get('progress') or {}
+                status['worker_progress'] = progress
+                status['progress'] = dict(progress,stage='配置已验收',done=count,total=count,
+                                          unit='configurations')
+    write(target/'LOCAL_PROGRESS.json',status)
     return status, manifest is not None
 
 

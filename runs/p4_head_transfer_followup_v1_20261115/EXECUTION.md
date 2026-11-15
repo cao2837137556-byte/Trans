@@ -1,9 +1,25 @@
 # 检测头迁移补证
 
-作业 184140 已提交并通过真实输入小切片。运行顺序为 TabM＋2D、CatBoost＋2D／3D、SLAD＋2D／3D。
+作业 184140 已完成并验收，Slurm COMPLETED／0:0，耗时 7 分 14 秒。回传的 25 个文件已按清单逐个核验 SHA256。新增配置为 TabM＋2D、CatBoost＋2D／3D、SLAD＋2D／3D。
 
 基础分数与查询使用既有封存资产，按 UID 及标签对齐，先复现各头 RAW 和 TabM＋3D。2D／3D 共享每个头的原源阈值、自身尺度、完整参考库和三种子平均。修正固定 p=4、λ=0.25 和 SYN 无 ACK 旁路。
 
 CatBoost 使用完整源 FIT 的 RawFormulaVal 和已封存的逐行权重，SLAD 使用修复后的原生入口和源正常 FIT，原权重按正常行对齐并归一到一。以每头的加权 Q90−Q10 做尺度。最终逐查询检查 2D ⊆ 3D ⊆ RAW、旁路一致性和三头的 UNSW 冻结攻击告警数。
 
-[资产和既有回执](HEAD_ASSETS.json) · [运行包清单](PACKAGE_MANIFEST.json)
+下面为三种子集成，按 RAW → 2D → 3D 报条数。CIC 和 UNSW 使用建档后查询，Edge 使用冻结评价查询。
+
+| 数据集 | 检测头 | 正常误报 | 攻击告警 |
+|---|---|---|---|
+| CIC | TabM | 14 → 0 → 0 | 79,056 → 79,053 → 79,055 |
+| CIC | CatBoost | 88 → 35 → 35 | 79,053 → 79,053 → 79,053 |
+| CIC | SLAD | 12 → 2 → 2 | 21,085 → 21,084 → 21,085 |
+| UNSW | TabM | 19,640 → 1,949 → 2,049 | 72,412 → 72,412 → 72,412 |
+| UNSW | CatBoost | 22,687 → 8,618 → 8,856 | 34,422 → 34,422 → 34,422 |
+| UNSW | SLAD | 2,321 → 1,810 → 1,812 | 54,003 → 54,003 → 54,003 |
+| Edge | TabM | 15,767 → 46 → 46 | HTTP 19,984 → 19,979 → 19,979，UDP 19,999 → 19,999 → 19,999 |
+| Edge | CatBoost | 19,359 → 2,178 → 2,222 | HTTP 19,996 → 19,994 → 19,994，UDP 20,000 → 20,000 → 20,000 |
+| Edge | SLAD | 46 → 0 → 0 | HTTP 6 → 0 → 3，UDP 20,000 → 20,000 → 20,000 |
+
+各检测头的三维修正在三个测试床上均减少正常误报。上下文在 CIC 的 TabM 和 SLAD 中分别较二维多保留 2 条和 1 条攻击告警，在 Edge 的 SLAD 中较二维多保留 3 条 HTTP 攻击告警。Edge 的 SLAD 基础 HTTP 检出为 6／20,000。
+
+[正式验收](received/ACCEPTANCE.json) · [完整指标](received/METRICS.csv) · [配对变化](received/PAIRED.csv) · [源尺度](received/CALIBRATION.json) · [资产和原回执](HEAD_ASSETS.json)

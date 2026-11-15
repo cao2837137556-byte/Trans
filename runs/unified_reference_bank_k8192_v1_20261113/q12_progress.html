@@ -35,10 +35,15 @@ function update(mode, state) {
   detail.textContent = chain?.error ?? [p?.stage && (stages[p.stage] ?? p.stage),p?.device].filter(Boolean).join(" · ");
   const bar = pane.querySelector("progress");
   bar.hidden = !(p?.total > 1) || chain?.stage === "STOP";
-  if (!bar.hidden) { bar.max = p.total; bar.value = p.done; detail.textContent += " · " + p.done.toLocaleString() + " / " + p.total.toLocaleString(); }
+  if (!bar.hidden) {
+    bar.max = p.total;
+    bar.value = p.done;
+    const unit = p.unit === "configurations" ? " 个配置" : "";
+    detail.textContent += " · " + p.done.toLocaleString() + " / " + p.total.toLocaleString() + unit;
+  }
   pane.querySelector("small").textContent = [chain?.updated_unix && ("调度回执 "+clock(chain.updated_unix)),
     p?.updated_unix && ("计算回执 "+clock(p.updated_unix)), chain?.worker_preflight==="PASS" && "真实预检通过",
-    chain?.outcome].filter(Boolean).join(" · ");
+    chain?.outcome === "ACCEPTED" ? "验收通过" : chain?.outcome].filter(Boolean).join(" · ");
 }
 async function refresh() {
   try {

@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "scope": "ACTUAL_COMPUTE_NODE_REAL_INPUT",
+  "cached_baseline": {
+    "TabM": {
+      "raw_metric_checks": 736
+    },
+    "CatBoost": {
+      "raw_metric_checks": 44
+    },
+    "SLAD": {
+      "raw_metric_checks": 44
+    }
+  },
+  "native": {
+    "CatBoost": {
+      "27": {
+        "rows": 256,
+        "cache_difference": 0.0
+      },
+      "127": {
+        "rows": 256,
+        "cache_difference": 0.0
+      },
+      "227": {
+        "rows": 256,
+        "cache_difference": 0.0
+      }
+    },
+    "SLAD": {
+      "27": {
+        "rows": 256,
+        "cache_difference": 0.0
+      },
+      "127": {
+        "rows": 256,
+        "cache_difference": 0.0
+      },
+      "227": {
+        "rows": 256,
+        "cache_difference": 0.0
+      }
+    }
+  }
+}
