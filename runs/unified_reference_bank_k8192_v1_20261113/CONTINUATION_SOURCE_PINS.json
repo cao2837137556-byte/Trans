@@ -1,0 +1,83 @@
+{
+  "job": "183987",
+  "predecessor_run": "unified_reference_bank_k8192_v1_20261113_repair_183971",
+  "predecessor_package_manifest_sha256": "148669535c08e839ff863986ae22d89430935b8d6339e6c4f0edba19323ac05a",
+  "observed_remote_unix": 1794709127.1853728,
+  "censuses": {
+    "TP_LINK": {
+      "packets": 66004,
+      "legal_endpoints": {
+        "HIST_REF": 42191
+      },
+      "selected_snapshots": 0,
+      "frontend_reasons": {
+        "PROTOCOL_OR_OWNER_OUTSIDE": 23810,
+        "SHARED_DHCP_CONTEXT": 3
+      },
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "diagnostics_audited": 0,
+      "census": {
+        "bytes": 105893888,
+        "sha256": "1b0bbab4cc5019e619af466d1ceefde1bb99b22c064e3c1ace8e89a5750f0985"
+      }
+    },
+    "WEMO_POWER": {
+      "packets": 3430150,
+      "legal_endpoints": {
+        "HIST_REF": 113542
+      },
+      "selected_snapshots": 0,
+      "frontend_reasons": {
+        "PROTOCOL_OR_OWNER_OUTSIDE": 3316448,
+        "SHARED_DHCP_CONTEXT": 160
+      },
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "diagnostics_audited": 0,
+      "census": {
+        "bytes": 284909568,
+        "sha256": "ad302ad56708b580a22bb9b6ab5f739213e5ce8f8a617a7ef34c3a3070e5481e"
+      }
+    },
+    "SAMSUNG": {
+      "packets": 4419000,
+      "legal_endpoints": {
+        "HIST_REF": 2741318
+      },
+      "selected_snapshots": 0,
+      "frontend_reasons": {
+        "PROTOCOL_OR_OWNER_OUTSIDE": 1635998,
+        "SHARED_DHCP_CONTEXT": 21,
+        "MISSING_NAMESPACE_HEADERS_TAINT": 19654,
+        "MISSING_NAMESPACE_HISTORY": 22007,
+        "MISSING_NAMESPACE_GROUP_IDLE_RESET": 871,
+        "MISSING_NAMESPACE_STATE_RESET": 33,
+        "MISSING_REQUIRED_HEADERS": 2
+      },
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "diagnostics_audited": 0,
+      "census": {
+        "bytes": 6877470720,
+        "sha256": "5eee8afff58bc4932a40590a9efd38f85049b2c588d480326390d0e92bae5969"
+      }
+    },
+    "MOTION": {
+      "packets": 4745207,
+      "legal_endpoints": {
+        "HIST_REF": 1221096
+      },
+      "selected_snapshots": 0,
+      "frontend_reasons": {
+        "PROTOCOL_OR_OWNER_OUTSIDE": 3524086,
+        "SHARED_DHCP_CONTEXT": 15,
+        "MISSING_REQUIRED_HEADERS": 2,
+        "MISSING_HEADER_TAINT_RESET": 2
+      },
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "diagnostics_audited": 0,
+      "census": {
+        "bytes": 3063558144,
+        "sha256": "3f01351d31e1518ff5d2d1e1a31f003a64bfa071fb77a5149b70b052d89a65f6"
+      }
+    }
+  }
+}

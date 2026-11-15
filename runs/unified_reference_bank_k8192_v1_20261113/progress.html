@@ -19,6 +19,7 @@
   <p id="job"></p>
   <progress id="bar" max="1" hidden></progress>
   <p id="detail"></p>
+  <p id="timestamps"></p>
   <p id="error"></p>
 </section>
 <script>
@@ -33,6 +34,9 @@ const names = {
   COMPLETE: "配对重放完成",
   STOP: "流程停止"
 };
+const clock = seconds => new Date(seconds * 1000).toLocaleString("zh-CN", {
+  month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
+});
 async function refresh() {
   try {
     const response = await fetch("/state", { cache: "no-store" });
@@ -45,17 +49,29 @@ async function refresh() {
         : motion?.complete ? "Motion 文件已校验，等待安装运行包" : "传输 Motion 原包";
     get("job").textContent = chain?.job_id ? phase + " · 作业 " + chain.job_id + (chain.reason ? " · " + chain.reason : "") : "";
     const point = current?.phase === chain?.phase ? current : null;
+    const timestamps = [];
+    if (chain?.updated_unix) {
+      const active = ["SUBMITTED", "PENDING", "RUNNING"].includes(chain.stage);
+      const stale = active && Date.now() / 1000 - chain.updated_unix > 75;
+      timestamps.push((stale ? "回传已滞后，上次调度回执 " : "调度回执 ") + clock(chain.updated_unix));
+    }
+    if (point?.updated_unix) timestamps.push("计算进度写入 " + clock(point.updated_unix));
+    get("timestamps").textContent = timestamps.join(" · ");
     get("bar").hidden = !point || point.total <= 1;
     if (!get("bar").hidden) {
       get("bar").max = point.total;
       get("bar").value = point.done;
     }
     get("detail").textContent = point
-        ? [point.stage, point.device ?? point.pool, point.total > 1 ? point.done.toLocaleString() + " / " + point.total.toLocaleString() : "", (point.peak_rss_kib/1048576).toFixed(2) + " GiB 峰值"].filter(Boolean).join(" · ")
+        ? [point.stage === "HASH_UNSW_DEV" ? "筛选 UNSW 历史参考" : point.stage, point.device ?? point.pool,
+           point.total > 1 ? point.done.toLocaleString() + " / " + point.total.toLocaleString() : "",
+           (point.peak_rss_kib/1048576).toFixed(2) + " GiB 峰值"].filter(Boolean).join(" · ")
         : motion?.complete ? "338,708,100 字节，SHA256 校验通过" : "";
     if (chain?.outcome) {
       get("detail").textContent = chain.outcome === "ZERO_DEGRADATION_PASS" ? "通过零退化验收" : "完成评价，零退化门槛未通过";
-      if (retrieved) get("detail").textContent += " · 结果已回传";
+      if (remote?.install?.failed_prepare_job === "183987" ? remote.local_return_verified : retrieved) {
+        get("detail").textContent += " · 结果已回传";
+      }
     }
     get("error").textContent = chain?.error ?? "";
   } catch {

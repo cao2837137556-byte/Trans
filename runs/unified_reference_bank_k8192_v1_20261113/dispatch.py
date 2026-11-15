@@ -11,12 +11,15 @@ import time
 import traceback
 
 from frozen_selector import need
-from motion_ingress import ARCHIVE_BYTES, ARCHIVE_SHA, FAILED_PREP_JOB, REPAIR_RUN, RUN, digest
+from motion_ingress import (ARCHIVE_BYTES, ARCHIVE_SHA, FAILED_PREP_JOB, REPAIR_RUN,
+                            RESUME_RUN, RUN, TIMEOUT_PREP_JOB, digest)
 
 PACKAGE = Path(__file__).resolve().parent
 NAMES = {'prepare':'p04-k8192-prepare', 'replay':'p04-k8192-replay'}
 TERMINAL = {'BOOT_FAIL', 'CANCELLED', 'COMPLETED', 'DEADLINE', 'FAILED', 'NODE_FAIL',
             'OUT_OF_MEMORY', 'PREEMPTED', 'REVOKED', 'SPECIAL_EXIT', 'TIMEOUT'}
+FORMAL_MARKERS = ('SUBMIT_INTENT_replay.json','SBATCH_replay.json','FORMAL_REPLAY_STARTED',
+                  'REPLAY_RECEIPT.json','ACCEPTANCE.json')
 
 
 def read(path):
@@ -45,7 +48,7 @@ def state(target, stage, **info):
     write(target/'CHAIN_STATE.json', dict(stage=stage, updated_unix=time.time(), **info))
 
 
-def prior_jobs(target, project, retry_job):
+def prior_jobs(target, project, retry_job, *, current_preparation=None, timeout=None):
     user = getpass.getuser()
     live = checked(['squeue','-h','-u',user,'-o','%i|%j|%T'])
     past = checked(['sacct','-X','-n','-P','-u',user,'-S','2026-11-11',
@@ -59,19 +62,73 @@ def prior_jobs(target, project, retry_job):
         failure = read(parent/'FAILURE_prepare.json')
         old_submit = read(parent/'SBATCH_prepare.json')
         receipt = read(parent/'RETURN.json')
-        allowed = [x for x in history if x[0] == retry_job and x[1] == NAMES['prepare']
+        allowed = [x for x in history if x[0] == FAILED_PREP_JOB and x[1] == NAMES['prepare']
                    and x[2] == 'FAILED' and x[3] == '1:0']
-        need(target.name == REPAIR_RUN and len(allowed) == 1 and failure is not None and
+        need(target.name in (REPAIR_RUN,RESUME_RUN) and len(allowed) == 1 and failure is not None and
              failure['stage'] == 'REFERENCE_E3_Q14_UNSW_DEV' and failure['error'] == 'SEALED_SNAPSHOT_ROW_JOIN'
-             and old_submit['stdout'].strip().split(';',1)[0] == retry_job and
+             and old_submit['stdout'].strip().split(';',1)[0] == FAILED_PREP_JOB and
              digest(parent/'FAILURE_prepare.json') == receipt['files']['FAILURE_prepare.json']['sha256'] and
-             all(not (parent/name).exists() for name in ('SUBMIT_INTENT_replay.json','SBATCH_replay.json',
-                   'FORMAL_REPLAY_STARTED','REPLAY_RECEIPT.json','ACCEPTANCE.json')),
+             all(not (parent/name).exists() for name in FORMAL_MARKERS),
              'PREDECESSOR_PREP_FAILURE_AND_ZERO_FORMAL_REPLAYS_REQUIRED')
         history = [x for x in history if x not in allowed]
-    write(target/'DUPLICATE_GATE.json', dict(status='PASS' if not (active or history) else 'STOP',
-          active=active, other_history=history, reconciled_failed_prepare=retry_job))
+    if retry_job == TIMEOUT_PREP_JOB:
+        older = project/'runs'/REPAIR_RUN
+        allowed = [x for x in history if x[:4] == [
+            TIMEOUT_PREP_JOB,NAMES['prepare'],timeout['scheduler_state'],timeout['exit_code']]]
+        need(len(allowed) == 1 and all(not (older/name).exists() for name in FORMAL_MARKERS),
+             'TIMED_OUT_PREDECESSOR_AND_ZERO_FORMAL_REPLAYS_REQUIRED')
+        history = [x for x in history if x not in allowed]
+    if current_preparation is not None:
+        allowed = [x for x in history if x[:4] == [current_preparation,NAMES['prepare'],'COMPLETED','0:0']]
+        need(len(allowed) == 1 and all(not (target/name).exists() for name in FORMAL_MARKERS),
+             'CURRENT_PREPARATION_AND_ZERO_FORMAL_REPLAYS_REQUIRED')
+        history = [x for x in history if x not in allowed]
+    gate = 'DUPLICATE_GATE_REPLAY.json' if current_preparation is not None else 'DUPLICATE_GATE.json'
+    write(target/gate, dict(status='PASS' if not (active or history) else 'STOP',
+          active=active, other_history=history, reconciled_failed_prepare=retry_job,
+          current_preparation=current_preparation))
     need(not active and not history, 'EXISTING_K8192_JOB_REQUIRES_RECONCILIATION')
+
+
+def wait_for_timeout(project, target):
+    parent = project/'runs'/REPAIR_RUN
+    pins = read(PACKAGE/'CONTINUATION_SOURCE_PINS.json')
+    install, submit_record = read(parent/'INSTALL.json'), read(parent/'SBATCH_prepare.json')
+    need(target.name == RESUME_RUN and pins['predecessor_run'] == parent.name and
+         pins['job'] == TIMEOUT_PREP_JOB and submit_record['returncode'] == 0 and
+         submit_record['stdout'].strip().split(';',1)[0] == TIMEOUT_PREP_JOB and
+         digest(parent/'package/PACKAGE_MANIFEST.json') ==
+         install['package_manifest_sha256'] == pins['predecessor_package_manifest_sha256'],
+         'TIMEOUT_PREDECESSOR_IDENTITY')
+    deadline = time.monotonic()+20*3600
+    while time.monotonic() < deadline:
+        account = command(['sacct','-X','-n','-P','-j',TIMEOUT_PREP_JOB,
+            '-o','JobIDRaw,JobName%100,State%32,ExitCode,ElapsedRaw'])
+        queue = command(['squeue','-h','-u',getpass.getuser(),'-o','%i|%j|%T'])
+        records = [line.split('|') for line in account['stdout'].splitlines()
+                   if line.split('|')[0] == TIMEOUT_PREP_JOB]
+        live = any(line.split('|')[0] == TIMEOUT_PREP_JOB for line in queue['stdout'].splitlines())
+        data = records[-1] if records else None
+        scheduler_state = data[2].strip().split()[0].rstrip('+') if data else 'ACCOUNTING_PENDING'
+        if account['returncode'] == queue['returncode'] == 0 and data and not live and scheduler_state in TERMINAL:
+            need(data[1] == NAMES['prepare'], 'TIMEOUT_PREDECESSOR_JOB_NAME')
+            if scheduler_state == 'COMPLETED':
+                return None
+            failure = read(parent/'FAILURE_prepare.json') or {}
+            wall_guard = (scheduler_state == 'FAILED' and failure.get('error') == 'COMPUTE_WALL_HEADROOM' and
+                          failure.get('wall_seconds',0) >= 64800-180)
+            need(scheduler_state == 'TIMEOUT' or wall_guard, 'PREDECESSOR_TERMINAL_WITHOUT_TIMEOUT:'+
+                 scheduler_state+':'+str(failure.get('error','')))
+            timeout = dict(status='CONFIRMED_TIMEOUT', job_id=TIMEOUT_PREP_JOB,
+                scheduler_state=scheduler_state, exit_code=data[3], elapsed_seconds=int(data[4]),
+                mechanism='WORKER_WALL_LIMIT' if wall_guard else 'SLURM_TIME_LIMIT',
+                account=account, live=queue, predecessor_progress=read(parent/'PROGRESS.json'))
+            write(target/'PREDECESSOR_TIMEOUT.json',timeout)
+            return timeout
+        state(target,'WAITING_FOR_183987_TIMEOUT',phase='prepare',job_id=TIMEOUT_PREP_JOB,
+              scheduler_state=scheduler_state,old_progress=read(parent/'PROGRESS.json'))
+        time.sleep(35)
+    raise TimeoutError('PREDECESSOR_TIMEOUT_OBSERVATION_DEADLINE')
 
 
 def submit(target, project, archive, phase, mem_mib, wall_seconds):
@@ -87,6 +144,12 @@ def submit(target, project, archive, phase, mem_mib, wall_seconds):
     check = command([argv[0],'--test-only',*argv[1:]])
     write(target/f'SBATCH_TEST_{phase}.json', check)
     need(check['returncode'] == 0, 'SBATCH_TEST_ONLY:' + check['stderr'][-500:])
+    if phase == 'replay':
+        once = project/'runs'/('.'+RUN+'_formal_submission.json')
+        with once.open('x',encoding='utf-8') as stream:
+            json.dump(dict(run=target.name,intent=str(intent),timestamp=time.time()),stream)
+            stream.flush()
+            os.fsync(stream.fileno())
     with intent.open('x', encoding='utf-8') as stream:
         json.dump(dict(phase=phase, args=argv, timestamp=time.time()), stream)
         stream.flush()
@@ -136,7 +199,8 @@ def seal_results(target):
     eligible = {'PREFLIGHT.json','PREP_RECEIPT.json','REPLAY_RECEIPT.json','FORMAL_SIZING.json',
                 'ACCEPTANCE.json','RESULT_INDEX.json','RESULTS_FOR_PAPER.md','CONTROLLER_FAILURE.json',
                 'DUPLICATE_GATE.json','INSTALL.json','INPUT_SHA.json','CANDIDATE_SHA.json',
-                'PREPARATION_REUSE.json','SNAPSHOT_REGRESSION.json'}
+                'PREPARATION_REUSE.json','SNAPSHOT_REGRESSION.json','DUPLICATE_GATE_REPLAY.json',
+                'PREDECESSOR_TIMEOUT.json','SELECTOR_PARITY.json'}
     prefixes = ('RUNTIME_', 'RESOURCES_', 'SBATCH_', 'SCHEDULER_', 'FAILURE_', 'SLURM_STOP_',
                 'METRICS.', 'PAIRED.', 'ZERO_DEGRADATION.')
     files = {}
@@ -152,7 +216,7 @@ def main():
     parser.add_argument('project', type=Path)
     parser.add_argument('target', type=Path)
     parser.add_argument('stage', type=Path)
-    parser.add_argument('--retry-prepare-job', choices=(FAILED_PREP_JOB,))
+    parser.add_argument('--retry-prepare-job', choices=(FAILED_PREP_JOB,TIMEOUT_PREP_JOB))
     args = parser.parse_args()
     project, target, archive = args.project, args.target, args.stage/'motion.pcap.gz'
     try:
@@ -165,9 +229,15 @@ def main():
         need(received['status'] == 'VERIFIED_MOTION_ARCHIVE' and
              archive.stat().st_size == ARCHIVE_BYTES and digest(archive) == ARCHIVE_SHA,
              'MOTION_UPLOAD_SHA')
+        resumed = args.retry_prepare_job == TIMEOUT_PREP_JOB
+        timeout = wait_for_timeout(project,target) if resumed else None
+        if resumed and timeout is None:
+            state(target,'PREDECESSOR_COMPLETED',job_id=TIMEOUT_PREP_JOB)
+            return
         state(target, 'SLURM_ADMISSION')
-        need(shutil.disk_usage(target).free >= 75*1024**3, 'SCRATCH_SPACE_75_GIB_REQUIRED')
-        prior_jobs(target, project, args.retry_prepare_job)
+        min_free = (12 if resumed else 75)*1024**3
+        need(shutil.disk_usage(target).free >= min_free, 'SCRATCH_SPACE_FOR_NEW_ARTIFACTS')
+        prior_jobs(target, project, args.retry_prepare_job, timeout=timeout)
         prepare_wall = 18*3600
         prep = submit(target, project, archive, 'prepare', 12288, prepare_wall)
         result = wait(target, 'prepare', prep, prepare_wall)
@@ -177,6 +247,10 @@ def main():
              result['preflight']['sha256'] == digest(target/'PREFLIGHT.json') and
              result['sizing']['sha256'] == digest(target/'FORMAL_SIZING.json') and sizing['status'] == 'PASS',
              'PREP_RECEIPT_OR_PREFLIGHT_FAILED')
+        if resumed:
+            parity = target/'SELECTOR_PARITY.json'
+            need(result['selector_parity']['sha256'] == digest(parity) and read(parity)['status'] == 'PASS',
+                 'REAL_SELECTOR_PARITY_GATE')
         candidate = read(target/'candidate'/'CANDIDATE.json')
         need(result['candidate']['sha256'] == digest(target/'candidate'/'CANDIDATE.json') and
              candidate['status'] == 'CANDIDATE_SEALED', 'CANDIDATE_RECEIPT_GATE')
@@ -186,6 +260,7 @@ def main():
         wall = sizing['planned_wall_seconds']
         need(type(wall) is int and 3600 <= wall <= 21600 and sizing['memory_mib'] == 12288,
              'FORMAL_RESOURCE_PLAN_SCHEMA')
+        prior_jobs(target, project, args.retry_prepare_job, current_preparation=prep,timeout=timeout)
         replay = submit(target, project, archive, 'replay', sizing['memory_mib'], wall)
         result = wait(target, 'replay', replay, wall)
         acceptance = read(target/'ACCEPTANCE.json')

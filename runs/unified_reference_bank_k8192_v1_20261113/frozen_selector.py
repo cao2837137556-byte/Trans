@@ -113,3 +113,90 @@ def from_census(path, expected_counts):
             yield row
     finally:
         db.close()
+
+
+def scan_census(path, expected_counts, *, raw_sha, owner, max_ordinal, progress=None):
+    """Join two table scans with an in-memory ordinal index, without SQLite point lookups."""
+    import numpy as np
+
+    db = sqlite3.connect(Path(path).resolve().as_uri()+'?mode=ro',uri=True)
+    try:
+        db.execute('PRAGMA query_only=ON')
+        db.execute('PRAGMA cache_size=-32768')
+        all_rows, refs, dev = db.execute(
+            "SELECT count(*), count(CASE WHEN role='HIST_REF' THEN 1 END), "
+            "count(CASE WHEN role='HIST_DEV' THEN 1 END) FROM candidates NOT INDEXED"
+        ).fetchone()
+        counts = {k:n for k,n in (('HIST_REF', refs), ('HIST_DEV', dev)) if n}
+        need(counts == expected_counts and all_rows == refs+dev, 'COMPLETE_CENSUS_ROLE_COUNTS')
+        present = bytearray(max_ordinal+1)
+        by_ordinal = np.empty(max_ordinal+1, dtype='V32')
+        count = 0
+        for raw, ordinal, mac, uid in db.execute(
+            'SELECT raw_sha,ordinal,owner,uid FROM physical_origins NOT INDEXED'
+        ):
+            need(raw == raw_sha and mac == owner and type(ordinal) is int and 0 < ordinal <= max_ordinal
+                 and not present[ordinal] and RAW_SHA.fullmatch(uid), 'CENSUS_ORDINAL_MAP')
+            present[ordinal] = 1
+            by_ordinal[ordinal] = bytes.fromhex(uid)
+            count += 1
+            if progress is not None and count % 65536 == 0:
+                progress(count, all_rows)
+        need(count == all_rows, 'CENSUS_PHYSICAL_COUNT')
+        if progress is not None:
+            progress(count, all_rows)
+
+        rows = db.execute('SELECT uid,device,protocol,component_id,timestamp,frame,role,body '
+                          'FROM candidates NOT INDEXED WHERE role=?', ('HIST_REF',))
+        seen = 0
+        for uid,device,proto,component,timestamp,frame,role,body in rows:
+            row = json.loads(body)
+            raw, ordinal, mac = physical(row)
+            need((raw, mac) == (raw_sha, owner) and ordinal <= max_ordinal and present[ordinal] == 1 and
+                 bytes(by_ordinal[ordinal]) == bytes.fromhex(uid), 'CENSUS_ORDINAL_JOIN')
+            need([row[k] for k in ('uid','device','protocol','component_id','timestamp','frame','history_role')]
+                 == [uid,device,proto,component,timestamp,frame,role], 'CENSUS_METADATA_JOIN')
+            present[ordinal] = 2
+            seen += 1
+            yield row
+        need(seen == refs, 'CENSUS_STREAM_ROW_COUNT')
+    finally:
+        db.close()
+
+
+def select_census_stream(candidates, sources, expected_rows, *, cap=CAP):
+    """Select the same top-K from one verified complete census per disjoint raw source."""
+    import numpy as np
+
+    need(type(cap) is int and cap == CAP and type(expected_rows) is int and expected_rows > 0,
+         'FROZEN_SINGLE_WAVE_CAP_OR_ROW_COUNT')
+    need(len({key[1] for key in sources}) == len(sources), 'CENSUS_SOURCE_ORIGIN_OVERLAP')
+    uids = np.empty(expected_rows, dtype='V32')
+    digests = np.empty(expected_rows, dtype='V32')
+    heaps = defaultdict(list)
+    totals = Counter()
+    count = 0
+    for row in candidates:
+        need(count < expected_rows, 'CENSUS_STREAM_ROW_COUNT')
+        origin = validate_row(row, sources)
+        value = rank(origin)
+        uid = row['uid']
+        uids[count] = bytes.fromhex(uid)
+        digests[count] = value.to_bytes(32,'big')
+        key = row['device'], row['protocol']
+        totals[key] += 1
+        heap = heaps[key]
+        # count disambiguates an otherwise identical tuple; the full-array
+        # equality checks below still reject either UID or digest duplicates.
+        entry = (-value, count, row)
+        if len(heap) < cap:
+            heapq.heappush(heap, entry)
+        elif entry[0] > heap[0][0]:
+            heapq.heapreplace(heap, entry)
+        count += 1
+    need(count == expected_rows, 'CENSUS_STREAM_ROW_COUNT')
+    for values in (uids, digests):
+        values.sort()
+        need(not np.any(values[1:] == values[:-1]), 'PHYSICAL_ID_UID_OR_HASH_CONFLICT')
+    selected = sorted((row for heap in heaps.values() for _,_,row in heap), key=lambda row:row['uid'])
+    return selected, dict(totals)

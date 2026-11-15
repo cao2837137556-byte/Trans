@@ -11,7 +11,7 @@ import subprocess
 import numpy as np
 
 from decoder_guard import audit_packet, diagnostic_signature
-from frozen_selector import from_census, need
+from frozen_selector import from_census, need, scan_census
 from hnr.common import digest as semantic_digest
 from hnr.contexts import Contexts
 from hnr.history import chronological_copy, create_census, role_binding, walk_decoded
@@ -55,7 +55,7 @@ def admission(spec, binding):
                      bank_end_frame=binding['bank_end_frame'], raw_packet_count=binding['packets'])
 
 
-def admit_long(spec, folder, tshark, pins, progress, *, prior_probe=None):
+def admit_long(spec, folder, tshark, pins, progress, *, prior_probe=None, prior_census=None):
     folder.mkdir(parents=True, exist_ok=False)
     index = np.load(spec['packet_index']['path'], mmap_mode='r', allow_pickle=False)
     order = np.load(spec['chronological_order']['path'], mmap_mode='r', allow_pickle=False)
@@ -79,16 +79,19 @@ def admit_long(spec, folder, tshark, pins, progress, *, prior_probe=None):
         db.close()
     frozen_sha = witness['source_sha256'] if witness is not None else None
     old_chron = known['path'].parent / 'chronological.pcapng' if known is not None else None
-    if prior_probe is not None:
-        old = read(prior_probe/'LOGICAL_INPUT.json')
-        old_chron = prior_probe/'chronological.pcapng'
-        need(Path(old['chron']) == old_chron and old['role_binding'] == binding and
+    prior = prior_census if prior_census is not None else prior_probe
+    if prior is not None:
+        old = read(prior/'LOGICAL_INPUT.json')
+        old_chron = Path(old['chron'])
+        need(old_chron.is_absolute() and old_chron.resolve().is_relative_to(prior.parents[2].resolve()) and
+             (prior_probe is None or old_chron == prior/'chronological.pcapng') and
+             old['role_binding'] == binding and
              old['tshark_sha256'] == TSHARK_SHA and
              all(old[key]['sha256'] == spec[key]['sha256'] for key in
                  ('raw','packet_index','chronological_order')), 'REUSE_CHRONOLOGY_INPUT_BINDING')
-        if frozen_sha is None:
-            frozen_sha = old['source_sha256']
-    if prior_probe is not None and not old_chron.is_file():
+        need(frozen_sha is None or frozen_sha == old['source_sha256'], 'REUSE_CHRONOLOGY_FROZEN_SOURCE')
+        frozen_sha = old['source_sha256']
+    if prior is not None and not old_chron.is_file():
         raise FileNotFoundError('PREDECESSOR_CHRONOLOGY_MISSING:' + spec['key'])
     if old_chron is not None and old_chron.is_file():
         chron = old_chron
@@ -155,8 +158,13 @@ def walk_long(spec, folder, material, api, tshark, progress, *,
     return (census_path, observation['legal_endpoints']) if census is not None else entries
 
 
-def iter_long_census(spec, binding, index, order, source_sha, path, counts):
-    for row in from_census(path, counts):
+def iter_long_census(spec, binding, index, order, source_sha, path, counts, *, scan_progress=None):
+    if scan_progress is None:
+        rows = from_census(path, counts)
+    else:
+        rows = scan_census(path, counts, raw_sha=spec['raw']['sha256'], owner=spec['owner'],
+                           max_ordinal=binding['packets'], progress=scan_progress)
+    for row in rows:
         frame = row['frame']
         need(type(frame) is int and 0 < frame <= binding['bank_end_frame'], 'CENSUS_FRAME')
         item = index[int(order[frame-1])]
@@ -166,6 +174,22 @@ def iter_long_census(spec, binding, index, order, source_sha, path, counts):
              row['component_id'] == semantic_digest([spec['owner'], row['canonical_key']]),
              'CENSUS_PHYSICAL_AND_CAUSAL_JOIN')
         yield row
+
+
+def reused_census(folder, binding, pin):
+    census_path = folder/'census.sqlite'
+    receipt_path = folder/'census_receipt.json'
+    receipt = read(receipt_path)
+    log = folder/'census.stderr'
+    need(receipt == pin and receipt['packets'] == binding['bank_end_frame'] and
+         set(receipt['legal_endpoints']) == {'HIST_REF'} and receipt['selected_snapshots'] == 0 and
+         receipt['diagnostics_audited'] == 0 and log.stat().st_size == 0 and
+         digest(log) == receipt['stderr_sha256'], 'COMPLETED_HIST_REF_CENSUS_RECEIPT:'+folder.name)
+    need(not any(census_path.with_name(census_path.name+suffix).exists() for suffix in ('-journal','-wal')),
+         'CENSUS_UNCOMMITTED_OR_OPEN:'+folder.name)
+    need(asset(census_path) == receipt['census'], 'PREDECESSOR_CENSUS_SHA:'+folder.name)
+    return census_path, receipt['legal_endpoints'], dict(receipt['census'], path=str(census_path),
+                                                        receipt_sha256=digest(receipt_path))
 
 
 def short_capture(spec, folder, api, tshark, known_macs):

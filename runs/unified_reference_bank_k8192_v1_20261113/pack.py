@@ -1,5 +1,6 @@
 """Collect the frozen runtime source closure and immutable small input contracts."""
 import ast
+import argparse
 import gzip
 from hashlib import sha256
 import io
@@ -106,13 +107,15 @@ def sources():
         encoder_runtime_locations=encoder_dirs, encoder_execution_paths=encoder_exec)
 
 
-def pack():
+def pack(resume=False):
     parts = {}
     for name in ('motion_ingress.py','motion_index.py','frozen_selector.py','zero_degradation.py',
                  'runtime_support.py','reference_frontend.py','reference_features.py','prepare_reference.py',
                  'paired_replay.py','worker.py','dispatch.py','run.slurm','REMOTE_ASSET_PINS.json',
                  'MOTION_ROLE_HEADER_WITNESS.json'):
         parts[name] = text_bytes(HERE/name)
+    if resume:
+        parts['CONTINUATION_SOURCE_PINS.json'] = text_bytes(HERE/'CONTINUATION_SOURCE_PINS.json')
     for name in ('common_round1.py','analysis_core.py','evaluation.py','calibration.py',
                  'reference_assets.py','CONFIG.json','EXPECTED_BASELINE.json'):
         parts[name] = text_bytes(RECAL/name)
@@ -162,7 +165,7 @@ def pack():
     manifest = bytes_json(dict(card_sha256=CARD_SHA,
         files={name:sha256(data).hexdigest() for name,data in sorted(parts.items())}))
     parts['PACKAGE_MANIFEST.json'] = manifest
-    out = HERE/'.private/package.tar.gz'
+    out = HERE/'.private'/('package_resume_183987.tar.gz' if resume else 'package.tar.gz')
     out.parent.mkdir(exist_ok=True)
     temporary = out.with_suffix('.tmp')
     with (
@@ -177,10 +180,13 @@ def pack():
             archive.addfile(member, io.BytesIO(value))
     assert temporary.stat().st_size <= LIMIT and len(parts) <= 240
     temporary.replace(out)
-    (HERE/'PACKAGE_MANIFEST.json').write_bytes(manifest)
+    name = 'PACKAGE_MANIFEST_RESUME_183987.json' if resume else 'PACKAGE_MANIFEST.json'
+    (HERE/name).write_bytes(manifest)
     print(json.dumps(dict(files=len(parts), bytes=out.stat().st_size,
                           archive_sha256=digest(out), manifest_sha256=sha256(manifest).hexdigest())))
 
 
 if __name__ == '__main__':
-    pack()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--resume-183987',action='store_true')
+    pack(parser.parse_args().resume_183987)

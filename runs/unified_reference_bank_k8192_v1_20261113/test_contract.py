@@ -5,10 +5,11 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import random
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 
-from frozen_selector import CAP, rank, select, verify_snapshot_row
+from frozen_selector import CAP, rank, select, select_census_stream, verify_snapshot_row
 from zero_degradation import paired_cell
 
 ORIGIN=('e1a9de0a5eb30c72c26309edbb1345b9b1116bee3ab2937de2f88b549e8aaa1b',
@@ -40,8 +41,20 @@ class Contract(unittest.TestCase):
             chosen, totals=select(iter(rows+[rows[0]]),sources,Path(tmp)/'origins.sqlite')
             self.assertEqual(totals,{('motion',6):len(rows)})
             self.assertEqual(chosen,sorted(expect,key=lambda x:x['uid']))
+            self.assertEqual(select_census_stream(iter(rows),sources,len(rows)),(chosen,totals))
             with self.assertRaisesRegex(ValueError,'TARGET_FEEDBACK_FIELD'):
                 select(iter([dict(rows[0],score=1)]),sources,Path(tmp)/'bad.sqlite')
+
+    def test_stream_rejects_duplicate_uid_and_rank(self):
+        sources={('motion',SHA,OWNER,'a'):dict(partition='archive',reference_end_us=15,
+                                              bank_end_frame=10000,raw_packet_count=10000)}
+        with self.assertRaisesRegex(ValueError,'PHYSICAL_ID_UID_OR_HASH_CONFLICT'):
+            select_census_stream([row(1),dict(row(2),uid=row(1)['uid'])],sources,2)
+        with patch('frozen_selector.rank',return_value=0), self.assertRaisesRegex(
+                ValueError,'PHYSICAL_ID_UID_OR_HASH_CONFLICT'):
+            select_census_stream([row(1),row(2)],sources,2)
+        with self.assertRaisesRegex(ValueError,'CENSUS_STREAM_ROW_COUNT'):
+            select_census_stream([row(1)],sources,2)
 
     def test_no_offsetting_attack_loss(self):
         old=np.array([True,False]); new=np.array([False,True]); w=np.array([.5,.5])

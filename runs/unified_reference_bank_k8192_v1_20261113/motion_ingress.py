@@ -20,6 +20,8 @@ CARD_SHA = '3a346a76bc05d8428a60dbd0e73c7951463d21b2452230b12e620b59088e5368'
 RUN = 'unified_reference_bank_k8192_v1_20261113'
 FAILED_PREP_JOB = '183971'
 REPAIR_RUN = RUN + '_repair_' + FAILED_PREP_JOB
+TIMEOUT_PREP_JOB = '183987'
+RESUME_RUN = RUN + '_resume_' + TIMEOUT_PREP_JOB
 
 
 def digest(path):
@@ -99,7 +101,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--stage', type=Path, required=True)
     parser.add_argument('--port', type=int, required=True)
-    parser.add_argument('--retry-prepare-job', choices=(FAILED_PREP_JOB,))
+    parser.add_argument('--retry-prepare-job', choices=(FAILED_PREP_JOB,TIMEOUT_PREP_JOB))
     args = parser.parse_args()
     stage = args.stage.resolve()
     token = (stage / 'token').read_text().strip()
@@ -109,7 +111,8 @@ def main():
     archive = archive_stage / 'motion.pcap.gz.part'
     final = archive_stage / 'motion.pcap.gz'
     lock = threading.Lock()
-    target = stage.parent / (REPAIR_RUN if args.retry_prepare_job else RUN)
+    run = {None:RUN, FAILED_PREP_JOB:REPAIR_RUN, TIMEOUT_PREP_JOB:RESUME_RUN}[args.retry_prepare_job]
+    target = stage.parent / run
 
     def state():
         return dict(scope='P04_K8192_MOTION_V1', run=target.name, total_bytes=ARCHIVE_BYTES,

@@ -3,14 +3,16 @@ from collections import Counter, defaultdict
 from itertools import chain
 import json
 from pathlib import Path
+from tempfile import TemporaryDirectory
+from time import monotonic
 
 import numpy as np
 
 from common_round1 import read_rows, uid_sha, write_rows
-from frozen_selector import CAP, SALT, need, physical, select
+from frozen_selector import CAP, SALT, need, physical, select, select_census_stream
 from hnr.encoding import new_encoder
 from reference_features import caches, encoder_config, materialize, source_identity_equal
-from reference_frontend import admit_long, admission, iter_long_census, short_capture, walk_long
+from reference_frontend import admit_long, admission, iter_long_census, reused_census, short_capture, walk_long
 from runtime_support import HERE, asset, digest, read, write
 from vendor import history_context, physical as context_physical
 
@@ -97,7 +99,28 @@ def load_sources(store, motion):
     return cfg, specs, shorts
 
 
-def freeze_selection(store, cfg, specs, shorts, output, progress, tshark, *, probe, prior_probe):
+def selector_parity(spec, material, path, counts, progress, result_path):
+    binding, index, order, _, source_sha = material
+    args = spec, binding, index, order, source_sha, path, counts
+    sources = dict([admission(spec, binding)])
+    with TemporaryDirectory(prefix='p04_k8192_selector_parity_') as tmp:
+        start = monotonic()
+        expected, expected_counts = select(iter_long_census(*args), sources, Path(tmp)/'rank.sqlite')
+        old_seconds = monotonic()-start
+        start = monotonic()
+        actual, actual_counts = select_census_stream(iter_long_census(*args,
+            scan_progress=lambda done,total: progress('SELECTOR_PARITY_SCAN',done,total)),
+            sources, counts['HIST_REF'])
+        new_seconds = monotonic()-start
+    need(actual == expected and actual_counts == expected_counts and
+         any(n > CAP for n in actual_counts.values()), 'REAL_CENSUS_TOPK_PARITY')
+    write(result_path, dict(status='PASS', device=spec['key'], rows=sum(actual_counts.values()),
+        selected=len(actual), selected_uid_sha256=uid_sha([r['uid'] for r in actual]),
+        legacy_seconds=old_seconds, stream_seconds=new_seconds, exact_ordered_rows=True))
+
+
+def freeze_selection(store, cfg, specs, shorts, output, progress, tshark, *, probe, prior_probe,
+                     continuation=None):
     import legacy_reference_sample_prepare_v1 as legacy
 
     api = legacy.old.legacy_runtime()
@@ -121,11 +144,13 @@ def freeze_selection(store, cfg, specs, shorts, output, progress, tshark, *, pro
         if device == 'NETATMO':
             known = dict(cfg['netatmo_reuse'], path=store.get('census:C4:NETATMO'))
         folder = output / device
-        previous = prior_probe/device if prior_probe is not None and (
+        previous = prior_probe/device if continuation is None and prior_probe is not None and (
             prior_probe/device/'chronological.pcapng').is_file() else None
+        prior_census = continuation/device if continuation is not None else None
         with progress.measure('ADMIT_' + device):
             material = admit_long(spec, folder, tshark, dict(
-                logical=cfg['logical'].get(device), netatmo=known), progress, prior_probe=previous)
+                logical=cfg['logical'].get(device), netatmo=known), progress,
+                prior_probe=previous, prior_census=prior_census)
         binding, index, order, _, source_sha = material
         key, entry = admission(spec, binding)
         sources['UNSW_DEV'][key] = entry
@@ -139,6 +164,9 @@ def freeze_selection(store, cfg, specs, shorts, output, progress, tshark, *, pro
                      not (previous/'census_probe.stderr').stat().st_size and
                      asset(path) == receipt['census'], 'PREDECESSOR_COMPLETE_PROBE_CENSUS:' + device)
                 census = asset(path)
+            elif prior_census is not None and known is None:
+                pin = read(HERE/'CONTINUATION_SOURCE_PINS.json')['censuses'][device]
+                path, counts, census = reused_census(prior_census,binding,pin)
             elif known is None:
                 path, counts = walk_long(spec, folder, material, api, tshark, progress,
                                          prefix=cfg['probe_frames'] if probe else None)
@@ -149,10 +177,17 @@ def freeze_selection(store, cfg, specs, shorts, output, progress, tshark, *, pro
             else:
                 path, counts = known['path'], known['counts']
                 census = store.checked['census:C4:NETATMO']
-        long_rows.append(iter_long_census(spec, binding, index, order, source_sha, path, counts))
+        def scan_progress(done, total, device=device):
+            progress('CENSUS_ORDINAL_SCAN_'+device,done,total,device=device)
+
+        long_rows.append(iter_long_census(spec, binding, index, order, source_sha, path, counts,
+            scan_progress=scan_progress if continuation is not None else None))
+        if continuation is not None and device == 'TP_LINK':
+            with progress.measure('REAL_TP_LINK_SELECTOR_PARITY'):
+                selector_parity(spec, material, path, counts, progress, output.parent/'SELECTOR_PARITY.json')
         long_material[device] = (spec, folder, material, known)
         record[device] = dict(census=census, counts=counts,
-                              reused=known is not None or (probe and previous is not None),
+                              reused=known is not None or prior_census is not None or (probe and previous is not None),
                               binding=binding, raw=spec['raw'], logical_source_sha256=source_sha)
 
     with progress.measure('FROZEN_PHYSICAL_HASH_SELECTION'):
@@ -161,14 +196,20 @@ def freeze_selection(store, cfg, specs, shorts, output, progress, tshark, *, pro
             ('CIC_DEV', (entry['row'] for entry in shorts_selected.values())),
             ('UNSW_DEV', chain.from_iterable(long_rows)),
         ):
+            total = len(shorts_selected) if pool == 'CIC_DEV' else sum(
+                record[device]['counts']['HIST_REF'] for device in long_material)
+
             def progress_rows():
                 for i, row in enumerate(population, 1):
                     if i % 32768 == 0:
-                        progress('HASH_'+pool, i, sum(
-                            r.get('counts', {}).get('HIST_REF', r.get('eligible', 0))
-                            for r in record.values()))
+                        progress('HASH_'+pool, i, total)
                     yield row
-            rows, totals = select(progress_rows(), sources[pool], output/(pool+'_rank.sqlite'))
+
+            if continuation is not None and pool == 'UNSW_DEV':
+                rows, totals = select_census_stream(progress_rows(), sources[pool], total)
+                progress('HASH_'+pool, total, total, force=True)
+            else:
+                rows, totals = select(progress_rows(), sources[pool], output/(pool+'_rank.sqlite'))
             picked = Counter((r['device'], r['protocol']) for r in rows)
             need(all(picked[k] == min(CAP, v) for k, v in totals.items()) and
                  sum(picked.values()) == len(rows) > 0, 'K8192_GROUP_COUNTS')
@@ -196,11 +237,13 @@ def freeze_selection(store, cfg, specs, shorts, output, progress, tshark, *, pro
     return choices, long_material, shorts_selected, api, record
 
 
-def prepare(store, output, motion, progress, tshark, cfg, *, probe, prior_probe=None):
+def prepare(store, output, motion, progress, tshark, cfg, *, probe, prior_probe=None,
+            continuation=None):
     output.mkdir(exist_ok=False)
     source_cfg, specs, shorts = load_sources(store, motion)
     choices, materials, short_entries, api, population = freeze_selection(
-        store, source_cfg, specs, shorts, output, progress, tshark, probe=probe, prior_probe=prior_probe)
+        store, source_cfg, specs, shorts, output, progress, tshark, probe=probe, prior_probe=prior_probe,
+        continuation=continuation)
     selection_sha = asset(output/'SELECTION.json')['sha256']
     with progress.measure('PIN_FROZEN_ENCODER'):
         encoder, identity = new_encoder(encoder_config(store))
