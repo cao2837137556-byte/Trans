@@ -23,6 +23,7 @@
 <script>
 const states = {RUNNING:"运行中",PENDING:"排队中",SUBMITTED:"已提交",STOP:"已停止",COMPLETE:"已完成",CHECKPOINT_ADMISSION:"正在核验"};
 const stages = {K8192_REPLAY:"正式配对重放",VERIFY_184105_SEALED_REFERENCES:"核对已封存参考特征"};
+const outcomes = {ACCEPTED:"验收通过",ZERO_DEGRADATION_PASS:"零退化验收通过",ZERO_DEGRADATION_FAIL:"零退化验收未通过"};
 const clock = (stamp) => new Date(stamp * 1000).toLocaleTimeString("zh-CN",{hour12:false});
 function update(mode, state) {
   const pane = document.getElementById(mode);
@@ -43,7 +44,7 @@ function update(mode, state) {
   }
   pane.querySelector("small").textContent = [chain?.updated_unix && ("调度回执 "+clock(chain.updated_unix)),
     p?.updated_unix && ("计算回执 "+clock(p.updated_unix)), chain?.worker_preflight==="PASS" && "真实预检通过",
-    chain?.outcome === "ACCEPTED" ? "验收通过" : chain?.outcome].filter(Boolean).join(" · ");
+    outcomes[chain?.outcome] ?? chain?.outcome].filter(Boolean).join(" · ");
 }
 async function refresh() {
   try {
