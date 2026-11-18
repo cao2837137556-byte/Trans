@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "environment": "LOCAL",
+  "boundaries": {
+    "status": "PASS",
+    "cases": [
+      "strict_m2_equal_one",
+      "m2_immediately_below_one",
+      "missing_geometry",
+      "time_and_frame_boundaries",
+      "one_component",
+      "same_component_duplicates",
+      "equal_minima",
+      "joint_before_component_ranking",
+      "zero_radius",
+      "g4_after_mean",
+      "protocol_bypass"
+    ]
+  },
+  "paired_fixture": {
+    "known_normal": 4,
+    "known_attack": 3,
+    "protected_retained": 1
+  },
+  "frozen_baseline_metric_rows": 736,
+  "original_encoder_batch": {
+    "input_tensors": 3,
+    "captures": [
+      "interaction-attack-189",
+      "interaction-attack-190",
+      "interaction-attack-191"
+    ]
+  },
+  "package_sha256": "1a18f72e2b562c05577ceb192c515f29f9133ebae496169eec05a642a6e85d1f",
+  "scientific_compute_preflight": "PENDING_HPC",
+  "formal_job": null
+}

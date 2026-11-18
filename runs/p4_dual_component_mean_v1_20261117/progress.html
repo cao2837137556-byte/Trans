@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paper04 · 双组件支持度对照</title>
+<style>
+:root{color-scheme:light dark;font:15px/1.6 "Segoe UI","Microsoft YaHei",sans-serif;color:#182c39;background:#f4f7f8}body{margin:0}main{max-width:780px;margin:auto;padding:30px clamp(18px,5vw,48px)}header{border-bottom:2px solid #187568;padding-bottom:14px}header p{margin:0;color:#37716c}h1{font-size:clamp(23px,5vw,34px);line-height:1.25;margin:6px 0}h2{font-size:18px;margin:0 0 6px}section{margin-top:20px;padding:18px;background:#fff;border:1px solid #d5e1e2;border-radius:7px}p{margin:5px 0}progress{width:100%;accent-color:#187568;height:12px}button{font:inherit;cursor:pointer;border:0;background:#155e56;color:white;border-radius:4px;padding:7px 14px}textarea{display:block;box-sizing:border-box;width:100%;margin:12px 0;font:12px/1.5 Consolas,monospace;resize:vertical}small{color:#52676e}a{color:#075c6a}table{width:100%;border-collapse:collapse;font-size:14px}td,th{text-align:right;padding:6px;border-bottom:1px solid #dae0e0}td:first-child,th:first-child{text-align:left}.links{display:flex;gap:14px;flex-wrap:wrap}[hidden]{display:none!important}
+@media(prefers-color-scheme:dark){:root{background:#162026;color:#e2eaed}section{background:#1d2b33;border-color:#3a4c51}header p,small{color:#a4c1c0}a{color:#88d5ce}}
+</style><main><header><p>Paper04 · v12 表 9</p><h1>双组件支持度对照</h1><p>较弱匹配与两者均值</p></header>
+<section aria-live="polite"><h2 id="state">正在读取进度</h2><p id="job"></p><p id="detail"></p><progress id="bar" hidden></progress><small id="when"></small></section>
+<section id="manual" hidden><h2>在已登录的超算终端启动</h2><p>粘贴并执行下面一行。接收程序启动后，本页会显示预检作业号。</p>
+<textarea id="cmd" rows="4" readonly aria-label="超算启动命令"></textarea><button id="copy">复制启动命令</button></section>
+<section id="out" hidden><h2>均值方案额外撤回的集成告警</h2><table><thead><tr><th>测试床和评价范围</th><th>正常误报</th><th>正确攻击告警</th></tr></thead><tbody id="cells"></tbody></table><p class="links"><a href="/paper">论文回传结论</a><a href="/pairs">配对变化</a><a href="/metrics">两组指标</a><a href="/receipt">本地验收</a></p></section></main>
+<script>
+const el=id=>document.getElementById(id);
+const states={STARTING_CLIENT:'本地接收程序正在启动',WAITING_TERMINAL:'等待超算终端启动',WAITING_SSH:'等待既有超算隧道',UPLOADING:'正在上传实验包',INSTALLED:'实验包已安装',VALIDATE_SUBMISSION:'核对 Slurm 提交条件',SUBMITTED:'已取得作业号',PENDING:'作业排队中',RUNNING:'作业运行中',COMPLETING:'作业正在退出',CONNECTION_PAUSED:'等待恢复既有连接',COMPLETE:'超算已完成，等待本地核验',VERIFYING_RETURN:'正在核验回传文件',ACCEPTED:'结果已验收',STOP:'超算流程已停止',LOCAL_STOP:'本地流程已停止'};
+const phases={preflight:'真实小切片预检',formal:'正式配对计算'};
+const stages={RAW_DECODE_AND_ENCODER:'从真实采集文件解码并运行冻结编码器',COMPONENT_DISTANCES:'按不同组件计算联合距离',PHASE_COMPLETE:'计算阶段完成',LOAD_EDGE_REFERENCE_BATCHES:'核对 Edge 参考编码批次'};
+const beds={CIC_DEV:'CIC',UNSW_DEV:'UNSW',EDGE:'Edge'};
+function worker(name){if(stages[name])return stages[name];for(const [k,v] of Object.entries(beds)){if(name==='CHECK_INPUTS_'+k)return '核对 '+v+' 输入与原告警';if(name==='REPLAY_'+k)return '重放 '+v+' 的双组件距离';if(name==='EVALUATE_'+k)return '核验 '+v+' 的配对告警';}return name||'';}
+async function paint(){
+ try{const r=await fetch('/state',{cache:'no-store'});if(!r.ok)throw Error();const s=await r.json(),remote=s.remote||{},chain=remote.chain||{},p=remote.progress||{};
+ el('state').textContent=(phases[chain.phase]?phases[chain.phase]+' · ':'')+(states[s.stage]||s.stage);
+ const jobs=(remote.acceptance||{}).jobs||chain.jobs||{};el('job').textContent=jobs.formal?'预检 '+jobs.preflight+'　正式 '+jobs.formal:chain.job_id?'Slurm 作业 '+chain.job_id:'';
+ const show=s.stage==='RUNNING'&&p.phase===chain.phase;
+ el('detail').textContent=s.error||chain.error||(show?worker(p.stage)+(p.device?' · '+p.device:'')+'　'+p.done+' / '+p.total:s.stage==='PENDING'?chain.reason||'':s.stage==='WAITING_SSH'?'连接由用户手动建立。':'');
+ el('bar').hidden=!show||p.total<=1;if(!el('bar').hidden){el('bar').max=p.total;el('bar').value=p.done;}
+ el('when').textContent='最近更新　'+new Date(s.updated_unix*1000).toLocaleString();
+ const manual=['WAITING_TERMINAL','WAITING_SSH','STARTING_CLIENT'].includes(s.stage);el('manual').hidden=!manual;
+ if(manual&&!el('cmd').value){const c=await fetch('/start');if(c.ok)el('cmd').value=(await c.text()).trim();}
+ el('out').hidden=s.stage!=='ACCEPTED';
+ if(!el('out').hidden){el('cells').replaceChildren();const h=s.headline.filter(r=>r.head==='ensemble'&&(r.view==='post_window_primary'||r.pool==='EDGE'));
+ for(const [k,name] of Object.entries(beds)){const rr=h.filter(x=>x.pool===k),n=rr.find(x=>x.group==='NORMAL'),a=rr.filter(x=>x.group!=='NORMAL').reduce((acc,v)=>acc+v.withdrawn,0);
+ const tr=document.createElement('tr');for(const v of [name+(k==='EDGE'?' 选中查询':' 建档后'),n.withdrawn,a]){const td=document.createElement('td');td.textContent=v;tr.append(td);}el('cells').append(tr);}}
+ }catch{el('state').textContent='暂时无法读取本地状态';}}
+el('copy').onclick=async()=>{try{await navigator.clipboard.writeText(el('cmd').value);el('copy').textContent='已复制';}catch{el('cmd').select();el('copy').textContent='已选中，可按 Ctrl+C';}};
+paint();setInterval(paint,5000);
+</script></html>
