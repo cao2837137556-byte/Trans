@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "sbatch",
+    "--partition=amd",
+    "--no-requeue",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=4",
+    "--time=02:00:00",
+    "--mem=12288M",
+    "--job-name=p04-dual17-mean",
+    "--chdir=/public/home/jiangxinwei.zr/work/paper04/runs/p4_dual_component_mean_v1_20261117/package",
+    "--output=/public/home/jiangxinwei.zr/work/paper04/runs/p4_dual_component_mean_v1_20261117/formal-%j.out",
+    "--error=/public/home/jiangxinwei.zr/work/paper04/runs/p4_dual_component_mean_v1_20261117/formal-%j.err",
+    "/public/home/jiangxinwei.zr/work/paper04/runs/p4_dual_component_mean_v1_20261117/package/run.slurm",
+    "formal",
+    "/public/home/jiangxinwei.zr/work/paper04",
+    "/public/home/jiangxinwei.zr/work/paper04/runs/p4_dual_component_mean_v1_20261117",
+    "7200"
+  ],
+  "time": 1794979063.8796842
+}

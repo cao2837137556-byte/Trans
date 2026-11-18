@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "job_id": "184893",
+  "preflight_job": "184891",
+  "rows": 388202,
+  "heads": [
+    "27",
+    "127",
+    "227",
+    "ensemble"
+  ],
+  "arms": [
+    "P4_MAIN",
+    "P4_DUAL_MEAN"
+  ],
+  "package_sha256": "966f97119ab01f4ea744c7a465e5df2ba328c9544388e9c95c80909b739e956b",
+  "baseline": {
+    "CIC_DEV": {
+      "metric_rows": 544,
+      "weak_metric_rows": 272,
+      "max_abs_score_error": 0.0,
+      "decision_differences": 0
+    },
+    "UNSW_DEV": {
+      "metric_rows": 560,
+      "weak_metric_rows": 280,
+      "max_abs_score_error": 0.0,
+      "decision_differences": 0
+    },
+    "EDGE": {
+      "metric_rows": 368,
+      "weak_metric_rows": 184,
+      "max_abs_score_error": 0.0,
+      "decision_differences": 0
+    }
+  },
+  "outputs": {
+    "METRICS.json": {
+      "file": "METRICS.json",
+      "sha256": "f02ddccb98b87beefa5fb60ac5ffe96c723e3564d9ffebef248552c7dfa060ec",
+      "bytes": 1146487
+    },
+    "PAIRED.json": {
+      "file": "PAIRED.json",
+      "sha256": "78a80a0b4b037ef0776e8a95a1478dd166ab2514818bcb992e225c63810bf41e",
+      "bytes": 675808
+    },
+    "HEADLINE.json": {
+      "file": "HEADLINE.json",
+      "sha256": "fbd5a5514273a2570fa621026b41cc06a02836cfd8905047ff0b748e6c66d323",
+      "bytes": 8340
+    },
+    "HEADLINE.csv": {
+      "file": "HEADLINE.csv",
+      "sha256": "78ef15f632c498689d1a15fa4a4aced2c97b2b49d8756ab57355a330e91438ab",
+      "bytes": 2229
+    },
+    "METRICS.csv": {
+      "file": "METRICS.csv",
+      "sha256": "abac041f40ef7a8e22c0572646e1683a2e1c1bc3cfc4449992c91c0911562feb",
+      "bytes": 450255
+    },
+    "PAIRED.csv": {
+      "file": "PAIRED.csv",
+      "sha256": "dd7f3ef274caa80f0ec6f2881dde4aee8e9de3b48b9879473bacbb9455f052e2",
+      "bytes": 254533
+    },
+    "ARTIFACTS.json": {
+      "file": "ARTIFACTS.json",
+      "sha256": "b1278422ea59c02164a54ea65f725f1520435c62261e22c1f73e061c003e0ac5",
+      "bytes": 4140
+    },
+    "RESULTS_FOR_PAPER.md": {
+      "file": "RESULTS_FOR_PAPER.md",
+      "sha256": "fc9445f991a1211d40db798ae6c6372c7b7baa366dcc2279c1b6bf14740fb7da",
+      "bytes": 3879
+    },
+    "PREFLIGHT.json": {
+      "file": "PREFLIGHT.json",
+      "sha256": "a850cae6bf855febe48a2ab981309cb09ddebd58c3d21fdd6f45d26fb2128618",
+      "bytes": 4765
+    },
+    "INPUTS_formal.json": {
+      "file": "INPUTS_formal.json",
+      "sha256": "3909558667b703f8468a9f3a504b84a870ced33c06ce3b7358b46e9a9f404891",
+      "bytes": 17809
+    },
+    "INPUTS_preflight.json": {
+      "file": "INPUTS_preflight.json",
+      "sha256": "1cedfc7618803eca8b8ea7d12c83324849b6f814be39478c4356e2e84ba3a6a3",
+      "bytes": 18785
+    }
+  }
+}

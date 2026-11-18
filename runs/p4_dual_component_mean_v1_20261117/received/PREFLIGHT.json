@@ -1,0 +1,167 @@
+{
+  "status": "PASS",
+  "job_id": "184891",
+  "package_sha256": "966f97119ab01f4ea744c7a465e5df2ba328c9544388e9c95c80909b739e956b",
+  "inputs_sha256": "1cedfc7618803eca8b8ea7d12c83324849b6f814be39478c4356e2e84ba3a6a3",
+  "real_frontend": {
+    "captures": {
+      "interaction-attack-189": "ae762e6333698ae94adfb652b37d21eea12d04ebdd1d5a92ac18ab68a6f0f23d",
+      "interaction-attack-190": "ba5b3c67ebeb2d38737046d3a64a70113ad52252afe25248ed30f0e52da7adf6",
+      "interaction-attack-191": "0a0332a5f5f6a5b0381faa33abfa95e0af19aed77f08858d464bdcacd63787f2"
+    },
+    "decoded_frames": 294,
+    "uids": [
+      "68920971bb79fe73540a335bc3698762a0f945a6ad32f5f1aca5e2f8afea9913",
+      "95779c977a89c3bf4749f585f522cadb9d356bd4d5e24fbf62fa965ea95cc907",
+      "fdf1b83a9072e9d3a508d51e3c4ed85637289894e90855072756638a942d6f15"
+    ],
+    "encoder": {
+      "manifest_sha256": "2f611b4695e165649cb4fc2df4b0309f621f846fa5f6f660e3c0fa0202ecc5ee",
+      "vendor_files": 19
+    },
+    "tensor_sha256": [
+      "89f542d8715511c9c5da91f61628f749e32fef45a52bf3788311dbcbddf4b5f6",
+      "92ec1ad14ebe9e214efcd399cc91e84cf7d712a102b95f72cf2ecff13b971838",
+      "bde4c4873678d60055e581f9f8f21cf307e5d343d43d86a81482fdd54d92d95e"
+    ],
+    "cached_e3_sha256": [
+      "c2a2e42f98717bed121b0d655600b802d1c49eb6e49ff07e7835122131244ec7",
+      "9806334667bc339832f035f10ca7e128e35c5cd3efae2a305f5a7748ee01c9f1",
+      "ca4a938314912e10dfb03449bec03d65b4eac3da6ca938117954f24e738dfcd4"
+    ],
+    "fresh_e3_sha256": [
+      "c2a2e42f98717bed121b0d655600b802d1c49eb6e49ff07e7835122131244ec7",
+      "9806334667bc339832f035f10ca7e128e35c5cd3efae2a305f5a7748ee01c9f1",
+      "ca4a938314912e10dfb03449bec03d65b4eac3da6ca938117954f24e738dfcd4"
+    ],
+    "max_e3_difference": 0.0,
+    "actual_forwards": 3,
+    "actual_vectors_used_in_preflight_bank": true
+  },
+  "pools": {
+    "CIC_DEV": {
+      "status": "PASS",
+      "rows": 56,
+      "metrics": 528,
+      "paired_cells": 264,
+      "pair_evaluations": 93766,
+      "admitted": 14,
+      "direct_max_distance_error": 8.239867331707254e-16,
+      "archive_parity": {
+        "max_abs_support_error": 1.1102230246251565e-16,
+        "max_abs_score_error": 0.0,
+        "decision_differences_by_head": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "subset_violations_by_head": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "bypass_changes_by_head": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "values": {
+        "file": "CIC_DEV_slice.npz",
+        "sha256": "90579903cceb52aea4147d9609eabae48f6b58a96f2876d368fe872a81828c1b",
+        "bytes": 21682
+      }
+    },
+    "UNSW_DEV": {
+      "status": "PASS",
+      "rows": 130,
+      "metrics": 560,
+      "paired_cells": 280,
+      "pair_evaluations": 638268,
+      "admitted": 60,
+      "direct_max_distance_error": 1.2212453270876722e-15,
+      "archive_parity": {
+        "max_abs_support_error": 8.881784197001252e-16,
+        "max_abs_score_error": 1.4210854715202004e-14,
+        "decision_differences_by_head": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "subset_violations_by_head": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "bypass_changes_by_head": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "values": {
+        "file": "UNSW_DEV_slice.npz",
+        "sha256": "7c5af2243a93fdbe47a6606d50d91ed092c0946287a13b139431e10fc270b63d",
+        "bytes": 47804
+      }
+    },
+    "EDGE": {
+      "status": "PASS",
+      "rows": 26,
+      "metrics": 336,
+      "paired_cells": 168,
+      "pair_evaluations": 73952,
+      "admitted": 15,
+      "direct_max_distance_error": 8.326672684688674e-16,
+      "archive_parity": {
+        "max_abs_support_error": 2.220446049250313e-16,
+        "max_abs_score_error": 1.0658141036401503e-14,
+        "decision_differences_by_head": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "subset_violations_by_head": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "bypass_changes_by_head": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "values": {
+        "file": "EDGE_slice.npz",
+        "sha256": "98105a001aa77bb1641706da7cef899b48e91885ff742562d8efa370ffef7095",
+        "bytes": 11092
+      }
+    }
+  },
+  "boundaries": {
+    "status": "PASS",
+    "cases": [
+      "strict_m2_equal_one",
+      "m2_immediately_below_one",
+      "missing_geometry",
+      "time_and_frame_boundaries",
+      "one_component",
+      "same_component_duplicates",
+      "equal_minima",
+      "joint_before_component_ranking",
+      "zero_radius",
+      "g4_after_mean",
+      "protocol_bypass"
+    ]
+  }
+}

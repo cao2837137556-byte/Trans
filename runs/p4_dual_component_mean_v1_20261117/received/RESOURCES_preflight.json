@@ -1,0 +1,55 @@
+{
+  "stages": [
+    {
+      "stage": "CHECK_INPUTS_CIC_DEV",
+      "seconds": 10.602837537880987,
+      "peak_rss_kib": 1052964
+    },
+    {
+      "stage": "RAW_DECODE_AND_ENCODER",
+      "seconds": 52.681952866725624,
+      "peak_rss_kib": 1903356
+    },
+    {
+      "stage": "REPLAY_CIC_DEV",
+      "seconds": 0.47189734783023596,
+      "peak_rss_kib": 1903356
+    },
+    {
+      "stage": "EVALUATE_CIC_DEV",
+      "seconds": 0.46000401536002755,
+      "peak_rss_kib": 1903356
+    },
+    {
+      "stage": "CHECK_INPUTS_UNSW_DEV",
+      "seconds": 11.565205327235162,
+      "peak_rss_kib": 2549484
+    },
+    {
+      "stage": "REPLAY_UNSW_DEV",
+      "seconds": 0.8320424254052341,
+      "peak_rss_kib": 2549484
+    },
+    {
+      "stage": "EVALUATE_UNSW_DEV",
+      "seconds": 2.2967354678548872,
+      "peak_rss_kib": 2549484
+    },
+    {
+      "stage": "CHECK_INPUTS_EDGE",
+      "seconds": 359.9495022040792,
+      "peak_rss_kib": 2549484
+    },
+    {
+      "stage": "REPLAY_EDGE",
+      "seconds": 0.44538229797035456,
+      "peak_rss_kib": 2549484
+    },
+    {
+      "stage": "EVALUATE_EDGE",
+      "seconds": 0.48131850408390164,
+      "peak_rss_kib": 2549484
+    }
+  ],
+  "peak_rss_kib": 2549484
+}
