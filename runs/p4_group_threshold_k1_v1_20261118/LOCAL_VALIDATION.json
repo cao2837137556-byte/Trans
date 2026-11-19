@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "environment": "local_fixtures_and_real_reference_rosters",
+  "scientific_results": false,
+  "rule_sha256": "c75dff0f0f8779c73d425e8e519934ae6a6e71d09224e6dcdc1e78515f8e2eb3",
+  "package_sha256": "85335c87a9ed44711ef8429fdae482d8bb81bd10399b868416d8d27f51976554",
+  "regressions": {
+    "status": "PASS",
+    "group_neff_99_100": true,
+    "conditional_weights_ties_empty_and_bypass": true,
+    "k1_single_donor_strict_radius_pathways": true,
+    "endpoint_role_and_unknown": true
+  },
+  "fixture_report_recounts": {
+    "group_pair_cells": 7336,
+    "k1_pair_cells": 720,
+    "donor_cells": 756,
+    "mechanism_cells": 432,
+    "subset_violations": 0
+  },
+  "real_reference_identity": {
+    "CIC_DEV": {
+      "rows": 8863,
+      "canonical_id_bound": 8863
+    },
+    "UNSW_DEV": {
+      "rows": 66082,
+      "canonical_id_bound": 66082
+    },
+    "EDGE": {
+      "rows": 4124,
+      "canonical_id_bound": 4124
+    }
+  }
+}

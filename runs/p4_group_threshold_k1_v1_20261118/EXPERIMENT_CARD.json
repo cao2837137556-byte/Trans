@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "sealed_utc": "2026-11-19 02:33:15 UTC",
+  "authorization": "20261118_paper04_v12_next_experiments_handoff_codex.md",
+  "datasets": [
+    "CIC_DEV",
+    "UNSW_DEV",
+    "EDGE"
+  ],
+  "heads": [
+    "27",
+    "127",
+    "227",
+    "ensemble"
+  ],
+  "decision": "strict score > cut; ensemble is the frozen float64 mean of the three scores, calibrated separately",
+  "group_keys": [
+    "testbed",
+    "device",
+    "protocol"
+  ],
+  "protocols": [
+    6,
+    17
+  ],
+  "budget": 0.01,
+  "min_neff": 100,
+  "weights": "Within each device x protocol, apply 183937 hierarchical_weights (equal capture, equal component inside capture, equal row inside component). Condition these weights on non-bypass normal references and normalize to one after filtering.",
+  "neff": "1 / sum(w**2) on renormalized eligible references. Compare with 100, equality fits. Compute with exact rational hierarchical masses for the boundary comparison.",
+  "empty": "A group with no reference or no eligible non-bypass reference falls back. Enumerate both TCP and UDP for every registered target device. Query-only unknown groups fall back by the same rule.",
+  "fit": "Use 183937 weighted_cut. Return the lowest observed score whose strictly greater tail has at most 0.01 weight, preserving the complete tied block. A tied score does not alarm.",
+  "primary_fallback": "original per-head CIC source threshold",
+  "sensitivity_fallback": "same eligible group mask, use the matching head's frozen 183937 testbed-wide guarded cut",
+  "application": "Before reference opening and on TCP SYN without ACK, keep RAW source decision, regardless of fallback. Otherwise compare frozen RAW score to chosen head cut.",
+  "controls": [
+    "RAW",
+    "RECAL_WITH_GUARD",
+    "P4_MAIN"
+  ],
+  "views": {
+    "CIC_DEV": [
+      "full",
+      "post_window_primary"
+    ],
+    "UNSW_DEV": [
+      "full",
+      "post_window_primary"
+    ],
+    "EDGE": [
+      "full"
+    ]
+  },
+  "outputs": "Both variants vs all three controls and vs each other. Both directions of changes, raw counts and denominators, sample and hierarchical rates, Edge HT with sealed role denominator. Subsets by fit, fallback reason, pre-opening and bypass. Per-group counts, N_eff, effective thresholds, strict and tie masses; fields undefined for empty calibration populations are null.",
+  "geometry": "184893 ordered development-bank reference rows and *_paired.npz. Open, geometry valid and >=1 legal component: s1=clip(1-m1,0,1); otherwise zero. k2=P4_MAIN, s2=1-m2 only when eligible and m2<1. Same g4, spans, lambda=0.25, bypass and strict source cuts.",
+  "support_strata": [
+    "new_positive_from_zero",
+    "stronger_existing_dual",
+    "equal_or_zero"
+  ],
+  "port_audit": "Report for all queries, compatible k2 queries, RAW to k2 withdrawals, k2 to k1 withdrawals (newly positive vs stronger on compatible k2), and the accepted k2 weak to dual mean withdrawals. Distinguish two legal donors from two compatible donors. Classify the original two nearest components by protocol and unordered IP pair, then by ports at each IP. Record denominators for comparable pairs, no second donor/m2>=1, unknown identity, and known vs unknown endpoint roles. A changed port alone does not prove an ephemeral client port or that no other compatible component exists. No counterfactual coarse-group replay.",
+  "eligibility": "S1-S6 on publicly or previously legitimately accessible lightweight metadata only. No new external scores, head changes or candidate ranking by outcomes."
+}
+

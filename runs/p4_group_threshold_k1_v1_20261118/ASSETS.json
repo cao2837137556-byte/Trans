@@ -1,0 +1,602 @@
+{
+  "rule_sha256": "c75dff0f0f8779c73d425e8e519934ae6a6e71d09224e6dcdc1e78515f8e2eb3",
+  "current_handoff_sha256": "16ada64ec475da1c404e11f3746b5aca862936877a6c8e368558a653eab48194",
+  "geometry_run": "p4_dual_component_mean_v1_20261117",
+  "geometry_package": "966f97119ab01f4ea744c7a465e5df2ba328c9544388e9c95c80909b739e956b",
+  "original_thresholds": {
+    "path": "runs/same_information_recalibration_v1_20261113/results/THRESHOLD_SEAL.json",
+    "sha256": "8cdcab82c9f9de08cfb7bc95e453be782fe33ff0ec8e3d01acf2af73e102e2da"
+  },
+  "original_metrics": {
+    "path": "runs/same_information_recalibration_v1_20261113/results/METRICS.json",
+    "sha256": "1ebb4aa5e9ffe383bdcb3ed00a51369800c862960f7cfd59668c2e1be4bddfb7"
+  },
+  "baseline_expected": {
+    "path": "runs/unified_reference_bank_k8192_v1_20261113_early_183987/package/EXPECTED_BASELINE.json",
+    "sha256": "9aa486216e931d68283f8966b90afc965b2fef56b5e2327181f56920f1132c5c"
+  },
+  "paired": {
+    "CIC_DEV": {
+      "path": "runs/p4_dual_component_mean_v1_20261117/artifacts/CIC_DEV_paired.npz",
+      "sha256": "22d8a91900c8e8ad786fa4b6266217e27d15a31237d4cb0e39dd7908b444e7c3",
+      "bytes": 95343052,
+      "rows": 179886
+    },
+    "UNSW_DEV": {
+      "path": "runs/p4_dual_component_mean_v1_20261117/artifacts/UNSW_DEV_paired.npz",
+      "sha256": "7e38cfd47aa71c4974c5904f1ec33f34f76eeac9b7f122816caef51edc4769b5",
+      "bytes": 78610952,
+      "rows": 148316
+    },
+    "EDGE": {
+      "path": "runs/p4_dual_component_mean_v1_20261117/artifacts/EDGE_paired.npz",
+      "sha256": "c68d0705f06ea879907e17f023b7abbc6ab51fb8d7e5abd4b261b9e0e7b7dd3c",
+      "bytes": 31803472,
+      "rows": 60000
+    }
+  },
+  "reference_scores": {
+    "CIC_DEV": {
+      "path": "runs/same_information_recalibration_v1_20261113/results/CIC_DEV_REFERENCE_RAW.npz",
+      "sha256": "1af8afaf7cda19789ffa98c6ca3acfab586e4f28f87c0b8d1776fc1952426645",
+      "bytes": 2553042,
+      "rows": 8863
+    },
+    "UNSW_DEV": {
+      "path": "runs/same_information_recalibration_v1_20261113/results/UNSW_DEV_REFERENCE_RAW.npz",
+      "sha256": "f001f5a4866397a1b6d91acb7aefc34e5f55458fa57c9fff9fb292d3a5ceb247",
+      "bytes": 19032114,
+      "rows": 66082
+    },
+    "EDGE": {
+      "path": "runs/same_information_recalibration_v1_20261113/results/EDGE_REFERENCE_RAW.npz",
+      "sha256": "7afa4eeeee7292da09ebb611076eaee03c8c7f0e846c2db073d7ab6bd33664a0",
+      "bytes": 1188210,
+      "rows": 4124
+    }
+  },
+  "query_uid_sha256": {
+    "CIC_DEV": "1b13ef4d89e5652d6c24931ab895842b58cce655249cf978ff3d1cdded04f35d",
+    "UNSW_DEV": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+    "EDGE": "cec6dcd9399b5286fe8325828aaa7acb4584d6dd28c867fb76cbc7e17a7c5404"
+  },
+  "bank_uid_sha256": {
+    "CIC_DEV": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2",
+    "UNSW_DEV": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6",
+    "EDGE": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e"
+  },
+  "normal_headers": [
+    {
+      "raw_key": "a30",
+      "sha256": "ae762e6333698ae94adfb652b37d21eea12d04ebdd1d5a92ac18ab68a6f0f23d"
+    },
+    {
+      "raw_key": "a31",
+      "sha256": "ba5b3c67ebeb2d38737046d3a64a70113ad52252afe25248ed30f0e52da7adf6"
+    },
+    {
+      "raw_key": "a32",
+      "sha256": "0a0332a5f5f6a5b0381faa33abfa95e0af19aed77f08858d464bdcacd63787f2"
+    },
+    {
+      "raw_key": "a18",
+      "index_key": "a19",
+      "sha256": "45d1bd14569950ab6c356bac70a7870b2a0d98a4efc8e3e6d2310ef422e212f5",
+      "bank_end_frame": 66004,
+      "clock_offset": 0
+    },
+    {
+      "raw_key": "a21",
+      "index_key": "a22",
+      "sha256": "445b24a2555bd4af7991e83752ad63aba1cd9f1c96e7cbbd76da6a81b6dcbc64",
+      "bank_end_frame": 3430150,
+      "clock_offset": 0
+    },
+    {
+      "raw_key": "a24",
+      "index_key": "a25",
+      "sha256": "55fbfcbb4f5dce65ac51a41658550e087da1d1e2b30370386eb167c4d9dfedf9",
+      "bank_end_frame": 4419000,
+      "clock_offset": 0
+    },
+    {
+      "raw_key": "a27",
+      "index_key": "a28",
+      "sha256": "e4eb79d34e3e45e3de71190ce65a2449be4989d663a6e13d7f26b4e928d13006",
+      "bank_end_frame": 3766102,
+      "clock_offset": 0
+    }
+  ],
+  "edge_binding": {
+    "owner": "dc:a6:32:fb:69:b5",
+    "ip": "192.168.0.128",
+    "source": "runs/edge_external_test1_engineering_v1_20261103/adapter/edge_adapter.py",
+    "sha256": "000fcf92592ca212c23537bfcda0b74c73cbf84a783813f01f5f997e4155db3b"
+  },
+  "accepted_weak_mean_headlines": [
+    {
+      "pool": "CIC_DEV",
+      "view": "post_window_primary",
+      "head": "27",
+      "group": "NORMAL",
+      "rows": 96041,
+      "weak": 15,
+      "mean": 15,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "post_window_primary",
+      "head": "27",
+      "group": "ATTACK",
+      "rows": 79056,
+      "weak": 79043,
+      "mean": 79041,
+      "withdrawn": 2,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "post_window_primary",
+      "head": "127",
+      "group": "NORMAL",
+      "rows": 96041,
+      "weak": 12,
+      "mean": 12,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "post_window_primary",
+      "head": "127",
+      "group": "ATTACK",
+      "rows": 79056,
+      "weak": 79053,
+      "mean": 79050,
+      "withdrawn": 3,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "post_window_primary",
+      "head": "227",
+      "group": "NORMAL",
+      "rows": 96041,
+      "weak": 39,
+      "mean": 39,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "post_window_primary",
+      "head": "227",
+      "group": "ATTACK",
+      "rows": 79056,
+      "weak": 79050,
+      "mean": 79046,
+      "withdrawn": 4,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "post_window_primary",
+      "head": "ensemble",
+      "group": "NORMAL",
+      "rows": 96041,
+      "weak": 18,
+      "mean": 18,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "post_window_primary",
+      "head": "ensemble",
+      "group": "ATTACK",
+      "rows": 79056,
+      "weak": 79050,
+      "mean": 79047,
+      "withdrawn": 3,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "27",
+      "group": "NORMAL",
+      "rows": 100830,
+      "weak": 400,
+      "mean": 400,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "27",
+      "group": "ATTACK",
+      "rows": 79056,
+      "weak": 79043,
+      "mean": 79041,
+      "withdrawn": 2,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "127",
+      "group": "NORMAL",
+      "rows": 100830,
+      "weak": 482,
+      "mean": 482,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "127",
+      "group": "ATTACK",
+      "rows": 79056,
+      "weak": 79053,
+      "mean": 79050,
+      "withdrawn": 3,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "227",
+      "group": "NORMAL",
+      "rows": 100830,
+      "weak": 453,
+      "mean": 453,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "227",
+      "group": "ATTACK",
+      "rows": 79056,
+      "weak": 79050,
+      "mean": 79046,
+      "withdrawn": 4,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "ensemble",
+      "group": "NORMAL",
+      "rows": 100830,
+      "weak": 464,
+      "mean": 464,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "CIC_DEV",
+      "view": "full",
+      "head": "ensemble",
+      "group": "ATTACK",
+      "rows": 79056,
+      "weak": 79050,
+      "mean": 79047,
+      "withdrawn": 3,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "head": "27",
+      "group": "NORMAL",
+      "rows": 74444,
+      "weak": 133,
+      "mean": 109,
+      "withdrawn": 24,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "head": "27",
+      "group": "ATTACK",
+      "rows": 72553,
+      "weak": 72538,
+      "mean": 72538,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "head": "127",
+      "group": "NORMAL",
+      "rows": 74444,
+      "weak": 114,
+      "mean": 90,
+      "withdrawn": 24,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "head": "127",
+      "group": "ATTACK",
+      "rows": 72553,
+      "weak": 72543,
+      "mean": 72543,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "head": "227",
+      "group": "NORMAL",
+      "rows": 74444,
+      "weak": 171,
+      "mean": 139,
+      "withdrawn": 32,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "head": "227",
+      "group": "ATTACK",
+      "rows": 72553,
+      "weak": 72533,
+      "mean": 72533,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "head": "ensemble",
+      "group": "NORMAL",
+      "rows": 74444,
+      "weak": 130,
+      "mean": 105,
+      "withdrawn": 25,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "post_window_primary",
+      "head": "ensemble",
+      "group": "ATTACK",
+      "rows": 72553,
+      "weak": 72543,
+      "mean": 72543,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "27",
+      "group": "NORMAL",
+      "rows": 75763,
+      "weak": 737,
+      "mean": 713,
+      "withdrawn": 24,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "27",
+      "group": "ATTACK",
+      "rows": 72553,
+      "weak": 72538,
+      "mean": 72538,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "127",
+      "group": "NORMAL",
+      "rows": 75763,
+      "weak": 769,
+      "mean": 745,
+      "withdrawn": 24,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "127",
+      "group": "ATTACK",
+      "rows": 72553,
+      "weak": 72543,
+      "mean": 72543,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "227",
+      "group": "NORMAL",
+      "rows": 75763,
+      "weak": 812,
+      "mean": 780,
+      "withdrawn": 32,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "227",
+      "group": "ATTACK",
+      "rows": 72553,
+      "weak": 72533,
+      "mean": 72533,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "ensemble",
+      "group": "NORMAL",
+      "rows": 75763,
+      "weak": 753,
+      "mean": 728,
+      "withdrawn": 25,
+      "added": 0
+    },
+    {
+      "pool": "UNSW_DEV",
+      "view": "full",
+      "head": "ensemble",
+      "group": "ATTACK",
+      "rows": 72553,
+      "weak": 72543,
+      "mean": 72543,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "27",
+      "group": "NORMAL",
+      "rows": 20000,
+      "weak": 1,
+      "mean": 1,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "27",
+      "group": "HTTP",
+      "rows": 20000,
+      "weak": 19964,
+      "mean": 19963,
+      "withdrawn": 1,
+      "added": 0
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "27",
+      "group": "UDP",
+      "rows": 20000,
+      "weak": 19529,
+      "mean": 19529,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "127",
+      "group": "NORMAL",
+      "rows": 20000,
+      "weak": 28,
+      "mean": 28,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "127",
+      "group": "HTTP",
+      "rows": 20000,
+      "weak": 19518,
+      "mean": 19518,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "127",
+      "group": "UDP",
+      "rows": 20000,
+      "weak": 19876,
+      "mean": 19876,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "227",
+      "group": "NORMAL",
+      "rows": 20000,
+      "weak": 0,
+      "mean": 0,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "227",
+      "group": "HTTP",
+      "rows": 20000,
+      "weak": 19958,
+      "mean": 19955,
+      "withdrawn": 3,
+      "added": 0
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "227",
+      "group": "UDP",
+      "rows": 20000,
+      "weak": 19670,
+      "mean": 19670,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "ensemble",
+      "group": "NORMAL",
+      "rows": 20000,
+      "weak": 0,
+      "mean": 0,
+      "withdrawn": 0,
+      "added": 0
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "ensemble",
+      "group": "HTTP",
+      "rows": 20000,
+      "weak": 19958,
+      "mean": 19957,
+      "withdrawn": 1,
+      "added": 0
+    },
+    {
+      "pool": "EDGE",
+      "view": "full",
+      "head": "ensemble",
+      "group": "UDP",
+      "rows": 20000,
+      "weak": 19732,
+      "mean": 19732,
+      "withdrawn": 0,
+      "added": 0
+    }
+  ]
+}

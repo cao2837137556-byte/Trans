@@ -1,0 +1,75 @@
+{
+  "status": "QUALIFICATION_REVIEW_COMPLETE_ACCESS_LIMITED",
+  "candidates": [
+    "ACI-IoT-2023",
+    "SHARP"
+  ],
+  "qualification": {
+    "ACI": "UNKNOWN",
+    "SHARP": "UNKNOWN"
+  },
+  "sources": [
+    {
+      "key": "ACI",
+      "url": "https://ieee-dataport.org/documents/aci-iot-network-traffic-dataset-2023",
+      "status": 200,
+      "final": "https://ieee-dataport.org/documents/aci-iot-network-traffic-dataset-2023",
+      "size": 58454,
+      "sha256": "e52325fa9cd695f14276b012af125148e0f9690d7857b37531e73156fcbda81a",
+      "content_type": "text/html; charset=UTF-8",
+      "observed_utc": "2026-11-19T02:33:56.047233+00:00"
+    },
+    {
+      "key": "SHARP",
+      "url": "https://ieee-dataport.org/documents/sharp-smart-home-attacks-across-residential-multi-protocols",
+      "status": 200,
+      "final": "https://ieee-dataport.org/documents/sharp-smart-home-attacks-across-residential-multi-protocols",
+      "size": 67426,
+      "sha256": "1b6aa0f0d259f2137c986f3be0016b5fd6afdf7383227b51f485f5788cfa813d",
+      "content_type": "text/html; charset=UTF-8",
+      "observed_utc": "2026-11-19T02:33:54.904645+00:00"
+    },
+    {
+      "key": "ACI_KAGGLE_CARD",
+      "url": "https://www.kaggle.com/api/v1/datasets/view/emilynack/aci-iot-network-traffic-dataset-2023",
+      "status": 404,
+      "final": "https://www.kaggle.com/api/v1/datasets/view/emilynack/aci-iot-network-traffic-dataset-2023",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "content_type": "",
+      "observed_utc": "2026-11-19T02:33:54.690617+00:00"
+    },
+    {
+      "key": "ACI_KAGGLE_LIST",
+      "url": "https://www.kaggle.com/api/v1/datasets/list/emilynack/aci-iot-network-traffic-dataset-2023",
+      "status": 404,
+      "final": "https://www.kaggle.com/api/v1/datasets/list/emilynack/aci-iot-network-traffic-dataset-2023",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "content_type": "",
+      "observed_utc": "2026-11-19T02:33:56.072612+00:00"
+    },
+    {
+      "key": "SHARP_DATACITE",
+      "url": "https://api.datacite.org/dois/10.21227/ray1-ag27",
+      "status": 200,
+      "final": "https://api.datacite.org/dois/10.21227/ray1-ag27",
+      "size": 5221,
+      "sha256": "a1a7b480fddee715285618c4e2fddaf15742b5b97f84d7ff51004d37807d4b13",
+      "content_type": "application/json; charset=utf-8",
+      "observed_utc": "2026-11-19T02:33:55.294183+00:00",
+      "doi_titles_and_location": [
+        [
+          {
+            "title": "\"TON-IoT\""
+          }
+        ],
+        "https://ieee-dataport.org/documents/ton-iot"
+      ]
+    }
+  ],
+  "public_file_list_only": true,
+  "entitlement_observed": "Public DataPort interface showed not logged in and Subscription Required. No accessible authenticated project channel demonstrated.",
+  "model_scores_read": 0,
+  "raw_archives_downloaded": 0
+}

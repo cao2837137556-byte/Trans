@@ -1,0 +1,21 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paper04 · v12 补证进度</title><style>
+:root{color-scheme:light dark;font:15px/1.65 "Segoe UI","Microsoft YaHei",sans-serif;color:#20332f;background:#f3f6f4}main{max-width:780px;margin:24px auto;padding:0 clamp(12px,3vw,32px)}header{border-bottom:2px solid #357767;padding-bottom:12px}h1{margin:0;font-size:27px}h2{font-size:17px;margin:0 0 5px}section{background:white;border:1px solid #d4dfdb;border-radius:6px;padding:14px 18px;margin-top:15px}p{margin:5px 0}small{color:#566d68}a{color:#146558}button{font:inherit;background:#155f52;color:white;padding:5px 12px;border:0;border-radius:4px;cursor:pointer}textarea{display:block;width:100%;box-sizing:border-box;font:12px/1.5 Consolas,monospace;margin:6px 0}table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid #c7d7d1;text-align:left;padding:6px 3px} [hidden]{display:none!important}
+@media(prefers-color-scheme:dark){:root{color:#e4ece9;background:#1c2522}section{background:#222e2a;border-color:#42564d}small,a{color:#a6c9ba}}
+</style><main><header><small>Paper04 · v12 原模型</small><h1>补证实验进度</h1></header>
+<section><h2>外部资料资格</h2><p>ACI、SHARP 均待补件。已核对公开目录，下载需要订阅。<a href="/eligibility">资格报告</a></p></section>
+<section><h2 id="status">读取实验状态</h2><p id="detail"></p><table><thead><tr><th>阶段</th><th>作业</th><th>状态</th></tr></thead><tbody id="tasks"></tbody></table>
+<p><a href="/rules">已封存的分组阈值与回退规则</a></p><small id="when"></small></section>
+<section id="manual" hidden><h2>在已登录的超算终端启动本轮接收程序</h2><textarea id="command" aria-label="启动命令" readonly rows="3"></textarea><button id="copy">复制启动命令</button></section>
+<section id="results" hidden><h2>已核验的回传结果</h2><a href="/paper">论文回传结论</a> · <a href="/threshold">分组阈值</a> · <a href="/k1">单组件配对</a> · <a href="/ports">端口审计</a> · <a href="/receipt">本地回执</a></section></main>
+<script>
+const e=k=>document.getElementById(k);
+const phases={preflight:'真实切片预检',groups:'设备 × 协议阈值',k1:'单组件配对',ports:'供体端口审计'};
+const words={PREPARING:'本地准备中',STARTING_CLIENT:'本地接收程序已启动',WAITING_TERMINAL:'等待终端启动接收程序',WAITING_SSH:'等待既有超算隧道',UPLOADING:'正在上传实验包',INSTALLED:'实验包已安装',SUBMITTING:'准备提交',SUBMITTED:'已提交',PENDING:'排队',RUNNING:'运行中',COMPLETING:'正在退出',COMPLETED:'已完成',PARALLEL:'三项正式作业已启动',COMPLETE:'超算流程已完成',VERIFYING_RETURN:'正在核对回传 SHA',ACCEPTED:'结果已通过本地验收',CONNECTION_PAUSED:'等待已有连接恢复',STOP:'流程已停止',LOCAL_STOP:'本地流程已停止',WAIT:'等待预检',READY:'待提交'};
+async function render(){try{const res=await fetch('/state',{cache:'no-store'});if(!res.ok)throw Error();const s=await res.json(),c=s.remote?.chain||{},states=c.tasks||{};
+e('status').textContent=words[s.stage]||s.stage;e('detail').textContent=s.error||c.error||s.note||'';e('when').textContent='最近更新　'+new Date(s.updated_unix*1000).toLocaleString();
+e('tasks').replaceChildren();for(const [phase,name] of Object.entries(phases)){const v=states[phase]||{},tr=document.createElement('tr');for (const t of [name,v.job_id||'—',words[v.state]||v.state||(phase==='preflight'?'待提交':'等待预检')]){const td=document.createElement('td');td.textContent=t;tr.append(td);}e('tasks').append(tr);}
+e('manual').hidden=!['PREPARING','STARTING_CLIENT','WAITING_TERMINAL','WAITING_SSH'].includes(s.stage);if(!e('manual').hidden&&!e('command').value){const r=await fetch('/start');if(r.ok)e('command').value=(await r.text()).trim();}e('results').hidden=s.stage!=='ACCEPTED';
+}catch{e('status').textContent='暂时无法读取本地状态';}}
+e('copy').onclick=async()=>{try{await navigator.clipboard.writeText(e('command').value);e('copy').textContent='已复制';}catch{e('command').select();e('copy').textContent='已选中，可按 Ctrl+C';}};render();setInterval(render,5000);
+</script></html>
