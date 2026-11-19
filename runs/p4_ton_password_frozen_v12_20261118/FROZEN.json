@@ -1,0 +1,191 @@
+{
+  "runtime_package": "runs/unified_reference_bank_k8192_v1_20261113_early_183987/package",
+  "runtime_manifest_sha256": "c7f659b3c6e77f554bb72e08ecc0acaa4f28895f197f1dd2b43fc8a074e8bce4",
+  "method": {
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "p": 4,
+    "kernel": "g(s)=1-(1-s)^4",
+    "lambda_value": 0.25,
+    "cuts": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "scales": [
+      118.95627975463867,
+      121.3746566772461,
+      122.36117172241211
+    ],
+    "guard": "SYN_AND_NOT_ACK_ALL_DEVICES"
+  },
+  "extra_pins": {
+    "head_27": {
+      "group": "reference",
+      "paths": [
+        "runs/device_context_head_training_v2_20261105/heads/FUSION790_27/train/head.npz"
+      ],
+      "sha256": "738ded855e7c6d72a514579840025b3cc76fa3bf471a5c223b5c4faaf1d86669",
+      "bytes": null
+    },
+    "head_127": {
+      "group": "reference",
+      "paths": [
+        "runs/device_context_head_training_v2_20261105/heads/FUSION790_127/train/head.npz"
+      ],
+      "sha256": "07812cc598801b726bc5213e21278427aa62a0104121b7045dcb0c1b74f5aed5",
+      "bytes": null
+    },
+    "head_227": {
+      "group": "reference",
+      "paths": [
+        "runs/device_context_head_training_v2_20261105/heads/FUSION790_227/train/head.npz"
+      ],
+      "sha256": "ebf23b94d605b6c823fa28dde66b629a851b33a49205c7b074852846582fe59d",
+      "bytes": null
+    },
+    "model:context_core": {
+      "paths": [
+        "runs/device_context_head_training_v2_20261105/context_core.py"
+      ],
+      "sha256": "3860280c3c2aab2dc2effcc7898132fc02cc729e812f62d08cc4455bca71afd2",
+      "bytes": null,
+      "group": "reference"
+    },
+    "model:query_tail_core_v2": {
+      "paths": [
+        "runs/device_context_head_training_v2_20261105/query_tail_core_v2.py"
+      ],
+      "sha256": "9d9f716d2fcef8096b2d3eb77fe380e5d44f9d950bdb7844b362a9387d27de49",
+      "bytes": null,
+      "group": "reference"
+    },
+    "model:continuous_model_v3": {
+      "paths": [
+        "runs/device_context_head_training_v2_20261105/continuous_model_v3.py"
+      ],
+      "sha256": "5f9f07e2a2827e412871880e5fecf3994c13ea6ba8e701dd70f6b798aa851f84",
+      "bytes": null,
+      "group": "reference"
+    },
+    "model:continuous_common_v3": {
+      "paths": [
+        "runs/device_context_head_training_v2_20261105/continuous_common_v3.py"
+      ],
+      "sha256": "e0c4c339ab1c5ff44183cf2e10a70e7471546d0e05f6880424f326b7f2edd235",
+      "bytes": null,
+      "group": "reference"
+    },
+    "model:legacy_qref_data_v1": {
+      "paths": [
+        "runs/device_context_head_training_v2_20261105/legacy_qref_data_v1.py"
+      ],
+      "sha256": "dc575ff12529e1b3dd9e7062d4f05b34dcf1f11c323573fea134d958622c59f5",
+      "bytes": null,
+      "group": "reference"
+    },
+    "model:legacy_qref_common_v1": {
+      "paths": [
+        "runs/device_context_head_training_v2_20261105/legacy_qref_common_v1.py"
+      ],
+      "sha256": "909b01b43c7ec74a70e580a528e2fb70d6bdc18c4c5a3186c142757e8df88334",
+      "bytes": null,
+      "group": "reference"
+    },
+    "model:legacy_qref_model_v1": {
+      "paths": [
+        "runs/device_context_head_training_v2_20261105/legacy_qref_model_v1.py"
+      ],
+      "sha256": "7bfef2d0e6645791e1159cb5191a08b09d9c04d358d86bb6c34cf03880d67aa1",
+      "bytes": null,
+      "group": "reference"
+    },
+    "model:legacy_unsw_archival_common_v1": {
+      "paths": [
+        "runs/device_context_head_training_v2_20261105/legacy_unsw_archival_common_v1.py"
+      ],
+      "sha256": "65aac1bb0b99250bc46173df12316cc49ff5781d21a45f1b97f393ad94f657ad",
+      "bytes": null,
+      "group": "reference"
+    },
+    "model:legacy_unsw_archival_runtime_v1": {
+      "paths": [
+        "runs/device_context_head_training_v2_20261105/legacy_unsw_archival_runtime_v1.py"
+      ],
+      "sha256": "ca69c25cf83e5cef7d06f9f75bbb541688dfb53ab6ab9c7fb027c6fb5d1f137e",
+      "bytes": null,
+      "group": "reference"
+    },
+    "model:legacy_unsw_archival_runtime_v2": {
+      "paths": [
+        "runs/device_context_head_training_v2_20261105/legacy_unsw_archival_runtime_v2.py"
+      ],
+      "sha256": "5dd49f0deb8d3a73f36188a04b0f6dea75ed57dd1401b4a43697f32e586b38a3",
+      "bytes": null,
+      "group": "reference"
+    },
+    "EDGE:query_physical": {
+      "group": "query",
+      "sha256": "837b43088cb5f7e4cbb5f23a1b7d1f0a4b8021dff47821f81112dce37df9fb42",
+      "bytes": 19741006,
+      "paths": [
+        "runs/context_geometry_attribution_v2_20261106/EDGE_PHYSICAL.npz"
+      ]
+    },
+    "CIC_DEV:accepted_geometry": {
+      "group": "query",
+      "sha256": "e99d8866f0eec2b3be3ced469ccead046aaf60474de2d9f9d0bec7190aefb563",
+      "bytes": 181508586,
+      "paths": [
+        "runs/same_bank_context_v6_20261106/CIC_DEV_SAME_BANK.npz"
+      ]
+    },
+    "UNSW_DEV:accepted_geometry": {
+      "group": "query",
+      "sha256": "baa088e8d8b6a89199263f074b07847c1c5477b090e7d4f4ebadc1365676bef9",
+      "bytes": 149654456,
+      "paths": [
+        "runs/same_bank_context_v6_20261106/UNSW_DEV_SAME_BANK.npz"
+      ]
+    },
+    "EDGE:accepted_geometry": {
+      "group": "query",
+      "sha256": "ee36d704f1b34e0f62fe7620ecef8718dba29ac2ff1c527a85887941fe926740",
+      "bytes": 60543612,
+      "paths": [
+        "runs/same_bank_context_v6_20261106/EDGE_SAME_BANK.npz"
+      ]
+    },
+    "CIC_DEV:query_context_uids": {
+      "group": "query",
+      "paths": [
+        "runs/device_context_training_v2_20261105/metadata/CIC_DEV.npz"
+      ],
+      "source": "compare ordered UID during query admission",
+      "sha256": "e5561e323348b89cf67b08962f72d74016812ea67be5f3473b06f12e692afb47",
+      "bytes": null
+    }
+  },
+  "source_config_sha256": "e460660aec618865a1cc03fc69475dbad63b8efacb7d039e39ad8d1b41aa02ff",
+  "source_geometry_sha256": "bab416292669d1cd9d403e18a43005902eb5f42e94ae998a417f44650daf9a30",
+  "original_source": {
+    "rows_file": "CIC_DEV_ROWS.jsonl.gz",
+    "rows_sha256": "d9261f2bf41e9c4462a1cc6becec5d7bbaf5d12f74d10a70a0a9bb2fcc1ba2f1",
+    "array_file": "CIC_DEV_QUERY.npz",
+    "array_sha256": "f2e2957bd14713d28b4089d26ada7a32989f67db0719c379c3387db84a664b15",
+    "views": [
+      "full",
+      "post_window_primary"
+    ],
+    "population": null,
+    "scores_file": "CIC_DEV_CONTROLS.npz",
+    "scores_sha256": "ad78ff384ccff2cb70ff8fa4f7d3251d1874a5c9fa40680f06c4726cc4f8fe8e"
+  },
+  "dense_selector_sha256": "ee44b26450703c06b397e60faa9e7cc538f55167cc50c4d9ec5d21ac65d358a6",
+  "diagnostic_card_sha256": "cfafaf53fe861e84300a9cbd7ab95f63518d31b6484085f64dd01efcc7dae5d5"
+}

@@ -1,0 +1,128 @@
+{
+  "run": "p4_ton_password_frozen_v12_20261118",
+  "sealed_utc": "2026-11-19T06:53:29.527510+00:00",
+  "method": "original v12 FUSION790; evaluated p=3,p=4 before p=4 was chosen; no training or calibration in this run",
+  "hosts": {
+    "192.168.1.152": {
+      "role": "middleware-server",
+      "owner": "ton-role:middleware-server",
+      "main_identity": "UNCONFIRMED",
+      "supplement_identity": "PUBLISHED_FIXED_IP_AND_LOGICAL_ROLE",
+      "reverse_sll_addresses": {
+        "normal1": [
+          "00:0c:29:d2:b0:02"
+        ],
+        "normal2": [
+          "00:0c:29:d2:b0:02"
+        ],
+        "password": [
+          "00:0c:29:28:72:d1",
+          "d4:3b:04:31:39:54"
+        ]
+      },
+      "reverse_sll_changed": true,
+      "independent_cross_capture_evidence_count": 0,
+      "window_start_ns": 1554220324757617000,
+      "window_end_ns": 1554227524757617000,
+      "tested_protocols": [
+        6
+      ]
+    },
+    "192.168.1.190": {
+      "role": "orchestrated-server",
+      "owner": "ton-role:orchestrated-server",
+      "main_identity": "UNCONFIRMED",
+      "supplement_identity": "PUBLISHED_FIXED_IP_AND_LOGICAL_ROLE",
+      "reverse_sll_addresses": {
+        "normal1": [
+          "00:0c:29:ee:e0:7a"
+        ],
+        "normal2": [
+          "00:0c:29:ee:e0:7a"
+        ],
+        "password": [
+          "00:0c:29:18:73:fe",
+          "02:42:f1:3f:c6:bd",
+          "d4:3b:04:31:39:54"
+        ]
+      },
+      "reverse_sll_changed": true,
+      "independent_cross_capture_evidence_count": 0,
+      "window_start_ns": 1554220324757977000,
+      "window_end_ns": 1554227524757977000,
+      "tested_protocols": [
+        6
+      ]
+    },
+    "192.168.1.193": {
+      "role": "windows-7",
+      "owner": "ton-role:windows-7",
+      "main_identity": "UNCONFIRMED",
+      "supplement_identity": "PUBLISHED_FIXED_IP_AND_LOGICAL_ROLE",
+      "reverse_sll_addresses": {
+        "normal1": [
+          "60:14:b3:b1:91:73"
+        ],
+        "normal2": [
+          "60:14:b3:b1:91:73"
+        ],
+        "password": [
+          "00:0c:29:a4:03:f4",
+          "d4:3b:04:31:39:54"
+        ]
+      },
+      "reverse_sll_changed": true,
+      "independent_cross_capture_evidence_count": 0,
+      "window_start_ns": 1554220335875204000,
+      "window_end_ns": 1554227535875204000,
+      "tested_protocols": [
+        6
+      ]
+    },
+    "192.168.1.195": {
+      "role": "windows-10",
+      "owner": "ton-role:windows-10",
+      "main_identity": "UNCONFIRMED",
+      "supplement_identity": "PUBLISHED_FIXED_IP_AND_LOGICAL_ROLE",
+      "reverse_sll_addresses": {
+        "normal1": [
+          "00:0c:29:a8:3a:da"
+        ],
+        "normal2": [
+          "00:0c:29:a8:3a:da"
+        ],
+        "password": [
+          "00:0c:29:b9:c9:36",
+          "d4:3b:04:31:39:54"
+        ]
+      },
+      "reverse_sll_changed": true,
+      "independent_cross_capture_evidence_count": 0,
+      "window_start_ns": 1554220324758079000,
+      "window_end_ns": 1554227524758079000,
+      "tested_protocols": [
+        6
+      ]
+    }
+  },
+  "head_order": [
+    "27",
+    "127",
+    "227",
+    "ensemble"
+  ],
+  "source_scope": "Three existing captures; password-associated Zeek connections, not independent password attempts.",
+  "owner_source": "Moustafa et al., Data Analytics-enabled Intrusion Detection, Figure 2 and section III (https://arxiv.org/pdf/2010.08521); original project topology DOI 10.1016/j.scs.2021.102994.",
+  "answer": "Main requires independent cross-file identity. Supplemental permits the same documented logical role at its fixed IP. No other changes.",
+  "normal_rule": "All inbound normal_2 packets of a matched target/protocol; reset v12 namespace at each original file. A single append-order Wireshark stream pass identifies continuations from normal_1; include once and report separately.",
+  "reference": "Earliest continuous same-target normal_1 segment covering a real 7200 seconds. Use the frozen B2 anchors and component-balanced dense 4096 cap per device/protocol. No additional earlier independent history is registered.",
+  "eligibility": "Unique protected endpoint in original frame and v12 causal/header admissibility. IP source and destination bind owner direction in SLL; no Ethernet destination MAC is manufactured.",
+  "metrics": "Per target, seed and ensemble, all/off-bypass/off-bypass with data. A=RAW positive attack queries in the paired layer, B=count of those with s>0, W=count of those actually withdrawn; verify W<=B<=A. Rates (A-W)/A and W/B; zero denominator NA. Unpaired groups have all CCNR numerators and rates explicitly rendered as 未评价 (NOT_EVALUATED).",
+  "proofs": {
+    "LOCAL_CENSUS.json": "9145405fedf99874c265911bb1c5615af71183ac79446df1436c6c05004768f2",
+    "RAW_HOST_EVIDENCE.json": "c6d69d390c86fb205ce4a67c1dedd43cdae824cc8889f3cf1ab20f01a185d10a",
+    "HOST_IDENTITY_AUDIT.json": "2933cd79f7d61795993a5addf4d4330dccca955bdfc07a22d108dc45db4b16fd",
+    "SCOPED_INPUTS.json": "d67cf1721bec10c64f69a7222f2ede3394fd3e804531bde0f647d1a68d15e95c"
+  },
+  "initial_card_sha256_before_display_clarification": "b49947e726c38d34259561c7c0f461eb8548bf839bbe643bc236efea8e76c06e"
+}

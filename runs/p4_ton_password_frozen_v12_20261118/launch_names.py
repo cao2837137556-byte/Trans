@@ -1,0 +1,26 @@
+"""Files allowed to leave the HPC result directory."""
+
+SMALL_OUTPUTS = {
+    "INSTALL.json",
+    "ASSET_INVENTORY.json",
+    "MODEL_FREEZE_CHECK.json",
+    "VERIFIED_INPUTS.json",
+    "PREFLIGHT.json",
+    "PREPARATION.json",
+    "ENCODING_RECEIPT.json",
+    "SCIENCE.json",
+    "SCHEDULER.json",
+    "RESOURCES.json",
+    "HPC_ARTIFACT_SHA.json",
+    "ADMISSION_COUNTS.csv",
+    "TARGET_IDENTITY.csv",
+    "RAW_TARGETS.csv",
+    "RAW_INFERENCE.json",
+    "CCNR_MAIN.csv",
+    "CCNR_PAIRED.csv",
+    "NORMAL_BOUNDARY.csv",
+    "RESULTS_FOR_PAPER.md",
+    "ACCEPTANCE.json",
+    "CONTROLLER_FAILURE.json",
+    "FAILURE_DETAIL.json",
+}

@@ -1,0 +1,144 @@
+{
+  "run": "p4_ton_password_frozen_v12_20261118",
+  "sources": {
+    "normal1": {
+      "file": "normal_1.pcap",
+      "bytes": 1177084172,
+      "sha256": "9463135bbb3ab8f6e27a459c6be117e79f72ff8e434b7e70478ed70f4f8bf3c5",
+      "paths": [
+        "datasets/external/ton_iot_raw_network/raw_pcap_pilot_v1/normal_1.pcap",
+        "worktrees/kitnet-exp-mainline/datasets/external/ton_iot_raw_network/raw_pcap_pilot_v1/normal_1.pcap",
+        "external/ton_iot_raw_network/raw_pcap_pilot_v1/normal_1.pcap"
+      ],
+      "container": "pcapng",
+      "complete_packets": 2000000,
+      "min_ns": 1554220324748197000,
+      "max_ns": 1554230126478739000,
+      "tail": null
+    },
+    "normal2": {
+      "file": "normal_2.pcap",
+      "bytes": 1151429180,
+      "sha256": "e7b2e1d7a54b34f8af190693f34cd5d09b3d8248826627bb1e8245ca47ae76ba",
+      "paths": [
+        "datasets/external/ton_iot_raw_network/raw_pcap_pilot_v1/normal_2.pcap",
+        "worktrees/kitnet-exp-mainline/datasets/external/ton_iot_raw_network/raw_pcap_pilot_v1/normal_2.pcap",
+        "external/ton_iot_raw_network/raw_pcap_pilot_v1/normal_2.pcap"
+      ],
+      "container": "pcapng",
+      "complete_packets": 2000000,
+      "min_ns": 1554230126485415000,
+      "max_ns": 1554241002648209000,
+      "tail": null
+    },
+    "password": {
+      "file": "password_normal1.pcap",
+      "bytes": 560091136,
+      "sha256": "5be996df9ae286f11f66f78708292ed8fade7d135c05514aff3e3d298fd17844",
+      "paths": [
+        "datasets/external/ton_iot_raw_network/raw_pcap_pilot_v1/password_normal1.pcap",
+        "worktrees/kitnet-exp-mainline/datasets/external/ton_iot_raw_network/raw_pcap_pilot_v1/password_normal1.pcap",
+        "external/ton_iot_raw_network/raw_pcap_pilot_v1/password_normal1.pcap"
+      ],
+      "container": "pcap",
+      "complete_packets": 2351034,
+      "min_ns": 1556286289043806000,
+      "max_ns": 1556298252959980000,
+      "tail": {
+        "sha256": "5be996df9ae286f11f66f78708292ed8fade7d135c05514aff3e3d298fd17844",
+        "matches_legacy_manifest": true,
+        "complete_records": 2351034,
+        "partial_record_start_bytes": 560091071,
+        "declared_captured_bytes": 523,
+        "available_record_body_bytes": 49,
+        "missing_record_body_bytes": 474
+      }
+    },
+    "zeek": {
+      "file": "conn.log",
+      "bytes": 35350675,
+      "sha256": "a8febe6536bbff35352c42f730c1c16b11e1c057bffc5188062cf67b21b98208",
+      "paths": [
+        "datasets/external/ton_iot_raw_network/extracted/Network_dataset_Bro/normal_attack_Bro/normal_password/password_normal_1/conn.log",
+        "worktrees/kitnet-exp-mainline/datasets/external/ton_iot_raw_network/extracted/Network_dataset_Bro/normal_attack_Bro/normal_password/password_normal_1/conn.log",
+        "external/ton_iot_raw_network/extracted/Network_dataset_Bro/normal_attack_Bro/normal_password/password_normal_1/conn.log"
+      ]
+    },
+    "events": {
+      "file": "GroundTruth_Network_14.csv",
+      "bytes": 58304423,
+      "sha256": "2411ab4164dd93caeba360ef650b938e40e194673085079aa444c04814c39517",
+      "paths": [
+        "datasets/external/ton_iot_raw_network/extracted/SecurityEvents_Network_datasets/GroundTruth_Network_14.csv",
+        "worktrees/kitnet-exp-mainline/datasets/external/ton_iot_raw_network/extracted/SecurityEvents_Network_datasets/GroundTruth_Network_14.csv",
+        "external/ton_iot_raw_network/extracted/SecurityEvents_Network_datasets/GroundTruth_Network_14.csv"
+      ]
+    },
+    "normal1log": {
+      "file": "conn.log",
+      "bytes": 813247,
+      "sha256": "380708f68982eeb90f5f2fa3731b0a212c03eea2269854af142f2c3bb8b294bb",
+      "paths": [
+        "datasets/external/ton_iot_raw_network/extracted/Network_dataset_Bro/normal_Bro/normal_1/conn.log",
+        "worktrees/kitnet-exp-mainline/datasets/external/ton_iot_raw_network/extracted/Network_dataset_Bro/normal_Bro/normal_1/conn.log",
+        "external/ton_iot_raw_network/extracted/Network_dataset_Bro/normal_Bro/normal_1/conn.log"
+      ]
+    },
+    "normal2log": {
+      "file": "conn.log",
+      "bytes": 822188,
+      "sha256": "bec69daf0c9ee453f898a1b3b09ae863336d9eff9a749ccfc3c71999a50a2b51",
+      "paths": [
+        "datasets/external/ton_iot_raw_network/extracted/Network_dataset_Bro/normal_Bro/normal_2/conn.log",
+        "worktrees/kitnet-exp-mainline/datasets/external/ton_iot_raw_network/extracted/Network_dataset_Bro/normal_Bro/normal_2/conn.log",
+        "external/ton_iot_raw_network/extracted/Network_dataset_Bro/normal_Bro/normal_2/conn.log"
+      ]
+    }
+  },
+  "registered_hosts": [
+    "192.168.1.152",
+    "192.168.1.184",
+    "192.168.1.190",
+    "192.168.1.192",
+    "192.168.1.193",
+    "192.168.1.194",
+    "192.168.1.195"
+  ],
+  "registered_origins": [
+    "192.168.1.30",
+    "192.168.1.31",
+    "192.168.1.32",
+    "192.168.1.33",
+    "192.168.1.34",
+    "192.168.1.35",
+    "192.168.1.36",
+    "192.168.1.37",
+    "192.168.1.38",
+    "192.168.1.39"
+  ],
+  "source_rule": "https://doi.org/10.1016/j.scs.2021.102994",
+  "census_sha256": "a10249ea7aa405f741d2c251db88901a2b6f427477090b63be58a45f768f1174",
+  "candidate_counts": {
+    "responder_ips_with_frames": 4,
+    "frames": 326961,
+    "connections_frames": 76677,
+    "off_guard": 246398,
+    "connections_off_guard": 58794,
+    "off_guard_with_transport_data": 62087,
+    "connections_off_guard_with_transport_data": 58114
+  },
+  "matching_normal_inbound": [
+    328290,
+    180975
+  ],
+  "original_sample": {
+    "responder_ips_with_frames": 4,
+    "frames": 7244,
+    "connections_frames": 1701,
+    "off_guard": 5446,
+    "connections_off_guard": 1296,
+    "off_guard_with_transport_data": 1384,
+    "connections_off_guard_with_transport_data": 1281
+  },
+  "sample_manifest_sha256": "c637e1e50d86252a590c216c286f53411b83facb60f44be3989afbab1b032fcb"
+}

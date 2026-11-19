@@ -1,0 +1,48 @@
+{
+  "available_evidence": {
+    "192.168.1.152": {
+      "server_certificate_or_dhcp_identity_counts": {
+        "normal1": 0,
+        "normal2": 0,
+        "password": 0
+      },
+      "same_fingerprints": []
+    },
+    "192.168.1.190": {
+      "server_certificate_or_dhcp_identity_counts": {
+        "normal1": 0,
+        "normal2": 0,
+        "password": 0
+      },
+      "same_fingerprints": []
+    },
+    "192.168.1.193": {
+      "server_certificate_or_dhcp_identity_counts": {
+        "normal1": 0,
+        "normal2": 0,
+        "password": 0
+      },
+      "same_fingerprints": []
+    },
+    "192.168.1.195": {
+      "server_certificate_or_dhcp_identity_counts": {
+        "normal1": 0,
+        "normal2": 0,
+        "password": 0
+      },
+      "same_fingerprints": []
+    }
+  },
+  "source_hashes": {
+    "normal1/ssl.log": "05b2ca2df58dd8453df2b80a8d44e29cd347babe4df889fb47254a3d52c18760",
+    "normal1/x509.log": "3f2dd200569482e1ce90f33b1fda578fcf3511d5cf9efa6d8f38ca268975d361",
+    "normal1/dhcp.log": "7d4433d6a80726e58dd9fe74ab6b7b70ebc68050cd19f077d751bb406e795c46",
+    "normal2/ssl.log": "f43368e57d600c304d94c5c7a833ae76970599531e4db94525097e96b8cd5da4",
+    "normal2/x509.log": "d4813456505ce3a2b2691a3fb493c59cbbc65593db8440450fbf9f0953665a18",
+    "normal2/dhcp.log": "43e4f59f04474158d00e2de9ba0dae46ae894a6e2ab84cd5821a60abca078407",
+    "password/ssl.log": "033a9779b985069d30975ae74d034accdf87ce22e9941cdb8fc9a6be2b8d1508",
+    "password/x509.log": "c115aacdd94cb1bfa502d50c07a015e088b5a9805fc304868753636ef59c7203",
+    "password/dhcp.log": "237abedf1304afe2ddb5e6ed51c26ecb17a3854d9f13a3e72f5b1d64f533fc28"
+  },
+  "scope": "Existing matching capture Zeek summaries. Leaf certificate metadata and associated DHCP name corroboration only; no payload or authentication values exported."
+}
