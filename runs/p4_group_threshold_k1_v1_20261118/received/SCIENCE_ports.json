@@ -1,0 +1,228 @@
+{
+  "status": "PASS",
+  "job_id": "185325",
+  "preflight_job": "185318",
+  "rule_sha256": "c75dff0f0f8779c73d425e8e519934ae6a6e71d09224e6dcdc1e78515f8e2eb3",
+  "package_sha256": "8747e427d3dceae12a583a2d3fd964a0c6e33095a26bcd15f58a3af77b7fb3a5",
+  "pools": {
+    "CIC_DEV": {
+      "role_evidence": {
+        "a30": {
+          "status": "READ",
+          "requested": 16,
+          "role_bound": 16,
+          "sha256": "ae762e6333698ae94adfb652b37d21eea12d04ebdd1d5a92ac18ab68a6f0f23d"
+        },
+        "a31": {
+          "status": "READ",
+          "requested": 12,
+          "role_bound": 12,
+          "sha256": "ba5b3c67ebeb2d38737046d3a64a70113ad52252afe25248ed30f0e52da7adf6"
+        },
+        "a32": {
+          "status": "READ",
+          "requested": 18,
+          "role_bound": 18,
+          "sha256": "0a0332a5f5f6a5b0381faa33abfa95e0af19aed77f08858d464bdcacd63787f2"
+        }
+      },
+      "ranked_donor_rows_requested": 112,
+      "canonical_id_bound": 8863,
+      "canonical_unknown": 0,
+      "ref_rows": 8863,
+      "ephemeral_allocation": "unknown without operating-system allocation evidence",
+      "changed_donor_index": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_group_threshold_k1_v1_20261118/artifacts/CIC_DEV_changed_donors.jsonl.gz",
+        "file": "CIC_DEV_changed_donors.jsonl.gz",
+        "sha256": "ad1b4d2cff7aa40284c906ce1d8659a909c8bcc60a1af065a68153ffafba44ea",
+        "bytes": 12411,
+        "rows": 119
+      },
+      "rows": 179886,
+      "query_uid_sha256": "1b13ef4d89e5652d6c24931ab895842b58cce655249cf978ff3d1cdded04f35d",
+      "reference_uid_sha256": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2"
+    },
+    "UNSW_DEV": {
+      "role_evidence": {
+        "a18": {
+          "status": "READ",
+          "requested": 221,
+          "role_bound": 221,
+          "sha256": "45d1bd14569950ab6c356bac70a7870b2a0d98a4efc8e3e6d2310ef422e212f5"
+        },
+        "a21": {
+          "status": "READ",
+          "requested": 756,
+          "role_bound": 756,
+          "sha256": "445b24a2555bd4af7991e83752ad63aba1cd9f1c96e7cbbd76da6a81b6dcbc64"
+        },
+        "a24": {
+          "status": "READ",
+          "requested": 1217,
+          "role_bound": 1217,
+          "sha256": "55fbfcbb4f5dce65ac51a41658550e087da1d1e2b30370386eb167c4d9dfedf9"
+        },
+        "a27": {
+          "status": "READ",
+          "requested": 944,
+          "role_bound": 944,
+          "sha256": "e4eb79d34e3e45e3de71190ce65a2449be4989d663a6e13d7f26b4e928d13006"
+        }
+      },
+      "ranked_donor_rows_requested": 6983,
+      "canonical_id_bound": 66082,
+      "canonical_unknown": 0,
+      "ref_rows": 66082,
+      "ephemeral_allocation": "unknown without operating-system allocation evidence",
+      "changed_donor_index": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_group_threshold_k1_v1_20261118/artifacts/UNSW_DEV_changed_donors.jsonl.gz",
+        "file": "UNSW_DEV_changed_donors.jsonl.gz",
+        "sha256": "ba42c83adb3355bfa1032d915b9a6100dc66e057537e0b57de18c4cf365f98ae",
+        "bytes": 6929440,
+        "rows": 44232
+      },
+      "rows": 148316,
+      "query_uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+      "reference_uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6"
+    },
+    "EDGE": {
+      "role_evidence": {
+        "edge_published_endpoint": {
+          "owner": "dc:a6:32:fb:69:b5",
+          "ip": "192.168.0.128",
+          "source": "runs/edge_external_test1_engineering_v1_20261103/adapter/edge_adapter.py",
+          "sha256": "000fcf92592ca212c23537bfcda0b74c73cbf84a783813f01f5f997e4155db3b"
+        }
+      },
+      "ranked_donor_rows_requested": 2312,
+      "canonical_id_bound": 4124,
+      "canonical_unknown": 0,
+      "ref_rows": 4124,
+      "ephemeral_allocation": "unknown without operating-system allocation evidence",
+      "changed_donor_index": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_group_threshold_k1_v1_20261118/artifacts/EDGE_changed_donors.jsonl.gz",
+        "file": "EDGE_changed_donors.jsonl.gz",
+        "sha256": "d12dd6aa97fc3ec49b91b3cfb49f1879560147a4cae00da5b7248e9f8f91da5e",
+        "bytes": 1496546,
+        "rows": 16783
+      },
+      "rows": 60000,
+      "query_uid_sha256": "cec6dcd9399b5286fe8325828aaa7acb4584d6dd28c867fb76cbc7e17a7c5404",
+      "reference_uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e"
+    }
+  },
+  "outputs": {
+    "PORT_HEADLINE.csv": {
+      "file": "PORT_HEADLINE.csv",
+      "sha256": "a52c46fc937fafea02c4b378e6131e14950a77b6063547d2a70af384ccb1013f",
+      "bytes": 108920
+    },
+    "PORT_BY_DEVICE.csv": {
+      "file": "PORT_BY_DEVICE.csv",
+      "sha256": "3333c12684f7990c15bfa86911947ab074dca3e531cf549e0ce024d829d14a25",
+      "bytes": 57504
+    }
+  },
+  "inputs": {
+    "CIC_DEV:query_rows": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/CIC_DEV_ROWS.jsonl.gz",
+      "bytes": 20594384,
+      "sha256": "d9261f2bf41e9c4462a1cc6becec5d7bbaf5d12f74d10a70a0a9bb2fcc1ba2f1"
+    },
+    "CIC_DEV:query_array": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/CIC_DEV_QUERY.npz",
+      "bytes": 63283362,
+      "sha256": "f2e2957bd14713d28b4089d26ada7a32989f67db0719c379c3387db84a664b15"
+    },
+    "CIC_DEV:query_scores": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/CIC_DEV_CONTROLS.npz",
+      "bytes": 92103916,
+      "sha256": "ad78ff384ccff2cb70ff8fa4f7d3251d1874a5c9fa40680f06c4726cc4f8fe8e"
+    },
+    "a30": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v2_20261106/assets/a30",
+      "bytes": 43027,
+      "sha256": "ae762e6333698ae94adfb652b37d21eea12d04ebdd1d5a92ac18ab68a6f0f23d"
+    },
+    "a31": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v2_20261106/assets/a31",
+      "bytes": 41596,
+      "sha256": "ba5b3c67ebeb2d38737046d3a64a70113ad52252afe25248ed30f0e52da7adf6"
+    },
+    "a32": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v2_20261106/assets/a32",
+      "bytes": 28043,
+      "sha256": "0a0332a5f5f6a5b0381faa33abfa95e0af19aed77f08858d464bdcacd63787f2"
+    },
+    "UNSW_DEV:query_rows": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/UNSW_DEV_ROWS.jsonl.gz",
+      "bytes": 16623734,
+      "sha256": "19c001eb4f0c67cf07ed08edb98ee5b105b9b22539ff9433e80736f8074899d8"
+    },
+    "UNSW_DEV:query_array": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/UNSW_DEV_QUERY.npz",
+      "bytes": 52198482,
+      "sha256": "4699def51df6ffc3e0c3b04b2bc820815caa65f9335aabaa3febd9f8906b9186"
+    },
+    "UNSW_DEV:query_scores": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/UNSW_DEV_CONTROLS.npz",
+      "bytes": 75940076,
+      "sha256": "3f6398bfa7c0c085c43b6d801d4ac5e62763fd96590e4b6bb08f1746a2ec7f0c"
+    },
+    "a18": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/data_external/unsw_iotraffic_2025/raw_selected/TPLinkSmartPlug_50c7bf005639.pcap",
+      "bytes": 12682108,
+      "sha256": "45d1bd14569950ab6c356bac70a7870b2a0d98a4efc8e3e6d2310ef422e212f5"
+    },
+    "a19": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/data_external/unsw_iotraffic_2025/timeline_index/TPLinkSmartPlug_50c7bf005639.packet_index.npy",
+      "bytes": 2552992,
+      "sha256": "a96028abcbe562fc0704b68b3695c7f99ffd629ad152b9a565e1b3c96d847299"
+    },
+    "a21": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/data_external/unsw_iotraffic_2025/raw_selected/BelkinWemoSwitch_ec1a5979f489.pcap",
+      "bytes": 1102039280,
+      "sha256": "445b24a2555bd4af7991e83752ad63aba1cd9f1c96e7cbbd76da6a81b6dcbc64"
+    },
+    "a22": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/data_external/unsw_iotraffic_2025/timeline_index/BelkinWemoSwitch_ec1a5979f489.packet_index.npy",
+      "bytes": 136756832,
+      "sha256": "00273d29f728b26b8b3e3219a5bb12ac17a4e8f34763e7ecc0687e3e0cdea733"
+    },
+    "a24": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/data_external/unsw_iotraffic_2025/raw_selected/SamsungCamera_00166cab6b88.pcap",
+      "bytes": 2154137280,
+      "sha256": "55fbfcbb4f5dce65ac51a41658550e087da1d1e2b30370386eb167c4d9dfedf9"
+    },
+    "a25": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/data_external/unsw_iotraffic_2025/timeline_index/SamsungCamera_00166cab6b88.packet_index.npy",
+      "bytes": 188173120,
+      "sha256": "2a639b7cba9961cb8608d5f5b2c9f2b5ab8bb3b7e7469899aaf77973ac56f8a2"
+    },
+    "a27": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/data_external/unsw_iotraffic_2025/raw_selected/NetatmoWelcome_70ee50183443.pcap",
+      "bytes": 2206626972,
+      "sha256": "e4eb79d34e3e45e3de71190ce65a2449be4989d663a6e13d7f26b4e928d13006"
+    },
+    "a28": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/data_external/unsw_iotraffic_2025/timeline_index/NetatmoWelcome_70ee50183443.packet_index.npy",
+      "bytes": 158944576,
+      "sha256": "f84357e735e4bf0a0214adf1dcd8627141c6469679d5b07e8f97c14c0d55dec6"
+    },
+    "EDGE:query_rows": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/EDGE_ROWS.jsonl.gz",
+      "bytes": 14376265,
+      "sha256": "06da9eee66654a0ae12b7ad33d89b12091b934df29f33a5ab71d9118ad798da3"
+    },
+    "EDGE:query_array": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/EDGE_QUERY.npz",
+      "bytes": 20641492,
+      "sha256": "e248c3c12bc992804fb0479955d54a58be79e682bfa3d15b7d982172980596ee"
+    },
+    "EDGE:query_scores": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/EDGE_CONTROLS.npz",
+      "bytes": 30722284,
+      "sha256": "a893e72106a94e4dad67ae6302e8851a732d2749f9731d371b42bf7b1d756f74"
+    }
+  }
+}

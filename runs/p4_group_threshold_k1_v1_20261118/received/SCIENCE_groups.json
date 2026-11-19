@@ -1,0 +1,136 @@
+{
+  "status": "PASS",
+  "job_id": "185321",
+  "preflight_job": "185318",
+  "rule_sha256": "c75dff0f0f8779c73d425e8e519934ae6a6e71d09224e6dcdc1e78515f8e2eb3",
+  "package_sha256": "8747e427d3dceae12a583a2d3fd964a0c6e33095a26bcd15f58a3af77b7fb3a5",
+  "pools": {
+    "CIC_DEV": {
+      "original_metric_rows": 1488,
+      "query_routes": {
+        "APPLIED_FIT": 141130,
+        "APPLIED_EMPTY": 1190,
+        "APPLIED_ALL_BYPASS": 0,
+        "APPLIED_SMALL": 18355,
+        "APPLIED_PRE_OPEN": 4789,
+        "APPLIED_BYPASS": 14422
+      },
+      "changed": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_group_threshold_k1_v1_20261118/artifacts/groups_CIC_DEV_changed.jsonl.gz",
+        "file": "groups_CIC_DEV_changed.jsonl.gz",
+        "sha256": "1a04086d0393f8e3bc0678690adf229bafd62b937090487963defd851b4b6909",
+        "bytes": 64101,
+        "rows": 1407
+      },
+      "rows": 179886,
+      "query_uid_sha256": "1b13ef4d89e5652d6c24931ab895842b58cce655249cf978ff3d1cdded04f35d",
+      "reference_uid_sha256": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2"
+    },
+    "UNSW_DEV": {
+      "original_metric_rows": 1848,
+      "query_routes": {
+        "APPLIED_FIT": 67146,
+        "APPLIED_EMPTY": 0,
+        "APPLIED_ALL_BYPASS": 0,
+        "APPLIED_SMALL": 5731,
+        "APPLIED_PRE_OPEN": 1319,
+        "APPLIED_BYPASS": 74120
+      },
+      "changed": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_group_threshold_k1_v1_20261118/artifacts/groups_UNSW_DEV_changed.jsonl.gz",
+        "file": "groups_UNSW_DEV_changed.jsonl.gz",
+        "sha256": "d8f7218e22a397d13200f0bc83e09e43efe8ed882a9e28e306ec955027bdc96f",
+        "bytes": 1935661,
+        "rows": 44395
+      },
+      "rows": 148316,
+      "query_uid_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+      "reference_uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6"
+    },
+    "EDGE": {
+      "original_metric_rows": 792,
+      "query_routes": {
+        "APPLIED_FIT": 30183,
+        "APPLIED_EMPTY": 0,
+        "APPLIED_ALL_BYPASS": 0,
+        "APPLIED_SMALL": 20497,
+        "APPLIED_PRE_OPEN": 0,
+        "APPLIED_BYPASS": 9320
+      },
+      "changed": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_group_threshold_k1_v1_20261118/artifacts/groups_EDGE_changed.jsonl.gz",
+        "file": "groups_EDGE_changed.jsonl.gz",
+        "sha256": "4eb90ceec26e2c3e67100f013c81c79ddfe4832ee2e87d4e19cf08537b062334",
+        "bytes": 1969841,
+        "rows": 45804
+      },
+      "rows": 60000,
+      "query_uid_sha256": "cec6dcd9399b5286fe8325828aaa7acb4584d6dd28c867fb76cbc7e17a7c5404",
+      "reference_uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e"
+    }
+  },
+  "outputs": {
+    "GROUP_HEADLINE.csv": {
+      "file": "GROUP_HEADLINE.csv",
+      "sha256": "1a98beb3445ca403380b94bf9be492e0c8ab972967ed51c225ac12b869f6099a",
+      "bytes": 28335
+    },
+    "GROUP_METRICS.csv": {
+      "file": "GROUP_METRICS.csv",
+      "sha256": "4cfb497a176b9a08078d2e686759aa1be71179153e13d0f5607b83d585ef0b82",
+      "bytes": 1358793
+    },
+    "GROUP_PAIRS.csv": {
+      "file": "GROUP_PAIRS.csv",
+      "sha256": "3ac10525ef4f6678343428a1f03b05f5288df6c65d739ff32471aaaf38b837a0",
+      "bytes": 2289556
+    }
+  },
+  "inputs": {
+    "CIC_DEV:query_rows": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/CIC_DEV_ROWS.jsonl.gz",
+      "bytes": 20594384,
+      "sha256": "d9261f2bf41e9c4462a1cc6becec5d7bbaf5d12f74d10a70a0a9bb2fcc1ba2f1"
+    },
+    "CIC_DEV:query_array": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/CIC_DEV_QUERY.npz",
+      "bytes": 63283362,
+      "sha256": "f2e2957bd14713d28b4089d26ada7a32989f67db0719c379c3387db84a664b15"
+    },
+    "CIC_DEV:query_scores": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/CIC_DEV_CONTROLS.npz",
+      "bytes": 92103916,
+      "sha256": "ad78ff384ccff2cb70ff8fa4f7d3251d1874a5c9fa40680f06c4726cc4f8fe8e"
+    },
+    "UNSW_DEV:query_rows": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/UNSW_DEV_ROWS.jsonl.gz",
+      "bytes": 16623734,
+      "sha256": "19c001eb4f0c67cf07ed08edb98ee5b105b9b22539ff9433e80736f8074899d8"
+    },
+    "UNSW_DEV:query_array": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/UNSW_DEV_QUERY.npz",
+      "bytes": 52198482,
+      "sha256": "4699def51df6ffc3e0c3b04b2bc820815caa65f9335aabaa3febd9f8906b9186"
+    },
+    "UNSW_DEV:query_scores": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/UNSW_DEV_CONTROLS.npz",
+      "bytes": 75940076,
+      "sha256": "3f6398bfa7c0c085c43b6d801d4ac5e62763fd96590e4b6bb08f1746a2ec7f0c"
+    },
+    "EDGE:query_rows": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/EDGE_ROWS.jsonl.gz",
+      "bytes": 14376265,
+      "sha256": "06da9eee66654a0ae12b7ad33d89b12091b934df29f33a5ab71d9118ad798da3"
+    },
+    "EDGE:query_array": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/EDGE_QUERY.npz",
+      "bytes": 20641492,
+      "sha256": "e248c3c12bc992804fb0479955d54a58be79e682bfa3d15b7d982172980596ee"
+    },
+    "EDGE:query_scores": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_complete_bank_v1_20261111/artifacts/EDGE_CONTROLS.npz",
+      "bytes": 30722284,
+      "sha256": "a893e72106a94e4dad67ae6302e8851a732d2749f9731d371b42bf7b1d756f74"
+    }
+  }
+}

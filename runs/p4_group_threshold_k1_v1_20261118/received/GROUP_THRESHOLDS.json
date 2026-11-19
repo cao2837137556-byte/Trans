@@ -1,0 +1,1482 @@
+{
+  "status": "SEALED",
+  "rule_sha256": "c75dff0f0f8779c73d425e8e519934ae6a6e71d09224e6dcdc1e78515f8e2eb3",
+  "reference_only": true,
+  "preflight_job": "185318",
+  "prior_threshold_sha256": "8cdcab82c9f9de08cfb7bc95e453be782fe33ff0ec8e3d01acf2af73e102e2da",
+  "source_cuts": [
+    -23.04324722290039,
+    -23.315204620361328,
+    -22.614715576171875,
+    -23.2497984568278
+  ],
+  "pools": {
+    "CIC_DEV": {
+      "groups": {
+        "Eufy Home Base|6": {
+          "device": "Eufy Home Base",
+          "protocol": 6,
+          "reference_rows": 0,
+          "eligible_rows": 0,
+          "conditional_mass_before_normalization": 0.0,
+          "captures": 0,
+          "components": 0,
+          "n_eff": 0.0,
+          "eligible_components": 0,
+          "reason": "EMPTY",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.04324722290039,
+                "strict_mass": null,
+                "tie_mass": null,
+                "above_count": 0
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -17.53642463684082,
+                "strict_mass": null,
+                "tie_mass": null,
+                "above_count": 0
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.315204620361328,
+                "strict_mass": null,
+                "tie_mass": null,
+                "above_count": 0
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -18.035400390625,
+                "strict_mass": null,
+                "tie_mass": null,
+                "above_count": 0
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -22.614715576171875,
+                "strict_mass": null,
+                "tie_mass": null,
+                "above_count": 0
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -17.009965896606445,
+                "strict_mass": null,
+                "tie_mass": null,
+                "above_count": 0
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.2497984568278,
+                "strict_mass": null,
+                "tie_mass": null,
+                "above_count": 0
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -17.64753786722819,
+                "strict_mass": null,
+                "tie_mass": null,
+                "above_count": 0
+              }
+            }
+          }
+        },
+        "Eufy Home Base|17": {
+          "device": "Eufy Home Base",
+          "protocol": 17,
+          "reference_rows": 3724,
+          "eligible_rows": 3724,
+          "conditional_mass_before_normalization": 1.0,
+          "captures": 1,
+          "components": 347,
+          "n_eff": 3223.0142864729937,
+          "eligible_components": 347,
+          "reason": "FIT",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -40.480995178222656,
+                "strict_mass": 0.009798270893371758,
+                "tie_mass": 0.00028818443804034583,
+                "above_count": 34
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -40.480995178222656,
+                "strict_mass": 0.009798270893371758,
+                "tie_mass": 0.00028818443804034583,
+                "above_count": 34
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -39.58718490600586,
+                "strict_mass": 0.009806276016650657,
+                "tie_mass": 0.00028818443804034583,
+                "above_count": 35
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -39.58718490600586,
+                "strict_mass": 0.009806276016650657,
+                "tie_mass": 0.00028818443804034583,
+                "above_count": 35
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -33.98528289794922,
+                "strict_mass": 0.009798270893371758,
+                "tie_mass": 0.00028818443804034583,
+                "above_count": 34
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -33.98528289794922,
+                "strict_mass": 0.009798270893371758,
+                "tie_mass": 0.00028818443804034583,
+                "above_count": 34
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -38.015010833740234,
+                "strict_mass": 0.009798270893371758,
+                "tie_mass": 0.00028818443804034583,
+                "above_count": 34
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -38.015010833740234,
+                "strict_mass": 0.009798270893371758,
+                "tie_mass": 0.00028818443804034583,
+                "above_count": 34
+              }
+            }
+          }
+        },
+        "HeimVision Camera|6": {
+          "device": "HeimVision Camera",
+          "protocol": 6,
+          "reference_rows": 2734,
+          "eligible_rows": 2734,
+          "conditional_mass_before_normalization": 1.0,
+          "captures": 4,
+          "components": 2,
+          "n_eff": 373.7592035353905,
+          "eligible_components": 2,
+          "reason": "FIT",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -17.478382110595703,
+                "strict_mass": 0.009916699722332408,
+                "tie_mass": 9.916699722332408e-05,
+                "above_count": 100
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -17.478382110595703,
+                "strict_mass": 0.009916699722332408,
+                "tie_mass": 9.916699722332408e-05,
+                "above_count": 100
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -18.203142166137695,
+                "strict_mass": 0.009923400195117768,
+                "tie_mass": 0.0033783783783783786,
+                "above_count": 67
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -18.203142166137695,
+                "strict_mass": 0.009923400195117768,
+                "tie_mass": 0.0033783783783783786,
+                "above_count": 67
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -16.815670013427734,
+                "strict_mass": 0.009916699722332408,
+                "tie_mass": 9.916699722332408e-05,
+                "above_count": 100
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -16.815670013427734,
+                "strict_mass": 0.009916699722332408,
+                "tie_mass": 9.916699722332408e-05,
+                "above_count": 100
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -17.16612497965495,
+                "strict_mass": 0.009923400195117768,
+                "tie_mass": 9.916699722332408e-05,
+                "above_count": 67
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -17.16612497965495,
+                "strict_mass": 0.009923400195117768,
+                "tie_mass": 9.916699722332408e-05,
+                "above_count": 67
+              }
+            }
+          }
+        },
+        "HeimVision Camera|17": {
+          "device": "HeimVision Camera",
+          "protocol": 17,
+          "reference_rows": 2405,
+          "eligible_rows": 2405,
+          "conditional_mass_before_normalization": 1.0,
+          "captures": 4,
+          "components": 12,
+          "n_eff": 98.8085120568284,
+          "eligible_components": 12,
+          "reason": "SMALL",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.04324722290039,
+                "strict_mass": 0.05625,
+                "tie_mass": 0.0,
+                "above_count": 11
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -17.53642463684082,
+                "strict_mass": 0.016666666666666666,
+                "tie_mass": 0.01875,
+                "above_count": 4
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.315204620361328,
+                "strict_mass": 0.05625,
+                "tie_mass": 0.0,
+                "above_count": 11
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -18.035400390625,
+                "strict_mass": 0.020833333333333332,
+                "tie_mass": 0.0,
+                "above_count": 5
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -22.614715576171875,
+                "strict_mass": 0.06041666666666667,
+                "tie_mass": 0.0,
+                "above_count": 12
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -17.009965896606445,
+                "strict_mass": 0.016666666666666666,
+                "tie_mass": 0.004166666666666667,
+                "above_count": 4
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.2497984568278,
+                "strict_mass": 0.05625,
+                "tie_mass": 0.0,
+                "above_count": 11
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -17.64753786722819,
+                "strict_mass": 0.016666666666666666,
+                "tie_mass": 0.004166666666666667,
+                "above_count": 4
+              }
+            }
+          }
+        }
+      },
+      "pooled": [
+        -17.53642463684082,
+        -18.035400390625,
+        -17.009965896606445,
+        -17.64753786722819
+      ],
+      "ref_rows": {
+        "file": "CIC_DEV_refs.jsonl.gz",
+        "sha256": "9947a80060fb1dae65cf47de5e5ac2f97875d46231786371daf56f9d524f7847",
+        "bytes": 777992,
+        "rows": 8863
+      },
+      "ref_q14": {
+        "file": "CIC_DEV_ref_q14.npy",
+        "sha256": "68b7cec41f8081069a3868b0e338786a5bcd54ada1bb081a656c0aef0e5e4f4b",
+        "bytes": 496456,
+        "rows": 8863
+      },
+      "reference_uid_sha256": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2",
+      "original_ref_score_sha256": "1af8afaf7cda19789ffa98c6ca3acfab586e4f28f87c0b8d1776fc1952426645"
+    },
+    "UNSW_DEV": {
+      "groups": {
+        "unsw-attack-traces-2018:00:16:6c:ab:6b:88|6": {
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+          "protocol": 6,
+          "reference_rows": 8909,
+          "eligible_rows": 8642,
+          "conditional_mass_before_normalization": 0.9752306058796204,
+          "captures": 2,
+          "components": 5024,
+          "n_eff": 2409.1521806452392,
+          "eligible_components": 4791,
+          "reason": "FIT",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -4.351737976074219,
+                "strict_mass": 0.00989848308742869,
+                "tie_mass": 0.00010207032645492744,
+                "above_count": 126
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -4.351737976074219,
+                "strict_mass": 0.00989848308742869,
+                "tie_mass": 0.00010207032645492744,
+                "above_count": 126
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -3.292994260787964,
+                "strict_mass": 0.009969096652455697,
+                "tie_mass": 0.00010207032645492744,
+                "above_count": 117
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -3.292994260787964,
+                "strict_mass": 0.009969096652455697,
+                "tie_mass": 0.00010207032645492744,
+                "above_count": 117
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -7.171383857727051,
+                "strict_mass": 0.009908197055309475,
+                "tie_mass": 0.00010207032645492744,
+                "above_count": 152
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -7.171383857727051,
+                "strict_mass": 0.009908197055309475,
+                "tie_mass": 0.00010207032645492744,
+                "above_count": 152
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -5.176011721293132,
+                "strict_mass": 0.009952353537502125,
+                "tie_mass": 0.00010207032645492744,
+                "above_count": 127
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -5.176011721293132,
+                "strict_mass": 0.009952353537502125,
+                "tie_mass": 0.00010207032645492744,
+                "above_count": 127
+              }
+            }
+          }
+        },
+        "unsw-attack-traces-2018:00:16:6c:ab:6b:88|17": {
+          "device": "unsw-attack-traces-2018:00:16:6c:ab:6b:88",
+          "protocol": 17,
+          "reference_rows": 10861,
+          "eligible_rows": 10861,
+          "conditional_mass_before_normalization": 1.0,
+          "captures": 2,
+          "components": 4235,
+          "n_eff": 79.52385152193308,
+          "eligible_components": 4235,
+          "reason": "SMALL",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.04324722290039,
+                "strict_mass": 0.07024685151039871,
+                "tie_mass": 0.0,
+                "above_count": 1964
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -0.999341607093811,
+                "strict_mass": 0.00035387549368394916,
+                "tie_mass": 0.0,
+                "above_count": 11
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.315204620361328,
+                "strict_mass": 0.10369637417808046,
+                "tie_mass": 0.0,
+                "above_count": 3183
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -2.5209455490112305,
+                "strict_mass": 0.0006954813980041567,
+                "tie_mass": 0.0,
+                "above_count": 24
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -22.614715576171875,
+                "strict_mass": 0.13057372364818698,
+                "tie_mass": 0.0,
+                "above_count": 3215
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -1.1448540687561035,
+                "strict_mass": 0.0004732840796213672,
+                "tie_mass": 0.0,
+                "above_count": 19
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.2497984568278,
+                "strict_mass": 0.09439907372968714,
+                "tie_mass": 0.0,
+                "above_count": 2219
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -1.8638375600179036,
+                "strict_mass": 0.00059131473133749,
+                "tie_mass": 0.0,
+                "above_count": 23
+              }
+            }
+          }
+        },
+        "unsw-attack-traces-2018:50:c7:bf:00:56:39|6": {
+          "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+          "protocol": 6,
+          "reference_rows": 8339,
+          "eligible_rows": 7889,
+          "conditional_mass_before_normalization": 0.9593072710984665,
+          "captures": 2,
+          "components": 431,
+          "n_eff": 443.5292898662168,
+          "eligible_components": 428,
+          "reason": "FIT",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": 2.260197401046753,
+                "strict_mass": 0.009931664712046208,
+                "tie_mass": 0.00013530878354286386,
+                "above_count": 75
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": 2.260197401046753,
+                "strict_mass": 0.009931664712046208,
+                "tie_mass": 0.00013530878354286386,
+                "above_count": 75
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": 3.9139015674591064,
+                "strict_mass": 0.009931664712046208,
+                "tie_mass": 0.00013530878354286386,
+                "above_count": 75
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": 3.9139015674591064,
+                "strict_mass": 0.009931664712046208,
+                "tie_mass": 0.00013530878354286386,
+                "above_count": 75
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": 0.5520447492599487,
+                "strict_mass": 0.00999931910381764,
+                "tie_mass": 0.00013530878354286386,
+                "above_count": 76
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": 0.5520447492599487,
+                "strict_mass": 0.00999931910381764,
+                "tie_mass": 0.00013530878354286386,
+                "above_count": 76
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": 2.039193411668142,
+                "strict_mass": 0.009918133833691922,
+                "tie_mass": 0.00013530878354286386,
+                "above_count": 75
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": 2.039193411668142,
+                "strict_mass": 0.009918133833691922,
+                "tie_mass": 0.00013530878354286386,
+                "above_count": 75
+              }
+            }
+          }
+        },
+        "unsw-attack-traces-2018:50:c7:bf:00:56:39|17": {
+          "device": "unsw-attack-traces-2018:50:c7:bf:00:56:39",
+          "protocol": 17,
+          "reference_rows": 3697,
+          "eligible_rows": 3697,
+          "conditional_mass_before_normalization": 1.0,
+          "captures": 2,
+          "components": 1698,
+          "n_eff": 55.77146868469476,
+          "eligible_components": 1698,
+          "reason": "SMALL",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.04324722290039,
+                "strict_mass": 0.07273725092874028,
+                "tie_mass": 0.0,
+                "above_count": 16
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -0.999341607093811,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.315204620361328,
+                "strict_mass": 0.0005717910328968738,
+                "tie_mass": 0.0,
+                "above_count": 10
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -2.5209455490112305,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -22.614715576171875,
+                "strict_mass": 0.036729339158530105,
+                "tie_mass": 0.0,
+                "above_count": 14
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -1.1448540687561035,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.2497984568278,
+                "strict_mass": 0.03628607674718259,
+                "tie_mass": 0.0,
+                "above_count": 11
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -1.8638375600179036,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              }
+            }
+          }
+        },
+        "unsw-attack-traces-2018:70:ee:50:18:34:43|6": {
+          "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+          "protocol": 6,
+          "reference_rows": 5705,
+          "eligible_rows": 5576,
+          "conditional_mass_before_normalization": 0.903871266459989,
+          "captures": 2,
+          "components": 2996,
+          "n_eff": 1168.3157370757933,
+          "eligible_components": 2923,
+          "reason": "FIT",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": 1.2612541913986206,
+                "strict_mass": 0.009940282119168902,
+                "tie_mass": 0.0001877082184673158,
+                "above_count": 297
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": 1.2612541913986206,
+                "strict_mass": 0.009940282119168902,
+                "tie_mass": 0.0001877082184673158,
+                "above_count": 297
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -1.2467023134231567,
+                "strict_mass": 0.009951901745343864,
+                "tie_mass": 0.00012430924040970329,
+                "above_count": 466
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -1.2467023134231567,
+                "strict_mass": 0.009951901745343864,
+                "tie_mass": 0.00012430924040970329,
+                "above_count": 466
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": 1.846186637878418,
+                "strict_mass": 0.009879729394314533,
+                "tie_mass": 0.0001877082184673158,
+                "above_count": 361
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": 1.846186637878418,
+                "strict_mass": 0.009879729394314533,
+                "tie_mass": 0.0001877082184673158,
+                "above_count": 361
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": 0.48698476950327557,
+                "strict_mass": 0.009903647729718272,
+                "tie_mass": 0.0001877082184673158,
+                "above_count": 390
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": 0.48698476950327557,
+                "strict_mass": 0.009903647729718272,
+                "tie_mass": 0.0001877082184673158,
+                "above_count": 390
+              }
+            }
+          }
+        },
+        "unsw-attack-traces-2018:70:ee:50:18:34:43|17": {
+          "device": "unsw-attack-traces-2018:70:ee:50:18:34:43",
+          "protocol": 17,
+          "reference_rows": 5268,
+          "eligible_rows": 5268,
+          "conditional_mass_before_normalization": 1.0,
+          "captures": 2,
+          "components": 358,
+          "n_eff": 131.88577317742278,
+          "eligible_components": 358,
+          "reason": "FIT",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -26.41082000732422,
+                "strict_mass": 0.009998689282894971,
+                "tie_mass": 4.5270992159064155e-06,
+                "above_count": 143
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -26.41082000732422,
+                "strict_mass": 0.009998689282894971,
+                "tie_mass": 4.5270992159064155e-06,
+                "above_count": 143
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -27.015295028686523,
+                "strict_mass": 0.00949348468220159,
+                "tie_mass": 0.0007288629737609329,
+                "above_count": 192
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -27.015295028686523,
+                "strict_mass": 0.00949348468220159,
+                "tie_mass": 0.0007288629737609329,
+                "above_count": 192
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -25.829669952392578,
+                "strict_mass": 0.00893199925714009,
+                "tie_mass": 0.0014577259475218659,
+                "above_count": 134
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -25.829669952392578,
+                "strict_mass": 0.00893199925714009,
+                "tie_mass": 0.0014577259475218659,
+                "above_count": 134
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -26.894285202026367,
+                "strict_mass": 0.009947226122536146,
+                "tie_mass": 0.00020824656393169514,
+                "above_count": 209
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -26.894285202026367,
+                "strict_mass": 0.009947226122536146,
+                "tie_mass": 0.00020824656393169514,
+                "above_count": 209
+              }
+            }
+          }
+        },
+        "unsw-attack-traces-2018:ec:1a:59:79:f4:89|6": {
+          "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+          "protocol": 6,
+          "reference_rows": 8280,
+          "eligible_rows": 7446,
+          "conditional_mass_before_normalization": 0.904474405968027,
+          "captures": 2,
+          "components": 804,
+          "n_eff": 284.09608705442196,
+          "eligible_components": 775,
+          "reason": "FIT",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": 3.3941400051116943,
+                "strict_mass": 0.009895324994922986,
+                "tie_mass": 0.000137685489410888,
+                "above_count": 78
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": 3.3941400051116943,
+                "strict_mass": 0.009895324994922986,
+                "tie_mass": 0.000137685489410888,
+                "above_count": 78
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": 4.249104976654053,
+                "strict_mass": 0.009903520559768873,
+                "tie_mass": 0.000137685489410888,
+                "above_count": 77
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": 4.249104976654053,
+                "strict_mass": 0.009903520559768873,
+                "tie_mass": 0.000137685489410888,
+                "above_count": 77
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": 3.44992733001709,
+                "strict_mass": 0.009906798785707228,
+                "tie_mass": 0.00011473790784240669,
+                "above_count": 78
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": 3.44992733001709,
+                "strict_mass": 0.009906798785707228,
+                "tie_mass": 0.00011473790784240669,
+                "above_count": 78
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": 3.6743149757385254,
+                "strict_mass": 0.009916633463522291,
+                "tie_mass": 9.83467781506343e-05,
+                "above_count": 78
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": 3.6743149757385254,
+                "strict_mass": 0.009916633463522291,
+                "tie_mass": 9.83467781506343e-05,
+                "above_count": 78
+              }
+            }
+          }
+        },
+        "unsw-attack-traces-2018:ec:1a:59:79:f4:89|17": {
+          "device": "unsw-attack-traces-2018:ec:1a:59:79:f4:89",
+          "protocol": 17,
+          "reference_rows": 8244,
+          "eligible_rows": 8244,
+          "conditional_mass_before_normalization": 1.0,
+          "captures": 2,
+          "components": 799,
+          "n_eff": 61.62189814867362,
+          "eligible_components": 799,
+          "reason": "SMALL",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.04324722290039,
+                "strict_mass": 0.05168572252551789,
+                "tie_mass": 0.0,
+                "above_count": 1205
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -0.999341607093811,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.315204620361328,
+                "strict_mass": 0.11650187714061834,
+                "tie_mass": 0.0,
+                "above_count": 1510
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -2.5209455490112305,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -22.614715576171875,
+                "strict_mass": 0.06911059463161179,
+                "tie_mass": 0.0,
+                "above_count": 1276
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -1.1448540687561035,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.2497984568278,
+                "strict_mass": 0.07725892496757296,
+                "tie_mass": 0.0,
+                "above_count": 1344
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -1.8638375600179036,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              }
+            }
+          }
+        },
+        "unsw-attack-traces-2018:ec:1a:59:83:28:11|6": {
+          "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+          "protocol": 6,
+          "reference_rows": 4096,
+          "eligible_rows": 2928,
+          "conditional_mass_before_normalization": 0.7139724310776941,
+          "captures": 1,
+          "components": 1064,
+          "n_eff": 2894.6566082802547,
+          "eligible_components": 1061,
+          "reason": "FIT",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -4.789979934692383,
+                "strict_mass": 0.00976305397103993,
+                "tie_mass": 0.0003290917068889864,
+                "above_count": 28
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -4.789979934692383,
+                "strict_mass": 0.00976305397103993,
+                "tie_mass": 0.0003290917068889864,
+                "above_count": 28
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -4.289933681488037,
+                "strict_mass": 0.009982448442299254,
+                "tie_mass": 0.0003290917068889864,
+                "above_count": 29
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -4.289933681488037,
+                "strict_mass": 0.009982448442299254,
+                "tie_mass": 0.0003290917068889864,
+                "above_count": 29
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -6.387373924255371,
+                "strict_mass": 0.009872751206669592,
+                "tie_mass": 0.0003290917068889864,
+                "above_count": 28
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -6.387373924255371,
+                "strict_mass": 0.009872751206669592,
+                "tie_mass": 0.0003290917068889864,
+                "above_count": 28
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -5.041852633158366,
+                "strict_mass": 0.009653356735410267,
+                "tie_mass": 0.00043878894251864854,
+                "above_count": 28
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -5.041852633158366,
+                "strict_mass": 0.009653356735410267,
+                "tie_mass": 0.00043878894251864854,
+                "above_count": 28
+              }
+            }
+          }
+        },
+        "unsw-attack-traces-2018:ec:1a:59:83:28:11|17": {
+          "device": "unsw-attack-traces-2018:ec:1a:59:83:28:11",
+          "protocol": 17,
+          "reference_rows": 2683,
+          "eligible_rows": 2683,
+          "conditional_mass_before_normalization": 1.0,
+          "captures": 1,
+          "components": 34,
+          "n_eff": 493.97023611084654,
+          "eligible_components": 34,
+          "reason": "FIT",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -15.456625938415527,
+                "strict_mass": 0.009978347227974353,
+                "tie_mass": 0.0006684491978609625,
+                "above_count": 39
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -15.456625938415527,
+                "strict_mass": 0.009978347227974353,
+                "tie_mass": 0.0006684491978609625,
+                "above_count": 39
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -17.30945587158203,
+                "strict_mass": 0.009507435142027062,
+                "tie_mass": 0.0005549389567147614,
+                "above_count": 35
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -17.30945587158203,
+                "strict_mass": 0.009507435142027062,
+                "tie_mass": 0.0005549389567147614,
+                "above_count": 35
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -17.692590713500977,
+                "strict_mass": 0.009810887581490799,
+                "tie_mass": 0.000588235294117647,
+                "above_count": 37
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -17.692590713500977,
+                "strict_mass": 0.009810887581490799,
+                "tie_mass": 0.000588235294117647,
+                "above_count": 37
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -16.84945519765218,
+                "strict_mass": 0.009442143068760334,
+                "tie_mass": 0.000588235294117647,
+                "above_count": 37
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -16.84945519765218,
+                "strict_mass": 0.009442143068760334,
+                "tie_mass": 0.000588235294117647,
+                "above_count": 37
+              }
+            }
+          }
+        }
+      },
+      "pooled": [
+        -0.999341607093811,
+        -2.5209455490112305,
+        -1.1448540687561035,
+        -1.8638375600179036
+      ],
+      "ref_rows": {
+        "file": "UNSW_DEV_refs.jsonl.gz",
+        "sha256": "6cbd10d0c0c940075c7c06a628e7ab15d7c5d30d4ec4cc8723edcbbfd131aeb5",
+        "bytes": 9201212,
+        "rows": 66082
+      },
+      "ref_q14": {
+        "file": "UNSW_DEV_ref_q14.npy",
+        "sha256": "3c9e531baf3f59c82eb865e93e3302fca24776cf9b066a7a892574999ea94e54",
+        "bytes": 3700720,
+        "rows": 66082
+      },
+      "reference_uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6",
+      "original_ref_score_sha256": "f001f5a4866397a1b6d91acb7aefc34e5f55458fa57c9fff9fb292d3a5ceb247"
+    },
+    "EDGE": {
+      "groups": {
+        "Edge-IIoTset Raspberry Pi edge server|6": {
+          "device": "Edge-IIoTset Raspberry Pi edge server",
+          "protocol": 6,
+          "reference_rows": 4096,
+          "eligible_rows": 4065,
+          "conditional_mass_before_normalization": 0.992431640625,
+          "captures": 1,
+          "components": 4096,
+          "n_eff": 4065.0,
+          "eligible_components": 4065,
+          "reason": "FIT",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": 0.16210639476776123,
+                "strict_mass": 0.009840098400984008,
+                "tie_mass": 0.0002460024600246002,
+                "above_count": 40
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": 0.16210639476776123,
+                "strict_mass": 0.009840098400984008,
+                "tie_mass": 0.0002460024600246002,
+                "above_count": 40
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": 5.944436550140381,
+                "strict_mass": 0.009840098400984008,
+                "tie_mass": 0.0002460024600246002,
+                "above_count": 40
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": 5.944436550140381,
+                "strict_mass": 0.009840098400984008,
+                "tie_mass": 0.0002460024600246002,
+                "above_count": 40
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": -1.0881086587905884,
+                "strict_mass": 0.009840098400984008,
+                "tie_mass": 0.0002460024600246002,
+                "above_count": 40
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": -1.0881086587905884,
+                "strict_mass": 0.009840098400984008,
+                "tie_mass": 0.0002460024600246002,
+                "above_count": 40
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "GROUP_FIT",
+                "cut": 1.5670522054036458,
+                "strict_mass": 0.009840098400984008,
+                "tie_mass": 0.0002460024600246002,
+                "above_count": 40
+              },
+              "sensitivity": {
+                "origin": "GROUP_FIT",
+                "cut": 1.5670522054036458,
+                "strict_mass": 0.009840098400984008,
+                "tie_mass": 0.0002460024600246002,
+                "above_count": 40
+              }
+            }
+          }
+        },
+        "Edge-IIoTset Raspberry Pi edge server|17": {
+          "device": "Edge-IIoTset Raspberry Pi edge server",
+          "protocol": 17,
+          "reference_rows": 28,
+          "eligible_rows": 28,
+          "conditional_mass_before_normalization": 1.0,
+          "captures": 1,
+          "components": 12,
+          "n_eff": 26.584615384615386,
+          "eligible_components": 12,
+          "reason": "SMALL",
+          "heads": {
+            "27": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.04324722290039,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": 0.16210639476776123,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              }
+            },
+            "127": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.315204620361328,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": 5.944436550140381,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              }
+            },
+            "227": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -22.614715576171875,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": -1.0881086587905884,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              }
+            },
+            "ensemble": {
+              "primary": {
+                "origin": "SOURCE",
+                "cut": -23.2497984568278,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              },
+              "sensitivity": {
+                "origin": "TESTBED_GUARDED",
+                "cut": 1.5670522054036458,
+                "strict_mass": 0.0,
+                "tie_mass": 0.0,
+                "above_count": 0
+              }
+            }
+          }
+        }
+      },
+      "pooled": [
+        0.16210639476776123,
+        5.944436550140381,
+        -1.0881086587905884,
+        1.5670522054036458
+      ],
+      "ref_rows": {
+        "file": "EDGE_refs.jsonl.gz",
+        "sha256": "303f3c4fcf43f3a42e03d3a3b4508d9e19627284abf8c8452a39ae3a781f5365",
+        "bytes": 848293,
+        "rows": 4124
+      },
+      "ref_q14": {
+        "file": "EDGE_ref_q14.npy",
+        "sha256": "d0f9b6fdd8ffca7986049156fd45e997f7ded2fe05215830507d8ddb29d78871",
+        "bytes": 231072,
+        "rows": 4124
+      },
+      "reference_uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e",
+      "original_ref_score_sha256": "7afa4eeeee7292da09ebb611076eaee03c8c7f0e846c2db073d7ab6bd33664a0"
+    }
+  },
+  "reference_inputs": {
+    "CIC_DEV:dense_rows": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/CIC_DEV/SELECTED_REFERENCES.jsonl.gz",
+      "bytes": 755851,
+      "sha256": "376b8d83da5f15acc1dd2c3eaa3c9b6919fae5cf2278e73c54a0409ef9af4f64"
+    },
+    "CIC_DEV:dense_e3": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/CIC_DEV/bank.npz",
+      "bytes": 23556186,
+      "sha256": "42f7e1649f7e4615738f76347d14eadc5207582f900e0ffe3de9ec070ce21353"
+    },
+    "CIC_DEV:dense_context": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/context_geometry_attribution_v2_20261106/CIC_DEV_REF_CONTEXT.npz",
+      "bytes": 2744188,
+      "sha256": "586c0cc3aee7ad5d8074996be518c38e8a644b903761aebbdc65668dae8696d8"
+    },
+    "a0": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.jsonl.gz",
+      "bytes": 14893,
+      "sha256": "997e1c4ab68781fba3787969a37938ef0a36d899559543e243aabeeda1953fb3"
+    },
+    "a1": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_d1_d2_v1_20261022/assets/reference_scores/CIC_DEV_OLD_BANK.npz",
+      "bytes": 255678,
+      "sha256": "a9a1c06a1d272f371fedc12dc9ecaa424e61657b710007f3de061cc9a8ae1d6a"
+    },
+    "a2": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v2_20261106/assets/a2",
+      "bytes": 20431,
+      "sha256": "c9a9d58ba3a6bda65e5fdc7db02af69f6b038b6691b6093aed6ccbc595e3e9d1"
+    },
+    "a3": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v2_20261106/assets/a3",
+      "bytes": 941486,
+      "sha256": "0ad6e1ce891d6a7aa1487b7af379bd214b7b15ccfd5d98b71d8c282c683dcca2"
+    },
+    "CIC_DEV:history_context": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v6_20261106/CIC_DEV_HISTORY_CONTEXT.npz",
+      "bytes": 92988,
+      "sha256": "c4e50596fc2fb1dd411cab0e04afd75350ea2be8e736c190896addc74f386a88"
+    },
+    "UNSW_DEV:dense_rows": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/diagnostics_c5_step2_package_v1_20261025/target_inventory/UNSW_DEV/SELECTED_REFERENCES.jsonl.gz",
+      "bytes": 1207067,
+      "sha256": "850b68302ccf94138138e55455136dbe5bb1d5e2e122c41420763c597d89c456"
+    },
+    "UNSW_DEV:dense_e3": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/dense_reference_batch_repair_deployment_20261027/result_retrieval_r2_20261027/evidence179602/science/encode/banks/UNSW_DEV/bank.npz",
+      "bytes": 33576112,
+      "sha256": "15fc1dd490eb546e63ac163a5829ee46397d2bd0fe4d07f2612d0a7710d2ea74"
+    },
+    "UNSW_DEV:dense_context": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/context_geometry_attribution_v2_20261106/UNSW_DEV_REF_CONTEXT.npz",
+      "bytes": 4239548,
+      "sha256": "3de7890980895774ad218db38a288c6e32e3dafd7776c7f03ef691c2cab0ef02"
+    },
+    "a4": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/TP_LINK_references.jsonl.gz",
+      "bytes": 1242828,
+      "sha256": "f06b9fdcf06a5db8956813954cc0c76a42a3fb0c9dbbe13f0c3271bd2bef4d65"
+    },
+    "a5": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v2_20261106/assets/a5",
+      "bytes": 26324870,
+      "sha256": "af444c6fc516d3461c0b867484343fa1bcb69507f6814ad84fc9125a31c525f3"
+    },
+    "a6": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/WEMO_POWER_references.jsonl.gz",
+      "bytes": 1309590,
+      "sha256": "bc9b1cf16e4dfeee9688659a77c2aa909830d83d31aed5e7b6ab4de9f2665ad1"
+    },
+    "a7": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v2_20261106/assets/a7",
+      "bytes": 27722462,
+      "sha256": "dd60faeb8b91967ba1fde0a6d5516bb3fb801f56e30248a8d431dde418912e3b"
+    },
+    "a8": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/inputs/SAMSUNG_references.jsonl.gz",
+      "bytes": 1331587,
+      "sha256": "ffb92fe922c68530e392548c66bcb0134383c3ea76913c5274c7e050050c7808"
+    },
+    "a9": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v2_20261106/assets/a9",
+      "bytes": 27722462,
+      "sha256": "e3aaeabab396f436bb3f1bb949413da638d853af542ad737488992fe1bda36fe"
+    },
+    "a10": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/TP_LINK/encoded/references.jsonl.gz",
+      "bytes": 630674,
+      "sha256": "017422f2efa68c5ba2cc1e75d936155482592cc7d632822bcbf44d630e98794b"
+    },
+    "a11": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/TP_LINK/encoded/references.npz",
+      "bytes": 13861598,
+      "sha256": "4118f6e2dd0bf17b2611edc8ee011f847f0380814cc6e7bb3494489f72f13c3b"
+    },
+    "a12": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/WEMO_POWER/encoded/references.jsonl.gz",
+      "bytes": 1215454,
+      "sha256": "30b52d1341b20903690400d30a8a2c80b13827f80cb4e94396782c9a577ca400"
+    },
+    "a13": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/WEMO_POWER/encoded/references.npz",
+      "bytes": 27722462,
+      "sha256": "0927accce3c3e110cf495311f862c5d8a74486e4f87726c8979e16ddb5558e96"
+    },
+    "a14": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/SAMSUNG/encoded/references.jsonl.gz",
+      "bytes": 1008931,
+      "sha256": "4a42a9973e2fab262bfb3067d4858afd69cd36195cfdd0a6405bbe8f5f691447"
+    },
+    "a15": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/SAMSUNG/encoded/references.npz",
+      "bytes": 27722462,
+      "sha256": "133454d130496bd9039e5dfb2c42105366f39cd1e84c240ab105b2341ee5a024"
+    },
+    "a16": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/NETATMO/encoded/references.jsonl.gz",
+      "bytes": 1242511,
+      "sha256": "8c62b0281bd708b2816176a86c70cb6621f89b8e2807df0d8bd68d55e39ab9e6"
+    },
+    "a17": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/history_sample_coverage_c4_batch_resume_v1_20261102/outputs/encoding/history/NETATMO/encoded/references.npz",
+      "bytes": 27722462,
+      "sha256": "c9fdc76b1309f53e456959df62a6e846d1b1d7665b6d6b5ab6b999a098fc67dc"
+    },
+    "UNSW_DEV:history_context": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/same_bank_context_v6_20261106/UNSW_DEV_HISTORY_CONTEXT.npz",
+      "bytes": 16907708,
+      "sha256": "e2eef2aee2c235887f8e60ff3a063abe14eefbdae155fc28c1cd59e13930c4c7"
+    },
+    "EDGE:encoded_complete": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_resume_v2_20261104/outputs/gate_182089/encoded/COMPLETE.json",
+      "bytes": 4834678,
+      "sha256": "7b0ffe2288281e8b15d91d8955392710f747604d051ce248b053f7ab9266ca01"
+    },
+    "EDGE:reference_rows": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/edge_formal_evaluation_resume_v2_20261104/checkout/runs/edge_external_test1_engineering_v1_20261103/adapter/population_v1/REFERENCE_ROWS.jsonl.gz",
+      "bytes": 684571,
+      "sha256": "ff5aa18c56e5be7d73ea61011bc58ec727d3f2f5b5eb505cec5f298828f59e9d"
+    },
+    "EDGE:dense_context": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/context_geometry_attribution_v2_20261106/EDGE_REF_CONTEXT.npz",
+      "bytes": 1320188,
+      "sha256": "2e6207cb1bbf4058aee44f29ba3340c4a008b99a3b98edbaa74fbfe1d1ffe4f6"
+    }
+  }
+}

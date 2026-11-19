@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "sbatch",
+    "--partition=amd",
+    "--no-requeue",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=4",
+    "--time=02:00:00",
+    "--mem=12288M",
+    "--job-name=p04-v12n18-ports",
+    "--chdir=/public/home/jiangxinwei.zr/work/paper04/runs/p4_group_threshold_k1_v1_20261118/package",
+    "--output=/public/home/jiangxinwei.zr/work/paper04/runs/p4_group_threshold_k1_v1_20261118/ports-%j.out",
+    "--error=/public/home/jiangxinwei.zr/work/paper04/runs/p4_group_threshold_k1_v1_20261118/ports-%j.err",
+    "/public/home/jiangxinwei.zr/work/paper04/runs/p4_group_threshold_k1_v1_20261118/package/run.slurm",
+    "ports",
+    "/public/home/jiangxinwei.zr/work/paper04",
+    "/public/home/jiangxinwei.zr/work/paper04/runs/p4_group_threshold_k1_v1_20261118",
+    "7200"
+  ],
+  "time": 1795057036.7063098
+}

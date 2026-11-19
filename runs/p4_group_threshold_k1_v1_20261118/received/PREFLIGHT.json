@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "job_id": "185318",
+  "rule_sha256": "c75dff0f0f8779c73d425e8e519934ae6a6e71d09224e6dcdc1e78515f8e2eb3",
+  "package_sha256": "8747e427d3dceae12a583a2d3fd964a0c6e33095a26bcd15f58a3af77b7fb3a5",
+  "thresholds": {
+    "file": "GROUP_THRESHOLDS.json",
+    "sha256": "bc87dcae25a045dada8f3314c4bf2281cf168474f69435d66df1b176585f7477",
+    "bytes": 53583
+  },
+  "actual_frontend": {
+    "captures": {
+      "interaction-attack-189": "ae762e6333698ae94adfb652b37d21eea12d04ebdd1d5a92ac18ab68a6f0f23d",
+      "interaction-attack-190": "ba5b3c67ebeb2d38737046d3a64a70113ad52252afe25248ed30f0e52da7adf6",
+      "interaction-attack-191": "0a0332a5f5f6a5b0381faa33abfa95e0af19aed77f08858d464bdcacd63787f2"
+    },
+    "decoded_frames": 294,
+    "uids": [
+      "68920971bb79fe73540a335bc3698762a0f945a6ad32f5f1aca5e2f8afea9913",
+      "95779c977a89c3bf4749f585f522cadb9d356bd4d5e24fbf62fa965ea95cc907",
+      "fdf1b83a9072e9d3a508d51e3c4ed85637289894e90855072756638a942d6f15"
+    ],
+    "encoder": {
+      "manifest_sha256": "2f611b4695e165649cb4fc2df4b0309f621f846fa5f6f660e3c0fa0202ecc5ee",
+      "vendor_files": 19
+    },
+    "tensor_sha256": [
+      "89f542d8715511c9c5da91f61628f749e32fef45a52bf3788311dbcbddf4b5f6",
+      "92ec1ad14ebe9e214efcd399cc91e84cf7d712a102b95f72cf2ecff13b971838",
+      "bde4c4873678d60055e581f9f8f21cf307e5d343d43d86a81482fdd54d92d95e"
+    ],
+    "cached_e3_sha256": [
+      "c2a2e42f98717bed121b0d655600b802d1c49eb6e49ff07e7835122131244ec7",
+      "9806334667bc339832f035f10ca7e128e35c5cd3efae2a305f5a7748ee01c9f1",
+      "ca4a938314912e10dfb03449bec03d65b4eac3da6ca938117954f24e738dfcd4"
+    ],
+    "fresh_e3_sha256": [
+      "c2a2e42f98717bed121b0d655600b802d1c49eb6e49ff07e7835122131244ec7",
+      "9806334667bc339832f035f10ca7e128e35c5cd3efae2a305f5a7748ee01c9f1",
+      "ca4a938314912e10dfb03449bec03d65b4eac3da6ca938117954f24e738dfcd4"
+    ],
+    "max_e3_difference": 0.0,
+    "actual_forwards": 3,
+    "actual_vectors_used_in_preflight_bank": true
+  },
+  "pools": {
+    "CIC_DEV": {
+      "rows": 76,
+      "baseline": {
+        "metric_rows": 544,
+        "weak_metric_rows": 272,
+        "max_abs_score_error": 0.0,
+        "decision_differences": 0
+      },
+      "oracle_abs_error": 1.2359800996526906e-15,
+      "paired_cells": 1464,
+      "port_cells": 252,
+      "witness": {
+        "file": "CIC_DEV_pilot.npz",
+        "sha256": "70ddae3c5abaa2785d7fd1fc8cf597845dae0d836b25d713d6b912a685e0df35",
+        "bytes": 28470
+      }
+    },
+    "UNSW_DEV": {
+      "rows": 149,
+      "baseline": {
+        "metric_rows": 560,
+        "weak_metric_rows": 280,
+        "max_abs_score_error": 0.0,
+        "decision_differences": 0
+      },
+      "oracle_abs_error": 1.2212453270876722e-15,
+      "paired_cells": 1848,
+      "port_cells": 252,
+      "witness": {
+        "file": "UNSW_DEV_pilot.npz",
+        "sha256": "d8d96f94c72ec321ba4b9b90d9e4b315221a4f83a2180e70073174a6e92bc5f3",
+        "bytes": 54166
+      }
+    },
+    "EDGE": {
+      "rows": 45,
+      "baseline": {
+        "metric_rows": 368,
+        "weak_metric_rows": 184,
+        "max_abs_score_error": 0.0,
+        "decision_differences": 0
+      },
+      "oracle_abs_error": 8.326672684688674e-16,
+      "paired_cells": 768,
+      "port_cells": 252,
+      "witness": {
+        "file": "EDGE_pilot.npz",
+        "sha256": "88046e176957fdf240a5c4f7dc75a0b4c5b5a52732a0500767bb7ab28ca44197",
+        "bytes": 17558
+      }
+    }
+  }
+}

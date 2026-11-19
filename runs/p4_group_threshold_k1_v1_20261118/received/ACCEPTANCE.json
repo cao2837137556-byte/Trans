@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "jobs": {
+    "preflight": "185318",
+    "groups": "185321",
+    "k1": "185323",
+    "ports": "185325"
+  },
+  "queries": 388202,
+  "rule_sha256": "c75dff0f0f8779c73d425e8e519934ae6a6e71d09224e6dcdc1e78515f8e2eb3",
+  "package_sha256": "8747e427d3dceae12a583a2d3fd964a0c6e33095a26bcd15f58a3af77b7fb3a5",
+  "preflight": {
+    "file": "PREFLIGHT.json",
+    "sha256": "acab5c0ec837811968ec999a8c4fc964362b3700be8f61e88e774ff5873d0016",
+    "bytes": 3452
+  },
+  "science": {
+    "groups": {
+      "file": "SCIENCE_groups.json",
+      "sha256": "10ad2026e02f41768c820797823410b413ba266946de86a0f3ee4e1326b123ce",
+      "bytes": 5745
+    },
+    "k1": {
+      "file": "SCIENCE_k1.json",
+      "sha256": "7306bb4f60f598ecddf1d78070b4a81f98fcd1a6524ec3b8da25922d57b63482",
+      "bytes": 5277
+    },
+    "ports": {
+      "file": "SCIENCE_ports.json",
+      "sha256": "41fa6bf7a29c327a6594ad16fca04e40df6a007d0ed34a9e71f3c7b5540acf6d",
+      "bytes": 10169
+    }
+  },
+  "thresholds": {
+    "file": "GROUP_THRESHOLDS.json",
+    "sha256": "bc87dcae25a045dada8f3314c4bf2281cf168474f69435d66df1b176585f7477",
+    "bytes": 53583
+  },
+  "checks": {
+    "group_pair_cells": 11536,
+    "k1_pair_cells": 1692,
+    "donor_cells": 756,
+    "mechanism_cells": 432,
+    "subset_violations": 0
+  },
+  "paper": {
+    "file": "RESULTS_FOR_PAPER.md",
+    "sha256": "9bee55775009b9aac2f6a0861464419a5c89440d4c9255c00dfde9bc3cd5e708",
+    "bytes": 1783
+  }
+}
