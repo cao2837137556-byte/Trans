@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "jobs": {
+    "preflight": "185398",
+    "prepare": "185400",
+    "encode": {
+      "1": "185412",
+      "0": "185410",
+      "2": "185414",
+      "3": "185416",
+      "4": "185421",
+      "6": "185425",
+      "5": "185423",
+      "7": "185431",
+      "10": "185440",
+      "8": "185435",
+      "9": "185437",
+      "11": "185444",
+      "12": "185448",
+      "13": "185450",
+      "14": "185452",
+      "15": "185458",
+      "16": "185482",
+      "18": "185487",
+      "17": "185485"
+    },
+    "evaluate": "185491"
+  },
+  "package_sha256": "aa42f953db8ac36d7f3be237cf34d4e7aacb6cf10db620070bb440a4a2440655",
+  "card_sha256": "cfafaf53fe861e84300a9cbd7ab95f63518d31b6484085f64dd01efcc7dae5d5",
+  "checks": {
+    "raw_cells": 48,
+    "paired_cells": 120,
+    "boundary_cells": 96
+  },
+  "science": {
+    "file": "SCIENCE.json",
+    "bytes": 7575,
+    "sha256": "e5f475bbc67fffbf2357401f3e6d8bb75b41f1eef48b785a953b42cb733f7190"
+  },
+  "paper": {
+    "file": "RESULTS_FOR_PAPER.md",
+    "bytes": 1882,
+    "sha256": "50f8c4a1b22b727c57772b3f30fa7ad85c594b96819a6089ea5326f5daf9a789"
+  },
+  "arrays": {
+    "file": "HPC_ARTIFACT_SHA.json",
+    "bytes": 58257,
+    "sha256": "16b48b8bfc3defe73da6962dd4041e6d4f54a09f6d69823b0a6ba43d490c794a"
+  },
+  "model_updates": 0,
+  "threshold_changes": 0
+}

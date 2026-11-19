@@ -1,0 +1,418 @@
+{
+  "status": "PASS",
+  "jobs": {
+    "1": "185412",
+    "0": "185410",
+    "2": "185414",
+    "3": "185416",
+    "4": "185421",
+    "6": "185425",
+    "5": "185423",
+    "7": "185431",
+    "10": "185440",
+    "8": "185435",
+    "9": "185437",
+    "11": "185444",
+    "12": "185448",
+    "13": "185450",
+    "14": "185452",
+    "15": "185458",
+    "16": "185482",
+    "18": "185487",
+    "17": "185485"
+  },
+  "plan": {
+    "shards": 19,
+    "wall_seconds": 6600,
+    "estimated_cpu_worker_seconds": 40269.36020602239,
+    "shape_timing": {
+      "06-0013-01": {
+        "batch_seconds": 0.2476295386441052,
+        "batches": 4396,
+        "logical_rows": 16
+      },
+      "06-0013-02": {
+        "batch_seconds": 0.34814388398081064,
+        "batches": 198,
+        "logical_rows": 16
+      },
+      "06-0013-03": {
+        "batch_seconds": 0.5068717929534614,
+        "batches": 248,
+        "logical_rows": 16
+      },
+      "06-0013-04": {
+        "batch_seconds": 0.6674399627372622,
+        "batches": 206,
+        "logical_rows": 16
+      },
+      "06-0013-05": {
+        "batch_seconds": 0.8492230898700655,
+        "batches": 117,
+        "logical_rows": 16
+      },
+      "06-0013-06": {
+        "batch_seconds": 1.0312980050221086,
+        "batches": 82,
+        "logical_rows": 16
+      },
+      "06-0013-07": {
+        "batch_seconds": 1.2393620372749865,
+        "batches": 8,
+        "logical_rows": 16
+      },
+      "06-0013-08": {
+        "batch_seconds": 1.468509181868285,
+        "batches": 4,
+        "logical_rows": 16
+      },
+      "06-0013-09": {
+        "batch_seconds": 1.6277569057419896,
+        "batches": 2,
+        "logical_rows": 16
+      },
+      "06-0013-10": {
+        "batch_seconds": 1.8620416917838156,
+        "batches": 2,
+        "logical_rows": 16
+      },
+      "06-0013-11": {
+        "batch_seconds": 2.0705296262167394,
+        "batches": 3,
+        "logical_rows": 16
+      },
+      "06-0013-12": {
+        "batch_seconds": 2.2597063342109323,
+        "batches": 739,
+        "logical_rows": 16
+      },
+      "06-0025-01": {
+        "batch_seconds": 0.24436615034937859,
+        "batches": 1,
+        "logical_rows": 11
+      },
+      "06-0025-02": {
+        "batch_seconds": 0.6241665948182344,
+        "batches": 3542,
+        "logical_rows": 16
+      },
+      "06-0025-03": {
+        "batch_seconds": 0.9498966899700463,
+        "batches": 129,
+        "logical_rows": 16
+      },
+      "06-0025-04": {
+        "batch_seconds": 1.2878963970579207,
+        "batches": 43,
+        "logical_rows": 16
+      },
+      "06-0025-05": {
+        "batch_seconds": 1.6658694031648338,
+        "batches": 69,
+        "logical_rows": 16
+      },
+      "06-0025-06": {
+        "batch_seconds": 2.071271095890552,
+        "batches": 42,
+        "logical_rows": 16
+      },
+      "06-0025-07": {
+        "batch_seconds": 2.5383413368836045,
+        "batches": 29,
+        "logical_rows": 16
+      },
+      "06-0025-08": {
+        "batch_seconds": 2.950915893074125,
+        "batches": 14,
+        "logical_rows": 16
+      },
+      "06-0025-09": {
+        "batch_seconds": 3.443710724823177,
+        "batches": 8,
+        "logical_rows": 16
+      },
+      "06-0025-10": {
+        "batch_seconds": 3.865012369118631,
+        "batches": 11,
+        "logical_rows": 16
+      },
+      "06-0025-11": {
+        "batch_seconds": 4.249523371923715,
+        "batches": 14,
+        "logical_rows": 16
+      },
+      "06-0025-12": {
+        "batch_seconds": 4.723718848079443,
+        "batches": 918,
+        "logical_rows": 16
+      },
+      "06-0037-02": {
+        "batch_seconds": 0.9269132749177516,
+        "batches": 3460,
+        "logical_rows": 16
+      },
+      "06-0037-03": {
+        "batch_seconds": 1.452991590835154,
+        "batches": 41,
+        "logical_rows": 16
+      },
+      "06-0037-04": {
+        "batch_seconds": 1.994439385831356,
+        "batches": 1179,
+        "logical_rows": 16
+      },
+      "06-0037-05": {
+        "batch_seconds": 2.616749030072242,
+        "batches": 113,
+        "logical_rows": 16
+      },
+      "06-0037-06": {
+        "batch_seconds": 3.251866963226348,
+        "batches": 53,
+        "logical_rows": 16
+      },
+      "06-0037-07": {
+        "batch_seconds": 3.9197050780057907,
+        "batches": 33,
+        "logical_rows": 16
+      },
+      "06-0037-08": {
+        "batch_seconds": 4.562871229834855,
+        "batches": 45,
+        "logical_rows": 16
+      },
+      "06-0037-09": {
+        "batch_seconds": 5.145504305139184,
+        "batches": 40,
+        "logical_rows": 16
+      },
+      "06-0037-10": {
+        "batch_seconds": 5.780192947015166,
+        "batches": 33,
+        "logical_rows": 16
+      },
+      "06-0037-11": {
+        "batch_seconds": 6.300397444050759,
+        "batches": 32,
+        "logical_rows": 16
+      },
+      "06-0037-12": {
+        "batch_seconds": 6.948400320019573,
+        "batches": 507,
+        "logical_rows": 16
+      },
+      "06-0049-02": {
+        "batch_seconds": 1.2635899600572884,
+        "batches": 1781,
+        "logical_rows": 16
+      },
+      "06-0049-03": {
+        "batch_seconds": 1.9677778840996325,
+        "batches": 103,
+        "logical_rows": 16
+      },
+      "06-0049-04": {
+        "batch_seconds": 2.816714765969664,
+        "batches": 40,
+        "logical_rows": 16
+      },
+      "06-0049-05": {
+        "batch_seconds": 3.6738400501199067,
+        "batches": 16,
+        "logical_rows": 16
+      },
+      "06-0049-06": {
+        "batch_seconds": 4.445266782771796,
+        "batches": 11,
+        "logical_rows": 16
+      },
+      "06-0049-07": {
+        "batch_seconds": 5.4938279539346695,
+        "batches": 7,
+        "logical_rows": 16
+      },
+      "06-0049-08": {
+        "batch_seconds": 5.884036978241056,
+        "batches": 6,
+        "logical_rows": 16
+      },
+      "06-0049-09": {
+        "batch_seconds": 6.781632491853088,
+        "batches": 4,
+        "logical_rows": 16
+      },
+      "06-0049-10": {
+        "batch_seconds": 7.617218531202525,
+        "batches": 3,
+        "logical_rows": 16
+      },
+      "06-0049-11": {
+        "batch_seconds": 8.37629588926211,
+        "batches": 3,
+        "logical_rows": 16
+      },
+      "06-0049-12": {
+        "batch_seconds": 9.093141385819763,
+        "batches": 336,
+        "logical_rows": 16
+      },
+      "06-0061-02": {
+        "batch_seconds": 1.647589874919504,
+        "batches": 2674,
+        "logical_rows": 16
+      },
+      "06-0061-03": {
+        "batch_seconds": 2.5822805990464985,
+        "batches": 97,
+        "logical_rows": 16
+      },
+      "06-0061-04": {
+        "batch_seconds": 3.6270541567355394,
+        "batches": 24,
+        "logical_rows": 16
+      },
+      "06-0061-05": {
+        "batch_seconds": 4.627805519383401,
+        "batches": 15,
+        "logical_rows": 16
+      },
+      "06-0061-06": {
+        "batch_seconds": 5.591082579921931,
+        "batches": 7,
+        "logical_rows": 16
+      },
+      "06-0061-07": {
+        "batch_seconds": 6.512745318934321,
+        "batches": 3,
+        "logical_rows": 16
+      },
+      "06-0061-08": {
+        "batch_seconds": 7.6777640376240015,
+        "batches": 2,
+        "logical_rows": 16
+      },
+      "06-0061-09": {
+        "batch_seconds": 7.482570168096572,
+        "batches": 1,
+        "logical_rows": 14
+      },
+      "06-0061-10": {
+        "batch_seconds": 9.479775344021618,
+        "batches": 2,
+        "logical_rows": 16
+      },
+      "06-0061-11": {
+        "batch_seconds": 10.420977334026247,
+        "batches": 2,
+        "logical_rows": 16
+      },
+      "06-0061-12": {
+        "batch_seconds": 11.509281476028264,
+        "batches": 154,
+        "logical_rows": 16
+      },
+      "06-0073-02": {
+        "batch_seconds": 1.9970922912470996,
+        "batches": 1289,
+        "logical_rows": 16
+      },
+      "06-0073-03": {
+        "batch_seconds": 3.2311529689468443,
+        "batches": 18,
+        "logical_rows": 16
+      },
+      "06-0073-04": {
+        "batch_seconds": 4.448067799210548,
+        "batches": 4,
+        "logical_rows": 16
+      },
+      "06-0073-05": {
+        "batch_seconds": 5.594388250261545,
+        "batches": 3,
+        "logical_rows": 16
+      },
+      "06-0073-06": {
+        "batch_seconds": 6.882880736142397,
+        "batches": 3,
+        "logical_rows": 16
+      },
+      "06-0073-07": {
+        "batch_seconds": 7.969991737045348,
+        "batches": 3,
+        "logical_rows": 16
+      },
+      "06-0073-08": {
+        "batch_seconds": 9.029495376162231,
+        "batches": 9,
+        "logical_rows": 16
+      },
+      "06-0073-09": {
+        "batch_seconds": 10.174468480050564,
+        "batches": 6,
+        "logical_rows": 16
+      },
+      "06-0073-10": {
+        "batch_seconds": 11.62612600484863,
+        "batches": 3,
+        "logical_rows": 16
+      },
+      "06-0073-11": {
+        "batch_seconds": 12.740275119896978,
+        "batches": 7,
+        "logical_rows": 16
+      },
+      "06-0073-12": {
+        "batch_seconds": 13.892786719370633,
+        "batches": 264,
+        "logical_rows": 16
+      },
+      "17-0007-01": {
+        "batch_seconds": 0.13141816528514028,
+        "batches": 55,
+        "logical_rows": 16
+      },
+      "17-0007-02": {
+        "batch_seconds": 0.21819897508248687,
+        "batches": 50,
+        "logical_rows": 16
+      },
+      "17-0007-03": {
+        "batch_seconds": 0.3070265422575176,
+        "batches": 3,
+        "logical_rows": 16
+      },
+      "17-0007-04": {
+        "batch_seconds": 0.39419334195554256,
+        "batches": 3,
+        "logical_rows": 16
+      },
+      "17-0007-05": {
+        "batch_seconds": 0.48330068588256836,
+        "batches": 1,
+        "logical_rows": 1
+      },
+      "17-0007-06": {
+        "batch_seconds": 0.5695382808335125,
+        "batches": 1,
+        "logical_rows": 1
+      },
+      "17-0013-01": {
+        "batch_seconds": 0.14251485699787736,
+        "batches": 1,
+        "logical_rows": 10
+      },
+      "17-0013-02": {
+        "batch_seconds": 0.34634559135884047,
+        "batches": 3,
+        "logical_rows": 16
+      },
+      "17-0013-03": {
+        "batch_seconds": 0.10794485593214631,
+        "batches": 1,
+        "logical_rows": 2
+      }
+    },
+    "parallel_jobs": 4,
+    "input_sha256": "8451aa576f8871f71e72c49ca2f25ac983ea7f29fb698aee1a60a29433878567"
+  }
+}
