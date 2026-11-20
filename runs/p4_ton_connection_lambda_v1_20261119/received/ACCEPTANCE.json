@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "jobs": {
+    "preflight": "185752",
+    "formal": "185754"
+  },
+  "queries": 363191,
+  "package_sha256": "cfb718261089102d28b3900c79c4d1a7329f46fb5f33f94183dd708b9d5e297b",
+  "checks": {
+    "sweep_rows": 96,
+    "raw_rows": 5,
+    "quantile_rows": 4,
+    "ensemble_missed": 14811
+  },
+  "preflight": {
+    "file": "PREFLIGHT.json",
+    "sha256": "05bbbaa87bcf557b7bfebbdacfbb6c21ab34463bd57dfdef2d953d391f2f56a7",
+    "bytes": 1364
+  },
+  "science": {
+    "file": "FORMAL.json",
+    "sha256": "5a9e01379fdaf709b68a473a804ac878141c9c462966ed7db480cf829943ac74",
+    "bytes": 2117
+  },
+  "source_job": "185491"
+}

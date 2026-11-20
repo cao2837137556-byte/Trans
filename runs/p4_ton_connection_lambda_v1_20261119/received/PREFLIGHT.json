@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "job_id": "185752",
+  "package_sha256": "cfb718261089102d28b3900c79c4d1a7329f46fb5f33f94183dd708b9d5e297b",
+  "slice_witness": {
+    "192.168.1.152": {
+      "rows": 35372,
+      "sha256": "dc2844c6f0982f1187592c12d4aa81d4b4b69c86fc0fce875da8cd91c01c17d1"
+    },
+    "192.168.1.190": {
+      "rows": 88,
+      "sha256": "955b34debd065f5264af3889fd3bbeffc42f052263eded622cb8ee56b44b626a"
+    },
+    "192.168.1.193": {
+      "rows": 3,
+      "sha256": "62a918af7865b10e0df3c3105db1e5cd0649b31bff174116acbbd5d8594cd11a"
+    },
+    "192.168.1.195": {
+      "rows": 226,
+      "sha256": "92921310c5477701bb55beea298d2f44ea142a232a03e9cab3085bf29af6ad7c"
+    }
+  },
+  "rows": 35689,
+  "literal_flag_rows": 43,
+  "checks": {
+    "sweep_rows": 96,
+    "raw_rows": 5,
+    "quantile_rows": 4,
+    "ensemble_missed": 33
+  },
+  "method": {
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "p": 4,
+    "kernel": "g(s)=1-(1-s)^4",
+    "lambda_value": 0.25,
+    "cuts": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "scales": [
+      118.95627975463867,
+      121.3746566772461,
+      122.36117172241211
+    ],
+    "guard": "SYN_AND_NOT_ACK_ALL_DEVICES"
+  },
+  "cache_order_sha256": "186a11e2ebf0500228dd9198565140e7b09a1eed61b63e9bf6302297deaec2ca"
+}
