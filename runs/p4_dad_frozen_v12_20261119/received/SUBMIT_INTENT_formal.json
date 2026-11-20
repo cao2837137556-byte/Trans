@@ -1,0 +1,21 @@
+{
+  "timestamp": 1795142764.1857774,
+  "argv": [
+    "sbatch",
+    "--partition=amd",
+    "--no-requeue",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=4",
+    "--mem=16384M",
+    "--time=02:00:00",
+    "--job-name=p04-dad19-formal",
+    "--chdir=/public/home/jiangxinwei.zr/work/paper04/runs/p4_dad_frozen_v12_20261119/package",
+    "--output=/public/home/jiangxinwei.zr/work/paper04/runs/p4_dad_frozen_v12_20261119/formal-%j.out",
+    "--error=/public/home/jiangxinwei.zr/work/paper04/runs/p4_dad_frozen_v12_20261119/formal-%j.err",
+    "/public/home/jiangxinwei.zr/work/paper04/runs/p4_dad_frozen_v12_20261119/package/run.slurm",
+    "formal",
+    "/public/home/jiangxinwei.zr/work/paper04",
+    "/public/home/jiangxinwei.zr/work/paper04/runs/p4_dad_frozen_v12_20261119"
+  ]
+}

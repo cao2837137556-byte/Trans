@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "job_id": "185734",
+  "package_sha256": "18ff4a30c848e0b4032a44dd7447f2412a073f537a53e0491d177827bb03002a",
+  "real_queries": 18317,
+  "references": 1304,
+  "direct_oracle_rows": 120,
+  "max_distance_error": 1.3986275787698788e-15,
+  "cic_witness": {
+    "rows": 1024,
+    "uid_order_sha256": "65e56145f51e9b3dcbf885e8bac9b36c4408ffc5616247b90e6738690ba1e8a1",
+    "max_abs_score_error": 0.0,
+    "head_decision_differences": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "source_cuts": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "models": {
+      "head_27": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/device_context_head_training_v2_20261105/heads/FUSION790_27/train/head.npz",
+        "bytes": 406514,
+        "sha256": "738ded855e7c6d72a514579840025b3cc76fa3bf471a5c223b5c4faaf1d86669"
+      },
+      "head_127": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/device_context_head_training_v2_20261105/heads/FUSION790_127/train/head.npz",
+        "bytes": 406514,
+        "sha256": "07812cc598801b726bc5213e21278427aa62a0104121b7045dcb0c1b74f5aed5"
+      },
+      "head_227": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/device_context_head_training_v2_20261105/heads/FUSION790_227/train/head.npz",
+        "bytes": 406514,
+        "sha256": "ebf23b94d605b6c823fa28dde66b629a851b33a49205c7b074852846582fe59d"
+      }
+    }
+  },
+  "frontend_seconds": 33.15760261192918,
+  "encoding_seconds": 548.222168719396,
+  "max_batch_seconds": 2.810956052970141,
+  "batches": 1230,
+  "seal": {
+    "file": "INPUT_SEAL.json",
+    "bytes": 2542,
+    "sha256": "6c8240b1d40904ca928a035b4876e049d013fa7716115a7f473ec6fb62459b33"
+  },
+  "checks": {
+    "rows": 32,
+    "thursday_rows": 4,
+    "subset_violations": 0
+  },
+  "outputs": {
+    "DAILY_METRICS.csv": {
+      "file": "DAILY_METRICS.csv",
+      "bytes": 3483,
+      "sha256": "39ef6758736d47095227ff159dd62e6d6c7a79401ec73d2dfeebab6e72d1d5b5"
+    },
+    "THURSDAY_DUPLICATION.csv": {
+      "file": "THURSDAY_DUPLICATION.csv",
+      "bytes": 618,
+      "sha256": "4df6f29368a8aad0d0c9670bf8dfe61b78f5277769dd21476efd9177f84715b3"
+    },
+    "RESULTS_FOR_PAPER.md": {
+      "file": "RESULTS_FOR_PAPER.md",
+      "bytes": 792,
+      "sha256": "75922667c852c778ae1cead0df653d3d151530c44426b7e1ea6baba45a21a6c9"
+    },
+    "DATA_BINDING.json": {
+      "file": "DATA_BINDING.json",
+      "bytes": 1369,
+      "sha256": "3c2928e93a8f8fb274e4e15918c77f240d0a70c9eddcec317def0fb6cd2e9fb6"
+    },
+    "TUESDAY_DIAGNOSTIC.json": {
+      "file": "TUESDAY_DIAGNOSTIC.json",
+      "bytes": 104,
+      "sha256": "491091c351e251915c071e40a471da35e61238894f49237daeaca9ae400067c0"
+    },
+    "ARTIFACT_SHA.json": {
+      "file": "ARTIFACT_SHA.json",
+      "bytes": 3270,
+      "sha256": "2ba6f4589adfa5953510d02c5d147c2067bc8dfd4296d4e37f395aa687fdccc4"
+    }
+  }
+}

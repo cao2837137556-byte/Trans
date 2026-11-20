@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "job_id": "185732",
+  "package_sha256": "18ff4a30c848e0b4032a44dd7447f2412a073f537a53e0491d177827bb03002a",
+  "real_queries": 148,
+  "references": 40,
+  "direct_oracle_rows": 148,
+  "max_distance_error": 1.2238474123016374e-15,
+  "cic_witness": {
+    "rows": 1024,
+    "uid_order_sha256": "65e56145f51e9b3dcbf885e8bac9b36c4408ffc5616247b90e6738690ba1e8a1",
+    "max_abs_score_error": 0.0,
+    "head_decision_differences": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "source_cuts": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "models": {
+      "head_27": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/device_context_head_training_v2_20261105/heads/FUSION790_27/train/head.npz",
+        "bytes": 406514,
+        "sha256": "738ded855e7c6d72a514579840025b3cc76fa3bf471a5c223b5c4faaf1d86669"
+      },
+      "head_127": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/device_context_head_training_v2_20261105/heads/FUSION790_127/train/head.npz",
+        "bytes": 406514,
+        "sha256": "07812cc598801b726bc5213e21278427aa62a0104121b7045dcb0c1b74f5aed5"
+      },
+      "head_227": {
+        "path": "/public/home/jiangxinwei.zr/work/paper04/runs/device_context_head_training_v2_20261105/heads/FUSION790_227/train/head.npz",
+        "bytes": 406514,
+        "sha256": "ebf23b94d605b6c823fa28dde66b629a851b33a49205c7b074852846582fe59d"
+      }
+    }
+  },
+  "frontend_seconds": 31.19422007491812,
+  "encoding_seconds": 3.9267370547167957,
+  "max_batch_seconds": 0.6504354700446129,
+  "batches": 14,
+  "seal": {
+    "file": "INPUT_SEAL.json",
+    "bytes": 2530,
+    "sha256": "d6f67fd62022d6a5f181e677403f5810f2240820034f88d40239335f66f5bb14"
+  },
+  "checks": {
+    "rows": 32,
+    "thursday_rows": 4,
+    "subset_violations": 0
+  },
+  "probe_frames": [
+    "mon:1304",
+    "mon:1305",
+    "mon:14429",
+    "sun:1",
+    "sun_syn",
+    "thu:2047",
+    "wed:2707"
+  ],
+  "clock_regression": {
+    "day": "mon",
+    "frame": 12147,
+    "raw_ns": 1571681427133358000,
+    "prefix_clock_ns": 1571681427133359000
+  },
+  "formal_wall_seconds": 7200
+}
