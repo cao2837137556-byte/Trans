@@ -1,0 +1,649 @@
+{
+  "population": "clean target-inbound TCP after cutoff vs full-chain relay-attributed target-inbound TCP outside SYN-no-ACK",
+  "normal": {
+    "start": {
+      "member": "cap_00001_20210318035345",
+      "frame": 2,
+      "utc": "2021-03-18 02:53:45.357893766Z"
+    },
+    "cut": "2021-03-18 04:53:45.357893766Z",
+    "last_ref_in": {
+      "member": "cap_00003_20210318053559",
+      "frame": 31781,
+      "utc": "2021-03-18 04:53:45.287046849Z"
+    },
+    "first_post_in": {
+      "member": "cap_00003_20210318053559",
+      "frame": 31784,
+      "utc": "2021-03-18 04:53:45.387662658Z"
+    },
+    "last_post_in": {
+      "member": "cap_00003_20210318053559",
+      "frame": 41783,
+      "utc": "2021-03-18 04:59:20.722198485Z"
+    },
+    "reference_in_n": 71568,
+    "post_in_n": 3334,
+    "max_gap_ref_to_first_post_s": 0.110489626,
+    "max_gap_all_s": 0.110489626,
+    "normal_src_macs": [
+      "00:25:90:4c:74:60"
+    ],
+    "reference_components": [
+      {
+        "key": [
+          "10.2.32.133",
+          502,
+          "10.2.33.223",
+          40554
+        ],
+        "frames": 214703
+      }
+    ],
+    "rate": {
+      "pps_1": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "ipBps_1": [
+        670.0,
+        670.0,
+        670.0
+      ],
+      "pps_10": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "ipBps_10": [
+        670.0,
+        670.0,
+        670.0
+      ]
+    },
+    "normal_members": [
+      [
+        "cap_00001_20210318035345",
+        91461,
+        true
+      ],
+      [
+        "cap_00002_20210318044452",
+        91461,
+        true
+      ],
+      [
+        "cap_00003_20210318053559",
+        41784,
+        false
+      ]
+    ],
+    "last_any_direction_reference_frame_in_third_member": 31782,
+    "first_after_cut_any_direction_frame_in_third_member": 31783
+  },
+  "events": [
+    {
+      "member": "cap_00001_20210318095210",
+      "whole_trial_available": true,
+      "start": {
+        "kind": "start",
+        "n": 4009,
+        "sm": "00:25:90:4c:74:5a",
+        "dm": "0c:c4:7a:0b:5b:ae",
+        "src": "10.2.32.131",
+        "dst": "10.2.33.223",
+        "utc": "2021-03-18 08:54:25.177420844Z"
+      },
+      "end": {
+        "kind": "end",
+        "n": 14873,
+        "sm": "00:25:90:4c:74:5a",
+        "dm": "0c:c4:7a:0b:5b:ae",
+        "src": "10.2.32.131",
+        "dst": "10.2.33.223",
+        "utc": "2021-03-18 09:01:11.566599802Z"
+      },
+      "trial_frames": 15791,
+      "all_inbound_TCP_between_markers": 3621,
+      "associated": 3547,
+      "offguard": 3547,
+      "with_data": 3547,
+      "flags": {
+        "0x18": 3547
+      },
+      "first": {
+        "kind": "in",
+        "n": 4104,
+        "sm": "00:25:90:4c:74:5a",
+        "dm": "0c:c4:7a:0b:5b:ae",
+        "comp": [
+          "10.2.32.133",
+          502,
+          "10.2.33.223",
+          40554
+        ],
+        "flags": 24,
+        "data": 15,
+        "iplen": 67,
+        "mb_func": 3,
+        "rate": [
+          10.0,
+          670.0,
+          10.0,
+          670.0
+        ],
+        "utc": "2021-03-18 08:54:28.327950240Z"
+      },
+      "last": {
+        "kind": "in",
+        "n": 14742,
+        "sm": "00:25:90:4c:74:5a",
+        "dm": "0c:c4:7a:0b:5b:ae",
+        "comp": [
+          "10.2.32.133",
+          502,
+          "10.2.33.223",
+          40554
+        ],
+        "flags": 24,
+        "data": 15,
+        "iplen": 67,
+        "mb_func": 3,
+        "rate": [
+          9.0,
+          603.0,
+          8.9,
+          596.3
+        ],
+        "utc": "2021-03-18 09:01:07.212081151Z"
+      },
+      "associated_Modbus_function_counts": {
+        "3": 3547
+      },
+      "rate": {
+        "pps_1": [
+          9.0,
+          9.0,
+          9.0
+        ],
+        "ipBps_1": [
+          603.0,
+          603.0,
+          603.0
+        ],
+        "pps_10": [
+          8.9,
+          8.9,
+          9.0
+        ],
+        "ipBps_10": [
+          596.3,
+          596.3,
+          603.0
+        ]
+      },
+      "inside_all_normal_p05_p95": 3,
+      "above_any_normal_p95": 0
+    },
+    {
+      "member": "cap_00001_20210318100414",
+      "whole_trial_available": true,
+      "start": {
+        "kind": "start",
+        "n": 2266,
+        "sm": "00:25:90:4c:74:5a",
+        "dm": "0c:c4:7a:0b:5b:ae",
+        "src": "10.2.32.131",
+        "dst": "10.2.33.223",
+        "utc": "2021-03-18 09:05:30.389001485Z"
+      },
+      "end": {
+        "kind": "end",
+        "n": 10784,
+        "sm": "00:25:90:4c:74:5a",
+        "dm": "0c:c4:7a:0b:5b:ae",
+        "src": "10.2.32.131",
+        "dst": "10.2.33.223",
+        "utc": "2021-03-18 09:10:48.530246664Z"
+      },
+      "trial_frames": 11282,
+      "all_inbound_TCP_between_markers": 2839,
+      "associated": 2765,
+      "offguard": 2765,
+      "with_data": 2765,
+      "flags": {
+        "0x18": 2765
+      },
+      "first": {
+        "kind": "in",
+        "n": 2361,
+        "sm": "00:25:90:4c:74:5a",
+        "dm": "0c:c4:7a:0b:5b:ae",
+        "comp": [
+          "10.2.32.133",
+          502,
+          "10.2.33.223",
+          40554
+        ],
+        "flags": 24,
+        "data": 15,
+        "iplen": 67,
+        "mb_func": 3,
+        "rate": [
+          10.0,
+          670.0,
+          10.0,
+          670.0
+        ],
+        "utc": "2021-03-18 09:05:33.524099077Z"
+      },
+      "last": {
+        "kind": "in",
+        "n": 10653,
+        "sm": "00:25:90:4c:74:5a",
+        "dm": "0c:c4:7a:0b:5b:ae",
+        "comp": [
+          "10.2.32.133",
+          502,
+          "10.2.33.223",
+          40554
+        ],
+        "flags": 24,
+        "data": 15,
+        "iplen": 67,
+        "mb_func": 3,
+        "rate": [
+          9.0,
+          603.0,
+          8.9,
+          596.3
+        ],
+        "utc": "2021-03-18 09:10:44.164203249Z"
+      },
+      "associated_Modbus_function_counts": {
+        "3": 2765
+      },
+      "rate": {
+        "pps_1": [
+          9.0,
+          9.0,
+          9.0
+        ],
+        "ipBps_1": [
+          603.0,
+          603.0,
+          603.0
+        ],
+        "pps_10": [
+          8.9,
+          9.0,
+          9.0
+        ],
+        "ipBps_10": [
+          596.3,
+          603.0,
+          603.0
+        ]
+      },
+      "inside_all_normal_p05_p95": 3,
+      "above_any_normal_p95": 0
+    },
+    {
+      "member": "cap_00001_20210318101444",
+      "whole_trial_available": false,
+      "start": {
+        "kind": "start",
+        "n": 3430,
+        "sm": "00:25:90:4c:74:5a",
+        "dm": "0c:c4:7a:0b:5b:ae",
+        "src": "10.2.32.131",
+        "dst": "10.2.33.223",
+        "utc": "2021-03-18 09:16:40.040811091Z"
+      },
+      "end": {
+        "kind": "end",
+        "n": 19760,
+        "sm": "00:25:90:4c:74:5a",
+        "dm": "0c:c4:7a:0b:5b:ae",
+        "src": "10.2.32.131",
+        "dst": "10.2.33.223",
+        "utc": "2021-03-18 09:26:51.156093425Z"
+      },
+      "trial_frames": 19962,
+      "all_inbound_TCP_between_markers": 5443,
+      "associated": 5370,
+      "offguard": 5370,
+      "with_data": 5370,
+      "flags": {
+        "0x18": 5370
+      },
+      "first": {
+        "kind": "in",
+        "n": 3522,
+        "sm": "00:25:90:4c:74:5a",
+        "dm": "0c:c4:7a:0b:5b:ae",
+        "comp": [
+          "10.2.32.133",
+          502,
+          "10.2.33.223",
+          40554
+        ],
+        "flags": 24,
+        "data": 15,
+        "iplen": 67,
+        "mb_func": 3,
+        "rate": [
+          10.0,
+          670.0,
+          10.0,
+          670.0
+        ],
+        "utc": "2021-03-18 09:16:43.124258092Z"
+      },
+      "last": {
+        "kind": "in",
+        "n": 19629,
+        "sm": "00:25:90:4c:74:5a",
+        "dm": "0c:c4:7a:0b:5b:ae",
+        "comp": [
+          "10.2.32.133",
+          502,
+          "10.2.33.223",
+          40554
+        ],
+        "flags": 24,
+        "data": 15,
+        "iplen": 67,
+        "mb_func": 3,
+        "rate": [
+          9.0,
+          603.0,
+          8.9,
+          596.3
+        ],
+        "utc": "2021-03-18 09:26:46.776350406Z"
+      },
+      "associated_Modbus_function_counts": {
+        "3": 5370
+      },
+      "rate": {
+        "pps_1": [
+          9.0,
+          9.0,
+          9.0
+        ],
+        "ipBps_1": [
+          603.0,
+          603.0,
+          603.0
+        ],
+        "pps_10": [
+          8.9,
+          8.9,
+          9.0
+        ],
+        "ipBps_10": [
+          596.3,
+          596.3,
+          603.0
+        ]
+      },
+      "inside_all_normal_p05_p95": 3,
+      "above_any_normal_p95": 0
+    }
+  ],
+  "archive_prefixes": {
+    "normal": [
+      5360000,
+      "3fcef62410d7d959679f31e5e574a0c8c671d6be241b0202f8213abacee4c4d0"
+    ],
+    "attack": [
+      1123569,
+      "97a4d7d8a6dbce751576dd3f46f78bb19540fca41c85f07a87ced9701e536020"
+    ]
+  },
+  "normal_utc": "UTC; paper table III is CET (UTC+1)",
+  "source": {
+    "dataset": "https://doi.org/10.21227/mewp-g646",
+    "paper": "https://arxiv.org/abs/2103.09380",
+    "public_folder": "https://mega.nz/folder/APYykJSB#PhOyQUMq_03d8WA7xqSHUQ",
+    "normal_archive_total_bytes": 12454259,
+    "full_chain_archive_total_bytes": 1125617
+  },
+  "deduplication": {
+    "independent_acquisitions_counted": 1,
+    "protected_targets": 1,
+    "verified_complete_marked_events": 3,
+    "joined_offguard_inbound_frames": 11682
+  },
+  "window_definition": "Within acquisition member, current inclusive observed frame order, protected target IPv4+destination MAC, all eligible inbound TCP, integer nanosecond running maximum clock, (t-W,t]; packet count and IP bytes divided by 1 or 10. Confirmed independently in TShark.",
+  "quantiles": "Empirical nearest rank P05, median, P95 over scoped query positions.",
+  "association_rule": "Strictly between markers, correct direction to master IP+MAC, normal slave IP:502, Ethernet source MAC of the event marker sender; payload edits on individual frames not attested.",
+  "scope": "The publisher documents a clean interval after an earlier ARP-only run. No baseline claim for that earlier run.",
+  "elegant_ranges": [
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 0,
+      "last": 8191,
+      "plaintext_range_sha256": "398ade4c1daccba61f36d3008140505c7dc06ac902c46918105bf327374ff56d"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 8192,
+      "last": 532479,
+      "plaintext_range_sha256": "9c9f29c2a9e625aa96ebfdff499c8befc6c555d3ca247731205929f8efd0f5cf"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 532480,
+      "last": 1056767,
+      "plaintext_range_sha256": "fe9e25cb7dee862291a0de3c073e8c9e68bb419cdf73acdefed43479d41187ce"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 1056768,
+      "last": 1581055,
+      "plaintext_range_sha256": "fa2914f99f36d58066fcb8b8760549fe9df74bca8fc58fe0d54a23a2a7f90a6e"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 1581056,
+      "last": 1599999,
+      "plaintext_range_sha256": "d7050315fdae7c69dae6b50eec283d1d649e59c3d70bdc3b0d966bbc3780a2a6"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 1600000,
+      "last": 1665535,
+      "plaintext_range_sha256": "b1a2b9336963b7045fc13e46c832ab5871220e618d000bcea4ad071e44aae7d7"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 1665536,
+      "last": 2189823,
+      "plaintext_range_sha256": "f16cfd36c22404958926f65c551dfbbad4e6370109c799bd4eae0bb41e55d6c5"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 2189824,
+      "last": 2714111,
+      "plaintext_range_sha256": "30c9b2652cad472212577aa5b0a0048ce272cdc9a9e2650e1de9482e0665c7c8"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 2714112,
+      "last": 3199999,
+      "plaintext_range_sha256": "287540fa32fec299457df67d4e147ebb4989f091b810c40d8860c690715b9f96"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 3200000,
+      "last": 3265535,
+      "plaintext_range_sha256": "77fc83fe8e8d62e82b90f23e7c70c3d03f6650f11b8e99c3c4dfad75736fae6b"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 3265536,
+      "last": 3789823,
+      "plaintext_range_sha256": "d9a11983510a5fff87316c06568208cf012872c9a51b70dbd06e254f84d85397"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 3789824,
+      "last": 4314111,
+      "plaintext_range_sha256": "e9ebd3075799e921f16f6af1023c63d5f0fa4f5c5e5a4c699e016f4d6f9cf953"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 4314112,
+      "last": 4799999,
+      "plaintext_range_sha256": "f006eb26d4e8d40197480b9b6e0087763ff7085a665bb2e686459c396533967a"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 4800000,
+      "last": 4865535,
+      "plaintext_range_sha256": "e460facba40f649be6dcd104087afc478e269532b469ddc18d23879ccb8b6d51"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 4865536,
+      "last": 5359999,
+      "plaintext_range_sha256": "2ab33df6ec30fa8e76bd6d876017b5744e2095c73afde6ecbedf74ec485c55d1"
+    },
+    {
+      "archive": "normal_PLC_traffic.tar.gz",
+      "first": 6400000,
+      "last": 6465535,
+      "plaintext_range_sha256": "d1471e1ff2cc86e338807fac0694d3be91f37d4d56a5823b5c4515a755fbdefb"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 0,
+      "last": 16383,
+      "plaintext_range_sha256": "1edc96aacc14f4f810a16cbbfa3b407d8cef9a7921b4968524f9c698d8cb7bd2"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 16384,
+      "last": 49151,
+      "plaintext_range_sha256": "4c7862fed4ede2711eda8ecfd953af6502bd278de62681e94a3f1f32a01fc733"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 49152,
+      "last": 81919,
+      "plaintext_range_sha256": "ebe3480bea2233ef9f47b1d595e75918c9ca62aac3f1ecd787190b1f11bf6af8"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 81920,
+      "last": 114687,
+      "plaintext_range_sha256": "af14bd2667a2ea2b0664832f634f362985458fb0d53d301aafb918a49382eaf1"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 114688,
+      "last": 147455,
+      "plaintext_range_sha256": "3cd82cd2ca2dd7814cda678c5380e7c5fe637cd264ff5075a86263c956bf83e9"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 147456,
+      "last": 180223,
+      "plaintext_range_sha256": "64facd1280ddd0a39c203bd5ba94ecbc0c08c2e0707133d0141741064f335c21"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 180224,
+      "last": 245759,
+      "plaintext_range_sha256": "c5e983a22a2659e5503a1e63b94b56b812b0b4e8d892bf4154120a3c45fa7d2f"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 245760,
+      "last": 311295,
+      "plaintext_range_sha256": "eac99a7fc511d2ceabf06ba4d87ad2bf98c3bb703255532798215a7b5b550d09"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 311296,
+      "last": 376831,
+      "plaintext_range_sha256": "4a55d504c4c373d9f97e0fd174ba9bbbd33d7a745f4402010598a9493a48a5e6"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 376832,
+      "last": 442367,
+      "plaintext_range_sha256": "4cb37e05ae04ac962a457cb39c755d32f4c392a10ce440982142c92775201824"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 442368,
+      "last": 507903,
+      "plaintext_range_sha256": "1476e45964ce06be364b796c5c6ac87ebb13a11dba22250e63462b0be30f80a5"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 507904,
+      "last": 573439,
+      "plaintext_range_sha256": "5e08d738ed757587d41239f6ad92274127edafdafe4cd0a52a79974eae5db96a"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 573440,
+      "last": 638975,
+      "plaintext_range_sha256": "34b46866ffa8c57ea9448cf0d5b0cbc67dcdc184de9a16e41e681579acd3f532"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 638976,
+      "last": 704511,
+      "plaintext_range_sha256": "13921c1fb5d038629b67b561e243094eac029714d1988a8f9f723c69b921bc5e"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 704512,
+      "last": 770047,
+      "plaintext_range_sha256": "70a3ba61c6f4ad16d974b15ba77126f5f4097c487c917c60840fa48883569f09"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 770048,
+      "last": 835583,
+      "plaintext_range_sha256": "c11a135bb6b78f04c00a537a22fe09e514ae6286d0a5a70ebf0e74025246119f"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 835584,
+      "last": 901119,
+      "plaintext_range_sha256": "e65fa6794d4a8f8b8730859dc750103069f7d6ef44fe28b5d8a6f7bc2d2527c8"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 901120,
+      "last": 966655,
+      "plaintext_range_sha256": "831f70b11c8dd62477021257d2d674d50fe3c3f9128d826fbe3291a6453accde"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 966656,
+      "last": 1032191,
+      "plaintext_range_sha256": "a7ca12d998f769cf8b2f2bca4b5a67681e397a02372f3008787ef088d33a7961"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 1032192,
+      "last": 1097727,
+      "plaintext_range_sha256": "960625dad007d30384e5755fdbd39837550764e2b51089cf6c16a85ef1d90fb6"
+    },
+    {
+      "archive": "MiTM_Full_Chain.tar.gz",
+      "first": 1097728,
+      "last": 1123568,
+      "plaintext_range_sha256": "f1b0257edba78daed17a0ba607076b9e45089d0ffa6f3c02cd675c5ebda6b285"
+    }
+  ],
+  "total_elegant_range_bytes": 6549105
+}
