@@ -1,0 +1,219 @@
+{
+  "parent": "p4_ton_password_frozen_v12_20261118",
+  "source_job": "185491",
+  "source_return_sha256": "095167eced261b729a48f48615db00a1e4d90b44ab1dfafdf3008ee473524fc1",
+  "freeze_sha256": "77515b0f66b8430c78cf05ce3d0c5fe3a0923a099ad8ca833f5ff2b8b9685695",
+  "inputs": {
+    "snapshots.sqlite": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_ton_password_frozen_v12_20261118/formal/snapshots.sqlite",
+      "file": "snapshots.sqlite",
+      "bytes": 1710432256,
+      "sha256": "8451aa576f8871f71e72c49ca2f25ac983ea7f29fb698aee1a60a29433878567"
+    },
+    "RAW.npy": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_ton_password_frozen_v12_20261118/formal/RAW.npy",
+      "file": "RAW.npy",
+      "bytes": 11950400,
+      "sha256": "822f00629d400df1a99ef0f87202e64694bfeb7af14fa4047bd4fc738e10c8b6"
+    },
+    "INPUT_SEAL.json": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_ton_password_frozen_v12_20261118/formal/INPUT_SEAL.json",
+      "file": "INPUT_SEAL.json",
+      "bytes": 2909,
+      "sha256": "a1da829370f454b04618c8b7cbe78a23600d6e8de6cad75153fd030510fb31e8"
+    },
+    "RAW_PROOF.json": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_ton_password_frozen_v12_20261118/formal/RAW_PROOF.json",
+      "file": "RAW_PROOF.json",
+      "bytes": 9712,
+      "sha256": "9863ad7ac45c16645d260f4753dd8181fe3561fe507a9e5fbe08225e7b0ee5aa"
+    },
+    "192.168.1.152": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_ton_password_frozen_v12_20261118/formal/192.168.1.152_QUERY_DECISIONS.npz",
+      "file": "192.168.1.152_QUERY_DECISIONS.npz",
+      "bytes": 12281044,
+      "sha256": "9fe534952c2a2daa3dede8f508f6141d2d5eae584e4b909d713a865bc4a91c54"
+    },
+    "192.168.1.190": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_ton_password_frozen_v12_20261118/formal/192.168.1.190_QUERY_DECISIONS.npz",
+      "file": "192.168.1.190_QUERY_DECISIONS.npz",
+      "bytes": 26950192,
+      "sha256": "71aa916915e29d5fdd56d9ec1e9e0dddced62fec75e828b98c7829009b6f7a09"
+    },
+    "192.168.1.193": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_ton_password_frozen_v12_20261118/formal/192.168.1.193_QUERY_DECISIONS.npz",
+      "file": "192.168.1.193_QUERY_DECISIONS.npz",
+      "bytes": 820348,
+      "sha256": "57dba2a3c8914b79d6791d1d11ed8817c597434e03a90aebc5416fb335be4b9d"
+    },
+    "192.168.1.195": {
+      "path": "/public/home/jiangxinwei.zr/work/paper04/runs/p4_ton_password_frozen_v12_20261118/formal/192.168.1.195_QUERY_DECISIONS.npz",
+      "file": "192.168.1.195_QUERY_DECISIONS.npz",
+      "bytes": 16617220,
+      "sha256": "501ad9b0e2396657b8b52066d363586d4af1f41fec2ba0216aeec8d98beeb7a5"
+    }
+  },
+  "hosts": {
+    "192.168.1.152": {
+      "role": "middleware-server",
+      "owner": "ton-role:middleware-server",
+      "main_identity": "UNCONFIRMED",
+      "supplement_identity": "PUBLISHED_FIXED_IP_AND_LOGICAL_ROLE",
+      "reverse_sll_addresses": {
+        "normal1": [
+          "00:0c:29:d2:b0:02"
+        ],
+        "normal2": [
+          "00:0c:29:d2:b0:02"
+        ],
+        "password": [
+          "00:0c:29:28:72:d1",
+          "d4:3b:04:31:39:54"
+        ]
+      },
+      "reverse_sll_changed": true,
+      "independent_cross_capture_evidence_count": 0,
+      "window_start_ns": 1554220324757617000,
+      "window_end_ns": 1554227524757617000,
+      "tested_protocols": [
+        6
+      ]
+    },
+    "192.168.1.190": {
+      "role": "orchestrated-server",
+      "owner": "ton-role:orchestrated-server",
+      "main_identity": "UNCONFIRMED",
+      "supplement_identity": "PUBLISHED_FIXED_IP_AND_LOGICAL_ROLE",
+      "reverse_sll_addresses": {
+        "normal1": [
+          "00:0c:29:ee:e0:7a"
+        ],
+        "normal2": [
+          "00:0c:29:ee:e0:7a"
+        ],
+        "password": [
+          "00:0c:29:18:73:fe",
+          "02:42:f1:3f:c6:bd",
+          "d4:3b:04:31:39:54"
+        ]
+      },
+      "reverse_sll_changed": true,
+      "independent_cross_capture_evidence_count": 0,
+      "window_start_ns": 1554220324757977000,
+      "window_end_ns": 1554227524757977000,
+      "tested_protocols": [
+        6
+      ]
+    },
+    "192.168.1.193": {
+      "role": "windows-7",
+      "owner": "ton-role:windows-7",
+      "main_identity": "UNCONFIRMED",
+      "supplement_identity": "PUBLISHED_FIXED_IP_AND_LOGICAL_ROLE",
+      "reverse_sll_addresses": {
+        "normal1": [
+          "60:14:b3:b1:91:73"
+        ],
+        "normal2": [
+          "60:14:b3:b1:91:73"
+        ],
+        "password": [
+          "00:0c:29:a4:03:f4",
+          "d4:3b:04:31:39:54"
+        ]
+      },
+      "reverse_sll_changed": true,
+      "independent_cross_capture_evidence_count": 0,
+      "window_start_ns": 1554220335875204000,
+      "window_end_ns": 1554227535875204000,
+      "tested_protocols": [
+        6
+      ]
+    },
+    "192.168.1.195": {
+      "role": "windows-10",
+      "owner": "ton-role:windows-10",
+      "main_identity": "UNCONFIRMED",
+      "supplement_identity": "PUBLISHED_FIXED_IP_AND_LOGICAL_ROLE",
+      "reverse_sll_addresses": {
+        "normal1": [
+          "00:0c:29:a8:3a:da"
+        ],
+        "normal2": [
+          "00:0c:29:a8:3a:da"
+        ],
+        "password": [
+          "00:0c:29:b9:c9:36",
+          "d4:3b:04:31:39:54"
+        ]
+      },
+      "reverse_sll_changed": true,
+      "independent_cross_capture_evidence_count": 0,
+      "window_start_ns": 1554220324758079000,
+      "window_end_ns": 1554227524758079000,
+      "tested_protocols": [
+        6
+      ]
+    }
+  },
+  "paired_hosts": [
+    "192.168.1.152",
+    "192.168.1.190",
+    "192.168.1.195"
+  ],
+  "method": {
+    "heads": [
+      "27",
+      "127",
+      "227",
+      "ensemble"
+    ],
+    "p": 4,
+    "kernel": "g(s)=1-(1-s)^4",
+    "lambda_value": 0.25,
+    "cuts": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "scales": [
+      118.95627975463867,
+      121.3746566772461,
+      122.36117172241211
+    ],
+    "guard": "SYN_AND_NOT_ACK_ALL_DEVICES"
+  },
+  "populations": {
+    "reference": {
+      "rows": 10255,
+      "uid_order_sha256": "112cd5d11e8df420b7e3cc21ad42895077e117e9bc015acd94b30f2c65a69d85"
+    },
+    "normal": {
+      "rows": 36230,
+      "uid_order_sha256": "44ad791fda54301a34a6582e701e22abd00e4e06ca30be8223da82d0b85b8298"
+    },
+    "attack": {
+      "rows": 326961,
+      "uid_order_sha256": "385870a2a982e5c5b4041a6c799ef477309a164198e958c802410401094e22c8"
+    }
+  },
+  "order": "186a11e2ebf0500228dd9198565140e7b09a1eed61b63e9bf6302297deaec2ca",
+  "levels": [
+    0.25,
+    0.2,
+    0.15,
+    0.1,
+    0.05,
+    0.0
+  ],
+  "handoff_sha256": "c927952aa1e9da2fb90e0ba102bc37496085ee125fccf1bc9fb7df05f2a34555",
+  "connection_key": [
+    "capture",
+    "kind",
+    "host",
+    "original conn"
+  ],
+  "view": "all eligible inbound packets",
+  "table3_quantile": "NumPy linear; first RAW-positive by original frame. Each cohort defined by full RAW-positive and zero baseline-positive connections."
+}
