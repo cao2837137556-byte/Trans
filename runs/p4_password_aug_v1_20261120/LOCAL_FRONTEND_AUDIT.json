@@ -1,0 +1,28 @@
+{
+  "status": "PASS_LOCAL_FRONTEND",
+  "gotham_real_anchors": 12,
+  "gotham_pcap_sha256": "17e162c978f984161710f970f1115b81f9e7c869830f12bc2153ab96497e2670",
+  "edge_metadata_anchors": 3,
+  "edge_admitted": 3,
+  "edge_excluded": [],
+  "edge_scored": false,
+  "encoding_or_training_performed": false,
+  "original_Windows10_inbound_contributions": {
+    "normal2": {
+      "sha256": "e7b2e1d7a54b34f8af190693f34cd5d09b3d8248826627bb1e8245ca47ae76ba",
+      "frames": 2000000,
+      "windows_to_training_hosts": {
+        "192.168.1.152": 49805,
+        "192.168.1.190": 116
+      }
+    },
+    "password": {
+      "sha256": "5be996df9ae286f11f66f78708292ed8fade7d135c05514aff3e3d298fd17844",
+      "frames": 2351034,
+      "windows_to_training_hosts": {
+        "192.168.1.152": 39386,
+        "192.168.1.190": 61
+      }
+    }
+  }
+}

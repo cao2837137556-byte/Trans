@@ -1,0 +1,28 @@
+{
+  "candidate": "p4_password_aug_v1",
+  "control": "frozen_v12_FUSION790",
+  "seeds": [27, 127, 227],
+  "training_attack_groups": {"gotham": 1519, "192.168.1.152": 7775, "192.168.1.190": 32145},
+  "training_normal_groups_with_data": {"gotham": 48, "192.168.1.152": 30, "192.168.1.190": 16},
+  "selection": "first author-labelled eligible inbound off-bypass data frame per connection; complete causal input prefix",
+  "mix": {
+    "class_mass": {"normal": 0.5, "attack": 0.5},
+    "auxiliary_attack_fraction_within_class": 0.2,
+    "auxiliary_attack_group_weights": [1, 1, 1],
+    "auxiliary_normal_fraction_max_within_class": 0.2,
+    "auxiliary_normal_max_weight_per_connection_within_class": 0.001,
+    "unused_normal_mass": "CIC normal FIT",
+    "tail_negatives": "original CIC normal FIT tail; added normals enter weighted BCE with per-connection cap",
+    "epoch_order": "seeded uniform permutation of combined FIT; take original CIC FIT row count per epoch, original batch size 256",
+    "source_calibration": "original CIC normal CAL; same weighted 1 percent FPR budget for each head and ensemble",
+    "updates_per_head": 96560,
+    "encoder_normalization_context_geometry": "frozen v12",
+    "ToN_FIT_context": "Verify cached original context frame by frame then omit inbound contributions from the held-out Windows 10 host and replay the same causal 1 s and 10 s windows. Evaluation retains the original observed traffic.",
+    "ccnr": {"p": 4, "lambda": 0.25, "components": 2, "scale": "original per-seed v12 scale"}
+  },
+  "diagnostic": {"dataset": "ToN", "host": "192.168.1.195", "held_out_from_fit_and_selection": true, "connections_with_inbound_data": 18194, "scope": "same capture, previously diagnosed; CCNR logical pairing only"},
+  "external_primary": {"dataset": "Edge Password", "confirmed_connections": 23650, "use_before_model_freeze": "label and admission only", "negative_control": "existing post-commissioning normal Edge traffic", "same_service_normal_available": false},
+  "outcomes": ["raw and final paired gained, lost, retained, missed attack connections", "paired newly false-alerted and cleared normal connections", "original CIC/UNSW/Edge flood and benign regression"],
+  "primary_evaluation_unit": "a connection alerts if any eligible inbound frame alerts; separately report the confirmed application POST on Edge",
+  "selection_forbidden": ["holdout labels or scores for tuning", "Edge scoring before freezing all three heads and thresholds", "Windows 10 fit examples, normal references as fit examples, or histories containing Windows 10 as an endpoint"]
+}

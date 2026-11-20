@@ -1,0 +1,89 @@
+{
+  "cic_fit": 617908,
+  "cic_cal_normal": 33147,
+  "groups": [
+    {
+      "group": "192.168.1.152",
+      "label": 0,
+      "connections": 30,
+      "weight_within_class": 0.030000000000000006,
+      "max_connection_weight_within_class": 0.001
+    },
+    {
+      "group": "192.168.1.152",
+      "label": 1,
+      "connections": 7775,
+      "weight_within_class": 0.06666666666666665,
+      "max_connection_weight_within_class": 8.574490889603429e-06
+    },
+    {
+      "group": "192.168.1.190",
+      "label": 0,
+      "connections": 16,
+      "weight_within_class": 0.016,
+      "max_connection_weight_within_class": 0.001
+    },
+    {
+      "group": "192.168.1.190",
+      "label": 1,
+      "connections": 32145,
+      "weight_within_class": 0.06666666666666668,
+      "max_connection_weight_within_class": 2.0739358116866284e-06
+    },
+    {
+      "group": "gotham",
+      "label": 0,
+      "connections": 48,
+      "weight_within_class": 0.048,
+      "max_connection_weight_within_class": 0.001
+    },
+    {
+      "group": "gotham",
+      "label": 1,
+      "connections": 1519,
+      "weight_within_class": 0.06666666666666665,
+      "max_connection_weight_within_class": 4.388852315119596e-05
+    }
+  ],
+  "ton": {
+    "held_out": "192.168.1.195",
+    "verified_cached_contexts": 78147,
+    "contexts_changed_after_Windows10_removal": 42134,
+    "groups": [
+      {
+        "host": "192.168.1.152",
+        "label": 0,
+        "candidates": 30,
+        "included": 30,
+        "excluded": 0,
+        "selected_contexts_changed": 30
+      },
+      {
+        "host": "192.168.1.152",
+        "label": 1,
+        "candidates": 7775,
+        "included": 7775,
+        "excluded": 0,
+        "selected_contexts_changed": 7775
+      },
+      {
+        "host": "192.168.1.190",
+        "label": 0,
+        "candidates": 16,
+        "included": 16,
+        "excluded": 0,
+        "selected_contexts_changed": 0
+      },
+      {
+        "host": "192.168.1.190",
+        "label": 1,
+        "candidates": 32145,
+        "included": 32145,
+        "excluded": 0,
+        "selected_contexts_changed": 0
+      }
+    ]
+  },
+  "fit_order_sha256": "38bc6d9e95754ebdf6a22ac91781e75024730a8fe9facf45e9227f4099337130",
+  "cal_order_sha256": "cb1250aae55cde05d6717ecd1e215050c0c42492cf35ee72be19745a015ca287"
+}
