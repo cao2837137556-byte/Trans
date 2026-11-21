@@ -1,0 +1,64 @@
+{
+  "parent": "p4_password_aug_v1_20261120_r1",
+  "package_sha": "508098e24ca01cfdbbd1dc0b179cb02fdd8eb77dad8cf72964ab393b65b3926c",
+  "accepted_sha": {
+    "ACCEPTANCE.json": "3207ec4262b61c65b8f290a88070ce7367cf06a105673c161e9d267cccb89553",
+    "CANDIDATE_FREEZE.json": "ebe4420d5484434d581e1a47cd6b033e5d77a84fc10629ebb7483ed4ad02c24b",
+    "EDGE_INPUTS.json": "7ddd28263c0fc65ef41dfdbe1f97781bb9ac49f297b473b37eced51440e029c6",
+    "EDGE_PASSWORD.csv": "3d874b958c2ed914986fc0043da29e7a47e41be22e4991411e1771244fcf639d",
+    "FLOOD_NORMAL.csv": "80520c9134e0660826fe1018ab2dbc587bcd80964e1795a59c70bfd8a004fcd3",
+    "TRAINING_INPUTS.json": "d192630fe1ed525a3f44d8dec032237ced586898344f32950c61379b6bce8e2f",
+    "WINDOWS_CONNECTIONS.csv": "ac101d8f786b0d6b4d1e473b5423700d2a883825642ab2f79ca08ceae893500b"
+  },
+  "populations": {
+    "win": 15849,
+    "edge_password": 23608,
+    "unscorable": 42,
+    "edge_added": 214,
+    "unsw_added": 1336
+  },
+  "scope": "frozen v12 and r1; source FIT/CAL only; no training; p=4, lambda=0.25",
+  "normalization": "(seed raw score - seed source threshold) / seed CIC FIT span; mean; recalibrate ensemble only",
+  "decision_sha": "520deb4cba7e941c97054ed29484b644343816187db498bc33594228c202563c",
+  "base_scales": [
+    118.95627975463867,
+    121.3746566772461,
+    122.36117172241211
+  ],
+  "cuts": {
+    "v12": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "r1": [
+      -15.77381420135498,
+      -24.62387466430664,
+      -23.49289321899414,
+      -23.85986789067586
+    ]
+  },
+  "heads": {
+    "v12": {
+      "27": "738ded855e7c6d72a514579840025b3cc76fa3bf471a5c223b5c4faaf1d86669",
+      "127": "07812cc598801b726bc5213e21278427aa62a0104121b7045dcb0c1b74f5aed5",
+      "227": "ebf23b94d605b6c823fa28dde66b629a851b33a49205c7b074852846582fe59d"
+    },
+    "r1": {
+      "27": "5f38b5588efe51e4683301c7fd37b00ff76bfc3f3919143e5f23ad9beebfb848",
+      "127": "c2c35b3aa7abc31ad9834384e397b2d5135348c4424261173256820d4dc48da4",
+      "227": "87ce0b80da9e613640dd7da6b8f163ffd2cffb6ab4ded351923fe594d2579421"
+    }
+  },
+  "v12_fit_spans": [
+    91.68742370605469,
+    95.98065185546875,
+    87.30691528320312
+  ],
+  "v12_training_receipts": {
+    "27": "9d6ff5234bf5319403efa04c5e43e64cb2c5cb813f675d3797749bde8d935893",
+    "127": "2374fc63c8d890940e361e31f5deaa2ea13bd8921c80ff259d3c72f06d7545ed",
+    "227": "1a646df6acfd6463e2b79095ed921965958076a667db2184c37be5a079dc564d"
+  }
+}
