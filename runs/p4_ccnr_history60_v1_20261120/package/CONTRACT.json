@@ -1,0 +1,32 @@
+{
+  "rule_sha256": "0f49d21e98b705705dcbe91c49f318352a242135d3e226e9bfb24c9140b0167f",
+  "window_sec": 60,
+  "calibration": "CIC normal TCP CAL weighted P99.9",
+  "p": 4,
+  "lambda0": 0.25,
+  "cuts": [
+    -23.04324722290039,
+    -23.315204620361328,
+    -22.614715576171875,
+    -23.2497984568278
+  ],
+  "scales": [
+    118.95627975463867,
+    121.3746566772461,
+    122.36117172241211
+  ],
+  "no_model_evaluation_or_training": true,
+  "budgets": {
+    "CIC_DEV.normal.q": 20,
+    "EDGE.normal.q": 20,
+    "EDGE.normal.c": 20,
+    "UNSW_DEV.normal.q": 74,
+    "TON.normal.all.c": 2
+  },
+  "win10_primary": {
+    "n": 18194,
+    "raw": 14024,
+    "ccnr": 245,
+    "goal": 7012
+  }
+}

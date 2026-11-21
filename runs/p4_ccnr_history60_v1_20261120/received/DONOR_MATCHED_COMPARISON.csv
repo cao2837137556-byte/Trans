@@ -1,0 +1,7 @@
+target,attack_group,service,role,attack_withdrawn_queries,normal_withdrawn_same_service_role,status
+Edge,Edge.POST,80,protected_responder,4406,0,no_same_service_normal_withdrawal
+Edge,Edge.password,80,protected_responder,10331,0,no_same_service_normal_withdrawal
+Win10,Win10.attack,80,protected_responder,19536,0,no_same_service_normal_withdrawal
+Win10,Win10.payload.attack,80,protected_responder,13775,0,no_same_service_normal_withdrawal
+Win10,Win10.attack,unknown,unknown,301,,query_role_or_service_unknown
+Win10,Win10.payload.attack,unknown,unknown,43,,query_role_or_service_unknown

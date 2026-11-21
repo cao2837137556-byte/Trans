@@ -1,0 +1,141 @@
+{
+  "status": "PASS",
+  "package": "33a7608bc9ab51e47b3a290abef0164fb56e5e9d0266b74d7e412f88436e3cdb",
+  "phase": "preflight",
+  "job": "186513",
+  "node": "node186",
+  "seconds": 210.39898393163458,
+  "max_rss_kib": 1830312,
+  "real_source_and_target": {
+    "source": {
+      "interaction-attack-228": {
+        "rows": 4,
+        "frames": 8,
+        "seconds": 0.00023193517699837685,
+        "active_peak_sampled": 0
+      },
+      "interaction-attack-020": {
+        "rows": 8,
+        "frames": 1267,
+        "seconds": 0.008422775659710169,
+        "active_peak_sampled": 0
+      }
+    },
+    "CIC_DEV": {
+      "captures": {
+        "interaction-attack-192": {
+          "rows": 24,
+          "frames": 157,
+          "seconds": 0.0006851446814835072,
+          "active_peak_sampled": 0
+        },
+        "interaction-attack-193": {
+          "rows": 24,
+          "frames": 217,
+          "seconds": 0.001018761657178402,
+          "active_peak_sampled": 0
+        }
+      },
+      "rows": 48,
+      "boundary_rows": 0,
+      "baseline_cells": 2
+    },
+    "UNSW_DEV": {
+      "captures": {
+        "unsw-benign-20180528": {
+          "rows": 24,
+          "frames": 178445,
+          "seconds": 1.3575633587315679,
+          "active_peak_sampled": 0
+        },
+        "unsw-mixed-20180601": {
+          "rows": 24,
+          "frames": 1854699,
+          "seconds": 14.32748905196786,
+          "active_peak_sampled": 40
+        }
+      },
+      "rows": 48,
+      "boundary_rows": 0,
+      "baseline_cells": 2
+    },
+    "EDGE": {
+      "captures": {
+        "NORMAL": {
+          "rows": 24,
+          "frames": 118579,
+          "seconds": 0.8653346979990602,
+          "active_peak_sampled": 0
+        },
+        "HTTP": {
+          "rows": 24,
+          "frames": 173,
+          "seconds": 0.002765551209449768,
+          "active_peak_sampled": 0
+        },
+        "UDP": {
+          "rows": 24,
+          "frames": 3796,
+          "seconds": 0.012184247840195894,
+          "active_peak_sampled": 0
+        }
+      },
+      "rows": 72,
+      "boundary_rows": 19,
+      "baseline_cells": 5
+    },
+    "TON": {
+      "captures": {
+        "normal2": {
+          "rows": 24,
+          "frames": 1705,
+          "seconds": 0.010363188106566668,
+          "active_peak_sampled": 0
+        },
+        "password": {
+          "rows": 24,
+          "frames": 10236,
+          "seconds": 0.1144846030510962,
+          "active_peak_sampled": 0
+        }
+      },
+      "rows": 48,
+      "boundary_rows": 19,
+      "baseline_cells": 18
+    },
+    "EDGE_PASSWORD": {
+      "captures": {
+        "EDGE_PASSWORD": {
+          "rows": 24,
+          "frames": 141,
+          "seconds": 0.0023537520319223404,
+          "active_peak_sampled": 0
+        }
+      },
+      "rows": 24,
+      "boundary_rows": 1,
+      "baseline_cells": 3
+    }
+  },
+  "baseline_cells": 30,
+  "real_donor_probe": {
+    "TON": {
+      "queries": 8,
+      "max_support_difference": 0.0,
+      "pairs": 32768,
+      "direct_max_error": 1.0547118733938987e-15
+    },
+    "EDGE": {
+      "queries": 5,
+      "max_support_difference": 3.3306690738754696e-16,
+      "pairs": 20480,
+      "direct_max_error": 7.077671781985373e-16
+    },
+    "EDGE_PASSWORD": {
+      "queries": 5,
+      "max_support_difference": 0.0,
+      "pairs": 20480,
+      "direct_max_error": 5.551115123125783e-16
+    }
+  }
+}

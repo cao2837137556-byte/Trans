@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "package": "33a7608bc9ab51e47b3a290abef0164fb56e5e9d0266b74d7e412f88436e3cdb",
+  "phase": "edge",
+  "job": "186521",
+  "node": "node186",
+  "seconds": 24.882036495022476,
+  "max_rss_kib": 509548,
+  "captures": {
+    "NORMAL": {
+      "rows": 24124,
+      "frames": 1629745,
+      "seconds": 10.41182687599212,
+      "active_peak_sampled": 60
+    },
+    "HTTP": {
+      "rows": 20000,
+      "frames": 229139,
+      "seconds": 1.8049825211055577,
+      "active_peak_sampled": 6649
+    },
+    "UDP": {
+      "rows": 20000,
+      "frames": 3215698,
+      "seconds": 9.67140203109011,
+      "active_peak_sampled": 0
+    }
+  },
+  "rows": 60000,
+  "baseline_cells": 5,
+  "input_sha256": "26ee2dfe677fab9b9b6b0de9972a256cc88cad3636f85bf4848014614de915d2"
+}

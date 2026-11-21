@@ -1,0 +1,40 @@
+{
+  "proof": {
+    "TON": {
+      "queries": 19862,
+      "max_support_difference": 0.0,
+      "pairs": 81354752
+    },
+    "EDGE": {
+      "queries": 16699,
+      "max_support_difference": 5.551115123125783e-16,
+      "pairs": 67723816
+    },
+    "EDGE_PASSWORD": {
+      "queries": 10331,
+      "max_support_difference": 1.1102230246251565e-16,
+      "pairs": 42315776
+    }
+  },
+  "missing": [],
+  "large_files": {
+    "TON_DONOR_ROWS.npz": {
+      "file": "TON_DONOR_ROWS.npz",
+      "bytes": 15572558,
+      "sha256": "37305139c297d60496c67f558e1ad3bbc29d53c94f39486e174ba4890aab13fe"
+    },
+    "EDGE_DONOR_ROWS.npz": {
+      "file": "EDGE_DONOR_ROWS.npz",
+      "bytes": 13092766,
+      "sha256": "aea385ed944845d9f51c98bd9fd2b1e81fad0074ee06fb416ca24759607e7442"
+    },
+    "EDGE_PASSWORD_DONOR_ROWS.npz": {
+      "file": "EDGE_PASSWORD_DONOR_ROWS.npz",
+      "bytes": 8100254,
+      "sha256": "8fc8f846656af0e3e1652ff7719ed1242b9fae042bbe101156c72968986814e1"
+    }
+  },
+  "scope": "withdrawn RAW-positive queries, v12 original; Win10 logical identity, Edge same device",
+  "donor_role_unknown": "partial trace or handshake not confirmed at donor frame",
+  "client_port_only": "equal endpoint IPs, equal server port and confirmed client role; IANA-range subset descriptive"
+}
