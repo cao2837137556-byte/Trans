@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "phase": "edge",
+  "package": "aebb8dd27abfb7b9bc86afcc8a3ceb6a325b6472e9130779b7b09039b97e4b8b",
+  "job": "186667",
+  "node": "node185",
+  "seconds": 75.88059423398226,
+  "max_rss_kib": 953776,
+  "baseline_views": 5,
+  "both_baselines_query_parity": true,
+  "geometry": {
+    "matrix_pairs": 80199680,
+    "oracle_comparisons": 0,
+    "precheck": {}
+  },
+  "tables": {
+    "EDGE_PAIRED.csv": {
+      "file": "EDGE_PAIRED.csv",
+      "bytes": 9022,
+      "sha256": "25b3a68b8674561c5ce9010cea371fe9b8c3e67d2354df8aeaf2cc68381967fb"
+    },
+    "EDGE_MECHANISM.csv": {
+      "file": "EDGE_MECHANISM.csv",
+      "bytes": 3928,
+      "sha256": "62210af54e14bf32a4d9e59345dfc9d2bee1f87e259fbd2865937fe9214da43c"
+    }
+  },
+  "decisions": {
+    "file": "EDGE_DECISIONS.npz",
+    "bytes": 21939870,
+    "sha256": "c7031cccbd1443b215a674ff05b8528c0fb48d0634b566a43e2bf7af73237577"
+  },
+  "histories": {
+    "file": "EDGE_HISTORY.npz",
+    "bytes": 18468722,
+    "sha256": "210ed4afd2e22a55e81528a831d3ee39bffea313a4d92f06542f209594744e32"
+  },
+  "query_uid_order_sha256": "cec6dcd9399b5286fe8325828aaa7acb4584d6dd28c867fb76cbc7e17a7c5404",
+  "ref_uid_order_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e"
+}

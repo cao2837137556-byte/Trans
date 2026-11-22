@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "phase": "unsw",
+  "package": "aebb8dd27abfb7b9bc86afcc8a3ceb6a325b6472e9130779b7b09039b97e4b8b",
+  "job": "186665",
+  "node": "node185",
+  "seconds": 419.4110372606665,
+  "max_rss_kib": 3632160,
+  "baseline_views": 2,
+  "both_baselines_query_parity": true,
+  "geometry": {
+    "matrix_pairs": 602218108,
+    "oracle_comparisons": 0,
+    "precheck": {}
+  },
+  "tables": {
+    "UNSW_DEV_PAIRED.csv": {
+      "file": "UNSW_DEV_PAIRED.csv",
+      "bytes": 6265,
+      "sha256": "8a2dcc44a7cca6c18306b9e879e81d5c3fb24df155251acf6dc7df1c30a8860c"
+    },
+    "UNSW_DEV_MECHANISM.csv": {
+      "file": "UNSW_DEV_MECHANISM.csv",
+      "bytes": 2569,
+      "sha256": "8526cb334c5e4b847826390f7f6f5537058b150328b0a19fbafd56272166dc5d"
+    }
+  },
+  "decisions": {
+    "file": "UNSW_DEV_DECISIONS.npz",
+    "bytes": 74826542,
+    "sha256": "2afcd68672b8ef4641295624a3b5346f6e8f28bc96666fb4b8805b8820b48e55"
+  },
+  "histories": {
+    "file": "UNSW_DEV_HISTORY.npz",
+    "bytes": 68825522,
+    "sha256": "41ea21eaf292ee978caf6a14fd9495368be766869fa69aa78199d63afb38f09d"
+  },
+  "query_uid_order_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+  "ref_uid_order_sha256": "94f3a1e33b53f86d18e5a5c9e576c1dac7e8f5fd709cdef74e94788c781ae8dd"
+}

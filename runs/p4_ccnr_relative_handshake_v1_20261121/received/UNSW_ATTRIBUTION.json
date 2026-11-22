@@ -1,0 +1,34 @@
+{
+  "scope": "UNSW post-enrollment normal ensemble v12 to COVER_R2_U1",
+  "normal_queries": 74444,
+  "normal_connections": 18177,
+  "original_alarm_connections": 62,
+  "added_queries": 6550,
+  "new_alarm_connections": 26,
+  "queries_by_original_connection": {
+    "previously_alerted": 2600,
+    "previously_quiet": 3950
+  },
+  "affected_connections": {
+    "previously_alerted": 2,
+    "previously_quiet": 26
+  },
+  "uid_in_frozen_order_sha256": "7975bbaf648c045f5f49ecb9be781abb57300e9f9ff62de8672ebf8c22190838",
+  "sha": {
+    "file": "UNSW_ATTRIBUTED_UID.npz",
+    "bytes": 5870818,
+    "sha256": "c423605177b3789ff4fd1aebff5e6cbd0643efeba22511270955920d808884d6"
+  },
+  "tables": {
+    "UNSW_ATTRIBUTION_BY_DEVICE_ROLE_PORT.csv": {
+      "file": "UNSW_ATTRIBUTION_BY_DEVICE_ROLE_PORT.csv",
+      "bytes": 655,
+      "sha256": "cbd18f06a0c629d39ac3e559477e29ba2937c8321e91a7e48d4d39e5c67e968a"
+    },
+    "UNSW_ATTRIBUTION_BY_CONNECTION.csv": {
+      "file": "UNSW_ATTRIBUTION_BY_CONNECTION.csv",
+      "bytes": 4855,
+      "sha256": "680b80cc4659cb3e872bd30fb6947f6a9da61f6b0b974a885af5cdc99b30ef2c"
+    }
+  }
+}

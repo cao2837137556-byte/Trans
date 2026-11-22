@@ -1,0 +1,117 @@
+{
+  "captures": {
+    "normal2": {
+      "status": "PASS",
+      "assigned": 36230,
+      "requested": 36230,
+      "frames": 2000000,
+      "raw_sha256": "e7b2e1d7a54b34f8af190693f34cd5d09b3d8248826627bb1e8245ca47ae76ba",
+      "roster_uid_sha256": "4565438154eab61683f0d5ba53506ed8ef81e2a4936c40f17adcae49e9946bc6",
+      "samples": [
+        {
+          "roster": "query",
+          "uid": "a7f72aaeee65d2bf5340a5fa63fe67e4ce1ad5ba2afb7a267550c634b9b08f02",
+          "raw_frame": 84,
+          "protocol": 6,
+          "inbound": true,
+          "count": 0,
+          "clock_ns": 1554230126991936000,
+          "prefix_ns": 506521000,
+          "real": true
+        }
+      ]
+    },
+    "password": {
+      "status": "PASS",
+      "assigned": 321720,
+      "requested": 321720,
+      "frames": 1689994,
+      "raw_sha256": "5be996df9ae286f11f66f78708292ed8fade7d135c05514aff3e3d298fd17844",
+      "roster_uid_sha256": "5be64aa31b81ba0d3577f29f004c4df97ec87f38a34d0f6503c83747658b16c7",
+      "samples": [
+        {
+          "roster": "query",
+          "uid": "521a9c46ebb484e1b947f65834bee1a97ee7022ab98881583418f7a8a120a1df",
+          "raw_frame": 9896,
+          "protocol": 6,
+          "inbound": true,
+          "count": 0,
+          "clock_ns": 1556286404073014000,
+          "prefix_ns": 115029208000,
+          "real": true
+        },
+        {
+          "roster": "query",
+          "uid": "cc3313fc5cbe40e41075cc364c6c9afecf75c742d90e6cbbc8d6d1292f8191d7",
+          "raw_frame": 9915,
+          "protocol": 6,
+          "inbound": true,
+          "count": 1,
+          "clock_ns": 1556286404074628000,
+          "prefix_ns": 115030822000,
+          "real": true
+        }
+      ]
+    },
+    "normal1": {
+      "status": "PASS",
+      "assigned": 10072,
+      "requested": 10072,
+      "frames": 1528400,
+      "raw_sha256": "9463135bbb3ab8f6e27a459c6be117e79f72ff8e434b7e70478ed70f4f8bf3c5",
+      "roster_uid_sha256": "ece9eb76e7df6b03bf513ade199a094c2f9d5b24f6137fc9cd911c996ad67e62",
+      "samples": [
+        {
+          "roster": "reference",
+          "uid": "4986461be1e383fe7b66a27a6de607c621a5cea872b80dbfbaae6dc5b657c272",
+          "raw_frame": 3,
+          "protocol": 6,
+          "inbound": false,
+          "count": 0,
+          "clock_ns": 1554220324757617000,
+          "prefix_ns": 9420000,
+          "real": true
+        },
+        {
+          "roster": "reference",
+          "uid": "c0c5ffcf839cec537084b36958d798e6184387f46dd1392a6f7b4a3efa63af57",
+          "raw_frame": 64,
+          "protocol": 6,
+          "inbound": true,
+          "count": 0,
+          "clock_ns": 1554220325047342000,
+          "prefix_ns": 299145000,
+          "real": true
+        },
+        {
+          "roster": "reference",
+          "uid": "4b2e58b4b99b0a50e420e46bdd796c7f4add9e2ec663f7e1c0681aee1f1172b7",
+          "raw_frame": 11802,
+          "protocol": 17,
+          "inbound": false,
+          "count": -2,
+          "clock_ns": 1554220379129817000,
+          "prefix_ns": 54381620000,
+          "real": true
+        },
+        {
+          "roster": "reference",
+          "uid": "e31d3ac50eb2cf803426e4c3a5ad9d8d944c107c254b2809351579135c6223f0",
+          "raw_frame": 11844,
+          "protocol": 17,
+          "inbound": true,
+          "count": -2,
+          "clock_ns": 1554220379326801000,
+          "prefix_ns": 54578604000,
+          "real": true
+        }
+      ]
+    }
+  },
+  "unsupported": {
+    "unregistered_anchors": 0,
+    "missing_capture_rows": 0
+  },
+  "identical_inbound_tcp": 357950,
+  "identical_query_direction_and_clock": 357950
+}

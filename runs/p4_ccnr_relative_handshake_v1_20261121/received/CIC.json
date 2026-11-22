@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "phase": "cic",
+  "package": "aebb8dd27abfb7b9bc86afcc8a3ceb6a325b6472e9130779b7b09039b97e4b8b",
+  "job": "186663",
+  "node": "node185",
+  "seconds": 11.34344808012247,
+  "max_rss_kib": 2356660,
+  "baseline_views": 2,
+  "both_baselines_query_parity": true,
+  "geometry": {
+    "matrix_pairs": 1494425,
+    "oracle_comparisons": 0,
+    "precheck": {}
+  },
+  "tables": {
+    "CIC_DEV_PAIRED.csv": {
+      "file": "CIC_DEV_PAIRED.csv",
+      "bytes": 4781,
+      "sha256": "c3b05962987e2079c770c133aa9984406100e4af639f089abf5b1f53c3cd1a88"
+    },
+    "CIC_DEV_MECHANISM.csv": {
+      "file": "CIC_DEV_MECHANISM.csv",
+      "bytes": 2368,
+      "sha256": "871f5ab60300fe039c5fc7231e1c495a83296acb7b4fc831ec9a4ed299d75671"
+    }
+  },
+  "decisions": {
+    "file": "CIC_DEV_DECISIONS.npz",
+    "bytes": 65046182,
+    "sha256": "0fa4cc468eb59ce1e214f0b10c7de9cf1e90132e9fa85757be1dd28bda75e16f"
+  },
+  "histories": {
+    "file": "CIC_DEV_HISTORY.npz",
+    "bytes": 54555122,
+    "sha256": "2eef204ac103cea44a9d827fc48191efb097b92a49bd5b06d82fae0e349a0158"
+  },
+  "query_uid_order_sha256": "1b13ef4d89e5652d6c24931ab895842b58cce655249cf978ff3d1cdded04f35d",
+  "ref_uid_order_sha256": "061c31879e8324c93fbf5079e4fbb485dd446c042dc85355ae58a3be7b6c778e"
+}

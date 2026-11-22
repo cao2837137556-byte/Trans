@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "phase": "ton",
+  "package": "aebb8dd27abfb7b9bc86afcc8a3ceb6a325b6472e9130779b7b09039b97e4b8b",
+  "job": "186669",
+  "node": "node185",
+  "seconds": 64.07180797401816,
+  "max_rss_kib": 4050192,
+  "baseline_views": 18,
+  "both_baselines_query_parity": true,
+  "geometry": {
+    "matrix_pairs": 173964988,
+    "oracle_comparisons": 0,
+    "precheck": {}
+  },
+  "tables": {
+    "TON_PAIRED.csv": {
+      "file": "TON_PAIRED.csv",
+      "bytes": 39446,
+      "sha256": "16e5cf27ef2cb20a9a11d00683dd38306fe41ff13657e7cf7265c8da1983bb78"
+    },
+    "TON_MECHANISM.csv": {
+      "file": "TON_MECHANISM.csv",
+      "bytes": 16208,
+      "sha256": "3f176377ae67b9e406934cd185e00f9b4ea1326e364a3efc3395e6a58e39bc9f"
+    }
+  },
+  "decisions": {
+    "file": "TON_DECISIONS.npz",
+    "bytes": 127149158,
+    "sha256": "f472077fd4b6516e795f65bbae23860033a88be72dab6f02f1d5f81d75b584b7"
+  },
+  "histories": {
+    "file": "TON_HISTORY.npz",
+    "bytes": 105991346,
+    "sha256": "c4bb1a1cc02ceac6949cfcde79b67c9d2ab9774a631b248159d33b24ead90ccf"
+  },
+  "query_uid_order_sha256": "a301aa4d6611929c3161494a316d010f941230463adb1d206ad7f4302a5aefcc",
+  "ref_uid_order_sha256": "ece9eb76e7df6b03bf513ade199a094c2f9d5b24f6137fc9cd911c996ad67e62"
+}
