@@ -216,7 +216,8 @@ def record_trace(root,folder,ctl,raw,begin,plan,budget):
                 budget.check()
             save_json(root/"COLLECTION_PROGRESS.json",dict(stage="RECORDING_"+folder.name.upper(),packets=count,
                       elapsed_seconds=(max(0,(last_ns-first[1])/NS) if first else 0),
-                      duration_seconds=plan.get("window_seconds",plan.get("duration_seconds")),free_bytes=min_free))
+                      duration_seconds=plan.get("window_seconds",plan.get("duration_seconds")),free_bytes=min_free,
+                      keeper_heartbeat_ns=time.time_ns()))
             next_status=now+2.
         if budget.reason():
             break
@@ -282,6 +283,21 @@ def phase(root,stage,ctl,server,clients,plan,meta):
     return record
 
 
+def await_bank(out,service,meta,last_frame):
+    ready=out/"BANK_READY.json"
+    while True:
+        if service.poll() is not None:
+            raise RuntimeError("The original WSL login service exited before evaluation.")
+        if shutil.disk_usage(out).free<=DISK_RESERVE:
+            raise RuntimeError("D: reached the free-space reserve while sealing references.")
+        if ready.is_file() and time.time_ns()>last_frame+60*NS:
+            return json.loads(ready.read_bytes())
+        save_json(out/"COLLECTION_PROGRESS.json",dict(
+            stage="REFERENCE_SEALING",service_instance=meta["service_instance"],
+            service_pid=meta["service_pid"],keeper_heartbeat_ns=time.time_ns()))
+        time.sleep(1.)
+
+
 def main(out):
     assert shutil.disk_usage(out).free>DISK_RESERVE
     assert json.loads((out/"QUICK_CHECK.json").read_bytes())["status"]=="PASS"
@@ -301,18 +317,9 @@ def main(out):
         meta=dict(service_instance=instance,service_pid=int((ctl/"ready").read_text()),server_port=PORT,
                   endpoints=endpoints,kernel=os.uname().release,enrollment_uses_same_service=True)
         first=phase(out,"enrollment",ctl,server,clients,plan_enrollment(),meta)
-        ready=out/"BANK_READY.json"
-        save_json(out/"COLLECTION_PROGRESS.json",dict(stage="REFERENCE_SEALING",service_instance=instance))
-        while not ready.is_file():
-            assert service.poll() is None and not (out/"FAILURE.json").is_file()
-            assert shutil.disk_usage(out).free>DISK_RESERVE
-            time.sleep(.5)
-        seal=json.loads(ready.read_bytes())
+        seal=await_bank(out,service,meta,first["capture"]["last_frame_ns"])
         assert seal["status"]=="PASS" and seal["service_instance"]==instance
         assert seal["reference_end_ns"]==first["capture"]["reference_end_ns"]
-        while time.time_ns()<=first["capture"]["last_frame_ns"]+60*NS:
-            assert service.poll() is None and not (out/"FAILURE.json").is_file()
-            time.sleep(.5)
         final=phase(out,"evaluation",ctl,server,clients,plan_evaluation(),meta)
         assert final["capture"]["first_qualifying_ns"]>first["capture"]["last_frame_ns"]+60*NS
     save_json(out/"COLLECTION_DONE.json",dict(status="PASS",service_instance=instance,namespaces_released=True))

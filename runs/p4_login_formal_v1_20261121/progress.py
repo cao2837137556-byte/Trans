@@ -27,7 +27,8 @@ dl{padding-top:1.2rem;border-top:1px solid #829a90}dt{font-weight:600}dd{margin:
 const e=id=>document.getElementById(id);
 const label={STARTING_WSL:"正在建立隔离网络",RECORDING_ENROLLMENT:"录制两小时正常参考",
 SEALING_REFERENCE:"验收原始边界并封存参考",REFERENCE_SEALING:"验收原始边界并封存参考",
-READY_FOR_EVALUATION:"参考已封存",RECORDING_EVALUATION:"录制独立正常评价",
+READY_FOR_EVALUATION:"参考已封存",REFERENCE_SEAL_PAUSED:"参考封存暂停 · 原服务仍在等待",
+RECORDING_EVALUATION:"录制独立正常评价",
 SCORING_EVALUATION:"核对评价日志并计算四组误报",ACCEPTED:"采集和评价已验收",STOP:"流程已停止"};
 async function update(){
   try{
@@ -67,6 +68,9 @@ class View(BaseHTTPRequestHandler):
             mime="text/html"
         elif self.path=="/state":
             s=read("RUN_STATUS.json") or read("EXPORT_PROGRESS.json") or dict(stage="STARTING_WSL")
+            failure=read("COLLECTION_FAILURE.json")
+            if failure and s["stage"]!="ACCEPTED":
+                s.update(stage="STOP",error=failure["error"])
             s.update(free=shutil.disk_usage(OUT).free,capture=read("COLLECTION_PROGRESS.json"),
                      quick=read("QUICK_CHECK.json"),bank=read("BANK_READY.json"))
             body=json.dumps(s,ensure_ascii=False).encode("utf8")
@@ -87,4 +91,4 @@ class View(BaseHTTPRequestHandler):
 
 
 if __name__=="__main__":
-    ThreadingHTTPServer(("127.0.0.1",18831),View).serve_forever()
+    ThreadingHTTPServer(("127.0.0.1",int(sys.argv[2]) if len(sys.argv)>2 else 18831),View).serve_forever()

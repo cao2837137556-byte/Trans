@@ -126,7 +126,7 @@ def select_frozen(candidates,source):
     return [r for r in candidates if r["uid"] in chosen],len(latest),len(anchors)
 
 
-def materialize(pcap,c,fields,cutoff,chosen,pins):
+def snapshots(pcap,c,fields,cutoff,chosen):
     from constrained_onboarding_reference_v2 import query_descriptor, reference_descriptor
 
     extract=reference_descriptor if cutoff else query_descriptor
@@ -145,12 +145,18 @@ def materialize(pcap,c,fields,cutoff,chosen,pins):
         encoder.append((row["uid"],row["frame"],flow,proof,q,x))
         visited[row["frame"]]=(row["uid"],row["component_id"],row["timestamp_ns"],h,role,port,inbound)
     assert visited.keys()==chosen.keys()
-    z,encoder_id,batches=e3_batch(encoder,pins)
     columns=list(zip(*visited.values(),strict=True))
     matrix=dict(frame=np.array(list(visited)),uid=np.array(columns[0]),component=np.array(columns[1]),
                 clock=np.array(columns[2]),h=np.array(columns[3]),role=np.array(columns[4]),port=np.array(columns[5]),
-                inbound=np.array(columns[6]),z=z,q=np.stack([x[-2] for x in encoder]).astype(np.float32),
+                inbound=np.array(columns[6]),q=np.stack([x[-2] for x in encoder]).astype(np.float32),
                 physical=np.asarray([x[-1] for x in encoder],dtype=np.float64))
+    return matrix,encoder
+
+
+def materialize(pcap,c,fields,cutoff,chosen,pins):
+    matrix,encoder=snapshots(pcap,c,fields,cutoff,chosen)
+    z,encoder_id,batches=e3_batch(encoder,pins)
+    matrix["z"]=z
     return matrix,dict(encoder=encoder_id,batches=batches,rows=len(z),uid_order_sha256=digest_order(matrix["uid"]))
 
 

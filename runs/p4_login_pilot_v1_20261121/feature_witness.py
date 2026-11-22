@@ -81,6 +81,7 @@ def frame_inputs(fields, topology, pcap_hash, anchors):
 
 def e3_batch(inputs, pins):
     import numpy as np
+    import torch
     from continuous_features_v3 import tokenize, verify_batch, tensor_hash
     from hnr.encoding import new_encoder, physical_batch
     from ton_recent import verify_tokenized
@@ -97,6 +98,7 @@ def e3_batch(inputs, pins):
         grouped[shape].append((idx,sample))
     features = np.empty((len(inputs),768),dtype=np.float32)
     batches = 0
+    singleton_repairs = []
     for values in grouped.values():
         for offset in range(0,len(values),16):
             use = values[offset:offset+16]
@@ -108,9 +110,25 @@ def e3_batch(inputs, pins):
             result = embed.core.e3_forward_batches(net,[physical],"cpu")
             assert result.shape == (count,768) and result.dtype == np.float32 and np.isfinite(result).all()
             if count > logical:
+                if not np.array_equal(result,np.broadcast_to(result[0],result.shape)) and sys.platform=="win32":
+                    uid,frame=inputs[use[0][0]][:2]
+                    previous=result
+                    threads=torch.get_num_threads()
+                    try:
+                        torch.set_num_threads(1)
+                        result=embed.core.e3_forward_batches(net,[physical],"cpu")
+                    finally:
+                        torch.set_num_threads(threads)
+                    assert result.shape==previous.shape and result.dtype==previous.dtype and np.isfinite(result).all()
+                    singleton_repairs.append(dict(uid=uid,frame=frame,threads_before=threads,
+                        original_max_abs_spread=float(np.max(np.abs(previous-previous[0]))),
+                        new_max_abs_spread=float(np.max(np.abs(result-result[0]))),
+                        first_row_delta=float(np.max(np.abs(result[0]-previous[0])))))
                 assert np.array_equal(result,np.broadcast_to(result[0],result.shape))
             features[[i for i,_ in use]] = result[:logical]
             batches += 1
+    if singleton_repairs:
+        runtime_id=dict(**runtime_id,single_thread_singletons=singleton_repairs)
     return features, runtime_id, batches
 
 
