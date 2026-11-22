@@ -132,7 +132,49 @@ def handshake(packets):
     return (sent, recv, ack) if ack else None
 
 
-def join(out, capture):
+def summarize_pilot(result, case, handshakes, packets):
+    by_scenario = defaultdict(list)
+    for row in result:
+        by_scenario[row["scenario_id"]].append(row)
+    case_counts = defaultdict(Counter)
+    for ident, attempts in by_scenario.items():
+        label = attempts[0]["scenario"]
+        c = case_counts[label]
+        c["cases"] += 1
+        if not all(a["aligned"] for a in attempts):
+            c["incomplete"] += 1
+            continue
+        if label == "successful_login":
+            c["proved"] += int(len(attempts) == 1 and attempts[0]["observed_status"] == 200)
+        elif label == "mistake_then_retry":
+            c["proved"] += int(len(attempts) == 2
+                and attempts[0]["tcp_stream"] == attempts[1]["tcp_stream"]
+                and [a["observed_status"] for a in attempts] == [401,200]
+                and [a["request_index"] for a in attempts] == [1,2])
+        else:
+            drop = [e for e in case[ident] if e["event"] == "disconnect"]
+            reset = [p for p in packets[attempts[0]["tcp_stream"]] if p["incoming"] and p["flags"] & 4]
+            fresh = (len(attempts) == 2 and len(drop) == 1 and attempts[0]["tcp_stream"] != attempts[1]["tcp_stream"]
+                     and all(a["observed_status"] == 200 and a["request_index"] == 1 for a in attempts))
+            if fresh:
+                t = drop[0]["time_ns"]
+                new = handshakes[attempts[1]["tcp_stream"]][0]
+                c["proved"] += int(tuple(drop[0]["peer"]) == tuple(attempts[0]["peer"])
+                                   and any(p["frame"] < new["frame"] and inside(t,p["ns"],new["ns"]) for p in reset))
+    groups = []
+    for label in SCENARIOS:
+        attempts = [x for x in result if x["scenario"] == label]
+        matched = [x for x in attempts if x["aligned"]]
+        c = case_counts[label]
+        groups.append(dict(scenario=label, cases=c["cases"], proved_cases=c["proved"], requests=len(attempts),
+                      connections=len({(tuple(a["peer"]),a["connect_start_ns"]) for a in attempts if a["peer"]}),
+                      aligned=len(matched), unaligned=len(attempts)-len(matched),
+                      observed_200=sum(a["observed_status"] == 200 for a in matched),
+                      observed_401=sum(a["observed_status"] == 401 for a in matched)))
+    return groups
+
+
+def join(out, capture, scenario_summary=None):
     pcap = out/"login.pcap"
     pcap_id = identity(pcap)
     rows = tshark_fields(pcap, capture["server_port"])
@@ -227,44 +269,7 @@ def join(out, capture):
                    response_ns=rtime, authenticated=s["authenticated"], server_decision_ns=s["decision_ns"],
                    syn_frame=syn["frame"], synack_frame=syn_ack["frame"], ack_frame=ack["frame"],
                    capture_uid=uid, handshakes_60s=count, active_tuples_60s=active)
-    by_scenario = defaultdict(list)
-    for row in result:
-        by_scenario[row["scenario_id"]].append(row)
-    case_counts = defaultdict(Counter)
-    for ident, attempts in by_scenario.items():
-        label = attempts[0]["scenario"]
-        c = case_counts[label]
-        c["cases"] += 1
-        if not all(a["aligned"] for a in attempts):
-            c["incomplete"] += 1
-            continue
-        if label == "successful_login":
-            c["proved"] += int(len(attempts) == 1 and attempts[0]["observed_status"] == 200)
-        elif label == "mistake_then_retry":
-            c["proved"] += int(len(attempts) == 2
-                and attempts[0]["tcp_stream"] == attempts[1]["tcp_stream"]
-                and [a["observed_status"] for a in attempts] == [401,200]
-                and [a["request_index"] for a in attempts] == [1,2])
-        else:
-            drop = [e for e in case[ident] if e["event"] == "disconnect"]
-            reset = [p for p in packets[attempts[0]["tcp_stream"]] if p["incoming"] and p["flags"] & 4]
-            fresh = (len(attempts) == 2 and len(drop) == 1 and attempts[0]["tcp_stream"] != attempts[1]["tcp_stream"]
-                     and all(a["observed_status"] == 200 and a["request_index"] == 1 for a in attempts))
-            if fresh:
-                t = drop[0]["time_ns"]
-                new = handshakes[attempts[1]["tcp_stream"]][0]
-                c["proved"] += int(tuple(drop[0]["peer"]) == tuple(attempts[0]["peer"])
-                                   and any(p["frame"] < new["frame"] and inside(t,p["ns"],new["ns"]) for p in reset))
-    groups = []
-    for label in SCENARIOS:
-        attempts = [x for x in result if x["scenario"] == label]
-        matched = [x for x in attempts if x["aligned"]]
-        c = case_counts[label]
-        groups.append(dict(scenario=label, cases=c["cases"], proved_cases=c["proved"], requests=len(attempts),
-                      connections=len({(tuple(a["peer"]),a["connect_start_ns"]) for a in attempts if a["peer"]}),
-                      aligned=len(matched), unaligned=len(attempts)-len(matched),
-                      observed_200=sum(a["observed_status"] == 200 for a in matched),
-                      observed_401=sum(a["observed_status"] == 401 for a in matched)))
+    groups = (scenario_summary or summarize_pilot)(result, case, handshakes, packets)
     match = sorted((x for x in result if x["aligned"]), key=lambda x: x["frame"])
     unexpected_raw = len(history)-len(matched_frames)
     unexpected_auth = sum(map(len, services.values()))-len(matched_server)
