@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "phase": "unsw",
+  "package": "450505f4a0634e785e1c6f06334b9e8e57549f19cae283d5a356e6f48017ed1d",
+  "job": "186640",
+  "node": "node185",
+  "seconds": 244.39164767507464,
+  "max_rss_kib": 3630956,
+  "tables": {
+    "UNSW_DEV_PAIRED.csv": {
+      "file": "UNSW_DEV_PAIRED.csv",
+      "bytes": 12840,
+      "sha256": "2b7eedf05d6d4423100833ffbdd38bad44ea426853420850e6b8e0d441a56d7a"
+    },
+    "UNSW_DEV_MECHANISM.csv": {
+      "file": "UNSW_DEV_MECHANISM.csv",
+      "bytes": 1712,
+      "sha256": "e7c2c945aa4e57c881fefc4024dc520c4213773027fcbf356c29c4d720872cd4"
+    },
+    "UNSW_DEV_HANDSHAKE.csv": {
+      "file": "UNSW_DEV_HANDSHAKE.csv",
+      "bytes": 236,
+      "sha256": "51dec7a63a4c5dceee5db3767e5eed9abe7de57beee4547907f588a569e640c9"
+    }
+  },
+  "large": {
+    "file": "UNSW_DEV_DECISIONS.npz",
+    "bytes": 76606174,
+    "sha256": "c9a2a5e8a98b533cc3cb68d9e45a7633ce06e9b74f125c537b43d3cb286b7c0c"
+  },
+  "baseline_views": 2,
+  "geometry": {
+    "matrix_pairs": 602218108,
+    "checked_positive_tcp": 61270,
+    "max_original_support_diff": 1.4432899320127035e-15
+  },
+  "query_uid_order_sha256": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232"
+}

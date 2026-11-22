@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "phase": "check_unsw",
+  "package": "450505f4a0634e785e1c6f06334b9e8e57549f19cae283d5a356e6f48017ed1d",
+  "job": "186630",
+  "node": "node185",
+  "seconds": 202.9847761867568,
+  "max_rss_kib": 3631444,
+  "role_census_sha256": "7b2967ac2ba7eff90a6bcfa40d8c8121738e64c70089b2ce92e1247fc9ec0b0a",
+  "coverage": [
+    {
+      "pool": "UNSW_DEV",
+      "group": "UNSW_DEV",
+      "roster": "reference",
+      "total": 90658,
+      "tcp": 47617,
+      "udp": 43041,
+      "service": 2095,
+      "client": 42727,
+      "unknown": 2795,
+      "service_pct_tcp": 4.399689186635025,
+      "client_pct_tcp": 89.7305584140118,
+      "unknown_pct_tcp": 5.869752399353172
+    },
+    {
+      "pool": "UNSW_DEV",
+      "group": "UNSW_DEV",
+      "roster": "query_all",
+      "total": 148316,
+      "tcp": 126178,
+      "udp": 22138,
+      "service": 88140,
+      "client": 35744,
+      "unknown": 2294,
+      "service_pct_tcp": 69.85369874304554,
+      "client_pct_tcp": 28.328234716036075,
+      "unknown_pct_tcp": 1.8180665409183852
+    },
+    {
+      "pool": "UNSW_DEV",
+      "group": "UNSW_DEV",
+      "roster": "query_evaluation",
+      "total": 146997,
+      "tcp": 125181,
+      "udp": 21816,
+      "service": 88140,
+      "client": 34853,
+      "unknown": 2188,
+      "service_pct_tcp": 70.41004625302561,
+      "client_pct_tcp": 27.84208466141028,
+      "unknown_pct_tcp": 1.7478690855641033
+    }
+  ],
+  "raw": {
+    "captures": 7,
+    "physical_frames": 25125686,
+    "all_frames_attributed": true,
+    "raw_samples": 27
+  },
+  "small_slice": 38,
+  "geometry": {
+    "matrix_pairs": 217458,
+    "checked_positive_tcp": 18,
+    "max_original_support_diff": 0.0
+  },
+  "uid_order": "495ee54b8ea43a465f4cf77a911e8a4308a7ec17e447beb2e1e21a666ccf946c",
+  "baseline_views": 2
+}

@@ -1,0 +1,126 @@
+{
+  "captures": {
+    "normal2": {
+      "rows": 36230,
+      "frames": 2000000,
+      "role_events": {
+        "new_initial_syn": 93,
+        "syn_retransmissions": 4
+      },
+      "roster_uid_sha256": "4565438154eab61683f0d5ba53506ed8ef81e2a4936c40f17adcae49e9946bc6",
+      "raw_sha256": "e7b2e1d7a54b34f8af190693f34cd5d09b3d8248826627bb1e8245ca47ae76ba",
+      "elapsed": 8.223004952073097,
+      "samples": [
+        {
+          "point": "a7f72aaeee65d2bf5340a5fa63fe67e4ce1ad5ba2afb7a267550c634b9b08f02",
+          "frame": 84,
+          "synthetic": false,
+          "role": "unknown",
+          "syn_frame": 0,
+          "service_port": -1,
+          "original_protocol": 6,
+          "initial_syn_on_current_frame": false,
+          "inbound": true,
+          "sequence": 668724412
+        },
+        {
+          "point": "02d83c51034625d6e6ca8eb6214dbc62dcf9a596dd84680e07d337563609caf1",
+          "frame": 5488,
+          "synthetic": false,
+          "role": "client",
+          "syn_frame": 5452,
+          "service_port": 443,
+          "original_protocol": 6,
+          "initial_syn_on_current_frame": false,
+          "inbound": true,
+          "sequence": 3301648995
+        }
+      ]
+    },
+    "password": {
+      "rows": 321720,
+      "frames": 1689994,
+      "role_events": {
+        "new_initial_syn": 132996,
+        "syn_retransmissions": 20925
+      },
+      "roster_uid_sha256": "5be64aa31b81ba0d3577f29f004c4df97ec87f38a34d0f6503c83747658b16c7",
+      "raw_sha256": "5be996df9ae286f11f66f78708292ed8fade7d135c05514aff3e3d298fd17844",
+      "elapsed": 15.638905700761825,
+      "samples": [
+        {
+          "point": "521a9c46ebb484e1b947f65834bee1a97ee7022ab98881583418f7a8a120a1df",
+          "frame": 9896,
+          "synthetic": false,
+          "role": "service",
+          "syn_frame": 9896,
+          "service_port": 21,
+          "original_protocol": 6,
+          "initial_syn_on_current_frame": true,
+          "inbound": true,
+          "sequence": 1259406336
+        },
+        {
+          "point": "ee98137ca636e8e4e0a76ab2c5978469ca2a1cef364057cebd1a134e2b15a183",
+          "frame": 196790,
+          "synthetic": false,
+          "role": "unknown",
+          "syn_frame": 0,
+          "service_port": -1,
+          "original_protocol": 6,
+          "initial_syn_on_current_frame": false,
+          "inbound": true,
+          "sequence": 3209790062
+        }
+      ]
+    },
+    "normal1": {
+      "rows": 10072,
+      "frames": 1528400,
+      "role_events": {
+        "new_initial_syn": 111
+      },
+      "roster_uid_sha256": "ece9eb76e7df6b03bf513ade199a094c2f9d5b24f6137fc9cd911c996ad67e62",
+      "raw_sha256": "9463135bbb3ab8f6e27a459c6be117e79f72ff8e434b7e70478ed70f4f8bf3c5",
+      "elapsed": 7.811809012666345,
+      "samples": [
+        {
+          "point": "4986461be1e383fe7b66a27a6de607c621a5cea872b80dbfbaae6dc5b657c272",
+          "frame": 3,
+          "synthetic": false,
+          "role": "unknown",
+          "syn_frame": 0,
+          "service_port": -1,
+          "original_protocol": 6,
+          "initial_syn_on_current_frame": false,
+          "inbound": false,
+          "sequence": 3085542947
+        },
+        {
+          "point": "4b2e58b4b99b0a50e420e46bdd796c7f4add9e2ec663f7e1c0681aee1f1172b7",
+          "frame": 11802,
+          "synthetic": false,
+          "role": "UDP",
+          "syn_frame": 0,
+          "service_port": -1,
+          "original_protocol": 17,
+          "initial_syn_on_current_frame": false,
+          "inbound": false,
+          "sequence": 0
+        },
+        {
+          "point": "1f754a43fbf13593f0eae691cd45c656680968852a3cf84ba95285cf026b80c7",
+          "frame": 13163,
+          "synthetic": false,
+          "role": "client",
+          "syn_frame": 13163,
+          "service_port": 443,
+          "original_protocol": 6,
+          "initial_syn_on_current_frame": true,
+          "inbound": false,
+          "sequence": 1389540861
+        }
+      ]
+    }
+  }
+}

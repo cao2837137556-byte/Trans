@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "phase": "check_edge",
+  "package": "450505f4a0634e785e1c6f06334b9e8e57549f19cae283d5a356e6f48017ed1d",
+  "job": "186632",
+  "node": "node185",
+  "seconds": 298.2322191479616,
+  "max_rss_kib": 758440,
+  "role_census_sha256": "40d5f58f24872614c825aae27874047baccfc76cb2ac84bb46f5322c60b4b286",
+  "coverage": [
+    {
+      "pool": "EDGE",
+      "group": "EDGE",
+      "roster": "reference",
+      "total": 4124,
+      "tcp": 4096,
+      "udp": 28,
+      "service": 4095,
+      "client": 0,
+      "unknown": 1,
+      "service_pct_tcp": 99.9755859375,
+      "client_pct_tcp": 0.0,
+      "unknown_pct_tcp": 0.0244140625
+    },
+    {
+      "pool": "EDGE",
+      "group": "EDGE",
+      "roster": "query_all",
+      "total": 60000,
+      "tcp": 39503,
+      "udp": 20497,
+      "service": 38017,
+      "client": 1,
+      "unknown": 1485,
+      "service_pct_tcp": 96.23826038528719,
+      "client_pct_tcp": 0.002531453307343746,
+      "unknown_pct_tcp": 3.759208161405463
+    },
+    {
+      "pool": "EDGE",
+      "group": "EDGE",
+      "roster": "query_evaluation",
+      "total": 60000,
+      "tcp": 39503,
+      "udp": 20497,
+      "service": 38017,
+      "client": 1,
+      "unknown": 1485,
+      "service_pct_tcp": 96.23826038528719,
+      "client_pct_tcp": 0.002531453307343746,
+      "unknown_pct_tcp": 3.759208161405463
+    },
+    {
+      "pool": "EDGE",
+      "group": "Edge normal",
+      "roster": "query_evaluation",
+      "total": 20000,
+      "tcp": 19503,
+      "udp": 497,
+      "service": 19502,
+      "client": 1,
+      "unknown": 0,
+      "service_pct_tcp": 99.99487258370507,
+      "client_pct_tcp": 0.005127416294928985,
+      "unknown_pct_tcp": 0.0
+    }
+  ],
+  "raw": {
+    "captures": 3,
+    "physical_frames": 5074582,
+    "all_frames_attributed": true,
+    "raw_samples": 9
+  },
+  "small_slice": 36,
+  "geometry": {
+    "matrix_pairs": 114688,
+    "checked_positive_tcp": 19,
+    "max_original_support_diff": 0.0
+  },
+  "uid_order": "1af5e506b28e95334d430b32c66a3110644cba4c380e9b46882dde187991108f",
+  "baseline_views": 5
+}

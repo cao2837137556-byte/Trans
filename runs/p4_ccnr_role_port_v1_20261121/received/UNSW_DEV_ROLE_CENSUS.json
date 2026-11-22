@@ -1,0 +1,60 @@
+{
+  "file": "UNSW_DEV_ROLE_BIND.npz",
+  "bytes": 66913718,
+  "sha256": "b24124b533e5b20399f9930c31207e9ea3f5b895d9e8c424bc35cb83000163b4",
+  "coverage": [
+    {
+      "pool": "UNSW_DEV",
+      "group": "UNSW_DEV",
+      "roster": "reference",
+      "total": 90658,
+      "tcp": 47617,
+      "udp": 43041,
+      "service": 2095,
+      "client": 42727,
+      "unknown": 2795,
+      "service_pct_tcp": 4.399689186635025,
+      "client_pct_tcp": 89.7305584140118,
+      "unknown_pct_tcp": 5.869752399353172
+    },
+    {
+      "pool": "UNSW_DEV",
+      "group": "UNSW_DEV",
+      "roster": "query_all",
+      "total": 148316,
+      "tcp": 126178,
+      "udp": 22138,
+      "service": 88140,
+      "client": 35744,
+      "unknown": 2294,
+      "service_pct_tcp": 69.85369874304554,
+      "client_pct_tcp": 28.328234716036075,
+      "unknown_pct_tcp": 1.8180665409183852
+    },
+    {
+      "pool": "UNSW_DEV",
+      "group": "UNSW_DEV",
+      "roster": "query_evaluation",
+      "total": 146997,
+      "tcp": 125181,
+      "udp": 21816,
+      "service": 88140,
+      "client": 34853,
+      "unknown": 2188,
+      "service_pct_tcp": 70.41004625302561,
+      "client_pct_tcp": 27.84208466141028,
+      "unknown_pct_tcp": 1.7478690855641033
+    }
+  ],
+  "proof": {
+    "captures": 7,
+    "physical_frames": 25125686,
+    "all_frames_attributed": true,
+    "raw_samples": 27
+  },
+  "raw_proof": {
+    "file": "UNSW_DEV_RAW_ANCHORS.json",
+    "bytes": 13891,
+    "sha256": "1e18831396398fb1baef1eeedc7fe8cd23f3b7afc968e5e1cfa7b4b334ce68b4"
+  }
+}

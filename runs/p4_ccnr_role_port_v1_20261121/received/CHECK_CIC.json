@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "phase": "check_cic",
+  "package": "450505f4a0634e785e1c6f06334b9e8e57549f19cae283d5a356e6f48017ed1d",
+  "job": "186628",
+  "node": "node185",
+  "seconds": 70.3694750261493,
+  "max_rss_kib": 1265344,
+  "role_census_sha256": "4750d37a4620acebb1fc89c9bb9bf7fc8f25e0c4aef4c23a6299513c00c576df",
+  "coverage": [
+    {
+      "pool": "CIC_DEV",
+      "group": "CIC_DEV",
+      "roster": "reference",
+      "total": 9538,
+      "tcp": 3271,
+      "udp": 6267,
+      "service": 0,
+      "client": 537,
+      "unknown": 2734,
+      "service_pct_tcp": 0.0,
+      "client_pct_tcp": 16.416997859981656,
+      "unknown_pct_tcp": 83.58300214001834
+    },
+    {
+      "pool": "CIC_DEV",
+      "group": "CIC_DEV",
+      "roster": "query_all",
+      "total": 179886,
+      "tcp": 58769,
+      "udp": 121117,
+      "service": 56949,
+      "client": 1466,
+      "unknown": 354,
+      "service_pct_tcp": 96.90312920076911,
+      "client_pct_tcp": 2.4945124130068574,
+      "unknown_pct_tcp": 0.6023583862240297
+    },
+    {
+      "pool": "CIC_DEV",
+      "group": "CIC_DEV",
+      "roster": "query_evaluation",
+      "total": 175097,
+      "tcp": 58391,
+      "udp": 116706,
+      "service": 56949,
+      "client": 1236,
+      "unknown": 206,
+      "service_pct_tcp": 97.53044133513727,
+      "client_pct_tcp": 2.1167645698823447,
+      "unknown_pct_tcp": 0.3527940949803908
+    }
+  ],
+  "raw": {
+    "captures": 42,
+    "physical_frames": 15580533,
+    "all_frames_attributed": true,
+    "raw_samples": 15
+  },
+  "small_slice": 45,
+  "geometry": {
+    "matrix_pairs": 45843,
+    "checked_positive_tcp": 15,
+    "max_original_support_diff": 0.0
+  },
+  "uid_order": "c8c9b40aaa5ea5e5fd740ccba64534f25463e286579c54a09904c24610dbe818",
+  "baseline_views": 2,
+  "source_handshake": {
+    "group": "CIC_CAL.normal_TCP",
+    "kind": "normal",
+    "unit": "query",
+    "aggregation": "one_value_per_query",
+    "total": 16430,
+    "P50": 0.0,
+    "P90": 0.0,
+    "P99": 0.0,
+    "P999": 2.0,
+    "Max": 2.0
+  }
+}

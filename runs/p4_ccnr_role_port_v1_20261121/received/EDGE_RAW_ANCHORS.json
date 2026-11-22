@@ -1,0 +1,148 @@
+{
+  "captures": {
+    "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f": {
+      "rows": 24124,
+      "frames": 1629745,
+      "role_events": {
+        "new_initial_syn": 83168,
+        "syn_retransmissions": 1233
+      },
+      "roster_uid_sha256": "8ebacce2194693192e67d65af227ba4bfa1e9efc4782c7f53934e9c6a6b3a962",
+      "raw_sha256": "2b37027b1575f1d5bba7ab6cf87503df303ea2c9ab07a69b20f8d0f28696da6f",
+      "elapsed": 6.874672153964639,
+      "samples": [
+        {
+          "point": "aa1f51a2837356f551dae5180d3b644108a372444ef8f4c98471c186b52c283c",
+          "frame": 2,
+          "synthetic": false,
+          "role": "unknown",
+          "syn_frame": 0,
+          "service_port": -1,
+          "original_protocol": 6,
+          "initial_syn_on_current_frame": false,
+          "inbound": true,
+          "sequence": 3153345534
+        },
+        {
+          "point": "ad2ddec09bf0e44d9db977dfcd236533daeb2195d740aa00f2777da97cc50899",
+          "frame": 22,
+          "synthetic": false,
+          "role": "service",
+          "syn_frame": 9,
+          "service_port": 1883,
+          "original_protocol": 6,
+          "initial_syn_on_current_frame": false,
+          "inbound": false,
+          "sequence": 1045459033
+        },
+        {
+          "point": "aea00716dd694f93c1d7ba5a5b84d61960567858739cf137e12dd8fc8a8b6e0d",
+          "frame": 314,
+          "synthetic": false,
+          "role": "UDP",
+          "syn_frame": 0,
+          "service_port": -1,
+          "original_protocol": 17,
+          "initial_syn_on_current_frame": false,
+          "inbound": false,
+          "sequence": 0
+        },
+        {
+          "point": "034e263a95b043297830a8504e353043a98501fd7e0ecead6fd93f6668907f9b",
+          "frame": 117443,
+          "synthetic": false,
+          "role": "service",
+          "syn_frame": 117443,
+          "service_port": 1883,
+          "original_protocol": 6,
+          "initial_syn_on_current_frame": true,
+          "inbound": true,
+          "sequence": 2971317674
+        },
+        {
+          "point": "2bdffce5e23d6e1cdbad9030fd3bc1741e60212b4b91f60396bf5b87dfa406d6",
+          "frame": 121905,
+          "synthetic": false,
+          "role": "UDP",
+          "syn_frame": 0,
+          "service_port": -1,
+          "original_protocol": 17,
+          "initial_syn_on_current_frame": false,
+          "inbound": true,
+          "sequence": 0
+        },
+        {
+          "point": "9333614cd98c139f84ff395c6591844ac671c8a0dcd121e6380106eaf2936f2f",
+          "frame": 1248049,
+          "synthetic": false,
+          "role": "client",
+          "syn_frame": 1248006,
+          "service_port": 443,
+          "original_protocol": 6,
+          "initial_syn_on_current_frame": false,
+          "inbound": false,
+          "sequence": 1487975837
+        }
+      ]
+    },
+    "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba": {
+      "rows": 20000,
+      "frames": 229139,
+      "role_events": {
+        "new_initial_syn": 11384,
+        "syn_retransmissions": 50258
+      },
+      "roster_uid_sha256": "d683b80ca3bb57d5fb5cec8bf6a89c3b9d2fe7e370776675e4d0a93ed2ddb7d9",
+      "raw_sha256": "2fb2558d51defd1704a54a7a76df787048e9281d2efd8177703d66a7f78620ba",
+      "elapsed": 1.0422126548364758,
+      "samples": [
+        {
+          "point": "1e81787d131fd46c8d4873e76ff47d0b4dbfcd4ce83dc10558fd074c360ffe7b",
+          "frame": 2,
+          "synthetic": false,
+          "role": "service",
+          "syn_frame": 2,
+          "service_port": 80,
+          "original_protocol": 6,
+          "initial_syn_on_current_frame": true,
+          "inbound": true,
+          "sequence": 2923797371
+        },
+        {
+          "point": "8e46467f60974cbd423508d834b006724fb197b87b1424971753cd4ca1a6ebd9",
+          "frame": 266,
+          "synthetic": false,
+          "role": "unknown",
+          "syn_frame": 0,
+          "service_port": -1,
+          "original_protocol": 6,
+          "initial_syn_on_current_frame": false,
+          "inbound": true,
+          "sequence": 3195912055
+        }
+      ]
+    },
+    "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5": {
+      "rows": 20000,
+      "frames": 3215698,
+      "role_events": {},
+      "roster_uid_sha256": "e2bea5eeb89ce1e316f1930989353d58546f9c95c40cc3adca7153ad384b6078",
+      "raw_sha256": "6de0341f27093cac8a5eba657b8a49ecbac4dd5bf6c452a6274472df69172ce5",
+      "elapsed": 8.577259627636522,
+      "samples": [
+        {
+          "point": "0e442bc94043c01c095007f68b1bb87a344a82c6d1d34dff51bf4320177dd8b9",
+          "frame": 8,
+          "synthetic": false,
+          "role": "UDP",
+          "syn_frame": 0,
+          "service_port": -1,
+          "original_protocol": 17,
+          "initial_syn_on_current_frame": false,
+          "inbound": true,
+          "sequence": 0
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "file": "CIC_DEV_ROLE_BIND.npz",
+  "bytes": 53039718,
+  "sha256": "326228032d50adaac6afd380e1b817d67b63953efdeda1802abb6ae4ba8137f5",
+  "coverage": [
+    {
+      "pool": "CIC_DEV",
+      "group": "CIC_DEV",
+      "roster": "reference",
+      "total": 9538,
+      "tcp": 3271,
+      "udp": 6267,
+      "service": 0,
+      "client": 537,
+      "unknown": 2734,
+      "service_pct_tcp": 0.0,
+      "client_pct_tcp": 16.416997859981656,
+      "unknown_pct_tcp": 83.58300214001834
+    },
+    {
+      "pool": "CIC_DEV",
+      "group": "CIC_DEV",
+      "roster": "query_all",
+      "total": 179886,
+      "tcp": 58769,
+      "udp": 121117,
+      "service": 56949,
+      "client": 1466,
+      "unknown": 354,
+      "service_pct_tcp": 96.90312920076911,
+      "client_pct_tcp": 2.4945124130068574,
+      "unknown_pct_tcp": 0.6023583862240297
+    },
+    {
+      "pool": "CIC_DEV",
+      "group": "CIC_DEV",
+      "roster": "query_evaluation",
+      "total": 175097,
+      "tcp": 58391,
+      "udp": 116706,
+      "service": 56949,
+      "client": 1236,
+      "unknown": 206,
+      "service_pct_tcp": 97.53044133513727,
+      "client_pct_tcp": 2.1167645698823447,
+      "unknown_pct_tcp": 0.3527940949803908
+    }
+  ],
+  "proof": {
+    "captures": 42,
+    "physical_frames": 15580533,
+    "all_frames_attributed": true,
+    "raw_samples": 15
+  },
+  "raw_proof": {
+    "file": "CIC_DEV_RAW_ANCHORS.json",
+    "bytes": 23210,
+    "sha256": "925954a4f1e85346d962597a53aa226970eca82b1e1a0f3bb18cdd08fb165a83"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "phase": "cic",
+  "package": "450505f4a0634e785e1c6f06334b9e8e57549f19cae283d5a356e6f48017ed1d",
+  "job": "186638",
+  "node": "node185",
+  "seconds": 10.860082805622369,
+  "max_rss_kib": 2243408,
+  "tables": {
+    "CIC_DEV_PAIRED.csv": {
+      "file": "CIC_DEV_PAIRED.csv",
+      "bytes": 10203,
+      "sha256": "b264beafb936b39daf60b6b486b26560729e302110f1156c1ac02f55d1938f53"
+    },
+    "CIC_DEV_MECHANISM.csv": {
+      "file": "CIC_DEV_MECHANISM.csv",
+      "bytes": 1544,
+      "sha256": "d3306657a3befd8c7d7c3f7014570f0f402fef39bd8f6179fb1671fee99764af"
+    },
+    "CIC_DEV_HANDSHAKE.csv": {
+      "file": "CIC_DEV_HANDSHAKE.csv",
+      "bytes": 215,
+      "sha256": "b9c88fd3e0424a8849563c081c83405ed42ebeadd6271c43bf308f73a424ad0f"
+    }
+  },
+  "large": {
+    "file": "CIC_DEV_DECISIONS.npz",
+    "bytes": 67204654,
+    "sha256": "a3672df1cc101777e87edd924166635bc1fde6baa08807a70f5dce74369af47b"
+  },
+  "baseline_views": 2,
+  "geometry": {
+    "matrix_pairs": 4020641,
+    "checked_positive_tcp": 2545,
+    "max_original_support_diff": 8.881784197001252e-16
+  },
+  "query_uid_order_sha256": "1b13ef4d89e5652d6c24931ab895842b58cce655249cf978ff3d1cdded04f35d"
+}

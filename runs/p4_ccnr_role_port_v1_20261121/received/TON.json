@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "phase": "ton",
+  "package": "450505f4a0634e785e1c6f06334b9e8e57549f19cae283d5a356e6f48017ed1d",
+  "job": "186644",
+  "node": "node185",
+  "seconds": 166.0644475221634,
+  "max_rss_kib": 3901636,
+  "tables": {
+    "TON_PAIRED.csv": {
+      "file": "TON_PAIRED.csv",
+      "bytes": 79660,
+      "sha256": "eedfe889d325f6374ddab05d6e4069b992eebb02b164d62e7b6eadf3337f7a94"
+    },
+    "TON_MECHANISM.csv": {
+      "file": "TON_MECHANISM.csv",
+      "bytes": 11496,
+      "sha256": "23a333748b8833033824648504aaec14a4d71c7cd7c297da330e9e44d55a22a7"
+    },
+    "TON_HANDSHAKE.csv": {
+      "file": "TON_HANDSHAKE.csv",
+      "bytes": 1874,
+      "sha256": "134de0992cbfc1f3273b987438e57b13d72418f02a23b61c2de86e8baabcddbb"
+    }
+  },
+  "large": {
+    "file": "TON_DECISIONS.npz",
+    "bytes": 131444398,
+    "sha256": "0a6143b9597bf2aedec0eabf42a36afc377a29fe29eea1d3b6b043eecc72881f"
+  },
+  "baseline_views": 18,
+  "geometry": {
+    "matrix_pairs": 738868096,
+    "checked_positive_tcp": 270145,
+    "max_original_support_diff": 5.551115123125783e-16
+  },
+  "query_uid_order_sha256": "a301aa4d6611929c3161494a316d010f941230463adb1d206ad7f4302a5aefcc"
+}

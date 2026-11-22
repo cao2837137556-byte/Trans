@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "phase": "edge",
+  "package": "450505f4a0634e785e1c6f06334b9e8e57549f19cae283d5a356e6f48017ed1d",
+  "job": "186642",
+  "node": "node185",
+  "seconds": 39.46360966283828,
+  "max_rss_kib": 909136,
+  "tables": {
+    "EDGE_PAIRED.csv": {
+      "file": "EDGE_PAIRED.csv",
+      "bytes": 18027,
+      "sha256": "c922dd5cce711d8d0732e9e1f5960b692a1badb8be9b05088095d880d33a58f0"
+    },
+    "EDGE_MECHANISM.csv": {
+      "file": "EDGE_MECHANISM.csv",
+      "bytes": 2556,
+      "sha256": "9813503fa2b0122c1450a2c8414b220881cca961366d48cb32f764ced3de4a7f"
+    },
+    "EDGE_HANDSHAKE.csv": {
+      "file": "EDGE_HANDSHAKE.csv",
+      "bytes": 218,
+      "sha256": "346a1d2130abb1b3e9568180cb177c5caa7b88e843abaf3248286d8800717cc1"
+    },
+    "EDGE_NORMAL_BY_SERVICE.csv": {
+      "file": "EDGE_NORMAL_BY_SERVICE.csv",
+      "bytes": 11260,
+      "sha256": "87da4e09e7d6ba4f37fe6bbdcee877532b08ab6e9178e82c26ca42c8ff979ea6"
+    },
+    "EDGE_NORMAL_MECHANISM_BY_SERVICE.csv": {
+      "file": "EDGE_NORMAL_MECHANISM_BY_SERVICE.csv",
+      "bytes": 1714,
+      "sha256": "bd1615e7ebf7bd5b591bc841ec3cd1099fd32e5869afa3895244e736969eec86"
+    },
+    "EDGE_502_443.csv": {
+      "file": "EDGE_502_443.csv",
+      "bytes": 650,
+      "sha256": "3e59a48335ee029b2d79924b2c8fca85c6157cdb1a6b2ee24cb1dd7e5d9d0906"
+    }
+  },
+  "large": {
+    "file": "EDGE_DECISIONS.npz",
+    "bytes": 22659710,
+    "sha256": "2ebccb222e093977ad804db3117469767feec1f55250096ec243bfb46d7b8db4"
+  },
+  "baseline_views": 5,
+  "geometry": {
+    "matrix_pairs": 80408576,
+    "checked_positive_tcp": 19631,
+    "max_original_support_diff": 0.0
+  },
+  "query_uid_order_sha256": "cec6dcd9399b5286fe8325828aaa7acb4584d6dd28c867fb76cbc7e17a7c5404"
+}
