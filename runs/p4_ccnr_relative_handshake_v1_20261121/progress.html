@@ -1,0 +1,30 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Paper04 · 设备本地握手次数</title>
+<style>:root{color-scheme:light dark;font:15px/1.65 "Segoe UI","Microsoft YaHei",sans-serif}main{max-width:770px;margin:38px auto;padding:0 20px}h1{font-size:25px}section{border-top:2px solid #468474;padding:8px 0}small{opacity:.75}textarea{width:100%;box-sizing:border-box}th,td{padding:3px 10px;text-align:left}table{border-collapse:collapse}thead{border-bottom:1px solid #999}a{color:inherit}</style>
+<main><h1>冻结 v12 的设备本地相对握手次数</h1>
+<section><h2 id="stage">读取进度</h2><p id="job"></p><p id="detail"></p><small id="time"></small></section>
+<section id="manual" hidden><h2>在已登录终端启动本轮接收端</h2><textarea id="cmd" readonly rows="4"></textarea><button id="copy">复制本轮启动命令</button></section>
+<section id="roles" hidden><h2>真实切片预检通过</h2><p><a href="/preflight">预检与样本回执</a></p></section>
+<p><a href="/login">同服务正常登录资格清单</a></p>
+<p id="results" hidden><a href="/paper">中文结论</a> · <a href="/unsw">UNSW 归因</a> · <a href="/receipt">D 盘验收</a></p>
+</main>
+<script>
+const el=id=>document.getElementById(id);
+const states={PREP:"本地核验",UPLOADING:"正在上传",WAITING_TERMINAL:"等待本轮接收端",WAITING_SSH:"等待现有 SSH",PENDING:"排队",RUNNING:"运行中",VALIDATE_SUBMISSION:"核验提交条件",SUBMITTED:"已提交",INSTALLED:"已安装",COMPLETE:"正在回传",ACCEPTED:"D 盘已验收",STOP:"流程停止",LOCAL_STOP:"本地流程停止",CONNECTION_PAUSED:"等待原通道恢复"};
+const pools={cic:"CIC",unsw:"UNSW",edge:"Edge",ton:"ToN",password:"Edge 密码"};
+function phase(v){if(!v)return "";return v.startsWith("check_")?(pools[v.slice(6)]+" 握手历史与真实切片"):(pools[v]+" 正式配对");}
+async function cmd(){return (await(await fetch("/start",{cache:"no-store"})).text()).trim()}
+async function update(){try{
+ const x=await(await fetch("/state",{cache:"no-store"})).json(),r=x.remote||{},c=r.chain||{},p=r.progress||{};
+ el("stage").textContent=[phase(c.phase),states[x.stage]||x.stage].filter(Boolean).join(" · ");
+ const jobs=c.jobs||r.prep?.jobs||{};
+ el("job").textContent=c.job_id?"Slurm "+c.job_id+"　"+(c.reason||""):Object.entries(jobs).map(([v,n])=>phase(v)+" "+n).join(" · ");
+ el("detail").textContent=x.error||c.error||(p.phase===c.phase?[p.description,p.frame!==undefined?p.frame.toLocaleString()+"/"+p.last_frame.toLocaleString()+" 帧":""].filter(Boolean).join(" · "):"")||x.note||"";
+ el("time").textContent="最近更新　"+new Date(x.updated_unix*1000).toLocaleString();
+ el("manual").hidden=!["PREP","WAITING_TERMINAL"].includes(x.stage);
+ if(!el("manual").hidden){const v=await cmd();if(el("cmd").value!==v)el("cmd").value=v}
+ el("roles").hidden=!r.prep;
+ el("results").hidden=x.stage!=="ACCEPTED";
+ }catch{el("stage").textContent="暂未读到进度";}}
+ el("copy").onclick=async()=>{try{el("cmd").value=await cmd();await navigator.clipboard.writeText(el("cmd").value);el("copy").textContent="已复制"}catch{el("cmd").select()}};
+ update();setInterval(update,5000)
+</script></html>

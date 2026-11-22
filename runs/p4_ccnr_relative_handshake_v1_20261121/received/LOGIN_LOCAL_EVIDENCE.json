@@ -1,0 +1,830 @@
+{
+  "ToN": {
+    "attack_clock_and_normals_utc": {
+      "normal1": [
+        "2019-04-02T15:52:04.748197+00:00",
+        "2019-04-02T18:35:26.478739+00:00"
+      ],
+      "normal2": [
+        "2019-04-02T18:35:26.485415+00:00",
+        "2019-04-02T21:36:42.648209+00:00"
+      ],
+      "password": [
+        "2019-04-26T13:44:49.043806+00:00",
+        "2019-04-26T17:04:12.959980+00:00"
+      ]
+    },
+    "verified_attack_zeek_tcp_count_by_port": {
+      "192.168.1.152": {
+        "21": 3872,
+        "80": 7772,
+        "1880": 3
+      },
+      "192.168.1.190": {
+        "80": 31503,
+        "21": 649
+      },
+      "192.168.1.193": {
+        "21": 3927,
+        "80": 1314
+      },
+      "192.168.1.195": {
+        "21": 1126,
+        "80": 26588
+      }
+    },
+    "attack_zeek_tcp_service_tag_counts": {
+      "192.168.1.152": {
+        "unknown": 3872,
+        "http": 7775
+      },
+      "192.168.1.190": {
+        "http": 31499,
+        "ftp": 645,
+        "unknown": 8
+      },
+      "192.168.1.193": {
+        "unknown": 5241
+      },
+      "192.168.1.195": {
+        "unknown": 9584,
+        "http": 18130
+      }
+    },
+    "normal_conn_log_files": 15,
+    "normal_tcp_same_target_and_port": {
+      "normal_1": {
+        "192.168.1.152": 1,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      },
+      "normal_10": {
+        "192.168.1.152": 0,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      },
+      "normal_11": {
+        "192.168.1.152": 0,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      },
+      "normal_12": {
+        "192.168.1.152": 0,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      },
+      "normal_13": {
+        "192.168.1.152": 1,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      },
+      "normal_2": {
+        "192.168.1.152": 3,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      },
+      "normal_3": {
+        "192.168.1.152": 1,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      },
+      "normal_4": {
+        "192.168.1.152": 3,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      },
+      "normal_5": {
+        "192.168.1.152": 1,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      },
+      "normal_6": {
+        "192.168.1.152": 5,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      },
+      "normal_7": {
+        "192.168.1.152": 0,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      },
+      "normal_8": {
+        "192.168.1.152": 1,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      },
+      "normal_9": {
+        "192.168.1.152": 13,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      },
+      "normal_IoT_1": {
+        "192.168.1.152": 53,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      },
+      "normal_IoT_2": {
+        "192.168.1.152": 204,
+        "192.168.1.190": 0,
+        "192.168.1.193": 0,
+        "192.168.1.195": 0
+      }
+    },
+    "normal_by_endpoint": {
+      "normal_1": {
+        "192.168.1.152:1880": 1
+      },
+      "normal_10": {},
+      "normal_11": {},
+      "normal_12": {},
+      "normal_13": {
+        "192.168.1.152:1880": 1
+      },
+      "normal_2": {
+        "192.168.1.152:1880": 3
+      },
+      "normal_3": {
+        "192.168.1.152:1880": 1
+      },
+      "normal_4": {
+        "192.168.1.152:1880": 3
+      },
+      "normal_5": {
+        "192.168.1.152:1880": 1
+      },
+      "normal_6": {
+        "192.168.1.152:1880": 5
+      },
+      "normal_7": {},
+      "normal_8": {
+        "192.168.1.152:1880": 1
+      },
+      "normal_9": {
+        "192.168.1.152:1880": 13
+      },
+      "normal_IoT_1": {
+        "192.168.1.152:1880": 53
+      },
+      "normal_IoT_2": {
+        "192.168.1.152:1880": 204
+      }
+    },
+    "normal_http_hints_same_endpoint": {
+      "normal_1": {
+        "192.168.1.152": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      },
+      "normal_10": {
+        "192.168.1.152": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      },
+      "normal_11": {
+        "192.168.1.152": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      },
+      "normal_12": {
+        "192.168.1.152": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      },
+      "normal_13": {
+        "192.168.1.152": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      },
+      "normal_2": {
+        "192.168.1.152": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      },
+      "normal_3": {
+        "192.168.1.152": {
+          "http_connections": 1,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      },
+      "normal_4": {
+        "192.168.1.152": {
+          "http_connections": 2,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      },
+      "normal_5": {
+        "192.168.1.152": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      },
+      "normal_6": {
+        "192.168.1.152": {
+          "http_connections": 2,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      },
+      "normal_7": {
+        "192.168.1.152": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      },
+      "normal_8": {
+        "192.168.1.152": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      },
+      "normal_9": {
+        "192.168.1.152": {
+          "http_connections": 2,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      },
+      "normal_IoT_1": {
+        "192.168.1.152": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      },
+      "normal_IoT_2": {
+        "192.168.1.152": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.190": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.193": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        },
+        "192.168.1.195": {
+          "http_connections": 0,
+          "login_path_hint": 0,
+          "http_401_or_403": 0,
+          "auth_identity_field_present": 0
+        }
+      }
+    },
+    "auth_success_retry_reconnect_confirmed": false,
+    "file_sha256": {
+      "Network_dataset_Bro\\normal_attack_Bro\\normal_password\\password_normal_1\\conn.log": {
+        "sha256": "a8febe6536bbff35352c42f730c1c16b11e1c057bffc5188062cf67b21b98208",
+        "bytes": 35350675
+      },
+      "SecurityEvents_Network_datasets\\GroundTruth_Network_14.csv": {
+        "sha256": "2411ab4164dd93caeba360ef650b938e40e194673085079aa444c04814c39517",
+        "bytes": 58304423
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_1\\conn.log": {
+        "sha256": "380708f68982eeb90f5f2fa3731b0a212c03eea2269854af142f2c3bb8b294bb",
+        "bytes": 813247
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_2\\conn.log": {
+        "sha256": "bec69daf0c9ee453f898a1b3b09ae863336d9eff9a749ccfc3c71999a50a2b51",
+        "bytes": 822188
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_1\\http.log": {
+        "sha256": "b1da2d3fd57562504c675ccc2fb534e1ceb83a65b3a34c87fb2b5c509f220e56",
+        "bytes": 335896
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_10\\conn.log": {
+        "sha256": "4284dac888b2cd9912f63dd0768fec0d645ee07f46d3d807aed5fcbc4b67f506",
+        "bytes": 786020
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_10\\http.log": {
+        "sha256": "d39a1c356c00697d9420d89902ff9cf0237e1b5cc2418fe7d506a08cdf96fb3d",
+        "bytes": 4855
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_11\\conn.log": {
+        "sha256": "56d7be0989b289ffe53ebc985c478d096ea830657aa3a0112feefb81d70b9d75",
+        "bytes": 783043
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_11\\http.log": {
+        "sha256": "ef79c9751ee3af0305a0590685fd24059c899dd476a13004ebae8aae7bf9413a",
+        "bytes": 1025
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_12\\conn.log": {
+        "sha256": "9d896e913fce7340e1718bd38dd3be781c7da4bf8b1f86fe158b138dea985c14",
+        "bytes": 897908
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_12\\http.log": {
+        "sha256": "6dc0770ce0fb387379f38d89109ed20687de34a6940d3c43b42ea38c8e4dc481",
+        "bytes": 12105
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_13\\conn.log": {
+        "sha256": "6ee9b02707ba0688cc60ba168a2e3bcfa615897a7a23500f95ef520ba9fd3437",
+        "bytes": 1084206
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_13\\http.log": {
+        "sha256": "b81284cf98e773344933f4dbc3a4888b027db87139d11998af8bb7c0a8e11b8b",
+        "bytes": 12231
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_2\\http.log": {
+        "sha256": "845013e77b36e1c9854b031b7618a1ea0978d6048724a314d060647c0738b5ea",
+        "bytes": 13581
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_3\\conn.log": {
+        "sha256": "c13c91d405bd5e1bea242e9b81cfbb45c999d0a26cd18c15e45ce3d64e42eb82",
+        "bytes": 764713
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_3\\http.log": {
+        "sha256": "1dfe62ad6447c0ff0355f07e56148ef4abf3f4264214dc46c33d73b5bb18fa42",
+        "bytes": 6033
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_4\\conn.log": {
+        "sha256": "eea670433f0b7d53e1a3affa3b5dc60f74c6b7ccdc4a2f25c042f8d9352ebb0e",
+        "bytes": 1088833
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_4\\http.log": {
+        "sha256": "0c1cfac41e8b76f6fc5010a88e8e4a2f7cf2dc224d92e706aefe569982d6531b",
+        "bytes": 9603
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_5\\conn.log": {
+        "sha256": "28b749117e64c9dd996361e88b5b0ffb765dca61160d84d1bf79fbb2d26ecf91",
+        "bytes": 1210755
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_5\\http.log": {
+        "sha256": "231e3e56bfebc5a24b748facd7dfb3dcca9816117ef4ae88afcc136c0741dd7a",
+        "bytes": 3771
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_6\\conn.log": {
+        "sha256": "b3a87a7cd6c7c24056ded5e0b8ee397a7a69dcc3125a97846c93577f3ab66b89",
+        "bytes": 1359015
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_6\\http.log": {
+        "sha256": "105d84fd33b4f35f6780f8a046ec2c3c3c06c9af3a8d10c9421872f3846fca85",
+        "bytes": 3916
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_7\\conn.log": {
+        "sha256": "08800ed55be87cab1a2dd5556072e4b1d66e6d5d4013229941059e8dcff436d5",
+        "bytes": 1059217
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_7\\http.log": {
+        "sha256": "3526985efda535f83ec09fe2113a5035a1ef110ec4a8458c840a38c67c5e5f86",
+        "bytes": 11237
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_8\\conn.log": {
+        "sha256": "804e197e3a7a5cd0d50752db707eb54de38aa9781809d23b7823cdd1a1d8d555",
+        "bytes": 828588
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_8\\http.log": {
+        "sha256": "29494f803a8a566de4318cc5e577d74dd93ebfc7835776902885fd4e7fc624b2",
+        "bytes": 277283
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_9\\conn.log": {
+        "sha256": "98ce7e6ad8a124c96d0481d4aa441771e45eddeabbe9b88e41e0355046e79b25",
+        "bytes": 856669
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_9\\http.log": {
+        "sha256": "9f0bc0a33a03be7c4d0dd8914b8475aa093aa067351ec4885c676154dc610c10",
+        "bytes": 54476
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_IoT_1\\conn.log": {
+        "sha256": "078193f7041d3969970f48559e0165818ca6ed4024158f840473802655573576",
+        "bytes": 5057930
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_IoT_1\\http.log": {
+        "sha256": "9b13061b5fe8295b908e408c659949c8985f977cde9f77d1359905ec2bc7d8ca",
+        "bytes": 1569
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_IoT_2\\conn.log": {
+        "sha256": "409c89e62b2461b1858a27bed31c3062f1526a772028aa9969de435135b6ac7a",
+        "bytes": 4378394
+      },
+      "Network_dataset_Bro\\normal_Bro\\normal_IoT_2\\http.log": {
+        "sha256": "f9aa1e102b3db21954d3c4e2db3fa042eee99b78c5511dedb29d2022a829025f",
+        "bytes": 2840
+      }
+    },
+    "identity": "Per-capture target IP validated; cross-capture instance unproven."
+  },
+  "Gotham": {
+    "scope": "Clock span from existing original ZIP members; labels and counts from full source audit.",
+    "captured_clock_utc": {
+      "iotsim-air-quality-1": {
+        "attack": {
+          "member": "raw/malicious/mirai-infection/iotsim-air-quality-1_0-0_to_OpenvSwitch-25_1-0.pcap",
+          "frames": 128370,
+          "observed_utc": [
+            "2025-01-18T20:23:39.019695+00:00",
+            "2025-01-18T22:58:09.918120+00:00"
+          ],
+          "bytes": 9018345,
+          "crc32": "c8acbb42"
+        },
+        "pure_benign": {
+          "member": "raw/benign/iotsim-air-quality-1_0-0_to_OpenvSwitch-25_1-0.pcap",
+          "frames": 2391,
+          "observed_utc": [
+            "2025-01-14T18:40:20.062613+00:00",
+            "2025-01-14T20:47:24.908404+00:00"
+          ],
+          "bytes": 231885,
+          "crc32": "a537a336"
+        }
+      },
+      "iotsim-city-power-1": {
+        "attack": {
+          "member": "raw/malicious/mirai-infection/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap",
+          "frames": 127121,
+          "observed_utc": [
+            "2025-01-18T20:23:39.020169+00:00",
+            "2025-01-18T22:56:37.131941+00:00"
+          ],
+          "bytes": 8879858,
+          "crc32": "25165d8e"
+        },
+        "pure_benign": {
+          "member": "raw/benign/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap",
+          "frames": 748,
+          "observed_utc": [
+            "2025-01-14T18:40:20.066220+00:00",
+            "2025-01-14T20:46:16.009779+00:00"
+          ],
+          "bytes": 61208,
+          "crc32": "c2f8ce93"
+        }
+      },
+      "iotsim-combined-cycle-10": {
+        "attack": {
+          "member": "raw/malicious/mirai-infection/iotsim-combined-cycle-10_0-0_to_OpenvSwitch-13_10-0.pcap",
+          "frames": 211826,
+          "observed_utc": [
+            "2025-01-18T20:23:22.635015+00:00",
+            "2025-01-18T22:56:47.371373+00:00"
+          ],
+          "bytes": 16646102,
+          "crc32": "b2cb6c99"
+        },
+        "pure_benign": {
+          "member": "raw/benign/iotsim-combined-cycle-10_0-0_to_OpenvSwitch-13_10-0.pcap",
+          "frames": 1146,
+          "observed_utc": [
+            "2025-01-14T18:39:54.465142+00:00",
+            "2025-01-14T20:46:04.910865+00:00"
+          ],
+          "bytes": 90229,
+          "crc32": "3cd30111"
+        }
+      },
+      "iotsim-ip-camera-museum-1": {
+        "attack": {
+          "member": "raw/malicious/mirai-infection/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap",
+          "frames": 1630583,
+          "observed_utc": [
+            "2025-01-18T20:23:19.171835+00:00",
+            "2025-01-18T22:58:16.734570+00:00"
+          ],
+          "bytes": 2144964254,
+          "crc32": "014eda50"
+        },
+        "pure_benign": {
+          "member": "raw/benign/iotsim-ip-camera-museum-1_0-0_to_OpenvSwitch-29_1-0.pcap",
+          "frames": 1233571,
+          "observed_utc": [
+            "2025-01-14T18:40:21.045127+00:00",
+            "2025-01-14T20:47:03.559617+00:00"
+          ],
+          "bytes": 1746905091,
+          "crc32": "b00ce701"
+        }
+      }
+    },
+    "anchor_times_utc": [
+      {
+        "device": "iotsim-city-power-1",
+        "file": "raw/malicious/mirai-infection/iotsim-city-power-1_0-0_to_OpenvSwitch-26_1-0.pcap",
+        "anchors": 105,
+        "from_utc": "2025-01-18T21:29:54.581083+00:00",
+        "to_utc": "2025-01-18T21:38:16.176872+00:00"
+      }
+    ],
+    "tagged_attack_connections": 1759,
+    "off_bypass_with_data": 1519,
+    "normal_same_target_telnet": 0,
+    "evidence_sha256": {
+      "CONFIRMED_ATTACK_ANCHORS.csv": {
+        "sha256": "973571c4e3a6699228666aa6bba49b1dd1bb4aa1e7dc2972e753975ed18764a6",
+        "bytes": 13813
+      },
+      "CENSUS.json": {
+        "sha256": "e1702a15604b50bda3bf0808ef04a30581647cc45b48ccf9ec05244bdcb2cf6c",
+        "bytes": 10526
+      },
+      "AUX_NORMAL.json": {
+        "sha256": "ce3d5b009a7686c7c69e4f3acc624792567974b57a21f9ce3c1bc34f07c97b20",
+        "bytes": 11954
+      }
+    }
+  }
+}
