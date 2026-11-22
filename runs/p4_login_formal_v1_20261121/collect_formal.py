@@ -195,6 +195,43 @@ def eligible(frame):
     return len(frame)>=pos+20 and int.from_bytes(frame[pos+2:pos+4],"big")==PORT
 
 
+def publish_progress(out,**values):
+    try:
+        save_json(out/"COLLECTION_PROGRESS.json",dict(keeper_heartbeat_ns=time.time_ns(),**values))
+    except PermissionError:
+        # Windows readers may briefly prevent rename on /mnt/d. Telemetry is
+        # optional, so a sharing violation must never unwind the network.
+        return False
+    return True
+
+
+def process_start(pid):
+    data=Path(f"/proc/{pid}/stat").read_text().rsplit(") ",1)[1].split()
+    if data[0] in ("Z","X"):
+        return None
+    return int(data[19])
+
+
+def boot_id():
+    return Path("/proc/sys/kernel/random/boot_id").read_text().strip()
+
+
+def keeper_is_live(out):
+    try:
+        ids=json.loads((out/"COLLECTOR_IDENTITY.json").read_bytes())
+        capture=json.loads((out/"enrollment/CAPTURE.json").read_bytes())
+        server=capture["endpoints"][0]
+        pid=ids["service_pid"]
+        cname=f"p4lf-{capture['service_instance'][:8]}-srv"
+        return (ids["boot"]==boot_id() and ids["instance"]==capture["service_instance"] and
+                pid==capture["service_pid"] and cname==server["netns"] and
+                os.path.samefile(f"/proc/{pid}/ns/net",Path("/run/netns")/cname) and
+                ids["collector_start"]==process_start(ids["collector_pid"]) and
+                ids["service_start"]==process_start(pid))
+    except (OSError,ValueError,KeyError,IndexError):
+        return False
+
+
 def record_trace(root,folder,ctl,raw,begin,plan,budget):
     time.sleep(max(0,(begin-time.monotonic_ns())/NS))
     epoch=time.time_ns()
@@ -214,10 +251,9 @@ def record_trace(root,folder,ctl,raw,begin,plan,budget):
             min_free=min(min_free,budget.free())
             if min_free<=DISK_RESERVE:
                 budget.check()
-            save_json(root/"COLLECTION_PROGRESS.json",dict(stage="RECORDING_"+folder.name.upper(),packets=count,
-                      elapsed_seconds=(max(0,(last_ns-first[1])/NS) if first else 0),
-                      duration_seconds=plan.get("window_seconds",plan.get("duration_seconds")),free_bytes=min_free,
-                      keeper_heartbeat_ns=time.time_ns()))
+            publish_progress(root,stage="RECORDING_"+folder.name.upper(),packets=count,
+                             elapsed_seconds=(max(0,(last_ns-first[1])/NS) if first else 0),
+                             duration_seconds=plan.get("window_seconds",plan.get("duration_seconds")),free_bytes=min_free)
             next_status=now+2.
         if budget.reason():
             break
@@ -292,9 +328,8 @@ def await_bank(out,service,meta,last_frame):
             raise RuntimeError("D: reached the free-space reserve while sealing references.")
         if ready.is_file() and time.time_ns()>last_frame+60*NS:
             return json.loads(ready.read_bytes())
-        save_json(out/"COLLECTION_PROGRESS.json",dict(
-            stage="REFERENCE_SEALING",service_instance=meta["service_instance"],
-            service_pid=meta["service_pid"],keeper_heartbeat_ns=time.time_ns()))
+        publish_progress(out,stage="REFERENCE_SEALING",service_instance=meta["service_instance"],
+                         service_pid=meta["service_pid"])
         time.sleep(1.)
 
 
@@ -316,6 +351,9 @@ def main(out):
         assert (ctl/"ready").is_file()
         meta=dict(service_instance=instance,service_pid=int((ctl/"ready").read_text()),server_port=PORT,
                   endpoints=endpoints,kernel=os.uname().release,enrollment_uses_same_service=True)
+        save_json(out/"COLLECTOR_IDENTITY.json",dict(boot=boot_id(),instance=instance,
+            collector_pid=os.getpid(),collector_start=process_start(os.getpid()),
+            service_pid=meta["service_pid"],service_start=process_start(meta["service_pid"])))
         first=phase(out,"enrollment",ctl,server,clients,plan_enrollment(),meta)
         seal=await_bank(out,service,meta,first["capture"]["last_frame_ns"])
         assert seal["status"]=="PASS" and seal["service_instance"]==instance
@@ -331,6 +369,8 @@ if __name__=="__main__":
         serve(*map(Path,sys.argv[2:]))
     elif mode=="client":
         client(Path(sys.argv[2]),Path(sys.argv[3]),int(sys.argv[4]),int(sys.argv[5]))
+    elif mode=="probe":
+        sys.exit(0 if keeper_is_live(Path(sys.argv[2])) else 1)
     else:
         dest=Path(sys.argv[2])
         signal.signal(signal.SIGTERM,lambda *_:sys.exit(143))

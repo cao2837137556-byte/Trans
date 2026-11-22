@@ -164,7 +164,8 @@ def evaluation(out,assets,cfg,pins):
                  feature_witness=proof,decisions=identity(path),paired=identity(out/"PAIRED.csv"),
                  minutes=minute,cutoff_sha=identity(out/"BANK_READY.json"),asset_check=identity(out/"QUICK_CHECK.json"))
     save(out/"ACCEPTANCE.json",receipt)
-    stable=["METHOD.md","EXECUTION.json","WINDOWS_REPAIR.json","QUICK_CHECK.json","ENGINEERING_SLICE.json","PILOT_SCORES.npz","BANK_READY.json",
+    stable=["METHOD.md","EXECUTION.json","WINDOWS_REPAIR.json","PROGRESS_CONTENTION_CHECK.json","SEALED_REFERENCE_CHECK.json",
+            "COLLECTOR_IDENTITY.json","QUICK_CHECK.json","ENGINEERING_SLICE.json","PILOT_SCORES.npz","BANK_READY.json",
             "COLLECTION_DONE.json","PAIRED.csv","RESULTS_FOR_PAPER.md","ACCEPTANCE.json"]
     for folder_name in ("enrollment","evaluation","frozen_quick_check_assets"):
         stable.extend((p.relative_to(out).as_posix() for p in (out/folder_name).iterdir() if p.is_file()))

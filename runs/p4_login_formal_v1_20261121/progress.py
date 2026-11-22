@@ -1,6 +1,7 @@
 """Local status and small result links for the formal acquisition."""
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
+import os
 from pathlib import Path
 import shutil
 import sys
@@ -25,7 +26,8 @@ dl{padding-top:1.2rem;border-top:1px solid #829a90}dt{font-weight:600}dd{margin:
 </main>
 <script>
 const e=id=>document.getElementById(id);
-const label={STARTING_WSL:"正在建立隔离网络",RECORDING_ENROLLMENT:"录制两小时正常参考",
+const label={VERIFYING_ARCHIVED_BANK:"修复验收 · 重放上批完整参考集",
+STARTING_WSL:"正在建立隔离网络",RECORDING_ENROLLMENT:"录制两小时正常参考",
 SEALING_REFERENCE:"验收原始边界并封存参考",REFERENCE_SEALING:"验收原始边界并封存参考",
 READY_FOR_EVALUATION:"参考已封存",REFERENCE_SEAL_PAUSED:"参考封存暂停 · 原服务仍在等待",
 RECORDING_EVALUATION:"录制独立正常评价",
@@ -36,12 +38,13 @@ async function update(){
     const c=x.capture||{}, q=x.quick||{}, b=x.bank||{};
     const active=["STARTING_WSL","READY_FOR_EVALUATION"].includes(x.stage);
     const stage=active?(c.stage||x.stage):x.stage;
-    const t=c.elapsed_seconds||0;
-    const planned=c.duration_seconds||7200;
+    const replay=x.stage==="VERIFYING_ARCHIVED_BANK";
+    const t=replay?(x.archive_replay?.completed||0):(c.elapsed_seconds||0);
+    const planned=replay?(x.archive_replay?.total||4096):(c.duration_seconds||7200);
     e("phase").textContent=(label[stage]||stage)+(x.error?" · "+x.error:"");
     e("bar").max=planned;
     e("bar").value=t;
-    e("time").textContent=c.stage?.startsWith("RECORDING")?t.toFixed(0)+" / "+planned.toFixed(0)+" 秒（已采到原帧）":"";
+    e("time").textContent=replay?t+" / "+planned+" 条参考已编码":(c.stage?.startsWith("RECORDING")?t.toFixed(0)+" / "+planned.toFixed(0)+" 秒（已采到原帧）":"");
     e("quick").textContent=q.status==="PASS"?"已复现 "+q.pilot.rows+" 条小试输入、"+q.archived_attack.rows+" 条封存攻击判决":"等待读回";
     e("frames").textContent=c.packets?.toLocaleString()??"—";
     e("space").textContent=(x.free/1073741824).toFixed(2)+" GiB";
@@ -53,9 +56,37 @@ update();setInterval(update,6000);
 </script></html>"""
 
 
+def open_shared(path):
+    if sys.platform!="win32":
+        return path.open("rb")
+    import ctypes
+    import msvcrt
+    from ctypes import wintypes
+
+    kernel=ctypes.WinDLL("kernel32",use_last_error=True)
+    create=kernel.CreateFileW
+    create.argtypes=(wintypes.LPCWSTR,wintypes.DWORD,wintypes.DWORD,wintypes.LPVOID,
+                     wintypes.DWORD,wintypes.DWORD,wintypes.HANDLE)
+    create.restype=wintypes.HANDLE
+    # FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE.
+    handle=create(str(path),0x80000000,7,None,3,0x80,None)
+    if handle==ctypes.c_void_p(-1).value:
+        raise ctypes.WinError(ctypes.get_last_error())
+    try:
+        fd=msvcrt.open_osfhandle(handle,os.O_RDONLY|os.O_BINARY)
+    except OSError:
+        kernel.CloseHandle.argtypes=(wintypes.HANDLE,)
+        kernel.CloseHandle(handle)
+        raise
+    return os.fdopen(fd,"rb")
+
+
 def read(name):
-    path=OUT/name
-    return json.loads(path.read_bytes()) if path.is_file() else None
+    try:
+        with open_shared(OUT/name) as stream:
+            return json.load(stream)
+    except FileNotFoundError:
+        return None
 
 
 class View(BaseHTTPRequestHandler):
@@ -72,7 +103,8 @@ class View(BaseHTTPRequestHandler):
             if failure and s["stage"]!="ACCEPTED":
                 s.update(stage="STOP",error=failure["error"])
             s.update(free=shutil.disk_usage(OUT).free,capture=read("COLLECTION_PROGRESS.json"),
-                     quick=read("QUICK_CHECK.json"),bank=read("BANK_READY.json"))
+                     quick=read("QUICK_CHECK.json"),bank=read("BANK_READY.json"),
+                     archive_replay=read("ARCHIVED_BANK_PROGRESS.json"))
             body=json.dumps(s,ensure_ascii=False).encode("utf8")
             mime="application/json"
         else:

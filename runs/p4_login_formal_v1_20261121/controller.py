@@ -25,6 +25,20 @@ def state(out,phase,**extra):
     save(out/"RUN_STATUS.json",dict(stage=phase,updated_unix=time.time(),**extra))
 
 
+def collector_command(mode,out):
+    return ["wsl.exe","-d","Ubuntu-24.04","-u","root","--cd","/","--exec","python3","-B",
+            wsl(HERE/"collect_formal.py"),mode,wsl(out)]
+
+
+def collector_is_live(out):
+    if not (out/"COLLECTOR_IDENTITY.json").is_file() or (out/"COLLECTION_FAILURE.json").is_file():
+        return False
+    try:
+        return subprocess.run(collector_command("probe",out),capture_output=True,timeout=8).returncode==0
+    except (OSError,subprocess.TimeoutExpired):
+        return False
+
+
 def wait_file(found,p,out):
     while not found.is_file():
         aborted=out/"COLLECTION_FAILURE.json"
@@ -34,29 +48,22 @@ def wait_file(found,p,out):
             raise RuntimeError(f"WSL ended before {found.name}, exit {p.returncode}")
         if p is None:
             observed=read(out/"COLLECTION_PROGRESS.json")
-            if time.time_ns()-observed.get("keeper_heartbeat_ns",0)>30*10**9:
-                raise RuntimeError("The WSL collector stopped updating its heartbeat.")
+            if time.time_ns()-observed.get("keeper_heartbeat_ns",0)>30*10**9 and not collector_is_live(out):
+                raise RuntimeError("The original WSL collector is unavailable.")
         time.sleep(2)
 
 
 def live_reference_keeper(out):
-    p=out/"COLLECTION_PROGRESS.json"
-    c=out/"enrollment/CAPTURE.json"
-    if not p.is_file() or not c.is_file() or (out/"COLLECTION_FAILURE.json").is_file():
-        return False
-    progress=read(p)
-    capture=read(c)
-    age=time.time_ns()-progress.get("keeper_heartbeat_ns",0)
-    return (progress["stage"]=="REFERENCE_SEALING" and abs(age)<10*10**9
-            and progress["service_instance"]==capture["service_instance"]
-            and progress["service_pid"]==capture["service_pid"])
+    return not (out/"evaluation").exists() and collector_is_live(out)
 
 
-def run(out,resume):
+def run(out,resume,preflight_source,pilot):
     assert read(out/"QUICK_CHECK.json")["status"]==read(out/"ENGINEERING_SLICE.json")["status"]=="PASS"
     repaired=read(out/"WINDOWS_REPAIR.json")
-    assert repaired["status"]=="PASS" and repaired["implementation"]==identity(
-        HERE.parent/"p4_login_pilot_v1_20261121/feature_witness.py")
+    feature=identity(HERE.parent/"p4_login_pilot_v1_20261121/feature_witness.py")
+    assert repaired["status"]=="PASS" and repaired["implementation"]==feature
+    contention=read(out/"PROGRESS_CONTENTION_CHECK.json")
+    assert contention["status"]=="PASS" and contention["implementation"]==identity(HERE/"collect_formal.py")
     assert shutil.disk_usage(out).free>2*2**30
     source=out/"frozen_quick_check_assets"
     assert read(source/"LOCAL_RECEIPT.json")["manifest_sha256"]
@@ -67,18 +74,26 @@ def run(out,resume):
         with (out/f"reference_failure_{time.time_ns()}.json").open("xb") as f:
             f.write(previous.read_bytes())
     else:
+        if preflight_source is not None:
+            assert pilot is not None
+            state(out,"VERIFYING_ARCHIVED_BANK",source=preflight_source.name)
+            subprocess.run([sys.executable,"-X","utf8","-B",str(HERE/"windows_regression.py"),
+                            str(preflight_source),str(out),"--full",str(pilot)],check=True)
+        archive_check=read(out/"SEALED_REFERENCE_CHECK.json")
+        assert archive_check["status"]=="PASS" and archive_check["implementation"]==feature
         (out/"METHOD.md").write_bytes((HERE/"METHOD.md").read_bytes())
         version={n:identity(HERE/n) for n in ("controller.py","collect_formal.py","schedule.py","audit_formal.py",
                                               "bank.py","science.py","frozen_score.py","windows_regression.py","METHOD.md")}
         with (out/"EXECUTION.json").open("x",encoding="utf8") as f:
-            json.dump(dict(stage="START",method_files=version,numeric_repair=identity(out/"WINDOWS_REPAIR.json")),f,indent=2)
+            json.dump(dict(stage="START",method_files=version,numeric_repair=identity(out/"WINDOWS_REPAIR.json"),
+                           archive_replay=identity(out/"SEALED_REFERENCE_CHECK.json"),
+                           contention=identity(out/"PROGRESS_CONTENTION_CHECK.json")),f,indent=2)
         state(out,"STARTING_WSL")
     mode=ctypes.windll.kernel32.SetThreadExecutionState(0x80000001)
     try:
         p=None
         if not resume:
-            p=subprocess.Popen(["wsl.exe","-d","Ubuntu-24.04","-u","root","--cd","/","--exec","python3","-B",
-                                wsl(HERE/"collect_formal.py"),"run",wsl(out)])
+            p=subprocess.Popen(collector_command("run",out))
             wait_file(out/"enrollment/CAPTURE.json",p,out)
         if (out/"COLLECTION_FAILURE.json").is_file():
             raise RuntimeError(read(out/"COLLECTION_FAILURE.json")["error"])
@@ -102,13 +117,15 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("out",type=Path)
     parser.add_argument("--resume",action="store_true")
+    parser.add_argument("--preflight-source",type=Path)
+    parser.add_argument("--pilot",type=Path)
     args=parser.parse_args()
     out=args.out
     with (out/".controller.lock").open("a+b") as lock:
         lock.seek(0)
         msvcrt.locking(lock.fileno(),msvcrt.LK_NBLCK,1)
         try:
-            run(out,args.resume)
+            run(out,args.resume,args.preflight_source,args.pilot)
         except Exception as exc:
             save(out/"FAILURE.json",dict(error=str(exc) or repr(exc),trace=traceback.format_exc()))
             paused=(out/"RUN_STATUS.json").is_file() and read(out/"RUN_STATUS.json")["stage"]=="SEALING_REFERENCE"
