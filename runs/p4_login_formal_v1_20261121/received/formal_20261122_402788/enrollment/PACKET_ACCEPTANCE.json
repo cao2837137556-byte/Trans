@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "pcap": {
+    "sha256": "646d3864b51f5f620fb808ad64c01a5d3bffba5fef5059f30b9f0d416048d382",
+    "bytes": 688144
+  },
+  "checks": {
+    "total_frames": 6410,
+    "tcp_connections": 397,
+    "complete_duplex_handshakes": 397,
+    "direction_counts": {
+      "10.254.240.21": {
+        "ingress": 1074,
+        "egress": 811
+      },
+      "10.254.240.22": {
+        "ingress": 1069,
+        "egress": 805
+      },
+      "10.254.240.23": {
+        "ingress": 1105,
+        "egress": 834
+      }
+    },
+    "unmatched_pcap_requests": 0,
+    "unmatched_server_auth": 0,
+    "aligned_requests": 421,
+    "handshake_60s_oracle_identical": 421,
+    "h60_min": 1,
+    "h60_max": 4,
+    "h60_histogram": {
+      "1": 207,
+      "2": 166,
+      "3": 46,
+      "4": 2
+    },
+    "request_uid_order_sha256": "49d08c2d8eff08b17bb86065ad40d920e292265391ed67d494b87cb233454cc1",
+    "verified_history_source": {
+      "history_common.py": {
+        "sha256": "9cb12e5fc73ec058de588cb114ffd696835d1a97422c338a94ebeef991689ac1",
+        "bytes": 2240
+      },
+      "history_stream.py": {
+        "sha256": "2467cfe242288f24b1e0b602852cef98ecb3e37cd9dd6eb26803bd3a8cf8fa33",
+        "bytes": 10155
+      }
+    }
+  },
+  "scenarios": [
+    {
+      "scenario": "successful_login",
+      "cases": 283,
+      "proved_cases": 283,
+      "requests": 283,
+      "connections": 283,
+      "aligned": 283,
+      "unaligned": 0,
+      "observed_200": 283,
+      "observed_401": 0
+    },
+    {
+      "scenario": "mistake_then_retry",
+      "cases": 24,
+      "proved_cases": 24,
+      "requests": 48,
+      "connections": 24,
+      "aligned": 48,
+      "unaligned": 0,
+      "observed_200": 24,
+      "observed_401": 24
+    },
+    {
+      "scenario": "cross_connection_retry",
+      "cases": 21,
+      "proved_cases": 21,
+      "requests": 42,
+      "connections": 42,
+      "aligned": 42,
+      "unaligned": 0,
+      "observed_200": 21,
+      "observed_401": 21
+    },
+    {
+      "scenario": "disconnect_then_reconnect",
+      "cases": 24,
+      "proved_cases": 24,
+      "requests": 48,
+      "connections": 48,
+      "aligned": 48,
+      "unaligned": 0,
+      "observed_200": 48,
+      "observed_401": 0
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "status": "PASS",
+  "pcap": {
+    "sha256": "babcc975786591a4ce20e412c8b8911ad99b4c48a2e4854a5d66db31aaecf567",
+    "bytes": 358676
+  },
+  "checks": {
+    "total_frames": 3133,
+    "tcp_connections": 207,
+    "complete_duplex_handshakes": 207,
+    "direction_counts": {
+      "10.254.240.21": {
+        "ingress": 583,
+        "egress": 440
+      },
+      "10.254.240.22": {
+        "ingress": 583,
+        "egress": 444
+      },
+      "10.254.240.23": {
+        "ingress": 583,
+        "egress": 444
+      }
+    },
+    "unmatched_pcap_requests": 0,
+    "unmatched_server_auth": 0,
+    "aligned_requests": 243,
+    "handshake_60s_oracle_identical": 243,
+    "h60_min": 1,
+    "h60_max": 21,
+    "h60_histogram": {
+      "1": 14,
+      "2": 15,
+      "3": 14,
+      "4": 14,
+      "5": 10,
+      "6": 14,
+      "7": 15,
+      "8": 22,
+      "9": 26,
+      "10": 20,
+      "11": 22,
+      "12": 10,
+      "13": 10,
+      "14": 9,
+      "15": 11,
+      "16": 10,
+      "17": 2,
+      "18": 1,
+      "19": 2,
+      "20": 1,
+      "21": 1
+    },
+    "request_uid_order_sha256": "9da89e56ca00eeba4af8f724638a736a004b6d62a51a0e8ee1fdf73b150e630d",
+    "verified_history_source": {
+      "history_common.py": {
+        "sha256": "9cb12e5fc73ec058de588cb114ffd696835d1a97422c338a94ebeef991689ac1",
+        "bytes": 2240
+      },
+      "history_stream.py": {
+        "sha256": "2467cfe242288f24b1e0b602852cef98ecb3e37cd9dd6eb26803bd3a8cf8fa33",
+        "bytes": 10155
+      }
+    }
+  },
+  "scenarios": [
+    {
+      "scenario": "successful_login",
+      "cases": 48,
+      "proved_cases": 48,
+      "requests": 48,
+      "connections": 48,
+      "aligned": 48,
+      "unaligned": 0,
+      "observed_200": 48,
+      "observed_401": 0
+    },
+    {
+      "scenario": "mistake_then_retry",
+      "cases": 36,
+      "proved_cases": 36,
+      "requests": 72,
+      "connections": 36,
+      "aligned": 72,
+      "unaligned": 0,
+      "observed_200": 36,
+      "observed_401": 36
+    },
+    {
+      "scenario": "cross_connection_retry",
+      "cases": 36,
+      "proved_cases": 36,
+      "requests": 72,
+      "connections": 72,
+      "aligned": 72,
+      "unaligned": 0,
+      "observed_200": 36,
+      "observed_401": 36
+    },
+    {
+      "scenario": "burst_reconnect",
+      "cases": 12,
+      "proved_cases": 12,
+      "requests": 51,
+      "connections": 51,
+      "aligned": 51,
+      "unaligned": 0,
+      "observed_200": 51,
+      "observed_401": 0
+    }
+  ]
+}

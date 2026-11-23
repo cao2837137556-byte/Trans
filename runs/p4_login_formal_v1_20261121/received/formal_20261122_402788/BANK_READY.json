@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "service_instance": "6eab1dcf41479b5b",
+  "server_endpoint": {
+    "netns": "p4lf-6eab1dcf-srv",
+    "mac": "02:04:24:00:00:10",
+    "ip": "10.254.240.10"
+  },
+  "server_port": 8080,
+  "reference_end_ns": 1795369759152767471,
+  "boundary": {
+    "first_qualifying_frame": 3,
+    "first_qualifying_ns": 1795362559152767471,
+    "reference_end_ns": 1795369759152767471,
+    "cutoff_frame": 6396,
+    "last_observed_frame_before_crossing": 6396,
+    "crossing_frame": 6397,
+    "crossing_ns": 1795369767200030999,
+    "window_seconds": 7200
+  },
+  "candidates": 5684,
+  "available_components": 393,
+  "sparse_anchors": 64,
+  "reference_rows": 4096,
+  "reference_components": 393,
+  "same_service_rows": 4096,
+  "same_service_components": 393,
+  "inbound_reference_rows": 2372,
+  "outbound_reference_rows": 1724,
+  "capture": {
+    "sha256": "646d3864b51f5f620fb808ad64c01a5d3bffba5fef5059f30b9f0d416048d382",
+    "bytes": 688144
+  },
+  "reference": {
+    "sha256": "eadde74883e54af220bbd4b9037078b300dc5116e2015180e687475377c40977",
+    "bytes": 11393973
+  },
+  "features": {
+    "encoder": {
+      "manifest_sha256": "2f611b4695e165649cb4fc2df4b0309f621f846fa5f6f660e3c0fa0202ecc5ee",
+      "vendor_files": 19
+    },
+    "batches": 264,
+    "rows": 4096,
+    "uid_order_sha256": "d4a10412d95dd4fddcb050fee08b706e1784527ec65b179f605579b7bf0cd474"
+  }
+}

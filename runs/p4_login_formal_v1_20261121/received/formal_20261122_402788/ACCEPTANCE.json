@@ -1,0 +1,228 @@
+{
+  "status": "PASS",
+  "normal_requests": 243,
+  "connections": 207,
+  "cutoff": {
+    "first_qualifying_frame": 3,
+    "first_qualifying_ns": 1795362559152767471,
+    "reference_end_ns": 1795369759152767471,
+    "cutoff_frame": 6396,
+    "last_observed_frame_before_crossing": 6396,
+    "crossing_frame": 6397,
+    "crossing_ns": 1795369767200030999,
+    "window_seconds": 7200
+  },
+  "same_service_components": 393,
+  "test_query_uid_order": "9da89e56ca00eeba4af8f724638a736a004b6d62a51a0e8ee1fdf73b150e630d",
+  "service_instance": "6eab1dcf41479b5b",
+  "feature_witness": {
+    "encoder": {
+      "manifest_sha256": "2f611b4695e165649cb4fc2df4b0309f621f846fa5f6f660e3c0fa0202ecc5ee",
+      "vendor_files": 19
+    },
+    "batches": 16,
+    "rows": 243,
+    "uid_order_sha256": "9da89e56ca00eeba4af8f724638a736a004b6d62a51a0e8ee1fdf73b150e630d"
+  },
+  "decisions": {
+    "sha256": "f28e869d47e1608f1beee78a2cc2d7b5548664f0813b0aac801f662d4d3aa33e",
+    "bytes": 33359
+  },
+  "paired": {
+    "sha256": "cc28b74b73195b14d27ce6ebba1a1f5edfff3ec3be794492242f848058df6142",
+    "bytes": 17120
+  },
+  "minutes": [
+    {
+      "minute": "minute-1",
+      "client": 3,
+      "start_ns": 1795370536566853741,
+      "length_seconds": 60,
+      "scheduled": 5,
+      "actual": 5,
+      "confirmed": true,
+      "h60": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "minute": "minute-2",
+      "client": 2,
+      "start_ns": 1795370615292994434,
+      "length_seconds": 60,
+      "scheduled": 3,
+      "actual": 3,
+      "confirmed": true,
+      "h60": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "minute": "minute-3",
+      "client": 1,
+      "start_ns": 1795370697549697202,
+      "length_seconds": 60,
+      "scheduled": 3,
+      "actual": 3,
+      "confirmed": true,
+      "h60": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "minute": "minute-4",
+      "client": 2,
+      "start_ns": 1795370779201960263,
+      "length_seconds": 60,
+      "scheduled": 5,
+      "actual": 5,
+      "confirmed": true,
+      "h60": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "minute": "minute-5",
+      "client": 1,
+      "start_ns": 1795370859663976309,
+      "length_seconds": 60,
+      "scheduled": 1,
+      "actual": 1,
+      "confirmed": true,
+      "h60": [
+        2
+      ]
+    },
+    {
+      "minute": "minute-6",
+      "client": 2,
+      "start_ns": 1795370936521382899,
+      "length_seconds": 60,
+      "scheduled": 1,
+      "actual": 1,
+      "confirmed": true,
+      "h60": [
+        2
+      ]
+    },
+    {
+      "minute": "minute-7",
+      "client": 3,
+      "start_ns": 1795371012758939769,
+      "length_seconds": 60,
+      "scheduled": 8,
+      "actual": 8,
+      "confirmed": true,
+      "h60": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "minute": "minute-8",
+      "client": 1,
+      "start_ns": 1795371089886864020,
+      "length_seconds": 60,
+      "scheduled": 5,
+      "actual": 5,
+      "confirmed": true,
+      "h60": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "minute": "minute-9",
+      "client": 3,
+      "start_ns": 1795371170602148356,
+      "length_seconds": 60,
+      "scheduled": 3,
+      "actual": 3,
+      "confirmed": true,
+      "h60": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "minute": "minute-10",
+      "client": 3,
+      "start_ns": 1795371251435448424,
+      "length_seconds": 60,
+      "scheduled": 1,
+      "actual": 1,
+      "confirmed": true,
+      "h60": [
+        2
+      ]
+    },
+    {
+      "minute": "minute-11",
+      "client": 1,
+      "start_ns": 1795371331218961909,
+      "length_seconds": 60,
+      "scheduled": 8,
+      "actual": 8,
+      "confirmed": true,
+      "h60": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "minute": "minute-12",
+      "client": 2,
+      "start_ns": 1795371408632109016,
+      "length_seconds": 60,
+      "scheduled": 8,
+      "actual": 8,
+      "confirmed": true,
+      "h60": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  ],
+  "cutoff_sha": {
+    "sha256": "e3a2296cac3094fa0f65135655198ae1a931915712b219c50ee4b58409e13b33",
+    "bytes": 1421
+  },
+  "asset_check": {
+    "sha256": "e53eae7ad8c445fdc51b34ceb739c810c007bfaaf391546ef21722e51e51efec",
+    "bytes": 2323
+  }
+}
