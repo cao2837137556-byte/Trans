@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "arm_count": 3,
+  "holdout_queries": 210,
+  "holdout_connections": 194,
+  "calibration": {
+    "sha256": "87ff9a0a6a8ac5337bf5ad3bd89704b7f158c722b8ade0e936893988efc4c449",
+    "bytes": 980
+  },
+  "holdout_features": {
+    "encoder": {
+      "manifest_sha256": "2f611b4695e165649cb4fc2df4b0309f621f846fa5f6f660e3c0fa0202ecc5ee",
+      "vendor_files": 19
+    },
+    "batches": 15,
+    "rows": 210,
+    "uid_order_sha256": "b9a45f5fa39ae3e9f9a9277171eac16ead50426977123feec60f902dc2a7bd3b"
+  },
+  "holdout_scores": {
+    "sha256": "52fb6978f70b4e3c61f05df3e6f0215ae0f69d2a783d64fe1d05a3fafcfae4ce",
+    "bytes": 27414
+  },
+  "sealed_reference": {
+    "sha256": "eadde74883e54af220bbd4b9037078b300dc5116e2015180e687475377c40977",
+    "bytes": 11393973
+  },
+  "stress_source": {
+    "sha256": "f28e869d47e1608f1beee78a2cc2d7b5548664f0813b0aac801f662d4d3aa33e",
+    "bytes": 33359
+  },
+  "stress_connections": 51,
+  "attacks": "PENDING_ATTACK_EVALUATION",
+  "flood_check": {
+    "sha256": "b6bd7214eac27a5168efbab81d8d19060e8a1ab944c567b6c29986496c09648c",
+    "bytes": 815
+  },
+  "paired": {
+    "sha256": "9b9c95438fefba88dbeb1e8c69f4f3cead028aec5c41ac75fbd3f645205866b1",
+    "bytes": 22773
+  },
+  "stress_paired": {
+    "sha256": "f8bf7bd04db3f0f8b433463aaea0041ac3dd6dd524704ca3f52d80de25a55870",
+    "bytes": 21311
+  }
+}

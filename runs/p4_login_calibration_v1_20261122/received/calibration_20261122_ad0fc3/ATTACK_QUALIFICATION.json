@@ -1,0 +1,63 @@
+{
+  "status": "PENDING_ATTACK_EVALUATION",
+  "eligible_attacks": null,
+  "target": "10.254.240.10:8080/login",
+  "local_pcap_inventory": [
+    "formal_20261121_fedb00/enrollment/login.pcap",
+    "formal_20261122_2a4ee7/enrollment/login.pcap",
+    "formal_20261122_402788/enrollment/login.pcap",
+    "formal_20261122_402788/evaluation/login.pcap",
+    "pilot_20261121_025fdd/login.pcap"
+  ],
+  "local_normal_receipts": [
+    {
+      "file": "formal_20261121_fedb00/enrollment/PACKET_ACCEPTANCE.json",
+      "rows": 422,
+      "status": "PASS",
+      "sha256": "b93c518b805b4f923c09028568d793ac52c6cce606c7e59c80e8d1a727ed725c"
+    },
+    {
+      "file": "formal_20261122_2a4ee7/enrollment/PACKET_ACCEPTANCE.json",
+      "rows": 421,
+      "status": "PASS",
+      "sha256": "ac28df81d551ddab620dc1c51d159172115af6524d2d95b2d85f87577e5d7429"
+    },
+    {
+      "file": "formal_20261122_402788/enrollment/PACKET_ACCEPTANCE.json",
+      "rows": 421,
+      "status": "PASS",
+      "sha256": "875a5409504f7f097b7e76df4d714b733004b0db9c0092aee44599bd0519ac82"
+    },
+    {
+      "file": "formal_20261122_402788/evaluation/PACKET_ACCEPTANCE.json",
+      "rows": 243,
+      "status": "PASS",
+      "sha256": "5d16caf46eded6ac8de254fb5ce966dc4ecd548b3240b4d8ddd6122ac016d70e"
+    },
+    {
+      "file": "pilot_20261121_025fdd/PACKET_ACCEPTANCE.json",
+      "rows": 150,
+      "status": "PASS",
+      "sha256": "9cff041a99f9e3a98d649945bdf69857a95a2d3413b9996f27a5cc2c68575357"
+    }
+  ],
+  "known_local_capture_roots": [
+    "formal_20261121_fedb00",
+    "formal_20261122_2a4ee7",
+    "formal_20261122_402788",
+    "pilot_20261121_025fdd"
+  ],
+  "other_local_paths": [],
+  "previous_evidence": {
+    "edge": "5e2393acebb92806205eb87bff5dd82cdece3cd183e760b1cf737ed1c8a663c2",
+    "ton": {
+      "sha256": "581f08df15aae3ee5304bc076899208a8695e7490583b76723a4672bf6c95db3",
+      "bytes": 1155
+    },
+    "same_service_review": {
+      "sha256": "845a9466030e2cd6f6cfba464960a09584348cf1a3f17ba0addeba7e2fcdc5a8",
+      "bytes": 5500
+    }
+  },
+  "criterion": "same endpoint, independent capture, labels bound to request and connection"
+}

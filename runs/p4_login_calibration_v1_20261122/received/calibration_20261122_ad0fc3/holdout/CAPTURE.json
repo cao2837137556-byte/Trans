@@ -1,0 +1,53 @@
+{
+  "service_instance": "154d9ada89c3fa14",
+  "service_pid": 456,
+  "server_port": 8080,
+  "endpoints": [
+    {
+      "netns": "p4lc-154d9ada-srv",
+      "mac": "02:04:24:00:00:10",
+      "ip": "10.254.240.10"
+    },
+    {
+      "netns": "p4lc-154d9ada-c1",
+      "mac": "02:04:24:00:00:21",
+      "ip": "10.254.240.21"
+    },
+    {
+      "netns": "p4lc-154d9ada-c2",
+      "mac": "02:04:24:00:00:22",
+      "ip": "10.254.240.22"
+    },
+    {
+      "netns": "p4lc-154d9ada-c3",
+      "mac": "02:04:24:00:00:23",
+      "ip": "10.254.240.23"
+    }
+  ],
+  "kernel": "6.6.87.2-microsoft-standard-WSL2",
+  "frozen_reference_source": "formal_20261122_402788",
+  "capture": {
+    "start_ns": 1795405756164181849,
+    "end_ns": 1795409359238229662,
+    "last_frame_ns": 1795409303215815626,
+    "duration_seconds": 3602.1137073350005,
+    "captured_ingress": 1787,
+    "captured_egress": 1392,
+    "capture_kernel_drops": 0,
+    "min_free_bytes": 6151241728,
+    "stop_reason": "PLANNED",
+    "first_qualifying_frame": 1,
+    "first_qualifying_ns": 1795405756456361092
+  },
+  "capture_files": {
+    "login.pcap": 340730,
+    "server.jsonl": 42440,
+    "client_1.jsonl": 27233,
+    "client_2.jsonl": 28250,
+    "client_3.jsonl": 29449
+  },
+  "remaining_bytes": 6151241728,
+  "stage": "SEALED_CAPTURE",
+  "scope": "holdout",
+  "random_seed": 2026112202
+}
