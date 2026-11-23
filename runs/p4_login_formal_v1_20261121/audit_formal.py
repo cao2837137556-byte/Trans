@@ -75,7 +75,7 @@ def scene_callback(plan,stage,counts):
                                    h60=[a["handshakes_60s"] for a in order]))
             verified[label]+=int(ok)
         groups=[]
-        labels=[*ORDINARY,RECOVER if stage=="enrollment" else BURST]
+        labels=[*ORDINARY,BURST if stage=="evaluation" else RECOVER]
         for label in labels:
             actions=[r for r in result if r["scenario"]==label]
             match=[r for r in actions if r["aligned"]]
