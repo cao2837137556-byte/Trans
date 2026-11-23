@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "prior_connections": 194,
+  "total_connections": 1107,
+  "thresholds": {
+    "sha256": "ab8e5300cb42a1c8aab77245a9221fb05a6ba78719913808778d8a66145d3254",
+    "bytes": 1372
+  },
+  "preflight": {
+    "sha256": "c6a24a8ecf554e0d26d3ffc7fa163c498bee3dcd1870aa452eb981d06df655b1",
+    "bytes": 2411
+  },
+  "batches": [
+    {
+      "receipt": "batch_01/attempt_01/BATCH_ACCEPTANCE.json",
+      "sha256": "00150c5ccebd5326d8cb70794a82b371d4781e78cb9c4e66ebadb61520b8e6f7",
+      "connections": 226
+    },
+    {
+      "receipt": "batch_02/attempt_01/BATCH_ACCEPTANCE.json",
+      "sha256": "28e881e174a3509d90f745f62f0ef2a6e3d0ad20688c2311b872fb445ce8adba",
+      "connections": 221
+    },
+    {
+      "receipt": "batch_03/attempt_01/BATCH_ACCEPTANCE.json",
+      "sha256": "c0dc00e9eccdde8a2cdf5c810c3afd26451890a640bbc478398d54aca08df0bf",
+      "connections": 236
+    },
+    {
+      "receipt": "batch_04/attempt_01/BATCH_ACCEPTANCE.json",
+      "sha256": "1ce37d419fd81930e4c07eb542b9bc337cf64e70189a061a5e75259c62fa6250",
+      "connections": 230
+    }
+  ],
+  "stress": {
+    "sha256": "f8bf7bd04db3f0f8b433463aaea0041ac3dd6dd524704ca3f52d80de25a55870",
+    "bytes": 21311
+  },
+  "paired": {
+    "sha256": "f72cc426d57b0d013d29cebab4789e68af63079cdf040dbf6559ad01c1253c1e",
+    "bytes": 169445
+  },
+  "attack_evaluation": "PENDING_ATTACK_EVALUATION"
+}

@@ -1,0 +1,445 @@
+{
+  "audit_date": "2026-11-23",
+  "status": "PASS",
+  "run_id": "normal_extension_20261122_22c2c0",
+  "manifest_counts": {
+    "extension": 79,
+    "prior": 37,
+    "original_reference": 45
+  },
+  "archive_hash": {
+    "sha256": "728d132368b1f537d78360c1eb811cd8b2b87296a59a8bca67ceb87bc03f0ce1",
+    "bytes": 8239
+  },
+  "acceptance": {
+    "sha256": "576e52083e4920647fb4cc3141826f80563bd85e057fd2ed89e754a0213cf37e",
+    "bytes": 1417
+  },
+  "thresholds": {
+    "sha256": "ab8e5300cb42a1c8aab77245a9221fb05a6ba78719913808778d8a66145d3254",
+    "bytes": 1372
+  },
+  "input_contract": {
+    "sha256": "b70363361d2884a245b345f0331305debeccb4896a02a93ae17c2bcc44c7a606",
+    "bytes": 136098
+  },
+  "code": {
+    "collect_holdout.py": {
+      "sha256": "993979a6e2797667105f3f46cb19269cd401f5f91a8dcead315fd6b4249046f0",
+      "bytes": 1901
+    },
+    "design.py": {
+      "sha256": "c4c1134edeac8d362fbc6eb58519b4041e91bafe82e916440f2d06e0c265722e",
+      "bytes": 1650
+    },
+    "run.py": {
+      "sha256": "6efb200d2ed351512d754f606d0c5c6f287c2ea866ab9f866046b298c80121ad",
+      "bytes": 15231
+    },
+    "status_page.py": {
+      "sha256": "988d5a29317d86d70df4808cb63f6feeb8574d4dd4ea4ad8bd063606fa57c52d",
+      "bytes": 3673
+    }
+  },
+  "reference": {
+    "sha256": "eadde74883e54af220bbd4b9037078b300dc5116e2015180e687475377c40977",
+    "bytes": 11393973
+  },
+  "scored_capture_checks": [
+    {
+      "batch": "prior_holdout",
+      "requests": 210,
+      "connections": 194,
+      "frames": 3179,
+      "kernel_drops": 0,
+      "seconds": 3602.114
+    },
+    {
+      "batch": "batch_00",
+      "requests": 7,
+      "connections": 6,
+      "frames": 108,
+      "kernel_drops": 0,
+      "seconds": 16.098
+    },
+    {
+      "batch": "batch_01",
+      "requests": 253,
+      "connections": 226,
+      "frames": 3722,
+      "kernel_drops": 0,
+      "seconds": 3902.046
+    },
+    {
+      "batch": "batch_02",
+      "requests": 245,
+      "connections": 221,
+      "frames": 3630,
+      "kernel_drops": 0,
+      "seconds": 3902.116
+    },
+    {
+      "batch": "batch_03",
+      "requests": 267,
+      "connections": 236,
+      "frames": 3830,
+      "kernel_drops": 0,
+      "seconds": 3902.062
+    },
+    {
+      "batch": "batch_04",
+      "requests": 252,
+      "connections": 230,
+      "frames": 3715,
+      "kernel_drops": 0,
+      "seconds": 3902.039
+    }
+  ],
+  "replayed_table_rows": {
+    "PAIRED.csv": 1680,
+    "STRESS_PAIRED.csv": 240
+  },
+  "ensemble": {
+    "prior_holdout": {
+      "CIC_source": {
+        "request": {
+          "n": 210,
+          "alarms": {
+            "RAW": 210,
+            "v12_CCNR": 197,
+            "relative_handshake": 197
+          },
+          "same_decisions": false
+        },
+        "connection": {
+          "n": 194,
+          "alarms": {
+            "RAW": 194,
+            "v12_CCNR": 194,
+            "relative_handshake": 194
+          },
+          "same_decisions": true
+        }
+      },
+      "login_calibrated": {
+        "request": {
+          "n": 210,
+          "alarms": {
+            "RAW": 2,
+            "v12_CCNR": 2,
+            "relative_handshake": 2
+          },
+          "same_decisions": true
+        },
+        "connection": {
+          "n": 194,
+          "alarms": {
+            "RAW": 2,
+            "v12_CCNR": 2,
+            "relative_handshake": 2
+          },
+          "same_decisions": true
+        }
+      }
+    },
+    "batch_01": {
+      "CIC_source": {
+        "request": {
+          "n": 253,
+          "alarms": {
+            "RAW": 253,
+            "v12_CCNR": 229,
+            "relative_handshake": 229
+          },
+          "same_decisions": false
+        },
+        "connection": {
+          "n": 226,
+          "alarms": {
+            "RAW": 226,
+            "v12_CCNR": 226,
+            "relative_handshake": 226
+          },
+          "same_decisions": true
+        }
+      },
+      "login_calibrated": {
+        "request": {
+          "n": 253,
+          "alarms": {
+            "RAW": 3,
+            "v12_CCNR": 3,
+            "relative_handshake": 3
+          },
+          "same_decisions": true
+        },
+        "connection": {
+          "n": 226,
+          "alarms": {
+            "RAW": 3,
+            "v12_CCNR": 3,
+            "relative_handshake": 3
+          },
+          "same_decisions": true
+        }
+      }
+    },
+    "batch_02": {
+      "CIC_source": {
+        "request": {
+          "n": 245,
+          "alarms": {
+            "RAW": 245,
+            "v12_CCNR": 223,
+            "relative_handshake": 223
+          },
+          "same_decisions": false
+        },
+        "connection": {
+          "n": 221,
+          "alarms": {
+            "RAW": 221,
+            "v12_CCNR": 221,
+            "relative_handshake": 221
+          },
+          "same_decisions": true
+        }
+      },
+      "login_calibrated": {
+        "request": {
+          "n": 245,
+          "alarms": {
+            "RAW": 9,
+            "v12_CCNR": 9,
+            "relative_handshake": 9
+          },
+          "same_decisions": true
+        },
+        "connection": {
+          "n": 221,
+          "alarms": {
+            "RAW": 9,
+            "v12_CCNR": 9,
+            "relative_handshake": 9
+          },
+          "same_decisions": true
+        }
+      }
+    },
+    "batch_03": {
+      "CIC_source": {
+        "request": {
+          "n": 267,
+          "alarms": {
+            "RAW": 267,
+            "v12_CCNR": 239,
+            "relative_handshake": 239
+          },
+          "same_decisions": false
+        },
+        "connection": {
+          "n": 236,
+          "alarms": {
+            "RAW": 236,
+            "v12_CCNR": 236,
+            "relative_handshake": 236
+          },
+          "same_decisions": true
+        }
+      },
+      "login_calibrated": {
+        "request": {
+          "n": 267,
+          "alarms": {
+            "RAW": 4,
+            "v12_CCNR": 4,
+            "relative_handshake": 4
+          },
+          "same_decisions": true
+        },
+        "connection": {
+          "n": 236,
+          "alarms": {
+            "RAW": 4,
+            "v12_CCNR": 4,
+            "relative_handshake": 4
+          },
+          "same_decisions": true
+        }
+      }
+    },
+    "batch_04": {
+      "CIC_source": {
+        "request": {
+          "n": 252,
+          "alarms": {
+            "RAW": 252,
+            "v12_CCNR": 230,
+            "relative_handshake": 230
+          },
+          "same_decisions": false
+        },
+        "connection": {
+          "n": 230,
+          "alarms": {
+            "RAW": 230,
+            "v12_CCNR": 230,
+            "relative_handshake": 230
+          },
+          "same_decisions": true
+        }
+      },
+      "login_calibrated": {
+        "request": {
+          "n": 252,
+          "alarms": {
+            "RAW": 4,
+            "v12_CCNR": 4,
+            "relative_handshake": 4
+          },
+          "same_decisions": true
+        },
+        "connection": {
+          "n": 230,
+          "alarms": {
+            "RAW": 4,
+            "v12_CCNR": 4,
+            "relative_handshake": 4
+          },
+          "same_decisions": true
+        }
+      }
+    },
+    "new_holdout": {
+      "CIC_source": {
+        "request": {
+          "n": 1017,
+          "alarms": {
+            "RAW": 1017,
+            "v12_CCNR": 921,
+            "relative_handshake": 921
+          },
+          "same_decisions": false
+        },
+        "connection": {
+          "n": 913,
+          "alarms": {
+            "RAW": 913,
+            "v12_CCNR": 913,
+            "relative_handshake": 913
+          },
+          "same_decisions": true
+        }
+      },
+      "login_calibrated": {
+        "request": {
+          "n": 1017,
+          "alarms": {
+            "RAW": 20,
+            "v12_CCNR": 20,
+            "relative_handshake": 20
+          },
+          "same_decisions": true
+        },
+        "connection": {
+          "n": 913,
+          "alarms": {
+            "RAW": 20,
+            "v12_CCNR": 20,
+            "relative_handshake": 20
+          },
+          "same_decisions": true
+        }
+      }
+    },
+    "all_holdout": {
+      "CIC_source": {
+        "request": {
+          "n": 1227,
+          "alarms": {
+            "RAW": 1227,
+            "v12_CCNR": 1118,
+            "relative_handshake": 1118
+          },
+          "same_decisions": false
+        },
+        "connection": {
+          "n": 1107,
+          "alarms": {
+            "RAW": 1107,
+            "v12_CCNR": 1107,
+            "relative_handshake": 1107
+          },
+          "same_decisions": true
+        }
+      },
+      "login_calibrated": {
+        "request": {
+          "n": 1227,
+          "alarms": {
+            "RAW": 22,
+            "v12_CCNR": 22,
+            "relative_handshake": 22
+          },
+          "same_decisions": true
+        },
+        "connection": {
+          "n": 1107,
+          "alarms": {
+            "RAW": 22,
+            "v12_CCNR": 22,
+            "relative_handshake": 22
+          },
+          "same_decisions": true
+        }
+      }
+    },
+    "stress": {
+      "CIC_source": {
+        "request": {
+          "n": 51,
+          "alarms": {
+            "RAW": 51,
+            "v12_CCNR": 51,
+            "relative_handshake": 51
+          },
+          "same_decisions": true
+        },
+        "connection": {
+          "n": 51,
+          "alarms": {
+            "RAW": 51,
+            "v12_CCNR": 51,
+            "relative_handshake": 51
+          },
+          "same_decisions": true
+        }
+      },
+      "login_calibrated": {
+        "request": {
+          "n": 51,
+          "alarms": {
+            "RAW": 0,
+            "v12_CCNR": 0,
+            "relative_handshake": 6
+          },
+          "same_decisions": false
+        },
+        "connection": {
+          "n": 51,
+          "alarms": {
+            "RAW": 0,
+            "v12_CCNR": 0,
+            "relative_handshake": 6
+          },
+          "same_decisions": false
+        }
+      }
+    }
+  },
+  "one_pct_budget": {
+    "max_fp": 11,
+    "reached": false
+  },
+  "attack_evaluation": "PENDING_ATTACK_EVALUATION"
+}
