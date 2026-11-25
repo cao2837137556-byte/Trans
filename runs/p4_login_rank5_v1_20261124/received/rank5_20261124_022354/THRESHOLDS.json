@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "arms": [
+    "RAW",
+    "v12_CCNR",
+    "relative_handshake"
+  ],
+  "heads": [
+    "27",
+    "127",
+    "227",
+    "ensemble"
+  ],
+  "strict_greater_than": true,
+  "old_connections": 206,
+  "added_connections": 794,
+  "calibration_connections": 1000,
+  "descending_rank": 5,
+  "thresholds": [
+    [
+      16.15416717529297,
+      19.581972122192383,
+      13.800405502319336,
+      16.47774092356364
+    ],
+    [
+      -13.58490276223581,
+      -10.76169195581085,
+      -16.78988742011966,
+      -13.746601414561399
+    ],
+    [
+      -13.58490276223581,
+      -10.76169195581085,
+      -16.78988742011966,
+      -13.746601414561399
+    ]
+  ],
+  "old_thresholds": {
+    "sha256": "ab8e5300cb42a1c8aab77245a9221fb05a6ba78719913808778d8a66145d3254",
+    "bytes": 1372
+  },
+  "old_scores": {
+    "sha256": "8f2eb1dfaf8204c2cb1b8e3114b5968ee93022e38cdfb79196d1560376249d6d",
+    "bytes": 29501
+  },
+  "added_scores": [
+    {
+      "sha256": "251235c59985917c796c05cbb41b8c64253049b23edcc54cc848ddebd6715f27",
+      "bytes": 28648
+    },
+    {
+      "sha256": "64f8a1c49ba12f929324ca2b4df72aed0e0cd0315ea13bed059617f3adf083e4",
+      "bytes": 29797
+    },
+    {
+      "sha256": "ba2b52b2547d647ad5eda191ada17c96ad05c92b52cb9aaa36ffd598876b0cd0",
+      "bytes": 28607
+    },
+    {
+      "sha256": "5e973f6b476692b12beb894b751fd98f98e95db79264ddf16628881419073f80",
+      "bytes": 28742
+    }
+  ],
+  "calibration_fp": [
+    [
+      4,
+      4,
+      4,
+      4
+    ],
+    [
+      4,
+      4,
+      4,
+      4
+    ],
+    [
+      4,
+      4,
+      4,
+      4
+    ]
+  ],
+  "equal_to_threshold": [
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "one_sided_95pct_iid_continuous_tail_bound": 0.009129952563871446
+}

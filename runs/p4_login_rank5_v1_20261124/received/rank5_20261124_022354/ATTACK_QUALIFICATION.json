@@ -1,0 +1,36 @@
+{
+  "status": "PENDING_ATTACK_EVALUATION",
+  "target": "10.254.240.10:8080/login",
+  "eligibility": "same endpoint, independent bidirectional capture, authoritative labels bound to POST and TCP stream",
+  "new_candidates": [],
+  "inventory": [
+    "calibration_20261122_ad0fc3/calibration/login.pcap",
+    "calibration_20261122_ad0fc3/holdout/login.pcap",
+    "formal_20261121_fedb00/enrollment/login.pcap",
+    "formal_20261122_2a4ee7/enrollment/login.pcap",
+    "formal_20261122_402788/enrollment/login.pcap",
+    "formal_20261122_402788/evaluation/login.pcap",
+    "normal_extension_20261122_22c2c0/batch_00/attempt_01/holdout/login.pcap",
+    "normal_extension_20261122_22c2c0/batch_01/attempt_01/holdout/login.pcap",
+    "normal_extension_20261122_22c2c0/batch_02/attempt_01/holdout/login.pcap",
+    "normal_extension_20261122_22c2c0/batch_03/attempt_01/holdout/login.pcap",
+    "normal_extension_20261122_22c2c0/batch_04/attempt_01/holdout/login.pcap",
+    "pilot_20261121_025fdd/login.pcap",
+    "rank5_20261124_022354/calibration_01/attempt_01/calibration/login.pcap",
+    "rank5_20261124_022354/calibration_02/attempt_01/calibration/login.pcap",
+    "rank5_20261124_022354/calibration_03/attempt_01/calibration/login.pcap",
+    "rank5_20261124_022354/calibration_04/attempt_01/calibration/login.pcap",
+    "rank5_20261124_022354/holdout_01/attempt_01/holdout/login.pcap",
+    "rank5_20261124_022354/holdout_02/attempt_01/holdout/login.pcap",
+    "rank5_20261124_022354/holdout_03/attempt_01/holdout/login.pcap",
+    "rank5_20261124_022354/holdout_04/attempt_01/holdout/login.pcap",
+    "rank5_20261124_022354/preflight_00/attempt_01/holdout/login.pcap"
+  ],
+  "earlier_qualification": {
+    "sha256": "8f2ad8d98ec22818a17f9f69d31b75ba40014c5bae4e298b6c91a21fcd7831de",
+    "bytes": 2190
+  },
+  "requested_batches_at_least": 3,
+  "requested_qualified_connections_per_registered_scenario": 600,
+  "eligible_attack_connections": null
+}

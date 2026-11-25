@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "old_calibration": 206,
+  "added_calibration": 794,
+  "total_calibration": 1000,
+  "descending_rank": 5,
+  "holdout_connections": 1000,
+  "archived_holdout": 1107,
+  "stress_connections": 51,
+  "attack_status": "PENDING_ATTACK_EVALUATION",
+  "input_manifest": {
+    "sha256": "fb5245bebc9824426dd7bee91372aa5ff646e9d606702eb575f6d1d2609d9882",
+    "bytes": 298341
+  },
+  "thresholds": {
+    "sha256": "d49dddb3242b8242db98e1a6c8605f968ff65d85a3fd95a71a74968ff405a425",
+    "bytes": 1937
+  },
+  "reference": {
+    "sha256": "eadde74883e54af220bbd4b9037078b300dc5116e2015180e687475377c40977",
+    "bytes": 11393973
+  },
+  "summary": {
+    "sha256": "daf015022bf4b6e588af1f3165dcb2b6e2359e17c9c504ae63303b471a3b39e4",
+    "bytes": 536
+  },
+  "batches": [
+    {
+      "path": "preflight_00/attempt_01/BATCH_ACCEPTANCE.json",
+      "receipt": {
+        "sha256": "ffa2e785f8fa23a14df0a30ba2c7cc08659c592f9955ea0d32da9b094f541f30",
+        "bytes": 2643
+      }
+    },
+    {
+      "path": "calibration_01/attempt_01/BATCH_ACCEPTANCE.json",
+      "receipt": {
+        "sha256": "3528c96ed4e4bd75969ed73c8d9bd9a649138465c32409e7c60747ead6df0ef1",
+        "bytes": 2705
+      }
+    },
+    {
+      "path": "calibration_02/attempt_01/BATCH_ACCEPTANCE.json",
+      "receipt": {
+        "sha256": "c96af4d956c469a1c2aaa9a23b87424ed2c1689211130252624f42ac80161bac",
+        "bytes": 2705
+      }
+    },
+    {
+      "path": "calibration_03/attempt_01/BATCH_ACCEPTANCE.json",
+      "receipt": {
+        "sha256": "8f678d40fd25e53cdac724792d4a78b7cee2c05a824539b73fff3ea888e82f3f",
+        "bytes": 2705
+      }
+    },
+    {
+      "path": "calibration_04/attempt_01/BATCH_ACCEPTANCE.json",
+      "receipt": {
+        "sha256": "5352a86c80764008bf9a1bbb2247616ba038a45daee1f6067935f4cb5b123094",
+        "bytes": 2705
+      }
+    },
+    {
+      "path": "holdout_01/attempt_01/BATCH_ACCEPTANCE.json",
+      "receipt": {
+        "sha256": "2b2825a1c988dce29ddd4dfed357242ead2cd1e8eb5ed8fe35cdee0cc9b59c73",
+        "bytes": 2661
+      }
+    },
+    {
+      "path": "holdout_02/attempt_01/BATCH_ACCEPTANCE.json",
+      "receipt": {
+        "sha256": "888bf781170c22d8ff07ecbbfe207db56da968a208ebdbf14ce7ad9c36769eed",
+        "bytes": 2661
+      }
+    },
+    {
+      "path": "holdout_03/attempt_01/BATCH_ACCEPTANCE.json",
+      "receipt": {
+        "sha256": "37c9596bda0af7c83b9062b5eb17eff332089d36df1db68f577bd421a750d99a",
+        "bytes": 2661
+      }
+    },
+    {
+      "path": "holdout_04/attempt_01/BATCH_ACCEPTANCE.json",
+      "receipt": {
+        "sha256": "715261e4951d60fc79de3d8b516b7bcf93dbe8d535582581d4a45c4cda9db15e",
+        "bytes": 2661
+      }
+    }
+  ]
+}

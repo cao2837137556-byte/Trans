@@ -1,0 +1,5 @@
+record,endpoint,request_connection_alignment,independence,disposition
+WSL local login captures,10.254.240.10:8080/login,"verified normal captures, including planned password corrections",pilot and established batches tracked individually,NORMAL_ONLY
+Edge password archive,192.168.0.128:80/DVWA/login.php,confirmed prior POST associations; frozen fixture has 29 rows,publisher attack capture,DIFFERENT_ENDPOINT
+ToN password archive,ToN registered targets .152/.190/.195,archived logical target and direction records,publisher network captures,DIFFERENT_ENDPOINT
+Gotham password archive,Gotham Telnet targets,prior paired source receipts,publisher captures,DIFFERENT_AUTH_SERVICE

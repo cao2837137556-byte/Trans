@@ -1,0 +1,701 @@
+{
+  "status": "PASS",
+  "audit_date": "2026-11-24",
+  "run": "rank5_20261124_022354",
+  "manifests_verified": {
+    "current": 150,
+    "prior_calibration": 37,
+    "prior_normal_extension": 79,
+    "reference_run": 45
+  },
+  "result_manifest": {
+    "sha256": "79731b3ca0f398a7d04053419dd9c32e63a58fc8d64cd97d664866b8c6889f62",
+    "bytes": 16538
+  },
+  "acceptance": {
+    "sha256": "dcb0321de04b9e704da5bd7a4914da3ed5ff2cd97337ec93739a43b458667e15",
+    "bytes": 2772
+  },
+  "input_contract": {
+    "sha256": "fb5245bebc9824426dd7bee91372aa5ff646e9d606702eb575f6d1d2609d9882",
+    "bytes": 298341
+  },
+  "original_thresholds": {
+    "sha256": "ab8e5300cb42a1c8aab77245a9221fb05a6ba78719913808778d8a66145d3254",
+    "bytes": 1372
+  },
+  "recomputed_thresholds": {
+    "sha256": "d49dddb3242b8242db98e1a6c8605f968ff65d85a3fd95a71a74968ff405a425",
+    "bytes": 1937
+  },
+  "threshold_sealed_at_ns": 1795547197528753200,
+  "arms": [
+    "RAW",
+    "v12_CCNR",
+    "relative_handshake"
+  ],
+  "old_calibration_connections": 206,
+  "added_calibration_connections": 794,
+  "calibration_connections": 1000,
+  "descending_rank": 5,
+  "calibration_fp_ensemble": [
+    4,
+    4,
+    4
+  ],
+  "batches": [
+    {
+      "batch": "preflight_00",
+      "connections": 6,
+      "post": 7,
+      "frames": 110,
+      "kernel_drops": 0,
+      "start_ns": 1795532183431033300,
+      "end_ns": 1795532199475248000
+    },
+    {
+      "batch": "calibration_01",
+      "connections": 199,
+      "post": 220,
+      "frames": 3324,
+      "kernel_drops": 0,
+      "start_ns": 1795532280512623000,
+      "end_ns": 1795535886308207900
+    },
+    {
+      "batch": "calibration_02",
+      "connections": 199,
+      "post": 223,
+      "frames": 3286,
+      "kernel_drops": 0,
+      "start_ns": 1795535954667972400,
+      "end_ns": 1795539443033805300
+    },
+    {
+      "batch": "calibration_03",
+      "connections": 198,
+      "post": 218,
+      "frames": 3323,
+      "kernel_drops": 0,
+      "start_ns": 1795539542524450800,
+      "end_ns": 1795543250667018800
+    },
+    {
+      "batch": "calibration_04",
+      "connections": 198,
+      "post": 220,
+      "frames": 3350,
+      "kernel_drops": 0,
+      "start_ns": 1795543352900989700,
+      "end_ns": 1795547108360091000
+    },
+    {
+      "batch": "holdout_01",
+      "connections": 250,
+      "post": 277,
+      "frames": 4225,
+      "kernel_drops": 0,
+      "start_ns": 1795547207903770600,
+      "end_ns": 1795551931377280000
+    },
+    {
+      "batch": "holdout_02",
+      "connections": 250,
+      "post": 283,
+      "frames": 4214,
+      "kernel_drops": 0,
+      "start_ns": 1795552041156354600,
+      "end_ns": 1795556757991148000
+    },
+    {
+      "batch": "holdout_03",
+      "connections": 250,
+      "post": 278,
+      "frames": 4156,
+      "kernel_drops": 0,
+      "start_ns": 1795556872092951000,
+      "end_ns": 1795561592644363800
+    },
+    {
+      "batch": "holdout_04",
+      "connections": 250,
+      "post": 281,
+      "frames": 4209,
+      "kernel_drops": 0,
+      "start_ns": 1795561705304813300,
+      "end_ns": 1795566244909610800
+    }
+  ],
+  "old_ensemble_thresholds": [
+    15.779708862304688,
+    -14.444633483711163,
+    -14.444633483711163
+  ],
+  "new_ensemble_thresholds": [
+    16.47774092356364,
+    -13.746601414561399,
+    -13.746601414561399
+  ],
+  "paired_rows_checked": {
+    "PAIRED.csv": 1320,
+    "STRESS_PAIRED.csv": 120,
+    "PREFLIGHT_PAIRED.csv": 120
+  },
+  "summary_rows_checked": 6,
+  "threshold_rows_checked": 12,
+  "ensemble_results": {
+    "holdout_01/overall/connection": {
+      "n": 250,
+      "old_fp": [
+        8,
+        8,
+        8
+      ],
+      "new_fp": [
+        1,
+        1,
+        1
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        7,
+        7,
+        7
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "holdout_02/overall/connection": {
+      "n": 250,
+      "old_fp": [
+        5,
+        5,
+        5
+      ],
+      "new_fp": [
+        2,
+        2,
+        2
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        3,
+        3,
+        3
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "holdout_03/overall/connection": {
+      "n": 250,
+      "old_fp": [
+        4,
+        4,
+        4
+      ],
+      "new_fp": [
+        0,
+        0,
+        0
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        4,
+        4,
+        4
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "holdout_04/overall/connection": {
+      "n": 250,
+      "old_fp": [
+        6,
+        6,
+        6
+      ],
+      "new_fp": [
+        2,
+        2,
+        2
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        4,
+        4,
+        4
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "original_holdout/overall/connection": {
+      "n": 194,
+      "old_fp": [
+        2,
+        2,
+        2
+      ],
+      "new_fp": [
+        0,
+        0,
+        0
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        2,
+        2,
+        2
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "old_holdout_01/overall/connection": {
+      "n": 226,
+      "old_fp": [
+        3,
+        3,
+        3
+      ],
+      "new_fp": [
+        0,
+        1,
+        1
+      ],
+      "same_ensemble_new": false,
+      "same_ensemble_old": true,
+      "old_only": [
+        3,
+        2,
+        2
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "old_holdout_02/overall/connection": {
+      "n": 221,
+      "old_fp": [
+        9,
+        9,
+        9
+      ],
+      "new_fp": [
+        1,
+        1,
+        1
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        8,
+        8,
+        8
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "old_holdout_03/overall/connection": {
+      "n": 236,
+      "old_fp": [
+        4,
+        4,
+        4
+      ],
+      "new_fp": [
+        1,
+        1,
+        1
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        3,
+        3,
+        3
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "old_holdout_04/overall/connection": {
+      "n": 230,
+      "old_fp": [
+        4,
+        4,
+        4
+      ],
+      "new_fp": [
+        0,
+        0,
+        0
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        4,
+        4,
+        4
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "new_daily/overall/request": {
+      "n": 1119,
+      "old_fp": [
+        23,
+        23,
+        23
+      ],
+      "new_fp": [
+        5,
+        5,
+        5
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        18,
+        18,
+        18
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "new_daily/overall/connection": {
+      "n": 1000,
+      "old_fp": [
+        23,
+        23,
+        23
+      ],
+      "new_fp": [
+        5,
+        5,
+        5
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        18,
+        18,
+        18
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "new_daily/cross_connection_retry/connection": {
+      "n": 80,
+      "old_fp": [
+        5,
+        5,
+        5
+      ],
+      "new_fp": [
+        1,
+        1,
+        1
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        4,
+        4,
+        4
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "new_daily/disconnect_then_reconnect/connection": {
+      "n": 124,
+      "old_fp": [
+        11,
+        11,
+        11
+      ],
+      "new_fp": [
+        3,
+        3,
+        3
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        8,
+        8,
+        8
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "new_daily/mistake_then_retry/connection": {
+      "n": 119,
+      "old_fp": [
+        0,
+        0,
+        0
+      ],
+      "new_fp": [
+        0,
+        0,
+        0
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        0,
+        0,
+        0
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "new_daily/successful_login/connection": {
+      "n": 677,
+      "old_fp": [
+        7,
+        7,
+        7
+      ],
+      "new_fp": [
+        1,
+        1,
+        1
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        6,
+        6,
+        6
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "old_daily/overall/connection": {
+      "n": 1107,
+      "old_fp": [
+        22,
+        22,
+        22
+      ],
+      "new_fp": [
+        2,
+        3,
+        3
+      ],
+      "same_ensemble_new": false,
+      "same_ensemble_old": true,
+      "old_only": [
+        20,
+        19,
+        19
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "old_stress/overall/connection": {
+      "n": 51,
+      "old_fp": [
+        0,
+        0,
+        6
+      ],
+      "new_fp": [
+        0,
+        0,
+        5
+      ],
+      "same_ensemble_new": false,
+      "same_ensemble_old": false,
+      "old_only": [
+        0,
+        0,
+        1
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "old_stress/reconnect_1_per_min/connection": {
+      "n": 3,
+      "old_fp": [
+        0,
+        0,
+        0
+      ],
+      "new_fp": [
+        0,
+        0,
+        0
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        0,
+        0,
+        0
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "old_stress/reconnect_3_per_min/connection": {
+      "n": 9,
+      "old_fp": [
+        0,
+        0,
+        0
+      ],
+      "new_fp": [
+        0,
+        0,
+        0
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        0,
+        0,
+        0
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "old_stress/reconnect_5_per_min/connection": {
+      "n": 15,
+      "old_fp": [
+        0,
+        0,
+        0
+      ],
+      "new_fp": [
+        0,
+        0,
+        0
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        0,
+        0,
+        0
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "old_stress/reconnect_8_per_min/connection": {
+      "n": 24,
+      "old_fp": [
+        0,
+        0,
+        6
+      ],
+      "new_fp": [
+        0,
+        0,
+        5
+      ],
+      "same_ensemble_new": false,
+      "same_ensemble_old": false,
+      "old_only": [
+        0,
+        0,
+        1
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    },
+    "preflight_00/overall/connection": {
+      "n": 6,
+      "old_fp": [
+        0,
+        0,
+        0
+      ],
+      "new_fp": [
+        0,
+        0,
+        0
+      ],
+      "same_ensemble_new": true,
+      "same_ensemble_old": true,
+      "old_only": [
+        0,
+        0,
+        0
+      ],
+      "new_only": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "attack_status": "PENDING_ATTACK_EVALUATION",
+  "attack_eligible_connections": null,
+  "historical_preflight_repair_verified": "missing table import after real preflight scoring"
+}
