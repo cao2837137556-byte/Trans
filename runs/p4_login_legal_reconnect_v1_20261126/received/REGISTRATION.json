@@ -1,0 +1,1510 @@
+{
+  "status": "SEALED",
+  "plan": {
+    "root_seed": 2026112603,
+    "rates": [
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "batches_per_rate": 3,
+    "batch_connections": 40,
+    "formal_connections": 600,
+    "min_planned_silence_s": 62,
+    "preflight": {
+      "key": "preflight",
+      "scheduled_rate": 8,
+      "replicate": 0,
+      "connections": 15,
+      "per_client": [
+        5,
+        5,
+        5
+      ],
+      "schedule": {
+        "seed": 2026112604,
+        "actions": [
+          {
+            "client": 0,
+            "scenario": "burst_reconnect",
+            "scenario_id": "preflight-c1",
+            "scheduled_rate": 8,
+            "offset_s": 5.575,
+            "within_minute_s": [
+              3.75,
+              11.25,
+              18.75,
+              26.25,
+              33.75
+            ]
+          },
+          {
+            "client": 1,
+            "scenario": "burst_reconnect",
+            "scenario_id": "preflight-c2",
+            "scheduled_rate": 8,
+            "offset_s": 6.053,
+            "within_minute_s": [
+              3.75,
+              11.25,
+              18.75,
+              26.25,
+              33.75
+            ]
+          },
+          {
+            "client": 2,
+            "scenario": "burst_reconnect",
+            "scenario_id": "preflight-c3",
+            "scheduled_rate": 8,
+            "offset_s": 6.468,
+            "within_minute_s": [
+              3.75,
+              11.25,
+              18.75,
+              26.25,
+              33.75
+            ]
+          }
+        ],
+        "duration_seconds": 44
+      }
+    },
+    "formal": [
+      {
+        "key": "rate03_batch2",
+        "scheduled_rate": 3,
+        "replicate": 2,
+        "connections": 40,
+        "per_client": [
+          13,
+          14,
+          13
+        ],
+        "schedule": {
+          "seed": 103391408,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate03_batch2-c1",
+              "scheduled_rate": 3,
+              "offset_s": 5.565,
+              "within_minute_s": [
+                10.0,
+                30.0,
+                50.0,
+                70.0,
+                90.0,
+                110.0,
+                130.0,
+                150.0,
+                170.0,
+                190.0,
+                210.0,
+                230.0,
+                250.0
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate03_batch2-c2",
+              "scheduled_rate": 3,
+              "offset_s": 6.005,
+              "within_minute_s": [
+                10.0,
+                30.0,
+                50.0,
+                70.0,
+                90.0,
+                110.0,
+                130.0,
+                150.0,
+                170.0,
+                190.0,
+                210.0,
+                230.0,
+                250.0,
+                270.0
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate03_batch2-c3",
+              "scheduled_rate": 3,
+              "offset_s": 6.565,
+              "within_minute_s": [
+                10.0,
+                30.0,
+                50.0,
+                70.0,
+                90.0,
+                110.0,
+                130.0,
+                150.0,
+                170.0,
+                190.0,
+                210.0,
+                230.0,
+                250.0
+              ]
+            }
+          ],
+          "duration_seconds": 280
+        }
+      },
+      {
+        "key": "rate07_batch1",
+        "scheduled_rate": 7,
+        "replicate": 1,
+        "connections": 40,
+        "per_client": [
+          14,
+          13,
+          13
+        ],
+        "schedule": {
+          "seed": 1192453175,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate07_batch1-c1",
+              "scheduled_rate": 7,
+              "offset_s": 5.675,
+              "within_minute_s": [
+                4.285714,
+                12.857143,
+                21.428571,
+                30.0,
+                38.571429,
+                47.142857,
+                55.714286,
+                64.285714,
+                72.857143,
+                81.428571,
+                90.0,
+                98.571429,
+                107.142857,
+                115.714286
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate07_batch1-c2",
+              "scheduled_rate": 7,
+              "offset_s": 5.987,
+              "within_minute_s": [
+                4.285714,
+                12.857143,
+                21.428571,
+                30.0,
+                38.571429,
+                47.142857,
+                55.714286,
+                64.285714,
+                72.857143,
+                81.428571,
+                90.0,
+                98.571429,
+                107.142857
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate07_batch1-c3",
+              "scheduled_rate": 7,
+              "offset_s": 6.435,
+              "within_minute_s": [
+                4.285714,
+                12.857143,
+                21.428571,
+                30.0,
+                38.571429,
+                47.142857,
+                55.714286,
+                64.285714,
+                72.857143,
+                81.428571,
+                90.0,
+                98.571429,
+                107.142857
+              ]
+            }
+          ],
+          "duration_seconds": 127
+        }
+      },
+      {
+        "key": "rate03_batch3",
+        "scheduled_rate": 3,
+        "replicate": 3,
+        "connections": 40,
+        "per_client": [
+          13,
+          13,
+          14
+        ],
+        "schedule": {
+          "seed": 1195494396,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate03_batch3-c1",
+              "scheduled_rate": 3,
+              "offset_s": 5.538,
+              "within_minute_s": [
+                10.0,
+                30.0,
+                50.0,
+                70.0,
+                90.0,
+                110.0,
+                130.0,
+                150.0,
+                170.0,
+                190.0,
+                210.0,
+                230.0,
+                250.0
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate03_batch3-c2",
+              "scheduled_rate": 3,
+              "offset_s": 5.989,
+              "within_minute_s": [
+                10.0,
+                30.0,
+                50.0,
+                70.0,
+                90.0,
+                110.0,
+                130.0,
+                150.0,
+                170.0,
+                190.0,
+                210.0,
+                230.0,
+                250.0
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate03_batch3-c3",
+              "scheduled_rate": 3,
+              "offset_s": 6.536,
+              "within_minute_s": [
+                10.0,
+                30.0,
+                50.0,
+                70.0,
+                90.0,
+                110.0,
+                130.0,
+                150.0,
+                170.0,
+                190.0,
+                210.0,
+                230.0,
+                250.0,
+                270.0
+              ]
+            }
+          ],
+          "duration_seconds": 280
+        }
+      },
+      {
+        "key": "rate06_batch1",
+        "scheduled_rate": 6,
+        "replicate": 1,
+        "connections": 40,
+        "per_client": [
+          14,
+          13,
+          13
+        ],
+        "schedule": {
+          "seed": 2327714180,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate06_batch1-c1",
+              "scheduled_rate": 6,
+              "offset_s": 5.634,
+              "within_minute_s": [
+                5.0,
+                15.0,
+                25.0,
+                35.0,
+                45.0,
+                55.0,
+                65.0,
+                75.0,
+                85.0,
+                95.0,
+                105.0,
+                115.0,
+                125.0,
+                135.0
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate06_batch1-c2",
+              "scheduled_rate": 6,
+              "offset_s": 6.074,
+              "within_minute_s": [
+                5.0,
+                15.0,
+                25.0,
+                35.0,
+                45.0,
+                55.0,
+                65.0,
+                75.0,
+                85.0,
+                95.0,
+                105.0,
+                115.0,
+                125.0
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate06_batch1-c3",
+              "scheduled_rate": 6,
+              "offset_s": 6.406,
+              "within_minute_s": [
+                5.0,
+                15.0,
+                25.0,
+                35.0,
+                45.0,
+                55.0,
+                65.0,
+                75.0,
+                85.0,
+                95.0,
+                105.0,
+                115.0,
+                125.0
+              ]
+            }
+          ],
+          "duration_seconds": 144
+        }
+      },
+      {
+        "key": "rate03_batch1",
+        "scheduled_rate": 3,
+        "replicate": 1,
+        "connections": 40,
+        "per_client": [
+          14,
+          13,
+          13
+        ],
+        "schedule": {
+          "seed": 3745999167,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate03_batch1-c1",
+              "scheduled_rate": 3,
+              "offset_s": 5.654,
+              "within_minute_s": [
+                10.0,
+                30.0,
+                50.0,
+                70.0,
+                90.0,
+                110.0,
+                130.0,
+                150.0,
+                170.0,
+                190.0,
+                210.0,
+                230.0,
+                250.0,
+                270.0
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate03_batch1-c2",
+              "scheduled_rate": 3,
+              "offset_s": 5.987,
+              "within_minute_s": [
+                10.0,
+                30.0,
+                50.0,
+                70.0,
+                90.0,
+                110.0,
+                130.0,
+                150.0,
+                170.0,
+                190.0,
+                210.0,
+                230.0,
+                250.0
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate03_batch1-c3",
+              "scheduled_rate": 3,
+              "offset_s": 6.495,
+              "within_minute_s": [
+                10.0,
+                30.0,
+                50.0,
+                70.0,
+                90.0,
+                110.0,
+                130.0,
+                150.0,
+                170.0,
+                190.0,
+                210.0,
+                230.0,
+                250.0
+              ]
+            }
+          ],
+          "duration_seconds": 279
+        }
+      },
+      {
+        "key": "rate07_batch2",
+        "scheduled_rate": 7,
+        "replicate": 2,
+        "connections": 40,
+        "per_client": [
+          13,
+          14,
+          13
+        ],
+        "schedule": {
+          "seed": 3806648084,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate07_batch2-c1",
+              "scheduled_rate": 7,
+              "offset_s": 5.697,
+              "within_minute_s": [
+                4.285714,
+                12.857143,
+                21.428571,
+                30.0,
+                38.571429,
+                47.142857,
+                55.714286,
+                64.285714,
+                72.857143,
+                81.428571,
+                90.0,
+                98.571429,
+                107.142857
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate07_batch2-c2",
+              "scheduled_rate": 7,
+              "offset_s": 5.951,
+              "within_minute_s": [
+                4.285714,
+                12.857143,
+                21.428571,
+                30.0,
+                38.571429,
+                47.142857,
+                55.714286,
+                64.285714,
+                72.857143,
+                81.428571,
+                90.0,
+                98.571429,
+                107.142857,
+                115.714286
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate07_batch2-c3",
+              "scheduled_rate": 7,
+              "offset_s": 6.579,
+              "within_minute_s": [
+                4.285714,
+                12.857143,
+                21.428571,
+                30.0,
+                38.571429,
+                47.142857,
+                55.714286,
+                64.285714,
+                72.857143,
+                81.428571,
+                90.0,
+                98.571429,
+                107.142857
+              ]
+            }
+          ],
+          "duration_seconds": 127
+        }
+      },
+      {
+        "key": "rate06_batch2",
+        "scheduled_rate": 6,
+        "replicate": 2,
+        "connections": 40,
+        "per_client": [
+          13,
+          14,
+          13
+        ],
+        "schedule": {
+          "seed": 3612872854,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate06_batch2-c1",
+              "scheduled_rate": 6,
+              "offset_s": 5.553,
+              "within_minute_s": [
+                5.0,
+                15.0,
+                25.0,
+                35.0,
+                45.0,
+                55.0,
+                65.0,
+                75.0,
+                85.0,
+                95.0,
+                105.0,
+                115.0,
+                125.0
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate06_batch2-c2",
+              "scheduled_rate": 6,
+              "offset_s": 5.96,
+              "within_minute_s": [
+                5.0,
+                15.0,
+                25.0,
+                35.0,
+                45.0,
+                55.0,
+                65.0,
+                75.0,
+                85.0,
+                95.0,
+                105.0,
+                115.0,
+                125.0,
+                135.0
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate06_batch2-c3",
+              "scheduled_rate": 6,
+              "offset_s": 6.586,
+              "within_minute_s": [
+                5.0,
+                15.0,
+                25.0,
+                35.0,
+                45.0,
+                55.0,
+                65.0,
+                75.0,
+                85.0,
+                95.0,
+                105.0,
+                115.0,
+                125.0
+              ]
+            }
+          ],
+          "duration_seconds": 144
+        }
+      },
+      {
+        "key": "rate07_batch3",
+        "scheduled_rate": 7,
+        "replicate": 3,
+        "connections": 40,
+        "per_client": [
+          13,
+          13,
+          14
+        ],
+        "schedule": {
+          "seed": 3478094211,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate07_batch3-c1",
+              "scheduled_rate": 7,
+              "offset_s": 5.546,
+              "within_minute_s": [
+                4.285714,
+                12.857143,
+                21.428571,
+                30.0,
+                38.571429,
+                47.142857,
+                55.714286,
+                64.285714,
+                72.857143,
+                81.428571,
+                90.0,
+                98.571429,
+                107.142857
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate07_batch3-c2",
+              "scheduled_rate": 7,
+              "offset_s": 6.146,
+              "within_minute_s": [
+                4.285714,
+                12.857143,
+                21.428571,
+                30.0,
+                38.571429,
+                47.142857,
+                55.714286,
+                64.285714,
+                72.857143,
+                81.428571,
+                90.0,
+                98.571429,
+                107.142857
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate07_batch3-c3",
+              "scheduled_rate": 7,
+              "offset_s": 6.528,
+              "within_minute_s": [
+                4.285714,
+                12.857143,
+                21.428571,
+                30.0,
+                38.571429,
+                47.142857,
+                55.714286,
+                64.285714,
+                72.857143,
+                81.428571,
+                90.0,
+                98.571429,
+                107.142857,
+                115.714286
+              ]
+            }
+          ],
+          "duration_seconds": 128
+        }
+      },
+      {
+        "key": "rate05_batch2",
+        "scheduled_rate": 5,
+        "replicate": 2,
+        "connections": 40,
+        "per_client": [
+          13,
+          14,
+          13
+        ],
+        "schedule": {
+          "seed": 268827321,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate05_batch2-c1",
+              "scheduled_rate": 5,
+              "offset_s": 5.513,
+              "within_minute_s": [
+                6.0,
+                18.0,
+                30.0,
+                42.0,
+                54.0,
+                66.0,
+                78.0,
+                90.0,
+                102.0,
+                114.0,
+                126.0,
+                138.0,
+                150.0
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate05_batch2-c2",
+              "scheduled_rate": 5,
+              "offset_s": 6.119,
+              "within_minute_s": [
+                6.0,
+                18.0,
+                30.0,
+                42.0,
+                54.0,
+                66.0,
+                78.0,
+                90.0,
+                102.0,
+                114.0,
+                126.0,
+                138.0,
+                150.0,
+                162.0
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate05_batch2-c3",
+              "scheduled_rate": 5,
+              "offset_s": 6.473,
+              "within_minute_s": [
+                6.0,
+                18.0,
+                30.0,
+                42.0,
+                54.0,
+                66.0,
+                78.0,
+                90.0,
+                102.0,
+                114.0,
+                126.0,
+                138.0,
+                150.0
+              ]
+            }
+          ],
+          "duration_seconds": 172
+        }
+      },
+      {
+        "key": "rate08_batch3",
+        "scheduled_rate": 8,
+        "replicate": 3,
+        "connections": 40,
+        "per_client": [
+          13,
+          13,
+          14
+        ],
+        "schedule": {
+          "seed": 3737208546,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate08_batch3-c1",
+              "scheduled_rate": 8,
+              "offset_s": 5.692,
+              "within_minute_s": [
+                3.75,
+                11.25,
+                18.75,
+                26.25,
+                33.75,
+                41.25,
+                48.75,
+                56.25,
+                63.75,
+                71.25,
+                78.75,
+                86.25,
+                93.75
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate08_batch3-c2",
+              "scheduled_rate": 8,
+              "offset_s": 5.997,
+              "within_minute_s": [
+                3.75,
+                11.25,
+                18.75,
+                26.25,
+                33.75,
+                41.25,
+                48.75,
+                56.25,
+                63.75,
+                71.25,
+                78.75,
+                86.25,
+                93.75
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate08_batch3-c3",
+              "scheduled_rate": 8,
+              "offset_s": 6.575,
+              "within_minute_s": [
+                3.75,
+                11.25,
+                18.75,
+                26.25,
+                33.75,
+                41.25,
+                48.75,
+                56.25,
+                63.75,
+                71.25,
+                78.75,
+                86.25,
+                93.75,
+                101.25
+              ]
+            }
+          ],
+          "duration_seconds": 111
+        }
+      },
+      {
+        "key": "rate05_batch1",
+        "scheduled_rate": 5,
+        "replicate": 1,
+        "connections": 40,
+        "per_client": [
+          14,
+          13,
+          13
+        ],
+        "schedule": {
+          "seed": 3405677360,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate05_batch1-c1",
+              "scheduled_rate": 5,
+              "offset_s": 5.699,
+              "within_minute_s": [
+                6.0,
+                18.0,
+                30.0,
+                42.0,
+                54.0,
+                66.0,
+                78.0,
+                90.0,
+                102.0,
+                114.0,
+                126.0,
+                138.0,
+                150.0,
+                162.0
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate05_batch1-c2",
+              "scheduled_rate": 5,
+              "offset_s": 6.014,
+              "within_minute_s": [
+                6.0,
+                18.0,
+                30.0,
+                42.0,
+                54.0,
+                66.0,
+                78.0,
+                90.0,
+                102.0,
+                114.0,
+                126.0,
+                138.0,
+                150.0
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate05_batch1-c3",
+              "scheduled_rate": 5,
+              "offset_s": 6.402,
+              "within_minute_s": [
+                6.0,
+                18.0,
+                30.0,
+                42.0,
+                54.0,
+                66.0,
+                78.0,
+                90.0,
+                102.0,
+                114.0,
+                126.0,
+                138.0,
+                150.0
+              ]
+            }
+          ],
+          "duration_seconds": 171
+        }
+      },
+      {
+        "key": "rate08_batch1",
+        "scheduled_rate": 8,
+        "replicate": 1,
+        "connections": 40,
+        "per_client": [
+          14,
+          13,
+          13
+        ],
+        "schedule": {
+          "seed": 443806445,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate08_batch1-c1",
+              "scheduled_rate": 8,
+              "offset_s": 5.523,
+              "within_minute_s": [
+                3.75,
+                11.25,
+                18.75,
+                26.25,
+                33.75,
+                41.25,
+                48.75,
+                56.25,
+                63.75,
+                71.25,
+                78.75,
+                86.25,
+                93.75,
+                101.25
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate08_batch1-c2",
+              "scheduled_rate": 8,
+              "offset_s": 6.146,
+              "within_minute_s": [
+                3.75,
+                11.25,
+                18.75,
+                26.25,
+                33.75,
+                41.25,
+                48.75,
+                56.25,
+                63.75,
+                71.25,
+                78.75,
+                86.25,
+                93.75
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate08_batch1-c3",
+              "scheduled_rate": 8,
+              "offset_s": 6.502,
+              "within_minute_s": [
+                3.75,
+                11.25,
+                18.75,
+                26.25,
+                33.75,
+                41.25,
+                48.75,
+                56.25,
+                63.75,
+                71.25,
+                78.75,
+                86.25,
+                93.75
+              ]
+            }
+          ],
+          "duration_seconds": 110
+        }
+      },
+      {
+        "key": "rate05_batch3",
+        "scheduled_rate": 5,
+        "replicate": 3,
+        "connections": 40,
+        "per_client": [
+          13,
+          13,
+          14
+        ],
+        "schedule": {
+          "seed": 3947563561,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate05_batch3-c1",
+              "scheduled_rate": 5,
+              "offset_s": 5.563,
+              "within_minute_s": [
+                6.0,
+                18.0,
+                30.0,
+                42.0,
+                54.0,
+                66.0,
+                78.0,
+                90.0,
+                102.0,
+                114.0,
+                126.0,
+                138.0,
+                150.0
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate05_batch3-c2",
+              "scheduled_rate": 5,
+              "offset_s": 6.127,
+              "within_minute_s": [
+                6.0,
+                18.0,
+                30.0,
+                42.0,
+                54.0,
+                66.0,
+                78.0,
+                90.0,
+                102.0,
+                114.0,
+                126.0,
+                138.0,
+                150.0
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate05_batch3-c3",
+              "scheduled_rate": 5,
+              "offset_s": 6.449,
+              "within_minute_s": [
+                6.0,
+                18.0,
+                30.0,
+                42.0,
+                54.0,
+                66.0,
+                78.0,
+                90.0,
+                102.0,
+                114.0,
+                126.0,
+                138.0,
+                150.0,
+                162.0
+              ]
+            }
+          ],
+          "duration_seconds": 172
+        }
+      },
+      {
+        "key": "rate06_batch3",
+        "scheduled_rate": 6,
+        "replicate": 3,
+        "connections": 40,
+        "per_client": [
+          13,
+          13,
+          14
+        ],
+        "schedule": {
+          "seed": 443728207,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate06_batch3-c1",
+              "scheduled_rate": 6,
+              "offset_s": 5.677,
+              "within_minute_s": [
+                5.0,
+                15.0,
+                25.0,
+                35.0,
+                45.0,
+                55.0,
+                65.0,
+                75.0,
+                85.0,
+                95.0,
+                105.0,
+                115.0,
+                125.0
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate06_batch3-c2",
+              "scheduled_rate": 6,
+              "offset_s": 6.133,
+              "within_minute_s": [
+                5.0,
+                15.0,
+                25.0,
+                35.0,
+                45.0,
+                55.0,
+                65.0,
+                75.0,
+                85.0,
+                95.0,
+                105.0,
+                115.0,
+                125.0
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate06_batch3-c3",
+              "scheduled_rate": 6,
+              "offset_s": 6.515,
+              "within_minute_s": [
+                5.0,
+                15.0,
+                25.0,
+                35.0,
+                45.0,
+                55.0,
+                65.0,
+                75.0,
+                85.0,
+                95.0,
+                105.0,
+                115.0,
+                125.0,
+                135.0
+              ]
+            }
+          ],
+          "duration_seconds": 145
+        }
+      },
+      {
+        "key": "rate08_batch2",
+        "scheduled_rate": 8,
+        "replicate": 2,
+        "connections": 40,
+        "per_client": [
+          13,
+          14,
+          13
+        ],
+        "schedule": {
+          "seed": 149682151,
+          "actions": [
+            {
+              "client": 0,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate08_batch2-c1",
+              "scheduled_rate": 8,
+              "offset_s": 5.571,
+              "within_minute_s": [
+                3.75,
+                11.25,
+                18.75,
+                26.25,
+                33.75,
+                41.25,
+                48.75,
+                56.25,
+                63.75,
+                71.25,
+                78.75,
+                86.25,
+                93.75
+              ]
+            },
+            {
+              "client": 1,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate08_batch2-c2",
+              "scheduled_rate": 8,
+              "offset_s": 6.026,
+              "within_minute_s": [
+                3.75,
+                11.25,
+                18.75,
+                26.25,
+                33.75,
+                41.25,
+                48.75,
+                56.25,
+                63.75,
+                71.25,
+                78.75,
+                86.25,
+                93.75,
+                101.25
+              ]
+            },
+            {
+              "client": 2,
+              "scenario": "burst_reconnect",
+              "scenario_id": "rate08_batch2-c3",
+              "scheduled_rate": 8,
+              "offset_s": 6.583,
+              "within_minute_s": [
+                3.75,
+                11.25,
+                18.75,
+                26.25,
+                33.75,
+                41.25,
+                48.75,
+                56.25,
+                63.75,
+                71.25,
+                78.75,
+                86.25,
+                93.75
+              ]
+            }
+          ],
+          "duration_seconds": 111
+        }
+      }
+    ]
+  },
+  "reference_archive": "formal_20261122_402788",
+  "endpoints": [
+    [
+      "10.254.240.10",
+      "02:04:24:00:00:10"
+    ],
+    [
+      "10.254.240.21",
+      "02:04:24:00:00:21"
+    ],
+    [
+      "10.254.240.22",
+      "02:04:24:00:00:22"
+    ],
+    [
+      "10.254.240.23",
+      "02:04:24:00:00:23"
+    ]
+  ],
+  "server_port": 8080,
+  "kernel": "6.6.87.2-microsoft-standard-WSL2",
+  "reference": {
+    "sha256": "eadde74883e54af220bbd4b9037078b300dc5116e2015180e687475377c40977",
+    "bytes": 11393973
+  },
+  "reference_rows": 4096,
+  "components": 393,
+  "reference_manifest": {
+    "sha256": "76e0bcc2103a03ffdf0d2325da87ed9b1778c5d0bfb769636ba8bf4d6b3ec907",
+    "bytes": 4150
+  },
+  "reference_files_checked": 45,
+  "rank5_archive": "rank5_20261124_022354",
+  "rank5_thresholds": {
+    "sha256": "d49dddb3242b8242db98e1a6c8605f968ff65d85a3fd95a71a74968ff405a425",
+    "bytes": 1937
+  },
+  "rank5_archive_files_checked": 150,
+  "rank5_manifest": {
+    "sha256": "79731b3ca0f398a7d04053419dd9c32e63a58fc8d64cd97d664866b8c6889f62",
+    "bytes": 16538
+  },
+  "calibration_connections": 1000,
+  "rank5_sealed_at_ns": 1795547197528753200,
+  "cuts": [
+    [
+      16.15416717529297,
+      19.581972122192383,
+      13.800405502319336,
+      16.47774092356364
+    ],
+    [
+      -13.58490276223581,
+      -10.76169195581085,
+      -16.78988742011966,
+      -13.746601414561399
+    ],
+    [
+      -13.58490276223581,
+      -10.76169195581085,
+      -16.78988742011966,
+      -13.746601414561399
+    ]
+  ],
+  "cic_cuts": [
+    -23.04324722290039,
+    -23.315204620361328,
+    -22.614715576171875,
+    -23.2497984568278
+  ],
+  "handshake_threshold": 4,
+  "handshake_threshold_table": {
+    "sha256": "d79f3c75ed78cacf073615370711fcc58e3f945004430e8e63de8f4a7bb32e69",
+    "bytes": 865
+  },
+  "attack_archive": "attack_eval_20261126",
+  "attack_manifest": {
+    "sha256": "61e0112f3139ab6aebaf8943c4e0f1f75fb491da92f8c7d2ae790dd57e333dd0",
+    "bytes": 13153
+  },
+  "attack_archive_files_checked": 124,
+  "last_prior_capture_ns": 1795662346719607615,
+  "prior_service_instances": [
+    "0a4db34fdc4c0c37",
+    "0ee06db2b001876e",
+    "150343ef92918274",
+    "154d9ada89c3fa14",
+    "1f9c6b76fa30507a",
+    "30308273b3288651",
+    "37335146c26d01c1",
+    "3a041165a02483b4",
+    "3f92c9418d2e9ea7",
+    "4493e98fd140a98a",
+    "6eab1dcf41479b5b",
+    "794c17981ff8dd2f",
+    "7d5863e333ab7686",
+    "832d12fb7c4458ff",
+    "8767534aa80c8eb8",
+    "bb789c0cc4aa3998",
+    "bf34557ca11528b0",
+    "bfaeb4485f9d6aa6",
+    "d4ff568aa5de67d2",
+    "d84ec5ec3b40420a",
+    "f1d90464350b730e"
+  ],
+  "files": {
+    "p4_login_calibration_v1_20261122/assessment.py": {
+      "sha256": "34c8038f6c3713bcadb31ff51d0772d91a1c08a399eba36792cd5eb3a43899c9",
+      "bytes": 14820
+    },
+    "p4_login_calibration_v1_20261122/capture.py": {
+      "sha256": "20a16b1c8f373efedbc02f74b460131a9f427e7f01bc251d1ecc16acd7eb18f3",
+      "bytes": 5339
+    },
+    "p4_login_formal_v1_20261121/bank.py": {
+      "sha256": "29062a30053bfc53869194b3a1b87d519fa0dbd9655a6648e4a5f075926deb77",
+      "bytes": 12526
+    },
+    "p4_login_formal_v1_20261121/collect_formal.py": {
+      "sha256": "3497f35abdf7e8ed81dd9302de0b47b4289c3bf2d9cabcbfea406b429f7d0c56",
+      "bytes": 15571
+    },
+    "p4_login_formal_v1_20261121/frozen_score.py": {
+      "sha256": "9e4773ad3043a5d14b70b67fe54485c3c530e86190773e7fbe91cc7bf1fb51a0",
+      "bytes": 7319
+    },
+    "p4_login_legal_reconnect_v1_20261126/collect_reconnect.py": {
+      "sha256": "e48b3f9b6b10d4f944d0c5c57d4b6fd103435c9ab419d74073b3ed7e47da5a6c",
+      "bytes": 2553
+    },
+    "p4_login_legal_reconnect_v1_20261126/evaluate_reconnect.py": {
+      "sha256": "3e06f030903f6cf8e019d0a455d29823bcf1414eda1cc1cd66db7ec829b17729",
+      "bytes": 8294
+    },
+    "p4_login_legal_reconnect_v1_20261126/frozen_assets.py": {
+      "sha256": "3cb17c9d6193b02fc9074f684956afc5e4f19fbe6b15613836336cdd687ae5ac",
+      "bytes": 6979
+    },
+    "p4_login_legal_reconnect_v1_20261126/METHOD.md": {
+      "sha256": "817b6f8d9cafc39fe1aa62de10f1f52fd5f76abb6ed3d2283c8c56bd2c24f401",
+      "bytes": 2146
+    },
+    "p4_login_legal_reconnect_v1_20261126/protocol_reconnect.py": {
+      "sha256": "8d2187c0a8a461d022bafadb60d3e0441c2d2c3a049d5c114e49cc2eb88ee0d4",
+      "bytes": 2109
+    },
+    "p4_login_legal_reconnect_v1_20261126/reconnect_controller.py": {
+      "sha256": "d9e8906ba7adc1a625281a6e174338d40413083c34e62e5d55a3503e8192ccb0",
+      "bytes": 8763
+    },
+    "p4_login_legal_reconnect_v1_20261126/results_reconnect.py": {
+      "sha256": "88a5e826235a2ece478c0d0455b0620c1adbd8b8146127c61f0e8744481e4b36",
+      "bytes": 10019
+    },
+    "p4_login_pilot_v1_20261121/audit.py": {
+      "sha256": "7eba4f33e2f668e21df815d1b502146899fcb44a2e75e4d2926dc978468499f5",
+      "bytes": 14943
+    },
+    "p4_login_pilot_v1_20261121/collect.py": {
+      "sha256": "57227069f7fc21b6d2699ea3900eca6bf486c96b45ff024770a739fa27980c03",
+      "bytes": 15649
+    },
+    "p4_login_pilot_v1_20261121/feature_witness.py": {
+      "sha256": "cf149af6d37892928a5ed848dd0e1c84b5f9954deb63f96c190094a903254288",
+      "bytes": 10582
+    },
+    "p4_v14_local_supplements_v1_20261125/wsl_replay.py": {
+      "sha256": "8ec923da9ab2ec417c1469d76220b84518879c9974987e73283e71075eb76ece",
+      "bytes": 13296
+    }
+  },
+  "registered_at_ns": 1795680758268138000
+}
