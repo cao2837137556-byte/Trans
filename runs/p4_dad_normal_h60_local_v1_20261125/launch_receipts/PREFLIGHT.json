@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "phase": "preflight",
+  "contract": {
+    "sha256": "bb698dc07f93fd9e2a2855d1ba2e49980ce11c89f3b2671242d0885fa4dfd0d7",
+    "bytes": 3361
+  },
+  "reference_rows": 1264,
+  "references_order": "b7075a3c0db7ca5cfe37f97d5f300a7bfb7e900fa191981f2457a5156fa2bedf",
+  "evaluated_queries": 58,
+  "evaluated_order": "fa3dd4cb5ba2e972a0127f70504fcad7deced0610a8c654ad37b64dd96a23f8d",
+  "frames": {
+    "mon": {
+      "frames": 14431,
+      "reference": 1264,
+      "queries": 8448,
+      "query_order": "67fb0c76febd68a7acb920defc0e479f10192ebe9901aa7e761785e9de24ea1b",
+      "handshake_counts": {
+        "reference": {
+          "0": 1120,
+          "1": 6,
+          "2": 12,
+          "3": 10,
+          "4": 116
+        },
+        "query": {
+          "0": 8448
+        }
+      }
+    },
+    "sun": {
+      "frames": 14518,
+      "reference": 0,
+      "queries": 9325,
+      "query_order": "a868a3bb1949e56f3a3a90b65c77360860b1757ea4ec6cb1f3c287a23d22c109",
+      "handshake_counts": {
+        "reference": {},
+        "query": {
+          "0": 9196,
+          "1": 10,
+          "2": 6,
+          "3": 8,
+          "4": 105
+        }
+      }
+    }
+  },
+  "independent_check": {
+    "rows": 58,
+    "v12_distance_max_error": 1.0489723781433036e-15,
+    "v12_and_H60_support_max_error": 0.0
+  },
+  "ensemble": [
+    {
+      "group": "mon",
+      "head": "ensemble",
+      "queries": 23,
+      "raw_fp": 16,
+      "v12_fp": 0,
+      "h60_fp": 0,
+      "added_vs_v12": 0,
+      "removed_vs_v12": 0,
+      "bypassed": 0,
+      "v12_positive_support": 23,
+      "h60_positive_support": 23
+    },
+    {
+      "group": "sun",
+      "head": "ensemble",
+      "queries": 35,
+      "raw_fp": 13,
+      "v12_fp": 0,
+      "h60_fp": 0,
+      "added_vs_v12": 0,
+      "removed_vs_v12": 0,
+      "bypassed": 16,
+      "v12_positive_support": 35,
+      "h60_positive_support": 35
+    },
+    {
+      "group": "normal",
+      "head": "ensemble",
+      "queries": 58,
+      "raw_fp": 29,
+      "v12_fp": 0,
+      "h60_fp": 0,
+      "added_vs_v12": 0,
+      "removed_vs_v12": 0,
+      "bypassed": 16,
+      "v12_positive_support": 58,
+      "h60_positive_support": 58
+    }
+  ],
+  "table": {
+    "sha256": "ac9998659b3d92c3572be492370d61bf711726c7ea52e45839deb4607076112c",
+    "bytes": 511
+  },
+  "decisions": {
+    "sha256": "6221e94e8133cf0589d9ef20bd83a2cd0995c023f1f4b6f07ea76dff94d2b37d",
+    "bytes": 9790
+  }
+}

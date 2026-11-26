@@ -1,0 +1,31 @@
+{
+  "prior_batch": "normal_20261125_bf8d8f35",
+  "prior_contract": {
+    "bytes": 3360,
+    "sha256": "5fa477c537a00986b3b590481ffd5e0e449439cb644c812d0bf478ab60a8a2cc"
+  },
+  "prior_failure": {
+    "bytes": 1123,
+    "sha256": "58682d7410e27db55dafad7da16b9e4641b4760c6896ba56c7c5ec4e5dc750c1"
+  },
+  "failure_stage": "preflight geometry import",
+  "accepted_batch": "normal_20261125_7c8e71ae",
+  "corrected_dependency": "load the pinned vendor stream_core and packet_reader before importing the DAD reader",
+  "changed_code": [
+    "normal_frames.py"
+  ],
+  "accepted_preflight": {
+    "bytes": 2522,
+    "sha256": "889a328a71d13585ddcb11cf7bdb90bb1795794a13c02bf68d5f6d9ec6d0529d"
+  },
+  "identical_reencoded_chunk_files": {
+    "8ce74296520f323ba607cb3d813156aa37c6a8a9e1d4608d3498c38ee5e7e8b9.npz": {
+      "bytes": 1028466,
+      "sha256": "a1503455a8c273d49883df291f7af0eec5d2af5827795147db951839a7e31e96"
+    },
+    "8f620500503fa3cd0a0a8f3299c4b3742ee0dd93397e9cc45fa3af3443414b4f.npz": {
+      "bytes": 3531714,
+      "sha256": "c5818f2d79aaf96f681bb0dc0522bb3dec3e75fafd572a502883c775a9df6f2b"
+    }
+  }
+}

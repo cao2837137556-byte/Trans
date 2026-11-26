@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-25",
+  "table15_bank": "P4_MAIN",
+  "handshake_bank": "P4_UNIFIED_HIST_K8192_V1",
+  "banks": {
+    "CIC_DEV": {
+      "table15": {
+        "rows": 8863,
+        "uid_sha256": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2"
+      },
+      "h60": {
+        "rows": 9538,
+        "uid_sha256": "061c31879e8324c93fbf5079e4fbb485dd446c042dc85355ae58a3be7b6c778e"
+      },
+      "query_order_for_h60": "1b13ef4d89e5652d6c24931ab895842b58cce655249cf978ff3d1cdded04f35d",
+      "same_reference": false
+    },
+    "UNSW_DEV": {
+      "table15": {
+        "rows": 66082,
+        "uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6"
+      },
+      "h60": {
+        "rows": 90658,
+        "uid_sha256": "94f3a1e33b53f86d18e5a5c9e576c1dac7e8f5fd709cdef74e94788c781ae8dd"
+      },
+      "query_order_for_h60": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+      "same_reference": false
+    },
+    "EDGE": {
+      "table15": {
+        "rows": 4124,
+        "uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e"
+      },
+      "h60": {
+        "rows": 4124,
+        "uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e"
+      },
+      "query_order_for_h60": "cec6dcd9399b5286fe8325828aaa7acb4584d6dd28c867fb76cbc7e17a7c5404",
+      "same_reference": true
+    }
+  },
+  "wu": {
+    "CIC_DEV": [
+      "96041",
+      "0",
+      "4",
+      "4",
+      "0"
+    ],
+    "UNSW_DEV": [
+      "74444",
+      "136",
+      "1419",
+      "1336",
+      "53"
+    ],
+    "EDGE": [
+      "20000",
+      "0",
+      "214",
+      "214",
+      "0"
+    ]
+  }
+}
