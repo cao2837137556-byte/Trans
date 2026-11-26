@@ -1,0 +1,311 @@
+{
+  "status": "PASS",
+  "batch_count": 15,
+  "connections": 600,
+  "qualified_posts": 600,
+  "setup_connections": 45,
+  "complete_duplex_handshakes": 645,
+  "capture_kernel_drops": 0,
+  "unmatched_posts": 0,
+  "successful_authentications": 645,
+  "min_silence_seconds": 69.098676041,
+  "historical_stress_connections": 51,
+  "attack_connections": {
+    "low": 600,
+    "medium": 600
+  },
+  "registration": {
+    "sha256": "b0a3023ddbb9be7ece0e155a805a62dfbac773c66dccbaa1ae5933a1ec38863e",
+    "bytes": 39563
+  },
+  "preflight": {
+    "sha256": "a241af30dfb0b459d9594687d7d52d86beea44ad035e0e250fcdb777491ac4a3",
+    "bytes": 725
+  },
+  "reference": {
+    "sha256": "eadde74883e54af220bbd4b9037078b300dc5116e2015180e687475377c40977",
+    "bytes": 11393973
+  },
+  "thresholds": {
+    "sha256": "d49dddb3242b8242db98e1a6c8605f968ff65d85a3fd95a71a74968ff405a425",
+    "bytes": 1937
+  },
+  "h60_cut": 4,
+  "batches": [
+    {
+      "batch": "rate03_batch2",
+      "rate": 3,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 141.806250309,
+      "orders": "672efd0a965d27960b16dd20681ca6a58c7d6066f08ad9cb6a85ab92a3de69e1",
+      "instance": "84bc7cd5c85e7b69",
+      "receipt": {
+        "sha256": "99b29d5ddc98f3cc0f56b8e24661eddbc8f8bc7f1eb57f82d2cd012760504a0b",
+        "bytes": 3473
+      },
+      "path": "batches/rate03_batch2/attempt_01/BATCH_ACCEPTANCE.json"
+    },
+    {
+      "batch": "rate07_batch1",
+      "rate": 7,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 71.001537953,
+      "orders": "b2abcff05c9f7d5dcb35165bb76ffdf8250b2b8317131c9938fe529bd4dd15fd",
+      "instance": "f95a695c99098efc",
+      "receipt": {
+        "sha256": "4f188772a23eec4960a48612a3d0ddbc6c25fa0e8ce173572f44fc55999ebc10",
+        "bytes": 3527
+      },
+      "path": "batches/rate07_batch1/attempt_01/BATCH_ACCEPTANCE.json"
+    },
+    {
+      "batch": "rate03_batch3",
+      "rate": 3,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 69.447176194,
+      "orders": "661824193b6457ce1bdcedd2b2ba9bdefdb1583edefec716a3420ce6a0c7ceb9",
+      "instance": "c3f7d578ef47cf76",
+      "receipt": {
+        "sha256": "a503aec7bf21724ea7f3268bf85539dbb44f267f66e0464106f12c3b6436f277",
+        "bytes": 3473
+      },
+      "path": "batches/rate03_batch3/attempt_01/BATCH_ACCEPTANCE.json"
+    },
+    {
+      "batch": "rate06_batch1",
+      "rate": 6,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 70.588562983,
+      "orders": "5575d23ca0395a2903d202d1626e542de8a647bab660b4b4159309d269f143f9",
+      "instance": "035214753e7cedaf",
+      "receipt": {
+        "sha256": "a0b65e3c299829331c4e1468f885086df30ee71e8e9a52ac5bd26c3a0f88ae29",
+        "bytes": 3514
+      },
+      "path": "batches/rate06_batch1/attempt_01/BATCH_ACCEPTANCE.json"
+    },
+    {
+      "batch": "rate03_batch1",
+      "rate": 3,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 69.098676041,
+      "orders": "36a122310c3ea59272dc6f6437c0e12c35e107e574931b869eb8424c9c5e897c",
+      "instance": "c0c3fb86c7c88243",
+      "receipt": {
+        "sha256": "8fb13f3bc0ca109e6c180fd904e19b59e3a75b3711a78e59851e3509ff7a3c49",
+        "bytes": 3473
+      },
+      "path": "batches/rate03_batch1/attempt_01/BATCH_ACCEPTANCE.json"
+    },
+    {
+      "batch": "rate07_batch2",
+      "rate": 7,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 69.902506193,
+      "orders": "ef0439aa2b767769e846b45909a553299fd2927eccf81af45ecf9fe179ef4e4a",
+      "instance": "ad06249837cda8cf",
+      "receipt": {
+        "sha256": "986bc0927f9bda168dae7f69f0074c3a722ef4f689154228d0902db99a4ecb11",
+        "bytes": 3527
+      },
+      "path": "batches/rate07_batch2/attempt_01/BATCH_ACCEPTANCE.json"
+    },
+    {
+      "batch": "rate06_batch2",
+      "rate": 6,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 69.32652538,
+      "orders": "5d9c9910194cc5b9a268b9cc721a812f2d84bdd71a5e1345719629fa411f7b03",
+      "instance": "be8e7501ee519f3f",
+      "receipt": {
+        "sha256": "8f345ddfc52db3a2040b272ce1a689bd4d8162f0dc56ebec8ad4f352dbd840d4",
+        "bytes": 3514
+      },
+      "path": "batches/rate06_batch2/attempt_01/BATCH_ACCEPTANCE.json"
+    },
+    {
+      "batch": "rate07_batch3",
+      "rate": 7,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 70.074599519,
+      "orders": "21b9eb2858279b71f5e0696040e7107878dee9c3c458dad5b474ce85208b40ad",
+      "instance": "e816d6e4552a6618",
+      "receipt": {
+        "sha256": "5dca00039e534936190fa9a3ef2f4f9745be9c2f67f6cbc910530f5b2344de1e",
+        "bytes": 3527
+      },
+      "path": "batches/rate07_batch3/attempt_01/BATCH_ACCEPTANCE.json"
+    },
+    {
+      "batch": "rate05_batch2",
+      "rate": 5,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 69.771348502,
+      "orders": "177b0ab14f01b3ebe89bb2008c9350d777609641fdf7185bca8d7787110329ee",
+      "instance": "e13b2486d6b2afe5",
+      "receipt": {
+        "sha256": "20609b8530533dd1a9dc509e5a35510968b75a1ee10041e6c3e5c49ed11286b2",
+        "bytes": 3501
+      },
+      "path": "batches/rate05_batch2/attempt_01/BATCH_ACCEPTANCE.json"
+    },
+    {
+      "batch": "rate08_batch3",
+      "rate": 8,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 70.31041561,
+      "orders": "9a0aece0dc4c6760d5cf658236039244df53aa795048662ed583c5f9368050ed",
+      "instance": "da0182a2d8afb460",
+      "receipt": {
+        "sha256": "d7787e2062d9f8585f22faa3dc58456219017b3d76fbc76142b556dd9c6bb98e",
+        "bytes": 3539
+      },
+      "path": "batches/rate08_batch3/attempt_01/BATCH_ACCEPTANCE.json"
+    },
+    {
+      "batch": "rate05_batch1",
+      "rate": 5,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 70.808517705,
+      "orders": "5e422ec2dd44c9345a11bf0f5e354ff0e7ecd0e77182b603ed3ffb43e3ed796f",
+      "instance": "5d51ece8ac15053d",
+      "receipt": {
+        "sha256": "ed3dd27c0751b77e605491feeaa13c4a1a1a03014e7d95337085d1a5549a9e30",
+        "bytes": 3501
+      },
+      "path": "batches/rate05_batch1/attempt_01/BATCH_ACCEPTANCE.json"
+    },
+    {
+      "batch": "rate08_batch1",
+      "rate": 8,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 69.527934383,
+      "orders": "60ed08545d7957d4f4d8ca0d3f08101da89163c3e1c3f9f54d66bd1de63a8c19",
+      "instance": "a95a99a5d6c72ca5",
+      "receipt": {
+        "sha256": "cf935a33bcf4862641d899da590c4c1d1269957b3c64ec9c9fbb83e6b4a6c992",
+        "bytes": 3540
+      },
+      "path": "batches/rate08_batch1/attempt_01/BATCH_ACCEPTANCE.json"
+    },
+    {
+      "batch": "rate05_batch3",
+      "rate": 5,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 70.332528169,
+      "orders": "94644b55e6e20aa479491155e3ef97891d633dfe3590af6901caa5dc59222dac",
+      "instance": "8211da3b725d2326",
+      "receipt": {
+        "sha256": "30c511cfdd2a1fce7b9f3663b65baed4922b3bbdef125cf787779751817c9b79",
+        "bytes": 3501
+      },
+      "path": "batches/rate05_batch3/attempt_01/BATCH_ACCEPTANCE.json"
+    },
+    {
+      "batch": "rate06_batch3",
+      "rate": 6,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 69.437148031,
+      "orders": "5c083c2825b153559cbb24787cb43529ff12e96cb07e47537cdb912a4344fbe1",
+      "instance": "b49a9c84857017fd",
+      "receipt": {
+        "sha256": "139997a51b439313c24635e4ea7710f15166708b96321e804f6dc81276fd65d8",
+        "bytes": 3514
+      },
+      "path": "batches/rate06_batch3/attempt_01/BATCH_ACCEPTANCE.json"
+    },
+    {
+      "batch": "rate08_batch2",
+      "rate": 8,
+      "connections": 40,
+      "posts": 40,
+      "setup": 3,
+      "capture_drops": 0,
+      "silence_seconds": 69.114994616,
+      "orders": "4ea94948e4faecd11c371ac5dd25e27b318c5e671bb6bddc4bad2a351e6614d6",
+      "instance": "059afa08c8f7461d",
+      "receipt": {
+        "sha256": "2c97dd625ed53df1693199a507393686fc3ec46a993a1c20a14f13510186fafd",
+        "bytes": 3540
+      },
+      "path": "batches/rate08_batch2/attempt_01/BATCH_ACCEPTANCE.json"
+    }
+  ],
+  "ensemble": {
+    "cohort": "new_legal",
+    "level": "new_total",
+    "rate_per_client": null,
+    "batch": null,
+    "replicate": null,
+    "unit": "connection",
+    "denominator": 600,
+    "RAW_n": 5,
+    "RAW_rate": 0.008333333333333333,
+    "v12_CCNR_n": 46,
+    "v12_CCNR_rate": 0.07666666666666666,
+    "relative_handshake_n": 293,
+    "relative_handshake_rate": 0.48833333333333334,
+    "handshake_only_n": 372,
+    "handshake_only_rate": 0.62
+  },
+  "outputs": {
+    "TABLE1_LEGAL_RECONNECT.csv": {
+      "sha256": "b85816d91fb8add9648e3ae9df6ec76d601a936b4c54a05b25306364d2fe844d",
+      "bytes": 2019
+    },
+    "TABLE2_MATCHED_H60_MCNEMAR.csv": {
+      "sha256": "ace87a44cbca90466ef10dedbf2102a66e64fca65d14804ae99547a1e68b5433",
+      "bytes": 2052
+    },
+    "RESULTS_FOR_PAPER.md": {
+      "sha256": "09f1161383a53e9b6141a4c98e0695672d66271659e20ef2ddceef64415c29a6",
+      "bytes": 6048
+    },
+    "RESULT_SUMMARY.json": {
+      "sha256": "f1b6e5edd5239e9b597a28ac1c18439fafa8c43ea10facd9d339668b6af7c68a",
+      "bytes": 2565
+    }
+  }
+}
