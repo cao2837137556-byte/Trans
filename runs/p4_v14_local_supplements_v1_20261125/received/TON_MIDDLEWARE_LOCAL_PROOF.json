@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "scope": ".152 first-seen normal queries, original capture prefixes",
+  "source_inputs": {
+    "normal1": {
+      "sha256": "9463135bbb3ab8f6e27a459c6be117e79f72ff8e434b7e70478ed70f4f8bf3c5",
+      "bytes": 1177084172
+    },
+    "normal2": {
+      "sha256": "e7b2e1d7a54b34f8af190693f34cd5d09b3d8248826627bb1e8245ca47ae76ba",
+      "bytes": 1151429180
+    }
+  },
+  "reference": {
+    "ready": true,
+    "window": {
+      "partition": "EXTERNAL_ARCHIVAL_EVALUATION",
+      "device": "192.168.1.152",
+      "capture_id": "normal1",
+      "source_sha256": "9463135bbb3ab8f6e27a459c6be117e79f72ff8e434b7e70478ed70f4f8bf3c5",
+      "start": 1554220324.757617,
+      "end": 1554227524.757617,
+      "reference_end": 1554227524.757617,
+      "frame_end": 1528434
+    },
+    "candidates": 109385,
+    "selected": 4110,
+    "protocols": {
+      "6": {
+        "rows": 4096,
+        "components": 15
+      },
+      "17": {
+        "rows": 14,
+        "components": 6
+      }
+    },
+    "ordered_roster_sha256": "46b6b79b93bb6541be439ff936e97c9bda76ac49c41af916d958ea606e417a67",
+    "history_rows": 0,
+    "engineering_slice": false
+  },
+  "encoded_reference_rows": 4096,
+  "queries": 504,
+  "thresholds": [
+    -23.04324722290039,
+    -23.315204620361328,
+    -22.614715576171875,
+    -23.2497984568278
+  ],
+  "encoder": {
+    "manifest_sha256": "2f611b4695e165649cb4fc2df4b0309f621f846fa5f6f660e3c0fa0202ecc5ee",
+    "vendor_files": 19
+  },
+  "physical_batches": 314,
+  "reused_frame_scan": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\ton_boundary_local\\replay_20261125_fast_select",
+  "count_parity": "original per-seed packet totals for both layers",
+  "source_result": "D:\\study\\paper\\anomaly_detection\\paper04\\data_external\\ton_boundary_local\\replay_20261125_fast_select",
+  "array": {
+    "sha256": "9195efeeeebf25773868fb72b1aa518225943fd4ae82d0291efea5549d5c5da0",
+    "bytes": 50314
+  },
+  "ensemble": [
+    {
+      "host": "192.168.1.152",
+      "head": "ensemble",
+      "layer": "all",
+      "queries": 504,
+      "connections": 29,
+      "raw_fp_queries": 119,
+      "ccnr_fp_queries": 2,
+      "raw_fp_connections": 10,
+      "ccnr_fp_connections": 1
+    },
+    {
+      "host": "192.168.1.152",
+      "head": "ensemble",
+      "layer": "off_bypass_with_transport_data",
+      "queries": 239,
+      "connections": 28,
+      "raw_fp_queries": 81,
+      "ccnr_fp_queries": 0,
+      "raw_fp_connections": 10,
+      "ccnr_fp_connections": 0
+    }
+  ]
+}

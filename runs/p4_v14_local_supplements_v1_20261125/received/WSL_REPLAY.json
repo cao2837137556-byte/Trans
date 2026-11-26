@@ -1,0 +1,139 @@
+{
+  "status": "PASS",
+  "rank_manifest": {
+    "sha256": "79731b3ca0f398a7d04053419dd9c32e63a58fc8d64cd97d664866b8c6889f62",
+    "bytes": 16538
+  },
+  "checked_rank_files": 150,
+  "attack_manifest": {
+    "sha256": "61e0112f3139ab6aebaf8943c4e0f1f75fb491da92f8c7d2ae790dd57e333dd0",
+    "bytes": 13153
+  },
+  "checked_attack_files": 124,
+  "formal_inputs": {
+    "reference_archive": "formal_20261122_402788",
+    "previous": "calibration_20261122_ad0fc3",
+    "fixed_comparator": "normal_extension_20261122_22c2c0",
+    "reference": {
+      "sha256": "eadde74883e54af220bbd4b9037078b300dc5116e2015180e687475377c40977",
+      "bytes": 11393973
+    },
+    "reference_files": 45,
+    "previous_files": 37,
+    "fixed_files": 79,
+    "previous_thresholds": {
+      "sha256": "ab8e5300cb42a1c8aab77245a9221fb05a6ba78719913808778d8a66145d3254",
+      "bytes": 1372
+    },
+    "previous_calibration": {
+      "sha256": "8f2eb1dfaf8204c2cb1b8e3114b5968ee93022e38cdfb79196d1560376249d6d",
+      "bytes": 29501
+    },
+    "previous_holdout": {
+      "sha256": "52fb6978f70b4e3c61f05df3e6f0215ae0f69d2a783d64fe1d05a3fafcfae4ce",
+      "bytes": 27414
+    },
+    "fixed_holdout": {
+      "old_holdout_01": {
+        "sha256": "47fc60ee9e25597b116ebdfe8c95125285cd95ccff5fa08df0f5c588aafaaf98",
+        "bytes": 33069
+      },
+      "old_holdout_02": {
+        "sha256": "8c4738421836f404cbc79d37da571576f8f3fc342aff04b06bd32fd739713096",
+        "bytes": 32429
+      },
+      "old_holdout_03": {
+        "sha256": "65406c51ff53cb1711da705657df0f50c6e6ce8da5d46ea2b4ce8d45e2dbf9a4",
+        "bytes": 35044
+      },
+      "old_holdout_04": {
+        "sha256": "ca82a7a3b5e5f487ae3295cac2f9cc87f2a56587870ba3e240e986e94964468f",
+        "bytes": 32898
+      }
+    },
+    "stress_source": {
+      "sha256": "f28e869d47e1608f1beee78a2cc2d7b5548664f0813b0aac801f662d4d3aa33e",
+      "bytes": 33359
+    },
+    "old_cic_cuts": [
+      -23.04324722290039,
+      -23.315204620361328,
+      -22.614715576171875,
+      -23.2497984568278
+    ],
+    "first_after_ns": 1795436444914739237,
+    "used_instances": [
+      "150343ef92918274",
+      "154d9ada89c3fa14",
+      "37335146c26d01c1",
+      "4493e98fd140a98a",
+      "6eab1dcf41479b5b",
+      "bf34557ca11528b0"
+    ],
+    "endpoints": [
+      [
+        "10.254.240.10",
+        "02:04:24:00:00:10"
+      ],
+      [
+        "10.254.240.21",
+        "02:04:24:00:00:21"
+      ],
+      [
+        "10.254.240.22",
+        "02:04:24:00:00:22"
+      ],
+      [
+        "10.254.240.23",
+        "02:04:24:00:00:23"
+      ]
+    ],
+    "server_port": 8080,
+    "kernel": "6.6.87.2-microsoft-standard-WSL2"
+  },
+  "rank5": {
+    "sha256": "d49dddb3242b8242db98e1a6c8605f968ff65d85a3fd95a71a74968ff405a425",
+    "bytes": 1937
+  },
+  "comparison": "strict greater-than",
+  "h_score": "maximum over the same connection's admitted login POSTs",
+  "h_cut": 4,
+  "h_calibration_n": 1000,
+  "h_calibration_above": 0,
+  "h_calibration_equal": 5,
+  "denom": {
+    "new_daily": 1000,
+    "legal_reconnect_stress": 51,
+    "low_attack": 600,
+    "medium_attack": 600
+  },
+  "h_ranges": {
+    "new_daily": [
+      1,
+      4
+    ],
+    "legal_reconnect_stress": [
+      2,
+      9
+    ],
+    "low_attack": [
+      1,
+      16
+    ],
+    "medium_attack": [
+      1,
+      47
+    ]
+  },
+  "attack_labels": {
+    "sha256": "c8b374faac5bd801be4db0eb2380e6d55090ec227bc71fa5fce56339694134f4",
+    "bytes": 595
+  },
+  "ordinary_fixed_source_check": [
+    -23.04324722290039,
+    -23.315204620361328,
+    -22.614715576171875,
+    -23.2497984568278
+  ],
+  "early_formal_scope": 207
+}

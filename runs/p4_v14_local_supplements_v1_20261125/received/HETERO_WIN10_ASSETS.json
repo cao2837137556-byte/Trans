@@ -1,0 +1,622 @@
+{
+  "status": "AUDITED",
+  "checked_existing_hetero_rows": 336,
+  "p4_main": {
+    "CIC_DEV": {
+      "commission_rows": 8574,
+      "commission_uid_sha256": "53bd684394a36ea0fc25809f218e253fdb1fd6fb6666cfd5545c8f456e11e620",
+      "full_bank": {
+        "rows": 8863,
+        "uid_sha256": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2"
+      },
+      "commission_support_artifact": {
+        "file": "CIC_DEV_ATTRIBUTION.npz",
+        "sha256": "448c6c438cd63a682bf6c166e02a9f598871177756d32e7121c389f4eb1f0183",
+        "bytes": 243210742
+      }
+    },
+    "UNSW_DEV": {
+      "commission_rows": 13247,
+      "commission_uid_sha256": "b638abbc105bc512dd07fde561caca65ae87484cb3c6c3390c9d9d45cd771d4e",
+      "full_bank": {
+        "rows": 66082,
+        "uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6"
+      },
+      "commission_support_artifact": {
+        "file": "UNSW_DEV_ATTRIBUTION.npz",
+        "sha256": "472ca6f849c67a6503284e1d39a1d119e10462ec6f707ce04213515d82807140",
+        "bytes": 200528102
+      }
+    },
+    "EDGE": {
+      "commission_rows": 4124,
+      "commission_uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e",
+      "full_bank": {
+        "rows": 4124,
+        "uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e"
+      },
+      "commission_support_artifact": {
+        "file": "EDGE_ATTRIBUTION.npz",
+        "sha256": "b2240f207c27201a3918420047e8bc9284f28369a568d8efbb383f1362b64317",
+        "bytes": 81124870
+      }
+    }
+  },
+  "source_cuts_and_scales": {
+    "TabM": {
+      "q10": [
+        1.6836356309113398e-08,
+        5.616695997190391e-11,
+        3.6502775628555195e-12
+      ],
+      "q90": [
+        0.9999998807907104,
+        1.0,
+        1.0
+      ],
+      "scales": [
+        0.9999998639543541,
+        0.999999999943833,
+        0.9999999999963497
+      ],
+      "cuts": [
+        0.038286350667476654,
+        0.07064133882522583,
+        0.01989559642970562,
+        0.03535898278156916
+      ],
+      "scale_role": "SOURCE_FIT",
+      "threshold_role": "SOURCE_CAL_NORMAL"
+    },
+    "CatBoost": {
+      "q10": [
+        -9.460173178678966,
+        -8.756830620977054,
+        -9.192975789416773
+      ],
+      "q90": [
+        11.398714823381983,
+        10.549846983324802,
+        10.746299822859717
+      ],
+      "scales": [
+        20.85888800206095,
+        19.306677604301854,
+        19.93927561227649
+      ],
+      "cuts": [
+        -4.785845913534359,
+        -4.683219696425544,
+        -4.858314772645429,
+        -5.092846276145015
+      ],
+      "rows": 617908,
+      "uid_sha256": "a51486647a0649e86583f5623bb8d7510e470d9790cfd48ecf4533d6901e0f74",
+      "fit_weights_sha256": "a15d8badee167e8a50dafe6862522413a52e72a67e54b6d895efda5546b710de",
+      "checkpoints": {
+        "27": "73c2167b2c849a298502d50538ca22f13ff3b6940ab290c059180d9f4dd0bbca",
+        "127": "3cea89b7dabc5bd3ad9aa91ca684370b96e816a2a4d361399cc6e2f6875460a3",
+        "227": "217f0560ff584ea7cde7c5469a1fe03e63faf4af74bf2d7bb98b5aae63a8c6fe"
+      },
+      "source_forward": {
+        "file": "CatBoost_SOURCE_SCORES.npy",
+        "sha256": "fe442510ed2f63f7de4f9375d439da01cba759a05b50367dc9997fa206c34cf5",
+        "bytes": 14829920
+      },
+      "native_preflight": {
+        "27": {
+          "rows": 256,
+          "cache_difference": 0.0
+        },
+        "127": {
+          "rows": 256,
+          "cache_difference": 0.0
+        },
+        "227": {
+          "rows": 256,
+          "cache_difference": 0.0
+        }
+      }
+    },
+    "SLAD": {
+      "q10": [
+        0.7046931385993958,
+        0.6783704161643982,
+        0.7159447073936462
+      ],
+      "q90": [
+        0.8121070861816406,
+        0.7831642031669617,
+        0.81756591796875
+      ],
+      "scales": [
+        0.10741394758224487,
+        0.10479378700256348,
+        0.10162121057510376
+      ],
+      "cuts": [
+        0.8755596876144409,
+        0.8515165448188782,
+        0.8790863752365112,
+        0.8678819139798483
+      ],
+      "rows": 134493,
+      "uid_sha256": "d8d014a3d313c1b497e4e4e590462fb470263c14c25d66462b9fe132b5eae01e",
+      "fit_weights_sha256": "477c9da5fb0e533796a7fb562a3db9861d32a72f7b415ce5e570aed26213ed7e",
+      "checkpoints": {
+        "27": "6cc7851835472df3ca72e5bf22533be4580ef7a86cb9635c6a2afa756dfc1e5d",
+        "127": "986a6dcd51714ae4e6d6fce921bcaa940c337e999260a4b45938b43fb9f94b18",
+        "227": "554fe786e0dcd865b8c5397be2b8fadeeaae1b910e5e76f02de670f9587a4465"
+      },
+      "source_forward": {
+        "file": "SLAD_SOURCE_SCORES.npy",
+        "sha256": "cea5de924bbdf01e1086d21cd6e19e150494e9902bba5ae149ec87f94adbbf28",
+        "bytes": 3227960
+      },
+      "native_preflight": {
+        "27": {
+          "rows": 256,
+          "cache_difference": 0.0
+        },
+        "127": {
+          "rows": 256,
+          "cache_difference": 0.0
+        },
+        "227": {
+          "rows": 256,
+          "cache_difference": 0.0
+        }
+      }
+    }
+  },
+  "bank_relationship": {
+    "CIC_DEV": {
+      "table15": {
+        "rows": 8863,
+        "uid_sha256": "c4e7e3fdae684bd4260becf6a551649bb4a3f2ccb08af5986ad4644a9990eaf2"
+      },
+      "h60": {
+        "rows": 9538,
+        "uid_sha256": "061c31879e8324c93fbf5079e4fbb485dd446c042dc85355ae58a3be7b6c778e"
+      },
+      "query_order_for_h60": "1b13ef4d89e5652d6c24931ab895842b58cce655249cf978ff3d1cdded04f35d",
+      "same_reference": false
+    },
+    "UNSW_DEV": {
+      "table15": {
+        "rows": 66082,
+        "uid_sha256": "e5998e097854ab2fae253719ffd29fe510c15dd9360f5ae22e2d128d79a361a6"
+      },
+      "h60": {
+        "rows": 90658,
+        "uid_sha256": "94f3a1e33b53f86d18e5a5c9e576c1dac7e8f5fd709cdef74e94788c781ae8dd"
+      },
+      "query_order_for_h60": "b84a324ad07e11359589f9b18c4b86db1e3ec20f16dc26272f35bf3622e53232",
+      "same_reference": false
+    },
+    "EDGE": {
+      "table15": {
+        "rows": 4124,
+        "uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e"
+      },
+      "h60": {
+        "rows": 4124,
+        "uid_sha256": "ee280f6948ac2090167278c998a35a9a3abd8c4d44d19b22f2d927c11fd1437e"
+      },
+      "query_order_for_h60": "cec6dcd9399b5286fe8325828aaa7acb4584d6dd28c867fb76cbc7e17a7c5404",
+      "same_reference": true
+    }
+  },
+  "candidate_arrays": [
+    {
+      "task": "Table14",
+      "file": "CIC_DEV_ROWS.jsonl.gz",
+      "sha256": "d9261f2bf41e9c4462a1cc6becec5d7bbaf5d12f74d10a70a0a9bb2fcc1ba2f1",
+      "bytes": null,
+      "purpose": "CIC_DEV UID, view, frozen features and P4_MAIN baseline support",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "CIC_DEV_QUERY.npz",
+      "sha256": "f2e2957bd14713d28b4089d26ada7a32989f67db0719c379c3387db84a664b15",
+      "bytes": null,
+      "purpose": "CIC_DEV UID, view, frozen features and P4_MAIN baseline support",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "CIC_DEV_CONTROLS.npz",
+      "sha256": "ad78ff384ccff2cb70ff8fa4f7d3251d1874a5c9fa40680f06c4726cc4f8fe8e",
+      "bytes": null,
+      "purpose": "CIC_DEV UID, view, frozen features and P4_MAIN baseline support",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "CIC_DEV_TABM_P4.npz",
+      "sha256": "1502f54f7363907cc865ec648455e227c3ab2a848f3c530cc9777f938153ea9a",
+      "bytes": null,
+      "purpose": "TabM per-seed frozen scores",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "CatBoost_CIC_DEV_scores.npy",
+      "sha256": "57c7404cc1354e503447bbd56a2ba8cedfa93903921bba3cd1480262cdd84256",
+      "bytes": null,
+      "purpose": "per-seed raw score cache",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "SLAD_CIC_DEV_scores.npy",
+      "sha256": "062d908054c300b4d2142a2a70735daa2a80f5fa9aea410bc09efc83d7906ce7",
+      "bytes": null,
+      "purpose": "per-seed raw score cache",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "CIC_DEV_ROWS.json",
+      "sha256": "edacdc5b8009c1bf90fc5fd8778ff8cd11f8917264cfbd648a32bf2d6473134f",
+      "bytes": null,
+      "purpose": "UID bridge to old head order",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "UNSW_DEV_ROWS.jsonl.gz",
+      "sha256": "19c001eb4f0c67cf07ed08edb98ee5b105b9b22539ff9433e80736f8074899d8",
+      "bytes": null,
+      "purpose": "UNSW_DEV UID, view, frozen features and P4_MAIN baseline support",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "UNSW_DEV_QUERY.npz",
+      "sha256": "4699def51df6ffc3e0c3b04b2bc820815caa65f9335aabaa3febd9f8906b9186",
+      "bytes": null,
+      "purpose": "UNSW_DEV UID, view, frozen features and P4_MAIN baseline support",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "UNSW_DEV_CONTROLS.npz",
+      "sha256": "3f6398bfa7c0c085c43b6d801d4ac5e62763fd96590e4b6bb08f1746a2ec7f0c",
+      "bytes": null,
+      "purpose": "UNSW_DEV UID, view, frozen features and P4_MAIN baseline support",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "UNSW_DEV_TABM_P4.npz",
+      "sha256": "c9427722493baecd186758971178c7b15af54c2cfc6d8903715d90adc4329328",
+      "bytes": null,
+      "purpose": "TabM per-seed frozen scores",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "CatBoost_UNSW_DEV_scores.npy",
+      "sha256": "9894ed9dd5b05bc8d33e7044ec4604ea5b3d9dc397b86fce04f0b7fe9911508b",
+      "bytes": null,
+      "purpose": "per-seed raw score cache",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "SLAD_UNSW_DEV_scores.npy",
+      "sha256": "9ef8aa76a1f3c3cb6d8a084b1d6cf7e0cccc910cd9020bab8a867a1fda740989",
+      "bytes": null,
+      "purpose": "per-seed raw score cache",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "UNSW_DEV_ROWS.json",
+      "sha256": "0c12c0536b0a544f5e70b9ec58fe3f7742335f162483f561b5275bce7fe1fd1b",
+      "bytes": null,
+      "purpose": "UID bridge to old head order",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "EDGE_ROWS.jsonl.gz",
+      "sha256": "06da9eee66654a0ae12b7ad33d89b12091b934df29f33a5ab71d9118ad798da3",
+      "bytes": null,
+      "purpose": "EDGE UID, view, frozen features and P4_MAIN baseline support",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "EDGE_QUERY.npz",
+      "sha256": "e248c3c12bc992804fb0479955d54a58be79e682bfa3d15b7d982172980596ee",
+      "bytes": null,
+      "purpose": "EDGE UID, view, frozen features and P4_MAIN baseline support",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "EDGE_CONTROLS.npz",
+      "sha256": "a893e72106a94e4dad67ae6302e8851a732d2749f9731d371b42bf7b1d756f74",
+      "bytes": null,
+      "purpose": "EDGE UID, view, frozen features and P4_MAIN baseline support",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "EDGE_TABM_P4.npz",
+      "sha256": "d8d97b88c85b34add54006a648415d80dd8e44fbd90965e045ced57f283f2225",
+      "bytes": null,
+      "purpose": "TabM per-seed frozen scores",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "CatBoost_EDGE_scores.npy",
+      "sha256": "616c739be43d10db78b43e94411878903ffab2d18968b38780f9a7d5d126f916",
+      "bytes": null,
+      "purpose": "per-seed raw score cache",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "SLAD_EDGE_scores.npy",
+      "sha256": "6366d8c9577d173a526c1e0d1c46ef44f1c9a90f06321b36532054c0bdbee9bd",
+      "bytes": null,
+      "purpose": "per-seed raw score cache",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "EDGE_ROWS.json",
+      "sha256": "6ee91772c58ee206dd3cfb85f9b3286c4c7dad77f4d78e9c1e482541c3e2dca1",
+      "bytes": null,
+      "purpose": "UID bridge to old head order",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "CIC_DEV_DECISIONS.npz",
+      "sha256": "0fa4cc468eb59ce1e214f0b10c7de9cf1e90132e9fa85757be1dd28bda75e16f",
+      "bytes": 65046182,
+      "purpose": "CIC_DEV decisions from unified bank; use UID to restore h60, rebuild joint match on P4_MAIN",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "CIC_DEV_HISTORY.npz",
+      "sha256": "2eef204ac103cea44a9d827fc48191efb097b92a49bd5b06d82fae0e349a0158",
+      "bytes": 54555122,
+      "purpose": "CIC_DEV histories from unified bank; use UID to restore h60, rebuild joint match on P4_MAIN",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "UNSW_DEV_DECISIONS.npz",
+      "sha256": "2afcd68672b8ef4641295624a3b5346f6e8f28bc96666fb4b8805b8820b48e55",
+      "bytes": 74826542,
+      "purpose": "UNSW_DEV decisions from unified bank; use UID to restore h60, rebuild joint match on P4_MAIN",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "UNSW_DEV_HISTORY.npz",
+      "sha256": "41ea21eaf292ee978caf6a14fd9495368be766869fa69aa78199d63afb38f09d",
+      "bytes": 68825522,
+      "purpose": "UNSW_DEV histories from unified bank; use UID to restore h60, rebuild joint match on P4_MAIN",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "EDGE_DECISIONS.npz",
+      "sha256": "c7031cccbd1443b215a674ff05b8528c0fb48d0634b566a43e2bf7af73237577",
+      "bytes": 21939870,
+      "purpose": "identical Edge bank; UID align h60 and support before replay",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Table14",
+      "file": "EDGE_HISTORY.npz",
+      "sha256": "210ed4afd2e22a55e81528a831d3ee39bffea313a4d92f06542f209594744e32",
+      "bytes": 18468722,
+      "purpose": "identical Edge bank; UID align h60 and support before replay",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Win10",
+      "file": "TON_DECISIONS.npz",
+      "sha256": "f472077fd4b6516e795f65bbae23860033a88be72dab6f02f1d5f81d75b584b7",
+      "bytes": 127149158,
+      "purpose": "Win10 h60 and source support with matching query UIDs",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Win10",
+      "file": "TON_HISTORY.npz",
+      "sha256": "c4bb1a1cc02ceac6949cfcde79b67c9d2ab9774a631b248159d33b24ead90ccf",
+      "bytes": 105991346,
+      "purpose": "Win10 h60 and source support with matching query UIDs",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Win10",
+      "file": "WINDOWS.npz",
+      "sha256": "c905833d7cbea4590c41697468fc2c75c3a2bcd4bbf353b3f366e9dc4293e2d5",
+      "bytes": 49101039,
+      "purpose": "same rows v12/r1 scores and regression captures",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Win10",
+      "file": "CIC_DEV.npz",
+      "sha256": "0f033ad683aac170ed9f9223536f2dd34778625038f61592d53da03a4d8028f6",
+      "bytes": 80052426,
+      "purpose": "same rows v12/r1 scores and regression captures",
+      "verified_local": [],
+      "local_name_matches": 2
+    },
+    {
+      "task": "Win10",
+      "file": "UNSW_DEV.npz",
+      "sha256": "03164527dc016b21b13f3fb555cd283eb7485382ac0cc441ac5d1b245ac07da5",
+      "bytes": 59477872,
+      "purpose": "same rows v12/r1 scores and regression captures",
+      "verified_local": [],
+      "local_name_matches": 2
+    },
+    {
+      "task": "Win10",
+      "file": "EDGE.npz",
+      "sha256": "efed1de674e70a873781677139a364083d97e1d504561d135038066d60b04665",
+      "bytes": 23823156,
+      "purpose": "same rows v12/r1 scores and regression captures",
+      "verified_local": [],
+      "local_name_matches": 0
+    },
+    {
+      "task": "Win10",
+      "file": "head_27.npz",
+      "sha256": "5f38b5588efe51e4683301c7fd37b00ff76bfc3f3919143e5f23ad9beebfb848",
+      "bytes": null,
+      "purpose": "frozen r1 checkpoint for WSL extension",
+      "verified_local": [],
+      "local_name_matches": 3
+    },
+    {
+      "task": "Win10",
+      "file": "head_127.npz",
+      "sha256": "c2c35b3aa7abc31ad9834384e397b2d5135348c4424261173256820d4dc48da4",
+      "bytes": null,
+      "purpose": "frozen r1 checkpoint for WSL extension",
+      "verified_local": [],
+      "local_name_matches": 3
+    },
+    {
+      "task": "Win10",
+      "file": "head_227.npz",
+      "sha256": "87ce0b80da9e613640dd7da6b8f163ffd2cffb6ab4ded351923fe594d2579421",
+      "bytes": null,
+      "purpose": "frozen r1 checkpoint for WSL extension",
+      "verified_local": [],
+      "local_name_matches": 3
+    }
+  ],
+  "win10": {
+    "password_pcap": {
+      "sha256": "5be996df9ae286f11f66f78708292ed8fade7d135c05514aff3e3d298fd17844",
+      "bytes": 560091136
+    },
+    "labels_and_flow_logs": {
+      "events": {
+        "expected": {
+          "bytes": 58304423,
+          "sha256": "2411ab4164dd93caeba360ef650b938e40e194673085079aa444c04814c39517"
+        },
+        "verified_local": [
+          "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\external\\ton_iot_raw_network\\extracted\\SecurityEvents_Network_datasets\\GroundTruth_Network_14.csv"
+        ]
+      },
+      "zeek": {
+        "expected": {
+          "bytes": 35350675,
+          "sha256": "a8febe6536bbff35352c42f730c1c16b11e1c057bffc5188062cf67b21b98208"
+        },
+        "verified_local": [
+          "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\external\\ton_iot_raw_network\\extracted\\Network_dataset_Bro\\normal_attack_Bro\\normal_password\\password_normal_1\\conn.log"
+        ]
+      },
+      "normal1log": {
+        "expected": {
+          "bytes": 813247,
+          "sha256": "380708f68982eeb90f5f2fa3731b0a212c03eea2269854af142f2c3bb8b294bb"
+        },
+        "verified_local": [
+          "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\external\\ton_iot_raw_network\\extracted\\Network_dataset_Bro\\normal_Bro\\normal_1\\conn.log"
+        ]
+      },
+      "normal2log": {
+        "expected": {
+          "bytes": 822188,
+          "sha256": "bec69daf0c9ee453f898a1b3b09ae863336d9eff9a749ccfc3c71999a50a2b51"
+        },
+        "verified_local": [
+          "D:\\study\\paper\\anomaly_detection\\paper04\\datasets\\external\\ton_iot_raw_network\\extracted\\Network_dataset_Bro\\normal_Bro\\normal_2\\conn.log"
+        ]
+      }
+    },
+    "base_missed_connections": 4170,
+    "windows_per_query": {
+      "rows": 106503,
+      "uid_order": "371537c6fc256b2f51c5be4e7dbc66984bda460e63229ade7bc5b1cd8261a727",
+      "cache": {
+        "file": "WINDOWS.npz",
+        "bytes": 49101039,
+        "sha256": "c905833d7cbea4590c41697468fc2c75c3a2bcd4bbf353b3f366e9dc4293e2d5"
+      }
+    },
+    "r1_calibration": {
+      "cuts": [
+        -15.77381420135498,
+        -24.62387466430664,
+        -23.49289321899414,
+        -23.85986789067586
+      ],
+      "cal_normal_connections_scope": "original CIC CAL packet queries",
+      "cal_queries": 33147,
+      "weighted_fprs": [
+        0.00851494831583119,
+        0.00903175594510225,
+        0.009956844712994965,
+        0.008674007231875107
+      ],
+      "head_sha256": {
+        "27": "5f38b5588efe51e4683301c7fd37b00ff76bfc3f3919143e5f23ad9beebfb848",
+        "127": "c2c35b3aa7abc31ad9834384e397b2d5135348c4424261173256820d4dc48da4",
+        "227": "87ce0b80da9e613640dd7da6b8f163ffd2cffb6ab4ded351923fe594d2579421"
+      },
+      "control": "frozen v12",
+      "calibration_sha256": "e28ae55e2999dfa717d226ed3f160cac4057d49d57933a76b7e5d5c3fba14d13",
+      "method_sha256": "fdcabc9f0973a9125b5b05d87365143a477068348b5223a53ec438dbaa760b57",
+      "edge_scored": false
+    },
+    "registered_arms": [
+      "v12 plus H60",
+      "r1 plus H60",
+      "conditional supplementation"
+    ]
+  },
+  "table14_ms_ready": false,
+  "win10_replay_ready": false
+}

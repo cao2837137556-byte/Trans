@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "scope": "logical host pairing, original CIC source thresholds",
+  "sums": {
+    "all_normal": {
+      "cohort": "all_normal",
+      "host": "ALL",
+      "head": "ensemble",
+      "query_scope": "all_admitted",
+      "connections": 96,
+      "queries": 36230,
+      "raw_fp_connections": 25,
+      "seconds_ccnr_fp_connections": 3,
+      "multiscale_fp_connections": 3,
+      "raw_fpr": 0.2604166666666667,
+      "seconds_ccnr_fpr": 0.03125,
+      "multiscale_fpr": 0.03125,
+      "raw_fp_queries": 24879,
+      "seconds_ccnr_fp_queries": 549,
+      "multiscale_fp_queries": 549
+    },
+    "first_seen_normal2": {
+      "cohort": "first_seen_normal2",
+      "host": "ALL",
+      "head": "ensemble",
+      "query_scope": "all",
+      "connections": 93,
+      "queries": 1025,
+      "raw_fp_connections": 23,
+      "seconds_ccnr_fp_connections": 1,
+      "multiscale_fp_connections": 1,
+      "raw_fpr": 0.24731182795698925,
+      "seconds_ccnr_fpr": 0.010752688172043012,
+      "multiscale_fpr": 0.010752688172043012,
+      "raw_fp_queries": 149,
+      "seconds_ccnr_fp_queries": 2,
+      "multiscale_fp_queries": 2
+    },
+    "first_seen_with_data": {
+      "cohort": "first_seen_with_data",
+      "host": "ALL",
+      "head": "ensemble",
+      "query_scope": "off_bypass_with_transport_data",
+      "connections": 92,
+      "queries": 545,
+      "raw_fp_connections": 18,
+      "seconds_ccnr_fp_connections": 0,
+      "multiscale_fp_connections": 0,
+      "raw_fpr": 0.1956521739130435,
+      "seconds_ccnr_fpr": 0.0,
+      "multiscale_fpr": 0.0,
+      "raw_fp_queries": 100,
+      "seconds_ccnr_fp_queries": 0,
+      "multiscale_fp_queries": 0
+    },
+    "first_seen_data_connections_any_packet": {
+      "cohort": "first_seen_data_connections_any_packet",
+      "host": "ALL",
+      "head": "ensemble",
+      "query_scope": "all_admitted_on_data_connections",
+      "connections": 92,
+      "queries": 1024,
+      "raw_fp_connections": 23,
+      "seconds_ccnr_fp_connections": 1,
+      "multiscale_fp_connections": 1,
+      "raw_fpr": 0.25,
+      "seconds_ccnr_fpr": 0.010869565217391304,
+      "multiscale_fpr": 0.010869565217391304,
+      "raw_fp_queries": 149,
+      "seconds_ccnr_fp_queries": 2,
+      "multiscale_fp_queries": 2
+    }
+  },
+  "local_middleware": {
+    "sha256": "21524a6bcf074050ae193d6c285d6c11c0ff5d245e228c89f9d08aafaf2d8f52",
+    "bytes": 2589
+  },
+  "first_seen": "normal_2 TCP stream absent from the appended normal_1 stream prefix",
+  "middleware_ensemble_first_seen_residual": [
+    {
+      "connection": "tcp-236",
+      "nondata_false_alarms": 2,
+      "eligible_data_queries": 21
+    }
+  ],
+  "ms_same_as_seconds": "verified same normal-query alarm set by nested decisions and zero added alarms"
+}
