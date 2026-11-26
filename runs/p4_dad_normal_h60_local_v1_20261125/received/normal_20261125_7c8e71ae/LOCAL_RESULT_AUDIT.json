@@ -1,0 +1,237 @@
+{
+  "status": "PASS",
+  "audit_date": "2026-11-25",
+  "run": "normal_20261125_7c8e71ae",
+  "scope": "DAD Monday post-enrollment and Sunday normal TCP only",
+  "verified_files": 47,
+  "cached_feature_chunks": 20,
+  "cached_feature_rows": 19037,
+  "reference_rows": 1264,
+  "reference_components": 16,
+  "source_heads": [
+    "27",
+    "127",
+    "227",
+    "ensemble"
+  ],
+  "source_cuts": [
+    -23.04324722290039,
+    -23.315204620361328,
+    -22.614715576171875,
+    -23.2497984568278
+  ],
+  "source_input_files": {
+    "capture_1910210000_mon.pcap": {
+      "sha256": "24fb07d0533ac21d698894bf549b654cd01f0c1301f105393634e6f01a2e515c",
+      "bytes": 1278783
+    },
+    "capture_1910210000_labels.csv": {
+      "sha256": "c2556ac406840764de5d969bcd922926e7c2d6ff7150473153c3c16cf0498e27",
+      "bytes": 393927
+    },
+    "capture_1910270000_sun.pcap": {
+      "sha256": "32602608dfa66879158a9c8b1e96276cf999fdb5ccd82459c670a1afa98dc71f",
+      "bytes": 1285738
+    },
+    "capture_1910270000_labels.csv": {
+      "sha256": "59fa4e2ade6fb304323b3033ea35c0bdc88dfd21f30e831324dcf067de4a723a",
+      "bytes": 396327
+    }
+  },
+  "day_rosters": {
+    "mon": {
+      "frames": 14431,
+      "normal_queries": 8448,
+      "query_uid_order": "67fb0c76febd68a7acb920defc0e479f10192ebe9901aa7e761785e9de24ea1b"
+    },
+    "sun": {
+      "frames": 14518,
+      "normal_queries": 9325,
+      "query_uid_order": "a868a3bb1949e56f3a3a90b65c77360860b1757ea4ec6cb1f3c287a23d22c109"
+    }
+  },
+  "queries": 17773,
+  "ordered_query_sha256": "67d1d26e7cf1cc35e8e8d5e0e52f2fc04e0ec1ba16693ca4bb8c7a7046330d9b",
+  "preflight_rows": 58,
+  "prior_metrics_rows_matched": 12,
+  "input_contract": {
+    "sha256": "bb698dc07f93fd9e2a2855d1ba2e49980ce11c89f3b2671242d0885fa4dfd0d7",
+    "bytes": 3361
+  },
+  "formal_acceptance": {
+    "sha256": "ee605dfa5da6d15fd8541175687fe5b61626f754d8ab6e4a4c3df1b825691cdc",
+    "bytes": 2696
+  },
+  "formal_manifest": {
+    "sha256": "b7996a4d8f05286fcccf35a07b9084353c28137f08310a11dc4a9da49f9b9dd6",
+    "bytes": 6371
+  },
+  "full_recomputed_support_abs_errors": {
+    "v12": 8.881784197001252e-16,
+    "relative_handshake": 8.881784197001252e-16
+  },
+  "full_recomputed_numpy_logit_abs_error": 0.00000762939453125,
+  "adjusted_score_abs_errors_using_sealed_raw": [
+    1.4210854715202004e-14,
+    1.4210854715202004e-14
+  ],
+  "score_decision_disagreements": 0,
+  "metrics": {
+    "mon": {
+      "heads": {
+        "27": {
+          "queries": 8448,
+          "raw_fp": 4224,
+          "v12_fp": 0,
+          "h60_fp": 0,
+          "added_vs_v12": 0,
+          "removed_vs_v12": 0,
+          "bypassed": 0,
+          "v12_positive_support": 8448,
+          "h60_positive_support": 8448
+        },
+        "127": {
+          "queries": 8448,
+          "raw_fp": 5574,
+          "v12_fp": 0,
+          "h60_fp": 0,
+          "added_vs_v12": 0,
+          "removed_vs_v12": 0,
+          "bypassed": 0,
+          "v12_positive_support": 8448,
+          "h60_positive_support": 8448
+        },
+        "227": {
+          "queries": 8448,
+          "raw_fp": 5417,
+          "v12_fp": 0,
+          "h60_fp": 0,
+          "added_vs_v12": 0,
+          "removed_vs_v12": 0,
+          "bypassed": 0,
+          "v12_positive_support": 8448,
+          "h60_positive_support": 8448
+        },
+        "ensemble": {
+          "queries": 8448,
+          "raw_fp": 5117,
+          "v12_fp": 0,
+          "h60_fp": 0,
+          "added_vs_v12": 0,
+          "removed_vs_v12": 0,
+          "bypassed": 0,
+          "v12_positive_support": 8448,
+          "h60_positive_support": 8448
+        }
+      },
+      "lower_support_queries": 0,
+      "lower_support_non_guard": 0,
+      "lower_support_raw_ensemble_alerts": 0,
+      "changed_adjusted_ensemble_scores": 0
+    },
+    "sun": {
+      "heads": {
+        "27": {
+          "queries": 9325,
+          "raw_fp": 4673,
+          "v12_fp": 0,
+          "h60_fp": 0,
+          "added_vs_v12": 0,
+          "removed_vs_v12": 0,
+          "bypassed": 16,
+          "v12_positive_support": 9321,
+          "h60_positive_support": 9321
+        },
+        "127": {
+          "queries": 9325,
+          "raw_fp": 6178,
+          "v12_fp": 0,
+          "h60_fp": 0,
+          "added_vs_v12": 0,
+          "removed_vs_v12": 0,
+          "bypassed": 16,
+          "v12_positive_support": 9321,
+          "h60_positive_support": 9321
+        },
+        "227": {
+          "queries": 9325,
+          "raw_fp": 6031,
+          "v12_fp": 0,
+          "h60_fp": 0,
+          "added_vs_v12": 0,
+          "removed_vs_v12": 0,
+          "bypassed": 16,
+          "v12_positive_support": 9321,
+          "h60_positive_support": 9321
+        },
+        "ensemble": {
+          "queries": 9325,
+          "raw_fp": 5691,
+          "v12_fp": 0,
+          "h60_fp": 0,
+          "added_vs_v12": 0,
+          "removed_vs_v12": 0,
+          "bypassed": 16,
+          "v12_positive_support": 9321,
+          "h60_positive_support": 9321
+        }
+      },
+      "lower_support_queries": 36,
+      "lower_support_non_guard": 24,
+      "lower_support_raw_ensemble_alerts": 15,
+      "changed_adjusted_ensemble_scores": 24
+    },
+    "normal": {
+      "heads": {
+        "27": {
+          "queries": 17773,
+          "raw_fp": 8897,
+          "v12_fp": 0,
+          "h60_fp": 0,
+          "added_vs_v12": 0,
+          "removed_vs_v12": 0,
+          "bypassed": 16,
+          "v12_positive_support": 17769,
+          "h60_positive_support": 17769
+        },
+        "127": {
+          "queries": 17773,
+          "raw_fp": 11752,
+          "v12_fp": 0,
+          "h60_fp": 0,
+          "added_vs_v12": 0,
+          "removed_vs_v12": 0,
+          "bypassed": 16,
+          "v12_positive_support": 17769,
+          "h60_positive_support": 17769
+        },
+        "227": {
+          "queries": 17773,
+          "raw_fp": 11448,
+          "v12_fp": 0,
+          "h60_fp": 0,
+          "added_vs_v12": 0,
+          "removed_vs_v12": 0,
+          "bypassed": 16,
+          "v12_positive_support": 17769,
+          "h60_positive_support": 17769
+        },
+        "ensemble": {
+          "queries": 17773,
+          "raw_fp": 10808,
+          "v12_fp": 0,
+          "h60_fp": 0,
+          "added_vs_v12": 0,
+          "removed_vs_v12": 0,
+          "bypassed": 16,
+          "v12_positive_support": 17769,
+          "h60_positive_support": 17769
+        }
+      },
+      "lower_support_queries": 36,
+      "lower_support_non_guard": 24,
+      "lower_support_raw_ensemble_alerts": 15,
+      "changed_adjusted_ensemble_scores": 24
+    }
+  }
+}

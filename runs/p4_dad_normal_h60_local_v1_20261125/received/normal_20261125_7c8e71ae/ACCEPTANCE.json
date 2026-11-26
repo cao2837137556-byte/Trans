@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "phase": "formal",
+  "contract": {
+    "sha256": "bb698dc07f93fd9e2a2855d1ba2e49980ce11c89f3b2671242d0885fa4dfd0d7",
+    "bytes": 3361
+  },
+  "reference_rows": 1264,
+  "references_order": "b7075a3c0db7ca5cfe37f97d5f300a7bfb7e900fa191981f2457a5156fa2bedf",
+  "evaluated_queries": 17773,
+  "evaluated_order": "67d1d26e7cf1cc35e8e8d5e0e52f2fc04e0ec1ba16693ca4bb8c7a7046330d9b",
+  "frames": {
+    "mon": {
+      "frames": 14431,
+      "reference": 1264,
+      "queries": 8448,
+      "query_order": "67fb0c76febd68a7acb920defc0e479f10192ebe9901aa7e761785e9de24ea1b",
+      "handshake_counts": {
+        "reference": {
+          "0": 1120,
+          "1": 6,
+          "2": 12,
+          "3": 10,
+          "4": 116
+        },
+        "query": {
+          "0": 8448
+        }
+      }
+    },
+    "sun": {
+      "frames": 14518,
+      "reference": 0,
+      "queries": 9325,
+      "query_order": "a868a3bb1949e56f3a3a90b65c77360860b1757ea4ec6cb1f3c287a23d22c109",
+      "handshake_counts": {
+        "reference": {},
+        "query": {
+          "0": 9196,
+          "1": 10,
+          "2": 6,
+          "3": 8,
+          "4": 105
+        }
+      }
+    }
+  },
+  "independent_check": {
+    "rows": 48,
+    "v12_distance_max_error": 8.741436131597135e-16,
+    "v12_and_H60_support_max_error": 2.220446049250313e-16
+  },
+  "ensemble": [
+    {
+      "group": "mon",
+      "head": "ensemble",
+      "queries": 8448,
+      "raw_fp": 5117,
+      "v12_fp": 0,
+      "h60_fp": 0,
+      "added_vs_v12": 0,
+      "removed_vs_v12": 0,
+      "bypassed": 0,
+      "v12_positive_support": 8448,
+      "h60_positive_support": 8448
+    },
+    {
+      "group": "sun",
+      "head": "ensemble",
+      "queries": 9325,
+      "raw_fp": 5691,
+      "v12_fp": 0,
+      "h60_fp": 0,
+      "added_vs_v12": 0,
+      "removed_vs_v12": 0,
+      "bypassed": 16,
+      "v12_positive_support": 9321,
+      "h60_positive_support": 9321
+    },
+    {
+      "group": "normal",
+      "head": "ensemble",
+      "queries": 17773,
+      "raw_fp": 10808,
+      "v12_fp": 0,
+      "h60_fp": 0,
+      "added_vs_v12": 0,
+      "removed_vs_v12": 0,
+      "bypassed": 16,
+      "v12_positive_support": 17769,
+      "h60_positive_support": 17769
+    }
+  ],
+  "table": {
+    "sha256": "88a8fdca519bdb0a206492d435e73874ccda61babb50038273ca60c8a7d9e5ae",
+    "bytes": 622
+  },
+  "decisions": {
+    "sha256": "f2c4b76e2b5baa9baa657686e472ea72b641e9073f27c6d96e15e1458dc576a2",
+    "bytes": 1546574
+  },
+  "preflight": {
+    "sha256": "889a328a71d13585ddcb11cf7bdb90bb1795794a13c02bf68d5f6d9ec6d0529d",
+    "bytes": 2522
+  }
+}
