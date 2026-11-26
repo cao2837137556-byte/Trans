@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "hardware": {
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "cores": 14,
+    "logical": 20,
+    "ram": 16962281472
+  },
+  "source": {
+    "sha256": "b6b8d14e85021d441973f7731ed9820603fb888a336cc57e61b8990896b60e37",
+    "bytes": 10057
+  },
+  "pinned_inputs": {
+    "sha256": "df2f9be1366da54e8df41dddb409b95e9a72794c241d0e25d52f15c7b76c5942",
+    "bytes": 2169
+  },
+  "benchmark_source": {
+    "sha256": "8d951809f20630814a97fac9f9b3a93f726f0693cbd790c183d755822541bf02",
+    "bytes": 15645
+  },
+  "result": {
+    "sha256": "175ed7f41fc341abcf8422e462b628c66a602ef8678c4b5c1a3231aaa583d73a",
+    "bytes": 1605
+  },
+  "timing": "sequential queries per second = timed query count / sum of measured durations",
+  "quantiles": "linear interpolation",
+  "verdict_check": {
+    "queries_per_worker": 21,
+    "timed_queries": 18,
+    "three_seed_heads_and_ensemble": true,
+    "all_four_arms": true,
+    "decision_mismatches": 0,
+    "full_max_abs_score_diff": 5.7220458984375e-06,
+    "match_support_max_abs_diff": 0.0
+  },
+  "raw_stage_records": {
+    "MATCH.json": {
+      "sha256": "4c2f2abf0814d34b4ce041ab0f337eeed6f2d64090a473ea30d24947f87d518d",
+      "bytes": 1734
+    },
+    "FULL.json": {
+      "sha256": "cf071ca67a07a28ab46c4a577f549868aada50e4cc43c72f6a9197968f571ba1",
+      "bytes": 3134
+    }
+  }
+}

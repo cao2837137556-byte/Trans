@@ -31,4 +31,19 @@
 | 封存中速攻击 | **6** | 9 | 9/9（100.00%） | 9/9（100.00%） | 0 | 0 | 9 | 0 | 1 |
 | 封存中速攻击 | **7** | 9 | 9/9（100.00%） | 9/9（100.00%） | 0 | 0 | 9 | 0 | 1 |
 
-[预登记与验收](../../p4_login_legal_reconnect_v1_20261126/received/ACCEPTANCE.json) · [全证据 SHA-256](../../p4_login_legal_reconnect_v1_20261126/received/SHA256SUMS) · [D 盘原始证据](D:/study/paper/anomaly_detection/paper04/data_external/login_pilot/reconnect_stress_20261126_000811/evidence) · [本机性能回执](D:/study/paper/anomaly_detection/paper04/data_external/login_pilot/reconnect_stress_20261126_000811/live/BENCHMARK_STATUS.json)
+[预登记与验收](../../p4_login_legal_reconnect_v1_20261126/received/ACCEPTANCE.json) · [全证据 SHA-256](../../p4_login_legal_reconnect_v1_20261126/received/SHA256SUMS) · [D 盘原始证据](D:/study/paper/anomaly_detection/paper04/data_external/login_pilot/reconnect_stress_20261126_000811/evidence)
+
+### §4.4 本机单查询性能
+
+在 Windows 宿主机上以 i7-12700H（14 核、20 逻辑处理器、15.8 GiB 内存）执行。两条路径分别启动独立 CPU 进程，共用封存批次 `rate03_batch2` 的前 21 条合格 POST 和 `formal_20261122_402788` 的 4,096 条参考、393 个组件。各预热 3 条，串行计时 18 条，逻辑批大小均为 1。现行 Windows netFound 单样本路径按原实现扩成 16 行物理批。OpenBLAS 使用 4 线程，完整链路中的 PyTorch intra-op 为 4、interop 配置为 14。
+
+| 路径 | 延迟中位数（ms） | P95（ms） | 实测吞吐（查询/秒） | 进程峰值 RSS（MiB） |
+|---|---:|---:|---:|---:|
+| 仅参考匹配 | 49.20 | 52.62 | 20.220 | 96.6 |
+| 含冻结 netFound 的完整评分 | 1024.61 | 1087.93 | 0.978 | 1428.9 |
+
+仅参考匹配从预编码查询和参考数组就绪后调用 `bank.match` 起算，到返回支持度和组件计数结束。计入调用内的参考归一化、3D、R2 诊断和多尺度匹配。
+
+完整评分从推进至下一条合格 POST 前开始，到四方案判决就绪结束。计入逐帧读取 PCAP 记录、因果状态更新、前缀编码、790 维检测头、参考匹配和阈值判决。tshark 的流与 HTTP 字段提取、POST 定位和模型加载在计时外。吞吐为 18 除以实测耗时之和。峰值 RSS 为各子进程自启动后的 Windows 工作集峰值。
+
+全链路逐条核对 21 条查询的 UID 和握手次数，匹配进程复用这批查询的特征。两条路径的四方案判决与封存记录全部一致。全链路最大分差为 5.72 × 10⁻⁶，两个进程的匹配支持度逐项相等。[结果表](../../p4_login_legal_reconnect_v1_20261126/received/performance/PERFORMANCE.csv) · [验收回执](../../p4_login_legal_reconnect_v1_20261126/received/performance/ACCEPTANCE.json) · [全文件 SHA-256 清单](../../p4_login_legal_reconnect_v1_20261126/received/performance/SHA256SUMS) · [D 盘性能证据](D:/study/paper/anomaly_detection/paper04/data_external/login_pilot/reconnect_stress_20261126_000811/performance_repair_20261126_030117)
